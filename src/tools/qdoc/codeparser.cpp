@@ -1702,7 +1702,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the file being parsed is a .h file.  */
+comment|/*!   Returns \c true if the file being parsed is a .h file.  */
 end_comment
 begin_function
 DECL|function|isParsingH
@@ -1724,7 +1724,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the file being parsed is a .cpp file.  */
+comment|/*!   Returns \c true if the file being parsed is a .cpp file.  */
 end_comment
 begin_function
 DECL|function|isParsingCpp
@@ -1746,7 +1746,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the file being parsed is a .qdoc file.  */
+comment|/*!   Returns \c true if the file being parsed is a .qdoc file.  */
 end_comment
 begin_function
 DECL|function|isParsingQdoc

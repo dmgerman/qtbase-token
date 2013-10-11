@@ -131,7 +131,7 @@ begin_comment
 comment|/*!     \fn QString QSqlRelation::displayColumn() const      Returns the column from table tableName() that should be     presented to the user instead of a foreign key. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QSqlRelation::isValid() const      Returns true if the QSqlRelation object is valid; otherwise     returns false. */
+comment|/*!     \fn bool QSqlRelation::isValid() const      Returns \c true if the QSqlRelation object is valid; otherwise     returns \c false. */
 end_comment
 begin_class_decl
 class_decl|class
@@ -1246,7 +1246,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the data for the \a role in the item with the specified \a     index to the \a value given. Depending on the edit strategy, the     value might be applied to the database at once, or it may be     cached in the model.      Returns true if the value could be set, or false on error (for     example, if \a index is out of bounds).      For relational columns, \a value must be the index, not the     display value. The index must also exist in the referenced     table, otherwise the function returns false.      \sa editStrategy(), data(), submit(), revertRow() */
+comment|/*!     Sets the data for the \a role in the item with the specified \a     index to the \a value given. Depending on the edit strategy, the     value might be applied to the database at once, or it may be     cached in the model.      Returns \c true if the value could be set, or false on error (for     example, if \a index is out of bounds).      For relational columns, \a value must be the index, not the     display value. The index must also exist in the referenced     table, otherwise the function returns \c false.      \sa editStrategy(), data(), submit(), revertRow() */
 end_comment
 begin_function
 DECL|function|setData

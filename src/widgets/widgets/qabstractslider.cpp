@@ -1061,7 +1061,7 @@ name|value
 argument_list|)
 emit|;
 block|}
-comment|/*!     \property QAbstractSlider::invertedAppearance     \brief whether or not a slider shows its values inverted.      If this property is false (the default), the minimum and maximum will     be shown in its classic position for the inherited widget. If the     value is true, the minimum and maximum appear at their opposite location.      Note: This property makes most sense for sliders and dials. For     scroll bars, the visual effect of the scroll bar subcontrols depends on     whether or not the styles understand inverted appearance; most styles     ignore this property for scroll bars. */
+comment|/*!     \property QAbstractSlider::invertedAppearance     \brief whether or not a slider shows its values inverted.      If this property is \c false (the default), the minimum and maximum will     be shown in its classic position for the inherited widget. If the     value is true, the minimum and maximum appear at their opposite location.      Note: This property makes most sense for sliders and dials. For     scroll bars, the visual effect of the scroll bar subcontrols depends on     whether or not the styles understand inverted appearance; most styles     ignore this property for scroll bars. */
 DECL|function|invertedAppearance
 name|bool
 name|QAbstractSlider
@@ -1107,7 +1107,7 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     \property QAbstractSlider::invertedControls     \brief whether or not the slider inverts its wheel and key events.      If this property is false, scrolling the mouse wheel "up" and using keys     like page up will increase the slider's value towards its maximum. Otherwise     pressing page up will move value towards the slider's minimum. */
+comment|/*!     \property QAbstractSlider::invertedControls     \brief whether or not the slider inverts its wheel and key events.      If this property is \c false, scrolling the mouse wheel "up" and using keys     like page up will increase the slider's value towards its maximum. Otherwise     pressing page up will move value towards the slider's minimum. */
 DECL|function|invertedControls
 name|bool
 name|QAbstractSlider

@@ -45,8 +45,8 @@ comment|/*!     \fn QTextLength::QTextLength(Type type, qreal value)      Constr
 comment|/*!     \fn Type QTextLength::type() const      Returns the type of this length object.      \sa QTextLength::Type */
 comment|/*!     \fn qreal QTextLength::value(qreal maximumLength) const      Returns the effective length, constrained by the type of the length object     and the specified \a maximumLength.      \sa type() */
 comment|/*!     \fn qreal QTextLength::rawValue() const      Returns the constraint value that is specific for the type of the length.     If the length is QTextLength::PercentageLength then the raw value is in     percent, in the range of 0 to 100. If the length is QTextLength::FixedLength     then that fixed amount is returned. For variable lengths, zero is returned. */
-comment|/*!     \fn bool QTextLength::operator==(const QTextLength&other) const      Returns true if this text length is the same as the \a other text     length. */
-comment|/*!     \fn bool QTextLength::operator!=(const QTextLength&other) const      Returns true if this text length is different from the \a other text     length. */
+comment|/*!     \fn bool QTextLength::operator==(const QTextLength&other) const      Returns \c true if this text length is the same as the \a other text     length. */
+comment|/*!     \fn bool QTextLength::operator!=(const QTextLength&other) const      Returns \c true if this text length is different from the \a other text     length. */
 comment|/*!     \enum QTextLength::Type      This enum describes the different types a length object can     have.      \value VariableLength The width of the object is variable     \value FixedLength The width of the object is fixed     \value PercentageLength The width of the object is in                             percentage of the maximum width      \sa type() */
 comment|/*!    Returns the text length as a QVariant */
 DECL|function|operator QVariant
@@ -2143,28 +2143,28 @@ begin_comment
 comment|/*!     \enum QTextFormat::PageBreakFlag     \since 4.2      This enum describes how page breaking is performed when printing. It maps to the     corresponding css properties.      \value PageBreak_Auto The page break is determined automatically depending on the                           available space on the current page     \value PageBreak_AlwaysBefore The page is always broken before the paragraph/table     \value PageBreak_AlwaysAfter  A new page is always started after the paragraph/table      \sa QTextBlockFormat::pageBreakPolicy(), QTextFrameFormat::pageBreakPolicy(),     PageBreakPolicy */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isValid() const      Returns true if the format is valid (i.e. is not     InvalidFormat); otherwise returns false. */
+comment|/*!     \fn bool QTextFormat::isValid() const      Returns \c true if the format is valid (i.e. is not     InvalidFormat); otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isCharFormat() const      Returns true if this text format is a \c CharFormat; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isCharFormat() const      Returns \c true if this text format is a \c CharFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isBlockFormat() const      Returns true if this text format is a \c BlockFormat; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isBlockFormat() const      Returns \c true if this text format is a \c BlockFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isListFormat() const      Returns true if this text format is a \c ListFormat; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isListFormat() const      Returns \c true if this text format is a \c ListFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isTableFormat() const      Returns true if this text format is a \c TableFormat; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isTableFormat() const      Returns \c true if this text format is a \c TableFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isFrameFormat() const      Returns true if this text format is a \c FrameFormat; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isFrameFormat() const      Returns \c true if this text format is a \c FrameFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isImageFormat() const      Returns true if this text format is an image format; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isImageFormat() const      Returns \c true if this text format is an image format; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::isTableCellFormat() const     \since 4.4      Returns true if this text format is a \c TableCellFormat; otherwise     returns false. */
+comment|/*!     \fn bool QTextFormat::isTableCellFormat() const     \since 4.4      Returns \c true if this text format is a \c TableCellFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Creates a new text format with an \c InvalidFormat.      \sa FormatType */
@@ -3539,7 +3539,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the text format has a property with the given \a     propertyId; otherwise returns false.      \sa properties(), Property */
+comment|/*!     Returns \c true if the text format has a property with the given \a     propertyId; otherwise returns \c false.      \sa properties(), Property */
 end_comment
 begin_function
 DECL|function|hasProperty
@@ -3679,10 +3679,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextFormat::operator!=(const QTextFormat&other) const      Returns true if this text format is different from the \a other text     format. */
+comment|/*!     \fn bool QTextFormat::operator!=(const QTextFormat&other) const      Returns \c true if this text format is different from the \a other text     format. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFormat::operator==(const QTextFormat&other) const      Returns true if this text format is the same as the \a other text     format. */
+comment|/*!     \fn bool QTextFormat::operator==(const QTextFormat&other) const      Returns \c true if this text format is the same as the \a other text     format. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -3832,7 +3832,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::isValid() const      Returns true if this character format is valid; otherwise returns     false. */
+comment|/*!     \fn bool QTextCharFormat::isValid() const      Returns \c true if this character format is valid; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontFamily(const QString&family)      Sets the text format's font \a family.      \sa setFont() */
@@ -3856,13 +3856,13 @@ begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontItalic(bool italic)      If \a italic is true, sets the text format's font to be italic; otherwise     the font will be non-italic.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::fontItalic() const      Returns true if the text format's font is italic; otherwise     returns false.      \sa font() */
+comment|/*!     \fn bool QTextCharFormat::fontItalic() const      Returns \c true if the text format's font is italic; otherwise     returns \c false.      \sa font() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontUnderline(bool underline)      If \a underline is true, sets the text format's font to be underlined;     otherwise it is displayed non-underlined.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::fontUnderline() const      Returns true if the text format's font is underlined; otherwise     returns false.      \sa font() */
+comment|/*!     \fn bool QTextCharFormat::fontUnderline() const      Returns \c true if the text format's font is underlined; otherwise     returns \c false.      \sa font() */
 end_comment
 begin_function
 DECL|function|fontUnderline
@@ -3934,13 +3934,13 @@ begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontOverline(bool overline)      If \a overline is true, sets the text format's font to be overlined;     otherwise the font is displayed non-overlined.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::fontOverline() const      Returns true if the text format's font is overlined; otherwise     returns false.      \sa font() */
+comment|/*!     \fn bool QTextCharFormat::fontOverline() const      Returns \c true if the text format's font is overlined; otherwise     returns \c false.      \sa font() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontStrikeOut(bool strikeOut)      If \a strikeOut is true, sets the text format's font with strike-out     enabled (with a horizontal line through it); otherwise it is displayed     without strikeout.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::fontStrikeOut() const      Returns true if the text format's font is struck out (has a horizontal line     drawn through it); otherwise returns false.      \sa font() */
+comment|/*!     \fn bool QTextCharFormat::fontStrikeOut() const      Returns \c true if the text format's font is struck out (has a horizontal line     drawn through it); otherwise returns \c false.      \sa font() */
 end_comment
 begin_comment
 comment|/*!     \since 4.5     \fn void QTextCharFormat::setFontStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy)      Sets the font style \a hint and \a strategy.      Qt does not support style hints on X11 since this information is not provided by the window system.      \sa setFont()     \sa QFont::setStyleHint() */
@@ -3958,13 +3958,13 @@ begin_comment
 comment|/*!     \since 4.5     \fn QTextCharFormat::StyleStrategy QTextCharFormat::fontStyleStrategy() const      Returns the current font style strategy.      \sa setFontStyleStrategy()     \sa font() */
 end_comment
 begin_comment
-comment|/*!     \since 4.5     \fn  bool QTextCharFormat::fontKerning() const     Returns true if the font kerning is enabled.      \sa setFontKerning()     \sa font() */
+comment|/*!     \since 4.5     \fn  bool QTextCharFormat::fontKerning() const     Returns \c true if the font kerning is enabled.      \sa setFontKerning()     \sa font() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setFontFixedPitch(bool fixedPitch)      If \a fixedPitch is true, sets the text format's font to be fixed pitch;     otherwise a non-fixed pitch font is used.      \sa setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::fontFixedPitch() const      Returns true if the text format's font is fixed pitch; otherwise     returns false.      \sa font() */
+comment|/*!     \fn bool QTextCharFormat::fontFixedPitch() const      Returns \c true if the text format's font is fixed pitch; otherwise     returns \c false.      \sa font() */
 end_comment
 begin_comment
 comment|/*!     \since 4.8      \fn void QTextCharFormat::setFontHintingPreference(QFont::HintingPreference hintingPreference)      Sets the hinting preference of the text format's font to be \a hintingPreference.      \sa setFont(), QFont::setHintingPreference() */
@@ -3997,7 +3997,7 @@ begin_comment
 comment|/*!     \fn void QTextCharFormat::setAnchor(bool anchor)      If \a anchor is true, text with this format represents an anchor, and is     formatted in the appropriate way; otherwise the text is formatted normally.     (Anchors are hyperlinks which are often shown underlined and in a different     color from plain text.)      The way the text is rendered is independent of whether or not the format     has a valid anchor defined. Use setAnchorHref(), and optionally     setAnchorNames() to create a hypertext link.      \sa isAnchor() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextCharFormat::isAnchor() const      Returns true if the text is formatted as an anchor; otherwise     returns false.      \sa setAnchor(), setAnchorHref(), setAnchorNames() */
+comment|/*!     \fn bool QTextCharFormat::isAnchor() const      Returns \c true if the text is formatted as an anchor; otherwise     returns \c false.      \sa setAnchor(), setAnchorHref(), setAnchorNames() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextCharFormat::setAnchorHref(const QString&value)      Sets the hypertext link for the text format to the given \a value.     This is typically a URL like "http://example.com/index.html".      The anchor will be displayed with the \a value as its display text;     if you want to display different text call setAnchorNames().      To format the text as a hypertext link use setAnchor(). */
@@ -4635,7 +4635,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QTextBlockFormat::isValid() const      Returns true if this block format is valid; otherwise returns     false. */
+comment|/*!     \fn QTextBlockFormat::isValid() const      Returns \c true if this block format is valid; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextFormat::setLayoutDirection(Qt::LayoutDirection direction)      Sets the document's layout direction to the specified \a direction.      \sa layoutDirection() */
@@ -4701,7 +4701,7 @@ begin_comment
 comment|/*!     \fn void QTextBlockFormat::setNonBreakableLines(bool b)      If \a b is true, the lines in the paragraph are treated as     non-breakable; otherwise they are breakable.      \sa nonBreakableLines() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlockFormat::nonBreakableLines() const      Returns true if the lines in the paragraph are non-breakable;     otherwise returns false.      \sa setNonBreakableLines() */
+comment|/*!     \fn bool QTextBlockFormat::nonBreakableLines() const      Returns \c true if the lines in the paragraph are non-breakable;     otherwise returns \c false.      \sa setNonBreakableLines() */
 end_comment
 begin_comment
 comment|/*!     \fn QTextFormat::PageBreakFlags QTextBlockFormat::pageBreakPolicy() const     \since 4.2      Returns the currently set page break policy for the paragraph. The default is     QTextFormat::PageBreak_Auto.      \sa setPageBreakPolicy() */
@@ -4759,7 +4759,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \fn bool QTextListFormat::isValid() const      Returns true if this list format is valid; otherwise     returns false. */
+comment|/*!     \fn bool QTextListFormat::isValid() const      Returns \c true if this list format is valid; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextListFormat::setStyle(Style style)      Sets the list format's \a style.      \sa style(), Style */
@@ -4845,7 +4845,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \fn QTextFrameFormat::isValid() const      Returns true if the format description is valid; otherwise returns false. */
+comment|/*!     \fn QTextFrameFormat::isValid() const      Returns \c true if the format description is valid; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QTextFrameFormat::setPosition(Position policy)      Sets the \a policy for positioning frames with this frame format.  */
@@ -5150,7 +5150,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \fn bool QTextTableFormat::isValid() const      Returns true if this table format is valid; otherwise     returns false. */
+comment|/*!     \fn bool QTextTableFormat::isValid() const      Returns \c true if this table format is valid; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn int QTextTableFormat::columns() const      Returns the number of columns specified by the table format. */
@@ -5245,7 +5245,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \fn bool QTextImageFormat::isValid() const      Returns true if this image format is valid; otherwise returns false. */
+comment|/*!     \fn bool QTextImageFormat::isValid() const      Returns \c true if this image format is valid; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextImageFormat::setName(const QString&name)      Sets the \a name of the image. The \a name is used to locate the image     in the application's resources.      \sa name() */
@@ -5323,7 +5323,7 @@ begin_comment
 comment|/*!    \fn void QTextTableCellFormat::setPadding(qreal padding)     \since 4.4     Sets the left, right, top, and bottom \a padding of the table cell.     \sa setLeftPadding(), setRightPadding(), setTopPadding(), setBottomPadding() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextTableCellFormat::isValid() const     \since 4.4      Returns true if this table cell format is valid; otherwise returns false. */
+comment|/*!     \fn bool QTextTableCellFormat::isValid() const     \since 4.4      Returns \c true if this table cell format is valid; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QTextTableCellFormat::QTextTableCellFormat()     \since 4.4      Constructs a new table cell format object. */

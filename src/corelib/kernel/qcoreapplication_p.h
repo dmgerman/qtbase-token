@@ -204,6 +204,11 @@ name|void
 name|createEventDispatcher
 argument_list|()
 block|;
+name|virtual
+name|void
+name|eventDispatcherReady
+argument_list|()
+block|;
 specifier|static
 name|void
 name|removePostedEvent

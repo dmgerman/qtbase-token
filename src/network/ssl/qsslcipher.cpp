@@ -211,7 +211,7 @@ begin_comment
 comment|/*!     \fn void QSslCipher::swap(QSslCipher&other)     \since 5.0      Swaps this cipher instance with \a other. This function is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this cipher is the same as \a other; otherwise,     false is returned. */
+comment|/*!     Returns \c true if this cipher is the same as \a other; otherwise,     false is returned. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -252,10 +252,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QSslCipher::operator!=(const QSslCipher&other) const      Returns true if this cipher is not the same as \a other;     otherwise, false is returned. */
+comment|/*!     \fn bool QSslCipher::operator!=(const QSslCipher&other) const      Returns \c true if this cipher is not the same as \a other;     otherwise, false is returned. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this is a null cipher; otherwise returns false. */
+comment|/*!     Returns \c true if this is a null cipher; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isNull

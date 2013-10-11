@@ -82,7 +82,7 @@ begin_comment
 comment|/*!     \fn QDebug&QDebug::maybeSpace()      Writes a space character to the debug stream, depending on the current     setting for automatic insertion of spaces, and returns a reference to the stream.      \sa space(), nospace() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDebug::autoInsertSpaces() const      Returns true if this QDebug instance will automatically insert spaces     between writes.      \since 5.0      \sa QDebugStateSaver */
+comment|/*!     \fn bool QDebug::autoInsertSpaces() const      Returns \c true if this QDebug instance will automatically insert spaces     between writes.      \since 5.0      \sa QDebugStateSaver */
 end_comment
 begin_comment
 comment|/*!     \fn void QDebug::setAutoInsertSpaces(bool b)      Enables automatic insertion of spaces between writes if \a b is true; otherwise     automatic insertion of spaces is disabled.      \since 5.0      \sa QDebugStateSaver */

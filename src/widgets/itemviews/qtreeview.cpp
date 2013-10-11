@@ -1124,7 +1124,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \property QTreeView::rootIsDecorated   \brief whether to show controls for expanding and collapsing top-level items    Items with children are typically shown with controls to expand and collapse   them, allowing their children to be shown or hidden. If this property is   false, these controls are not shown for top-level items. This can be used to   make a single level tree structure appear like a simple list of items.    By default, this property is true. */
+comment|/*!   \property QTreeView::rootIsDecorated   \brief whether to show controls for expanding and collapsing top-level items    Items with children are typically shown with controls to expand and collapse   them, allowing their children to be shown or hidden. If this property is   false, these controls are not shown for top-level items. This can be used to   make a single level tree structure appear like a simple list of items.    By default, this property is \c true. */
 end_comment
 begin_function
 DECL|function|rootIsDecorated
@@ -1190,7 +1190,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \property QTreeView::uniformRowHeights   \brief whether all items in the treeview have the same height    This property should only be set to true if it is guaranteed that all items   in the view has the same height. This enables the view to do some   optimizations.    The height is obtained from the first item in the view.  It is updated   when the data changes on that item.    By default, this property is false. */
+comment|/*!   \property QTreeView::uniformRowHeights   \brief whether all items in the treeview have the same height    This property should only be set to true if it is guaranteed that all items   in the view has the same height. This enables the view to do some   optimizations.    The height is obtained from the first item in the view.  It is updated   when the data changes on that item.    By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|uniformRowHeights
@@ -1239,7 +1239,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QTreeView::itemsExpandable   \brief whether the items are expandable by the user.    This property holds whether the user can expand and collapse items   interactively.    By default, this property is true.  */
+comment|/*!   \property QTreeView::itemsExpandable   \brief whether the items are expandable by the user.    This property holds whether the user can expand and collapse items   interactively.    By default, this property is \c true.  */
 end_comment
 begin_function
 DECL|function|itemsExpandable
@@ -1471,7 +1471,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a column is hidden; otherwise returns false.      \sa hideColumn(), isRowHidden() */
+comment|/*!     Returns \c true if the \a column is hidden; otherwise returns \c false.      \sa hideColumn(), isRowHidden() */
 end_comment
 begin_function
 DECL|function|isColumnHidden
@@ -1555,7 +1555,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QTreeView::headerHidden   \brief whether the header is shown or not.   \since 4.4    If this property is true, the header is not shown otherwise it is.   The default value is false.    \sa header() */
+comment|/*!   \property QTreeView::headerHidden   \brief whether the header is shown or not.   \since 4.4    If this property is \c true, the header is not shown otherwise it is.   The default value is false.    \sa header() */
 end_comment
 begin_function
 DECL|function|isHeaderHidden
@@ -1610,7 +1610,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the item in the given \a row of the \a parent is hidden;     otherwise returns false.      \sa setRowHidden(), isColumnHidden() */
+comment|/*!     Returns \c true if the item in the given \a row of the \a parent is hidden;     otherwise returns \c false.      \sa setRowHidden(), isColumnHidden() */
 end_comment
 begin_function
 DECL|function|isRowHidden
@@ -1771,7 +1771,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.3    Returns true if the item in first column in the given \a row   of the \a parent is spanning all the columns; otherwise returns false.    \sa setFirstColumnSpanned() */
+comment|/*!   \since 4.3    Returns \c true if the item in first column in the given \a row   of the \a parent is spanning all the columns; otherwise returns \c false.    \sa setFirstColumnSpanned() */
 end_comment
 begin_function
 DECL|function|isFirstColumnSpanned
@@ -2680,7 +2680,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QTreeView::isExpanded(const QModelIndex&index) const    Returns true if the model item \a index is expanded; otherwise returns   false.    \sa expand(), expanded(), setExpanded() */
+comment|/*!   \fn bool QTreeView::isExpanded(const QModelIndex&index) const    Returns \c true if the model item \a index is expanded; otherwise returns   false.    \sa expand(), expanded(), setExpanded() */
 end_comment
 begin_function
 DECL|function|isExpanded
@@ -2753,7 +2753,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \property QTreeView::sortingEnabled     \brief whether sorting is enabled      If this property is true, sorting is enabled for the tree; if the property     is false, sorting is not enabled. The default value is false.      \note In order to avoid performance issues, it is recommended that     sorting is enabled \e after inserting the items into the tree.     Alternatively, you could also insert the items into a list before inserting     the items into the tree.      \sa sortByColumn() */
+comment|/*!     \since 4.2     \property QTreeView::sortingEnabled     \brief whether sorting is enabled      If this property is \c true, sorting is enabled for the tree; if the property     is false, sorting is not enabled. The default value is false.      \note In order to avoid performance issues, it is recommended that     sorting is enabled \e after inserting the items into the tree.     Alternatively, you could also insert the items into a list before inserting     the items into the tree.      \sa sortByColumn() */
 end_comment
 begin_function
 DECL|function|setSortingEnabled
@@ -2912,7 +2912,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \property QTreeView::animated     \brief whether animations are enabled      If this property is true the treeview will animate expansion     and collapsing of branches. If this property is false, the treeview     will expand or collapse branches immediately without showing     the animation.      By default, this property is false. */
+comment|/*!     \since 4.2     \property QTreeView::animated     \brief whether animations are enabled      If this property is \c true the treeview will animate expansion     and collapsing of branches. If this property is \c false, the treeview     will expand or collapse branches immediately without showing     the animation.      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|setAnimated
@@ -2961,7 +2961,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \property QTreeView::allColumnsShowFocus     \brief whether items should show keyboard focus using all columns      If this property is true all columns will show focus, otherwise only     one column will show focus.      The default is false. */
+comment|/*!     \since 4.2     \property QTreeView::allColumnsShowFocus     \brief whether items should show keyboard focus using all columns      If this property is \c true all columns will show focus, otherwise only     one column will show focus.      The default is false. */
 end_comment
 begin_function
 DECL|function|setAllColumnsShowFocus
@@ -3026,7 +3026,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTreeView::wordWrap     \brief the item text word-wrapping policy     \since 4.3      If this property is true then the item text is wrapped where     necessary at word-breaks; otherwise it is not wrapped at all.     This property is false by default.      Note that even if wrapping is enabled, the cell will not be     expanded to fit all text. Ellipsis will be inserted according to     the current \l{QAbstractItemView::}{textElideMode}. */
+comment|/*!     \property QTreeView::wordWrap     \brief the item text word-wrapping policy     \since 4.3      If this property is \c true then the item text is wrapped where     necessary at word-breaks; otherwise it is not wrapped at all.     This property is \c false by default.      Note that even if wrapping is enabled, the cell will not be     expanded to fit all text. Ellipsis will be inserted according to     the current \l{QAbstractItemView::}{textElideMode}. */
 end_comment
 begin_function
 DECL|function|setWordWrap

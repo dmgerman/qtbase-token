@@ -13974,7 +13974,7 @@ begin_comment
 comment|/*!     \fn void QCalendarWidget::clicked(const QDate&date)      This signal is emitted when a mouse button is clicked. The date     the mouse was clicked on is specified by \a date. The signal is     only emitted when clicked on a valid date, e.g., dates are not     outside the minimumDate() and maximumDate(). If the selection mode     is NoSelection, this signal will not be emitted.  */
 end_comment
 begin_comment
-comment|/*!     \property QCalendarWidget::navigationBarVisible     \brief whether the navigation bar is shown or not      \since 4.3      When this property is true (the default), the next month,     previous month, month selection, year selection controls are     shown on top.      When the property is set to false, these controls are hidden. */
+comment|/*!     \property QCalendarWidget::navigationBarVisible     \brief whether the navigation bar is shown or not      \since 4.3      When this property is \c true (the default), the next month,     previous month, month selection, year selection controls are     shown on top.      When the property is set to false, these controls are hidden. */
 end_comment
 begin_function
 DECL|function|isNavigationBarVisible

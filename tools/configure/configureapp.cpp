@@ -10706,6 +10706,13 @@ index|]
 operator|=
 literal|"no"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"JAVASCRIPTCORE_JIT"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -17134,6 +17141,34 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"JAVASCRIPTCORE_JIT"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|qmakeVars
+operator|+=
+literal|"JAVASCRIPTCORE_JIT = no"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"JAVASCRIPTCORE_JIT"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qmakeVars
+operator|+=
+literal|"JAVASCRIPTCORE_JIT = yes"
+expr_stmt|;
+comment|// else let JavaScriptCore decide
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"OPENGL"
 index|]
 operator|==
@@ -20162,7 +20197,7 @@ index|]
 else|:
 name|QString
 argument_list|(
-literal|"4.7"
+literal|"4.8"
 argument_list|)
 argument_list|)
 decl_stmt|;

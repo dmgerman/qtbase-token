@@ -198,10 +198,10 @@ begin_comment
 comment|/*!     \fn void QNetworkCookie::swap(QNetworkCookie&other)     \since 5.0      Swaps this cookie with \a other. This function is very fast and     never fails. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QNetworkCookie::operator!=(const QNetworkCookie&other) const      Returns true if this cookie is not equal to \a other.      \sa operator==() */
+comment|/*!     \fn bool QNetworkCookie::operator!=(const QNetworkCookie&other) const      Returns \c true if this cookie is not equal to \a other.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0     Returns true if this cookie is equal to \a other. This function     only returns true if all fields of the cookie are the same.      However, in some contexts, two cookies of the same name could be     considered equal.      \sa operator!=(), hasSameIdentifier() */
+comment|/*!     \since 5.0     Returns \c true if this cookie is equal to \a other. This function     only returns \c true if all fields of the cookie are the same.      However, in some contexts, two cookies of the same name could be     considered equal.      \sa operator!=(), hasSameIdentifier() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -309,7 +309,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this cookie has the same identifier tuple as \a other.     The identifier tuple is composed of the name, domain and path.      \sa operator==() */
+comment|/*!     Returns \c true if this cookie has the same identifier tuple as \a other.     The identifier tuple is composed of the name, domain and path.      \sa operator==() */
 end_comment
 begin_function
 DECL|function|hasSameIdentifier
@@ -359,7 +359,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the "secure" option was specified in the cookie     string, false otherwise.      Secure cookies may contain private information and should not be     resent over unencrypted connections.      \sa setSecure() */
+comment|/*!     Returns \c true if the "secure" option was specified in the cookie     string, false otherwise.      Secure cookies may contain private information and should not be     resent over unencrypted connections.      \sa setSecure() */
 end_comment
 begin_function
 DECL|function|isSecure
@@ -400,7 +400,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns true if the "HttpOnly" flag is enabled for this cookie.      A cookie that is "HttpOnly" is only set and retrieved by the     network requests and replies; i.e., the HTTP protocol. It is not     accessible from scripts running on browsers.      \sa isSecure() */
+comment|/*!     \since 4.5      Returns \c true if the "HttpOnly" flag is enabled for this cookie.      A cookie that is "HttpOnly" is only set and retrieved by the     network requests and replies; i.e., the HTTP protocol. It is not     accessible from scripts running on browsers.      \sa isSecure() */
 end_comment
 begin_function
 DECL|function|isHttpOnly
@@ -441,7 +441,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this cookie is a session cookie. A session cookie     is a cookie which has no expiration date, which means it should be     discarded when the application's concept of session is over     (usually, when the application exits).      \sa expirationDate(), setExpirationDate() */
+comment|/*!     Returns \c true if this cookie is a session cookie. A session cookie     is a cookie which has no expiration date, which means it should be     discarded when the application's concept of session is over     (usually, when the application exits).      \sa expirationDate(), setExpirationDate() */
 end_comment
 begin_function
 DECL|function|isSessionCookie

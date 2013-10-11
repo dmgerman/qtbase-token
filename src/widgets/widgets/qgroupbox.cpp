@@ -2098,7 +2098,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGroupBox::checkable     \brief whether the group box has a checkbox in its title      If this property is true, the group box displays its title using     a checkbox in place of an ordinary label. If the checkbox is checked,     the group box's children are enabled; otherwise, they are disabled and     inaccessible.      By default, group boxes are not checkable.      If this property is enabled for a group box, it will also be initially     checked to ensure that its contents are enabled.      \sa checked */
+comment|/*!     \property QGroupBox::checkable     \brief whether the group box has a checkbox in its title      If this property is \c true, the group box displays its title using     a checkbox in place of an ordinary label. If the checkbox is checked,     the group box's children are enabled; otherwise, they are disabled and     inaccessible.      By default, group boxes are not checkable.      If this property is enabled for a group box, it will also be initially     checked to ensure that its contents are enabled.      \sa checked */
 end_comment
 begin_function
 DECL|function|setCheckable

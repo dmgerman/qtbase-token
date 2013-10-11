@@ -8443,7 +8443,7 @@ begin_comment
 comment|//QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::isValid() const      Returns true if the storage type of this variant is not     QVariant::Invalid; otherwise returns false. */
+comment|/*!     \fn bool QVariant::isValid() const      Returns \c true if the storage type of this variant is not     QVariant::Invalid; otherwise returns \c false. */
 end_comment
 begin_function
 template|template
@@ -9653,7 +9653,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as a bool if the variant has userType() Bool.      Returns true if the variant has userType() \l QMetaType::Bool,     \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,     \l QMetaType::LongLong, \l QMetaType::UInt, or \l QMetaType::ULongLong and     the value is non-zero, or if the variant has type \l QMetaType::QString or     \l QMetaType::QByteArray and its lower-case content is not one of the     following: empty, "0" or "false"; otherwise returns false.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as a bool if the variant has userType() Bool.      Returns \c true if the variant has userType() \l QMetaType::Bool,     \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,     \l QMetaType::LongLong, \l QMetaType::UInt, or \l QMetaType::ULongLong and     the value is non-zero, or if the variant has type \l QMetaType::QString or     \l QMetaType::QByteArray and its lower-case content is not one of the     following: empty, "0" or "false"; otherwise returns \c false.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toBool
@@ -10459,7 +10459,7 @@ directive|ifndef
 name|QT_BOOTSTRAPPED
 end_ifndef
 begin_comment
-comment|/*!     Returns true if from inherits to. */
+comment|/*!     Returns \c true if from inherits to. */
 end_comment
 begin_function
 DECL|function|canConvertMetaObject
@@ -10624,7 +10624,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \li Type \li Automatically Cast To     \row \li \l QMetaType::Bool \li \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QByteArray \li \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QChar \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::UInt, \l QMetaType::LongLong, \l QMetaType::ULongLong     \row \li \l QMetaType::QColor \li \l QMetaType::QString     \row \li \l QMetaType::QDate \li \l QMetaType::QDateTime,         \l QMetaType::QString     \row \li \l QMetaType::QDateTime \li \l QMetaType::QDate,         \l QMetaType::QString, \l QMetaType::QTime     \row \li \l QMetaType::Double \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QFont \li \l QMetaType::QString     \row \li \l QMetaType::Int \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QKeySequence \li \l QMetaType::Int,         \l QMetaType::QString     \row \li \l QMetaType::QVariantList \li \l QMetaType::QStringList (if the         list's items can be converted to QStrings)     \row \li \l QMetaType::LongLong \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QPoint \li QMetaType::QPointF     \row \li \l QMetaType::QRect \li QMetaType::QRectF     \row \li \l QMetaType::QString \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::QColor,         \l QMetaType::QDate, \l QMetaType::QDateTime, \l QMetaType::Double,         \l QMetaType::QFont, \l QMetaType::Int, \l QMetaType::QKeySequence,         \l QMetaType::LongLong, \l QMetaType::QStringList, \l QMetaType::QTime,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QStringList \li \l QMetaType::QVariantList,         \l QMetaType::QString (if the list contains exactly one item)     \row \li \l QMetaType::QTime \li \l QMetaType::QString     \row \li \l QMetaType::UInt \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::Int, \l QMetaType::LongLong,         \l QMetaType::QString, \l QMetaType::ULongLong     \row \li \l QMetaType::ULongLong \li \l QMetaType::Bool,         \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt     \endtable      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the type described by \a targetTypeId would succeed. Note that     this only works for QObject subclasses which use the Q_OBJECT macro.      A QVariant containing a sequential container will also return true for this     function if the \a targetTypeId is QVariantList. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantList:      \snippet code/src_corelib_kernel_qvariant.cpp 9      This requires that the value_type of the container is itself a metatype.      Similarly, a QVariant containing a sequential container will also return true for this     function the \a targetTypeId is QVariantHash or QVariantMap. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantHash or QVariantMap:      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa convert(), QSequentialIterable, qRegisterSequentialConverter(), QAssociativeIterable,         qRegisterAssociativeConverter() */
+comment|/*!     Returns \c true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \li Type \li Automatically Cast To     \row \li \l QMetaType::Bool \li \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QByteArray \li \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QChar \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::UInt, \l QMetaType::LongLong, \l QMetaType::ULongLong     \row \li \l QMetaType::QColor \li \l QMetaType::QString     \row \li \l QMetaType::QDate \li \l QMetaType::QDateTime,         \l QMetaType::QString     \row \li \l QMetaType::QDateTime \li \l QMetaType::QDate,         \l QMetaType::QString, \l QMetaType::QTime     \row \li \l QMetaType::Double \li \l QMetaType::Bool, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QFont \li \l QMetaType::QString     \row \li \l QMetaType::Int \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::LongLong, \l QMetaType::QString,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QKeySequence \li \l QMetaType::Int,         \l QMetaType::QString     \row \li \l QMetaType::QVariantList \li \l QMetaType::QStringList (if the         list's items can be converted to QStrings)     \row \li \l QMetaType::LongLong \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::Double,         \l QMetaType::Int, \l QMetaType::QString, \l QMetaType::UInt,         \l QMetaType::ULongLong     \row \li \l QMetaType::QPoint \li QMetaType::QPointF     \row \li \l QMetaType::QRect \li QMetaType::QRectF     \row \li \l QMetaType::QString \li \l QMetaType::Bool,         \l QMetaType::QByteArray, \l QMetaType::QChar, \l QMetaType::QColor,         \l QMetaType::QDate, \l QMetaType::QDateTime, \l QMetaType::Double,         \l QMetaType::QFont, \l QMetaType::Int, \l QMetaType::QKeySequence,         \l QMetaType::LongLong, \l QMetaType::QStringList, \l QMetaType::QTime,         \l QMetaType::UInt, \l QMetaType::ULongLong     \row \li \l QMetaType::QStringList \li \l QMetaType::QVariantList,         \l QMetaType::QString (if the list contains exactly one item)     \row \li \l QMetaType::QTime \li \l QMetaType::QString     \row \li \l QMetaType::UInt \li \l QMetaType::Bool, \l QMetaType::QChar,         \l QMetaType::Double, \l QMetaType::Int, \l QMetaType::LongLong,         \l QMetaType::QString, \l QMetaType::ULongLong     \row \li \l QMetaType::ULongLong \li \l QMetaType::Bool,         \l QMetaType::QChar, \l QMetaType::Double, \l QMetaType::Int,         \l QMetaType::LongLong, \l QMetaType::QString, \l QMetaType::UInt     \endtable      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the type described by \a targetTypeId would succeed. Note that     this only works for QObject subclasses which use the Q_OBJECT macro.      A QVariant containing a sequential container will also return true for this     function if the \a targetTypeId is QVariantList. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantList:      \snippet code/src_corelib_kernel_qvariant.cpp 9      This requires that the value_type of the container is itself a metatype.      Similarly, a QVariant containing a sequential container will also return true for this     function the \a targetTypeId is QVariantHash or QVariantMap. It is possible to iterate over     the contents of the container without extracting it as a (copied) QVariantHash or QVariantMap:      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa convert(), QSequentialIterable, qRegisterSequentialConverter(), QAssociativeIterable,         qRegisterAssociativeConverter() */
 end_comment
 begin_function
 DECL|function|canConvert
@@ -11421,7 +11421,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Casts the variant to the requested type, \a targetTypeId. If the cast cannot be     done, the variant is cleared. Returns true if the current type of     the variant was successfully cast; otherwise returns false.      A QVariant containing a pointer to a type derived from QObject will also convert     and return true for this function if a qobject_cast to the type described     by \a targetTypeId would succeed. Note that this only works for QObject subclasses     which use the Q_OBJECT macro.      \warning For historical reasons, converting a null QVariant results     in a null value of the desired type (e.g., an empty string for     QString) and a result of false.      \sa canConvert(), clear() */
+comment|/*!     Casts the variant to the requested type, \a targetTypeId. If the cast cannot be     done, the variant is cleared. Returns \c true if the current type of     the variant was successfully cast; otherwise returns \c false.      A QVariant containing a pointer to a type derived from QObject will also convert     and return true for this function if a qobject_cast to the type described     by \a targetTypeId would succeed. Note that this only works for QObject subclasses     which use the Q_OBJECT macro.      \warning For historical reasons, converting a null QVariant results     in a null value of the desired type (e.g., an empty string for     QString) and a result of false.      \sa canConvert(), clear() */
 end_comment
 begin_function
 DECL|function|convert
@@ -11625,28 +11625,28 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator==(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns true if \a v1 and \a v2 are equal; otherwise returns false.      If \a v1 and \a v2 have the same \l{QVariant::}{type()}, the     type's equality operator is used for comparison. If not, it is     attempted to \l{QVariant::}{convert()} \a v2 to the same type as     \a v1. See \l{QVariant::}{canConvert()} for a list of possible     conversions.      The result of the function is not affected by the result of QVariant::isNull,     which means that two values can be equal even if one of them is null and     another is not.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool operator==(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns \c true if \a v1 and \a v2 are equal; otherwise returns \c false.      If \a v1 and \a v2 have the same \l{QVariant::}{type()}, the     type's equality operator is used for comparison. If not, it is     attempted to \l{QVariant::}{convert()} \a v2 to the same type as     \a v1. See \l{QVariant::}{canConvert()} for a list of possible     conversions.      The result of the function is not affected by the result of QVariant::isNull,     which means that two values can be equal even if one of them is null and     another is not.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns false if \a v1 and \a v2 are equal; otherwise returns true.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool operator!=(const QVariant&v1, const QVariant&v2)      \relates QVariant      Returns \c false if \a v1 and \a v2 are equal; otherwise returns \c true.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QVariant::operator==(const QVariant&v) const      Compares this QVariant with \a v and returns true if they are     equal; otherwise returns false.      QVariant uses the equality operator of the type() it contains to     check for equality. QVariant will try to convert() \a v if its     type is not the same as this variant's type. See canConvert() for     a list of possible conversions.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*! \fn bool QVariant::operator==(const QVariant&v) const      Compares this QVariant with \a v and returns \c true if they are     equal; otherwise returns \c false.      QVariant uses the equality operator of the type() it contains to     check for equality. QVariant will try to convert() \a v if its     type is not the same as this variant's type. See canConvert() for     a list of possible conversions.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::operator!=(const QVariant&v) const      Compares this QVariant with \a v and returns true if they are not     equal; otherwise returns false.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool QVariant::operator!=(const QVariant&v) const      Compares this QVariant with \a v and returns \c true if they are not     equal; otherwise returns \c false.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::operator<(const QVariant&v) const      Compares this QVariant with \a v and returns true if this is less than \a v.      \note Comparability might not be availabe for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool QVariant::operator<(const QVariant&v) const      Compares this QVariant with \a v and returns \c true if this is less than \a v.      \note Comparability might not be availabe for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::operator<=(const QVariant&v) const      Compares this QVariant with \a v and returns true if this is less or equal than \a v.      \note Comparability might not be available for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool QVariant::operator<=(const QVariant&v) const      Compares this QVariant with \a v and returns \c true if this is less or equal than \a v.      \note Comparability might not be available for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::operator>(const QVariant&v) const      Compares this QVariant with \a v and returns true if this is larger than \a v.      \note Comparability might not be available for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool QVariant::operator>(const QVariant&v) const      Compares this QVariant with \a v and returns \c true if this is larger than \a v.      \note Comparability might not be available for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::operator>=(const QVariant&v) const      Compares this QVariant with \a v and returns true if this is larger or equal than \a v.      \note Comparability might not be available for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
+comment|/*!     \fn bool QVariant::operator>=(const QVariant&v) const      Compares this QVariant with \a v and returns \c true if this is larger or equal than \a v.      \note Comparability might not be available for the type stored in this QVariant     or in \a v.      \warning To make this function work with a custom type registered with     qRegisterMetaType(), its comparison operator must be registered using     QMetaType::registerComparators(). */
 end_comment
 begin_function
 DECL|function|qIsNumericType
@@ -12382,7 +12382,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this is a null variant, false otherwise. A variant is     considered null if it contains a default constructed value or a built-in     type instance that has an isNull method, in which case the result     would be the same as calling isNull on the wrapped object.      \warning The result of the function doesn't affect == operator, which means     that two values can be equal even if one of them is null and another is not. */
+comment|/*!     Returns \c true if this is a null variant, false otherwise. A variant is     considered null if it contains a default constructed value or a built-in     type instance that has an isNull method, in which case the result     would be the same as calling isNull on the wrapped object.      \warning The result of the function doesn't affect == operator, which means     that two values can be equal even if one of them is null and another is not. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -12640,7 +12640,7 @@ begin_comment
 comment|/*! \fn T QVariant::value() const      Returns the stored value converted to the template type \c{T}.     Call canConvert() to find out whether a type can be converted.     If the value cannot be converted, a \l{default-constructed value}     will be returned.      If the type \c{T} is supported by QVariant, this function behaves     exactly as toString(), toInt() etc.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 5      If the QVariant contains a pointer to a type derived from QObject then     \c{T} may be any QObject type. If the pointer stored in the QVariant can be     qobject_cast to T, then that result is returned. Otherwise a null pointer is     returned. Note that this only works for QObject subclasses which use the     Q_OBJECT macro.      If the QVariant contains a sequential container and \c{T} is QVariantList, the     elements of the container will be converted into QVariants and returned as a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa setValue(), fromValue(), canConvert(), qRegisterSequentialConverter() */
 end_comment
 begin_comment
-comment|/*! \fn bool QVariant::canConvert() const      Returns true if the variant can be converted to the template type \c{T},     otherwise false.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 6      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the template type \c{T} would succeed. Note that this only works     for QObject subclasses which use the Q_OBJECT macro.      \sa convert() */
+comment|/*! \fn bool QVariant::canConvert() const      Returns \c true if the variant can be converted to the template type \c{T},     otherwise false.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 6      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the template type \c{T} would succeed. Note that this only works     for QObject subclasses which use the Q_OBJECT macro.      \sa convert() */
 end_comment
 begin_comment
 comment|/*! \fn static QVariant QVariant::fromValue(const T&value)      Returns a QVariant containing a copy of \a value. Behaves     exactly like setValue() otherwise.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 7      \note If you are working with custom types, you should use     the Q_DECLARE_METATYPE() macro to register your custom type.      \sa setValue(), value() */
@@ -12658,7 +12658,7 @@ begin_comment
 comment|/*! \fn T qVariantValue(const QVariant&value)     \relates QVariant     \obsolete      Returns the given \a value converted to the template type \c{T}.      This function is equivalent to     \l{QVariant::value()}{QVariant::value}<T>(\a value).      \note This function was provided as a workaround for MSVC 6     which did not support member template functions. It is advised     to use the other form in new code.      \sa QVariant::value(), qvariant_cast() */
 end_comment
 begin_comment
-comment|/*! \fn bool qVariantCanConvert(const QVariant&value)     \relates QVariant     \obsolete      Returns true if the given \a value can be converted to the     template type specified; otherwise returns false.      This function is equivalent to QVariant::canConvert(\a value).      \note This function was provided as a workaround for MSVC 6     which did not support member template functions. It is advised     to use the other form in new code.      \sa QVariant::canConvert() */
+comment|/*! \fn bool qVariantCanConvert(const QVariant&value)     \relates QVariant     \obsolete      Returns \c true if the given \a value can be converted to the     template type specified; otherwise returns \c false.      This function is equivalent to QVariant::canConvert(\a value).      \note This function was provided as a workaround for MSVC 6     which did not support member template functions. It is advised     to use the other form in new code.      \sa QVariant::canConvert() */
 end_comment
 begin_comment
 comment|/*!     \typedef QVariantList     \relates QVariant      Synonym for QList<QVariant>. */
@@ -13204,7 +13204,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*!     Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -13236,7 +13236,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*!     Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -14357,7 +14357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*!     Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -14389,7 +14389,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*!     Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_function
 DECL|function|operator !=

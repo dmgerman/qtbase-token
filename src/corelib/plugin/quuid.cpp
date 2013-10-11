@@ -1339,10 +1339,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QUuid::operator==(const QUuid&other) const      Returns true if this QUuid and the \a other QUuid are identical;     otherwise returns false. */
+comment|/*!     \fn bool QUuid::operator==(const QUuid&other) const      Returns \c true if this QUuid and the \a other QUuid are identical;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QUuid::operator!=(const QUuid&other) const      Returns true if this QUuid and the \a other QUuid are different;     otherwise returns false. */
+comment|/*!     \fn bool QUuid::operator!=(const QUuid&other) const      Returns \c true if this QUuid and the \a other QUuid are different;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Returns the string representation of this QUuid. The string is     formatted as five hex fields separated by '-' and enclosed in     curly braces, i.e., "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}" where     'x' is a hex digit.  From left to right, the five hex fields are     obtained from the four public data members in QUuid as follows:      \table     \header     \li Field #     \li Source      \row     \li 1     \li data1      \row     \li 2     \li data2      \row     \li 3     \li data3      \row     \li 4     \li data4[0] .. data4[1]      \row     \li 5     \li data4[2] .. data4[7]      \endtable */
@@ -1954,7 +1954,7 @@ begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     Returns true if this is the null UUID     {00000000-0000-0000-0000-000000000000}; otherwise returns false. */
+comment|/*!     Returns \c true if this is the null UUID     {00000000-0000-0000-0000-000000000000}; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -2193,7 +2193,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QUuid::operator<(const QUuid&other) const      Returns true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{before} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
+comment|/*!     \fn bool QUuid::operator<(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{before} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
 begin_define
 DECL|macro|ISLESS
@@ -2305,7 +2305,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QUuid::operator>(const QUuid&other) const      Returns true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{after} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
+comment|/*!     \fn bool QUuid::operator>(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{after} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
 begin_define
 DECL|macro|ISMORE
@@ -2935,10 +2935,10 @@ begin_comment
 comment|// !Q_OS_WIN32
 end_comment
 begin_comment
-comment|/*!     \fn bool QUuid::operator==(const GUID&guid) const      Returns true if this UUID is equal to the Windows GUID \a guid;     otherwise returns false. */
+comment|/*!     \fn bool QUuid::operator==(const GUID&guid) const      Returns \c true if this UUID is equal to the Windows GUID \a guid;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QUuid::operator!=(const GUID&guid) const      Returns true if this UUID is not equal to the Windows GUID \a     guid; otherwise returns false. */
+comment|/*!     \fn bool QUuid::operator!=(const GUID&guid) const      Returns \c true if this UUID is not equal to the Windows GUID \a     guid; otherwise returns \c false. */
 end_comment
 begin_ifndef
 ifndef|#

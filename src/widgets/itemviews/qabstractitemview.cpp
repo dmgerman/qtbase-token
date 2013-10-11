@@ -1051,7 +1051,7 @@ begin_comment
 comment|/*!     \fn int QAbstractItemView::verticalOffset() const = 0      Returns the vertical offset of the view.      In the base class this is a pure virtual function.      \sa horizontalOffset() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QAbstractItemView::isIndexHidden(const QModelIndex&index) const      Returns true if the item referred to by the given \a index is hidden in the view,     otherwise returns false.      Hiding is a view specific feature.  For example in TableView a column can be marked     as hidden or a row in the TreeView.      In the base class this is a pure virtual function. */
+comment|/*!     \fn bool QAbstractItemView::isIndexHidden(const QModelIndex&index) const      Returns \c true if the item referred to by the given \a index is hidden in the view,     otherwise returns \c false.      Hiding is a view specific feature.  For example in TableView a column can be marked     as hidden or a row in the TreeView.      In the base class this is a pure virtual function. */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractItemView::setSelection(const QRect&rect, QItemSelectionModel::SelectionFlags flags)      Applies the selection \a flags to the items in or touched by the     rectangle, \a rect.      When implementing your own itemview setSelection should call     selectionModel()->select(selection, flags) where selection     is either an empty QModelIndex or a QItemSelection that contains     all items that are contained in \a rect.      \sa selectionCommand(), selectedIndexes() */
@@ -4777,7 +4777,7 @@ begin_comment
 comment|// QT_NO_DRAGANDDROP
 end_comment
 begin_comment
-comment|/*!     \property QAbstractItemView::alternatingRowColors     \brief whether to draw the background using alternating colors      If this property is true, the item background will be drawn using     QPalette::Base and QPalette::AlternateBase; otherwise the background     will be drawn using the QPalette::Base color.      By default, this property is false. */
+comment|/*!     \property QAbstractItemView::alternatingRowColors     \brief whether to draw the background using alternating colors      If this property is \c true, the item background will be drawn using     QPalette::Base and QPalette::AlternateBase; otherwise the background     will be drawn using the QPalette::Base color.      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|setAlternatingRowColors
@@ -7519,7 +7519,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     If the event hasn't already been accepted, determines the index to drop on.      if (row == -1&& col == -1)         // append to this drop index     else         // place at row, col in drop index      If it returns true a drop can be done, and dropRow, dropCol and dropIndex reflects the position of the drop.     \internal   */
+comment|/*!     If the event hasn't already been accepted, determines the index to drop on.      if (row == -1&& col == -1)         // append to this drop index     else         // place at row, col in drop index      If it returns \c true a drop can be done, and dropRow, dropCol and dropIndex reflects the position of the drop.     \internal   */
 end_comment
 begin_function
 DECL|function|dropOn
@@ -9981,7 +9981,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts editing the item at \a index, creating an editor if     necessary, and returns true if the view's \l{State} is now     EditingState; otherwise returns false.      The action that caused the editing process is described by     \a trigger, and the associated event is specified by \a event.      Editing can be forced by specifying the \a trigger to be     QAbstractItemView::AllEditTriggers.      \sa closeEditor() */
+comment|/*!     Starts editing the item at \a index, creating an editor if     necessary, and returns \c true if the view's \l{State} is now     EditingState; otherwise returns \c false.      The action that caused the editing process is described by     \a trigger, and the associated event is specified by \a event.      Editing can be forced by specifying the \a trigger to be     QAbstractItemView::AllEditTriggers.      \sa closeEditor() */
 end_comment
 begin_function
 DECL|function|edit

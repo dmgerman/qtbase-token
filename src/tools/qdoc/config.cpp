@@ -4716,7 +4716,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a ch is a letter, number, '_', '.',   '{', '}', or ','.  */
+comment|/*!   Returns \c true if \a ch is a letter, number, '_', '.',   '{', '}', or ','.  */
 end_comment
 begin_function
 DECL|function|isMetaKeyChar

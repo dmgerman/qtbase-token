@@ -211,7 +211,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QStringList::contains(const QString&str, Qt::CaseSensitivity cs) const      Returns true if the list contains the string \a str; otherwise     returns false. The search is case insensitive if \a cs is     Qt::CaseInsensitive; the search is case sensitive by default.      \sa indexOf(), lastIndexOf(), QString::contains()  */
+comment|/*!     \fn bool QStringList::contains(const QString&str, Qt::CaseSensitivity cs) const      Returns \c true if the list contains the string \a str; otherwise     returns \c false. The search is case insensitive if \a cs is     Qt::CaseInsensitive; the search is case sensitive by default.      \sa indexOf(), lastIndexOf(), QString::contains()  */
 end_comment
 begin_function
 DECL|function|QStringList_contains

@@ -1505,7 +1505,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a d is the currently installed animation driver     and is not the default animation driver (which can never be uninstalled). */
+comment|/*!     Returns \c true if \a d is the currently installed animation driver     and is not the default animation driver (which can never be uninstalled). */
 end_comment
 begin_function
 DECL|function|canUninstallAnimationDriver

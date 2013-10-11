@@ -159,7 +159,8 @@ name|create
 argument_list|(
 argument|QDeviceTypes type
 argument_list|,
-argument|QObject *parent
+argument|QObject *parent =
+literal|0
 argument_list|)
 block|;
 operator|~

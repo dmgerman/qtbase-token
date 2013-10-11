@@ -2345,7 +2345,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this action is a separator action; otherwise it   returns false.    \sa QAction::setSeparator() */
+comment|/*!   Returns \c true if this action is a separator action; otherwise it   returns \c false.    \sa QAction::setSeparator() */
 end_comment
 begin_function
 DECL|function|isSeparator
@@ -2852,7 +2852,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::checkable     \brief whether the action is a checkable action      A checkable action is one which has an on/off state. For example,     in a word processor, a Bold toolbar button may be either on or     off. An action which is not a toggle action is a command action;     a command action is simply executed, e.g. file save.     By default, this property is false.      In some situations, the state of one toggle action should depend     on the state of others. For example, "Left Align", "Center" and     "Right Align" toggle actions are mutually exclusive. To achieve     exclusive toggling, add the relevant toggle actions to a     QActionGroup with the QActionGroup::exclusive property set to     true.      \sa QAction::setChecked() */
+comment|/*!     \property QAction::checkable     \brief whether the action is a checkable action      A checkable action is one which has an on/off state. For example,     in a word processor, a Bold toolbar button may be either on or     off. An action which is not a toggle action is a command action;     a command action is simply executed, e.g. file save.     By default, this property is \c false.      In some situations, the state of one toggle action should depend     on the state of others. For example, "Left Align", "Center" and     "Right Align" toggle actions are mutually exclusive. To achieve     exclusive toggling, add the relevant toggle actions to a     QActionGroup with the QActionGroup::exclusive property set to     true.      \sa QAction::setChecked() */
 end_comment
 begin_function
 DECL|function|setCheckable
@@ -3037,7 +3037,7 @@ begin_comment
 comment|/*!     \fn void QAction::setDisabled(bool b)      This is a convenience function for the \l enabled property, that     is useful for signals--slots connections. If \a b is true the     action is disabled; otherwise it is enabled. */
 end_comment
 begin_comment
-comment|/*!     \property QAction::enabled     \brief whether the action is enabled      Disabled actions cannot be chosen by the user. They do not     disappear from menus or toolbars, but they are displayed in a way     which indicates that they are unavailable. For example, they might     be displayed using only shades of gray.      \uicontrol{What's This?} help on disabled actions is still available, provided     that the QAction::whatsThis property is set.      An action will be disabled when all widgets to which it is added     (with QWidget::addAction()) are disabled or not visible. When an     action is disabled, it is not possible to trigger it through its     shortcut.      By default, this property is true (actions are enabled).      \sa text */
+comment|/*!     \property QAction::enabled     \brief whether the action is enabled      Disabled actions cannot be chosen by the user. They do not     disappear from menus or toolbars, but they are displayed in a way     which indicates that they are unavailable. For example, they might     be displayed using only shades of gray.      \uicontrol{What's This?} help on disabled actions is still available, provided     that the QAction::whatsThis property is set.      An action will be disabled when all widgets to which it is added     (with QWidget::addAction()) are disabled or not visible. When an     action is disabled, it is not possible to trigger it through its     shortcut.      By default, this property is \c true (actions are enabled).      \sa text */
 end_comment
 begin_function
 DECL|function|setEnabled
@@ -3163,7 +3163,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::visible     \brief whether the action can be seen (e.g. in menus and toolbars)      If \e visible is true the action can be seen (e.g. in menus and     toolbars) and chosen by the user; if \e visible is false the     action cannot be seen or chosen by the user.      Actions which are not visible are \e not grayed out; they do not     appear at all.      By default, this property is true (actions are visible). */
+comment|/*!     \property QAction::visible     \brief whether the action can be seen (e.g. in menus and toolbars)      If \e visible is true the action can be seen (e.g. in menus and     toolbars) and chosen by the user; if \e visible is false the     action cannot be seen or chosen by the user.      Actions which are not visible are \e not grayed out; they do not     appear at all.      By default, this property is \c true (actions are visible). */
 end_comment
 begin_function
 DECL|function|setVisible
@@ -3474,7 +3474,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Updates the relevant status bar for the \a widget specified by sending a   QStatusTipEvent to its parent widget. Returns true if an event was sent;   otherwise returns false.    If a null widget is specified, the event is sent to the action's parent.    \sa statusTip */
+comment|/*!   Updates the relevant status bar for the \a widget specified by sending a   QStatusTipEvent to its parent widget. Returns \c true if an event was sent;   otherwise returns \c false.    If a null widget is specified, the event is sent to the action's parent.    \sa statusTip */
 end_comment
 begin_function
 name|bool

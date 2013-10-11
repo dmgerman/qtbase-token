@@ -83,6 +83,14 @@ name|void
 name|requestActivateWindow
 argument_list|()
 block|;
+name|void
+name|raise
+argument_list|()
+block|;
+name|void
+name|lower
+argument_list|()
+block|;
 name|EGLSurface
 name|surface
 argument_list|()
@@ -127,7 +135,7 @@ argument_list|)
 return|;
 block|}
 name|bool
-name|isRasterRoot
+name|isRaster
 argument_list|()
 specifier|const
 block|{
@@ -136,7 +144,7 @@ name|m_flags
 operator|.
 name|testFlag
 argument_list|(
-name|IsRasterRoot
+name|IsRaster
 argument_list|)
 return|;
 block|}
@@ -159,6 +167,11 @@ name|m_backingStore
 operator|=
 name|backingStore
 block|; }
+name|uint
+name|texture
+argument_list|()
+specifier|const
+block|;
 name|virtual
 name|void
 name|invalidateSurface
@@ -198,17 +211,13 @@ name|Created
 operator|=
 literal|0x01
 block|,
-name|HasNativeWindow
+name|IsRaster
 operator|=
 literal|0x02
 block|,
-name|IsRaster
+name|HasNativeWindow
 operator|=
 literal|0x04
-block|,
-name|IsRasterRoot
-operator|=
-literal|0x08
 block|}
 block|;
 name|Q_DECLARE_FLAGS

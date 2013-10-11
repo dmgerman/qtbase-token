@@ -44,7 +44,7 @@ file|"qlayout_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*     Returns true if the \a widget can be added to the \a layout;     otherwise returns false. */
+comment|/*     Returns \c true if the \a widget can be added to the \a layout;     otherwise returns \c false. */
 DECL|function|checkWidget
 specifier|static
 name|bool
@@ -5014,7 +5014,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the stretch factor for \a widget to \a stretch and returns     true if \a widget is found in this layout (not including child     layouts); otherwise returns false.      \sa setAlignment() */
+comment|/*!     Sets the stretch factor for \a widget to \a stretch and returns     true if \a widget is found in this layout (not including child     layouts); otherwise returns \c false.      \sa setAlignment() */
 end_comment
 begin_function
 DECL|function|setStretchFactor
@@ -5109,7 +5109,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the stretch factor for the layout \a layout to \a stretch and     returns true if \a layout is found in this layout (not including     child layouts); otherwise returns false. */
+comment|/*!     \overload      Sets the stretch factor for the layout \a layout to \a stretch and     returns \c true if \a layout is found in this layout (not including     child layouts); otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setStretchFactor

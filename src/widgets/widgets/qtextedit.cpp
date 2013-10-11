@@ -2094,7 +2094,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font of the current format is underlined; otherwise returns     false.      \sa setFontUnderline() */
+comment|/*!     Returns \c true if the font of the current format is underlined; otherwise returns     false.      \sa setFontUnderline() */
 end_comment
 begin_function
 DECL|function|fontUnderline
@@ -2128,7 +2128,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font of the current format is italic; otherwise returns     false.      \sa setFontItalic() */
+comment|/*!     Returns \c true if the font of the current format is italic; otherwise returns     false.      \sa setFontItalic() */
 end_comment
 begin_function
 DECL|function|fontItalic
@@ -7191,7 +7191,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \property QTextEdit::overwriteMode    \since 4.1    \brief whether text entered by the user will overwrite existing text     As with many text editors, the text editor widget can be configured    to insert or overwrite existing text with new text entered by the user.     If this property is true, existing text is overwritten, character-for-character    by new text; otherwise, text is inserted at the cursor position, displacing    existing text.     By default, this property is false (new text does not overwrite existing text). */
+comment|/*!    \property QTextEdit::overwriteMode    \since 4.1    \brief whether text entered by the user will overwrite existing text     As with many text editors, the text editor widget can be configured    to insert or overwrite existing text with new text entered by the user.     If this property is \c true, existing text is overwritten, character-for-character    by new text; otherwise, text is inserted at the cursor position, displacing    existing text.     By default, this property is \c false (new text does not overwrite existing text). */
 end_comment
 begin_function
 DECL|function|overwriteMode
@@ -7565,7 +7565,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function returns true if the contents of the MIME data object, specified     by \a source, can be decoded and inserted into the document. It is called     for example when during a drag operation the mouse enters this widget and it     is necessary to determine whether it is possible to accept the drag and drop     operation.      Reimplement this function to enable drag and drop support for additional MIME types.  */
+comment|/*!     This function returns \c true if the contents of the MIME data object, specified     by \a source, can be decoded and inserted into the document. It is called     for example when during a drag operation the mouse enters this widget and it     is necessary to determine whether it is possible to accept the drag and drop     operation.      Reimplement this function to enable drag and drop support for additional MIME types.  */
 end_comment
 begin_function
 DECL|function|canInsertFromMimeData
@@ -8561,7 +8561,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Finds the next occurrence of the string, \a exp, using the given     \a options. Returns true if \a exp was found and changes the     cursor to select the match; otherwise returns false. */
+comment|/*!     Finds the next occurrence of the string, \a exp, using the given     \a options. Returns \c true if \a exp was found and changes the     cursor to select the match; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|find

@@ -150,7 +150,7 @@ DECL|macro|OFONO_DATA_CONNECTION_MANAGER_INTERFACE
 define|#
 directive|define
 name|OFONO_DATA_CONNECTION_MANAGER_INTERFACE
-value|"org.ofono.DataConnectionManager"
+value|"org.ofono.ConnectionManager"
 end_define
 begin_define
 DECL|macro|OFONO_SIM_MANAGER_INTERFACE

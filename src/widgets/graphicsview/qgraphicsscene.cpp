@@ -4864,7 +4864,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      This is the final dispatch point for any events from the scene to the     item. It filters the event first - if the filter returns true, the event     is considered to have been eaten by the filter, and is therefore stopped     (the default filter returns false). Then/otherwise, if the item is     enabled, the event is sent; otherwise it is stopped. */
+comment|/*!     \internal      This is the final dispatch point for any events from the scene to the     item. It filters the event first - if the filter returns \c true, the event     is considered to have been eaten by the filter, and is therefore stopped     (the default filter returns \c false). Then/otherwise, if the item is     enabled, the event is sent; otherwise it is stopped. */
 end_comment
 begin_function
 DECL|function|sendEvent
@@ -7976,10 +7976,10 @@ begin_comment
 comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(qreal x, qreal y, qreal w, qreal h, Qt::ItemSelectionMode mode) const     \obsolete     \since 4.3      This convenience function is equivalent to calling items(QRectF(\a x, \a y, \a w, \a h), \a mode).      This function is deprecated and returns incorrect results if the scene     contains items that ignore transformations. Use the overload that takes     a QTransform instead. */
 end_comment
 begin_comment
-comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(qreal x, qreal y, qreal w, qreal h, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the rectangle defined by \a x, \a y,     \a w and \a h, in a list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations. */
+comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(qreal x, qreal y, qreal w, qreal h, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the rectangle defined by \a x, \a y,     \a w and \a h, in a list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns \c true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations. */
 end_comment
 begin_comment
-comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QPointF&pos, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \since 4.6      \brief Returns all visible items that, depending on \a mode, are at     the specified \a pos in a list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with \a pos are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
+comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QPointF&pos, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \since 4.6      \brief Returns all visible items that, depending on \a mode, are at     the specified \a pos in a list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns \c true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with \a pos are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
 end_comment
 begin_function
 DECL|function|items
@@ -8039,7 +8039,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QRectF&rect, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the specified \a rect, in a     list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with or is contained by \a rect are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
+comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QRectF&rect, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the specified \a rect, in a     list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns \c true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with or is contained by \a rect are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
 end_comment
 begin_function
 DECL|function|items
@@ -8099,7 +8099,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QPolygonF&polygon, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the specified \a polygon, in     a list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with or is contained by \a polygon are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
+comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QPolygonF&polygon, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the specified \a polygon, in     a list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns \c true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with or is contained by \a polygon are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
 end_comment
 begin_function
 DECL|function|items
@@ -8159,7 +8159,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QPainterPath&path, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the specified \a path, in a     list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with or is contained by \a path are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
+comment|/*!     \fn QList<QGraphicsItem *> QGraphicsScene::items(const QPainterPath&path, Qt::ItemSelectionMode mode, Qt::SortOrder order, const QTransform&deviceTransform) const     \overload     \since 4.6      \brief Returns all visible items that, depending on \a mode, are     either inside or intersect with the specified \a path, in a     list sorted using \a order. In this case, "visible" defines items for which:     isVisible() returns \c true, effectiveOpacity() returns a value greater than 0.0     (which is fully transparent) and the parent item does not clip it.      The default value for \a mode is Qt::IntersectsItemShape; all items whose     exact shape intersects with or is contained by \a path are returned.      \a deviceTransform is the transformation that applies to the view, and needs to     be provided if the scene contains items that ignore transformations.      \sa itemAt(), {QGraphicsItem#Sorting}{Sorting} */
 end_comment
 begin_function
 DECL|function|items
@@ -10071,7 +10071,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and adds an ellipse item to the scene, and returns the item     pointer. The geometry of the ellipse is defined by \a rect, and its pen     and brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addLine(), addPath(), addPixmap(), addRect(), addText(), addItem(),     addWidget() */
+comment|/*!     Creates and adds an ellipse item to the scene, and returns the item     pointer. The geometry of the ellipse is defined by \a rect, and its pen     and brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addLine(), addPath(), addPixmap(), addRect(), addText(), addItem(),     addWidget() */
 end_comment
 begin_function
 DECL|function|addEllipse
@@ -10135,7 +10135,7 @@ begin_comment
 comment|/*!     \fn QGraphicsEllipseItem *QGraphicsScene::addEllipse(qreal x, qreal y, qreal w, qreal h, const QPen&pen, const QBrush&brush)     \since 4.3      This convenience function is equivalent to calling addEllipse(QRectF(\a x,     \a y, \a w, \a h), \a pen, \a brush). */
 end_comment
 begin_comment
-comment|/*!     Creates and adds a line item to the scene, and returns the item     pointer. The geometry of the line is defined by \a line, and its pen     is initialized to \a pen.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addPath(), addPixmap(), addRect(), addText(), addItem(),     addWidget() */
+comment|/*!     Creates and adds a line item to the scene, and returns the item     pointer. The geometry of the line is defined by \a line, and its pen     is initialized to \a pen.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addPath(), addPixmap(), addRect(), addText(), addItem(),     addWidget() */
 end_comment
 begin_function
 DECL|function|addLine
@@ -10187,7 +10187,7 @@ begin_comment
 comment|/*!     \fn QGraphicsLineItem *QGraphicsScene::addLine(qreal x1, qreal y1, qreal x2, qreal y2, const QPen&pen)     \since 4.3      This convenience function is equivalent to calling addLine(QLineF(\a x1,     \a y1, \a x2, \a y2), \a pen). */
 end_comment
 begin_comment
-comment|/*!     Creates and adds a path item to the scene, and returns the item     pointer. The geometry of the path is defined by \a path, and its pen and     brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addRect(), addText(), addItem(),     addWidget() */
+comment|/*!     Creates and adds a path item to the scene, and returns the item     pointer. The geometry of the path is defined by \a path, and its pen and     brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addRect(), addText(), addItem(),     addWidget() */
 end_comment
 begin_function
 DECL|function|addPath
@@ -10248,7 +10248,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and adds a pixmap item to the scene, and returns the item     pointer. The pixmap is defined by \a pixmap.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPath(), addRect(), addText(), addItem(),     addWidget() */
+comment|/*!     Creates and adds a pixmap item to the scene, and returns the item     pointer. The pixmap is defined by \a pixmap.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPath(), addRect(), addText(), addItem(),     addWidget() */
 end_comment
 begin_function
 DECL|function|addPixmap
@@ -10285,7 +10285,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and adds a polygon item to the scene, and returns the item     pointer. The polygon is defined by \a polygon, and its pen and     brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPath(), addRect(), addText(), addItem(),     addWidget() */
+comment|/*!     Creates and adds a polygon item to the scene, and returns the item     pointer. The polygon is defined by \a polygon, and its pen and     brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPath(), addRect(), addText(), addItem(),     addWidget() */
 end_comment
 begin_function
 DECL|function|addPolygon
@@ -10346,7 +10346,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and adds a rectangle item to the scene, and returns the item     pointer. The geometry of the rectangle is defined by \a rect, and its pen     and brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0). For example, if a QRect(50, 50, 100,     100) is added, its top-left corner will be at (50, 50) relative to the     origin in the items coordinate system.      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addText(),     addItem(), addWidget() */
+comment|/*!     Creates and adds a rectangle item to the scene, and returns the item     pointer. The geometry of the rectangle is defined by \a rect, and its pen     and brush are initialized to \a pen and \a brush.      Note that the item's geometry is provided in item coordinates, and its     position is initialized to (0, 0). For example, if a QRect(50, 50, 100,     100) is added, its top-left corner will be at (50, 50) relative to the     origin in the items coordinate system.      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addText(),     addItem(), addWidget() */
 end_comment
 begin_function
 DECL|function|addRect
@@ -10410,7 +10410,7 @@ begin_comment
 comment|/*!     \fn QGraphicsRectItem *QGraphicsScene::addRect(qreal x, qreal y, qreal w, qreal h, const QPen&pen, const QBrush&brush)     \since 4.3      This convenience function is equivalent to calling addRect(QRectF(\a x,     \a y, \a w, \a h), \a pen, \a brush). */
 end_comment
 begin_comment
-comment|/*!     Creates and adds a text item to the scene, and returns the item     pointer. The text string is initialized to \a text, and its font     is initialized to \a font.      The item's position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addRect(),     addItem(), addWidget() */
+comment|/*!     Creates and adds a text item to the scene, and returns the item     pointer. The text string is initialized to \a text, and its font     is initialized to \a font.      The item's position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addRect(),     addItem(), addWidget() */
 end_comment
 begin_function
 DECL|function|addText
@@ -10459,7 +10459,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates and adds a QGraphicsSimpleTextItem to the scene, and returns the     item pointer. The text string is initialized to \a text, and its font is     initialized to \a font.      The item's position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addRect(),     addItem(), addWidget() */
+comment|/*!     Creates and adds a QGraphicsSimpleTextItem to the scene, and returns the     item pointer. The text string is initialized to \a text, and its font is     initialized to \a font.      The item's position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addRect(),     addItem(), addWidget() */
 end_comment
 begin_function
 DECL|function|addSimpleText
@@ -10508,7 +10508,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a new QGraphicsProxyWidget for \a widget, adds it to the scene,     and returns a pointer to the proxy. \a wFlags set the default window flags     for the embedding proxy widget.      The item's position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      Note that widgets with the Qt::WA_PaintOnScreen widget attribute     set and widgets that wrap an external application or controller     are not supported. Examples are QGLWidget and QAxWidget.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addRect(),     addText(), addSimpleText(), addItem() */
+comment|/*!     Creates a new QGraphicsProxyWidget for \a widget, adds it to the scene,     and returns a pointer to the proxy. \a wFlags set the default window flags     for the embedding proxy widget.      The item's position is initialized to (0, 0).      If the item is visible (i.e., QGraphicsItem::isVisible() returns \c true),     QGraphicsScene will emit changed() once control goes back to the event     loop.      Note that widgets with the Qt::WA_PaintOnScreen widget attribute     set and widgets that wrap an external application or controller     are not supported. Examples are QGLWidget and QAxWidget.      \sa addEllipse(), addLine(), addPixmap(), addPixmap(), addRect(),     addText(), addSimpleText(), addItem() */
 end_comment
 begin_function
 DECL|function|addWidget
@@ -10738,7 +10738,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the scene's focus item to \a item, with the focus reason \a     focusReason, after removing focus from any previous item that may have had     focus.      If \a item is 0, or if it either does not accept focus (i.e., it does not     have the QGraphicsItem::ItemIsFocusable flag enabled), or is not visible     or not enabled, this function only removes focus from any previous     focusitem.      If item is not 0, and the scene does not currently have focus (i.e.,     hasFocus() returns false), this function will call setFocus()     automatically.      \sa focusItem(), hasFocus(), setFocus() */
+comment|/*!     Sets the scene's focus item to \a item, with the focus reason \a     focusReason, after removing focus from any previous item that may have had     focus.      If \a item is 0, or if it either does not accept focus (i.e., it does not     have the QGraphicsItem::ItemIsFocusable flag enabled), or is not visible     or not enabled, this function only removes focus from any previous     focusitem.      If item is not 0, and the scene does not currently have focus (i.e.,     hasFocus() returns \c false), this function will call setFocus()     automatically.      \sa focusItem(), hasFocus(), setFocus() */
 end_comment
 begin_function
 DECL|function|setFocusItem
@@ -10786,7 +10786,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the scene has focus; otherwise returns false. If the scene     has focus, it will will forward key events from QKeyEvent to any item that     has focus.      \sa setFocus(), setFocusItem() */
+comment|/*!     Returns \c true if the scene has focus; otherwise returns \c false. If the scene     has focus, it will will forward key events from QKeyEvent to any item that     has focus.      \sa setFocus(), setFocusItem() */
 end_comment
 begin_function
 DECL|function|hasFocus
@@ -10914,7 +10914,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGraphicsScene::stickyFocus     \brief whether clicking into the scene background will clear focus      \since 4.6      In a QGraphicsScene with stickyFocus set to true, focus will remain     unchanged when the user clicks into the scene background or on an item     that does not accept focus. Otherwise, focus will be cleared.      By default, this property is false.      Focus changes in response to a mouse press. You can reimplement     mousePressEvent() in a subclass of QGraphicsScene to toggle this property     based on where the user has clicked.      \sa clearFocus(), setFocusItem() */
+comment|/*!     \property QGraphicsScene::stickyFocus     \brief whether clicking into the scene background will clear focus      \since 4.6      In a QGraphicsScene with stickyFocus set to true, focus will remain     unchanged when the user clicks into the scene background or on an item     that does not accept focus. Otherwise, focus will be cleared.      By default, this property is \c false.      Focus changes in response to a mouse press. You can reimplement     mousePressEvent() in a subclass of QGraphicsScene to toggle this property     based on where the user has clicked.      \sa clearFocus(), setFocusItem() */
 end_comment
 begin_function
 DECL|function|setStickyFocus
@@ -16037,7 +16037,7 @@ begin_comment
 comment|// Copied from qpaintengine_vg.cpp
 end_comment
 begin_comment
-comment|// Returns true for 90, 180, and 270 degree rotations.
+comment|// Returns \c true for 90, 180, and 270 degree rotations.
 end_comment
 begin_function
 DECL|function|transformIsSimple
@@ -21854,7 +21854,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Finds a new widget to give the keyboard focus to, as appropriate for Tab     and Shift+Tab, and returns true if it can find a new widget, or false if     it cannot. If \a next is true, this function searches forward; if \a next     is false, it searches backward.      You can reimplement this function in a subclass of QGraphicsScene to     provide fine-grained control over how tab focus passes inside your     scene. The default implementation is based on the tab focus chain defined     by QGraphicsWidget::setTabOrder(). */
+comment|/*!     \since 4.4      Finds a new widget to give the keyboard focus to, as appropriate for Tab     and Shift+Tab, and returns \c true if it can find a new widget, or false if     it cannot. If \a next is true, this function searches forward; if \a next     is false, it searches backward.      You can reimplement this function in a subclass of QGraphicsScene to     provide fine-grained control over how tab focus passes inside your     scene. The default implementation is based on the tab focus chain defined     by QGraphicsWidget::setTabOrder(). */
 end_comment
 begin_function
 DECL|function|focusNextPrevChild
@@ -22658,7 +22658,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if the scene is active (e.g., it's viewed by     at least one QGraphicsView that is active); otherwise returns false.      \sa QGraphicsItem::isActive(), QWidget::isActiveWindow() */
+comment|/*!     \since 4.6      Returns \c true if the scene is active (e.g., it's viewed by     at least one QGraphicsView that is active); otherwise returns \c false.      \sa QGraphicsItem::isActive(), QWidget::isActiveWindow() */
 end_comment
 begin_function
 DECL|function|isActive

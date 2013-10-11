@@ -279,7 +279,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \fn QTextOption&QTextOption::operator=(const QTextOption&other)      Returns true if the text option is the same as the \a other text option;     otherwise returns false. */
+comment|/*!     \fn QTextOption&QTextOption::operator=(const QTextOption&other)      Returns \c true if the text option is the same as the \a other text option;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator =
@@ -624,7 +624,7 @@ begin_comment
 comment|/*!   \fn void QTextOption::setUseDesignMetrics(bool enable)      If \a enable is true then the layout will use design metrics;     otherwise it will use the metrics of the paint device (which is     the default behavior).      \sa useDesignMetrics() */
 end_comment
 begin_comment
-comment|/*!   \fn bool QTextOption::useDesignMetrics() const      Returns true if the layout uses design rather than device metrics;     otherwise returns false.      \sa setUseDesignMetrics() */
+comment|/*!   \fn bool QTextOption::useDesignMetrics() const      Returns \c true if the layout uses design rather than device metrics;     otherwise returns \c false.      \sa setUseDesignMetrics() */
 end_comment
 begin_comment
 comment|/*!   \fn Qt::Alignment QTextOption::alignment() const    Returns the text alignment defined by the option.    \sa setAlignment() */
@@ -681,10 +681,10 @@ begin_comment
 comment|/*!     \fn Tab::Tab(qreal pos, TabType tabType, QChar delim = QChar())      Creates a tab with the given position, tab type, and delimiter     (\a pos, \a tabType, \a delim).      \note \a delim is only used when \a tabType is DelimiterTab.      \since 4.7 */
 end_comment
 begin_comment
-comment|/*!     \fn bool Tab::operator==(const Tab&other) const      Returns true if tab \a other is equal to this tab;     otherwise returns false. */
+comment|/*!     \fn bool Tab::operator==(const Tab&other) const      Returns \c true if tab \a other is equal to this tab;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool Tab::operator!=(const Tab&other) const      Returns true if tab \a other is not equal to this tab;     otherwise returns false. */
+comment|/*!     \fn bool Tab::operator!=(const Tab&other) const      Returns \c true if tab \a other is not equal to this tab;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!   \fn void setTabs(const QList<Tab>&tabStops)   Set the Tab properties to \a tabStops.    \sa tabStop(), tabs() */

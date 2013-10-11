@@ -2777,10 +2777,10 @@ begin_comment
 comment|/*!     \property QTextBrowser::modified     \brief whether the contents of the text browser have been modified */
 end_comment
 begin_comment
-comment|/*!     \property QTextBrowser::readOnly     \brief whether the text browser is read-only      By default, this property is true. */
+comment|/*!     \property QTextBrowser::readOnly     \brief whether the text browser is read-only      By default, this property is \c true. */
 end_comment
 begin_comment
-comment|/*!     \property QTextBrowser::undoRedoEnabled     \brief whether the text browser supports undo/redo operations      By default, this property is false. */
+comment|/*!     \property QTextBrowser::undoRedoEnabled     \brief whether the text browser supports undo/redo operations      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|init
@@ -4233,7 +4233,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if the text browser can go backward in the document history     using backward().      \sa backwardAvailable(), backward() */
+comment|/*!     \since 4.2      Returns \c true if the text browser can go backward in the document history     using backward().      \sa backwardAvailable(), backward() */
 end_comment
 begin_function
 DECL|function|isBackwardAvailable
@@ -4263,7 +4263,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if the text browser can go forward in the document history     using forward().      \sa forwardAvailable(), forward() */
+comment|/*!     \since 4.2      Returns \c true if the text browser can go forward in the document history     using forward().      \sa forwardAvailable(), forward() */
 end_comment
 begin_function
 DECL|function|isForwardAvailable

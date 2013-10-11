@@ -2340,7 +2340,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the movie is valid (e.g., the image data is readable and     the image format is supported); otherwise returns false. */
+comment|/*!     Returns \c true if the movie is valid (e.g., the image data is readable and     the image format is supported); otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -2442,7 +2442,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Jumps to the next frame. Returns true on success; otherwise returns false. */
+comment|/*!     Jumps to the next frame. Returns \c true on success; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|jumpToNextFrame
@@ -2466,7 +2466,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Jumps to frame number \a frameNumber. Returns true on success; otherwise     returns false. */
+comment|/*!     Jumps to frame number \a frameNumber. Returns \c true on success; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|jumpToFrame

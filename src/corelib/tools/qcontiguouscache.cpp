@@ -171,10 +171,10 @@ begin_comment
 comment|/*! \fn void QContiguousCache::swap(QContiguousCache<T>&other)     \since 4.8      Swaps cache \a other with this cache. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QContiguousCache::operator==(const QContiguousCache<T>&other) const      Returns true if \a other is equal to this cache; otherwise returns false.      Two caches are considered equal if they contain the same values at the same     indexes.  This function requires the value type to implement the \c operator==().      \sa operator!=() */
+comment|/*! \fn bool QContiguousCache::operator==(const QContiguousCache<T>&other) const      Returns \c true if \a other is equal to this cache; otherwise returns \c false.      Two caches are considered equal if they contain the same values at the same     indexes.  This function requires the value type to implement the \c operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QContiguousCache::operator!=(const QContiguousCache<T>&other) const      Returns true if \a other is not equal to this cache; otherwise     returns false.      Two caches are considered equal if they contain the same values at the same     indexes.  This function requires the value type to implement the \c operator==().      \sa operator==() */
+comment|/*! \fn bool QContiguousCache::operator!=(const QContiguousCache<T>&other) const      Returns \c true if \a other is not equal to this cache; otherwise     returns \c false.      Two caches are considered equal if they contain the same values at the same     indexes.  This function requires the value type to implement the \c operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn int QContiguousCache::capacity() const      Returns the number of items the cache can store before it is full.     When a cache contains a number of items equal to its capacity, adding new     items will cause items farthest from the added item to be removed.      \sa setCapacity(), size() */
@@ -186,10 +186,10 @@ begin_comment
 comment|/*! \fn int QContiguousCache::size() const      Returns the number of items contained within the cache.      \sa capacity() */
 end_comment
 begin_comment
-comment|/*! \fn bool QContiguousCache::isEmpty() const      Returns true if no items are stored within the cache.      \sa size(), capacity() */
+comment|/*! \fn bool QContiguousCache::isEmpty() const      Returns \c true if no items are stored within the cache.      \sa size(), capacity() */
 end_comment
 begin_comment
-comment|/*! \fn bool QContiguousCache::isFull() const      Returns true if the number of items stored within the cache is equal     to the capacity of the cache.      \sa size(), capacity() */
+comment|/*! \fn bool QContiguousCache::isFull() const      Returns \c true if the number of items stored within the cache is equal     to the capacity of the cache.      \sa size(), capacity() */
 end_comment
 begin_comment
 comment|/*! \fn int QContiguousCache::available() const      Returns the number of items that can be added to the cache before it becomes full.      \sa size(), capacity(), isFull() */
@@ -219,7 +219,7 @@ begin_comment
 comment|/*! \fn void QContiguousCache::insert(int i, const T&value)      Inserts the \a value at the index position \a i.  If the cache already contains     an item at \a i then that value is replaced.  If \a i is either one more than     lastIndex() or one less than firstIndex() it is the equivalent to an append()     or a prepend().      If the given index \a i is not within the current range of the cache nor adjacent     to the bounds of the cache's index range, the cache is first cleared before     inserting the item.  At this point the cache will have a size of 1.  It is     worthwhile taking effort to insert items in an order that starts adjacent     to the current index range for the cache.      The range of valid indexes for the QContiguousCache class are from     0 to INT_MAX. Inserting outside of this range has undefined behavior.       \sa prepend(), append(), isFull(), firstIndex(), lastIndex() */
 end_comment
 begin_comment
-comment|/*! \fn bool QContiguousCache::containsIndex(int i) const      Returns true if the cache's index range includes the given index \a i.      \sa firstIndex(), lastIndex() */
+comment|/*! \fn bool QContiguousCache::containsIndex(int i) const      Returns \c true if the cache's index range includes the given index \a i.      \sa firstIndex(), lastIndex() */
 end_comment
 begin_comment
 comment|/*! \fn int QContiguousCache::firstIndex() const      Returns the first valid index in the cache.  The index will be invalid if the     cache is empty.      \sa capacity(), size(), lastIndex() */

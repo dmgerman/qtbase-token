@@ -1727,7 +1727,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidInterfaceName(const QString&ifaceName)         Returns true if this is \a ifaceName is a valid interface name.          Valid interface names must:         \list           \li not be empty           \li not exceed 255 characters in length           \li be composed of dot-separated string components that contain only ASCII letters, digits              and the underscore ("_") character           \li contain at least two such components         \endlist     */
+comment|/*!         \fn bool QDBusUtil::isValidInterfaceName(const QString&ifaceName)         Returns \c true if this is \a ifaceName is a valid interface name.          Valid interface names must:         \list           \li not be empty           \li not exceed 255 characters in length           \li be composed of dot-separated string components that contain only ASCII letters, digits              and the underscore ("_") character           \li contain at least two such components         \endlist     */
 DECL|function|isValidInterfaceName
 name|bool
 name|isValidInterfaceName
@@ -1818,7 +1818,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidUniqueConnectionName(const QString&connName)         Returns true if \a connName is a valid unique connection name.          Unique connection names start with a colon (":") and are followed by a list of dot-separated         components composed of ASCII letters, digits, the hyphen or the underscore ("_") character.     */
+comment|/*!         \fn bool QDBusUtil::isValidUniqueConnectionName(const QString&connName)         Returns \c true if \a connName is a valid unique connection name.          Unique connection names start with a colon (":") and are followed by a list of dot-separated         components composed of ASCII letters, digits, the hyphen or the underscore ("_") character.     */
 DECL|function|isValidUniqueConnectionName
 name|bool
 name|isValidUniqueConnectionName
@@ -1973,7 +1973,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidBusName(const QString&busName)         Returns true if \a busName is a valid bus name.          A valid bus name is either a valid unique connection name or follows the rules:         \list           \li is not empty           \li does not exceed 255 characters in length           \li be composed of dot-separated string components that contain only ASCII letters, digits,              hyphens or underscores ("_"), but don't start with a digit           \li contains at least two such elements         \endlist          \sa isValidUniqueConnectionName()     */
+comment|/*!         \fn bool QDBusUtil::isValidBusName(const QString&busName)         Returns \c true if \a busName is a valid bus name.          A valid bus name is either a valid unique connection name or follows the rules:         \list           \li is not empty           \li does not exceed 255 characters in length           \li be composed of dot-separated string components that contain only ASCII letters, digits,              hyphens or underscores ("_"), but don't start with a digit           \li contains at least two such elements         \endlist          \sa isValidUniqueConnectionName()     */
 DECL|function|isValidBusName
 name|bool
 name|isValidBusName
@@ -2143,7 +2143,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidMemberName(const QString&memberName)         Returns true if \a memberName is a valid member name. A valid member name does not exceed         255 characters in length, is not empty, is composed only of ASCII letters, digits and         underscores, but does not start with a digit.     */
+comment|/*!         \fn bool QDBusUtil::isValidMemberName(const QString&memberName)         Returns \c true if \a memberName is a valid member name. A valid member name does not exceed         255 characters in length, is not empty, is composed only of ASCII letters, digits and         underscores, but does not start with a digit.     */
 DECL|function|isValidMemberName
 name|bool
 name|isValidMemberName
@@ -2229,7 +2229,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidErrorName(const QString&errorName)         Returns true if \a errorName is a valid error name. Valid error names are valid interface         names and vice-versa, so this function is actually an alias for isValidInterfaceName.     */
+comment|/*!         \fn bool QDBusUtil::isValidErrorName(const QString&errorName)         Returns \c true if \a errorName is a valid error name. Valid error names are valid interface         names and vice-versa, so this function is actually an alias for isValidInterfaceName.     */
 DECL|function|isValidErrorName
 name|bool
 name|isValidErrorName
@@ -2247,7 +2247,7 @@ name|errorName
 argument_list|)
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidObjectPath(const QString&path)         Returns true if \a path is valid object path.          Valid object paths follow the rules:         \list           \li start with the slash character ("/")           \li do not end in a slash, unless the path is just the initial slash           \li do not contain any two slashes in sequence           \li contain slash-separated parts, each of which is composed of ASCII letters, digits and              underscores ("_")         \endlist     */
+comment|/*!         \fn bool QDBusUtil::isValidObjectPath(const QString&path)         Returns \c true if \a path is valid object path.          Valid object paths follow the rules:         \list           \li start with the slash character ("/")           \li do not end in a slash, unless the path is just the initial slash           \li do not contain any two slashes in sequence           \li contain slash-separated parts, each of which is composed of ASCII letters, digits and              underscores ("_")         \endlist     */
 DECL|function|isValidObjectPath
 name|bool
 name|isValidObjectPath
@@ -2375,7 +2375,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidBasicType(int type)         Returns true if \a c is a valid, basic D-Bus type.      */
+comment|/*!         \fn bool QDBusUtil::isValidBasicType(int type)         Returns \c true if \a c is a valid, basic D-Bus type.      */
 DECL|function|isValidBasicType
 name|bool
 name|isValidBasicType
@@ -2391,7 +2391,7 @@ name|c
 argument_list|)
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidFixedType(int type)         Returns true if \a c is a valid, fixed D-Bus type.      */
+comment|/*!         \fn bool QDBusUtil::isValidFixedType(int type)         Returns \c true if \a c is a valid, fixed D-Bus type.      */
 DECL|function|isValidFixedType
 name|bool
 name|isValidFixedType
@@ -2407,7 +2407,7 @@ name|c
 argument_list|)
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidSignature(const QString&signature)         Returns true if \a signature is a valid D-Bus type signature for one or more types.         This function returns true if it can all of \a signature into valid, individual types and no         characters remain in \a signature.          \sa isValidSingleSignature()     */
+comment|/*!         \fn bool QDBusUtil::isValidSignature(const QString&signature)         Returns \c true if \a signature is a valid D-Bus type signature for one or more types.         This function returns \c true if it can all of \a signature into valid, individual types and no         characters remain in \a signature.          \sa isValidSingleSignature()     */
 DECL|function|isValidSignature
 name|bool
 name|isValidSignature
@@ -2468,7 +2468,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidSingleSignature(const QString&signature)         Returns true if \a signature is a valid D-Bus type signature for exactly one full type. This         function tries to convert the type signature into a D-Bus type and, if it succeeds and no         characters remain in the signature, it returns true.     */
+comment|/*!         \fn bool QDBusUtil::isValidSingleSignature(const QString&signature)         Returns \c true if \a signature is a valid D-Bus type signature for exactly one full type. This         function tries to convert the type signature into a D-Bus type and, if it succeeds and no         characters remain in the signature, it returns \c true.     */
 DECL|function|isValidSingleSignature
 name|bool
 name|isValidSingleSignature

@@ -151,7 +151,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*! \internal     Returns true if the widget \a w is a logical sub window of the current     top-level widget. */
+comment|/*! \internal     Returns \c true if the widget \a w is a logical sub window of the current     top-level widget. */
 end_comment
 begin_function
 DECL|function|qWidgetShortcutContextMatcher
@@ -1987,7 +1987,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QShortcut::enabled     \brief whether the shortcut is enabled      An enabled shortcut emits the activated() or activatedAmbiguously()     signal when a QShortcutEvent occurs that matches the shortcut's     key() sequence.      If the application is in \c WhatsThis mode the shortcut will not emit     the signals, but will show the "What's This?" text instead.      By default, this property is true.      \sa whatsThis */
+comment|/*!     \property QShortcut::enabled     \brief whether the shortcut is enabled      An enabled shortcut emits the activated() or activatedAmbiguously()     signal when a QShortcutEvent occurs that matches the shortcut's     key() sequence.      If the application is in \c WhatsThis mode the shortcut will not emit     the signals, but will show the "What's This?" text instead.      By default, this property is \c true.      \sa whatsThis */
 end_comment
 begin_function
 DECL|function|setEnabled

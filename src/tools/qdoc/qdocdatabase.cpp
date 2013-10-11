@@ -652,18 +652,7 @@ operator|->
 name|markSeen
 argument_list|()
 expr_stmt|;
-name|masterMap_
-operator|.
-name|insert
-argument_list|(
-name|qmn
-operator|->
-name|qmlModuleIdentifier
-argument_list|()
-argument_list|,
-name|qmn
-argument_list|)
-expr_stmt|;
+comment|//masterMap_.insert(qmn->qmlModuleIdentifier(),qmn);
 return|return
 name|qmn
 return|;
@@ -2638,7 +2627,7 @@ operator|*
 name|c
 operator|)
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 literal|"::"
@@ -4483,7 +4472,7 @@ operator|&&
 operator|!
 name|relative
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -4528,12 +4517,12 @@ name|n
 operator|&&
 name|relative
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|==
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 condition|)
 block|{
@@ -4629,7 +4618,7 @@ operator|&&
 operator|!
 name|relative
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -4715,16 +4704,16 @@ operator|*
 name|it
 operator|)
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|==
 name|relative
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 condition|)
 block|{
-comment|/*                           By returning here, we avoid printing all the duplicate                           header warnings, which are not really duplicates now,                           because of the QML module identifier being used as a                           namespace qualifier.                         */
+comment|/*                           By returning here, we avoid printing                           all the duplicate header warnings,                           which are not really duplicates now,                           because of the QML module name being                           used as a namespace qualifier.                         */
 name|dn
 operator|=
 cast|static_cast

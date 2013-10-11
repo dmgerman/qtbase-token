@@ -2259,7 +2259,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a node represents a reimplemented member   function in the class of the FastSection \a fs. If it is   a reimplemented function, then it is inserted into the   reimplemented member map in \a fs. The test is performed   only if \a status is \e OK. True is returned if \a node   is inserted into the map. Otherwise, false is returned.  */
+comment|/*!   Returns \c true if \a node represents a reimplemented member   function in the class of the FastSection \a fs. If it is   a reimplemented function, then it is inserted into the   reimplemented member map in \a fs. The test is performed   only if \a status is \e OK. True is returned if \a node   is inserted into the map. Otherwise, false is returned.  */
 end_comment
 begin_function
 DECL|function|insertReimpFunc

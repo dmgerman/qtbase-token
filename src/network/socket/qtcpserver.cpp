@@ -602,7 +602,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Tells the server to listen for incoming connections on address \a     address and port \a port. If \a port is 0, a port is chosen     automatically. If \a address is QHostAddress::Any, the server     will listen on all network interfaces.      Returns true on success; otherwise returns false.      \sa isListening() */
+comment|/*!     Tells the server to listen for incoming connections on address \a     address and port \a port. If \a port is 0, a port is chosen     automatically. If \a address is QHostAddress::Any, the server     will listen on all network interfaces.      Returns \c true on success; otherwise returns \c false.      \sa isListening() */
 end_comment
 begin_function
 DECL|function|listen
@@ -1032,7 +1032,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the server is currently listening for incoming     connections; otherwise returns false.      \sa listen() */
+comment|/*!     Returns \c true if the server is currently listening for incoming     connections; otherwise returns \c false.      \sa listen() */
 end_comment
 begin_function
 DECL|function|isListening
@@ -1182,7 +1182,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the socket descriptor this server should use when listening     for incoming connections to \a socketDescriptor. Returns true if     the socket is set successfully; otherwise returns false.      The socket is assumed to be in listening state.      \sa socketDescriptor(), isListening() */
+comment|/*!     Sets the socket descriptor this server should use when listening     for incoming connections to \a socketDescriptor. Returns \c true if     the socket is set successfully; otherwise returns \c false.      The socket is assumed to be in listening state.      \sa socketDescriptor(), isListening() */
 end_comment
 begin_function
 DECL|function|setSocketDescriptor
@@ -1499,7 +1499,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits for at most \a msec milliseconds or until an incoming     connection is available. Returns true if a connection is     available; otherwise returns false. If the operation timed out     and \a timedOut is not 0, *\a timedOut will be set to true.      This is a blocking function call. Its use is disadvised in a     single-threaded GUI application, since the whole application will     stop responding until the function returns.     waitForNewConnection() is mostly useful when there is no event     loop available.      The non-blocking alternative is to connect to the newConnection()     signal.      If msec is -1, this function will not time out.      \sa hasPendingConnections(), nextPendingConnection() */
+comment|/*!     Waits for at most \a msec milliseconds or until an incoming     connection is available. Returns \c true if a connection is     available; otherwise returns \c false. If the operation timed out     and \a timedOut is not 0, *\a timedOut will be set to true.      This is a blocking function call. Its use is disadvised in a     single-threaded GUI application, since the whole application will     stop responding until the function returns.     waitForNewConnection() is mostly useful when there is no event     loop available.      The non-blocking alternative is to connect to the newConnection()     signal.      If msec is -1, this function will not time out.      \sa hasPendingConnections(), nextPendingConnection() */
 end_comment
 begin_function
 DECL|function|waitForNewConnection
@@ -1596,7 +1596,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the server has a pending connection; otherwise     returns false.      \sa nextPendingConnection(), setMaxPendingConnections() */
+comment|/*!     Returns \c true if the server has a pending connection; otherwise     returns \c false.      \sa nextPendingConnection(), setMaxPendingConnections() */
 end_comment
 begin_function
 DECL|function|hasPendingConnections

@@ -214,7 +214,7 @@ begin_comment
 comment|/*!   \fn void QRawFont::swap(QRawFont&other)   \since 5.0    Swaps this raw font with \a other. This function is very fast and   never fails. */
 end_comment
 begin_comment
-comment|/*!    Returns true if the QRawFont is valid and false otherwise. */
+comment|/*!    Returns \c true if the QRawFont is valid and false otherwise. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -482,7 +482,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QRawFont is equal to \a other. Otherwise, returns false. */
+comment|/*!    Returns \c true if this QRawFont is equal to \a other. Otherwise, returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -513,7 +513,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QRawFont::operator!=(const QRawFont&other) const      Returns true if this QRawFont is not equal to \a other. Otherwise, returns false. */
+comment|/*!     \fn bool QRawFont::operator!=(const QRawFont&other) const      Returns \c true if this QRawFont is not equal to \a other. Otherwise, returns \c false. */
 end_comment
 begin_comment
 comment|/*!    Returns the ascent of this QRawFont in pixel units.     \sa QFontMetricsF::ascent() */
@@ -1831,7 +1831,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the font has a glyph that corresponds to the given \a character.      \sa supportedWritingSystems() */
+comment|/*!     Returns \c true if the font has a glyph that corresponds to the given \a character.      \sa supportedWritingSystems() */
 end_comment
 begin_function
 DECL|function|supportsCharacter
@@ -1866,7 +1866,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Returns true if the font has a glyph that corresponds to the UCS-4 encoded character \a ucs4.     \sa supportedWritingSystems() */
+comment|/*!     \overload     Returns \c true if the font has a glyph that corresponds to the UCS-4 encoded character \a ucs4.     \sa supportedWritingSystems() */
 end_comment
 begin_function
 DECL|function|supportsCharacter

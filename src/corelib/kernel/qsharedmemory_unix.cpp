@@ -488,7 +488,7 @@ argument_list|)
 operator|)
 end_if
 begin_comment
-comment|/*!     \internal     Creates the unix file if needed.     returns true if the unix file was created.      -1 error      0 already existed      1 created   */
+comment|/*!     \internal     Creates the unix file if needed.     returns \c true if the unix file was created.      -1 error      0 already existed      1 created   */
 end_comment
 begin_function
 DECL|function|createUnixKeyFile

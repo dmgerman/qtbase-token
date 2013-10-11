@@ -3113,7 +3113,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   returns true if the size policy returns true for either hasHeightForWidth()   or hasWidthForHeight()  */
+comment|/*   returns \c true if the size policy returns \c true for either hasHeightForWidth()   or hasWidthForHeight()  */
 end_comment
 begin_function
 DECL|function|hasDynamicConstraint
@@ -10505,7 +10505,7 @@ comment|//We have items whose width depends on their height
 block|}
 end_function
 begin_comment
-comment|/**    returns false if the layout has contradicting constraints (i.e. some items with a horizontal    constraint and other items with a vertical constraint)  */
+comment|/**    returns \c false if the layout has contradicting constraints (i.e. some items with a horizontal    constraint and other items with a vertical constraint)  */
 end_comment
 begin_function
 DECL|function|ensureDynamicConstraint
@@ -10650,7 +10650,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * return value is only valid if hasConstraint() returns true  */
+comment|/*  * return value is only valid if hasConstraint() returns \c true  */
 end_comment
 begin_function
 DECL|function|constraintOrientation

@@ -1646,7 +1646,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if the fragment is empty; otherwise returns false. */
+comment|/*!     Returns \c true if the fragment is empty; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isEmpty

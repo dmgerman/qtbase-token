@@ -504,7 +504,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this layout's preferred height depends on its     width; otherwise returns false. The default implementation returns     false.      Reimplement this function in layout managers that support height     for width.      \sa heightForWidth(), QWidget::heightForWidth() */
+comment|/*!     Returns \c true if this layout's preferred height depends on its     width; otherwise returns \c false. The default implementation returns     false.      Reimplement this function in layout managers that support height     for width.      \sa heightForWidth(), QWidget::heightForWidth() */
 end_comment
 begin_function
 DECL|function|hasHeightForWidth
@@ -1833,7 +1833,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true. */
+comment|/*!     Returns \c true. */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -1850,7 +1850,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the widget is hidden; otherwise returns false.      \sa QWidget::isHidden() */
+comment|/*!     Returns \c true if the widget is hidden; otherwise returns \c false.      \sa QWidget::isHidden() */
 end_comment
 begin_function
 DECL|function|isEmpty

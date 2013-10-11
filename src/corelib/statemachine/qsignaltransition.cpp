@@ -411,7 +411,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \reimp    The default implementation returns true if the \a event is a   QStateMachine::SignalEvent object and the event's sender and signal index   match this transition, and returns false otherwise. */
+comment|/*!   \reimp    The default implementation returns \c true if the \a event is a   QStateMachine::SignalEvent object and the event's sender and signal index   match this transition, and returns \c false otherwise. */
 end_comment
 begin_function
 DECL|function|eventTest

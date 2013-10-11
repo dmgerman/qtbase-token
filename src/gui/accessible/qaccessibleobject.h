@@ -56,18 +56,21 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QObject
 operator|*
 name|object
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// properties
 name|QRect
 name|rect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setText
@@ -76,6 +79,7 @@ argument|QAccessible::Text t
 argument_list|,
 argument|const QString&text
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -86,6 +90,7 @@ argument_list|,
 argument|int y
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -125,12 +130,14 @@ operator|*
 name|window
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// relations
 name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|indexOfChild
@@ -138,12 +145,14 @@ argument_list|(
 argument|const QAccessibleInterface*
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
 name|focusChild
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// navigation
 name|QAccessibleInterface
@@ -151,6 +160,7 @@ operator|*
 name|parent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -159,6 +169,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// properties and state
 name|QString
@@ -167,6 +178,7 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessible
 operator|::
@@ -174,6 +186,7 @@ name|Role
 name|role
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessible
 operator|::
@@ -181,6 +194,7 @@ name|State
 name|state
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

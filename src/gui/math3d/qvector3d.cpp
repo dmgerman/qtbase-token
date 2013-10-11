@@ -165,7 +165,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn bool QVector3D::isNull() const      Returns true if the x, y, and z coordinates are set to 0.0,     otherwise returns false. */
+comment|/*!     \fn bool QVector3D::isNull() const      Returns \c true if the x, y, and z coordinates are set to 0.0,     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn float QVector3D::x() const      Returns the x coordinate of this point.      \sa setX(), y(), z() */
@@ -828,10 +828,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator==(const QVector3D&v1, const QVector3D&v2)     \relates QVector3D      Returns true if \a v1 is equal to \a v2; otherwise returns false.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool operator==(const QVector3D&v1, const QVector3D&v2)     \relates QVector3D      Returns \c true if \a v1 is equal to \a v2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QVector3D&v1, const QVector3D&v2)     \relates QVector3D      Returns true if \a v1 is not equal to \a v2; otherwise returns false.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool operator!=(const QVector3D&v1, const QVector3D&v2)     \relates QVector3D      Returns \c true if \a v1 is not equal to \a v2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
 comment|/*!     \fn const QVector3D operator+(const QVector3D&v1, const QVector3D&v2)     \relates QVector3D      Returns a QVector3D object that is the sum of the given vectors, \a v1     and \a v2; each component is added separately.      \sa QVector3D::operator+=() */
@@ -855,7 +855,7 @@ begin_comment
 comment|/*!     \fn const QVector3D operator/(const QVector3D&vector, float divisor)     \relates QVector3D      Returns the QVector3D object formed by dividing all three components of     the given \a vector by the given \a divisor.      \sa QVector3D::operator/=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool qFuzzyCompare(const QVector3D& v1, const QVector3D& v2)     \relates QVector3D      Returns true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
+comment|/*!     \fn bool qFuzzyCompare(const QVector3D& v1, const QVector3D& v2)     \relates QVector3D      Returns \c true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
 end_comment
 begin_ifndef
 ifndef|#

@@ -1905,7 +1905,7 @@ begin_comment
 comment|/*!     \class QToolBar      \brief The QToolBar class provides a movable panel that contains a     set of controls.      \ingroup mainwindow-classes     \inmodule QtWidgets      Toolbar buttons are added by adding \e actions, using addAction()     or insertAction(). Groups of buttons can be separated using     addSeparator() or insertSeparator(). If a toolbar button is not     appropriate, a widget can be inserted instead using addWidget() or     insertWidget(). Examples of suitable widgets are QSpinBox,     QDoubleSpinBox, and QComboBox. When a toolbar button is pressed, it     emits the actionTriggered() signal.      A toolbar can be fixed in place in a particular area (e.g., at the     top of the window), or it can be movable between toolbar areas;     see setMovable(), isMovable(), allowedAreas() and isAreaAllowed().      When a toolbar is resized in such a way that it is too small to     show all the items it contains, an extension button will appear as     the last item in the toolbar. Pressing the extension button will     pop up a menu containing the items that does not currently fit in     the toolbar.      When a QToolBar is not a child of a QMainWindow, it loses the ability     to populate the extension pop up with widgets added to the toolbar using     addWidget(). Please use widget actions created by inheriting QWidgetAction     and implementing QWidgetAction::createWidget() instead.      \sa QToolButton, QMenu, QAction, {Application Example} */
 end_comment
 begin_comment
-comment|/*!     \fn bool QToolBar::isAreaAllowed(Qt::ToolBarArea area) const      Returns true if this toolbar is dockable in the given \a area;     otherwise returns false. */
+comment|/*!     \fn bool QToolBar::isAreaAllowed(Qt::ToolBarArea area) const      Returns \c true if this toolbar is dockable in the given \a area;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QToolBar::addAction(QAction *action)     \overload      Appends the \a action to the toolbar's list of actions.      \sa QMenu::addAction(), QWidget::addAction() */
@@ -2096,7 +2096,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*! \property QToolBar::movable     \brief whether the user can move the toolbar within the toolbar area,     or between toolbar areas.      By default, this property is true.      This property only makes sense if the toolbar is in a     QMainWindow.      \sa allowedAreas */
+comment|/*! \property QToolBar::movable     \brief whether the user can move the toolbar within the toolbar area,     or between toolbar areas.      By default, this property is \c true.      This property only makes sense if the toolbar is in a     QMainWindow.      \sa allowedAreas */
 end_comment
 begin_function
 DECL|function|setMovable
@@ -2220,7 +2220,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QToolBar::floating     \brief whether the toolbar is an independent window.      By default, this property is true.      \sa QWidget::isWindow() */
+comment|/*!     \property QToolBar::floating     \brief whether the toolbar is an independent window.      By default, this property is \c true.      \sa QWidget::isWindow() */
 end_comment
 begin_function
 DECL|function|isFloating

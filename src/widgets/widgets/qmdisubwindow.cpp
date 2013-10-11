@@ -11538,7 +11538,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this window is shaded; otherwise returns false.      A window is shaded if it is collapsed so that only the title bar is     visible. */
+comment|/*!     Returns \c true if this window is shaded; otherwise returns \c false.      A window is shaded if it is collapsed so that only the title bar is     visible. */
 end_comment
 begin_function
 DECL|function|isShaded
@@ -11651,7 +11651,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a option is enabled; otherwise returns false.      \sa SubWindowOption, setOption() */
+comment|/*!     Returns \c true if \a option is enabled; otherwise returns \c false.      \sa SubWindowOption, setOption() */
 end_comment
 begin_function
 DECL|function|testOption

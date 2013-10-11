@@ -1377,7 +1377,7 @@ begin_comment
 comment|// Theme data helper ------------------------------------------------------------------------------
 end_comment
 begin_comment
-comment|/* \internal     Returns true if the themedata is valid for use. */
+comment|/* \internal     Returns \c true if the themedata is valid for use. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -2535,7 +2535,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns true if all the necessary theme engine symbols were     resolved. */
+comment|/*! \internal     Returns \c true if all the necessary theme engine symbols were     resolved. */
 end_comment
 begin_function
 DECL|function|resolveSymbols
@@ -3162,7 +3162,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns true if the part contains any transparency at all. This does     not indicate what kind of transparency we're dealing with. It can be         - Alpha transparency         - Masked transparency */
+comment|/*! \internal     Returns \c true if the part contains any transparency at all. This does     not indicate what kind of transparency we're dealing with. It can be         - Alpha transparency         - Masked transparency */
 end_comment
 begin_function
 DECL|function|isTransparent
@@ -3519,7 +3519,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns true if the native doublebuffer contains pixels with     varying alpha value. */
+comment|/*! \internal     Returns \c true if the native doublebuffer contains pixels with     varying alpha value. */
 end_comment
 begin_function
 DECL|function|hasAlphaChannel

@@ -298,7 +298,7 @@ begin_comment
 comment|//************* QFile
 end_comment
 begin_comment
-comment|/*!     \class QFile     \inmodule QtCore     \brief The QFile class provides an interface for reading from and writing to files.      \ingroup io      \reentrant      QFile is an I/O device for reading and writing text and binary     files and \l{The Qt Resource System}{resources}. A QFile may be     used by itself or, more conveniently, with a QTextStream or     QDataStream.      The file name is usually passed in the constructor, but it can be     set at any time using setFileName(). QFile expects the file     separator to be '/' regardless of operating system. The use of     other separators (e.g., '\\') is not supported.      You can check for a file's existence using exists(), and remove a     file using remove(). (More advanced file system related operations     are provided by QFileInfo and QDir.)      The file is opened with open(), closed with close(), and flushed     with flush(). Data is usually read and written using QDataStream     or QTextStream, but you can also call the QIODevice-inherited     functions read(), readLine(), readAll(), write(). QFile also     inherits getChar(), putChar(), and ungetChar(), which work one     character at a time.      The size of the file is returned by size(). You can get the     current file position using pos(), or move to a new file position     using seek(). If you've reached the end of the file, atEnd()     returns true.      \section1 Reading Files Directly      The following example reads a text file line by line:      \snippet file/file.cpp 0      The QIODevice::Text flag passed to open() tells Qt to convert     Windows-style line terminators ("\\r\\n") into C++-style     terminators ("\\n"). By default, QFile assumes binary, i.e. it     doesn't perform any conversion on the bytes stored in the file.      \section1 Using Streams to Read Files      The next example uses QTextStream to read a text file     line by line:      \snippet file/file.cpp 1      QTextStream takes care of converting the 8-bit data stored on     disk into a 16-bit Unicode QString. By default, it assumes that     the user system's local 8-bit encoding is used (e.g., UTF-8     on most unix based operating systems; see QTextCodec::codecForLocale() for     details). This can be changed using setCodec().      To write text, we can use operator<<(), which is overloaded to     take a QTextStream on the left and various data types (including     QString) on the right:      \snippet file/file.cpp 2      QDataStream is similar, in that you can use operator<<() to write     data and operator>>() to read it back. See the class     documentation for details.      When you use QFile, QFileInfo, and QDir to access the file system     with Qt, you can use Unicode file names. On Unix, these file     names are converted to an 8-bit encoding. If you want to use     standard C++ APIs (\c<cstdio> or \c<iostream>) or     platform-specific APIs to access files instead of QFile, you can     use the encodeName() and decodeName() functions to convert     between Unicode file names and 8-bit file names.      On Unix, there are some special system files (e.g. in \c /proc) for which     size() will always return 0, yet you may still be able to read more data     from such a file; the data is generated in direct response to you calling     read(). In this case, however, you cannot use atEnd() to determine if     there is more data to read (since atEnd() will return true for a file that     claims to have size 0). Instead, you should either call readAll(), or call     read() or readLine() repeatedly until no more data can be read. The next     example uses QTextStream to read \c /proc/modules line by line:      \snippet file/file.cpp 3      \section1 Signals      Unlike other QIODevice implementations, such as QTcpSocket, QFile does not     emit the aboutToClose(), bytesWritten(), or readyRead() signals. This     implementation detail means that QFile is not suitable for reading and     writing certain types of files, such as device files on Unix platforms.      \section1 Platform Specific Issues      File permissions are handled differently on Linux/Mac OS X and     Windows.  In a non \l{QIODevice::isWritable()}{writable}     directory on Linux, files cannot be created. This is not always     the case on Windows, where, for instance, the 'My Documents'     directory usually is not writable, but it is still possible to     create files in it.      \sa QTextStream, QDataStream, QFileInfo, QDir, {The Qt Resource System} */
+comment|/*!     \class QFile     \inmodule QtCore     \brief The QFile class provides an interface for reading from and writing to files.      \ingroup io      \reentrant      QFile is an I/O device for reading and writing text and binary     files and \l{The Qt Resource System}{resources}. A QFile may be     used by itself or, more conveniently, with a QTextStream or     QDataStream.      The file name is usually passed in the constructor, but it can be     set at any time using setFileName(). QFile expects the file     separator to be '/' regardless of operating system. The use of     other separators (e.g., '\\') is not supported.      You can check for a file's existence using exists(), and remove a     file using remove(). (More advanced file system related operations     are provided by QFileInfo and QDir.)      The file is opened with open(), closed with close(), and flushed     with flush(). Data is usually read and written using QDataStream     or QTextStream, but you can also call the QIODevice-inherited     functions read(), readLine(), readAll(), write(). QFile also     inherits getChar(), putChar(), and ungetChar(), which work one     character at a time.      The size of the file is returned by size(). You can get the     current file position using pos(), or move to a new file position     using seek(). If you've reached the end of the file, atEnd()     returns \c true.      \section1 Reading Files Directly      The following example reads a text file line by line:      \snippet file/file.cpp 0      The QIODevice::Text flag passed to open() tells Qt to convert     Windows-style line terminators ("\\r\\n") into C++-style     terminators ("\\n"). By default, QFile assumes binary, i.e. it     doesn't perform any conversion on the bytes stored in the file.      \section1 Using Streams to Read Files      The next example uses QTextStream to read a text file     line by line:      \snippet file/file.cpp 1      QTextStream takes care of converting the 8-bit data stored on     disk into a 16-bit Unicode QString. By default, it assumes that     the user system's local 8-bit encoding is used (e.g., UTF-8     on most unix based operating systems; see QTextCodec::codecForLocale() for     details). This can be changed using setCodec().      To write text, we can use operator<<(), which is overloaded to     take a QTextStream on the left and various data types (including     QString) on the right:      \snippet file/file.cpp 2      QDataStream is similar, in that you can use operator<<() to write     data and operator>>() to read it back. See the class     documentation for details.      When you use QFile, QFileInfo, and QDir to access the file system     with Qt, you can use Unicode file names. On Unix, these file     names are converted to an 8-bit encoding. If you want to use     standard C++ APIs (\c<cstdio> or \c<iostream>) or     platform-specific APIs to access files instead of QFile, you can     use the encodeName() and decodeName() functions to convert     between Unicode file names and 8-bit file names.      On Unix, there are some special system files (e.g. in \c /proc) for which     size() will always return 0, yet you may still be able to read more data     from such a file; the data is generated in direct response to you calling     read(). In this case, however, you cannot use atEnd() to determine if     there is more data to read (since atEnd() will return true for a file that     claims to have size 0). Instead, you should either call readAll(), or call     read() or readLine() repeatedly until no more data can be read. The next     example uses QTextStream to read \c /proc/modules line by line:      \snippet file/file.cpp 3      \section1 Signals      Unlike other QIODevice implementations, such as QTcpSocket, QFile does not     emit the aboutToClose(), bytesWritten(), or readyRead() signals. This     implementation detail means that QFile is not suitable for reading and     writing certain types of files, such as device files on Unix platforms.      \section1 Platform Specific Issues      File permissions are handled differently on Linux/Mac OS X and     Windows.  In a non \l{QIODevice::isWritable()}{writable}     directory on Linux, files cannot be created. This is not always     the case on Windows, where, for instance, the 'My Documents'     directory usually is not writable, but it is still possible to     create files in it.      \sa QTextStream, QDataStream, QFileInfo, QDir, {The Qt Resource System} */
 end_comment
 begin_ifdef
 ifdef|#
@@ -658,7 +658,7 @@ begin_comment
 comment|/*!     \fn void QFile::setDecodingFunction(DecoderFn function)     \obsolete      This function does nothing. It is provided for compatibility with Qt 4 code     that attempted to set a different decoding function for file names. That     feature is flawed and no longer supported in Qt 5.      \sa setEncodingFunction(), decodeName() */
 end_comment
 begin_comment
-comment|/*!     \overload      Returns true if the file specified by fileName() exists; otherwise     returns false.      \sa fileName(), setFileName() */
+comment|/*!     \overload      Returns \c true if the file specified by fileName() exists; otherwise     returns \c false.      \sa fileName(), setFileName() */
 end_comment
 begin_function
 name|bool
@@ -705,7 +705,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file specified by \a fileName exists; otherwise     returns false.      \note If \a fileName is a symlink that points to a non-existing     file, false is returned. */
+comment|/*!     Returns \c true if the file specified by \a fileName exists; otherwise     returns \c false.      \note If \a fileName is a symlink that points to a non-existing     file, false is returned. */
 end_comment
 begin_function
 name|bool
@@ -731,7 +731,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QFile::symLinkTarget() const     \since 4.2     \overload      Returns the absolute path of the file or directory a symlink (or shortcut     on Windows) points to, or a an empty string if the object isn't a symbolic     link.      This name may not represent an existing file; it is only a string.     QFile::exists() returns true if the symlink points to an existing file.      \sa fileName(), setFileName() */
+comment|/*!     \fn QString QFile::symLinkTarget() const     \since 4.2     \overload      Returns the absolute path of the file or directory a symlink (or shortcut     on Windows) points to, or a an empty string if the object isn't a symbolic     link.      This name may not represent an existing file; it is only a string.     QFile::exists() returns \c true if the symlink points to an existing file.      \sa fileName(), setFileName() */
 end_comment
 begin_comment
 comment|/*!     \obsolete      Use symLinkTarget() instead. */
@@ -767,7 +767,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn static QString QFile::symLinkTarget(const QString&fileName)     \since 4.2      Returns the absolute path of the file or directory referred to by the     symlink (or shortcut on Windows) specified by \a fileName, or returns an     empty string if the \a fileName does not correspond to a symbolic link.      This name may not represent an existing file; it is only a string.     QFile::exists() returns true if the symlink points to an existing file. */
+comment|/*!     \fn static QString QFile::symLinkTarget(const QString&fileName)     \since 4.2      Returns the absolute path of the file or directory referred to by the     symlink (or shortcut on Windows) specified by \a fileName, or returns an     empty string if the \a fileName does not correspond to a symbolic link.      This name may not represent an existing file; it is only a string.     QFile::exists() returns \c true if the symlink points to an existing file. */
 end_comment
 begin_comment
 comment|/*!     \obsolete      Use symLinkTarget() instead. */
@@ -797,7 +797,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the file specified by fileName(). Returns true if successful;     otherwise returns false.      The file is closed before it is removed.      \sa setFileName() */
+comment|/*!     Removes the file specified by fileName(). Returns \c true if successful;     otherwise returns \c false.      The file is closed before it is removed.      \sa setFileName() */
 end_comment
 begin_function
 name|bool
@@ -888,7 +888,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Removes the file specified by the \a fileName given.      Returns true if successful; otherwise returns false.      \sa remove() */
+comment|/*!     \overload      Removes the file specified by the \a fileName given.      Returns \c true if successful; otherwise returns \c false.      \sa remove() */
 end_comment
 begin_function
 name|bool
@@ -915,7 +915,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Renames the file currently specified by fileName() to \a newName.     Returns true if successful; otherwise returns false.      If a file with the name \a newName already exists, rename() returns false     (i.e., QFile will not overwrite it).      The file is closed before it is renamed.      If the rename operation fails, Qt will attempt to copy this file's     contents to \a newName, and then remove this file, keeping only     \a newName. If that copy operation fails or this file can't be removed,     the destination file \a newName is removed to restore the old state.      \sa setFileName() */
+comment|/*!     Renames the file currently specified by fileName() to \a newName.     Returns \c true if successful; otherwise returns \c false.      If a file with the name \a newName already exists, rename() returns \c false     (i.e., QFile will not overwrite it).      The file is closed before it is renamed.      If the rename operation fails, Qt will attempt to copy this file's     contents to \a newName, and then remove this file, keeping only     \a newName. If that copy operation fails or this file can't be removed,     the destination file \a newName is removed to restore the old state.      \sa setFileName() */
 end_comment
 begin_function
 name|bool
@@ -1589,7 +1589,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Renames the file \a oldName to \a newName. Returns true if     successful; otherwise returns false.      If a file with the name \a newName already exists, rename() returns false     (i.e., QFile will not overwrite it).      \sa rename() */
+comment|/*!     \overload      Renames the file \a oldName to \a newName. Returns \c true if     successful; otherwise returns \c false.      If a file with the name \a newName already exists, rename() returns \c false     (i.e., QFile will not overwrite it).      \sa rename() */
 end_comment
 begin_function
 name|bool
@@ -1623,7 +1623,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Creates a link named \a linkName that points to the file currently specified by     fileName().  What a link is depends on the underlying filesystem (be it a     shortcut on Windows or a symbolic link on Unix). Returns true if successful;     otherwise returns false.      This function will not overwrite an already existing entity in the file system;     in this case, \c link() will return false and set \l{QFile::}{error()} to     return \l{QFile::}{RenameError}.      \note To create a valid link on Windows, \a linkName must have a \c{.lnk} file extension.      \sa setFileName() */
+comment|/*!      Creates a link named \a linkName that points to the file currently specified by     fileName().  What a link is depends on the underlying filesystem (be it a     shortcut on Windows or a symbolic link on Unix). Returns \c true if successful;     otherwise returns \c false.      This function will not overwrite an already existing entity in the file system;     in this case, \c link() will return false and set \l{QFile::}{error()} to     return \l{QFile::}{RenameError}.      \note To create a valid link on Windows, \a linkName must have a \c{.lnk} file extension.      \sa setFileName() */
 end_comment
 begin_function
 name|bool
@@ -1713,7 +1713,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Creates a link named \a linkName that points to the file \a fileName. What a link is     depends on the underlying filesystem (be it a shortcut on Windows     or a symbolic link on Unix). Returns true if successful; otherwise     returns false.      \sa link() */
+comment|/*!     \overload      Creates a link named \a linkName that points to the file \a fileName. What a link is     depends on the underlying filesystem (be it a shortcut on Windows     or a symbolic link on Unix). Returns \c true if successful; otherwise     returns \c false.      \sa link() */
 end_comment
 begin_function
 name|bool
@@ -1747,7 +1747,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Copies the file currently specified by fileName() to a file called     \a newName.  Returns true if successful; otherwise returns false.      Note that if a file with the name \a newName already exists,     copy() returns false (i.e. QFile will not overwrite it).      The source file is closed before it is copied.      \sa setFileName() */
+comment|/*!     Copies the file currently specified by fileName() to a file called     \a newName.  Returns \c true if successful; otherwise returns \c false.      Note that if a file with the name \a newName already exists,     copy() returns \c false (i.e. QFile will not overwrite it).      The source file is closed before it is copied.      \sa setFileName() */
 end_comment
 begin_function
 name|bool
@@ -2232,7 +2232,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Copies the file \a fileName to \a newName. Returns true if successful;     otherwise returns false.      If a file with the name \a newName already exists, copy() returns false     (i.e., QFile will not overwrite it).      \sa rename() */
+comment|/*!     \overload      Copies the file \a fileName to \a newName. Returns \c true if successful;     otherwise returns \c false.      If a file with the name \a newName already exists, copy() returns \c false     (i.e., QFile will not overwrite it).      \sa rename() */
 end_comment
 begin_function
 name|bool
@@ -2429,7 +2429,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Opens the existing file handle \a fh in the given \a mode.     \a handleFlags may be used to specify additional options.     Returns true if successful; otherwise returns false.      Example:     \snippet code/src_corelib_io_qfile.cpp 3      When a QFile is opened using this function, behaviour of close() is     controlled by the AutoCloseHandle flag.     If AutoCloseHandle is specified, and this function succeeds,     then calling close() closes the adopted handle.     Otherwise, close() does not actually close the file, but only flushes it.      \b{Warning:}     \list 1         \li If \a fh does not refer to a regular file, e.g., it is \c stdin,            \c stdout, or \c stderr, you may not be able to seek(). size()            returns \c 0 in those cases. See QIODevice::isSequential() for            more information.         \li Since this function opens the file without specifying the file name,            you cannot use this QFile with a QFileInfo.     \endlist      \note For Windows CE you may not be able to call resize().      \sa close()      \b{Note for the Windows Platform}      \a fh must be opened in binary mode (i.e., the mode string must contain     'b', as in "rb" or "wb") when accessing files and other random-access     devices. Qt will translate the end-of-line characters if you pass     QIODevice::Text to \a mode. Sequential devices, such as stdin and stdout,     are unaffected by this limitation.      You need to enable support for console applications in order to use the     stdin, stdout and stderr streams at the console. To do this, add the     following declaration to your application's project file:      \snippet code/src_corelib_io_qfile.cpp 4 */
+comment|/*!     \overload      Opens the existing file handle \a fh in the given \a mode.     \a handleFlags may be used to specify additional options.     Returns \c true if successful; otherwise returns \c false.      Example:     \snippet code/src_corelib_io_qfile.cpp 3      When a QFile is opened using this function, behaviour of close() is     controlled by the AutoCloseHandle flag.     If AutoCloseHandle is specified, and this function succeeds,     then calling close() closes the adopted handle.     Otherwise, close() does not actually close the file, but only flushes it.      \b{Warning:}     \list 1         \li If \a fh does not refer to a regular file, e.g., it is \c stdin,            \c stdout, or \c stderr, you may not be able to seek(). size()            returns \c 0 in those cases. See QIODevice::isSequential() for            more information.         \li Since this function opens the file without specifying the file name,            you cannot use this QFile with a QFileInfo.     \endlist      \note For Windows CE you may not be able to call resize().      \sa close()      \b{Note for the Windows Platform}      \a fh must be opened in binary mode (i.e., the mode string must contain     'b', as in "rb" or "wb") when accessing files and other random-access     devices. Qt will translate the end-of-line characters if you pass     QIODevice::Text to \a mode. Sequential devices, such as stdin and stdout,     are unaffected by this limitation.      You need to enable support for console applications in order to use the     stdin, stdout and stderr streams at the console. To do this, add the     following declaration to your application's project file:      \snippet code/src_corelib_io_qfile.cpp 4 */
 end_comment
 begin_function
 DECL|function|open
@@ -2586,7 +2586,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Opens the existing file descriptor \a fd in the given \a mode.     \a handleFlags may be used to specify additional options.     Returns true if successful; otherwise returns false.      When a QFile is opened using this function, behaviour of close() is     controlled by the AutoCloseHandle flag.     If AutoCloseHandle is specified, and this function succeeds,     then calling close() closes the adopted handle.     Otherwise, close() does not actually close the file, but only flushes it.      The QFile that is opened using this function is automatically set     to be in raw mode; this means that the file input/output functions     are slow. If you run into performance issues, you should try to     use one of the other open functions.      \warning If \a fd is not a regular file, e.g, it is 0 (\c stdin),     1 (\c stdout), or 2 (\c stderr), you may not be able to seek(). In     those cases, size() returns \c 0.  See QIODevice::isSequential()     for more information.      \warning For Windows CE you may not be able to call seek(), setSize(),     fileTime(). size() returns \c 0.      \warning Since this function opens the file without specifying the file name,              you cannot use this QFile with a QFileInfo.      \sa close() */
+comment|/*!     \overload      Opens the existing file descriptor \a fd in the given \a mode.     \a handleFlags may be used to specify additional options.     Returns \c true if successful; otherwise returns \c false.      When a QFile is opened using this function, behaviour of close() is     controlled by the AutoCloseHandle flag.     If AutoCloseHandle is specified, and this function succeeds,     then calling close() closes the adopted handle.     Otherwise, close() does not actually close the file, but only flushes it.      The QFile that is opened using this function is automatically set     to be in raw mode; this means that the file input/output functions     are slow. If you run into performance issues, you should try to     use one of the other open functions.      \warning If \a fd is not a regular file, e.g, it is 0 (\c stdin),     1 (\c stdout), or 2 (\c stderr), you may not be able to seek(). In     those cases, size() returns \c 0.  See QIODevice::isSequential()     for more information.      \warning For Windows CE you may not be able to call seek(), setSize(),     fileTime(). size() returns \c 0.      \warning Since this function opens the file without specifying the file name,              you cannot use this QFile with a QFileInfo.      \sa close() */
 end_comment
 begin_function
 DECL|function|open
@@ -2774,7 +2774,7 @@ comment|// for now
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets \a fileName to size (in bytes) \a sz. Returns true if the file if     the resize succeeds; false otherwise. If \a sz is larger than \a     fileName currently is the new bytes will be set to 0, if \a sz is     smaller the file is simply truncated.      \sa resize() */
+comment|/*!     \overload      Sets \a fileName to size (in bytes) \a sz. Returns \c true if the file if     the resize succeeds; false otherwise. If \a sz is larger than \a     fileName currently is the new bytes will be set to 0, if \a sz is     smaller the file is simply truncated.      \sa resize() */
 end_comment
 begin_function
 name|bool
@@ -2858,7 +2858,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the permissions for the file to the \a permissions specified.     Returns true if successful, or false if the permissions cannot be     modified.      \sa permissions(), setFileName() */
+comment|/*!     Sets the permissions for the file to the \a permissions specified.     Returns \c true if successful, or false if the permissions cannot be     modified.      \sa permissions(), setFileName() */
 end_comment
 begin_function
 DECL|function|setPermissions

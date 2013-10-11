@@ -771,7 +771,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the \a service from the list of services being watched by this     object. Note that D-Bus notifications are asynchronous, so there may     still be signals pending delivery about \a service. Those signals will     still be emitted whenever the D-Bus messages are processed.      This function returns true if any services were removed. */
+comment|/*!     Removes the \a service from the list of services being watched by this     object. Note that D-Bus notifications are asynchronous, so there may     still be signals pending delivery about \a service. Those signals will     still be emitted whenever the D-Bus messages are processed.      This function returns \c true if any services were removed. */
 end_comment
 begin_function
 DECL|function|removeWatchedService

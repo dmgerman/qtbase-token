@@ -627,7 +627,7 @@ name|node
 operator|=
 name|node
 operator|->
-name|applyModuleIdentifier
+name|applyModuleName
 argument_list|(
 name|start
 argument_list|)

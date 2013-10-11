@@ -1714,7 +1714,7 @@ begin_comment
 comment|/*!   \fn bool QTemporaryFile::open()    A QTemporaryFile will always be opened in QIODevice::ReadWrite mode,   this allows easy access to the data in the file. This function will   return true upon success and will set the fileName() to the unique   filename used.    \sa fileName() */
 end_comment
 begin_comment
-comment|/*!    Returns true if the QTemporaryFile is in auto remove    mode. Auto-remove mode will automatically delete the filename from    disk upon destruction. This makes it very easy to create your    QTemporaryFile object on the stack, fill it with data, read from    it, and finally on function return it will automatically clean up    after itself.     Auto-remove is on by default.     \sa setAutoRemove(), remove() */
+comment|/*!    Returns \c true if the QTemporaryFile is in auto remove    mode. Auto-remove mode will automatically delete the filename from    disk upon destruction. This makes it very easy to create your    QTemporaryFile object on the stack, fill it with data, read from    it, and finally on function return it will automatically clean up    after itself.     Auto-remove is on by default.     \sa setAutoRemove(), remove() */
 end_comment
 begin_function
 DECL|function|autoRemove

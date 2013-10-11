@@ -130,7 +130,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the lock was acquired by this QLockFile instance,     otherwise returns false.      \sa lock(), unlock(), tryLock() */
+comment|/*!     Returns \c true if the lock was acquired by this QLockFile instance,     otherwise returns \c false.      \sa lock(), unlock(), tryLock() */
 end_comment
 begin_function
 DECL|function|isLocked
@@ -155,7 +155,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates the lock file.      If another process (or another thread) has created the lock file already,     this function will block until that process (or thread) releases it.      Calling this function multiple times on the same lock from the same     thread without unlocking first is not allowed. This function will     \e dead-lock when the file is locked recursively.      Returns true if the lock was acquired, false if it could not be acquired     due to an unrecoverable error, such as no permissions in the parent directory.      \sa unlock(), tryLock() */
+comment|/*!     Creates the lock file.      If another process (or another thread) has created the lock file already,     this function will block until that process (or thread) releases it.      Calling this function multiple times on the same lock from the same     thread without unlocking first is not allowed. This function will     \e dead-lock when the file is locked recursively.      Returns \c true if the lock was acquired, false if it could not be acquired     due to an unrecoverable error, such as no permissions in the parent directory.      \sa unlock(), tryLock() */
 end_comment
 begin_function
 DECL|function|lock
@@ -175,7 +175,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to create the lock file. This function returns true if the     lock was obtained; otherwise it returns false. If another process (or     another thread) has created the lock file already, this function will     wait for at most \a timeout milliseconds for the lock file to become     available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lock(), i.e. this function will wait forever until the lock     file can be locked if \a timeout is negative.      If the lock was obtained, it must be released with unlock()     before another process (or thread) can successfully lock it.      Calling this function multiple times on the same lock from the same     thread without unlocking first is not allowed, this function will     \e always return false when attempting to lock the file recursively.      \sa lock(), unlock() */
+comment|/*!     Attempts to create the lock file. This function returns \c true if the     lock was obtained; otherwise it returns \c false. If another process (or     another thread) has created the lock file already, this function will     wait for at most \a timeout milliseconds for the lock file to become     available.      Note: Passing a negative number as the \a timeout is equivalent to     calling lock(), i.e. this function will wait forever until the lock     file can be locked if \a timeout is negative.      If the lock was obtained, it must be released with unlock()     before another process (or thread) can successfully lock it.      Calling this function multiple times on the same lock from the same     thread without unlocking first is not allowed, this function will     \e always return false when attempting to lock the file recursively.      \sa lock(), unlock() */
 end_comment
 begin_function
 DECL|function|tryLock
@@ -359,7 +359,7 @@ begin_comment
 comment|/*!     \fn void QLockFile::unlock()     Releases the lock, by deleting the lock file.      Calling unlock() without locking the file first, does nothing.      \sa lock(), tryLock() */
 end_comment
 begin_comment
-comment|/*!     Retrieves information about the current owner of the lock file.      If tryLock() returns false, and error() returns LockFailedError,     this function can be called to find out more information about the existing     lock file:     \list     \li the PID of the application (returned in \a pid)     \li the \a hostname it's running on (useful in case of networked filesystems),     \li the name of the application which created it (returned in \a appname),     \endlist      Note that tryLock() automatically deleted the file if there is no     running application with this PID, so LockFailedError can only happen if there is     an application with this PID (it could be unrelated though).      This can be used to inform users about the existing lock file and give them     the choice to delete it. After removing the file using removeStaleLockFile(),     the application can call tryLock() again.      This function returns true if the information could be successfully retrieved, false     if the lock file doesn't exist or doesn't contain the expected data.     This can happen if the lock file was deleted between the time where tryLock() failed     and the call to this function. Simply call tryLock() again if this happens. */
+comment|/*!     Retrieves information about the current owner of the lock file.      If tryLock() returns \c false, and error() returns LockFailedError,     this function can be called to find out more information about the existing     lock file:     \list     \li the PID of the application (returned in \a pid)     \li the \a hostname it's running on (useful in case of networked filesystems),     \li the name of the application which created it (returned in \a appname),     \endlist      Note that tryLock() automatically deleted the file if there is no     running application with this PID, so LockFailedError can only happen if there is     an application with this PID (it could be unrelated though).      This can be used to inform users about the existing lock file and give them     the choice to delete it. After removing the file using removeStaleLockFile(),     the application can call tryLock() again.      This function returns \c true if the information could be successfully retrieved, false     if the lock file doesn't exist or doesn't contain the expected data.     This can happen if the lock file was deleted between the time where tryLock() failed     and the call to this function. Simply call tryLock() again if this happens. */
 end_comment
 begin_function
 DECL|function|getLockInfo
@@ -557,7 +557,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to forcefully remove an existing lock file.      Calling this is not recommended when protecting a short-lived operation: QLockFile     already takes care of removing lock files after they are older than staleLockTime().      This method should only be called when protecting a resource for a long time, i.e.     with staleLockTime(0), and after tryLock() returned LockFailedError, and the user     agreed on removing the lock file.      Returns true on success, false if the lock file couldn't be removed. This happens     on Windows, when the application owning the lock is still running. */
+comment|/*!     Attempts to forcefully remove an existing lock file.      Calling this is not recommended when protecting a short-lived operation: QLockFile     already takes care of removing lock files after they are older than staleLockTime().      This method should only be called when protecting a resource for a long time, i.e.     with staleLockTime(0), and after tryLock() returned LockFailedError, and the user     agreed on removing the lock file.      Returns \c true on success, false if the lock file couldn't be removed. This happens     on Windows, when the application owning the lock is still running. */
 end_comment
 begin_function
 DECL|function|removeStaleLockFile
@@ -597,7 +597,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the lock file error status.      If tryLock() returns false, this function can be called to find out     the reason why the locking failed. */
+comment|/*!     Returns the lock file error status.      If tryLock() returns \c false, this function can be called to find out     the reason why the locking failed. */
 end_comment
 begin_function
 DECL|function|error

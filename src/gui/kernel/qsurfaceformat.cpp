@@ -552,7 +552,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn bool QSurfaceFormat::stereo() const      Returns true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
+comment|/*!     \fn bool QSurfaceFormat::stereo() const      Returns \c true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables stereo buffering; otherwise disables     stereo buffering.      Stereo buffering is disabled by default.      Stereo buffering provides extra color buffers to generate left-eye     and right-eye images.      \sa stereo() */
@@ -736,7 +736,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if format option \a opt is set; otherwise returns false.      \sa setOption() */
+comment|/*!     Returns \c true if format option \a opt is set; otherwise returns \c false.      \sa setOption() */
 end_comment
 begin_function
 DECL|function|testOption
@@ -872,7 +872,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the alpha buffer size is greater than zero.      This means that the surface might be used with per pixel     translucency effects. */
+comment|/*!     Returns \c true if the alpha buffer size is greater than zero.      This means that the surface might be used with per pixel     translucency effects. */
 end_comment
 begin_function
 DECL|function|hasAlpha
@@ -1464,7 +1464,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all the options of the two QSurfaceFormat objects     \a a and \a b are equal.      \relates QSurfaceFormat */
+comment|/*!     Returns \c true if all the options of the two QSurfaceFormat objects     \a a and \a b are equal.      \relates QSurfaceFormat */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1649,7 +1649,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns false if all the options of the two QSurfaceFormat objects     \a a and \a b are equal; otherwise returns true.      \relates QSurfaceFormat */
+comment|/*!     Returns \c false if all the options of the two QSurfaceFormat objects     \a a and \a b are equal; otherwise returns \c true.      \relates QSurfaceFormat */
 end_comment
 begin_function
 DECL|function|operator !=

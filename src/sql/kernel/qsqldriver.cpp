@@ -183,7 +183,7 @@ begin_comment
 comment|/*!     \fn QSqlResult *QSqlDriver::createResult() const      Creates an empty SQL result on the database. Derived classes must     reimplement this function and return a QSqlResult object     appropriate for their database to the caller. */
 end_comment
 begin_comment
-comment|/*!     Returns true if the database connection is open; otherwise returns     false. */
+comment|/*!     Returns \c true if the database connection is open; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|isOpen
@@ -203,7 +203,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the there was an error opening the database     connection; otherwise returns false. */
+comment|/*!     Returns \c true if the there was an error opening the database     connection; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isOpenError
@@ -235,7 +235,7 @@ begin_comment
 comment|/*!     \enum QSqlDriver::NotificationSource      This enum contains a list of SQL notification sources.      \value UnknownSource The notification source is unknown     \value SelfSource The notification source is this connection     \value OtherSource The notification source is another connection */
 end_comment
 begin_comment
-comment|/*!     \fn bool QSqlDriver::hasFeature(DriverFeature feature) const      Returns true if the driver supports feature \a feature; otherwise     returns false.      Note that some databases need to be open() before this can be     determined.      \sa DriverFeature */
+comment|/*!     \fn bool QSqlDriver::hasFeature(DriverFeature feature) const      Returns \c true if the driver supports feature \a feature; otherwise     returns \c false.      Note that some databases need to be open() before this can be     determined.      \sa DriverFeature */
 end_comment
 begin_comment
 comment|/*!     This function sets the open state of the database to \a open.     Derived classes can use this function to report the status of     open().      \sa open(), setOpenError() */
@@ -261,7 +261,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function sets the open error state of the database to \a     error. Derived classes can use this function to report the status     of open(). Note that if \a error is true the open state of the     database is set to closed (i.e., isOpen() returns false).      \sa open(), setOpen() */
+comment|/*!     This function sets the open error state of the database to \a     error. Derived classes can use this function to report the status     of open(). Note that if \a error is true the open state of the     database is set to closed (i.e., isOpen() returns \c false).      \sa open(), setOpen() */
 end_comment
 begin_function
 DECL|function|setOpenError
@@ -295,7 +295,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called to begin a transaction. If successful,     return true, otherwise return false. The default implementation     does nothing and returns false.      \sa commitTransaction(), rollbackTransaction() */
+comment|/*!     This function is called to begin a transaction. If successful,     return true, otherwise return false. The default implementation     does nothing and returns \c false.      \sa commitTransaction(), rollbackTransaction() */
 end_comment
 begin_function
 DECL|function|beginTransaction
@@ -311,7 +311,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called to commit a transaction. If successful,     return true, otherwise return false. The default implementation     does nothing and returns false.      \sa beginTransaction(), rollbackTransaction() */
+comment|/*!     This function is called to commit a transaction. If successful,     return true, otherwise return false. The default implementation     does nothing and returns \c false.      \sa beginTransaction(), rollbackTransaction() */
 end_comment
 begin_function
 DECL|function|commitTransaction
@@ -327,7 +327,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called to rollback a transaction. If successful,     return true, otherwise return false. The default implementation     does nothing and returns false.      \sa beginTransaction(), commitTransaction() */
+comment|/*!     This function is called to rollback a transaction. If successful,     return true, otherwise return false. The default implementation     does nothing and returns \c false.      \sa beginTransaction(), commitTransaction() */
 end_comment
 begin_function
 DECL|function|rollbackTransaction
@@ -1970,7 +1970,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     \internal      Tries to cancel the running query, if the underlying driver has the     capability to cancel queries. Returns true on success, otherwise false.      This function can be called from a different thread.      If you use this function as a slot, you need to use a Qt::DirectConnection     from a different thread.      Reimplement this function to support canceling running queries in     your own QSqlDriver subclass. It must be implemented in a thread-safe     manner.      \sa QSqlDriver::hasFeature() */
+comment|/*!     \since 5.0     \internal      Tries to cancel the running query, if the underlying driver has the     capability to cancel queries. Returns \c true on success, otherwise false.      This function can be called from a different thread.      If you use this function as a slot, you need to use a Qt::DirectConnection     from a different thread.      Reimplement this function to support canceling running queries in     your own QSqlDriver subclass. It must be implemented in a thread-safe     manner.      \sa QSqlDriver::hasFeature() */
 end_comment
 begin_function
 DECL|function|cancelQuery

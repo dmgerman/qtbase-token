@@ -3642,7 +3642,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Seeks to the position \a pos in the device. Returns true on     success; otherwise returns false. */
+comment|/*!     Seeks to the position \a pos in the device. Returns \c true on     success; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|seek
@@ -3994,7 +3994,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads and discards whitespace from the stream until either a     non-space character is detected, or until atEnd() returns     true. This function is useful when reading a stream character by     character.      Whitespace characters are all characters for which     QChar::isSpace() returns true.      \sa operator>>() */
+comment|/*!     Reads and discards whitespace from the stream until either a     non-space character is detected, or until atEnd() returns     true. This function is useful when reading a stream character by     character.      Whitespace characters are all characters for which     QChar::isSpace() returns \c true.      \sa operator>>() */
 end_comment
 begin_function
 DECL|function|skipWhiteSpace
@@ -4786,7 +4786,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is no more data to be read from the     QTextStream; otherwise returns false. This is similar to, but not     the same as calling QIODevice::atEnd(), as QTextStream also takes     into account its internal Unicode buffer. */
+comment|/*!     Returns \c true if there is no more data to be read from the     QTextStream; otherwise returns \c false. This is similar to, but not     the same as calling QIODevice::atEnd(), as QTextStream also takes     into account its internal Unicode buffer. */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -7120,7 +7120,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads a word from the stream and stores it in \a str, then returns     a reference to the stream. Words are separated by whitespace     (i.e., all characters for which QChar::isSpace() returns true).      Leading whitespace is skipped. */
+comment|/*!     Reads a word from the stream and stores it in \a str, then returns     a reference to the stream. Words are separated by whitespace     (i.e., all characters for which QChar::isSpace() returns \c true).      Leading whitespace is skipped. */
 end_comment
 begin_function
 DECL|function|operator >>
@@ -9648,7 +9648,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if automatic Unicode detection is enabled, otherwise     returns false. Automatic Unicode detection is enabled by default.      \sa setAutoDetectUnicode(), setCodec() */
+comment|/*!     Returns \c true if automatic Unicode detection is enabled, otherwise     returns \c false. Automatic Unicode detection is enabled by default.      \sa setAutoDetectUnicode(), setCodec() */
 end_comment
 begin_function
 DECL|function|autoDetectUnicode
@@ -9731,7 +9731,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if QTextStream is set to generate the UTF BOM (Byte Order     Mark) when using a UTF codec; otherwise returns false. UTF BOM generation is     set to false by default.      \sa setGenerateByteOrderMark() */
+comment|/*!     Returns \c true if QTextStream is set to generate the UTF BOM (Byte Order     Mark) when using a UTF codec; otherwise returns \c false. UTF BOM generation is     set to false by default.      \sa setGenerateByteOrderMark() */
 end_comment
 begin_function
 DECL|function|generateByteOrderMark

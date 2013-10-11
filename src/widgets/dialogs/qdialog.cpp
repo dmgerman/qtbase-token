@@ -3835,7 +3835,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDialog::modal     \brief whether show() should pop up the dialog as modal or modeless      By default, this property is false and show() pops up the dialog     as modeless. Setting his property to true is equivalent to setting     QWidget::windowModality to Qt::ApplicationModal.      exec() ignores the value of this property and always pops up the     dialog as modal.      \sa QWidget::windowModality, show(), exec() */
+comment|/*!     \property QDialog::modal     \brief whether show() should pop up the dialog as modal or modeless      By default, this property is \c false and show() pops up the dialog     as modeless. Setting his property to true is equivalent to setting     QWidget::windowModality to Qt::ApplicationModal.      exec() ignores the value of this property and always pops up the     dialog as modal.      \sa QWidget::windowModality, show(), exec() */
 end_comment
 begin_function
 DECL|function|setModal

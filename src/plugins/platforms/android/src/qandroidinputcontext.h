@@ -247,6 +247,14 @@ argument|jint newCursorPosition
 argument_list|)
 block|;
 name|jboolean
+name|setComposingRegion
+argument_list|(
+argument|jint start
+argument_list|,
+argument|jint end
+argument_list|)
+block|;
+name|jboolean
 name|setSelection
 argument_list|(
 argument|jint start
@@ -338,6 +346,9 @@ name|QMetaObject
 operator|::
 name|Connection
 name|m_updateCursorPosConnection
+block|;
+name|bool
+name|m_blockUpdateSelection
 block|; }
 decl_stmt|;
 end_decl_stmt

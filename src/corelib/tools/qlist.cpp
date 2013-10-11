@@ -1856,10 +1856,10 @@ begin_comment
 comment|/*! \fn void QList::swap(QList<T>&other)     \since 4.8      Swaps list \a other with this list. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::operator==(const QList<T>&other) const      Returns true if \a other is equal to this list; otherwise returns     false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to have an implementation of     \c operator==().      \sa operator!=() */
+comment|/*! \fn bool QList::operator==(const QList<T>&other) const      Returns \c true if \a other is equal to this list; otherwise returns     false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to have an implementation of     \c operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::operator!=(const QList<T>&other) const      Returns true if \a other is not equal to this list; otherwise     returns false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to have an implementation of     \c operator==().      \sa operator==() */
+comment|/*! \fn bool QList::operator!=(const QList<T>&other) const      Returns \c true if \a other is not equal to this list; otherwise     returns \c false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to have an implementation of     \c operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     \fn int QList::size() const      Returns the number of items in the list.      \sa isEmpty(), count() */
@@ -1880,7 +1880,7 @@ begin_comment
 comment|/*! \fn bool QList::isSharedWith(const QList<T>&other) const      \internal */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::isEmpty() const      Returns true if the list contains no items; otherwise returns     false.      \sa size() */
+comment|/*! \fn bool QList::isEmpty() const      Returns \c true if the list contains no items; otherwise returns     false.      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn void QList::clear()      Removes all items from the list.      \sa removeAll() */
@@ -1919,7 +1919,7 @@ begin_comment
 comment|/*!     \fn int QList::removeAll(const T&value)      Removes all occurrences of \a value in the list and returns the     number of entries removed.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 9      This function requires the value type to have an implementation of     \c operator==().      \sa removeOne(), removeAt(), takeAt(), replace() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::removeOne(const T&value)     \since 4.4      Removes the first occurrence of \a value in the list and returns     true on success; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 10      This function requires the value type to have an implementation of     \c operator==().      \sa removeAll(), removeAt(), takeAt(), replace() */
+comment|/*!     \fn bool QList::removeOne(const T&value)     \since 4.4      Removes the first occurrence of \a value in the list and returns     true on success; otherwise returns \c false.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 10      This function requires the value type to have an implementation of     \c operator==().      \sa removeAll(), removeAt(), takeAt(), replace() */
 end_comment
 begin_comment
 comment|/*! \fn void QList::removeAt(int i)      Removes the item at index position \a i. \a i must be a valid     index position in the list (i.e., 0<= \a i< size()).      \sa takeAt(), removeFirst(), removeLast(), removeOne() */
@@ -1946,16 +1946,16 @@ begin_comment
 comment|/*! \fn int QList::lastIndexOf(const T&value, int from = -1) const      Returns the index position of the last occurrence of \a value in     the list, searching backward from index position \a from. If \a     from is -1 (the default), the search starts at the last item.     Returns -1 if no item matched.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 14      This function requires the value type to have an implementation of     \c operator==().      Note that QList uses 0-based indexes, just like C++ arrays. Negative     indexes are not supported with the exception of the value mentioned     above.      \sa indexOf() */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::contains(const T&value) const      Returns true if the list contains an occurrence of \a value;     otherwise returns false.      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf(), count() */
+comment|/*! \fn bool QList::contains(const T&value) const      Returns \c true if the list contains an occurrence of \a value;     otherwise returns \c false.      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf(), count() */
 end_comment
 begin_comment
 comment|/*! \fn int QList::count(const T&value) const      Returns the number of occurrences of \a value in the list.      This function requires the value type to have an implementation of     \c operator==().      \sa contains(), indexOf() */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::startsWith(const T&value) const     \since 4.5      Returns true if this list is not empty and its first     item is equal to \a value; otherwise returns false.      \sa isEmpty(), contains() */
+comment|/*! \fn bool QList::startsWith(const T&value) const     \since 4.5      Returns \c true if this list is not empty and its first     item is equal to \a value; otherwise returns \c false.      \sa isEmpty(), contains() */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::endsWith(const T&value) const     \since 4.5      Returns true if this list is not empty and its last     item is equal to \a value; otherwise returns false.      \sa isEmpty(), contains() */
+comment|/*! \fn bool QList::endsWith(const T&value) const     \since 4.5      Returns \c true if this list is not empty and its last     item is equal to \a value; otherwise returns \c false.      \sa isEmpty(), contains() */
 end_comment
 begin_comment
 comment|/*! \fn QList::iterator QList::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the list.      \sa constBegin(), end() */
@@ -2069,7 +2069,7 @@ begin_comment
 comment|/*! \fn void QList::pop_back()      This function is provided for STL compatibility. It is equivalent     to removeLast(). The list must not be empty. If the list can be     empty, call isEmpty() before calling this function. */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty() and returns true if the list is empty. */
+comment|/*! \fn bool QList::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty() and returns \c true if the list is empty. */
 end_comment
 begin_comment
 comment|/*! \fn QList<T>&QList::operator+=(const QList<T>&other)      Appends the items of the \a other list to this list and returns a     reference to this list.      \sa operator+(), append() */
@@ -2123,22 +2123,22 @@ begin_comment
 comment|/*! \fn T&QList::iterator::operator[](int j) const      Returns a modifiable reference to the item at position *this +     \a{j}.      This function is provided to make QList iterators behave like C++     pointers.      \sa operator+() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::iterator::operator==(const iterator&other) const     \fn bool QList::iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*!     \fn bool QList::iterator::operator==(const iterator&other) const     \fn bool QList::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::iterator::operator!=(const iterator&other) const     \fn bool QList::iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QList::iterator::operator!=(const iterator&other) const     \fn bool QList::iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::iterator::operator<(const iterator& other) const     \fn bool QList::iterator::operator<(const const_iterator& other) const      Returns true if the item pointed to by this iterator is less than     the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::iterator::operator<(const iterator& other) const     \fn bool QList::iterator::operator<(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is less than     the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::iterator::operator<=(const iterator& other) const     \fn bool QList::iterator::operator<=(const const_iterator& other) const      Returns true if the item pointed to by this iterator is less than     or equal to the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::iterator::operator<=(const iterator& other) const     \fn bool QList::iterator::operator<=(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is less than     or equal to the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::iterator::operator>(const iterator& other) const     \fn bool QList::iterator::operator>(const const_iterator& other) const      Returns true if the item pointed to by this iterator is greater     than the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::iterator::operator>(const iterator& other) const     \fn bool QList::iterator::operator>(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is greater     than the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::iterator::operator>=(const iterator& other) const     \fn bool QList::iterator::operator>=(const const_iterator& other) const      Returns true if the item pointed to by this iterator is greater     than or equal to the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::iterator::operator>=(const iterator& other) const     \fn bool QList::iterator::operator>=(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is greater     than or equal to the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
 comment|/*! \fn QList::iterator&QList::iterator::operator++()      The prefix ++ operator (\c{++it}) advances the iterator to the     next item in the list and returns an iterator to the new current     item.      Calling this function on QList::end() leads to undefined results.      \sa operator--() */
@@ -2207,22 +2207,22 @@ begin_comment
 comment|/*! \fn const T&QList::const_iterator::operator[](int j) const      Returns the item at position *this + \a{j}.      This function is provided to make QList iterators behave like C++     pointers.      \sa operator+() */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::const_iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*! \fn bool QList::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QList::const_iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*! \fn bool QList::const_iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::const_iterator::operator<(const const_iterator& other) const      Returns true if the item pointed to by this iterator is less than     the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::const_iterator::operator<(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is less than     the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::const_iterator::operator<=(const const_iterator& other) const      Returns true if the item pointed to by this iterator is less than     or equal to the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::const_iterator::operator<=(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is less than     or equal to the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::const_iterator::operator>(const const_iterator& other) const      Returns true if the item pointed to by this iterator is greater     than the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::const_iterator::operator>(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is greater     than the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QList::const_iterator::operator>=(const const_iterator& other) const      Returns true if the item pointed to by this iterator is greater     than or equal to the item pointed to by the \a other iterator. */
+comment|/*!     \fn bool QList::const_iterator::operator>=(const const_iterator& other) const      Returns \c true if the item pointed to by this iterator is greater     than or equal to the item pointed to by the \a other iterator. */
 end_comment
 begin_comment
 comment|/*! \fn QList::const_iterator&QList::const_iterator::operator++()      The prefix ++ operator (\c{++it}) advances the iterator to the     next item in the list and returns an iterator to the new current     item.      Calling this function on QList::end() leads to undefined results.      \sa operator--() */

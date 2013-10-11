@@ -1348,7 +1348,7 @@ begin_comment
 comment|/*!     \class QSqlDatabase     \brief The QSqlDatabase class represents a connection to     a database.      \ingroup database      \inmodule QtSql      The QSqlDatabase class provides an interface for accessing a     database through a connection. An instance of QSqlDatabase     represents the connection. The connection provides access to the     database via one of the \l{SQL Database Drivers#Supported     Databases} {supported database drivers}, which are derived from     QSqlDriver.  Alternatively, you can subclass your own database     driver from QSqlDriver. See \l{How to Write Your Own Database     Driver} for more information.      Create a connection (i.e., an instance of QSqlDatabase) by calling     one of the static addDatabase() functions, where you specify     \l{SQL Database Drivers#Supported Databases} {the driver or type     of driver} to use (i.e., what kind of database will you access?)     and a connection name. A connection is known by its own name,     \e{not} by the name of the database it connects to. You can have     multiple connections to one database. QSqlDatabase also supports     the concept of a \e{default} connection, which is the unnamed     connection. To create the default connection, don't pass the     connection name argument when you call addDatabase().     Subsequently, when you call any static member function that takes     the connection name argument, if you don't pass the connection     name argument, the default connection is assumed. The following     snippet shows how to create and open a default connection to a     PostgreSQL database:      \snippet sqldatabase/sqldatabase.cpp 0      Once the QSqlDatabase object has been created, set the connection     parameters with setDatabaseName(), setUserName(), setPassword(),     setHostName(), setPort(), and setConnectOptions(). Then call     open() to activate the physical connection to the database. The     connection is not usable until you open it.      The connection defined above will be the \e{default} connection,     because we didn't give a connection name to \l{QSqlDatabase::}     {addDatabase()}. Subsequently, you can get the default connection     by calling database() without the connection name argument:      \snippet sqldatabase/sqldatabase.cpp 1      QSqlDatabase is a value class. Changes made to a database     connection via one instance of QSqlDatabase will affect other     instances of QSqlDatabase that represent the same connection. Use     cloneDatabase() to create an independent database connection based     on an existing one.      If you create multiple database connections, specify a unique     connection name for each one, when you call addDatabase(). Use     database() with a connection name to get that connection. Use     removeDatabase() with a connection name to remove a connection.     QSqlDatabase outputs a warning if you try to remove a connection     referenced by other QSqlDatabase objects. Use contains() to see if     a given connection name is in the list of connections.      Once a connection is established, you can call tables() to get the     list of tables in the database, call primaryIndex() to get a     table's primary index, and call record() to get meta-information     about a table's fields (e.g., field names).      \note QSqlDatabase::exec() is deprecated. Use QSqlQuery::exec()     instead.      If the driver supports transactions, use transaction() to start a     transaction, and commit() or rollback() to complete it. Use     \l{QSqlDriver::} {hasFeature()} to ask if the driver supports     transactions. \note When using transactions, you must start the     transaction before you create your query.      If an error occurs, lastError() will return information about it.      Get the names of the available SQL drivers with drivers().  Check     for the presence of a particular driver with isDriverAvailable().     If you have created your own custom driver, you must register it     with registerSqlDriver().      \sa QSqlDriver, QSqlQuery, {Qt SQL}, {Threads and the SQL Module} */
 end_comment
 begin_comment
-comment|/*! \fn QSqlDatabase QSqlDatabase::addDatabase(const QString&type, const QString&connectionName)     \threadsafe      Adds a database to the list of database connections using the     driver \a type and the connection name \a connectionName. If     there already exists a database connection called \a     connectionName, that connection is removed.      The database connection is referred to by \a connectionName. The     newly added database connection is returned.      If \a type is not available or could not be loaded, isValid() returns false.      If \a connectionName is not specified, the new connection becomes     the default connection for the application, and subsequent calls     to database() without the connection name argument will return the     default connection. If a \a connectionName is provided here, use     database(\a connectionName) to retrieve the connection.      \warning If you add a connection with the same name as an existing     connection, the new connection replaces the old one.  If you call     this function more than once without specifying \a connectionName,     the default connection will be the one replaced.      Before using the connection, it must be initialized. e.g., call     some or all of setDatabaseName(), setUserName(), setPassword(),     setHostName(), setPort(), and setConnectOptions(), and, finally,     open().      \sa database(), removeDatabase(), {Threads and the SQL Module} */
+comment|/*! \fn QSqlDatabase QSqlDatabase::addDatabase(const QString&type, const QString&connectionName)     \threadsafe      Adds a database to the list of database connections using the     driver \a type and the connection name \a connectionName. If     there already exists a database connection called \a     connectionName, that connection is removed.      The database connection is referred to by \a connectionName. The     newly added database connection is returned.      If \a type is not available or could not be loaded, isValid() returns \c false.      If \a connectionName is not specified, the new connection becomes     the default connection for the application, and subsequent calls     to database() without the connection name argument will return the     default connection. If a \a connectionName is provided here, use     database(\a connectionName) to retrieve the connection.      \warning If you add a connection with the same name as an existing     connection, the new connection replaces the old one.  If you call     this function more than once without specifying \a connectionName,     the default connection will be the one replaced.      Before using the connection, it must be initialized. e.g., call     some or all of setDatabaseName(), setUserName(), setPassword(),     setHostName(), setPort(), and setConnectOptions(), and, finally,     open().      \sa database(), removeDatabase(), {Threads and the SQL Module} */
 end_comment
 begin_function
 DECL|function|addDatabase
@@ -1794,7 +1794,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \threadsafe      Returns true if the list of database connections contains \a     connectionName; otherwise returns false.      \sa connectionNames(), database(), {Threads and the SQL Module} */
+comment|/*!     \threadsafe      Returns \c true if the list of database connections contains \a     connectionName; otherwise returns \c false.      \sa connectionNames(), database(), {Threads and the SQL Module} */
 end_comment
 begin_function
 DECL|function|contains
@@ -2488,7 +2488,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens the database connection using the current connection     values. Returns true on success; otherwise returns false. Error     information can be retrieved using lastError().      \sa lastError(), setDatabaseName(), setUserName(), setPassword(),         setHostName(), setPort(), setConnectOptions() */
+comment|/*!     Opens the database connection using the current connection     values. Returns \c true on success; otherwise returns \c false. Error     information can be retrieved using lastError().      \sa lastError(), setDatabaseName(), setUserName(), setPassword(),         setHostName(), setPort(), setConnectOptions() */
 end_comment
 begin_function
 DECL|function|open
@@ -2533,7 +2533,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Opens the database connection using the given \a user name and \a     password. Returns true on success; otherwise returns false. Error     information can be retrieved using the lastError() function.      This function does not store the password it is given. Instead,     the password is passed directly to the driver for opening the     connection and it is then discarded.      \sa lastError() */
+comment|/*!     \overload      Opens the database connection using the given \a user name and \a     password. Returns \c true on success; otherwise returns \c false. Error     information can be retrieved using the lastError() function.      This function does not store the password it is given. Instead,     the password is passed directly to the driver for opening the     connection and it is then discarded.      \sa lastError() */
 end_comment
 begin_function
 DECL|function|open
@@ -2609,7 +2609,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the database connection is currently open;     otherwise returns false. */
+comment|/*!     Returns \c true if the database connection is currently open;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isOpen
@@ -2631,7 +2631,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there was an error opening the database     connection; otherwise returns false. Error information can be     retrieved using the lastError() function. */
+comment|/*!     Returns \c true if there was an error opening the database     connection; otherwise returns \c false. Error information can be     retrieved using the lastError() function. */
 end_comment
 begin_function
 DECL|function|isOpenError
@@ -3201,7 +3201,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if a driver called \a name is available; otherwise     returns false.      \sa drivers() */
+comment|/*!     Returns \c true if a driver called \a name is available; otherwise     returns \c false.      \sa drivers() */
 end_comment
 begin_function
 DECL|function|isDriverAvailable
@@ -3268,7 +3268,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the QSqlDatabase has a valid driver.      Example:     \snippet code/src_sql_kernel_qsqldatabase.cpp 8 */
+comment|/*!     Returns \c true if the QSqlDatabase has a valid driver.      Example:     \snippet code/src_sql_kernel_qsqldatabase.cpp 8 */
 end_comment
 begin_function
 DECL|function|isValid

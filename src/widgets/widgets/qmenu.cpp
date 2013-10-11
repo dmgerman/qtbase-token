@@ -8263,7 +8263,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QMenu::tearOffEnabled     \brief whether the menu supports being torn off      When true, the menu contains a special tear-off item (often shown as a dashed     line at the top of the menu) that creates a copy of the menu when it is     triggered.      This "torn-off" copy lives in a separate window. It contains the same menu     items as the original menu, with the exception of the tear-off handle.      By default, this property is false. */
+comment|/*!     \property QMenu::tearOffEnabled     \brief whether the menu supports being torn off      When true, the menu contains a special tear-off item (often shown as a dashed     line at the top of the menu) that creates a copy of the menu when it is     triggered.      This "torn-off" copy lives in a separate window. It contains the same menu     items as the original menu, with the exception of the tear-off handle.      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|setTearOffEnabled
@@ -8341,7 +8341,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   When a menu is torn off a second menu is shown to display the menu   contents in a new window. When the menu is in this mode and the menu   is visible returns true; otherwise false.    \sa hideTearOffMenu(), isTearOffEnabled() */
+comment|/*!   When a menu is torn off a second menu is shown to display the menu   contents in a new window. When the menu is in this mode and the menu   is visible returns \c true; otherwise false.    \sa hideTearOffMenu(), isTearOffEnabled() */
 end_comment
 begin_function
 DECL|function|isTearOffMenuVisible
@@ -8474,7 +8474,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if there are no visible actions inserted into the menu, false     otherwise.      \sa QWidget::actions() */
+comment|/*!     \since 4.2      Returns \c true if there are no visible actions inserted into the menu, false     otherwise.      \sa QWidget::actions() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -17543,7 +17543,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QMenu::separatorsCollapsible   \since 4.2    \brief whether consecutive separators should be collapsed    This property specifies whether consecutive separators in the menu   should be visually collapsed to a single one. Separators at the   beginning or the end of the menu are also hidden.    By default, this property is true. */
+comment|/*!   \property QMenu::separatorsCollapsible   \since 4.2    \brief whether consecutive separators should be collapsed    This property specifies whether consecutive separators in the menu   should be visually collapsed to a single one. Separators at the   beginning or the end of the menu are also hidden.    By default, this property is \c true. */
 end_comment
 begin_function
 DECL|function|separatorsCollapsible
@@ -17641,7 +17641,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QMenu::toolTipsVisible   \since 5.1    \brief whether tooltips of menu actions should be visible    This property specifies whether action menu entries show   their tooltip.    By default, this property is false. */
+comment|/*!   \property QMenu::toolTipsVisible   \since 5.1    \brief whether tooltips of menu actions should be visible    This property specifies whether action menu entries show   their tooltip.    By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|toolTipsVisible

@@ -17064,7 +17064,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns true if all the necessary theme engine symbols were     resolved. */
+comment|/*! \internal     Returns \c true if all the necessary theme engine symbols were     resolved. */
 end_comment
 begin_function
 DECL|function|resolveSymbols

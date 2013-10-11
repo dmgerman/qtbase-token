@@ -460,7 +460,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn bool QAbstractFileEngine::open(QIODevice::OpenMode mode)      Opens the file in the specified \a mode. Returns true if the file     was successfully opened; otherwise returns false.      The \a mode is an OR combination of QIODevice::OpenMode and     QIODevice::HandlingMode values. */
+comment|/*!     \fn bool QAbstractFileEngine::open(QIODevice::OpenMode mode)      Opens the file in the specified \a mode. Returns \c true if the file     was successfully opened; otherwise returns \c false.      The \a mode is an OR combination of QIODevice::OpenMode and     QIODevice::HandlingMode values. */
 end_comment
 begin_function
 DECL|function|open
@@ -486,7 +486,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Closes the file, returning true if successful; otherwise returns false.      The default implementation always returns false. */
+comment|/*!     Closes the file, returning true if successful; otherwise returns \c false.      The default implementation always returns \c false. */
 end_comment
 begin_function
 DECL|function|close
@@ -502,7 +502,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.1      Flushes and syncs the file to disk.      Returns true if successful; otherwise returns false.     The default implementation always returns false. */
+comment|/*!     \since 5.1      Flushes and syncs the file to disk.      Returns \c true if successful; otherwise returns \c false.     The default implementation always returns \c false. */
 end_comment
 begin_function
 DECL|function|syncToDisk
@@ -518,7 +518,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Flushes the open file, returning true if successful; otherwise returns     false.      The default implementation always returns false. */
+comment|/*!     Flushes the open file, returning true if successful; otherwise returns     false.      The default implementation always returns \c false. */
 end_comment
 begin_function
 DECL|function|flush
@@ -568,7 +568,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QAbstractFileEngine::seek(qint64 offset)      Sets the file position to the given \a offset. Returns true if     the position was successfully set; otherwise returns false.      The offset is from the beginning of the file, unless the     file is sequential.      \sa isSequential() */
+comment|/*!     \fn bool QAbstractFileEngine::seek(qint64 offset)      Sets the file position to the given \a offset. Returns \c true if     the position was successfully set; otherwise returns \c false.      The offset is from the beginning of the file, unless the     file is sequential.      \sa isSequential() */
 end_comment
 begin_function
 DECL|function|seek
@@ -592,7 +592,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file is a sequential access device; returns     false if the file is a direct access device.      Operations involving size() and seek(int) are not valid on     sequential devices. */
+comment|/*!     Returns \c true if the file is a sequential access device; returns     false if the file is a direct access device.      Operations involving size() and seek(int) are not valid on     sequential devices. */
 end_comment
 begin_function
 DECL|function|isSequential
@@ -625,7 +625,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Copies the contents of this file to a file with the name \a newName.     Returns true on success; otherwise, false is returned. */
+comment|/*!     Copies the contents of this file to a file with the name \a newName.     Returns \c true on success; otherwise, false is returned. */
 end_comment
 begin_function
 DECL|function|copy
@@ -677,7 +677,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.1      Requests that the file be renamed to \a newName in the file     system. If the new name already exists, it must be overwritten.     If the operation succeeds, returns true; otherwise returns     false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName()  */
+comment|/*!     \since 5.1      Requests that the file be renamed to \a newName in the file     system. If the new name already exists, it must be overwritten.     If the operation succeeds, returns \c true; otherwise returns     false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName()  */
 end_comment
 begin_function
 DECL|function|renameOverwrite
@@ -703,7 +703,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a link from the file currently specified by fileName() to     \a newName. What a link is depends on the underlying filesystem     (be it a shortcut on Windows or a symbolic link on Unix). Returns     true if successful; otherwise returns false. */
+comment|/*!     Creates a link from the file currently specified by fileName() to     \a newName. What a link is depends on the underlying filesystem     (be it a shortcut on Windows or a symbolic link on Unix). Returns     true if successful; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|link
@@ -1114,7 +1114,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      Returns true if the current position is at the end of the file; otherwise,     returns false.      This function bases its behavior on calling extension() with     AtEndExtension. If the engine does not support this extension, false is     returned.      \sa extension(), supportsExtension(), QFile::atEnd() */
+comment|/*!     \since 4.3      Returns \c true if the current position is at the end of the file; otherwise,     returns \c false.      This function bases its behavior on calling extension() with     AtEndExtension. If the engine does not support this extension, false is     returned.      \sa extension(), supportsExtension(), QFile::atEnd() */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -1143,7 +1143,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Maps \a size bytes of the file into memory starting at \a offset.     Returns a pointer to the memory if successful; otherwise returns false     if, for example, an error occurs.      This function bases its behavior on calling extension() with     MapExtensionOption. If the engine does not support this extension, 0 is     returned.      \a flags is currently not used, but could be used in the future.      \sa unmap(), supportsExtension()  */
+comment|/*!     \since 4.4      Maps \a size bytes of the file into memory starting at \a offset.     Returns a pointer to the memory if successful; otherwise returns \c false     if, for example, an error occurs.      This function bases its behavior on calling extension() with     MapExtensionOption. If the engine does not support this extension, 0 is     returned.      \a flags is currently not used, but could be used in the future.      \sa unmap(), supportsExtension()  */
 end_comment
 begin_function
 DECL|function|map
@@ -1214,7 +1214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Unmaps the memory \a address.  Returns true if the unmap succeeds; otherwise     returns false.      This function bases its behavior on calling extension() with     UnMapExtensionOption. If the engine does not support this extension, false is     returned.      \sa map(), supportsExtension()  */
+comment|/*!     \since 4.4      Unmaps the memory \a address.  Returns \c true if the unmap succeeds; otherwise     returns \c false.      This function bases its behavior on calling extension() with     UnMapExtensionOption. If the engine does not support this extension, false is     returned.      \sa map(), supportsExtension()  */
 end_comment
 begin_function
 DECL|function|unmap
@@ -1249,7 +1249,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     \class QAbstractFileEngineIterator     \inmodule QtCore     \brief The QAbstractFileEngineIterator class provides an iterator     interface for custom file engines.     \internal      If all you want is to iterate over entries in a directory, see     QDirIterator instead. This class is only for custom file engine authors.      QAbstractFileEngineIterator is a unidirectional single-use virtual     iterator that plugs into QDirIterator, providing transparent proxy     iteration for custom file engines.      You can subclass QAbstractFileEngineIterator to provide an iterator when     writing your own file engine. To plug the iterator into your file system,     you simply return an instance of this subclass from a reimplementation of     QAbstractFileEngine::beginEntryList().      Example:      \snippet code/src_corelib_io_qabstractfileengine.cpp 2      QAbstractFileEngineIterator is associated with a path, name filters, and     entry filters. The path is the directory that the iterator lists entries     in. The name filters and entry filters are provided for file engines that     can optimize directory listing at the iterator level (e.g., network file     systems that need to minimize network traffic), but they can also be     ignored by the iterator subclass; QAbstractFileEngineIterator already     provides the required filtering logics in the matchesFilters() function.     You can call dirName() to get the directory name, nameFilters() to get a     stringlist of name filters, and filters() to get the entry filters.      The pure virtual function hasNext() returns true if the current directory     has at least one more entry (i.e., the directory name is valid and     accessible, and we have not reached the end of the entry list), and false     otherwise. Reimplement next() to seek to the next entry.      The pure virtual function currentFileName() returns the name of the     current entry without advancing the iterator. The currentFilePath()     function is provided for convenience; it returns the full path of the     current entry.      Here is an example of how to implement an iterator that returns each of     three fixed entries in sequence.      \snippet code/src_corelib_io_qabstractfileengine.cpp 3      Note: QAbstractFileEngineIterator does not deal with QDir::IteratorFlags;     it simply returns entries for a single directory.      \sa QDirIterator */
+comment|/*!     \since 4.3     \class QAbstractFileEngineIterator     \inmodule QtCore     \brief The QAbstractFileEngineIterator class provides an iterator     interface for custom file engines.     \internal      If all you want is to iterate over entries in a directory, see     QDirIterator instead. This class is only for custom file engine authors.      QAbstractFileEngineIterator is a unidirectional single-use virtual     iterator that plugs into QDirIterator, providing transparent proxy     iteration for custom file engines.      You can subclass QAbstractFileEngineIterator to provide an iterator when     writing your own file engine. To plug the iterator into your file system,     you simply return an instance of this subclass from a reimplementation of     QAbstractFileEngine::beginEntryList().      Example:      \snippet code/src_corelib_io_qabstractfileengine.cpp 2      QAbstractFileEngineIterator is associated with a path, name filters, and     entry filters. The path is the directory that the iterator lists entries     in. The name filters and entry filters are provided for file engines that     can optimize directory listing at the iterator level (e.g., network file     systems that need to minimize network traffic), but they can also be     ignored by the iterator subclass; QAbstractFileEngineIterator already     provides the required filtering logics in the matchesFilters() function.     You can call dirName() to get the directory name, nameFilters() to get a     stringlist of name filters, and filters() to get the entry filters.      The pure virtual function hasNext() returns \c true if the current directory     has at least one more entry (i.e., the directory name is valid and     accessible, and we have not reached the end of the entry list), and false     otherwise. Reimplement next() to seek to the next entry.      The pure virtual function currentFileName() returns the name of the     current entry without advancing the iterator. The currentFilePath()     function is provided for convenience; it returns the full path of the     current entry.      Here is an example of how to implement an iterator that returns each of     three fixed entries in sequence.      \snippet code/src_corelib_io_qabstractfileengine.cpp 3      Note: QAbstractFileEngineIterator does not deal with QDir::IteratorFlags;     it simply returns entries for a single directory.      \sa QDirIterator */
 end_comment
 begin_comment
 comment|/*!     \enum QAbstractFileEngineIterator::EntryInfoType     \internal      This enum describes the different types of information that can be     requested through the QAbstractFileEngineIterator::entryInfo() function. */
@@ -1576,7 +1576,7 @@ begin_comment
 comment|/*!     \fn virtual QString QAbstractFileEngineIterator::next() = 0      This pure virtual function advances the iterator to the next directory     entry, and returns the file path to the current entry.      This function can optionally make use of nameFilters() and filters() to     optimize its performance.      Reimplement this function in a subclass to advance the iterator.      \sa QDirIterator::next() */
 end_comment
 begin_comment
-comment|/*!     \fn virtual bool QAbstractFileEngineIterator::hasNext() const = 0      This pure virtual function returns true if there is at least one more     entry in the current directory (i.e., the iterator path is valid and     accessible, and the iterator has not reached the end of the entry list).      \sa QDirIterator::hasNext() */
+comment|/*!     \fn virtual bool QAbstractFileEngineIterator::hasNext() const = 0      This pure virtual function returns \c true if there is at least one more     entry in the current directory (i.e., the iterator path is valid and     accessible, and the iterator has not reached the end of the entry list).      \sa QDirIterator::hasNext() */
 end_comment
 begin_comment
 comment|/*!     Returns an instance of a QAbstractFileEngineIterator using \a filters for     entry filtering and \a filterNames for name filtering. This function is     called by QDirIterator to initiate directory iteration.      QDirIterator takes ownership of the returned instance, and deletes it when     it's done.      \sa QDirIterator */
@@ -1792,7 +1792,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \enum QAbstractFileEngine::Extension    \since 4.3     This enum describes the types of extensions that the file engine can    support. Before using these extensions, you must verify that the extension    is supported (i.e., call supportsExtension()).     \value AtEndExtension Whether the current file position is at the end of    the file or not. This extension allows file engines that implement local    buffering to report end-of-file status without having to check the size of    the file. It is also useful for sequential files, where the size of the    file cannot be used to determine whether or not you have reached the end.    This extension returns true if the file is at the end; otherwise it returns    false. The input and output arguments to extension() are ignored.     \value FastReadLineExtension Whether the file engine provides a    fast implementation for readLine() or not. If readLine() remains    unimplemented in the file engine, QAbstractFileEngine will provide    an implementation based on calling read() repeatedly. If    supportsExtension() returns false for this extension, however,    QIODevice can provide a faster implementation by making use of its    internal buffer. For engines that already provide a fast readLine()    implementation, returning false for this extension can avoid    unnnecessary double-buffering in QIODevice.     \value MapExtension Whether the file engine provides the ability to map    a file to memory.     \value UnMapExtension Whether the file engine provides the ability to    unmap memory that was previously mapped. */
+comment|/*!    \enum QAbstractFileEngine::Extension    \since 4.3     This enum describes the types of extensions that the file engine can    support. Before using these extensions, you must verify that the extension    is supported (i.e., call supportsExtension()).     \value AtEndExtension Whether the current file position is at the end of    the file or not. This extension allows file engines that implement local    buffering to report end-of-file status without having to check the size of    the file. It is also useful for sequential files, where the size of the    file cannot be used to determine whether or not you have reached the end.    This extension returns \c true if the file is at the end; otherwise it returns    false. The input and output arguments to extension() are ignored.     \value FastReadLineExtension Whether the file engine provides a    fast implementation for readLine() or not. If readLine() remains    unimplemented in the file engine, QAbstractFileEngine will provide    an implementation based on calling read() repeatedly. If    supportsExtension() returns \c false for this extension, however,    QIODevice can provide a faster implementation by making use of its    internal buffer. For engines that already provide a fast readLine()    implementation, returning false for this extension can avoid    unnnecessary double-buffering in QIODevice.     \value MapExtension Whether the file engine provides the ability to map    a file to memory.     \value UnMapExtension Whether the file engine provides the ability to    unmap memory that was previously mapped. */
 end_comment
 begin_comment
 comment|/*!    \class QAbstractFileEngine::ExtensionOption    \inmodule QtCore    \since 4.3    \brief provides an extended input argument to QAbstractFileEngine's    extension support.     \sa QAbstractFileEngine::extension() */
@@ -1801,7 +1801,7 @@ begin_comment
 comment|/*!    \class QAbstractFileEngine::ExtensionReturn    \inmodule QtCore    \since 4.3    \brief provides an extended output argument to QAbstractFileEngine's    extension support.     \sa QAbstractFileEngine::extension() */
 end_comment
 begin_comment
-comment|/*!     \since 4.3      This virtual function can be reimplemented in a QAbstractFileEngine     subclass to provide support for extensions. The \a option argument is     provided as input to the extension, and this function can store output     results in \a output.      The behavior of this function is determined by \a extension; see the     Extension documentation for details.      You can call supportsExtension() to check if an extension is supported by     the file engine.      By default, no extensions are supported, and this function returns false.      \sa supportsExtension(), Extension */
+comment|/*!     \since 4.3      This virtual function can be reimplemented in a QAbstractFileEngine     subclass to provide support for extensions. The \a option argument is     provided as input to the extension, and this function can store output     results in \a output.      The behavior of this function is determined by \a extension; see the     Extension documentation for details.      You can call supportsExtension() to check if an extension is supported by     the file engine.      By default, no extensions are supported, and this function returns \c false.      \sa supportsExtension(), Extension */
 end_comment
 begin_function
 DECL|function|extension
@@ -1844,7 +1844,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      This virtual function returns true if the file engine supports \a     extension; otherwise, false is returned. By default, no extensions are     supported.      \sa extension() */
+comment|/*!     \since 4.3      This virtual function returns \c true if the file engine supports \a     extension; otherwise, false is returned. By default, no extensions are     supported.      \sa extension() */
 end_comment
 begin_function
 DECL|function|supportsExtension

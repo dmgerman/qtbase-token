@@ -285,7 +285,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the service name \a serviceName has is currently     registered. */
+comment|/*!     Returns \c true if the service name \a serviceName has is currently     registered. */
 end_comment
 begin_function
 DECL|function|isServiceRegistered

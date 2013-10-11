@@ -2862,7 +2862,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there are no more elements to be extracted from     this QDBusArgument. This function is usually used in QDBusArgument     objects returned from beginMap() and beginArray(). */
+comment|/*!     Returns \c true if there are no more elements to be extracted from     this QDBusArgument. This function is usually used in QDBusArgument     objects returned from beginMap() and beginArray(). */
 end_comment
 begin_function
 DECL|function|atEnd

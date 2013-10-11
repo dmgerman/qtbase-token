@@ -1556,7 +1556,7 @@ begin_comment
 comment|/*!     \fn void QPolygonF::translated(qreal dx, qreal dy) const     \overload     \since 4.6      Returns a copy of the polygon that is translated by (\a{dx}, \a{dy}).      \sa translate() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPolygonF::isClosed() const      Returns true if the polygon is closed; otherwise returns false.      A polygon is said to be closed if its start point and end point are equal.      \sa QVector::first(), QVector::last() */
+comment|/*!     \fn bool QPolygonF::isClosed() const      Returns \c true if the polygon is closed; otherwise returns \c false.      A polygon is said to be closed if its start point and end point are equal.      \sa QVector::first(), QVector::last() */
 end_comment
 begin_comment
 comment|/*!     Returns the bounding rectangle of the polygon, or QRectF(0,0,0,0)     if the polygon is empty.      \sa QVector::isEmpty() */
@@ -2135,7 +2135,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \since 4.3      \fn bool QPolygonF::containsPoint(const QPointF&point, Qt::FillRule fillRule) const      Returns true if the given \a point is inside the polygon according to     the specified \a fillRule; otherwise returns false. */
+comment|/*!     \since 4.3      \fn bool QPolygonF::containsPoint(const QPointF&point, Qt::FillRule fillRule) const      Returns \c true if the given \a point is inside the polygon according to     the specified \a fillRule; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|containsPoint
@@ -2275,7 +2275,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      \fn bool QPolygon::containsPoint(const QPoint&point, Qt::FillRule fillRule) const     Returns true if the given \a point is inside the polygon according to     the specified \a fillRule; otherwise returns false. */
+comment|/*!     \since 4.3      \fn bool QPolygon::containsPoint(const QPoint&point, Qt::FillRule fillRule) const     Returns \c true if the given \a point is inside the polygon according to     the specified \a fillRule; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|containsPoint

@@ -813,7 +813,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the writing system specified by \a writingSystem is     supported; otherwise returns false. */
+comment|/*!     Returns \c true if the writing system specified by \a writingSystem is     supported; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|supported

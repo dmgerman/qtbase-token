@@ -1097,7 +1097,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   A QML property argument has the form...<type><component>::<name><type><QML-module>::<component>::<name>    This function splits the argument into one of those   two forms. The three part form is the old form, which   was used before the creation of QtQuick 2 and Qt   Components. A<QML-module> is the QML equivalent of a   C++ namespace. So this function splits \a arg on "::"   and stores the parts in the \e {type}, \e {module},   \e {component}, and \a {name}, fields of \a qpa. If it   is successful, it returns true. If not enough parts   are found, a qdoc warning is emitted and false is   returned.  */
+comment|/*!   A QML property argument has the form...<type><component>::<name><type><QML-module>::<component>::<name>    This function splits the argument into one of those   two forms. The three part form is the old form, which   was used before the creation of QtQuick 2 and Qt   Components. A<QML-module> is the QML equivalent of a   C++ namespace. So this function splits \a arg on "::"   and stores the parts in the \e {type}, \e {module},   \e {component}, and \a {name}, fields of \a qpa. If it   is successful, it returns \c true. If not enough parts   are found, a qdoc warning is emitted and false is   returned.  */
 end_comment
 begin_function
 DECL|function|splitQmlPropertyArg

@@ -9876,7 +9876,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a option is enabled; otherwise returns false.      \sa AreaOption, setOption() */
+comment|/*!     Returns \c true if \a option is enabled; otherwise returns \c false.      \sa AreaOption, setOption() */
 end_comment
 begin_function
 DECL|function|testOption

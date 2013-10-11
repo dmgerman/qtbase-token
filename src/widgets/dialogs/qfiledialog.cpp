@@ -1116,7 +1116,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     Restores the dialogs's layout, history and current directory to the \a state specified.      Typically this is used in conjunction with QSettings to restore the size     from a past session.      Returns false if there are errors */
+comment|/*!     \since 4.3     Restores the dialogs's layout, history and current directory to the \a state specified.      Typically this is used in conjunction with QSettings to restore the size     from a past session.      Returns \c false if there are errors */
 end_comment
 begin_function
 DECL|function|restoreState
@@ -2720,7 +2720,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns true if the given \a option is enabled; otherwise, returns     false.      \sa options, setOption() */
+comment|/*!     \since 4.5      Returns \c true if the given \a option is enabled; otherwise, returns     false.      \sa options, setOption() */
 end_comment
 begin_function
 DECL|function|testOption
@@ -5307,7 +5307,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QFileDialog::nameFilterDetailsVisible     \obsolete     \brief This property holds whether the filter details is shown or not.     \since 4.4      When this property is true (the default), the filter details are shown     in the combo box.  When the property is set to false, these are hidden.      Use setOption(HideNameFilterDetails, !\e enabled) or     !testOption(HideNameFilterDetails). */
+comment|/*!     \property QFileDialog::nameFilterDetailsVisible     \obsolete     \brief This property holds whether the filter details is shown or not.     \since 4.4      When this property is \c true (the default), the filter details are shown     in the combo box.  When the property is set to false, these are hidden.      Use setOption(HideNameFilterDetails, !\e enabled) or     !testOption(HideNameFilterDetails). */
 end_comment
 begin_function
 DECL|function|setNameFilterDetailsVisible
@@ -16248,7 +16248,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      For the list and tree view watch keys to goto parent and back in the history      returns true if handled */
+comment|/*!     \internal      For the list and tree view watch keys to goto parent and back in the history      returns \c true if handled */
 end_comment
 begin_function
 DECL|function|itemViewKeyboardEvent

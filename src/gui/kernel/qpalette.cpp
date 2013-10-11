@@ -1452,7 +1452,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if the ColorGroup \a cg and ColorRole \a cr has been     set previously on this palette; otherwise returns false.      \sa setBrush() */
+comment|/*!     \since 4.2      Returns \c true if the ColorGroup \a cg and ColorRole \a cr has been     set previously on this palette; otherwise returns \c false.      \sa setBrush() */
 end_comment
 begin_function
 DECL|function|isBrushSet
@@ -1601,10 +1601,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPalette::operator!=(const QPalette&p) const      Returns true (slowly) if this palette is different from \a p;     otherwise returns false (usually quickly).      \note The current ColorGroup is not taken into account when     comparing palettes      \sa operator==() */
+comment|/*!     \fn bool QPalette::operator!=(const QPalette&p) const      Returns \c true (slowly) if this palette is different from \a p;     otherwise returns \c false (usually quickly).      \note The current ColorGroup is not taken into account when     comparing palettes      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true (usually quickly) if this palette is equal to \a p;     otherwise returns false (slowly).      \note The current ColorGroup is not taken into account when     comparing palettes      \sa operator!=() */
+comment|/*!     Returns \c true (usually quickly) if this palette is equal to \a p;     otherwise returns \c false (slowly).      \note The current ColorGroup is not taken into account when     comparing palettes      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1702,7 +1702,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPalette::isEqual(ColorGroup cg1, ColorGroup cg2) const      Returns true (usually quickly) if color group \a cg1 is equal to     \a cg2; otherwise returns false. */
+comment|/*!     \fn bool QPalette::isEqual(ColorGroup cg1, ColorGroup cg2) const      Returns \c true (usually quickly) if color group \a cg1 is equal to     \a cg2; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isEqual
@@ -2574,7 +2574,7 @@ begin_comment
 comment|//QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     Returns true if this palette and \a p are copies of each other,     i.e. one of them was created as a copy of the other and neither     was subsequently modified; otherwise returns false. This is much     stricter than equality.      \sa operator=(), operator==() */
+comment|/*!     Returns \c true if this palette and \a p are copies of each other,     i.e. one of them was created as a copy of the other and neither     was subsequently modified; otherwise returns \c false. This is much     stricter than equality.      \sa operator=(), operator==() */
 end_comment
 begin_function
 DECL|function|isCopyOf

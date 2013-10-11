@@ -409,7 +409,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if profiles are supported by the OpenGL version returned by version(). Only     OpenGL versions>= 3.2 support profiles.      \sa profile(), version() */
+comment|/*!     Returns \c true if profiles are supported by the OpenGL version returned by version(). Only     OpenGL versions>= 3.2 support profiles.      \sa profile(), version() */
 end_comment
 begin_function
 DECL|function|hasProfiles
@@ -446,7 +446,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true is the OpenGL version returned by version() contains deprecated functions     and does not support profiles i.e. if the OpenGL version is<= 3.1. */
+comment|/*!     Returns \c true is the OpenGL version returned by version() contains deprecated functions     and does not support profiles i.e. if the OpenGL version is<= 3.1. */
 end_comment
 begin_function
 DECL|function|isLegacyVersion
@@ -483,7 +483,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the version number is valid. Note that for a default constructed     QOpenGLVersionProfile object this function will return false.      \sa setVersion(), version() */
+comment|/*!     Returns \c true if the version number is valid. Note that for a default constructed     QOpenGLVersionProfile object this function will return false.      \sa setVersion(), version() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -876,7 +876,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a first and \a second contexts are sharing OpenGL resources. */
+comment|/*!     Returns \c true if the \a first and \a second contexts are sharing OpenGL resources. */
 end_comment
 begin_function
 DECL|function|areSharing
@@ -1113,7 +1113,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to create the OpenGL context with the current configuration.      The current configuration includes the format, the share context, and the     screen.      If the OpenGL implementation on your system does not support the requested     version of OpenGL context, then QOpenGLContext will try to create the closest     matching version. The actual created context properties can be queried     using the QSurfaceFormat returned by the format() function. For example, if     you request a context that supports OpenGL 4.3 Core profile but the driver     and/or hardware only supports version 3.2 Core profile contexts then you will     get a 3.2 Core profile context.      Returns true if the native context was successfully created and is ready to     be used with makeCurrent(), swapBuffers(), etc.      \sa makeCurrent(), destroy(), format() */
+comment|/*!     Attempts to create the OpenGL context with the current configuration.      The current configuration includes the format, the share context, and the     screen.      If the OpenGL implementation on your system does not support the requested     version of OpenGL context, then QOpenGLContext will try to create the closest     matching version. The actual created context properties can be queried     using the QSurfaceFormat returned by the format() function. For example, if     you request a context that supports OpenGL 4.3 Core profile but the driver     and/or hardware only supports version 3.2 Core profile contexts then you will     get a 3.2 Core profile context.      Returns \c true if the native context was successfully created and is ready to     be used with makeCurrent(), swapBuffers(), etc.      \sa makeCurrent(), destroy(), format() */
 end_comment
 begin_function
 DECL|function|create
@@ -1722,7 +1722,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this OpenGL context supports the specified OpenGL     \a extension, false otherwise.      The context or a sharing context must be current.      \sa extensions() */
+comment|/*!     Returns \c true if this OpenGL context supports the specified OpenGL     \a extension, false otherwise.      The context or a sharing context must be current.      \sa extensions() */
 end_comment
 begin_function
 DECL|function|hasExtension
@@ -1812,7 +1812,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Makes the context current in the current thread, against the given     \a surface. Returns true if successful.      If \a surface is 0 this is equivalent to calling doneCurrent().      Do not call this function from a different thread than the one the     QOpenGLContext instance lives in. If you wish to use QOpenGLContext from a     different thread you should first call make sure it's not current in the     current thread, by calling doneCurrent() if necessary. Then call     moveToThread(otherThread) before using it in the other thread.      \sa functions(), doneCurrent() */
+comment|/*!     Makes the context current in the current thread, against the given     \a surface. Returns \c true if successful.      If \a surface is 0 this is equivalent to calling doneCurrent().      Do not call this function from a different thread than the one the     QOpenGLContext instance lives in. If you wish to use QOpenGLContext from a     different thread you should first call make sure it's not current in the     current thread, by calling doneCurrent() if necessary. Then call     moveToThread(otherThread) before using it in the other thread.      \sa functions(), doneCurrent() */
 end_comment
 begin_function
 DECL|function|makeCurrent

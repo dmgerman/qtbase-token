@@ -544,7 +544,7 @@ begin_comment
 comment|/*!     \fn QColor::QColor(const QColor&color)      Constructs a color that is a copy of \a color.      \sa isValid() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QColor::isValid() const      Returns true if the color is valid; otherwise returns false. */
+comment|/*!     \fn bool QColor::isValid() const      Returns \c true if the color is valid; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Returns the name of the color in the format "#RRGGBB"; i.e. a "#"     character followed by three two-digit hexadecimal numbers.      \sa setNamedColor() */
@@ -662,7 +662,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    \since 4.7     Returns true if the \a name is a valid color name and can    be used to construct a valid QColor object, otherwise returns    false.     It uses the same algorithm used in setNamedColor().     \sa setNamedColor() */
+comment|/*!    \since 4.7     Returns \c true if the \a name is a valid color name and can    be used to construct a valid QColor object, otherwise returns    false.     It uses the same algorithm used in setNamedColor().     \sa setNamedColor() */
 end_comment
 begin_function
 DECL|function|isValidColor
@@ -9329,7 +9329,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this color has the same RGB and alpha values as \a color;     otherwise returns false. */
+comment|/*!     Returns \c true if this color has the same RGB and alpha values as \a color;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -9622,7 +9622,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this color has a different RGB and alpha values from     \a color; otherwise returns false. */
+comment|/*!     Returns \c true if this color has a different RGB and alpha values from     \a color; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=

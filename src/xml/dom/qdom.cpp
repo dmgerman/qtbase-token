@@ -4300,7 +4300,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a x and this DOM implementation object were     created from the same QDomDocument; otherwise returns false. */
+comment|/*!     Returns \c true if \a x and this DOM implementation object were     created from the same QDomDocument; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -4329,7 +4329,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a x and this DOM implementation object were     created from different QDomDocuments; otherwise returns false. */
+comment|/*!     Returns \c true if \a x and this DOM implementation object were     created from different QDomDocuments; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -4386,7 +4386,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     The function returns true if QDom implements the requested \a     version of a \a feature; otherwise returns false.      The currently supported features and their versions:     \table     \header \li Feature \li Version     \row \li XML \li 1.0     \endtable */
+comment|/*!     The function returns \c true if QDom implements the requested \a     version of a \a feature; otherwise returns \c false.      The currently supported features and their versions:     \table     \header \li Feature \li Version     \row \li XML \li 1.0     \endtable */
 end_comment
 begin_function
 DECL|function|hasFeature
@@ -4671,7 +4671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns false if the object was created by     QDomDocument::implementation(); otherwise returns true. */
+comment|/*!     Returns \c false if the object was created by     QDomDocument::implementation(); otherwise returns \c true. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -5546,7 +5546,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node list \a n and this node list are equal;     otherwise returns false. */
+comment|/*!     Returns \c true if the node list \a n and this node list are equal;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -5601,7 +5601,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true the node list \a n and this node list are not equal;     otherwise returns false. */
+comment|/*!     Returns \c true the node list \a n and this node list are not equal;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -5722,7 +5722,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDomNodeList::isEmpty() const      Returns true if the list contains no items; otherwise returns false.     This function is provided for Qt API consistency. */
+comment|/*!     \fn bool QDomNodeList::isEmpty() const      Returns \c true if the list contains no items; otherwise returns \c false.     This function is provided for Qt API consistency. */
 end_comment
 begin_comment
 comment|/*!     \fn int QDomNodeList::count() const      This function is provided for Qt API consistency. It is equivalent to length(). */
@@ -7878,7 +7878,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a n and this DOM node are equal; otherwise     returns false.      Any instance of QDomNode acts as a reference to an underlying data     structure in QDomDocument. The test for equality checks if the two     references point to the same underlying node. For example:      \snippet code/src_xml_dom_qdom.cpp 2      The two nodes (QDomElement is a QDomNode subclass) both refer to     the document's root element, and \c {element1 == element2} will     return true. On the other hand:      \snippet code/src_xml_dom_qdom.cpp 3      Even though both nodes are empty elements carrying the same name,     \c {element3 == element4} will return false because they refer to     two different nodes in the underlying data structure. */
+comment|/*!     Returns \c true if \a n and this DOM node are equal; otherwise     returns \c false.      Any instance of QDomNode acts as a reference to an underlying data     structure in QDomDocument. The test for equality checks if the two     references point to the same underlying node. For example:      \snippet code/src_xml_dom_qdom.cpp 2      The two nodes (QDomElement is a QDomNode subclass) both refer to     the document's root element, and \c {element1 == element2} will     return true. On the other hand:      \snippet code/src_xml_dom_qdom.cpp 3      Even though both nodes are empty elements carrying the same name,     \c {element3 == element4} will return false because they refer to     two different nodes in the underlying data structure. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -7907,7 +7907,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a n and this DOM node are not equal; otherwise     returns false. */
+comment|/*!     Returns \c true if \a n and this DOM node are not equal; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -8110,7 +8110,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the parent node. If this node has no parent, a null node     is returned (i.e. a node for which isNull() returns true). */
+comment|/*!     Returns the parent node. If this node has no parent, a null node     is returned (i.e. a node for which isNull() returns \c true). */
 end_comment
 begin_function
 DECL|function|parentNode
@@ -8440,7 +8440,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the DOM implementation implements the feature \a     feature and this feature is supported by this node in the version     \a version; otherwise returns false.      \sa QDomImplementation::hasFeature() */
+comment|/*!     Returns \c true if the DOM implementation implements the feature \a     feature and this feature is supported by this node in the version     \a version; otherwise returns \c false.      \sa QDomImplementation::hasFeature() */
 end_comment
 begin_function
 DECL|function|isSupported
@@ -8610,7 +8610,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node has attributes; otherwise returns false.      \sa attributes() */
+comment|/*!     Returns \c true if the node has attributes; otherwise returns \c false.      \sa attributes() */
 end_comment
 begin_function
 DECL|function|hasAttributes
@@ -8906,7 +8906,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node has one or more children; otherwise     returns false. */
+comment|/*!     Returns \c true if the node has one or more children; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|hasChildNodes
@@ -8935,7 +8935,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this node is null (i.e. if it has no type or     contents); otherwise returns false. */
+comment|/*!     Returns \c true if this node is null (i.e. if it has no type or     contents); otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -9127,7 +9127,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is an attribute; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomAttribute; you can get the QDomAttribute with     toAttribute().      \sa toAttr() */
+comment|/*!     Returns \c true if the node is an attribute; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomAttribute; you can get the QDomAttribute with     toAttribute().      \sa toAttr() */
 end_comment
 begin_function
 DECL|function|isAttr
@@ -9154,7 +9154,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a CDATA section; otherwise returns     false.      If this function returns true, it does not imply that this object     is a QDomCDATASection; you can get the QDomCDATASection with     toCDATASection().      \sa toCDATASection() */
+comment|/*!     Returns \c true if the node is a CDATA section; otherwise returns     false.      If this function returns \c true, it does not imply that this object     is a QDomCDATASection; you can get the QDomCDATASection with     toCDATASection().      \sa toCDATASection() */
 end_comment
 begin_function
 DECL|function|isCDATASection
@@ -9181,7 +9181,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a document fragment; otherwise returns     false.      If this function returns true, it does not imply that this object     is a QDomDocumentFragment; you can get the QDomDocumentFragment     with toDocumentFragment().      \sa toDocumentFragment() */
+comment|/*!     Returns \c true if the node is a document fragment; otherwise returns     false.      If this function returns \c true, it does not imply that this object     is a QDomDocumentFragment; you can get the QDomDocumentFragment     with toDocumentFragment().      \sa toDocumentFragment() */
 end_comment
 begin_function
 DECL|function|isDocumentFragment
@@ -9208,7 +9208,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a document; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomDocument; you can get the QDomDocument with toDocument().      \sa toDocument() */
+comment|/*!     Returns \c true if the node is a document; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomDocument; you can get the QDomDocument with toDocument().      \sa toDocument() */
 end_comment
 begin_function
 DECL|function|isDocument
@@ -9235,7 +9235,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a document type; otherwise returns     false.      If this function returns true, it does not imply that this object     is a QDomDocumentType; you can get the QDomDocumentType with     toDocumentType().      \sa toDocumentType() */
+comment|/*!     Returns \c true if the node is a document type; otherwise returns     false.      If this function returns \c true, it does not imply that this object     is a QDomDocumentType; you can get the QDomDocumentType with     toDocumentType().      \sa toDocumentType() */
 end_comment
 begin_function
 DECL|function|isDocumentType
@@ -9262,7 +9262,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is an element; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomElement; you can get the QDomElement with toElement().      \sa toElement() */
+comment|/*!     Returns \c true if the node is an element; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomElement; you can get the QDomElement with toElement().      \sa toElement() */
 end_comment
 begin_function
 DECL|function|isElement
@@ -9289,7 +9289,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is an entity reference; otherwise returns     false.      If this function returns true, it does not imply that this object     is a QDomEntityReference; you can get the QDomEntityReference with     toEntityReference().      \sa toEntityReference() */
+comment|/*!     Returns \c true if the node is an entity reference; otherwise returns     false.      If this function returns \c true, it does not imply that this object     is a QDomEntityReference; you can get the QDomEntityReference with     toEntityReference().      \sa toEntityReference() */
 end_comment
 begin_function
 DECL|function|isEntityReference
@@ -9316,7 +9316,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a text node; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomText; you can get the QDomText with toText().      \sa toText() */
+comment|/*!     Returns \c true if the node is a text node; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomText; you can get the QDomText with toText().      \sa toText() */
 end_comment
 begin_function
 DECL|function|isText
@@ -9343,7 +9343,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is an entity; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomEntity; you can get the QDomEntity with toEntity().      \sa toEntity() */
+comment|/*!     Returns \c true if the node is an entity; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomEntity; you can get the QDomEntity with toEntity().      \sa toEntity() */
 end_comment
 begin_function
 DECL|function|isEntity
@@ -9370,7 +9370,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a notation; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomNotation; you can get the QDomNotation with toNotation().      \sa toNotation() */
+comment|/*!     Returns \c true if the node is a notation; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomNotation; you can get the QDomNotation with toNotation().      \sa toNotation() */
 end_comment
 begin_function
 DECL|function|isNotation
@@ -9397,7 +9397,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a processing instruction; otherwise     returns false.      If this function returns true, it does not imply that this object     is a QDomProcessingInstruction; you can get the     QProcessingInstruction with toProcessingInstruction().      \sa toProcessingInstruction() */
+comment|/*!     Returns \c true if the node is a processing instruction; otherwise     returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomProcessingInstruction; you can get the     QProcessingInstruction with toProcessingInstruction().      \sa toProcessingInstruction() */
 end_comment
 begin_function
 DECL|function|isProcessingInstruction
@@ -9424,7 +9424,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a character data node; otherwise     returns false.      If this function returns true, it does not imply that this object     is a QDomCharacterData; you can get the QDomCharacterData with     toCharacterData().      \sa toCharacterData() */
+comment|/*!     Returns \c true if the node is a character data node; otherwise     returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomCharacterData; you can get the QDomCharacterData with     toCharacterData().      \sa toCharacterData() */
 end_comment
 begin_function
 DECL|function|isCharacterData
@@ -9451,7 +9451,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the node is a comment; otherwise returns false.      If this function returns true, it does not imply that this object     is a QDomComment; you can get the QDomComment with toComment().      \sa toComment() */
+comment|/*!     Returns \c true if the node is a comment; otherwise returns \c false.      If this function returns \c true, it does not imply that this object     is a QDomComment; you can get the QDomComment with toComment().      \sa toComment() */
 end_comment
 begin_function
 DECL|function|isComment
@@ -10709,7 +10709,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a n and this named node map are equal; otherwise     returns false. */
+comment|/*!     Returns \c true if \a n and this named node map are equal; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -10738,7 +10738,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a n and this named node map are not equal;     otherwise returns false. */
+comment|/*!     Returns \c true if \a n and this named node map are not equal;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -11138,7 +11138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDomNamedNodeMap::isEmpty() const      Returns true if the map is empty; otherwise returns false. This function is     provided for Qt API consistency. */
+comment|/*!     \fn bool QDomNamedNodeMap::isEmpty() const      Returns \c true if the map is empty; otherwise returns \c false. This function is     provided for Qt API consistency. */
 end_comment
 begin_comment
 comment|/*!     \fn int QDomNamedNodeMap::count() const      This function is provided for Qt API consistency. It is equivalent to length(). */
@@ -11147,7 +11147,7 @@ begin_comment
 comment|/*!     \fn int QDomNamedNodeMap::size() const      This function is provided for Qt API consistency. It is equivalent to length(). */
 end_comment
 begin_comment
-comment|/*!     Returns true if the map contains a node called \a name; otherwise     returns false.      \b{Note:} This function does not take the presence of namespaces into account.     Use namedItemNS() to test whether the map contains a node with a specific namespace     URI and name. */
+comment|/*!     Returns \c true if the map contains a node called \a name; otherwise     returns \c false.      \b{Note:} This function does not take the presence of namespaces into account.     Use namedItemNS() to test whether the map contains a node with a specific namespace     URI and name. */
 end_comment
 begin_function
 DECL|function|contains
@@ -14184,7 +14184,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the attribute has been set by the user with setValue().     Returns false if the value hasn't been specified or set.      \sa setValue() */
+comment|/*!     Returns \c true if the attribute has been set by the user with setValue().     Returns \c false if the value hasn't been specified or set.      \sa setValue() */
 end_comment
 begin_function
 DECL|function|specified
@@ -16416,7 +16416,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this element has an attribute called \a name;   otherwise returns false.    \b{Note:} This function does not take the presence of namespaces   into account.  As a result, the specified name will be tested   against fully-qualified attribute names that include any namespace   prefixes that may be present.    Use hasAttributeNS() to explicitly test for attributes with specific   namespaces and names. */
+comment|/*!   Returns \c true if this element has an attribute called \a name;   otherwise returns \c false.    \b{Note:} This function does not take the presence of namespaces   into account.  As a result, the specified name will be tested   against fully-qualified attribute names that include any namespace   prefixes that may be present.    Use hasAttributeNS() to explicitly test for attributes with specific   namespaces and names. */
 end_comment
 begin_function
 DECL|function|hasAttribute
@@ -16892,7 +16892,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this element has an attribute with the local name     \a localName and the namespace URI \a nsURI; otherwise returns     false. */
+comment|/*!     Returns \c true if this element has an attribute with the local name     \a localName and the namespace URI \a nsURI; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|hasAttributeNS
@@ -21532,7 +21532,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \overload      This function reads the XML document from the string \a text, returning     true if the content was successfully parsed; otherwise returns false.     Since \a text is already a Unicode string, no encoding detection     is done. */
+comment|/*!     \overload      This function reads the XML document from the string \a text, returning     true if the content was successfully parsed; otherwise returns \c false.     Since \a text is already a Unicode string, no encoding detection     is done. */
 end_comment
 begin_function
 DECL|function|setContent
@@ -21603,7 +21603,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \nonreentrant      This function parses the XML document from the byte array \a     data and sets it as the content of the document. It tries to     detect the encoding of the document as required by the XML     specification.      If \a namespaceProcessing is true, the parser recognizes     namespaces in the XML file and sets the prefix name, local name     and namespace URI to appropriate values. If \a namespaceProcessing     is false, the parser does no namespace processing when it reads     the XML file.      If a parse error occurs, this function returns false and the error     message is placed in \c{*}\a{errorMsg}, the line number in     \c{*}\a{errorLine} and the column number in \c{*}\a{errorColumn}     (unless the associated pointer is set to 0); otherwise this     function returns true. The various error messages are described in     the QXmlParseException class documentation. Note that, if you     want to display these error messages to your application's users,     they will be displayed in English unless they are explicitly     translated.      If \a namespaceProcessing is true, the function QDomNode::prefix()     returns a string for all elements and attributes. It returns an     empty string if the element or attribute has no prefix.      Text nodes consisting only of whitespace are stripped and won't     appear in the QDomDocument. If this behavior is not desired,     one can use the setContent() overload that allows a QXmlReader to be     supplied.      If \a namespaceProcessing is false, the functions     QDomNode::prefix(), QDomNode::localName() and     QDomNode::namespaceURI() return an empty string.      Entity references are handled as follows:     \list     \li References to internal general entities and character entities occurring in the         content are included. The result is a QDomText node with the references replaced         by their corresponding entity values.     \li References to parameter entities occurring in the internal subset are included.         The result is a QDomDocumentType node which contains entity and notation declarations         with the references replaced by their corresponding entity values.     \li Any general parsed entity reference which is not defined in the internal subset and         which occurs in the content is represented as a QDomEntityReference node.     \li Any parsed entity reference which is not defined in the internal subset and which         occurs outside of the content is replaced with an empty string.     \li Any unparsed entity reference is replaced with an empty string.     \endlist      \sa QDomNode::namespaceURI(), QDomNode::localName(),         QDomNode::prefix(), QString::isNull(), QString::isEmpty() */
+comment|/*!     \nonreentrant      This function parses the XML document from the byte array \a     data and sets it as the content of the document. It tries to     detect the encoding of the document as required by the XML     specification.      If \a namespaceProcessing is true, the parser recognizes     namespaces in the XML file and sets the prefix name, local name     and namespace URI to appropriate values. If \a namespaceProcessing     is false, the parser does no namespace processing when it reads     the XML file.      If a parse error occurs, this function returns \c false and the error     message is placed in \c{*}\a{errorMsg}, the line number in     \c{*}\a{errorLine} and the column number in \c{*}\a{errorColumn}     (unless the associated pointer is set to 0); otherwise this     function returns \c true. The various error messages are described in     the QXmlParseException class documentation. Note that, if you     want to display these error messages to your application's users,     they will be displayed in English unless they are explicitly     translated.      If \a namespaceProcessing is true, the function QDomNode::prefix()     returns a string for all elements and attributes. It returns an     empty string if the element or attribute has no prefix.      Text nodes consisting only of whitespace are stripped and won't     appear in the QDomDocument. If this behavior is not desired,     one can use the setContent() overload that allows a QXmlReader to be     supplied.      If \a namespaceProcessing is false, the functions     QDomNode::prefix(), QDomNode::localName() and     QDomNode::namespaceURI() return an empty string.      Entity references are handled as follows:     \list     \li References to internal general entities and character entities occurring in the         content are included. The result is a QDomText node with the references replaced         by their corresponding entity values.     \li References to parameter entities occurring in the internal subset are included.         The result is a QDomDocumentType node which contains entity and notation declarations         with the references replaced by their corresponding entity values.     \li Any general parsed entity reference which is not defined in the internal subset and         which occurs in the content is represented as a QDomEntityReference node.     \li Any parsed entity reference which is not defined in the internal subset and which         occurs outside of the content is replaced with an empty string.     \li Any unparsed entity reference is replaced with an empty string.     \endlist      \sa QDomNode::namespaceURI(), QDomNode::localName(),         QDomNode::prefix(), QString::isNull(), QString::isEmpty() */
 end_comment
 begin_function
 DECL|function|setContent
@@ -21681,7 +21681,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This function reads the XML document from the IO device \a dev, returning     true if the content was successfully parsed; otherwise returns false. */
+comment|/*!     \overload      This function reads the XML document from the IO device \a dev, returning     true if the content was successfully parsed; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setContent
@@ -21747,7 +21747,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.5      This function reads the XML document from the QXmlInputSource \a source,     returning true if the content was successfully parsed; otherwise returns false.  */
+comment|/*!     \overload     \since 4.5      This function reads the XML document from the QXmlInputSource \a source,     returning true if the content was successfully parsed; otherwise returns \c false.  */
 end_comment
 begin_function
 DECL|function|setContent
@@ -21817,7 +21817,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This function reads the XML document from the string \a text, returning     true if the content was successfully parsed; otherwise returns false.     Since \a text is already a Unicode string, no encoding detection     is performed.      No namespace processing is performed either. */
+comment|/*!     \overload      This function reads the XML document from the string \a text, returning     true if the content was successfully parsed; otherwise returns \c false.     Since \a text is already a Unicode string, no encoding detection     is performed.      No namespace processing is performed either. */
 end_comment
 begin_function
 DECL|function|setContent
@@ -21905,7 +21905,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This function reads the XML document from the IO device \a dev, returning     true if the content was successfully parsed; otherwise returns false.      No namespace processing is performed. */
+comment|/*!     \overload      This function reads the XML document from the IO device \a dev, returning     true if the content was successfully parsed; otherwise returns \c false.      No namespace processing is performed. */
 end_comment
 begin_function
 DECL|function|setContent
@@ -21948,7 +21948,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This function reads the XML document from the QXmlInputSource \a source and     parses it with the QXmlReader \a reader, returning true if the content was     successfully parsed; otherwise returns false.      This function doesn't change the features of the \a reader. If you want to     use certain features for parsing you can use this function to set up the     reader appropriately.      \sa QXmlSimpleReader */
+comment|/*!     \overload      This function reads the XML document from the QXmlInputSource \a source and     parses it with the QXmlReader \a reader, returning true if the content was     successfully parsed; otherwise returns \c false.      This function doesn't change the features of the \a reader. If you want to     use certain features for parsing you can use this function to set up the     reader appropriately.      \sa QXmlSimpleReader */
 end_comment
 begin_function
 DECL|function|setContent

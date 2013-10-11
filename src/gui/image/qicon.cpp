@@ -3557,7 +3557,7 @@ begin_comment
 comment|/*!     \fn void QIcon::paint(QPainter *painter, int x, int y, int w, int h, Qt::Alignment alignment,                           Mode mode, State state) const      \overload      Paints the icon into the rectangle QRect(\a x, \a y, \a w, \a h). */
 end_comment
 begin_comment
-comment|/*!     Returns true if the icon is empty; otherwise returns false.      An icon is empty if it has neither a pixmap nor a filename.      Note: Even a non-null icon might not be able to create valid     pixmaps, eg. if the file does not exist or cannot be read. */
+comment|/*!     Returns \c true if the icon is empty; otherwise returns \c false.      An icon is empty if it has neither a pixmap nor a filename.      Note: Even a non-null icon might not be able to create valid     pixmaps, eg. if the file does not exist or cannot be read. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -4319,7 +4319,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if there is an icon available for \a name in the     current icon theme, otherwise returns false.      \sa themeSearchPaths(), fromTheme(), setThemeName() */
+comment|/*!     \since 4.6      Returns \c true if there is an icon available for \a name in the     current icon theme, otherwise returns \c false.      \sa themeSearchPaths(), fromTheme(), setThemeName() */
 end_comment
 begin_function
 DECL|function|hasThemeIcon

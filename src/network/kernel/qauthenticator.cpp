@@ -377,7 +377,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this authenticator is identical to \a other; otherwise     returns false. */
+comment|/*!     Returns \c true if this authenticator is identical to \a other; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -459,7 +459,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QAuthenticator::operator!=(const QAuthenticator&other) const      Returns true if this authenticator is different from \a other; otherwise     returns false. */
+comment|/*!     \fn bool QAuthenticator::operator!=(const QAuthenticator&other) const      Returns \c true if this authenticator is different from \a other; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*!   returns the user used for authentication. */
@@ -722,7 +722,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the authenticator is null. */
+comment|/*!     Returns \c true if the authenticator is null. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -5752,7 +5752,7 @@ operator|.
 name|targetName
 operator|.
 name|offset
-operator|>=
+operator|>
 operator|(
 name|unsigned
 operator|)

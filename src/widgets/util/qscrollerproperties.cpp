@@ -420,7 +420,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns true if these scroller properties are equal to \a sp; otherwise returns false. */
+comment|/*!     Returns \c true if these scroller properties are equal to \a sp; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -455,7 +455,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if these scroller properties are different from \a sp; otherwise returns false. */
+comment|/*!     Returns \c true if these scroller properties are different from \a sp; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=

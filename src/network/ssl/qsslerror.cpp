@@ -256,7 +256,7 @@ begin_comment
 comment|/*!     \fn void QSslError::swap(QSslError&other)     \since 5.0      Swaps this error instance with \a other. This function is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \since 4.4      Returns true if this error is equal to \a other; otherwise returns false. */
+comment|/*!     \since 4.4      Returns \c true if this error is equal to \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -297,7 +297,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QSslError::operator!=(const QSslError&other) const     \since 4.4      Returns true if this error is not equal to \a other; otherwise returns     false. */
+comment|/*!     \fn bool QSslError::operator!=(const QSslError&other) const     \since 4.4      Returns \c true if this error is not equal to \a other; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     Returns the type of the error.      \sa errorString(), certificate() */

@@ -82,6 +82,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessible
 operator|::
@@ -89,6 +90,7 @@ name|Role
 name|role
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessible
 operator|::
@@ -96,6 +98,7 @@ name|State
 name|state
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QString
 name|text
@@ -106,11 +109,13 @@ name|Text
 name|t
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|QRect
 name|rect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessibleInterface
 modifier|*
@@ -123,11 +128,13 @@ name|int
 name|y
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|int
 name|indexOfChild
@@ -137,12 +144,14 @@ name|QAccessibleInterface
 operator|*
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|QAccessibleInterface
 operator|*
 name|parent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessibleInterface
 modifier|*
@@ -152,6 +161,7 @@ name|int
 name|index
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|void
 modifier|*
@@ -162,6 +172,7 @@ operator|::
 name|InterfaceType
 name|t
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 comment|// table interface
 name|virtual
@@ -176,6 +187,7 @@ name|int
 name|column
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|virtual
 name|QAccessibleInterface
@@ -183,6 +195,7 @@ operator|*
 name|caption
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QAccessibleInterface
@@ -190,6 +203,7 @@ operator|*
 name|summary
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QString
@@ -199,6 +213,7 @@ name|int
 name|column
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|virtual
 name|QString
@@ -208,18 +223,21 @@ name|int
 name|row
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|virtual
 name|int
 name|columnCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|int
 name|rowCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 comment|// selection
 name|virtual
@@ -227,18 +245,21 @@ name|int
 name|selectedCellCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|int
 name|selectedColumnCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|int
 name|selectedRowCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QList
@@ -249,6 +270,7 @@ operator|>
 name|selectedCells
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QList
@@ -258,6 +280,7 @@ operator|>
 name|selectedColumns
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QList
@@ -267,6 +290,7 @@ operator|>
 name|selectedRows
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|bool
@@ -276,6 +300,7 @@ name|int
 name|column
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|virtual
 name|bool
@@ -285,39 +310,44 @@ name|int
 name|row
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|virtual
 name|bool
 name|selectRow
-parameter_list|(
+argument_list|(
 name|int
 name|row
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|bool
 name|selectColumn
-parameter_list|(
+argument_list|(
 name|int
 name|column
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|bool
 name|unselectRow
-parameter_list|(
+argument_list|(
 name|int
 name|row
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|bool
 name|unselectColumn
-parameter_list|(
+argument_list|(
 name|int
 name|column
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QAbstractItemView
 operator|*
 name|view
@@ -326,12 +356,13 @@ specifier|const
 expr_stmt|;
 name|void
 name|modelChange
-parameter_list|(
+argument_list|(
 name|QAccessibleTableModelChangeEvent
-modifier|*
+operator|*
 name|event
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|protected
 label|:
 specifier|inline
@@ -478,11 +509,13 @@ argument_list|,
 argument|int y
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -491,6 +524,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|indexOfChild
@@ -498,11 +532,13 @@ argument_list|(
 argument|const QAccessibleInterface *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// table interface
 name|QAccessibleInterface
@@ -514,6 +550,7 @@ argument_list|,
 argument|int column
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|rowDescription
@@ -521,6 +558,7 @@ argument_list|(
 argument|int row
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isRowSelected
@@ -528,12 +566,14 @@ argument_list|(
 argument|int row
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|selectRow
 argument_list|(
 argument|int row
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -592,12 +632,14 @@ operator|::
 name|InterfaceType
 name|t
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|QObject
 operator|*
 name|object
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -609,6 +651,7 @@ name|Role
 name|role
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessible
 operator|::
@@ -616,16 +659,19 @@ name|State
 name|state
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QRect
 name|rect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessibleInterface
 modifier|*
@@ -636,6 +682,7 @@ argument_list|,
 name|int
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -645,6 +692,7 @@ name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -658,6 +706,7 @@ name|QAccessibleInterface
 operator|*
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|-
@@ -673,6 +722,7 @@ name|Text
 name|t
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|void
 name|setText
@@ -687,12 +737,14 @@ name|QString
 operator|&
 name|text
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|QAccessibleInterface
 operator|*
 name|parent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QAccessibleInterface
 modifier|*
@@ -701,6 +753,7 @@ argument_list|(
 name|int
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 comment|// cell interface
 name|virtual
@@ -708,6 +761,7 @@ name|int
 name|columnExtent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QList
@@ -718,18 +772,21 @@ operator|>
 name|columnHeaderCells
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|int
 name|columnIndex
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|int
 name|rowExtent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QList
@@ -740,18 +797,21 @@ operator|>
 name|rowHeaderCells
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|int
 name|rowIndex
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|bool
 name|isSelected
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|QAccessibleInterface
@@ -759,6 +819,7 @@ operator|*
 name|table
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 comment|//action interface
 name|virtual
@@ -766,17 +827,19 @@ name|QStringList
 name|actionNames
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|void
 name|doAction
-parameter_list|(
+argument_list|(
 specifier|const
 name|QString
-modifier|&
+operator|&
 name|actionName
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|QStringList
 name|keyBindingsForAction
@@ -787,6 +850,7 @@ operator|&
 name|actionName
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|private
 label|:
@@ -861,6 +925,7 @@ operator|*
 name|object
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -872,6 +937,7 @@ name|Role
 name|role
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessible
 operator|::
@@ -879,16 +945,19 @@ name|State
 name|state
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|rect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -899,6 +968,7 @@ argument_list|,
 argument|int
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -908,6 +978,7 @@ name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -919,6 +990,7 @@ argument_list|(
 argument|const QAccessibleInterface *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|-
@@ -931,6 +1003,7 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setText
@@ -939,12 +1012,14 @@ argument|QAccessible::Text t
 argument_list|,
 argument|const QString&text
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
 name|parent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAccessibleInterface
 operator|*
@@ -953,6 +1028,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -1021,6 +1097,7 @@ operator|*
 name|object
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -1032,6 +1109,7 @@ name|Role
 name|role
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QAccessible
@@ -1045,6 +1123,7 @@ name|State
 name|state
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QAccessible
@@ -1057,6 +1136,7 @@ name|QRect
 name|rect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QRect
@@ -1067,6 +1147,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -1081,6 +1162,7 @@ argument_list|,
 argument|int
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -1090,6 +1172,7 @@ name|int
 name|childCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -1101,6 +1184,7 @@ argument_list|(
 argument|const QAccessibleInterface *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|-
@@ -1113,6 +1197,7 @@ argument_list|(
 argument|QAccessible::Text
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QString
@@ -1126,12 +1211,14 @@ argument|QAccessible::Text
 argument_list|,
 argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 name|QAccessibleInterface
 operator|*
 name|parent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QAccessible
@@ -1149,6 +1236,7 @@ argument_list|(
 argument|int
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0

@@ -361,10 +361,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QAbstractEventDispatcher::processEvents(QEventLoop::ProcessEventsFlags flags)      Processes pending events that match \a flags until there are no     more events to process. Returns true if an event was processed;     otherwise returns false.      This function is especially useful if you have a long running     operation and want to show its progress without allowing user     input; i.e. by using the QEventLoop::ExcludeUserInputEvents flag.      If the QEventLoop::WaitForMoreEvents flag is set in \a flags, the     behavior of this function is as follows:      \list      \li If events are available, this function returns after processing     them.      \li If no events are available, this function will wait until more     are available and return after processing newly available events.      \endlist      If the QEventLoop::WaitForMoreEvents flag is not set in \a flags,     and no events are available, this function will return     immediately.      \b{Note:} This function does not process events continuously; it     returns after all available events are processed.      \sa hasPendingEvents() */
+comment|/*!     \fn bool QAbstractEventDispatcher::processEvents(QEventLoop::ProcessEventsFlags flags)      Processes pending events that match \a flags until there are no     more events to process. Returns \c true if an event was processed;     otherwise returns \c false.      This function is especially useful if you have a long running     operation and want to show its progress without allowing user     input; i.e. by using the QEventLoop::ExcludeUserInputEvents flag.      If the QEventLoop::WaitForMoreEvents flag is set in \a flags, the     behavior of this function is as follows:      \list      \li If events are available, this function returns after processing     them.      \li If no events are available, this function will wait until more     are available and return after processing newly available events.      \endlist      If the QEventLoop::WaitForMoreEvents flag is not set in \a flags,     and no events are available, this function will return     immediately.      \b{Note:} This function does not process events continuously; it     returns after all available events are processed.      \sa hasPendingEvents() */
 end_comment
 begin_comment
-comment|/*! \fn bool QAbstractEventDispatcher::hasPendingEvents()      Returns true if there is an event waiting; otherwise returns     false. */
+comment|/*! \fn bool QAbstractEventDispatcher::hasPendingEvents()      Returns \c true if there is an event waiting; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractEventDispatcher::registerSocketNotifier(QSocketNotifier *notifier)      Registers \a notifier with the event loop. Subclasses must     implement this method to tie a socket notifier into another     event loop. */
@@ -429,10 +429,10 @@ begin_comment
 comment|/*!     \fn void QAbstractEventDispatcher::registerTimer(int timerId, int interval, Qt::TimerType timerType, QObject *object)      Register a timer with the specified \a timerId, \a interval, and \a     timerType for the given \a object. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QAbstractEventDispatcher::unregisterTimer(int timerId)      Unregisters the timer with the given \a timerId.     Returns true if successful; otherwise returns false.      \sa registerTimer(), unregisterTimers() */
+comment|/*!     \fn bool QAbstractEventDispatcher::unregisterTimer(int timerId)      Unregisters the timer with the given \a timerId.     Returns \c true if successful; otherwise returns \c false.      \sa registerTimer(), unregisterTimers() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QAbstractEventDispatcher::unregisterTimers(QObject *object)      Unregisters all the timers associated with the given \a object.     Returns true if all timers were successful removed; otherwise returns false.      \sa unregisterTimer(), registeredTimers() */
+comment|/*!     \fn bool QAbstractEventDispatcher::unregisterTimers(QObject *object)      Unregisters all the timers associated with the given \a object.     Returns \c true if all timers were successful removed; otherwise returns \c false.      \sa unregisterTimer(), registeredTimers() */
 end_comment
 begin_comment
 comment|/*!     \fn QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject *object) const      Returns a list of registered timers for \a object. The TimerInfo struct has     \c timerId, \c interval, and \c timerType members.      \sa Qt::TimerType */
@@ -613,7 +613,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sends \a message through the event filters that were set by     installNativeEventFilter().  This function returns true as soon as an     event filter returns true, and false otherwise to indicate that     the processing of the event should continue.      Subclasses of QAbstractEventDispatcher \e must call this function     for \e all messages received from the system to ensure     compatibility with any extensions that may be used in the     application. The type of event \a eventType is specific to the platform     plugin chosen at run-time, and can be used to cast message to the right type.     The \a result pointer is only used on Windows, and corresponds to the LRESULT pointer.      Note that the type of \a message is platform dependent. See     QAbstractNativeEventFilter for details.      \sa installNativeEventFilter(), QAbstractNativeEventFilter::nativeEventFilter()     \since 5.0 */
+comment|/*!     Sends \a message through the event filters that were set by     installNativeEventFilter().  This function returns \c true as soon as an     event filter returns \c true, and false otherwise to indicate that     the processing of the event should continue.      Subclasses of QAbstractEventDispatcher \e must call this function     for \e all messages received from the system to ensure     compatibility with any extensions that may be used in the     application. The type of event \a eventType is specific to the platform     plugin chosen at run-time, and can be used to cast message to the right type.     The \a result pointer is only used on Windows, and corresponds to the LRESULT pointer.      Note that the type of \a message is platform dependent. See     QAbstractNativeEventFilter for details.      \sa installNativeEventFilter(), QAbstractNativeEventFilter::nativeEventFilter()     \since 5.0 */
 end_comment
 begin_function
 DECL|function|filterNativeEvent
@@ -725,7 +725,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QAbstractEventDispatcher::filterEvent(void *message)     \deprecated      Calls filterNativeEvent() with an empty eventType and \a message.     This function returns true as soon as an     event filter returns true, and false otherwise to indicate that     the processing of the event should continue. */
+comment|/*! \fn bool QAbstractEventDispatcher::filterEvent(void *message)     \deprecated      Calls filterNativeEvent() with an empty eventType and \a message.     This function returns \c true as soon as an     event filter returns \c true, and false otherwise to indicate that     the processing of the event should continue. */
 end_comment
 begin_comment
 comment|/*! \fn bool QAbstractEventDispatcher::registerEventNotifier(QWinEventNotifier *notifier);    This pure virtual method exists on windows only and has to be reimplemented by a Windows specific   event dispatcher implementation. \a notifier is the QWinEventNotifier instance to be registered.    The method should return true if the registration of \a notifier was sucessful, otherwise false.    QWinEventNotifier calls this method in it's constructor and there should never be a need to call this   method directly.    \sa QWinEventNotifier, unregisterEventNotifier() */

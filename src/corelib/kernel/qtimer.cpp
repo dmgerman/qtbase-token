@@ -118,10 +118,10 @@ begin_comment
 comment|/*!     \fn void QTimer::timeout()      This signal is emitted when the timer times out.      \sa interval, start(), stop() */
 end_comment
 begin_comment
-comment|/*!     \property QTimer::active     \since 4.3      This boolean property is true if the timer is running; otherwise     false. */
+comment|/*!     \property QTimer::active     \since 4.3      This boolean property is \c true if the timer is running; otherwise     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTimer::isActive() const      Returns true if the timer is running (pending); otherwise returns     false. */
+comment|/*!     \fn bool QTimer::isActive() const      Returns \c true if the timer is running (pending); otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn int QTimer::timerId() const      Returns the ID of the timer if the timer is running; otherwise returns     -1. */

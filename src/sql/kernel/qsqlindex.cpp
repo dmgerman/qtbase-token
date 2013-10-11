@@ -244,7 +244,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if field \a i in the index is sorted in descending     order; otherwise returns false. */
+comment|/*!     Returns \c true if field \a i in the index is sorted in descending     order; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isDescending

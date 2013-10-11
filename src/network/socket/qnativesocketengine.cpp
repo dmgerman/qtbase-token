@@ -833,7 +833,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Initializes a QNativeSocketEngine by creating a new socket of type \a     socketType and network layer protocol \a protocol. Returns true on     success; otherwise returns false.      If the socket was already initialized, this function closes the     socket before reeinitializing it.      The new socket is non-blocking, and for UDP sockets it's also     broadcast enabled. */
+comment|/*!     Initializes a QNativeSocketEngine by creating a new socket of type \a     socketType and network layer protocol \a protocol. Returns \c true on     success; otherwise returns \c false.      If the socket was already initialized, this function closes the     socket before reeinitializing it.      The new socket is non-blocking, and for UDP sockets it's also     broadcast enabled. */
 end_comment
 begin_function
 DECL|function|initialize
@@ -1305,7 +1305,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the socket is valid; otherwise returns false. A     socket is valid if it has not been successfully initialized, or if     it has been closed. */
+comment|/*!     Returns \c true if the socket is valid; otherwise returns \c false. A     socket is valid if it has not been successfully initialized, or if     it has been closed. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -1358,7 +1358,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Connects to the IP address and port specified by \a address and \a     port. If the connection is established, this function returns true     and the socket enters ConnectedState. Otherwise, false is     returned.      If false is returned, state() should be called to see if the     socket is in ConnectingState. If so, a delayed TCP connection is     taking place, and connectToHost() must be called again later to     determine if the connection was established successfully or     not. The second connection attempt must be made when the socket is     ready for writing. This state can be determined either by     connecting a QSocketNotifier to the socket descriptor returned by     socketDescriptor(), or by calling the blocking function     waitForWrite().      Example:     \snippet code/src_network_socket_qnativesocketengine.cpp 0      Otherwise, error() should be called to determine the cause of the     error. */
+comment|/*!     Connects to the IP address and port specified by \a address and \a     port. If the connection is established, this function returns \c true     and the socket enters ConnectedState. Otherwise, false is     returned.      If false is returned, state() should be called to see if the     socket is in ConnectingState. If so, a delayed TCP connection is     taking place, and connectToHost() must be called again later to     determine if the connection was established successfully or     not. The second connection attempt must be made when the socket is     ready for writing. This state can be determined either by     connecting a QSocketNotifier to the socket descriptor returned by     socketDescriptor(), or by calling the blocking function     waitForWrite().      Example:     \snippet code/src_network_socket_qnativesocketengine.cpp 0      Otherwise, error() should be called to determine the cause of the     error. */
 end_comment
 begin_function
 DECL|function|connectToHost
@@ -1569,7 +1569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Binds the socket to the address \a address and port \a     port. Returns true on success; otherwise false is returned. The     port may be 0, in which case an arbitrary unused port is assigned     automatically by the operating system.      Servers call this function to set up the server's address and     port. TCP servers must in addition call listen() after bind(). */
+comment|/*!     Binds the socket to the address \a address and port \a     port. Returns \c true on success; otherwise false is returned. The     port may be 0, in which case an arbitrary unused port is assigned     automatically by the operating system.      Servers call this function to set up the server's address and     port. TCP servers must in addition call listen() after bind(). */
 end_comment
 begin_function
 DECL|function|bind
@@ -2159,7 +2159,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is at least one datagram pending. This     function is only called by UDP sockets, where a datagram can have     a size of 0. TCP sockets call bytesAvailable(). */
+comment|/*!     Returns \c true if there is at least one datagram pending. This     function is only called by UDP sockets, where a datagram can have     a size of 0. TCP sockets call bytesAvailable(). */
 end_comment
 begin_function
 DECL|function|hasPendingDatagrams
@@ -2841,7 +2841,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Waits for \a msecs milliseconds or until the socket is ready for     reading. If \a timedOut is not 0 and \a msecs milliseconds have     passed, the value of \a timedOut is set to true.      Returns true if data is available for reading; otherwise returns     false.      This is a blocking function call; its use is disadvised in a     single threaded application, as the whole thread will stop     responding until the function returns. waitForRead() is most     useful when there is no event loop available. The general approach     is to create a QSocketNotifier, passing the socket descriptor     returned by socketDescriptor() to its constructor. */
+comment|/*!     Waits for \a msecs milliseconds or until the socket is ready for     reading. If \a timedOut is not 0 and \a msecs milliseconds have     passed, the value of \a timedOut is set to true.      Returns \c true if data is available for reading; otherwise returns     false.      This is a blocking function call; its use is disadvised in a     single threaded application, as the whole thread will stop     responding until the function returns. waitForRead() is most     useful when there is no event loop available. The general approach     is to create a QSocketNotifier, passing the socket descriptor     returned by socketDescriptor() to its constructor. */
 end_comment
 begin_function
 DECL|function|waitForRead
@@ -2980,7 +2980,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits for \a msecs milliseconds or until the socket is ready for     writing. If \a timedOut is not 0 and \a msecs milliseconds have     passed, the value of \a timedOut is set to true.      Returns true if data is available for writing; otherwise returns     false.      This is a blocking function call; its use is disadvised in a     single threaded application, as the whole thread will stop     responding until the function returns. waitForWrite() is most     useful when there is no event loop available. The general approach     is to create a QSocketNotifier, passing the socket descriptor     returned by socketDescriptor() to its constructor. */
+comment|/*!     Waits for \a msecs milliseconds or until the socket is ready for     writing. If \a timedOut is not 0 and \a msecs milliseconds have     passed, the value of \a timedOut is set to true.      Returns \c true if data is available for writing; otherwise returns     false.      This is a blocking function call; its use is disadvised in a     single threaded application, as the whole thread will stop     responding until the function returns. waitForWrite() is most     useful when there is no event loop available. The general approach     is to create a QSocketNotifier, passing the socket descriptor     returned by socketDescriptor() to its constructor. */
 end_comment
 begin_function
 DECL|function|waitForWrite

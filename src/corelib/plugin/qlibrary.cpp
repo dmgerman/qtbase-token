@@ -310,7 +310,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   This opens the specified library, mmaps it into memory, and searches   for the QT_PLUGIN_VERIFICATION_DATA.  The advantage of this approach is that   we can get the verification data without have to actually load the library.   This lets us detect mismatches more safely.    Returns false if version information is not present, or if the                 information could not be read.   Returns  true if version information is present and successfully read. */
+comment|/*   This opens the specified library, mmaps it into memory, and searches   for the QT_PLUGIN_VERIFICATION_DATA.  The advantage of this approach is that   we can get the verification data without have to actually load the library.   This lets us detect mismatches more safely.    Returns \c false if version information is not present, or if the                 information could not be read.   Returns  true if version information is present and successfully read. */
 end_comment
 begin_function
 DECL|function|findPatternUnloaded
@@ -1854,7 +1854,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a fileName has a valid suffix for a loadable     library; otherwise returns false.      \table     \header \li Platform \li Valid suffixes     \row \li Windows     \li \c .dll, \c .DLL     \row \li Unix/Linux  \li \c .so     \row \li AIX  \li \c .a     \row \li HP-UX       \li \c .sl, \c .so (HP-UXi)     \row \li Mac OS X    \li \c .dylib, \c .bundle, \c .so     \endtable      Trailing versioning numbers on Unix are ignored.  */
+comment|/*!     Returns \c true if \a fileName has a valid suffix for a loadable     library; otherwise returns \c false.      \table     \header \li Platform \li Valid suffixes     \row \li Windows     \li \c .dll, \c .DLL     \row \li Unix/Linux  \li \c .so     \row \li AIX  \li \c .a     \row \li HP-UX       \li \c .sl, \c .so (HP-UXi)     \row \li Mac OS X    \li \c .dylib, \c .bundle, \c .so     \endtable      Trailing versioning numbers on Unix are ignored.  */
 end_comment
 begin_function
 DECL|function|isLibrary
@@ -2667,7 +2667,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Loads the library and returns true if the library was loaded     successfully; otherwise returns false. Since resolve() always     calls this function before resolving any symbols it is not     necessary to call it explicitly. In some situations you might want     the library loaded in advance, in which case you would use this     function.      \sa unload() */
+comment|/*!     Loads the library and returns \c true if the library was loaded     successfully; otherwise returns \c false. Since resolve() always     calls this function before resolving any symbols it is not     necessary to call it explicitly. In some situations you might want     the library loaded in advance, in which case you would use this     function.      \sa unload() */
 end_comment
 begin_function
 DECL|function|load
@@ -2707,7 +2707,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Unloads the library and returns true if the library could be     unloaded; otherwise returns false.      This happens automatically on application termination, so you     shouldn't normally need to call this function.      If other instances of QLibrary are using the same library, the     call will fail, and unloading will only happen when every instance     has called unload().      Note that on Mac OS X 10.3 (Panther), dynamic libraries cannot be unloaded.      \sa resolve(), load() */
+comment|/*!     Unloads the library and returns \c true if the library could be     unloaded; otherwise returns \c false.      This happens automatically on application termination, so you     shouldn't normally need to call this function.      If other instances of QLibrary are using the same library, the     call will fail, and unloading will only happen when every instance     has called unload().      Note that on Mac OS X 10.3 (Panther), dynamic libraries cannot be unloaded.      \sa resolve(), load() */
 end_comment
 begin_function
 DECL|function|unload
@@ -2739,7 +2739,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the library is loaded; otherwise returns false.      \sa load()  */
+comment|/*!     Returns \c true if the library is loaded; otherwise returns \c false.      \sa load()  */
 end_comment
 begin_function
 DECL|function|isLoaded

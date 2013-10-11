@@ -12,7 +12,7 @@ begin_comment
 comment|/*!     \fn QButtonGroup::~QButtonGroup()      Destroys the button group. */
 end_comment
 begin_comment
-comment|/*!     \property QButtonGroup::exclusive     \brief whether the button group is exclusive      If this property is true, then only one button in the group can be checked     at any given time. The user can click on any button to check it, and that     button will replace the existing one as the checked button in the group.      In an exclusive group, the user cannot uncheck the currently checked button     by clicking on it; instead, another button in the group must be clicked     to set the new checked button for that group.      By default, this property is true. */
+comment|/*!     \property QButtonGroup::exclusive     \brief whether the button group is exclusive      If this property is \c true, then only one button in the group can be checked     at any given time. The user can click on any button to check it, and that     button will replace the existing one as the checked button in the group.      In an exclusive group, the user cannot uncheck the currently checked button     by clicking on it; instead, another button in the group must be clicked     to set the new checked button for that group.      By default, this property is \c true. */
 end_comment
 begin_comment
 comment|/*!     \fn void QButtonGroup::buttonClicked(QAbstractButton *button)      This signal is emitted when the given \a button is clicked. A     button is clicked when it is first pressed and then released, when     its shortcut key is typed, or when QAbstractButton::click()     or QAbstractButton::animateClick() is programmatically called.       \sa checkedButton(), QAbstractButton::clicked() */

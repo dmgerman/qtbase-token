@@ -3972,7 +3972,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal   Returns true if the section at logical index \a logical is part of the span   starting at logical index \a spanLogical and spanning \a span sections;   otherwise, returns false. */
+comment|/*!   \internal   Returns \c true if the section at logical index \a logical is part of the span   starting at logical index \a spanLogical and spanning \a span sections;   otherwise, returns \c false. */
 end_comment
 begin_function
 DECL|function|spanContainsSection
@@ -14397,7 +14397,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the given \a row is hidden; otherwise returns false.      \sa isColumnHidden() */
+comment|/*!     Returns \c true if the given \a row is hidden; otherwise returns \c false.      \sa isColumnHidden() */
 end_comment
 begin_function
 DECL|function|isRowHidden
@@ -14481,7 +14481,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the given \a column is hidden; otherwise returns false.      \sa isRowHidden() */
+comment|/*!     Returns \c true if the given \a column is hidden; otherwise returns \c false.      \sa isRowHidden() */
 end_comment
 begin_function
 DECL|function|isColumnHidden
@@ -14565,7 +14565,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \property QTableView::sortingEnabled     \brief whether sorting is enabled      If this property is true, sorting is enabled for the table.  If     this property is false, sorting is not enabled. The default value     is false.      \note. Setting the property to true with setSortingEnabled()     immediately triggers a call to sortByColumn() with the current     sort section and order.      \sa sortByColumn() */
+comment|/*!     \since 4.2     \property QTableView::sortingEnabled     \brief whether sorting is enabled      If this property is \c true, sorting is enabled for the table.  If     this property is \c false, sorting is not enabled. The default value     is false.      \note. Setting the property to true with setSortingEnabled()     immediately triggers a call to sortByColumn() with the current     sort section and order.      \sa sortByColumn() */
 end_comment
 begin_comment
 comment|/*!   If \a enabled true enables sorting for the table and immediately   trigger a call to sortByColumn() with the current sort section and   order  */
@@ -14815,7 +14815,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTableView::showGrid     \brief whether the grid is shown      If this property is true a grid is drawn for the table; if the     property is false, no grid is drawn. The default value is true. */
+comment|/*!     \property QTableView::showGrid     \brief whether the grid is shown      If this property is \c true a grid is drawn for the table; if the     property is \c false, no grid is drawn. The default value is true. */
 end_comment
 begin_function
 DECL|function|showGrid
@@ -14951,7 +14951,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTableView::wordWrap     \brief the item text word-wrapping policy     \since 4.3      If this property is true then the item text is wrapped where     necessary at word-breaks; otherwise it is not wrapped at all.     This property is true by default.      Note that even of wrapping is enabled, the cell will not be     expanded to fit all text. Ellipsis will be inserted according to     the current \l{QAbstractItemView::}{textElideMode}.  */
+comment|/*!     \property QTableView::wordWrap     \brief the item text word-wrapping policy     \since 4.3      If this property is \c true then the item text is wrapped where     necessary at word-breaks; otherwise it is not wrapped at all.     This property is \c true by default.      Note that even of wrapping is enabled, the cell will not be     expanded to fit all text. Ellipsis will be inserted according to     the current \l{QAbstractItemView::}{textElideMode}.  */
 end_comment
 begin_function
 DECL|function|setWordWrap
@@ -15031,7 +15031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTableView::cornerButtonEnabled     \brief whether the button in the top-left corner is enabled     \since 4.3      If this property is true then button in the top-left corner     of the table view is enabled. Clicking on this button will     select all the cells in the table view.      This property is true by default. */
+comment|/*!     \property QTableView::cornerButtonEnabled     \brief whether the button in the top-left corner is enabled     \since 4.3      If this property is \c true then button in the top-left corner     of the table view is enabled. Clicking on this button will     select all the cells in the table view.      This property is \c true by default. */
 end_comment
 begin_function
 DECL|function|setCornerButtonEnabled

@@ -242,10 +242,10 @@ begin_comment
 comment|/*!     \class QMetaType     \inmodule QtCore     \brief The QMetaType class manages named types in the meta-object system.      \ingroup objectmodel     \threadsafe      The class is used as a helper to marshall types in QVariant and     in queued signals and slots connections. It associates a type     name to a type so that it can be created and destructed     dynamically at run-time. Declare new types with Q_DECLARE_METATYPE()     to make them available to QVariant and other template-based functions.     Call qRegisterMetaType() to make type available to non-template based     functions, such as the queued signal and slot connections.      Any class or struct that has a public default     constructor, a public copy constructor, and a public destructor     can be registered.      The following code allocates and destructs an instance of     \c{MyClass}:      \snippet code/src_corelib_kernel_qmetatype.cpp 3      If we want the stream operators \c operator<<() and \c     operator>>() to work on QVariant objects that store custom types,     the custom type must provide \c operator<<() and \c operator>>()     operators.      \sa Q_DECLARE_METATYPE(), QVariant::setValue(), QVariant::value(), QVariant::fromValue() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::isValid() const     \since 5.0      Returns true if this QMetaType object contains valid     information about a type, false otherwise. */
+comment|/*!     \fn bool QMetaType::isValid() const     \since 5.0      Returns \c true if this QMetaType object contains valid     information about a type, false otherwise. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::isRegistered() const     \since 5.0      Returns true if this QMetaType object contains valid     information about a type, false otherwise. */
+comment|/*!     \fn bool QMetaType::isRegistered() const     \since 5.0      Returns \c true if this QMetaType object contains valid     information about a type, false otherwise. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QMetaType::sizeOf() const     \since 5.0      Returns the size of the type in bytes (i.e. sizeof(T),     where T is the actual type for which this QMetaType instance     was constructed for).      This function is typically used together with construct()     to perform low-level management of the memory used by a type.      \sa QMetaType::construct(), QMetaType::sizeOf() */
@@ -758,19 +758,19 @@ argument|customTypesDebugStreamRegistry
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter()     \since 5.2     Registers the possibility of an implicit conversion from type From to type To in the meta     type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter()     \since 5.2     Registers the possibility of an implicit conversion from type From to type To in the meta     type system. Returns \c true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter(MemberFunction function)     \since 5.2     \overload     Registers a method \a function like To From::function() const as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter(MemberFunction function)     \since 5.2     \overload     Registers a method \a function like To From::function() const as converter from type From     to type To in the meta type system. Returns \c true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter(MemberFunctionOk function)     \since 5.2     \overload     Registers a method \a function like To From::function(bool *ok) const as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter(MemberFunctionOk function)     \since 5.2     \overload     Registers a method \a function like To From::function(bool *ok) const as converter from type From     to type To in the meta type system. Returns \c true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerConverter(UnaryFunction function)     \since 5.2     \overload     Registers a unary function object \a function as converter from type From     to type To in the meta type system. Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerConverter(UnaryFunction function)     \since 5.2     \overload     Registers a unary function object \a function as converter from type From     to type To in the meta type system. Returns \c true if the registration succeeded, otherwise false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMetaType::registerComparators()     \since 5.2     Registers comparison operetarors for the user-registered type T. This requires T to have     both an operator== and an operator<.     Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerComparators()     \since 5.2     Registers comparison operetarors for the user-registered type T. This requires T to have     both an operator== and an operator<.     Returns \c true if the registration succeeded, otherwise false. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -778,14 +778,14 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_comment
-comment|/*!     \fn bool QMetaType::registerDebugStreamOperator()     Registers the debug stream operator for the user-registered type T. This requires T to have     an operator<<(QDebug dbg, T).     Returns true if the registration succeeded, otherwise false. */
+comment|/*!     \fn bool QMetaType::registerDebugStreamOperator()     Registers the debug stream operator for the user-registered type T. This requires T to have     an operator<<(QDebug dbg, T).     Returns \c true if the registration succeeded, otherwise false. */
 end_comment
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Registers function \a f as converter function from type id \a from to \a to.     If there's already a conversion registered, this does nothing but deleting \a f.     Returns true if the registration succeeded, otherwise false.     \since 5.2     \internal */
+comment|/*!     Registers function \a f as converter function from type id \a from to \a to.     If there's already a conversion registered, this does nothing but deleting \a f.     Returns \c true if the registration succeeded, otherwise false.     \since 5.2     \internal */
 end_comment
 begin_function
 DECL|function|registerConverterFunction
@@ -946,10 +946,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QMetaType::hasRegisteredComparators()     Returns true, if the meta type system has registered comparators for type T.     \since 5.2  */
+comment|/*!     \fn bool QMetaType::hasRegisteredComparators()     Returns \c true, if the meta type system has registered comparators for type T.     \since 5.2  */
 end_comment
 begin_comment
-comment|/*!     Returns true, if the meta type system has registered comparators for type id \a typeId.     \since 5.2  */
+comment|/*!     Returns \c true, if the meta type system has registered comparators for type id \a typeId.     \since 5.2  */
 end_comment
 begin_function
 DECL|function|hasRegisteredComparators
@@ -1032,10 +1032,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QMetaType::hasRegisteredDebugStreamOperator()     Returns true, if the meta type system has a registered debug stream operator for type T.     \since 5.2  */
+comment|/*!     \fn bool QMetaType::hasRegisteredDebugStreamOperator()     Returns \c true, if the meta type system has a registered debug stream operator for type T.     \since 5.2  */
 end_comment
 begin_comment
-comment|/*!     Returns true, if the meta type system has a registered debug stream operator for type     id \a typeId.     \since 5.2 */
+comment|/*!     Returns \c true, if the meta type system has a registered debug stream operator for type     id \a typeId.     \since 5.2 */
 end_comment
 begin_function
 DECL|function|hasRegisteredDebugStreamOperator
@@ -1064,7 +1064,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Converts the object at \a from from \a fromTypeId to the preallocated space at \a to     typed \a toTypeId. Returns true, if the conversion succeeded, otherwise false.     \since 5.2 */
+comment|/*!     Converts the object at \a from from \a fromTypeId to the preallocated space at \a to     typed \a toTypeId. Returns \c true, if the conversion succeeded, otherwise false.     \since 5.2 */
 end_comment
 begin_function
 DECL|function|convert
@@ -1127,7 +1127,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compares the objects at \a lhs and \a rhs. Both objects need to be of type \a typeId.     \a result is set to less than, equal to or greater than zero, if \a lhs is less than, equal to     or greater than \a rhs. Returns true, if the comparison succeeded, otherwiess false.     \since 5.2 */
+comment|/*!     Compares the objects at \a lhs and \a rhs. Both objects need to be of type \a typeId.     \a result is set to less than, equal to or greater than zero, if \a lhs is less than, equal to     or greater than \a rhs. Returns \c true, if the comparison succeeded, otherwiess false.     \since 5.2 */
 end_comment
 begin_function
 DECL|function|compare
@@ -1222,7 +1222,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Streams the object at \a rhs of type \a typeId to the debug stream \a dbg. Returns true     on success, otherwise false.     \since 5.2 */
+comment|/*!     Streams the object at \a rhs of type \a typeId to the debug stream \a dbg. Returns \c true     on success, otherwise false.     \since 5.2 */
 end_comment
 begin_function
 DECL|function|debugStream
@@ -1285,10 +1285,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QMetaType::hasRegisteredConverterFunction()     Returns true, if the meta type system has a registered conversion from type From to type To.     \since 5.2     \overload     */
+comment|/*!     \fn bool QMetaType::hasRegisteredConverterFunction()     Returns \c true, if the meta type system has a registered conversion from type From to type To.     \since 5.2     \overload     */
 end_comment
 begin_comment
-comment|/*!     Returns true, if the meta type system has a registered conversion from meta type id \a fromTypeId     to \a toTypeId     \since 5.2 */
+comment|/*!     Returns \c true, if the meta type system has a registered conversion from meta type id \a fromTypeId     to \a toTypeId     \since 5.2 */
 end_comment
 begin_function
 DECL|function|hasRegisteredConverterFunction
@@ -2697,7 +2697,7 @@ return|;
 end_return
 begin_comment
 unit|}
-comment|/*!     Returns true if the datatype with ID \a type is registered;     otherwise returns false.      \sa type(), typeName(), Type */
+comment|/*!     Returns \c true if the datatype with ID \a type is registered;     otherwise returns \c false.      \sa type(), typeName(), Type */
 end_comment
 begin_macro
 unit|bool
@@ -3030,7 +3030,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_comment
-comment|/*!     Writes the object pointed to by \a data with the ID \a type to     the given \a stream. Returns true if the object is saved     successfully; otherwise returns false.      The type must have been registered with qRegisterMetaType() and     qRegisterMetaTypeStreamOperators() beforehand.      Normally, you should not need to call this function directly.     Instead, use QVariant's \c operator<<(), which relies on save()     to stream custom types.      \sa load(), qRegisterMetaTypeStreamOperators() */
+comment|/*!     Writes the object pointed to by \a data with the ID \a type to     the given \a stream. Returns \c true if the object is saved     successfully; otherwise returns \c false.      The type must have been registered with qRegisterMetaType() and     qRegisterMetaTypeStreamOperators() beforehand.      Normally, you should not need to call this function directly.     Instead, use QVariant's \c operator<<(), which relies on save()     to stream custom types.      \sa load(), qRegisterMetaTypeStreamOperators() */
 end_comment
 begin_function
 DECL|function|save
@@ -4245,7 +4245,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads the object of the specified \a type from the given \a     stream into \a data. Returns true if the object is loaded     successfully; otherwise returns false.      The type must have been registered with qRegisterMetaType() and     qRegisterMetaTypeStreamOperators() beforehand.      Normally, you should not need to call this function directly.     Instead, use QVariant's \c operator>>(), which relies on load()     to stream custom types.      \sa save(), qRegisterMetaTypeStreamOperators() */
+comment|/*!     Reads the object of the specified \a type from the given \a     stream into \a data. Returns \c true if the object is loaded     successfully; otherwise returns \c false.      The type must have been registered with qRegisterMetaType() and     qRegisterMetaTypeStreamOperators() beforehand.      Normally, you should not need to call this function directly.     Instead, use QVariant's \c operator>>(), which relies on load()     to stream custom types.      \sa save(), qRegisterMetaTypeStreamOperators() */
 end_comment
 begin_function
 DECL|function|load

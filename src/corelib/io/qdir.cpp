@@ -2950,7 +2950,7 @@ expr_stmt|;
 end_expr_stmt
 begin_comment
 unit|}
-comment|/*!     Changes the QDir's directory to \a dirName.      Returns true if the new directory exists and is readable;     otherwise returns false. Note that the logical cd() operation is     not performed if the new directory does not exist.      Calling cd("..") is equivalent to calling cdUp().      \sa cdUp(), isReadable(), exists(), path() */
+comment|/*!     Changes the QDir's directory to \a dirName.      Returns \c true if the new directory exists and is readable;     otherwise returns \c false. Note that the logical cd() operation is     not performed if the new directory does not exist.      Calling cd("..") is equivalent to calling cdUp().      \sa cdUp(), isReadable(), exists(), path() */
 end_comment
 begin_macro
 unit|bool
@@ -3250,7 +3250,7 @@ return|;
 end_return
 begin_comment
 unit|}
-comment|/*!     Changes directory by moving one directory up from the QDir's     current directory.      Returns true if the new directory exists and is readable;     otherwise returns false. Note that the logical cdUp() operation is     not performed if the new directory does not exist.      \sa cd(), isReadable(), exists(), path() */
+comment|/*!     Changes directory by moving one directory up from the QDir's     current directory.      Returns \c true if the new directory exists and is readable;     otherwise returns \c false. Note that the logical cdUp() operation is     not performed if the new directory does not exist.      \sa cd(), isReadable(), exists(), path() */
 end_comment
 begin_macro
 unit|bool
@@ -4262,7 +4262,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a sub-directory called \a dirName.      Returns true on success; otherwise returns false.      If the directory already exists when this function is called, it will return false.      \sa rmdir() */
+comment|/*!     Creates a sub-directory called \a dirName.      Returns \c true on success; otherwise returns \c false.      If the directory already exists when this function is called, it will return false.      \sa rmdir() */
 end_comment
 begin_function
 DECL|function|mkdir
@@ -4298,7 +4298,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::mkdir: Empty or null file name(s)"
+literal|"QDir::mkdir: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4350,7 +4350,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the directory specified by \a dirName.      The directory must be empty for rmdir() to succeed.      Returns true if successful; otherwise returns false.      \sa mkdir() */
+comment|/*!     Removes the directory specified by \a dirName.      The directory must be empty for rmdir() to succeed.      Returns \c true if successful; otherwise returns \c false.      \sa mkdir() */
 end_comment
 begin_function
 DECL|function|rmdir
@@ -4386,7 +4386,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::rmdir: Empty or null file name(s)"
+literal|"QDir::rmdir: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4438,7 +4438,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates the directory path \a dirPath.      The function will create all parent directories necessary to     create the directory.      Returns true if successful; otherwise returns false.      If the path already exists when this function is called, it will return true.      \sa rmpath() */
+comment|/*!     Creates the directory path \a dirPath.      The function will create all parent directories necessary to     create the directory.      Returns \c true if successful; otherwise returns \c false.      If the path already exists when this function is called, it will return true.      \sa rmpath() */
 end_comment
 begin_function
 DECL|function|mkpath
@@ -4474,7 +4474,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::mkpath: Empty or null file name(s)"
+literal|"QDir::mkpath: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4526,7 +4526,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the directory path \a dirPath.      The function will remove all parent directories in \a dirPath,     provided that they are empty. This is the opposite of     mkpath(dirPath).      Returns true if successful; otherwise returns false.      \sa mkpath() */
+comment|/*!     Removes the directory path \a dirPath.      The function will remove all parent directories in \a dirPath,     provided that they are empty. This is the opposite of     mkpath(dirPath).      Returns \c true if successful; otherwise returns \c false.      \sa mkpath() */
 end_comment
 begin_function
 DECL|function|rmpath
@@ -4562,7 +4562,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QDir::rmpath: Empty or null file name(s)"
+literal|"QDir::rmpath: Empty or null file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4614,7 +4614,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Removes the directory, including all its contents.      Returns true if successful, otherwise false.      If a file or directory cannot be removed, removeRecursively() keeps going     and attempts to delete as many files and sub-directories as possible,     then returns false.      If the directory was already removed, the method returns true     (expected result already reached).      Note: this function is meant for removing a small application-internal     directory (such as a temporary directory), but not user-visible     directories. For user-visible operations, it is rather recommended     to report errors more precisely to the user, to offer solutions     in case of errors, to show progress during the deletion since it     could take several minutes, etc. */
+comment|/*!     \since 5.0     Removes the directory, including all its contents.      Returns \c true if successful, otherwise false.      If a file or directory cannot be removed, removeRecursively() keeps going     and attempts to delete as many files and sub-directories as possible,     then returns \c false.      If the directory was already removed, the method returns \c true     (expected result already reached).      Note: this function is meant for removing a small application-internal     directory (such as a temporary directory), but not user-visible     directories. For user-visible operations, it is rather recommended     to report errors more precisely to the user, to offer solutions     in case of errors, to show progress during the deletion since it     could take several minutes, etc. */
 end_comment
 begin_function
 DECL|function|removeRecursively
@@ -4764,7 +4764,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the directory is readable \e and we can open files     by name; otherwise returns false.      \warning A false value from this function is not a guarantee that     files in the directory are not accessible.      \sa QFileInfo::isReadable() */
+comment|/*!     Returns \c true if the directory is readable \e and we can open files     by name; otherwise returns \c false.      \warning A false value from this function is not a guarantee that     files in the directory are not accessible.      \sa QFileInfo::isReadable() */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -4888,7 +4888,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns true if the directory exists; otherwise returns false.     (If a file with the same name is found this function will return false).      The overload of this function that accepts an argument is used to test     for the presence of files and directories within a directory.      \sa QFileInfo::exists(), QFile::exists() */
+comment|/*!     \overload      Returns \c true if the directory exists; otherwise returns \c false.     (If a file with the same name is found this function will return false).      The overload of this function that accepts an argument is used to test     for the presence of files and directories within a directory.      \sa QFileInfo::exists(), QFile::exists() */
 end_comment
 begin_function
 DECL|function|exists
@@ -4908,7 +4908,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the directory is the root directory; otherwise     returns false.      Note: If the directory is a symbolic link to the root directory     this function returns false. If you want to test for this use     canonicalPath(), e.g.      \snippet code/src_corelib_io_qdir.cpp 9      \sa root(), rootPath() */
+comment|/*!     Returns \c true if the directory is the root directory; otherwise     returns \c false.      Note: If the directory is a symbolic link to the root directory     this function returns \c false. If you want to test for this use     canonicalPath(), e.g.      \snippet code/src_corelib_io_qdir.cpp 9      \sa root(), rootPath() */
 end_comment
 begin_function
 DECL|function|isRoot
@@ -4955,13 +4955,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDir::isAbsolute() const      Returns true if the directory's path is absolute; otherwise     returns false. See isAbsolutePath().      \sa isRelative(), makeAbsolute(), cleanPath() */
+comment|/*!     \fn bool QDir::isAbsolute() const      Returns \c true if the directory's path is absolute; otherwise     returns \c false. See isAbsolutePath().      \sa isRelative(), makeAbsolute(), cleanPath() */
 end_comment
 begin_comment
-comment|/*!    \fn bool QDir::isAbsolutePath(const QString&)      Returns true if \a path is absolute; returns false if it is     relative.      \sa isAbsolute(), isRelativePath(), makeAbsolute(), cleanPath() */
+comment|/*!    \fn bool QDir::isAbsolutePath(const QString&)      Returns \c true if \a path is absolute; returns \c false if it is     relative.      \sa isAbsolute(), isRelativePath(), makeAbsolute(), cleanPath() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the directory path is relative; otherwise returns     false. (Under Unix a path is relative if it does not start with a     "/").      \sa makeAbsolute(), isAbsolute(), isAbsolutePath(), cleanPath() */
+comment|/*!     Returns \c true if the directory path is relative; otherwise returns     false. (Under Unix a path is relative if it does not start with a     "/").      \sa makeAbsolute(), isAbsolute(), isAbsolutePath(), cleanPath() */
 end_comment
 begin_function
 DECL|function|isRelative
@@ -5000,7 +5000,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the directory path to an absolute path. If it is already     absolute nothing happens. Returns true if the conversion     succeeded; otherwise returns false.      \sa isAbsolute(), isAbsolutePath(), isRelative(), cleanPath() */
+comment|/*!     Converts the directory path to an absolute path. If it is already     absolute nothing happens. Returns \c true if the conversion     succeeded; otherwise returns \c false.      \sa isAbsolute(), isAbsolutePath(), isRelative(), cleanPath() */
 end_comment
 begin_function
 DECL|function|makeAbsolute
@@ -5136,7 +5136,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if directory \a dir and this directory have the same     path and their sort and filter settings are the same; otherwise     returns false.      Example:      \snippet code/src_corelib_io_qdir.cpp 10 */
+comment|/*!     Returns \c true if directory \a dir and this directory have the same     path and their sort and filter settings are the same; otherwise     returns \c false.      Example:      \snippet code/src_corelib_io_qdir.cpp 10 */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -5482,10 +5482,10 @@ begin_comment
 comment|/*!     \fn void QDir::swap(QDir&other)     \since 5.0      Swaps this QDir instance with \a other. This function is very fast     and never fails. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QDir::operator!=(const QDir&dir) const      Returns true if directory \a dir and this directory have different     paths or different sort or filter settings; otherwise returns     false.      Example:      \snippet code/src_corelib_io_qdir.cpp 11 */
+comment|/*!     \fn bool QDir::operator!=(const QDir&dir) const      Returns \c true if directory \a dir and this directory have different     paths or different sort or filter settings; otherwise returns     false.      Example:      \snippet code/src_corelib_io_qdir.cpp 11 */
 end_comment
 begin_comment
-comment|/*!     Removes the file, \a fileName.      Returns true if the file is removed successfully; otherwise     returns false. */
+comment|/*!     Removes the file, \a fileName.      Returns \c true if the file is removed successfully; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|remove
@@ -5531,7 +5531,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Renames a file or directory from \a oldName to \a newName, and returns     true if successful; otherwise returns false.      On most file systems, rename() fails only if \a oldName does not     exist, or if a file with the new name already exists.     However, there are also other reasons why rename() can     fail. For example, on at least one file system rename() fails if     \a newName points to an open file.      If \a oldName is a file (not a directory) that can't be renamed     right away, Qt will try to copy \a oldName to \a newName and remove     \a oldName.      \sa QFile::rename() */
+comment|/*!     Renames a file or directory from \a oldName to \a newName, and returns     true if successful; otherwise returns \c false.      On most file systems, rename() fails only if \a oldName does not     exist, or if a file with the new name already exists.     However, there are also other reasons why rename() can     fail. For example, on at least one file system rename() fails if     \a newName points to an open file.      If \a oldName is a file (not a directory) that can't be renamed     right away, Qt will try to copy \a oldName to \a newName and remove     \a oldName.      \sa QFile::rename() */
 end_comment
 begin_function
 DECL|function|rename
@@ -5607,7 +5607,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file called \a name exists; otherwise returns     false.      Unless \a name contains an absolute file path, the file name is assumed     to be relative to the directory itself, so this function is typically used     to check for the presence of files within a directory.      \sa QFileInfo::exists(), QFile::exists() */
+comment|/*!     Returns \c true if the file called \a name exists; otherwise returns     false.      Unless \a name contains an absolute file path, the file name is assumed     to be relative to the directory itself, so this function is typically used     to check for the presence of files within a directory.      \sa QFileInfo::exists(), QFile::exists() */
 end_comment
 begin_function
 DECL|function|exists
@@ -5719,7 +5719,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the application's current working directory to \a path.     Returns true if the directory was successfully changed; otherwise     returns false.      \sa current(), currentPath(), home(), root(), temp() */
+comment|/*!     Sets the application's current working directory to \a path.     Returns \c true if the directory was successfully changed; otherwise     returns \c false.      \sa current(), currentPath(), home(), root(), temp() */
 end_comment
 begin_function
 DECL|function|setCurrent
@@ -5844,7 +5844,7 @@ directive|ifndef
 name|QT_NO_REGEXP
 end_ifndef
 begin_comment
-comment|/*!     \overload      Returns true if the \a fileName matches any of the wildcard (glob)     patterns in the list of \a filters; otherwise returns false. The     matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch(), entryList(), entryInfoList() */
+comment|/*!     \overload      Returns \c true if the \a fileName matches any of the wildcard (glob)     patterns in the list of \a filters; otherwise returns \c false. The     matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch(), entryList(), entryInfoList() */
 end_comment
 begin_function
 DECL|function|match
@@ -5921,7 +5921,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a fileName matches the wildcard (glob)     pattern \a filter; otherwise returns false. The \a filter may     contain multiple patterns separated by spaces or semicolons.     The matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch(), entryList(), entryInfoList() */
+comment|/*!     Returns \c true if the \a fileName matches the wildcard (glob)     pattern \a filter; otherwise returns \c false. The \a filter may     contain multiple patterns separated by spaces or semicolons.     The matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch(), entryList(), entryInfoList() */
 end_comment
 begin_function
 DECL|function|match
@@ -6809,7 +6809,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a path is relative; returns false if it is     absolute.      \sa isRelative(), isAbsolutePath(), makeAbsolute() */
+comment|/*!     Returns \c true if \a path is relative; returns \c false if it is     absolute.      \sa isRelative(), isAbsolutePath(), makeAbsolute() */
 end_comment
 begin_function
 DECL|function|isRelativePath

@@ -2953,7 +2953,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGraphicsWidget::autoFillBackground     \brief whether the widget background is filled automatically     \since 4.7      If enabled, this property will cause Qt to fill the background of the     widget before invoking the paint() method. The color used is defined by the     QPalette::Window color role from the widget's \l{QPalette}{palette}.      In addition, Windows are always filled with QPalette::Window, unless the     WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.      By default, this property is false.      \sa Qt::WA_OpaquePaintEvent, Qt::WA_NoSystemBackground, */
+comment|/*!     \property QGraphicsWidget::autoFillBackground     \brief whether the widget background is filled automatically     \since 4.7      If enabled, this property will cause Qt to fill the background of the     widget before invoking the paint() method. The color used is defined by the     QPalette::Window color role from the widget's \l{QPalette}{palette}.      In addition, Windows are always filled with QPalette::Window, unless the     WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.      By default, this property is \c false.      \sa Qt::WA_OpaquePaintEvent, Qt::WA_NoSystemBackground, */
 end_comment
 begin_function
 DECL|function|autoFillBackground
@@ -3507,7 +3507,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This event handler, for \a event, receives events for the window frame if     this widget is a window. Its base implementation provides support for     default window frame interaction such as moving, resizing, etc.      You can reimplement this handler in a subclass of QGraphicsWidget to     provide your own custom window frame interaction support.      Returns true if \a event has been recognized and processed; otherwise,     returns false.      \sa event() */
+comment|/*!     This event handler, for \a event, receives events for the window frame if     this widget is a window. Its base implementation provides support for     default window frame interaction such as moving, resizing, etc.      You can reimplement this handler in a subclass of QGraphicsWidget to     provide your own custom window frame interaction support.      Returns \c true if \a event has been recognized and processed; otherwise,     returns \c false.      \sa event() */
 end_comment
 begin_function
 DECL|function|windowFrameEvent
@@ -4627,7 +4627,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Finds a new widget to give the keyboard focus to, as appropriate for Tab     and Shift+Tab, and returns true if it can find a new widget; returns false     otherwise. If \a next is true, this function searches forward; if \a next     is false, it searches backward.      Sometimes, you will want to reimplement this function to provide special     focus handling for your widget and its subwidgets. For example, a web     browser might reimplement it to move its current active link forward or     backward, and call the base implementation only when it reaches the last     or first link on the page.      Child widgets call focusNextPrevChild() on their parent widgets, but only     the window that contains the child widgets decides where to redirect     focus. By reimplementing this function for an object, you gain control of     focus traversal for all child widgets.      \sa focusPolicy() */
+comment|/*!     Finds a new widget to give the keyboard focus to, as appropriate for Tab     and Shift+Tab, and returns \c true if it can find a new widget; returns \c false     otherwise. If \a next is true, this function searches forward; if \a next     is false, it searches backward.      Sometimes, you will want to reimplement this function to provide special     focus handling for your widget and its subwidgets. For example, a web     browser might reimplement it to move its current active link forward or     backward, and call the base implementation only when it reaches the last     or first link on the page.      Child widgets call focusNextPrevChild() on their parent widgets, but only     the window that contains the child widgets decides where to redirect     focus. By reimplementing this function for an object, you gain control of     focus traversal for all child widgets.      \sa focusPolicy() */
 end_comment
 begin_function
 DECL|function|focusNextPrevChild
@@ -5250,7 +5250,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this widget's window is in the active window, or if the     widget does not have a window but is in an active scene (i.e., a scene     that currently has focus).      The active window is the window that either contains a child widget that     currently has input focus, or that itself has input focus.      \sa QGraphicsScene::activeWindow(), QGraphicsScene::setActiveWindow(), isActive() */
+comment|/*!     Returns \c true if this widget's window is in the active window, or if the     widget does not have a window but is in an active scene (i.e., a scene     that currently has focus).      The active window is the window that either contains a child widget that     currently has input focus, or that itself has input focus.      \sa QGraphicsScene::activeWindow(), QGraphicsScene::setActiveWindow(), isActive() */
 end_comment
 begin_function
 DECL|function|isActiveWindow
@@ -6436,7 +6436,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a attribute is enabled for this widget; otherwise,     returns false.      \sa setAttribute() */
+comment|/*!     Returns \c true if \a attribute is enabled for this widget; otherwise,     returns \c false.      \sa setAttribute() */
 end_comment
 begin_function
 DECL|function|testAttribute
@@ -7318,7 +7318,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Call this function to close the widget.      Returns true if the widget was closed; otherwise returns false.     This slot will first send a QCloseEvent to the widget, which may or may     not accept the event. If the event was ignored, nothing happens. If the     event was accepted, it will hide() the widget.      If the widget has the Qt::WA_DeleteOnClose attribute set it will be     deleted. */
+comment|/*!     Call this function to close the widget.      Returns \c true if the widget was closed; otherwise returns \c false.     This slot will first send a QCloseEvent to the widget, which may or may     not accept the event. If the event was ignored, nothing happens. If the     event was accepted, it will hide() the widget.      If the widget has the Qt::WA_DeleteOnClose attribute set it will be     deleted. */
 end_comment
 begin_function
 DECL|function|close

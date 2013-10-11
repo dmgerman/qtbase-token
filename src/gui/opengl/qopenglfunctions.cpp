@@ -1109,7 +1109,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a feature is present on this system's OpenGL     implementation; false otherwise.      It is assumed that the QOpenGLContext associated with this function     resolver is current.      \sa openGLFeatures() */
+comment|/*!     Returns \c true if \a feature is present on this system's OpenGL     implementation; false otherwise.      It is assumed that the QOpenGLContext associated with this function     resolver is current.      \sa openGLFeatures() */
 end_comment
 begin_function
 DECL|function|hasOpenGLFeature
@@ -1241,7 +1241,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a extension is present on this system's OpenGL     implementation; false otherwise.      It is assumed that the QOpenGLContext associated with this extension     resolver is current.      \sa openGLFeatures() */
+comment|/*!     Returns \c true if \a extension is present on this system's OpenGL     implementation; false otherwise.      It is assumed that the QOpenGLContext associated with this extension     resolver is current.      \sa openGLFeatures() */
 end_comment
 begin_function
 DECL|function|hasOpenGLExtension

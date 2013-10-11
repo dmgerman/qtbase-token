@@ -111,7 +111,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \since 4.5     \class QTextDocumentWriter      \brief The QTextDocumentWriter class provides a format-independent interface for writing a QTextDocument to files or other devices.     \inmodule QtGui      \ingroup richtext-processing     \ingroup io      To write a document, construct a QTextDocumentWriter object with either a     file name or a device object, and specify the document format to be     written. You can construct a writer and set the format using setFormat()     later.      Call write() to write the document to the device. If the document is     successfully written, this function returns true. However, if an error     occurs when writing the document, it will return false.      Call supportedDocumentFormats() for a list of formats that     QTextDocumentWriter can write.      Since the capabilities of the supported output formats vary considerably,     the writer simply outputs the appropriate subset of objects for each format.     This typically includes the formatted text and images contained in a     document. */
+comment|/*!     \since 4.5     \class QTextDocumentWriter      \brief The QTextDocumentWriter class provides a format-independent interface for writing a QTextDocument to files or other devices.     \inmodule QtGui      \ingroup richtext-processing     \ingroup io      To write a document, construct a QTextDocumentWriter object with either a     file name or a device object, and specify the document format to be     written. You can construct a writer and set the format using setFormat()     later.      Call write() to write the document to the device. If the document is     successfully written, this function returns \c true. However, if an error     occurs when writing the document, it will return false.      Call supportedDocumentFormats() for a list of formats that     QTextDocumentWriter can write.      Since the capabilities of the supported output formats vary considerably,     the writer simply outputs the appropriate subset of objects for each format.     This typically includes the formatted text and images contained in a     document. */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -487,7 +487,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes the given \a document to the assigned device or file and     returns true if successful; otherwise returns false. */
+comment|/*!     Writes the given \a document to the assigned device or file and     returns \c true if successful; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|write
@@ -815,7 +815,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes the document fragment specified by \a fragment to the assigned device     or file and returns true if successful; otherwise returns false. */
+comment|/*!     Writes the document fragment specified by \a fragment to the assigned device     or file and returns \c true if successful; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|write

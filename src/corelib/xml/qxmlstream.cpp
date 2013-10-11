@@ -122,7 +122,7 @@ name|QT_BEGIN_NAMESPACE
 include|#
 directive|include
 file|"qxmlstream_p.h"
-comment|/*!     \enum QXmlStreamReader::TokenType      This enum specifies the type of token the reader just read.      \value NoToken The reader has not yet read anything.      \value Invalid An error has occurred, reported in error() and     errorString().      \value StartDocument The reader reports the XML version number in     documentVersion(), and the encoding as specified in the XML     document in documentEncoding().  If the document is declared     standalone, isStandaloneDocument() returns true; otherwise it     returns false.      \value EndDocument The reader reports the end of the document.      \value StartElement The reader reports the start of an element     with namespaceUri() and name(). Empty elements are also reported     as StartElement, followed directly by EndElement. The convenience     function readElementText() can be called to concatenate all     content until the corresponding EndElement. Attributes are     reported in attributes(), namespace declarations in     namespaceDeclarations().      \value EndElement The reader reports the end of an element with     namespaceUri() and name().      \value Characters The reader reports characters in text(). If the     characters are all white-space, isWhitespace() returns true. If     the characters stem from a CDATA section, isCDATA() returns true.      \value Comment The reader reports a comment in text().      \value DTD The reader reports a DTD in text(), notation     declarations in notationDeclarations(), and entity declarations in     entityDeclarations(). Details of the DTD declaration are reported     in in dtdName(), dtdPublicId(), and dtdSystemId().      \value EntityReference The reader reports an entity reference that     could not be resolved.  The name of the reference is reported in     name(), the replacement text in text().      \value ProcessingInstruction The reader reports a processing     instruction in processingInstructionTarget() and     processingInstructionData(). */
+comment|/*!     \enum QXmlStreamReader::TokenType      This enum specifies the type of token the reader just read.      \value NoToken The reader has not yet read anything.      \value Invalid An error has occurred, reported in error() and     errorString().      \value StartDocument The reader reports the XML version number in     documentVersion(), and the encoding as specified in the XML     document in documentEncoding().  If the document is declared     standalone, isStandaloneDocument() returns \c true; otherwise it     returns \c false.      \value EndDocument The reader reports the end of the document.      \value StartElement The reader reports the start of an element     with namespaceUri() and name(). Empty elements are also reported     as StartElement, followed directly by EndElement. The convenience     function readElementText() can be called to concatenate all     content until the corresponding EndElement. Attributes are     reported in attributes(), namespace declarations in     namespaceDeclarations().      \value EndElement The reader reports the end of an element with     namespaceUri() and name().      \value Characters The reader reports characters in text(). If the     characters are all white-space, isWhitespace() returns \c true. If     the characters stem from a CDATA section, isCDATA() returns \c true.      \value Comment The reader reports a comment in text().      \value DTD The reader reports a DTD in text(), notation     declarations in notationDeclarations(), and entity declarations in     entityDeclarations(). Details of the DTD declaration are reported     in in dtdName(), dtdPublicId(), and dtdSystemId().      \value EntityReference The reader reports an entity reference that     could not be resolved.  The name of the reference is reported in     name(), the replacement text in text().      \value ProcessingInstruction The reader reports a processing     instruction in processingInstructionTarget() and     processingInstructionData(). */
 comment|/*!     \enum QXmlStreamReader::ReadElementTextBehaviour      This enum specifies the different behaviours of readElementText().      \value ErrorOnUnexpectedElement Raise an UnexpectedElementError and return     what was read so far when a child element is encountered.      \value IncludeChildElements Recursively include the text from child elements.      \value SkipChildElements Skip child elements.      \since 4.6 */
 comment|/*!     \enum QXmlStreamReader::Error      This enum specifies different error cases      \value NoError No error has occurred.      \value CustomError A custom error has been raised with     raiseError()      \value NotWellFormedError The parser internally raised an error     due to the read XML not being well-formed.      \value PrematureEndOfDocumentError The input stream ended before a     well-formed XML document was parsed. Recovery from this error is     possible if more XML arrives in the stream, either by calling     addData() or by waiting for it to arrive on the device().      \value UnexpectedElementError The parser encountered an element     that was different to those it expected.  */
 comment|/*!   \class QXmlStreamEntityResolver   \inmodule QtCore   \reentrant   \since 4.4    \brief The QXmlStreamEntityResolver class provides an entity   resolver for a QXmlStreamReader.    \ingroup xml-tools  */
@@ -762,7 +762,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the reader has read until the end of the XML     document, or if an error() has occurred and reading has been     aborted. Otherwise, it returns false.      When atEnd() and hasError() return true and error() returns     PrematureEndOfDocumentError, it means the XML has been well-formed     so far, but a complete XML document has not been parsed. The next     chunk of XML can be added with addData(), if the XML is being read     from a QByteArray, or by waiting for more data to arrive if the     XML is being read from a QIODevice. Either way, atEnd() will     return false once more data is available.      \sa hasError(), error(), device(), QIODevice::atEnd()  */
+comment|/*!     Returns \c true if the reader has read until the end of the XML     document, or if an error() has occurred and reading has been     aborted. Otherwise, it returns \c false.      When atEnd() and hasError() return true and error() returns     PrematureEndOfDocumentError, it means the XML has been well-formed     so far, but a complete XML document has not been parsed. The next     chunk of XML can be added with addData(), if the XML is being read     from a QByteArray, or by waiting for more data to arrive if the     XML is being read from a QIODevice. Either way, atEnd() will     return false once more data is available.      \sa hasError(), error(), device(), QIODevice::atEnd()  */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -857,7 +857,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reads the next token and returns its type.    With one exception, once an error() is reported by readNext(),   further reading of the XML stream is not possible. Then atEnd()   returns true, hasError() returns true, and this function returns   QXmlStreamReader::Invalid.    The exception is when error() returns PrematureEndOfDocumentError.   This error is reported when the end of an otherwise well-formed   chunk of XML is reached, but the chunk doesn't represent a complete   XML document.  In that case, parsing \e can be resumed by calling   addData() to add the next chunk of XML, when the stream is being   read from a QByteArray, or by waiting for more data to arrive when   the stream is being read from a device().    \sa tokenType(), tokenString()  */
+comment|/*!   Reads the next token and returns its type.    With one exception, once an error() is reported by readNext(),   further reading of the XML stream is not possible. Then atEnd()   returns \c true, hasError() returns \c true, and this function returns   QXmlStreamReader::Invalid.    The exception is when error() returns PrematureEndOfDocumentError.   This error is reported when the end of an otherwise well-formed   chunk of XML is reached, but the chunk doesn't represent a complete   XML document.  In that case, parsing \e can be resumed by calling   addData() to add the next chunk of XML, when the stream is being   read from a QByteArray, or by waiting for more data to arrive when   the stream is being read from a device().    \sa tokenType(), tokenString()  */
 end_comment
 begin_function
 DECL|function|readNext
@@ -1031,7 +1031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reads until the next start element within the current element. Returns true   when a start element was reached. When the end element was reached, or when   an error occurred, false is returned.    The current element is the element matching the most recently parsed start   element of which a matching end element has not yet been reached. When the   parser has reached the end element, the current element becomes the parent   element.    This is a convenience function for when you're only concerned with parsing   XML elements. The \l{QXmlStream Bookmarks Example} makes extensive use of   this function.    \since 4.6   \sa readNext()  */
+comment|/*!   Reads until the next start element within the current element. Returns \c true   when a start element was reached. When the end element was reached, or when   an error occurred, false is returned.    The current element is the element matching the most recently parsed start   element of which a matching end element has not yet been reached. When the   parser has reached the end element, the current element becomes the parent   element.    This is a convenience function for when you're only concerned with parsing   XML elements. The \l{QXmlStream Bookmarks Example} makes extensive use of   this function.    \since 4.6   \sa readNext()  */
 end_comment
 begin_function
 DECL|function|readNextStartElement
@@ -6584,7 +6584,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*   Checks whether the document starts with an xml declaration. If it   does, this function returns true; otherwise it sets up everything   for a synthetic start document event and returns false.  */
+comment|/*   Checks whether the document starts with an xml declaration. If it   does, this function returns \c true; otherwise it sets up everything   for a synthetic start document event and returns \c false.  */
 end_comment
 begin_function
 DECL|function|checkStartDocument
@@ -8600,13 +8600,13 @@ begin_comment
 comment|/*! \fn QStringRef QXmlStreamAttribute::value() const    Returns the attribute's value.  */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamAttribute::isDefault() const     Returns true if the parser added this attribute with a default    value following an ATTLIST declaration in the DTD; otherwise    returns false. */
+comment|/*! \fn bool QXmlStreamAttribute::isDefault() const     Returns \c true if the parser added this attribute with a default    value following an ATTLIST declaration in the DTD; otherwise    returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamAttribute::operator==(const QXmlStreamAttribute&other) const      Compares this attribute with \a other and returns true if they are     equal; otherwise returns false.  */
+comment|/*! \fn bool QXmlStreamAttribute::operator==(const QXmlStreamAttribute&other) const      Compares this attribute with \a other and returns \c true if they are     equal; otherwise returns \c false.  */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamAttribute::operator!=(const QXmlStreamAttribute&other) const      Compares this attribute with \a other and returns true if they are     not equal; otherwise returns false.  */
+comment|/*! \fn bool QXmlStreamAttribute::operator!=(const QXmlStreamAttribute&other) const      Compares this attribute with \a other and returns \c true if they are     not equal; otherwise returns \c false.  */
 end_comment
 begin_comment
 comment|/*!   Creates a copy of \a other.  */
@@ -8793,10 +8793,10 @@ begin_comment
 comment|/*! \fn QStringRef QXmlStreamNotationDeclaration::publicId() const  Returns the public identifier. */
 end_comment
 begin_comment
-comment|/*! \fn inline bool QXmlStreamNotationDeclaration::operator==(const QXmlStreamNotationDeclaration&other) const      Compares this notation declaration with \a other and returns true     if they are equal; otherwise returns false.  */
+comment|/*! \fn inline bool QXmlStreamNotationDeclaration::operator==(const QXmlStreamNotationDeclaration&other) const      Compares this notation declaration with \a other and returns \c true     if they are equal; otherwise returns \c false.  */
 end_comment
 begin_comment
-comment|/*! \fn inline bool QXmlStreamNotationDeclaration::operator!=(const QXmlStreamNotationDeclaration&other) const      Compares this notation declaration with \a other and returns true     if they are not equal; otherwise returns false.  */
+comment|/*! \fn inline bool QXmlStreamNotationDeclaration::operator!=(const QXmlStreamNotationDeclaration&other) const      Compares this notation declaration with \a other and returns \c true     if they are not equal; otherwise returns \c false.  */
 end_comment
 begin_comment
 comment|/*!     \typedef QXmlStreamNamespaceDeclarations     \relates QXmlStreamNamespaceDeclaration      Synonym for QVector<QXmlStreamNamespaceDeclaration>. */
@@ -8805,10 +8805,10 @@ begin_comment
 comment|/*!     \class QXmlStreamNamespaceDeclaration     \inmodule QtCore     \since 4.3     \reentrant     \brief The QXmlStreamNamespaceDeclaration class represents a namespace declaration.      \ingroup xml-tools      An namespace declaration consists of a prefix() and a namespaceUri(). */
 end_comment
 begin_comment
-comment|/*! \fn inline bool QXmlStreamNamespaceDeclaration::operator==(const QXmlStreamNamespaceDeclaration&other) const      Compares this namespace declaration with \a other and returns true     if they are equal; otherwise returns false.  */
+comment|/*! \fn inline bool QXmlStreamNamespaceDeclaration::operator==(const QXmlStreamNamespaceDeclaration&other) const      Compares this namespace declaration with \a other and returns \c true     if they are equal; otherwise returns \c false.  */
 end_comment
 begin_comment
-comment|/*! \fn inline bool QXmlStreamNamespaceDeclaration::operator!=(const QXmlStreamNamespaceDeclaration&other) const      Compares this namespace declaration with \a other and returns true     if they are not equal; otherwise returns false.  */
+comment|/*! \fn inline bool QXmlStreamNamespaceDeclaration::operator!=(const QXmlStreamNamespaceDeclaration&other) const      Compares this namespace declaration with \a other and returns \c true     if they are not equal; otherwise returns \c false.  */
 end_comment
 begin_comment
 comment|/*!   Creates an empty namespace declaration. */
@@ -9051,10 +9051,10 @@ begin_comment
 comment|/*! \fn QStringRef QXmlStreamEntityDeclaration::value() const  Returns the entity's value. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamEntityDeclaration::operator==(const QXmlStreamEntityDeclaration&other) const      Compares this entity declaration with \a other and returns true if     they are equal; otherwise returns false.  */
+comment|/*! \fn bool QXmlStreamEntityDeclaration::operator==(const QXmlStreamEntityDeclaration&other) const      Compares this entity declaration with \a other and returns \c true if     they are equal; otherwise returns \c false.  */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamEntityDeclaration::operator!=(const QXmlStreamEntityDeclaration&other) const      Compares this entity declaration with \a other and returns true if     they are not equal; otherwise returns false.  */
+comment|/*! \fn bool QXmlStreamEntityDeclaration::operator!=(const QXmlStreamEntityDeclaration&other) const      Compares this entity declaration with \a other and returns \c true if     they are not equal; otherwise returns \c false.  */
 end_comment
 begin_comment
 comment|/*!  Returns the value of the attribute \a name in the namespace   described with \a namespaceUri, or an empty string reference if the   attribute is not defined. The \a namespaceUri can be empty.  */
@@ -9488,34 +9488,34 @@ directive|ifndef
 name|QT_NO_XMLSTREAMREADER
 end_ifndef
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isStartDocument() const   Returns true if tokenType() equals \l StartDocument; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isStartDocument() const   Returns \c true if tokenType() equals \l StartDocument; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isEndDocument() const   Returns true if tokenType() equals \l EndDocument; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isEndDocument() const   Returns \c true if tokenType() equals \l EndDocument; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isStartElement() const   Returns true if tokenType() equals \l StartElement; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isStartElement() const   Returns \c true if tokenType() equals \l StartElement; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isEndElement() const   Returns true if tokenType() equals \l EndElement; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isEndElement() const   Returns \c true if tokenType() equals \l EndElement; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isCharacters() const   Returns true if tokenType() equals \l Characters; otherwise returns false.    \sa isWhitespace(), isCDATA() */
+comment|/*! \fn bool QXmlStreamReader::isCharacters() const   Returns \c true if tokenType() equals \l Characters; otherwise returns \c false.    \sa isWhitespace(), isCDATA() */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isComment() const   Returns true if tokenType() equals \l Comment; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isComment() const   Returns \c true if tokenType() equals \l Comment; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isDTD() const   Returns true if tokenType() equals \l DTD; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isDTD() const   Returns \c true if tokenType() equals \l DTD; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isEntityReference() const   Returns true if tokenType() equals \l EntityReference; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isEntityReference() const   Returns \c true if tokenType() equals \l EntityReference; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*! \fn bool QXmlStreamReader::isProcessingInstruction() const   Returns true if tokenType() equals \l ProcessingInstruction; otherwise returns false. */
+comment|/*! \fn bool QXmlStreamReader::isProcessingInstruction() const   Returns \c true if tokenType() equals \l ProcessingInstruction; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!  Returns true if the reader reports characters that only consist   of white-space; otherwise returns false.    \sa isCharacters(), text() */
+comment|/*!  Returns \c true if the reader reports characters that only consist   of white-space; otherwise returns \c false.    \sa isCharacters(), text() */
 end_comment
 begin_function
 DECL|function|isWhitespace
@@ -9548,7 +9548,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Returns true if the reader reports characters that stem from a   CDATA section; otherwise returns false.    \sa isCharacters(), text() */
+comment|/*!  Returns \c true if the reader reports characters that stem from a   CDATA section; otherwise returns \c false.    \sa isCharacters(), text() */
 end_comment
 begin_function
 DECL|function|isCDATA
@@ -9581,7 +9581,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if this document has been declared standalone in the   XML declaration; otherwise returns false.    If no XML declaration has been parsed, this function returns false.  */
+comment|/*!   Returns \c true if this document has been declared standalone in the   XML declaration; otherwise returns \c false.    If no XML declaration has been parsed, this function returns \c false.  */
 end_comment
 begin_function
 DECL|function|isStandaloneDocument
@@ -13774,13 +13774,13 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QString&qualifiedName) const  \since 4.5   Returns true if this QXmlStreamAttributes has an attribute whose  qualified name is \a qualifiedName; otherwise returns false.   Note that this is not namespace aware. For instance, if this  QXmlStreamAttributes contains an attribute whose lexical name is "xlink:href"  this doesn't tell that an attribute named \c href in the XLink namespace is  present, since the \c xlink prefix can be bound to any namespace. Use the  overload that takes a namespace URI and a local name as parameter, for  namespace aware code. */
+comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QString&qualifiedName) const  \since 4.5   Returns \c true if this QXmlStreamAttributes has an attribute whose  qualified name is \a qualifiedName; otherwise returns \c false.   Note that this is not namespace aware. For instance, if this  QXmlStreamAttributes contains an attribute whose lexical name is "xlink:href"  this doesn't tell that an attribute named \c href in the XLink namespace is  present, since the \c xlink prefix can be bound to any namespace. Use the  overload that takes a namespace URI and a local name as parameter, for  namespace aware code. */
 end_comment
 begin_comment
 comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(QLatin1String qualifiedName) const  \overload  \since 4.5 */
 end_comment
 begin_comment
-comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QString&namespaceUri,                                              const QString&name) const  \overload  \since 4.5   Returns true if this QXmlStreamAttributes has an attribute whose  namespace URI and name correspond to \a namespaceUri and \a name;  otherwise returns false. */
+comment|/*!  \fn bool QXmlStreamAttributes::hasAttribute(const QString&namespaceUri,                                              const QString&name) const  \overload  \since 4.5   Returns \c true if this QXmlStreamAttributes has an attribute whose  namespace URI and name correspond to \a namespaceUri and \a name;  otherwise returns \c false. */
 end_comment
 begin_endif
 endif|#

@@ -222,7 +222,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn bool QVector4D::isNull() const      Returns true if the x, y, z, and w coordinates are set to 0.0,     otherwise returns false. */
+comment|/*!     \fn bool QVector4D::isNull() const      Returns \c true if the x, y, z, and w coordinates are set to 0.0,     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn float QVector4D::x() const      Returns the x coordinate of this point.      \sa setX(), y(), z(), w() */
@@ -694,10 +694,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator==(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns true if \a v1 is equal to \a v2; otherwise returns false.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool operator==(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns \c true if \a v1 is equal to \a v2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns true if \a v1 is not equal to \a v2; otherwise returns false.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool operator!=(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns \c true if \a v1 is not equal to \a v2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
 comment|/*!     \fn const QVector4D operator+(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns a QVector4D object that is the sum of the given vectors, \a v1     and \a v2; each component is added separately.      \sa QVector4D::operator+=() */
@@ -721,7 +721,7 @@ begin_comment
 comment|/*!     \fn const QVector4D operator/(const QVector4D&vector, float divisor)     \relates QVector4D      Returns the QVector4D object formed by dividing all four components of     the given \a vector by the given \a divisor.      \sa QVector4D::operator/=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool qFuzzyCompare(const QVector4D& v1, const QVector4D& v2)     \relates QVector4D      Returns true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
+comment|/*!     \fn bool qFuzzyCompare(const QVector4D& v1, const QVector4D& v2)     \relates QVector4D      Returns \c true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
 end_comment
 begin_ifndef
 ifndef|#

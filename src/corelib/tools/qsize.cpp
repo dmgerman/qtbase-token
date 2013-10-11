@@ -19,13 +19,13 @@ file|"qdebug.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QSize     \inmodule QtCore     \ingroup painting      \brief The QSize class defines the size of a two-dimensional     object using integer point precision.      A size is specified by a width() and a height().  It can be set in     the constructor and changed using the setWidth(), setHeight(), or     scale() functions, or using arithmetic operators. A size can also     be manipulated directly by retrieving references to the width and     height using the rwidth() and rheight() functions. Finally, the     width and height can be swapped using the transpose() function.      The isValid() function determines if a size is valid (a valid size     has both width and height greater than zero). The isEmpty()     function returns true if either of the width and height is less     than, or equal to, zero, while the isNull() function returns true     only if both the width and the height is zero.      Use the expandedTo() function to retrieve a size which holds the     maximum height and width of \e this size and a given     size. Similarly, the boundedTo() function returns a size which     holds the minimum height and width of \e this size and a given     size.      QSize objects can be streamed as well as compared.      \sa QSizeF, QPoint, QRect */
+comment|/*!     \class QSize     \inmodule QtCore     \ingroup painting      \brief The QSize class defines the size of a two-dimensional     object using integer point precision.      A size is specified by a width() and a height().  It can be set in     the constructor and changed using the setWidth(), setHeight(), or     scale() functions, or using arithmetic operators. A size can also     be manipulated directly by retrieving references to the width and     height using the rwidth() and rheight() functions. Finally, the     width and height can be swapped using the transpose() function.      The isValid() function determines if a size is valid (a valid size     has both width and height greater than zero). The isEmpty()     function returns \c true if either of the width and height is less     than, or equal to, zero, while the isNull() function returns \c true     only if both the width and the height is zero.      Use the expandedTo() function to retrieve a size which holds the     maximum height and width of \e this size and a given     size. Similarly, the boundedTo() function returns a size which     holds the minimum height and width of \e this size and a given     size.      QSize objects can be streamed as well as compared.      \sa QSizeF, QPoint, QRect */
 comment|/*****************************************************************************   QSize member functions  *****************************************************************************/
-comment|/*!     \fn QSize::QSize()      Constructs a size with an invalid width and height (i.e., isValid()     returns false).      \sa isValid() */
+comment|/*!     \fn QSize::QSize()      Constructs a size with an invalid width and height (i.e., isValid()     returns \c false).      \sa isValid() */
 comment|/*!     \fn QSize::QSize(int width, int height)      Constructs a size with the given \a width and \a height.      \sa setWidth(), setHeight() */
-comment|/*!     \fn bool QSize::isNull() const      Returns true if both the width and height is 0; otherwise returns     false.      \sa isValid(), isEmpty() */
-comment|/*!     \fn bool QSize::isEmpty() const      Returns true if either of the width and height is less than or     equal to 0; otherwise returns false.      \sa isNull(), isValid() */
-comment|/*!     \fn bool QSize::isValid() const      Returns true if both the width and height is equal to or greater     than 0; otherwise returns false.      \sa isNull(), isEmpty() */
+comment|/*!     \fn bool QSize::isNull() const      Returns \c true if both the width and height is 0; otherwise returns     false.      \sa isValid(), isEmpty() */
+comment|/*!     \fn bool QSize::isEmpty() const      Returns \c true if either of the width and height is less than or     equal to 0; otherwise returns \c false.      \sa isNull(), isValid() */
+comment|/*!     \fn bool QSize::isValid() const      Returns \c true if both the width and height is equal to or greater     than 0; otherwise returns \c false.      \sa isNull(), isEmpty() */
 comment|/*!     \fn int QSize::width() const      Returns the width.      \sa height(), setWidth() */
 comment|/*!     \fn int QSize::height() const      Returns the height.      \sa width(), setHeight() */
 comment|/*!     \fn void QSize::setWidth(int width)      Sets the width to the given \a width.      \sa rwidth(), width(), setHeight() */
@@ -233,10 +233,10 @@ begin_comment
 comment|/*!     \fn QSize&QSize::operator*=(qreal factor)     \overload      Multiplies both the width and height by the given \a factor, and     returns a reference to the size.      Note that the result is rounded to the nearest integer.      \sa scale() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator==(const QSize&s1, const QSize&s2)     \relates QSize      Returns true if \a s1 and \a s2 are equal; otherwise returns false. */
+comment|/*!     \fn bool operator==(const QSize&s1, const QSize&s2)     \relates QSize      Returns \c true if \a s1 and \a s2 are equal; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QSize&s1, const QSize&s2)     \relates QSize      Returns true if \a s1 and \a s2 are different; otherwise returns false. */
+comment|/*!     \fn bool operator!=(const QSize&s1, const QSize&s2)     \relates QSize      Returns \c true if \a s1 and \a s2 are different; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn const QSize operator+(const QSize&s1, const QSize&s2)     \relates QSize      Returns the sum of \a s1 and \a s2; each component is added separately. */
@@ -494,7 +494,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \class QSizeF     \inmodule QtCore     \brief The QSizeF class defines the size of a two-dimensional object     using floating point precision.      \ingroup painting      A size is specified by a width() and a height().  It can be set in     the constructor and changed using the setWidth(), setHeight(), or     scale() functions, or using arithmetic operators. A size can also     be manipulated directly by retrieving references to the width and     height using the rwidth() and rheight() functions. Finally, the     width and height can be swapped using the transpose() function.      The isValid() function determines if a size is valid. A valid size     has both width and height greater than or equal to zero. The     isEmpty() function returns true if either of the width and height     is \e less than (or equal to) zero, while the isNull() function     returns true only if both the width and the height is zero.      Use the expandedTo() function to retrieve a size which holds the     maximum height and width of this size and a given     size. Similarly, the boundedTo() function returns a size which     holds the minimum height and width of this size and a given size.      The QSizeF class also provides the toSize() function returning a     QSize copy of this size, constructed by rounding the width and     height to the nearest integers.      QSizeF objects can be streamed as well as compared.      \sa QSize, QPointF, QRectF */
+comment|/*!     \class QSizeF     \inmodule QtCore     \brief The QSizeF class defines the size of a two-dimensional object     using floating point precision.      \ingroup painting      A size is specified by a width() and a height().  It can be set in     the constructor and changed using the setWidth(), setHeight(), or     scale() functions, or using arithmetic operators. A size can also     be manipulated directly by retrieving references to the width and     height using the rwidth() and rheight() functions. Finally, the     width and height can be swapped using the transpose() function.      The isValid() function determines if a size is valid. A valid size     has both width and height greater than or equal to zero. The     isEmpty() function returns \c true if either of the width and height     is \e less than (or equal to) zero, while the isNull() function     returns \c true only if both the width and the height is zero.      Use the expandedTo() function to retrieve a size which holds the     maximum height and width of this size and a given     size. Similarly, the boundedTo() function returns a size which     holds the minimum height and width of this size and a given size.      The QSizeF class also provides the toSize() function returning a     QSize copy of this size, constructed by rounding the width and     height to the nearest integers.      QSizeF objects can be streamed as well as compared.      \sa QSize, QPointF, QRectF */
 end_comment
 begin_comment
 comment|/*****************************************************************************   QSizeF member functions  *****************************************************************************/
@@ -509,13 +509,13 @@ begin_comment
 comment|/*!     \fn QSizeF::QSizeF(qreal width, qreal height)      Constructs a size with the given \a width and \a height. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QSizeF::isNull() const      Returns true if both the width and height are +0.0; otherwise returns     false.      \note Since this function treats +0.0 and -0.0 differently, sizes with     zero width and height where either or both values have a negative     sign are not defined to be null sizes.      \sa isValid(), isEmpty() */
+comment|/*!     \fn bool QSizeF::isNull() const      Returns \c true if both the width and height are +0.0; otherwise returns     false.      \note Since this function treats +0.0 and -0.0 differently, sizes with     zero width and height where either or both values have a negative     sign are not defined to be null sizes.      \sa isValid(), isEmpty() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QSizeF::isEmpty() const      Returns true if either of the width and height is less than or     equal to 0; otherwise returns false.      \sa isNull(), isValid() */
+comment|/*!     \fn bool QSizeF::isEmpty() const      Returns \c true if either of the width and height is less than or     equal to 0; otherwise returns \c false.      \sa isNull(), isValid() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QSizeF::isValid() const      Returns true if both the width and height is equal to or greater     than 0; otherwise returns false.      \sa isNull(), isEmpty() */
+comment|/*!     \fn bool QSizeF::isValid() const      Returns \c true if both the width and height is equal to or greater     than 0; otherwise returns \c false.      \sa isNull(), isEmpty() */
 end_comment
 begin_comment
 comment|/*!     \fn int QSizeF::width() const      Returns the width.      \sa height(), setWidth() */
@@ -719,10 +719,10 @@ begin_comment
 comment|/*!     \fn QSizeF&QSizeF::operator*=(qreal factor)     \overload      Multiplies both the width and height by the given \a factor and     returns a reference to the size.      \sa scale() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator==(const QSizeF&s1, const QSizeF&s2)     \relates QSizeF      Returns true if \a s1 and \a s2 are equal; otherwise returns     false. */
+comment|/*!     \fn bool operator==(const QSizeF&s1, const QSizeF&s2)     \relates QSizeF      Returns \c true if \a s1 and \a s2 are equal; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QSizeF&s1, const QSizeF&s2)     \relates QSizeF      Returns true if \a s1 and \a s2 are different; otherwise returns false. */
+comment|/*!     \fn bool operator!=(const QSizeF&s1, const QSizeF&s2)     \relates QSizeF      Returns \c true if \a s1 and \a s2 are different; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn const QSizeF operator+(const QSizeF&s1, const QSizeF&s2)     \relates QSizeF      Returns the sum of \a s1 and \a s2; each component is added separately. */

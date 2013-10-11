@@ -217,7 +217,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compare the \a other error's values to this error and returns true, if it equal. */
+comment|/*!     Compare the \a other error's values to this error and returns \c true, if it equal. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -246,7 +246,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compare the \a other error's values to this error and returns true if it is not equal. */
+comment|/*!     Compare the \a other error's values to this error and returns \c true if it is not equal. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -543,7 +543,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if an error is set, otherwise false.      Example:     \snippet code/src_sql_kernel_qsqlerror.cpp 0      \sa type() */
+comment|/*!     Returns \c true if an error is set, otherwise false.      Example:     \snippet code/src_sql_kernel_qsqlerror.cpp 0      \sa type() */
 end_comment
 begin_function
 DECL|function|isValid

@@ -19,11 +19,11 @@ file|"qdebug.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QPoint     \inmodule QtCore     \ingroup painting      \brief The QPoint class defines a point in the plane using integer     precision.      A point is specified by a x coordinate and an y coordinate which     can be accessed using the x() and y() functions. The isNull()     function returns true if both x and y are set to 0. The     coordinates can be set (or altered) using the setX() and setY()     functions, or alternatively the rx() and ry() functions which     return references to the coordinates (allowing direct     manipulation).      Given a point \e p, the following statements are all equivalent:      \snippet code/src_corelib_tools_qpoint.cpp 0      A QPoint object can also be used as a vector: Addition and     subtraction are defined as for vectors (each component is added     separately). A QPoint object can also be divided or multiplied by     an \c int or a \c qreal.      In addition, the QPoint class provides the manhattanLength()     function which gives an inexpensive approximation of the length of     the QPoint object interpreted as a vector. Finally, QPoint objects     can be streamed as well as compared.      \sa QPointF, QPolygon */
+comment|/*!     \class QPoint     \inmodule QtCore     \ingroup painting      \brief The QPoint class defines a point in the plane using integer     precision.      A point is specified by a x coordinate and an y coordinate which     can be accessed using the x() and y() functions. The isNull()     function returns \c true if both x and y are set to 0. The     coordinates can be set (or altered) using the setX() and setY()     functions, or alternatively the rx() and ry() functions which     return references to the coordinates (allowing direct     manipulation).      Given a point \e p, the following statements are all equivalent:      \snippet code/src_corelib_tools_qpoint.cpp 0      A QPoint object can also be used as a vector: Addition and     subtraction are defined as for vectors (each component is added     separately). A QPoint object can also be divided or multiplied by     an \c int or a \c qreal.      In addition, the QPoint class provides the manhattanLength()     function which gives an inexpensive approximation of the length of     the QPoint object interpreted as a vector. Finally, QPoint objects     can be streamed as well as compared.      \sa QPointF, QPolygon */
 comment|/*****************************************************************************   QPoint member functions  *****************************************************************************/
 comment|/*!     \fn QPoint::QPoint()      Constructs a null point, i.e. with coordinates (0, 0)      \sa isNull() */
 comment|/*!     \fn QPoint::QPoint(int xpos, int ypos)      Constructs a point with the given coordinates (\a xpos, \a ypos).      \sa setX(), setY() */
-comment|/*!     \fn bool QPoint::isNull() const      Returns true if both the x and y coordinates are set to 0,     otherwise returns false. */
+comment|/*!     \fn bool QPoint::isNull() const      Returns \c true if both the x and y coordinates are set to 0,     otherwise returns \c false. */
 comment|/*!     \fn int QPoint::x() const      Returns the x coordinate of this point.      \sa setX(), rx() */
 comment|/*!     \fn int QPoint::y() const      Returns the y coordinate of this point.      \sa setY(), ry() */
 comment|/*!     \fn void QPoint::setX(int x)      Sets the x coordinate of this point to the given \a x coordinate.      \sa x(), setY() */
@@ -36,8 +36,8 @@ comment|/*!     \fn QPoint&QPoint::operator*=(float factor)      Multiplies this
 comment|/*!     \fn QPoint&QPoint::operator*=(double factor)      Multiplies this point's coordinates by the given \a factor, and     returns a reference to this point. For example:      \snippet code/src_corelib_tools_qpoint.cpp 5      Note that the result is rounded to the nearest integer as points are held as     integers. Use QPointF for floating point accuracy.      \sa operator/=() */
 comment|/*!     \fn QPoint&QPoint::operator*=(int factor)      Multiplies this point's coordinates by the given \a factor, and     returns a reference to this point.      \sa operator/=() */
 comment|/*!     \fn static int QPoint::dotProduct(const QPoint&p1, const QPoint&p2)     \since 5.1      \snippet code/src_corelib_tools_qpoint.cpp 16      Returns the dot product of \a p1 and \a p2. */
-comment|/*!     \fn bool operator==(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns true if \a p1 and \a p2 are equal; otherwise returns     false. */
-comment|/*!     \fn bool operator!=(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns true if \a p1 and \a p2 are not equal; otherwise returns false. */
+comment|/*!     \fn bool operator==(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns \c true if \a p1 and \a p2 are equal; otherwise returns     false. */
+comment|/*!     \fn bool operator!=(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns \c true if \a p1 and \a p2 are not equal; otherwise returns \c false. */
 comment|/*!     \fn const QPoint operator+(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns a QPoint object that is the sum of the given points, \a p1     and \a p2; each component is added separately.      \sa QPoint::operator+=() */
 comment|/*!     \fn const QPoint operator-(const QPoint&p1, const QPoint&p2)     \relates QPoint      Returns a QPoint object that is formed by subtracting \a p2 from     \a p1; each component is subtracted separately.      \sa QPoint::operator-=() */
 comment|/*!     \fn const QPoint operator*(const QPoint&point, float factor)     \relates QPoint      Returns a copy of the given \a point multiplied by the given \a factor.      Note that the result is rounded to the nearest integer as points     are held as integers. Use QPointF for floating point accuracy.      \sa QPoint::operator*=() */
@@ -322,7 +322,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \class QPointF     \inmodule QtCore     \ingroup painting      \brief The QPointF class defines a point in the plane using     floating point precision.      A point is specified by a x coordinate and an y coordinate which     can be accessed using the x() and y() functions. The coordinates     of the point are specified using floating point numbers for     accuracy. The isNull() function returns true if both x and y are     set to 0.0. The coordinates can be set (or altered) using the setX()     and setY() functions, or alternatively the rx() and ry() functions which     return references to the coordinates (allowing direct     manipulation).      Given a point \e p, the following statements are all equivalent:      \snippet code/src_corelib_tools_qpoint.cpp 9      A QPointF object can also be used as a vector: Addition and     subtraction are defined as for vectors (each component is added     separately). A QPointF object can also be divided or multiplied by     an \c int or a \c qreal.      In addition, the QPointF class provides a constructor converting a     QPoint object into a QPointF object, and a corresponding toPoint()     function which returns a QPoint copy of \e this point. Finally,     QPointF objects can be streamed as well as compared.      \sa QPoint, QPolygonF */
+comment|/*!     \class QPointF     \inmodule QtCore     \ingroup painting      \brief The QPointF class defines a point in the plane using     floating point precision.      A point is specified by a x coordinate and an y coordinate which     can be accessed using the x() and y() functions. The coordinates     of the point are specified using floating point numbers for     accuracy. The isNull() function returns \c true if both x and y are     set to 0.0. The coordinates can be set (or altered) using the setX()     and setY() functions, or alternatively the rx() and ry() functions which     return references to the coordinates (allowing direct     manipulation).      Given a point \e p, the following statements are all equivalent:      \snippet code/src_corelib_tools_qpoint.cpp 9      A QPointF object can also be used as a vector: Addition and     subtraction are defined as for vectors (each component is added     separately). A QPointF object can also be divided or multiplied by     an \c int or a \c qreal.      In addition, the QPointF class provides a constructor converting a     QPoint object into a QPointF object, and a corresponding toPoint()     function which returns a QPoint copy of \e this point. Finally,     QPointF objects can be streamed as well as compared.      \sa QPoint, QPolygonF */
 end_comment
 begin_comment
 comment|/*!     \fn QPointF::QPointF()      Constructs a null point, i.e. with coordinates (0.0, 0.0)      \sa isNull() */
@@ -334,7 +334,7 @@ begin_comment
 comment|/*!     \fn QPointF::QPointF(qreal xpos, qreal ypos)      Constructs a point with the given coordinates (\a xpos, \a ypos).      \sa setX(), setY() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPointF::isNull() const      Returns true if both the x and y coordinates are set to +0.0;     otherwise returns false.      \note Since this function treats +0.0 and -0.0 differently, points     with zero-valued coordinates where either or both values have a     negative sign are not defined to be null points. */
+comment|/*!     \fn bool QPointF::isNull() const      Returns \c true if both the x and y coordinates are set to +0.0;     otherwise returns \c false.      \note Since this function treats +0.0 and -0.0 differently, points     with zero-valued coordinates where either or both values have a     negative sign are not defined to be null points. */
 end_comment
 begin_comment
 comment|/*!     \fn qreal QPointF::manhattanLength() const     \since 4.6      Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point.      \sa QPoint::manhattanLength() */
@@ -397,10 +397,10 @@ begin_comment
 comment|/*!     \fn static qreal QPointF::dotProduct(const QPointF&p1, const QPointF&p2)     \since 5.1      \snippet code/src_corelib_tools_qpoint.cpp 17      Returns the dot product of \a p1 and \a p2. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator==(const QPointF&p1, const QPointF&p2)     \relates QPointF      Returns true if \a p1 is equal to \a p2; otherwise returns false. */
+comment|/*!     \fn bool operator==(const QPointF&p1, const QPointF&p2)     \relates QPointF      Returns \c true if \a p1 is equal to \a p2; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const QPointF&p1, const QPointF&p2);     \relates QPointF      Returns true if \a p1 is not equal to \a p2; otherwise returns false. */
+comment|/*!     \fn bool operator!=(const QPointF&p1, const QPointF&p2);     \relates QPointF      Returns \c true if \a p1 is not equal to \a p2; otherwise returns \c false. */
 end_comment
 begin_ifndef
 ifndef|#

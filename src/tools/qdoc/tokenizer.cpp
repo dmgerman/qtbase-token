@@ -3009,7 +3009,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   Returns true if the condition evaluates as true, otherwise false.  The   condition is represented by a string.  Unsophisticated parsing techniques are   used.  The preprocessing method could be named StriNg-Oriented PreProcessing,   as SNOBOL stands for StriNg-Oriented symBOlic Language. */
+comment|/*   Returns \c true if the condition evaluates as true, otherwise false.  The   condition is represented by a string.  Unsophisticated parsing techniques are   used.  The preprocessing method could be named StriNg-Oriented PreProcessing,   as SNOBOL stands for StriNg-Oriented symBOlic Language. */
 end_comment
 begin_function
 DECL|function|isTrue

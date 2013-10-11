@@ -2912,7 +2912,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns false if the file is a cache file,     but is an older version and should be removed otherwise true.  */
+comment|/*!     Returns \c false if the file is a cache file,     but is an older version and should be removed otherwise true.  */
 end_comment
 begin_function
 DECL|function|read

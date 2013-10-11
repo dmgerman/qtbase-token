@@ -2069,7 +2069,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns true if \a num is too big to be displayed in its entirety;     otherwise returns false.      \sa display(), digitCount(), smallDecimalPoint() */
+comment|/*!     \overload      Returns \c true if \a num is too big to be displayed in its entirety;     otherwise returns \c false.      \sa display(), digitCount(), smallDecimalPoint() */
 end_comment
 begin_function
 DECL|function|checkOverflow
@@ -2114,7 +2114,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a num is too big to be displayed in its entirety;     otherwise returns false.      \sa display(), digitCount(), smallDecimalPoint() */
+comment|/*!     Returns \c true if \a num is too big to be displayed in its entirety;     otherwise returns \c false.      \sa display(), digitCount(), smallDecimalPoint() */
 end_comment
 begin_function
 DECL|function|checkOverflow

@@ -30,7 +30,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this is a monotonic clock, false otherwise. See the     information on the different clock types to understand which ones are     monotonic.      \sa clockType(), QElapsedTimer::ClockType */
+comment|/*!     Returns \c true if this is a monotonic clock, false otherwise. See the     information on the different clock types to understand which ones are     monotonic.      \sa clockType(), QElapsedTimer::ClockType */
 end_comment
 begin_function
 name|bool
@@ -213,7 +213,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QElapsedTimer      Returns true if \a v1 was started before \a v2, false otherwise.      The returned value is undefined if one of the two parameters is invalid     and the other isn't. However, two invalid timers are equal and thus this     function will return false. */
+comment|/*!     \relates QElapsedTimer      Returns \c true if \a v1 was started before \a v2, false otherwise.      The returned value is undefined if one of the two parameters is invalid     and the other isn't. However, two invalid timers are equal and thus this     function will return false. */
 end_comment
 begin_function
 name|bool

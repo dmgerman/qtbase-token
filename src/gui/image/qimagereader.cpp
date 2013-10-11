@@ -2779,7 +2779,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if image format autodetection is enabled on this image     reader; otherwise returns false. By default, autodetection is enabled.      \sa setAutoDetectImageFormat() */
+comment|/*!     Returns \c true if image format autodetection is enabled on this image     reader; otherwise returns \c false. By default, autodetection is enabled.      \sa setAutoDetectImageFormat() */
 end_comment
 begin_function
 DECL|function|autoDetectImageFormat
@@ -3464,7 +3464,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns true if the image format supports animation;     otherwise, false is returned.      \sa QMovie::supportedFormats() */
+comment|/*!     \since 4.1      Returns \c true if the image format supports animation;     otherwise, false is returned.      \sa QMovie::supportedFormats() */
 end_comment
 begin_function
 DECL|function|supportsAnimation
@@ -3520,7 +3520,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if an image can be read for the device (i.e., the     image format is supported, and the device seems to contain valid     data); otherwise returns false.      canRead() is a lightweight function that only does a quick test to     see if the image data is valid. read() may still return false     after canRead() returns true, if the image data is corrupt.      For images that support animation, canRead() returns false when     all frames have been read.      \sa read(), supportedImageFormats() */
+comment|/*!     Returns \c true if an image can be read for the device (i.e., the     image format is supported, and the device seems to contain valid     data); otherwise returns \c false.      canRead() is a lightweight function that only does a quick test to     see if the image data is valid. read() may still return false     after canRead() returns \c true, if the image data is corrupt.      For images that support animation, canRead() returns \c false when     all frames have been read.      \sa read(), supportedImageFormats() */
 end_comment
 begin_function
 DECL|function|canRead
@@ -3583,7 +3583,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Reads an image from the device into \a image, which must point to a     QImage. Returns true on success; otherwise, returns false.      If \a image has same format and size as the image data that is about to be     read, this function may not need to allocate a new image before     reading. Because of this, it can be faster than the other read() overload,     which always constructs a new image; especially when reading several     images with the same format and size.      \snippet code/src_gui_image_qimagereader.cpp 2      For image formats that support animation, calling read() repeatedly will     return the next frame. When all frames have been read, a null image will     be returned.      \sa canRead(), supportedImageFormats(), supportsAnimation(), QMovie */
+comment|/*!     \overload      Reads an image from the device into \a image, which must point to a     QImage. Returns \c true on success; otherwise, returns \c false.      If \a image has same format and size as the image data that is about to be     read, this function may not need to allocate a new image before     reading. Because of this, it can be faster than the other read() overload,     which always constructs a new image; especially when reading several     images with the same format and size.      \snippet code/src_gui_image_qimagereader.cpp 2      For image formats that support animation, calling read() repeatedly will     return the next frame. When all frames have been read, a null image will     be returned.      \sa canRead(), supportedImageFormats(), supportsAnimation(), QMovie */
 end_comment
 begin_function
 DECL|function|read
@@ -4541,7 +4541,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if the reader supports \a option; otherwise returns     false.      Different image formats support different options. Call this function to     determine whether a certain option is supported by the current format. For     example, the PNG format allows you to embed text into the image's metadata     (see text()), and the BMP format allows you to determine the image's size     without loading the whole image into memory (see size()).      \snippet code/src_gui_image_qimagereader.cpp 3      \sa QImageWriter::supportsOption() */
+comment|/*!     \since 4.2      Returns \c true if the reader supports \a option; otherwise returns     false.      Different image formats support different options. Call this function to     determine whether a certain option is supported by the current format. For     example, the PNG format allows you to embed text into the image's metadata     (see text()), and the BMP format allows you to determine the image's size     without loading the whole image into memory (see size()).      \snippet code/src_gui_image_qimagereader.cpp 3      \sa QImageWriter::supportsOption() */
 end_comment
 begin_function
 DECL|function|supportsOption

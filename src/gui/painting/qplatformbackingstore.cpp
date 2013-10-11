@@ -154,7 +154,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*!     Scrolls the given \a area \a dx pixels to the right and \a dy     downward; both \a dx and \a dy may be negative.      Returns true if the area was scrolled successfully; false otherwise. */
+comment|/*!     Scrolls the given \a area \a dx pixels to the right and \a dy     downward; both \a dx and \a dy may be negative.      Returns \c true if the area was scrolled successfully; false otherwise. */
 end_comment
 begin_function
 DECL|function|scroll

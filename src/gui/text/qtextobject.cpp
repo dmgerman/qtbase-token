@@ -654,10 +654,10 @@ begin_comment
 comment|/*!     \fn QTextFrame *QTextFrame::iterator::parentFrame() const      Returns the parent frame of the current frame.      \sa currentFrame(), QTextFrame::parentFrame() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFrame::iterator::operator==(const iterator&other) const      Retuns true if the iterator is the same as the \a other iterator;     otherwise returns false. */
+comment|/*!     \fn bool QTextFrame::iterator::operator==(const iterator&other) const      Retuns true if the iterator is the same as the \a other iterator;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFrame::iterator::operator!=(const iterator&other) const      Retuns true if the iterator is different from the \a other iterator;     otherwise returns false. */
+comment|/*!     \fn bool QTextFrame::iterator::operator!=(const iterator&other) const      Retuns true if the iterator is different from the \a other iterator;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QTextFrame::iterator QTextFrame::iterator::operator++(int)      The postfix ++ operator (\c{i++}) advances the iterator to the     next item in the text frame, and returns an iterator to the old item. */
@@ -1386,7 +1386,7 @@ begin_comment
 comment|/*!     \class QTextFrame::iterator     \reentrant      \brief The iterator class provides an iterator for reading     the contents of a QTextFrame.      \inmodule QtGui     \ingroup richtext-processing      A frame consists of an arbitrary sequence of \l{QTextBlock}s and     child \l{QTextFrame}s. This class provides a way to iterate over the     child objects of a frame, and read their contents. It does not provide     a way to modify the contents of the frame.  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFrame::iterator::atEnd() const      Returns true if the current item is the last item in the text frame. */
+comment|/*!     \fn bool QTextFrame::iterator::atEnd() const      Returns \c true if the current item is the last item in the text frame. */
 end_comment
 begin_comment
 comment|/*!     Returns an iterator pointing to the first document element inside the frame.     Please see the document \l{STL-style-Iterators} for more information.      \sa end() */
@@ -2280,7 +2280,7 @@ begin_comment
 comment|/*!     \fn QTextBlock::QTextBlock(const QTextBlock&other)      Copies the \a other text block's attributes to this text block. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::isValid() const      Returns true if this text block is valid; otherwise returns false. */
+comment|/*!     \fn bool QTextBlock::isValid() const      Returns \c true if this text block is valid; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -2312,13 +2312,13 @@ begin_comment
 comment|/*!     \fn QTextBlock&QTextBlock::operator=(const QTextBlock&other)      Assigns the \a other text block to this text block. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::operator==(const QTextBlock&other) const      Returns true if this text block is the same as the \a other text     block. */
+comment|/*!     \fn bool QTextBlock::operator==(const QTextBlock&other) const      Returns \c true if this text block is the same as the \a other text     block. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::operator!=(const QTextBlock&other) const      Returns true if this text block is different from the \a other     text block. */
+comment|/*!     \fn bool QTextBlock::operator!=(const QTextBlock&other) const      Returns \c true if this text block is different from the \a other     text block. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::operator<(const QTextBlock&other) const      Returns true if this text block occurs before the \a other text     block in the document. */
+comment|/*!     \fn bool QTextBlock::operator<(const QTextBlock&other) const      Returns \c true if this text block occurs before the \a other text     block in the document. */
 end_comment
 begin_comment
 comment|/*!     \class QTextBlock::iterator     \reentrant      \brief The QTextBlock::iterator class provides an iterator for reading     the contents of a QTextBlock.     \inmodule QtGui      \ingroup richtext-processing      A block consists of a sequence of text fragments. This class provides     a way to iterate over these, and read their contents. It does not provide     a way to modify the internal structure or contents of the block.      An iterator can be constructed and used to access the fragments within     a text block in the following way:      \snippet textblock-fragments/xmlwriter.cpp 4     \snippet textblock-fragments/xmlwriter.cpp 7      \sa QTextFragment */
@@ -2333,13 +2333,13 @@ begin_comment
 comment|/*!     \fn QTextBlock::iterator::iterator(const iterator&other)      Copy constructor. Constructs a copy of the \a other iterator. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::iterator::atEnd() const      Returns true if the current item is the last item in the text block. */
+comment|/*!     \fn bool QTextBlock::iterator::atEnd() const      Returns \c true if the current item is the last item in the text block. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::iterator::operator==(const iterator&other) const      Retuns true if this iterator is the same as the \a other iterator;     otherwise returns false. */
+comment|/*!     \fn bool QTextBlock::iterator::operator==(const iterator&other) const      Retuns true if this iterator is the same as the \a other iterator;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextBlock::iterator::operator!=(const iterator&other) const      Retuns true if this iterator is different from the \a other iterator;     otherwise returns false. */
+comment|/*!     \fn bool QTextBlock::iterator::operator!=(const iterator&other) const      Retuns true if this iterator is different from the \a other iterator;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QTextBlock::iterator QTextBlock::iterator::operator++(int)      The postfix ++ operator (\c{i++}) advances the iterator to the     next item in the text block and returns an iterator to the old current     item. */
@@ -2426,7 +2426,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the given \a position is located within the text     block; otherwise returns false.  */
+comment|/*!     Returns \c true if the given \a position is located within the text     block; otherwise returns \c false.  */
 end_comment
 begin_function
 DECL|function|contains
@@ -3543,7 +3543,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns true if the block is visible; otherwise returns false.      \sa setVisible() */
+comment|/*!     \since 4.4      Returns \c true if the block is visible; otherwise returns \c false.      \sa setVisible() */
 end_comment
 begin_function
 DECL|function|isVisible
@@ -4324,16 +4324,16 @@ begin_comment
 comment|/*!     \fn QTextFragment&QTextFragment::operator=(const QTextFragment&other)      Assigns the content (text and format) of the \a other text fragment     to this text fragment. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFragment::isValid() const      Returns true if this is a valid text fragment (i.e. has a valid     position in a document); otherwise returns false. */
+comment|/*!     \fn bool QTextFragment::isValid() const      Returns \c true if this is a valid text fragment (i.e. has a valid     position in a document); otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFragment::operator==(const QTextFragment&other) const      Returns true if this text fragment is the same (at the same     position) as the \a other text fragment; otherwise returns false. */
+comment|/*!     \fn bool QTextFragment::operator==(const QTextFragment&other) const      Returns \c true if this text fragment is the same (at the same     position) as the \a other text fragment; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFragment::operator!=(const QTextFragment&other) const      Returns true if this text fragment is different (at a different     position) from the \a other text fragment; otherwise returns     false. */
+comment|/*!     \fn bool QTextFragment::operator!=(const QTextFragment&other) const      Returns \c true if this text fragment is different (at a different     position) from the \a other text fragment; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTextFragment::operator<(const QTextFragment&other) const      Returns true if this text fragment appears earlier in the document     than the \a other text fragment; otherwise returns false. */
+comment|/*!     \fn bool QTextFragment::operator<(const QTextFragment&other) const      Returns \c true if this text fragment appears earlier in the document     than the \a other text fragment; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Returns the glyphs corresponding to \a len characters of this text fragment starting at     position \a pos. The positions of the glyphs are relative to the position of the QTextBlock's     layout.      If \a pos is less than zero, it will default to the start of the QTextFragment. If \a len     is less than zero, it will default to the length of the fragment.      \sa QGlyphRun, QTextBlock::layout(), QTextLayout::position(), QPainter::drawGlyphRun() */
@@ -4633,7 +4633,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the text fragment contains the text at the given     \a position in the document; otherwise returns false. */
+comment|/*!     Returns \c true if the text fragment contains the text at the given     \a position in the document; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|contains

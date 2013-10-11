@@ -428,7 +428,7 @@ return|return
 name|false
 return|;
 block|}
-comment|// Returns true if backend is able to resume downloads.
+comment|// Returns \c true if backend is able to resume downloads.
 name|virtual
 name|bool
 name|canResume

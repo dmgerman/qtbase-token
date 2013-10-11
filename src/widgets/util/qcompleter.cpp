@@ -7486,7 +7486,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current row to the \a row specified. Returns true if successful;     otherwise returns false.      This function may be used along with currentCompletion() to iterate     through all the possible completions.      \sa currentCompletion(), completionCount() */
+comment|/*!     Sets the current row to the \a row specified. Returns \c true if successful;     otherwise returns \c false.      This function may be used along with currentCompletion() to iterate     through all the possible completions.      \sa currentCompletion(), completionCount() */
 end_comment
 begin_function
 DECL|function|setCurrentRow

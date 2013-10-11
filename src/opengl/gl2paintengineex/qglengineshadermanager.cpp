@@ -3091,7 +3091,7 @@ begin_comment
 comment|// Select& use the correct shader program using the current state.
 end_comment
 begin_comment
-comment|// Returns true if program needed changing.
+comment|// Returns \c true if program needed changing.
 end_comment
 begin_function
 DECL|function|useCorrectShaderProg

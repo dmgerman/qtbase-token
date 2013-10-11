@@ -146,7 +146,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*!     Returns true if the string \a text is likely to be rich text;     otherwise returns false.      This function uses a fast and therefore simple heuristic. It     mainly checks whether there is something that looks like a tag     before the first line break. Although the result may be correct     for common cases, there is no guarantee.      This function is defined in the \c<QTextDocument> header file. */
+comment|/*!     Returns \c true if the string \a text is likely to be rich text;     otherwise returns \c false.      This function uses a fast and therefore simple heuristic. It     mainly checks whether there is something that looks like a tag     before the first line break. Although the result may be correct     for common cases, there is no guarantee.      This function is defined in the \c<QTextDocument> header file. */
 end_comment
 begin_function
 DECL|function|mightBeRichText
@@ -1255,7 +1255,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the document is empty; otherwise returns false. */
+comment|/*!     Returns \c true if the document is empty; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -1860,7 +1860,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTextDocument::useDesignMetrics     \since 4.1     \brief whether the document uses design metrics of fonts to improve the accuracy of text layout      If this property is set to true, the layout will use design metrics.     Otherwise, the metrics of the paint device as set on     QAbstractTextDocumentLayout::setPaintDevice() will be used.      Using design metrics makes a layout have a width that is no longer dependent on hinting     and pixel-rounding. This means that WYSIWYG text layout becomes possible because the width     scales much more linearly based on paintdevice metrics than it would otherwise.      By default, this property is false. */
+comment|/*!     \property QTextDocument::useDesignMetrics     \since 4.1     \brief whether the document uses design metrics of fonts to improve the accuracy of text layout      If this property is set to true, the layout will use design metrics.     Otherwise, the metrics of the paint device as set on     QAbstractTextDocumentLayout::setPaintDevice() will be used.      Using design metrics makes a layout have a width that is no longer dependent on hinting     and pixel-rounding. This means that WYSIWYG text layout becomes possible because the width     scales much more linearly based on paintdevice metrics than it would otherwise.      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|setUseDesignMetrics
@@ -2812,7 +2812,7 @@ begin_comment
 comment|/*!     \fn QTextDocument::documentLayoutChanged();     \since 4.4      This signal is emitted when a new document layout is set.      \sa setDocumentLayout()  */
 end_comment
 begin_comment
-comment|/*!     Returns true if undo is available; otherwise returns false.      \sa isRedoAvailable(), availableUndoSteps() */
+comment|/*!     Returns \c true if undo is available; otherwise returns \c false.      \sa isRedoAvailable(), availableUndoSteps() */
 end_comment
 begin_function
 DECL|function|isUndoAvailable
@@ -2838,7 +2838,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if redo is available; otherwise returns false.      \sa isUndoAvailable(), availableRedoSteps() */
+comment|/*!     Returns \c true if redo is available; otherwise returns \c false.      \sa isUndoAvailable(), availableRedoSteps() */
 end_comment
 begin_function
 DECL|function|isRedoAvailable
@@ -4769,7 +4769,7 @@ begin_comment
 comment|/*!     \fn QTextDocument::modificationChanged(bool changed)      This signal is emitted whenever the content of the document     changes in a way that affects the modification state. If \a     changed is true, the document has been modified; otherwise it is     false.      For example, calling setModified(false) on a document and then     inserting text causes the signal to get emitted. If you undo that     operation, causing the document to return to its original     unmodified state, the signal will get emitted again. */
 end_comment
 begin_comment
-comment|/*!     \property QTextDocument::modified     \brief whether the document has been modified by the user      By default, this property is false.      \sa modificationChanged() */
+comment|/*!     \property QTextDocument::modified     \brief whether the document has been modified by the user      By default, this property is \c false.      \sa modificationChanged() */
 end_comment
 begin_function
 DECL|function|isModified

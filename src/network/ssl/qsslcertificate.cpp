@@ -285,7 +285,7 @@ begin_comment
 comment|/*!     \fn void QSslCertificate::swap(QSslCertificate&other)     \since 5.0      Swaps this certificate instance with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this certificate is the same as \a other; otherwise     returns false. */
+comment|/*!     Returns \c true if this certificate is the same as \a other; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -362,10 +362,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QSslCertificate::operator!=(const QSslCertificate&other) const      Returns true if this certificate is not the same as \a other; otherwise     returns false. */
+comment|/*!     \fn bool QSslCertificate::operator!=(const QSslCertificate&other) const      Returns \c true if this certificate is not the same as \a other; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this is a null certificate (i.e., a certificate     with no contents); otherwise returns false.      By default, QSslCertificate constructs a null certificate.      \sa clear() */
+comment|/*!     Returns \c true if this is a null certificate (i.e., a certificate     with no contents); otherwise returns \c false.      By default, QSslCertificate constructs a null certificate.      \sa clear() */
 end_comment
 begin_function
 DECL|function|isNull
@@ -401,7 +401,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Returns true if this certificate is blacklisted; otherwise     returns false.      \sa isNull() */
+comment|/*!     Returns \c true if this certificate is blacklisted; otherwise     returns \c false.      \sa isNull() */
 end_comment
 begin_function
 DECL|function|isBlacklisted

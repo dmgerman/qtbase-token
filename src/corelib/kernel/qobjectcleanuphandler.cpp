@@ -9,7 +9,7 @@ file|"qobjectcleanuphandler.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QObjectCleanupHandler     \inmodule QtCore     \brief The QObjectCleanupHandler class watches the lifetime of multiple QObjects.      \ingroup objectmodel      A QObjectCleanupHandler is useful whenever you need to know when a     number of \l{QObject}s that are owned by someone else have been     deleted. This is important, for example, when referencing memory     in an application that has been allocated in a shared library.      To keep track of some \l{QObject}s, create a     QObjectCleanupHandler, and add() the objects you are interested     in. If you are no longer interested in tracking a particular     object, use remove() to remove it from the cleanup handler. If an     object being tracked by the cleanup handler gets deleted by     someone else it will automatically be removed from the cleanup     handler. You can delete all the objects in the cleanup handler     with clear(), or by destroying the cleanup handler. isEmpty()     returns true if the QObjectCleanupHandler has no objects to keep     track of.      \sa QPointer */
+comment|/*!     \class QObjectCleanupHandler     \inmodule QtCore     \brief The QObjectCleanupHandler class watches the lifetime of multiple QObjects.      \ingroup objectmodel      A QObjectCleanupHandler is useful whenever you need to know when a     number of \l{QObject}s that are owned by someone else have been     deleted. This is important, for example, when referencing memory     in an application that has been allocated in a shared library.      To keep track of some \l{QObject}s, create a     QObjectCleanupHandler, and add() the objects you are interested     in. If you are no longer interested in tracking a particular     object, use remove() to remove it from the cleanup handler. If an     object being tracked by the cleanup handler gets deleted by     someone else it will automatically be removed from the cleanup     handler. You can delete all the objects in the cleanup handler     with clear(), or by destroying the cleanup handler. isEmpty()     returns \c true if the QObjectCleanupHandler has no objects to keep     track of.      \sa QPointer */
 comment|/*!     Constructs an empty QObjectCleanupHandler. */
 DECL|function|QObjectCleanupHandler
 name|QObjectCleanupHandler
@@ -168,7 +168,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this cleanup handler is empty or if all objects in     this cleanup handler have been destroyed; otherwise return false.      \sa add(), remove(), clear() */
+comment|/*!     Returns \c true if this cleanup handler is empty or if all objects in     this cleanup handler have been destroyed; otherwise return false.      \sa add(), remove(), clear() */
 end_comment
 begin_function
 DECL|function|isEmpty
