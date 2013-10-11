@@ -135,6 +135,13 @@ name|services
 argument_list|()
 specifier|const
 block|;
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|bool
