@@ -32072,6 +32072,35 @@ argument_list|,
 name|unicodedst
 argument_list|)
 expr_stmt|;
+comment|// try the rvalue version of toLatin1()
+name|QString
+name|s
+init|=
+name|unicodesrc
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|qMove
+argument_list|(
+name|s
+argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+argument_list|,
+name|latin1
+argument_list|)
+expr_stmt|;
+comment|// and verify that the moved-from object can still be used
+name|s
+operator|=
+literal|"foo"
+expr_stmt|;
+name|s
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
