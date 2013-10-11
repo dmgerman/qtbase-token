@@ -1659,6 +1659,15 @@ operator|<<
 literal|"verbose1"
 operator|<<
 literal|"verbose2"
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+comment|// this test will test nothing if the exceptions are disabled
+operator|<<
+literal|"verifyexceptionthrown"
+endif|#
+directive|endif
+comment|//!QT_NO_EXCEPTIONS
 operator|<<
 literal|"warnings"
 operator|<<

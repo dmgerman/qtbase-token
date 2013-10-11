@@ -43,6 +43,23 @@ include|#
 directive|include
 file|<string.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<exception>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_EXCEPTIONS
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QRegularExpression
@@ -98,6 +115,54 @@ parameter_list|)
 define|\
 value|do {\     if (!QTest::qCompare(actual, expected, #actual, #expected, __FILE__, __LINE__))\         return;\ } while (0)
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+end_ifndef
+begin_define
+DECL|macro|QVERIFY_EXCEPTION_THROWN
+define|#
+directive|define
+name|QVERIFY_EXCEPTION_THROWN
+parameter_list|(
+name|expression
+parameter_list|,
+name|exceptiontype
+parameter_list|)
+define|\
+value|do {\         QT_TRY {\             QT_TRY {\                 expression;\                 QTest::qFail("Expected exception of type " #exceptiontype " to be thrown" \                              " but no exception caught", __FILE__, __LINE__);\                 return;\             } QT_CATCH (const exceptiontype&) {\             }\         } QT_CATCH (const std::exception&e) {\             QByteArray msg = QByteArray() + "Expected exception of type " #exceptiontype \                              " to be thrown but std::exception caught with message: " + e.what(); \             QTest::qFail(msg.constData(), __FILE__, __LINE__);\             return;\         } QT_CATCH (...) {\             QTest::qFail("Expected exception of type " #exceptiontype " to be thrown" \                          " but unknown exception caught", __FILE__, __LINE__);\             return;\         }\     } while (0)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|// QT_NO_EXCEPTIONS
+end_comment
+begin_comment
+comment|/*  * The expression passed to the macro should throw an exception and we can't  * catch it because Qt has been compiled without exception support. We can't  * skip the expression because it may have side effects and must be executed.  * So, users must use Qt with exception support enabled if they use exceptions  * in their code.  */
+end_comment
+begin_define
+DECL|macro|QVERIFY_EXCEPTION_THROWN
+define|#
+directive|define
+name|QVERIFY_EXCEPTION_THROWN
+parameter_list|(
+name|expression
+parameter_list|,
+name|exceptiontype
+parameter_list|)
+define|\
+value|Q_STATIC_ASSERT_X(false, "Support of exceptions is disabled")
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_EXCEPTIONS
+end_comment
 begin_comment
 comment|// Will try to wait for the expression to become true while allowing event processing
 end_comment
