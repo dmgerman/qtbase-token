@@ -3960,6 +3960,7 @@ expr_stmt|;
 specifier|const
 name|QMetaObject
 modifier|*
+specifier|const
 modifier|*
 name|objects
 init|=
@@ -16765,6 +16766,7 @@ decl_stmt|;
 specifier|const
 name|QMetaObject
 modifier|*
+specifier|const
 modifier|*
 name|objects
 init|=

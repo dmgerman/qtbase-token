@@ -2096,6 +2096,7 @@ DECL|member|relatedMetaObjects
 specifier|const
 name|QMetaObject
 modifier|*
+specifier|const
 modifier|*
 name|relatedMetaObjects
 decl_stmt|;

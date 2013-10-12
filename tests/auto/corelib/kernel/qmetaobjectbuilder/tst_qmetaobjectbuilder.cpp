@@ -9262,6 +9262,7 @@ block|}
 specifier|const
 name|QMetaObject
 modifier|*
+specifier|const
 modifier|*
 name|objects1
 init|=
@@ -9274,6 +9275,7 @@ decl_stmt|;
 specifier|const
 name|QMetaObject
 modifier|*
+specifier|const
 modifier|*
 name|objects2
 init|=

@@ -2521,7 +2521,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"static const QMetaObject *qt_meta_extradata_%s[] = {\n    "
+literal|"static const QMetaObject * const qt_meta_extradata_%s[] = {\n    "
 argument_list|,
 name|qualifiedClassNameIdentifier
 operator|.
