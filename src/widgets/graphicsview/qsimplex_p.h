@@ -468,7 +468,6 @@ label|:
 name|QSimplex
 argument_list|()
 expr_stmt|;
-name|virtual
 operator|~
 name|QSimplex
 argument_list|()
