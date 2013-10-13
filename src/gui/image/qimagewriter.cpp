@@ -2502,10 +2502,15 @@ name|QByteArray
 argument_list|>
 name|mimeTypes
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMAT_BMP
 name|mimeTypes
 operator|<<
 literal|"image/bmp"
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_PPM
