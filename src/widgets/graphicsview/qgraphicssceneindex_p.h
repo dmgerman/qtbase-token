@@ -82,30 +82,6 @@ name|defined
 argument_list|(
 name|QT_NO_GRAPHICSVIEW
 argument_list|)
-DECL|variable|QGraphicsSceneIndexIntersector
-name|class
-name|QGraphicsSceneIndexIntersector
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QGraphicsSceneIndexPointIntersector
-name|class
-name|QGraphicsSceneIndexPointIntersector
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QGraphicsSceneIndexRectIntersector
-name|class
-name|QGraphicsSceneIndexRectIntersector
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QGraphicsSceneIndexPathIntersector
-name|class
-name|QGraphicsSceneIndexPathIntersector
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QGraphicsSceneIndexPrivate
 name|class
 name|QGraphicsSceneIndexPrivate
@@ -134,6 +110,41 @@ name|class
 name|QList
 expr_stmt|;
 end_expr_stmt
+begin_typedef
+DECL|typedef|QGraphicsSceneIndexIntersector
+typedef|typedef
+name|bool
+argument_list|(
+argument|*QGraphicsSceneIndexIntersector
+argument_list|)
+operator|(
+specifier|const
+name|QGraphicsItem
+operator|*
+name|item
+operator|,
+specifier|const
+name|QRectF
+operator|&
+name|exposeRect
+operator|,
+name|Qt
+operator|::
+name|ItemSelectionMode
+name|mode
+operator|,
+specifier|const
+name|QTransform
+operator|&
+name|deviceTransform
+operator|,
+specifier|const
+name|void
+operator|*
+name|data
+operator|)
+expr_stmt|;
+end_typedef
 begin_decl_stmt
 name|class
 name|Q_AUTOTEST_EXPORT
@@ -466,7 +477,7 @@ argument|QGraphicsItem *item
 argument_list|,
 argument|QRectF exposeRect
 argument_list|,
-argument|QGraphicsSceneIndexIntersector *intersector
+argument|QGraphicsSceneIndexIntersector intersect
 argument_list|,
 argument|QList<QGraphicsItem *> *items
 argument_list|,
@@ -474,8 +485,9 @@ argument|const QTransform&viewTransform
 argument_list|,
 argument|Qt::ItemSelectionMode mode
 argument_list|,
-argument|qreal parentOpacity =
-literal|1.0
+argument|qreal parentOpacity
+argument_list|,
+argument|const void *intersectData
 argument_list|)
 specifier|const
 block|;
@@ -485,7 +497,7 @@ name|items_helper
 argument_list|(
 argument|const QRectF&rect
 argument_list|,
-argument|QGraphicsSceneIndexIntersector *intersector
+argument|QGraphicsSceneIndexIntersector intersect
 argument_list|,
 argument|QList<QGraphicsItem *> *items
 argument_list|,
@@ -494,24 +506,14 @@ argument_list|,
 argument|Qt::ItemSelectionMode mode
 argument_list|,
 argument|Qt::SortOrder order
+argument_list|,
+argument|const void *intersectData
 argument_list|)
 specifier|const
 block|;
 name|QGraphicsScene
 operator|*
 name|scene
-block|;
-name|QGraphicsSceneIndexPointIntersector
-operator|*
-name|pointIntersector
-block|;
-name|QGraphicsSceneIndexRectIntersector
-operator|*
-name|rectIntersector
-block|;
-name|QGraphicsSceneIndexPathIntersector
-operator|*
-name|pathIntersector
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -525,7 +527,7 @@ name|items_helper
 argument_list|(
 argument|const QRectF&rect
 argument_list|,
-argument|QGraphicsSceneIndexIntersector *intersector
+argument|QGraphicsSceneIndexIntersector intersect
 argument_list|,
 argument|QList<QGraphicsItem *> *items
 argument_list|,
@@ -534,6 +536,8 @@ argument_list|,
 argument|Qt::ItemSelectionMode mode
 argument_list|,
 argument|Qt::SortOrder order
+argument_list|,
+argument|const void *intersectData
 argument_list|)
 specifier|const
 block|{
@@ -590,13 +594,17 @@ argument_list|)
 argument_list|,
 name|rect
 argument_list|,
-name|intersector
+name|intersect
 argument_list|,
 name|items
 argument_list|,
 name|viewTransform
 argument_list|,
 name|mode
+argument_list|,
+literal|1.0
+argument_list|,
+name|intersectData
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -650,54 +658,16 @@ argument_list|)
 expr_stmt|;
 block|}
 end_if
-begin_macro
-unit|}  class
-name|QGraphicsSceneIndexIntersector
-end_macro
-begin_block
-block|{
-name|public
-label|:
-name|QGraphicsSceneIndexIntersector
-argument_list|()
-block|{ }
-name|virtual
-operator|~
-name|QGraphicsSceneIndexIntersector
-argument_list|()
-block|{ }
-name|virtual
-name|bool
-name|intersect
-argument_list|(
-argument|const QGraphicsItem *item
-argument_list|,
-argument|const QRectF&exposeRect
-argument_list|,
-argument|Qt::ItemSelectionMode mode
-argument_list|,
-argument|const QTransform&deviceTransform
-argument_list|)
-specifier|const
-operator|=
-literal|0
-expr_stmt|;
-block|}
-end_block
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_endif
+unit|}
 endif|#
 directive|endif
 end_endif
 begin_comment
 comment|// QT_NO_GRAPHICSVIEW
 end_comment
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 begin_endif
+unit|QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif
