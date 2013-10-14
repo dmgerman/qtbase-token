@@ -1087,6 +1087,15 @@ name|nPoints
 parameter_list|)
 function_decl|;
 name|void
+name|clearGlyphCache
+parameter_list|(
+specifier|const
+name|void
+modifier|*
+name|key
+parameter_list|)
+function_decl|;
+name|void
 name|setGlyphCache
 parameter_list|(
 specifier|const
