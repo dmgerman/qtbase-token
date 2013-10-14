@@ -444,7 +444,7 @@ name|_q_value
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|// Non-atomic API
+comment|// Everything below is either implemented in ../arch/qatomic_XXX.h or (as fallback) in qgenericatomic.h
 end_comment
 begin_expr_stmt
 name|T
@@ -483,9 +483,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// Atomic API, implemented in qatomic_XXX.h
-end_comment
 begin_expr_stmt
 name|T
 name|loadAcquire
