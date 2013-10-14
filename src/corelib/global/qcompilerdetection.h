@@ -3178,8 +3178,13 @@ define|#
 directive|define
 name|Q_COMPILER_VARIADIC_MACROS
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__cplusplus_cli
+end_ifndef
 begin_comment
-comment|/* 2005 supports the override and final contextual keywords, in         the same positions as the C++11 variants, but 'final' is         called 'sealed' instead:         http://msdn.microsoft.com/en-us/library/0w2w91tf%28v=vs.80%29.aspx         So don't define Q_COMPILER_EXPLICIT_OVERRIDES (since it's not         the same as the C++11 version), but define the Q_DECL_* flags         accordingly: */
+comment|/* 2005 supports the override and final contextual keywords, in         the same positions as the C++11 variants, but 'final' is         called 'sealed' instead:         http://msdn.microsoft.com/en-us/library/0w2w91tf%28v=vs.80%29.aspx         The behavior is slightly different in C++/CLI, which requires the         "virtual" keyword to be present too, so don't define for that.         So don't define Q_COMPILER_EXPLICIT_OVERRIDES (since it's not         the same as the C++11 version), but define the Q_DECL_* flags         accordingly: */
 end_comment
 begin_define
 DECL|macro|Q_DECL_OVERRIDE
@@ -3195,6 +3200,10 @@ directive|define
 name|Q_DECL_FINAL
 value|sealed
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
