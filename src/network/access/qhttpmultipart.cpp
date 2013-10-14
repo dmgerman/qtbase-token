@@ -127,7 +127,7 @@ begin_comment
 comment|/*!     \fn void QHttpPart::swap(QHttpPart&other)     \since 5.0      Swaps this HTTP part with \a other. This function is very fast and     never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this object is the same as \a other (i.e., if they     have the same headers and body).      \sa operator!=() */
+comment|/*!     Returns \c true if this object is the same as \a other (i.e., if they     have the same headers and body).      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -162,7 +162,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QHttpPart::operator!=(const QHttpPart&other) const      Returns true if this object is not the same as \a other.      \sa operator==() */
+comment|/*!     \fn bool QHttpPart::operator!=(const QHttpPart&other) const      Returns \c true if this object is not the same as \a other.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Sets the value of the known header \a header to be \a value,     overriding any previously set headers.      \sa QNetworkRequest::KnownHeaders, setRawHeader(), QNetworkRequest::setHeader() */

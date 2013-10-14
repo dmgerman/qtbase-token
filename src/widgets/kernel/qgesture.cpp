@@ -1833,7 +1833,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a gesture is accepted; otherwise returns false. */
+comment|/*!     Returns \c true if the \a gesture is accepted; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isAccepted
@@ -1947,7 +1947,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the gesture of type \a gestureType is accepted; otherwise     returns false. */
+comment|/*!     Returns \c true if the gesture of type \a gestureType is accepted; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|isAccepted
@@ -2112,7 +2112,7 @@ begin_comment
 comment|/*!     \fn void QGestureEvent::setAccepted(bool accepted)      Sets or clears the event's internal flag that determines whether it should     be delivered to other objects.      Calling this function with a value of true for \a accepted indicates that the     caller has accepted the event and that it should not be propagated further.     Calling this function with a value of false indicates that the caller has     ignored the event and that it should be delivered to other objects.      For convenience, the accept flag can also be set with accept(), and cleared     with ignore().      \sa QEvent::accepted */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGestureEvent::isAccepted() const      Returns true is the event has been accepted; otherwise returns false.      \sa QEvent::accepted */
+comment|/*!     \fn bool QGestureEvent::isAccepted() const      Returns \c true is the event has been accepted; otherwise returns \c false.      \sa QEvent::accepted */
 end_comment
 begin_comment
 comment|/*!     \fn void QGestureEvent::accept()      Accepts the event, the equivalent of calling setAccepted(true).      \sa QEvent::accept() */

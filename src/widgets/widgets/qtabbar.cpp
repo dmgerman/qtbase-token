@@ -4520,7 +4520,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the tab at position \a index is enabled; otherwise     returns false. */
+comment|/*!     Returns \c true if the tab at position \a index is enabled; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|isTabEnabled
@@ -11600,7 +11600,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabBar::movable     \brief This property holds whether the user can move the tabs     within the tabbar area.      \since 4.5      By default, this property is false; */
+comment|/*!     \property QTabBar::movable     \brief This property holds whether the user can move the tabs     within the tabbar area.      \since 4.5      By default, this property is \c false; */
 end_comment
 begin_function
 DECL|function|isMovable

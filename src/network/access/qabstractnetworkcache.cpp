@@ -266,7 +266,7 @@ begin_comment
 comment|/*!     \fn void QNetworkCacheMetaData::swap(QNetworkCacheMetaData&other)     \since 5.0      Swaps this metadata instance with \a other. This function is very     fast and never fails.  */
 end_comment
 begin_comment
-comment|/*!     Returns true if this meta data is equal to the \a other meta data; otherwise returns false.      \sa operator!=()  */
+comment|/*!     Returns \c true if this meta data is equal to the \a other meta data; otherwise returns \c false.      \sa operator!=()  */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -317,10 +317,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QNetworkCacheMetaData::operator!=(const QNetworkCacheMetaData&other) const      Returns true if this meta data is not equal to the \a other meta data; otherwise returns false.      \sa operator==()  */
+comment|/*!     \fn bool QNetworkCacheMetaData::operator!=(const QNetworkCacheMetaData&other) const      Returns \c true if this meta data is not equal to the \a other meta data; otherwise returns \c false.      \sa operator==()  */
 end_comment
 begin_comment
-comment|/*!     Returns true if this network cache meta data has attributes that have been set otherwise false.  */
+comment|/*!     Returns \c true if this network cache meta data has attributes that have been set otherwise false.  */
 end_comment
 begin_function
 DECL|function|isValid

@@ -8128,6 +8128,10 @@ name|feature_roots
 operator|+=
 name|m_option
 operator|->
+name|splitPathList
+argument_list|(
+name|m_option
+operator|->
 name|propertyValue
 argument_list|(
 name|ProKey
@@ -8140,16 +8144,6 @@ name|toQString
 argument_list|(
 name|m_mtmp
 argument_list|)
-operator|.
-name|split
-argument_list|(
-name|m_option
-operator|->
-name|dirlist_sep
-argument_list|,
-name|QString
-operator|::
-name|SkipEmptyParts
 argument_list|)
 expr_stmt|;
 name|QStringList

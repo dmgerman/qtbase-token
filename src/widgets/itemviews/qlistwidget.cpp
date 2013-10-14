@@ -2896,13 +2896,13 @@ begin_comment
 comment|/*!     \fn void QListWidgetItem::setSelected(bool select)     \since 4.2      Sets the selected state of the item to \a select.      \sa isSelected() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QListWidgetItem::isSelected() const     \since 4.2      Returns true if the item is selected; otherwise returns false.      \sa setSelected() */
+comment|/*!     \fn bool QListWidgetItem::isSelected() const     \since 4.2      Returns \c true if the item is selected; otherwise returns \c false.      \sa setSelected() */
 end_comment
 begin_comment
 comment|/*!     \fn void QListWidgetItem::setHidden(bool hide)     \since 4.2      Hides the item if \a hide is true; otherwise shows the item.      \sa isHidden() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QListWidgetItem::isHidden() const     \since 4.2      Returns true if the item is hidden; otherwise returns false.      \sa setHidden() */
+comment|/*!     \fn bool QListWidgetItem::isHidden() const     \since 4.2      Returns \c true if the item is hidden; otherwise returns \c false.      \sa setHidden() */
 end_comment
 begin_comment
 comment|/*!     \fn QListWidgetItem::QListWidgetItem(QListWidget *parent, int type)      Constructs an empty list widget item of the specified \a type with the     given \a parent. If \a parent is not specified, the item will need to be     inserted into a list widget with QListWidget::insertItem().      This constructor inserts the item into the model of the parent that is     passed to the constructor. If the model is sorted then the behavior of the     insert is undetermined since the model will call the \c '<' operator method     on the item which, at this point, is not yet constructed. To avoid the     undetermined behavior, we recommend not to specify the parent and use     QListWidget::insertItem() instead.      \sa type() */
@@ -3553,7 +3553,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this item's text is less then \a other item's text;     otherwise returns false. */
+comment|/*!     Returns \c true if this item's text is less then \a other item's text;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -5451,7 +5451,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \property QListWidget::sortingEnabled     \brief whether sorting is enabled      If this property is true, sorting is enabled for the list; if the property     is false, sorting is not enabled.      The default value is false. */
+comment|/*!     \since 4.2     \property QListWidget::sortingEnabled     \brief whether sorting is enabled      If this property is \c true, sorting is enabled for the list; if the property     is false, sorting is not enabled.      The default value is false. */
 end_comment
 begin_function
 DECL|function|setSortingEnabled
@@ -5740,7 +5740,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a item is selected; otherwise returns false.      \obsolete      This function is deprecated. Use QListWidgetItem::isSelected() instead. */
+comment|/*!     Returns \c true if \a item is selected; otherwise returns \c false.      \obsolete      This function is deprecated. Use QListWidgetItem::isSelected() instead. */
 end_comment
 begin_function
 DECL|function|isItemSelected
@@ -6099,7 +6099,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a item is explicitly hidden; otherwise returns false.      \obsolete      This function is deprecated. Use QListWidgetItem::isHidden() instead. */
+comment|/*!     Returns \c true if the \a item is explicitly hidden; otherwise returns \c false.      \obsolete      This function is deprecated. Use QListWidgetItem::isHidden() instead. */
 end_comment
 begin_function
 DECL|function|isItemHidden
@@ -6310,7 +6310,7 @@ directive|ifndef
 name|QT_NO_DRAGANDDROP
 end_ifndef
 begin_comment
-comment|/*!     Handles \a data supplied by an external drag and drop operation that ended     with the given \a action in the given \a index. Returns true if \a data and     \a action can be handled by the model; otherwise returns false.      \sa supportedDropActions() */
+comment|/*!     Handles \a data supplied by an external drag and drop operation that ended     with the given \a action in the given \a index. Returns \c true if \a data and     \a action can be handled by the model; otherwise returns \c false.      \sa supportedDropActions() */
 end_comment
 begin_function
 DECL|function|dropMimeData

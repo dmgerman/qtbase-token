@@ -5605,7 +5605,7 @@ begin_comment
 comment|/*!     \property QPlainTextEdit::plainText      This property gets and sets the plain text editor's contents. The previous     contents are removed and undo/redo history is reset when this property is set.      By default, for an editor with no contents, this property contains an empty string. */
 end_comment
 begin_comment
-comment|/*!     \property QPlainTextEdit::undoRedoEnabled     \brief whether undo and redo are enabled      Users are only able to undo or redo actions if this property is     true, and if there is an action that can be undone (or redone).      By default, this property is true. */
+comment|/*!     \property QPlainTextEdit::undoRedoEnabled     \brief whether undo and redo are enabled      Users are only able to undo or redo actions if this property is     true, and if there is an action that can be undone (or redone).      By default, this property is \c true. */
 end_comment
 begin_comment
 comment|/*!     \enum QPlainTextEdit::LineWrapMode      \value NoWrap     \value WidgetWidth */
@@ -10884,7 +10884,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \property QPlainTextEdit::overwriteMode    \brief whether text entered by the user will overwrite existing text     As with many text editors, the plain text editor widget can be configured    to insert or overwrite existing text with new text entered by the user.     If this property is true, existing text is overwritten, character-for-character    by new text; otherwise, text is inserted at the cursor position, displacing    existing text.     By default, this property is false (new text does not overwrite existing text). */
+comment|/*!    \property QPlainTextEdit::overwriteMode    \brief whether text entered by the user will overwrite existing text     As with many text editors, the plain text editor widget can be configured    to insert or overwrite existing text with new text entered by the user.     If this property is \c true, existing text is overwritten, character-for-character    by new text; otherwise, text is inserted at the cursor position, displacing    existing text.     By default, this property is \c false (new text does not overwrite existing text). */
 end_comment
 begin_function
 DECL|function|overwriteMode
@@ -11196,7 +11196,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function returns true if the contents of the MIME data object, specified     by \a source, can be decoded and inserted into the document. It is called     for example when during a drag operation the mouse enters this widget and it     is necessary to determine whether it is possible to accept the drag.  */
+comment|/*!     This function returns \c true if the contents of the MIME data object, specified     by \a source, can be decoded and inserted into the document. It is called     for example when during a drag operation the mouse enters this widget and it     is necessary to determine whether it is possible to accept the drag.  */
 end_comment
 begin_function
 DECL|function|canInsertFromMimeData
@@ -11981,7 +11981,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Finds the next occurrence of the string, \a exp, using the given     \a options. Returns true if \a exp was found and changes the     cursor to select the match; otherwise returns false. */
+comment|/*!     Finds the next occurrence of the string, \a exp, using the given     \a options. Returns \c true if \a exp was found and changes the     cursor to select the match; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|find

@@ -161,6 +161,11 @@ name|createEventDispatcher
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|eventDispatcherReady
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 name|virtual
 name|void
 name|notifyLayoutDirectionChange

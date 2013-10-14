@@ -1106,7 +1106,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Sets the \a source code for this shader and compiles it.     Returns true if the source was successfully compiled, false otherwise.      \sa compileSourceFile() */
+comment|/*!     Sets the \a source code for this shader and compiles it.     Returns \c true if the source was successfully compiled, false otherwise.      \sa compileSourceFile() */
 end_comment
 begin_function
 DECL|function|compileSourceCode
@@ -1401,7 +1401,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the \a source code for this shader and compiles it.     Returns true if the source was successfully compiled, false otherwise.      \sa compileSourceFile() */
+comment|/*!     \overload      Sets the \a source code for this shader and compiles it.     Returns \c true if the source was successfully compiled, false otherwise.      \sa compileSourceFile() */
 end_comment
 begin_function
 DECL|function|compileSourceCode
@@ -1428,7 +1428,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the \a source code for this shader and compiles it.     Returns true if the source was successfully compiled, false otherwise.      \sa compileSourceFile() */
+comment|/*!     \overload      Sets the \a source code for this shader and compiles it.     Returns \c true if the source was successfully compiled, false otherwise.      \sa compileSourceFile() */
 end_comment
 begin_function
 DECL|function|compileSourceCode
@@ -1458,7 +1458,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the source code for this shader to the contents of \a fileName     and compiles it.  Returns true if the file could be opened and the     source compiled, false otherwise.      \sa compileSourceCode() */
+comment|/*!     Sets the source code for this shader to the contents of \a fileName     and compiles it.  Returns \c true if the file could be opened and the     source compiled, false otherwise.      \sa compileSourceCode() */
 end_comment
 begin_function
 DECL|function|compileSourceFile
@@ -1641,7 +1641,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this shader has been compiled; false otherwise.      \sa compileSourceCode(), compileSourceFile() */
+comment|/*!     Returns \c true if this shader has been compiled; false otherwise.      \sa compileSourceCode(), compileSourceFile() */
 end_comment
 begin_function
 DECL|function|isCompiled
@@ -2296,7 +2296,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Adds a compiled \a shader to this shader program.  Returns true     if the shader could be added, or false otherwise.      Ownership of the \a shader object remains with the caller.     It will not be deleted when this QGLShaderProgram instance     is deleted.  This allows the caller to add the same shader     to multiple shader programs.      \sa addShaderFromSourceCode(), addShaderFromSourceFile()     \sa removeShader(), link(), removeAllShaders() */
+comment|/*!     Adds a compiled \a shader to this shader program.  Returns \c true     if the shader could be added, or false otherwise.      Ownership of the \a shader object remains with the caller.     It will not be deleted when this QGLShaderProgram instance     is deleted.  This allows the caller to add the same shader     to multiple shader programs.      \sa addShaderFromSourceCode(), addShaderFromSourceFile()     \sa removeShader(), link(), removeAllShaders() */
 end_comment
 begin_function
 DECL|function|addShader
@@ -2480,7 +2480,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Compiles \a source as a shader of the specified \a type and     adds it to this shader program.  Returns true if compilation     was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceFile()     \sa removeShader(), link(), log(), removeAllShaders() */
+comment|/*!     Compiles \a source as a shader of the specified \a type and     adds it to this shader program.  Returns \c true if compilation     was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceFile()     \sa removeShader(), link(), log(), removeAllShaders() */
 end_comment
 begin_function
 DECL|function|addShaderFromSourceCode
@@ -2571,7 +2571,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Compiles \a source as a shader of the specified \a type and     adds it to this shader program.  Returns true if compilation     was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceFile()     \sa removeShader(), link(), log(), removeAllShaders() */
+comment|/*!     \overload      Compiles \a source as a shader of the specified \a type and     adds it to this shader program.  Returns \c true if compilation     was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceFile()     \sa removeShader(), link(), log(), removeAllShaders() */
 end_comment
 begin_function
 DECL|function|addShaderFromSourceCode
@@ -2605,7 +2605,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Compiles \a source as a shader of the specified \a type and     adds it to this shader program.  Returns true if compilation     was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceFile()     \sa removeShader(), link(), log(), removeAllShaders() */
+comment|/*!     \overload      Compiles \a source as a shader of the specified \a type and     adds it to this shader program.  Returns \c true if compilation     was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceFile()     \sa removeShader(), link(), log(), removeAllShaders() */
 end_comment
 begin_function
 DECL|function|addShaderFromSourceCode
@@ -2642,7 +2642,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compiles the contents of \a fileName as a shader of the specified     \a type and adds it to this shader program.  Returns true if     compilation was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceCode() */
+comment|/*!     Compiles the contents of \a fileName as a shader of the specified     \a type and adds it to this shader program.  Returns \c true if     compilation was successful, false otherwise.  The compilation errors     and warnings will be made available via log().      This function is intended to be a short-cut for quickly     adding vertex and fragment shaders to a shader program without     creating an instance of QGLShader first.      \sa addShader(), addShaderFromSourceCode() */
 end_comment
 begin_function
 DECL|function|addShaderFromSourceFile
@@ -3009,7 +3009,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Links together the shaders that were added to this program with     addShader().  Returns true if the link was successful or     false otherwise.  If the link failed, the error messages can     be retrieved with log().      Subclasses can override this function to initialize attributes     and uniform variables for use in specific shader programs.      If the shader program was already linked, calling this     function again will force it to be re-linked.      \sa addShader(), log() */
+comment|/*!     Links together the shaders that were added to this program with     addShader().  Returns \c true if the link was successful or     false otherwise.  If the link failed, the error messages can     be retrieved with log().      Subclasses can override this function to initialize attributes     and uniform variables for use in specific shader programs.      If the shader program was already linked, calling this     function again will force it to be re-linked.      \sa addShader(), log() */
 end_comment
 begin_function
 DECL|function|link
@@ -3361,7 +3361,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this shader program has been linked; false otherwise.      \sa link() */
+comment|/*!     Returns \c true if this shader program has been linked; false otherwise.      \sa link() */
 end_comment
 begin_function
 DECL|function|isLinked
@@ -3411,7 +3411,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Binds this shader program to the active QGLContext and makes     it the current shader program.  Any previously bound shader program     is released.  This is equivalent to calling \c{glUseProgram()} on     programId().  Returns true if the program was successfully bound;     false otherwise.  If the shader program has not yet been linked,     or it needs to be re-linked, this function will call link().      \sa link(), release() */
+comment|/*!     Binds this shader program to the active QGLContext and makes     it the current shader program.  Any previously bound shader program     is released.  This is equivalent to calling \c{glUseProgram()} on     programId().  Returns \c true if the program was successfully bound;     false otherwise.  If the shader program has not yet been linked,     or it needs to be re-linked, this function will call link().      \sa link(), release() */
 end_comment
 begin_function
 DECL|function|bind
@@ -10107,7 +10107,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if shader programs written in the OpenGL Shading     Language (GLSL) are supported on this system; false otherwise.      The \a context is used to resolve the GLSL extensions.     If \a context is null, then QGLContext::currentContext() is used. */
+comment|/*!     Returns \c true if shader programs written in the OpenGL Shading     Language (GLSL) are supported on this system; false otherwise.      The \a context is used to resolve the GLSL extensions.     If \a context is null, then QGLContext::currentContext() is used. */
 end_comment
 begin_function
 DECL|function|hasOpenGLShaderPrograms
@@ -10241,7 +10241,7 @@ directive|undef
 name|context
 end_undef
 begin_comment
-comment|/*!     Returns true if shader programs of type \a type are supported on     this system; false otherwise.      The \a context is used to resolve the GLSL extensions.     If \a context is null, then QGLContext::currentContext() is used.      \since 4.7 */
+comment|/*!     Returns \c true if shader programs of type \a type are supported on     this system; false otherwise.      The \a context is used to resolve the GLSL extensions.     If \a context is null, then QGLContext::currentContext() is used.      \since 4.7 */
 end_comment
 begin_function
 DECL|function|hasOpenGLShaders

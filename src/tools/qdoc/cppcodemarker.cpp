@@ -67,7 +67,7 @@ comment|// nothing.
 block|}
 end_destructor
 begin_comment
-comment|/*!   Returns true.  */
+comment|/*!   Returns \c true.  */
 end_comment
 begin_function
 DECL|function|recognizeCode
@@ -88,7 +88,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a ext is any of a list of file extensions   for the C++ language.  */
+comment|/*!   Returns \c true if \a ext is any of a list of file extensions   for the C++ language.  */
 end_comment
 begin_function
 DECL|function|recognizeExtension
@@ -171,7 +171,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a lang is either "C" or "Cpp".  */
+comment|/*!   Returns \c true if \a lang is either "C" or "Cpp".  */
 end_comment
 begin_function
 DECL|function|recognizeLanguage

@@ -117,7 +117,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   Returns true if the type is a built-in type. */
+comment|/*   Returns \c true if the type is a built-in type. */
 end_comment
 begin_function
 DECL|function|isBuiltinType
@@ -867,7 +867,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* returns true if name and qualifiedName refers to the same name.  * If qualified name is "A::B::C", it returns true for "C", "B::C" or "A::B::C" */
+comment|/* returns \c true if name and qualifiedName refers to the same name.  * If qualified name is "A::B::C", it returns \c true for "C", "B::C" or "A::B::C" */
 end_comment
 begin_function
 DECL|function|qualifiedNameEquals

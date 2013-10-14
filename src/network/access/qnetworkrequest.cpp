@@ -327,7 +327,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if this object is the same as \a other (i.e., if they     have the same URL, same headers and same meta-data settings).      \sa operator!=() */
+comment|/*!     Returns \c true if this object is the same as \a other (i.e., if they     have the same URL, same headers and same meta-data settings).      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -362,7 +362,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QNetworkRequest::operator!=(const QNetworkRequest&other) const      Returns false if this object is not the same as \a other.      \sa operator==() */
+comment|/*!     \fn bool QNetworkRequest::operator!=(const QNetworkRequest&other) const      Returns \c false if this object is not the same as \a other.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Creates a copy of \a other */
@@ -498,7 +498,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the raw header \a headerName is present in this     network request.      \sa rawHeader(), setRawHeader() */
+comment|/*!     Returns \c true if the raw header \a headerName is present in this     network request.      \sa rawHeader(), setRawHeader() */
 end_comment
 begin_function
 DECL|function|hasRawHeader

@@ -1213,7 +1213,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn void QStandardPaths::isTestModeEnabled()    \internal    Returns true if test mode is enabled in QStandardPaths; otherwise returns false. */
+comment|/*!   \fn void QStandardPaths::isTestModeEnabled()    \internal    Returns \c true if test mode is enabled in QStandardPaths; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isTestModeEnabled

@@ -941,7 +941,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*!     Creates the underlying OpenGL timer query object. There must be a valid OpenGL context     that supports query objects current for this function to succeed.      Returns true if the OpenGL timer query object was successfully created. */
+comment|/*!     Creates the underlying OpenGL timer query object. There must be a valid OpenGL context     that supports query objects current for this function to succeed.      Returns \c true if the OpenGL timer query object was successfully created. */
 end_comment
 begin_function
 DECL|function|create
@@ -988,7 +988,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the underlying OpenGL query object has been created. If this     returns true and the associated OpenGL context is current, then you are able to issue     queries with this object. */
+comment|/*!     Returns \c true if the underlying OpenGL query object has been created. If this     returns \c true and the associated OpenGL context is current, then you are able to issue     queries with this object. */
 end_comment
 begin_function
 DECL|function|isCreated
@@ -1138,7 +1138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the OpenGL timer query result is available.      This function is non-blocking and ideally should be used to check for the     availability of the query result before calling waitForResult().      \sa waitForResult() */
+comment|/*!     Returns \c true if the OpenGL timer query result is available.      This function is non-blocking and ideally should be used to check for the     availability of the query result before calling waitForResult().      \sa waitForResult() */
 end_comment
 begin_function
 DECL|function|isResultAvailable
@@ -2248,7 +2248,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Instantiate sampleCount() OpenGL timer query objects that will be used     to track the amount of time taken to execute OpenGL commands between     successive calls to recordSample().      Returns true if the OpenGL timer query objects could be created.      \sa destroy(), setSampleCount(), recordSample() */
+comment|/*!     Instantiate sampleCount() OpenGL timer query objects that will be used     to track the amount of time taken to execute OpenGL commands between     successive calls to recordSample().      Returns \c true if the OpenGL timer query objects could be created.      \sa destroy(), setSampleCount(), recordSample() */
 end_comment
 begin_function
 DECL|function|create
@@ -2295,7 +2295,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the underlying OpenGL query objects have been created. If this     returns true and the associated OpenGL context is current, then you are able to record     time samples with this object. */
+comment|/*!     Returns \c true if the underlying OpenGL query objects have been created. If this     returns \c true and the associated OpenGL context is current, then you are able to record     time samples with this object. */
 end_comment
 begin_function
 DECL|function|isCreated
@@ -2393,7 +2393,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the OpenGL timer query results are available.      \sa waitForSamples(), waitForIntervals() */
+comment|/*!     Returns \c true if the OpenGL timer query results are available.      \sa waitForSamples(), waitForIntervals() */
 end_comment
 begin_function
 DECL|function|isResultAvailable

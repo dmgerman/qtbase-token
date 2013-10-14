@@ -706,16 +706,6 @@ name|QGenericUnixFontDatabase
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|m_inputContext
-operator|.
-name|reset
-argument_list|(
-name|QPlatformInputContextFactory
-operator|::
-name|create
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -1318,6 +1308,28 @@ return|return
 name|createUnixEventDispatcher
 argument_list|()
 return|;
+block|}
+end_function
+begin_function
+DECL|function|initialize
+name|void
+name|QXcbIntegration
+operator|::
+name|initialize
+parameter_list|()
+block|{
+comment|// Perform everything that may potentially need the event dispatcher (timers, socket
+comment|// notifiers) here instead of the constructor.
+name|m_inputContext
+operator|.
+name|reset
+argument_list|(
+name|QPlatformInputContextFactory
+operator|::
+name|create
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

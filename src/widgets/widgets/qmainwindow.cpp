@@ -2544,7 +2544,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \property QMainWindow::dockNestingEnabled     \brief whether docks can be nested     \since 4.2      If this property is false, dock areas can only contain a single row     (horizontal or vertical) of dock widgets. If this property is true,     the area occupied by a dock widget can be split in either direction to contain     more dock widgets.      Dock nesting is only necessary in applications that contain a lot of     dock widgets. It gives the user greater freedom in organizing their     main window. However, dock nesting leads to more complex     (and less intuitive) behavior when a dock widget is dragged over the     main window, since there are more ways in which a dropped dock widget     may be placed in the dock area.      Setting this property is identical to setting the AllowNestedDocks option     using setDockOptions(). */
+comment|/*! \property QMainWindow::dockNestingEnabled     \brief whether docks can be nested     \since 4.2      If this property is \c false, dock areas can only contain a single row     (horizontal or vertical) of dock widgets. If this property is \c true,     the area occupied by a dock widget can be split in either direction to contain     more dock widgets.      Dock nesting is only necessary in applications that contain a lot of     dock widgets. It gives the user greater freedom in organizing their     main window. However, dock nesting leads to more complex     (and less intuitive) behavior when a dock widget is dragged over the     main window, since there are more ways in which a dropped dock widget     may be placed in the dock area.      Setting this property is identical to setting the AllowNestedDocks option     using setDockOptions(). */
 end_comment
 begin_function
 DECL|function|isDockNestingEnabled
@@ -3066,7 +3066,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Restores the state of \a dockwidget if it is created after the call     to restoreState(). Returns true if the state was restored; otherwise     returns false.      \sa restoreState(), saveState() */
+comment|/*!     Restores the state of \a dockwidget if it is created after the call     to restoreState(). Returns \c true if the state was restored; otherwise     returns \c false.      \sa restoreState(), saveState() */
 end_comment
 begin_function
 DECL|function|restoreDockWidget

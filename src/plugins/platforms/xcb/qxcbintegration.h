@@ -129,6 +129,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|initialize
+argument_list|()
+block|;
+name|void
 name|moveToScreen
 argument_list|(
 argument|QWindow *window

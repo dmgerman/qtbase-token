@@ -546,7 +546,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if automatic signal relaying from the real object (see object()) is enabled,     otherwiser returns false.      \sa setAutoRelaySignals() */
+comment|/*!     Returns \c true if automatic signal relaying from the real object (see object()) is enabled,     otherwiser returns \c false.      \sa setAutoRelaySignals() */
 end_comment
 begin_function
 DECL|function|autoRelaySignals

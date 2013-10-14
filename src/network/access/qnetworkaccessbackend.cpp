@@ -1483,7 +1483,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Starts the backend.  Returns true if the backend is started.  Returns false if the backend     could not be started due to an unopened or roaming session.  The caller should recall this     function once the session has been opened or the roaming process has finished. */
+comment|/*!     Starts the backend.  Returns \c true if the backend is started.  Returns \c false if the backend     could not be started due to an unopened or roaming session.  The caller should recall this     function once the session has been opened or the roaming process has finished. */
 end_comment
 begin_function
 DECL|function|start

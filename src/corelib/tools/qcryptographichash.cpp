@@ -1147,7 +1147,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reads the data from the open QIODevice \a device until it ends   and hashes it. Returns true if reading was successful.   \since 5.0  */
+comment|/*!   Reads the data from the open QIODevice \a device until it ends   and hashes it. Returns \c true if reading was successful.   \since 5.0  */
 end_comment
 begin_function
 DECL|function|addData

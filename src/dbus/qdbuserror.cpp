@@ -739,7 +739,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this is a valid error condition (i.e., if there was an error),     otherwise false. */
+comment|/*!     Returns \c true if this is a valid error condition (i.e., if there was an error),     otherwise false. */
 end_comment
 begin_function
 DECL|function|isValid

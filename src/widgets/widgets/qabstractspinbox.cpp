@@ -5085,7 +5085,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Returns true if a specialValueText has been set and the current value is minimum. */
+comment|/*!     \internal     Returns \c true if a specialValueText has been set and the current value is minimum. */
 end_comment
 begin_function
 DECL|function|specialValue

@@ -2336,7 +2336,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QObject     \inmodule QtCore     \brief The QObject class is the base class of all Qt objects.      \ingroup objectmodel      \reentrant      QObject is the heart of the Qt \l{Object Model}. The central     feature in this model is a very powerful mechanism for seamless     object communication called \l{signals and slots}. You can     connect a signal to a slot with connect() and destroy the     connection with disconnect(). To avoid never ending notification     loops you can temporarily block signals with blockSignals(). The     protected functions connectNotify() and disconnectNotify() make     it possible to track connections.      QObjects organize themselves in \l {Object Trees& Ownership}     {object trees}. When you create a QObject with another object as     parent, the object will automatically add itself to the parent's     children() list. The parent takes ownership of the object; i.e.,     it will automatically delete its children in its destructor. You     can look for an object by name and optionally type using     findChild() or findChildren().      Every object has an objectName() and its class name can be found     via the corresponding metaObject() (see QMetaObject::className()).     You can determine whether the object's class inherits another     class in the QObject inheritance hierarchy by using the     inherits() function.      When an object is deleted, it emits a destroyed() signal. You can     catch this signal to avoid dangling references to QObjects.      QObjects can receive events through event() and filter the events     of other objects. See installEventFilter() and eventFilter() for     details. A convenience handler, childEvent(), can be reimplemented     to catch child events.      Events are delivered in the thread in which the object was     created; see \l{Thread Support in Qt} and thread() for details.     Note that event processing is not done at all for QObjects with no     thread affinity (thread() returns zero). Use the moveToThread()     function to change the thread affinity for an object and its     children (the object cannot be moved if it has a parent).      Last but not least, QObject provides the basic timer support in     Qt; see QTimer for high-level support for timers.      Notice that the Q_OBJECT macro is mandatory for any object that     implements signals, slots or properties. You also need to run the     \l{moc}{Meta Object Compiler} on the source file. We strongly     recommend the use of this macro in all subclasses of QObject     regardless of whether or not they actually use signals, slots and     properties, since failure to do so may lead certain functions to     exhibit strange behavior.      All Qt widgets inherit QObject. The convenience function     isWidgetType() returns whether an object is actually a widget. It     is much faster than     \l{qobject_cast()}{qobject_cast}<QWidget *>(\e{obj}) or     \e{obj}->\l{inherits()}{inherits}("QWidget").      Some QObject functions, e.g. children(), return a QObjectList.     QObjectList is a typedef for QList<QObject *>.      \target No copy constructor     \section1 No copy constructor or assignment operator      QObject has neither a copy constructor nor an assignment operator.     This is by design. Actually, they are declared, but in a     \c{private} section with the macro Q_DISABLE_COPY(). In fact, all     Qt classes derived from QObject (direct or indirect) use this     macro to declare their copy constructor and assignment operator to     be private. The reasoning is found in the discussion on     \l{Identity vs Value} {Identity vs Value} on the Qt \l{Object     Model} page.      The main consequence is that you should use pointers to QObject     (or to your QObject subclass) where you might otherwise be tempted     to use your QObject subclass as a value. For example, without a     copy constructor, you can't use a subclass of QObject as the value     to be stored in one of the container classes. You must store     pointers.      \section1 Auto-Connection      Qt's meta-object system provides a mechanism to automatically connect     signals and slots between QObject subclasses and their children. As long     as objects are defined with suitable object names, and slots follow a     simple naming convention, this connection can be performed at run-time     by the QMetaObject::connectSlotsByName() function.      \l uic generates code that invokes this function to enable     auto-connection to be performed between widgets on forms created     with \e{Qt Designer}. More information about using auto-connection with \e{Qt Designer} is     given in the \l{Using a Designer UI File in Your Application} section of     the \e{Qt Designer} manual.      \section1 Dynamic Properties      From Qt 4.2, dynamic properties can be added to and removed from QObject     instances at run-time. Dynamic properties do not need to be declared at     compile-time, yet they provide the same advantages as static properties     and are manipulated using the same API - using property() to read them     and setProperty() to write them.      From Qt 4.3, dynamic properties are supported by     \l{Qt Designer's Widget Editing Mode#The Property Editor}{Qt Designer},     and both standard Qt widgets and user-created forms can be given dynamic     properties.      \section1 Internationalization (i18n)      All QObject subclasses support Qt's translation features, making it possible     to translate an application's user interface into different languages.      To make user-visible text translatable, it must be wrapped in calls to     the tr() function. This is explained in detail in the     \l{Writing Source Code for Translation} document.      \sa QMetaObject, QPointer, QObjectCleanupHandler, Q_DISABLE_COPY()     \sa {Object Trees& Ownership} */
+comment|/*!     \class QObject     \inmodule QtCore     \brief The QObject class is the base class of all Qt objects.      \ingroup objectmodel      \reentrant      QObject is the heart of the Qt \l{Object Model}. The central     feature in this model is a very powerful mechanism for seamless     object communication called \l{signals and slots}. You can     connect a signal to a slot with connect() and destroy the     connection with disconnect(). To avoid never ending notification     loops you can temporarily block signals with blockSignals(). The     protected functions connectNotify() and disconnectNotify() make     it possible to track connections.      QObjects organize themselves in \l {Object Trees& Ownership}     {object trees}. When you create a QObject with another object as     parent, the object will automatically add itself to the parent's     children() list. The parent takes ownership of the object; i.e.,     it will automatically delete its children in its destructor. You     can look for an object by name and optionally type using     findChild() or findChildren().      Every object has an objectName() and its class name can be found     via the corresponding metaObject() (see QMetaObject::className()).     You can determine whether the object's class inherits another     class in the QObject inheritance hierarchy by using the     inherits() function.      When an object is deleted, it emits a destroyed() signal. You can     catch this signal to avoid dangling references to QObjects.      QObjects can receive events through event() and filter the events     of other objects. See installEventFilter() and eventFilter() for     details. A convenience handler, childEvent(), can be reimplemented     to catch child events.      Last but not least, QObject provides the basic timer support in     Qt; see QTimer for high-level support for timers.      Notice that the Q_OBJECT macro is mandatory for any object that     implements signals, slots or properties. You also need to run the     \l{moc}{Meta Object Compiler} on the source file. We strongly     recommend the use of this macro in all subclasses of QObject     regardless of whether or not they actually use signals, slots and     properties, since failure to do so may lead certain functions to     exhibit strange behavior.      All Qt widgets inherit QObject. The convenience function     isWidgetType() returns whether an object is actually a widget. It     is much faster than     \l{qobject_cast()}{qobject_cast}<QWidget *>(\e{obj}) or     \e{obj}->\l{inherits()}{inherits}("QWidget").      Some QObject functions, e.g. children(), return a QObjectList.     QObjectList is a typedef for QList<QObject *>.      \section1 Thread Affinity      A QObject instance is said to have a \e{thread affinity}, or that     it \e{lives} in a certain thread. When a QObject receives a     \l{Qt::QueuedConnection}{queued signal} or a \l{The Event     System#Sending Events}{posted event}, the slot or event handler     will run in the thread that the object lives in.      \note If a QObject has no thread affinity (that is, if thread()     returns zero), or if it lives in a thread that has no running event     loop, then it cannot receive queued signals or posted events.      By default, a QObject lives in the thread in which it is created.     An object's thread affinity can be queried using thread() and     changed using moveToThread().      All QObjects must live in the same thread as their parent. Consequently:      \list     \li setParent() will fail if the two QObjects involved live in         different threads.     \li When a QObject is moved to another thread, all its children         will be automatically moved too.     \li moveToThread() will fail if the QObject has a parent.     \li If \l{QObject}s are created within QThread::run(), they cannot         become children of the QThread object because the QThread does         not live in the thread that calls QThread::run().     \endlist      \note A QObject's member variables \e{do not} automatically become     its children. The parent-child relationship must be set by either     passing a pointer to the child's \l{QObject()}{constructor}, or by     calling setParent(). Without this step, the object's member variables     will remain in the old thread when moveToThread() is called.      \target No copy constructor     \section1 No copy constructor or assignment operator      QObject has neither a copy constructor nor an assignment operator.     This is by design. Actually, they are declared, but in a     \c{private} section with the macro Q_DISABLE_COPY(). In fact, all     Qt classes derived from QObject (direct or indirect) use this     macro to declare their copy constructor and assignment operator to     be private. The reasoning is found in the discussion on     \l{Identity vs Value} {Identity vs Value} on the Qt \l{Object     Model} page.      The main consequence is that you should use pointers to QObject     (or to your QObject subclass) where you might otherwise be tempted     to use your QObject subclass as a value. For example, without a     copy constructor, you can't use a subclass of QObject as the value     to be stored in one of the container classes. You must store     pointers.      \section1 Auto-Connection      Qt's meta-object system provides a mechanism to automatically connect     signals and slots between QObject subclasses and their children. As long     as objects are defined with suitable object names, and slots follow a     simple naming convention, this connection can be performed at run-time     by the QMetaObject::connectSlotsByName() function.      \l uic generates code that invokes this function to enable     auto-connection to be performed between widgets on forms created     with \e{Qt Designer}. More information about using auto-connection with \e{Qt Designer} is     given in the \l{Using a Designer UI File in Your Application} section of     the \e{Qt Designer} manual.      \section1 Dynamic Properties      From Qt 4.2, dynamic properties can be added to and removed from QObject     instances at run-time. Dynamic properties do not need to be declared at     compile-time, yet they provide the same advantages as static properties     and are manipulated using the same API - using property() to read them     and setProperty() to write them.      From Qt 4.3, dynamic properties are supported by     \l{Qt Designer's Widget Editing Mode#The Property Editor}{Qt Designer},     and both standard Qt widgets and user-created forms can be given dynamic     properties.      \section1 Internationalization (i18n)      All QObject subclasses support Qt's translation features, making it possible     to translate an application's user interface into different languages.      To make user-visible text translatable, it must be wrapped in calls to     the tr() function. This is explained in detail in the     \l{Writing Source Code for Translation} document.      \sa QMetaObject, QPointer, QObjectCleanupHandler, Q_DISABLE_COPY()     \sa {Object Trees& Ownership} */
 end_comment
 begin_comment
 comment|/*!     \relates QObject      Returns a pointer to the object named \a name that inherits \a     type and with a given \a parent.      Returns 0 if there is no such child.      \snippet code/src_corelib_kernel_qobject.cpp 0 */
@@ -3560,7 +3560,7 @@ begin_comment
 comment|/*! \fn T *qobject_cast<T *>(QObject *object)     \relates QObject      Returns the given \a object cast to type T if the object is of type     T (or of a subclass); otherwise returns 0.  If \a object is 0 then     it will also return 0.      The class T must inherit (directly or indirectly) QObject and be     declared with the \l Q_OBJECT macro.      A class is considered to inherit itself.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 3      The qobject_cast() function behaves similarly to the standard C++     \c dynamic_cast(), with the advantages that it doesn't require     RTTI support and it works across dynamic library boundaries.      qobject_cast() can also be used in conjunction with interfaces;     see the \l{tools/plugandpaint}{Plug& Paint} example for details.      \warning If T isn't declared with the Q_OBJECT macro, this     function's return value is undefined.      \sa QObject::inherits() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QObject::inherits(const char *className) const      Returns true if this object is an instance of a class that     inherits \a className or a QObject subclass that inherits \a     className; otherwise returns false.      A class is considered to inherit itself.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 4      If you need to determine whether an object is an instance of a particular     class for the purpose of casting it, consider using qobject_cast<Type *>(object)     instead.      \sa metaObject(), qobject_cast() */
+comment|/*!     \fn bool QObject::inherits(const char *className) const      Returns \c true if this object is an instance of a class that     inherits \a className or a QObject subclass that inherits \a     className; otherwise returns \c false.      A class is considered to inherit itself.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 4      If you need to determine whether an object is an instance of a particular     class for the purpose of casting it, consider using qobject_cast<Type *>(object)     instead.      \sa metaObject(), qobject_cast() */
 end_comment
 begin_comment
 comment|/*!     \property QObject::objectName      \brief the name of this object      You can find an object by name (and type) using findChild().     You can find a set of objects with findChildren().      \snippet code/src_corelib_kernel_qobject.cpp 5      By default, this property contains an empty string.      \sa metaObject(), QMetaObject::className() */
@@ -3672,10 +3672,10 @@ begin_comment
 comment|/*! \fn void QObject::objectNameChanged(const QString&objectName)      This signal is emitted after the object's name has been changed. The new object name is passed as \a objectName.      \sa QObject::objectName */
 end_comment
 begin_comment
-comment|/*!     \fn bool QObject::isWidgetType() const      Returns true if the object is a widget; otherwise returns false.      Calling this function is equivalent to calling     \c{inherits("QWidget")}, except that it is much faster. */
+comment|/*!     \fn bool QObject::isWidgetType() const      Returns \c true if the object is a widget; otherwise returns \c false.      Calling this function is equivalent to calling     \c{inherits("QWidget")}, except that it is much faster. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QObject::isWindowType() const      Returns true if the object is a window; otherwise returns false.      Calling this function is equivalent to calling     \c{inherits("QWindow")}, except that it is much faster. */
+comment|/*!     \fn bool QObject::isWindowType() const      Returns \c true if the object is a window; otherwise returns \c false.      Calling this function is equivalent to calling     \c{inherits("QWindow")}, except that it is much faster. */
 end_comment
 begin_comment
 comment|/*!     This virtual function receives events to an object and should     return true if the event \a e was recognized and processed.      The event() function can be reimplemented to customize the     behavior of an object.      \sa installEventFilter(), timerEvent(), QCoreApplication::sendEvent(),     QCoreApplication::postEvent() */
@@ -3950,7 +3950,7 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|/*!     This event handler can be reimplemented in a subclass to receive     child events. The event is passed in the \a event parameter.      QEvent::ChildAdded and QEvent::ChildRemoved events are sent to     objects when children are added or removed. In both cases you can     only rely on the child being a QObject, or if isWidgetType()     returns true, a QWidget. (This is because, in the     \l{QEvent::ChildAdded}{ChildAdded} case, the child is not yet     fully constructed, and in the \l{QEvent::ChildRemoved}{ChildRemoved}     case it might have been destructed already).      QEvent::ChildPolished events are sent to widgets when children     are polished, or when polished children are added. If you receive     a child polished event, the child's construction is usually     completed. However, this is not guaranteed, and multiple polish     events may be delivered during the execution of a widget's     constructor.      For every child widget, you receive one     \l{QEvent::ChildAdded}{ChildAdded} event, zero or more     \l{QEvent::ChildPolished}{ChildPolished} events, and one     \l{QEvent::ChildRemoved}{ChildRemoved} event.      The \l{QEvent::ChildPolished}{ChildPolished} event is omitted if     a child is removed immediately after it is added. If a child is     polished several times during construction and destruction, you     may receive several child polished events for the same child,     each time with a different virtual table.      \sa event() */
+comment|/*!     This event handler can be reimplemented in a subclass to receive     child events. The event is passed in the \a event parameter.      QEvent::ChildAdded and QEvent::ChildRemoved events are sent to     objects when children are added or removed. In both cases you can     only rely on the child being a QObject, or if isWidgetType()     returns \c true, a QWidget. (This is because, in the     \l{QEvent::ChildAdded}{ChildAdded} case, the child is not yet     fully constructed, and in the \l{QEvent::ChildRemoved}{ChildRemoved}     case it might have been destructed already).      QEvent::ChildPolished events are sent to widgets when children     are polished, or when polished children are added. If you receive     a child polished event, the child's construction is usually     completed. However, this is not guaranteed, and multiple polish     events may be delivered during the execution of a widget's     constructor.      For every child widget, you receive one     \l{QEvent::ChildAdded}{ChildAdded} event, zero or more     \l{QEvent::ChildPolished}{ChildPolished} events, and one     \l{QEvent::ChildRemoved}{ChildRemoved} event.      The \l{QEvent::ChildPolished}{ChildPolished} event is omitted if     a child is removed immediately after it is added. If a child is     polished several times during construction and destruction, you     may receive several child polished events for the same child,     each time with a different virtual table.      \sa event() */
 end_comment
 begin_function
 DECL|function|childEvent
@@ -4006,7 +4006,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QObject::signalsBlocked() const      Returns true if signals are blocked; otherwise returns false.      Signals are not blocked by default.      \sa blockSignals() */
+comment|/*!     \fn bool QObject::signalsBlocked() const      Returns \c true if signals are blocked; otherwise returns \c false.      Signals are not blocked by default.      \sa blockSignals() */
 end_comment
 begin_comment
 comment|/*!     If \a block is true, signals emitted by this object are blocked     (i.e., emitting a signal will not invoke anything connected to it).     If \a block is false, no such blocking will occur.      The return value is the previous value of signalsBlocked().      Note that the destroyed() signal will be emitted even if the signals     for this object have been blocked.      \sa signalsBlocked() */
@@ -6143,31 +6143,6 @@ end_comment
 begin_comment
 comment|/*****************************************************************************   Signals and slots  *****************************************************************************/
 end_comment
-begin_decl_stmt
-DECL|variable|flagged_locations_count
-specifier|const
-name|int
-name|flagged_locations_count
-init|=
-literal|2
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|flagged_locations
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|flagged_locations
-index|[
-name|flagged_locations_count
-index|]
-init|=
-block|{
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|qFlagLocation
 specifier|const
@@ -6181,28 +6156,17 @@ modifier|*
 name|method
 parameter_list|)
 block|{
-specifier|static
-name|int
-name|idx
-init|=
-literal|0
-decl_stmt|;
-name|flagged_locations
-index|[
-name|idx
-index|]
-operator|=
+name|QThreadData
+operator|::
+name|current
+argument_list|()
+operator|->
+name|flaggedSignatures
+operator|.
+name|store
+argument_list|(
 name|method
-expr_stmt|;
-name|idx
-operator|=
-operator|(
-name|idx
-operator|+
-literal|1
-operator|)
-operator|%
-name|flagged_locations_count
+argument_list|)
 expr_stmt|;
 return|return
 name|method
@@ -6255,29 +6219,19 @@ modifier|*
 name|member
 parameter_list|)
 block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|flagged_locations_count
-condition|;
-operator|++
-name|i
-control|)
-block|{
 if|if
 condition|(
+name|QThreadData
+operator|::
+name|current
+argument_list|()
+operator|->
+name|flaggedSignatures
+operator|.
+name|contains
+argument_list|(
 name|member
-operator|==
-name|flagged_locations
-index|[
-name|i
-index|]
+argument_list|)
 condition|)
 block|{
 comment|// signature includes location information after the first null-terminator
@@ -6305,10 +6259,6 @@ condition|)
 return|return
 name|location
 return|;
-return|return
-literal|0
-return|;
-block|}
 block|}
 return|return
 literal|0
@@ -7085,7 +7035,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the \a signal is connected to at least one receiver,     otherwise returns false.      \a signal must be a signal member of this object, otherwise the behaviour     is undefined.      \snippet code/src_corelib_kernel_qobject.cpp 49      As the code snippet above illustrates, you can use this function     to avoid emitting a signal that nobody listens to.      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal. */
+comment|/*!     \since 5.0     Returns \c true if the \a signal is connected to at least one receiver,     otherwise returns \c false.      \a signal must be a signal member of this object, otherwise the behaviour     is undefined.      \snippet code/src_corelib_kernel_qobject.cpp 49      As the code snippet above illustrates, you can use this function     to avoid emitting a signal that nobody listens to.      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal. */
 end_comment
 begin_function
 DECL|function|isSignalConnected
@@ -8846,7 +8796,7 @@ begin_comment
 comment|/*!     \fn bool QObject::connect(const QObject *sender, const char *signal, const char *method, Qt::ConnectionType type) const     \overload connect()     \threadsafe      Connects \a signal from the \a sender object to this object's \a     method.      Equivalent to connect(\a sender, \a signal, \c this, \a method, \a type).      Every connection you make emits a signal, so duplicate connections emit     two signals. You can break a connection using disconnect().      \sa disconnect() */
 end_comment
 begin_comment
-comment|/*!     \threadsafe      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \li Disconnect everything connected to an object's signals:         \snippet code/src_corelib_kernel_qobject.cpp 26         equivalent to the non-static overloaded function         \snippet code/src_corelib_kernel_qobject.cpp 27      \li Disconnect everything connected to a specific signal:         \snippet code/src_corelib_kernel_qobject.cpp 28         equivalent to the non-static overloaded function         \snippet code/src_corelib_kernel_qobject.cpp 29      \li Disconnect a specific receiver:         \snippet code/src_corelib_kernel_qobject.cpp 30         equivalent to the non-static overloaded function         \snippet code/src_corelib_kernel_qobject.cpp 31      \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \sa connect() */
+comment|/*!     \threadsafe      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns \c true if the connection is successfully broken;     otherwise returns \c false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \li Disconnect everything connected to an object's signals:         \snippet code/src_corelib_kernel_qobject.cpp 26         equivalent to the non-static overloaded function         \snippet code/src_corelib_kernel_qobject.cpp 27      \li Disconnect everything connected to a specific signal:         \snippet code/src_corelib_kernel_qobject.cpp 28         equivalent to the non-static overloaded function         \snippet code/src_corelib_kernel_qobject.cpp 29      \li Disconnect a specific receiver:         \snippet code/src_corelib_kernel_qobject.cpp 30         equivalent to the non-static overloaded function         \snippet code/src_corelib_kernel_qobject.cpp 31      \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \sa connect() */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -9479,7 +9429,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      This function provides the same possibilities like     disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)     but uses QMetaMethod to represent the signal and the method to be disconnected.      Additionally this function returnsfalse and no signals and slots disconnected     if:     \list 1          \li \a signal is not a member of sender class or one of its parent classes.          \li \a method is not a member of receiver class or one of its parent classes.          \li \a signal instance represents not a signal.      \endlist      QMetaMethod() may be used as wildcard in the meaning "any signal" or "any slot in receiving object".     In the same way 0 can be used for \a receiver in the meaning "any receiving object". In this case     method should also be QMetaMethod(). \a sender parameter should be never 0.      \sa disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)  */
+comment|/*!     \since 4.8      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns \c true if the connection is successfully broken;     otherwise returns \c false.      This function provides the same possibilities like     disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)     but uses QMetaMethod to represent the signal and the method to be disconnected.      Additionally this function returnsfalse and no signals and slots disconnected     if:     \list 1          \li \a signal is not a member of sender class or one of its parent classes.          \li \a method is not a member of receiver class or one of its parent classes.          \li \a signal instance represents not a signal.      \endlist      QMetaMethod() may be used as wildcard in the meaning "any signal" or "any slot in receiving object".     In the same way 0 can be used for \a receiver in the meaning "any receiving object". In this case     method should also be QMetaMethod(). \a sender parameter should be never 0.      \sa disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)  */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -9890,7 +9840,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      This virtual function is called when something has been     disconnected from \a signal in this object.      See connectNotify() for an example of how to compare     \a signal with a specific signal.      If all signals were disconnected from this object (e.g., the     signal argument to disconnect() was 0), disconnectNotify()     is only called once, and the \a signal will be an invalid     QMetaMethod (QMetaMethod::isValid() returns false).      \warning This function violates the object-oriented principle of     modularity. However, it might be useful for optimizing access to     expensive resources.      \sa disconnect(), connectNotify() */
+comment|/*!     \since 5.0      This virtual function is called when something has been     disconnected from \a signal in this object.      See connectNotify() for an example of how to compare     \a signal with a specific signal.      If all signals were disconnected from this object (e.g., the     signal argument to disconnect() was 0), disconnectNotify()     is only called once, and the \a signal will be an invalid     QMetaMethod (QMetaMethod::isValid() returns \c false).      \warning This function violates the object-oriented principle of     modularity. However, it might be useful for optimizing access to     expensive resources.      \sa disconnect(), connectNotify() */
 end_comment
 begin_function
 DECL|function|disconnectNotify
@@ -15389,7 +15339,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QObject::disconnect(const QObject *sender, PointerToMemberFunction signal, const QObject *receiver, PointerToMemberFunction method)     \overload diconnect()     \threadsafe      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \li Disconnect everything connected to an object's signals:         \snippet code/src_corelib_kernel_qobject.cpp 26      \li Disconnect everything connected to a specific signal:         \snippet code/src_corelib_kernel_qobject.cpp 47      \li Disconnect a specific receiver:         \snippet code/src_corelib_kernel_qobject.cpp 30      \li Disconnect a connection from one specific signal to a specific slot:         \snippet code/src_corelib_kernel_qobject.cpp 48       \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \note It is not possible to use this overload to diconnect signals     connected to functors or lambda expressions. That is because it is not     possible to compare them. Instead, use the olverload that take a     QMetaObject::Connection      \sa connect() */
+comment|/*! \fn bool QObject::disconnect(const QObject *sender, PointerToMemberFunction signal, const QObject *receiver, PointerToMemberFunction method)     \overload diconnect()     \threadsafe      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns \c true if the connection is successfully broken;     otherwise returns \c false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \li Disconnect everything connected to an object's signals:         \snippet code/src_corelib_kernel_qobject.cpp 26      \li Disconnect everything connected to a specific signal:         \snippet code/src_corelib_kernel_qobject.cpp 47      \li Disconnect a specific receiver:         \snippet code/src_corelib_kernel_qobject.cpp 30      \li Disconnect a connection from one specific signal to a specific slot:         \snippet code/src_corelib_kernel_qobject.cpp 48       \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \note It is not possible to use this overload to diconnect signals     connected to functors or lambda expressions. That is because it is not     possible to compare them. Instead, use the olverload that take a     QMetaObject::Connection      \sa connect() */
 end_comment
 begin_function
 DECL|function|disconnectImpl
@@ -15897,7 +15847,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn QMetaObject::Connection::operator bool() const      Returns true if the connection is valid.      The connection is valid if the call to QObject::connect succeeded.     The connection is invalid if QObject::connect was not able to find     the signal or the slot, or if the arguments do not match.  */
+comment|/*!     \fn QMetaObject::Connection::operator bool() const      Returns \c true if the connection is valid.      The connection is valid if the call to QObject::connect succeeded.     The connection is invalid if QObject::connect was not able to find     the signal or the slot, or if the arguments do not match.  */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

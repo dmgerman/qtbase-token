@@ -4620,7 +4620,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     Migrates the backend of the QNetworkReply to a new network connection if required.  Returns     true if the reply is migrated or it is not required; otherwise returns false. */
+comment|/*     Migrates the backend of the QNetworkReply to a new network connection if required.  Returns     true if the reply is migrated or it is not required; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|migrateBackend

@@ -3177,7 +3177,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QAbstractButton::down   \brief whether the button is pressed down    If this property is true, the button is pressed down. The signals   pressed() and clicked() are not emitted if you set this property   to true. The default is false. */
+comment|/*!   \property QAbstractButton::down   \brief whether the button is pressed down    If this property is \c true, the button is pressed down. The signals   pressed() and clicked() are not emitted if you set this property   to true. The default is false. */
 end_comment
 begin_function
 DECL|function|setDown
@@ -3770,7 +3770,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! Returns true if \a pos is inside the clickable button rectangle; otherwise returns false.  By default, the clickable area is the entire widget. Subclasses may reimplement this function to provide support for clickable areas of different shapes and sizes. */
+comment|/*! Returns \c true if \a pos is inside the clickable button rectangle; otherwise returns \c false.  By default, the clickable area is the entire widget. Subclasses may reimplement this function to provide support for clickable areas of different shapes and sizes. */
 end_comment
 begin_function
 DECL|function|hitButton

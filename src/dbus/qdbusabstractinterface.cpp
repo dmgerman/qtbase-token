@@ -1607,7 +1607,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns true if this is a valid reference to a remote object. It returns false if     there was an error during the creation of this interface (for instance, if the remote     application does not exist).      Note: when dealing with remote objects, it is not always possible to determine if it     exists when creating a QDBusInterface. */
+comment|/*!     Returns \c true if this is a valid reference to a remote object. It returns \c false if     there was an error during the creation of this interface (for instance, if the remote     application does not exist).      Note: when dealing with remote objects, it is not always possible to determine if it     exists when creating a QDBusInterface. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -2210,7 +2210,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Places a call to the remote method specified by \a method     on this interface, using \a args as arguments. This function     returns immediately after queueing the call. The reply from     the remote function is delivered to the \a returnMethod on     object \a receiver. If an error occurs, the \a errorMethod     on object \a receiver is called instead.      This function returns true if the queueing succeeds. It does     not indicate that the executed call succeeded. If it fails,     the \a errorMethod is called. If the queueing failed, this     function returns false and no slot will be called.      The \a returnMethod must have as its parameters the types returned     by the function call. Optionally, it may have a QDBusMessage     parameter as its last or only parameter.  The \a errorMethod must     have a QDBusError as its only parameter.      \since 4.3     \sa QDBusError, QDBusMessage  */
+comment|/*!     Places a call to the remote method specified by \a method     on this interface, using \a args as arguments. This function     returns immediately after queueing the call. The reply from     the remote function is delivered to the \a returnMethod on     object \a receiver. If an error occurs, the \a errorMethod     on object \a receiver is called instead.      This function returns \c true if the queueing succeeds. It does     not indicate that the executed call succeeded. If it fails,     the \a errorMethod is called. If the queueing failed, this     function returns \c false and no slot will be called.      The \a returnMethod must have as its parameters the types returned     by the function call. Optionally, it may have a QDBusMessage     parameter as its last or only parameter.  The \a errorMethod must     have a QDBusError as its only parameter.      \since 4.3     \sa QDBusError, QDBusMessage  */
 end_comment
 begin_function
 DECL|function|callWithCallback
@@ -2333,7 +2333,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This function is deprecated. Please use the overloaded version.      Places a call to the remote method specified by \a method     on this interface, using \a args as arguments. This function     returns immediately after queueing the call. The reply from     the remote function or any errors emitted by it are delivered     to the \a slot slot on object \a receiver.      This function returns true if the queueing succeeded: it does     not indicate that the call succeeded. If it failed, the slot     will be called with an error message. lastError() will not be     set under those circumstances.      \sa QDBusError, QDBusMessage */
+comment|/*!     \overload      This function is deprecated. Please use the overloaded version.      Places a call to the remote method specified by \a method     on this interface, using \a args as arguments. This function     returns immediately after queueing the call. The reply from     the remote function or any errors emitted by it are delivered     to the \a slot slot on object \a receiver.      This function returns \c true if the queueing succeeded: it does     not indicate that the call succeeded. If it failed, the slot     will be called with an error message. lastError() will not be     set under those circumstances.      \sa QDBusError, QDBusMessage */
 end_comment
 begin_function
 DECL|function|callWithCallback

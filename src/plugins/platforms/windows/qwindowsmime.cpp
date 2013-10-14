@@ -2168,10 +2168,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QWindowsMime::canConvertFromMime(const FORMATETC&formatetc, const QMimeData *mimeData) const    Returns true if the converter can convert from the \a mimeData to   the format specified in \a formatetc.    All subclasses must reimplement this pure virtual function. */
+comment|/*! \fn bool QWindowsMime::canConvertFromMime(const FORMATETC&formatetc, const QMimeData *mimeData) const    Returns \c true if the converter can convert from the \a mimeData to   the format specified in \a formatetc.    All subclasses must reimplement this pure virtual function. */
 end_comment
 begin_comment
-comment|/*!   \fn bool QWindowsMime::canConvertToMime(const QString&mimeType, IDataObject *pDataObj) const    Returns true if the converter can convert to the \a mimeType from   the available formats in \a pDataObj.    All subclasses must reimplement this pure virtual function. */
+comment|/*!   \fn bool QWindowsMime::canConvertToMime(const QString&mimeType, IDataObject *pDataObj) const    Returns \c true if the converter can convert to the \a mimeType from   the available formats in \a pDataObj.    All subclasses must reimplement this pure virtual function. */
 end_comment
 begin_comment
 comment|/*! \fn QString QWindowsMime::mimeForFormat(const FORMATETC&formatetc) const    Returns the mime type that will be created form the format specified   in \a formatetc, or an empty string if this converter does not support   \a formatetc.    All subclasses must reimplement this pure virtual function. */

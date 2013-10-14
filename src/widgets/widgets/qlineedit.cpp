@@ -2141,7 +2141,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::modified     \brief whether the line edit's contents has been modified by the user      The modified flag is never read by QLineEdit; it has a default value     of false and is changed to true whenever the user changes the line     edit's contents.      This is useful for things that need to provide a default value but     do not start out knowing what the default should be (perhaps it     depends on other fields on the form). Start the line edit without     the best default, and when the default is known, if modified()     returns false (the user hasn't entered any text), insert the     default value.      Calling setText() resets the modified flag to false. */
+comment|/*!     \property QLineEdit::modified     \brief whether the line edit's contents has been modified by the user      The modified flag is never read by QLineEdit; it has a default value     of false and is changed to true whenever the user changes the line     edit's contents.      This is useful for things that need to provide a default value but     do not start out knowing what the default should be (perhaps it     depends on other fields on the form). Start the line edit without     the best default, and when the default is known, if modified()     returns \c false (the user hasn't entered any text), insert the     default value.      Calling setText() resets the modified flag to false. */
 end_comment
 begin_function
 DECL|function|isModified
@@ -2196,7 +2196,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::hasSelectedText     \brief whether there is any text selected      hasSelectedText() returns true if some or all of the text has been     selected by the user; otherwise returns false.      By default, this property is false.      \sa selectedText() */
+comment|/*!     \property QLineEdit::hasSelectedText     \brief whether there is any text selected      hasSelectedText() returns \c true if some or all of the text has been     selected by the user; otherwise returns \c false.      By default, this property is \c false.      \sa selectedText() */
 end_comment
 begin_function
 DECL|function|hasSelectedText
@@ -2388,7 +2388,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::undoAvailable     \brief whether undo is available      Undo becomes available once the user has modified the text in the line edit.      By default, this property is false. */
+comment|/*!     \property QLineEdit::undoAvailable     \brief whether undo is available      Undo becomes available once the user has modified the text in the line edit.      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|isUndoAvailable
@@ -2416,7 +2416,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::redoAvailable     \brief whether redo is available      Redo becomes available once the user has performed one or more undo operations     on text in the line edit.      By default, this property is false. */
+comment|/*!     \property QLineEdit::redoAvailable     \brief whether redo is available      Redo becomes available once the user has performed one or more undo operations     on text in the line edit.      By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|isRedoAvailable
@@ -2552,7 +2552,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::acceptableInput     \brief whether the input satisfies the inputMask and the     validator.      By default, this property is true.      \sa setInputMask(), setValidator() */
+comment|/*!     \property QLineEdit::acceptableInput     \brief whether the input satisfies the inputMask and the     validator.      By default, this property is \c true.      \sa setInputMask(), setValidator() */
 end_comment
 begin_function
 DECL|function|hasAcceptableInput
@@ -3031,7 +3031,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLineEdit::readOnly     \brief whether the line edit is read only.      In read-only mode, the user can still copy the text to the     clipboard, or drag and drop the text (if echoMode() is \l Normal),     but cannot edit it.      QLineEdit does not show a cursor in read-only mode.      By default, this property is false.      \sa setEnabled() */
+comment|/*!     \property QLineEdit::readOnly     \brief whether the line edit is read only.      In read-only mode, the user can still copy the text to the     clipboard, or drag and drop the text (if echoMode() is \l Normal),     but cannot edit it.      QLineEdit does not show a cursor in read-only mode.      By default, this property is \c false.      \sa setEnabled() */
 end_comment
 begin_function
 DECL|function|isReadOnly

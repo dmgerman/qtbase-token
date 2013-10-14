@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qguiapplication.h>
+file|<qcoreapplication.h>
 end_include
 begin_include
 include|#
@@ -236,7 +236,7 @@ argument_list|()
 operator|)
 block|}
 decl_stmt|;
-name|QGuiApplication
+name|QCoreApplication
 name|app
 argument_list|(
 name|argc
@@ -434,7 +434,7 @@ begin_comment
 comment|// make sure that the static stuff will be deleted
 end_comment
 begin_comment
-comment|// when using multiple QGuiApplication objects
+comment|// when using multiple QCoreApplication objects
 end_comment
 begin_function
 DECL|function|open
@@ -491,7 +491,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QGuiApplication
+name|QCoreApplication
 name|app
 argument_list|(
 name|argc
@@ -628,7 +628,7 @@ argument_list|()
 operator|)
 block|}
 decl_stmt|;
-name|QGuiApplication
+name|QCoreApplication
 name|app
 argument_list|(
 name|argc
@@ -818,7 +818,7 @@ argument_list|()
 operator|)
 block|}
 decl_stmt|;
-name|QGuiApplication
+name|QCoreApplication
 name|app
 argument_list|(
 name|argc
@@ -1093,7 +1093,7 @@ argument_list|()
 operator|)
 block|}
 decl_stmt|;
-name|QGuiApplication
+name|QCoreApplication
 name|app
 argument_list|(
 name|argc

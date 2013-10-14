@@ -635,7 +635,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Executes the marshalling of type \a id (whose data is contained in     \a data) to the D-Bus marshalling argument \a arg. Returns true if     the marshalling succeeded, or false if an error occurred. */
+comment|/*!     \internal     Executes the marshalling of type \a id (whose data is contained in     \a data) to the D-Bus marshalling argument \a arg. Returns \c true if     the marshalling succeeded, or false if an error occurred. */
 end_comment
 begin_function
 DECL|function|marshall
@@ -749,7 +749,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Executes the demarshalling of type \a id (whose data will be placed in     \a data) from the D-Bus marshalling argument \a arg. Returns true if     the demarshalling succeeded, or false if an error occurred. */
+comment|/*!     \internal     Executes the demarshalling of type \a id (whose data will be placed in     \a data) from the D-Bus marshalling argument \a arg. Returns \c true if     the demarshalling succeeded, or false if an error occurred. */
 end_comment
 begin_function
 DECL|function|demarshall

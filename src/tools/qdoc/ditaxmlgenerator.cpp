@@ -4075,6 +4075,11 @@ name|getCppClasses
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4101,6 +4106,11 @@ name|getQmlTypes
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4244,6 +4254,8 @@ operator|==
 literal|"compatclasses"
 condition|)
 block|{
+comment|// "compatclasses" is no longer used. Delete this at some point.
+comment|// mws 03/10/2013
 name|generateCompactList
 argument_list|(
 name|Generic
@@ -4256,6 +4268,11 @@ name|getCompatibilityClasses
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4282,6 +4299,11 @@ name|getObsoleteClasses
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4308,6 +4330,11 @@ name|getObsoleteQmlTypes
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4334,6 +4361,11 @@ name|getClassesWithObsoleteMembers
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4360,6 +4392,11 @@ name|getQmlTypesWithObsoleteMembers
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|""
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4410,6 +4447,8 @@ operator|==
 literal|"mainclasses"
 condition|)
 block|{
+comment|// "mainclasses" is no longer used. Delete this at some point.
+comment|// mws 03/10/2013
 name|generateCompactList
 argument_list|(
 name|Generic
@@ -4422,6 +4461,11 @@ name|getMainClasses
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4436,6 +4480,8 @@ operator|==
 literal|"services"
 condition|)
 block|{
+comment|// "services" is no longer used. Delete this at some point.
+comment|// mws 03/10/2013
 name|generateCompactList
 argument_list|(
 name|Generic
@@ -4448,6 +4494,11 @@ name|getServiceClasses
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Q"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -27873,7 +27924,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a format is "DITAXML" or "HTML" .  */
+comment|/*!   Returns \c true if \a format is "DITAXML" or "HTML" .  */
 end_comment
 begin_function
 DECL|function|canHandleFormat
@@ -30305,7 +30356,7 @@ comment|//</topicref>
 block|}
 end_function
 begin_comment
-comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If a value   for the tag is found, the element is written with the   found value. Otherwise if \a force is set, an empty   element is written using the tag.    Returns true or false depending on whether it writes   an element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
+comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If a value   for the tag is found, the element is written with the   found value. Otherwise if \a force is set, an empty   element is written using the tag.    Returns \c true or false depending on whether it writes   an element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
 end_comment
 begin_function
 DECL|function|writeMetadataElement
@@ -30381,7 +30432,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If one or more   value sfor the tag are found, the elements are written.   Otherwise nothing is written.    Returns true or false depending on whether it writes   at least one element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
+comment|/*!   Looks up the tag name for \a t in the map of metadata   values for the current topic in \a inner. If one or more   value sfor the tag are found, the elements are written.   Otherwise nothing is written.    Returns \c true or false depending on whether it writes   at least one element using the tag \a t.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
 end_comment
 begin_function
 DECL|function|writeMetadataElements
@@ -32015,7 +32066,7 @@ condition|(
 operator|!
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -32025,7 +32076,7 @@ name|t
 operator|=
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 name|QLatin1Char
@@ -32338,7 +32389,7 @@ condition|(
 operator|!
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -32348,7 +32399,7 @@ name|label
 operator|=
 name|n
 operator|->
-name|qmlModuleIdentifier
+name|qmlModuleName
 argument_list|()
 operator|+
 literal|"::"

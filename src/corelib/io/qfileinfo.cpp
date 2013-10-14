@@ -989,10 +989,10 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn bool QFileInfo::operator!=(const QFileInfo&fileinfo) const      Returns true if this QFileInfo object refers to a different file     than the one specified by \a fileinfo; otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QFileInfo::operator!=(const QFileInfo&fileinfo) const      Returns \c true if this QFileInfo object refers to a different file     than the one specified by \a fileinfo; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this QFileInfo object refers to a file in the same     location as \a fileinfo; otherwise returns false.      Note that the result of comparing two empty QFileInfo objects,     containing no file references (file paths that do not exist or     are empty), is undefined.      \warning This will not compare two different symbolic links     pointing to the same file.      \warning Long and short file names that refer to the same file on Windows     are treated as if they referred to different files.      \sa operator!=() */
+comment|/*!     Returns \c true if this QFileInfo object refers to a file in the same     location as \a fileinfo; otherwise returns \c false.      Note that the result of comparing two empty QFileInfo objects,     containing no file references (file paths that do not exist or     are empty), is undefined.      \warning This will not compare two different symbolic links     pointing to the same file.      \warning Long and short file names that refer to the same file on Windows     are treated as if they referred to different files.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1547,10 +1547,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFileInfo::isAbsolute() const      Returns true if the file path name is absolute, otherwise returns     false if the path is relative.      \sa isRelative() */
+comment|/*!     \fn bool QFileInfo::isAbsolute() const      Returns \c true if the file path name is absolute, otherwise returns     false if the path is relative.      \sa isRelative() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the file path name is relative, otherwise returns     false if the path is absolute (e.g. under Unix a path is absolute     if it begins with a "/").      \sa isAbsolute() */
+comment|/*!     Returns \c true if the file path name is relative, otherwise returns     false if the path is absolute (e.g. under Unix a path is absolute     if it begins with a "/").      \sa isAbsolute() */
 end_comment
 begin_function
 DECL|function|isRelative
@@ -1603,7 +1603,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the file's path to an absolute path if it is not already in that form.     Returns true to indicate that the path was converted; otherwise returns false     to indicate that the path was already absolute.      \sa filePath(), isRelative() */
+comment|/*!     Converts the file's path to an absolute path if it is not already in that form.     Returns \c true to indicate that the path was converted; otherwise returns \c false     to indicate that the path was already absolute.      \sa filePath(), isRelative() */
 end_comment
 begin_function
 DECL|function|makeAbsolute
@@ -1648,7 +1648,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file exists; otherwise returns false.      \note If the file is a symlink that points to a non-existing     file, false is returned. */
+comment|/*!     Returns \c true if the file exists; otherwise returns \c false.      \note If the file is a symlink that points to a non-existing     file, false is returned. */
 end_comment
 begin_function
 DECL|function|exists
@@ -1741,7 +1741,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a file exists; otherwise returns false.      \note If \a file is a symlink that points to a non-existing     file, false is returned.      \note Using this function is faster for than using     \c QFileInfo(file).exists() for file system access. */
+comment|/*!     Returns \c true if the \a file exists; otherwise returns \c false.      \note If \a file is a symlink that points to a non-existing     file, false is returned.      \note Using this function is faster for than using     \c QFileInfo(file).exists() for file system access. */
 end_comment
 begin_function
 DECL|function|exists
@@ -2172,7 +2172,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the user can read the file; otherwise returns false.      \sa isWritable(), isExecutable(), permission() */
+comment|/*!     Returns \c true if the user can read the file; otherwise returns \c false.      \sa isWritable(), isExecutable(), permission() */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -2273,7 +2273,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the user can write to the file; otherwise returns false.      \sa isReadable(), isExecutable(), permission() */
+comment|/*!     Returns \c true if the user can write to the file; otherwise returns \c false.      \sa isReadable(), isExecutable(), permission() */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -2374,7 +2374,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file is executable; otherwise returns false.      \sa isReadable(), isWritable(), permission() */
+comment|/*!     Returns \c true if the file is executable; otherwise returns \c false.      \sa isReadable(), isWritable(), permission() */
 end_comment
 begin_function
 DECL|function|isExecutable
@@ -2475,7 +2475,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this is a `hidden' file; otherwise returns false.      \b{Note:} This function returns true for the special entries     "." and ".." on Unix, even though QDir::entryList threats them as shown. */
+comment|/*!     Returns \c true if this is a `hidden' file; otherwise returns \c false.      \b{Note:} This function returns \c true for the special entries     "." and ".." on Unix, even though QDir::entryList threats them as shown. */
 end_comment
 begin_function
 DECL|function|isHidden
@@ -2568,7 +2568,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the file path can be used directly with native APIs.     Returns false if the file is otherwise supported by a virtual file system     inside Qt, such as \l{the Qt Resource System}.      \b{Note:} Native paths may still require conversion of path separators     and character encoding, depending on platform and input requirements of the     native API.      \sa QDir::toNativeSeparators(), QFile::encodeName(), filePath(),     absoluteFilePath(), canonicalFilePath() */
+comment|/*!     \since 5.0     Returns \c true if the file path can be used directly with native APIs.     Returns \c false if the file is otherwise supported by a virtual file system     inside Qt, such as \l{the Qt Resource System}.      \b{Note:} Native paths may still require conversion of path separators     and character encoding, depending on platform and input requirements of the     native API.      \sa QDir::toNativeSeparators(), QFile::encodeName(), filePath(),     absoluteFilePath(), canonicalFilePath() */
 end_comment
 begin_function
 DECL|function|isNativePath
@@ -2618,7 +2618,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this object points to a file or to a symbolic     link to a file. Returns false if the     object points to something which isn't a file, such as a directory.      \sa isDir(), isSymLink(), isBundle() */
+comment|/*!     Returns \c true if this object points to a file or to a symbolic     link to a file. Returns \c false if the     object points to something which isn't a file, such as a directory.      \sa isDir(), isSymLink(), isBundle() */
 end_comment
 begin_function
 DECL|function|isFile
@@ -2711,7 +2711,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this object points to a directory or to a symbolic     link to a directory; otherwise returns false.      \sa isFile(), isSymLink(), isBundle() */
+comment|/*!     Returns \c true if this object points to a directory or to a symbolic     link to a directory; otherwise returns \c false.      \sa isFile(), isSymLink(), isBundle() */
 end_comment
 begin_function
 DECL|function|isDir
@@ -2804,7 +2804,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     Returns true if this object points to a bundle or to a symbolic     link to a bundle on Mac OS X; otherwise returns false.      \sa isDir(), isSymLink(), isFile() */
+comment|/*!     \since 4.3     Returns \c true if this object points to a bundle or to a symbolic     link to a bundle on Mac OS X; otherwise returns \c false.      \sa isDir(), isSymLink(), isFile() */
 end_comment
 begin_function
 DECL|function|isBundle
@@ -2897,7 +2897,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this object points to a symbolic link (or to a     shortcut on Windows); otherwise returns false.      On Unix (including Mac OS X), opening a symlink effectively opens     the \l{symLinkTarget()}{link's target}. On Windows, it opens the \c     .lnk file itself.      Example:      \snippet code/src_corelib_io_qfileinfo.cpp 9      \note If the symlink points to a non existing file, exists() returns      false.      \sa isFile(), isDir(), symLinkTarget() */
+comment|/*!     Returns \c true if this object points to a symbolic link (or to a     shortcut on Windows); otherwise returns \c false.      On Unix (including Mac OS X), opening a symlink effectively opens     the \l{symLinkTarget()}{link's target}. On Windows, it opens the \c     .lnk file itself.      Example:      \snippet code/src_corelib_io_qfileinfo.cpp 9      \note If the symlink points to a non existing file, exists() returns      false.      \sa isFile(), isDir(), symLinkTarget() */
 end_comment
 begin_function
 DECL|function|isSymLink
@@ -2990,7 +2990,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the object points to a directory or to a symbolic     link to a directory, and that directory is the root directory; otherwise     returns false. */
+comment|/*!     Returns \c true if the object points to a directory or to a symbolic     link to a directory, and that directory is the root directory; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|isRoot
@@ -3112,7 +3112,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QFileInfo::symLinkTarget() const     \since 4.2      Returns the absolute path to the file or directory a symlink (or shortcut     on Windows) points to, or a an empty string if the object isn't a symbolic     link.      This name may not represent an existing file; it is only a string.     QFileInfo::exists() returns true if the symlink points to an     existing file.      \sa exists(), isSymLink(), isDir(), isFile() */
+comment|/*!     \fn QString QFileInfo::symLinkTarget() const     \since 4.2      Returns the absolute path to the file or directory a symlink (or shortcut     on Windows) points to, or a an empty string if the object isn't a symbolic     link.      This name may not represent an existing file; it is only a string.     QFileInfo::exists() returns \c true if the symlink points to an     existing file.      \sa exists(), isSymLink(), isDir(), isFile() */
 end_comment
 begin_comment
 comment|/*!     \obsolete      Use symLinkTarget() instead. */
@@ -3431,7 +3431,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tests for file permissions. The \a permissions argument can be     several flags of type QFile::Permissions OR-ed together to check     for permission combinations.      On systems where files do not have permissions this function     always returns true.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 10      \sa isReadable(), isWritable(), isExecutable() */
+comment|/*!     Tests for file permissions. The \a permissions argument can be     several flags of type QFile::Permissions OR-ed together to check     for permission combinations.      On systems where files do not have permissions this function     always returns \c true.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 10      \sa isReadable(), isWritable(), isExecutable() */
 end_comment
 begin_function
 DECL|function|permission
@@ -4110,7 +4110,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if caching is enabled; otherwise returns false.      \sa setCaching(), refresh() */
+comment|/*!     Returns \c true if caching is enabled; otherwise returns \c false.      \sa setCaching(), refresh() */
 end_comment
 begin_function
 DECL|function|caching

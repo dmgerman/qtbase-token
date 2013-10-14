@@ -586,7 +586,7 @@ argument|const NodeMap&classMap
 argument_list|,
 argument|bool includeAlphabet
 argument_list|,
-argument|QString commonPrefix = QString()
+argument|QString commonPrefix
 argument_list|)
 block|;
 name|void

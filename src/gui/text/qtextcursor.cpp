@@ -5083,7 +5083,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QTextCursor     \reentrant     \inmodule QtGui      \brief The QTextCursor class offers an API to access and modify QTextDocuments.      \ingroup richtext-processing     \ingroup shared      Text cursors are objects that are used to access and modify the     contents and underlying structure of text documents via a     programming interface that mimics the behavior of a cursor in a     text editor. QTextCursor contains information about both the     cursor's position within a QTextDocument and any selection that it     has made.      QTextCursor is modeled on the way a text cursor behaves in a text     editor, providing a programmatic means of performing standard     actions through the user interface. A document can be thought of     as a single string of characters. The cursor's current position()     then is always either \e between two consecutive characters in the     string, or else \e before the very first character or \e after the     very last character in the string.  Documents can also contain     tables, lists, images, and other objects in addition to text but,     from the developer's point of view, the document can be treated as     one long string.  Some portions of that string can be considered     to lie within particular blocks (e.g. paragraphs), or within a     table's cell, or a list's item, or other structural elements. When     we refer to "current character" we mean the character immediately     \e before the cursor position() in the document. Similarly, the     "current block" is the block that contains the cursor position().      A QTextCursor also has an anchor() position. The text that is     between the anchor() and the position() is the selection. If     anchor() == position() there is no selection.      The cursor position can be changed programmatically using     setPosition() and movePosition(); the latter can also be used to     select text. For selections see selectionStart(), selectionEnd(),     hasSelection(), clearSelection(), and removeSelectedText().      If the position() is at the start of a block atBlockStart()     returns true; and if it is at the end of a block atBlockEnd() returns     true. The format of the current character is returned by     charFormat(), and the format of the current block is returned by     blockFormat().      Formatting can be applied to the current text document using the     setCharFormat(), mergeCharFormat(), setBlockFormat() and     mergeBlockFormat() functions. The 'set' functions will replace the     cursor's current character or block format, while the 'merge'     functions add the given format properties to the cursor's current     format. If the cursor has a selection the given format is applied     to the current selection. Note that when only parts of a block is     selected the block format is applied to the entire block. The text     at the current character position can be turned into a list using     createList().      Deletions can be achieved using deleteChar(),     deletePreviousChar(), and removeSelectedText().      Text strings can be inserted into the document with the insertText()     function, blocks (representing new paragraphs) can be inserted with     insertBlock().      Existing fragments of text can be inserted with insertFragment() but,     if you want to insert pieces of text in various formats, it is usually     still easier to use insertText() and supply a character format.      Various types of higher-level structure can also be inserted into the     document with the cursor:      \list     \li Lists are ordered sequences of block elements that are decorated with        bullet points or symbols. These are inserted in a specified format        with insertList().     \li Tables are inserted with the insertTable() function, and can be        given an optional format. These contain an array of cells that can        be traversed using the cursor.     \li Inline images are inserted with insertImage(). The image to be        used can be specified in an image format, or by name.     \li Frames are inserted by calling insertFrame() with a specified format.     \endlist      Actions can be grouped (i.e. treated as a single action for     undo/redo) using beginEditBlock() and endEditBlock().      Cursor movements are limited to valid cursor positions. In Latin     writing this is between any two consecutive characters in the     text, before the first character, or after the last character. In     some other writing systems cursor movements are limited to     "clusters" (e.g. a syllable in Devanagari, or a base letter plus     diacritics).  Functions such as movePosition() and deleteChar()     limit cursor movement to these valid positions.      \sa {Rich Text Processing}  */
+comment|/*!     \class QTextCursor     \reentrant     \inmodule QtGui      \brief The QTextCursor class offers an API to access and modify QTextDocuments.      \ingroup richtext-processing     \ingroup shared      Text cursors are objects that are used to access and modify the     contents and underlying structure of text documents via a     programming interface that mimics the behavior of a cursor in a     text editor. QTextCursor contains information about both the     cursor's position within a QTextDocument and any selection that it     has made.      QTextCursor is modeled on the way a text cursor behaves in a text     editor, providing a programmatic means of performing standard     actions through the user interface. A document can be thought of     as a single string of characters. The cursor's current position()     then is always either \e between two consecutive characters in the     string, or else \e before the very first character or \e after the     very last character in the string.  Documents can also contain     tables, lists, images, and other objects in addition to text but,     from the developer's point of view, the document can be treated as     one long string.  Some portions of that string can be considered     to lie within particular blocks (e.g. paragraphs), or within a     table's cell, or a list's item, or other structural elements. When     we refer to "current character" we mean the character immediately     \e before the cursor position() in the document. Similarly, the     "current block" is the block that contains the cursor position().      A QTextCursor also has an anchor() position. The text that is     between the anchor() and the position() is the selection. If     anchor() == position() there is no selection.      The cursor position can be changed programmatically using     setPosition() and movePosition(); the latter can also be used to     select text. For selections see selectionStart(), selectionEnd(),     hasSelection(), clearSelection(), and removeSelectedText().      If the position() is at the start of a block atBlockStart()     returns \c true; and if it is at the end of a block atBlockEnd() returns     true. The format of the current character is returned by     charFormat(), and the format of the current block is returned by     blockFormat().      Formatting can be applied to the current text document using the     setCharFormat(), mergeCharFormat(), setBlockFormat() and     mergeBlockFormat() functions. The 'set' functions will replace the     cursor's current character or block format, while the 'merge'     functions add the given format properties to the cursor's current     format. If the cursor has a selection the given format is applied     to the current selection. Note that when only parts of a block is     selected the block format is applied to the entire block. The text     at the current character position can be turned into a list using     createList().      Deletions can be achieved using deleteChar(),     deletePreviousChar(), and removeSelectedText().      Text strings can be inserted into the document with the insertText()     function, blocks (representing new paragraphs) can be inserted with     insertBlock().      Existing fragments of text can be inserted with insertFragment() but,     if you want to insert pieces of text in various formats, it is usually     still easier to use insertText() and supply a character format.      Various types of higher-level structure can also be inserted into the     document with the cursor:      \list     \li Lists are ordered sequences of block elements that are decorated with        bullet points or symbols. These are inserted in a specified format        with insertList().     \li Tables are inserted with the insertTable() function, and can be        given an optional format. These contain an array of cells that can        be traversed using the cursor.     \li Inline images are inserted with insertImage(). The image to be        used can be specified in an image format, or by name.     \li Frames are inserted by calling insertFrame() with a specified format.     \endlist      Actions can be grouped (i.e. treated as a single action for     undo/redo) using beginEditBlock() and endEditBlock().      Cursor movements are limited to valid cursor positions. In Latin     writing this is between any two consecutive characters in the     text, before the first character, or after the last character. In     some other writing systems cursor movements are limited to     "clusters" (e.g. a syllable in Devanagari, or a base letter plus     diacritics).  Functions such as movePosition() and deleteChar()     limit cursor movement to these valid positions.      \sa {Rich Text Processing}  */
 end_comment
 begin_comment
 comment|/*!     \enum QTextCursor::MoveOperation      \value NoMove Keep the cursor where it is      \value Start Move to the start of the document.     \value StartOfLine Move to the start of the current line.     \value StartOfBlock Move to the start of the current block.     \value StartOfWord Move to the start of the current word.     \value PreviousBlock Move to the start of the previous block.     \value PreviousCharacter Move to the previous character.     \value PreviousWord Move to the beginning of the previous word.     \value Up Move up one line.     \value Left Move left one character.     \value WordLeft Move left one word.      \value End Move to the end of the document.     \value EndOfLine Move to the end of the current line.     \value EndOfWord Move to the end of the current word.     \value EndOfBlock Move to the end of the current block.     \value NextBlock Move to the beginning of the next block.     \value NextCharacter Move to the next character.     \value NextWord Move to the next word.     \value Down Move down one line.     \value Right Move right one character.     \value WordRight Move right one word.      \value NextCell  Move to the beginning of the next table cell inside the            current table. If the current cell is the last cell in the row, the            cursor will move to the first cell in the next row.     \value PreviousCell  Move to the beginning of the previous table cell            inside the current table. If the current cell is the first cell in            the row, the cursor will move to the last cell in the previous row.     \value NextRow  Move to the first new cell of the next row in the current            table.     \value PreviousRow  Move to the last cell of the previous row in the            current table.      \sa movePosition() */
@@ -5374,7 +5374,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns true if the cursor is null; otherwise returns false. A null     cursor is created by the default constructor.  */
+comment|/*!     Returns \c true if the cursor is null; otherwise returns \c false. A null     cursor is created by the default constructor.  */
 end_comment
 begin_function
 DECL|function|isNull
@@ -5627,7 +5627,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::movePosition(MoveOperation operation, MoveMode mode, int n)      Moves the cursor by performing the given \a operation \a n times, using the specified     \a mode, and returns true if all operations were completed successfully; otherwise     returns false.      For example, if this function is repeatedly used to seek to the end of the next     word, it will eventually fail when the end of the document is reached.      By default, the move operation is performed once (\a n = 1).      If \a mode is \c KeepAnchor, the cursor selects the text it moves     over. This is the same effect that the user achieves when they     hold down the Shift key and move the cursor with the cursor keys.      \sa setVisualNavigation() */
+comment|/*!     \fn bool QTextCursor::movePosition(MoveOperation operation, MoveMode mode, int n)      Moves the cursor by performing the given \a operation \a n times, using the specified     \a mode, and returns \c true if all operations were completed successfully; otherwise     returns \c false.      For example, if this function is repeatedly used to seek to the end of the next     word, it will eventually fail when the end of the document is reached.      By default, the move operation is performed once (\a n = 1).      If \a mode is \c KeepAnchor, the cursor selects the text it moves     over. This is the same effect that the user achieves when they     hold down the Shift key and move the cursor with the cursor keys.      \sa setVisualNavigation() */
 end_comment
 begin_function
 DECL|function|movePosition
@@ -5862,7 +5862,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    Returns true if the cursor does visual navigation; otherwise   returns false.    Visual navigation means skipping over hidden text paragraphs. The   default is false.    \sa setVisualNavigation(), movePosition()  */
+comment|/*!   \since 4.4    Returns \c true if the cursor does visual navigation; otherwise   returns \c false.    Visual navigation means skipping over hidden text paragraphs. The   default is false.    \sa setVisualNavigation(), movePosition()  */
 end_comment
 begin_function
 DECL|function|visualNavigation
@@ -6871,7 +6871,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the cursor contains a selection; otherwise returns false. */
+comment|/*!     Returns \c true if the cursor contains a selection; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|hasSelection
@@ -6898,7 +6898,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the cursor contains a selection that is not simply a     range from selectionStart() to selectionEnd(); otherwise returns false.      Complex selections are ones that span at least two cells in a table;     their extent is specified by selectedTableCells(). */
+comment|/*!     Returns \c true if the cursor contains a selection that is not simply a     range from selectionStart() to selectionEnd(); otherwise returns \c false.      Complex selections are ones that span at least two cells in a table;     their extent is specified by selectedTableCells(). */
 end_comment
 begin_function
 DECL|function|hasComplexSelection
@@ -8196,7 +8196,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the cursor is at the start of a block; otherwise     returns false.      \sa atBlockEnd(), atStart() */
+comment|/*!     Returns \c true if the cursor is at the start of a block; otherwise     returns \c false.      \sa atBlockEnd(), atStart() */
 end_comment
 begin_function
 DECL|function|atBlockStart
@@ -8236,7 +8236,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the cursor is at the end of a block; otherwise     returns false.      \sa atBlockStart(), atEnd() */
+comment|/*!     Returns \c true if the cursor is at the end of a block; otherwise     returns \c false.      \sa atBlockStart(), atEnd() */
 end_comment
 begin_function
 DECL|function|atBlockEnd
@@ -8286,7 +8286,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the cursor is at the start of the document;     otherwise returns false.      \sa atBlockStart(), atEnd() */
+comment|/*!     Returns \c true if the cursor is at the start of the document;     otherwise returns \c false.      \sa atBlockStart(), atEnd() */
 end_comment
 begin_function
 DECL|function|atStart
@@ -8320,7 +8320,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true if the cursor is at the end of the document;     otherwise returns false.      \sa atStart(), atBlockEnd() */
+comment|/*!     \since 4.6      Returns \c true if the cursor is at the end of the document;     otherwise returns \c false.      \sa atStart(), atBlockEnd() */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -9470,7 +9470,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::operator!=(const QTextCursor&other) const      Returns true if the \a other cursor is at a different position in     the document as this cursor; otherwise returns false. */
+comment|/*!     \fn bool QTextCursor::operator!=(const QTextCursor&other) const      Returns \c true if the \a other cursor is at a different position in     the document as this cursor; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -9498,7 +9498,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::operator<(const QTextCursor&other) const      Returns true if the \a other cursor is positioned later in the     document than this cursor; otherwise returns false. */
+comment|/*!     \fn bool QTextCursor::operator<(const QTextCursor&other) const      Returns \c true if the \a other cursor is positioned later in the     document than this cursor; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -9568,7 +9568,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::operator<=(const QTextCursor&other) const      Returns true if the \a other cursor is positioned later or at the     same position in the document as this cursor; otherwise returns     false. */
+comment|/*!     \fn bool QTextCursor::operator<=(const QTextCursor&other) const      Returns \c true if the \a other cursor is positioned later or at the     same position in the document as this cursor; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|operator <=
@@ -9634,7 +9634,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::operator==(const QTextCursor&other) const      Returns true if the \a other cursor is at the same position in the     document as this cursor; otherwise returns false. */
+comment|/*!     \fn bool QTextCursor::operator==(const QTextCursor&other) const      Returns \c true if the \a other cursor is at the same position in the     document as this cursor; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -9696,7 +9696,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::operator>=(const QTextCursor&other) const      Returns true if the \a other cursor is positioned earlier or at the     same position in the document as this cursor; otherwise returns     false. */
+comment|/*!     \fn bool QTextCursor::operator>=(const QTextCursor&other) const      Returns \c true if the \a other cursor is positioned earlier or at the     same position in the document as this cursor; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|operator >=
@@ -9762,7 +9762,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QTextCursor::operator>(const QTextCursor&other) const      Returns true if the \a other cursor is positioned earlier in the     document than this cursor; otherwise returns false. */
+comment|/*!     \fn bool QTextCursor::operator>(const QTextCursor&other) const      Returns \c true if the \a other cursor is positioned earlier in the     document than this cursor; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator >
@@ -9942,7 +9942,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this cursor and \a other are copies of each other, i.e.     one of them was created as a copy of the other and neither has moved since.     This is much stricter than equality.      \sa operator=(), operator==() */
+comment|/*!     Returns \c true if this cursor and \a other are copies of each other, i.e.     one of them was created as a copy of the other and neither has moved since.     This is much stricter than equality.      \sa operator=(), operator==() */
 end_comment
 begin_function
 DECL|function|isCopyOf

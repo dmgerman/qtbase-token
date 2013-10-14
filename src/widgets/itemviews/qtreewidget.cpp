@@ -170,7 +170,7 @@ begin_comment
 comment|/*!     \fn void QTreeWidgetItem::setDisabled(bool disabled)     \since 4.3      Disables the item if \a disabled is true; otherwise enables the item.      \sa setFlags() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QTreeWidgetItem::isDisabled() const     \since 4.3      Returns true if the item is disabled; otherwise returns false.      \sa setFlags() */
+comment|/*!     \fn bool QTreeWidgetItem::isDisabled() const     \since 4.3      Returns \c true if the item is disabled; otherwise returns \c false.      \sa setFlags() */
 end_comment
 begin_comment
 comment|/*!   \internal    Constructs a tree model with a \a parent object and the given   number of \a columns. */
@@ -1242,7 +1242,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal   \reimp    Sets the data for the item specified by the \a index and \a role   to that referred to by the \a value.    Returns true if successful; otherwise returns false. */
+comment|/*!   \internal   \reimp    Sets the data for the item specified by the \a index and \a role   to that referred to by the \a value.    Returns \c true if successful; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setData
@@ -2167,7 +2167,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal   \reimp    Sets the header data for the item specified by the header \a section,   \a orientation and data \a role to the given \a value.    Returns true if successful; otherwise returns false. */
+comment|/*!   \internal   \reimp    Sets the header data for the item specified by the header \a section,   \a orientation and data \a role to the given \a value.    Returns \c true if successful; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setHeaderData
@@ -2963,7 +2963,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \internal    Returns true if the value of the \a left item is   less than the value of the \a right item.    Used by the sorting functions. */
+comment|/*!   \internal    Returns \c true if the value of the \a left item is   less than the value of the \a right item.    Used by the sorting functions. */
 end_comment
 begin_function
 DECL|function|itemLessThan
@@ -3013,7 +3013,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal    Returns true if the value of the \a left item is   greater than the value of the \a right item.    Used by the sorting functions. */
+comment|/*!   \internal    Returns \c true if the value of the \a left item is   greater than the value of the \a right item.    Used by the sorting functions. */
 end_comment
 begin_function
 DECL|function|itemGreaterThan
@@ -4139,25 +4139,25 @@ begin_comment
 comment|/*!   \fn void QTreeWidgetItem::setSelected(bool select)   \since 4.2    Sets the selected state of the item to \a select.    \sa isSelected()  */
 end_comment
 begin_comment
-comment|/*!   \fn bool QTreeWidgetItem::isSelected() const   \since 4.2    Returns true if the item is selected, otherwise returns false.    \sa setSelected() */
+comment|/*!   \fn bool QTreeWidgetItem::isSelected() const   \since 4.2    Returns \c true if the item is selected, otherwise returns \c false.    \sa setSelected() */
 end_comment
 begin_comment
 comment|/*!   \fn void QTreeWidgetItem::setHidden(bool hide)   \since 4.2    Hides the item if \a hide is true, otherwise shows the item.    \sa isHidden() */
 end_comment
 begin_comment
-comment|/*!   \fn bool QTreeWidgetItem::isHidden() const   \since 4.2    Returns true if the item is hidden, otherwise returns false.    \sa setHidden() */
+comment|/*!   \fn bool QTreeWidgetItem::isHidden() const   \since 4.2    Returns \c true if the item is hidden, otherwise returns \c false.    \sa setHidden() */
 end_comment
 begin_comment
 comment|/*!   \fn void QTreeWidgetItem::setExpanded(bool expand)   \since 4.2    Expands the item if \a expand is true, otherwise collapses the item.   \warning The QTreeWidgetItem must be added to the QTreeWidget before calling this function.    \sa isExpanded() */
 end_comment
 begin_comment
-comment|/*!   \fn bool QTreeWidgetItem::isExpanded() const   \since 4.2    Returns true if the item is expanded, otherwise returns false.    \sa setExpanded() */
+comment|/*!   \fn bool QTreeWidgetItem::isExpanded() const   \since 4.2    Returns \c true if the item is expanded, otherwise returns \c false.    \sa setExpanded() */
 end_comment
 begin_comment
 comment|/*!   \fn void QTreeWidgetItem::setFirstColumnSpanned(bool span)   \since 4.3    Sets the first section to span all columns if \a span is true;   otherwise all item sections are shown.    \sa isFirstColumnSpanned() */
 end_comment
 begin_comment
-comment|/*!   \fn bool QTreeWidgetItem::isFirstColumnSpanned() const   \since 4.3    Returns true if the item is spanning all the columns in a row; otherwise returns false.    \sa setFirstColumnSpanned() */
+comment|/*!   \fn bool QTreeWidgetItem::isFirstColumnSpanned() const   \since 4.3    Returns \c true if the item is spanning all the columns in a row; otherwise returns \c false.    \sa setFirstColumnSpanned() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QTreeWidgetItem::text(int column) const      Returns the text in the specified \a column.      \sa setText() */
@@ -6759,7 +6759,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the text in the item is less than the text in the   \a other item, otherwise returns false. */
+comment|/*!   Returns \c true if the text in the item is less than the text in the   \a other item, otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -11204,7 +11204,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the \a item is selected; otherwise returns false.    \sa itemSelectionChanged()    \obsolete    This function is deprecated. Use \l{QTreeWidgetItem::isSelected()} instead. */
+comment|/*!   Returns \c true if the \a item is selected; otherwise returns \c false.    \sa itemSelectionChanged()    \obsolete    This function is deprecated. Use \l{QTreeWidgetItem::isSelected()} instead. */
 end_comment
 begin_function
 DECL|function|isItemSelected
@@ -11556,7 +11556,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the \a item is explicitly hidden, otherwise returns false.    \obsolete    This function is deprecated. Use \l{QTreeWidgetItem::isHidden()} instead. */
+comment|/*!   Returns \c true if the \a item is explicitly hidden, otherwise returns \c false.    \obsolete    This function is deprecated. Use \l{QTreeWidgetItem::isHidden()} instead. */
 end_comment
 begin_function
 DECL|function|isItemHidden
@@ -11711,7 +11711,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the given \a item is open; otherwise returns false.    \sa itemExpanded()    \obsolete    This function is deprecated. Use \l{QTreeWidgetItem::isExpanded()} instead. */
+comment|/*!   Returns \c true if the given \a item is open; otherwise returns \c false.    \sa itemExpanded()    \obsolete    This function is deprecated. Use \l{QTreeWidgetItem::isExpanded()} instead. */
 end_comment
 begin_function
 DECL|function|isItemExpanded
@@ -11807,7 +11807,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.3    Returns true if the given \a item is set to show only one section over all columns;   otherwise returns false.    \sa setFirstItemColumnSpanned() */
+comment|/*!   \since 4.3    Returns \c true if the given \a item is set to show only one section over all columns;   otherwise returns \c false.    \sa setFirstItemColumnSpanned() */
 end_comment
 begin_function
 DECL|function|isFirstItemColumnSpanned
@@ -12443,7 +12443,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action in the \a index in the given \a parent item.      The default implementation returns true if the drop was     successfully handled by decoding the mime data and inserting it     into the model; otherwise it returns false.      \sa supportedDropActions() */
+comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action in the \a index in the given \a parent item.      The default implementation returns \c true if the drop was     successfully handled by decoding the mime data and inserting it     into the model; otherwise it returns \c false.      \sa supportedDropActions() */
 end_comment
 begin_function
 DECL|function|dropMimeData

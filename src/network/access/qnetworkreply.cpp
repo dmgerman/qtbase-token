@@ -334,7 +334,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true when the reply has finished or was aborted.      \sa isRunning() */
+comment|/*!     \since 4.6      Returns \c true when the reply has finished or was aborted.      \sa isRunning() */
 end_comment
 begin_function
 DECL|function|isFinished
@@ -354,7 +354,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns true when the request is still processing and the     reply has not finished or was aborted yet.      \sa isFinished() */
+comment|/*!     \since 4.6      Returns \c true when the request is still processing and the     reply has not finished or was aborted yet.      \sa isFinished() */
 end_comment
 begin_function
 DECL|function|isRunning
@@ -423,7 +423,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the raw header of name \a headerName was sent by     the remote server      \sa rawHeader() */
+comment|/*!     Returns \c true if the raw header of name \a headerName was sent by     the remote server      \sa rawHeader() */
 end_comment
 begin_function
 DECL|function|hasRawHeader

@@ -33,7 +33,7 @@ comment|/*!     \class QLine     \inmodule QtCore     \ingroup painting      \br
 comment|/*!     \fn QLine::QLine()      Constructs a null line. */
 comment|/*!     \fn QLine::QLine(const QPoint&p1, const QPoint&p2)      Constructs a line object that represents the line between \a p1 and     \a p2. */
 comment|/*!     \fn QLine::QLine(int x1, int y1, int x2, int y2)      Constructs a line object that represents the line between (\a x1, \a y1) and     (\a x2, \a y2). */
-comment|/*!     \fn bool QLine::isNull() const      Returns true if the line is not set up with valid start and end point;     otherwise returns false. */
+comment|/*!     \fn bool QLine::isNull() const      Returns \c true if the line is not set up with valid start and end point;     otherwise returns \c false. */
 comment|/*!     \fn QPoint QLine::p1() const      Returns the line's start point.      \sa x1(), y1(), p2() */
 comment|/*!     \fn QPoint QLine::p2() const      Returns the line's end point.      \sa x2(), y2(), p1() */
 comment|/*!     \fn int QLine::x1() const      Returns the x-coordinate of the line's start point.      \sa p1() */
@@ -42,8 +42,8 @@ comment|/*!     \fn int QLine::x2() const      Returns the x-coordinate of the l
 comment|/*!     \fn int QLine::y2() const      Returns the y-coordinate of the line's end point.      \sa p2() */
 comment|/*!     \fn int QLine::dx() const      Returns the horizontal component of the line's vector.      \sa dy() */
 comment|/*!     \fn int QLine::dy() const      Returns the vertical component of the line's vector.      \sa dx() */
-comment|/*!     \fn bool QLine::operator!=(const QLine&line) const      Returns true if the given \a line is not the same as \e this line.      A line is different from another line if any of their start or     end points differ, or the internal order of the points is different. */
-comment|/*!     \fn bool QLine::operator==(const QLine&line) const      Returns true if the given \a line is the same as \e this line.      A line is identical to another line if the start and end points     are identical, and the internal order of the points is the same. */
+comment|/*!     \fn bool QLine::operator!=(const QLine&line) const      Returns \c true if the given \a line is not the same as \e this line.      A line is different from another line if any of their start or     end points differ, or the internal order of the points is different. */
+comment|/*!     \fn bool QLine::operator==(const QLine&line) const      Returns \c true if the given \a line is the same as \e this line.      A line is identical to another line if the start and end points     are identical, and the internal order of the points is the same. */
 comment|/*!     \fn void QLine::translate(const QPoint&offset)      Translates this line by the given \a offset. */
 comment|/*!     \fn void QLine::translate(int dx, int dy)     \overload      Translates this line the distance specified by \a dx and \a dy. */
 comment|/*!     \fn QLine QLine::translated(const QPoint&offset) const      \since 4.4      Returns this line translated by the given \a offset. */
@@ -226,7 +226,7 @@ begin_comment
 comment|/*!     \fn QLineF::QLineF(const QLine&line)      Construct a QLineF object from the given integer-based \a line.      \sa toLine() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLineF::isNull() const      Returns true if the line is not set up with valid start and end point;     otherwise returns false. */
+comment|/*!     \fn bool QLineF::isNull() const      Returns \c true if the line is not set up with valid start and end point;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QPointF QLineF::p1() const      Returns the line's start point.      \sa x1(), y1(), p2() */
@@ -262,10 +262,10 @@ begin_comment
 comment|/*!     \fn QLineF QLineF::normalVector() const      Returns a line that is perpendicular to this line with the same starting     point and length.      \image qlinef-normalvector.png      \sa unitVector() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLineF::operator!=(const QLineF&line) const      Returns true if the given \a line is not the same as \e this line.      A line is different from another line if their start or end points     differ, or the internal order of the points is different. */
+comment|/*!     \fn bool QLineF::operator!=(const QLineF&line) const      Returns \c true if the given \a line is not the same as \e this line.      A line is different from another line if their start or end points     differ, or the internal order of the points is different. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLineF::operator==(const QLineF&line) const      Returns true if the given \a line is the same as this line.      A line is identical to another line if the start and end points     are identical, and the internal order of the points is the same. */
+comment|/*!     \fn bool QLineF::operator==(const QLineF&line) const      Returns \c true if the given \a line is the same as this line.      A line is identical to another line if the start and end points     are identical, and the internal order of the points is the same. */
 end_comment
 begin_comment
 comment|/*!   \fn qreal QLineF::pointAt(qreal t) const    Returns the point at the parameterized position specified by \a   t. The function returns the line's start point if t = 0, and its end   point if t = 1.    \sa dx(), dy() */

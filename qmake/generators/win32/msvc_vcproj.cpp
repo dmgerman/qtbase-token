@@ -938,9 +938,9 @@ name|char
 name|_slnSolutionConf
 index|[]
 init|=
-literal|"\n\tGlobalSection(SolutionConfiguration) = preSolution"
-literal|"\n\t\tConfigName.0 = Debug|Win32"
-literal|"\n\t\tConfigName.1 = Release|Win32"
+literal|"\n\tGlobalSection(SolutionConfigurationPlatforms) = preSolution"
+literal|"\n\t\tDebug|Win32 = Debug|Win32"
+literal|"\n\t\tRelease|Win32 = Release|Win32"
 literal|"\n\tEndGlobalSection"
 decl_stmt|;
 end_decl_stmt
@@ -971,7 +971,7 @@ name|char
 name|_slnProjConfBeg
 index|[]
 init|=
-literal|"\n\tGlobalSection(ProjectConfiguration) = postSolution"
+literal|"\n\tGlobalSection(ProjectConfigurationPlatforms) = postSolution"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -6596,6 +6596,7 @@ expr_stmt|;
 comment|// Only deploy for CE and WinRT projects
 if|if
 condition|(
+operator|(
 operator|!
 name|project
 operator|->
@@ -6617,6 +6618,7 @@ name|isEmpty
 argument_list|(
 literal|"CE_ARCH"
 argument_list|)
+operator|)
 operator|||
 name|conf
 operator|.

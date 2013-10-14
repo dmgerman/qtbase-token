@@ -463,6 +463,16 @@ name|fileName
 argument_list|)
 decl|const
 decl_stmt|;
+name|QStringList
+name|splitPathList
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|value
+argument_list|)
+decl|const
+decl_stmt|;
 name|private
 label|:
 name|QString

@@ -2746,7 +2746,7 @@ begin_comment
 comment|// QT_NO_TOOLTIP
 end_comment
 begin_comment
-comment|/*!     Returns true if the item at position \a index is enabled; otherwise returns false. */
+comment|/*!     Returns \c true if the item at position \a index is enabled; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isItemEnabled

@@ -1182,7 +1182,7 @@ comment|// QSharedDataPointer takes care of deleting for us
 block|}
 end_destructor
 begin_comment
-comment|/*!     \since 4.4      Compares the value of this network proxy to \a other and returns true     if they are equal (same proxy type, server as well as username and password) */
+comment|/*!     \since 4.4      Compares the value of this network proxy to \a other and returns \c true     if they are equal (same proxy type, server as well as username and password) */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1225,7 +1225,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QNetworkProxy::operator!=(const QNetworkProxy&other) const     \since 4.4      Compares the value of this network proxy to \a other and returns true     if they differ. \*/
+comment|/*!     \fn bool QNetworkProxy::operator!=(const QNetworkProxy&other) const     \since 4.4      Compares the value of this network proxy to \a other and returns \c true     if they differ. \*/
 end_comment
 begin_comment
 comment|/*!     \since 4.2      Assigns the value of the network proxy \a other to this network proxy. */
@@ -1382,7 +1382,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns true if this proxy supports the     QNetworkProxy::CachingCapability capability.      In Qt 4.4, the capability was tied to the proxy type, but since Qt     4.5 it is possible to remove the capability of caching from a     proxy by calling setCapabilities().      \sa capabilities(), type(), isTransparentProxy() */
+comment|/*!     \since 4.4      Returns \c true if this proxy supports the     QNetworkProxy::CachingCapability capability.      In Qt 4.4, the capability was tied to the proxy type, but since Qt     4.5 it is possible to remove the capability of caching from a     proxy by calling setCapabilities().      \sa capabilities(), type(), isTransparentProxy() */
 end_comment
 begin_function
 DECL|function|isCachingProxy
@@ -1402,7 +1402,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns true if this proxy supports transparent tunneling of TCP     connections. This matches the QNetworkProxy::TunnelingCapability     capability.      In Qt 4.4, the capability was tied to the proxy type, but since Qt     4.5 it is possible to remove the capability of caching from a     proxy by calling setCapabilities().      \sa capabilities(), type(), isCachingProxy() */
+comment|/*!     \since 4.4      Returns \c true if this proxy supports transparent tunneling of TCP     connections. This matches the QNetworkProxy::TunnelingCapability     capability.      In Qt 4.4, the capability was tied to the proxy type, but since Qt     4.5 it is possible to remove the capability of caching from a     proxy by calling setCapabilities().      \sa capabilities(), type(), isCachingProxy() */
 end_comment
 begin_function
 DECL|function|isTransparentProxy
@@ -1791,7 +1791,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the raw header \a headerName is in use for this     proxy. Returns false if the proxy is not of type HttpProxy or     HttpCachingProxy.      \sa rawHeader(), setRawHeader() */
+comment|/*!     \since 5.0     Returns \c true if the raw header \a headerName is in use for this     proxy. Returns \c false if the proxy is not of type HttpProxy or     HttpCachingProxy.      \sa rawHeader(), setRawHeader() */
 end_comment
 begin_function
 DECL|function|hasRawHeader
@@ -2576,7 +2576,7 @@ begin_comment
 comment|/*!     \fn void QNetworkProxyQuery::swap(QNetworkProxyQuery&other)     \since 5.0      Swaps this network proxy query instance with \a other. This     function is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this QNetworkProxyQuery object contains the same     data as \a other. */
+comment|/*!     Returns \c true if this QNetworkProxyQuery object contains the same     data as \a other. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -2619,7 +2619,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QNetworkProxyQuery::operator!=(const QNetworkProxyQuery&other) const      Returns true if this QNetworkProxyQuery object does not contain     the same data as \a other. */
+comment|/*!     \fn bool QNetworkProxyQuery::operator!=(const QNetworkProxyQuery&other) const      Returns \c true if this QNetworkProxyQuery object does not contain     the same data as \a other. */
 end_comment
 begin_comment
 comment|/*!     Returns the query type. */

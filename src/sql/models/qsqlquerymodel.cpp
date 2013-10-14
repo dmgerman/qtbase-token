@@ -458,7 +458,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns true if it is possible to read more rows from the database.     This only affects databases that don't report back the size of a query     (see QSqlDriver::hasFeature()).      \a parent should always be an invalid QModelIndex.      \sa fetchMore()  */
+comment|/*!     \since 4.1      Returns \c true if it is possible to read more rows from the database.     This only affects databases that don't report back the size of a query     (see QSqlDriver::hasFeature()).      \a parent should always be an invalid QModelIndex.      \sa fetchMore()  */
 end_comment
 begin_function
 DECL|function|canFetchMore
@@ -1628,7 +1628,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the caption for a horizontal header for the specified \a role to     \a value. This is useful if the model is used to     display data in a view (e.g., QTableView).      Returns true if \a orientation is Qt::Horizontal and     the \a section refers to a valid section; otherwise returns     false.      Note that this function cannot be used to modify values in the     database since the model is read-only.      \sa data()  */
+comment|/*!     Sets the caption for a horizontal header for the specified \a role to     \a value. This is useful if the model is used to     display data in a view (e.g., QTableView).      Returns \c true if \a orientation is Qt::Horizontal and     the \a section refers to a valid section; otherwise returns     false.      Note that this function cannot be used to modify values in the     database since the model is read-only.      \sa data()  */
 end_comment
 begin_function
 DECL|function|setHeaderData
@@ -1920,7 +1920,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a count columns into the model at position \a column. The     \a parent parameter must always be an invalid QModelIndex, since     the model does not support parent-child relationships.      Returns true if \a column is within bounds; otherwise returns false.      By default, inserted columns are empty. To fill them with data,     reimplement data() and handle any inserted column separately:      \snippet sqldatabase/sqldatabase.cpp 23      \sa removeColumns() */
+comment|/*!     Inserts \a count columns into the model at position \a column. The     \a parent parameter must always be an invalid QModelIndex, since     the model does not support parent-child relationships.      Returns \c true if \a column is within bounds; otherwise returns \c false.      By default, inserted columns are empty. To fill them with data,     reimplement data() and handle any inserted column separately:      \snippet sqldatabase/sqldatabase.cpp 23      \sa removeColumns() */
 end_comment
 begin_function
 DECL|function|insertColumns
@@ -2138,7 +2138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a count columns from the model starting from position \a     column. The \a parent parameter must always be an invalid     QModelIndex, since the model does not support parent-child     relationships.      Removing columns effectively hides them. It does not affect the     underlying QSqlQuery.      Returns true if the columns were removed; otherwise returns false.  */
+comment|/*!     Removes \a count columns from the model starting from position \a     column. The \a parent parameter must always be an invalid     QModelIndex, since the model does not support parent-child     relationships.      Removing columns effectively hides them. It does not affect the     underlying QSqlQuery.      Returns \c true if the columns were removed; otherwise returns \c false.  */
 end_comment
 begin_function
 DECL|function|removeColumns

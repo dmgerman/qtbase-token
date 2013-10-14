@@ -766,7 +766,7 @@ begin_comment
 comment|//QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     \since 5.0     Returns true if this build of Qt was built with debugging enabled, or     false if it was built in release mode. */
+comment|/*!     \since 5.0     Returns \c true if this build of Qt was built with debugging enabled, or     false if it was built in release mode. */
 end_comment
 begin_function
 name|bool

@@ -17648,7 +17648,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  * Returns true if the rectangle is completely within the current clip  * state of the paint engine.  */
+comment|/*!  * Returns \c true if the rectangle is completely within the current clip  * state of the paint engine.  */
 end_comment
 begin_function
 DECL|function|isUnclipped_normalized

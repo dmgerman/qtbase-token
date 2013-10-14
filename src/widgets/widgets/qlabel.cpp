@@ -1024,7 +1024,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLabel::wordWrap     \brief the label's word-wrapping policy      If this property is true then label text is wrapped where     necessary at word-breaks; otherwise it is not wrapped at all.      By default, word wrap is disabled.      \sa text */
+comment|/*!     \property QLabel::wordWrap     \brief the label's word-wrapping policy      If this property is \c true then label text is wrapped where     necessary at word-breaks; otherwise it is not wrapped at all.      By default, word wrap is disabled.      \sa text */
 end_comment
 begin_function
 DECL|function|setWordWrap
@@ -2267,7 +2267,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QLabel::hasSelectedText     \brief whether there is any text selected      hasSelectedText() returns true if some or all of the text has been     selected by the user; otherwise returns false.      By default, this property is false.      \sa selectedText()      \b{Note:} The textInteractionFlags set on the label need to include     either TextSelectableByMouse or TextSelectableByKeyboard.      \since 4.7 */
+comment|/*!     \property QLabel::hasSelectedText     \brief whether there is any text selected      hasSelectedText() returns \c true if some or all of the text has been     selected by the user; otherwise returns \c false.      By default, this property is \c false.      \sa selectedText()      \b{Note:} The textInteractionFlags set on the label need to include     either TextSelectableByMouse or TextSelectableByKeyboard.      \since 4.7 */
 end_comment
 begin_function
 DECL|function|hasSelectedText

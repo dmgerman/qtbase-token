@@ -240,7 +240,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the server has a pending connection; otherwise     returns false.      \sa nextPendingConnection(), setMaxPendingConnections()  */
+comment|/*!     Returns \c true if the server has a pending connection; otherwise     returns \c false.      \sa nextPendingConnection(), setMaxPendingConnections()  */
 end_comment
 begin_function
 DECL|function|hasPendingConnections
@@ -322,7 +322,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the server is listening for incoming connections     otherwise false.      \sa listen(), close()  */
+comment|/*!     Returns \c true if the server is listening for incoming connections     otherwise false.      \sa listen(), close()  */
 end_comment
 begin_function
 DECL|function|isListening
@@ -655,7 +655,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Removes any server instance that might cause a call to listen() to fail     and returns true if successful; otherwise returns false.     This function is meant to recover from a crash, when the previous server     instance has not been cleaned up.      On Windows, this function does nothing; on Unix, it removes the socket file     given by \a name.      \warning Be careful to avoid removing sockets of running instances. */
+comment|/*!     \since 4.5      Removes any server instance that might cause a call to listen() to fail     and returns \c true if successful; otherwise returns \c false.     This function is meant to recover from a crash, when the previous server     instance has not been cleaned up.      On Windows, this function does nothing; on Unix, it removes the socket file     given by \a name.      \warning Be careful to avoid removing sockets of running instances. */
 end_comment
 begin_function
 DECL|function|removeServer
@@ -785,7 +785,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits for at most \a msec milliseconds or until an incoming connection     is available.  Returns true if a connection is available; otherwise     returns false.  If the operation timed out and \a timedOut is not 0,     *timedOut will be set to true.      This is a blocking function call. Its use is ill-advised in a     single-threaded GUI application, since the whole application will stop     responding until the function returns. waitForNewConnection() is mostly     useful when there is no event loop available.      The non-blocking alternative is to connect to the newConnection() signal.      If msec is -1, this function will not time out.      \sa hasPendingConnections(), nextPendingConnection()  */
+comment|/*!     Waits for at most \a msec milliseconds or until an incoming connection     is available.  Returns \c true if a connection is available; otherwise     returns \c false.  If the operation timed out and \a timedOut is not 0,     *timedOut will be set to true.      This is a blocking function call. Its use is ill-advised in a     single-threaded GUI application, since the whole application will stop     responding until the function returns. waitForNewConnection() is mostly     useful when there is no event loop available.      The non-blocking alternative is to connect to the newConnection() signal.      If msec is -1, this function will not time out.      \sa hasPendingConnections(), nextPendingConnection()  */
 end_comment
 begin_function
 DECL|function|waitForNewConnection

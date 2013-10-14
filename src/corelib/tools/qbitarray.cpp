@@ -567,13 +567,13 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QBitArray::isEmpty() const      Returns true if this bit array has size 0; otherwise returns     false.      \sa size() */
+comment|/*! \fn bool QBitArray::isEmpty() const      Returns \c true if this bit array has size 0; otherwise returns     false.      \sa size() */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::isNull() const      Returns true if this bit array is null; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 5      Qt makes a distinction between null bit arrays and empty bit     arrays for historical reasons. For most applications, what     matters is whether or not a bit array contains any data,     and this can be determined using isEmpty().      \sa isEmpty() */
+comment|/*! \fn bool QBitArray::isNull() const      Returns \c true if this bit array is null; otherwise returns \c false.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 5      Qt makes a distinction between null bit arrays and empty bit     arrays for historical reasons. For most applications, what     matters is whether or not a bit array contains any data,     and this can be determined using isEmpty().      \sa isEmpty() */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::fill(bool value, int size = -1)      Sets every bit in the bit array to \a value, returning true if successful;     otherwise returns false. If \a size is different from -1 (the default),     the bit array is resized to \a size beforehand.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 6      \sa resize() */
+comment|/*! \fn bool QBitArray::fill(bool value, int size = -1)      Sets every bit in the bit array to \a value, returning true if successful;     otherwise returns \c false. If \a size is different from -1 (the default),     the bit array is resized to \a size beforehand.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 6      \sa resize() */
 end_comment
 begin_comment
 comment|/*!     \overload      Sets bits at index positions \a begin up to and excluding \a end     to \a value.      \a begin and \a end must be a valid index position in the bit     array (i.e., 0<= \a begin<= size() and 0<= \a end<= size()). */
@@ -710,7 +710,7 @@ begin_comment
 comment|/*! \fn bool QBitArray::toggleBit(int i)      Inverts the value of the bit at index position \a i, returning the     previous value of that bit as either true (if it was set) or false (if     it was unset).      If the previous value was 0, the new value will be 1. If the     previous value was 1, the new value will be 0.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      \sa setBit(), clearBit() */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::testBit(int i) const      Returns true if the bit at index position \a i is 1; otherwise     returns false.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      \sa setBit(), clearBit() */
+comment|/*! \fn bool QBitArray::testBit(int i) const      Returns \c true if the bit at index position \a i is 1; otherwise     returns \c false.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      \sa setBit(), clearBit() */
 end_comment
 begin_comment
 comment|/*! \fn bool QBitArray::setBit(int i)      Sets the bit at index position \a i to 1.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      \sa clearBit(), toggleBit() */
@@ -749,10 +749,10 @@ begin_comment
 comment|/*! \fn void QBitArray::swap(QBitArray&other)     \since 4.8      Swaps bit array \a other with this bit array. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::operator==(const QBitArray&other) const      Returns true if \a other is equal to this bit array; otherwise     returns false.      \sa operator!=() */
+comment|/*! \fn bool QBitArray::operator==(const QBitArray&other) const      Returns \c true if \a other is equal to this bit array; otherwise     returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::operator!=(const QBitArray&other) const      Returns true if \a other is not equal to this bit array;     otherwise returns false.      \sa operator==() */
+comment|/*! \fn bool QBitArray::operator!=(const QBitArray&other) const      Returns \c true if \a other is not equal to this bit array;     otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Performs the AND operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 8      \sa operator&(), operator|=(), operator^=(), operator~() */

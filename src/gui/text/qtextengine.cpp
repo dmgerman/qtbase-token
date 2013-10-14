@@ -11339,6 +11339,20 @@ name|prevScaledFontEngine
 operator|=
 name|scaledEngine
 expr_stmt|;
+comment|// If scEngine is not ref'ed by scaledEngine, make sure it is deallocated and not leaked.
+if|if
+condition|(
+operator|!
+name|scEngine
+operator|->
+name|ref
+operator|.
+name|load
+argument_list|()
+condition|)
+operator|delete
+name|scEngine
+expr_stmt|;
 block|}
 block|}
 block|}

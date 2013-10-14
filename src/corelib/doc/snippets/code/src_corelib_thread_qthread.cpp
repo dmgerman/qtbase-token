@@ -127,10 +127,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-DECL|member|workerThread
-name|QThread
-name|workerThread
-decl_stmt|;
 public|public
 name|slots
 public|:

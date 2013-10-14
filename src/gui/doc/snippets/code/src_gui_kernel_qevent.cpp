@@ -20,7 +20,7 @@ block|{
 name|QPoint
 name|numPixels
 init|=
-name|envent
+name|event
 operator|->
 name|pixelDelta
 argument_list|()
@@ -28,7 +28,7 @@ decl_stmt|;
 name|QPoint
 name|numDegrees
 init|=
-name|envent
+name|event
 operator|->
 name|angleDelta
 argument_list|()
@@ -46,7 +46,7 @@ condition|)
 block|{
 name|scrollWithPixels
 argument_list|(
-name|numpixels
+name|numPixels
 argument_list|)
 expr_stmt|;
 block|}

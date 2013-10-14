@@ -2580,16 +2580,16 @@ begin_comment
 comment|/*! \fn void QMultiHash::swap(QMultiHash<Key, T>&other)     \since 4.8      Swaps hash \a other with this hash. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::operator==(const QHash<Key, T>&other) const      Returns true if \a other is equal to this hash; otherwise returns     false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator!=() */
+comment|/*! \fn bool QHash::operator==(const QHash<Key, T>&other) const      Returns \c true if \a other is equal to this hash; otherwise returns     false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::operator!=(const QHash<Key, T>&other) const      Returns true if \a other is not equal to this hash; otherwise     returns false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator==() */
+comment|/*! \fn bool QHash::operator!=(const QHash<Key, T>&other) const      Returns \c true if \a other is not equal to this hash; otherwise     returns \c false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn int QHash::size() const      Returns the number of items in the hash.      \sa isEmpty(), count() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::isEmpty() const      Returns true if the hash contains no items; otherwise returns     false.      \sa size() */
+comment|/*! \fn bool QHash::isEmpty() const      Returns \c true if the hash contains no items; otherwise returns     false.      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn int QHash::capacity() const      Returns the number of buckets in the QHash's internal hash table.      The sole purpose of this function is to provide a means of fine     tuning QHash's memory usage. In general, you will rarely ever     need to call this function. If you want to know how many items are     in the hash, call size().      \sa reserve(), squeeze() */
@@ -2604,7 +2604,7 @@ begin_comment
 comment|/*! \fn void QHash::detach()      \internal      Detaches this hash from any other hashes with which it may share     data.      \sa isDetached() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::isDetached() const      \internal      Returns true if the hash's internal data isn't shared with any     other hash object; otherwise returns false.      \sa detach() */
+comment|/*! \fn bool QHash::isDetached() const      \internal      Returns \c true if the hash's internal data isn't shared with any     other hash object; otherwise returns \c false.      \sa detach() */
 end_comment
 begin_comment
 comment|/*! \fn void QHash::setSharable(bool sharable)      \internal */
@@ -2622,7 +2622,7 @@ begin_comment
 comment|/*! \fn T QHash::take(const Key&key)      Removes the item with the \a key from the hash and returns     the value associated with it.      If the item does not exist in the hash, the function simply     returns a \l{default-constructed value}. If there are multiple     items for \a key in the hash, only the most recently inserted one     is removed.      If you don't use the return value, remove() is more efficient.      \sa remove() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::contains(const Key&key) const      Returns true if the hash contains an item with the \a key;     otherwise returns false.      \sa count(), QMultiHash::contains() */
+comment|/*! \fn bool QHash::contains(const Key&key) const      Returns \c true if the hash contains an item with the \a key;     otherwise returns \c false.      \sa count(), QMultiHash::contains() */
 end_comment
 begin_comment
 comment|/*! \fn const T QHash::value(const Key&key) const      Returns the value associated with the \a key.      If the hash contains no item with the \a key, the function     returns a \l{default-constructed value}. If there are multiple     items for the \a key in the hash, the value of the most recently     inserted one is returned.      \sa key(), values(), contains(), operator[]() */
@@ -2709,7 +2709,7 @@ begin_comment
 comment|/*! \fn QHash<Key, T>&QHash::unite(const QHash<Key, T>&other)      Inserts all the items in the \a other hash into this hash. If a     key is common to both hashes, the resulting hash will contain the     key multiple times.      \sa insertMulti() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning true if the hash is empty; otherwise     returns false. */
+comment|/*! \fn bool QHash::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning true if the hash is empty; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*! \typedef QHash::ConstIterator      Qt-style synonym for QHash::const_iterator. */
@@ -2781,10 +2781,10 @@ begin_comment
 comment|/*! \fn T *QHash::iterator::operator->() const      Returns a pointer to the current item's value.      \sa value() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QHash::iterator::operator==(const iterator&other) const     \fn bool QHash::iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*!     \fn bool QHash::iterator::operator==(const iterator&other) const     \fn bool QHash::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QHash::iterator::operator!=(const iterator&other) const     \fn bool QHash::iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QHash::iterator::operator!=(const iterator&other) const     \fn bool QHash::iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     \fn QHash::iterator&QHash::iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the hash and returns an iterator to the new current     item.      Calling this function on QHash::end() leads to undefined results.      \sa operator--() */
@@ -2835,10 +2835,10 @@ begin_comment
 comment|/*! \fn const T *QHash::const_iterator::operator->() const      Returns a pointer to the current item's value.      \sa value() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::const_iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*! \fn bool QHash::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::const_iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*! \fn bool QHash::const_iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     \fn QHash::const_iterator&QHash::const_iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the hash and returns an iterator to the new current     item.      Calling this function on QHash::end() leads to undefined results.      \sa operator--() */
@@ -2895,7 +2895,7 @@ begin_comment
 comment|/*! \fn QMultiHash QMultiHash::operator+(const QMultiHash&other) const      Returns a hash that contains all the items in this hash in     addition to all the items in \a other. If a key is common to both     hashes, the resulting hash will contain the key multiple times.      \sa operator+=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMultiHash::contains(const Key&key, const T&value) const     \since 4.3      Returns true if the hash contains an item with the \a key and     \a value; otherwise returns false.      \sa QHash::contains() */
+comment|/*!     \fn bool QMultiHash::contains(const Key&key, const T&value) const     \since 4.3      Returns \c true if the hash contains an item with the \a key and     \a value; otherwise returns \c false.      \sa QHash::contains() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QMultiHash::contains(const Key&key) const     \overload     \sa QHash::contains() */

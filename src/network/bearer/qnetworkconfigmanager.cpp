@@ -610,7 +610,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the system is considered to be connected to another device via an active     network interface; otherwise returns false.      This is equivalent to the following code snippet:      \snippet code/src_network_bearer_qnetworkconfigmanager.cpp 0      \sa onlineStateChanged() */
+comment|/*!     Returns \c true if the system is considered to be connected to another device via an active     network interface; otherwise returns \c false.      This is equivalent to the following code snippet:      \snippet code/src_network_bearer_qnetworkconfigmanager.cpp 0      \sa onlineStateChanged() */
 end_comment
 begin_function
 DECL|function|isOnline

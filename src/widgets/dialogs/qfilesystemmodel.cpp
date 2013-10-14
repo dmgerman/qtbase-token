@@ -1931,7 +1931,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the model item \a index represents a directory;     otherwise returns false. */
+comment|/*!     Returns \c true if the model item \a index represents a directory;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isDir
@@ -7284,7 +7284,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QFileSystemModel::resolveSymlinks     \brief Whether the directory model should resolve symbolic links      This is only relevant on Windows.      By default, this property is true. */
+comment|/*!     \property QFileSystemModel::resolveSymlinks     \brief Whether the directory model should resolve symbolic links      This is only relevant on Windows.      By default, this property is \c true. */
 end_comment
 begin_function
 DECL|function|setResolveSymlinks
@@ -7354,7 +7354,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \property QFileSystemModel::readOnly     \brief Whether the directory model allows writing to the file system      If this property is set to false, the directory model will allow renaming, copying     and deleting of files and directories.      This property is true by default */
+comment|/*!     \property QFileSystemModel::readOnly     \brief Whether the directory model allows writing to the file system      If this property is set to false, the directory model will allow renaming, copying     and deleting of files and directories.      This property is \c true by default */
 end_comment
 begin_function
 DECL|function|setReadOnly
@@ -7403,7 +7403,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QFileSystemModel::nameFilterDisables     \brief Whether files that don't pass the name filter are hidden or disabled      This property is true by default */
+comment|/*!     \property QFileSystemModel::nameFilterDisables     \brief Whether files that don't pass the name filter are hidden or disabled      This property is \c true by default */
 end_comment
 begin_function
 DECL|function|setNameFilterDisables
@@ -9619,7 +9619,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns false if node doesn't pass the filters otherwise true      QDir::Modified is not supported     QDir::Drives is not supported */
+comment|/*!     \internal      Returns \c false if node doesn't pass the filters otherwise true      QDir::Modified is not supported     QDir::Drives is not supported */
 end_comment
 begin_function
 DECL|function|filtersAcceptsNode
@@ -9977,7 +9977,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     \internal      Returns true if node passes the name filters and should be visible.  */
+comment|/*     \internal      Returns \c true if node passes the name filters and should be visible.  */
 end_comment
 begin_function
 DECL|function|passNameFilters

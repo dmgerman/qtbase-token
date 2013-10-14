@@ -3916,7 +3916,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the key sequence is empty; otherwise returns     false. */
+comment|/*!     Returns \c true if the key sequence is empty; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -6625,10 +6625,10 @@ begin_comment
 comment|/*!     \fn void QKeySequence::swap(QKeySequence&other)     \since 4.8      Swaps key sequence \a other with this key sequence. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QKeySequence::operator!=(const QKeySequence&other) const      Returns true if this key sequence is not equal to the \a other     key sequence; otherwise returns false. */
+comment|/*!     \fn bool QKeySequence::operator!=(const QKeySequence&other) const      Returns \c true if this key sequence is not equal to the \a other     key sequence; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this key sequence is equal to the \a other     key sequence; otherwise returns false.  */
+comment|/*!     Returns \c true if this key sequence is equal to the \a other     key sequence; otherwise returns \c false.  */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -6715,7 +6715,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Provides an arbitrary comparison of this key sequence and     \a other key sequence. All that is guaranteed is that the     operator returns false if both key sequences are equal and     that (ks1 \< ks2) == !( ks2 \< ks1) if the key sequences     are not equal.      This function is useful in some circumstances, for example     if you want to use QKeySequence objects as keys in a QMap.      \sa operator==(), operator!=(), operator>(), operator<=(), operator>=() */
+comment|/*!     Provides an arbitrary comparison of this key sequence and     \a other key sequence. All that is guaranteed is that the     operator returns \c false if both key sequences are equal and     that (ks1 \< ks2) == !( ks2 \< ks1) if the key sequences     are not equal.      This function is useful in some circumstances, for example     if you want to use QKeySequence objects as keys in a QMap.      \sa operator==(), operator!=(), operator>(), operator<=(), operator>=() */
 end_comment
 begin_function
 DECL|function|operator <
@@ -6787,13 +6787,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QKeySequence::operator> (const QKeySequence&other) const      Returns true if this key sequence is larger than the \a other key     sequence; otherwise returns false.      \sa operator==(), operator!=(), operator<(), operator<=(), operator>=() */
+comment|/*!     \fn bool QKeySequence::operator> (const QKeySequence&other) const      Returns \c true if this key sequence is larger than the \a other key     sequence; otherwise returns \c false.      \sa operator==(), operator!=(), operator<(), operator<=(), operator>=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QKeySequence::operator<= (const QKeySequence&other) const      Returns true if this key sequence is smaller or equal to the     \a other key sequence; otherwise returns false.      \sa operator==(), operator!=(), operator<(), operator>(), operator>=() */
+comment|/*!     \fn bool QKeySequence::operator<= (const QKeySequence&other) const      Returns \c true if this key sequence is smaller or equal to the     \a other key sequence; otherwise returns \c false.      \sa operator==(), operator!=(), operator<(), operator>(), operator>=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QKeySequence::operator>= (const QKeySequence&other) const      Returns true if this key sequence is larger or equal to the     \a other key sequence; otherwise returns false.      \sa operator==(), operator!=(), operator<(), operator>(), operator<=() */
+comment|/*!     \fn bool QKeySequence::operator>= (const QKeySequence&other) const      Returns \c true if this key sequence is larger or equal to the     \a other key sequence; otherwise returns \c false.      \sa operator==(), operator!=(), operator<(), operator>(), operator<=() */
 end_comment
 begin_comment
 comment|/*!     \internal */

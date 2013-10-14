@@ -3201,7 +3201,12 @@ argument_list|(
 name|QByteArray
 argument_list|(
 literal|"i am "
+argument_list|)
 operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
 name|i
 argument_list|)
 argument_list|)

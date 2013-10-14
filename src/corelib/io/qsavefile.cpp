@@ -677,7 +677,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Commits the changes to disk, if all previous writes were successful.    It is mandatory to call this at the end of the saving operation, otherwise the file will be   discarded.    If an error happened during writing, deletes the temporary file and returns false.   Otherwise, renames it to the final fileName and returns true on success.   Finally, closes the device.    \sa cancelWriting() */
+comment|/*!   Commits the changes to disk, if all previous writes were successful.    It is mandatory to call this at the end of the saving operation, otherwise the file will be   discarded.    If an error happened during writing, deletes the temporary file and returns \c false.   Otherwise, renames it to the final fileName and returns \c true on success.   Finally, closes the device.    \sa cancelWriting() */
 end_comment
 begin_function
 DECL|function|commit
@@ -1019,7 +1019,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the fallback solution for saving files in read-only   directories is enabled.    \sa setDirectWriteFallback() */
+comment|/*!   Returns \c true if the fallback solution for saving files in read-only   directories is enabled.    \sa setDirectWriteFallback() */
 end_comment
 begin_function
 DECL|function|directWriteFallback

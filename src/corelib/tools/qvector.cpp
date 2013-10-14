@@ -39,16 +39,16 @@ begin_comment
 comment|/*! \fn void QVector::swap(QVector<T>&other)     \since 4.8      Swaps vector \a other with this vector. This operation is very fast and     never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::operator==(const QVector<T>&other) const      Returns true if \a other is equal to this vector; otherwise     returns false.      Two vectors are considered equal if they contain the same values     in the same order.      This function requires the value type to have an implementation     of \c operator==().      \sa operator!=() */
+comment|/*! \fn bool QVector::operator==(const QVector<T>&other) const      Returns \c true if \a other is equal to this vector; otherwise     returns \c false.      Two vectors are considered equal if they contain the same values     in the same order.      This function requires the value type to have an implementation     of \c operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::operator!=(const QVector<T>&other) const      Returns true if \a other is not equal to this vector; otherwise     returns false.      Two vectors are considered equal if they contain the same values     in the same order.      This function requires the value type to have an implementation     of \c operator==().      \sa operator==() */
+comment|/*! \fn bool QVector::operator!=(const QVector<T>&other) const      Returns \c true if \a other is not equal to this vector; otherwise     returns \c false.      Two vectors are considered equal if they contain the same values     in the same order.      This function requires the value type to have an implementation     of \c operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn int QVector::size() const      Returns the number of items in the vector.      \sa isEmpty(), resize() */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::isEmpty() const      Returns true if the vector has size 0; otherwise returns false.      \sa size(), resize() */
+comment|/*! \fn bool QVector::isEmpty() const      Returns \c true if the vector has size 0; otherwise returns \c false.      \sa size(), resize() */
 end_comment
 begin_comment
 comment|/*! \fn void QVector::resize(int size)      Sets the size of the vector to \a size. If \a size is greater than the     current size, elements are added to the end; the new elements are     initialized with a \l{default-constructed value}. If \a size is less     than the current size, elements are removed from the end.      \sa size() */
@@ -144,13 +144,13 @@ begin_comment
 comment|/*! \fn int QVector::lastIndexOf(const T&value, int from = -1) const      Returns the index position of the last occurrence of the value \a     value in the vector, searching backward from index position \a     from. If \a from is -1 (the default), the search starts at the     last item. Returns -1 if no item matched.      Example:     \snippet code/src_corelib_tools_qvector.cpp 13      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf() */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::contains(const T&value) const      Returns true if the vector contains an occurrence of \a value;     otherwise returns false.      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf(), count() */
+comment|/*! \fn bool QVector::contains(const T&value) const      Returns \c true if the vector contains an occurrence of \a value;     otherwise returns \c false.      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::startsWith(const T&value) const     \since 4.5      Returns true if this vector is not empty and its first     item is equal to \a value; otherwise returns false.      \sa isEmpty(), first() */
+comment|/*! \fn bool QVector::startsWith(const T&value) const     \since 4.5      Returns \c true if this vector is not empty and its first     item is equal to \a value; otherwise returns \c false.      \sa isEmpty(), first() */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::endsWith(const T&value) const     \since 4.5      Returns true if this vector is not empty and its last     item is equal to \a value; otherwise returns false.      \sa isEmpty(), last() */
+comment|/*! \fn bool QVector::endsWith(const T&value) const     \since 4.5      Returns \c true if this vector is not empty and its last     item is equal to \a value; otherwise returns \c false.      \sa isEmpty(), last() */
 end_comment
 begin_comment
 comment|/*! \fn int QVector::count(const T&value) const      Returns the number of occurrences of \a value in the vector.      This function requires the value type to have an implementation of     \c operator==().      \sa contains(), indexOf() */
@@ -231,7 +231,7 @@ begin_comment
 comment|/*! \fn QVector::const_reference QVector::back() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn bool QVector::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning true if the vector is empty; otherwise     returns false. */
+comment|/*! \fn bool QVector::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning true if the vector is empty; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*! \fn QVector<T>&QVector::operator+=(const QVector<T>&other)      Appends the items of the \a other vector to this vector and     returns a reference to this vector.      \sa operator+(), append() */

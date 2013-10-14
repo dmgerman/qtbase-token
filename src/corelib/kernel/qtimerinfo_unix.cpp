@@ -296,7 +296,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   Returns true if the real time clock has changed by more than 10%   relative to the processor time since the last time this function was   called. This presumably means that the system time has been changed.    If /a delta is nonzero, delta is set to our best guess at how much the system clock was changed. */
+comment|/*   Returns \c true if the real time clock has changed by more than 10%   relative to the processor time since the last time this function was   called. This presumably means that the system time has been changed.    If /a delta is nonzero, delta is set to our best guess at how much the system clock was changed. */
 end_comment
 begin_function
 DECL|function|timeChanged

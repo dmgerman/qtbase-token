@@ -4135,7 +4135,7 @@ begin_comment
 comment|/*!     \fn void QEasingCurve::swap(QEasingCurve&other)     \since 5.0      Swaps curve \a other with this curve. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Compare this easing curve with \a other and returns true if they are     equal. It will also compare the properties of a curve.  */
+comment|/*!     Compare this easing curve with \a other and returns \c true if they are     equal. It will also compare the properties of a curve.  */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -4272,7 +4272,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QEasingCurve::operator!=(const QEasingCurve&other) const     Compare this easing curve with \a other and returns true if they are not equal.     It will also compare the properties of a curve.      \sa operator==() */
+comment|/*!     \fn bool QEasingCurve::operator!=(const QEasingCurve&other) const     Compare this easing curve with \a other and returns \c true if they are not equal.     It will also compare the properties of a curve.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     Returns the amplitude. This is not applicable for all curve types.     It is only applicable for bounce and elastic curves (curves of type()     QEasingCurve::InBounce, QEasingCurve::OutBounce, QEasingCurve::InOutBounce,     QEasingCurve::OutInBounce, QEasingCurve::InElastic, QEasingCurve::OutElastic,     QEasingCurve::InOutElastic or QEasingCurve::OutInElastic).  */

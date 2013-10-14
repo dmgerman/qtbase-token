@@ -13423,7 +13423,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the value of the item referred to by the given     index \a left is less than the value of the item referred to by     the given index \a right, otherwise returns false.      This function is used as the< operator when sorting, and handles     the following QVariant types:      \list     \li QVariant::Int     \li QVariant::UInt     \li QVariant::LongLong     \li QVariant::ULongLong     \li QVariant::Double     \li QVariant::Char     \li QVariant::Date     \li QVariant::Time     \li QVariant::DateTime     \li QVariant::String     \endlist      Any other type will be converted to a QString using     QVariant::toString().      Comparison of \l{QString}s is case sensitive by default; this can     be changed using the \l {QSortFilterProxyModel::sortCaseSensitivity}     {sortCaseSensitivity} property.      By default, the Qt::DisplayRole associated with the     \l{QModelIndex}es is used for comparisons. This can be changed by     setting the \l {QSortFilterProxyModel::sortRole} {sortRole} property.      \note The indices passed in correspond to the source model.      \sa sortRole, sortCaseSensitivity, dynamicSortFilter */
+comment|/*!     Returns \c true if the value of the item referred to by the given     index \a left is less than the value of the item referred to by     the given index \a right, otherwise returns \c false.      This function is used as the< operator when sorting, and handles     the following QVariant types:      \list     \li QVariant::Int     \li QVariant::UInt     \li QVariant::LongLong     \li QVariant::ULongLong     \li QVariant::Double     \li QVariant::Char     \li QVariant::Date     \li QVariant::Time     \li QVariant::DateTime     \li QVariant::String     \endlist      Any other type will be converted to a QString using     QVariant::toString().      Comparison of \l{QString}s is case sensitive by default; this can     be changed using the \l {QSortFilterProxyModel::sortCaseSensitivity}     {sortCaseSensitivity} property.      By default, the Qt::DisplayRole associated with the     \l{QModelIndex}es is used for comparisons. This can be changed by     setting the \l {QSortFilterProxyModel::sortRole} {sortRole} property.      \note The indices passed in correspond to the source model.      \sa sortRole, sortCaseSensitivity, dynamicSortFilter */
 end_comment
 begin_function
 DECL|function|lessThan
@@ -13745,7 +13745,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the item in the row indicated by the given \a source_row     and \a source_parent should be included in the model; otherwise returns     false.      The default implementation returns true if the value held by the relevant item     matches the filter string, wildcard string or regular expression.      \note By default, the Qt::DisplayRole is used to determine if the row     should be accepted or not. This can be changed by setting the     \l{QSortFilterProxyModel::filterRole}{filterRole} property.      \sa filterAcceptsColumn(), setFilterFixedString(), setFilterRegExp(), setFilterWildcard() */
+comment|/*!     Returns \c true if the item in the row indicated by the given \a source_row     and \a source_parent should be included in the model; otherwise returns     false.      The default implementation returns \c true if the value held by the relevant item     matches the filter string, wildcard string or regular expression.      \note By default, the Qt::DisplayRole is used to determine if the row     should be accepted or not. This can be changed by setting the     \l{QSortFilterProxyModel::filterRole}{filterRole} property.      \sa filterAcceptsColumn(), setFilterFixedString(), setFilterRegExp(), setFilterWildcard() */
 end_comment
 begin_function
 DECL|function|filterAcceptsRow
@@ -13935,7 +13935,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the item in the column indicated by the given \a source_column     and \a source_parent should be included in the model; otherwise returns false.      The default implementation returns true if the value held by the relevant item     matches the filter string, wildcard string or regular expression.      \note By default, the Qt::DisplayRole is used to determine if the row     should be accepted or not. This can be changed by setting the \l     filterRole property.      \sa filterAcceptsRow(), setFilterFixedString(), setFilterRegExp(), setFilterWildcard() */
+comment|/*!     Returns \c true if the item in the column indicated by the given \a source_column     and \a source_parent should be included in the model; otherwise returns \c false.      The default implementation returns \c true if the value held by the relevant item     matches the filter string, wildcard string or regular expression.      \note By default, the Qt::DisplayRole is used to determine if the row     should be accepted or not. This can be changed by setting the \l     filterRole property.      \sa filterAcceptsRow(), setFilterFixedString(), setFilterRegExp(), setFilterWildcard() */
 end_comment
 begin_function
 DECL|function|filterAcceptsColumn

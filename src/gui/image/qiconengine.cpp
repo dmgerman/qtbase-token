@@ -220,7 +220,7 @@ begin_comment
 comment|/*! \fn QIconEngine *QIconEngine::clone() const      Reimplement this method to return a clone of this icon engine.  */
 end_comment
 begin_comment
-comment|/*!     Reads icon engine contents from the QDataStream \a in. Returns     true if the contents were read; otherwise returns false.      QIconEngine's default implementation always return false.  */
+comment|/*!     Reads icon engine contents from the QDataStream \a in. Returns     true if the contents were read; otherwise returns \c false.      QIconEngine's default implementation always return false.  */
 end_comment
 begin_function
 DECL|function|read
@@ -239,7 +239,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes the contents of this engine to the QDataStream \a out.     Returns true if the contents were written; otherwise returns false.      QIconEngine's default implementation always return false.  */
+comment|/*!     Writes the contents of this engine to the QDataStream \a out.     Returns \c true if the contents were written; otherwise returns \c false.      QIconEngine's default implementation always return false.  */
 end_comment
 begin_function
 DECL|function|write

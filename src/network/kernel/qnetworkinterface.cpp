@@ -679,7 +679,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns true if this network address entry is the same as \a     other. */
+comment|/*!     Returns \c true if this network address entry is the same as \a     other. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -754,7 +754,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QNetworkAddressEntry::operator!=(const QNetworkAddressEntry&other) const      Returns true if this network address entry is different from \a     other. */
+comment|/*!     \fn bool QNetworkAddressEntry::operator!=(const QNetworkAddressEntry&other) const      Returns \c true if this network address entry is different from \a     other. */
 end_comment
 begin_comment
 comment|/*!     This function returns one IPv4 or IPv6 address found, that was     found in a network interface. */
@@ -1056,7 +1056,7 @@ begin_comment
 comment|/*!     \fn void QNetworkInterface::swap(QNetworkInterface&other)     \since 5.0      Swaps this network interface instance with \a other. This function     is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this QNetworkInterface object contains valid     information about a network interface. */
+comment|/*!     Returns \c true if this QNetworkInterface object contains valid     information about a network interface. */
 end_comment
 begin_function
 DECL|function|isValid

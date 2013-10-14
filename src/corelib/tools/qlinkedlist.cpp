@@ -74,10 +74,10 @@ begin_comment
 comment|/*! \fn void QLinkedList::swap(QLinkedList<T>&other)     \since 4.8      Swaps list \a other with this list. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::operator==(const QLinkedList<T>&other) const      Returns true if \a other is equal to this list; otherwise returns     false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to implement \c     operator==().      \sa operator!=() */
+comment|/*! \fn bool QLinkedList::operator==(const QLinkedList<T>&other) const      Returns \c true if \a other is equal to this list; otherwise returns     false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to implement \c     operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::operator!=(const QLinkedList<T>&other) const      Returns true if \a other is not equal to this list; otherwise     returns false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to implement \c     operator==().      \sa operator==() */
+comment|/*! \fn bool QLinkedList::operator!=(const QLinkedList<T>&other) const      Returns \c true if \a other is not equal to this list; otherwise     returns \c false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to implement \c     operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn int QLinkedList::size() const      Returns the number of items in the list.      \sa isEmpty(), count() */
@@ -95,7 +95,7 @@ begin_comment
 comment|/*! \fn bool QLinkedList::isSharedWith(const QLinkedList<T>&other) const      \internal */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::isEmpty() const      Returns true if the list contains no items; otherwise returns     false.      \sa size() */
+comment|/*! \fn bool QLinkedList::isEmpty() const      Returns \c true if the list contains no items; otherwise returns     false.      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn void QLinkedList::clear()      Removes all the items in the list.      \sa removeAll() */
@@ -110,19 +110,19 @@ begin_comment
 comment|/*! \fn int QLinkedList::removeAll(const T&value)      Removes all occurrences of \a value in the list.      Example:     \snippet code/src_corelib_tools_qlinkedlist.cpp 5      This function requires the value type to have an implementation of     \c operator==().      \sa insert() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLinkedList::removeOne(const T&value)     \since 4.4      Removes the first occurrences of \a value in the list. Returns true on     success; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qlinkedlist.cpp 6      This function requires the value type to have an implementation of     \c operator==().      \sa insert() */
+comment|/*!     \fn bool QLinkedList::removeOne(const T&value)     \since 4.4      Removes the first occurrences of \a value in the list. Returns \c true on     success; otherwise returns \c false.      Example:     \snippet code/src_corelib_tools_qlinkedlist.cpp 6      This function requires the value type to have an implementation of     \c operator==().      \sa insert() */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::contains(const T&value) const      Returns true if the list contains an occurrence of \a value;     otherwise returns false.      This function requires the value type to have an implementation of     \c operator==().      \sa QLinkedListIterator::findNext(), QLinkedListIterator::findPrevious() */
+comment|/*! \fn bool QLinkedList::contains(const T&value) const      Returns \c true if the list contains an occurrence of \a value;     otherwise returns \c false.      This function requires the value type to have an implementation of     \c operator==().      \sa QLinkedListIterator::findNext(), QLinkedListIterator::findPrevious() */
 end_comment
 begin_comment
 comment|/*! \fn int QLinkedList::count(const T&value) const      Returns the number of occurrences of \a value in the list.      This function requires the value type to have an implementation of     \c operator==().      \sa contains() */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::startsWith(const T&value) const     \since 4.5      Returns true if the list is not empty and its first     item is equal to \a value; otherwise returns false.      \sa isEmpty(), first() */
+comment|/*! \fn bool QLinkedList::startsWith(const T&value) const     \since 4.5      Returns \c true if the list is not empty and its first     item is equal to \a value; otherwise returns \c false.      \sa isEmpty(), first() */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::endsWith(const T&value) const     \since 4.5      Returns true if the list is not empty and its last     item is equal to \a value; otherwise returns false.      \sa isEmpty(), last() */
+comment|/*! \fn bool QLinkedList::endsWith(const T&value) const     \since 4.5      Returns \c true if the list is not empty and its last     item is equal to \a value; otherwise returns \c false.      \sa isEmpty(), last() */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::iterator QLinkedList::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first item in     the list.      \sa constBegin(), end() */
@@ -236,7 +236,7 @@ begin_comment
 comment|/*! \fn void QLinkedList::pop_back()      This function is provided for STL compatibility. It is equivalent     to removeLast(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty() and returns true if the list is empty. */
+comment|/*! \fn bool QLinkedList::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty() and returns \c true if the list is empty. */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList<T>&QLinkedList::operator+=(const QLinkedList<T>&other)      Appends the items of the \a other list to this list and returns a     reference to this list.      \sa operator+(), append() */
@@ -293,10 +293,10 @@ begin_comment
 comment|/*! \fn T *QLinkedList::iterator::operator->() const      Returns a pointer to the current item.      \sa operator*() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLinkedList::iterator::operator==(const iterator&other) const     \fn bool QLinkedList::iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*!     \fn bool QLinkedList::iterator::operator==(const iterator&other) const     \fn bool QLinkedList::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLinkedList::iterator::operator!=(const iterator&other) const     \fn bool QLinkedList::iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*!     \fn bool QLinkedList::iterator::operator!=(const iterator&other) const     \fn bool QLinkedList::iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::iterator&QLinkedList::iterator::operator++()      The prefix ++ operator (\c{++it}) advances the iterator to the     next item in the list and returns an iterator to the new current     item.      Calling this function on QLinkedList::end() leads to undefined     results.      \sa operator--() */
@@ -362,10 +362,10 @@ begin_comment
 comment|/*! \fn const T *QLinkedList::const_iterator::operator->() const      Returns a pointer to the current item.      \sa operator*() */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::const_iterator::operator==(const const_iterator&other) const      Returns true if \a other points to the same item as this     iterator; otherwise returns false.      \sa operator!=() */
+comment|/*! \fn bool QLinkedList::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QLinkedList::const_iterator::operator!=(const const_iterator&other) const      Returns true if \a other points to a different item than this     iterator; otherwise returns false.      \sa operator==() */
+comment|/*! \fn bool QLinkedList::const_iterator::operator!=(const const_iterator&other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn QLinkedList::const_iterator&QLinkedList::const_iterator::operator++()      The prefix ++ operator (\c{++it}) advances the iterator to the     next item in the list and returns an iterator to the new current     item.      Calling this function on QLinkedList::constEnd() leads to     undefined results.      \sa operator--() */

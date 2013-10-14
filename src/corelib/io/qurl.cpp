@@ -3,7 +3,7 @@ begin_comment
 comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2012 Intel Corporation. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QUrl     \inmodule QtCore      \brief The QUrl class provides a convenient interface for working     with URLs.      \reentrant     \ingroup io     \ingroup network     \ingroup shared       It can parse and construct URLs in both encoded and unencoded     form. QUrl also has support for internationalized domain names     (IDNs).      The most common way to use QUrl is to initialize it via the     constructor by passing a QString. Otherwise, setUrl() can also     be used.      URLs can be represented in two forms: encoded or unencoded. The     unencoded representation is suitable for showing to users, but     the encoded representation is typically what you would send to     a web server. For example, the unencoded URL     "http://bÃ¼hler.example.com/List of applicants.xml"     would be sent to the server as     "http://xn--bhler-kva.example.com/List%20of%20applicants.xml".      A URL can also be constructed piece by piece by calling     setScheme(), setUserName(), setPassword(), setHost(), setPort(),     setPath(), setQuery() and setFragment(). Some convenience     functions are also available: setAuthority() sets the user name,     password, host and port. setUserInfo() sets the user name and     password at once.      Call isValid() to check if the URL is valid. This can be done at any point     during the constructing of a URL. If isValid() returns false, you should     clear() the URL before proceeding, or start over by parsing a new URL with     setUrl().      Constructing a query is particularly convenient through the use of the \l     QUrlQuery class and its methods QUrlQuery::setQueryItems(),     QUrlQuery::addQueryItem() and QUrlQuery::removeQueryItem(). Use     QUrlQuery::setQueryDelimiters() to customize the delimiters used for     generating the query string.      For the convenience of generating encoded URL strings or query     strings, there are two static functions called     fromPercentEncoding() and toPercentEncoding() which deal with     percent encoding and decoding of QStrings.      Calling isRelative() will tell whether or not the URL is     relative. A relative URL can be resolved by passing it as argument     to resolved(), which returns an absolute URL. isParentOf() is used     for determining whether one URL is a parent of another.      fromLocalFile() constructs a QUrl by parsing a local     file path. toLocalFile() converts a URL to a local file path.      The human readable representation of the URL is fetched with     toString(). This representation is appropriate for displaying a     URL to a user in unencoded form. The encoded form however, as     returned by toEncoded(), is for internal use, passing to web     servers, mail clients and so on. Both forms are technically correct     and represent the same URL unambiguously -- in fact, passing either     form to QUrl's constructor or to setUrl() will yield the same QUrl     object.      QUrl conforms to the URI specification from     \l{RFC 3986} (Uniform Resource Identifier: Generic Syntax), and includes     scheme extensions from \l{RFC 1738} (Uniform Resource Locators). Case     folding rules in QUrl conform to \l{RFC 3491} (Nameprep: A Stringprep     Profile for Internationalized Domain Names (IDN)). It is also compatible with the     \l{http://freedesktop.org/wiki/Specifications/file-uri-spec/}{file URI specification}     from freedesktop.org, provided that the locale encodes file names using     UTF-8 (required by IDN).      \section2 Error checking      QUrl is capable of detecting many errors in URLs while parsing it or when     components of the URL are set with individual setter methods (like     setScheme(), setHost() or setPath()). If the parsing or setter function is     successful, any previously recorded error conditions will be discarded.      By default, QUrl setter methods operate in QUrl::TolerantMode, which means     they accept some common mistakes and mis-representation of data. An     alternate method of parsing is QUrl::StrictMode, which applies further     checks. See QUrl::ParsingMode for a description of the difference of the     parsing modes.      QUrl only checks for conformance with the URL specification. It does not     try to verify that high-level protocol URLs are in the format they are     expected to be by handlers elsewhere. For example, the following URIs are     all considered valid by QUrl, even if they do not make sense when used:      \list       \li "http:/filename.html"       \li "mailto://example.com"     \endlist      When the parser encounters an error, it signals the event by making     isValid() return false and toString() / toEncoded() return an empty string.     If it is necessary to show the user the reason why the URL failed to parse,     the error condition can be obtained from QUrl by calling errorString().     Note that this message is highly technical and may not make sense to     end-users.      QUrl is capable of recording only one error condition. If more than one     error is found, it is undefined which error is reported.      \section2 Character Conversions      Follow these rules to avoid erroneous character conversion when     dealing with URLs and strings:      \list     \li When creating an QString to contain a URL from a QByteArray or a        char*, always use QString::fromUtf8().     \endlist */
+comment|/*!     \class QUrl     \inmodule QtCore      \brief The QUrl class provides a convenient interface for working     with URLs.      \reentrant     \ingroup io     \ingroup network     \ingroup shared       It can parse and construct URLs in both encoded and unencoded     form. QUrl also has support for internationalized domain names     (IDNs).      The most common way to use QUrl is to initialize it via the     constructor by passing a QString. Otherwise, setUrl() can also     be used.      URLs can be represented in two forms: encoded or unencoded. The     unencoded representation is suitable for showing to users, but     the encoded representation is typically what you would send to     a web server. For example, the unencoded URL     "http://bÃ¼hler.example.com/List of applicants.xml"     would be sent to the server as     "http://xn--bhler-kva.example.com/List%20of%20applicants.xml".      A URL can also be constructed piece by piece by calling     setScheme(), setUserName(), setPassword(), setHost(), setPort(),     setPath(), setQuery() and setFragment(). Some convenience     functions are also available: setAuthority() sets the user name,     password, host and port. setUserInfo() sets the user name and     password at once.      Call isValid() to check if the URL is valid. This can be done at any point     during the constructing of a URL. If isValid() returns \c false, you should     clear() the URL before proceeding, or start over by parsing a new URL with     setUrl().      Constructing a query is particularly convenient through the use of the \l     QUrlQuery class and its methods QUrlQuery::setQueryItems(),     QUrlQuery::addQueryItem() and QUrlQuery::removeQueryItem(). Use     QUrlQuery::setQueryDelimiters() to customize the delimiters used for     generating the query string.      For the convenience of generating encoded URL strings or query     strings, there are two static functions called     fromPercentEncoding() and toPercentEncoding() which deal with     percent encoding and decoding of QStrings.      Calling isRelative() will tell whether or not the URL is     relative. A relative URL can be resolved by passing it as argument     to resolved(), which returns an absolute URL. isParentOf() is used     for determining whether one URL is a parent of another.      fromLocalFile() constructs a QUrl by parsing a local     file path. toLocalFile() converts a URL to a local file path.      The human readable representation of the URL is fetched with     toString(). This representation is appropriate for displaying a     URL to a user in unencoded form. The encoded form however, as     returned by toEncoded(), is for internal use, passing to web     servers, mail clients and so on. Both forms are technically correct     and represent the same URL unambiguously -- in fact, passing either     form to QUrl's constructor or to setUrl() will yield the same QUrl     object.      QUrl conforms to the URI specification from     \l{RFC 3986} (Uniform Resource Identifier: Generic Syntax), and includes     scheme extensions from \l{RFC 1738} (Uniform Resource Locators). Case     folding rules in QUrl conform to \l{RFC 3491} (Nameprep: A Stringprep     Profile for Internationalized Domain Names (IDN)). It is also compatible with the     \l{http://freedesktop.org/wiki/Specifications/file-uri-spec/}{file URI specification}     from freedesktop.org, provided that the locale encodes file names using     UTF-8 (required by IDN).      \section2 Error checking      QUrl is capable of detecting many errors in URLs while parsing it or when     components of the URL are set with individual setter methods (like     setScheme(), setHost() or setPath()). If the parsing or setter function is     successful, any previously recorded error conditions will be discarded.      By default, QUrl setter methods operate in QUrl::TolerantMode, which means     they accept some common mistakes and mis-representation of data. An     alternate method of parsing is QUrl::StrictMode, which applies further     checks. See QUrl::ParsingMode for a description of the difference of the     parsing modes.      QUrl only checks for conformance with the URL specification. It does not     try to verify that high-level protocol URLs are in the format they are     expected to be by handlers elsewhere. For example, the following URIs are     all considered valid by QUrl, even if they do not make sense when used:      \list       \li "http:/filename.html"       \li "mailto://example.com"     \endlist      When the parser encounters an error, it signals the event by making     isValid() return false and toString() / toEncoded() return an empty string.     If it is necessary to show the user the reason why the URL failed to parse,     the error condition can be obtained from QUrl by calling errorString().     Note that this message is highly technical and may not make sense to     end-users.      QUrl is capable of recording only one error condition. If more than one     error is found, it is undefined which error is reported.      \section2 Character Conversions      Follow these rules to avoid erroneous character conversion when     dealing with URLs and strings:      \list     \li When creating an QString to contain a URL from a QByteArray or a        char*, always use QString::fromUtf8().     \endlist */
 end_comment
 begin_comment
 comment|/*!     \enum QUrl::ParsingMode      The parsing mode controls the way QUrl parses strings.      \value TolerantMode QUrl will try to correct some common errors in URLs.                         This mode is useful for parsing URLs coming from sources                         not known to be strictly standards-conforming.      \value StrictMode Only valid URLs are accepted. This mode is useful for                       general URL validation.      \value DecodedMode QUrl will interpret the URL component in the fully-decoded form,                        where percent characters stand for themselves, not as the beginning                        of a percent-encoded sequence. This mode is only valid for the                        setters setting components of a URL; it is not permitted in                        the QUrl constructor, in fromEncoded() or in setUrl().                        For more information on this mode, see the documentation for                        QUrl::FullyDecoded.      In TolerantMode, the parser has the following behaviour:      \list      \li Spaces and "%20": unencoded space characters will be accepted and will     be treated as equivalent to "%20".      \li Single "%" characters: Any occurrences of a percent character "%" not     followed by exactly two hexadecimal characters (e.g., "13% coverage.html")     will be replaced by "%25". Note that one lone "%" character will trigger     the correction mode for all percent characters.      \li Reserved and unreserved characters: An encoded URL should only     contain a few characters as literals; all other characters should     be percent-encoded. In TolerantMode, these characters will be     accepted if they are found in the URL:             space / double-quote / "<" / ">" / "\" /             "^" / "`" / "{" / "|" / "}"     Those same characters can be decoded again by passing QUrl::DecodeReserved     to toString() or toEncoded(). In the getters of individual components,     those characters are often returned in decoded form.      \endlist      When in StrictMode, if a parsing error is found, isValid() will return \c     false and errorString() will return a message describing the error.     If more than one error is detected, it is undefined which error gets     reported.      Note that TolerantMode is not usually enough for parsing user input, which     often contains more errors and expectations than the parser can deal with.     When dealing with data coming directly from the user -- as opposed to data     coming from data-transfer sources, such as other programs -- it is     recommended to use fromUserInput().      \sa fromUserInput(), setUrl(), toString(), toEncoded(), QUrl::FormattingOptions */
@@ -6835,7 +6835,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if the URL is non-empty and valid; otherwise returns false.      The URL is run through a conformance test. Every part of the URL     must conform to the standard encoding rules of the URI standard     for the URL to be reported as valid.      \snippet code/src_corelib_io_qurl.cpp 2 */
+comment|/*!     Returns \c true if the URL is non-empty and valid; otherwise returns \c false.      The URL is run through a conformance test. Every part of the URL     must conform to the standard encoding rules of the URI standard     for the URL to be reported as valid.      \snippet code/src_corelib_io_qurl.cpp 2 */
 end_comment
 begin_function
 DECL|function|isValid
@@ -6870,7 +6870,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL has no data; otherwise returns false.      \sa clear() */
+comment|/*!     Returns \c true if the URL has no data; otherwise returns \c false.      \sa clear() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -8304,7 +8304,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if this URL contains a Query (i.e., if ? was seen on it).      \sa setQuery(), query(), hasFragment() */
+comment|/*!     \since 4.2      Returns \c true if this URL contains a Query (i.e., if ? was seen on it).      \sa setQuery(), query(), hasFragment() */
 end_comment
 begin_function
 DECL|function|hasQuery
@@ -8521,10 +8521,10 @@ begin_comment
 comment|/*!     \fn QList<QPair<QByteArray, QByteArray>> QUrl::encodedQueryItems() const     \deprecated     \since 4.4      Returns the query string of the URL, as a map of encoded keys and values.      \obsolete Use QUrlQuery.      \sa setEncodedQueryItems(), setQueryItems(), setEncodedQuery() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QUrl::hasQueryItem(const QString&key) const     \deprecated      Returns true if there is a query string pair whose key is equal     to \a key from the URL.      \obsolete Use QUrlQuery.      \sa hasEncodedQueryItem() */
+comment|/*!     \fn bool QUrl::hasQueryItem(const QString&key) const     \deprecated      Returns \c true if there is a query string pair whose key is equal     to \a key from the URL.      \obsolete Use QUrlQuery.      \sa hasEncodedQueryItem() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QUrl::hasEncodedQueryItem(const QByteArray&key) const     \deprecated     \since 4.4      Returns true if there is a query string pair whose key is equal     to \a key from the URL.      \obsolete Use QUrlQuery.      \sa hasQueryItem() */
+comment|/*!     \fn bool QUrl::hasEncodedQueryItem(const QByteArray&key) const     \deprecated     \since 4.4      Returns \c true if there is a query string pair whose key is equal     to \a key from the URL.      \obsolete Use QUrlQuery.      \sa hasQueryItem() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QUrl::queryItemValue(const QString&key) const     \deprecated      Returns the first query string value whose key is equal to \a key     from the URL.      \note This method does not decode spaces plus (+) signs as spaces (ASCII     0x20), like HTML forms do. If you need that kind of decoding, you must     use QUrl::encodedQueryItemValue and decode the data yourself.      \obsolete Use QUrlQuery.      \sa allQueryItemValues() */
@@ -8791,7 +8791,7 @@ begin_comment
 comment|/*!     \fn QByteArray QUrl::encodedFragment() const     \deprecated     \since 4.4      Returns the fragment of the URL if it is defined; otherwise an     empty string is returned. The returned value will have its     non-ASCII and other control characters percent-encoded, as in     toEncoded().      \obsolete Use query(QUrl::FullyEncoded).toLatin1().      \sa setEncodedFragment(), toEncoded() */
 end_comment
 begin_comment
-comment|/*!     \since 4.2      Returns true if this URL contains a fragment (i.e., if # was seen on it).      \sa fragment(), setFragment() */
+comment|/*!     \since 4.2      Returns \c true if this URL contains a fragment (i.e., if # was seen on it).      \sa fragment(), setFragment() */
 end_comment
 begin_function
 DECL|function|hasFragment
@@ -9318,7 +9318,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is relative; otherwise returns false. A URL is     relative reference if its scheme is undefined; this function is therefore     equivalent to calling scheme().isEmpty().      Relative references are defined in RFC 3986 section 4.2. */
+comment|/*!     Returns \c true if the URL is relative; otherwise returns \c false. A URL is     relative reference if its scheme is undefined; this function is therefore     equivalent to calling scheme().isEmpty().      Relative references are defined in RFC 3986 section 4.2. */
 end_comment
 begin_function
 DECL|function|isRelative
@@ -10247,7 +10247,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns true if this URL is "less than" the given \a url. This     provides a means of ordering URLs. */
+comment|/*!     \internal      Returns \c true if this URL is "less than" the given \a url. This     provides a means of ordering URLs. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -10558,7 +10558,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this URL and the given \a url are equal;     otherwise returns false. */
+comment|/*!     Returns \c true if this URL and the given \a url are equal;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -10731,7 +10731,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.2      Returns true if this URL and the given \a url are equal after     applying \a options to both; otherwise returns false.      This is equivalent to calling adjusted(options) on both URLs     and comparing the resulting urls, but faster.  */
+comment|/*!     \since 5.2      Returns \c true if this URL and the given \a url are equal after     applying \a options to both; otherwise returns \c false.      This is equivalent to calling adjusted(options) on both URLs     and comparing the resulting urls, but faster.  */
 end_comment
 begin_function
 DECL|function|matches
@@ -11087,7 +11087,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this URL and the given \a url are not equal;     otherwise returns false. */
+comment|/*!     Returns \c true if this URL and the given \a url are not equal;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -11621,7 +11621,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8     Returns true if this URL is pointing to a local file path. A URL is a     local file path if the scheme is "file".      Note that this function considers URLs with hostnames to be local file     paths, even if the eventual file path cannot be opened with     QFile::open().      \sa fromLocalFile(), toLocalFile() */
+comment|/*!     \since 4.8     Returns \c true if this URL is pointing to a local file path. A URL is a     local file path if the scheme is "file".      Note that this function considers URLs with hostnames to be local file     paths, even if the eventual file path cannot be opened with     QFile::open().      \sa fromLocalFile(), toLocalFile() */
 end_comment
 begin_function
 DECL|function|isLocalFile
@@ -11659,7 +11659,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this URL is a parent of \a childUrl. \a childUrl is a child     of this URL if the two URLs share the same scheme and authority,     and this URL's path is a parent of the path of \a childUrl. */
+comment|/*!     Returns \c true if this URL is a parent of \a childUrl. \a childUrl is a child     of this URL if the two URLs share the same scheme and authority,     and this URL's path is a parent of the path of \a childUrl. */
 end_comment
 begin_function
 DECL|function|isParentOf
@@ -12407,7 +12407,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns an error message if the last operation that modified this QUrl     object ran into a parsing error. If no error was detected, this function     returns an empty string and isValid() returns true.      The error message returned by this function is technical in nature and may     not be understood by end users. It is mostly useful to developers trying to     understand why QUrl will not accept some input.      \sa QUrl::ParsingMode */
+comment|/*!     \since 4.2      Returns an error message if the last operation that modified this QUrl     object ran into a parsing error. If no error was detected, this function     returns an empty string and isValid() returns \c true.      The error message returned by this function is technical in nature and may     not be understood by end users. It is mostly useful to developers trying to     understand why QUrl will not accept some input.      \sa QUrl::ParsingMode */
 end_comment
 begin_function
 DECL|function|errorString

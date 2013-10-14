@@ -250,7 +250,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if widgets are resized dynamically (opaquely), otherwise     returns false. This value is controlled by the QSplitter.      \sa QSplitter::opaqueResize()  */
+comment|/*!     Returns \c true if widgets are resized dynamically (opaquely), otherwise     returns \c false. This value is controlled by the QSplitter.      \sa QSplitter::opaqueResize()  */
 end_comment
 begin_function
 DECL|function|opaqueResize
@@ -4884,7 +4884,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the widget at \a index is collapsible, otherwise returns false. */
+comment|/*!     Returns \c true if the widget at \a index is collapsible, otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isCollapsible
@@ -7115,7 +7115,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Restores the splitter's layout to the \a state specified.     Returns true if the state is restored; otherwise returns false.      Typically this is used in conjunction with QSettings to restore the size     from a past session. Here is an example:      Restore the splitter's state:      \snippet splitter/splitter.cpp 2      A failure to restore the splitter's layout may result from either     invalid or out-of-date data in the supplied byte array.      \sa saveState() */
+comment|/*!     Restores the splitter's layout to the \a state specified.     Returns \c true if the state is restored; otherwise returns \c false.      Typically this is used in conjunction with QSettings to restore the size     from a past session. Here is an example:      Restore the splitter's state:      \snippet splitter/splitter.cpp 2      A failure to restore the splitter's layout may result from either     invalid or out-of-date data in the supplied byte array.      \sa saveState() */
 end_comment
 begin_function
 DECL|function|restoreState

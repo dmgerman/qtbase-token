@@ -1051,7 +1051,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the document doesn't contain any data.  */
+comment|/*!     Returns \c true if the document doesn't contain any data.  */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -1128,7 +1128,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the document contains an array.      \sa array(), isObject()  */
+comment|/*!     Returns \c true if the document contains an array.      \sa array(), isObject()  */
 end_comment
 begin_function
 DECL|function|isArray
@@ -1175,7 +1175,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the document contains an object.      \sa object(), isArray()  */
+comment|/*!     Returns \c true if the document contains an object.      \sa object(), isArray()  */
 end_comment
 begin_function
 DECL|function|isObject
@@ -1773,7 +1773,7 @@ begin_comment
 comment|/*!  \fn bool QJsonDocument::operator!=(const QJsonDocument&other) const      returns \c true if \a other is not equal to this document  */
 end_comment
 begin_comment
-comment|/*!     returns true if this document is null.      Null documents are documents created through the default constructor.      Documents created from UTF-8 encoded text or the binary format are     validated during parsing. If validation fails, the returned document     will also be null.  */
+comment|/*!     returns \c true if this document is null.      Null documents are documents created through the default constructor.      Documents created from UTF-8 encoded text or the binary format are     validated during parsing. If validation fails, the returned document     will also be null.  */
 end_comment
 begin_function
 DECL|function|isNull

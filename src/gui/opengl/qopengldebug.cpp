@@ -2119,7 +2119,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this debug message is equal to \a debugMessage, or false     otherwise. Two debugging messages are equal if they have the same textual     message, the same id, the same source, the same type and the same severity.      \sa operator!=() */
+comment|/*!     Returns \c true if this debug message is equal to \a debugMessage, or false     otherwise. Two debugging messages are equal if they have the same textual     message, the same id, the same source, the same type and the same severity.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -2200,7 +2200,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLDebugMessage::operator!=(const QOpenGLDebugMessage&debugMessage) const      Returns true if this message is different from \a debugMessage, or false     otherwise.      \sa operator==() */
+comment|/*!     \fn bool QOpenGLDebugMessage::operator!=(const QOpenGLDebugMessage&debugMessage) const      Returns \c true if this message is different from \a debugMessage, or false     otherwise.      \sa operator==() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -3472,7 +3472,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Initializes the object in the current OpenGL context. The context must     support the \c{GL_KHR_debug} extension for the initialization to succeed.     The object must be initialized before any logging can happen.      It is safe to call this function multiple times from the same context.      This function can also be used to change the context of a previously     initialized object; note that in this case the object must not be logging     when you call this function.      Returns true if the logger is successfully initialized; false otherwise.      \sa QOpenGLContext */
+comment|/*!     Initializes the object in the current OpenGL context. The context must     support the \c{GL_KHR_debug} extension for the initialization to succeed.     The object must be initialized before any logging can happen.      It is safe to call this function multiple times from the same context.      This function can also be used to change the context of a previously     initialized object; note that in this case the object must not be logging     when you call this function.      Returns \c true if the logger is successfully initialized; false otherwise.      \sa QOpenGLContext */
 end_comment
 begin_function
 DECL|function|initialize
@@ -3732,7 +3732,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this object is currently logging, false otherwise.      \sa startLogging() */
+comment|/*!     Returns \c true if this object is currently logging, false otherwise.      \sa startLogging() */
 end_comment
 begin_function
 DECL|function|isLogging

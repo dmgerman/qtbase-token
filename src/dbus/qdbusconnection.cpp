@@ -1207,7 +1207,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sends the \a message over this connection, without waiting for a     reply. This is suitable for errors, signals, and return values as     well as calls whose return values are not necessary.      Returns true if the message was queued successfully, false otherwise. */
+comment|/*!     Sends the \a message over this connection, without waiting for a     reply. This is suitable for errors, signals, and return values as     well as calls whose return values are not necessary.      Returns \c true if the message was queued successfully, false otherwise. */
 end_comment
 begin_function
 DECL|function|send
@@ -1276,7 +1276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sends the \a message over this connection and returns immediately.     When the reply is received, the method \a returnMethod is called in     the \a receiver object. If an error occurs, the method \a errorMethod     will be called instead.      If no reply is received within \a timeout milliseconds, an automatic     error will be delivered indicating the expiration of the call.     The default \a timeout is -1, which will be replaced with an     implementation-defined value that is suitable for inter-process     communications (generally, 25 seconds).      This function is suitable for method calls only. It is guaranteed     that the slot will be called exactly once with the reply, as long     as the parameter types match and no error occurs.      Returns true if the message was sent, or false if the message could     not be sent. */
+comment|/*!     Sends the \a message over this connection and returns immediately.     When the reply is received, the method \a returnMethod is called in     the \a receiver object. If an error occurs, the method \a errorMethod     will be called instead.      If no reply is received within \a timeout milliseconds, an automatic     error will be delivered indicating the expiration of the call.     The default \a timeout is -1, which will be replaced with an     implementation-defined value that is suitable for inter-process     communications (generally, 25 seconds).      This function is suitable for method calls only. It is guaranteed     that the slot will be called exactly once with the reply, as long     as the parameter types match and no error occurs.      Returns \c true if the message was sent, or false if the message could     not be sent. */
 end_comment
 begin_function
 DECL|function|callWithCallback
@@ -1370,7 +1370,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \deprecated     Sends the \a message over this connection and returns immediately.     When the reply is received, the method \a returnMethod is called in     the \a receiver object.      This function is suitable for method calls only. It is guaranteed     that the slot will be called exactly once with the reply, as long     as the parameter types match and no error occurs.      This function is dangerous because it cannot report errors, including     the expiration of the timeout.      Returns true if the message was sent, or false if the message could     not be sent. */
+comment|/*!     \overload     \deprecated     Sends the \a message over this connection and returns immediately.     When the reply is received, the method \a returnMethod is called in     the \a receiver object.      This function is suitable for method calls only. It is guaranteed     that the slot will be called exactly once with the reply, as long     as the parameter types match and no error occurs.      This function is dangerous because it cannot report errors, including     the expiration of the timeout.      Returns \c true if the message was sent, or false if the message could     not be sent. */
 end_comment
 begin_function
 DECL|function|callWithCallback
@@ -1592,7 +1592,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Connects the signal specified by the \a service, \a path, \a interface and \a name parameters to     the slot \a slot in object \a receiver. The arguments \a service and \a path can be empty,     denoting a connection to any signal of the (\a interface, \a name) pair, from any remote     application.      Returns true if the connection was successful.      \warning The signal will only be delivered to the slot if the parameters match. This verification              can be done only when the signal is received, not at connection time. */
+comment|/*!     Connects the signal specified by the \a service, \a path, \a interface and \a name parameters to     the slot \a slot in object \a receiver. The arguments \a service and \a path can be empty,     denoting a connection to any signal of the (\a interface, \a name) pair, from any remote     application.      Returns \c true if the connection was successful.      \warning The signal will only be delivered to the slot if the parameters match. This verification              can be done only when the signal is received, not at connection time. */
 end_comment
 begin_function
 DECL|function|connect
@@ -1656,7 +1656,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Connects the signal to the slot \a slot in object \a     receiver. Unlike the previous connect() overload, this function     allows one to specify the parameter signature to be connected     using the \a signature variable. The function will then verify     that this signature can be delivered to the slot specified by \a     slot and return false otherwise.      Returns true if the connection was successful.      \note This function verifies that the signal signature matches the           slot's parameters, but it does not verify that the actual           signal exists with the given signature in the remote           service. */
+comment|/*!     \overload      Connects the signal to the slot \a slot in object \a     receiver. Unlike the previous connect() overload, this function     allows one to specify the parameter signature to be connected     using the \a signature variable. The function will then verify     that this signature can be delivered to the slot specified by \a     slot and return false otherwise.      Returns \c true if the connection was successful.      \note This function verifies that the signal signature matches the           slot's parameters, but it does not verify that the actual           signal exists with the given signature in the remote           service. */
 end_comment
 begin_function
 DECL|function|connect
@@ -1724,7 +1724,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.6      Connects the signal to the slot \a slot in object \a     receiver. Unlike the previous connect() overload, this function     allows one to specify the parameter signature to be connected     using the \a signature variable. The function will then verify     that this signature can be delivered to the slot specified by \a     slot and return false otherwise.      The \a argumentMatch parameter lists the string parameters to be matched,     in sequential order. Note that, to match an empty string, you need to     pass a QString that is empty but not null (i.e., QString("")). A null     QString skips matching at that position.      Returns true if the connection was successful.      \note This function verifies that the signal signature matches the           slot's parameters, but it does not verify that the actual           signal exists with the given signature in the remote           service. */
+comment|/*!     \overload     \since 4.6      Connects the signal to the slot \a slot in object \a     receiver. Unlike the previous connect() overload, this function     allows one to specify the parameter signature to be connected     using the \a signature variable. The function will then verify     that this signature can be delivered to the slot specified by \a     slot and return false otherwise.      The \a argumentMatch parameter lists the string parameters to be matched,     in sequential order. Note that, to match an empty string, you need to     pass a QString that is empty but not null (i.e., QString("")). A null     QString skips matching at that position.      Returns \c true if the connection was successful.      \note This function verifies that the signal signature matches the           slot's parameters, but it does not verify that the actual           signal exists with the given signature in the remote           service. */
 end_comment
 begin_function
 DECL|function|connect
@@ -1957,7 +1957,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Disconnects the signal specified by the \a service, \a path, \a interface     and \a name parameters from the slot \a slot in object \a receiver. The     arguments must be the same as passed to the connect() function.      Returns true if the disconnection was successful. */
+comment|/*!     Disconnects the signal specified by the \a service, \a path, \a interface     and \a name parameters from the slot \a slot in object \a receiver. The     arguments must be the same as passed to the connect() function.      Returns \c true if the disconnection was successful. */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -2021,7 +2021,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Disconnects the signal specified by the \a service, \a path, \a     interface, \a name, and \a signature parameters from the slot \a slot in     object \a receiver. The arguments must be the same as passed to the     connect() function.      Returns true if the disconnection was successful. */
+comment|/*!     \overload      Disconnects the signal specified by the \a service, \a path, \a     interface, \a name, and \a signature parameters from the slot \a slot in     object \a receiver. The arguments must be the same as passed to the     connect() function.      Returns \c true if the disconnection was successful. */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -2089,7 +2089,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.6      Disconnects the signal specified by the \a service, \a path, \a     interface, \a name, \a argumentMatch, and \a signature parameters from     the slot \a slot in object \a receiver. The arguments must be the same as     passed to the connect() function.      Returns true if the disconnection was successful. */
+comment|/*!     \overload     \since 4.6      Disconnects the signal specified by the \a service, \a path, \a     interface, \a name, \a argumentMatch, and \a signature parameters from     the slot \a slot in object \a receiver. The arguments must be the same as     passed to the connect() function.      Returns \c true if the disconnection was successful. */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -2224,7 +2224,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Registers the object \a object at path \a path and returns true if     the registration was successful. The \a options parameter     specifies how much of the object \a object will be exposed through     D-Bus.      This function does not replace existing objects: if there is already an object registered at     path \a path, this function will return false. Use unregisterObject() to unregister it first.      You cannot register an object as a child object of an object that     was registered with QDBusConnection::ExportChildObjects. */
+comment|/*!     Registers the object \a object at path \a path and returns \c true if     the registration was successful. The \a options parameter     specifies how much of the object \a object will be exposed through     D-Bus.      This function does not replace existing objects: if there is already an object registered at     path \a path, this function will return false. Use unregisterObject() to unregister it first.      You cannot register an object as a child object of an object that     was registered with QDBusConnection::ExportChildObjects. */
 end_comment
 begin_function
 DECL|function|registerObject
@@ -2987,7 +2987,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this QDBusConnection object is connected. */
+comment|/*!     Returns \c true if this QDBusConnection object is connected. */
 end_comment
 begin_function
 DECL|function|isConnected
@@ -3115,7 +3115,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to register the \a serviceName on the D-Bus server and     returns true if the registration succeeded. The registration will     fail if the name is already registered by another application.      \sa unregisterService(), QDBusConnectionInterface::registerService() */
+comment|/*!     Attempts to register the \a serviceName on the D-Bus server and     returns \c true if the registration succeeded. The registration will     fail if the name is already registered by another application.      \sa unregisterService(), QDBusConnectionInterface::registerService() */
 end_comment
 begin_function
 DECL|function|registerService
@@ -3165,7 +3165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Unregisters the service \a serviceName that was previously     registered with registerService() and returns true if it     succeeded.      \sa registerService(), QDBusConnectionInterface::unregisterService() */
+comment|/*!     Unregisters the service \a serviceName that was previously     registered with registerService() and returns \c true if it     succeeded.      \sa registerService(), QDBusConnectionInterface::unregisterService() */
 end_comment
 begin_function
 DECL|function|unregisterService

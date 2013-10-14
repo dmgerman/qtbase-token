@@ -571,7 +571,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool Location::isEmpty() const    Returns true if there is no file name set yet; returns false   otherwise. The functions filePath(), lineNo() and columnNo()   must not be called on an empty Location object.  */
+comment|/*! \fn bool Location::isEmpty() const    Returns \c true if there is no file name set yet; returns \c false   otherwise. The functions filePath(), lineNo() and columnNo()   must not be called on an empty Location object.  */
 end_comment
 begin_comment
 comment|/*! \fn const QString& Location::filePath() const   Returns the current path and file name.   Must not be called on an empty Location object.    \sa lineNo(), columnNo()  */

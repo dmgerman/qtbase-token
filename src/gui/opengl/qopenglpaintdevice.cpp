@@ -745,7 +745,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if painting is flipped around the Y-axis.      \sa setPaintFlipped() */
+comment|/*!     Returns \c true if painting is flipped around the Y-axis.      \sa setPaintFlipped() */
 end_comment
 begin_function
 DECL|function|paintFlipped

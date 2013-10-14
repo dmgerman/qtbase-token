@@ -1425,7 +1425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QRegion::operator!=(const QRegion&other) const      Returns true if this region is different from the \a other region;     otherwise returns false. */
+comment|/*!     \fn bool QRegion::operator!=(const QRegion&other) const      Returns \c true if this region is different from the \a other region;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!    Returns the region as a QVariant */
@@ -1452,7 +1452,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QRegion::operator==(const QRegion&r) const      Returns true if the region is equal to \a r; otherwise returns     false. */
+comment|/*!     \fn bool QRegion::operator==(const QRegion&r) const      Returns \c true if the region is equal to \a r; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn void QRegion::translate(int dx, int dy)      Translates (moves) the region \a dx along the X axis and \a dy     along the Y axis. */
@@ -1562,7 +1562,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if this region intersects with \a region, otherwise     returns false. */
+comment|/*!     \since 4.2      Returns \c true if this region intersects with \a region, otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|intersects
@@ -1717,7 +1717,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QRegion::intersects(const QRect&rect) const     \since 4.2      Returns true if this region intersects with \a rect, otherwise     returns false. */
+comment|/*!     \fn bool QRegion::intersects(const QRect&rect) const     \since 4.2      Returns \c true if this region intersects with \a rect, otherwise     returns \c false. */
 end_comment
 begin_if
 if|#
@@ -1770,16 +1770,16 @@ begin_comment
 comment|/*!     \fn int QRegion::rectCount() const     \since 4.6      Returns the number of rectangles that will be returned in rects(). */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRegion::isEmpty() const      Returns true if the region is empty; otherwise returns false. An     empty region is a region that contains no points.      Example:     \snippet code/src_gui_painting_qregion_unix.cpp 0 */
+comment|/*!     \fn bool QRegion::isEmpty() const      Returns \c true if the region is empty; otherwise returns \c false. An     empty region is a region that contains no points.      Example:     \snippet code/src_gui_painting_qregion_unix.cpp 0 */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRegion::isNull() const     \since 5.0      Returns true if the region is empty; otherwise returns false. An     empty region is a region that contains no points. This function is     the same as isEmpty      \sa isEmpty() */
+comment|/*!     \fn bool QRegion::isNull() const     \since 5.0      Returns \c true if the region is empty; otherwise returns \c false. An     empty region is a region that contains no points. This function is     the same as isEmpty      \sa isEmpty() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRegion::contains(const QPoint&p) const      Returns true if the region contains the point \a p; otherwise     returns false. */
+comment|/*!     \fn bool QRegion::contains(const QPoint&p) const      Returns \c true if the region contains the point \a p; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRegion::contains(const QRect&r) const     \overload      Returns true if the region overlaps the rectangle \a r; otherwise     returns false. */
+comment|/*!     \fn bool QRegion::contains(const QRect&r) const     \overload      Returns \c true if the region overlaps the rectangle \a r; otherwise     returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn QRegion QRegion::unite(const QRegion&r) const     \obsolete      Use united(\a r) instead. */
@@ -2927,7 +2927,7 @@ modifier|&
 name|r
 parameter_list|)
 function_decl|;
-comment|/*      * Returns true if r is guaranteed to be fully contained in this region.      * A false return value does not guarantee the opposite.      */
+comment|/*      * Returns \c true if r is guaranteed to be fully contained in this region.      * A false return value does not guarantee the opposite.      */
 DECL|function|contains
 specifier|inline
 name|bool
@@ -3010,7 +3010,7 @@ name|bottom
 argument_list|()
 return|;
 block|}
-comment|/*      * Returns true if this region is guaranteed to be fully contained in r.      */
+comment|/*      * Returns \c true if this region is guaranteed to be fully contained in r.      */
 DECL|function|within
 specifier|inline
 name|bool
@@ -16241,7 +16241,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Returns true if \a rect is guaranteed to be fully contained in \a region.     A false return value does not guarantee the opposite. */
+comment|/*! \internal     Returns \c true if \a rect is guaranteed to be fully contained in \a region.     A false return value does not guarantee the opposite. */
 end_comment
 begin_function
 name|Q_GUI_EXPORT

@@ -603,7 +603,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads the data from the open QIODevice \a device until it ends     and adds it to message. Returns true if reading was successful.      \note \a device must be already opened.  */
+comment|/*!     Reads the data from the open QIODevice \a device until it ends     and adds it to message. Returns \c true if reading was successful.      \note \a device must be already opened.  */
 end_comment
 begin_function
 DECL|function|addData

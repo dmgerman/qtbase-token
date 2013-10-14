@@ -3800,7 +3800,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*    Strokes a subpath side using the \a it as source. Results are put into    \a stroke. The function returns true if the subpath side was closed.    If \a capFirst is true, we will use capPoints instead of joinPoints to    connect the first segment, other segments will be joined using joinPoints.    This is to put capping in order... */
+comment|/*    Strokes a subpath side using the \a it as source. Results are put into    \a stroke. The function returns \c true if the subpath side was closed.    If \a capFirst is true, we will use capPoints instead of joinPoints to    connect the first segment, other segments will be joined using joinPoints.    This is to put capping in order... */
 end_comment
 begin_function
 DECL|function|qt_stroke_side

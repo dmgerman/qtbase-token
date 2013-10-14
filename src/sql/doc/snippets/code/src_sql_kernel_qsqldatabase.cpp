@@ -399,7 +399,7 @@ argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|// Returns true if "sales" connection exists
+comment|// Returns \c true if "sales" connection exists
 end_comment
 begin_expr_stmt
 name|QSqlDatabase

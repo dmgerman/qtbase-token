@@ -563,7 +563,7 @@ begin_comment
 comment|/*!     \fn void QSystemTrayIcon::messageClicked()      This signal is emitted when the message displayed using showMessage()     was clicked by the user.      Currently this signal is not sent on Mac OS X.      \note We follow Microsoft Windows XP/Vista behavior, so the     signal is also emitted when the user clicks on a tray icon with     a balloon message displayed.      \sa activated() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the system tray is available; otherwise returns false.      If the system tray is currently unavailable but becomes available later,     QSystemTrayIcon will automatically add an entry in the system tray if it     is \l visible. */
+comment|/*!     Returns \c true if the system tray is available; otherwise returns \c false.      If the system tray is currently unavailable but becomes available later,     QSystemTrayIcon will automatically add an entry in the system tray if it     is \l visible. */
 end_comment
 begin_function
 DECL|function|isSystemTrayAvailable
@@ -582,7 +582,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the system tray supports balloon messages; otherwise returns false.      \sa showMessage() */
+comment|/*!     Returns \c true if the system tray supports balloon messages; otherwise returns \c false.      \sa showMessage() */
 end_comment
 begin_function
 DECL|function|supportsMessages

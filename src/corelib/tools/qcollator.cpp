@@ -322,13 +322,13 @@ begin_comment
 comment|/*!     \fn void QCollator::setNumericMode(bool on)      Enables numeric sorting mode when \a on is set to true.      This will enable proper sorting of numeric digits, so that e.g. 100 sorts after 99.      By default this mode is off.      \sa numericMode()  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QCollator::numericMode() const      Returns true if numeric sorting is enabled, false otherwise.      \sa setNumericMode()  */
+comment|/*!     \fn bool QCollator::numericMode() const      Returns \c true if numeric sorting is enabled, false otherwise.      \sa setNumericMode()  */
 end_comment
 begin_comment
 comment|/*!     \fn void QCollator::setIgnorePunctuation(bool on)      If \a on is set to true, punctuation characters and symbols are ignored when determining sort order.      The default is locale dependent.      \sa ignorePunctuation()  */
 end_comment
 begin_comment
-comment|/*!     \fn bool QCollator::ignorePunctuation() const      Returns true if punctuation characters and symbols are ignored when determining sort order.      \sa setIgnorePunctuation()  */
+comment|/*!     \fn bool QCollator::ignorePunctuation() const      Returns \c true if punctuation characters and symbols are ignored when determining sort order.      \sa setIgnorePunctuation()  */
 end_comment
 begin_comment
 comment|/*!     \fn int QCollator::compare(const QString&s1, const QString&s2) const      Compares \a s1 with \a s2. Returns -1, 0 or 1 depending on whether \a s1 is     smaller, equal or larger than \a s2.  */
@@ -443,7 +443,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QCollatorSortKey::operator<(const QCollatorSortKey&otherKey) const      According to the QCollator that created the key, returns true if the     key should be sorted before than \a otherKey; otherwise returns false.      \sa compare()  */
+comment|/*!     \fn bool QCollatorSortKey::operator<(const QCollatorSortKey&otherKey) const      According to the QCollator that created the key, returns \c true if the     key should be sorted before than \a otherKey; otherwise returns \c false.      \sa compare()  */
 end_comment
 begin_comment
 comment|/*!     \fn int QCollatorSortKey::compare(const QCollatorSortKey&otherKey) const      Compares the key to \a otherKey. Returns a negative value if the key     is less than \a otherKey, 0 if the key is equal to \a otherKey or a     positive value if the key is greater than \a otherKey.      \sa operator<()  */

@@ -2117,7 +2117,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Returns true if this point is on the infinite line passing through 'u' and 'v'.
+comment|// Returns \c true if this point is on the infinite line passing through 'u' and 'v'.
 end_comment
 begin_function
 DECL|function|isOnLine

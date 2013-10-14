@@ -100,6 +100,7 @@ name|Text
 name|t
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|void
 modifier|*
@@ -110,36 +111,42 @@ operator|::
 name|InterfaceType
 name|t
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 comment|// QAccessibleValueInterface
 name|QVariant
 name|currentValue
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|void
 name|setCurrentValue
-parameter_list|(
+argument_list|(
 specifier|const
 name|QVariant
-modifier|&
+operator|&
 name|value
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QVariant
 name|maximumValue
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QVariant
 name|minimumValue
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QVariant
 name|minimumStepSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 comment|// FIXME Action interface
 name|protected
@@ -205,6 +212,7 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -262,36 +270,42 @@ operator|::
 name|InterfaceType
 name|t
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 comment|// QAccessibleValueInterface
 name|QVariant
 name|currentValue
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|void
 name|setCurrentValue
-parameter_list|(
+argument_list|(
 specifier|const
 name|QVariant
-modifier|&
+operator|&
 name|value
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QVariant
 name|maximumValue
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QVariant
 name|minimumValue
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QVariant
 name|minimumStepSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|protected
 label|:
@@ -334,6 +348,7 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -380,6 +395,7 @@ argument_list|(
 argument|QAccessible::Text t
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -426,6 +442,7 @@ argument_list|(
 argument|QAccessible::Text textType
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

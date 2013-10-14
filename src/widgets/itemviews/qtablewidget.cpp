@@ -5298,7 +5298,7 @@ begin_comment
 comment|/*!   \fn void QTableWidgetItem::setSelected(bool select)   \since 4.2    Sets the selected state of the item to \a select.    \sa isSelected() */
 end_comment
 begin_comment
-comment|/*!   \fn bool QTableWidgetItem::isSelected() const   \since 4.2    Returns true if the item is selected, otherwise returns false.    \sa setSelected() */
+comment|/*!   \fn bool QTableWidgetItem::isSelected() const   \since 4.2    Returns \c true if the item is selected, otherwise returns \c false.    \sa setSelected() */
 end_comment
 begin_comment
 comment|/*!   \fn QSize QTableWidgetItem::sizeHint() const   \since 4.1    Returns the size hint set for the table item. */
@@ -5963,7 +5963,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the item is less than the \a other item; otherwise returns     false. */
+comment|/*!     Returns \c true if the item is less than the \a other item; otherwise returns     false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -8694,7 +8694,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the \a item is selected, otherwise returns false.    \obsolete    This function is deprecated. Use \l{QTableWidgetItem::isSelected()} instead. */
+comment|/*!   Returns \c true if the \a item is selected, otherwise returns \c false.    \obsolete    This function is deprecated. Use \l{QTableWidgetItem::isSelected()} instead. */
 end_comment
 begin_function
 DECL|function|isItemSelected
@@ -9811,7 +9811,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action in the given \a row and \a column.     Returns true if the data and action can be handled by the model;     otherwise returns false.      \sa supportedDropActions() */
+comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action in the given \a row and \a column.     Returns \c true if the data and action can be handled by the model;     otherwise returns \c false.      \sa supportedDropActions() */
 end_comment
 begin_function
 DECL|function|dropMimeData

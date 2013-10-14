@@ -608,7 +608,7 @@ begin_comment
 comment|/*!     \fn void QClipboard::clear(Mode mode)     Clear the clipboard contents.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, this     function clears the global clipboard contents.  If \a mode is     QClipboard::Selection, this function clears the global mouse     selection contents. If \a mode is QClipboard::FindBuffer, this     function clears the search string buffer.      \sa QClipboard::Mode, supportsSelection() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the clipboard supports mouse selection; otherwise     returns false. */
+comment|/*!     Returns \c true if the clipboard supports mouse selection; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|supportsSelection
@@ -628,7 +628,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the clipboard supports a separate search buffer; otherwise     returns false. */
+comment|/*!     Returns \c true if the clipboard supports a separate search buffer; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|supportsFindBuffer
@@ -648,7 +648,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this clipboard object owns the clipboard data;     otherwise returns false. */
+comment|/*!     Returns \c true if this clipboard object owns the clipboard data;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|ownsClipboard
@@ -668,7 +668,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this clipboard object owns the mouse selection     data; otherwise returns false. */
+comment|/*!     Returns \c true if this clipboard object owns the mouse selection     data; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|ownsSelection
@@ -688,7 +688,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if this clipboard object owns the find buffer data;     otherwise returns false. */
+comment|/*!     \since 4.2      Returns \c true if this clipboard object owns the find buffer data;     otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|ownsFindBuffer
@@ -708,10 +708,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \fn bool QClipboard::supportsMode(Mode mode) const;     Returns true if the clipboard supports the clipboard mode speacified by \a mode;     otherwise returns false. */
+comment|/*!     \internal     \fn bool QClipboard::supportsMode(Mode mode) const;     Returns \c true if the clipboard supports the clipboard mode speacified by \a mode;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \internal     \fn bool QClipboard::ownsMode(Mode mode) const;     Returns true if the clipboard supports the clipboard data speacified by \a mode;     otherwise returns false. */
+comment|/*!     \internal     \fn bool QClipboard::ownsMode(Mode mode) const;     Returns \c true if the clipboard supports the clipboard data speacified by \a mode;     otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \internal     Emits the appropriate changed signal for \a mode. */

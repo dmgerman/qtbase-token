@@ -5328,7 +5328,7 @@ comment|// do nothing
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c{true} if there is more data available for \a parent; otherwise     returns \c{false}.      The default implementation always returns \c{false}.      If canFetchMore() returns true, the fetchMore() function should     be called. This is the behavior of QAbstractItemView, for example.      \sa fetchMore() */
+comment|/*!     Returns \c{true} if there is more data available for \a parent; otherwise     returns \c{false}.      The default implementation always returns \c{false}.      If canFetchMore() returns \c true, the fetchMore() function should     be called. This is the behavior of QAbstractItemView, for example.      \sa fetchMore() */
 end_comment
 begin_function
 DECL|function|canFetchMore

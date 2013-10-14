@@ -3675,7 +3675,7 @@ begin_comment
 comment|//QT_NO_GRAPHICSEFFECT
 end_comment
 begin_comment
-comment|/*!     Returns true if \a item1 is on top of \a item2.     The items don't need to be siblings.      \internal */
+comment|/*!     Returns \c true if \a item1 is on top of \a item2.     The items don't need to be siblings.      \internal */
 end_comment
 begin_function
 DECL|function|qt_closestItemFirst
@@ -3937,7 +3937,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a item2 is on top of \a item1.     The items don't need to be siblings.      \internal */
+comment|/*!     Returns \c true if \a item2 is on top of \a item1.     The items don't need to be siblings.      \internal */
 end_comment
 begin_function
 DECL|function|qt_closestItemLast

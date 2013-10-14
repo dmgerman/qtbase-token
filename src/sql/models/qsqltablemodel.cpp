@@ -1165,7 +1165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Populates the model with data from the table that was set via setTable(), using the     specified filter and sort condition, and returns true if successful; otherwise     returns false.      \note Calling select() will revert any unsubmitted changes and remove any inserted columns.      \sa setTable(), setFilter(), selectStatement() */
+comment|/*!     Populates the model with data from the table that was set via setTable(), using the     specified filter and sort condition, and returns \c true if successful; otherwise     returns \c false.      \note Calling select() will revert any unsubmitted changes and remove any inserted columns.      \sa setTable(), setFilter(), selectStatement() */
 end_comment
 begin_function
 DECL|function|select
@@ -1257,7 +1257,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Refreshes \a row in the model with values from the database table row matching     on primary key values. Without a primary key, all column values must match. If     no matching row is found, the model will show an empty row.      Returns true if successful; otherwise returns false.      \sa select() */
+comment|/*!     \since 5.0      Refreshes \a row in the model with values from the database table row matching     on primary key values. Without a primary key, all column values must match. If     no matching row is found, the model will show an empty row.      Returns \c true if successful; otherwise returns \c false.      \sa select() */
 end_comment
 begin_function
 DECL|function|selectRow
@@ -1841,7 +1841,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 5.0      Returns true if the model contains modified values that have not been     committed to the datase, otherwise false. */
+comment|/*!     \overload     \since 5.0      Returns \c true if the model contains modified values that have not been     committed to the datase, otherwise false. */
 end_comment
 begin_function
 DECL|function|isDirty
@@ -1917,7 +1917,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the value at the index \a index is dirty, otherwise false.     Dirty values are values that were modified in the model     but not yet written into the database.      If \a index is invalid or points to a non-existing row, false is returned. */
+comment|/*!     Returns \c true if the value at the index \a index is dirty, otherwise false.     Dirty values are values that were modified in the model     but not yet written into the database.      If \a index is invalid or points to a non-existing row, false is returned. */
 end_comment
 begin_function
 DECL|function|isDirty
@@ -2024,7 +2024,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the data for the item \a index for the role \a role to \a     value.      For edit strategy OnFieldChange, an index may receive a change     only if no other index has a cached change. Changes are     submitted immediately. However, rows that have not yet been     inserted in the database may be freely changed and are not     submitted automatically. Submitted changes are not reverted upon     failure.      For OnRowChange, an index may receive a change only if no other     row has a cached change. Changes are not submitted automatically.      Returns true if \a value is equal to the current value. However,     the value will not be submitted to the database.      Returns true if the value could be set or false on error, for     example if \a index is out of bounds.      \sa editStrategy(), data(), submit(), submitAll(), revertRow() */
+comment|/*!     Sets the data for the item \a index for the role \a role to \a     value.      For edit strategy OnFieldChange, an index may receive a change     only if no other index has a cached change. Changes are     submitted immediately. However, rows that have not yet been     inserted in the database may be freely changed and are not     submitted automatically. Submitted changes are not reverted upon     failure.      For OnRowChange, an index may receive a change only if no other     row has a cached change. Changes are not submitted automatically.      Returns \c true if \a value is equal to the current value. However,     the value will not be submitted to the database.      Returns \c true if the value could be set or false on error, for     example if \a index is out of bounds.      \sa editStrategy(), data(), submit(), submitAll(), revertRow() */
 end_comment
 begin_function
 DECL|function|setData
@@ -2300,7 +2300,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Updates the given \a row in the currently active database table     with the specified \a values. Returns true if successful; otherwise     returns false.      This is a low-level method that operates directly on the database     and should not be called directly. Use setData() to update values.     The model will decide depending on its edit strategy when to modify     the database.      Note that only values that have the generated-flag set are updated.     The generated-flag can be set with QSqlRecord::setGenerated() and     tested with QSqlRecord::isGenerated().      \sa QSqlRecord::isGenerated(), setData() */
+comment|/*!     Updates the given \a row in the currently active database table     with the specified \a values. Returns \c true if successful; otherwise     returns \c false.      This is a low-level method that operates directly on the database     and should not be called directly. Use setData() to update values.     The model will decide depending on its edit strategy when to modify     the database.      Note that only values that have the generated-flag set are updated.     The generated-flag can be set with QSqlRecord::setGenerated() and     tested with QSqlRecord::isGenerated().      \sa QSqlRecord::isGenerated(), setData() */
 end_comment
 begin_function
 DECL|function|updateRowInTable
@@ -2485,7 +2485,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the values \a values into the currently active database table.      This is a low-level method that operates directly on the database     and should not be called directly. Use insertRow() and setData()     to insert values. The model will decide depending on its edit strategy     when to modify the database.      Returns true if the values could be inserted, otherwise false.     Error information can be retrieved with \l lastError().      \sa lastError(), insertRow(), insertRows() */
+comment|/*!     Inserts the values \a values into the currently active database table.      This is a low-level method that operates directly on the database     and should not be called directly. Use insertRow() and setData()     to insert values. The model will decide depending on its edit strategy     when to modify the database.      Returns \c true if the values could be inserted, otherwise false.     Error information can be retrieved with \l lastError().      \sa lastError(), insertRow(), insertRows() */
 end_comment
 begin_function
 DECL|function|insertRowIntoTable
@@ -2610,7 +2610,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Deletes the given \a row from the currently active database table.      This is a low-level method that operates directly on the database     and should not be called directly. Use removeRow() or removeRows()     to delete values. The model will decide depending on its edit strategy     when to modify the database.      Returns true if the row was deleted; otherwise returns false.      \sa removeRow(), removeRows() */
+comment|/*!     Deletes the given \a row from the currently active database table.      This is a low-level method that operates directly on the database     and should not be called directly. Use removeRow() or removeRows()     to delete values. The model will decide depending on its edit strategy     when to modify the database.      Returns \c true if the row was deleted; otherwise returns \c false.      \sa removeRow(), removeRows() */
 end_comment
 begin_function
 DECL|function|deleteRowFromTable
@@ -2776,7 +2776,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Submits all pending changes and returns true on success.     Returns false on error, detailed error information can be     obtained with lastError().      In OnManualSubmit, on success the model will be repopulated.     Any views presenting it will lose their selections.      Note: In OnManualSubmit mode, already submitted changes won't     be cleared from the cache when submitAll() fails. This allows     transactions to be rolled back and resubmitted without     losing data.      \sa revertAll(), lastError() */
+comment|/*!     Submits all pending changes and returns \c true on success.     Returns \c false on error, detailed error information can be     obtained with lastError().      In OnManualSubmit, on success the model will be repopulated.     Any views presenting it will lose their selections.      Note: In OnManualSubmit mode, already submitted changes won't     be cleared from the cache when submitAll() fails. This allows     transactions to be rolled back and resubmitted without     losing data.      \sa revertAll(), lastError() */
 end_comment
 begin_function
 DECL|function|submitAll
@@ -3052,7 +3052,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This reimplemented slot is called by the item delegates when the     user stopped editing the current row.      Submits the currently edited row if the model's strategy is set     to OnRowChange or OnFieldChange. Does nothing for the OnManualSubmit     strategy.      Use submitAll() to submit all pending changes for the     OnManualSubmit strategy.      Returns true on success; otherwise returns false. Use lastError()     to query detailed error information.      Does not automatically repopulate the model. Submitted rows are     refreshed from the database on success.      \sa revert(), revertRow(), submitAll(), revertAll(), lastError() */
+comment|/*!     This reimplemented slot is called by the item delegates when the     user stopped editing the current row.      Submits the currently edited row if the model's strategy is set     to OnRowChange or OnFieldChange. Does nothing for the OnManualSubmit     strategy.      Use submitAll() to submit all pending changes for the     OnManualSubmit strategy.      Returns \c true on success; otherwise returns \c false. Use lastError()     to query detailed error information.      Does not automatically repopulate the model. Submitted rows are     refreshed from the database on success.      \sa revert(), revertRow(), submitAll(), revertAll(), lastError() */
 end_comment
 begin_function
 DECL|function|submit
@@ -3765,7 +3765,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a count columns from the \a parent model, starting at     index \a column.      Returns if the columns were successfully removed; otherwise     returns false.      \sa removeRows() */
+comment|/*!     Removes \a count columns from the \a parent model, starting at     index \a column.      Returns if the columns were successfully removed; otherwise     returns \c false.      \sa removeRows() */
 end_comment
 begin_function
 DECL|function|removeColumns
@@ -3858,7 +3858,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a count rows starting at \a row. Since this model     does not support hierarchical structures, \a parent must be     an invalid model index.      When the edit strategy is OnManualSubmit, deletion of rows from     the database is delayed until submitAll() is called.      For OnFieldChange and OnRowChange, only one row may be deleted     at a time and only if no other row has a cached change. Deletions     are submitted immediately to the database. The model retains a     blank row for successfully deleted row until refreshed with select().      After failed deletion, the operation is not reverted in the model.     The application may resubmit or revert.      Inserted but not yet successfully submitted rows in the range to be     removed are immediately removed from the model.      Before a row is deleted from the database, the beforeDelete()     signal is emitted.      If row< 0 or row + count> rowCount(), no action is taken and     false is returned. Returns true if all rows could be removed;     otherwise returns false. Detailed database error information     can be retrieved using lastError().      \sa removeColumns(), insertRows() */
+comment|/*!     Removes \a count rows starting at \a row. Since this model     does not support hierarchical structures, \a parent must be     an invalid model index.      When the edit strategy is OnManualSubmit, deletion of rows from     the database is delayed until submitAll() is called.      For OnFieldChange and OnRowChange, only one row may be deleted     at a time and only if no other row has a cached change. Deletions     are submitted immediately to the database. The model retains a     blank row for successfully deleted row until refreshed with select().      After failed deletion, the operation is not reverted in the model.     The application may resubmit or revert.      Inserted but not yet successfully submitted rows in the range to be     removed are immediately removed from the model.      Before a row is deleted from the database, the beforeDelete()     signal is emitted.      If row< 0 or row + count> rowCount(), no action is taken and     false is returned. Returns \c true if all rows could be removed;     otherwise returns \c false. Detailed database error information     can be retrieved using lastError().      \sa removeColumns(), insertRows() */
 end_comment
 begin_function
 DECL|function|removeRows
@@ -4091,7 +4091,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a count empty rows at position \a row. Note that \a     parent must be invalid, since this model does not support     parent-child relations.      For edit strategies OnFieldChange and OnRowChange, only one row     may be inserted at a time and the model may not contain other     cached changes.      The primeInsert() signal will be emitted for each new row.     Connect to it if you want to initialize the new row with default     values.      Does not submit rows, regardless of edit strategy.      Returns false if the parameters are out of bounds or the row cannot be     inserted; otherwise returns true.      \sa primeInsert(), insertRecord() */
+comment|/*!     Inserts \a count empty rows at position \a row. Note that \a     parent must be invalid, since this model does not support     parent-child relations.      For edit strategies OnFieldChange and OnRowChange, only one row     may be inserted at a time and the model may not contain other     cached changes.      The primeInsert() signal will be emitted for each new row.     Connect to it if you want to initialize the new row with default     values.      Does not submit rows, regardless of edit strategy.      Returns \c false if the parameters are out of bounds or the row cannot be     inserted; otherwise returns \c true.      \sa primeInsert(), insertRecord() */
 end_comment
 begin_function
 DECL|function|insertRows
@@ -4364,7 +4364,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the \a record at position \a row. If \a row is negative,     the record will be appended to the end. Calls insertRows() and     setRecord() internally.      Returns true if the record could be inserted, otherwise false.      Changes are submitted immediately for OnFieldChange and     OnRowChange. Failure does not leave a new row in the model.      \sa insertRows(), removeRows(), setRecord() */
+comment|/*!     Inserts the \a record at position \a row. If \a row is negative,     the record will be appended to the end. Calls insertRows() and     setRecord() internally.      Returns \c true if the record could be inserted, otherwise false.      Changes are submitted immediately for OnFieldChange and     OnRowChange. Failure does not leave a new row in the model.      \sa insertRows(), removeRows(), setRecord() */
 end_comment
 begin_function
 DECL|function|insertRecord
@@ -5003,7 +5003,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Applies \a values to the \a row in the model. The source and     target fields are mapped by field name, not by position in     the record.      Note that the generated flags in \a values are preserved     and determine whether the corresponding fields are used when     changes are submitted to the database. The caller should     remember to set the generated flag to FALSE for fields     where the database is meant to supply the value, such as an     automatically incremented ID.      For edit strategies OnFieldChange and OnRowChange, a row may     receive a change only if no other row has a cached change.     Changes are submitted immediately. Submitted changes are not     reverted upon failure.      Returns true if all the values could be set; otherwise returns     false.      \sa record(), editStrategy() */
+comment|/*!     Applies \a values to the \a row in the model. The source and     target fields are mapped by field name, not by position in     the record.      Note that the generated flags in \a values are preserved     and determine whether the corresponding fields are used when     changes are submitted to the database. The caller should     remember to set the generated flag to FALSE for fields     where the database is meant to supply the value, such as an     automatically incremented ID.      For edit strategies OnFieldChange and OnRowChange, a row may     receive a change only if no other row has a cached change.     Changes are submitted immediately. Submitted changes are not     reverted upon failure.      Returns \c true if all the values could be set; otherwise returns     false.      \sa record(), editStrategy() */
 end_comment
 begin_function
 DECL|function|setRecord

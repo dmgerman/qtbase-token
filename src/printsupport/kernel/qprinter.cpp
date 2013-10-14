@@ -1600,7 +1600,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    Returns true if the printer currently selected is a valid printer   in the system, or a pure PDF printer; otherwise returns false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet printing-qprinter/errors.cpp 0    \sa setPrinterName() */
+comment|/*!   \since 4.4    Returns \c true if the printer currently selected is a valid printer   in the system, or a pure PDF printer; otherwise returns \c false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet printing-qprinter/errors.cpp 0    \sa setPrinterName() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -2986,7 +2986,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7      Returns true if the printer supports printing multiple copies of the same     document in one job; otherwise false is returned.      On most systems this function will return true. However, on X11 systems     that do not support CUPS, this function will return false. That means the     application has to handle the number of copies by printing the same     document the required number of times.      \sa setCopyCount(), copyCount() */
+comment|/*!     \since 4.7      Returns \c true if the printer supports printing multiple copies of the same     document in one job; otherwise false is returned.      On most systems this function will return true. However, on X11 systems     that do not support CUPS, this function will return false. That means the     application has to handle the number of copies by printing the same     document the required number of times.      \sa setCopyCount(), copyCount() */
 end_comment
 begin_function
 DECL|function|supportsMultipleCopies
@@ -3021,7 +3021,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns true if collation is turned on when multiple copies is selected.     Returns false if it is turned off when multiple copies is selected.     When collating is turned off the printing of each individual page will be repeated     the numCopies() amount before the next page is started. With collating turned on     all pages are printed before the next copy of those pages is started.      \sa setCollateCopies() */
+comment|/*!     \since 4.1      Returns \c true if collation is turned on when multiple copies is selected.     Returns \c false if it is turned off when multiple copies is selected.     When collating is turned off the printing of each individual page will be repeated     the numCopies() amount before the next page is started. With collating turned on     all pages are printed before the next copy of those pages is started.      \sa setCollateCopies() */
 end_comment
 begin_function
 DECL|function|collateCopies
@@ -3147,7 +3147,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the origin of the printer's coordinate system is   at the corner of the page and false if it is at the edge of the   printable area.    See setFullPage() for details and caveats.    \sa setFullPage(), PaperSize */
+comment|/*!   Returns \c true if the origin of the printer's coordinate system is   at the corner of the page and false if it is at the edge of the   printable area.    See setFullPage() for details and caveats.    \sa setFullPage(), PaperSize */
 end_comment
 begin_function
 DECL|function|fullPage
@@ -3393,7 +3393,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.1    Returns true if font embedding is enabled.    Currently this option is only supported on X11.    \sa setFontEmbeddingEnabled() */
+comment|/*!   \since 4.1    Returns \c true if font embedding is enabled.    Currently this option is only supported on X11.    \sa setFontEmbeddingEnabled() */
 end_comment
 begin_function
 DECL|function|fontEmbeddingEnabled
@@ -3456,7 +3456,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.2    Returns true if double side printing is enabled.    Currently this option is only supported on X11. */
+comment|/*!   \since 4.2    Returns \c true if double side printing is enabled.    Currently this option is only supported on X11. */
 end_comment
 begin_function
 DECL|function|doubleSidedPrinting
@@ -4501,7 +4501,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tells the printer to eject the current page and to continue     printing on a new page. Returns true if this was successful;     otherwise returns false.      Calling newPage() on an inactive QPrinter object will always     fail. */
+comment|/*!     Tells the printer to eject the current page and to continue     printing on a new page. Returns \c true if this was successful;     otherwise returns \c false.      Calling newPage() on an inactive QPrinter object will always     fail. */
 end_comment
 begin_function
 DECL|function|newPage
@@ -4543,7 +4543,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Aborts the current print run. Returns true if the print run was     successfully aborted and printerState() will return QPrinter::Aborted; otherwise     returns false.      It is not always possible to abort a print job. For example,     all the data has gone to the printer but the printer cannot or     will not cancel the job when asked to. */
+comment|/*!     Aborts the current print run. Returns \c true if the print run was     successfully aborted and printerState() will return QPrinter::Aborted; otherwise     returns \c false.      It is not always possible to abort a print job. For example,     all the data has gone to the printer but the printer cannot or     will not cancel the job when asked to. */
 end_comment
 begin_function
 DECL|function|abort
@@ -4960,10 +4960,10 @@ begin_comment
 comment|/*!     \fn void QPrintEngine::property(PrintEnginePropertyKey key) const      Returns the print engine's property specified by \a key.      \sa setProperty() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPrintEngine::newPage()      Instructs the print engine to start a new page. Returns true if     the printer was able to create the new page; otherwise returns false. */
+comment|/*!     \fn bool QPrintEngine::newPage()      Instructs the print engine to start a new page. Returns \c true if     the printer was able to create the new page; otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPrintEngine::abort()      Instructs the print engine to abort the printing process. Returns     true if successful; otherwise returns false. */
+comment|/*!     \fn bool QPrintEngine::abort()      Instructs the print engine to abort the printing process. Returns     true if successful; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn int QPrintEngine::metric(QPaintDevice::PaintDeviceMetric id) const      Returns the metric for the given \a id. */

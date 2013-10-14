@@ -2403,7 +2403,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*     Returns true if \a window is blocked by a modal window. If \a     blockingWindow is non-zero, *blockingWindow will be set to the blocking     window (or to zero if \a window is not blocked). */
+comment|/*     Returns \c true if \a window is blocked by a modal window. If \a     blockingWindow is non-zero, *blockingWindow will be set to the blocking     window (or to zero if \a window is not blocked). */
 end_comment
 begin_function
 DECL|function|isWindowBlocked
@@ -4090,6 +4090,30 @@ operator|=
 name|platform_integration
 operator|->
 name|createEventDispatcher
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|eventDispatcherReady
+name|void
+name|QGuiApplicationPrivate
+operator|::
+name|eventDispatcherReady
+parameter_list|()
+block|{
+if|if
+condition|(
+name|platform_integration
+operator|==
+literal|0
+condition|)
+name|createPlatformIntegration
+argument_list|()
+expr_stmt|;
+name|platform_integration
+operator|->
+name|initialize
 argument_list|()
 expr_stmt|;
 block|}
@@ -11979,10 +12003,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGuiApplication::isRightToLeft()      Returns true if the application's layout direction is     Qt::RightToLeft; otherwise returns false.      \sa layoutDirection(), isLeftToRight() */
+comment|/*!     \fn bool QGuiApplication::isRightToLeft()      Returns \c true if the application's layout direction is     Qt::RightToLeft; otherwise returns \c false.      \sa layoutDirection(), isLeftToRight() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGuiApplication::isLeftToRight()      Returns true if the application's layout direction is     Qt::LeftToRight; otherwise returns false.      \sa layoutDirection(), isRightToLeft() */
+comment|/*!     \fn bool QGuiApplication::isLeftToRight()      Returns \c true if the application's layout direction is     Qt::LeftToRight; otherwise returns \c false.      \sa layoutDirection(), isRightToLeft() */
 end_comment
 begin_function
 DECL|function|notifyLayoutDirectionChange
@@ -12006,7 +12030,7 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|/*!     \property QGuiApplication::quitOnLastWindowClosed      \brief whether the application implicitly quits when the last window is     closed.      The default is true.      If this property is true, the applications quits when the last visible     primary window (i.e. window with no parent) is closed.      \sa quit(), QWindow::close()  */
+comment|/*!     \property QGuiApplication::quitOnLastWindowClosed      \brief whether the application implicitly quits when the last window is     closed.      The default is true.      If this property is \c true, the applications quits when the last visible     primary window (i.e. window with no parent) is closed.      \sa quit(), QWindow::close()  */
 end_comment
 begin_function
 DECL|function|setQuitOnLastWindowClosed
@@ -12319,10 +12343,10 @@ begin_comment
 comment|/*!     \since 4.2     \fn void QGuiApplication::saveStateRequest(QSessionManager&manager)      This signal deals with \l{Session Management}{session management}. It is     invoked when the \l{QSessionManager}{session manager} wants the application     to preserve its state for a future session.      For example, a text editor would create a temporary file that includes the     current contents of its edit buffers, the location of the cursor and other     aspects of the current editing session.      You should never exit the application within this signal. Instead, the     session manager may or may not do this afterwards, depending on the     context. Futhermore, most session managers will very likely request a saved     state immediately after the application has been started. This permits the     session manager to learn about the application's restart policy.      \warning Within this signal, no user interaction is possible, \e     unless you ask the \a manager for explicit permission. See     QSessionManager::allowsInteraction() and     QSessionManager::allowsErrorInteraction() for details.      \note You should use Qt::DirectConnection when connecting to this signal.      \sa isSessionRestored(), sessionId(), commitDataRequest(), {Session Management} */
 end_comment
 begin_comment
-comment|/*!     \fn bool QGuiApplication::isSessionRestored() const      Returns true if the application has been restored from an earlier     \l{Session Management}{session}; otherwise returns false.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
+comment|/*!     \fn bool QGuiApplication::isSessionRestored() const      Returns \c true if the application has been restored from an earlier     \l{Session Management}{session}; otherwise returns \c false.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0     \fn bool QGuiApplication::isSavingSession() const      Returns true if the application is currently saving the     \l{Session Management}{session}; otherwise returns false.      This is true when commitDataRequest() and saveStateRequest() are emitted,     but also when the windows are closed afterwards by session management.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
+comment|/*!     \since 5.0     \fn bool QGuiApplication::isSavingSession() const      Returns \c true if the application is currently saving the     \l{Session Management}{session}; otherwise returns \c false.      This is true when commitDataRequest() and saveStateRequest() are emitted,     but also when the windows are closed afterwards by session management.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QGuiApplication::sessionId() const      Returns the current \l{Session Management}{session's} identifier.      If the application has been restored from an earlier session, this     identifier is the same as it was in that previous session. The session     identifier is guaranteed to be unique both for different applications     and for different instances of the same application.      \sa isSessionRestored(), sessionKey(), commitDataRequest(), saveStateRequest() */
@@ -13245,7 +13269,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if Qt is set to use the system's standard colors, fonts, etc.;     otherwise returns false. The default is true.      \sa setDesktopSettingsAware() */
+comment|/*!     Returns \c true if Qt is set to use the system's standard colors, fonts, etc.;     otherwise returns \c false. The default is true.      \sa setDesktopSettingsAware() */
 end_comment
 begin_function
 DECL|function|desktopSettingsAware

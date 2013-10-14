@@ -677,7 +677,7 @@ begin_comment
 comment|/*!     \fn void QMatrix4x4::setRow(int index, const QVector4D& value)      Sets the elements of row \a index to the components of \a value.      \sa row(), setColumn() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMatrix4x4::isIdentity() const      Returns true if this matrix is the identity; false otherwise.      \sa setToIdentity() */
+comment|/*!     \fn bool QMatrix4x4::isIdentity() const      Returns \c true if this matrix is the identity; false otherwise.      \sa setToIdentity() */
 end_comment
 begin_comment
 comment|/*!     \fn void QMatrix4x4::setToIdentity()      Sets this matrix to the identity.      \sa isIdentity() */
@@ -3781,10 +3781,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QMatrix4x4::operator==(const QMatrix4x4& other) const      Returns true if this matrix is identical to \a other; false otherwise.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool QMatrix4x4::operator==(const QMatrix4x4& other) const      Returns \c true if this matrix is identical to \a other; false otherwise.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMatrix4x4::operator!=(const QMatrix4x4& other) const      Returns true if this matrix is not identical to \a other; false otherwise.     This operator uses an exact floating-point comparison. */
+comment|/*!     \fn bool QMatrix4x4::operator!=(const QMatrix4x4& other) const      Returns \c true if this matrix is not identical to \a other; false otherwise.     This operator uses an exact floating-point comparison. */
 end_comment
 begin_comment
 comment|/*!     \fn QMatrix4x4 operator+(const QMatrix4x4& m1, const QMatrix4x4& m2)     \relates QMatrix4x4      Returns the sum of \a m1 and \a m2. */
@@ -4237,7 +4237,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool qFuzzyCompare(const QMatrix4x4& m1, const QMatrix4x4& m2)     \relates QMatrix4x4      Returns true if \a m1 and \a m2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
+comment|/*!     \fn bool qFuzzyCompare(const QMatrix4x4& m1, const QMatrix4x4& m2)     \relates QMatrix4x4      Returns \c true if \a m1 and \a m2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
 end_comment
 begin_ifndef
 ifndef|#

@@ -403,7 +403,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if mipmapping is enabled.      \sa setMipmap() */
+comment|/*!     Returns \c true if mipmapping is enabled.      \sa setMipmap() */
 end_comment
 begin_function
 DECL|function|mipmap
@@ -558,7 +558,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if all the options of this framebuffer object format     are the same as \a other; otherwise returns false. */
+comment|/*!     Returns \c true if all the options of this framebuffer object format     are the same as \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -600,7 +600,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns false if all the options of this framebuffer object format     are the same as \a other; otherwise returns true. */
+comment|/*!     Returns \c false if all the options of this framebuffer object format     are the same as \a other; otherwise returns \c true. */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -2809,7 +2809,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::isValid() const      Returns true if the framebuffer object is valid.      The framebuffer can become invalid if the initialization process     fails, the user attaches an invalid buffer to the framebuffer     object, or a non-power of two width/height is specified as the     texture size if the texture target is \c{GL_TEXTURE_2D}.     The non-power of two limitation does not apply if the OpenGL version     is 2.0 or higher, or if the GL_ARB_texture_non_power_of_two extension     is present.      The framebuffer can also become invalid if the QOpenGLContext that     the framebuffer was created within is destroyed and there are     no other shared contexts that can take over ownership of the     framebuffer. */
+comment|/*!     \fn bool QOpenGLFramebufferObject::isValid() const      Returns \c true if the framebuffer object is valid.      The framebuffer can become invalid if the initialization process     fails, the user attaches an invalid buffer to the framebuffer     object, or a non-power of two width/height is specified as the     texture size if the texture target is \c{GL_TEXTURE_2D}.     The non-power of two limitation does not apply if the OpenGL version     is 2.0 or higher, or if the GL_ARB_texture_non_power_of_two extension     is present.      The framebuffer can also become invalid if the QOpenGLContext that     the framebuffer was created within is destroyed and there are     no other shared contexts that can take over ownership of the     framebuffer. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -2845,7 +2845,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::bind()      Switches rendering from the default, windowing system provided     framebuffer to this framebuffer object.     Returns true upon success, false otherwise.      \sa release() */
+comment|/*!     \fn bool QOpenGLFramebufferObject::bind()      Switches rendering from the default, windowing system provided     framebuffer to this framebuffer object.     Returns \c true upon success, false otherwise.      \sa release() */
 end_comment
 begin_function
 DECL|function|bind
@@ -2963,7 +2963,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::release()      Switches rendering back to the default, windowing system provided     framebuffer.     Returns true upon success, false otherwise.      \sa bind() */
+comment|/*!     \fn bool QOpenGLFramebufferObject::release()      Switches rendering back to the default, windowing system provided     framebuffer.     Returns \c true upon success, false otherwise.      \sa bind() */
 end_comment
 begin_function
 DECL|function|release
@@ -3478,7 +3478,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::bindDefault()      Switches rendering back to the default, windowing system provided     framebuffer.     Returns true upon success, false otherwise.      \sa bind(), release() */
+comment|/*!     \fn bool QOpenGLFramebufferObject::bindDefault()      Switches rendering back to the default, windowing system provided     framebuffer.     Returns \c true upon success, false otherwise.      \sa bind(), release() */
 end_comment
 begin_function
 DECL|function|bindDefault
@@ -3563,7 +3563,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::hasOpenGLFramebufferObjects()      Returns true if the OpenGL \c{GL_EXT_framebuffer_object} extension     is present on this system; otherwise returns false. */
+comment|/*!     \fn bool QOpenGLFramebufferObject::hasOpenGLFramebufferObjects()      Returns \c true if the OpenGL \c{GL_EXT_framebuffer_object} extension     is present on this system; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|hasOpenGLFramebufferObjects
@@ -3782,7 +3782,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the framebuffer object is currently bound to a context,     otherwise false is returned. */
+comment|/*!     Returns \c true if the framebuffer object is currently bound to a context,     otherwise false is returned. */
 end_comment
 begin_function
 DECL|function|isBound
@@ -3828,7 +3828,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QOpenGLFramebufferObject::hasOpenGLFramebufferBlit()      Returns true if the OpenGL \c{GL_EXT_framebuffer_blit} extension     is present on this system; otherwise returns false.      \sa blitFramebuffer() */
+comment|/*!     \fn bool QOpenGLFramebufferObject::hasOpenGLFramebufferBlit()      Returns \c true if the OpenGL \c{GL_EXT_framebuffer_blit} extension     is present on this system; otherwise returns \c false.      \sa blitFramebuffer() */
 end_comment
 begin_function
 DECL|function|hasOpenGLFramebufferBlit

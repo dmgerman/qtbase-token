@@ -1123,7 +1123,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDial::wrapping     \brief whether wrapping is enabled      If true, wrapping is enabled; otherwise some space is inserted at the bottom     of the dial to separate the ends of the range of valid values.      If enabled, the arrow can be oriented at any angle on the dial. If disabled,     the arrow will be restricted to the upper part of the dial; if it is rotated     into the space at the bottom of the dial, it will be clamped to the closest     end of the valid range of values.      By default this property is false. */
+comment|/*!     \property QDial::wrapping     \brief whether wrapping is enabled      If true, wrapping is enabled; otherwise some space is inserted at the bottom     of the dial to separate the ends of the range of valid values.      If enabled, the arrow can be oriented at any angle on the dial. If disabled,     the arrow will be restricted to the upper part of the dial; if it is rotated     into the space at the bottom of the dial, it will be clamped to the closest     end of the valid range of values.      By default this property is \c false. */
 end_comment
 begin_function
 DECL|function|wrapping
@@ -1391,7 +1391,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDial::notchesVisible     \brief whether the notches are shown      If the property is true, a series of notches are drawn around the dial     to indicate the range of values available; otherwise no notches are     shown.      By default, this property is disabled. */
+comment|/*!     \property QDial::notchesVisible     \brief whether the notches are shown      If the property is \c true, a series of notches are drawn around the dial     to indicate the range of values available; otherwise no notches are     shown.      By default, this property is disabled. */
 end_comment
 begin_function
 DECL|function|notchesVisible

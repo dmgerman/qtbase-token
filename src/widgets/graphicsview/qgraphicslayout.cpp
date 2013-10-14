@@ -636,7 +636,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the layout is currently being activated; otherwise,     returns false. If the layout is being activated, this means that it is     currently in the process of rearranging its items (i.e., the activate()     function has been called, and has not yet returned).      \sa activate(), invalidate() */
+comment|/*!     Returns \c true if the layout is currently being activated; otherwise,     returns \c false. If the layout is being activated, this means that it is     currently in the process of rearranging its items (i.e., the activate()     function has been called, and has not yet returned).      \sa activate(), invalidate() */
 end_comment
 begin_function
 DECL|function|isActivated
@@ -1122,7 +1122,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \since 4.8     \sa setInstantInvalidatePropagation()      returns true if the complete widget/layout hierarchy is rearranged in one go. */
+comment|/*!     \internal     \since 4.8     \sa setInstantInvalidatePropagation()      returns \c true if the complete widget/layout hierarchy is rearranged in one go. */
 end_comment
 begin_function
 DECL|function|instantInvalidatePropagation

@@ -890,7 +890,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the active stack's QUndoStack::canUndo().      If none of the stacks are active, or if the group is empty, this function     returns false.      \sa canRedo(), setActiveStack() */
+comment|/*!     Returns the value of the active stack's QUndoStack::canUndo().      If none of the stacks are active, or if the group is empty, this function     returns \c false.      \sa canRedo(), setActiveStack() */
 end_comment
 begin_function
 DECL|function|canUndo
@@ -924,7 +924,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the active stack's QUndoStack::canRedo().      If none of the stacks are active, or if the group is empty, this function     returns false.      \sa canUndo(), setActiveStack() */
+comment|/*!     Returns the value of the active stack's QUndoStack::canRedo().      If none of the stacks are active, or if the group is empty, this function     returns \c false.      \sa canUndo(), setActiveStack() */
 end_comment
 begin_function
 DECL|function|canRedo
@@ -1032,7 +1032,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the active stack's QUndoStack::isClean().      If none of the stacks are active, or if the group is empty, this function     returns true.      \sa setActiveStack() */
+comment|/*!     Returns the value of the active stack's QUndoStack::isClean().      If none of the stacks are active, or if the group is empty, this function     returns \c true.      \sa setActiveStack() */
 end_comment
 begin_function
 DECL|function|isClean

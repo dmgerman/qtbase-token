@@ -149,10 +149,7 @@ condition|(
 name|QT_DRIVER_USB
 argument_list|()
 operator|.
-name|isEnabled
-argument_list|<
-name|QtDebugMsg
-argument_list|>
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{

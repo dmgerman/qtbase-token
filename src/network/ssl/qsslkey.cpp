@@ -1001,7 +1001,7 @@ begin_comment
 comment|/*!     \fn void QSslKey::swap(QSslKey&other)     \since 5.0      Swaps this ssl key with \a other. This function is very fast and     never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this is a null key; otherwise false.      \sa clear() */
+comment|/*!     Returns \c true if this is a null key; otherwise false.      \sa clear() */
 end_comment
 begin_function
 DECL|function|isNull
@@ -1560,7 +1560,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this key is equal to \a other; otherwise returns false. */
+comment|/*!     Returns \c true if this key is equal to \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -1668,7 +1668,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QSslKey::operator!=(const QSslKey&other) const    Returns true if this key is not equal to key \a other; otherwise   returns false. */
+comment|/*! \fn bool QSslKey::operator!=(const QSslKey&other) const    Returns \c true if this key is not equal to key \a other; otherwise   returns \c false. */
 end_comment
 begin_ifndef
 ifndef|#

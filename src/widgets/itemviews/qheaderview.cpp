@@ -237,7 +237,7 @@ begin_comment
 comment|/*!     \fn void QHeaderView::geometriesChanged()     \since 4.2      This signal is emitted when the header's geometries have changed. */
 end_comment
 begin_comment
-comment|/*!     \property QHeaderView::highlightSections     \brief whether the sections containing selected items are highlighted      By default, this property is false. */
+comment|/*!     \property QHeaderView::highlightSections     \brief whether the sections containing selected items are highlighted      By default, this property is \c false. */
 end_comment
 begin_comment
 comment|/*!     Creates a new generic header with the given \a orientation and \a parent. */
@@ -3687,7 +3687,7 @@ begin_comment
 comment|/*!     \fn void QHeaderView::showSection(int logicalIndex)     Shows the section specified by \a logicalIndex.      \sa hideSection(), isSectionHidden(), hiddenSectionCount(),     setSectionHidden() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the section specified by \a logicalIndex is explicitly     hidden from the user; otherwise returns false.      \sa hideSection(), showSection(), setSectionHidden(), hiddenSectionCount() */
+comment|/*!     Returns \c true if the section specified by \a logicalIndex is explicitly     hidden from the user; otherwise returns \c false.      \sa hideSection(), showSection(), setSectionHidden(), hiddenSectionCount() */
 end_comment
 begin_function
 DECL|function|isSectionHidden
@@ -4248,7 +4248,7 @@ begin_comment
 comment|/*!     \obsolete     \fn void QHeaderView::setMovable(bool movable)      Use setSectionsMovable instead.      \sa setSectionsMovable() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0      Returns true if the header can be moved by the user; otherwise returns     false.      \sa setSectionsMovable() */
+comment|/*!     \since 5.0      Returns \c true if the header can be moved by the user; otherwise returns     false.      \sa setSectionsMovable() */
 end_comment
 begin_function
 DECL|function|sectionsMovable
@@ -4312,7 +4312,7 @@ begin_comment
 comment|/*!     \obsolete     \fn void QHeaderView::setClickable(bool clickable)      Use setSectionsClickable instead.      \sa setSectionsClickable() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0      Returns true if the header is clickable; otherwise returns false. A     clickable header could be set up to allow the user to change the     representation of the data in the view related to the header.      \sa setSectionsClickable() */
+comment|/*!     \since 5.0      Returns \c true if the header is clickable; otherwise returns \c false. A     clickable header could be set up to allow the user to change the     representation of the data in the view related to the header.      \sa setSectionsClickable() */
 end_comment
 begin_function
 DECL|function|sectionsClickable
@@ -4760,7 +4760,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QHeaderView::showSortIndicator   \brief whether the sort indicator is shown    By default, this property is false.    \sa setSectionsClickable() */
+comment|/*!   \property QHeaderView::showSortIndicator   \brief whether the sort indicator is shown    By default, this property is \c false.    \sa setSectionsClickable() */
 end_comment
 begin_function
 DECL|function|setSortIndicatorShown
@@ -5621,7 +5621,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if sections in the header has been moved; otherwise returns     false;      \sa moveSection() */
+comment|/*!     Returns \c true if sections in the header has been moved; otherwise returns     false;      \sa moveSection() */
 end_comment
 begin_function
 DECL|function|sectionsMoved
@@ -5650,7 +5650,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns true if sections in the header has been hidden; otherwise returns     false;      \sa setSectionHidden() */
+comment|/*!     \since 4.1      Returns \c true if sections in the header has been hidden; otherwise returns     false;      \sa setSectionHidden() */
 end_comment
 begin_function
 DECL|function|sectionsHidden

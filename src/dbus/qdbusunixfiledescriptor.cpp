@@ -247,7 +247,7 @@ begin_comment
 comment|/*!     \fn void QDBusUnixFileDescriptor::swap(QDBusUnixFileDescriptor&other)     \since 5.0      Swaps this file descriptor instance with \a other. This function     is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this Unix file descriptor is valid. A valid Unix file     descriptor is not -1.      \sa fileDescriptor() */
+comment|/*!     Returns \c true if this Unix file descriptor is valid. A valid Unix file     descriptor is not -1.      \sa fileDescriptor() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -314,7 +314,7 @@ begin_comment
 comment|// qdoc documentation is generated on Unix
 end_comment
 begin_comment
-comment|/*!     Returns true if Unix file descriptors are supported on this platform. In     other words, this function returns true if this is a Unix platform.      Note that QDBusUnixFileDescriptor continues to operate even if this     function returns false. The only difference is that the     QDBusUnixFileDescriptor objects will always be in the isValid() == false     state and fileDescriptor() will always return -1. The class will not     consume any operating system resources. */
+comment|/*!     Returns \c true if Unix file descriptors are supported on this platform. In     other words, this function returns \c true if this is a Unix platform.      Note that QDBusUnixFileDescriptor continues to operate even if this     function returns \c false. The only difference is that the     QDBusUnixFileDescriptor objects will always be in the isValid() == false     state and fileDescriptor() will always return -1. The class will not     consume any operating system resources. */
 end_comment
 begin_function
 DECL|function|isSupported

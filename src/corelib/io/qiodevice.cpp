@@ -659,7 +659,7 @@ directive|endif
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns true if this device is sequential; otherwise returns     false.      Sequential devices, as opposed to a random-access devices, have no     concept of a start, an end, a size, or a current position, and they     do not support seeking. You can only read from the device when it     reports that data is available. The most common example of a     sequential device is a network socket. On Unix, special files such     as /dev/zero and fifo pipes are sequential.      Regular files, on the other hand, do support random access. They     have both a size and a current position, and they also support     seeking backwards and forwards in the data stream. Regular files     are non-sequential.      \sa bytesAvailable() */
+comment|/*!     Returns \c true if this device is sequential; otherwise returns     false.      Sequential devices, as opposed to a random-access devices, have no     concept of a start, an end, a size, or a current position, and they     do not support seeking. You can only read from the device when it     reports that data is available. The most common example of a     sequential device is a network socket. On Unix, special files such     as /dev/zero and fifo pipes are sequential.      Regular files, on the other hand, do support random access. They     have both a size and a current position, and they also support     seeking backwards and forwards in the data stream. Regular files     are non-sequential.      \sa bytesAvailable() */
 end_comment
 begin_function
 DECL|function|isSequential
@@ -823,7 +823,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \l Text flag is enabled; otherwise returns false.      \sa setTextModeEnabled() */
+comment|/*!     Returns \c true if the \l Text flag is enabled; otherwise returns \c false.      \sa setTextModeEnabled() */
 end_comment
 begin_function
 DECL|function|isTextModeEnabled
@@ -845,7 +845,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the device is open; otherwise returns false. A     device is open if it can be read from and/or written to. By     default, this function returns false if openMode() returns     \c NotOpen.      \sa openMode(), OpenMode */
+comment|/*!     Returns \c true if the device is open; otherwise returns \c false. A     device is open if it can be read from and/or written to. By     default, this function returns \c false if openMode() returns     \c NotOpen.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|isOpen
@@ -867,7 +867,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if data can be read from the device; otherwise returns     false. Use bytesAvailable() to determine how many bytes can be read.      This is a convenience function which checks if the OpenMode of the     device contains the ReadOnly flag.      \sa openMode(), OpenMode */
+comment|/*!     Returns \c true if data can be read from the device; otherwise returns     false. Use bytesAvailable() to determine how many bytes can be read.      This is a convenience function which checks if the OpenMode of the     device contains the ReadOnly flag.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -891,7 +891,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if data can be written to the device; otherwise returns     false.      This is a convenience function which checks if the OpenMode of the     device contains the WriteOnly flag.      \sa openMode(), OpenMode */
+comment|/*!     Returns \c true if data can be written to the device; otherwise returns     false.      This is a convenience function which checks if the OpenMode of the     device contains the WriteOnly flag.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -915,7 +915,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens the device and sets its OpenMode to \a mode. Returns true if successful;     otherwise returns false. This function should be called from any     reimplementations of open() or other functions that open the device.      \sa openMode(), OpenMode */
+comment|/*!     Opens the device and sets its OpenMode to \a mode. Returns \c true if successful;     otherwise returns \c false. This function should be called from any     reimplementations of open() or other functions that open the device.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|open
@@ -1375,7 +1375,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the current read and write position is at the end     of the device (i.e. there is no more data available for reading on     the device); otherwise returns false.      For some devices, atEnd() can return true even though there is more data     to read. This special case only applies to devices that generate data in     direct response to you calling read() (e.g., \c /dev or \c /proc files on     Unix and Mac OS X, or console input / \c stdin on all platforms).      \sa bytesAvailable(), read(), isSequential() */
+comment|/*!     Returns \c true if the current read and write position is at the end     of the device (i.e. there is no more data available for reading on     the device); otherwise returns \c false.      For some devices, atEnd() can return true even though there is more data     to read. This special case only applies to devices that generate data in     direct response to you calling read() (e.g., \c /dev or \c /proc files on     Unix and Mac OS X, or console input / \c stdin on all platforms).      \sa bytesAvailable(), read(), isSequential() */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -1462,7 +1462,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Seeks to the start of input for random-access devices. Returns     true on success; otherwise returns false (for example, if the     device is not open).      Note that when using a QTextStream on a QFile, calling reset() on     the QFile will not have the expected result because QTextStream     buffers the file. Use the QTextStream::seek() function instead.      \sa seek() */
+comment|/*!     Seeks to the start of input for random-access devices. Returns     true on success; otherwise returns \c false (for example, if the     device is not open).      Note that when using a QTextStream on a QFile, calling reset() on     the QFile will not have the expected result because QTextStream     buffers the file. Use the QTextStream::seek() function instead.      \sa seek() */
 end_comment
 begin_function
 DECL|function|reset
@@ -3939,7 +3939,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Returns true if a complete line of data can be read from the device;     otherwise returns false.      Note that unbuffered devices, which have no way of determining what     can be read, always return false.      This function is often called in conjunction with the readyRead()     signal.      Subclasses that reimplement this function must call the base     implementation in order to include the contents of the QIODevice's buffer. Example:      \snippet code/src_corelib_io_qiodevice.cpp 3      \sa readyRead(), readLine() */
+comment|/*!     Returns \c true if a complete line of data can be read from the device;     otherwise returns \c false.      Note that unbuffered devices, which have no way of determining what     can be read, always return false.      This function is often called in conjunction with the readyRead()     signal.      Subclasses that reimplement this function must call the base     implementation in order to include the contents of the QIODevice's buffer. Example:      \snippet code/src_corelib_io_qiodevice.cpp 3      \sa readyRead(), readLine() */
 end_comment
 begin_function
 DECL|function|canReadLine
@@ -4450,7 +4450,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QIODevice::putChar(char c)      Writes the character \a c to the device. Returns true on success;     otherwise returns false.      \sa write(), getChar(), ungetChar() */
+comment|/*! \fn bool QIODevice::putChar(char c)      Writes the character \a c to the device. Returns \c true on success;     otherwise returns \c false.      \sa write(), getChar(), ungetChar() */
 end_comment
 begin_function
 DECL|function|putChar
@@ -4627,7 +4627,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QIODevice::getChar(char *c)      Reads one character from the device and stores it in \a c. If \a c     is 0, the character is discarded. Returns true on success;     otherwise returns false.      \sa read(), putChar(), ungetChar() */
+comment|/*! \fn bool QIODevice::getChar(char *c)      Reads one character from the device and stores it in \a c. If \a c     is 0, the character is discarded. Returns \c true on success;     otherwise returns \c false.      \sa read(), putChar(), ungetChar() */
 end_comment
 begin_function
 DECL|function|getChar
@@ -4721,7 +4721,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Blocks until new data is available for reading and the readyRead()     signal has been emitted, or until \a msecs milliseconds have     passed. If msecs is -1, this function will not time out.      Returns true if new data is available for reading; otherwise returns     false (if the operation timed out or if an error occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      If called from within a slot connected to the readyRead() signal,     readyRead() will not be reemitted.      Reimplement this function to provide a blocking API for a custom     device. The default implementation does nothing, and returns false.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      \sa waitForBytesWritten() */
+comment|/*!     Blocks until new data is available for reading and the readyRead()     signal has been emitted, or until \a msecs milliseconds have     passed. If msecs is -1, this function will not time out.      Returns \c true if new data is available for reading; otherwise returns     false (if the operation timed out or if an error occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      If called from within a slot connected to the readyRead() signal,     readyRead() will not be reemitted.      Reimplement this function to provide a blocking API for a custom     device. The default implementation does nothing, and returns \c false.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      \sa waitForBytesWritten() */
 end_comment
 begin_function
 DECL|function|waitForReadyRead
@@ -4745,7 +4745,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For buffered devices, this function waits until a payload of     buffered written data has been written to the device and the     bytesWritten() signal has been emitted, or until \a msecs     milliseconds have passed. If msecs is -1, this function will     not time out. For unbuffered devices, it returns immediately.      Returns true if a payload of data was written to the device;     otherwise returns false (i.e. if the operation timed out, or if an     error occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      If called from within a slot connected to the bytesWritten() signal,     bytesWritten() will not be reemitted.      Reimplement this function to provide a blocking API for a custom     device. The default implementation does nothing, and returns false.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      \sa waitForReadyRead() */
+comment|/*!     For buffered devices, this function waits until a payload of     buffered written data has been written to the device and the     bytesWritten() signal has been emitted, or until \a msecs     milliseconds have passed. If msecs is -1, this function will     not time out. For unbuffered devices, it returns immediately.      Returns \c true if a payload of data was written to the device;     otherwise returns \c false (i.e. if the operation timed out, or if an     error occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      If called from within a slot connected to the bytesWritten() signal,     bytesWritten() will not be reemitted.      Reimplement this function to provide a blocking API for a custom     device. The default implementation does nothing, and returns \c false.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      \sa waitForReadyRead() */
 end_comment
 begin_function
 DECL|function|waitForBytesWritten

@@ -259,7 +259,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFutureWatcher::isStarted() const      Returns true if the asynchronous computation represented by the future()     has been started; otherwise returns false. */
+comment|/*! \fn bool QFutureWatcher::isStarted() const      Returns \c true if the asynchronous computation represented by the future()     has been started; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isStarted
@@ -284,7 +284,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFutureWatcher::isFinished() const      Returns true if the asynchronous computation represented by the future()     has finished; otherwise returns false. */
+comment|/*! \fn bool QFutureWatcher::isFinished() const      Returns \c true if the asynchronous computation represented by the future()     has finished; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isFinished
@@ -309,7 +309,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFutureWatcher::isRunning() const      Returns true if the asynchronous computation represented by the future()     is currently running; otherwise returns false. */
+comment|/*! \fn bool QFutureWatcher::isRunning() const      Returns \c true if the asynchronous computation represented by the future()     is currently running; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isRunning
@@ -334,7 +334,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFutureWatcher::isCanceled() const      Returns true if the asynchronous computation has been canceled with the     cancel() function; otherwise returns false.      Be aware that the computation may still be running even though this     function returns true. See cancel() for more details. */
+comment|/*! \fn bool QFutureWatcher::isCanceled() const      Returns \c true if the asynchronous computation has been canceled with the     cancel() function; otherwise returns \c false.      Be aware that the computation may still be running even though this     function returns \c true. See cancel() for more details. */
 end_comment
 begin_function
 DECL|function|isCanceled
@@ -359,7 +359,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFutureWatcher::isPaused() const      Returns true if the asynchronous computation has been paused with the     pause() function; otherwise returns false.      Be aware that the computation may still be running even though this     function returns true. See setPaused() for more details.      \sa setPaused(), togglePaused() */
+comment|/*! \fn bool QFutureWatcher::isPaused() const      Returns \c true if the asynchronous computation has been paused with the     pause() function; otherwise returns \c false.      Be aware that the computation may still be running even though this     function returns \c true. See setPaused() for more details.      \sa setPaused(), togglePaused() */
 end_comment
 begin_function
 DECL|function|isPaused

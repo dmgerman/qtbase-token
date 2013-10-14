@@ -648,7 +648,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!    Returns true if the QTemporaryDir was created successfully. */
+comment|/*!    Returns \c true if the QTemporaryDir was created successfully. */
 end_comment
 begin_function
 DECL|function|isValid
@@ -686,7 +686,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if the QTemporaryDir is in auto remove    mode. Auto-remove mode will automatically delete the directory from    disk upon destruction. This makes it very easy to create your    QTemporaryDir object on the stack, fill it with files, do something with    the files, and finally on function return it will automatically clean up    after itself.     Auto-remove is on by default.     \sa setAutoRemove(), remove() */
+comment|/*!    Returns \c true if the QTemporaryDir is in auto remove    mode. Auto-remove mode will automatically delete the directory from    disk upon destruction. This makes it very easy to create your    QTemporaryDir object on the stack, fill it with files, do something with    the files, and finally on function return it will automatically clean up    after itself.     Auto-remove is on by default.     \sa setAutoRemove(), remove() */
 end_comment
 begin_function
 DECL|function|autoRemove
@@ -727,7 +727,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the temporary directory, including all its contents.      Returns true if removing was successful. */
+comment|/*!     Removes the temporary directory, including all its contents.      Returns \c true if removing was successful. */
 end_comment
 begin_function
 DECL|function|remove

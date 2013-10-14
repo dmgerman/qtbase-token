@@ -346,7 +346,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QPicture::isNull() const      Returns true if the picture contains no data; otherwise returns     false. */
+comment|/*!     \fn bool QPicture::isNull() const      Returns \c true if the picture contains no data; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn uint QPicture::size() const      Returns the size of the picture data.      \sa data() */
@@ -503,7 +503,7 @@ comment|// we'll have to check
 block|}
 end_function
 begin_comment
-comment|/*!     Loads a picture from the file specified by \a fileName and returns     true if successful; otherwise invalidates the picture and returns false.      Please note that the \a format parameter has been deprecated and     will have no effect.      \sa save() */
+comment|/*!     Loads a picture from the file specified by \a fileName and returns     true if successful; otherwise invalidates the picture and returns \c false.      Please note that the \a format parameter has been deprecated and     will have no effect.      \sa save() */
 end_comment
 begin_function
 DECL|function|load
@@ -673,7 +673,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Saves a picture to the file specified by \a fileName and returns     true if successful; otherwise returns false.      Please note that the \a format parameter has been deprecated and     will have no effect.      \sa load() */
+comment|/*!     Saves a picture to the file specified by \a fileName and returns     true if successful; otherwise returns \c false.      Please note that the \a format parameter has been deprecated and     will have no effect.      \sa load() */
 end_comment
 begin_function
 DECL|function|save
@@ -1017,7 +1017,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replays the picture using \a painter, and returns true if     successful; otherwise returns false.      This function does exactly the same as QPainter::drawPicture()     with (x, y) = (0, 0). */
+comment|/*!     Replays the picture using \a painter, and returns \c true if     successful; otherwise returns \c false.      This function does exactly the same as QPainter::drawPicture()     with (x, y) = (0, 0). */
 end_comment
 begin_function
 DECL|function|play
@@ -6498,7 +6498,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \l{format()}{format} used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice(), setFileName(), setFormat(), write(), QPixmap::load() */
+comment|/*!     Reads an picture into memory and returns \c true if the picture was     successfully read; otherwise returns \c false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \l{format()}{format} used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice(), setFileName(), setFormat(), write(), QPixmap::load() */
 end_comment
 begin_function
 DECL|function|read
@@ -6765,7 +6765,7 @@ comment|// picture successfully read?
 block|}
 end_function
 begin_comment
-comment|/*!     Writes an picture to an IO device and returns true if the picture was     successfully written; otherwise returns false.      Before writing an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      The picture will be written using the specified picture format.      Example:     \snippet picture/picture.cpp 5      \sa setIODevice(), setFileName(), setFormat(), read(), QPixmap::save() */
+comment|/*!     Writes an picture to an IO device and returns \c true if the picture was     successfully written; otherwise returns \c false.      Before writing an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      The picture will be written using the specified picture format.      Example:     \snippet picture/picture.cpp 5      \sa setIODevice(), setFileName(), setFormat(), read(), QPixmap::save() */
 end_comment
 begin_function
 DECL|function|write

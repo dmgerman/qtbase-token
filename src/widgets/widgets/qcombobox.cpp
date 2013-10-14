@@ -6593,7 +6593,7 @@ directive|ifndef
 name|QT_NO_COMPLETER
 end_ifndef
 begin_comment
-comment|/*!     \property QComboBox::autoCompletion     \brief whether the combobox provides auto-completion for editable items     \since 4.1     \obsolete      Use setCompleter() instead.      By default, this property is true.      \sa editable */
+comment|/*!     \property QComboBox::autoCompletion     \brief whether the combobox provides auto-completion for editable items     \since 4.1     \obsolete      Use setCompleter() instead.      By default, this property is \c true.      \sa editable */
 end_comment
 begin_comment
 comment|/*!     \obsolete      Use setCompleter() instead. */
@@ -6892,7 +6892,7 @@ begin_comment
 comment|// QT_NO_COMPLETER
 end_comment
 begin_comment
-comment|/*!     \property QComboBox::duplicatesEnabled     \brief whether the user can enter duplicate items into the combobox      Note that it is always possible to programmatically insert duplicate items into the     combobox.      By default, this property is false (duplicates are not allowed). */
+comment|/*!     \property QComboBox::duplicatesEnabled     \brief whether the user can enter duplicate items into the combobox      Note that it is always possible to programmatically insert duplicate items into the     combobox.      By default, this property is \c false (duplicates are not allowed). */
 end_comment
 begin_function
 DECL|function|duplicatesEnabled
@@ -7378,7 +7378,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QComboBox::editable     \brief whether the combo box can be edited by the user      By default, this property is false. The effect of editing depends     on the insert policy.      \sa InsertPolicy */
+comment|/*!     \property QComboBox::editable     \brief whether the combo box can be edited by the user      By default, this property is \c false. The effect of editing depends     on the insert policy.      \sa InsertPolicy */
 end_comment
 begin_function
 DECL|function|isEditable

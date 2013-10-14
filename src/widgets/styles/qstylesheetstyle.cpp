@@ -15496,7 +15496,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/** \internal     returns true if the widget can NOT be styled directly  */
+comment|/** \internal     returns \c true if the widget can NOT be styled directly  */
 end_comment
 begin_function
 DECL|function|unstylable
@@ -39980,7 +39980,7 @@ begin_comment
 comment|// this is called by widgets that paint themself in their paint event
 end_comment
 begin_comment
-comment|// Returns true if there is a new palette in pal.
+comment|// Returns \c true if there is a new palette in pal.
 end_comment
 begin_function
 DECL|function|styleSheetPalette

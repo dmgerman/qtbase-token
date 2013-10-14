@@ -19,11 +19,11 @@ file|"qdebug.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QMargins     \inmodule QtCore     \ingroup painting     \since 4.6      \brief The QMargins class defines the four margins of a rectangle.      QMargin defines a set of four margins; left, top, right and bottom,     that describe the size of the borders surrounding a rectangle.      The isNull() function returns true only if all margins are set to zero.      QMargin objects can be streamed as well as compared. */
+comment|/*!     \class QMargins     \inmodule QtCore     \ingroup painting     \since 4.6      \brief The QMargins class defines the four margins of a rectangle.      QMargin defines a set of four margins; left, top, right and bottom,     that describe the size of the borders surrounding a rectangle.      The isNull() function returns \c true only if all margins are set to zero.      QMargin objects can be streamed as well as compared. */
 comment|/*****************************************************************************   QMargins member functions  *****************************************************************************/
 comment|/*!     \fn QMargins::QMargins()      Constructs a margins object with all margins set to 0.      \sa isNull() */
 comment|/*!     \fn QMargins::QMargins(int left, int top, int right, int bottom)      Constructs margins with the given \a left, \a top, \a right, \a bottom      \sa setLeft(), setRight(), setTop(), setBottom() */
-comment|/*!     \fn bool QMargins::isNull() const      Returns true if all margins are is 0; otherwise returns     false. */
+comment|/*!     \fn bool QMargins::isNull() const      Returns \c true if all margins are is 0; otherwise returns     false. */
 comment|/*!     \fn int QMargins::left() const      Returns the left margin.      \sa setLeft() */
 comment|/*!     \fn int QMargins::top() const      Returns the top margin.      \sa setTop() */
 comment|/*!     \fn int QMargins::right() const      Returns the right margin. */
@@ -32,8 +32,8 @@ comment|/*!     \fn void QMargins::setLeft(int left)      Sets the left margin t
 comment|/*!     \fn void QMargins::setTop(int Top)      Sets the Top margin to \a Top. */
 comment|/*!     \fn void QMargins::setRight(int right)      Sets the right margin to \a right. */
 comment|/*!     \fn void QMargins::setBottom(int bottom)      Sets the bottom margin to \a bottom. */
-comment|/*!     \fn bool operator==(const QMargins&m1, const QMargins&m2)     \relates QMargins      Returns true if \a m1 and \a m2 are equal; otherwise returns false. */
-comment|/*!     \fn bool operator!=(const QMargins&m1, const QMargins&m2)     \relates QMargins      Returns true if \a m1 and \a m2 are different; otherwise returns false. */
+comment|/*!     \fn bool operator==(const QMargins&m1, const QMargins&m2)     \relates QMargins      Returns \c true if \a m1 and \a m2 are equal; otherwise returns \c false. */
+comment|/*!     \fn bool operator!=(const QMargins&m1, const QMargins&m2)     \relates QMargins      Returns \c true if \a m1 and \a m2 are different; otherwise returns \c false. */
 comment|/*!     \fn QRect operator+(const QRect&rectangle, const QMargins&margins)     \relates QRect      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
 comment|/*!     \fn QRect operator+(const QMargins&margins, const QRect&rectangle)     \relates QRect     \overload      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
 comment|/*!     \fn QRect QRect::marginsAdded(const QMargins&margins) const      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=()      \since 5.1 */

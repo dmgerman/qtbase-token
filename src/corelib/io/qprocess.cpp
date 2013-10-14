@@ -725,10 +725,10 @@ begin_comment
 comment|/*!     \fn void QProcessEnvironment::swap(QProcessEnvironment&other)     \since 5.0      Swaps this process environment instance with \a other. This     function is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QProcessEnvironment::operator !=(const QProcessEnvironment&other) const      Returns true if this and the \a other QProcessEnvironment objects are different.      \sa operator==() */
+comment|/*!     \fn bool QProcessEnvironment::operator !=(const QProcessEnvironment&other) const      Returns \c true if this and the \a other QProcessEnvironment objects are different.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this and the \a other QProcessEnvironment objects are equal.      Two QProcessEnvironment objects are considered equal if they have the same     set of key=value pairs. The comparison of keys is done case-sensitive on     platforms where the environment is case-sensitive.      \sa operator!=(), contains() */
+comment|/*!     Returns \c true if this and the \a other QProcessEnvironment objects are equal.      Two QProcessEnvironment objects are considered equal if they have the same     set of key=value pairs. The comparison of keys is done case-sensitive on     platforms where the environment is case-sensitive.      \sa operator!=(), contains() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -795,7 +795,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this QProcessEnvironment object is empty: that is     there are no key=value pairs set.      \sa clear(), systemEnvironment(), insert() */
+comment|/*!     Returns \c true if this QProcessEnvironment object is empty: that is     there are no key=value pairs set.      \sa clear(), systemEnvironment(), insert() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -848,7 +848,7 @@ comment|// re-populated with the same keys again.
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the environment variable of name \a name is found in     this QProcessEnvironment object.       \sa insert(), value() */
+comment|/*!     Returns \c true if the environment variable of name \a name is found in     this QProcessEnvironment object.       \sa insert(), value() */
 end_comment
 begin_function
 DECL|function|contains
@@ -3728,7 +3728,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \reimp     Returns true if the process is not running, and no more data is available    for reading; otherwise returns false. */
+comment|/*! \reimp     Returns \c true if the process is not running, and no more data is available    for reading; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -4102,7 +4102,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Blocks until the process has started and the started() signal has     been emitted, or until \a msecs milliseconds have passed.      Returns true if the process was started successfully; otherwise     returns false (if the operation timed out or if an error     occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      If msecs is -1, this function will not time out.      \sa started(), waitForReadyRead(), waitForBytesWritten(), waitForFinished() */
+comment|/*!     Blocks until the process has started and the started() signal has     been emitted, or until \a msecs milliseconds have passed.      Returns \c true if the process was started successfully; otherwise     returns \c false (if the operation timed out or if an error     occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      If msecs is -1, this function will not time out.      \sa started(), waitForReadyRead(), waitForBytesWritten(), waitForFinished() */
 end_comment
 begin_function
 DECL|function|waitForStarted
@@ -4322,7 +4322,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Blocks until the process has finished and the finished() signal     has been emitted, or until \a msecs milliseconds have passed.      Returns true if the process finished; otherwise returns false (if     the operation timed out, if an error occurred, or if this QProcess     is already finished).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      If msecs is -1, this function will not time out.      \sa finished(), waitForStarted(), waitForReadyRead(), waitForBytesWritten() */
+comment|/*!     Blocks until the process has finished and the finished() signal     has been emitted, or until \a msecs milliseconds have passed.      Returns \c true if the process finished; otherwise returns \c false (if     the operation timed out, if an error occurred, or if this QProcess     is already finished).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      If msecs is -1, this function will not time out.      \sa finished(), waitForStarted(), waitForReadyRead(), waitForBytesWritten() */
 end_comment
 begin_function
 DECL|function|waitForFinished
@@ -6106,7 +6106,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts the program \a program with the arguments \a arguments in a     new process, and detaches from it. Returns true on success;     otherwise returns false. If the calling process exits, the     detached process will continue to live.      Note that arguments that contain spaces are not passed to the     process as separate arguments.      \b{Unix:} The started process will run in its own session and act     like a daemon.      \b{Windows:} Arguments that contain spaces are wrapped in quotes.     The started process will run as a regular standalone process.      The process will be started in the directory \a workingDirectory.      \note On QNX, this may cause all application threads to     temporarily freeze.      If the function is successful then *\a pid is set to the process     identifier of the started process. */
+comment|/*!     Starts the program \a program with the arguments \a arguments in a     new process, and detaches from it. Returns \c true on success;     otherwise returns \c false. If the calling process exits, the     detached process will continue to live.      Note that arguments that contain spaces are not passed to the     process as separate arguments.      \b{Unix:} The started process will run in its own session and act     like a daemon.      \b{Windows:} Arguments that contain spaces are wrapped in quotes.     The started process will run as a regular standalone process.      The process will be started in the directory \a workingDirectory.      \note On QNX, this may cause all application threads to     temporarily freeze.      If the function is successful then *\a pid is set to the process     identifier of the started process. */
 end_comment
 begin_function
 DECL|function|startDetached
@@ -6152,7 +6152,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts the program \a program with the given \a arguments in a     new process, and detaches from it. Returns true on success;     otherwise returns false. If the calling process exits, the     detached process will continue to live.      \note Arguments that contain spaces are not passed to the     process as separate arguments.      \b{Unix:} The started process will run in its own session and act     like a daemon.      \b{Windows:} Arguments that contain spaces are wrapped in quotes.     The started process will run as a regular standalone process. */
+comment|/*!     Starts the program \a program with the given \a arguments in a     new process, and detaches from it. Returns \c true on success;     otherwise returns \c false. If the calling process exits, the     detached process will continue to live.      \note Arguments that contain spaces are not passed to the     process as separate arguments.      \b{Unix:} The started process will run in its own session and act     like a daemon.      \b{Windows:} Arguments that contain spaces are wrapped in quotes.     The started process will run as a regular standalone process. */
 end_comment
 begin_function
 DECL|function|startDetached

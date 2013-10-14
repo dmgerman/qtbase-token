@@ -949,7 +949,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      This convenience function implements the iterator's filtering logics and     applies then to the current directory entry.      It returns true if the current entry matches the filters (i.e., the     current entry will be returned as part of the directory iteration);     otherwise, false is returned. */
+comment|/*!     \internal      This convenience function implements the iterator's filtering logics and     applies then to the current directory entry.      It returns \c true if the current entry matches the filters (i.e., the     current entry will be returned as part of the directory iteration);     otherwise, false is returned. */
 end_comment
 begin_function
 DECL|function|matchesFilters
@@ -1668,7 +1668,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Advances the iterator to the next entry, and returns the file path of this     new entry. If hasNext() returns false, this function does nothing, and     returns a null QString.      You can call fileName() or filePath() to get the current entry file name     or path, or fileInfo() to get a QFileInfo for the current entry.      \sa hasNext(), fileName(), filePath(), fileInfo() */
+comment|/*!     Advances the iterator to the next entry, and returns the file path of this     new entry. If hasNext() returns \c false, this function does nothing, and     returns a null QString.      You can call fileName() or filePath() to get the current entry file name     or path, or fileInfo() to get a QFileInfo for the current entry.      \sa hasNext(), fileName(), filePath(), fileInfo() */
 end_comment
 begin_function
 DECL|function|next
@@ -1690,7 +1690,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there is at least one more entry in the directory;     otherwise, false is returned.      \sa next(), fileName(), filePath(), fileInfo() */
+comment|/*!     Returns \c true if there is at least one more entry in the directory;     otherwise, false is returned.      \sa next(), fileName(), filePath(), fileInfo() */
 end_comment
 begin_function
 DECL|function|hasNext

@@ -146,7 +146,7 @@ begin_comment
 comment|/*!     \fn void QSslConfiguration::swap(QSslConfiguration&other)     \since 5.0      Swaps this SSL configuration instance with \a other. This function     is very fast and never fails. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this QSslConfiguration object is equal to \a     other.      Two QSslConfiguration objects are considered equal if they have     the exact same settings and state.      \sa operator!=() */
+comment|/*!     Returns \c true if this QSslConfiguration object is equal to \a     other.      Two QSslConfiguration objects are considered equal if they have     the exact same settings and state.      \sa operator!=() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -318,10 +318,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QSslConfiguration::operator!=(const QSslConfiguration&other) const      Returns true if this QSslConfiguration differs from \a other. Two     QSslConfiguration objects are considered different if any state or     setting is different.      \sa operator==() */
+comment|/*!     \fn QSslConfiguration::operator!=(const QSslConfiguration&other) const      Returns \c true if this QSslConfiguration differs from \a other. Two     QSslConfiguration objects are considered different if any state or     setting is different.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this is a null QSslConfiguration object.      A QSslConfiguration object is null if it has been     default-constructed and no setter methods have been called.      \sa setProtocol(), setLocalCertificate(), setPrivateKey(),         setCiphers(), setCaCertificates() */
+comment|/*!     Returns \c true if this is a null QSslConfiguration object.      A QSslConfiguration object is null if it has been     default-constructed and no setter methods have been called.      \sa setProtocol(), setLocalCertificate(), setPrivateKey(),         setCiphers(), setCaCertificates() */
 end_comment
 begin_function
 DECL|function|isNull
@@ -947,7 +947,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.8    Returns true if the specified SSL compatibility \a option is enabled.    \sa setSslOption() */
+comment|/*!   \since 4.8    Returns \c true if the specified SSL compatibility \a option is enabled.    \sa setSslOption() */
 end_comment
 begin_function
 DECL|function|testSslOption

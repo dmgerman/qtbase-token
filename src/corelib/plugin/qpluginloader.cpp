@@ -239,7 +239,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Loads the plugin and returns true if the plugin was loaded     successfully; otherwise returns false. Since instance() always     calls this function before resolving any symbols it is not     necessary to call it explicitly. In some situations you might want     the plugin loaded in advance, in which case you would use this     function.      \sa unload() */
+comment|/*!     Loads the plugin and returns \c true if the plugin was loaded     successfully; otherwise returns \c false. Since instance() always     calls this function before resolving any symbols it is not     necessary to call it explicitly. In some situations you might want     the plugin loaded in advance, in which case you would use this     function.      \sa unload() */
 end_comment
 begin_function
 DECL|function|load
@@ -301,7 +301,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Unloads the plugin and returns true if the plugin could be     unloaded; otherwise returns false.      This happens automatically on application termination, so you     shouldn't normally need to call this function.      If other instances of QPluginLoader are using the same plugin, the     call will fail, and unloading will only happen when every instance     has called unload().      Don't try to delete the root component. Instead rely on     that unload() will automatically delete it when needed.      \sa instance(), load() */
+comment|/*!     Unloads the plugin and returns \c true if the plugin could be     unloaded; otherwise returns \c false.      This happens automatically on application termination, so you     shouldn't normally need to call this function.      If other instances of QPluginLoader are using the same plugin, the     call will fail, and unloading will only happen when every instance     has called unload().      Don't try to delete the root component. Instead rely on     that unload() will automatically delete it when needed.      \sa instance(), load() */
 end_comment
 begin_function
 DECL|function|unload
@@ -347,7 +347,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the plugin is loaded; otherwise returns false.      \sa load()  */
+comment|/*!     Returns \c true if the plugin is loaded; otherwise returns \c false.      \sa load()  */
 end_comment
 begin_function
 DECL|function|isLoaded

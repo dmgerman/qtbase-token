@@ -9,6 +9,13 @@ directive|define
 name|QT_NO_URL_CAST_FROM_STRING
 value|1
 end_define
+begin_define
+DECL|macro|_WIN32_WINNT
+define|#
+directive|define
+name|_WIN32_WINNT
+value|0x0600
+end_define
 begin_include
 include|#
 directive|include
@@ -1255,7 +1262,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__IShellEnumItems_INTERFACE_DEFINED__
+name|__IEnumShellItems_INTERFACE_DEFINED__
 end_ifndef
 begin_macro
 DECL|function|DECLARE_INTERFACE_

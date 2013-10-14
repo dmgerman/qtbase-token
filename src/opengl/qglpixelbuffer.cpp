@@ -399,7 +399,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*! \fn bool QGLPixelBuffer::makeCurrent()      Makes this pbuffer the current OpenGL rendering context. Returns     true on success; otherwise returns false.      \sa QGLContext::makeCurrent(), doneCurrent() */
+comment|/*! \fn bool QGLPixelBuffer::makeCurrent()      Makes this pbuffer the current OpenGL rendering context. Returns     true on success; otherwise returns \c false.      \sa QGLContext::makeCurrent(), doneCurrent() */
 end_comment
 begin_function
 DECL|function|makeCurrent
@@ -562,7 +562,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QGLPixelBuffer::doneCurrent()      Makes no context the current OpenGL context. Returns true on     success; otherwise returns false. */
+comment|/*! \fn bool QGLPixelBuffer::doneCurrent()      Makes no context the current OpenGL context. Returns \c true on     success; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|doneCurrent
@@ -628,13 +628,13 @@ begin_comment
 comment|/*!     \fn GLuint QGLPixelBuffer::generateDynamicTexture() const      Generates and binds a 2D GL texture that is the same size as the     pbuffer, and returns the texture's ID. This can be used in     conjunction with bindToDynamicTexture() and     updateDynamicTexture().      \sa size() */
 end_comment
 begin_comment
-comment|/*! \fn bool QGLPixelBuffer::bindToDynamicTexture(GLuint texture_id)      Binds the texture specified by \a texture_id to this pbuffer.     Returns true on success; otherwise returns false.      The texture must be of the same size and format as the pbuffer.      To unbind the texture, call releaseFromDynamicTexture(). While     the texture is bound, it is updated automatically when the     pbuffer contents change, eliminating the need for additional copy     operations.      Example:      \snippet code/src_opengl_qglpixelbuffer.cpp 0      \warning This function uses the \c {render_texture} extension,     which is currently not supported under X11. An alternative that     works on all systems (including X11) is to manually copy the     pbuffer contents to a texture using updateDynamicTexture().      \warning For the bindToDynamicTexture() call to succeed on the     Mac OS X, the pbuffer needs a shared context, i.e. the     QGLPixelBuffer must be created with a share widget.      \sa generateDynamicTexture(), releaseFromDynamicTexture() */
+comment|/*! \fn bool QGLPixelBuffer::bindToDynamicTexture(GLuint texture_id)      Binds the texture specified by \a texture_id to this pbuffer.     Returns \c true on success; otherwise returns \c false.      The texture must be of the same size and format as the pbuffer.      To unbind the texture, call releaseFromDynamicTexture(). While     the texture is bound, it is updated automatically when the     pbuffer contents change, eliminating the need for additional copy     operations.      Example:      \snippet code/src_opengl_qglpixelbuffer.cpp 0      \warning This function uses the \c {render_texture} extension,     which is currently not supported under X11. An alternative that     works on all systems (including X11) is to manually copy the     pbuffer contents to a texture using updateDynamicTexture().      \warning For the bindToDynamicTexture() call to succeed on the     Mac OS X, the pbuffer needs a shared context, i.e. the     QGLPixelBuffer must be created with a share widget.      \sa generateDynamicTexture(), releaseFromDynamicTexture() */
 end_comment
 begin_comment
 comment|/*! \fn void QGLPixelBuffer::releaseFromDynamicTexture()      Releases the pbuffer from any previously bound texture.      \sa bindToDynamicTexture() */
 end_comment
 begin_comment
-comment|/*! \fn bool QGLPixelBuffer::hasOpenGLPbuffers()      Returns true if the OpenGL \c pbuffer extension is present on     this system; otherwise returns false. */
+comment|/*! \fn bool QGLPixelBuffer::hasOpenGLPbuffers()      Returns \c true if the OpenGL \c pbuffer extension is present on     this system; otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     Copies the pbuffer contents into the texture specified with \a     texture_id.      The texture must be of the same size and format as the pbuffer.      Example:      \snippet code/src_opengl_qglpixelbuffer.cpp 1      An alternative on Windows and Mac OS X systems that support the     \c render_texture extension is to use bindToDynamicTexture() to     get dynamic updates of the texture.      \sa generateDynamicTexture(), bindToDynamicTexture() */
@@ -982,7 +982,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this pbuffer is valid; otherwise returns false. */
+comment|/*!     Returns \c true if this pbuffer is valid; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isValid

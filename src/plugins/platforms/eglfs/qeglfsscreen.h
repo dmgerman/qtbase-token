@@ -30,12 +30,6 @@ file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QPlatformOpenGLContext
-name|class
-name|QPlatformOpenGLContext
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QEglFSCursor
 name|class
 name|QEglFSCursor
@@ -45,6 +39,12 @@ begin_decl_stmt
 DECL|variable|QEglFSWindow
 name|class
 name|QEglFSWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QOpenGLContext
+name|class
+name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -159,11 +159,46 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|moveToTop
+argument_list|(
+name|QEglFSWindow
+operator|*
+name|window
+argument_list|)
+block|;
+name|void
+name|changeWindowIndex
+argument_list|(
+argument|QEglFSWindow *window
+argument_list|,
+argument|int newIdx
+argument_list|)
+block|;
 name|QEglFSWindow
 operator|*
 name|rootWindow
 argument_list|()
 block|;
+name|QOpenGLContext
+operator|*
+name|rootContext
+argument_list|()
+block|{
+return|return
+name|m_rootContext
+return|;
+block|}
+name|void
+name|setRootContext
+argument_list|(
+argument|QOpenGLContext *context
+argument_list|)
+block|{
+name|m_rootContext
+operator|=
+name|context
+block|; }
 name|protected
 operator|:
 name|void
@@ -194,6 +229,10 @@ name|QEglFSWindow
 operator|*
 operator|>
 name|m_windows
+block|;
+name|QOpenGLContext
+operator|*
+name|m_rootContext
 block|; }
 decl_stmt|;
 end_decl_stmt

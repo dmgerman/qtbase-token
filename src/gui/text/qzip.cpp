@@ -4646,7 +4646,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the user can read the file; otherwise returns false. */
+comment|/*!     Returns \c true if the user can read the file; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -4668,7 +4668,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file exists; otherwise returns false. */
+comment|/*!     Returns \c true if the file exists; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|exists
@@ -5887,7 +5887,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the user can write to the archive; otherwise returns false. */
+comment|/*!     Returns \c true if the user can write to the archive; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -5909,7 +5909,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the file exists; otherwise returns false. */
+comment|/*!     Returns \c true if the file exists; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|exists

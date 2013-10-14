@@ -1331,7 +1331,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience function that returns true if \a o is either portrait or inverted portrait;     otherwise returns false.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
+comment|/*!     Convenience function that returns \c true if \a o is either portrait or inverted portrait;     otherwise returns \c false.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
 end_comment
 begin_function
 DECL|function|isPortrait
@@ -1378,7 +1378,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience function that returns true if \a o is either landscape or inverted landscape;     otherwise returns false.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
+comment|/*!     Convenience function that returns \c true if \a o is either landscape or inverted landscape;     otherwise returns \c false.      Qt::PrimaryOrientation is interpreted as the screen's primaryOrientation(). */
 end_comment
 begin_function
 DECL|function|isLandscape

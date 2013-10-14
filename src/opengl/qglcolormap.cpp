@@ -571,7 +571,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the colormap is empty or it is not in use     by a QGLWidget; otherwise returns false.      A colormap with no color values set is considered to be empty.     For historical reasons, a colormap that has color values set     but which is not in use by a QGLWidget is also considered empty.      Compare size() with zero to determine if the colormap is empty     regardless of whether it is in use by a QGLWidget or not.      \sa size() */
+comment|/*!     Returns \c true if the colormap is empty or it is not in use     by a QGLWidget; otherwise returns \c false.      A colormap with no color values set is considered to be empty.     For historical reasons, a colormap that has color values set     but which is not in use by a QGLWidget is also considered empty.      Compare size() with zero to determine if the colormap is empty     regardless of whether it is in use by a QGLWidget or not.      \sa size() */
 end_comment
 begin_function
 DECL|function|isEmpty

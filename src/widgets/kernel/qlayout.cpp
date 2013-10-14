@@ -759,7 +759,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the alignment for widget \a w to \a alignment and returns     true if \a w is found in this layout (not including child     layouts); otherwise returns false. */
+comment|/*!     Sets the alignment for widget \a w to \a alignment and returns     true if \a w is found in this layout (not including child     layouts); otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setAlignment
@@ -838,7 +838,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload    Sets the alignment for the layout \a l to \a alignment and   returns true if \a l is found in this layout (not including child   layouts); otherwise returns false. */
+comment|/*!   \overload    Sets the alignment for the layout \a l to \a alignment and   returns \c true if \a l is found in this layout (not including child   layouts); otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|setAlignment
@@ -5203,7 +5203,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the layout is enabled; otherwise returns false.      \sa setEnabled() */
+comment|/*!     Returns \c true if the layout is enabled; otherwise returns \c false.      \sa setEnabled() */
 end_comment
 begin_function
 DECL|function|isEnabled

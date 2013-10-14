@@ -275,7 +275,7 @@ comment|// do nothing
 block|}
 end_function
 begin_comment
-comment|/*!     When editing of an item starts, this function is called with the     \a event that triggered the editing, the \a model, the \a index of     the item, and the \a option used for rendering the item.      Mouse events are sent to editorEvent() even if they don't start     editing of the item. This can, for instance, be useful if you wish     to open a context menu when the right mouse button is pressed on     an item.      The base implementation returns false (indicating that it has not     handled the event). */
+comment|/*!     When editing of an item starts, this function is called with the     \a event that triggered the editing, the \a model, the \a index of     the item, and the \a option used for rendering the item.      Mouse events are sent to editorEvent() even if they don't start     editing of the item. This can, for instance, be useful if you wish     to open a context menu when the right mouse button is pressed on     an item.      The base implementation returns \c false (indicating that it has not     handled the event). */
 end_comment
 begin_function
 DECL|function|editorEvent
@@ -349,7 +349,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     Whenever a help event occurs, this function is called with the \a event     \a view \a option and the \a index that corresponds to the item where the     event occurs.      Returns true if the delegate can handle the event; otherwise returns false.     A return value of true indicates that the data obtained using the index had     the required role.      For QEvent::ToolTip and QEvent::WhatsThis events that were handled successfully,     the relevant popup may be shown depending on the user's system configuration.      \sa QHelpEvent */
+comment|/*!     \since 4.3     Whenever a help event occurs, this function is called with the \a event     \a view \a option and the \a index that corresponds to the item where the     event occurs.      Returns \c true if the delegate can handle the event; otherwise returns \c false.     A return value of true indicates that the data obtained using the index had     the required role.      For QEvent::ToolTip and QEvent::WhatsThis events that were handled successfully,     the relevant popup may be shown depending on the user's system configuration.      \sa QHelpEvent */
 end_comment
 begin_function
 DECL|function|helpEvent

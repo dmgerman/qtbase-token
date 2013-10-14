@@ -27,40 +27,40 @@ begin_comment
 comment|/*!     \fn void QAtomicInt::storeRelease(int newValue)      Atomically stores the \a newValue value into this atomic type, using     the "Release" memory ordering.      \sa store(), load() */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isReferenceCountingNative()      Returns true if reference counting is implemented using atomic     processor instructions, false otherwise. */
+comment|/*! \fn bool QAtomicInt::isReferenceCountingNative()      Returns \c true if reference counting is implemented using atomic     processor instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isReferenceCountingWaitFree()      Returns true if atomic reference counting is wait-free, false     otherwise. */
+comment|/*! \fn bool QAtomicInt::isReferenceCountingWaitFree()      Returns \c true if atomic reference counting is wait-free, false     otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::ref()     Atomically increments the value of this QAtomicInt. Returns true     if the new value is non-zero, false otherwise.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered.      \sa deref() */
+comment|/*! \fn bool QAtomicInt::ref()     Atomically increments the value of this QAtomicInt. Returns \c true     if the new value is non-zero, false otherwise.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered.      \sa deref() */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::deref()     Atomically decrements the value of this QAtomicInt. Returns true     if the new value is non-zero, false otherwise.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered.      \sa ref() */
+comment|/*! \fn bool QAtomicInt::deref()     Atomically decrements the value of this QAtomicInt. Returns \c true     if the new value is non-zero, false otherwise.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered.      \sa ref() */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isTestAndSetNative()      Returns true if test-and-set is implemented using atomic processor     instructions, false otherwise. */
+comment|/*! \fn bool QAtomicInt::isTestAndSetNative()      Returns \c true if test-and-set is implemented using atomic processor     instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isTestAndSetWaitFree()      Returns true if atomic test-and-set is wait-free, false otherwise. */
+comment|/*! \fn bool QAtomicInt::isTestAndSetWaitFree()      Returns \c true if atomic test-and-set is wait-free, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::testAndSetRelaxed(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e relaxed \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
+comment|/*! \fn bool QAtomicInt::testAndSetRelaxed(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e relaxed \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::testAndSetAcquire(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e acquire \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access following the atomic operation (in program order) may not     be re-ordered before the atomic operation. */
+comment|/*! \fn bool QAtomicInt::testAndSetAcquire(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e acquire \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access following the atomic operation (in program order) may not     be re-ordered before the atomic operation. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::testAndSetRelease(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e release \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before the atomic operation (in program order) may not be     re-ordered after the atomic operation. */
+comment|/*! \fn bool QAtomicInt::testAndSetRelease(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e release \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before the atomic operation (in program order) may not be     re-ordered after the atomic operation. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::testAndSetOrdered(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered. */
+comment|/*! \fn bool QAtomicInt::testAndSetOrdered(int expectedValue, int newValue)      Atomic test-and-set.      If the current value of this QAtomicInt is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicInt and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isFetchAndStoreNative()      Returns true if fetch-and-store is implemented using atomic     processor instructions, false otherwise. */
+comment|/*! \fn bool QAtomicInt::isFetchAndStoreNative()      Returns \c true if fetch-and-store is implemented using atomic     processor instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isFetchAndStoreWaitFree()      Returns true if atomic fetch-and-store is wait-free, false     otherwise. */
+comment|/*! \fn bool QAtomicInt::isFetchAndStoreWaitFree()      Returns \c true if atomic fetch-and-store is wait-free, false     otherwise. */
 end_comment
 begin_comment
 comment|/*! \fn int QAtomicInt::fetchAndStoreRelaxed(int newValue)      Atomic fetch-and-store.      Reads the current value of this QAtomicInt and then assigns it the     \a newValue, returning the original value.      This function uses \e relaxed \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
@@ -75,10 +75,10 @@ begin_comment
 comment|/*! \fn int QAtomicInt::fetchAndStoreOrdered(int newValue)      Atomic fetch-and-store.      Reads the current value of this QAtomicInt and then assigns it the     \a newValue, returning the original value.      This function uses \e ordered \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isFetchAndAddNative()      Returns true if fetch-and-add is implemented using atomic     processor instructions, false otherwise. */
+comment|/*! \fn bool QAtomicInt::isFetchAndAddNative()      Returns \c true if fetch-and-add is implemented using atomic     processor instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicInt::isFetchAndAddWaitFree()      Returns true if atomic fetch-and-add is wait-free, false     otherwise. */
+comment|/*! \fn bool QAtomicInt::isFetchAndAddWaitFree()      Returns \c true if atomic fetch-and-add is wait-free, false     otherwise. */
 end_comment
 begin_comment
 comment|/*! \fn int QAtomicInt::fetchAndAddRelaxed(int valueToAdd)      Atomic fetch-and-add.      Reads the current value of this QAtomicInt and then adds     \a valueToAdd to the current value, returning the original value.      This function uses \e relaxed \l {QAtomicInt#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
@@ -165,28 +165,28 @@ begin_comment
 comment|/*!     \fn void QAtomicPointer::storeRelease(T *newValue)      Atomically stores the \a newValue value into this atomic type, using     the "Release" memory ordering.      \sa store(), load() */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::isTestAndSetNative()      Returns true if test-and-set is implemented using atomic processor     instructions, false otherwise. */
+comment|/*! \fn bool QAtomicPointer::isTestAndSetNative()      Returns \c true if test-and-set is implemented using atomic processor     instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::isTestAndSetWaitFree()      Returns true if atomic test-and-set is wait-free, false otherwise. */
+comment|/*! \fn bool QAtomicPointer::isTestAndSetWaitFree()      Returns \c true if atomic test-and-set is wait-free, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::testAndSetRelaxed(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e relaxed \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
+comment|/*! \fn bool QAtomicPointer::testAndSetRelaxed(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e relaxed \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::testAndSetAcquire(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e acquire \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access following the atomic operation (in program order) may not     be re-ordered before the atomic operation. */
+comment|/*! \fn bool QAtomicPointer::testAndSetAcquire(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e acquire \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access following the atomic operation (in program order) may not     be re-ordered before the atomic operation. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::testAndSetRelease(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e release \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before the atomic operation (in program order) may not be     re-ordered after the atomic operation. */
+comment|/*! \fn bool QAtomicPointer::testAndSetRelease(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e release \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before the atomic operation (in program order) may not be     re-ordered after the atomic operation. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::testAndSetOrdered(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns false.      This function uses \e ordered \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered. */
+comment|/*! \fn bool QAtomicPointer::testAndSetOrdered(T *expectedValue, T *newValue)      Atomic test-and-set.      If the current value of this QAtomicPointer is the \a expectedValue,     the test-and-set functions assign the \a newValue to this     QAtomicPointer and return true. If the values are \e not the same,     this function does nothing and returns \c false.      This function uses \e ordered \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::isFetchAndStoreNative()      Returns true if fetch-and-store is implemented using atomic     processor instructions, false otherwise. */
+comment|/*! \fn bool QAtomicPointer::isFetchAndStoreNative()      Returns \c true if fetch-and-store is implemented using atomic     processor instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::isFetchAndStoreWaitFree()      Returns true if atomic fetch-and-store is wait-free, false     otherwise. */
+comment|/*! \fn bool QAtomicPointer::isFetchAndStoreWaitFree()      Returns \c true if atomic fetch-and-store is wait-free, false     otherwise. */
 end_comment
 begin_comment
 comment|/*! \fn T *QAtomicPointer::fetchAndStoreRelaxed(T *newValue)      Atomic fetch-and-store.      Reads the current value of this QAtomicPointer and then assigns it the     \a newValue, returning the original value.      This function uses \e relaxed \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
@@ -201,10 +201,10 @@ begin_comment
 comment|/*! \fn T *QAtomicPointer::fetchAndStoreOrdered(T *newValue)      Atomic fetch-and-store.      Reads the current value of this QAtomicPointer and then assigns it the     \a newValue, returning the original value.      This function uses \e ordered \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, which ensures that memory     access before and after the atomic operation (in program order)     may not be re-ordered. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::isFetchAndAddNative()      Returns true if fetch-and-add is implemented using atomic     processor instructions, false otherwise. */
+comment|/*! \fn bool QAtomicPointer::isFetchAndAddNative()      Returns \c true if fetch-and-add is implemented using atomic     processor instructions, false otherwise. */
 end_comment
 begin_comment
-comment|/*! \fn bool QAtomicPointer::isFetchAndAddWaitFree()      Returns true if atomic fetch-and-add is wait-free, false     otherwise. */
+comment|/*! \fn bool QAtomicPointer::isFetchAndAddWaitFree()      Returns \c true if atomic fetch-and-add is wait-free, false     otherwise. */
 end_comment
 begin_comment
 comment|/*! \fn T *QAtomicPointer::fetchAndAddRelaxed(qptrdiff valueToAdd)      Atomic fetch-and-add.      Reads the current value of this QAtomicPointer and then adds     \a valueToAdd to the current value, returning the original value.      This function uses \e relaxed \l {QAtomicPointer#Memory     ordering}{memory ordering} semantics, leaving the compiler and     processor to freely reorder memory accesses. */
