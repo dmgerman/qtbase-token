@@ -500,8 +500,6 @@ argument_list|)
 operator|<
 name|std
 operator|::
-name|tr1
-operator|::
 name|make_tuple
 argument_list|(
 name|rhs
