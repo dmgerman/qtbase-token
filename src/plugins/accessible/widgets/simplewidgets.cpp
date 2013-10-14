@@ -2684,7 +2684,6 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 return|return
 name|qt_accStripAmp
 argument_list|(
