@@ -58,12 +58,18 @@ operator|~
 name|QLinuxFbIntegration
 argument_list|()
 block|;
+name|void
+name|initialize
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 name|bool
 name|hasCapability
 argument_list|(
 argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformPixmap
 operator|*
@@ -72,6 +78,7 @@ argument_list|(
 argument|QPlatformPixmap::PixelType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformWindow
 operator|*
@@ -80,6 +87,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformBackingStore
 operator|*
@@ -88,12 +96,21 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QPlatformFontDatabase
+operator|*
+name|fontDatabase
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -101,12 +118,6 @@ name|QPlatformScreen
 operator|*
 operator|>
 name|screens
-argument_list|()
-specifier|const
-block|;
-name|QPlatformFontDatabase
-operator|*
-name|fontDatabase
 argument_list|()
 specifier|const
 block|;

@@ -42,7 +42,12 @@ name|Q_OBJECT
 name|public
 operator|:
 name|QLinuxFbScreen
-argument_list|()
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|args
+argument_list|)
 block|;
 operator|~
 name|QLinuxFbScreen
@@ -50,12 +55,7 @@ argument_list|()
 block|;
 name|bool
 name|initialize
-argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|args
-argument_list|)
+argument_list|()
 block|;
 name|public
 name|slots
@@ -66,6 +66,9 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|QStringList
+name|mArgs
+block|;
 name|int
 name|mFbFd
 block|;
