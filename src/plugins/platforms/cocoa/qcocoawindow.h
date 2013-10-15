@@ -594,6 +594,9 @@ name|NoAlertRequest
 block|;
 name|NSInteger
 name|m_alertRequest
+block|;
+name|id
+name|monitor
 block|; }
 decl_stmt|;
 end_decl_stmt
