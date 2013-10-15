@@ -5443,11 +5443,11 @@ operator|<
 literal|0
 operator|||
 name|pos
-operator|+
-name|alength
 operator|>
 name|size
 argument_list|()
+operator|-
+name|alength
 condition|)
 name|alength
 operator|=
