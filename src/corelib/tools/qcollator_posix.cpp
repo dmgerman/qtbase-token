@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<cstring>
 end_include
+begin_include
+include|#
+directive|include
+file|<cwchar>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|init
@@ -582,6 +587,8 @@ parameter_list|)
 specifier|const
 block|{
 return|return
+name|std
+operator|::
 name|wcscmp
 argument_list|(
 name|d
