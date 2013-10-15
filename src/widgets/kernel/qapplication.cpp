@@ -10465,10 +10465,16 @@ name|int
 name|ms
 parameter_list|)
 block|{
-name|Q_UNUSED
+name|QGuiApplication
+operator|::
+name|styleHints
+argument_list|()
+operator|->
+name|setStartDragTime
 argument_list|(
-argument|ms
+name|ms
 argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -10507,7 +10513,12 @@ name|int
 name|l
 parameter_list|)
 block|{
-name|Q_UNUSED
+name|QGuiApplication
+operator|::
+name|styleHints
+argument_list|()
+operator|->
+name|setStartDragDistance
 argument_list|(
 name|l
 argument_list|)
@@ -15393,7 +15404,12 @@ name|int
 name|msecs
 parameter_list|)
 block|{
-name|Q_UNUSED
+name|QGuiApplication
+operator|::
+name|styleHints
+argument_list|()
+operator|->
+name|setCursorFlashTime
 argument_list|(
 name|msecs
 argument_list|)
@@ -15420,7 +15436,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QApplication::doubleClickInterval     \brief the time limit in milliseconds that distinguishes a double click     from two consecutive mouse clicks      The default value on X11 is 400 milliseconds. On Windows and Mac OS, the     operating system's value is used.      Setting the interval is not supported anymore in Qt 5. */
+comment|/*!     \property QApplication::doubleClickInterval     \brief the time limit in milliseconds that distinguishes a double click     from two consecutive mouse clicks      The default value on X11 is 400 milliseconds. On Windows and Mac OS, the     operating system's value is used. */
 end_comment
 begin_function
 DECL|function|setDoubleClickInterval
@@ -15433,7 +15449,12 @@ name|int
 name|ms
 parameter_list|)
 block|{
-name|Q_UNUSED
+name|QGuiApplication
+operator|::
+name|styleHints
+argument_list|()
+operator|->
+name|setMouseDoubleClickInterval
 argument_list|(
 name|ms
 argument_list|)
@@ -15476,7 +15497,12 @@ name|int
 name|ms
 parameter_list|)
 block|{
-name|Q_UNUSED
+name|QGuiApplication
+operator|::
+name|styleHints
+argument_list|()
+operator|->
+name|setKeyboardInputInterval
 argument_list|(
 name|ms
 argument_list|)
