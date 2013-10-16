@@ -13710,7 +13710,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonObject() "
+literal|"QJsonObject()"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13739,7 +13739,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonObject({\"foo\": \"bar\"}) "
+literal|"QJsonObject({\"foo\": \"bar\"})"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13759,7 +13759,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonArray() "
+literal|"QJsonArray()"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13790,7 +13790,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonArray([1,\"foo\"]) "
+literal|"QJsonArray([1,\"foo\"])"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13810,7 +13810,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument() "
+literal|"QJsonDocument()"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13849,7 +13849,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument({\"foo\": \"bar\"}) "
+literal|"QJsonDocument({\"foo\": \"bar\"})"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13883,7 +13883,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument([1,\"foo\"]) "
+literal|"QJsonDocument([1,\"foo\"])"
 argument_list|)
 expr_stmt|;
 name|doc
@@ -13910,7 +13910,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(null) "
+literal|"QJsonValue(null)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13932,7 +13932,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(bool, true) "
+literal|"QJsonValue(bool, true)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13957,7 +13957,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(double, 4.2) "
+literal|"QJsonValue(double, 4.2)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13982,7 +13982,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(double, 42) "
+literal|"QJsonValue(double, 42)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14007,7 +14007,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(string, \"foo\") "
+literal|"QJsonValue(string, \"foo\")"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14049,7 +14049,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(array, QJsonArray([1,\"foo\"]) ) "
+literal|"QJsonValue(array, QJsonArray([1,\"foo\"]) )"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14089,7 +14089,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(object, QJsonObject({\"foo\": \"bar\"}) ) "
+literal|"QJsonValue(object, QJsonObject({\"foo\": \"bar\"}) )"
 argument_list|)
 expr_stmt|;
 name|qDebug

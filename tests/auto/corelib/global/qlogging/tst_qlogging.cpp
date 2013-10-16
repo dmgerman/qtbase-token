@@ -3086,7 +3086,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"warning tst_qlogging 62 main qDebug with category "
+literal|"warning tst_qlogging 62 main qDebug with category"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3295,7 +3295,7 @@ literal|"static constructor\n"
 literal|"[debug] qDebug\n"
 literal|"[warning] qWarning\n"
 literal|"[critical] qCritical\n"
-literal|"[warning] qDebug with category \n"
+literal|"[warning] qDebug with category\n"
 decl_stmt|;
 ifdef|#
 directive|ifdef

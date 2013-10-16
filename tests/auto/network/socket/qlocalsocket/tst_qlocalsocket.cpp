@@ -5847,7 +5847,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QLocalSocket::ConnectionRefusedError QLocalSocket::UnconnectedState "
+literal|"QLocalSocket::ConnectionRefusedError QLocalSocket::UnconnectedState"
 argument_list|)
 expr_stmt|;
 name|qDebug

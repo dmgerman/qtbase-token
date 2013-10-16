@@ -347,7 +347,7 @@ name|msg
 operator|.
 name|endsWith
 argument_list|(
-literal|") "
+literal|")"
 argument_list|)
 expr_stmt|;
 name|QVERIFY2

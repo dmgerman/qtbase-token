@@ -2446,7 +2446,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QMetaObject::connectSlotsByName: Connecting slot on_Sender_signalManyParams() with the first of the following compatible signals: (\"signalManyParams(int,int,int,QString,bool)\", \"signalManyParams(int,int,int,QString,bool,bool)\") "
+literal|"QMetaObject::connectSlotsByName: Connecting slot on_Sender_signalManyParams() with the first of the following compatible signals: (\"signalManyParams(int,int,int,QString,bool)\", \"signalManyParams(int,int,int,QString,bool,bool)\")"
 argument_list|)
 expr_stmt|;
 name|QMetaObject

@@ -109,7 +109,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"foo "
+literal|"foo"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -118,7 +118,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"bar 1 2 "
+literal|"bar 1 2"
 argument_list|)
 expr_stmt|;
 name|debug1
@@ -332,7 +332,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"A qWarning() message "
+literal|"A qWarning() message"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -426,7 +426,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"A qCritical() message "
+literal|"A qCritical() message"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -519,7 +519,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"false true "
+literal|"false true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -921,7 +921,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"02a 42 "
+literal|"02a 42"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1136,7 +1136,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"\"input\" "
+literal|"\"input\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1223,7 +1223,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"\"\" "
+literal|"\"\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1330,7 +1330,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"\"foo\" \"\" \"bar\" "
+literal|"\"foo\" \"\" \"bar\""
 argument_list|)
 argument_list|)
 expr_stmt|;

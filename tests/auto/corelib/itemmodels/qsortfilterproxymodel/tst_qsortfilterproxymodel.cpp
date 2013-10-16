@@ -16450,7 +16450,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QSortFilterProxyModel: index from wrong model passed to mapToSource "
+literal|"QSortFilterProxyModel: index from wrong model passed to mapToSource"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -16479,7 +16479,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QSortFilterProxyModel: index from wrong model passed to mapFromSource "
+literal|"QSortFilterProxyModel: index from wrong model passed to mapFromSource"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
