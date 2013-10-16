@@ -91,6 +91,24 @@ argument_list|(
 argument|const QPrinterInfo&printerInfo
 argument_list|)
 specifier|const
+block|;
+name|virtual
+name|QList
+operator|<
+name|QPrinterInfo
+operator|>
+name|availablePrinters
+argument_list|()
+block|;
+name|private
+operator|:
+specifier|static
+name|QList
+operator|<
+name|QPrinterInfo
+operator|>
+name|queryPrinters
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
