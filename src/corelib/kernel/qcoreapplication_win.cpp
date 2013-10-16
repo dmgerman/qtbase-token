@@ -4193,6 +4193,23 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|WM_INPUTLANGCHANGE
+case|case
+name|WM_INPUTLANGCHANGE
+case|:
+name|parameters
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"Keyboard layout changed"
+argument_list|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
+comment|// WM_INPUTLANGCHANGE
+ifdef|#
+directive|ifdef
 name|WM_NCACTIVATE
 case|case
 name|WM_NCACTIVATE

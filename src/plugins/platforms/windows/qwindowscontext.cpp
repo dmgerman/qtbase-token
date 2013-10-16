@@ -4101,6 +4101,11 @@ name|QtWindows
 operator|::
 name|InputMethodKeyDownEvent
 case|:
+case|case
+name|QtWindows
+operator|::
+name|KeyboardLayoutChangeEvent
+case|:
 if|#
 directive|if
 operator|!
