@@ -176,6 +176,14 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
+name|QList
+operator|<
+name|QPrinterInfo
+operator|>
+name|availablePrinters
+argument_list|()
+block|;
+name|virtual
 name|QString
 name|printerOption
 argument_list|(
@@ -201,6 +209,10 @@ argument_list|()
 block|;
 name|void
 name|loadCupsPrinters
+argument_list|()
+block|;
+name|void
+name|freeCupsPrinters
 argument_list|()
 block|;
 name|QString
