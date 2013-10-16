@@ -1760,15 +1760,6 @@ condition|)
 block|{
 name|node
 operator|->
-name|setAccess
-argument_list|(
-name|Node
-operator|::
-name|Private
-argument_list|)
-expr_stmt|;
-name|node
-operator|->
 name|setStatus
 argument_list|(
 name|Node
