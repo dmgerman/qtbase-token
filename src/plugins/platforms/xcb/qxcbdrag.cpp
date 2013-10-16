@@ -4333,6 +4333,10 @@ argument_list|()
 operator|->
 name|owner
 argument_list|()
+operator|||
+operator|!
+name|drag
+argument_list|()
 condition|)
 return|return;
 name|xcb_client_message_event_t
