@@ -11573,6 +11573,12 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
+argument_list|,
+name|Option
+operator|::
+name|output_dir
+argument_list|,
+name|input_dir
 argument_list|)
 decl_stmt|;
 if|if
