@@ -74,6 +74,12 @@ name|QPainterPathStrokerPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPen
+name|class
+name|QPen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPolygonF
 name|class
 name|QPolygonF
@@ -1399,6 +1405,14 @@ name|public
 label|:
 name|QPainterPathStroker
 argument_list|()
+expr_stmt|;
+name|QPainterPathStroker
+argument_list|(
+specifier|const
+name|QPen
+operator|&
+name|pen
+argument_list|)
 expr_stmt|;
 operator|~
 name|QPainterPathStroker
