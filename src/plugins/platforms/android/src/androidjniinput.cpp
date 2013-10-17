@@ -950,6 +950,12 @@ operator|::
 name|androidPlatformIntegration
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|platformIntegration
+condition|)
+return|return;
 name|QTouchDevice
 modifier|*
 name|touchDevice
