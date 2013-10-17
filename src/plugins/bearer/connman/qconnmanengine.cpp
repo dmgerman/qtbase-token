@@ -2010,6 +2010,12 @@ name|serv
 operator|.
 name|isSetupRequired
 argument_list|()
+operator|||
+operator|!
+name|serv
+operator|.
+name|isAutoConnect
+argument_list|()
 condition|)
 block|{
 name|flag
@@ -2047,6 +2053,14 @@ name|isFavorite
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|serv
+operator|.
+name|isAutoConnect
+argument_list|()
+condition|)
+block|{
 name|flag
 operator|=
 operator|(
@@ -2057,6 +2071,7 @@ operator|::
 name|Discovered
 operator|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
