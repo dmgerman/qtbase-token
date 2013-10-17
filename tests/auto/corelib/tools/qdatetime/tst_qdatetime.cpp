@@ -6298,6 +6298,20 @@ argument_list|,
 name|formatted
 argument_list|)
 expr_stmt|;
+comment|// Set to non-English locale to confirm still uses English
+name|QLocale
+name|oldLocale
+decl_stmt|;
+name|QLocale
+operator|::
+name|setDefault
+argument_list|(
+name|QLocale
+argument_list|(
+literal|"de_DE"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|dt
@@ -6310,6 +6324,13 @@ name|RFC2822Date
 argument_list|)
 argument_list|,
 name|formatted
+argument_list|)
+expr_stmt|;
+name|QLocale
+operator|::
+name|setDefault
+argument_list|(
+name|oldLocale
 argument_list|)
 expr_stmt|;
 block|}
