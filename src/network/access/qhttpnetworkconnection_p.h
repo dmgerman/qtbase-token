@@ -493,11 +493,13 @@ name|NetworkLayerPreferenceState
 block|{
 name|Unknown
 block|,
-name|InProgress
+name|HostLookupPending
 block|,
 name|IPv4
 block|,
 name|IPv6
+block|,
+name|IPv4or6
 block|}
 block|;
 name|QHttpNetworkConnectionPrivate

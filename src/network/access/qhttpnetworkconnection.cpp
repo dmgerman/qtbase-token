@@ -734,7 +734,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// If the connection is in the InProgress state channel errors should not always be
+comment|// If the connection is in the HostLookupPendening state channel errors should not always be
 end_comment
 begin_comment
 comment|// emitted. This function will check the status of the connection channels if we
@@ -822,9 +822,11 @@ if|if
 condition|(
 name|networkLayerState
 operator|==
-name|QHttpNetworkConnectionPrivate
-operator|::
-name|InProgress
+name|HostLookupPending
+operator|||
+name|networkLayerState
+operator|==
+name|IPv4or6
 condition|)
 name|networkLayerState
 operator|=
@@ -851,9 +853,11 @@ if|if
 condition|(
 name|networkLayerState
 operator|==
-name|QHttpNetworkConnectionPrivate
-operator|::
-name|InProgress
+name|HostLookupPending
+operator|||
+name|networkLayerState
+operator|==
+name|IPv4or6
 condition|)
 block|{
 if|if
@@ -2888,7 +2892,7 @@ name|Unknown
 operator|||
 name|networkLayerState
 operator|==
-name|InProgress
+name|HostLookupPending
 condition|)
 block|{
 name|startHostInfoLookup
@@ -4441,7 +4445,11 @@ name|Unknown
 operator|||
 name|networkLayerState
 operator|==
-name|InProgress
+name|HostLookupPending
+operator|||
+name|networkLayerState
+operator|==
+name|IPv4or6
 condition|)
 return|return;
 comment|// If the QHttpNetworkConnection is currently paused then bail out immediately
@@ -5020,7 +5028,7 @@ parameter_list|()
 block|{
 name|networkLayerState
 operator|=
-name|InProgress
+name|HostLookupPending
 expr_stmt|;
 comment|// check if we already now can decide if this is IPv4 or IPv6
 name|QString
@@ -5248,6 +5256,21 @@ name|foundAddress
 init|=
 literal|false
 decl_stmt|;
+if|if
+condition|(
+name|networkLayerState
+operator|==
+name|IPv4
+operator|||
+name|networkLayerState
+operator|==
+name|IPv6
+operator|||
+name|networkLayerState
+operator|==
+name|IPv4or6
+condition|)
+return|return;
 foreach|foreach
 control|(
 specifier|const
@@ -5509,7 +5532,7 @@ argument_list|)
 expr_stmt|;
 name|networkLayerState
 operator|=
-name|InProgress
+name|IPv4or6
 expr_stmt|;
 name|channels
 index|[
@@ -5657,7 +5680,7 @@ else|else
 block|{
 name|networkLayerState
 operator|=
-name|InProgress
+name|IPv4or6
 expr_stmt|;
 name|channels
 index|[

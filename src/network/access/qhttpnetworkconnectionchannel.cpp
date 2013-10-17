@@ -4590,7 +4590,18 @@ name|networkLayerState
 operator|==
 name|QHttpNetworkConnectionPrivate
 operator|::
-name|InProgress
+name|HostLookupPending
+operator|||
+name|connection
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|networkLayerState
+operator|==
+name|QHttpNetworkConnectionPrivate
+operator|::
+name|IPv4or6
 condition|)
 block|{
 if|if
@@ -5315,7 +5326,7 @@ name|errorString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// In the InProgress state the channel should not emit the error.
+comment|// In the HostLookupPending state the channel should not emit the error.
 comment|// This will instead be handled by the connection.
 if|if
 condition|(
