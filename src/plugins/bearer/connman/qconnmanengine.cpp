@@ -1150,6 +1150,10 @@ operator||
 name|QNetworkConfigurationManager
 operator|::
 name|CanStartAndStopInterfaces
+operator||
+name|QNetworkConfigurationManager
+operator|::
+name|NetworkSessionRequired
 return|;
 block|}
 end_function
