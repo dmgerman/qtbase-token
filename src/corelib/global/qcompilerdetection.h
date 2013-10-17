@@ -487,6 +487,27 @@ name|Q_UNREACHABLE_IMPL
 parameter_list|()
 value|__builtin_unreachable()
 end_define
+begin_if
+if|#
+directive|if
+name|__INTEL_COMPILER
+operator|>=
+literal|1300
+end_if
+begin_define
+DECL|macro|Q_DECL_DEPRECATED_X
+define|#
+directive|define
+name|Q_DECL_DEPRECATED_X
+parameter_list|(
+name|text
+parameter_list|)
+value|__attribute__ ((__deprecated__(text)))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_elif
 elif|#
 directive|elif
@@ -584,6 +605,16 @@ name|Q_UNREACHABLE_IMPL
 parameter_list|()
 value|__builtin_unreachable()
 end_define
+begin_define
+DECL|macro|Q_DECL_DEPRECATED_X
+define|#
+directive|define
+name|Q_DECL_DEPRECATED_X
+parameter_list|(
+name|text
+parameter_list|)
+value|__attribute__ ((__deprecated__(text)))
+end_define
 begin_endif
 endif|#
 directive|endif
@@ -677,16 +708,6 @@ define|#
 directive|define
 name|Q_DECL_DEPRECATED
 value|__attribute__ ((__deprecated__))
-end_define
-begin_define
-DECL|macro|Q_DECL_DEPRECATED_X
-define|#
-directive|define
-name|Q_DECL_DEPRECATED_X
-parameter_list|(
-name|text
-parameter_list|)
-value|__attribute__ ((__deprecated__(text)))
 end_define
 begin_define
 DECL|macro|Q_DECL_ALIGN
@@ -2133,6 +2154,28 @@ DECL|macro|QT_NO_RTTI
 define|#
 directive|define
 name|QT_NO_RTTI
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|__has_feature
+argument_list|(
+name|attribute_deprecated_with_message
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_DECL_DEPRECATED_X
+define|#
+directive|define
+name|Q_DECL_DEPRECATED_X
+parameter_list|(
+name|text
+parameter_list|)
+value|__attribute__ ((__deprecated__(text)))
 end_define
 begin_endif
 endif|#
