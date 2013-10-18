@@ -788,6 +788,12 @@ name|hasMask
 range|:
 literal|1
 decl_stmt|;
+DECL|member|hasWindowContainer
+name|uint
+name|hasWindowContainer
+range|:
+literal|1
+decl_stmt|;
 comment|// *************************** Platform specific values (bit fields first) **********
 if|#
 directive|if
