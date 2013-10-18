@@ -60,7 +60,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 end_ifdef
 begin_include
 include|#
@@ -177,7 +177,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 name|registerGestureRecognizer
 argument_list|(
