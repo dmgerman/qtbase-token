@@ -325,6 +325,17 @@ parameter_list|)
 function_decl|;
 specifier|const
 name|ppd_file_t
+modifier|*
+name|setCurrentPrinter
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|printerName
+parameter_list|)
+function_decl|;
+specifier|const
+name|ppd_file_t
 operator|*
 name|currentPPD
 argument_list|()
