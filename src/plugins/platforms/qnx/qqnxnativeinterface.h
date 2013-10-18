@@ -55,6 +55,24 @@ name|QScreen
 operator|*
 name|screen
 argument_list|)
+block|;
+name|void
+name|setWindowProperty
+argument_list|(
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|,
+specifier|const
+name|QVariant
+operator|&
+name|value
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
