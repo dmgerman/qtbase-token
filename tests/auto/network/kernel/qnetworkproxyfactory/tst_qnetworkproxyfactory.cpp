@@ -2644,7 +2644,7 @@ operator|&&
 operator|(
 operator|!
 name|defined
-name|Q_OS_MACX
+name|Q_OS_OSX
 operator|)
 name|qputenv
 argument_list|(
