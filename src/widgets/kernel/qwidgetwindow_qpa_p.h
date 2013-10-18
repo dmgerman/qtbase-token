@@ -58,6 +58,10 @@ operator|*
 name|widget
 argument_list|)
 block|;
+operator|~
+name|QWidgetWindow
+argument_list|()
+block|;
 name|QWidget
 operator|*
 name|widget
