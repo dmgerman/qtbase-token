@@ -438,7 +438,7 @@ parameter_list|(
 name|category
 parameter_list|)
 define|\
-value|for (bool enabled = category().isDebugEnabled(); enabled; enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).debug()
+value|for (bool enabled = category().isDebugEnabled(); Q_UNLIKELY(enabled); enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).debug()
 end_define
 begin_define
 DECL|macro|qCWarning
@@ -471,7 +471,7 @@ parameter_list|(
 name|category
 parameter_list|)
 define|\
-value|for (bool enabled = category.isTraceEnabled(); enabled; enabled = false) \         QTraceGuard(category)
+value|for (bool enabled = category.isTraceEnabled(); Q_UNLIKELY(enabled); enabled = false) \         QTraceGuard(category)
 end_define
 begin_define
 DECL|macro|Q_TRACE_GUARD_NAME_HELPER
