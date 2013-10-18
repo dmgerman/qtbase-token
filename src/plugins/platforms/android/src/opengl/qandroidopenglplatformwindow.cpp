@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qandroidplatformintegration.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_decl_stmt
@@ -303,11 +308,13 @@ block|{
 name|lock
 argument_list|()
 expr_stmt|;
+comment|// Use the desktop size.
+comment|// On some devices, the getters for the native window size gives wrong values
 name|scheduleResize
 argument_list|(
-name|QtAndroid
+name|QAndroidPlatformIntegration
 operator|::
-name|nativeWindowSize
+name|defaultDesktopSize
 argument_list|()
 argument_list|)
 expr_stmt|;

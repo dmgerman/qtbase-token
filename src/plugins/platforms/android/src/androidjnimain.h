@@ -161,10 +161,6 @@ init|=
 name|true
 parameter_list|)
 function_decl|;
-name|QSize
-name|nativeWindowSize
-parameter_list|()
-function_decl|;
 endif|#
 directive|endif
 name|QWindow
