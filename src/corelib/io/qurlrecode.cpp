@@ -1921,6 +1921,11 @@ name|output
 init|=
 literal|0
 decl_stmt|;
+name|EncodingAction
+name|action
+init|=
+name|EncodeCharacter
+decl_stmt|;
 for|for
 control|(
 init|;
@@ -1934,9 +1939,6 @@ control|)
 block|{
 name|ushort
 name|c
-decl_stmt|;
-name|EncodingAction
-name|action
 decl_stmt|;
 comment|// try a run where no change is necessary
 for|for
