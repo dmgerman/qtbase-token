@@ -184,7 +184,10 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"glGenVertexArrays"
+argument_list|)
 argument_list|)
 operator|)
 expr_stmt|;
@@ -209,7 +212,10 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"glDeleteVertexArrays"
+argument_list|)
 argument_list|)
 operator|)
 expr_stmt|;
@@ -230,7 +236,10 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"glBindVertexArray"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -257,7 +266,10 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"glGenVertexArraysOES"
+argument_list|)
 argument_list|)
 operator|)
 expr_stmt|;
@@ -282,7 +294,10 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"glDeleteVertexArraysOES"
+argument_list|)
 argument_list|)
 operator|)
 expr_stmt|;
@@ -303,7 +318,10 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"glBindVertexArrayOES"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -698,7 +716,10 @@ name|ctx
 operator|->
 name|hasExtension
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"GL_OES_vertex_array_object"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -851,7 +872,10 @@ name|ctx
 operator|->
 name|hasExtension
 argument_list|(
+name|QByteArrayLiteral
+argument_list|(
 literal|"GL_ARB_vertex_array_object"
+argument_list|)
 argument_list|)
 condition|)
 block|{
