@@ -13609,8 +13609,6 @@ argument_list|(
 name|str
 argument_list|,
 name|size
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
