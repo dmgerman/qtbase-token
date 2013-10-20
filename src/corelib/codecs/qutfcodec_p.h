@@ -383,6 +383,24 @@ block|}
 struct|;
 end_struct
 begin_decl_stmt
+DECL|struct|QUtf8BaseTraits
+name|struct
+name|QUtf8BaseTraitsNoAscii
+range|:
+name|public
+name|QUtf8BaseTraits
+block|{
+DECL|member|skipAsciiHandling
+specifier|static
+specifier|const
+name|bool
+name|skipAsciiHandling
+operator|=
+name|true
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|namespace
 name|QUtf8Functions
 block|{

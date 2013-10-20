@@ -11031,7 +11031,7 @@ name|error
 operator|.
 name|offset
 argument_list|,
-literal|14
+literal|12
 argument_list|)
 expr_stmt|;
 block|}
@@ -11190,7 +11190,7 @@ name|error
 operator|.
 name|offset
 argument_list|,
-literal|15
+literal|13
 argument_list|)
 expr_stmt|;
 block|}
