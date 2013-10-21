@@ -178,14 +178,6 @@ begin_decl_stmt
 name|namespace
 name|NativeEvents
 block|{
-enum|enum
-name|MousePosition
-block|{
-name|UpdatePosition
-block|,
-name|DontUpdatePosition
-block|}
-enum|;
 comment|/*         Simulates a mouse click with button at globalPos.     */
 name|void
 name|mouseClick
@@ -199,11 +191,6 @@ name|Qt
 operator|::
 name|MouseButtons
 name|buttons
-argument_list|,
-name|MousePosition
-name|updateMouse
-operator|=
-name|DontUpdatePosition
 argument_list|)
 decl_stmt|;
 block|}
