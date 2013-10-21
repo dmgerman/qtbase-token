@@ -11916,6 +11916,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|else
+block|{
+name|warn_msg
+argument_list|(
+name|WarnLogic
+argument_list|,
+literal|"Could not resolve Info.plist: '%s'. Check if QMAKE_INFO_PLIST points to a valid file."
+argument_list|,
+name|plist
+operator|.
+name|toLatin1
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|t
 operator|<<
