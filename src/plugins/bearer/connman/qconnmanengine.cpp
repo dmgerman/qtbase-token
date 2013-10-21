@@ -1638,6 +1638,11 @@ name|id
 argument_list|)
 condition|)
 block|{
+name|bool
+name|changed
+init|=
+literal|false
+decl_stmt|;
 name|QNetworkConfigurationPrivatePointer
 name|ptr
 init|=
@@ -1723,6 +1728,10 @@ name|name
 operator|=
 name|networkName
 expr_stmt|;
+name|changed
+operator|=
+literal|true
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1739,6 +1748,10 @@ name|state
 operator|=
 name|curState
 expr_stmt|;
+name|changed
+operator|=
+literal|true
+expr_stmt|;
 block|}
 name|ptr
 operator|->
@@ -1747,6 +1760,11 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|changed
+condition|)
+block|{
 name|locker
 operator|.
 name|unlock
@@ -1763,6 +1781,7 @@ operator|.
 name|relock
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|locker
 operator|.
