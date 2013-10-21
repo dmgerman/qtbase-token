@@ -4329,7 +4329,7 @@ operator|(
 name|fontDef
 operator|.
 name|weight
-operator|==
+operator|>=
 name|QFont
 operator|::
 name|Bold
@@ -7569,7 +7569,7 @@ operator|(
 name|fontDef
 operator|.
 name|weight
-operator|==
+operator|>=
 name|QFont
 operator|::
 name|Bold
