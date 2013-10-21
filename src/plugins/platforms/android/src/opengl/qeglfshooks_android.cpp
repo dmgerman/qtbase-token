@@ -354,6 +354,12 @@ name|EGLNativeWindowType
 name|window
 parameter_list|)
 block|{
+if|if
+condition|(
+name|window
+operator|!=
+literal|0
+condition|)
 name|ANativeWindow_release
 argument_list|(
 name|window
