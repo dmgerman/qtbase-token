@@ -732,6 +732,23 @@ case|case
 name|WM_THEMECHANGED
 case|:
 end_case
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|WM_SYSCOLORCHANGE
+end_ifdef
+begin_comment
+comment|// Windows 7: Handle color change as theme change (QTBUG-34170).
+end_comment
+begin_case
+case|case
+name|WM_SYSCOLORCHANGE
+case|:
+end_case
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_return
 return|return
 name|QtWindows
