@@ -9703,7 +9703,7 @@ argument_list|(
 name|__MINGW64_VERSION_MAJOR
 argument_list|)
 operator|||
-name|_MINGW64_VERSION_MAJOR
+name|__MINGW64_VERSION_MAJOR
 operator|<
 literal|3
 operator|)
