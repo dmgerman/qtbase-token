@@ -5729,6 +5729,12 @@ expr_stmt|;
 comment|// When the window is layered, we won't get WM_PAINT, and "we" are in control
 comment|// over the rendering of the window
 comment|// There is nobody waiting for this, so we don't need to flush afterwards.
+if|if
+condition|(
+name|isLayered
+argument_list|()
+condition|)
+block|{
 name|QWindow
 modifier|*
 name|w
@@ -5736,29 +5742,6 @@ init|=
 name|window
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|w
-operator|->
-name|format
-argument_list|()
-operator|.
-name|hasAlpha
-argument_list|()
-operator|||
-name|qFuzzyCompare
-argument_list|(
-name|w
-operator|->
-name|opacity
-argument_list|()
-argument_list|,
-name|qreal
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-condition|)
 name|fireExpose
 argument_list|(
 name|QRect
@@ -5779,6 +5762,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
