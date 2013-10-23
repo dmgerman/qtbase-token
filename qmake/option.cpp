@@ -268,14 +268,6 @@ begin_comment
 comment|//all modes
 end_comment
 begin_decl_stmt
-DECL|member|qmake_args
-name|QStringList
-name|Option
-operator|::
-name|qmake_args
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|warn_level
 name|int
 name|Option
@@ -2391,8 +2383,8 @@ name|ret
 return|;
 comment|//return ret == QMAKE_CMDLINE_SHOW_USAGE ? usage(argv[0]) : false;
 block|}
-name|Option
-operator|::
+name|globals
+operator|->
 name|qmake_args
 operator|=
 name|args

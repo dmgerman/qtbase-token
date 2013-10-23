@@ -271,6 +271,9 @@ directive|endif
 name|QString
 name|qmake_abslocation
 decl_stmt|;
+name|QStringList
+name|qmake_args
+decl_stmt|;
 name|QString
 name|qmakespec
 decl_stmt|,

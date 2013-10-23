@@ -17074,6 +17074,8 @@ name|arg
 decl|,
 name|Option
 operator|::
+name|globals
+operator|->
 name|qmake_args
 control|)
 name|ret
