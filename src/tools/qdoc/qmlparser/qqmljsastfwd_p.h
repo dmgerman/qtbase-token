@@ -400,7 +400,7 @@ name|class
 name|UiProgram
 decl_stmt|;
 name|class
-name|UiImportList
+name|UiPragma
 decl_stmt|;
 name|class
 name|UiImport
@@ -440,6 +440,12 @@ name|UiArrayMemberList
 decl_stmt|;
 name|class
 name|UiQualifiedId
+decl_stmt|;
+name|class
+name|UiQualifiedPragmaId
+decl_stmt|;
+name|class
+name|UiHeaderItemList
 decl_stmt|;
 block|}
 block|}

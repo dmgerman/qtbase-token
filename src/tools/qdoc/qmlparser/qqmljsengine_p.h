@@ -203,6 +203,17 @@ modifier|&
 name|code
 parameter_list|)
 function_decl|;
+specifier|const
+name|QString
+operator|&
+name|code
+argument_list|()
+specifier|const
+block|{
+return|return
+name|_code
+return|;
+block|}
 name|void
 name|addComment
 parameter_list|(
