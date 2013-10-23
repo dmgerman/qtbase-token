@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qtimer.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
+end_include
 begin_class
 DECL|class|tst_QWinEventNotifier
 class|class
