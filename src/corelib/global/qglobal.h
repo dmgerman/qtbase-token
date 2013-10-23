@@ -72,10 +72,6 @@ include|#
 directive|include
 file|<QtCore/qconfig.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -91,6 +87,10 @@ name|FEATURE
 parameter_list|)
 value|(!defined(QT_NO_##FEATURE))
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* These two macros makes it possible to turn the builtin line expander into a  * string literal. */
 end_comment
