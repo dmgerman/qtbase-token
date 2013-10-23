@@ -3236,17 +3236,15 @@ index|]
 operator|=
 name|fallbackKey
 expr_stmt|;
-comment|// If this vk_key a Dead Key
+comment|// If this vk_key makes a dead key with any combination of modifiers
 if|if
 condition|(
-name|MapVirtualKey
-argument_list|(
+name|keyLayout
+index|[
 name|vk_key
-argument_list|,
-literal|2
-argument_list|)
-operator|&
-literal|0x80000000
+index|]
+operator|.
+name|deadkeys
 condition|)
 block|{
 comment|// Push a Space, then the original key through the low-level ToAscii functions.
