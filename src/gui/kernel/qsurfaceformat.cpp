@@ -762,7 +762,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the minimum depth buffer size to \a size.      \sa depthBufferSize(), setDepth(), depth() */
+comment|/*!     Set the minimum depth buffer size to \a size.      \sa depthBufferSize() */
 end_comment
 begin_function
 DECL|function|setDepthBufferSize
@@ -797,7 +797,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the depth buffer size.      \sa setDepthBufferSize(), setDepth(), depth() */
+comment|/*!     Returns the depth buffer size.      \sa setDepthBufferSize() */
 end_comment
 begin_function
 DECL|function|depthBufferSize
