@@ -151,7 +151,7 @@ return|;
 block|}
 specifier|static
 name|QLoggingCategory
-modifier|&
+modifier|*
 name|defaultCategory
 parameter_list|()
 function_decl|;
@@ -221,6 +221,16 @@ name|enabledCritical
 decl_stmt|;
 name|bool
 name|enabledTrace
+decl_stmt|;
+comment|// reserve space for future use
+name|bool
+name|placeholder1
+decl_stmt|;
+name|bool
+name|placeholder2
+decl_stmt|;
+name|bool
+name|placeholder3
 decl_stmt|;
 block|}
 end_decl_stmt

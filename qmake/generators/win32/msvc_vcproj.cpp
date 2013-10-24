@@ -2734,10 +2734,7 @@ name|QDir
 operator|::
 name|cleanPath
 argument_list|(
-name|fi
-operator|.
-name|absoluteFilePath
-argument_list|()
+name|dir
 argument_list|)
 argument_list|)
 expr_stmt|;

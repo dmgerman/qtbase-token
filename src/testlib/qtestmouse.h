@@ -92,7 +92,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QDebug>
+file|<QtCore/QDebug>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

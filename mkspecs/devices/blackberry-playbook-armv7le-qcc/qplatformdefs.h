@@ -5,6 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"../../blackberry-armv7le-qcc/qplatformdefs.h"
+file|"../blackberry-playbook-armle-v7-qcc/qplatformdefs.h"
 end_include
 end_unit

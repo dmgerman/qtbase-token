@@ -3252,11 +3252,16 @@ name|verboseDialogs
 condition|)
 name|qDebug
 argument_list|(
-literal|"%s modal=%d native=%p parent=%p"
+literal|"%s modal=%d modal supported? %d native=%p parent=%p"
 argument_list|,
 name|__FUNCTION__
 argument_list|,
 name|modal
+argument_list|,
+name|supportsNonModalDialog
+argument_list|(
+name|parent
+argument_list|)
 argument_list|,
 name|m_nativeDialog
 operator|.
@@ -9680,11 +9685,29 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_comment
+comment|/* The correct declaration of the SHGetPathFromIDList symbol is  * being used in mingw-w64 as of r6215, which is a v3 snapshot.  */
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_CC_MINGW
-end_ifdef
+argument_list|)
+operator|&&
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|__MINGW64_VERSION_MAJOR
+argument_list|)
+operator|||
+name|__MINGW64_VERSION_MAJOR
+operator|<
+literal|3
+operator|)
+end_if
 begin_typedef
 DECL|typedef|qt_LpItemIdList
 typedef|typedef

@@ -4891,8 +4891,10 @@ name|lParam
 operator|&
 name|ENDSESSION_LOGOFF
 condition|)
-name|_flushall
-argument_list|()
+name|fflush
+argument_list|(
+name|NULL
+argument_list|)
 expr_stmt|;
 return|return
 operator|!

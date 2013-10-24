@@ -218,6 +218,12 @@ name|UserInputEvent
 operator||
 literal|0x19
 block|,
+name|Gesture
+init|=
+name|UserInputEvent
+operator||
+literal|0x1a
+block|,
 name|ApplicationStateChanged
 init|=
 literal|0x19
@@ -1944,6 +1950,93 @@ block|;     }
 decl_stmt|;
 endif|#
 directive|endif
+name|class
+name|GestureEvent
+range|:
+name|public
+name|InputEvent
+block|{
+name|public
+operator|:
+name|GestureEvent
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|ulong time
+argument_list|,
+argument|Qt::NativeGestureType type
+argument_list|,
+argument|QPointF pos
+argument_list|,
+argument|QPointF globalPos
+argument_list|)
+operator|:
+name|InputEvent
+argument_list|(
+name|window
+argument_list|,
+name|time
+argument_list|,
+name|Gesture
+argument_list|,
+name|Qt
+operator|::
+name|NoModifier
+argument_list|)
+block|,
+name|type
+argument_list|(
+name|type
+argument_list|)
+block|,
+name|pos
+argument_list|(
+name|pos
+argument_list|)
+block|,
+name|globalPos
+argument_list|(
+name|globalPos
+argument_list|)
+block|,
+name|realValue
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|sequenceId
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|intValue
+argument_list|(
+literal|0
+argument_list|)
+block|{ }
+name|Qt
+operator|::
+name|NativeGestureType
+name|type
+block|;
+name|QPointF
+name|pos
+block|;
+name|QPointF
+name|globalPos
+block|;
+comment|// Mac
+name|qreal
+name|realValue
+block|;
+comment|// Windows
+name|ulong
+name|sequenceId
+block|;
+name|quint64
+name|intValue
+block|;     }
+decl_stmt|;
 name|class
 name|WindowSystemEventList
 block|{

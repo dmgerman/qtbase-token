@@ -1210,4 +1210,98 @@ begin_comment
 unit|}
 comment|//! [23]
 end_comment
+begin_comment
+comment|//! [24]
+end_comment
+begin_expr_stmt
+unit|QVector
+operator|<
+name|int
+operator|>
+name|a
+operator|,
+name|b
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|a
+operator|.
+name|resize
+argument_list|(
+literal|100000
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// make a big vector filled with 0.
+end_comment
+begin_decl_stmt
+DECL|variable|i
+name|QVector
+argument_list|<
+name|int
+argument_list|>
+operator|::
+name|iterator
+name|i
+init|=
+name|a
+operator|.
+name|begin
+argument_list|()
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// WRONG way of using the iterator i:
+end_comment
+begin_expr_stmt
+name|b
+operator|=
+name|a
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|/*     Now we should be careful with iterator i since it will point to shared data     If we do *i = 4 then we would change the shared instance (both vectors)     The behavior differs from STL containers. Avoid doing such things in Qt. */
+end_comment
+begin_expr_stmt
+name|a
+index|[
+literal|0
+index|]
+operator|=
+literal|5
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|/*     Container a is now detached from the shared data,     and even though i was an iterator from the container a, it now works as an iterator in b.     Here the situation is that (*i) == 0. */
+end_comment
+begin_expr_stmt
+name|b
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// Now the iterator i is completely invalid.
+end_comment
+begin_decl_stmt
+DECL|variable|j
+name|int
+name|j
+init|=
+operator|*
+name|i
+decl_stmt|;
+end_decl_stmt
+begin_comment
+DECL|variable|j
+comment|// Undefined behavior!
+end_comment
+begin_comment
+comment|/*     The data from b (which i pointed to) is gone.     This would be well-defined with STL containers (and (*i) == 5),     but with QVector this is likely to crash. */
+end_comment
+begin_comment
+comment|//! [24]
+end_comment
 end_unit

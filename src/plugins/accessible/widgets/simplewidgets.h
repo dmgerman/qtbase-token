@@ -304,7 +304,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
-name|QRect
+name|QPoint
 name|imagePosition
 argument_list|()
 specifier|const

@@ -2234,6 +2234,11 @@ else|else
 block|{
 if|#
 directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
 operator|!
 name|defined
 argument_list|(

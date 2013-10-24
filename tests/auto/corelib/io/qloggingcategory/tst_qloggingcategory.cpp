@@ -972,7 +972,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|categoryName
 argument_list|()
 argument_list|)
@@ -1036,7 +1036,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|categoryName
 argument_list|()
 argument_list|,
@@ -1129,7 +1129,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|,
@@ -1142,7 +1142,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isEnabled
 argument_list|(
 name|QtDebugMsg
@@ -1157,7 +1157,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isWarningEnabled
 argument_list|()
 argument_list|,
@@ -1170,7 +1170,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isEnabled
 argument_list|(
 name|QtWarningMsg
@@ -1185,7 +1185,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isCriticalEnabled
 argument_list|()
 argument_list|,
@@ -1198,7 +1198,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isEnabled
 argument_list|(
 name|QtCriticalMsg
@@ -1377,7 +1377,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|,
@@ -1388,7 +1388,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|setEnabled
 argument_list|(
 name|QtDebugMsg
@@ -1402,7 +1402,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|,
@@ -1413,7 +1413,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|setEnabled
 argument_list|(
 name|QtDebugMsg
@@ -1442,7 +1442,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|)
@@ -1476,7 +1476,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|)
@@ -1554,7 +1554,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|)
@@ -1609,7 +1609,7 @@ name|QLoggingCategory
 operator|::
 name|defaultCategory
 argument_list|()
-operator|.
+operator|->
 name|isDebugEnabled
 argument_list|()
 argument_list|)

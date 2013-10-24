@@ -5299,6 +5299,11 @@ block|}
 empty_stmt|;
 block|}
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_FORWARD_DECLARE_OBJC_CLASS
+end_ifndef
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -5332,6 +5337,15 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_FORWARD_DECLARE_CF_TYPE
+end_ifndef
 begin_define
 DECL|macro|Q_FORWARD_DECLARE_CF_TYPE
 define|#
@@ -5342,6 +5356,15 @@ name|type
 parameter_list|)
 value|typedef const struct __ ## type * type ## Ref
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_FORWARD_DECLARE_MUTABLE_CF_TYPE
+end_ifndef
 begin_define
 DECL|macro|Q_FORWARD_DECLARE_MUTABLE_CF_TYPE
 define|#
@@ -5352,6 +5375,10 @@ name|type
 parameter_list|)
 value|typedef struct __ ## type * type ## Ref
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

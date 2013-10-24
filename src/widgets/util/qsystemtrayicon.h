@@ -196,19 +196,6 @@ block|,
 name|Critical
 block|}
 block|;
-name|void
-name|showMessage
-argument_list|(
-argument|const QString&title
-argument_list|,
-argument|const QString&msg
-argument_list|,
-argument|MessageIcon icon = Information
-argument_list|,
-argument|int msecs =
-literal|10000
-argument_list|)
-block|;
 name|QRect
 name|geometry
 argument_list|()
@@ -248,6 +235,19 @@ argument_list|(
 name|false
 argument_list|)
 block|; }
+name|void
+name|showMessage
+argument_list|(
+argument|const QString&title
+argument_list|,
+argument|const QString&msg
+argument_list|,
+argument|QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::Information
+argument_list|,
+argument|int msecs =
+literal|10000
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

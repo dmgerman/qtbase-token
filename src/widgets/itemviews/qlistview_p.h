@@ -828,8 +828,6 @@ name|QPainter
 modifier|*
 name|painter
 parameter_list|)
-init|=
-literal|0
 function_decl|;
 name|virtual
 name|bool
@@ -1304,14 +1302,6 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-name|void
-name|paintDragDrop
-argument_list|(
-name|QPainter
-operator|*
-name|painter
-argument_list|)
-block|;
 comment|// The next two methods are to be used on LefToRight flow only.
 comment|// WARNING: Plenty of duplicated code from QAbstractItemView{,Private}.
 name|QAbstractItemView
@@ -1569,14 +1559,6 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-name|void
-name|paintDragDrop
-argument_list|(
-name|QPainter
-operator|*
-name|painter
-argument_list|)
-block|;
 name|bool
 name|filterDragMoveEvent
 argument_list|(
@@ -2584,13 +2566,6 @@ expr_stmt|;
 block|}
 block|}
 end_decl_stmt
-begin_expr_stmt
-name|QStyleOptionViewItem
-name|viewOptions
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_function_decl
 name|void
 name|scrollElasticBandBy
@@ -3113,7 +3088,7 @@ block|{
 return|return
 name|dd
 operator|->
-name|viewOptions
+name|viewOptionsV1
 argument_list|()
 return|;
 block|}

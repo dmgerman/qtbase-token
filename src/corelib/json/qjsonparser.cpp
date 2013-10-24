@@ -3242,13 +3242,6 @@ name|min_uc
 operator|||
 name|QChar
 operator|::
-name|isNonCharacter
-operator|(
-name|uc
-operator|)
-operator|||
-name|QChar
-operator|::
 name|isSurrogate
 operator|(
 name|uc

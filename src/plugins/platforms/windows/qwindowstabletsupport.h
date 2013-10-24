@@ -579,6 +579,9 @@ expr_stmt|;
 name|int
 name|m_currentDevice
 decl_stmt|;
+name|QPointF
+name|m_oldGlobalPosF
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -39,7 +39,7 @@ argument|(qtDefaultCategoryName)
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \class QLoggingCategory     \inmodule QtCore     \since 5.2      \brief The QLoggingCategory class represents a category, or 'area' in the     logging infrastructure.      QLoggingCategory represents a certain logging category - identified     by a string - at runtime. Whether a category should be actually logged or     not can be checked with the \l isEnabled() methods.      \section1 Creating category objects      The Q_LOGGING_CATEGORY() and the Q_DECLARE_LOGGING_CATEGORY() macros     conveniently declare and create QLoggingCategory objects:      \snippet qloggingcategory/main.cpp 1      \section1 Checking category configuration      QLoggingCategory provides a generic \l isEnabled() and message     type dependent \l isDebugEnabled(), \l isWarningEnabled(),     \l isCriticalEnabled() and \l isTraceEnabled()     methods for checking whether the current category is enabled.      \note The qCDebug(), qCWarning(), qCCritical(), qCTrace() and     qCTraceGuard() macros prevent arguments from being evaluated if the     respective message types are not enabled for the category, so explicit     checking is not needed:      \snippet qloggingcategory/main.cpp 3      \section1 Default configuration      In the default configuration \l isWarningEnabled() and \l isCriticalEnabled()     will return \c true. By default, \l isDebugEnabled() will return \c true only     for the \c "default" category.      \section1 Changing configuration      The default configuration can be changed by calling \l setEnabled(). However,     this only affects the current category object, not e.g. another object for the     same category name. Use either \l setFilterRules() or \l installFilter() to     configure categories globally. */
+comment|/*!     \class QLoggingCategory     \inmodule QtCore     \since 5.2      \brief The QLoggingCategory class represents a category, or 'area' in the     logging infrastructure.      QLoggingCategory represents a certain logging category - identified     by a string - at runtime. Whether a category should be actually logged or     not can be checked with the \l isEnabled() methods.      \section1 Creating category objects      The Q_LOGGING_CATEGORY() and the Q_DECLARE_LOGGING_CATEGORY() macros     conveniently declare and create QLoggingCategory objects:      \snippet qloggingcategory/main.cpp 1      \section1 Checking category configuration      QLoggingCategory provides \l isDebugEnabled(), \l isWarningEnabled(),     \l isCriticalEnabled(), \l isTraceEnabled(), as well as \l isEnabled()     to check whether messages for the given message type should be logged.      \note The qCDebug(), qCWarning(), qCCritical(), qCTrace() and     qCTraceGuard() macros prevent arguments from being evaluated if the     respective message types are not enabled for the category, so explicit     checking is not needed:      \snippet qloggingcategory/main.cpp 4      \section1 Default category configuration      In the default configuration \l isWarningEnabled() and \l isCriticalEnabled()     will return \c true. \l isDebugEnabled() will return \c true only     for the \c "default" category.      \section1 Changing the configuration of a category      Use either \l setFilterRules() or \l installFilter() to     configure categories, for example      \snippet qloggingcategory/main.cpp 2      \section1 Printing the category      Use the \c %{category} place holder to print the category in the default     message handler:      \snippet qloggingcategory/main.cpp 3 */
 end_comment
 begin_typedef
 DECL|typedef|Tracers
@@ -107,6 +107,21 @@ literal|true
 argument_list|)
 member_init_list|,
 name|enabledTrace
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|placeholder1
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|placeholder2
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|placeholder3
 argument_list|(
 literal|false
 argument_list|)
@@ -280,7 +295,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Changes the message type \a type for the category to \a enable.      Changes only affect the current QLoggingCategory object, and won't     change e.g. the settings of another objects for the same category name.      \note \c QtFatalMsg cannot be changed. It will always return \c true.      Example:      \snippet qtracer/ftracer.cpp 5 */
+comment|/*!     Changes the message type \a type for the category to \a enable.      \note Changes only affect the current QLoggingCategory object, and won't     change the settings of other objects for the same category name.     Use either \l setFilterRules() or \l installFilter() to change the     configuration globally.      \note \c QtFatalMsg cannot be changed. It will always return \c true. */
 end_comment
 begin_function
 DECL|function|setEnabled
@@ -344,19 +359,18 @@ begin_comment
 comment|/*!     \fn QLoggingCategory&QLoggingCategory::operator()()      Returns the object itself. This allows both a QLoggingCategory variable, and     a factory method returning a QLoggingCategory, to be used in \l qCDebug(),     \l qCWarning(), \l qCCritical() macros.  */
 end_comment
 begin_comment
-comment|/*!     Returns the category \c "default" that is used e.g. by qDebug(), qWarning(),     qCritical(), qFatal().  */
+comment|/*!     Returns a pointer to the global category \c "default" that     is used e.g. by qDebug(), qWarning(), qCritical(), qFatal().      \note The returned pointer may be null during destruction of     static objects.      \note Ownership of the category is not transferred, do not     \c delete the returned pointer.   */
 end_comment
 begin_function
 DECL|function|defaultCategory
 name|QLoggingCategory
-modifier|&
+modifier|*
 name|QLoggingCategory
 operator|::
 name|defaultCategory
 parameter_list|()
 block|{
 return|return
-operator|*
 name|qtDefaultCategory
 argument_list|()
 return|;
@@ -366,7 +380,7 @@ begin_comment
 comment|/*!     \typedef QLoggingCategory::CategoryFilter      This is a typedef for a pointer to a function with the following     signature:      \snippet qloggingcategory/main.cpp 20      A function with this signature can be installed with \l installFilter(). */
 end_comment
 begin_comment
-comment|/*!     Installs a function \a filter that is used to determine which categories     and message types should be enabled. Returns a pointer to the previous     installed filter.      Every QLoggingCategory object created is passed to the filter, and the     filter is free to change the respective category configuration with     \l setEnabled().      An alternative way of configuring the default filter is via     \l setFilterRules().  */
+comment|/*!     Installs a function \a filter that is used to determine which categories     and message types should be enabled. Returns a pointer to the previous     installed filter.      Every QLoggingCategory object created is passed to the filter, and the     filter is free to change the respective category configuration with     \l setEnabled().      The filter might be called concurrently from different threads, and     therefore has to be reentrant.      Example:     \snippet qloggingcategory/main.cpp 21      An alternative way of configuring the default filter is via     \l setFilterRules().  */
 end_comment
 begin_function
 name|QLoggingCategory
@@ -397,7 +411,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Configures which categories and message types should be enabled through a     a set of \a rules.      Each line in \a rules must have the format      \code<category>[.<type>] = true|false     \endcode      where \c<category> is the name of the category, potentially with \c{*} as a     wildcard symbol at the start and/or the end. The optional \c<type> must     be either \c debug, \c warning, \c critical, or \c trace.      The rules might be ignored if a custom category filter is installed with     \l installFilter(). */
+comment|/*!     Configures which categories and message types should be enabled through a     a set of \a rules.      Each line in \a rules must have the format      \code<category>[.<type>] = true|false     \endcode      where \c<category> is the name of the category, potentially with \c{*} as a     wildcard symbol at the start and/or the end. The optional \c<type> must     be either \c debug, \c warning, \c critical, or \c trace.      Example:      \snippet qloggingcategory/main.cpp 2      \note The rules might be ignored if a custom category filter is installed     with \l installFilter().  */
 end_comment
 begin_function
 DECL|function|setFilterRules
@@ -436,10 +450,10 @@ begin_comment
 comment|/*!     \macro qCCritical(category)     \relates QLoggingCategory     \since 5.2      Returns an output stream for critical messages in the logging category     \a category.      The macro expands to code that checks whether     \l QLoggingCategory::isCriticalEnabled() evaluates to \c true.     If so, the stream arguments are processed and sent to the message handler.      Example:      \snippet qloggingcategory/main.cpp 12      \note Arguments are not processed if critical output for the category is not     enabled, so do not rely on any side effects.      \sa qCritical() */
 end_comment
 begin_comment
-comment|/*!     \relates QLoggingCategory     \macro qCTrace(category)     \since 5.2      Returns an output stream for trace messages in the logging category     \a category.      The macro expands to code that checks whether     \l QLoggingCategory::isTraceEnabled() evaluates to \c true.     If so, the stream arguments are processed and sent to the tracers     registered with the category.      \note Arguments are not processed if trace output for the category is not     enabled, so do not rely on any side effects.      Example:      \snippet qtracer/ftracer.cpp 6      \sa qCTraceGuard() */
+comment|/*!     \relates QLoggingCategory     \macro qCTrace(category)     \since 5.2      Returns an output stream for trace messages in the logging category     \a category.      The macro expands to code that checks whether     \l QLoggingCategory::isTraceEnabled() evaluates to \c true.     If so, the stream arguments are processed and sent to the \l QTracer objects     registered with the category.      \note Arguments are not processed if trace output for the category is not     enabled, so do not rely on any side effects.      Example:      \snippet qtracer/ftracer.cpp 6      \sa qCTraceGuard() QTraceGuard */
 end_comment
 begin_comment
-comment|/*!     \relates QLoggingCategory     \macro qCTraceGuard(category)     \since 5.2      The macro expands to code that creates a guard object with automatic     storage. The guard constructor checks whether     \l QLoggingCategory::isTraceEnabled() evaluates to \c true.     If so, the stream arguments are processed and the \c{start()}     functions of the tracers registered with the \a category are called.      The guard destructor also checks whether the category is enabled for     tracing and if so, the \c{end()}     functions of the tracers registered with the \a category are called.      \note Arguments are always processed, even if trace output for the     category is disabled. They will, however, in that case not be passed     to the \c{record()} functions of the registered tracers.      Example:      \snippet qtracer/ftracer.cpp 4      \sa qCTrace() */
+comment|/*!     \relates QLoggingCategory     \macro qCTraceGuard(category)     \since 5.2      The macro expands to code that creates a guard object with automatic     storage. The guard constructor checks whether     \l QLoggingCategory::isTraceEnabled() evaluates to \c true.     If so, the stream arguments are processed and the \c{start()}     functions of the \l QTracer objects registered with the \a category are     called.      The guard destructor also checks whether the category is enabled for     tracing and if so, the \c{end()}     functions of the \l QTracer objects registered with the \a category are called.      \note Arguments are always processed, even if trace output for the     category is disabled. They will, however, in that case not be passed     to the \c{record()} functions of the registered tracers.      Example:      \snippet qtracer/ftracer.cpp 4      \sa qCTrace() QTracer */
 end_comment
 begin_comment
 comment|/*!     \macro Q_DECLARE_LOGGING_CATEGORY(name)     \relates QLoggingCategory     \since 5.2      Declares a logging category \a name. The macro can be used to declare     a common logging category shared in different parts of the program.      This macro must be used outside of a class or method. */

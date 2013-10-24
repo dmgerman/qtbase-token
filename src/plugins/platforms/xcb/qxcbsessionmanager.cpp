@@ -40,6 +40,14 @@ end_include
 begin_include
 include|#
 directive|include
+file|<errno.h>
+end_include
+begin_comment
+comment|// ERANGE
+end_comment
+begin_include
+include|#
+directive|include
 file|<cerrno>
 end_include
 begin_comment

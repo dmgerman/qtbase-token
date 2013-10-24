@@ -873,6 +873,11 @@ end_function
 begin_comment
 comment|/*!  Converts the QJsonDocument to a UTF-8 encoded JSON document.   \sa fromJson()  */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_JSON_READONLY
+end_ifndef
 begin_function
 DECL|function|toJson
 name|QByteArray
@@ -890,12 +895,21 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \enum QJsonDocument::JsonFormat      This value defines the format of the JSON byte array produced     when converting to a QJsonDocument using toJson().      \value Indented Defines human readable output as follows:         \code         {             "Array": [                 true,                 999,                 "string"             ],             "Key": "Value",             "null": null         }         \endcode      \value Compact Defines a compact output as follows:         \code         {"Array": [true,999,"string"],"Key": "Value","null": null}         \endcode   */
 end_comment
 begin_comment
 comment|/*!     Converts the QJsonDocument to a UTF-8 encoded JSON document in the provided \a format.      \sa fromJson(), JsonFormat  */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_JSON_READONLY
+end_ifndef
 begin_function
 DECL|function|toJson
 name|QByteArray
@@ -1004,6 +1018,10 @@ name|json
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!  Parses a UTF-8 encoded JSON document and creates a QJsonDocument  from it.   \a json contains the json document to be parsed.   The optional \a error variable can be used to pass in a QJsonParseError data  structure that will contain information about possible errors encountered during  parsing.   \sa toJson(), QJsonParseError  */
 end_comment
@@ -1793,11 +1811,21 @@ operator|)
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_DEBUG_STREAM
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_JSON_READONLY
+argument_list|)
+end_if
 begin_function
 DECL|function|operator <<
 name|QDebug

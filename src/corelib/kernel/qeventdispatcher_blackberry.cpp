@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Research In Motion ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 - 2013 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -133,6 +133,52 @@ DECL|member|outerChannel
 name|int
 name|outerChannel
 decl_stmt|;
+block|}
+class|;
+end_class
+begin_class
+DECL|class|BBScopedLoopLevelCounter
+class|class
+name|BBScopedLoopLevelCounter
+block|{
+DECL|member|d
+name|QEventDispatcherBlackberryPrivate
+modifier|*
+name|d
+decl_stmt|;
+public|public:
+DECL|function|BBScopedLoopLevelCounter
+specifier|inline
+name|BBScopedLoopLevelCounter
+parameter_list|(
+name|QEventDispatcherBlackberryPrivate
+modifier|*
+name|p
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+name|p
+argument_list|)
+block|{
+operator|++
+name|d
+operator|->
+name|loop_level
+expr_stmt|;
+block|}
+DECL|function|~BBScopedLoopLevelCounter
+specifier|inline
+name|~
+name|BBScopedLoopLevelCounter
+parameter_list|()
+block|{
+operator|--
+name|d
+operator|->
+name|loop_level
+expr_stmt|;
+block|}
 block|}
 class|;
 end_class
@@ -427,6 +473,11 @@ operator|::
 name|QEventDispatcherBlackberryPrivate
 parameter_list|()
 member_init_list|:
+name|loop_level
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|ioData
 argument_list|(
 operator|new
@@ -459,6 +510,30 @@ operator|=
 name|bps_channel_get_active
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|bps_channel_create
+argument_list|(
+operator|&
+name|holding_channel
+argument_list|,
+literal|0
+argument_list|)
+operator|!=
+name|BPS_SUCCESS
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QEventDispatcherBlackberry: bps_channel_create failed"
+argument_list|)
+expr_stmt|;
+name|holding_channel
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 comment|// get domain for IO ready and wake up events - ignoring race condition here for now
 if|if
 condition|(
@@ -499,6 +574,31 @@ name|~
 name|QEventDispatcherBlackberryPrivate
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|(
+name|holding_channel
+operator|!=
+operator|-
+literal|1
+operator|)
+operator|&&
+operator|(
+name|bps_channel_destroy
+argument_list|(
+name|holding_channel
+argument_list|)
+operator|!=
+name|BPS_SUCCESS
+operator|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QEventDispatcherBlackberry: bps_channel_destroy failed"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we're done using BPS
 name|bps_shutdown
 argument_list|()
@@ -976,6 +1076,44 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|destroyHeldBpsEvent
+specifier|static
+specifier|inline
+name|void
+name|destroyHeldBpsEvent
+parameter_list|(
+name|int
+name|holding_channel
+parameter_list|)
+block|{
+comment|// Switch to the holding channel and use bps_get_event() to trigger its destruction.  We
+comment|// don't care about the return value from this call to bps_get_event().
+name|BpsChannelScopeSwitcher
+name|holdingChannelSwitcher
+argument_list|(
+name|holding_channel
+argument_list|)
+decl_stmt|;
+name|bps_event_t
+modifier|*
+name|held_event
+init|=
+literal|0
+decl_stmt|;
+operator|(
+name|void
+operator|)
+name|bps_get_event
+argument_list|(
+operator|&
+name|held_event
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|select
 name|int
 name|QEventDispatcherBlackberry
@@ -1012,6 +1150,13 @@ argument_list|(
 name|QEventDispatcherBlackberry
 argument_list|)
 expr_stmt|;
+specifier|const
+name|BBScopedLoopLevelCounter
+name|bbLoopCounter
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|BpsChannelScopeSwitcher
 name|channelSwitcher
 argument_list|(
@@ -1093,6 +1238,66 @@ name|eventCount
 init|=
 literal|0
 decl_stmt|;
+comment|// If an event handler called through filterEvent() starts a nested event loop by creating a
+comment|// new QEventLoop, we will recursively enter this function again.  However, each time
+comment|// bps_get_event() is called, it destroys the last event it handed out before returning the
+comment|// next event.  We don't want it to destroy the event that triggered the nested event loop,
+comment|// since there may still be more handlers that need to get that event, once the nested event
+comment|// loop is done and control returns to the outer event loop.
+comment|//
+comment|// So we move an event to a holding channel, which takes ownership of the event.  Putting
+comment|// the event on our own channel allows us to manage when it is destroyed, keeping it alive
+comment|// until we know we are done with it.  Each recursive call of this function needs to have
+comment|// it's own holding channel, since a channel is a queue, not a stack.
+comment|//
+comment|// However, a recursive call into this function happens very rarely compared to the many
+comment|// times this function is called.  We don't want to create a holding channel for each time
+comment|// this function is called, only when it is called recursively.  Thus we have the instance
+comment|// variable d->holding_channel to use in the common case.  We keep track of recursive calls
+comment|// with d->loop_level.  If we are in a recursive call, then we create a new holding channel
+comment|// for this run.
+name|int
+name|holding_channel
+init|=
+name|d
+operator|->
+name|holding_channel
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|d
+operator|->
+name|loop_level
+operator|>
+literal|1
+operator|)
+operator|&&
+name|Q_UNLIKELY
+argument_list|(
+name|bps_channel_create
+argument_list|(
+operator|&
+name|holding_channel
+argument_list|,
+literal|0
+argument_list|)
+operator|!=
+name|BPS_SUCCESS
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QEventDispatcherBlackberry: bps_channel_create failed"
+argument_list|)
+expr_stmt|;
+name|holding_channel
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 comment|// Convert timeout to milliseconds
 name|int
 name|timeoutTotal
@@ -1174,6 +1379,24 @@ emit|emit
 name|aboutToBlock
 argument_list|()
 emit|;
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|holding_channel
+operator|!=
+operator|-
+literal|1
+argument_list|)
+condition|)
+block|{
+comment|// We are now done with this BPS event.  Destroy it.
+name|destroyHeldBpsEvent
+argument_list|(
+name|holding_channel
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Update the timeout
 comment|// Clock source is monotonic, so we can recalculate how much timeout is left
@@ -1339,6 +1562,38 @@ literal|0
 expr_stmt|;
 comment|// (especially touch move events) we don't break out here
 block|}
+else|else
+block|{
+comment|// Move the event to our holding channel so we can manage when it is destroyed.
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|holding_channel
+operator|!=
+literal|1
+argument_list|)
+operator|&&
+name|Q_UNLIKELY
+argument_list|(
+name|bps_channel_push_event
+argument_list|(
+name|holding_channel
+argument_list|,
+name|event
+argument_list|)
+operator|!=
+name|BPS_SUCCESS
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QEventDispatcherBlackberry: bps_channel_push_event failed"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 operator|++
 name|eventCount
 expr_stmt|;
@@ -1377,6 +1632,7 @@ if|if
 condition|(
 name|event
 condition|)
+block|{
 name|filterNativeEvent
 argument_list|(
 name|QByteArrayLiteral
@@ -1396,8 +1652,64 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|holding_channel
+operator|!=
+operator|-
+literal|1
+argument_list|)
+condition|)
+block|{
+comment|// We are now done with this BPS event.  Destroy it.
+name|destroyHeldBpsEvent
+argument_list|(
+name|holding_channel
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 break|break;
 block|}
+block|}
+comment|// If this was a recursive call into this function, a new holding channel was created for
+comment|// this run, so destroy it now.
+if|if
+condition|(
+operator|(
+name|holding_channel
+operator|!=
+name|d
+operator|->
+name|holding_channel
+operator|)
+operator|&&
+name|Q_LIKELY
+argument_list|(
+name|holding_channel
+operator|!=
+operator|-
+literal|1
+argument_list|)
+operator|&&
+name|Q_UNLIKELY
+argument_list|(
+name|bps_channel_destroy
+argument_list|(
+name|holding_channel
+argument_list|)
+operator|!=
+name|BPS_SUCCESS
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QEventDispatcherBlackberry: bps_channel_destroy failed"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// the number of bits set in the file sets
 return|return

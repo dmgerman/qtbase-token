@@ -3035,7 +3035,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"debug  45 T::T static constructor"
+literal|"debug  46 T::T static constructor"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3056,7 +3056,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"debug tst_qlogging 56 main qDebug"
+literal|"debug tst_qlogging 57 main qDebug"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3066,7 +3066,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"warning tst_qlogging 57 main qWarning"
+literal|"warning tst_qlogging 58 main qWarning"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3076,7 +3076,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"critical tst_qlogging 58 main qCritical"
+literal|"critical tst_qlogging 59 main qCritical"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3086,7 +3086,17 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"debug tst_qlogging 62 main qDebug2"
+literal|"warning tst_qlogging 62 main qDebug with category "
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"debug tst_qlogging 66 main qDebug2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3285,6 +3295,7 @@ literal|"static constructor\n"
 literal|"[debug] qDebug\n"
 literal|"[warning] qWarning\n"
 literal|"[critical] qCritical\n"
+literal|"[warning] qDebug with category \n"
 decl_stmt|;
 ifdef|#
 directive|ifdef
@@ -3360,7 +3371,7 @@ name|environment
 operator|.
 name|prepend
 argument_list|(
-literal|"QT_MESSAGE_PATTERN=\"[%{if-debug}D%{endif}%{if-warning}W%{endif}%{if-critical}C%{endif}%{if-fatal}F%{endif}] %{message}\""
+literal|"QT_MESSAGE_PATTERN=\"[%{if-debug}D%{endif}%{if-warning}W%{endif}%{if-critical}C%{endif}%{if-fatal}F%{endif}] %{if-category}%{category}: %{endif}%{message}\""
 argument_list|)
 expr_stmt|;
 name|process
@@ -3487,6 +3498,16 @@ operator|.
 name|contains
 argument_list|(
 literal|"[C] qCritical"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"[W] category: qDebug with category"
 argument_list|)
 argument_list|)
 expr_stmt|;

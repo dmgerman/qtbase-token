@@ -531,11 +531,6 @@ argument|QItemSelectionRange *range
 argument_list|)
 specifier|const
 block|;
-name|QStyleOptionViewItem
-name|viewOptions
-argument_list|()
-specifier|const
-block|;
 specifier|inline
 name|bool
 name|isHidden

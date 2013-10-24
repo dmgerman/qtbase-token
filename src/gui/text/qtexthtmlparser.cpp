@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qcoreapplication.h>
+file|<qguiapplication.h>
 end_include
 begin_include
 include|#
@@ -5951,9 +5951,13 @@ name|charFormat
 operator|.
 name|setForeground
 argument_list|(
-name|Qt
+name|QGuiApplication
 operator|::
-name|blue
+name|palette
+argument_list|()
+operator|.
+name|link
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

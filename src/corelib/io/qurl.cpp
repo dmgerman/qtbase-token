@@ -6982,7 +6982,7 @@ begin_comment
 comment|/*!     \fn void QUrl::setEncodedUrl(const QByteArray&encodedUrl, ParsingMode parsingMode)     \deprecated     Constructs a URL by parsing the contents of \a encodedUrl.      \a encodedUrl is assumed to be a URL string in percent encoded     form, containing only ASCII characters.      The parsing mode \a parsingMode is used for parsing \a encodedUrl.      \obsolete Use setUrl(QString::fromUtf8(encodedUrl), parsingMode)      \sa setUrl() */
 end_comment
 begin_comment
-comment|/*!     Sets the scheme of the URL to \a scheme. As a scheme can only     contain ASCII characters, no conversion or decoding is done on the     input. It must also start with an ASCII letter.      The scheme describes the type (or protocol) of the URL. It's     represented by one or more ASCII characters at the start the URL,     and is followed by a ':'. The following example shows a URL where     the scheme is "ftp":      \image qurl-authority2.png      The scheme can also be empty, in which case the URL is interpreted     as relative.      \sa scheme(), isRelative() */
+comment|/*!     Sets the scheme of the URL to \a scheme. As a scheme can only     contain ASCII characters, no conversion or decoding is done on the     input. It must also start with an ASCII letter.      The scheme describes the type (or protocol) of the URL. It's     represented by one or more ASCII characters at the start the URL.      A scheme is strictly \l {http://www.ietf.org/rfc/rfc3986.txt} {RFC 3986}-compliant:         \tt {scheme = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )}      The following example shows a URL where the scheme is "ftp":      \image qurl-authority2.png      To set the scheme, the following call is used:     \code         QUrl url;         url.setScheme("ftp");     \endcode      The scheme can also be empty, in which case the URL is interpreted     as relative.      \sa scheme(), isRelative() */
 end_comment
 begin_function
 DECL|function|setScheme
@@ -10093,7 +10093,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an encoded copy of \a input. \a input is first converted     to UTF-8, and all ASCII-characters that are not in the unreserved group     are percent encoded. To prevent characters from being percent encoded     pass them to \a exclude. To force characters to be percent encoded pass     them to \a include.      Unreserved is defined as:        ALPHA / DIGIT / "-" / "." / "_" / "~"      \snippet code/src_corelib_io_qurl.cpp 6 */
+comment|/*!     Returns an encoded copy of \a input. \a input is first converted     to UTF-8, and all ASCII-characters that are not in the unreserved group     are percent encoded. To prevent characters from being percent encoded     pass them to \a exclude. To force characters to be percent encoded pass     them to \a include.      Unreserved is defined as:        \tt {ALPHA / DIGIT / "-" / "." / "_" / "~"}      \snippet code/src_corelib_io_qurl.cpp 6 */
 end_comment
 begin_function
 DECL|function|toPercentEncoding

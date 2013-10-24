@@ -123,6 +123,15 @@ begin_comment
 comment|/*! \fn void QVector::remove(int i, int count)      \overload      Removes \a count elements from the middle of the vector, starting at     index position \a i.      \sa insert(), replace(), fill() */
 end_comment
 begin_comment
+comment|/*! \fn void QVector::removeAt(int i)     \since 5.2      Equivalent to     \code     remove(i);     \endcode      Provided for compatibility with QList.      \sa remove(int), QList::removeAt(int) */
+end_comment
+begin_comment
+comment|/*! \fn int QVector::length() const     \since 5.2      Same as size() and count().      Provided for compatibility with QList.      \sa size(), count(), QList::length() */
+end_comment
+begin_comment
+comment|/*! \fn T QVector::takeAt(int i)     \since 5.2      Equivalent to     \code     T t = at(i);     remove(i);     return t;     \endcode      Provided for compatibility with QList.      \sa takeFirst(), takeLast(), QList::takeAt(int) */
+end_comment
+begin_comment
 comment|/*! \fn void QVector::removeFirst()     \since 5.1     Removes the first item in the vector. Calling this function is     equivalent to calling remove(0). The vector must not be empty. If     the vector can be empty, call isEmpty() before calling this     function.      \sa remove(), takeFirst(), isEmpty() */
 end_comment
 begin_comment
@@ -249,10 +258,10 @@ begin_comment
 comment|/*! \fn QVector<T>&QVector::operator<<(const QVector<T>&other)      Appends \a other to the vector and returns a reference to the     vector. */
 end_comment
 begin_comment
-comment|/*! \typedef QVector::iterator      The QVector::iterator typedef provides an STL-style non-const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style non-const iterator is simply a typedef     for "T *" (pointer to T).      \sa QVector::begin(), QVector::end(), QVector::const_iterator, QMutableVectorIterator */
+comment|/*! \typedef QVector::iterator      The QVector::iterator typedef provides an STL-style non-const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style non-const iterator is simply a typedef     for "T *" (pointer to T).      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QVector::begin(), QVector::end(), QVector::const_iterator, QMutableVectorIterator */
 end_comment
 begin_comment
-comment|/*! \typedef QVector::const_iterator      The QVector::const_iterator typedef provides an STL-style const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style const iterator is simply a typedef for     "const T *" (pointer to const T).      \sa QVector::constBegin(), QVector::constEnd(), QVector::iterator, QVectorIterator */
+comment|/*! \typedef QVector::const_iterator      The QVector::const_iterator typedef provides an STL-style const     iterator for QVector and QStack.      QVector provides both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style const iterator is simply a typedef for     "const T *" (pointer to const T).      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QVector::constBegin(), QVector::constEnd(), QVector::iterator, QVectorIterator */
 end_comment
 begin_comment
 comment|/*! \typedef QVector::Iterator      Qt-style synonym for QVector::iterator. */

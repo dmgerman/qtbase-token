@@ -11561,9 +11561,6 @@ name|need
 condition|)
 block|{
 comment|// utf-8 bom composes into 0xfeff code point
-name|bool
-name|nonCharacter
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -11579,18 +11576,6 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-operator|(
-name|nonCharacter
-operator|=
-name|QChar
-operator|::
-name|isNonCharacter
-argument_list|(
-name|uc
-argument_list|)
-operator|)
-operator|&&
 name|QChar
 operator|::
 name|requiresSurrogates
@@ -11646,8 +11631,6 @@ argument_list|(
 name|uc
 argument_list|)
 operator|||
-name|nonCharacter
-operator|||
 name|uc
 operator|>
 name|QChar
@@ -11655,7 +11638,7 @@ operator|::
 name|LastValidCodePoint
 condition|)
 block|{
-comment|// error: overlong sequence, UTF16 surrogate or non-character
+comment|// error: overlong sequence or UTF16 surrogate
 operator|*
 name|qch
 operator|++
@@ -12131,9 +12114,6 @@ name|need
 condition|)
 block|{
 comment|// utf-8 bom composes into 0xfeff code point
-name|bool
-name|nonCharacter
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -12149,18 +12129,6 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-operator|(
-name|nonCharacter
-operator|=
-name|QChar
-operator|::
-name|isNonCharacter
-argument_list|(
-name|uc
-argument_list|)
-operator|)
-operator|&&
 name|QChar
 operator|::
 name|requiresSurrogates
@@ -12216,8 +12184,6 @@ argument_list|(
 name|uc
 argument_list|)
 operator|||
-name|nonCharacter
-operator|||
 name|uc
 operator|>
 name|QChar
@@ -12225,7 +12191,7 @@ operator|::
 name|LastValidCodePoint
 condition|)
 block|{
-comment|// error: overlong sequence, UTF16 surrogate or non-character
+comment|// error: overlong sequence or UTF16 surrogate
 operator|*
 name|qch
 operator|++
@@ -12801,13 +12767,6 @@ literal|0x800
 operator|||
 name|QChar
 operator|::
-name|isNonCharacter
-argument_list|(
-name|ucs
-argument_list|)
-operator|||
-name|QChar
-operator|::
 name|isSurrogate
 argument_list|(
 name|ucs
@@ -13006,14 +12965,6 @@ operator|<=
 name|QChar
 operator|::
 name|LastValidCodePoint
-operator|&&
-operator|!
-name|QChar
-operator|::
-name|isNonCharacter
-argument_list|(
-name|ucs
-argument_list|)
 operator|)
 condition|)
 block|{

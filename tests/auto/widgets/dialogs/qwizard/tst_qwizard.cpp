@@ -2795,7 +2795,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 name|QVERIFY
 argument_list|(
 name|wizard
@@ -2879,7 +2879,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 name|QVERIFY
 argument_list|(
 name|wizard

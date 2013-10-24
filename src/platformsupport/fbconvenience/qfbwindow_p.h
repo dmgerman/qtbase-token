@@ -73,6 +73,20 @@ argument_list|)
 block|;
 name|virtual
 name|void
+name|setVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+block|;
+name|virtual
+name|void
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+block|;
+name|virtual
+name|void
 name|setWindowFlags
 argument_list|(
 argument|Qt::WindowFlags type
@@ -147,6 +161,11 @@ name|Qt
 operator|::
 name|WindowFlags
 name|mWindowFlags
+block|;
+name|Qt
+operator|::
+name|WindowState
+name|mWindowState
 block|;
 name|WId
 name|mWindowId

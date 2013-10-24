@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtextdocument.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<time.h>
 end_include
 begin_include
@@ -95,7 +90,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
-name|flagCodepointFFFF
+name|nonFlaggedCodepointFFFF
 parameter_list|()
 specifier|const
 function_decl|;
@@ -105,7 +100,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
-name|flagEFBFBF
+name|nonFlaggedEFBFBF
 parameter_list|()
 specifier|const
 function_decl|;
@@ -1525,7 +1520,7 @@ name|QTextCodec
 modifier|*
 name|codec
 init|=
-name|Qt
+name|QTextCodec
 operator|::
 name|codecForHtml
 argument_list|(
@@ -2146,15 +2141,15 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|flagCodepointFFFF
+DECL|function|nonFlaggedCodepointFFFF
 name|void
 name|tst_QTextCodec
 operator|::
-name|flagCodepointFFFF
+name|nonFlaggedCodepointFFFF
 parameter_list|()
 specifier|const
 block|{
-comment|// This is an invalid Unicode codepoint.
+comment|//Check that the code point 0xFFFF (=non-character code 0xEFBFBF) is not flagged
 specifier|const
 name|QChar
 name|ch
@@ -2204,7 +2199,7 @@ name|asDecoded
 argument_list|,
 name|QByteArray
 argument_list|(
-literal|"?"
+literal|"\357\277\277"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2244,24 +2239,11 @@ operator|&
 name|state
 argument_list|)
 operator|==
-name|QChar
+name|QByteArray
+operator|::
+name|fromHex
 argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|codec
-operator|->
-name|toUnicode
-argument_list|(
-name|ffff
-argument_list|)
-operator|==
-name|QChar
-argument_list|(
-literal|0xfffd
+literal|"EFBFBF"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2385,25 +2367,26 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|flagEFBFBF
+DECL|function|nonFlaggedEFBFBF
 name|void
 name|tst_QTextCodec
 operator|::
-name|flagEFBFBF
+name|nonFlaggedEFBFBF
 parameter_list|()
 specifier|const
 block|{
+comment|/* Check that the codec does NOT flag EFBFBF.      * This is a regression test; see QTBUG-33229      */
 name|QByteArray
-name|invalidInput
+name|validInput
 decl_stmt|;
-name|invalidInput
+name|validInput
 operator|.
 name|resize
 argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-name|invalidInput
+name|validInput
 index|[
 literal|0
 index|]
@@ -2413,7 +2396,7 @@ argument_list|(
 literal|0xEF
 argument_list|)
 expr_stmt|;
-name|invalidInput
+name|validInput
 index|[
 literal|1
 index|]
@@ -2423,7 +2406,7 @@ argument_list|(
 literal|0xBF
 argument_list|)
 expr_stmt|;
-name|invalidInput
+name|validInput
 index|[
 literal|2
 index|]
@@ -2470,12 +2453,12 @@ name|codec
 operator|->
 name|toUnicode
 argument_list|(
-name|invalidInput
+name|validInput
 operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|invalidInput
+name|validInput
 operator|.
 name|length
 argument_list|()
@@ -2484,9 +2467,11 @@ operator|&
 name|state
 argument_list|)
 operator|==
-name|QChar
+name|QByteArray
+operator|::
+name|fromHex
 argument_list|(
-literal|0
+literal|"EFBFBF"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2500,7 +2485,7 @@ name|start
 operator|.
 name|append
 argument_list|(
-name|invalidInput
+name|validInput
 argument_list|)
 expr_stmt|;
 name|start
@@ -2511,7 +2496,7 @@ literal|"?>"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* When 0xEFBFBF is preceded by what seems to be an arbitrary character,      * QTextCodec fails to flag it. */
+comment|// Check that 0xEFBFBF is correctly decoded when preceded by an arbitrary character
 block|{
 name|QByteArray
 name|start
@@ -2523,7 +2508,7 @@ name|start
 operator|.
 name|append
 argument_list|(
-name|invalidInput
+name|validInput
 argument_list|)
 expr_stmt|;
 name|QTextCodec
@@ -2556,13 +2541,19 @@ operator|&
 name|state
 argument_list|)
 operator|==
-name|QString
-operator|::
-name|fromLatin1
+name|QByteArray
 argument_list|(
-literal|"B\0"
-argument_list|,
-literal|2
+literal|"B"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|QByteArray
+operator|::
+name|fromHex
+argument_list|(
+literal|"EFBFBF"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3817,7 +3808,7 @@ operator|<<
 operator|-
 literal|1
 expr_stmt|;
-comment|// 2.2.3 U+000FFFF
+comment|// 2.2.3 U+000FFFF - non-character code
 name|utf8
 operator|.
 name|clear
@@ -3845,15 +3836,13 @@ literal|0xbf
 argument_list|)
 expr_stmt|;
 name|str
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|str
-operator|+=
-name|QChar
+operator|=
+name|QString
 operator|::
-name|ReplacementCharacter
+name|fromUtf8
+argument_list|(
+name|utf8
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -9370,7 +9359,7 @@ operator|<<
 operator|-
 literal|1
 expr_stmt|;
-comment|// 5.3.1
+comment|// 5.3.1 - non-character code
 name|utf8
 operator|.
 name|clear
@@ -9397,13 +9386,14 @@ argument_list|(
 literal|0xbe
 argument_list|)
 expr_stmt|;
+comment|//str = QChar(QChar::ReplacementCharacter);
 name|str
 operator|=
-name|QChar
-argument_list|(
-name|QChar
+name|QString
 operator|::
-name|ReplacementCharacter
+name|fromUtf8
+argument_list|(
+name|utf8
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -9420,7 +9410,7 @@ operator|<<
 operator|-
 literal|1
 expr_stmt|;
-comment|// 5.3.2
+comment|// 5.3.2 - non-character code
 name|utf8
 operator|.
 name|clear
@@ -9447,13 +9437,14 @@ argument_list|(
 literal|0xbf
 argument_list|)
 expr_stmt|;
+comment|//str = QChar(QChar::ReplacementCharacter);
 name|str
 operator|=
-name|QChar
-argument_list|(
-name|QChar
+name|QString
 operator|::
-name|ReplacementCharacter
+name|fromUtf8
+argument_list|(
+name|utf8
 argument_list|)
 expr_stmt|;
 name|QTest

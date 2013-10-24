@@ -2502,7 +2502,7 @@ operator|=
 literal|0
 expr_stmt|;
 name|virtual
-name|QRect
+name|QPoint
 name|imagePosition
 argument_list|()
 specifier|const

@@ -2784,6 +2784,16 @@ expr_stmt|;
 name|QCUPSSupport
 name|cups
 decl_stmt|;
+name|cups
+operator|.
+name|setCurrentPrinter
+argument_list|(
+name|m_printer
+operator|->
+name|printerName
+argument_list|()
+argument_list|)
+expr_stmt|;
 specifier|const
 name|ppd_option_t
 modifier|*

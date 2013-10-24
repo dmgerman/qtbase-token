@@ -2174,6 +2174,17 @@ literal|"%{threadid}"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|ifCategoryTokenC
+specifier|static
+specifier|const
+name|char
+name|ifCategoryTokenC
+index|[]
+init|=
+literal|"%{if-category}"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|ifDebugTokenC
 specifier|static
 specifier|const
@@ -2247,7 +2258,7 @@ name|char
 name|defaultPattern
 index|[]
 init|=
-literal|"%{message}"
+literal|"%{if-category}%{category}: %{endif}%{message}"
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -2878,6 +2889,10 @@ name|LEVEL
 parameter_list|)
 define|\
 value|else if (lexeme == QLatin1String(LEVEL)) { \                 if (inIf) \                     nestedIfError = true; \                 tokens[i] = LEVEL; \                 inIf = true; \             }
+name|IF_TOKEN
+argument_list|(
+argument|ifCategoryTokenC
+argument_list|)
 name|IF_TOKEN
 argument_list|(
 argument|ifDebugTokenC
@@ -3875,6 +3890,39 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+name|ifCategoryTokenC
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|category
+operator|||
+operator|(
+name|strcmp
+argument_list|(
+name|context
+operator|.
+name|category
+argument_list|,
+literal|"default"
+argument_list|)
+operator|==
+literal|0
+operator|)
+condition|)
+name|skip
+operator|=
+literal|true
+expr_stmt|;
 DECL|macro|HANDLE_IF_TOKEN
 define|#
 directive|define
@@ -4369,7 +4417,6 @@ name|QLoggingCategory
 modifier|*
 name|defaultCategory
 init|=
-operator|&
 name|QLoggingCategory
 operator|::
 name|defaultCategory
@@ -4859,7 +4906,7 @@ begin_comment
 comment|/*!     \fn QtMsgHandler qInstallMsgHandler(QtMsgHandler handler)     \relates<QtGlobal>     \deprecated      Installs a Qt message \a handler which has been defined     previously. This method is deprecated, use qInstallMessageHandler     instead.     \sa QtMsgHandler, qInstallMessageHandler() */
 end_comment
 begin_comment
-comment|/*!     \fn void qSetMessagePattern(const QString&pattern)     \relates<QtGlobal>     \since 5.0      \brief Changes the output of the default message handler.      Allows to tweak the output of qDebug(), qWarning(), qCritical() and qFatal().      Following placeholders are supported:      \table     \header \li Placeholder \li Description     \row \li \c %{appname} \li QCoreApplication::applicationName()     \row \li \c %{file} \li Path to source file     \row \li \c %{function} \li Function     \row \li \c %{line} \li Line in source file     \row \li \c %{message} \li The actual message     \row \li \c %{pid} \li QCoreApplication::applicationPid()     \row \li \c %{threadid} \li ID of current thread     \row \li \c %{type} \li "debug", "warning", "critical" or "fatal"     \endtable      You can also use conditionals on the type of the message using \c %{if-debug},     \c %{if-warning}, \c %{if-critical} or \c %{if-fatal} followed by an \c %{endif}.     What is inside the \c %{if-*} and \c %{endif} will only be printed if the type matches.      Example:     \code     QT_MESSAGE_PATTERN="[%{if-debug}D%{endif}%{if-warning}W%{endif}%{if-critical}C%{endif}%{if-fatal}F%{endif}] %{file}:%{line} - %{message}"     \endcode      The default \a pattern is "%{message}".      The \a pattern can also be changed at runtime by setting the QT_MESSAGE_PATTERN     environment variable; if both qSetMessagePattern() is called and QT_MESSAGE_PATTERN is     set, the environment variable takes precedence.      qSetMessagePattern() has no effect if a custom message handler is installed.      \sa qInstallMessageHandler(), {Debugging Techniques}  */
+comment|/*!     \fn void qSetMessagePattern(const QString&pattern)     \relates<QtGlobal>     \since 5.0      \brief Changes the output of the default message handler.      Allows to tweak the output of qDebug(), qWarning(), qCritical() and qFatal().      Following placeholders are supported:      \table     \header \li Placeholder \li Description     \row \li \c %{appname} \li QCoreApplication::applicationName()     \row \li \c %{category} \li Logging category     \row \li \c %{file} \li Path to source file     \row \li \c %{function} \li Function     \row \li \c %{line} \li Line in source file     \row \li \c %{message} \li The actual message     \row \li \c %{pid} \li QCoreApplication::applicationPid()     \row \li \c %{threadid} \li ID of current thread     \row \li \c %{type} \li "debug", "warning", "critical" or "fatal"     \endtable      You can also use conditionals on the type of the message using \c %{if-debug},     \c %{if-warning}, \c %{if-critical} or \c %{if-fatal} followed by an \c %{endif}.     What is inside the \c %{if-*} and \c %{endif} will only be printed if the type matches.      Example:     \code     QT_MESSAGE_PATTERN="[%{if-debug}D%{endif}%{if-warning}W%{endif}%{if-critical}C%{endif}%{if-fatal}F%{endif}] %{file}:%{line} - %{message}"     \endcode      The default \a pattern is "%{message}".      The \a pattern can also be changed at runtime by setting the QT_MESSAGE_PATTERN     environment variable; if both qSetMessagePattern() is called and QT_MESSAGE_PATTERN is     set, the environment variable takes precedence.      qSetMessagePattern() has no effect if a custom message handler is installed.      \sa qInstallMessageHandler(), {Debugging Techniques}  */
 end_comment
 begin_function
 DECL|function|qInstallMessageHandler

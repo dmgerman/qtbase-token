@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QtGui>
+file|"modeltest.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"modeltest.h"
+file|<QtCore/QtCore>
 end_include
 begin_include
 include|#

@@ -6097,7 +6097,7 @@ argument_list|()
 argument_list|,
 name|XCB_PROP_MODE_REPLACE
 argument_list|,
-name|m_window
+name|m_netWmUserTimeWindow
 argument_list|,
 name|atom
 argument_list|(

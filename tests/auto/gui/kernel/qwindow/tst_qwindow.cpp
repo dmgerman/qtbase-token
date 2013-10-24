@@ -993,7 +993,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 name|QEXPECT_FAIL
 argument_list|(
 literal|""

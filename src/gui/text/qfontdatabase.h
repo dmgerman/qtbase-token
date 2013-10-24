@@ -487,15 +487,10 @@ literal|2
 argument_list|)
 name|QT_DEPRECATED
 specifier|static
-specifier|inline
 name|bool
 name|supportsThreadedFontRendering
 parameter_list|()
-block|{
-return|return
-name|true
-return|;
-block|}
+function_decl|;
 endif|#
 directive|endif
 specifier|static

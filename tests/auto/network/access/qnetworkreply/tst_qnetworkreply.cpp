@@ -47520,7 +47520,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 if|if
 condition|(
 name|QSysInfo

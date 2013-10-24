@@ -88,13 +88,7 @@ name|virtual
 name|void
 name|setDirty
 argument_list|()
-block|{
-name|mDirty
-operator|=
-name|true
 block|;
-comment|/* screen->setDirty(QRect()); */
-block|}
 name|virtual
 name|bool
 name|isDirty

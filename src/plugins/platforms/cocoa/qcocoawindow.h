@@ -587,6 +587,9 @@ block|;
 name|bool
 name|m_resizableTransientParent
 block|;
+name|bool
+name|m_overrideBecomeKey
+block|;
 specifier|static
 specifier|const
 name|int
@@ -594,6 +597,9 @@ name|NoAlertRequest
 block|;
 name|NSInteger
 name|m_alertRequest
+block|;
+name|id
+name|monitor
 block|; }
 decl_stmt|;
 end_decl_stmt

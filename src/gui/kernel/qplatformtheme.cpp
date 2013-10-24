@@ -40,12 +40,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qiconloader_p.h>
+file|<private/qiconloader_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"private/qguiapplication_p.h"
+file|<private/qguiapplication_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

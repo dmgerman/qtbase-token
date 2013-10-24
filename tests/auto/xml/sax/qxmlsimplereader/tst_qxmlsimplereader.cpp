@@ -1125,13 +1125,11 @@ expr_stmt|;
 name|Parser
 name|parser
 decl_stmt|;
-comment|//    static int i = 0;
-comment|//    qWarning("Test nr: " + QString::number(i)); ++i;
 name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/valid/sa/089.xml"
 argument_list|,
-literal|""
+literal|"a form feed character is not accepted in XML"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1193,15 +1191,6 @@ operator|.
 name|readAll
 argument_list|()
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/valid/sa/089.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|parser
@@ -1353,13 +1342,11 @@ expr_stmt|;
 name|Parser
 name|parser
 decl_stmt|;
-comment|//    static int i = 0;
-comment|//    qWarning("Test nr: " + QString::number(++i));
 name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/030.xml"
 argument_list|,
-literal|""
+literal|"a form feed character is not accepted in XML"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1368,7 +1355,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/031.xml"
 argument_list|,
-literal|""
+literal|"a form feed character is not accepted in a processing instruction"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1377,7 +1364,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/032.xml"
 argument_list|,
-literal|""
+literal|"a form feed character is not accepted in a comment"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1386,7 +1373,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/033.xml"
 argument_list|,
-literal|""
+literal|"overlong sequence - small latin letter d should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1395,7 +1382,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/038.xml"
 argument_list|,
-literal|""
+literal|"attribute x redefined; should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1404,7 +1391,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/072.xml"
 argument_list|,
-literal|""
+literal|"entity foo not defined"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1413,7 +1400,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/073.xml"
 argument_list|,
-literal|""
+literal|"entity f not defined"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1422,7 +1409,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/074.xml"
 argument_list|,
-literal|""
+literal|"entity e is not well-formed (</foo><foo>)"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1431,7 +1418,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/076.xml"
 argument_list|,
-literal|""
+literal|"entity foo is not defined"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1440,7 +1427,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/077.xml"
 argument_list|,
-literal|""
+literal|"entity bar is not defined within the definition of entity foo"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1449,7 +1436,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/078.xml"
 argument_list|,
-literal|""
+literal|"entity foo not defined"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1458,7 +1445,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/085.xml"
 argument_list|,
-literal|""
+literal|"Unfinished Public or System Id"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1467,7 +1454,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/086.xml"
 argument_list|,
-literal|""
+literal|"Unfinished Public or System Id"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1476,7 +1463,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/087.xml"
 argument_list|,
-literal|""
+literal|"Unfinished Public or System Id"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1485,7 +1472,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/101.xml"
 argument_list|,
-literal|""
+literal|"Invalid XML encoding name (space before utf-8)"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1494,7 +1481,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/102.xml"
 argument_list|,
-literal|""
+literal|"Invalid version specification (1.0 followed by space)"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1503,7 +1490,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/104.xml"
 argument_list|,
-literal|""
+literal|"Premature end of data in tag foo"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1512,7 +1499,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/116.xml"
 argument_list|,
-literal|""
+literal|"Invalid decimal value"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1521,7 +1508,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/117.xml"
 argument_list|,
-literal|""
+literal|"No name"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1530,7 +1517,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/119.xml"
 argument_list|,
-literal|""
+literal|"No name"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1539,7 +1526,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/122.xml"
 argument_list|,
-literal|""
+literal|"; expected in declaration of element"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1548,7 +1535,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/132.xml"
 argument_list|,
-literal|""
+literal|"; expected in declaration of element"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1557,7 +1544,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/142.xml"
 argument_list|,
-literal|""
+literal|"Invalid value '0'"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1566,7 +1553,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/143.xml"
 argument_list|,
-literal|""
+literal|"Invalid value '31'"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1575,7 +1562,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/144.xml"
 argument_list|,
-literal|""
+literal|"noncharacter code 0xFFFF should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1584,7 +1571,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/145.xml"
 argument_list|,
-literal|""
+literal|"surrogate code point 0xD800 should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1593,7 +1580,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/146.xml"
 argument_list|,
-literal|""
+literal|"code point out-of-range 0x110000 (must be< 0x10FFFE)"
 argument_list|,
 name|Abort
 argument_list|)
@@ -1602,7 +1589,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/160.xml"
 argument_list|,
-literal|""
+literal|"Parameter references forbidden in internal subset"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1611,25 +1598,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/162.xml"
 argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/166.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/167.xml"
-argument_list|,
-literal|""
+literal|"Parameter references forbidden in internal subset"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1638,7 +1607,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/168.xml"
 argument_list|,
-literal|""
+literal|"Surrogate code point 0xEDA080 should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1647,7 +1616,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/169.xml"
 argument_list|,
-literal|""
+literal|"Surrogate code point 0xEDB080 should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1656,70 +1625,16 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/170.xml"
 argument_list|,
-literal|""
+literal|"Code point 0xF7808080 should be rejected"
 argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"xmldocs/not-wf/sa/171.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/172.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/173.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/174.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/175.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/177.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
 literal|"xmldocs/not-wf/sa/180.xml"
 argument_list|,
-literal|""
+literal|"Entity e is not defined"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1728,7 +1643,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/181.xml"
 argument_list|,
-literal|""
+literal|"Unregistered error message"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1737,7 +1652,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/182.xml"
 argument_list|,
-literal|""
+literal|"Comment not terminated"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1746,7 +1661,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/185.xml"
 argument_list|,
-literal|""
+literal|"Entity e not defined"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1755,7 +1670,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"xmldocs/not-wf/sa/186.xml"
 argument_list|,
-literal|""
+literal|"Attributes constructs error"
 argument_list|,
 name|Continue
 argument_list|)
@@ -1820,54 +1735,9 @@ argument_list|()
 decl_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"xmldocs/not-wf/sa/144.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
 literal|"xmldocs/not-wf/sa/145.xml"
 argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/146.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/167.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/166.xml"
-argument_list|,
-literal|""
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"xmldocs/not-wf/sa/170.xml"
-argument_list|,
-literal|""
+literal|"Surrogate code point 0xD800 should be rejected"
 argument_list|,
 name|Continue
 argument_list|)

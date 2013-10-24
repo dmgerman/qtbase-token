@@ -3029,6 +3029,7 @@ name|Key_AudioRewind
 init|=
 literal|0x010000c5
 block|,
+comment|// Media rewind
 name|Key_BackForward
 init|=
 literal|0x010000c6
@@ -3077,6 +3078,7 @@ name|Key_Display
 init|=
 literal|0x010000d1
 block|,
+comment|// Output switch key
 name|Key_DOS
 init|=
 literal|0x010000d2
@@ -3273,14 +3275,17 @@ name|Key_AudioForward
 init|=
 literal|0x01000102
 block|,
+comment|// Media fast-forward
 name|Key_AudioRepeat
 init|=
 literal|0x01000103
 block|,
+comment|// Toggle repeat mode
 name|Key_AudioRandomPlay
 init|=
 literal|0x01000104
 block|,
+comment|// Toggle shuffle mode
 name|Key_Subtitle
 init|=
 literal|0x01000105
@@ -4788,10 +4793,28 @@ name|GestureFlags
 argument_list|,
 name|GestureFlag
 argument_list|)
+expr|enum
+name|NativeGestureType
+block|{
+name|BeginNativeGesture
+block|,
+name|EndNativeGesture
+block|,
+name|PanNativeGesture
+block|,
+name|ZoomNativeGesture
+block|,
+name|SmartZoomNativeGesture
+block|,
+name|RotateNativeGesture
+block|,
+name|SwipeNativeGesture
+block|}
+expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_GESTURES
-expr|enum
+enum|enum
 name|NavigationMode
 block|{
 name|NavigationModeNone
@@ -4804,7 +4827,7 @@ name|NavigationModeCursorAuto
 block|,
 name|NavigationModeCursorForceVisible
 block|}
-expr_stmt|;
+enum|;
 enum|enum
 name|CursorMoveStyle
 block|{

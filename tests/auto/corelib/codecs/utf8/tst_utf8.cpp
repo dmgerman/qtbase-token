@@ -1115,8 +1115,9 @@ argument_list|(
 literal|"utf16"
 argument_list|)
 expr_stmt|;
-comment|// Unicode has a couple of "non-characters" that one can use internally,
-comment|// but are not allowed to be used for text interchange.
+comment|// Unicode has a couple of "non-characters" that one can use internally
+comment|// These characters may be used for interchange;
+comment|// see: http://www.unicode.org/versions/corrigendum9.html
 comment|//
 comment|// Those are the last two entries each Unicode Plane (U+FFFE, U+FFFF,
 comment|// U+1FFFE, U+1FFFF, etc.) as well as the entries between U+FDD0 and
@@ -1464,9 +1465,6 @@ name|utf8
 argument_list|)
 expr_stmt|;
 comment|// Only enforce correctness on our UTF-8 decoder
-comment|// The system's UTF-8 codec is sometimes buggy
-comment|//  GNU libc's iconv is known to accept U+FFFF and U+FFFE encoded as UTF-8
-comment|//  OS X's iconv is known to accept those, plus surrogates and codepoints above U+10FFFF
 if|if
 condition|(
 operator|!
@@ -1474,6 +1472,7 @@ name|useLocale
 condition|)
 name|QVERIFY
 argument_list|(
+operator|!
 name|decoder
 operator|->
 name|hasFailure
@@ -1483,7 +1482,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
 name|decoder
 operator|->
 name|hasFailure
@@ -1491,7 +1489,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"System codec does not report failure when it should. Should report bug upstream."
+literal|"System codec reports failure when it shouldn't. Should report bug upstream."
 argument_list|)
 expr_stmt|;
 name|QSharedPointer
@@ -1520,6 +1518,7 @@ name|useLocale
 condition|)
 name|QVERIFY
 argument_list|(
+operator|!
 name|encoder
 operator|->
 name|hasFailure
@@ -1529,7 +1528,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
 name|encoder
 operator|->
 name|hasFailure
@@ -1537,7 +1535,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"System codec does not report failure when it should. Should report bug upstream."
+literal|"System codec reports failure when it shouldn't. Should report bug upstream."
 argument_list|)
 expr_stmt|;
 block|}

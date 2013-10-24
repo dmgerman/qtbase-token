@@ -2393,7 +2393,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 if|if
 condition|(
 name|drawGlyphs
@@ -2417,7 +2417,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MACX
+comment|// Q_OS_OSX
 name|QCOMPARE
 argument_list|(
 name|drawGlyphs

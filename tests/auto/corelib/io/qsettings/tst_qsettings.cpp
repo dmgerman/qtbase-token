@@ -3334,7 +3334,7 @@ name|Q_OS_DARWIN
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 if|if
 condition|(
 name|QSysInfo
@@ -3356,7 +3356,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MACX
+comment|// Q_OS_OSX
 name|QCOMPARE
 argument_list|(
 name|settings5
@@ -3406,7 +3406,7 @@ name|Q_OS_DARWIN
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 if|if
 condition|(
 name|QSysInfo
@@ -3428,7 +3428,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MACX
+comment|// Q_OS_OSX
 name|QCOMPARE
 argument_list|(
 name|settings5
@@ -23119,7 +23119,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 if|if
 condition|(
 name|QSysInfo
