@@ -27,15 +27,6 @@ begin_import
 import|import
 name|android
 operator|.
-name|os
-operator|.
-name|Build
-import|;
-end_import
-begin_import
-import|import
-name|android
-operator|.
 name|view
 operator|.
 name|View

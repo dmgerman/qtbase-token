@@ -2066,10 +2066,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|android
-operator|.
-name|os
-operator|.
 name|Build
 operator|.
 name|VERSION
