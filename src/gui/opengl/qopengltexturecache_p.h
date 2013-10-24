@@ -136,9 +136,8 @@ argument_list|)
 block|;
 name|QOpenGLTextureCache
 argument_list|(
-argument|QOpenGLContext *
-argument_list|,
-argument|bool useByteSwapImage = true
+name|QOpenGLContext
+operator|*
 argument_list|)
 block|;
 operator|~
@@ -211,9 +210,6 @@ block|,
 name|QOpenGLCachedTexture
 operator|>
 name|m_cache
-block|;
-name|bool
-name|m_useByteSwapImage
 block|; }
 decl_stmt|;
 end_decl_stmt
