@@ -2355,6 +2355,16 @@ argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
+name|foundConfigurations
+operator|.
+name|removeOne
+argument_list|(
+name|ptr
+operator|.
+name|data
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|locker
 operator|.
 name|unlock
