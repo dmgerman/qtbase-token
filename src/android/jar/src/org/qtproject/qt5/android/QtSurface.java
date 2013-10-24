@@ -478,6 +478,21 @@ argument_list|)
 expr_stmt|;
 comment|// Initialize Accessibility
 comment|// The accessibility code depends on android API level 16, so dynamically resolve it
+if|if
+condition|(
+name|android
+operator|.
+name|os
+operator|.
+name|Build
+operator|.
+name|VERSION
+operator|.
+name|SDK_INT
+operator|>=
+literal|16
+condition|)
+block|{
 try|try
 block|{
 specifier|final
@@ -588,6 +603,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|dispatchHoverEvent
