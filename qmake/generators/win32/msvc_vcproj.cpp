@@ -3289,9 +3289,9 @@ name|projGuids
 operator|.
 name|insert
 argument_list|(
-name|val
-operator|.
-name|first
+name|newDep
+operator|->
+name|orig_target
 argument_list|,
 name|newDep
 operator|->
