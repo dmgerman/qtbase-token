@@ -300,6 +300,15 @@ name|android
 operator|.
 name|os
 operator|.
+name|Build
+import|;
+end_import
+begin_import
+import|import
+name|android
+operator|.
+name|os
+operator|.
 name|Bundle
 import|;
 end_import
@@ -714,10 +723,18 @@ init|=
 literal|"repository"
 decl_stmt|;
 comment|// use this key to overwrite the default ministro repsitory
-DECL|field|APPLICATION_PARAMETERS
+DECL|field|ANDROID_THEMES_KEY
 specifier|private
 specifier|static
 specifier|final
+name|String
+name|ANDROID_THEMES_KEY
+init|=
+literal|"android.themes"
+decl_stmt|;
+comment|// themes that your application uses
+DECL|field|APPLICATION_PARAMETERS
+specifier|public
 name|String
 name|APPLICATION_PARAMETERS
 init|=
@@ -728,7 +745,7 @@ comment|// the parameters must not contain any white spaces
 comment|// and must be separated with "\t"
 comment|// e.g "-param1\t-param2=value2\t-param3\tvalue3"
 DECL|field|ENVIRONMENT_VARIABLES
-specifier|private
+specifier|public
 name|String
 name|ENVIRONMENT_VARIABLES
 init|=
@@ -740,20 +757,33 @@ comment|// e.g. "ENV_VAR1=1\tENV_VAR2=2\t"
 comment|// Currently the following vars are used by the android plugin:
 comment|// * QT_USE_ANDROID_NATIVE_STYLE - 1 to use the android widget style if available,
 comment|//   note that the android style plugin in Qt 5.1 is not fully functional.
-DECL|field|QT_ANDROID_THEME
-specifier|private
-specifier|static
-specifier|final
+DECL|field|QT_ANDROID_THEMES
+specifier|public
 name|String
-name|QT_ANDROID_THEME
+index|[]
+name|QT_ANDROID_THEMES
 init|=
-literal|"light"
+literal|null
 decl_stmt|;
-comment|// sets the default theme to light. Possible values are:
-comment|// * ""           - for the device default dark theme
-comment|// * "light"      - for the device default light theme
-comment|// * "holo"       - for the holo dark theme
-comment|// * "holo_light" - for the holo light theme
+comment|// A list with all themes that your application want to use.
+comment|// The name of the theme must be the same with any theme from
+comment|// http://developer.android.com/reference/android/R.style.html
+comment|// The most used themes are:
+comment|//  * "Theme" - (fallback) check http://developer.android.com/reference/android/R.style.html#Theme
+comment|//  * "Theme_Black" - check http://developer.android.com/reference/android/R.style.html#Theme_Black
+comment|//  * "Theme_Light" - (default for API<=10) check http://developer.android.com/reference/android/R.style.html#Theme_Light
+comment|//  * "Theme_Holo" - check http://developer.android.com/reference/android/R.style.html#Theme_Holo
+comment|//  * "Theme_Holo_Light" - (default for API 11-13) check http://developer.android.com/reference/android/R.style.html#Theme_Holo_Light
+comment|//  * "Theme_DeviceDefault" - check http://developer.android.com/reference/android/R.style.html#Theme_DeviceDefault
+comment|//  * "Theme_DeviceDefault_Light" - (default for API 14+) check http://developer.android.com/reference/android/R.style.html#Theme_DeviceDefault_Light
+DECL|field|QT_ANDROID_DEFAULT_THEME
+specifier|public
+name|String
+name|QT_ANDROID_DEFAULT_THEME
+init|=
+literal|null
+decl_stmt|;
+comment|// sets the default theme.
 DECL|field|INCOMPATIBLE_MINISTRO_VERSION
 specifier|private
 specifier|static
@@ -764,15 +794,6 @@ init|=
 literal|1
 decl_stmt|;
 comment|// Incompatible Ministro version. Ministro needs to be upgraded.
-DECL|field|DISPLAY_DPI_KEY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|DISPLAY_DPI_KEY
-init|=
-literal|"display.dpi"
-decl_stmt|;
 DECL|field|BUFFER_SIZE
 specifier|private
 specifier|static
@@ -836,6 +857,87 @@ init|=
 literal|null
 decl_stmt|;
 comment|// required qt libs
+DECL|method|QtActivity
+specifier|public
+name|QtActivity
+parameter_list|()
+block|{
+if|if
+condition|(
+name|Build
+operator|.
+name|VERSION
+operator|.
+name|SDK_INT
+operator|<=
+literal|10
+condition|)
+block|{
+name|QT_ANDROID_THEMES
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"Theme_Light"
+block|}
+expr_stmt|;
+name|QT_ANDROID_DEFAULT_THEME
+operator|=
+literal|"Theme_Light"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|Build
+operator|.
+name|VERSION
+operator|.
+name|SDK_INT
+operator|>=
+literal|11
+operator|&&
+name|Build
+operator|.
+name|VERSION
+operator|.
+name|SDK_INT
+operator|<=
+literal|13
+condition|)
+block|{
+name|QT_ANDROID_THEMES
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"Theme_Holo_Light"
+block|}
+expr_stmt|;
+name|QT_ANDROID_DEFAULT_THEME
+operator|=
+literal|"Theme_Holo_Light"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|QT_ANDROID_THEMES
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"Theme_DeviceDefault_Light"
+block|}
+expr_stmt|;
+name|QT_ANDROID_DEFAULT_THEME
+operator|=
+literal|"Theme_DeviceDefault_Light"
+expr_stmt|;
+block|}
+block|}
 comment|// this function is used to load and start the loader
 DECL|method|loadApplication
 specifier|private
@@ -1478,9 +1580,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-literal|null
-operator|!=
 name|APPLICATION_PARAMETERS
+operator|!=
+literal|null
 condition|)
 name|parameters
 operator|.
@@ -1509,23 +1611,19 @@ argument_list|,
 name|m_repository
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|QT_ANDROID_THEMES
+operator|!=
+literal|null
+condition|)
 name|parameters
 operator|.
-name|putInt
+name|putStringArray
 argument_list|(
-name|DISPLAY_DPI_KEY
+name|ANDROID_THEMES_KEY
 argument_list|,
-name|QtActivity
-operator|.
-name|this
-operator|.
-name|getResources
-argument_list|()
-operator|.
-name|getDisplayMetrics
-argument_list|()
-operator|.
-name|densityDpi
+name|QT_ANDROID_THEMES
 argument_list|)
 expr_stmt|;
 name|m_service
@@ -3743,6 +3841,41 @@ argument_list|(
 name|savedInstanceState
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|setTheme
+argument_list|(
+name|Class
+operator|.
+name|forName
+argument_list|(
+literal|"android.R$style"
+argument_list|)
+operator|.
+name|getDeclaredField
+argument_list|(
+name|QT_ANDROID_DEFAULT_THEME
+argument_list|)
+operator|.
+name|getInt
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|QtApplication
@@ -3775,7 +3908,7 @@ name|ENVIRONMENT_VARIABLES
 operator|+=
 literal|"\tQT_ANDROID_THEME="
 operator|+
-name|QT_ANDROID_THEME
+name|QT_ANDROID_DEFAULT_THEME
 operator|+
 literal|"/\tQT_ANDROID_THEME_DISPLAY_DPI="
 operator|+
