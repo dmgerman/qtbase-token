@@ -208,6 +208,8 @@ block|,
 name|NativeWidgets
 block|,
 name|WindowManagement
+block|,
+name|SyncState
 block|}
 enum|;
 name|virtual
@@ -492,6 +494,11 @@ decl|const
 decl_stmt|;
 endif|#
 directive|endif
+name|virtual
+name|void
+name|sync
+parameter_list|()
+function_decl|;
 name|protected
 label|:
 name|void

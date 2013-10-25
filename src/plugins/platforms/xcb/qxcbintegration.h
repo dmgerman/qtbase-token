@@ -277,6 +277,10 @@ name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
+name|void
+name|sync
+argument_list|()
+block|;
 name|private
 operator|:
 name|QList

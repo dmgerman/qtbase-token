@@ -830,6 +830,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!    \since 5.2     Function to sync the platform integrations state with the window system.     This is often implemented as a roundtrip from the platformintegration to the window system.     This function should not call QWindowSystemInterface::flushWindowSystemEvents() or    QCoreApplication::processEvents() */
+end_comment
+begin_function
+DECL|function|sync
+name|void
+name|QPlatformIntegration
+operator|::
+name|sync
+parameter_list|()
+block|{  }
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
