@@ -666,7 +666,7 @@ begin_comment
 comment|//! [11]
 end_comment
 begin_macro
-name|boost
+name|std
 end_macro
 begin_expr_stmt
 operator|::
@@ -716,7 +716,7 @@ name|mapped
 argument_list|(
 name|images
 argument_list|,
-name|boost
+name|std
 operator|::
 name|bind
 argument_list|(

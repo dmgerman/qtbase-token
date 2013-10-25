@@ -334,7 +334,7 @@ name|QtConcurrent
 operator|::
 name|run
 argument_list|(
-name|boost
+name|std
 operator|::
 name|bind
 argument_list|(
