@@ -933,6 +933,8 @@ argument_list|(
 name|clearAction
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|removeAction
 argument_list|(
 name|clearAction
@@ -3564,6 +3566,9 @@ argument_list|>
 argument_list|(
 name|e
 argument_list|)
+operator|->
+name|action
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

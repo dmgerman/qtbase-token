@@ -747,10 +747,9 @@ begin_function_decl
 name|void
 name|removeAction
 parameter_list|(
-specifier|const
-name|QActionEvent
+name|QAction
 modifier|*
-name|e
+name|action
 parameter_list|)
 function_decl|;
 end_function_decl
