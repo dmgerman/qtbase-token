@@ -8645,6 +8645,45 @@ block|{
 comment|// Ignore _NET_ACTIVE_WINDOW, _NET_WM_STATE, MANAGER which are relate to tray icons
 comment|// and other messages.
 block|}
+elseif|else
+if|if
+condition|(
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_COMPIZ_DECOR_PENDING
+argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_COMPIZ_DECOR_REQUEST
+argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_COMPIZ_DECOR_DELETE_PIXMAP
+argument_list|)
+condition|)
+block|{
+comment|//silence the _COMPIZ messages for now
+block|}
 else|else
 block|{
 name|qWarning

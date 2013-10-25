@@ -5926,6 +5926,9 @@ literal|"_MEEGOTOUCH_ORIENTATION_ANGLE\0"
 endif|#
 directive|endif
 literal|"_XSETTINGS_SETTINGS\0"
+literal|"_COMPIZ_DECOR_PENDING\0"
+literal|"_COMPIZ_DECOR_REQUEST\0"
+literal|"_COMPIZ_DECOR_DELETE_PIXMAP\0"
 comment|// \0\0 terminates loop.
 block|}
 decl_stmt|;

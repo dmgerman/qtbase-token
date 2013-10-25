@@ -509,6 +509,12 @@ endif|#
 directive|endif
 name|_XSETTINGS_SETTINGS
 block|,
+name|_COMPIZ_DECOR_PENDING
+block|,
+name|_COMPIZ_DECOR_REQUEST
+block|,
+name|_COMPIZ_DECOR_DELETE_PIXMAP
+block|,
 name|NPredefinedAtoms
 block|,
 name|_QT_SETTINGS_TIMESTAMP
