@@ -232,6 +232,12 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// We need to record the pressed keys in order to decide, whether the key event is an autorepeat
+end_comment
+begin_comment
+comment|// event. As soon as its state changes, the chain of autorepeat events will be broken.
+end_comment
 begin_decl_stmt
 DECL|variable|QT_MAX_KEY_RECORDINGS
 specifier|static
@@ -2213,48 +2219,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qt_translateKeyCode
-name|int
-name|qt_translateKeyCode
-parameter_list|(
-name|int
-name|vk
-parameter_list|)
-block|{
-name|int
-name|code
-init|=
-name|winceKeyBend
-argument_list|(
-operator|(
-name|vk
-argument_list|<
-literal|0
-operator|||
-name|vk
-argument_list|>
-literal|255
-operator|)
-condition|?
-literal|0
-else|:
-name|vk
-argument_list|)
-decl_stmt|;
-return|return
-name|code
-operator|==
-name|Qt
-operator|::
-name|Key_unknown
-condition|?
-literal|0
-else|:
-name|code
-return|;
-block|}
-end_function
-begin_function
 DECL|function|asciiToKeycode
 specifier|static
 specifier|inline
@@ -2482,21 +2446,12 @@ name|LeftToRight
 expr_stmt|;
 block|}
 end_function
-begin_function
-DECL|function|clearRecordedKeys
-name|void
-name|QWindowsKeyMapper
-operator|::
-name|clearRecordedKeys
-parameter_list|()
-block|{
-name|key_recorder
-operator|.
-name|clearKeys
-argument_list|()
-expr_stmt|;
-block|}
-end_function
+begin_comment
+comment|// Helper function that is used when obtaining the list of characters that can be produced by one key and
+end_comment
+begin_comment
+comment|// every possible combination of modifiers
+end_comment
 begin_function
 DECL|function|setKbdState
 specifier|inline
@@ -2598,6 +2553,9 @@ operator|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Adds the msg's key to keyLayout if it is not yet present there
+end_comment
 begin_function
 DECL|function|updateKeyMap
 name|void
@@ -2651,6 +2609,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Fills keyLayout for that vk_key. Values are all characters one can type using that key
+end_comment
+begin_comment
+comment|// (in connection with every combination of modifiers) and whether these "characters" are
+end_comment
+begin_comment
+comment|// dead keys.
+end_comment
 begin_function
 DECL|function|updatePossibleKeyCodes
 name|void
@@ -2772,6 +2739,10 @@ operator|=
 literal|0
 expr_stmt|;
 comment|// Use right Alt, since left Ctrl + right Alt is considered AltGraph
+comment|// keyLayout contains the actual characters which can be written using the vk_key together with the
+comment|// different modifiers. '2' together with shift will for example cause the character
+comment|// to be @ for a US key layout (thus keyLayout[vk_key].qtKey[1] will be @). In addition to that
+comment|// it stores whether the resulting key is a dead key as these keys have to be handled later.
 name|bool
 name|isDeadKey
 init|=
@@ -3236,7 +3207,8 @@ index|]
 operator|=
 name|fallbackKey
 expr_stmt|;
-comment|// If this vk_key makes a dead key with any combination of modifiers
+comment|// If one of the values inserted into the keyLayout above, can be considered a dead key, we have
+comment|// to run the workaround below.
 if|if
 condition|(
 name|keyLayout
@@ -3417,87 +3389,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-end_function
-begin_function
-DECL|function|isADeadKey
-name|bool
-name|QWindowsKeyMapper
-operator|::
-name|isADeadKey
-parameter_list|(
-name|unsigned
-name|int
-name|vk_key
-parameter_list|,
-name|unsigned
-name|int
-name|modifiers
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|(
-name|vk_key
-operator|<
-name|NumKeyboardLayoutItems
-operator|)
-operator|&&
-name|keyLayout
-index|[
-name|vk_key
-index|]
-operator|.
-name|exists
-condition|)
-block|{
-for|for
-control|(
-name|size_t
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|NumMods
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-name|uint
-argument_list|(
-name|ModsTbl
-index|[
-name|i
-index|]
-argument_list|)
-operator|==
-name|modifiers
-condition|)
-return|return
-name|bool
-argument_list|(
-name|keyLayout
-index|[
-name|vk_key
-index|]
-operator|.
-name|deadkeys
-operator|&
-literal|1
-operator|<<
-name|i
-argument_list|)
-return|;
-block|}
-block|}
-return|return
-literal|false
-return|;
 block|}
 end_function
 begin_function
