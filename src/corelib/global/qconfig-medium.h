@@ -947,22 +947,4 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/* Windows */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_WIN_ACTIVEQT
-end_ifndef
-begin_define
-DECL|macro|QT_NO_WIN_ACTIVEQT
-define|#
-directive|define
-name|QT_NO_WIN_ACTIVEQT
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
