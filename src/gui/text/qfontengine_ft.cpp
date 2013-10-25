@@ -4403,7 +4403,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// copied from QFontEngineQPF
 comment|// ad hoc algorithm
 name|int
 name|score
