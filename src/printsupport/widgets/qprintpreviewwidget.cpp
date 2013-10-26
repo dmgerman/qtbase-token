@@ -712,16 +712,13 @@ modifier|*
 name|e
 parameter_list|)
 block|{
+block|{
 specifier|const
-name|bool
-name|blocked
-init|=
+name|QSignalBlocker
+name|blocker
+argument_list|(
 name|verticalScrollBar
 argument_list|()
-operator|->
-name|blockSignals
-argument_list|(
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// Don't change page, QTBUG-14517
@@ -732,14 +729,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|verticalScrollBar
-argument_list|()
-operator|->
-name|blockSignals
-argument_list|(
-name|blocked
-argument_list|)
-expr_stmt|;
+block|}
 emit|emit
 name|resized
 argument_list|()
