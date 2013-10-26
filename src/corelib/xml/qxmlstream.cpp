@@ -7,38 +7,6 @@ include|#
 directive|include
 file|"QtCore/qxmlstream.h"
 end_include
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_BUILD_XML_LIB
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_OS_MAC64
-argument_list|)
-end_if
-begin_comment
-comment|// No need to define this in the 64-bit Mac libraries.
-end_comment
-begin_comment
-comment|// Since Qt 4.4 and previous weren't supported in 64-bit, there are
-end_comment
-begin_comment
-comment|// no QXmlStream* symbols to keep compatibility with
-end_comment
-begin_define
-DECL|macro|QT_NO_XMLSTREAM
-define|#
-directive|define
-name|QT_NO_XMLSTREAM
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
