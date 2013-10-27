@@ -2507,6 +2507,11 @@ argument_list|,
 name|size
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|screen
+condition|)
+block|{
 name|QWindowSystemInterface
 operator|::
 name|handleScreenAvailableGeometryChange
@@ -2531,6 +2536,7 @@ argument_list|,
 name|geometry
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
