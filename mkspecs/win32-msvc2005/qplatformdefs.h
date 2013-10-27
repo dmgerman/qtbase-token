@@ -223,6 +223,17 @@ directive|define
 name|QT_STAT_LNK
 value|_S_IFLNK
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|QT_STAT_LNK
+define|#
+directive|define
+name|QT_STAT_LNK
+value|0120000
+end_define
 begin_endif
 endif|#
 directive|endif
