@@ -413,12 +413,6 @@ return|return
 literal|true
 return|;
 case|case
-name|NonFullScreenWindows
-case|:
-return|return
-literal|false
-return|;
-case|case
 name|NativeWidgets
 case|:
 return|return
