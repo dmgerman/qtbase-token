@@ -599,15 +599,6 @@ condition|(
 name|m_closing
 condition|)
 block|{
-name|QtNative
-operator|.
-name|activityDelegate
-argument_list|()
-operator|.
-name|m_keyboardIsHiding
-operator|=
-literal|true
-expr_stmt|;
 name|m_view
 operator|.
 name|postDelayed
@@ -623,15 +614,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-if|if
-condition|(
-name|QtNative
-operator|.
-name|activityDelegate
-argument_list|()
-operator|.
-name|m_keyboardIsHiding
-condition|)
 name|QtNative
 operator|.
 name|activityDelegate
@@ -644,10 +626,10 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-literal|5000
+literal|100
 argument_list|)
 expr_stmt|;
-comment|// it seems finishComposingText comes musch faster than onKeyUp event,
+comment|// it seems finishComposingText comes much faster than onKeyUp event,
 comment|// so we must delay hide notification
 name|m_closing
 operator|=
