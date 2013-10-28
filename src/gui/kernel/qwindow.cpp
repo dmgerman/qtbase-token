@@ -2435,6 +2435,10 @@ specifier|const
 name|QWindow
 argument_list|)
 expr_stmt|;
+comment|// If there is no platform window, do the second best thing and
+comment|// return the app global devicePixelRatio. This is the highest
+comment|// devicePixelRatio found on the system screens, and will be
+comment|// correct for single-display systems (a very common case).
 if|if
 condition|(
 operator|!
@@ -2443,7 +2447,10 @@ operator|->
 name|platformWindow
 condition|)
 return|return
-literal|1.0
+name|qApp
+operator|->
+name|devicePixelRatio
+argument_list|()
 return|;
 return|return
 name|d
