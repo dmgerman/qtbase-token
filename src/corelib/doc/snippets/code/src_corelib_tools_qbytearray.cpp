@@ -1433,6 +1433,7 @@ operator|.
 name|size
 argument_list|()
 index|]
+decl_stmt|;
 name|strcpy
 argument_list|(
 name|data
@@ -1442,7 +1443,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 operator|delete
 index|[]
 name|data
@@ -1476,6 +1477,7 @@ argument_list|()
 operator|+
 literal|1
 index|]
+decl_stmt|;
 name|strcpy
 argument_list|(
 name|data
@@ -1485,7 +1487,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 operator|delete
 index|[]
 name|data

@@ -3487,7 +3487,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current item to be the item at \a index.      Unless the current selection mode is     \l{QAbstractItemView::}{NoSelection}, the item is also be selected.     Note that this function also updates the starting position for any     new selections the user performs.      To set an item as the current item without selecting it, call      \c{selectionModel()->setCurrentIndex(index, QItemSelectionModel::NoUpdate);}      \sa currentIndex(), currentChanged(), selectionMode */
+comment|/*!     Sets the current item to be the item at \a index.      Unless the current selection mode is     \l{QAbstractItemView::}{NoSelection}, the item is also selected.     Note that this function also updates the starting position for any     new selections the user performs.      To set an item as the current item without selecting it, call      \c{selectionModel()->setCurrentIndex(index, QItemSelectionModel::NoUpdate);}      \sa currentIndex(), currentChanged(), selectionMode */
 end_comment
 begin_function
 DECL|function|setCurrentIndex
