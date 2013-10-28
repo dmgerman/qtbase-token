@@ -4719,7 +4719,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::startTimer: QTimer cannot have a negative interval"
+literal|"QObject::startTimer: Timers cannot have negative intervals"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4741,7 +4741,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::startTimer: QTimer can only be used with threads started with QThread"
+literal|"QObject::startTimer: Timers can only be used with threads started with QThread"
 argument_list|)
 expr_stmt|;
 return|return
