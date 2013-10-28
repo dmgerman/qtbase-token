@@ -1263,6 +1263,11 @@ argument_list|)
 operator|->
 name|supportsThreadedRendering
 argument_list|()
+operator|&&
+name|QGLXContext
+operator|::
+name|supportsThreading
+argument_list|()
 return|;
 case|case
 name|WindowMasks
