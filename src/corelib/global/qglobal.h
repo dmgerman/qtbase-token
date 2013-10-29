@@ -801,6 +801,32 @@ begin_comment
 DECL|macro|QT_POINTER_SIZE
 comment|// ### Add auto-detection to Windows configure
 end_comment
+begin_elif
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|QT_BUILD_MOC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_BUILD_QMAKE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_BUILD_CONFIGURE
+argument_list|)
+end_elif
+begin_error
+error|#
+directive|error
+error|could not determine QT_POINTER_SIZE
+end_error
 begin_endif
 endif|#
 directive|endif
