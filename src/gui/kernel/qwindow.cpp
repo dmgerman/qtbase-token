@@ -851,6 +851,15 @@ emit|;
 block|}
 block|}
 end_function
+begin_function
+DECL|function|clearFocusObject
+name|void
+name|QWindowPrivate
+operator|::
+name|clearFocusObject
+parameter_list|()
+block|{ }
+end_function
 begin_comment
 comment|/*!     Sets the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      The surfaceType will be used when the native surface is created     in the create() function. Calling this function after the native     surface has been created requires calling destroy() and create()     to release the old native surface and create a new one.      \sa QBackingStore, QOpenGLContext, create(), destroy() */
 end_comment

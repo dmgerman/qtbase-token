@@ -359,6 +359,13 @@ name|recreate
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|virtual
+name|void
+name|clearFocusObject
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|QWindow
 operator|::
