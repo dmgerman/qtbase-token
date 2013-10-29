@@ -385,6 +385,12 @@ if|if
 condition|(
 operator|!
 name|rootWin
+operator|||
+operator|!
+name|rootWin
+operator|->
+name|isRaster
+argument_list|()
 condition|)
 return|return;
 name|m_window
@@ -484,6 +490,12 @@ if|if
 condition|(
 operator|!
 name|rootWin
+operator|||
+operator|!
+name|rootWin
+operator|->
+name|isRaster
+argument_list|()
 condition|)
 return|return;
 name|m_image
