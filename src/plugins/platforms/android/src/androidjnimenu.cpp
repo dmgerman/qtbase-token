@@ -754,6 +754,7 @@ name|isNull
 argument_list|()
 condition|)
 block|{
+comment|// isNull() only checks the d pointer, not the actual image data.
 name|int
 name|sz
 init|=
@@ -802,6 +803,16 @@ operator|.
 name|toImage
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|img
+operator|.
+name|isNull
+argument_list|()
+condition|)
+block|{
+comment|// Make sure we have a valid image.
 name|env
 operator|->
 name|CallObjectMethod
@@ -823,6 +834,7 @@ name|env
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|env
 operator|->
