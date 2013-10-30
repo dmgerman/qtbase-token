@@ -8763,7 +8763,7 @@ name|QImage
 operator|::
 name|Format_ARGB32
 operator|||
-name|src
+name|dest
 operator|->
 name|format
 operator|==
