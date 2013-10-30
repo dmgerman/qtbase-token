@@ -5751,7 +5751,7 @@ begin_comment
 comment|/*!     \fn QDir QDir::current()      Returns the application's current directory.      The directory is constructed using the absolute path of the current directory,     ensuring that its path() will be the same as its absolutePath().      \sa currentPath(), setCurrent(), home(), root(), temp() */
 end_comment
 begin_comment
-comment|/*!     Returns the absolute path of the application's current directory.      \sa current(), setCurrent(), homePath(), rootPath(), tempPath() */
+comment|/*!     Returns the absolute path of the application's current directory. The     current directory is the last directory set with QDir::setCurrent() or, if     that was never called, the directory at which this application was started     at by the parent process.      \sa current(), setCurrent(), homePath(), rootPath(), tempPath(), QCoreApplication::applicationDirPath() */
 end_comment
 begin_function
 DECL|function|currentPath
