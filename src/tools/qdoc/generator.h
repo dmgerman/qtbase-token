@@ -1351,6 +1351,9 @@ decl_stmt|;
 name|bool
 name|threeColumnEnumValueTable_
 decl_stmt|;
+name|bool
+name|showInternal_
+decl_stmt|;
 name|int
 name|numTableRows_
 decl_stmt|;
