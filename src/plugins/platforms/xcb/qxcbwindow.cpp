@@ -8594,9 +8594,30 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|MANAGER
+name|_NET_ACTIVE_WINDOW
 argument_list|)
-operator|||
+condition|)
+block|{
+name|connection
+argument_list|()
+operator|->
+name|setFocusWindow
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleWindowActivated
+argument_list|(
+name|window
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|event
 operator|->
 name|type
@@ -8605,7 +8626,7 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|_NET_ACTIVE_WINDOW
+name|MANAGER
 argument_list|)
 operator|||
 name|event
@@ -8627,22 +8648,11 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|MANAGER
-argument_list|)
-operator|||
-name|event
-operator|->
-name|type
-operator|==
-name|atom
-argument_list|(
-name|QXcbAtom
-operator|::
 name|WM_CHANGE_STATE
 argument_list|)
 condition|)
 block|{
-comment|// Ignore _NET_ACTIVE_WINDOW, _NET_WM_STATE, MANAGER which are relate to tray icons
+comment|// Ignore _NET_WM_STATE, MANAGER which are relate to tray icons
 comment|// and other messages.
 block|}
 elseif|else
