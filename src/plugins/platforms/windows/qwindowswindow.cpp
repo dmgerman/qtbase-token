@@ -1501,6 +1501,9 @@ parameter_list|,
 name|bool
 name|hasAlpha
 parameter_list|,
+name|bool
+name|openGL
+parameter_list|,
 name|qreal
 name|level
 parameter_list|)
@@ -1551,6 +1554,9 @@ if|if
 condition|(
 name|hasAlpha
 operator|&&
+operator|!
+name|openGL
+operator|&&
 operator|(
 name|flags
 operator|&
@@ -1560,7 +1566,7 @@ name|FramelessWindowHint
 operator|)
 condition|)
 block|{
-comment|// Windows with alpha: Use blend function to update.
+comment|// Non-GL windows with alpha: Use blend function to update.
 name|BLENDFUNCTION
 name|blend
 init|=
@@ -3539,6 +3545,8 @@ argument_list|,
 name|flags
 argument_list|,
 name|hasAlpha
+argument_list|,
+name|isGL
 argument_list|,
 name|opacityLevel
 argument_list|)
@@ -9514,6 +9522,11 @@ argument_list|()
 operator|.
 name|hasAlpha
 argument_list|()
+argument_list|,
+name|testFlag
+argument_list|(
+name|OpenGLSurface
+argument_list|)
 argument_list|,
 name|level
 argument_list|)
