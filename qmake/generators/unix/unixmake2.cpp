@@ -5421,6 +5421,17 @@ literal|"\n\t\n"
 expr_stmt|;
 block|}
 comment|//copy the plist
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"no_plist"
+argument_list|)
+condition|)
+block|{
 name|QString
 name|info_plist
 init|=
@@ -5949,6 +5960,8 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
+block|}
+comment|// project->isActiveConfig("no_plist")
 comment|//copy other data
 if|if
 condition|(
@@ -10265,6 +10278,14 @@ operator|->
 name|isEmpty
 argument_list|(
 literal|"QMAKE_BUNDLE"
+argument_list|)
+operator|&&
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"no_plist"
 argument_list|)
 condition|)
 block|{
