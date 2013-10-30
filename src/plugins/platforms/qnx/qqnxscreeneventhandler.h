@@ -135,6 +135,18 @@ argument_list|(
 argument|screen_event_t event
 argument_list|)
 block|;
+name|void
+name|handlePropertyEvent
+argument_list|(
+argument|screen_event_t event
+argument_list|)
+block|;
+name|void
+name|handleKeyboardFocusPropertyEvent
+argument_list|(
+argument|screen_window_t window
+argument_list|)
+block|;
 name|private
 operator|:
 expr|enum
