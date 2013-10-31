@@ -419,9 +419,6 @@ literal|false
 return|;
 block|}
 block|}
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
 elseif|else
 if|if
 condition|(
@@ -511,6 +508,9 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
+name|Q_OS_WIN
+ifdef|#
+directive|ifdef
 name|Q_OS_WIN64
 specifier|const
 name|QString
@@ -565,6 +565,17 @@ return|return
 literal|false
 return|;
 block|}
+else|#
+directive|else
+specifier|const
+name|QString
+name|vcInstallDir
+init|=
+literal|"/fake/vc_install_dir"
+decl_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 name|QStringList
 name|incDirs
 decl_stmt|;
@@ -924,9 +935,6 @@ operator|<<
 literal|'\n'
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 block|}
 name|writeNmakeParts
 argument_list|(
