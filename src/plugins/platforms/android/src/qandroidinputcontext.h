@@ -114,6 +114,12 @@ operator|~
 name|QAndroidInputContext
 argument_list|()
 block|;
+specifier|static
+name|QAndroidInputContext
+operator|*
+name|androidInputContext
+argument_list|()
+block|;
 name|bool
 name|isValid
 argument_list|()
