@@ -92,9 +92,14 @@ name|void
 name|cleanupPrinterSupport
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 operator|delete
 name|printerSupport
 expr_stmt|;
+endif|#
+directive|endif
 name|printerSupport
 operator|=
 literal|0
