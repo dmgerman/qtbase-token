@@ -413,6 +413,8 @@ block|,
 name|PasswordMaskCharacter
 block|,
 name|SetFocusOnTouchRelease
+block|,
+name|ShowIsMaximized
 block|}
 enum|;
 name|virtual

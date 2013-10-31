@@ -413,6 +413,17 @@ name|m_touchDevice
 operator|=
 name|touchDevice
 block|; }
+ifdef|#
+directive|ifdef
+name|ANDROID_PLUGIN_OPENGL
+name|QEglFSScreen
+operator|*
+name|createScreen
+argument_list|()
+specifier|const
+block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|friend

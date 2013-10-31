@@ -546,6 +546,12 @@ return|return
 literal|false
 return|;
 case|case
+name|ShowIsMaximized
+case|:
+return|return
+literal|false
+return|;
+case|case
 name|PasswordMaskDelay
 case|:
 return|return
