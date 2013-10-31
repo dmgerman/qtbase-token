@@ -8406,6 +8406,12 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|window
+argument_list|()
+operator|->
+name|isTopLevel
+argument_list|()
+operator|&&
 name|geometry_sys
 argument_list|()
 operator|==
