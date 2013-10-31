@@ -5944,11 +5944,6 @@ argument_list|(
 name|unset
 argument_list|)
 member_init_list|,
-name|GenerateWindowsMetadata
-argument_list|(
-name|unset
-argument_list|)
-member_init_list|,
 name|EnableUAC
 argument_list|(
 name|unset
@@ -5986,6 +5981,11 @@ name|unset
 argument_list|)
 member_init_list|,
 name|DelaySign
+argument_list|(
+name|unset
+argument_list|)
+member_init_list|,
+name|GenerateWindowsMetadata
 argument_list|(
 name|unset
 argument_list|)
@@ -10610,11 +10610,6 @@ operator|::
 name|VCConfiguration
 parameter_list|()
 member_init_list|:
-name|ATLMinimizesCRunTimeLibraryUsage
-argument_list|(
-name|unset
-argument_list|)
-member_init_list|,
 name|WinRT
 argument_list|(
 literal|false
@@ -10623,6 +10618,11 @@ member_init_list|,
 name|WinPhone
 argument_list|(
 literal|false
+argument_list|)
+member_init_list|,
+name|ATLMinimizesCRunTimeLibraryUsage
+argument_list|(
+name|unset
 argument_list|)
 member_init_list|,
 name|BuildBrowserInformation
