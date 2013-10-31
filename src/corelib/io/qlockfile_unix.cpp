@@ -74,6 +74,14 @@ end_include
 begin_comment
 comment|// kill
 end_comment
+begin_include
+include|#
+directive|include
+file|<unistd.h>
+end_include
+begin_comment
+comment|// gethostname
+end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|localHostName
