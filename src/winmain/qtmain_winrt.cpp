@@ -432,6 +432,11 @@ operator|&
 name|arguments
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|arguments
+condition|)
+block|{
 foreach|foreach
 control|(
 specifier|const
@@ -483,6 +488,7 @@ name|m_debugWait
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
