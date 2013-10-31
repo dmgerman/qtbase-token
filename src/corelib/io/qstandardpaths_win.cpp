@@ -271,7 +271,11 @@ block|{
 case|case
 name|ConfigLocation
 case|:
-comment|// same as DataLocation, on Windows
+comment|// same as DataLocation, on Windows (oversight, but too late to fix it)
+case|case
+name|GenericConfigLocation
+case|:
+comment|// same as GenericDataLocation, on Windows
 case|case
 name|DataLocation
 case|:
@@ -339,6 +343,10 @@ condition|(
 name|type
 operator|!=
 name|GenericDataLocation
+operator|&&
+name|type
+operator|!=
+name|GenericConfigLocation
 condition|)
 block|{
 if|if
@@ -669,7 +677,11 @@ block|{
 case|case
 name|ConfigLocation
 case|:
-comment|// same as DataLocation, on Windows
+comment|// same as DataLocation, on Windows (oversight, but too late to fix it)
+case|case
+name|GenericConfigLocation
+case|:
+comment|// same as GenericDataLocation, on Windows
 case|case
 name|DataLocation
 case|:
@@ -703,6 +715,10 @@ condition|(
 name|type
 operator|!=
 name|GenericDataLocation
+operator|&&
+name|type
+operator|!=
+name|GenericConfigLocation
 condition|)
 block|{
 ifndef|#

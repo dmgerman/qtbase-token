@@ -64,6 +64,8 @@ block|,
 name|DownloadLocation
 block|,
 name|GenericCacheLocation
+block|,
+name|GenericConfigLocation
 block|}
 enum|;
 specifier|static
