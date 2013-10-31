@@ -273,18 +273,6 @@ argument_list|,
 argument|QThreadData *data
 argument_list|)
 block|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_DEBUG
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_MAC_FRAMEWORK_BUILD
-argument_list|)
 name|void
 name|checkReceiverThread
 argument_list|(
@@ -293,8 +281,6 @@ operator|*
 name|receiver
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|void
 name|cleanupThreadData
 argument_list|()
