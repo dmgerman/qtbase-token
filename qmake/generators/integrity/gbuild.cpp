@@ -2396,6 +2396,10 @@ name|build
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|build
+argument_list|)
 name|debug_msg
 argument_list|(
 literal|1

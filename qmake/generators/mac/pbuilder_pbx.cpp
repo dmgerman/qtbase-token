@@ -14834,6 +14834,10 @@ modifier|&
 name|where
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|where
+argument_list|)
 comment|// We always use absolute paths, instead of maintaining the SRCROOT
 comment|// build variable and making files relative to that.
 return|return

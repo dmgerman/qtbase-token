@@ -3051,9 +3051,10 @@ name|string
 argument_list|)
 expr_stmt|;
 block|}
-name|bool
-name|localSep
-init|=
+comment|// either none or only one active flag
+name|Q_ASSERT
+argument_list|(
+operator|(
 operator|(
 name|flags
 operator|&
@@ -3063,10 +3064,9 @@ name|FixPathToLocalSeparators
 operator|)
 operator|!=
 literal|0
-decl_stmt|;
-name|bool
-name|targetSep
-init|=
+operator|)
+operator|+
+operator|(
 operator|(
 name|flags
 operator|&
@@ -3076,10 +3076,9 @@ name|FixPathToTargetSeparators
 operator|)
 operator|!=
 literal|0
-decl_stmt|;
-name|bool
-name|normalSep
-init|=
+operator|)
+operator|+
+operator|(
 operator|(
 name|flags
 operator|&
@@ -3089,15 +3088,7 @@ name|FixPathToNormalSeparators
 operator|)
 operator|!=
 literal|0
-decl_stmt|;
-comment|// either none or only one active flag
-name|Q_ASSERT
-argument_list|(
-name|localSep
-operator|+
-name|targetSep
-operator|+
-name|normalSep
+operator|)
 operator|<=
 literal|1
 argument_list|)
