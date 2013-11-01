@@ -1574,6 +1574,18 @@ name|CONFIG_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|qdb
+operator|->
+name|setShowInternal
+argument_list|(
+name|config
+operator|.
+name|getBool
+argument_list|(
+name|CONFIG_SHOWINTERNAL
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|/*       By default, the only output format is HTML.      */
 name|QSet
 argument_list|<
