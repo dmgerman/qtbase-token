@@ -769,6 +769,15 @@ expr_stmt|;
 end_expr_stmt
 begin_function_decl
 name|void
+name|setClearButtonEnabled
+parameter_list|(
+name|bool
+name|enabled
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|positionSideWidgets
 parameter_list|()
 function_decl|;
