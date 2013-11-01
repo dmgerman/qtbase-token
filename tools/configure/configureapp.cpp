@@ -18401,6 +18401,17 @@ literal|"}"
 operator|<<
 name|endl
 expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QT_COORD_TYPE += "
+operator|<<
+name|dictionary
+index|[
+literal|"QREAL"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
 if|if
 condition|(
 name|dictionary
