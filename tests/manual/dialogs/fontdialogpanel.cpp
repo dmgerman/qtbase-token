@@ -1095,6 +1095,11 @@ name|isChecked
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|d
 operator|->
 name|setOption
@@ -1151,6 +1156,9 @@ name|isChecked
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// Qt 5
 name|QFont
 name|font
 init|=

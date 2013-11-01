@@ -2256,6 +2256,11 @@ operator|::
 name|getOpenFileUrls
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|QString
 name|selectedFilter
 init|=
@@ -2367,6 +2372,9 @@ name|Ok
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// Qt 5
 block|}
 end_function
 begin_function
@@ -2484,6 +2492,11 @@ operator|::
 name|getOpenFileUrl
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|QString
 name|selectedFilter
 init|=
@@ -2589,6 +2602,9 @@ name|Ok
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// Qt 5
 block|}
 end_function
 begin_function
@@ -2706,6 +2722,11 @@ operator|::
 name|getSaveFileUrl
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|QString
 name|selectedFilter
 init|=
@@ -2811,6 +2832,9 @@ name|Ok
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// Qt 5
 block|}
 end_function
 begin_function
@@ -2898,6 +2922,11 @@ operator|::
 name|getExistingDirectoryUrl
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 specifier|const
 name|QUrl
 name|dir
@@ -2974,6 +3003,9 @@ operator|::
 name|Ok
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// Qt 5
 block|}
 end_function
 begin_function
@@ -3355,6 +3387,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|d
 operator|->
 name|setMimeTypeFilters
@@ -3377,6 +3414,9 @@ argument_list|(
 name|filter
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// Qt 5
 block|}
 foreach|foreach
 control|(
