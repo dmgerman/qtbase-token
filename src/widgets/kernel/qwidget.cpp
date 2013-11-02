@@ -1025,7 +1025,7 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QWidget: Must construct a QApplication before a QPaintDevice"
+literal|"QWidget: Must construct a QApplication before a QWidget"
 argument_list|)
 expr_stmt|;
 return|return;
