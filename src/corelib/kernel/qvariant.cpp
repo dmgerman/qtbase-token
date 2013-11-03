@@ -11117,6 +11117,16 @@ name|QVariant
 operator|::
 name|UInt
 case|:
+case|case
+name|QVariant
+operator|::
+name|LongLong
+case|:
+case|case
+name|QVariant
+operator|::
+name|ULongLong
+case|:
 return|return
 name|currentType
 operator|==
