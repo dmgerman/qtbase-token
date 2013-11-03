@@ -819,7 +819,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSequentialAnimationGroup::currentAnimation     Returns the animation in the current time.      \sa currentAnimationChanged() */
+comment|/*!     \property QSequentialAnimationGroup::currentAnimation     Returns the animation in the current time. */
 end_comment
 begin_function
 DECL|function|currentAnimation

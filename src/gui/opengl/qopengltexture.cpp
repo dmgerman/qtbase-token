@@ -6207,7 +6207,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the width of a 1D, 2D or 3D texture.      \sa height(), depth(), setDimensions() */
+comment|/*!     Returns the width of a 1D, 2D or 3D texture.      \sa height(), depth(), setSize() */
 end_comment
 begin_function
 DECL|function|width
@@ -6235,7 +6235,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the height of a 2D or 3D texture.      \sa width(), depth(), setDimensions() */
+comment|/*!     Returns the height of a 2D or 3D texture.      \sa width(), depth(), setSize() */
 end_comment
 begin_function
 DECL|function|height
@@ -6263,7 +6263,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the depth of a 3D texture.      \sa width(), height(), setDimensions() */
+comment|/*!     Returns the depth of a 3D texture.      \sa width(), height(), setSize() */
 end_comment
 begin_function
 DECL|function|depth
@@ -6439,7 +6439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the maximum number of mipmap levels that this texture     can have given the current dimensions.      \sa setMipLevels(), mipLevels(), setDimensions() */
+comment|/*!     Returns the maximum number of mipmap levels that this texture     can have given the current dimensions.      \sa setMipLevels(), mipLevels(), setSize() */
 end_comment
 begin_function
 DECL|function|maximumMipLevels
@@ -6654,7 +6654,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if server-side storage for this texture as been     allocated.      The texture format, dimensions, mipmap levels and array layers     cannot be altered once storage ihas been allocated.      \sa allocateStorage(), setDimensions(), setMipLevels(), setLayers(), setFormat() */
+comment|/*!     Returns \c true if server-side storage for this texture as been     allocated.      The texture format, dimensions, mipmap levels and array layers     cannot be altered once storage ihas been allocated.      \sa allocateStorage(), setSize(), setMipLevels(), setLayers(), setFormat() */
 end_comment
 begin_function
 DECL|function|isStorageAllocated
@@ -7973,7 +7973,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the range of mipmap levels that can be used for texture lookups with this texture.      \sa mipBaseLevel(), mipMaxLevel(), mipLevelRange() */
+comment|/*!     Returns the range of mipmap levels that can be used for texture lookups with this texture.      \sa mipBaseLevel(), mipMaxLevel() */
 end_comment
 begin_function
 DECL|function|mipLevelRange

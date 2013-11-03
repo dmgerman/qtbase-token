@@ -1428,7 +1428,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \headerfile<QtMath>     \title Generic Math Declarations     \ingroup funclists      \brief The<QtMath> header file includes generic math declarations.      The global declarations include \l{functions}.      These functions are partly convenience definitions for basic     operations, for instance not available in the Standard Template Library et     al. */
+comment|/*!     \headerfile<QtMath>     \title Generic Math Declarations     \ingroup funclists      \brief The<QtMath> header file includes generic math declarations.      These functions are partly convenience definitions for basic     operations, for instance not available in the Standard Template Library et     al. */
 end_comment
 begin_comment
 comment|/*!     \fn float qDegreesToRadians(float degrees)     \relates<QtMath>     \since 5.1      \brief The function converts the \a degrees in float to radians.      The purpose of the function is to aid the conversion as such a convenient     function is not part of the Standard Template Library, i.e. in<cmath> or     elsewhere.      Example:      \snippet code/src_corelib_kernel_qmath.cpp 0      \sa qRadiansToDegrees() */

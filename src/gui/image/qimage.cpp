@@ -18092,7 +18092,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a copy of the image in the given \a format.      The specified image conversion \a flags control how the image data     is handled during the conversion process.      \sa {QImage#Image Format}{Image Format} */
+comment|/*!     Returns a copy of the image in the given \a format.      The specified image conversion \a flags control how the image data     is handled during the conversion process.      \sa {Image Formats} */
 end_comment
 begin_function
 DECL|function|convertToFormat

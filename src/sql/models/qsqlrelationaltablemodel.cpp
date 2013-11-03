@@ -2460,7 +2460,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \enum QSqlRelationalTableModel::JoinMode      \value InnerJoin - Inner join mode, return rows when there is at least one match in both tables.     \value LeftJoin - Left join mode, returns all rows from the left table (table_name1), even if there are no matches in the right table (table_name2).      \sa QSqlRelationalTableModel::setJoinMode     \since 4.8 */
+comment|/*! \enum QSqlRelationalTableModel::JoinMode      \value InnerJoin - Inner join mode, return rows when there is at least one match in both tables.     \value LeftJoin - Left join mode, returns all rows from the left table (table_name1), even if there are no matches in the right table (table_name2).      \sa QSqlRelationalTableModel::setJoinMode()     \since 4.8 */
 end_comment
 begin_comment
 comment|/*!     Sets the SQL \a joinMode to show or hide rows with NULL foreign keys.     In InnerJoin mode (the default) these rows will not be shown: use the     LeftJoin mode if you want to show them.      \sa QSqlRelationalTableModel::JoinMode     \since 4.8 */

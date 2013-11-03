@@ -56,7 +56,7 @@ begin_comment
 comment|/*!     \fn QRect QPlatformSystemTrayIcon::geometry() const     This method returns the geometry of the platform dependent system tray icon on the screen. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPlatformSystemTrayIcon::showMessage(const QString&msg, const QString&title,                                                   const QIcon&icon, MessageIcon iconType, int secs)     Shows a balloon message for the entry with the given \a title, message \a msg and \a icon for     the time specified in \a secs. \a iconType is used as a hint for the implementing platform.     \sa QSystemTrayIcon::showMessage */
+comment|/*!     \fn void QPlatformSystemTrayIcon::showMessage(const QString&msg, const QString&title,                                                   const QIcon&icon, MessageIcon iconType, int secs)     Shows a balloon message for the entry with the given \a title, message \a msg and \a icon for     the time specified in \a secs. \a iconType is used as a hint for the implementing platform.     \sa QSystemTrayIcon::showMessage() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QPlatformSystemTrayIcon::isSystemTrayAvailable() const     Returns \c true if the system tray is available on the platform. */

@@ -2131,7 +2131,7 @@ block|}
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a brush with the given \a color and the custom pattern     stored in \a pixmap.      The style is set to Qt::TexturePattern. The color will only have     an effect for QBitmaps.      \sa setColor(), setPixmap() */
+comment|/*!     Constructs a brush with the given \a color and the custom pattern     stored in \a pixmap.      The style is set to Qt::TexturePattern. The color will only have     an effect for QBitmaps.      \sa setColor(), setTexture() */
 end_comment
 begin_constructor
 DECL|function|QBrush
@@ -2167,7 +2167,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!      Constructs a brush with the given \a color and the custom pattern     stored in \a pixmap.      The style is set to Qt::TexturePattern. The color will only have     an effect for QBitmaps.      \sa setColor(), setPixmap() */
+comment|/*!      Constructs a brush with the given \a color and the custom pattern     stored in \a pixmap.      The style is set to Qt::TexturePattern. The color will only have     an effect for QBitmaps.      \sa setColor(), setTexture() */
 end_comment
 begin_constructor
 DECL|function|QBrush
