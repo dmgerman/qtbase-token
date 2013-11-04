@@ -148,6 +148,20 @@ include|#
 directive|include
 file|<EGL/egl.h>
 end_include
+begin_function
+DECL|function|initResources
+specifier|static
+name|void
+name|initResources
+parameter_list|()
+block|{
+name|Q_INIT_RESOURCE
+argument_list|(
+name|cursor
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -179,7 +193,11 @@ name|mInputContext
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+name|initResources
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QEglFSIntegration
