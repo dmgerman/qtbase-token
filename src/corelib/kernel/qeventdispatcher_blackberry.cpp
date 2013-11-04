@@ -767,14 +767,6 @@ name|sockfd
 expr_stmt|;
 return|return;
 block|}
-comment|// Call the base Unix implementation. Needed to allow select() to be called correctly
-name|QEventDispatcherUNIX
-operator|::
-name|registerSocketNotifier
-argument_list|(
-name|notifier
-argument_list|)
-expr_stmt|;
 comment|// Register the fd with bps
 name|BpsChannelScopeSwitcher
 name|channelSwitcher
@@ -897,6 +889,14 @@ argument_list|()
 operator|<<
 literal|"QEventDispatcherBlackberry: bps_add_fd failed"
 expr_stmt|;
+comment|// Call the base Unix implementation. Needed to allow select() to be called correctly
+name|QEventDispatcherUNIX
+operator|::
+name|registerSocketNotifier
+argument_list|(
+name|notifier
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -951,7 +951,7 @@ name|sockfd
 expr_stmt|;
 return|return;
 block|}
-comment|// Allow the base Unix implementation to unregister the fd too
+comment|// Allow the base Unix implementation to unregister the fd too (before call to ioEvents()!)
 name|QEventDispatcherUNIX
 operator|::
 name|unregisterSocketNotifier
@@ -966,15 +966,6 @@ argument_list|(
 name|d
 operator|->
 name|bps_channel
-argument_list|)
-decl_stmt|;
-specifier|const
-name|int
-name|io_events
-init|=
-name|ioEvents
-argument_list|(
-name|sockfd
 argument_list|)
 decl_stmt|;
 name|int
@@ -1001,13 +992,21 @@ literal|"QEventDispatcherBlackberry: bps_remove_fd failed"
 operator|<<
 name|sockfd
 expr_stmt|;
-comment|// if no other socket notifier is watching sockfd, our job ends here
+specifier|const
+name|int
+name|io_events
+init|=
+name|ioEvents
+argument_list|(
+name|sockfd
+argument_list|)
+decl_stmt|;
+comment|// if other socket notifier is watching sockfd, readd it
 if|if
 condition|(
-operator|!
 name|io_events
 condition|)
-return|return;
+block|{
 name|result
 operator|=
 name|bps_add_fd
@@ -1041,6 +1040,7 @@ argument_list|(
 literal|"QEventDispatcherBlackberry: bps_add_fd error"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
