@@ -164,7 +164,7 @@ name|size
 argument_list|()
 expr_stmt|;
 return|return
-literal|0
+name|ERANGE
 return|;
 block|}
 name|strcpy
