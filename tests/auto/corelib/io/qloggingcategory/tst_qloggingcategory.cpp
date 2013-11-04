@@ -184,17 +184,6 @@ literal|".fatal"
 argument_list|)
 expr_stmt|;
 break|break;
-case|case
-name|QtTraceMsg
-case|:
-name|message
-operator|.
-name|append
-argument_list|(
-literal|".trace"
-argument_list|)
-expr_stmt|;
-break|break;
 block|}
 name|message
 operator|.
