@@ -2045,7 +2045,14 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-comment|//    delete task;
+name|threadPool
+operator|.
+name|waitForDone
+argument_list|()
+expr_stmt|;
+operator|delete
+name|task
+expr_stmt|;
 block|}
 end_function
 begin_function
