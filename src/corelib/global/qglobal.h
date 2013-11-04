@@ -1365,17 +1365,6 @@ endif|#
 directive|endif
 end_endif
 begin_define
-DECL|macro|Q_INIT_RESOURCE_EXTERN
-define|#
-directive|define
-name|Q_INIT_RESOURCE_EXTERN
-parameter_list|(
-name|name
-parameter_list|)
-define|\
-value|extern int QT_MANGLE_NAMESPACE(qInitResources_ ## name) ();
-end_define
-begin_define
 DECL|macro|Q_INIT_RESOURCE
 define|#
 directive|define

@@ -315,10 +315,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-name|Q_INIT_RESOURCE_EXTERN
-argument_list|(
-argument|qstyle_wince
-argument_list|)
 name|Q_INIT_RESOURCE
 argument_list|(
 name|qstyle_wince
@@ -326,10 +322,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|Q_INIT_RESOURCE_EXTERN
-argument_list|(
-argument|qstyle
-argument_list|)
 name|Q_INIT_RESOURCE
 argument_list|(
 name|qstyle
@@ -337,10 +329,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|Q_INIT_RESOURCE_EXTERN
-argument_list|(
-argument|qmessagebox
-argument_list|)
 name|Q_INIT_RESOURCE
 argument_list|(
 name|qmessagebox
