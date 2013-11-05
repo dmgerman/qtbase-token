@@ -1859,7 +1859,10 @@ name|screenSize
 init|=
 name|platformScreen
 operator|->
-name|physicalSize
+name|geometry
+argument_list|()
+operator|.
+name|size
 argument_list|()
 decl_stmt|;
 comment|// update cached position of current touch point
