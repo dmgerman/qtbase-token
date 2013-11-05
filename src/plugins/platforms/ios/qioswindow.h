@@ -143,16 +143,6 @@ name|devicePixelRatio
 argument_list|()
 specifier|const
 block|;
-name|int
-name|effectiveWidth
-argument_list|()
-specifier|const
-block|;
-name|int
-name|effectiveHeight
-argument_list|()
-specifier|const
-block|;
 name|bool
 name|setMouseGrabEnabled
 argument_list|(
