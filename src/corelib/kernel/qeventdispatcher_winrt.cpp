@@ -1395,7 +1395,7 @@ name|CoInitializeEx
 argument_list|(
 name|NULL
 argument_list|,
-name|COINIT_MULTITHREADED
+name|COINIT_APARTMENTTHREADED
 argument_list|)
 expr_stmt|;
 name|HRESULT
