@@ -780,13 +780,6 @@ operator|&
 name|v
 argument_list|)
 block|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 name|QOpenGLTextureHelper
 operator|*
 name|textureFunctions
@@ -801,8 +794,6 @@ operator|*
 name|textureFuncs
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|void
 name|destroy
 argument_list|()

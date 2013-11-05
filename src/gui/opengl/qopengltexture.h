@@ -710,7 +710,37 @@ comment|// GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT
 name|SRGB_BP_UNorm
 init|=
 literal|0x8E8D
+block|,
 comment|// GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB
+comment|// ES 2 formats
+name|DepthFormat
+init|=
+literal|0x1902
+block|,
+comment|// GL_DEPTH_COMPONENT
+name|AlphaFormat
+init|=
+literal|0x1906
+block|,
+comment|// GL_ALPHA
+name|RGBFormat
+init|=
+literal|0x1907
+block|,
+comment|// GL_RGB
+name|RGBAFormat
+init|=
+literal|0x1908
+block|,
+comment|// GL_RGBA
+name|LuminanceFormat
+init|=
+literal|0x1909
+block|,
+comment|// GL_LUMINANCE
+name|LuminanceAlphaFormat
+init|=
+literal|0x190A
 block|}
 enum|;
 comment|// This is not used externally yet but is reserved to allow checking of
@@ -987,7 +1017,22 @@ comment|// GL_DEPTH_COMPONENT
 name|DepthStencil
 init|=
 literal|0x84F9
+block|,
 comment|// GL_DEPTH_STENCIL
+name|Alpha
+init|=
+literal|0x1906
+block|,
+comment|// GL_ALPHA
+name|Luminance
+init|=
+literal|0x1909
+block|,
+comment|// GL_LUMINANCE
+name|LuminanceAlpha
+init|=
+literal|0x190A
+comment|// GL_LUMINANCE_ALPHA
 block|}
 enum|;
 enum|enum
@@ -1033,6 +1078,11 @@ init|=
 literal|0x140B
 block|,
 comment|// GL_HALF_FLOAT
+name|Float16OES
+init|=
+literal|0x8D61
+block|,
+comment|// GL_HALF_FLOAT_OES
 name|Float32
 init|=
 literal|0x1406
