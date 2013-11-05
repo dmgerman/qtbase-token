@@ -235,6 +235,43 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// Statically check assumptions about the environment we're running
+end_comment
+begin_comment
+comment|// in. The idea here is to error or warn if otherwise implicit Qt
+end_comment
+begin_comment
+comment|// assumptions are not fulfilled on new hardware or compilers
+end_comment
+begin_comment
+comment|// (if this list becomes too long, consider factoring into a separate file)
+end_comment
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
+operator|==
+literal|4
+argument_list|,
+literal|"Qt assumes that int is 32 bits"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|UCHAR_MAX
+operator|==
+literal|255
+argument_list|,
+literal|"Qt assumes that char is 8 bits"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|/*!     \class QFlag     \inmodule QtCore     \brief The QFlag class is a helper data type for QFlags.      It is equivalent to a plain \c int, except with respect to     function overloading and type conversions. You should never need     to use this class in your applications.      \sa QFlags */
 end_comment
 begin_comment
