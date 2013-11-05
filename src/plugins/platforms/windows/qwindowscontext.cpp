@@ -4123,7 +4123,7 @@ return|return
 name|platformSessionManager
 argument_list|()
 operator|->
-name|isInterractionBlocked
+name|isInteractionBlocked
 argument_list|()
 condition|?
 literal|true
@@ -4326,7 +4326,7 @@ return|return
 name|platformSessionManager
 argument_list|()
 operator|->
-name|isInterractionBlocked
+name|isInteractionBlocked
 argument_list|()
 condition|?
 literal|true
@@ -4438,7 +4438,7 @@ return|return
 name|platformSessionManager
 argument_list|()
 operator|->
-name|isInterractionBlocked
+name|isInteractionBlocked
 argument_list|()
 condition|?
 literal|true
@@ -4510,7 +4510,7 @@ return|return
 name|platformSessionManager
 argument_list|()
 operator|->
-name|isInterractionBlocked
+name|isInteractionBlocked
 argument_list|()
 condition|?
 literal|true
