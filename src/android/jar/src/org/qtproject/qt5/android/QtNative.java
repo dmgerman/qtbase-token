@@ -405,6 +405,8 @@ name|String
 name|url
 parameter_list|)
 block|{
+try|try
+block|{
 name|Uri
 name|uri
 init|=
@@ -436,6 +438,19 @@ argument_list|(
 name|intent
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|// this method loads full path libs
 DECL|method|loadQtLibraries
