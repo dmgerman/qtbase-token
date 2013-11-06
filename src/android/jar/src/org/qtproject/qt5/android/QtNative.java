@@ -2022,7 +2022,7 @@ init|=
 operator|new
 name|Semaphore
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 decl_stmt|;
 name|runAction
