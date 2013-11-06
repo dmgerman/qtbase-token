@@ -37591,7 +37591,7 @@ operator|->
 name|sslConfiguration
 argument_list|()
 operator|.
-name|session
+name|sessionTicket
 argument_list|()
 decl_stmt|;
 name|QCOMPARE
@@ -37680,7 +37680,7 @@ argument_list|()
 decl_stmt|;
 name|configuration
 operator|.
-name|setSession
+name|setSessionTicket
 argument_list|(
 name|sslSession
 argument_list|)

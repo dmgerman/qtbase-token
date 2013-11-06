@@ -1261,7 +1261,7 @@ condition|(
 operator|!
 name|configuration
 operator|.
-name|session
+name|sessionTicket
 argument_list|()
 operator|.
 name|isEmpty
@@ -1273,7 +1273,7 @@ name|setSessionASN1
 argument_list|(
 name|configuration
 operator|.
-name|session
+name|sessionTicket
 argument_list|()
 argument_list|)
 expr_stmt|;
