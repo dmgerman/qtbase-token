@@ -720,6 +720,7 @@ return|;
 block|}
 end_expr_stmt
 begin_decl_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|testFlag
@@ -754,6 +755,7 @@ return|;
 block|}
 end_decl_stmt
 begin_decl_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|testFlag
