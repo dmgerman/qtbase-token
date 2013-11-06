@@ -183,7 +183,7 @@ operator|*
 name|m_view
 block|;
 name|QRect
-name|m_requestedGeometry
+name|m_normalGeometry
 block|;
 name|int
 name|m_windowLevel
