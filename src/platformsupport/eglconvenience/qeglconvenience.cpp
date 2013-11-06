@@ -1633,6 +1633,16 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// EGL doesn't support stereo buffers
+name|format
+operator|.
+name|setSwapInterval
+argument_list|(
+name|referenceFormat
+operator|.
+name|swapInterval
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Clear the EGL error state because some of the above may
 comment|// have errored out because the attribute is not applicable
 comment|// to the surface type.  Such errors don't matter.

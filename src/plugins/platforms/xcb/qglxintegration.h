@@ -152,6 +152,9 @@ name|m_format
 block|;
 name|bool
 name|m_isPBufferCurrent
+block|;
+name|int
+name|m_swapInterval
 block|; }
 decl_stmt|;
 end_decl_stmt

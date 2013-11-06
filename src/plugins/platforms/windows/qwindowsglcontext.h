@@ -88,9 +88,6 @@ literal|0
 argument_list|,
 argument|unsigned pixmapDepthIn =
 literal|0
-argument_list|,
-argument|unsigned swapIntervalIn = -
-literal|1
 argument_list|)
 block|:
 name|formatFlags
@@ -100,14 +97,9 @@ argument_list|)
 operator|,
 name|pixmapDepth
 argument_list|(
-name|pixmapDepthIn
+argument|pixmapDepthIn
 argument_list|)
-operator|,
-name|swapInterval
-argument_list|(
-argument|swapIntervalIn
-argument_list|)
-block|{}
+block|{ }
 DECL|member|formatFlags
 name|unsigned
 name|formatFlags
@@ -118,10 +110,6 @@ name|unsigned
 name|pixmapDepth
 decl_stmt|;
 comment|// for QWindowsGLRenderToPixmap
-DECL|member|swapInterval
-name|int
-name|swapInterval
-decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -643,6 +631,11 @@ end_decl_stmt
 begin_decl_stmt
 name|bool
 name|m_extensionsUsed
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|int
+name|m_swapInterval
 decl_stmt|;
 end_decl_stmt
 begin_macro

@@ -1309,6 +1309,8 @@ argument_list|(
 name|eglDisplay
 argument_list|,
 name|eglConfig
+argument_list|,
+name|m_format
 argument_list|)
 expr_stmt|;
 name|VisualID

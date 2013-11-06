@@ -408,6 +408,8 @@ argument_list|(
 name|display
 argument_list|,
 name|m_config
+argument_list|,
+name|platformFormat
 argument_list|)
 expr_stmt|;
 name|resetSurface

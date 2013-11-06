@@ -150,6 +150,12 @@ name|minor
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|swapInterval
+argument_list|(
+literal|1
+argument_list|)
+comment|// default to vsync
 block|{     }
 DECL|function|QSurfaceFormatPrivate
 name|QSurfaceFormatPrivate
@@ -255,6 +261,13 @@ name|other
 operator|->
 name|minor
 argument_list|)
+member_init_list|,
+name|swapInterval
+argument_list|(
+name|other
+operator|->
+name|swapInterval
+argument_list|)
 block|{     }
 DECL|member|ref
 name|QAtomicInt
@@ -319,6 +332,10 @@ decl_stmt|;
 DECL|member|minor
 name|int
 name|minor
+decl_stmt|;
+DECL|member|swapInterval
+name|int
+name|swapInterval
 decl_stmt|;
 block|}
 class|;
@@ -1606,6 +1623,60 @@ block|}
 block|}
 end_function
 begin_comment
+comment|/*!     Sets the preferred swap interval. The swap interval specifies the     minimum number of video frames that are displayed before a buffer     swap occurs. This can be used to sync the GL drawing into a window     to the vertical refresh of the screen.      Setting an \a interval value of 0 will turn the vertical refresh     syncing off, any value higher than 0 will turn the vertical     syncing on. Setting \a interval to a higher value, for example 10,     results in having 10 vertical retraces between every buffer swap.      The default interval is 1.      Changing the swap interval may not be supported by the underlying     platform. In this case, the request will be silently ignored.      \since 5.3      \sa swapInterval()  */
+end_comment
+begin_function
+DECL|function|setSwapInterval
+name|void
+name|QSurfaceFormat
+operator|::
+name|setSwapInterval
+parameter_list|(
+name|int
+name|interval
+parameter_list|)
+block|{
+if|if
+condition|(
+name|d
+operator|->
+name|swapInterval
+operator|!=
+name|interval
+condition|)
+block|{
+name|detach
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|swapInterval
+operator|=
+name|interval
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the swap interval.      \since 5.3      \sa setSwapInterval() */
+end_comment
+begin_function
+DECL|function|swapInterval
+name|int
+name|QSurfaceFormat
+operator|::
+name|swapInterval
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|swapInterval
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns \c true if all the options of the two QSurfaceFormat objects     \a a and \a b are equal.      \relates QSurfaceFormat */
 end_comment
 begin_function
@@ -1786,6 +1857,18 @@ operator|.
 name|d
 operator|->
 name|minor
+operator|&&
+name|a
+operator|.
+name|d
+operator|->
+name|swapInterval
+operator|==
+name|b
+operator|.
+name|d
+operator|->
+name|swapInterval
 operator|)
 return|;
 block|}
@@ -1922,6 +2005,12 @@ operator|<<
 name|d
 operator|->
 name|swapBehavior
+operator|<<
+literal|", swapInterval "
+operator|<<
+name|d
+operator|->
+name|swapInterval
 operator|<<
 literal|", profile  "
 operator|<<
