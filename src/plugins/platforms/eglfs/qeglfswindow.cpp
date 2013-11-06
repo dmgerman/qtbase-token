@@ -847,14 +847,19 @@ block|{
 name|QRect
 name|rect
 decl_stmt|;
-if|if
-condition|(
+name|bool
+name|forceFullscreen
+init|=
 name|m_flags
 operator|.
 name|testFlag
 argument_list|(
 name|HasNativeWindow
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|forceFullscreen
 condition|)
 name|rect
 operator|=
@@ -876,6 +881,7 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
+comment|// if we corrected the size, trigger a resize event
 if|if
 condition|(
 name|rect
@@ -890,6 +896,8 @@ name|window
 argument_list|()
 argument_list|,
 name|rect
+argument_list|,
+name|r
 argument_list|)
 expr_stmt|;
 block|}

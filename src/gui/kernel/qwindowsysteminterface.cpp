@@ -462,6 +462,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!   If \a oldRect is null, Qt will use the previously reported geometry instead.  */
+end_comment
 begin_function
 DECL|function|handleGeometryChange
 name|void
@@ -477,6 +480,11 @@ specifier|const
 name|QRect
 modifier|&
 name|newRect
+parameter_list|,
+specifier|const
+name|QRect
+modifier|&
+name|oldRect
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -493,6 +501,8 @@ argument_list|(
 name|tlw
 argument_list|,
 name|newRect
+argument_list|,
+name|oldRect
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
