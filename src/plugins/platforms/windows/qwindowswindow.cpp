@@ -6054,6 +6054,20 @@ block|{
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Popup
+condition|)
+return|return;
+comment|// QTBUG-34503, // a popup stays on top, no parent, see also WindowCreationData::fromWindow().
 comment|// Update transient parent.
 specifier|const
 name|HWND
