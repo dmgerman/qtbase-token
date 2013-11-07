@@ -5056,6 +5056,11 @@ name|~
 name|QWindowsWindow
 parameter_list|()
 block|{
+name|setFlag
+argument_list|(
+name|WithinDestroy
+argument_list|)
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
