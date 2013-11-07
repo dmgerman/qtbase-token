@@ -559,9 +559,12 @@ operator|->
 name|setResizeContentsPrecision
 argument_list|(
 name|newval
-argument_list|,
-literal|true
 argument_list|)
+expr_stmt|;
+name|tableView
+operator|->
+name|resizeRowsToContents
+argument_list|()
 expr_stmt|;
 block|}
 end_function

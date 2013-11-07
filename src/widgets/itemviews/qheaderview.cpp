@@ -4667,7 +4667,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \since 5.2    Sets how precise QHeaderView should calculate the size when ResizeToContents is used.    A low value will provide a less accurate but fast auto resize while a higher    value will provide a more accurate resize that however can be slow.     The number \a precision specifies how many sections that should be consider    when calculating the preferred size.     The default value is 1000 meaning that a horizontal column with auto-resize will look    at maximum 1000 rows on calculating when doing an auto resize.     Special value 0 means that it will look at only the visible area.    Special value -1 will imply looking at all elements.     This value is used in QTableView::sizeHintForColumn(), QTableView::sizeHintForRow()    and QTreeView::sizeHintForColumn(). Reimplementing these functions can make this    function not having an effect.     If \a resizeSectionsNow is set to true (default) it will do adjustment of sections by calling    resizeSections().  (regardless if the precision was changed).      \sa resizeContentsPrecision(), setSectionResizeMode(), resizeSections(), QTableView::sizeHintForColumn(), QTableView::sizeHintForRow(), QTreeView::sizeHintForColumn() */
+comment|/*!    \since 5.2    Sets how precise QHeaderView should calculate the size when ResizeToContents is used.    A low value will provide a less accurate but fast auto resize while a higher    value will provide a more accurate resize that however can be slow.     The number \a precision specifies how many sections that should be consider    when calculating the preferred size.     The default value is 1000 meaning that a horizontal column with auto-resize will look    at maximum 1000 rows on calculating when doing an auto resize.     Special value 0 means that it will look at only the visible area.    Special value -1 will imply looking at all elements.     This value is used in QTableView::sizeHintForColumn(), QTableView::sizeHintForRow()    and QTreeView::sizeHintForColumn(). Reimplementing these functions can make this    function not having an effect.      \sa resizeContentsPrecision(), setSectionResizeMode(), resizeSections(), QTableView::sizeHintForColumn(), QTableView::sizeHintForRow(), QTreeView::sizeHintForColumn() */
 end_comment
 begin_function
 DECL|function|setResizeContentsPrecision
@@ -4678,9 +4678,6 @@ name|setResizeContentsPrecision
 parameter_list|(
 name|int
 name|precision
-parameter_list|,
-name|bool
-name|resizeSectionsNow
 parameter_list|)
 block|{
 name|Q_D
@@ -4693,13 +4690,6 @@ operator|->
 name|resizeContentsPrecision
 operator|=
 name|precision
-expr_stmt|;
-if|if
-condition|(
-name|resizeSectionsNow
-condition|)
-name|resizeSections
-argument_list|()
 expr_stmt|;
 block|}
 end_function
