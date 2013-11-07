@@ -56,10 +56,17 @@ modifier|*
 name|qwindow
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
+begin_expr_stmt
 unit|@
 name|end
 name|QT_BEGIN_NAMESPACE
+expr|@
+DECL|variable|QUIView
+name|class
+name|QUIView
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
 name|class
 name|QIOSWindow
 range|:
@@ -178,7 +185,7 @@ block|}
 block|;
 name|private
 operator|:
-name|UIView
+name|QUIView
 operator|*
 name|m_view
 block|;
