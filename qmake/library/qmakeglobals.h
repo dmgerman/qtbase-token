@@ -97,11 +97,16 @@ name|QMakeBaseKey
 argument_list|(
 argument|const QString&_root
 argument_list|,
+argument|const QString&_stash
+argument_list|,
 argument|bool _hostBuild
 argument_list|)
 empty_stmt|;
 name|QString
 name|root
+decl_stmt|;
+name|QString
+name|stash
 decl_stmt|;
 name|bool
 name|hostBuild
