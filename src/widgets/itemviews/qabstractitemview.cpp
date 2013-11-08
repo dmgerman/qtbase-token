@@ -4519,6 +4519,26 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.2     \reimp */
+end_comment
+begin_function
+DECL|function|viewportSizeHint
+name|QSize
+name|QAbstractItemView
+operator|::
+name|viewportSizeHint
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QAbstractScrollArea
+operator|::
+name|viewportSizeHint
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \property QAbstractItemView::dragEnabled     \brief whether the view supports dragging of its own items      \sa showDropIndicator, DragDropMode, dragDropOverwriteMode, acceptDrops */
 end_comment
 begin_function

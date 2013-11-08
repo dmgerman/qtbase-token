@@ -339,11 +339,6 @@ argument_list|,
 argument|Qt::SortOrder order
 argument_list|)
 block|;
-name|QSize
-name|viewportSizeHint
-argument_list|()
-specifier|const
-block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -556,6 +551,12 @@ block|;
 name|void
 name|updateGeometries
 argument_list|()
+block|;
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|sizeHintForRow
