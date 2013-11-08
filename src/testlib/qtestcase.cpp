@@ -6021,12 +6021,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
 if|if
 condition|(
 operator|!
@@ -6045,6 +6039,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|SetErrorMode
 argument_list|(
 name|SetErrorMode
@@ -6060,6 +6057,8 @@ argument_list|(
 name|windowsFaultHandler
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 comment|// !noCrashHandler
 endif|#
