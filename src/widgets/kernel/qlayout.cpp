@@ -4429,6 +4429,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|item
+condition|)
+continue|continue;
+if|if
+condition|(
 name|item
 operator|->
 name|widget
@@ -4445,8 +4451,6 @@ break|break;
 block|}
 if|if
 condition|(
-name|item
-operator|&&
 name|item
 operator|->
 name|layout
