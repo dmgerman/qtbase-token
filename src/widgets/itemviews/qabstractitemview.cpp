@@ -10389,14 +10389,6 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-name|editor
-operator|->
-name|isHidden
-argument_list|()
-condition|)
 name|editor
 operator|->
 name|show
