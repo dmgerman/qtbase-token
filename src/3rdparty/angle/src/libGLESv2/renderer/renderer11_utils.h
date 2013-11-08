@@ -165,6 +165,9 @@ name|ConvertTextureFormat
 parameter_list|(
 name|GLenum
 name|format
+parameter_list|,
+name|D3D_FEATURE_LEVEL
+name|featureLevel
 parameter_list|)
 function_decl|;
 block|}

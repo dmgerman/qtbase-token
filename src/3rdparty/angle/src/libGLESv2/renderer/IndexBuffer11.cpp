@@ -620,7 +620,14 @@ case|case
 name|GL_UNSIGNED_INT
 case|:
 return|return
+name|mRenderer
+operator|->
+name|get32BitIndexSupport
+argument_list|()
+condition|?
 name|DXGI_FORMAT_R32_UINT
+else|:
+name|DXGI_FORMAT_R16_UINT
 return|;
 default|default:
 name|UNREACHABLE

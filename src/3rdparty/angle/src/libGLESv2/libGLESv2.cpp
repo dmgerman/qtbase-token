@@ -2740,6 +2740,8 @@ argument_list|,
 name|size
 argument_list|,
 name|usage
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -2933,6 +2935,8 @@ argument_list|,
 name|size
 argument_list|,
 name|offset
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 block|}

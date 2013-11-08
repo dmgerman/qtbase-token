@@ -75,6 +75,10 @@ parameter_list|,
 name|unsigned
 name|int
 name|offset
+parameter_list|,
+name|unsigned
+name|int
+name|target
 parameter_list|)
 init|=
 literal|0

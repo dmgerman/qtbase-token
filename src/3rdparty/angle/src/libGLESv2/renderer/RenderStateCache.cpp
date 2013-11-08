@@ -2238,6 +2238,13 @@ name|samplerDesc
 operator|.
 name|MaxLOD
 operator|=
+name|mDevice
+operator|->
+name|GetFeatureLevel
+argument_list|()
+operator|>=
+name|D3D_FEATURE_LEVEL_10_0
+condition|?
 name|gl_d3d11
 operator|::
 name|ConvertMaxLOD
@@ -2250,6 +2257,8 @@ name|samplerState
 operator|.
 name|lodOffset
 argument_list|)
+else|:
+name|FLT_MAX
 expr_stmt|;
 name|ID3D11SamplerState
 modifier|*
