@@ -11377,6 +11377,8 @@ operator|->
 name|getGlyph
 argument_list|(
 name|glyph
+argument_list|,
+name|subPixelPosition
 argument_list|)
 else|:
 literal|0
