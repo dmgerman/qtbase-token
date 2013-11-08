@@ -1666,13 +1666,6 @@ name|void
 name|clicked
 argument_list|(
 argument|QMessageDialogOptions::StandardButton button
-argument_list|)
-block|;
-comment|// TODO remove before 5.2
-name|void
-name|clicked
-argument_list|(
-argument|QMessageDialogOptions::StandardButton button
 argument_list|,
 argument|QMessageDialogOptions::ButtonRole role
 argument_list|)
