@@ -81,6 +81,16 @@ argument_list|(
 literal|true
 argument_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|placeholder
+argument_list|)
+expr_stmt|;
 name|bool
 name|isDefaultCategory
 init|=
