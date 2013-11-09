@@ -749,14 +749,14 @@ specifier|public
 name|String
 name|ENVIRONMENT_VARIABLES
 init|=
-literal|"QT_USE_ANDROID_NATIVE_STYLE=1\t"
+literal|"QT_USE_ANDROID_NATIVE_STYLE=1\tQT_USE_ANDROID_NATIVE_DIALOGS=1\t"
 decl_stmt|;
 comment|// use this variable to add any environment variables to your application.
 comment|// the env vars must be separated with "\t"
 comment|// e.g. "ENV_VAR1=1\tENV_VAR2=2\t"
 comment|// Currently the following vars are used by the android plugin:
-comment|// * QT_USE_ANDROID_NATIVE_STYLE - 1 to use the android widget style if available,
-comment|//   note that the android style plugin in Qt 5.1 is not fully functional.
+comment|// * QT_USE_ANDROID_NATIVE_STYLE - 1 to use the android widget style if available.
+comment|// * QT_USE_ANDROID_NATIVE_DIALOGS -1 to use the android native dialogs.
 DECL|field|QT_ANDROID_THEMES
 specifier|public
 name|String

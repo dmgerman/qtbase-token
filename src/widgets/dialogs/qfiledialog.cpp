@@ -2792,9 +2792,11 @@ name|QFileDialogPrivate
 operator|::
 name|canBeNativeDialog
 parameter_list|()
+specifier|const
 block|{
 name|Q_Q
 argument_list|(
+specifier|const
 name|QFileDialog
 argument_list|)
 expr_stmt|;

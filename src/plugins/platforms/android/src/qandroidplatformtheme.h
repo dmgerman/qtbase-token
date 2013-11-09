@@ -89,6 +89,23 @@ argument|ThemeHint hint
 argument_list|)
 specifier|const
 block|;
+name|virtual
+name|bool
+name|usePlatformNativeDialog
+argument_list|(
+argument|DialogType type
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|QPlatformDialogHelper
+operator|*
+name|createPlatformDialogHelper
+argument_list|(
+argument|DialogType type
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|QAndroidPlatformNativeInterface
