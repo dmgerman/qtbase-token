@@ -90,6 +90,14 @@ name|QKeySequencePrivate
 block|{
 name|public
 label|:
+enum|enum
+block|{
+name|MaxKeyCount
+init|=
+literal|4
+block|}
+enum|;
+comment|// used in QKeySequenceEdit
 specifier|inline
 name|QKeySequencePrivate
 argument_list|()

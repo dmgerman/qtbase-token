@@ -22,11 +22,25 @@ include|#
 directive|include
 file|"qlineedit.h"
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_KEYSEQUENCEEDIT
+name|Q_STATIC_ASSERT
+argument_list|(
+name|QKeySequencePrivate
+operator|::
+name|MaxKeyCount
+operator|==
+literal|4
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// assumed by the code around here
+end_comment
+begin_function
 DECL|function|init
 name|void
 name|QKeySequenceEditPrivate
@@ -984,7 +998,7 @@ name|d
 operator|->
 name|keyNum
 operator|>=
-name|QKeySequenceEditPrivate
+name|QKeySequencePrivate
 operator|::
 name|MaxKeyCount
 condition|)
@@ -1078,7 +1092,7 @@ name|d
 operator|->
 name|keyNum
 operator|<
-name|QKeySequenceEditPrivate
+name|QKeySequencePrivate
 operator|::
 name|MaxKeyCount
 condition|)
@@ -1151,7 +1165,7 @@ name|d
 operator|->
 name|keyNum
 operator|<
-name|QKeySequenceEditPrivate
+name|QKeySequencePrivate
 operator|::
 name|MaxKeyCount
 condition|)

@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<private/qwidget_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qkeysequence_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -46,13 +51,6 @@ argument|QKeySequenceEdit
 argument_list|)
 name|public
 operator|:
-expr|enum
-block|{
-name|MaxKeyCount
-operator|=
-literal|4
-block|}
-block|;
 name|void
 name|init
 argument_list|()
@@ -86,6 +84,8 @@ block|;
 name|int
 name|key
 index|[
+name|QKeySequencePrivate
+operator|::
 name|MaxKeyCount
 index|]
 block|;
