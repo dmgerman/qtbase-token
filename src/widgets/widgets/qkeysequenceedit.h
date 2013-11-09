@@ -77,6 +77,9 @@ name|keySequence
 argument_list|()
 specifier|const
 block|;
+name|public
+name|Q_SLOTS
+operator|:
 name|void
 name|setKeySequence
 argument_list|(
@@ -86,9 +89,6 @@ operator|&
 name|keySequence
 argument_list|)
 block|;
-name|public
-name|Q_SLOTS
-operator|:
 name|void
 name|clear
 argument_list|()
