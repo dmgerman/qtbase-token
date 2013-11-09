@@ -47,6 +47,16 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
+name|lineEdit
+operator|->
+name|setObjectName
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"qt_keysequenceedit_lineedit"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|keyNum
 operator|=
 literal|0
