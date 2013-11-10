@@ -397,7 +397,10 @@ block|{
 name|asm
 specifier|volatile
 operator|(
-literal|"sync 0x11"
+literal|".set push\n"
+literal|".set mips32\n"
+literal|"sync 0x11\n"
+literal|".set pop\n"
 operator|::
 operator|:
 literal|"memory"
@@ -429,7 +432,10 @@ block|{
 name|asm
 specifier|volatile
 operator|(
-literal|"sync 0x12"
+literal|".set push\n"
+literal|".set mips32\n"
+literal|"sync 0x11\n"
+literal|".set pop\n"
 operator|::
 operator|:
 literal|"memory"
