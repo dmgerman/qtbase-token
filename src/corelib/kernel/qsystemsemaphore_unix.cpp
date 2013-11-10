@@ -894,6 +894,9 @@ return|return
 literal|false
 return|;
 block|}
+name|clearError
+argument_list|()
+expr_stmt|;
 return|return
 literal|true
 return|;
