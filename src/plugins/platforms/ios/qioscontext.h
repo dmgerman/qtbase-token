@@ -27,6 +27,12 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QIOSWindow
+name|class
+name|QIOSWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QObject
 name|class
 name|QIOSContext
@@ -162,7 +168,7 @@ function_decl|;
 name|mutable
 name|QHash
 operator|<
-name|QWindow
+name|QIOSWindow
 operator|*
 operator|,
 name|FramebufferObject
