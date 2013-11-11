@@ -1909,11 +1909,6 @@ name|m_displayName
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|xcb_window_t
-name|m_connectionEventListener
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QXcbKeyboard
 modifier|*
 name|m_keyboard
