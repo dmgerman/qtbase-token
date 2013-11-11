@@ -81,6 +81,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_NETWORK
+argument_list|)
 include|#
 directive|include
 file|<QHostInfo>
@@ -12896,6 +12902,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_NETWORK
 argument_list|)
 comment|// Some semi-randomness to avoid collisions.
 name|QTest
