@@ -2686,12 +2686,12 @@ operator|::
 name|windowsId
 parameter_list|()
 block|{
-comment|/*     Current Windows zones for "Central Standard Time":     Region      Olsen Id(s)     Default     "America/Chicago"     Canada      "America/Winnipeg America/Rainy_River America/Rankin_Inlet America/Resolute"     Mexico      "America/Matamoros"     USA         "America/Chicago America/Indiana/Knox America/Indiana/Tell_City America/Menominee"                 "America/North_Dakota/Beulah America/North_Dakota/Center"                 "America/North_Dakota/New_Salem"     AnyCountry  "CST6CDT" */
+comment|/*     Current Windows zones for "Central Standard Time":     Region      IANA Id(s)     Default     "America/Chicago"     Canada      "America/Winnipeg America/Rainy_River America/Rankin_Inlet America/Resolute"     Mexico      "America/Matamoros"     USA         "America/Chicago America/Indiana/Knox America/Indiana/Tell_City America/Menominee"                 "America/North_Dakota/Beulah America/North_Dakota/Center"                 "America/North_Dakota/New_Salem"     AnyCountry  "CST6CDT" */
 name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
 literal|"America/Chicago"
 argument_list|)
@@ -2706,7 +2706,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
 literal|"America/Resolute"
 argument_list|)
@@ -2722,7 +2722,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
 literal|"America/Chi"
 argument_list|)
@@ -2735,7 +2735,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
 literal|"InvalidZone"
 argument_list|)
@@ -2748,7 +2748,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
 name|QByteArray
 argument_list|()
@@ -2763,7 +2763,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 literal|"Central Standard Time"
 argument_list|)
@@ -2778,7 +2778,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -2797,7 +2797,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -2816,7 +2816,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 name|QByteArray
 argument_list|()
@@ -2865,7 +2865,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 literal|"Central Standard Time"
 argument_list|)
@@ -2883,7 +2883,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -2915,7 +2915,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -2940,7 +2940,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -2977,7 +2977,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -3002,7 +3002,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 literal|"Central Standard Time"
 argument_list|,
@@ -3024,7 +3024,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 name|QByteArray
 argument_list|()
@@ -3037,7 +3037,7 @@ name|QCOMPARE
 argument_list|(
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 name|QByteArray
 argument_list|()

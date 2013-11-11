@@ -114,7 +114,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 function_decl|;
 name|explicit
@@ -421,7 +421,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 function_decl|;
 specifier|static
@@ -454,17 +454,17 @@ argument_list|)
 expr_stmt|;
 specifier|static
 name|QByteArray
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 function_decl|;
 specifier|static
 name|QByteArray
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -474,7 +474,7 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|QByteArray
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 specifier|const
 name|QByteArray
@@ -492,7 +492,7 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 specifier|const
 name|QByteArray
@@ -505,7 +505,7 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 argument|const QByteArray&windowsId
 argument_list|,

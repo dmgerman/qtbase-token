@@ -1840,7 +1840,7 @@ else|else
 block|{
 name|m_windowsId
 operator|=
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
 name|olsenId
 argument_list|)
@@ -3124,7 +3124,7 @@ name|AnyCountry
 condition|)
 name|olsenId
 operator|=
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 name|windowsId
 argument_list|,
@@ -3142,7 +3142,7 @@ condition|)
 block|{
 name|olsenId
 operator|=
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 name|windowsId
 argument_list|)
@@ -3203,7 +3203,7 @@ name|QByteArray
 modifier|&
 name|olsenId
 decl|,
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 name|winId
 argument_list|)
