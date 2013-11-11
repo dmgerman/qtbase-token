@@ -174,12 +174,6 @@ operator|.
 name|autoDetection
 argument_list|()
 expr_stmt|;
-comment|// ... and the CPU architectures.
-name|app
-operator|.
-name|detectArch
-argument_list|()
-expr_stmt|;
 comment|// After reading all command-line arguments, and doing all the
 comment|// auto-detection, it's time to do some last minute validation.
 comment|// If the validation fails, we cannot continue.

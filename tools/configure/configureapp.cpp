@@ -14442,6 +14442,10 @@ literal|"Running configuration tests..."
 operator|<<
 name|endl
 expr_stmt|;
+comment|// Auto-detect CPU architectures.
+name|detectArch
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|dictionary
