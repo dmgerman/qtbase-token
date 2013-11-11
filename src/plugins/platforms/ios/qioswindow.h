@@ -195,9 +195,6 @@ block|;
 name|int
 name|m_windowLevel
 block|;
-name|qreal
-name|m_devicePixelRatio
-block|;
 name|void
 name|raiseOrLower
 argument_list|(
