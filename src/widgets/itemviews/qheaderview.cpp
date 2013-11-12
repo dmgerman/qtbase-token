@@ -5389,7 +5389,8 @@ if|if
 condition|(
 name|size
 argument_list|<
-literal|0
+operator|-
+literal|1
 operator|||
 name|size
 argument_list|>
