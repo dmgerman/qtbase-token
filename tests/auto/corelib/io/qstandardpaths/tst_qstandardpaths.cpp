@@ -1521,11 +1521,21 @@ parameter_list|()
 block|{
 comment|// On all platforms, DataLocation should be GenericDataLocation / organization name / app name
 comment|// This allows one app to access the data of another app.
-comment|// Blackberry OS is an exception to this case, owing to the fact that
+comment|// Blackberry OS and WinRT are an exception to this case, owing to the fact that
 comment|// applications are sandboxed.
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 specifier|const
 name|QString
 name|base
@@ -1859,6 +1869,9 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 specifier|const
 name|QFileInfo
 name|cmdFi
@@ -2051,6 +2064,9 @@ operator|<<
 name|logoPath
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// Q_OS_WINRT
 else|#
 directive|else
 specifier|const
