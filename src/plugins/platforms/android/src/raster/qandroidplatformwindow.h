@@ -85,13 +85,6 @@ operator|&
 name|rect
 argument_list|)
 decl_stmt|;
-name|private
-label|:
-name|Qt
-operator|::
-name|WindowState
-name|m_state
-expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

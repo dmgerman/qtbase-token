@@ -32,13 +32,6 @@ name|QFbWindow
 argument_list|(
 name|window
 argument_list|)
-member_init_list|,
-name|m_state
-argument_list|(
-name|Qt
-operator|::
-name|WindowNoState
-argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -125,7 +118,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|m_state
+name|mWindowState
 operator|&
 name|Qt
 operator|::
@@ -139,7 +132,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|m_state
+name|mWindowState
 operator|&
 name|Qt
 operator|::
@@ -186,15 +179,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|m_state
+name|mWindowState
 operator|==
 name|state
 condition|)
 return|return;
-name|m_state
-operator|=
-name|state
-expr_stmt|;
 if|if
 condition|(
 name|window
