@@ -87,6 +87,15 @@ name|QVariant
 operator|&
 name|value
 argument_list|)
+block|;
+name|NativeResourceForIntegrationFunction
+name|nativeResourceFunctionForIntegration
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|resource
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
