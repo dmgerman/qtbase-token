@@ -162,7 +162,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_COMPILER_INITIALIZER_LISTS
+name|Q_COMPILER_UNIFORM_INIT
 argument_list|)
 operator|&&
 operator|!
@@ -592,7 +592,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_COMPILER_INITIALIZER_LISTS
+name|Q_COMPILER_UNIFORM_INIT
 argument_list|)
 operator|&&
 operator|!
