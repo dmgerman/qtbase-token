@@ -7951,6 +7951,10 @@ name|ret
 return|;
 name|ret
 operator|=
+name|QDir
+operator|::
+name|fromNativeSeparators
+argument_list|(
 name|QString
 operator|::
 name|fromWCharArray
@@ -7960,6 +7964,7 @@ argument_list|(
 name|path
 argument_list|,
 literal|nullptr
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
