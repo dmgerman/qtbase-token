@@ -2946,6 +2946,9 @@ comment|// If caret position has changed we need to inform IMF unless this is ju
 comment|// such as committing text.
 if|if
 condition|(
+name|hasSession
+argument_list|()
+operator|&&
 operator|!
 name|m_isUpdatingText
 operator|&&
@@ -3050,6 +3053,17 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+comment|// These are likely already in the right state but this depends on the text control
+comment|// having called reset or commit.  So, just in case, set them to proper values.
+name|m_isComposing
+operator|=
+literal|false
+expr_stmt|;
+name|m_composingText
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -3239,9 +3253,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|sInputSession
-operator|!=
-literal|0
+name|hasSession
+argument_list|()
 condition|)
 name|dispatchFocusLossEvent
 argument_list|()
@@ -3453,9 +3466,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|sInputSession
-operator|!=
-literal|0
+name|hasSession
+argument_list|()
 condition|)
 block|{
 name|qInputContextDebug
@@ -3497,9 +3509,8 @@ operator|&
 name|focusEvent
 argument_list|)
 expr_stmt|;
-name|sInputSession
-operator|=
-literal|0
+name|closeSession
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -3538,7 +3549,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|imfAvailable
+name|hasSession
 argument_list|()
 condition|)
 return|return
@@ -3904,6 +3915,12 @@ return|return;
 name|finishComposingText
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|hasSession
+argument_list|()
+condition|)
+block|{
 name|action_event_t
 name|actionEvent
 decl_stmt|;
@@ -3941,6 +3958,7 @@ operator|.
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -5758,9 +5776,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|sInputSession
-operator|!=
-literal|0
+name|hasSession
+argument_list|()
 condition|)
 name|dispatchFocusLossEvent
 argument_list|()
