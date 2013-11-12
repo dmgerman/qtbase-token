@@ -45,6 +45,12 @@ file|<string.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QRegularExpression
+name|class
+name|QRegularExpression
+decl_stmt|;
+end_decl_stmt
+begin_define
 DECL|macro|QVERIFY
 define|#
 directive|define
@@ -54,6 +60,8 @@ name|statement
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qVerify((statement), #statement, "", __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QFAIL
 define|#
 directive|define
@@ -63,6 +71,8 @@ name|message
 parameter_list|)
 define|\
 value|do {\     QTest::qFail(message, __FILE__, __LINE__);\     return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QVERIFY2
 define|#
 directive|define
@@ -74,6 +84,8 @@ name|description
 parameter_list|)
 define|\
 value|do {\     if (statement) {\         if (!QTest::qVerify(true, #statement, (description), __FILE__, __LINE__))\             return;\     } else {\         if (!QTest::qVerify(false, #statement, (description), __FILE__, __LINE__))\             return;\     }\ } while (0)
+end_define
+begin_define
 DECL|macro|QCOMPARE
 define|#
 directive|define
@@ -85,7 +97,11 @@ name|expected
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qCompare(actual, expected, #actual, #expected, __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_comment
 comment|// Will try to wait for the expression to become true while allowing event processing
+end_comment
+begin_define
 DECL|macro|QTRY_VERIFY_WITH_TIMEOUT
 define|#
 directive|define
@@ -97,6 +113,8 @@ name|__timeout
 parameter_list|)
 define|\
 value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if (!(__expr)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& !(__expr); __i+=__step) { \         QTest::qWait(__step); \     } \     QVERIFY(__expr); \ } while (0)
+end_define
+begin_define
 DECL|macro|QTRY_VERIFY
 define|#
 directive|define
@@ -105,7 +123,11 @@ parameter_list|(
 name|__expr
 parameter_list|)
 value|QTRY_VERIFY_WITH_TIMEOUT(__expr, 5000)
+end_define
+begin_comment
 comment|// Will try to wait for the comparison to become successful while allowing event processing
+end_comment
+begin_define
 DECL|macro|QTRY_COMPARE_WITH_TIMEOUT
 define|#
 directive|define
@@ -119,6 +141,8 @@ name|__timeout
 parameter_list|)
 define|\
 value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
+end_define
+begin_define
 DECL|macro|QTRY_COMPARE
 define|#
 directive|define
@@ -129,6 +153,8 @@ parameter_list|,
 name|__expected
 parameter_list|)
 value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
+end_define
+begin_define
 DECL|macro|QSKIP_INTERNAL
 define|#
 directive|define
@@ -138,9 +164,13 @@ name|statement
 parameter_list|)
 define|\
 value|do {\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
+end_define
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_VARIADIC_MACROS
+end_ifdef
+begin_define
 DECL|macro|QSKIP
 define|#
 directive|define
@@ -151,8 +181,13 @@ parameter_list|,
 modifier|...
 parameter_list|)
 value|QSKIP_INTERNAL(statement)
+end_define
+begin_else
 else|#
 directive|else
+end_else
+begin_define
+DECL|macro|QSKIP
 define|#
 directive|define
 name|QSKIP
@@ -160,8 +195,12 @@ parameter_list|(
 name|statement
 parameter_list|)
 value|QSKIP_INTERNAL(statement)
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_define
 DECL|macro|QEXPECT_FAIL
 define|#
 directive|define
@@ -175,6 +214,8 @@ name|mode
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qExpectFail(dataIndex, comment, QTest::mode, __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QFETCH
 define|#
 directive|define
@@ -186,6 +227,8 @@ name|name
 parameter_list|)
 define|\
 value|type name = *static_cast<type *>(QTest::qData(#name, ::qMetaTypeId<type>()))
+end_define
+begin_define
 DECL|macro|QFETCH_GLOBAL
 define|#
 directive|define
@@ -197,6 +240,8 @@ name|name
 parameter_list|)
 define|\
 value|type name = *static_cast<type *>(QTest::qGlobalData(#name, ::qMetaTypeId<type>()))
+end_define
+begin_define
 DECL|macro|QTEST
 define|#
 directive|define
@@ -208,6 +253,8 @@ name|testElement
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qTest(actual, testElement, #actual, #testElement, __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QWARN
 define|#
 directive|define
@@ -217,9 +264,13 @@ name|msg
 parameter_list|)
 define|\
 value|QTest::qWarn(msg, __FILE__, __LINE__)
+end_define
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_TESTCASE_BUILDDIR
+end_ifdef
+begin_define
 DECL|macro|QFINDTESTDATA
 define|#
 directive|define
@@ -229,8 +280,13 @@ name|basepath
 parameter_list|)
 define|\
 value|QTest::qFindTestData(basepath, __FILE__, __LINE__, QT_TESTCASE_BUILDDIR)
+end_define
+begin_else
 else|#
 directive|else
+end_else
+begin_define
+DECL|macro|QFINDTESTDATA
 define|#
 directive|define
 name|QFINDTESTDATA
@@ -239,8 +295,12 @@ name|basepath
 parameter_list|)
 define|\
 value|QTest::qFindTestData(basepath, __FILE__, __LINE__)
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_decl_stmt
 DECL|variable|QObject
 name|class
 name|QObject
@@ -474,6 +534,19 @@ specifier|const
 name|char
 modifier|*
 name|message
+parameter_list|)
+function_decl|;
+name|Q_TESTLIB_EXPORT
+name|void
+name|ignoreMessage
+parameter_list|(
+name|QtMsgType
+name|type
+parameter_list|,
+specifier|const
+name|QRegularExpression
+modifier|&
+name|messagePattern
 parameter_list|)
 function_decl|;
 name|Q_TESTLIB_EXPORT

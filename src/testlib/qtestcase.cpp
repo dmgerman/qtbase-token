@@ -6659,6 +6659,36 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     \overload      Ignores messages created by qDebug() or qWarning(). If the \a message     matching \a messagePattern     with the corresponding \a type is outputted, it will be removed from the     test log. If the test finished and the \a message was not outputted,     a test failure is appended to the test log.      \b {Note:} Invoking this function will only ignore one message.     If the message you want to ignore is outputted twice, you have to     call ignoreMessage() twice, too.      \since 5.3 */
+end_comment
+begin_function
+DECL|function|ignoreMessage
+name|void
+name|QTest
+operator|::
+name|ignoreMessage
+parameter_list|(
+name|QtMsgType
+name|type
+parameter_list|,
+specifier|const
+name|QRegularExpression
+modifier|&
+name|messagePattern
+parameter_list|)
+block|{
+name|QTestLog
+operator|::
+name|ignoreMessage
+argument_list|(
+name|type
+argument_list|,
+name|messagePattern
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*! \internal  */
 end_comment
 begin_ifdef
