@@ -143,6 +143,15 @@ return|return
 name|m_eglConfig
 return|;
 block|}
+name|EGLContext
+name|getEglContext
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_eglContext
+return|;
+block|}
 name|private
 operator|:
 comment|//Can be static because different displays returne the same handle
