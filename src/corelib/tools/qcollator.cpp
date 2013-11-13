@@ -179,6 +179,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QCollator::swap(QCollator&other)      Swaps this collator with \a other. This function is very fast and     never fails. */
+end_comment
+begin_comment
 comment|/*!     \internal  */
 end_comment
 begin_function
