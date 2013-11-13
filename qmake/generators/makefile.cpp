@@ -278,7 +278,16 @@ name|escape
 condition|?
 name|escapeFilePath
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|dir
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 else|:
 name|dir
