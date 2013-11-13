@@ -87,25 +87,6 @@ include|#
 directive|include
 file|<qlineedit.h>
 end_include
-begin_comment
-comment|// Will try to wait for the condition while allowing event processing
-end_comment
-begin_comment
-comment|// for a maximum of 5 seconds.
-end_comment
-begin_define
-DECL|macro|TRY_COMPARE
-define|#
-directive|define
-name|TRY_COMPARE
-parameter_list|(
-name|expr
-parameter_list|,
-name|expected
-parameter_list|)
-define|\
-value|do { \         const int step = 50; \         for (int q = 0; q< 5000&& ((expr) != (expected)); q+=step) { \             QTest::qWait(step); \         } \         QCOMPARE(expr, expected); \     } while(0)
-end_define
 begin_function
 DECL|function|setFrameless
 specifier|static
@@ -4452,7 +4433,7 @@ operator|++
 name|i
 control|)
 block|{
-name|TRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
 name|list
 operator|.
@@ -4463,8 +4444,6 @@ argument_list|)
 operator|->
 name|isVisible
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|QPoint
@@ -5016,16 +4995,12 @@ name|index
 argument_list|)
 expr_stmt|;
 comment|// This will close the editor
-name|TRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
 name|QApplication
 operator|::
 name|focusWidget
 argument_list|()
-operator|==
-literal|0
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|QWidget
