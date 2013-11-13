@@ -812,11 +812,14 @@ name|engineData
 operator|&&
 name|engineData
 operator|->
-name|fontCache
+name|fontCacheId
 operator|!=
 name|QFontCache
 operator|::
 name|instance
+argument_list|()
+operator|->
+name|id
 argument_list|()
 condition|)
 block|{
@@ -1436,11 +1439,14 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|fontCache
+name|fontCacheId
 argument_list|(
 name|QFontCache
 operator|::
 name|instance
+argument_list|()
+operator|->
+name|id
 argument_list|()
 argument_list|)
 block|{
@@ -7762,6 +7768,17 @@ end_endif
 begin_comment
 comment|// QT_NO_THREAD
 end_comment
+begin_decl_stmt
+DECL|variable|font_cache_id
+name|QBasicAtomicInt
+name|font_cache_id
+init|=
+name|Q_BASIC_ATOMIC_INITIALIZER
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_constructor
 DECL|function|QFontCache
 name|QFontCache
@@ -7796,6 +7813,16 @@ name|timer_id
 argument_list|(
 operator|-
 literal|1
+argument_list|)
+member_init_list|,
+name|m_id
+argument_list|(
+name|font_cache_id
+operator|.
+name|fetchAndAddRelaxed
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 block|{ }
 end_constructor
