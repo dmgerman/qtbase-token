@@ -117,11 +117,14 @@ modifier|&
 name|olsenId
 parameter_list|)
 function_decl|;
+name|explicit
 name|QTimeZone
-argument_list|(
-argument|int offsetSeconds
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|int
+name|offsetSeconds
+parameter_list|)
+function_decl|;
+comment|/*implicit*/
 name|QTimeZone
 argument_list|(
 argument|const QByteArray&zoneId
