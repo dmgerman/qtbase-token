@@ -192,11 +192,13 @@ block|,
 name|DontResetTextureUnit
 block|}
 enum|;
+name|explicit
 name|QOpenGLTexture
-argument_list|(
-argument|Target target
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|Target
+name|target
+parameter_list|)
+function_decl|;
 name|QOpenGLTexture
 argument_list|(
 argument|const QImage& image
