@@ -540,7 +540,7 @@ begin_comment
 comment|/*     \fn void QTimeZone::swap(QTimeZone&other)      Swaps this timezone with \a other. This function is very fast and     never fails. */
 end_comment
 begin_comment
-comment|/*!     \fn QTimeZone&QTimeZone::operator=(QTimeZone&&other)      Move-assigns \a other to this QTimeZone instance, transferring the     ownership of the managed pointer to this instance.      \since 5.2 */
+comment|/*!     \fn QTimeZone&QTimeZone::operator=(QTimeZone&&other)      Move-assigns \a other to this QTimeZone instance, transferring the     ownership of the managed pointer to this instance. */
 end_comment
 begin_comment
 comment|/*!     Returns \c true if this time zone is equal to the \a other time zone. */
