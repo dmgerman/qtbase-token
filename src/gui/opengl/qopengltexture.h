@@ -199,13 +199,20 @@ name|Target
 name|target
 parameter_list|)
 function_decl|;
+name|explicit
 name|QOpenGLTexture
-argument_list|(
-argument|const QImage& image
-argument_list|,
-argument|MipMapGeneration genMipMaps = GenerateMipMaps
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QImage
+modifier|&
+name|image
+parameter_list|,
+name|MipMapGeneration
+name|genMipMaps
+init|=
+name|GenerateMipMaps
+parameter_list|)
+function_decl|;
 operator|~
 name|QOpenGLTexture
 argument_list|()
