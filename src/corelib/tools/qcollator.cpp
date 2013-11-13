@@ -460,7 +460,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QCollatorSortKey::operator<(const QCollatorSortKey&otherKey) const      According to the QCollator that created the key, returns \c true if the     key should be sorted before than \a otherKey; otherwise returns \c false.      \sa compare()  */
+comment|/*!     \fn bool operator<(const QCollatorSortKey&lhs, const QCollatorSortKey&rhs)     \relates QCollatorSortKey      According to the QCollator that created the keys, returns \c true if \a lhs     should be sorted before \a rhs; otherwise returns \c false.      \sa QCollatorSortKey::compare()  */
 end_comment
 begin_comment
 comment|/*!     \fn int QCollatorSortKey::compare(const QCollatorSortKey&otherKey) const      Compares the key to \a otherKey. Returns a negative value if the key     is less than \a otherKey, 0 if the key is equal to \a otherKey or a     positive value if the key is greater than \a otherKey.      \sa operator<()  */
