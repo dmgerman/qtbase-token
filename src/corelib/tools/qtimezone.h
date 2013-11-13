@@ -574,6 +574,12 @@ name|Q_MOVABLE_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QTimeZone
+argument_list|)
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -598,6 +604,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|operator
 name|Q_CORE_EXPORT
 name|QDataStream
 operator|&
