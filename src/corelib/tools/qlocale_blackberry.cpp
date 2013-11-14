@@ -127,6 +127,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+comment|// Do not use qWarning to log warnings if qt_safe_open fails to open the pps file
+comment|// since the user code may install a message handler that invokes QLocale API again
+comment|// (i.e QDate, QDateTime, ...) which will cause a deadlock.
 if|if
 condition|(
 operator|(
@@ -143,9 +146,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|qWarning
+name|fprintf
 argument_list|(
-literal|"Failed to open uom pps, errno=%d"
+name|stderr
+argument_list|,
+literal|"Failed to open uom pps, errno=%d\n"
 argument_list|,
 name|errno
 argument_list|)
@@ -166,9 +171,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|qWarning
+name|fprintf
 argument_list|(
-literal|"Failed to open region pps, errno=%d"
+name|stderr
+argument_list|,
+literal|"Failed to open region pps, errno=%d\n"
 argument_list|,
 name|errno
 argument_list|)
@@ -189,9 +196,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|qWarning
+name|fprintf
 argument_list|(
-literal|"Failed to open language pps, errno=%d"
+name|stderr
+argument_list|,
+literal|"Failed to open language pps, errno=%d\n"
 argument_list|,
 name|errno
 argument_list|)
@@ -212,9 +221,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|qWarning
+name|fprintf
 argument_list|(
-literal|"Failed to open hour format pps, errno=%d"
+name|stderr
+argument_list|,
+literal|"Failed to open hour format pps, errno=%d\n"
 argument_list|,
 name|errno
 argument_list|)
@@ -789,6 +800,10 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+comment|// This method is called in the ctor(), so do not use qWarning to log warnings
+comment|// if qt_safe_read fails to read the pps file
+comment|// since the user code may install a message handler that invokes QLocale API again
+comment|// (i.e QDate, QDateTime, ...) which will cause a deadlock.
 if|if
 condition|(
 name|bytes
@@ -797,9 +812,13 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qWarning
+name|fprintf
 argument_list|(
-literal|"Failed to read Locale pps, errno=%d"
+name|stderr
+argument_list|,
+literal|"Failed to read pps object:%s, errno=%d\n"
+argument_list|,
+name|ppsObject
 argument_list|,
 name|errno
 argument_list|)
