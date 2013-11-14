@@ -54,18 +54,24 @@ name|QVector3D
 block|{
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 name|QVector3D
-argument_list|()
-expr_stmt|;
+parameter_list|()
+function_decl|;
+name|Q_DECL_CONSTEXPR
 name|QVector3D
-argument_list|(
-argument|float xpos
-argument_list|,
-argument|float ypos
-argument_list|,
-argument|float zpos
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|float
+name|xpos
+parameter_list|,
+name|float
+name|ypos
+parameter_list|,
+name|float
+name|zpos
+parameter_list|)
+function_decl|;
+name|Q_DECL_CONSTEXPR
 name|explicit
 name|QVector3D
 parameter_list|(
@@ -75,6 +81,7 @@ modifier|&
 name|point
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 name|explicit
 name|QVector3D
 parameter_list|(
@@ -123,16 +130,19 @@ name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|float
 name|x
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|float
 name|y
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|float
 name|z
 argument_list|()
@@ -372,6 +382,7 @@ name|direction
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 name|bool
@@ -389,6 +400,7 @@ operator|&
 name|v2
 operator|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 name|bool
@@ -406,6 +418,7 @@ operator|&
 name|v2
 operator|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 specifier|const
@@ -424,6 +437,7 @@ operator|&
 name|v2
 operator|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 specifier|const
@@ -442,6 +456,7 @@ operator|&
 name|v2
 operator|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 specifier|const
@@ -458,6 +473,7 @@ modifier|&
 name|vector
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 specifier|const
@@ -474,6 +490,7 @@ name|float
 name|factor
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|const
 name|QVector3D
@@ -491,6 +508,7 @@ modifier|&
 name|v2
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 specifier|const
@@ -504,6 +522,7 @@ operator|&
 name|vector
 operator|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 specifier|const
@@ -520,6 +539,7 @@ name|float
 name|divisor
 operator|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|friend
 specifier|inline
 name|bool
@@ -556,11 +576,13 @@ specifier|const
 expr_stmt|;
 endif|#
 directive|endif
+name|Q_DECL_CONSTEXPR
 name|QPoint
 name|toPoint
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|QPointF
 name|toPointF
 argument_list|()
@@ -641,6 +663,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 DECL|function|QVector3D
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QVector3D
 operator|::
@@ -663,6 +686,7 @@ literal|0.0f
 argument_list|)
 block|{}
 DECL|function|QVector3D
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QVector3D
 operator|::
@@ -691,6 +715,7 @@ argument|zpos
 argument_list|)
 block|{}
 DECL|function|QVector3D
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QVector3D
 operator|::
@@ -724,6 +749,7 @@ literal|0.0f
 argument_list|)
 block|{}
 DECL|function|QVector3D
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QVector3D
 operator|::
@@ -785,6 +811,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|x
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|float
 name|QVector3D
@@ -800,6 +827,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|float
 name|QVector3D
@@ -815,6 +843,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|z
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|float
 name|QVector3D
@@ -1121,6 +1150,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1165,6 +1195,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1209,6 +1240,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1257,6 +1289,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1305,6 +1338,7 @@ return|;
 block|}
 end_expr_stmt
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1345,6 +1379,7 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1385,6 +1420,7 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1433,6 +1469,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1467,6 +1504,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QVector3D
@@ -1507,6 +1545,7 @@ return|;
 block|}
 end_expr_stmt
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|qFuzzyCompare
@@ -1559,6 +1598,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPoint
 name|QVector3D
@@ -1584,6 +1624,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPointF
 name|QVector3D
