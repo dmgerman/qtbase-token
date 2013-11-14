@@ -73,6 +73,10 @@ operator|*
 name|focusWindow
 argument_list|)
 block|;
+name|void
+name|scrollRootView
+argument_list|()
+block|;
 name|private
 operator|:
 name|QIOSKeyboardListener
