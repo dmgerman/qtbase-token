@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qguiapplication_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<dlfcn.h>
 end_include
 begin_include
@@ -3137,6 +3142,12 @@ if|if
 condition|(
 operator|!
 name|m_androidPlatformIntegration
+operator|||
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
 condition|)
 return|return;
 name|QWindowSystemInterface
