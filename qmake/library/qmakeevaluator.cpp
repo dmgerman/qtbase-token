@@ -10515,9 +10515,6 @@ operator|->
 name|deref
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|PROEVALUATOR_FULL
 if|if
 condition|(
 name|ok
@@ -10568,8 +10565,6 @@ operator|<<
 name|ifn
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 return|return
 name|ok
 return|;
@@ -11203,9 +11198,6 @@ operator|.
 name|top
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|PROEVALUATOR_FULL
 name|ProKey
 name|qiif
 argument_list|(
@@ -11252,8 +11244,6 @@ name|iif
 operator|<<
 name|ifn
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|ReturnTrue
 return|;
