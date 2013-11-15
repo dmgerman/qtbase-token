@@ -8131,6 +8131,16 @@ break|break;
 case|case
 name|Qt
 operator|::
+name|WindowMaximized
+case|:
+case|case
+name|Qt
+operator|::
+name|WindowFullScreen
+case|:
+case|case
+name|Qt
+operator|::
 name|WindowNoState
 case|:
 block|{
