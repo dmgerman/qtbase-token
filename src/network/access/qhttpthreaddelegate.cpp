@@ -80,6 +80,17 @@ name|httpStatusCode
 condition|)
 block|{
 case|case
+literal|400
+case|:
+comment|// Bad Request
+name|code
+operator|=
+name|QNetworkReply
+operator|::
+name|ProtocolInvalidOperationError
+expr_stmt|;
+break|break;
+case|case
 literal|401
 case|:
 comment|// Authorization required
@@ -134,6 +145,28 @@ name|ProxyAuthenticationRequiredError
 expr_stmt|;
 break|break;
 case|case
+literal|409
+case|:
+comment|// Resource Conflict
+name|code
+operator|=
+name|QNetworkReply
+operator|::
+name|ContentConflictError
+expr_stmt|;
+break|break;
+case|case
+literal|410
+case|:
+comment|// Content no longer available
+name|code
+operator|=
+name|QNetworkReply
+operator|::
+name|ContentGoneError
+expr_stmt|;
+break|break;
+case|case
 literal|418
 case|:
 comment|// I'm a teapot
@@ -142,6 +175,39 @@ operator|=
 name|QNetworkReply
 operator|::
 name|ProtocolInvalidOperationError
+expr_stmt|;
+break|break;
+case|case
+literal|500
+case|:
+comment|// Internal Server Error
+name|code
+operator|=
+name|QNetworkReply
+operator|::
+name|InternalServerError
+expr_stmt|;
+break|break;
+case|case
+literal|501
+case|:
+comment|// Server does not support this functionality
+name|code
+operator|=
+name|QNetworkReply
+operator|::
+name|OperationNotImplementedError
+expr_stmt|;
+break|break;
+case|case
+literal|503
+case|:
+comment|// Service unavailable
+name|code
+operator|=
+name|QNetworkReply
+operator|::
+name|ServiceUnavailableError
 expr_stmt|;
 break|break;
 default|default:
@@ -157,7 +223,7 @@ name|code
 operator|=
 name|QNetworkReply
 operator|::
-name|ProtocolUnknownError
+name|UnknownServerError
 expr_stmt|;
 block|}
 elseif|else

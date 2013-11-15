@@ -152,6 +152,10 @@ name|AuthenticationRequiredError
 block|,
 name|ContentReSendError
 block|,
+name|ContentConflictError
+block|,
+name|ContentGoneError
+block|,
 name|UnknownContentError
 operator|=
 literal|299
@@ -166,6 +170,19 @@ block|,
 name|ProtocolFailure
 operator|=
 literal|399
+block|,
+comment|// Server side errors (401-499)
+name|InternalServerError
+operator|=
+literal|401
+block|,
+name|OperationNotImplementedError
+block|,
+name|ServiceUnavailableError
+block|,
+name|UnknownServerError
+operator|=
+literal|499
 block|}
 block|;
 operator|~

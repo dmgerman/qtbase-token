@@ -15985,7 +15985,7 @@ literal|400
 operator|<<
 name|QNetworkReply
 operator|::
-name|UnknownContentError
+name|ProtocolInvalidOperationError
 operator|<<
 name|QByteArray
 argument_list|()
@@ -16023,7 +16023,7 @@ literal|501
 operator|<<
 name|QNetworkReply
 operator|::
-name|ProtocolUnknownError
+name|OperationNotImplementedError
 operator|<<
 name|QByteArray
 argument_list|()
