@@ -512,7 +512,7 @@ end_enum
 begin_decl_stmt
 DECL|variable|XEMBED_VERSION
 specifier|const
-name|long
+name|quint32
 name|XEMBED_VERSION
 init|=
 literal|0
@@ -1939,7 +1939,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// set the PID to let the WM kill the application if unresponsive
-name|long
+name|quint32
 name|pid
 init|=
 name|getpid
@@ -2064,7 +2064,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* Add XEMBED info; this operation doesn't initiate the embedding. */
-name|long
+name|quint32
 name|data
 index|[]
 init|=
@@ -10279,13 +10279,13 @@ name|wmStateAtom
 condition|)
 block|{
 specifier|const
-name|long
+name|quint32
 modifier|*
 name|data
 init|=
 operator|(
 specifier|const
-name|long
+name|quint32
 operator|*
 operator|)
 name|xcb_get_property_value
@@ -11288,16 +11288,16 @@ parameter_list|(
 name|xcb_window_t
 name|window
 parameter_list|,
-name|long
+name|quint32
 name|message
 parameter_list|,
-name|long
+name|quint32
 name|detail
 parameter_list|,
-name|long
+name|quint32
 name|data1
 parameter_list|,
-name|long
+name|quint32
 name|data2
 parameter_list|)
 block|{
