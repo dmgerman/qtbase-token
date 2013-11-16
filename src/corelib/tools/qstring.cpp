@@ -9630,6 +9630,9 @@ begin_comment
 comment|/*! \fn bool QString::contains(const QString&str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      Returns \c true if this string contains an occurrence of the string     \a str; otherwise returns \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      Example:     \snippet qstring/main.cpp 17      \sa indexOf(), count() */
 end_comment
 begin_comment
+comment|/*! \fn bool QString::contains(QLatin1String str, Qt::CaseSensitivity cs = Qt::CaseSensitive) const     \since 5.3      \overload contains()      Returns \c true if this string contains an occurrence of the latin-1 string     \a str; otherwise returns \c false. */
+end_comment
+begin_comment
 comment|/*! \fn bool QString::contains(QChar ch, Qt::CaseSensitivity cs = Qt::CaseSensitive) const      \overload contains()      Returns \c true if this string contains an occurrence of the     character \a ch; otherwise returns \c false. */
 end_comment
 begin_comment

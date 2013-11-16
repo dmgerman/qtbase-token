@@ -2248,6 +2248,26 @@ specifier|inline
 name|bool
 name|contains
 argument_list|(
+name|QLatin1String
+name|s
+argument_list|,
+name|Qt
+operator|::
+name|CaseSensitivity
+name|cs
+operator|=
+name|Qt
+operator|::
+name|CaseSensitive
+argument_list|)
+decl|const
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|inline
+name|bool
+name|contains
+argument_list|(
 specifier|const
 name|QStringRef
 operator|&
@@ -9933,6 +9953,35 @@ operator|::
 name|contains
 argument_list|(
 argument|const QStringRef&s
+argument_list|,
+argument|Qt::CaseSensitivity cs
+argument_list|)
+specifier|const
+block|{
+return|return
+name|indexOf
+argument_list|(
+name|s
+argument_list|,
+literal|0
+argument_list|,
+name|cs
+argument_list|)
+operator|!=
+operator|-
+literal|1
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|contains
+specifier|inline
+name|bool
+name|QString
+operator|::
+name|contains
+argument_list|(
+argument|QLatin1String s
 argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
