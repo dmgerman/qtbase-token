@@ -108,6 +108,9 @@ name|m_inputItemTransform
 block|;
 name|bool
 name|m_hasPendingHideRequest
+block|;
+name|bool
+name|m_inSetFocusObject
 block|; }
 decl_stmt|;
 end_decl_stmt
