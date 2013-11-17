@@ -66,11 +66,11 @@ argument_list|()
 specifier|const
 block|;
 name|void
-name|focusViewChanged
+name|focusWindowChanged
 argument_list|(
-name|UIView
+name|QWindow
 operator|*
-name|view
+name|focusWindow
 argument_list|)
 block|;
 name|private
@@ -80,6 +80,9 @@ operator|*
 name|m_keyboardListener
 block|;
 name|UIView
+operator|<
+name|UIKeyInput
+operator|>
 operator|*
 name|m_focusView
 block|;
