@@ -921,6 +921,15 @@ name|vcInstallDir
 operator|+
 name|QStringLiteral
 argument_list|(
+literal|"/lib/store/"
+argument_list|)
+operator|+
+name|compilerArch
+operator|<<
+name|vcInstallDir
+operator|+
+name|QStringLiteral
+argument_list|(
 literal|"/lib/"
 argument_list|)
 operator|+
