@@ -5946,7 +5946,12 @@ name|linker
 operator|.
 name|GenerateDebugInformation
 operator|=
-name|isDebug
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"debug_info"
+argument_list|)
 condition|?
 name|_True
 else|:
