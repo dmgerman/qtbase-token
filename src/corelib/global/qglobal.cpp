@@ -519,7 +519,7 @@ begin_comment
 comment|/*!     \variable QSysInfo::MacintoshVersion     \brief the version of the Macintosh operating system on which            the application is run (Mac only). */
 end_comment
 begin_comment
-comment|/*!     \fn QSysInfo::MacVersion QSysInfo::macVersion()      Returns the version of Mac OS X on which the application is run (Mac OS X     Only). */
+comment|/*!     \fn QSysInfo::MacVersion QSysInfo::macVersion()      Returns the version of Darwin (OS X or iOS) on which the application is run. */
 end_comment
 begin_comment
 comment|/*!     \enum QSysInfo::Endian      \value BigEndian  Big-endian byte order (also called Network byte order)     \value LittleEndian  Little-endian byte order     \value ByteOrder  Equals BigEndian or LittleEndian, depending on                       the platform's byte order. */
@@ -528,7 +528,7 @@ begin_comment
 comment|/*!     \enum QSysInfo::WinVersion      This enum provides symbolic names for the various versions of the     Windows operating system. On Windows, the     QSysInfo::WindowsVersion variable gives the version of the system     on which the application is run.      MS-DOS-based versions:      \value WV_32s   Windows 3.1 with Win 32s     \value WV_95    Windows 95     \value WV_98    Windows 98     \value WV_Me    Windows Me      NT-based versions (note that each operating system version is only represented once rather than each Windows edition):      \value WV_NT    Windows NT (operating system version 4.0)     \value WV_2000  Windows 2000 (operating system version 5.0)     \value WV_XP    Windows XP (operating system version 5.1)     \value WV_2003  Windows Server 2003, Windows Server 2003 R2, Windows Home Server, Windows XP Professional x64 Edition (operating system version 5.2)     \value WV_VISTA Windows Vista, Windows Server 2008 (operating system version 6.0)     \value WV_WINDOWS7 Windows 7, Windows Server 2008 R2 (operating system version 6.1)     \value WV_WINDOWS8 Windows 8 (operating system version 6.2)     \value WV_WINDOWS8_1 Windows 8.1 (operating system version 6.3), introduced in Qt 5.2      Alternatively, you may use the following macros which correspond directly to the Windows operating system version number:      \value WV_4_0   Operating system version 4.0, corresponds to Windows NT     \value WV_5_0   Operating system version 5.0, corresponds to Windows 2000     \value WV_5_1   Operating system version 5.1, corresponds to Windows XP     \value WV_5_2   Operating system version 5.2, corresponds to Windows Server 2003, Windows Server 2003 R2, Windows Home Server, and Windows XP Professional x64 Edition     \value WV_6_0   Operating system version 6.0, corresponds to Windows Vista and Windows Server 2008     \value WV_6_1   Operating system version 6.1, corresponds to Windows 7 and Windows Server 2008 R2     \value WV_6_2   Operating system version 6.2, corresponds to Windows 8     \value WV_6_3   Operating system version 6.3, corresponds to Windows 8.1, introduced in Qt 5.2      CE-based versions:      \value WV_CE    Windows CE     \value WV_CENET Windows CE .NET     \value WV_CE_5  Windows CE 5.x     \value WV_CE_6  Windows CE 6.x      The following masks can be used for testing whether a Windows     version is MS-DOS-based, NT-based, or CE-based:      \value WV_DOS_based MS-DOS-based version of Windows     \value WV_NT_based  NT-based version of Windows     \value WV_CE_based  CE-based version of Windows      \sa MacVersion */
 end_comment
 begin_comment
-comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic names for the various versions of the     OS X operating system. On OS X, the     QSysInfo::MacintoshVersion variable gives the version of the     system on which the application is run.      \value MV_9        Mac OS 9 (unsupported)     \value MV_10_0     Mac OS X 10.0 (unsupported)     \value MV_10_1     Mac OS X 10.1 (unsupported)     \value MV_10_2     Mac OS X 10.2 (unsupported)     \value MV_10_3     Mac OS X 10.3 (unsupported)     \value MV_10_4     Mac OS X 10.4 (unsupported)     \value MV_10_5     Mac OS X 10.5 (unsupported)     \value MV_10_6     Mac OS X 10.6     \value MV_10_7     OS X 10.7     \value MV_10_8     OS X 10.8     \value MV_10_9     OS X 10.9     \value MV_Unknown  An unknown and currently unsupported platform      \value MV_CHEETAH  Apple codename for MV_10_0     \value MV_PUMA     Apple codename for MV_10_1     \value MV_JAGUAR   Apple codename for MV_10_2     \value MV_PANTHER  Apple codename for MV_10_3     \value MV_TIGER    Apple codename for MV_10_4     \value MV_LEOPARD  Apple codename for MV_10_5     \value MV_SNOWLEOPARD  Apple codename for MV_10_6     \value MV_LION     Apple codename for MV_10_7     \value MV_MOUNTAINLION Apple codename for MV_10_8     \value MV_MAVERICKS    Apple codename for MV_10_9      \sa WinVersion */
+comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic names for the various versions of the     Darwin operating system, covering both OS X and iOS. The     QSysInfo::MacintoshVersion variable gives the version of the     system on which the application is run.      \value MV_9        Mac OS 9 (unsupported)     \value MV_10_0     Mac OS X 10.0 (unsupported)     \value MV_10_1     Mac OS X 10.1 (unsupported)     \value MV_10_2     Mac OS X 10.2 (unsupported)     \value MV_10_3     Mac OS X 10.3 (unsupported)     \value MV_10_4     Mac OS X 10.4 (unsupported)     \value MV_10_5     Mac OS X 10.5 (unsupported)     \value MV_10_6     Mac OS X 10.6     \value MV_10_7     OS X 10.7     \value MV_10_8     OS X 10.8     \value MV_10_9     OS X 10.9     \value MV_Unknown  An unknown and currently unsupported platform      \value MV_CHEETAH  Apple codename for MV_10_0     \value MV_PUMA     Apple codename for MV_10_1     \value MV_JAGUAR   Apple codename for MV_10_2     \value MV_PANTHER  Apple codename for MV_10_3     \value MV_TIGER    Apple codename for MV_10_4     \value MV_LEOPARD  Apple codename for MV_10_5     \value MV_SNOWLEOPARD  Apple codename for MV_10_6     \value MV_LION     Apple codename for MV_10_7     \value MV_MOUNTAINLION Apple codename for MV_10_8     \value MV_MAVERICKS    Apple codename for MV_10_9      \value MV_IOS      iOS (any)     \value MV_IOS_4_3  iOS 4.3     \value MV_IOS_5_0  iOS 5.0     \value MV_IOS_5_1  iOS 5.1     \value MV_IOS_6_0  iOS 6.0     \value MV_IOS_6_1  iOS 6.1     \value MV_IOS_7_0  iOS 7.0     \value MV_IOS_7_1  iOS 7.1      \sa WinVersion */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X and iOS,     including any open source version(s) of Darwin. */
@@ -834,7 +834,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_function
@@ -846,6 +846,12 @@ include|#
 directive|include
 file|"qnamespace.h"
 name|QT_END_INCLUDE_NAMESPACE
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
 DECL|function|qt_mac_create_fsref
 name|Q_CORE_EXPORT
 name|OSErr
@@ -970,16 +976,8 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(Q_OS_MACX)
+comment|// defined(Q_OS_OSX)
 end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-end_if
 begin_function
 DECL|function|macVersion
 name|QSysInfo
@@ -990,9 +988,12 @@ operator|::
 name|macVersion
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_MACX
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
 name|SInt32
 name|gestalt_version
 decl_stmt|;
@@ -1028,6 +1029,17 @@ literal|2
 argument_list|)
 return|;
 block|}
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_IOS
+argument_list|)
+return|return
+name|qt_ios_version
+argument_list|()
+return|;
+comment|// qtcore_mac_objc.mm
 endif|#
 directive|endif
 return|return

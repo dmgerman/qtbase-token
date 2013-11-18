@@ -501,6 +501,23 @@ name|string
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_IOS
+end_ifdef
+begin_expr_stmt
+name|QSysInfo
+operator|::
+name|MacVersion
+name|qt_ios_version
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
