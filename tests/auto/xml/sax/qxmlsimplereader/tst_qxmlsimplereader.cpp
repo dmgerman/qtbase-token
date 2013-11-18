@@ -3793,13 +3793,13 @@ name|source
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|handler
 operator|.
 name|recursionCount
-operator|==
-literal|1
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 block|}

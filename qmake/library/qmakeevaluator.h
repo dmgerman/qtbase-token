@@ -1395,6 +1395,9 @@ name|QString
 name|m_cachefile
 block|;
 name|QString
+name|m_stashfile
+block|;
+name|QString
 name|m_sourceRoot
 block|;
 name|QString
