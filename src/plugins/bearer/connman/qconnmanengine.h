@@ -419,6 +419,10 @@ operator|&
 name|context
 argument_list|)
 block|;
+name|bool
+name|isAlwaysAskRoaming
+argument_list|()
+block|;
 name|protected
 operator|:
 name|bool
