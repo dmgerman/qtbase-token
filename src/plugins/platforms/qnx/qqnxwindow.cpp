@@ -1400,6 +1400,75 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Set the transparency. According to QNX technical support, setting the window
+comment|// transparency property should always be done *after* creating the window
+comment|// buffers in order to guarantee the property is paid attention to.
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|requestedFormat
+argument_list|()
+operator|.
+name|alphaBufferSize
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// To avoid overhead in the composition manager, disable blending
+comment|// when the underlying window buffer doesn't have an alpha channel.
+name|val
+index|[
+literal|0
+index|]
+operator|=
+name|SCREEN_TRANSPARENCY_NONE
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Normal alpha blending. This doesn't commit us to translucency; the
+comment|// normal backfill during the painting will contain a fully opaque
+comment|// alpha channel unless the user explicitly intervenes to make something
+comment|// transparent.
+name|val
+index|[
+literal|0
+index|]
+operator|=
+name|SCREEN_TRANSPARENCY_SOURCE_OVER
+expr_stmt|;
+block|}
+name|errno
+operator|=
+literal|0
+expr_stmt|;
+name|result
+operator|=
+name|screen_set_window_property_iv
+argument_list|(
+name|m_window
+argument_list|,
+name|SCREEN_PROPERTY_TRANSPARENCY
+argument_list|,
+name|val
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|0
+condition|)
+name|qFatal
+argument_list|(
+literal|"QQnxWindow: failed to set window transparency, errno=%d"
+argument_list|,
+name|errno
+argument_list|)
+expr_stmt|;
 comment|// Cache new buffer size
 name|m_bufferSize
 operator|=
@@ -2430,44 +2499,6 @@ condition|)
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: failed to set window alpha mode, errno=%d"
-argument_list|,
-name|errno
-argument_list|)
-expr_stmt|;
-comment|// Blend the window with Source Over Porter-Duff behavior onto whatever's
-comment|// behind it.
-comment|//
-comment|// If the desired use-case is opaque, the Widget painting framework will
-comment|// already fill in the alpha channel with full opacity.
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|val
-operator|=
-name|SCREEN_TRANSPARENCY_SOURCE_OVER
-expr_stmt|;
-name|result
-operator|=
-name|screen_set_window_property_iv
-argument_list|(
-name|m_window
-argument_list|,
-name|SCREEN_PROPERTY_TRANSPARENCY
-argument_list|,
-operator|&
-name|val
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window transparency, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
