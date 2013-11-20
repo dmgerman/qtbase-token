@@ -1,5 +1,5 @@
 being_unit
-comment|/**************************************************************************** ** ** Copyright (C) 2012 MIPS Technologies, www.mips.com, author Damir Tatalovic <dtatalovic@mips.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Imagination Technologies Limited, www.imgtec.com ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 #include "qt_mips_asm_dsp_p.h"
 LEAF_MIPS_DSPR2(qConvertRgb16To32_asm_mips_dspr2)
 comment|/*  * a0 - dst (a8r8g8b8)  * a1 - src (r5g6b5)  * a2 - w  */
@@ -87,4 +87,562 @@ sw t1, 0(a0)
 j ra
 nop
 END(qConvertRgb16To32_asm_mips_dspr2)
+#if defined(__MIPSEL) && __MIPSEL
+comment|define PACK(r, s, t)  packrl.ph r, s, t
+comment|define LDHI(r, o, b)  lwl r, o + 1 (b)
+comment|define LDLO(r, o, b)  lwr r, o + 2 (b)
+#else
+comment|define PACK(r, s, t)  packrl.ph r, t, s
+comment|define LDHI(r, o, b)  lwr r, o + 1 (b)
+comment|define LDLO(r, o, b)  lwl r, o + 2 (b)
+#endif
+LEAF_MIPS_DSPR2(qt_blend_rgb16_on_rgb16_mips_dspr2_asm)
+comment|/* + * a0 - dst (*r5g6b5)  * a1 - src (const *r5g6b5)  * a2 - len (unsigned int) - batch length  * a3 - alpha (int)  *  * Register usage:  *  t0-3 - Scratch registers  *  t4   - Number of iterations to do in unrolled loops  *  t5   - Inverse alpha  *  t6   - Alpha >> 2  *  t7   - Inverse alpha >> 2  *  t8   - magic1 (0x07e007e0)  *  t9   - magic2 (0xf81ff81f)  *  * NOTE:  *   Cannot use DSP instructions for the multiplication of two  *   16-bit values: overflow would be always rounded or saturated.  */
+beqz a2, 0f
+andi t0, a0, 0x3
+andi t1, a1, 0x3
+comment|/* Adjust alpha value, and calculate inverse alpha value */
+li t5, 255
+or t2, t0, t1
+comment|/* t0 = (dst & 0x3) | (src & 0x3) */
+sll t8, a3, 8
+subu a3, t8, a3
+li t8, 0x07e007e0
+comment|/* magic1 */
+srl a3, a3, 8
+comment|/* alpha >>= 8  */
+li t9, 0xf81ff81f
+comment|/* magic2 */
+subu t5, t5, a3
+comment|/* ialpha = 255 - alpha */
+addiu a3, a3, 1
+comment|/* alpha++ */
+addiu t5, t5, 1
+comment|/* ialpha++ */
+srl t6, a3, 2
+comment|/* ashift = alpha >> 2 */
+beqz t2, 4f
+comment|/* both aligned */
+srl t7, t5, 2
+comment|/* iashift = ialpha >> 2 */
+beqz t1, 2f
+comment|/* src aligned, dst unaligned */
+nop
+beqz t0, 3f
+comment|/* dst aligned, src unaligned */
+nop
+comment|/*      * Both src/dst are unaligned: read 1 halfword from each, then      * fall-off to continue with word-aligned operation.      */
+lhu t1, 0 (a1)
+lhu t0, 0 (a0)
+addiu a2, a2, -1
+comment|/* len-- */
+andi t2, t1, 0x07e0
+andi t1, t1, 0xf81f
+mul t2, t2, a3
+mul t1, t1, t6
+andi t3, t0, 0x07e0
+andi t0, t0, 0xf81f
+mul t3, t3, t5
+mul t0, t0, t7
+addiu a1, a1, 2
+comment|/* src++ */
+srl t2, t2, 8
+srl t1, t1, 6
+andi t2, t2, 0x07e0
+andi t1, t1, 0xf81f
+or t1, t1, t2
+srl t3, t3, 8
+srl t0, t0, 6
+andi t3, t3, 0x07e0
+andi t0, t0, 0xf81f
+or t0, t0, t3
+addu t0, t0, t1
+comment|/* src * alpha + dst * ialpha */
+sh t0, 0 (a0)
+addiu a0, a0, 2
+comment|/* dst++ */
+comment|/*      * Both src/dst pointers are word-aligned, process eight      * items at a time in an unrolled loop.      */
+4: beqz a2, 0f
+srl t4, a2, 3
+comment|/* t4 = len / 8 */
+beqz t4, 5f
+andi a2, a2, 0x7
+comment|/* len = len % 8 */
+SAVE_REGS_ON_STACK 12, s0, s1, s2, s3, s4, v0, v1
+1: lw t1, 0 (a1)
+comment|/* [s0, s1] */
+lw v1, 4 (a1)
+comment|/* [s2, s3] */
+lw s1, 8 (a1)
+comment|/* [s4, s5] */
+lw s3, 12 (a1)
+comment|/* [s6, s7] */
+lw t0, 0 (a0)
+comment|/* [d0, d1] */
+lw v0, 4 (a0)
+comment|/* [d2, d3] */
+lw s0, 8 (a0)
+comment|/* [d4, d5] */
+lw s2, 12 (a0)
+comment|/* [d6, d7] */
+pref 4, 16 (a1)
+pref 5, 16 (a0)
+and t2, t1, t8
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, a3
+mul t2, t2, a3
+and t1, t1, t9
+ext s4, t1, 0, 16
+mul s4, s4, t6
+srl t1, t1, 16
+mul t1, t1, t6
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, v1, t8
+srl t1, t1, 6
+append t1, s4, 16
+and t1, t1, t9
+or t1, t1, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, a3
+mul t3, t3, a3
+and v1, v1, t9
+ext s4, v1, 0, 16
+mul s4, s4, t6
+srl v1, v1, 16
+mul v1, v1, t6
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+and t2, s1, t8
+srl v1, v1, 6
+append v1, s4, 16
+and v1, v1, t9
+or v1, v1, t3
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, a3
+mul t2, t2, a3
+and s1, s1, t9
+ext s4, s1, 0, 16
+mul s4, s4, t6
+srl s1, s1, 16
+mul s1, s1, t6
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, s3, t8
+srl s1, s1, 6
+append s1, s4, 16
+and s1, s1, t9
+or s1, s1, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, a3
+mul t3, t3, a3
+and s3, s3, t9
+ext s4, s3, 0, 16
+mul s4, s4, t6
+srl s3, s3, 16
+mul s3, s3, t6
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+and t2, t0, t8
+srl s3, s3, 6
+append s3, s4, 16
+and s3, s3, t9
+or s3, s3, t3
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, t5
+mul t2, t2, t5
+and t0, t0, t9
+ext s4, t0, 0, 16
+mul s4, s4, t7
+srl t0, t0, 16
+mul t0, t0, t7
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, v0, t8
+srl t0, t0, 6
+append t0, s4, 16
+and t0, t0, t9
+or t0, t0, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, t5
+mul t3, t3, t5
+and v0, v0, t9
+ext s4, v0, 0, 16
+mul s4, s4, t7
+srl v0, v0, 16
+mul v0, v0, t7
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+and t2, s0, t8
+srl v0, v0, 6
+append v0, s4, 16
+and v0, v0, t9
+or v0, v0, t3
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, t5
+mul t2, t2, t5
+and s0, s0, t9
+ext s4, s0, 0, 16
+mul s4, s4, t7
+srl s0, s0, 16
+mul s0, s0, t7
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, s2, t8
+srl s0, s0, 6
+append s0, s4, 16
+and s0, s0, t9
+or s0, s0, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, t5
+mul t3, t3, t5
+and s2, s2, t9
+ext s4, s2, 0, 16
+mul s4, s4, t7
+srl s2, s2, 16
+mul s2, s2, t7
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+addu.ph t0, t0, t1
+srl s2, s2, 6
+append s2, s4, 16
+and s2, s2, t9
+or s2, s2, t3
+addu.ph v0, v0, v1
+comment|/* v0 = [S2 + D2, S3 + D3] */
+addu.ph s0, s0, s1
+comment|/* s0 = [S4 + D4, S5 + D5] */
+addu.ph s2, s2, s3
+comment|/* s2 = [S6 + D6, S7 + D7] */
+sw t0, 0 (a0)
+comment|/* [SS0, SS1] */
+sw v0, 4 (a0)
+comment|/* [SS2, SS3] */
+sw s0, 8 (a0)
+comment|/* [SS4, SS5] */
+sw s2, 12 (a0)
+comment|/* [SS6, SS7] */
+addiu t4, t4, -1
+comment|/* t4-- */
+addiu a1, a1, 16
+comment|/* src += 8 */
+bnez t4, 1b
+addiu a0, a0, 16
+comment|/* dst += 8 */
+RESTORE_REGS_FROM_STACK 12, s0, s1, s2, s3, s4, v0, v1
+b 5f
+nop
+comment|/* dst unaligned: do one item and fall down to the src unaligned case */
+2: lhu t1, 0 (a1)
+lhu t0, 0 (a0)
+addiu a2, a2, -1
+comment|/* len-- */
+andi t2, t1, 0x07e0
+andi t1, t1, 0xf81f
+mul t2, t2, a3
+mul t1, t1, t6
+andi t3, t0, 0x07e0
+andi t0, t0, 0xf81f
+mul t3, t3, t5
+mul t0, t0, t7
+addiu a1, a1, 2
+comment|/* src++ */
+srl t2, t2, 8
+srl t1, t1, 6
+andi t2, t2, 0x07e0
+andi t1, t1, 0xf81f
+or t1, t1, t2
+srl t3, t3, 8
+srl t0, t0, 6
+andi t3, t3, 0x07e0
+andi t0, t0, 0xf81f
+or t0, t0, t3
+addu t0, t0, t1
+comment|/* src * alpha + dst * ialpha */
+sh t0, 0 (a0)
+addiu a0, a0, 2
+comment|/* dst++ */
+comment|/* src unaligned */
+3: beqz a2, 0f
+srl t4, a2, 3
+comment|/* t4 = len / 8 */
+beqz t4, 5f
+andi a2, a2, 0x7
+comment|/* len = len % 8 */
+SAVE_REGS_ON_STACK 12, s0, s1, s2, s3, s4, v0, v1
+1: lw t0, 0 (a0)
+comment|/* [d0, d1] */
+lw v0, 4 (a0)
+comment|/* [d2, d3] */
+lw s0, 8 (a0)
+comment|/* [d4, d5] */
+lw s2, 12 (a0)
+comment|/* [d6, d7] */
+LDHI (t1, 0, a1)
+comment|/* [s0, __] */
+lw v1, 2 (a1)
+comment|/* [s1, s2] */
+lw s1, 6 (a1)
+comment|/* [s3, s4] */
+lw s3, 10 (a1)
+comment|/* [s5, s6] */
+LDLO (s4, 12, a1)
+comment|/* [__, s7] */
+pref 4, 14 (a1)
+pref 5, 16 (a0)
+PACK (t1, v1, t1)
+comment|/* [s0, s1] */
+PACK (v1, s1, v1)
+comment|/* [s2, s3] */
+PACK (s1, s3, s1)
+comment|/* [s4, s5] */
+PACK (s3, s4, s3)
+comment|/* [s6, s7] */
+and t2, t1, t8
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, a3
+mul t2, t2, a3
+and t1, t1, t9
+ext s4, t1, 0, 16
+mul s4, s4, t6
+srl t1, t1, 16
+mul t1, t1, t6
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, v1, t8
+srl t1, t1, 6
+append t1, s4, 16
+and t1, t1, t9
+or t1, t1, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, a3
+mul t3, t3, a3
+and v1, v1, t9
+ext s4, v1, 0, 16
+mul s4, s4, t6
+srl v1, v1, 16
+mul v1, v1, t6
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+and t2, s1, t8
+srl v1, v1, 6
+append v1, s4, 16
+and v1, v1, t9
+or v1, v1, t3
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, a3
+mul t2, t2, a3
+and s1, s1, t9
+ext s4, s1, 0, 16
+mul s4, s4, t6
+srl s1, s1, 16
+mul s1, s1, t6
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, s3, t8
+srl s1, s1, 6
+append s1, s4, 16
+and s1, s1, t9
+or s1, s1, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, a3
+mul t3, t3, a3
+and s3, s3, t9
+ext s4, s3, 0, 16
+mul s4, s4, t6
+srl s3, s3, 16
+mul s3, s3, t6
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+and t2, t0, t8
+srl s3, s3, 6
+append s3, s4, 16
+and s3, s3, t9
+or s3, s3, t3
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, t5
+mul t2, t2, t5
+and t0, t0, t9
+ext s4, t0, 0, 16
+mul s4, s4, t7
+srl t0, t0, 16
+mul t0, t0, t7
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, v0, t8
+srl t0, t0, 6
+append t0, s4, 16
+and t0, t0, t9
+or t0, t0, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, t5
+mul t3, t3, t5
+and v0, v0, t9
+ext s4, v0, 0, 16
+mul s4, s4, t7
+srl v0, v0, 16
+mul v0, v0, t7
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+and t2, s0, t8
+srl v0, v0, 6
+append v0, s4, 16
+and v0, v0, t9
+or v0, v0, t3
+ext t3, t2, 0, 16
+srl t2, t2, 16
+mul t3, t3, t5
+mul t2, t2, t5
+and s0, s0, t9
+ext s4, s0, 0, 16
+mul s4, s4, t7
+srl s0, s0, 16
+mul s0, s0, t7
+srl t3, t3, 8
+srl t2, t2, 8
+append t2, t3, 16
+and t2, t2, t8
+srl s4, s4, 6
+and t3, s2, t8
+srl s0, s0, 6
+append s0, s4, 16
+and s0, s0, t9
+or s0, s0, t2
+ext t2, t3, 0, 16
+srl t3, t3, 16
+mul t2, t2, t5
+mul t3, t3, t5
+and s2, s2, t9
+ext s4, s2, 0, 16
+mul s4, s4, t7
+srl s2, s2, 16
+mul s2, s2, t7
+srl t2, t2, 8
+srl t3, t3, 8
+append t3, t2, 16
+and t3, t3, t8
+srl s4, s4, 6
+addu.ph t0, t0, t1
+srl s2, s2, 6
+append s2, s4, 16
+and s2, s2, t9
+or s2, s2, t3
+addu.ph v0, v0, v1
+comment|/* v0 = [S2 + D2, S3 + D3] */
+addu.ph s0, s0, s1
+comment|/* s0 = [S4 + D4, S5 + D5] */
+addu.ph s2, s2, s3
+comment|/* s2 = [S6 + D6, S7 + D7] */
+sw t0, 0 (a0)
+comment|/* [SS0, SS1] */
+sw v0, 4 (a0)
+comment|/* [SS2, SS3] */
+sw s0, 8 (a0)
+comment|/* [SS4, SS5] */
+sw s2, 12 (a0)
+comment|/* [SS6, SS7] */
+addiu t4, t4, -1
+comment|/* t4-- */
+addiu a1, a1, 16
+comment|/* src += 8 */
+bnez t4, 1b
+addiu a0, a0, 16
+comment|/* dst += 8 */
+RESTORE_REGS_FROM_STACK 12, s0, s1, s2, s3, s4, v0, v1
+5:
+comment|/* Process remaining items (len < 8), one at a time */
+beqz a2, 0f
+nop
+1: lhu t1, 0 (a1)
+lhu t0, 0 (a0)
+addiu a1, a1, 2
+comment|/* src++ */
+andi t2, t1, 0x07e0
+andi t1, t1, 0xf81f
+mul t2, t2, a3
+mul t1, t1, t6
+andi t3, t0, 0x07e0
+andi t0, t0, 0xf81f
+mul t3, t3, t5
+mul t0, t0, t7
+addiu a2, a2, -1
+comment|/* len-- */
+srl t2, t2, 8
+srl t1, t1, 6
+andi t2, t2, 0x07e0
+andi t1, t1, 0xf81f
+or t1, t1, t2
+srl t3, t3, 8
+srl t0, t0, 6
+andi t3, t3, 0x07e0
+andi t0, t0, 0xf81f
+or t0, t0, t3
+addu t0, t0, t1
+comment|/* src*alpha + dst*ialpha */
+sh t0, 0 (a0)
+bnez a2, 1b
+addiu a0, a0, 2
+comment|/* dst++ */
+0: jr ra
+nop
+END(qt_blend_rgb16_on_rgb16_mips_dspr2_asm)
+#undef PACK
+#undef LDHI
+#undef LDLO
 end_unit
