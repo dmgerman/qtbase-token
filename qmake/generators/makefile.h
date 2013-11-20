@@ -1424,8 +1424,18 @@ literal|"\\"
 argument_list|)
 return|;
 block|}
-expr|}
-block|;
+name|QString
+name|shellQuote
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|str
+argument_list|)
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 DECL|function|setNoIO
 specifier|inline
 name|void
@@ -1453,6 +1463,8 @@ return|return
 name|no_io
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 DECL|function|defaultInstall
 specifier|inline
 name|QString
@@ -1470,6 +1482,8 @@ literal|""
 argument_list|)
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 DECL|function|findLibraries
 specifier|inline
 name|bool
@@ -1482,6 +1496,8 @@ return|return
 name|true
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 DECL|function|~MakefileGenerator
 specifier|inline
 name|MakefileGenerator
@@ -1491,7 +1507,7 @@ name|MakefileGenerator
 argument_list|()
 block|{ }
 name|QT_END_NAMESPACE
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
