@@ -58,7 +58,8 @@ return|;
 block|}
 name|int
 name|loadAcquire
-parameter_list|()
+argument_list|()
+specifier|const
 block|{
 return|return
 name|_q_value
@@ -268,6 +269,7 @@ name|T
 operator|*
 name|loadAcquire
 argument_list|()
+specifier|const
 block|{
 return|return
 name|_q_value
