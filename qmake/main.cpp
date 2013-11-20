@@ -554,6 +554,18 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|subst
+operator|.
+name|to
+operator|.
+name|replace
+argument_list|(
+literal|"\\\\"
+argument_list|,
+literal|"\\"
+argument_list|)
+expr_stmt|;
+comment|// QString::replace(rx, sub) groks \1, but not \\.
 name|substs
 operator|<<
 name|subst
