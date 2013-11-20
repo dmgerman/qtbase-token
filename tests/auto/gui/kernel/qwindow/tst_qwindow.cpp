@@ -708,7 +708,7 @@ argument_list|)
 expr_stmt|;
 name|window
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
@@ -5104,9 +5104,37 @@ block|{
 name|QWindow
 name|window
 decl_stmt|;
+comment|// qWaitForWindowActive will block for the duration of
+comment|// of the timeout if the window is at 0,0
 name|window
 operator|.
-name|show
+name|setGeometry
+argument_list|(
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+operator|->
+name|availableGeometry
+argument_list|()
+operator|.
+name|adjusted
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|window
+operator|.
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|window

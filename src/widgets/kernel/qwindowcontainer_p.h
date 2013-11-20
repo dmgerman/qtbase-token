@@ -57,6 +57,15 @@ argument_list|()
 block|;
 specifier|static
 name|void
+name|toplevelAboutToBeDestroyed
+argument_list|(
+name|QWidget
+operator|*
+name|parent
+argument_list|)
+block|;
+specifier|static
+name|void
 name|parentWasChanged
 argument_list|(
 name|QWidget
