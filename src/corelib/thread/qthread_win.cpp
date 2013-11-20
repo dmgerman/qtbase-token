@@ -617,6 +617,8 @@ name|qt_adopted_thread_wakeup
 argument_list|)
 expr_stmt|;
 block|}
+name|CloseHandle
+argument_list|(
 name|CreateThread
 argument_list|(
 literal|0
@@ -631,6 +633,7 @@ literal|0
 argument_list|,
 operator|&
 name|qt_adopted_thread_watcher_id
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
