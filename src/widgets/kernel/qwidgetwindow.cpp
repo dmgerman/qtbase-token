@@ -994,6 +994,16 @@ argument_list|(
 name|event
 argument_list|)
 return|;
+case|case
+name|QEvent
+operator|::
+name|WindowBlocked
+case|:
+name|qt_button_down
+operator|=
+literal|0
+expr_stmt|;
+break|break;
 default|default:
 break|break;
 block|}
