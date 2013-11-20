@@ -398,6 +398,13 @@ name|c
 operator|==
 name|QLatin1Char
 argument_list|(
+literal|'|'
+argument_list|)
+operator|||
+name|c
+operator|==
+name|QLatin1Char
+argument_list|(
 literal|'{'
 argument_list|)
 operator|||
