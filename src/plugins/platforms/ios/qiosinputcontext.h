@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qtransform.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatforminputcontext.h>
 end_include
 begin_expr_stmt
@@ -66,6 +71,14 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|setFocusObject
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|;
+name|void
 name|focusWindowChanged
 argument_list|(
 name|QWindow
@@ -89,6 +102,9 @@ name|UIKeyInput
 operator|>
 operator|*
 name|m_focusView
+block|;
+name|QTransform
+name|m_inputItemTransform
 block|;
 name|bool
 name|m_hasPendingHideRequest
