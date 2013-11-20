@@ -39,7 +39,7 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QKeySequence keySequence READ keySequence WRITE setKeySequence RESET clear NOTIFY keySequenceChanged USER true
+argument|QKeySequence keySequence READ keySequence WRITE setKeySequence NOTIFY keySequenceChanged USER true
 argument_list|)
 name|public
 operator|:

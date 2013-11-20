@@ -462,8 +462,15 @@ name|WindowFlags
 name|flags
 init|=
 name|window
+condition|?
+name|window
 operator|->
 name|flags
+argument_list|()
+else|:
+name|Qt
+operator|::
+name|WindowFlags
 argument_list|()
 decl_stmt|;
 name|bool

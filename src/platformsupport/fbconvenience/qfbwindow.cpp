@@ -45,6 +45,13 @@ name|mBackingStore
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|mWindowState
+argument_list|(
+name|Qt
+operator|::
+name|WindowNoState
+argument_list|)
 block|{
 specifier|static
 name|QAtomicInt

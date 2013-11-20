@@ -6116,6 +6116,7 @@ end_comment
 begin_decl_stmt
 DECL|variable|bitsSetInNibble
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|const
 name|uint
 name|bitsSetInNibble
