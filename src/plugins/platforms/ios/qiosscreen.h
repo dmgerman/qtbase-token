@@ -123,6 +123,10 @@ name|void
 name|updateProperties
 argument_list|()
 block|;
+name|void
+name|layoutWindows
+argument_list|()
+block|;
 name|private
 operator|:
 name|UIScreen

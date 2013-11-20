@@ -217,6 +217,15 @@ block|}
 empty_stmt|;
 name|private
 label|:
+name|void
+name|applyGeometry
+parameter_list|(
+specifier|const
+name|QRect
+modifier|&
+name|rect
+parameter_list|)
+function_decl|;
 name|QUIView
 modifier|*
 name|m_view
@@ -291,6 +300,10 @@ operator|::
 name|Window
 return|;
 block|}
+name|friend
+name|class
+name|QIOSScreen
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
