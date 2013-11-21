@@ -3301,6 +3301,28 @@ name|node
 operator|->
 name|sender
 decl_stmt|;
+comment|// Send disconnectNotify before removing the connection from sender's connection list.
+comment|// This ensures any eventual destructor of sender will block on getting receiver's lock
+comment|// and not finish until we release it.
+name|sender
+operator|->
+name|disconnectNotify
+argument_list|(
+name|QMetaObjectPrivate
+operator|::
+name|signal
+argument_list|(
+name|sender
+operator|->
+name|metaObject
+argument_list|()
+argument_list|,
+name|node
+operator|->
+name|signal_index
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QMutex
 modifier|*
 name|m
@@ -3376,13 +3398,6 @@ name|dirty
 operator|=
 literal|true
 expr_stmt|;
-name|int
-name|signal_index
-init|=
-name|node
-operator|->
-name|signal_index
-decl_stmt|;
 name|QtPrivate
 operator|::
 name|QSlotObjectBase
@@ -3447,23 +3462,6 @@ name|relock
 argument_list|()
 expr_stmt|;
 block|}
-name|sender
-operator|->
-name|disconnectNotify
-argument_list|(
-name|QMetaObjectPrivate
-operator|::
-name|signal
-argument_list|(
-name|sender
-operator|->
-name|metaObject
-argument_list|()
-argument_list|,
-name|signal_index
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 if|if
