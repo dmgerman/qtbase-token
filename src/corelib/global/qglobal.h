@@ -2592,6 +2592,50 @@ parameter_list|)
 define|\
 value|(defined(__MAC_OS_X_VERSION_MIN_REQUIRED)&& osx != __MAC_NA&& __MAC_OS_X_VERSION_MIN_REQUIRED< osx) || \     (defined(__IPHONE_OS_VERSION_MIN_REQUIRED)&& ios != __IPHONE_NA&& __IPHONE_OS_VERSION_MIN_REQUIRED< ios)
 end_define
+begin_define
+DECL|macro|QT_IOS_PLATFORM_SDK_EQUAL_OR_ABOVE
+define|#
+directive|define
+name|QT_IOS_PLATFORM_SDK_EQUAL_OR_ABOVE
+parameter_list|(
+name|ios
+parameter_list|)
+define|\
+value|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE(__MAC_NA, ios)
+end_define
+begin_define
+DECL|macro|QT_OSX_PLATFORM_SDK_EQUAL_OR_ABOVE
+define|#
+directive|define
+name|QT_OSX_PLATFORM_SDK_EQUAL_OR_ABOVE
+parameter_list|(
+name|osx
+parameter_list|)
+define|\
+value|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE(osx, __IPHONE_NA)
+end_define
+begin_define
+DECL|macro|QT_IOS_DEPLOYMENT_TARGET_BELOW
+define|#
+directive|define
+name|QT_IOS_DEPLOYMENT_TARGET_BELOW
+parameter_list|(
+name|ios
+parameter_list|)
+define|\
+value|QT_MAC_DEPLOYMENT_TARGET_BELOW(__MAC_NA, ios)
+end_define
+begin_define
+DECL|macro|QT_OSX_DEPLOYMENT_TARGET_BELOW
+define|#
+directive|define
+name|QT_OSX_DEPLOYMENT_TARGET_BELOW
+parameter_list|(
+name|osx
+parameter_list|)
+define|\
+value|QT_MAC_DEPLOYMENT_TARGET_BELOW(osx, __IPHONE_NA)
+end_define
 begin_endif
 endif|#
 directive|endif
