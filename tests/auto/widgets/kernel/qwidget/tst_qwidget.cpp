@@ -46773,30 +46773,6 @@ operator|::
 name|updateWhileMinimized
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-if|if
-condition|(
-name|qgetenv
-argument_list|(
-literal|"XDG_CURRENT_DESKTOP"
-argument_list|)
-operator|.
-name|contains
-argument_list|(
-literal|"Unity"
-argument_list|)
-condition|)
-name|QSKIP
-argument_list|(
-literal|"This test fails on Unity."
-argument_list|)
-expr_stmt|;
-comment|// Minimized windows are not unmapped for some reason.
-endif|#
-directive|endif
-comment|// Q_OS_UNIX
 name|UpdateWidget
 name|widget
 decl_stmt|;
