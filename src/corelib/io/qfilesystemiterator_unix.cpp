@@ -325,11 +325,11 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|__EXT_QNX__READDIR_R
+name|QT_EXT_QNX_READDIR_R
 argument_list|)
 name|lastError
 operator|=
-name|_readdir_r
+name|QT_EXT_QNX_READDIR_R
 argument_list|(
 name|dir
 argument_list|,
