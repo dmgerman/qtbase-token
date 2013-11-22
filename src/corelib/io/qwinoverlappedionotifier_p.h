@@ -124,6 +124,13 @@ argument_list|(
 argument|bool enabled
 argument_list|)
 block|;
+name|OVERLAPPED
+operator|*
+name|waitForAnyNotified
+argument_list|(
+argument|int msecs
+argument_list|)
+block|;
 name|bool
 name|waitForNotified
 argument_list|(
