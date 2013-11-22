@@ -120,10 +120,8 @@ argument_list|()
 specifier|const
 block|;
 name|void
-name|setPrimaryOrientation
-argument_list|(
-argument|Qt::ScreenOrientation orientation
-argument_list|)
+name|updateProperties
+argument_list|()
 block|;
 name|private
 operator|:
@@ -139,6 +137,9 @@ name|m_availableGeometry
 block|;
 name|int
 name|m_depth
+block|;
+name|uint
+name|m_unscaledDpi
 block|;
 name|QSizeF
 name|m_physicalSize

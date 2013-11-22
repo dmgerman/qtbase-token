@@ -42,13 +42,6 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|QIOSViewController
-modifier|*
-name|qiosViewController
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
 name|CGRect
 name|toCGRect
 parameter_list|(

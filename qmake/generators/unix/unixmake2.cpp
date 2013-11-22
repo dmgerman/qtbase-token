@@ -1979,6 +1979,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 literal|"$(@D)"
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -2021,6 +2023,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 literal|"$(@D)"
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -6363,6 +6367,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|ddir_c
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"

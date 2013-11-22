@@ -3875,6 +3875,27 @@ case|:
 comment|// Not handled by QWindow
 break|break;
 block|}
+comment|// Note that widgetState == m_widget->data->window_state when triggered by QWidget::setWindowState().
+if|if
+condition|(
+operator|!
+operator|(
+name|widgetState
+operator|&
+name|Qt
+operator|::
+name|WindowMinimized
+operator|)
+condition|)
+name|m_widget
+operator|->
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Mapped
+argument_list|)
+expr_stmt|;
 comment|// Sent event if the state changed (that is, it is not triggered by
 comment|// QWidget::setWindowState(), which also sends an event to the widget).
 if|if
