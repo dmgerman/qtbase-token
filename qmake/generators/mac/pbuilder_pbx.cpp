@@ -3305,6 +3305,9 @@ operator|==
 literal|"QMAKE_INTERNAL_INCLUDED_FILES"
 condition|)
 block|{
+name|QStringList
+name|newret
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3323,9 +3326,6 @@ operator|++
 name|i
 control|)
 block|{
-name|QStringList
-name|newret
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -3355,11 +3355,11 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|ret
 operator|=
 name|newret
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
