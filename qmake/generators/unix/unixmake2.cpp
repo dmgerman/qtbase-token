@@ -7296,7 +7296,11 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"\t-$(DEL_FILE) $(TARGET) \n"
+literal|"\t-$(DEL_FILE) "
+operator|<<
+name|destdir
+operator|<<
+literal|"$(TARGET) \n"
 expr_stmt|;
 block|}
 name|t
