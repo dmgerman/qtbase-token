@@ -762,7 +762,7 @@ index|[
 literal|"PLUGIN_MANIFESTS"
 index|]
 operator|=
-literal|"yes"
+literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
