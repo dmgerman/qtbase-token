@@ -1014,7 +1014,7 @@ name|charIdx
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// 	    qDebug("      addCell at %d", pos);
+comment|//      qDebug("      addCell at %d", pos);
 operator|++
 name|pos
 expr_stmt|;
@@ -1036,7 +1036,7 @@ argument_list|,
 name|charIdx
 argument_list|)
 expr_stmt|;
-comment|// 	qDebug("      addEOR at %d", pos);
+comment|//  qDebug("      addEOR at %d", pos);
 operator|++
 name|pos
 expr_stmt|;
@@ -1851,7 +1851,7 @@ index|]
 operator|=
 name|fragment
 expr_stmt|;
-comment|//  		    qDebug("    setting cell %d span=%d/%d at %d/%d", fragment, rowspan, colspan, r+ii, c+jj);
+comment|//              qDebug("    setting cell %d span=%d/%d at %d/%d", fragment, rowspan, colspan, r+ii, c+jj);
 block|}
 block|}
 block|}

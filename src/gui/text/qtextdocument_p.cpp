@@ -3367,7 +3367,7 @@ name|b
 argument_list|)
 condition|)
 block|{
-comment|//	    qDebug("remove_string from %d length %d", key, X->size_array[0]);
+comment|//          qDebug("remove_string from %d length %d", key, X->size_array[0]);
 name|Q_ASSERT
 argument_list|(
 name|noBlockInString
@@ -3446,7 +3446,7 @@ block|}
 block|}
 else|else
 block|{
-comment|//	    qDebug("remove_block at %d", key);
+comment|//          qDebug("remove_block at %d", key);
 name|Q_ASSERT
 argument_list|(
 name|X
