@@ -76,6 +76,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qset.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<limits.h>
 end_include
 begin_decl_stmt
@@ -251,12 +256,17 @@ function_decl|;
 endif|#
 directive|endif
 name|void
-name|addToManualSetList
+name|setProperty
 argument_list|(
 name|QPrintEngine
 operator|::
 name|PrintEnginePropertyKey
 name|key
+argument_list|,
+specifier|const
+name|QVariant
+operator|&
+name|value
 argument_list|)
 decl_stmt|;
 name|QPrinter
@@ -329,13 +339,13 @@ range|:
 literal|1
 decl_stmt|;
 comment|// Used to remember which properties have been manually set by the user.
-name|QList
+name|QSet
 operator|<
 name|QPrintEngine
 operator|::
 name|PrintEnginePropertyKey
 operator|>
-name|manualSetList
+name|m_properties
 expr_stmt|;
 block|}
 end_decl_stmt
