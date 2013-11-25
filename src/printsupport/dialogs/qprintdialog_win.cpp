@@ -926,7 +926,7 @@ name|d
 operator|->
 name|printer
 operator|->
-name|paintEngine
+name|printEngine
 argument_list|()
 argument_list|)
 operator|->
@@ -996,7 +996,7 @@ name|d
 operator|->
 name|printer
 operator|->
-name|paintEngine
+name|printEngine
 argument_list|()
 argument_list|)
 operator|->
