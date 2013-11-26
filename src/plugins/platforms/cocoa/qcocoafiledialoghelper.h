@@ -176,6 +176,9 @@ operator|:
 name|void
 operator|*
 name|mDelegate
+block|;
+name|QUrl
+name|mDir
 block|; }
 decl_stmt|;
 end_decl_stmt
