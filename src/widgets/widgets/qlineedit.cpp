@@ -599,12 +599,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|control
-operator|->
-name|text
-argument_list|()
-operator|.
-name|isEmpty
+name|shouldShowPlaceholderText
 argument_list|()
 condition|)
 name|update
@@ -6130,12 +6125,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|control
-operator|->
-name|text
-argument_list|()
-operator|.
-name|isEmpty
+name|shouldShowPlaceholderText
 argument_list|()
 operator|&&
 name|d
