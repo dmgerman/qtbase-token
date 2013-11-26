@@ -769,6 +769,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_if
 begin_function
 DECL|function|setWindowsAnimationsEnabled
@@ -851,7 +857,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// Q_OS_WIN&& !Q_OS_WINCE
+comment|// Q_OS_WIN&& !Q_OS_WINCE&& !Q_OS_WINRT
 end_comment
 begin_function
 DECL|function|setWindowsAnimationsEnabled
@@ -881,7 +887,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !Q_OS_WIN || Q_OS_WINCE
+comment|// !Q_OS_WIN || Q_OS_WINCE || Q_OS_WINRT
 end_comment
 begin_class
 DECL|class|tst_QWidget
