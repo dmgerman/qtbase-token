@@ -232,7 +232,7 @@ argument_list|()
 argument_list|)
 block|{}
 comment|// The backend_tz is the tz to use in static methods such as availableTimeZoneIds() and
-comment|// isTimeZoneIdAvailable() and to create named Olsen time zones.  This is usually the host
+comment|// isTimeZoneIdAvailable() and to create named IANA time zones.  This is usually the host
 comment|// system, but may be different if the host resources are insufficient or if
 comment|// QT_NO_SYSTEMLOCALE is set.  A simple UTC backend is used if no alternative is available.
 DECL|member|backend
@@ -255,7 +255,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|/*!     \class QTimeZone     \inmodule QtCore     \since 5.2     \brief The QTimeZone class converts between between UTC and local time in a            specific time zone.      \threadsafe      This class provides a stateless calculator for time zone conversions     between UTC and the local time in a specific time zone.  By default it uses     the host system time zone data to perform these conversions.      This class is primarily designed for use in QDateTime; most applications     will not need to access this class directly and should instead use     QDateTime with a Qt::TimeSpec of Qt::TimeZone.      \note For consistency with QDateTime, QTimeZone does not account for leap     seconds.      \section1      \section2 Olsen Time Zone IDs      QTimeZone uses the Olsen time zone IDs as defined in the IANA Time Zone     Database (http://www.iana.org/time-zones). This is to ensure a standard ID     across all supported platforms.  Most platforms support the Olsen IDs     and the IANA Database natively, but for Windows a mapping is required to     the native IDs.  See below for more details.      The Olsen IDs can and do change on a regular basis, and can vary depending     on how recently the host system data was updated.  As such you cannot rely     on any given ID existing on any host system.  You must use     availableTimeZoneIds() to determine what Olsen IDs are available.      \section2 UTC Offset Time Zones      A default UTC time zone backend is provided which is always guaranteed to     be available.  This provides a set of generic Offset From UTC time zones     in the range UTC-14:00 to UTC+14:00.  These time zones can be created     using either the standard ISO format names "UTC+00:00" as listed by     availableTimeZoneIds(), or using the number of offset seconds.      \section2 Windows Time Zones      Windows native time zone support is severely limited compared to the     standard IANA TZ Database.  Windows time zones cover larger geographic     areas and are thus less accurate in their conversions.  They also do not     support as much historic conversion data and so may only be accurate for     the current year.      QTimeZone uses a conversion table derived form the Unicode CLDR data to map     between Olsen IDs and Windows IDs.  Depending on your version of Windows     and Qt, this table may not be able to provide a valid conversion, in which     "UTC" will be returned.      QTimeZone provides a public API to use this conversion table.  The Windows ID     used is the Windows Registry Key for the time zone which is also the MS     Exchange EWS ID as well, but is different to the Time Zone Name (TZID) and     COD code used by MS Exchange in versions before 2007.      \section2 System Time Zone      QTimeZone does not support any concept of a system or default time zone.     If you require a QDateTime that uses the current system time zone at any     given moment then you should use a Qt::TimeSpec of Qt::LocalTime.      The method systemTimeZoneId() returns the current system Olsen time zone     ID which on OSX and Linux will always be correct.  On Windows this ID is     translated from the the Windows system ID using an internal translation     table and the user's selected country.  As a consequence there is a small     chance any Windows install may have IDs not known by Qt, in which case     "UTC" will be returned.      Creating a new QTimeZone instance using the system time zone ID will only     produce a fixed named copy of the time zone, it will not change if the     system time zone changes.      \section2 Time Zone Offsets      The difference between UTC and the local time in a time zone is expressed     as an offset in seconds from UTC, i.e. the number of seconds to add to UTC     to obtain the local time.  The total offset is comprised of two component     parts, the standard time offset and the daylight time offset.  The standard     time offset is the number of seconds to add to UTC to obtain standard time     in the time zone.  The daylight time offset is the number of seconds to add     to the standard time offset to obtain daylight time in the time zone.      Note that the standard and daylight offsets for a time zone may change over     time as countries have changed daylight time laws or even their standard     time offset.      \section2 License      This class includes data obtained from the CLDR data files under the terms     of the Unicode license.      \legalese     COPYRIGHT AND PERMISSION NOTICE      Copyright Â© 1991-2012 Unicode, Inc. All rights reserved. Distributed under     the Terms of Use in http://www.unicode.org/copyright.html.      Permission is hereby granted, free of charge, to any person obtaining a     copy of the Unicode data files and any associated documentation (the "Data     Files") or Unicode software and any associated documentation (the "Software")     to deal in the Data Files or Software without restriction, including without     limitation the rights to use, copy, modify, merge, publish, distribute, and/or     sell copies of the Data Files or Software, and to permit persons to whom the     Data Files or Software are furnished to do so, provided that (a) the above     copyright notice(s) and this permission notice appear with all copies of the     Data Files or Software, (b) both the above copyright notice(s) and this     permission notice appear in associated documentation, and (c) there is clear     notice in each modified Data File or in the Software as well as in the     documentation associated with the Data File(s) or Software that the data or     software has been modified.     \endlegalese      \sa QDateTime */
+comment|/*!     \class QTimeZone     \inmodule QtCore     \since 5.2     \brief The QTimeZone class converts between between UTC and local time in a            specific time zone.      \threadsafe      This class provides a stateless calculator for time zone conversions     between UTC and the local time in a specific time zone.  By default it uses     the host system time zone data to perform these conversions.      This class is primarily designed for use in QDateTime; most applications     will not need to access this class directly and should instead use     QDateTime with a Qt::TimeSpec of Qt::TimeZone.      \note For consistency with QDateTime, QTimeZone does not account for leap     seconds.      \section1      \section2 IANA Time Zone IDs      QTimeZone uses the IANA time zone IDs as defined in the IANA Time Zone     Database (http://www.iana.org/time-zones). This is to ensure a standard ID     across all supported platforms.  Most platforms support the IANA IDs     and the IANA Database natively, but for Windows a mapping is required to     the native IDs.  See below for more details.      The IANA IDs can and do change on a regular basis, and can vary depending     on how recently the host system data was updated.  As such you cannot rely     on any given ID existing on any host system.  You must use     availableTimeZoneIds() to determine what IANA IDs are available.      The IANA IDs and database are also know as the Olson IDs and database,     named after their creator.      \section2 UTC Offset Time Zones      A default UTC time zone backend is provided which is always guaranteed to     be available.  This provides a set of generic Offset From UTC time zones     in the range UTC-14:00 to UTC+14:00.  These time zones can be created     using either the standard ISO format names "UTC+00:00" as listed by     availableTimeZoneIds(), or using the number of offset seconds.      \section2 Windows Time Zones      Windows native time zone support is severely limited compared to the     standard IANA TZ Database.  Windows time zones cover larger geographic     areas and are thus less accurate in their conversions.  They also do not     support as much historic conversion data and so may only be accurate for     the current year.      QTimeZone uses a conversion table derived form the Unicode CLDR data to map     between IANA IDs and Windows IDs.  Depending on your version of Windows     and Qt, this table may not be able to provide a valid conversion, in which     "UTC" will be returned.      QTimeZone provides a public API to use this conversion table.  The Windows ID     used is the Windows Registry Key for the time zone which is also the MS     Exchange EWS ID as well, but is different to the Time Zone Name (TZID) and     COD code used by MS Exchange in versions before 2007.      \section2 System Time Zone      QTimeZone does not support any concept of a system or default time zone.     If you require a QDateTime that uses the current system time zone at any     given moment then you should use a Qt::TimeSpec of Qt::LocalTime.      The method systemTimeZoneId() returns the current system IANA time zone     ID which on OSX and Linux will always be correct.  On Windows this ID is     translated from the the Windows system ID using an internal translation     table and the user's selected country.  As a consequence there is a small     chance any Windows install may have IDs not known by Qt, in which case     "UTC" will be returned.      Creating a new QTimeZone instance using the system time zone ID will only     produce a fixed named copy of the time zone, it will not change if the     system time zone changes.      \section2 Time Zone Offsets      The difference between UTC and the local time in a time zone is expressed     as an offset in seconds from UTC, i.e. the number of seconds to add to UTC     to obtain the local time.  The total offset is comprised of two component     parts, the standard time offset and the daylight time offset.  The standard     time offset is the number of seconds to add to UTC to obtain standard time     in the time zone.  The daylight time offset is the number of seconds to add     to the standard time offset to obtain daylight time in the time zone.      Note that the standard and daylight offsets for a time zone may change over     time as countries have changed daylight time laws or even their standard     time offset.      \section2 License      This class includes data obtained from the CLDR data files under the terms     of the Unicode license.      \legalese     COPYRIGHT AND PERMISSION NOTICE      Copyright Â© 1991-2012 Unicode, Inc. All rights reserved. Distributed under     the Terms of Use in http://www.unicode.org/copyright.html.      Permission is hereby granted, free of charge, to any person obtaining a     copy of the Unicode data files and any associated documentation (the "Data     Files") or Unicode software and any associated documentation (the "Software")     to deal in the Data Files or Software without restriction, including without     limitation the rights to use, copy, modify, merge, publish, distribute, and/or     sell copies of the Data Files or Software, and to permit persons to whom the     Data Files or Software are furnished to do so, provided that (a) the above     copyright notice(s) and this permission notice appear with all copies of the     Data Files or Software, (b) both the above copyright notice(s) and this     permission notice appear in associated documentation, and (c) there is clear     notice in each modified Data File or in the Software as well as in the     documentation associated with the Data File(s) or Software that the data or     software has been modified.     \endlegalese      \sa QDateTime */
 end_comment
 begin_comment
 comment|/*!     \enum QTimeZone::TimeType      The type of time zone time, for example when requesting the name.  In time     zones that do not apply daylight time, all three values may return the     same result.      \value StandardTime            The standard time in a time zone, i.e. when Daylight Savings is not            in effect.            For example when formatting a display name this will show something            like "Pacific Standard Time".     \value DaylightTime            A time when Daylight Savings is in effect.            For example when formatting a display name this will show something            like "Pacific daylight time".     \value GenericTime            A time which is not specifically Standard or Daylight time, either            an unknown time or a neutral form.            For example when formatting a display name this will show something            like "Pacific Time". */
@@ -286,7 +286,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Creates an instance of the requested time zone \a olsenId.      The ID must be one of the available system IDs otherwise an invalid     time zone will be returned.      \sa availableTimeZoneIds() */
+comment|/*!     Creates an instance of the requested time zone \a ianaId.      The ID must be one of the available system IDs otherwise an invalid     time zone will be returned.      \sa availableTimeZoneIds() */
 end_comment
 begin_constructor
 DECL|function|QTimeZone
@@ -297,7 +297,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
 comment|// Try and see if it's a valid UTC offset ID, just as quick to try create as look-up
@@ -306,7 +306,7 @@ operator|=
 operator|new
 name|QUtcTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 expr_stmt|;
 comment|// If not a valid UTC offset ID then try create it with the system backend
@@ -323,7 +323,7 @@ name|d
 operator|=
 name|newBackendTimeZone
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 expr_stmt|;
 block|}
@@ -369,7 +369,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Creates a custom time zone with an ID of \a olsenId and an offset from UTC     of \a offsetSeconds.  The \a name will be the name used by displayName()     for the LongName, the \a abbreviation will be used by displayName() for the     ShortName and by abbreviation(), and the optional \a country will be used     by country().  The \a comment is an optional note that may be displayed in     a GUI to assist users in selecting a time zone.      The \a olsenId must not be one of the available system IDs returned by     availableTimeZoneIds().  The \a offsetSeconds from UTC must be in the range     -14 hours to +14 hours.      If the custom time zone does not have a specific country then set it to the     default value of QLocale::AnyCountry. */
+comment|/*!     Creates a custom time zone with an ID of \a ianaId and an offset from UTC     of \a offsetSeconds.  The \a name will be the name used by displayName()     for the LongName, the \a abbreviation will be used by displayName() for the     ShortName and by abbreviation(), and the optional \a country will be used     by country().  The \a comment is an optional note that may be displayed in     a GUI to assist users in selecting a time zone.      The \a ianaId must not be one of the available system IDs returned by     availableTimeZoneIds().  The \a offsetSeconds from UTC must be in the range     -14 hours to +14 hours.      If the custom time zone does not have a specific country then set it to the     default value of QLocale::AnyCountry. */
 end_comment
 begin_constructor
 DECL|function|QTimeZone
@@ -380,7 +380,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|,
 name|int
 name|offsetSeconds
@@ -406,14 +406,14 @@ modifier|&
 name|comment
 parameter_list|)
 block|{
-comment|// olsenId must be a valid ID and must not clash with the standard system names
+comment|// ianaId must be a valid ID and must not clash with the standard system names
 if|if
 condition|(
 name|QTimeZonePrivate
 operator|::
 name|isValidId
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 operator|&&
 operator|!
@@ -422,7 +422,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 condition|)
 name|d
@@ -430,7 +430,7 @@ operator|=
 operator|new
 name|QUtcTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|,
 name|offsetSeconds
 argument_list|,
@@ -669,7 +669,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the Olsen ID for the time zone.      Olsen IDs are used on all platforms.  On Windows these are translated     from the Windows ID into the closest Olsen ID for the time zone and country. */
+comment|/*!     Returns the IANA ID for the time zone.      IANA IDs are used on all platforms.  On Windows these are translated     from the Windows ID into the closest IANA ID for the time zone and country. */
 end_comment
 begin_function
 DECL|function|id
@@ -1163,7 +1163,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first time zone Transition after the given \a afterDateTime.     This is most useful when you have a Transition time and wish to find the     Transition after it.      The given \a afterDateTime is exclusive.      \sa hasTransitions(), previousTransition(), transitions() */
+comment|/*!     Returns the first time zone Transition after the given \a afterDateTime.     This is most useful when you have a Transition time and wish to find the     Transition after it.      If there is no transition after the given \a afterDateTime then an invalid     OffsetData will be returned with an invalid QDateTime.      The given \a afterDateTime is exclusive.      \sa hasTransitions(), previousTransition(), transitions() */
 end_comment
 begin_function
 DECL|function|nextTransition
@@ -1212,7 +1212,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the first time zone Transition before the given \a beforeDateTime.     This is most useful when you have a Transition time and wish to find the     Transition before it.      The given \a beforeDateTime is exclusive.      \sa hasTransitions(), nextTransition(), transitions() */
+comment|/*!     Returns the first time zone Transition before the given \a beforeDateTime.     This is most useful when you have a Transition time and wish to find the     Transition before it.      If there is no transition before the given \a beforeDateTime then an invalid     OffsetData will be returned with an invalid QDateTime.      The given \a beforeDateTime is exclusive.      \sa hasTransitions(), nextTransition(), transitions() */
 end_comment
 begin_function
 DECL|function|previousTransition
@@ -1346,7 +1346,7 @@ begin_comment
 comment|// Static methods
 end_comment
 begin_comment
-comment|/*!     Returns the current system time zone Olsen ID.      On Windows this ID is translated from the the Windows ID using an internal     translation table and the user's selected country.  As a consequence there     is a small chance any Windows install may have IDs not known by Qt, in     which case "UTC" will be returned. */
+comment|/*!     Returns the current system time zone IANA ID.      On Windows this ID is translated from the the Windows ID using an internal     translation table and the user's selected country.  As a consequence there     is a small chance any Windows install may have IDs not known by Qt, in     which case "UTC" will be returned. */
 end_comment
 begin_function
 DECL|function|systemTimeZoneId
@@ -1367,7 +1367,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if a given time zone \a olsenId is available on this system.      \sa availableTimeZoneIds() */
+comment|/*!     Returns \c true if a given time zone \a ianaId is available on this system.      \sa availableTimeZoneIds() */
 end_comment
 begin_function
 DECL|function|isTimeZoneIdAvailable
@@ -1379,7 +1379,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
 comment|// isValidId is not strictly required, but faster to weed out invalid
@@ -1390,7 +1390,7 @@ name|QTimeZonePrivate
 operator|::
 name|isValidId
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 operator|&&
 operator|(
@@ -1399,7 +1399,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 operator|)
 operator|)
@@ -1407,7 +1407,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of all available Olsen time zone IDs on this system.      \sa isTimeZoneIdAvailable() */
+comment|/*!     Returns a list of all available IANA time zone IDs on this system.      \sa isTimeZoneIdAvailable() */
 end_comment
 begin_function
 DECL|function|availableTimeZoneIds
@@ -1471,7 +1471,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of all available Olsen time zone IDs for a given \a country.      As a special case, a \a country of Qt::AnyCountry returns those time zones     that do not have any country related to them, such as UTC.  If you require     a list of all time zone IDs for all countries then use the standard     availableTimeZoneIds() method.      \sa isTimeZoneIdAvailable() */
+comment|/*!     Returns a list of all available IANA time zone IDs for a given \a country.      As a special case, a \a country of Qt::AnyCountry returns those time zones     that do not have any country related to them, such as UTC.  If you require     a list of all time zone IDs for all countries then use the standard     availableTimeZoneIds() method.      \sa isTimeZoneIdAvailable() */
 end_comment
 begin_function
 DECL|function|availableTimeZoneIds
@@ -1544,7 +1544,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of all available Olsen time zone IDs with a given standard     time offset of \a offsetSeconds.      \sa isTimeZoneIdAvailable() */
+comment|/*!     Returns a list of all available IANA time zone IDs with a given standard     time offset of \a offsetSeconds.      \sa isTimeZoneIdAvailable() */
 end_comment
 begin_function
 DECL|function|availableTimeZoneIds
@@ -1615,40 +1615,40 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the Windows ID equivalent to the given \a olsenId.      \sa windowsIdToDefaultOlsenId(), windowsIdToOlsenIds() */
+comment|/*!     Returns the Windows ID equivalent to the given \a ianaId.      \sa windowsIdToDefaultIanaId(), windowsIdToIanaIds() */
 end_comment
 begin_function
-DECL|function|olsenIdToWindowsId
+DECL|function|ianaIdToWindowsId
 name|QByteArray
 name|QTimeZone
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
 return|return
 name|QTimeZonePrivate
 operator|::
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the default Olsen ID for a given \a windowsId.      Because a Windows ID can cover several Olsen IDs in several different     countries, this function returns the most frequently used Olsen ID with no     regard for the country and should thus be used with care.  It is usually     best to request the default for a specific country.      \sa olsenIdToWindowsId(), windowsIdToOlsenIds() */
+comment|/*!     Returns the default IANA ID for a given \a windowsId.      Because a Windows ID can cover several IANA IDs in several different     countries, this function returns the most frequently used IANA ID with no     regard for the country and should thus be used with care.  It is usually     best to request the default for a specific country.      \sa ianaIdToWindowsId(), windowsIdToIanaIds() */
 end_comment
 begin_function
-DECL|function|windowsIdToDefaultOlsenId
+DECL|function|windowsIdToDefaultIanaId
 name|QByteArray
 name|QTimeZone
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -1659,7 +1659,7 @@ block|{
 return|return
 name|QTimeZonePrivate
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 name|windowsId
 argument_list|)
@@ -1667,14 +1667,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the default Olsen ID for a given \a windowsId and \a country.      Because a Windows ID can cover several Olsen IDs within a given country,     the most frequently used Olsen ID in that country is returned.      As a special case, QLocale::AnyCountry returns the default of those Olsen IDs     that do not have any specific country.      \sa olsenIdToWindowsId(), windowsIdToOlsenIds() */
+comment|/*!     Returns the default IANA ID for a given \a windowsId and \a country.      Because a Windows ID can cover several IANA IDs within a given country,     the most frequently used IANA ID in that country is returned.      As a special case, QLocale::AnyCountry returns the default of those IANA IDs     that do not have any specific country.      \sa ianaIdToWindowsId(), windowsIdToIanaIds() */
 end_comment
 begin_function
-DECL|function|windowsIdToDefaultOlsenId
+DECL|function|windowsIdToDefaultIanaId
 name|QByteArray
 name|QTimeZone
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -1690,7 +1690,7 @@ block|{
 return|return
 name|QTimeZonePrivate
 operator|::
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 name|windowsId
 argument_list|,
@@ -1700,17 +1700,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns all the Olsen IDs for a given \a windowsId.      The returned list is sorted alphabetically.      \sa olsenIdToWindowsId(), windowsIdToDefaultOlsenId() */
+comment|/*!     Returns all the IANA IDs for a given \a windowsId.      The returned list is sorted alphabetically.      \sa ianaIdToWindowsId(), windowsIdToDefaultIanaId() */
 end_comment
 begin_function
-DECL|function|windowsIdToOlsenIds
+DECL|function|windowsIdToIanaIds
 name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -1721,7 +1721,7 @@ block|{
 return|return
 name|QTimeZonePrivate
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 name|windowsId
 argument_list|)
@@ -1729,17 +1729,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns all the Olsen IDs for a given \a windowsId and \a country.      As a special case QLocale::AnyCountry returns those Olsen IDs that do     not have any specific country.      The returned list is in order of frequency of usage, i.e. larger zones     within a country are listed first.      \sa olsenIdToWindowsId(), windowsIdToDefaultOlsenId() */
+comment|/*!     Returns all the IANA IDs for a given \a windowsId and \a country.      As a special case QLocale::AnyCountry returns those IANA IDs that do     not have any specific country.      The returned list is in order of frequency of usage, i.e. larger zones     within a country are listed first.      \sa ianaIdToWindowsId(), windowsIdToDefaultIanaId() */
 end_comment
 begin_function
-DECL|function|windowsIdToOlsenIds
+DECL|function|windowsIdToIanaIds
 name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
 name|QTimeZone
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -1755,7 +1755,7 @@ block|{
 return|return
 name|QTimeZonePrivate
 operator|::
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 name|windowsId
 argument_list|,

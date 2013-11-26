@@ -582,11 +582,6 @@ specifier|const
 name|char
 modifier|*
 name|what
-parameter_list|,
-name|bool
-name|extraCondition
-init|=
-literal|false
 parameter_list|)
 block|{
 switch|switch
@@ -610,17 +605,10 @@ operator|::
 name|Picture
 case|:
 comment|// can be drawn onto these devices safely from any thread
-if|if
-condition|(
-name|extraCondition
-condition|)
 break|break;
 default|default:
 if|if
 condition|(
-operator|!
-name|extraCondition
-operator|&&
 name|QThread
 operator|::
 name|currentThread

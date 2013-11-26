@@ -448,12 +448,12 @@ block|,
 DECL|enumerator|XCB_XKB_CONTROL_PER_KEY_REPEAT
 name|XCB_XKB_CONTROL_PER_KEY_REPEAT
 init|=
-literal|1073741824
+literal|1073741824u
 block|,
 DECL|enumerator|XCB_XKB_CONTROL_CONTROLS_ENABLED
 name|XCB_XKB_CONTROL_CONTROLS_ENABLED
 init|=
-literal|2147483648
+literal|2147483648u
 block|}
 DECL|typedef|xcb_xkb_control_t
 name|xcb_xkb_control_t

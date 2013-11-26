@@ -164,6 +164,22 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// We not only need the scancode itself but also the extended bit of key messages. Thus we need
+end_comment
+begin_comment
+comment|// the additional bit when masking the scancode.
+end_comment
+begin_enum
+DECL|enumerator|scancodeBitmask
+enum|enum
+block|{
+name|scancodeBitmask
+init|=
+literal|0x1ff
+block|}
+enum|;
+end_enum
+begin_comment
 comment|// Key recorder ------------------------------------------------------------------------[ start ] --
 end_comment
 begin_struct
@@ -2594,7 +2610,7 @@ operator|>>
 literal|16
 operator|)
 operator|&
-literal|0xff
+name|scancodeBitmask
 decl_stmt|;
 name|updatePossibleKeyCodes
 argument_list|(
@@ -3954,7 +3970,7 @@ operator|>>
 literal|16
 operator|)
 operator|&
-literal|0xff
+name|scancodeBitmask
 decl_stmt|;
 specifier|const
 name|quint32

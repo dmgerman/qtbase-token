@@ -3824,6 +3824,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -4037,6 +4039,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -5272,8 +5276,6 @@ decl_stmt|;
 name|QString
 name|destdir
 init|=
-name|escapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -5289,7 +5291,6 @@ literal|"QMAKE_BUNDLE"
 argument_list|)
 operator|+
 literal|"/Contents"
-argument_list|)
 decl_stmt|;
 name|t
 operator|<<
@@ -5393,8 +5394,6 @@ expr_stmt|;
 name|QString
 name|destdir
 init|=
-name|escapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -5410,7 +5409,6 @@ literal|"QMAKE_BUNDLE"
 argument_list|)
 operator|+
 literal|"/Contents/Resources"
-argument_list|)
 decl_stmt|;
 name|t
 operator|<<
@@ -5522,6 +5520,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"

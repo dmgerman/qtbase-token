@@ -11,7 +11,15 @@ name|interface
 name|QIOSViewController
 range|:
 name|UIViewController
-expr|@
-name|end
+operator|-
+operator|(
+name|BOOL
+operator|)
+name|prefersStatusBarHidden
+decl_stmt|;
 end_decl_stmt
+begin_macro
+unit|@
+name|end
+end_macro
 end_unit
