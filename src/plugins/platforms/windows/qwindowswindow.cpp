@@ -6466,6 +6466,8 @@ operator||
 name|SWP_NOMOVE
 operator||
 name|SWP_NOZORDER
+operator||
+name|SWP_NOACTIVATE
 argument_list|)
 expr_stmt|;
 block|}
