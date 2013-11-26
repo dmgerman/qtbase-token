@@ -9063,7 +9063,7 @@ name|project
 operator|->
 name|values
 argument_list|(
-literal|"QMAKE_PBX_PRESCRIPT_BUILDPHASES"
+literal|"QMAKE_PBX_BUILDPHASES"
 argument_list|)
 operator|.
 name|append
