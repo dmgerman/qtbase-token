@@ -58,8 +58,30 @@ name|Q_PROPERTY
 argument_list|(
 argument|int numProperty2 READ numProperty2 WRITE setNumProperty2
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+argument|Salaries
+argument_list|)
 name|public
 operator|:
+comment|// C++1y allows use of single quote as a digit separator, useful for large
+comment|// numbers. http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3781.pdf
+comment|// Ensure that qdbuscpp2xml does not get confused with this appearing.
+expr|enum
+name|Salaries
+block|{
+name|Steve
+ifdef|#
+directive|ifdef
+name|Q_MOC_RUN
+operator|=
+literal|1
+literal|'234'
+literal|567
+endif|#
+directive|endif
+block|}
+block|;
 name|Test1
 argument_list|(
 name|QObject

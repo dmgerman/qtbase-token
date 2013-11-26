@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qaccessible2_p.h"
+file|"QtGui/qaccessible.h"
 end_include
 begin_include
 include|#

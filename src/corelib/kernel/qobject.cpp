@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2013 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -715,6 +715,26 @@ modifier|*
 name|QAbstractDeclarativeData
 operator|::
 name|destroyed
+function_decl|)
+parameter_list|(
+name|QAbstractDeclarativeData
+modifier|*
+parameter_list|,
+name|QObject
+modifier|*
+parameter_list|)
+function_decl|=
+literal|0
+function_decl|;
+end_function_decl
+begin_function_decl
+DECL|variable|destroyed_qml1
+name|void
+function_decl|(
+modifier|*
+name|QAbstractDeclarativeData
+operator|::
+name|destroyed_qml1
 function_decl|)
 parameter_list|(
 name|QAbstractDeclarativeData
@@ -2354,7 +2374,7 @@ begin_comment
 comment|/*!     \fn void QSignalBlocker::unblock()      Temporarily restores the QObject::signalsBlocked() state to what     it was before this QSignaBlocker's constructor ran. To undo, use     reblock().      The numbers of reblock() and unblock() calls are not counted, so     every unblock() undoes any number of reblock() calls. */
 end_comment
 begin_comment
-comment|/*!     \class QObject     \inmodule QtCore     \brief The QObject class is the base class of all Qt objects.      \ingroup objectmodel      \reentrant      QObject is the heart of the Qt \l{Object Model}. The central     feature in this model is a very powerful mechanism for seamless     object communication called \l{signals and slots}. You can     connect a signal to a slot with connect() and destroy the     connection with disconnect(). To avoid never ending notification     loops you can temporarily block signals with blockSignals(). The     protected functions connectNotify() and disconnectNotify() make     it possible to track connections.      QObjects organize themselves in \l {Object Trees& Ownership}     {object trees}. When you create a QObject with another object as     parent, the object will automatically add itself to the parent's     children() list. The parent takes ownership of the object; i.e.,     it will automatically delete its children in its destructor. You     can look for an object by name and optionally type using     findChild() or findChildren().      Every object has an objectName() and its class name can be found     via the corresponding metaObject() (see QMetaObject::className()).     You can determine whether the object's class inherits another     class in the QObject inheritance hierarchy by using the     inherits() function.      When an object is deleted, it emits a destroyed() signal. You can     catch this signal to avoid dangling references to QObjects.      QObjects can receive events through event() and filter the events     of other objects. See installEventFilter() and eventFilter() for     details. A convenience handler, childEvent(), can be reimplemented     to catch child events.      Last but not least, QObject provides the basic timer support in     Qt; see QTimer for high-level support for timers.      Notice that the Q_OBJECT macro is mandatory for any object that     implements signals, slots or properties. You also need to run the     \l{moc}{Meta Object Compiler} on the source file. We strongly     recommend the use of this macro in all subclasses of QObject     regardless of whether or not they actually use signals, slots and     properties, since failure to do so may lead certain functions to     exhibit strange behavior.      All Qt widgets inherit QObject. The convenience function     isWidgetType() returns whether an object is actually a widget. It     is much faster than     \l{qobject_cast()}{qobject_cast}<QWidget *>(\e{obj}) or     \e{obj}->\l{inherits()}{inherits}("QWidget").      Some QObject functions, e.g. children(), return a QObjectList.     QObjectList is a typedef for QList<QObject *>.      \section1 Thread Affinity      A QObject instance is said to have a \e{thread affinity}, or that     it \e{lives} in a certain thread. When a QObject receives a     \l{Qt::QueuedConnection}{queued signal} or a \l{The Event     System#Sending Events}{posted event}, the slot or event handler     will run in the thread that the object lives in.      \note If a QObject has no thread affinity (that is, if thread()     returns zero), or if it lives in a thread that has no running event     loop, then it cannot receive queued signals or posted events.      By default, a QObject lives in the thread in which it is created.     An object's thread affinity can be queried using thread() and     changed using moveToThread().      All QObjects must live in the same thread as their parent. Consequently:      \list     \li setParent() will fail if the two QObjects involved live in         different threads.     \li When a QObject is moved to another thread, all its children         will be automatically moved too.     \li moveToThread() will fail if the QObject has a parent.     \li If \l{QObject}s are created within QThread::run(), they cannot         become children of the QThread object because the QThread does         not live in the thread that calls QThread::run().     \endlist      \note A QObject's member variables \e{do not} automatically become     its children. The parent-child relationship must be set by either     passing a pointer to the child's \l{QObject()}{constructor}, or by     calling setParent(). Without this step, the object's member variables     will remain in the old thread when moveToThread() is called.      \target No copy constructor     \section1 No copy constructor or assignment operator      QObject has neither a copy constructor nor an assignment operator.     This is by design. Actually, they are declared, but in a     \c{private} section with the macro Q_DISABLE_COPY(). In fact, all     Qt classes derived from QObject (direct or indirect) use this     macro to declare their copy constructor and assignment operator to     be private. The reasoning is found in the discussion on     \l{Identity vs Value} {Identity vs Value} on the Qt \l{Object     Model} page.      The main consequence is that you should use pointers to QObject     (or to your QObject subclass) where you might otherwise be tempted     to use your QObject subclass as a value. For example, without a     copy constructor, you can't use a subclass of QObject as the value     to be stored in one of the container classes. You must store     pointers.      \section1 Auto-Connection      Qt's meta-object system provides a mechanism to automatically connect     signals and slots between QObject subclasses and their children. As long     as objects are defined with suitable object names, and slots follow a     simple naming convention, this connection can be performed at run-time     by the QMetaObject::connectSlotsByName() function.      \l uic generates code that invokes this function to enable     auto-connection to be performed between widgets on forms created     with \e{Qt Designer}. More information about using auto-connection with \e{Qt Designer} is     given in the \l{Using a Designer UI File in Your Application} section of     the \e{Qt Designer} manual.      \section1 Dynamic Properties      From Qt 4.2, dynamic properties can be added to and removed from QObject     instances at run-time. Dynamic properties do not need to be declared at     compile-time, yet they provide the same advantages as static properties     and are manipulated using the same API - using property() to read them     and setProperty() to write them.      From Qt 4.3, dynamic properties are supported by     \l{Qt Designer's Widget Editing Mode#The Property Editor}{Qt Designer},     and both standard Qt widgets and user-created forms can be given dynamic     properties.      \section1 Internationalization (i18n)      All QObject subclasses support Qt's translation features, making it possible     to translate an application's user interface into different languages.      To make user-visible text translatable, it must be wrapped in calls to     the tr() function. This is explained in detail in the     \l{Writing Source Code for Translation} document.      \sa QMetaObject, QPointer, QObjectCleanupHandler, Q_DISABLE_COPY()     \sa {Object Trees& Ownership} */
+comment|/*!     \class QObject     \inmodule QtCore     \brief The QObject class is the base class of all Qt objects.      \ingroup objectmodel      \reentrant      QObject is the heart of the Qt \l{Object Model}. The central     feature in this model is a very powerful mechanism for seamless     object communication called \l{signals and slots}. You can     connect a signal to a slot with connect() and destroy the     connection with disconnect(). To avoid never ending notification     loops you can temporarily block signals with blockSignals(). The     protected functions connectNotify() and disconnectNotify() make     it possible to track connections.      QObjects organize themselves in \l {Object Trees& Ownership}     {object trees}. When you create a QObject with another object as     parent, the object will automatically add itself to the parent's     children() list. The parent takes ownership of the object; i.e.,     it will automatically delete its children in its destructor. You     can look for an object by name and optionally type using     findChild() or findChildren().      Every object has an objectName() and its class name can be found     via the corresponding metaObject() (see QMetaObject::className()).     You can determine whether the object's class inherits another     class in the QObject inheritance hierarchy by using the     inherits() function.      When an object is deleted, it emits a destroyed() signal. You can     catch this signal to avoid dangling references to QObjects.      QObjects can receive events through event() and filter the events     of other objects. See installEventFilter() and eventFilter() for     details. A convenience handler, childEvent(), can be reimplemented     to catch child events.      Last but not least, QObject provides the basic timer support in     Qt; see QTimer for high-level support for timers.      Notice that the Q_OBJECT macro is mandatory for any object that     implements signals, slots or properties. You also need to run the     \l{moc}{Meta Object Compiler} on the source file. We strongly     recommend the use of this macro in all subclasses of QObject     regardless of whether or not they actually use signals, slots and     properties, since failure to do so may lead certain functions to     exhibit strange behavior.      All Qt widgets inherit QObject. The convenience function     isWidgetType() returns whether an object is actually a widget. It     is much faster than     \l{qobject_cast()}{qobject_cast}<QWidget *>(\e{obj}) or     \e{obj}->\l{inherits()}{inherits}("QWidget").      Some QObject functions, e.g. children(), return a QObjectList.     QObjectList is a typedef for QList<QObject *>.      \section1 Thread Affinity      A QObject instance is said to have a \e{thread affinity}, or that     it \e{lives} in a certain thread. When a QObject receives a     \l{Qt::QueuedConnection}{queued signal} or a \l{The Event     System#Sending Events}{posted event}, the slot or event handler     will run in the thread that the object lives in.      \note If a QObject has no thread affinity (that is, if thread()     returns zero), or if it lives in a thread that has no running event     loop, then it cannot receive queued signals or posted events.      By default, a QObject lives in the thread in which it is created.     An object's thread affinity can be queried using thread() and     changed using moveToThread().      All QObjects must live in the same thread as their parent. Consequently:      \list     \li setParent() will fail if the two QObjects involved live in         different threads.     \li When a QObject is moved to another thread, all its children         will be automatically moved too.     \li moveToThread() will fail if the QObject has a parent.     \li If QObjects are created within QThread::run(), they cannot         become children of the QThread object because the QThread does         not live in the thread that calls QThread::run().     \endlist      \note A QObject's member variables \e{do not} automatically become     its children. The parent-child relationship must be set by either     passing a pointer to the child's \l{QObject()}{constructor}, or by     calling setParent(). Without this step, the object's member variables     will remain in the old thread when moveToThread() is called.      \target No copy constructor     \section1 No copy constructor or assignment operator      QObject has neither a copy constructor nor an assignment operator.     This is by design. Actually, they are declared, but in a     \c{private} section with the macro Q_DISABLE_COPY(). In fact, all     Qt classes derived from QObject (direct or indirect) use this     macro to declare their copy constructor and assignment operator to     be private. The reasoning is found in the discussion on     \l{Identity vs Value} {Identity vs Value} on the Qt \l{Object     Model} page.      The main consequence is that you should use pointers to QObject     (or to your QObject subclass) where you might otherwise be tempted     to use your QObject subclass as a value. For example, without a     copy constructor, you can't use a subclass of QObject as the value     to be stored in one of the container classes. You must store     pointers.      \section1 Auto-Connection      Qt's meta-object system provides a mechanism to automatically connect     signals and slots between QObject subclasses and their children. As long     as objects are defined with suitable object names, and slots follow a     simple naming convention, this connection can be performed at run-time     by the QMetaObject::connectSlotsByName() function.      \l uic generates code that invokes this function to enable     auto-connection to be performed between widgets on forms created     with \e{Qt Designer}. More information about using auto-connection with \e{Qt Designer} is     given in the \l{Using a Designer UI File in Your Application} section of     the \e{Qt Designer} manual.      \section1 Dynamic Properties      From Qt 4.2, dynamic properties can be added to and removed from QObject     instances at run-time. Dynamic properties do not need to be declared at     compile-time, yet they provide the same advantages as static properties     and are manipulated using the same API - using property() to read them     and setProperty() to write them.      From Qt 4.3, dynamic properties are supported by     \l{Qt Designer's Widget Editing Mode#The Property Editor}{Qt Designer},     and both standard Qt widgets and user-created forms can be given dynamic     properties.      \section1 Internationalization (i18n)      All QObject subclasses support Qt's translation features, making it possible     to translate an application's user interface into different languages.      To make user-visible text translatable, it must be wrapped in calls to     the tr() function. This is explained in detail in the     \l{Writing Source Code for Translation} document.      \sa QMetaObject, QPointer, QObjectCleanupHandler, Q_DISABLE_COPY()     \sa {Object Trees& Ownership} */
 end_comment
 begin_comment
 comment|/*!     \relates QObject      Returns a pointer to the object named \a name that inherits \a     type and with a given \a parent.      Returns 0 if there is no such child.      \snippet code/src_corelib_kernel_qobject.cpp 0 */
@@ -2989,6 +3009,13 @@ name|d
 operator|->
 name|declarativeData
 condition|)
+block|{
+if|if
+condition|(
+name|QAbstractDeclarativeData
+operator|::
+name|destroyed
+condition|)
 name|QAbstractDeclarativeData
 operator|::
 name|destroyed
@@ -3000,6 +3027,24 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|QAbstractDeclarativeData
+operator|::
+name|destroyed_qml1
+condition|)
+name|QAbstractDeclarativeData
+operator|::
+name|destroyed_qml1
+argument_list|(
+name|d
+operator|->
+name|declarativeData
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set ref to zero to indicate that this object has been deleted
 if|if
 condition|(
@@ -3229,6 +3274,12 @@ operator|->
 name|isSlotObject
 condition|)
 block|{
+name|c
+operator|->
+name|isSlotObject
+operator|=
+literal|false
+expr_stmt|;
 name|locker
 operator|.
 name|unlock
@@ -3240,12 +3291,6 @@ name|slotObj
 operator|->
 name|destroyIfLastRef
 argument_list|()
-expr_stmt|;
-name|c
-operator|->
-name|isSlotObject
-operator|=
-literal|false
 expr_stmt|;
 name|locker
 operator|.
@@ -3295,7 +3340,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|// disconnect all senders
+comment|/* Disconnect all senders:          * This loop basically just does          *     for (node = d->senders; node; node = node->next) { ... }          *          * We need to temporarily unlock the receiver mutex to destroy the functors or to lock the          * sender's mutex. And when the mutex is released, node->next might be destroyed by another          * thread. That's why we set node->prev to&node, that way, if node is destroyed, node will          * be updated.          */
 name|QObjectPrivate
 operator|::
 name|Connection
@@ -3319,6 +3364,28 @@ name|node
 operator|->
 name|sender
 decl_stmt|;
+comment|// Send disconnectNotify before removing the connection from sender's connection list.
+comment|// This ensures any eventual destructor of sender will block on getting receiver's lock
+comment|// and not finish until we release it.
+name|sender
+operator|->
+name|disconnectNotify
+argument_list|(
+name|QMetaObjectPrivate
+operator|::
+name|signal
+argument_list|(
+name|sender
+operator|->
+name|metaObject
+argument_list|()
+argument_list|,
+name|node
+operator|->
+name|signal_index
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QMutex
 modifier|*
 name|m
@@ -3360,6 +3427,12 @@ operator|!=
 name|sender
 condition|)
 block|{
+comment|// We hold the wrong mutex
+name|Q_ASSERT
+argument_list|(
+name|needToUnlock
+argument_list|)
+expr_stmt|;
 name|m
 operator|->
 name|unlock
@@ -3394,13 +3467,6 @@ name|dirty
 operator|=
 literal|true
 expr_stmt|;
-name|int
-name|signal_index
-init|=
-name|node
-operator|->
-name|signal_index
-decl_stmt|;
 name|QtPrivate
 operator|::
 name|QSlotObjectBase
@@ -3449,6 +3515,17 @@ condition|(
 name|slotObj
 condition|)
 block|{
+if|if
+condition|(
+name|node
+condition|)
+name|node
+operator|->
+name|prev
+operator|=
+operator|&
+name|node
+expr_stmt|;
 name|locker
 operator|.
 name|unlock
@@ -3465,23 +3542,6 @@ name|relock
 argument_list|()
 expr_stmt|;
 block|}
-name|sender
-operator|->
-name|disconnectNotify
-argument_list|(
-name|QMetaObjectPrivate
-operator|::
-name|signal
-argument_list|(
-name|sender
-operator|->
-name|metaObject
-argument_list|()
-argument_list|,
-name|signal_index
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 if|if
@@ -4737,7 +4797,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::startTimer: QTimer cannot have a negative interval"
+literal|"QObject::startTimer: Timers cannot have negative intervals"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4759,7 +4819,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::startTimer: QTimer can only be used with threads started with QThread"
+literal|"QObject::startTimer: Timers can only be used with threads started with QThread"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5929,6 +5989,10 @@ operator|!
 name|isDeletingChildren
 operator|&&
 name|declarativeData
+operator|&&
+name|QAbstractDeclarativeData
+operator|::
+name|parentChanged
 condition|)
 name|QAbstractDeclarativeData
 operator|::
@@ -10698,7 +10762,8 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-operator|!
+name|c
+operator|->
 name|receiver
 condition|)
 block|{
@@ -10779,6 +10844,12 @@ operator|->
 name|isSlotObject
 condition|)
 block|{
+name|c
+operator|->
+name|isSlotObject
+operator|=
+literal|false
+expr_stmt|;
 name|senderMutex
 operator|->
 name|unlock
@@ -10790,12 +10861,6 @@ name|slotObj
 operator|->
 name|destroyIfLastRef
 argument_list|()
-expr_stmt|;
-name|c
-operator|->
-name|isSlotObject
-operator|=
-literal|false
 expr_stmt|;
 name|senderMutex
 operator|->
@@ -10899,25 +10964,10 @@ argument_list|(
 name|sender
 argument_list|)
 decl_stmt|;
-name|QMutex
-modifier|*
-name|receiverMutex
-init|=
-name|receiver
-condition|?
-name|signalSlotLock
-argument_list|(
-name|receiver
-argument_list|)
-else|:
-literal|0
-decl_stmt|;
-name|QOrderedMutexLocker
+name|QMutexLocker
 name|locker
 argument_list|(
 name|senderMutex
-argument_list|,
-name|receiverMutex
 argument_list|)
 decl_stmt|;
 name|QObjectConnectionListVector
@@ -14543,10 +14593,10 @@ begin_comment
 comment|/*!     \macro Q_EMIT     \relates QObject      Use this macro to replace the \c emit keyword for emitting     signals, when you want to use Qt Signals and Slots with a     \l{3rd Party Signals and Slots} {3rd party signal/slot mechanism}.      The macro is normally used when \c no_keywords is specified with     the \c CONFIG variable in the \c .pro file, but it can be used     even when \c no_keywords is \e not specified. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_INVOKABLE     \relates QObject      Apply this macro to definitions of member functions to allow them to     be invoked via the meta-object system. The macro is written before     the return type, as shown in the following example:      \snippet qmetaobject-invokable/window.h Window class with invokable method      The \c invokableMethod() function is marked up using Q_INVOKABLE, causing     it to be registered with the meta-object system and enabling it to be     invoked using QMetaObject::invokeMethod().     Since \c normalMethod() function is not registered in this way, it cannot     be invoked using QMetaObject::invokeMethod(). */
+comment|/*!     \macro Q_INVOKABLE     \relates QObject      Apply this macro to declarations of member functions to allow them to     be invoked via the meta-object system. The macro is written before     the return type, as shown in the following example:      \snippet qmetaobject-invokable/window.h Window class with invokable method      The \c invokableMethod() function is marked up using Q_INVOKABLE, causing     it to be registered with the meta-object system and enabling it to be     invoked using QMetaObject::invokeMethod().     Since \c normalMethod() function is not registered in this way, it cannot     be invoked using QMetaObject::invokeMethod(). */
 end_comment
 begin_comment
-comment|/*!     \macro Q_REVISION     \relates QObject      Apply this macro to definitions of member functions to tag them with a     revision number in the meta-object system. The macro is written before     the return type, as shown in the following example:      \snippet qmetaobject-revision/window.h Window class with revision      This is useful when using the meta-object system to dynamically expose     objects to another API, as you can match the version expected by multiple     versions of the other API. Consider the following simplified example:      \snippet qmetaobject-revision/main.cpp Window class using revision      Using the same Window class as the previous example, the newProperty and     newMethod would only be exposed in this code when the expected version is     1 or greater.      Since all methods are considered to be in revision 0 if untagged, a tag     of Q_REVISION(0) is invalid and ignored.      This tag is not used by the meta-object system itself. Currently this is only     used by the QtQml module.      For a more generic string tag, see \l QMetaMethod::tag()      \sa QMetaMethod::revision() */
+comment|/*!     \macro Q_REVISION     \relates QObject      Apply this macro to declarations of member functions to tag them with a     revision number in the meta-object system. The macro is written before     the return type, as shown in the following example:      \snippet qmetaobject-revision/window.h Window class with revision      This is useful when using the meta-object system to dynamically expose     objects to another API, as you can match the version expected by multiple     versions of the other API. Consider the following simplified example:      \snippet qmetaobject-revision/main.cpp Window class using revision      Using the same Window class as the previous example, the newProperty and     newMethod would only be exposed in this code when the expected version is     1 or greater.      Since all methods are considered to be in revision 0 if untagged, a tag     of Q_REVISION(0) is invalid and ignored.      This tag is not used by the meta-object system itself. Currently this is only     used by the QtQml module.      For a more generic string tag, see \l QMetaMethod::tag()      \sa QMetaMethod::revision() */
 end_comment
 begin_comment
 comment|/*!     \macro Q_SET_OBJECT_NAME(Object)     \relates QObject     \since 5.0      This macro assigns \a Object the objectName "Object".      It doesn't matter whether \a Object is a pointer or not, the     macro figures that out by itself.      \sa QObject::objectName() */
@@ -15688,7 +15738,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \class QMetaObject::Connection     \inmodule QtCore      Represents a handle to a signal-slot connection.      It can be used to disconnect that connection, or check if      the connection was successful       \sa QObject::disconnect  */
+comment|/*! \class QMetaObject::Connection     \inmodule QtCore      Represents a handle to a signal-slot connection.      It can be used to disconnect that connection, or check if      the connection was successful       \sa QObject::disconnect()  */
 end_comment
 begin_comment
 comment|/*!     Create a copy of the handle to the connection  */

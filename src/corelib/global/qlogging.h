@@ -55,7 +55,6 @@ DECL|enumerator|QtDebugMsg
 DECL|enumerator|QtWarningMsg
 DECL|enumerator|QtCriticalMsg
 DECL|enumerator|QtFatalMsg
-DECL|enumerator|QtTraceMsg
 DECL|enumerator|QtSystemMsg
 enum|enum
 name|QtMsgType
@@ -67,8 +66,6 @@ block|,
 name|QtCriticalMsg
 block|,
 name|QtFatalMsg
-block|,
-name|QtTraceMsg
 block|,
 name|QtSystemMsg
 init|=

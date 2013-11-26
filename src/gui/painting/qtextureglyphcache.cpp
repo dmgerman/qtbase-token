@@ -552,6 +552,44 @@ argument_list|)
 argument_list|)
 condition|)
 continue|continue;
+comment|// This is a rather crude hack, but it works.
+comment|// The FreeType font engine is not capable of getting precise metrics for the alphamap
+comment|// without first rasterizing the glyph. If we force the glyph to be rasterized before
+comment|// we ask for the alphaMapBoundingBox(), the glyph will be loaded, rasterized and its
+comment|// proper metrics will be cached and used later.
+if|if
+condition|(
+name|fontEngine
+operator|->
+name|hasInternalCaching
+argument_list|()
+condition|)
+block|{
+name|QImage
+modifier|*
+name|locked
+init|=
+name|fontEngine
+operator|->
+name|lockedAlphaMapForGlyph
+argument_list|(
+name|glyph
+argument_list|,
+name|subPixelPosition
+argument_list|,
+name|format
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|locked
+condition|)
+name|fontEngine
+operator|->
+name|unlockAlphaMapForGlyph
+argument_list|()
+expr_stmt|;
+block|}
 name|glyph_metrics_t
 name|metrics
 init|=

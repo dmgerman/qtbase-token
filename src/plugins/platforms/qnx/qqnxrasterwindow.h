@@ -38,6 +38,8 @@ argument_list|(
 argument|QWindow *window
 argument_list|,
 argument|screen_context_t context
+argument_list|,
+argument|bool needRootWindow
 argument_list|)
 block|;
 name|void
@@ -80,16 +82,10 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-name|WindowType
-name|windowType
+name|void
+name|adjustBufferSize
 argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|{
-return|return
-name|Raster
-return|;
-block|}
+block|;
 name|protected
 operator|:
 name|int
@@ -112,6 +108,22 @@ argument_list|,
 argument|int dy
 argument_list|,
 argument|bool flush=false
+argument_list|)
+block|;
+name|void
+name|blitHelper
+argument_list|(
+argument|QQnxBuffer&source
+argument_list|,
+argument|QQnxBuffer&target
+argument_list|,
+argument|const QPoint&sourceOffset
+argument_list|,
+argument|const QPoint&targetOffset
+argument_list|,
+argument|const QRegion&region
+argument_list|,
+argument|bool flush = false
 argument_list|)
 block|;
 name|private

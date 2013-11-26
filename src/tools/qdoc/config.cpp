@@ -3516,7 +3516,7 @@ block|{
 name|QStringList
 name|result
 init|=
-name|getStringList
+name|getCanonicalPathList
 argument_list|(
 name|filesVar
 argument_list|)

@@ -318,6 +318,10 @@ name|class
 name|QFontEngineFT
 decl_stmt|;
 name|friend
+name|class
+name|QtFreetypeData
+decl_stmt|;
+name|friend
 block|struct
 name|QScopedPointerDeleter
 operator|<
@@ -336,9 +340,13 @@ operator|~
 name|QFreetypeFace
 argument_list|()
 block|{}
+name|void
+name|cleanup
+argument_list|()
+expr_stmt|;
 name|QAtomicInt
 name|ref
-expr_stmt|;
+decl_stmt|;
 name|QMutex
 name|_lock
 decl_stmt|;

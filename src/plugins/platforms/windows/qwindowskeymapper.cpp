@@ -164,6 +164,22 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// We not only need the scancode itself but also the extended bit of key messages. Thus we need
+end_comment
+begin_comment
+comment|// the additional bit when masking the scancode.
+end_comment
+begin_enum
+DECL|enumerator|scancodeBitmask
+enum|enum
+block|{
+name|scancodeBitmask
+init|=
+literal|0x1ff
+block|}
+enum|;
+end_enum
+begin_comment
 comment|// Key recorder ------------------------------------------------------------------------[ start ] --
 end_comment
 begin_struct
@@ -232,6 +248,12 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// We need to record the pressed keys in order to decide, whether the key event is an autorepeat
+end_comment
+begin_comment
+comment|// event. As soon as its state changes, the chain of autorepeat events will be broken.
+end_comment
 begin_decl_stmt
 DECL|variable|QT_MAX_KEY_RECORDINGS
 specifier|static
@@ -2213,48 +2235,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qt_translateKeyCode
-name|int
-name|qt_translateKeyCode
-parameter_list|(
-name|int
-name|vk
-parameter_list|)
-block|{
-name|int
-name|code
-init|=
-name|winceKeyBend
-argument_list|(
-operator|(
-name|vk
-argument_list|<
-literal|0
-operator|||
-name|vk
-argument_list|>
-literal|255
-operator|)
-condition|?
-literal|0
-else|:
-name|vk
-argument_list|)
-decl_stmt|;
-return|return
-name|code
-operator|==
-name|Qt
-operator|::
-name|Key_unknown
-condition|?
-literal|0
-else|:
-name|code
-return|;
-block|}
-end_function
-begin_function
 DECL|function|asciiToKeycode
 specifier|static
 specifier|inline
@@ -2482,21 +2462,12 @@ name|LeftToRight
 expr_stmt|;
 block|}
 end_function
-begin_function
-DECL|function|clearRecordedKeys
-name|void
-name|QWindowsKeyMapper
-operator|::
-name|clearRecordedKeys
-parameter_list|()
-block|{
-name|key_recorder
-operator|.
-name|clearKeys
-argument_list|()
-expr_stmt|;
-block|}
-end_function
+begin_comment
+comment|// Helper function that is used when obtaining the list of characters that can be produced by one key and
+end_comment
+begin_comment
+comment|// every possible combination of modifiers
+end_comment
 begin_function
 DECL|function|setKbdState
 specifier|inline
@@ -2598,6 +2569,9 @@ operator|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Adds the msg's key to keyLayout if it is not yet present there
+end_comment
 begin_function
 DECL|function|updateKeyMap
 name|void
@@ -2624,6 +2598,7 @@ argument_list|(
 name|kbdBuffer
 argument_list|)
 expr_stmt|;
+specifier|const
 name|quint32
 name|scancode
 init|=
@@ -2635,7 +2610,7 @@ operator|>>
 literal|16
 operator|)
 operator|&
-literal|0xfff
+name|scancodeBitmask
 decl_stmt|;
 name|updatePossibleKeyCodes
 argument_list|(
@@ -2650,6 +2625,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Fills keyLayout for that vk_key. Values are all characters one can type using that key
+end_comment
+begin_comment
+comment|// (in connection with every combination of modifiers) and whether these "characters" are
+end_comment
+begin_comment
+comment|// dead keys.
+end_comment
 begin_function
 DECL|function|updatePossibleKeyCodes
 name|void
@@ -2771,6 +2755,10 @@ operator|=
 literal|0
 expr_stmt|;
 comment|// Use right Alt, since left Ctrl + right Alt is considered AltGraph
+comment|// keyLayout contains the actual characters which can be written using the vk_key together with the
+comment|// different modifiers. '2' together with shift will for example cause the character
+comment|// to be @ for a US key layout (thus keyLayout[vk_key].qtKey[1] will be @). In addition to that
+comment|// it stores whether the resulting key is a dead key as these keys have to be handled later.
 name|bool
 name|isDeadKey
 init|=
@@ -3235,17 +3223,16 @@ index|]
 operator|=
 name|fallbackKey
 expr_stmt|;
-comment|// If this vk_key a Dead Key
+comment|// If one of the values inserted into the keyLayout above, can be considered a dead key, we have
+comment|// to run the workaround below.
 if|if
 condition|(
-name|MapVirtualKey
-argument_list|(
+name|keyLayout
+index|[
 name|vk_key
-argument_list|,
-literal|2
-argument_list|)
-operator|&
-literal|0x80000000
+index|]
+operator|.
+name|deadkeys
 condition|)
 block|{
 comment|// Push a Space, then the original key through the low-level ToAscii functions.
@@ -3418,87 +3405,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-end_function
-begin_function
-DECL|function|isADeadKey
-name|bool
-name|QWindowsKeyMapper
-operator|::
-name|isADeadKey
-parameter_list|(
-name|unsigned
-name|int
-name|vk_key
-parameter_list|,
-name|unsigned
-name|int
-name|modifiers
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|(
-name|vk_key
-operator|<
-name|NumKeyboardLayoutItems
-operator|)
-operator|&&
-name|keyLayout
-index|[
-name|vk_key
-index|]
-operator|.
-name|exists
-condition|)
-block|{
-for|for
-control|(
-name|size_t
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|NumMods
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-name|uint
-argument_list|(
-name|ModsTbl
-index|[
-name|i
-index|]
-argument_list|)
-operator|==
-name|modifiers
-condition|)
-return|return
-name|bool
-argument_list|(
-name|keyLayout
-index|[
-name|vk_key
-index|]
-operator|.
-name|deadkeys
-operator|&
-literal|1
-operator|<<
-name|i
-argument_list|)
-return|;
-block|}
-block|}
-return|return
-literal|false
-return|;
 block|}
 end_function
 begin_function
@@ -3960,6 +3866,29 @@ name|result
 operator|=
 literal|0
 expr_stmt|;
+comment|// Reset layout map when system keyboard layout is changed
+if|if
+condition|(
+name|msg
+operator|.
+name|message
+operator|==
+name|WM_INPUTLANGCHANGE
+condition|)
+block|{
+name|deleteLayouts
+argument_list|()
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|// Add this key to the keymap if it is not present yet.
+name|updateKeyMap
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|MSG
 name|peekedMsg
 decl_stmt|;
@@ -3989,25 +3918,6 @@ condition|)
 return|return
 literal|true
 return|;
-if|if
-condition|(
-name|msg
-operator|.
-name|message
-operator|==
-name|WM_KEYDOWN
-operator|||
-name|msg
-operator|.
-name|message
-operator|==
-name|WM_SYSKEYDOWN
-condition|)
-name|updateKeyMap
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
 return|return
 name|translateKeyEventInternal
 argument_list|(
@@ -4060,36 +3970,15 @@ operator|>>
 literal|16
 operator|)
 operator|&
-literal|0xfff
+name|scancodeBitmask
 decl_stmt|;
 specifier|const
 name|quint32
 name|vk_key
 init|=
-name|MapVirtualKey
-argument_list|(
-name|scancode
-argument_list|,
-literal|1
-argument_list|)
-decl_stmt|;
-specifier|const
-name|bool
-name|isNumpad
-init|=
-operator|(
 name|msg
 operator|.
 name|wParam
-operator|>=
-name|VK_NUMPAD0
-operator|&&
-name|msg
-operator|.
-name|wParam
-operator|<=
-name|VK_NUMPAD9
-operator|)
 decl_stmt|;
 name|quint32
 name|nModifiers
@@ -4363,31 +4252,6 @@ else|:
 literal|0
 operator|)
 expr_stmt|;
-comment|// Now we know enough to either have MapVirtualKey or our own keymap tell us if it's a deadkey
-specifier|const
-name|bool
-name|isDeadKey
-init|=
-name|isADeadKey
-argument_list|(
-name|msg
-operator|.
-name|wParam
-argument_list|,
-name|state
-argument_list|)
-operator|||
-name|MapVirtualKey
-argument_list|(
-name|msg
-operator|.
-name|wParam
-argument_list|,
-literal|2
-argument_list|)
-operator|&
-literal|0x80000000
-decl_stmt|;
 comment|// A multi-character key or a Input method character
 comment|// not found by our look-ahead
 if|if
@@ -4759,79 +4623,60 @@ return|return
 literal|true
 return|;
 comment|// Translate VK_* (native) -> Key_* (Qt) keys
-comment|// If it's a dead key, we cannot use the toKeyOrUnicode() function, since that will change
-comment|// the internal state of the keyboard driver, resulting in that dead keys no longer works.
-comment|// ..also if we're typing numbers on the keypad, while holding down the Alt modifier.
 name|int
-name|code
+name|modifiersIndex
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|isNumpad
-operator|&&
+name|modifiersIndex
+operator||=
+operator|(
+name|nModifiers
+operator|&
+name|ShiftAny
+condition|?
+literal|0x1
+else|:
+literal|0
+operator|)
+expr_stmt|;
+name|modifiersIndex
+operator||=
+operator|(
+name|nModifiers
+operator|&
+name|ControlAny
+condition|?
+literal|0x2
+else|:
+literal|0
+operator|)
+expr_stmt|;
+name|modifiersIndex
+operator||=
 operator|(
 name|nModifiers
 operator|&
 name|AltAny
+condition|?
+literal|0x4
+else|:
+literal|0
 operator|)
-condition|)
-block|{
-name|code
-operator|=
-name|winceKeyBend
-argument_list|(
-name|msg
-operator|.
-name|wParam
-argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|isDeadKey
-condition|)
-block|{
-comment|// QTBUG-8764, QTBUG-10032
-comment|// Can't call toKeyOrUnicode because that would call ToUnicode, and, if a dead key
-comment|// is pressed at the moment, Windows would NOT use it to compose a character for the next
-comment|// WM_CHAR event.
-comment|// Instead, use MapVirtualKey, which will provide adequate values.
+name|int
 name|code
-operator|=
-name|MapVirtualKey
-argument_list|(
-name|msg
+init|=
+name|keyLayout
+index|[
+name|vk_key
+index|]
 operator|.
-name|wParam
-argument_list|,
-name|MAPVK_VK_TO_CHAR
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|code
-operator|<
-literal|0x20
-operator|||
-name|code
-operator|==
-literal|0x7f
-condition|)
-comment|// The same logic as in toKeyOrUnicode()
-name|code
-operator|=
-name|winceKeyBend
-argument_list|(
-name|msg
-operator|.
-name|wParam
-argument_list|)
-expr_stmt|;
-block|}
+name|qtKey
+index|[
+name|modifiersIndex
+index|]
+decl_stmt|;
 comment|// Invert state logic:
 comment|// If the key actually pressed is a modifier key, then we remove its modifier key from the
 comment|// state, since a modifier-key can't have itself as a modifier

@@ -1612,6 +1612,14 @@ argument|void _q_buttonClicked(QAbstractButton *)
 argument_list|)
 end_macro
 begin_macro
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_clicked(QMessageDialogOptions::StandardButton, QMessageDialogOptions::ButtonRole)
+argument_list|)
+end_macro
+begin_macro
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QMessageBox

@@ -602,7 +602,7 @@ comment|//! [10]
 end_comment
 begin_expr_stmt
 DECL|member|bind
-name|boost
+name|std
 operator|::
 name|bind
 argument_list|(
@@ -646,7 +646,7 @@ decl_stmt|= ...;
 end_function_decl
 begin_macro
 DECL|member|static_cast
-name|boost
+name|std
 end_macro
 begin_expr_stmt
 DECL|member|static_cast

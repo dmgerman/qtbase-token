@@ -149,6 +149,10 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|updateSurfaceFormat
+argument_list|()
+block|;
 name|NSOpenGLContext
 operator|*
 name|m_context

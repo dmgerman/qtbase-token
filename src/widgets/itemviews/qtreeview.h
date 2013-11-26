@@ -465,11 +465,6 @@ name|void
 name|selectAll
 argument_list|()
 block|;
-name|QSize
-name|viewportSizeHint
-argument_list|()
-specifier|const
-block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -783,6 +778,12 @@ name|void
 name|updateGeometries
 argument_list|()
 block|;
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|int
 name|sizeHintForColumn
 argument_list|(
@@ -861,13 +862,6 @@ name|QAccessibleTableCell
 block|;
 name|int
 name|visualIndex
-argument_list|(
-argument|const QModelIndex&index
-argument_list|)
-specifier|const
-block|;
-name|int
-name|accessibleTree2Index
 argument_list|(
 argument|const QModelIndex&index
 argument_list|)

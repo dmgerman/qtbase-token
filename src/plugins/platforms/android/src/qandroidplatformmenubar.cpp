@@ -203,6 +203,13 @@ modifier|*
 name|newParentWindow
 parameter_list|)
 block|{
+if|if
+condition|(
+name|m_parentWindow
+operator|==
+name|newParentWindow
+condition|)
+return|return;
 name|m_parentWindow
 operator|=
 name|newParentWindow

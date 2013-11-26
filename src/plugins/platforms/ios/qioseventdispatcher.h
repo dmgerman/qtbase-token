@@ -47,19 +47,10 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
-name|interrupt
-argument_list|()
-name|Q_DECL_OVERRIDE
-block|;
-name|void
 name|handleRunLoopExit
 argument_list|(
 argument|CFRunLoopActivity activity
 argument_list|)
-block|;
-name|void
-name|checkIfEventLoopShouldExit
-argument_list|()
 block|;
 name|void
 name|interruptEventLoopExec

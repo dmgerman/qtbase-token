@@ -3750,6 +3750,11 @@ argument_list|(
 argument|QWidget::RenderFlags
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_QDOC
+end_ifndef
 begin_expr_stmt
 name|template
 operator|<
@@ -3844,8 +3849,16 @@ name|o
 operator|)
 return|;
 end_return
+begin_endif
+unit|}
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_QDOC
+end_comment
 begin_expr_stmt
-unit|}  inline
+unit|inline
 DECL|function|childAt
 name|QWidget
 operator|*

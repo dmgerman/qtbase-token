@@ -135,6 +135,16 @@ return|return
 name|m_context
 return|;
 block|}
+specifier|static
+name|bool
+name|supportsThreading
+argument_list|()
+block|;
+specifier|static
+name|void
+name|queryDummyContext
+argument_list|()
+block|;
 name|private
 operator|:
 name|QXcbScreen
@@ -155,6 +165,14 @@ name|m_isPBufferCurrent
 block|;
 name|int
 name|m_swapInterval
+block|;
+specifier|static
+name|bool
+name|m_queriedDummyContext
+block|;
+specifier|static
+name|bool
+name|m_supportsThreading
 block|; }
 decl_stmt|;
 end_decl_stmt

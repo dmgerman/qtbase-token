@@ -750,6 +750,11 @@ name|Ok
 argument_list|)
 expr_stmt|;
 comment|// just to have something.
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 name|box
 operator|.
 name|setCheckBox
@@ -783,6 +788,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// Qt 5
 name|box
 operator|.
 name|setIcon
@@ -905,6 +913,11 @@ name|sres
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050000
 if|if
 condition|(
 name|m_msgbox
@@ -949,6 +962,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// Qt 5
 block|}
 end_function
 begin_function

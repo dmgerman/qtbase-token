@@ -623,19 +623,19 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|QByteArray
-name|olsenIdToWindowsId
+name|ianaIdToWindowsId
 parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
 specifier|static
 name|QByteArray
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 parameter_list|(
 specifier|const
 name|QByteArray
@@ -647,7 +647,7 @@ end_function_decl
 begin_decl_stmt
 specifier|static
 name|QByteArray
-name|windowsIdToDefaultOlsenId
+name|windowsIdToDefaultIanaId
 argument_list|(
 specifier|const
 name|QByteArray
@@ -667,7 +667,7 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 specifier|const
 name|QByteArray
@@ -682,7 +682,7 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
-name|windowsIdToOlsenIds
+name|windowsIdToIanaIds
 argument_list|(
 argument|const QByteArray&windowsId
 argument_list|,
@@ -1370,6 +1370,13 @@ operator|)
 return|;
 block|}
 expr|}
+block|;
+name|Data
+name|dataForTzTransition
+argument_list|(
+argument|QTzTransitionTime tran
+argument_list|)
+specifier|const
 block|;
 name|QList
 operator|<

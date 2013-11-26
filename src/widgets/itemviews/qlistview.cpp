@@ -18156,6 +18156,26 @@ name|visualIndex
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \since 5.2     \reimp */
+end_comment
+begin_function
+DECL|function|viewportSizeHint
+name|QSize
+name|QListView
+operator|::
+name|viewportSizeHint
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QAbstractItemView
+operator|::
+name|viewportSizeHint
+argument_list|()
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

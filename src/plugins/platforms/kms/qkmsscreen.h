@@ -60,12 +60,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<GLES2/gl2.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<GLES2/gl2ext.h>
+file|<QtGui/qopengl.h>
 end_include
 begin_include
 include|#

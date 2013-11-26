@@ -231,6 +231,12 @@ name|KeyDownEventFlag
 operator|+
 literal|1
 block|,
+name|KeyboardLayoutChangeEvent
+init|=
+name|KeyEventFlag
+operator|+
+literal|2
+block|,
 name|InputMethodKeyEvent
 init|=
 name|InputMethodEventFlag
@@ -567,6 +573,20 @@ name|QtWindows
 operator|::
 name|InputMethodKeyDownEvent
 return|;
+ifdef|#
+directive|ifdef
+name|WM_INPUTLANGCHANGE
+case|case
+name|WM_INPUTLANGCHANGE
+case|:
+return|return
+name|QtWindows
+operator|::
+name|KeyboardLayoutChangeEvent
+return|;
+endif|#
+directive|endif
+comment|// WM_INPUTLANGCHANGE
 case|case
 name|WM_TOUCH
 case|:

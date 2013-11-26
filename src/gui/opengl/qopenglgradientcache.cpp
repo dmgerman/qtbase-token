@@ -622,91 +622,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// GL's expects pixels in RGBA (when using GL_RGBA), bin-endian (ABGR on x86).
-end_comment
-begin_comment
-comment|// Qt always stores in ARGB reguardless of the byte-order the mancine uses.
-end_comment
-begin_function
-DECL|function|qtToGlColor
-specifier|static
-specifier|inline
-name|uint
-name|qtToGlColor
-parameter_list|(
-name|uint
-name|c
-parameter_list|)
-block|{
-name|uint
-name|o
-decl_stmt|;
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|o
-operator|=
-operator|(
-name|c
-operator|&
-literal|0xff00ff00
-operator|)
-comment|// alpha& green already in the right place
-operator||
-operator|(
-operator|(
-name|c
-operator|>>
-literal|16
-operator|)
-operator|&
-literal|0x000000ff
-operator|)
-comment|// red
-operator||
-operator|(
-operator|(
-name|c
-operator|<<
-literal|16
-operator|)
-operator|&
-literal|0x00ff0000
-operator|)
-expr_stmt|;
-comment|// blue
-else|#
-directive|else
-comment|//Q_BIG_ENDIAN
-name|o
-operator|=
-operator|(
-name|c
-operator|<<
-literal|8
-operator|)
-operator||
-operator|(
-operator|(
-name|c
-operator|>>
-literal|24
-operator|)
-operator|&
-literal|0x000000ff
-operator|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_BYTE_ORDER
-return|return
-name|o
-return|;
-block|}
-end_function
-begin_comment
 comment|//TODO: Let GL generate the texture using an FBO
 end_comment
 begin_function
@@ -851,7 +766,7 @@ name|pos
 operator|++
 index|]
 operator|=
-name|qtToGlColor
+name|ARGB2RGBA
 argument_list|(
 name|PREMUL
 argument_list|(
@@ -1028,7 +943,7 @@ index|[
 name|pos
 index|]
 operator|=
-name|qtToGlColor
+name|ARGB2RGBA
 argument_list|(
 name|INTERPOLATE_PIXEL_256
 argument_list|(
@@ -1048,7 +963,7 @@ index|[
 name|pos
 index|]
 operator|=
-name|qtToGlColor
+name|ARGB2RGBA
 argument_list|(
 name|PREMUL
 argument_list|(
@@ -1091,7 +1006,7 @@ expr_stmt|;
 name|uint
 name|last_color
 init|=
-name|qtToGlColor
+name|ARGB2RGBA
 argument_list|(
 name|PREMUL
 argument_list|(

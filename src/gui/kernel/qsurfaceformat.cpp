@@ -1052,7 +1052,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the preferred stencil buffer size to \a size bits.      \sa stencilBufferSize(), setStencil(), stencil() */
+comment|/*!     Set the preferred stencil buffer size to \a size bits.      \sa stencilBufferSize() */
 end_comment
 begin_function
 DECL|function|setStencilBufferSize
@@ -1087,7 +1087,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the stencil buffer size in bits.      \sa stencil(), setStencil(), setStencilBufferSize() */
+comment|/*!     Returns the stencil buffer size in bits.      \sa setStencilBufferSize() */
 end_comment
 begin_function
 DECL|function|stencilBufferSize

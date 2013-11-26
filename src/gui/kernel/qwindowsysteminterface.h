@@ -1014,6 +1014,14 @@ specifier|const
 name|QRect
 modifier|&
 name|newRect
+parameter_list|,
+specifier|const
+name|QRect
+modifier|&
+name|oldRect
+init|=
+name|QRect
+argument_list|()
 parameter_list|)
 function_decl|;
 specifier|static

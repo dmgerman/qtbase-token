@@ -421,6 +421,14 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|setWindowCursor
+argument_list|(
+name|NSCursor
+operator|*
+name|cursor
+argument_list|)
+block|;
+name|void
 name|registerTouch
 argument_list|(
 argument|bool enable
@@ -559,7 +567,10 @@ name|QPointer
 operator|<
 name|QWindow
 operator|>
-name|m_underMouseWindow
+name|m_enterLeaveTargetWindow
+block|;
+name|bool
+name|m_windowUnderMouse
 block|;
 name|bool
 name|m_inConstructor
@@ -571,6 +582,10 @@ block|;
 name|QCocoaMenuBar
 operator|*
 name|m_menubar
+block|;
+name|NSCursor
+operator|*
+name|m_windowCursor
 block|;
 name|bool
 name|m_hasModalSession

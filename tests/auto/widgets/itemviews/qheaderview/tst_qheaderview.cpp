@@ -1471,6 +1471,24 @@ name|minimumSectionSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|obj1
+operator|.
+name|setMinimumSectionSize
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|obj1
+operator|.
+name|minimumSectionSize
+argument_list|()
+operator|<
+literal|100
+argument_list|)
+expr_stmt|;
 comment|// int QHeaderView::offset()
 comment|// void QHeaderView::setOffset(int)
 name|obj1

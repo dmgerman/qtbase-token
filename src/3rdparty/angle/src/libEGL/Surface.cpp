@@ -63,6 +63,11 @@ include|#
 directive|include
 file|"libEGL/Display.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_if
 if|#
 directive|if

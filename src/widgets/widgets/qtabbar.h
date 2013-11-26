@@ -609,13 +609,6 @@ operator|*
 argument_list|)
 block|;
 name|void
-name|mouseDoubleClickEvent
-argument_list|(
-name|QMouseEvent
-operator|*
-argument_list|)
-block|;
-name|void
 name|mousePressEvent
 argument_list|(
 name|QMouseEvent

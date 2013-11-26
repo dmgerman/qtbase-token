@@ -2060,7 +2060,7 @@ argument_list|)
 block|:
 name|m_data
 argument_list|(
-argument|static_cast<unsigned long long>(reinterpret_cast<unsigned long>(id))
+argument|reinterpret_cast<unsigned long long>(id)
 argument_list|)
 block|{
 operator|*

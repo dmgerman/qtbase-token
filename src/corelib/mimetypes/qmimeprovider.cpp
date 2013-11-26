@@ -58,6 +58,20 @@ directive|include
 file|<QtEndian>
 end_include
 begin_function
+DECL|function|initResources
+specifier|static
+name|void
+name|initResources
+parameter_list|()
+block|{
+name|Q_INIT_RESOURCE
+argument_list|(
+name|mimetypes
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|fallbackParent
 specifier|static
@@ -4104,7 +4118,11 @@ name|m_loaded
 argument_list|(
 literal|false
 argument_list|)
-block|{ }
+block|{
+name|initResources
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|isValid

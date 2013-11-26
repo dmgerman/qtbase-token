@@ -1198,6 +1198,8 @@ argument_list|,
 name|projectDescription
 argument_list|,
 name|this
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -13311,6 +13313,18 @@ operator|==
 name|Node
 operator|::
 name|Private
+operator|||
+name|nodes
+index|[
+name|j
+index|]
+operator|->
+name|status
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|Internal
 condition|)
 block|{
 continue|continue;
@@ -13368,7 +13382,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|generateSynopsis
+name|generateQmlItem
 argument_list|(
 name|nodes
 index|[
@@ -13379,16 +13393,10 @@ name|qcn
 argument_list|,
 name|marker
 argument_list|,
-name|CodeMarker
-operator|::
-name|Summary
-argument_list|,
-literal|false
-argument_list|,
-operator|&
-name|prefix
+literal|true
 argument_list|)
 expr_stmt|;
+comment|//generateSynopsis(nodes[j], qcn, marker, CodeMarker::Subpage, false,&prefix);
 name|out
 argument_list|()
 operator|<<

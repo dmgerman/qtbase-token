@@ -96,11 +96,6 @@ name|sizeHint
 argument_list|()
 specifier|const
 block|;
-name|QSize
-name|viewportSizeHint
-argument_list|()
-specifier|const
-block|;
 name|bool
 name|focusNextPrevChild
 argument_list|(
@@ -194,6 +189,12 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+block|;
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

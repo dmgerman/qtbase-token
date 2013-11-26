@@ -1043,6 +1043,11 @@ name|face_destroy_func
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|smoothScalable
+argument_list|(
+literal|false
+argument_list|)
 block|{
 name|cache_cost
 operator|=

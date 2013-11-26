@@ -1979,6 +1979,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 literal|"$(@D)"
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -2021,6 +2023,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 literal|"$(@D)"
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -3820,6 +3824,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -4033,6 +4039,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -5268,8 +5276,6 @@ decl_stmt|;
 name|QString
 name|destdir
 init|=
-name|escapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -5285,7 +5291,6 @@ literal|"QMAKE_BUNDLE"
 argument_list|)
 operator|+
 literal|"/Contents"
-argument_list|)
 decl_stmt|;
 name|t
 operator|<<
@@ -5389,8 +5394,6 @@ expr_stmt|;
 name|QString
 name|destdir
 init|=
-name|escapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -5406,7 +5409,6 @@ literal|"QMAKE_BUNDLE"
 argument_list|)
 operator|+
 literal|"/Contents/Resources"
-argument_list|)
 decl_stmt|;
 name|t
 operator|<<
@@ -5518,6 +5520,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -6363,6 +6367,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|ddir_c
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -7290,7 +7296,11 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"\t-$(DEL_FILE) $(TARGET) \n"
+literal|"\t-$(DEL_FILE) "
+operator|<<
+name|destdir
+operator|<<
+literal|"$(TARGET) \n"
 expr_stmt|;
 block|}
 name|t
@@ -10625,6 +10635,24 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+else|else
+block|{
+name|warn_msg
+argument_list|(
+name|WarnLogic
+argument_list|,
+literal|"Could not resolve Info.plist: '%s'. Check if QMAKE_INFO_PLIST points to a valid file."
+argument_list|,
+name|plist
+operator|.
+name|toLatin1
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

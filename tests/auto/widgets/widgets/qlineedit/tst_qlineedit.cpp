@@ -24632,6 +24632,23 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+name|filterLineEdit
+operator|->
+name|setReadOnly
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// QTBUG-34315
+name|QVERIFY
+argument_list|(
+operator|!
+name|clearButton
+operator|->
+name|isEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

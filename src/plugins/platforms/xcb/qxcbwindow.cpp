@@ -512,7 +512,7 @@ end_enum
 begin_decl_stmt
 DECL|variable|XEMBED_VERSION
 specifier|const
-name|long
+name|quint32
 name|XEMBED_VERSION
 init|=
 literal|0
@@ -1941,7 +1941,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// set the PID to let the WM kill the application if unresponsive
-name|long
+name|quint32
 name|pid
 init|=
 name|getpid
@@ -2066,7 +2066,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* Add XEMBED info; this operation doesn't initiate the embedding. */
-name|long
+name|quint32
 name|data
 index|[]
 init|=
@@ -8596,9 +8596,30 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|MANAGER
+name|_NET_ACTIVE_WINDOW
 argument_list|)
-operator|||
+condition|)
+block|{
+name|connection
+argument_list|()
+operator|->
+name|setFocusWindow
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleWindowActivated
+argument_list|(
+name|window
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|event
 operator|->
 name|type
@@ -8607,7 +8628,7 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|_NET_ACTIVE_WINDOW
+name|MANAGER
 argument_list|)
 operator|||
 name|event
@@ -8629,7 +8650,25 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|MANAGER
+name|WM_CHANGE_STATE
+argument_list|)
+condition|)
+block|{
+comment|// Ignore _NET_WM_STATE, MANAGER which are relate to tray icons
+comment|// and other messages.
+block|}
+elseif|else
+if|if
+condition|(
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_COMPIZ_DECOR_PENDING
 argument_list|)
 operator|||
 name|event
@@ -8640,12 +8679,22 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|WM_CHANGE_STATE
+name|_COMPIZ_DECOR_REQUEST
+argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_COMPIZ_DECOR_DELETE_PIXMAP
 argument_list|)
 condition|)
 block|{
-comment|// Ignore _NET_ACTIVE_WINDOW, _NET_WM_STATE, MANAGER which are relate to tray icons
-comment|// and other messages.
+comment|//silence the _COMPIZ messages for now
 block|}
 else|else
 block|{
@@ -10232,13 +10281,13 @@ name|wmStateAtom
 condition|)
 block|{
 specifier|const
-name|long
+name|quint32
 modifier|*
 name|data
 init|=
 operator|(
 specifier|const
-name|long
+name|quint32
 operator|*
 operator|)
 name|xcb_get_property_value
@@ -11241,16 +11290,16 @@ parameter_list|(
 name|xcb_window_t
 name|window
 parameter_list|,
-name|long
+name|quint32
 name|message
 parameter_list|,
-name|long
+name|quint32
 name|detail
 parameter_list|,
-name|long
+name|quint32
 name|data1
 parameter_list|,
-name|long
+name|quint32
 name|data2
 parameter_list|)
 block|{

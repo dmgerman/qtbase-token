@@ -4604,9 +4604,15 @@ operator|++
 name|j
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_NO_TEXTCODEC
+name|Q_UNUSED
+argument_list|(
+argument|codec
+argument_list|)
+else|#
+directive|else
 if|if
 condition|(
 name|codec

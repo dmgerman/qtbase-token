@@ -1063,7 +1063,7 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QPrinter: Must construct a QApplication before a QPaintDevice"
+literal|"QPrinter: Must construct a QCoreApplication before a QPrinter"
 argument_list|)
 expr_stmt|;
 return|return;

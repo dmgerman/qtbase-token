@@ -8763,7 +8763,7 @@ name|QImage
 operator|::
 name|Format_ARGB32
 operator|||
-name|src
+name|dest
 operator|->
 name|format
 operator|==
@@ -17491,6 +17491,47 @@ literal|0
 block|,
 literal|0
 block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|,
+comment|// Format_ARGB4444_Premultiplied
+block|{
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
 name|convert_RGBA_to_ARGB_inplace
 block|,
 name|convert_RGBA_to_ARGB_inplace
@@ -18092,7 +18133,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a copy of the image in the given \a format.      The specified image conversion \a flags control how the image data     is handled during the conversion process.      \sa {QImage#Image Format}{Image Format} */
+comment|/*!     Returns a copy of the image in the given \a format.      The specified image conversion \a flags control how the image data     is handled during the conversion process.      \sa {Image Formats} */
 end_comment
 begin_function
 DECL|function|convertToFormat

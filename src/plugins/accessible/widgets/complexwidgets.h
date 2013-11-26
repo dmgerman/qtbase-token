@@ -247,24 +247,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|bool
-name|setSelected
-argument_list|(
-argument|int child
-argument_list|,
-argument|bool on
-argument_list|,
-argument|bool extend
-argument_list|)
-block|;
-name|QVector
-operator|<
-name|int
-operator|>
-name|selection
-argument_list|()
-specifier|const
-block|;
 name|QAccessibleInterface
 operator|*
 name|child

@@ -18882,6 +18882,10 @@ name|attrs
 init|=
 name|attributes
 argument_list|()
+operator|+
+name|si
+operator|->
+name|position
 decl_stmt|;
 name|logClusters
 operator|=
@@ -19030,10 +19034,6 @@ expr_stmt|;
 name|int
 name|pos
 init|=
-name|si
-operator|->
-name|position
-operator|+
 name|clusterStart
 operator|+
 name|closestItem
@@ -19057,6 +19057,10 @@ name|pos
 operator|++
 expr_stmt|;
 return|return
+name|si
+operator|->
+name|position
+operator|+
 name|pos
 return|;
 block|}

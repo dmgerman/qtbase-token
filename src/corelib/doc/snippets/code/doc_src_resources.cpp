@@ -20,6 +20,36 @@ end_comment
 begin_comment
 comment|//! [5]
 end_comment
+begin_constructor
+DECL|function|MyClass
+name|MyClass
+operator|::
+name|MyClass
+parameter_list|()
+member_init_list|:
+name|BaseClass
+argument_list|()
+block|{
+name|Q_INIT_RESOURCE
+argument_list|(
+name|resources
+argument_list|)
+expr_stmt|;
+name|QFile
+name|file
+argument_list|(
+literal|"qrc:/myfile.dat"
+argument_list|)
+decl_stmt|;
+operator|...
+block|}
+end_constructor
+begin_comment
+comment|//! [5]
+end_comment
+begin_comment
+comment|//! [6]
+end_comment
 begin_function
 DECL|function|main
 name|int
@@ -47,6 +77,12 @@ argument_list|(
 name|graphlib
 argument_list|)
 expr_stmt|;
+name|QFile
+name|file
+argument_list|(
+literal|"qrc:/graph.png"
+argument_list|)
+decl_stmt|;
 operator|...
 return|return
 name|app
@@ -57,6 +93,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|//! [5]
+comment|//! [6]
 end_comment
 end_unit

@@ -1141,6 +1141,18 @@ argument_list|()
 return|;
 block|}
 end_decl_stmt
+begin_decl_stmt
+name|int
+name|accessibleTree2Index
+argument_list|(
+specifier|const
+name|QModelIndex
+operator|&
+name|index
+argument_list|)
+decl|const
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// used for spanning rows
 end_comment

@@ -4482,13 +4482,13 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|pos
-operator|+
 name|len
 operator|>=
 name|d
 operator|->
 name|size
+operator|-
+name|pos
 condition|)
 block|{
 name|resize

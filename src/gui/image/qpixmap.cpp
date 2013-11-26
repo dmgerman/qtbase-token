@@ -141,7 +141,7 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QPixmap: Must construct a QApplication before a QPaintDevice"
+literal|"QPixmap: Must construct a QGuiApplication before a QPixmap"
 argument_list|)
 expr_stmt|;
 return|return

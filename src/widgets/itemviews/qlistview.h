@@ -633,6 +633,12 @@ operator|&
 name|previous
 argument_list|)
 block|;
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|int

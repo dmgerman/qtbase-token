@@ -306,7 +306,7 @@ argument_list|)
 block|{
 for|for
 control|(
-name|int
+name|unsigned
 name|i
 init|=
 literal|0
@@ -766,7 +766,7 @@ name|specialProps
 decl_stmt|;
 for|for
 control|(
-name|int
+name|unsigned
 name|i
 init|=
 literal|0

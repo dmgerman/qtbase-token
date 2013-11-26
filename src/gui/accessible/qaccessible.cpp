@@ -1750,7 +1750,10 @@ begin_comment
 comment|/*!     \class QAccessibleEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleEvent class is the base class for accessibility notifications.      This class is used with \l QAccessible::updateAccessibility().      The event type is one of the values of \l QAccessible::Event.     There are a number of subclasses that should be used to provide more details about the     event.      For example to notify about a focus change when re-implementing QWidget::setFocus,     the event could be used as follows:     \code     void MyWidget::setFocus(Qt::FocusReason reason)     {         // handle custom focus setting...         QAccessibleEvent event(f, QAccessible::Focus);         QAccessible::updateAccessibility(&event);     }     \endcode      To enable in process screen readers, all events must be sent after the change has happened. */
 end_comment
 begin_comment
-comment|/*! \fn QAccessibleEvent::QAccessibleEvent(QObject *object, QAccessible::Event type)      Constructs a QAccessibleEvent to notify that \a object has changed.     The event \a type explains what changed.  */
+comment|/*! \fn QAccessibleEvent::QAccessibleEvent(QObject *object, QAccessible::Event type)      Constructs a QAccessibleEvent to notify that \a object has changed.     The event \a type describes what changed. */
+end_comment
+begin_comment
+comment|/*! \fn QAccessibleEvent::QAccessibleEvent(QAccessibleInterface *interface, QAccessible::Event type)      Constructs a QAccessibleEvent to notify that \a interface has changed.     The event \a type describes what changed.     Use this function if you already have a QAccessibleInterface or no QObject, otherwise consider     the overload taking a \l QObject parameter as it might be cheaper. */
 end_comment
 begin_comment
 comment|/*! \fn QAccessibleEvent::~QAccessibleEvent()   Destroys the event. */
@@ -1767,6 +1770,65 @@ end_comment
 begin_comment
 comment|/*! \fn int QAccessibleEvent::child() const   Returns the child index. */
 end_comment
+begin_comment
+comment|/*!     \internal     Returns the uniqueId of the QAccessibleInterface represented by this event.      In case the object() function returns 0 this is the only way to access the     interface. */
+end_comment
+begin_function
+DECL|function|uniqueId
+name|QAccessible
+operator|::
+name|Id
+name|QAccessibleEvent
+operator|::
+name|uniqueId
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+operator|!
+name|m_object
+condition|)
+return|return
+name|m_uniqueId
+return|;
+name|QAccessibleInterface
+modifier|*
+name|iface
+init|=
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+name|m_object
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|m_child
+operator|!=
+operator|-
+literal|1
+condition|)
+name|iface
+operator|=
+name|iface
+operator|->
+name|child
+argument_list|(
+name|m_child
+argument_list|)
+expr_stmt|;
+return|return
+name|QAccessible
+operator|::
+name|uniqueId
+argument_list|(
+name|iface
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \class QAccessibleValueChangeEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleValueChangeEvent describes a change in value for an accessible object.      It contains the new value.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
@@ -1906,6 +1968,20 @@ name|accessibleInterface
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|m_object
+operator|==
+literal|0
+condition|)
+return|return
+name|QAccessible
+operator|::
+name|accessibleInterface
+argument_list|(
+name|m_uniqueId
+argument_list|)
+return|;
 name|QAccessibleInterface
 modifier|*
 name|iface
@@ -2492,18 +2568,28 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-literal|"QAccessibleEvent(object="
+literal|"QAccessibleEvent("
+expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|.
+name|object
+argument_list|()
+condition|)
+block|{
+name|d
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"object="
 operator|<<
 name|hex
 operator|<<
 name|ev
 operator|.
 name|object
-argument_list|()
-expr_stmt|;
-name|d
-operator|.
-name|nospace
 argument_list|()
 operator|<<
 name|dec
@@ -2520,6 +2606,22 @@ operator|.
 name|child
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|d
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"no object, uniqueId="
+operator|<<
+name|ev
+operator|.
+name|uniqueId
+argument_list|()
+expr_stmt|;
+block|}
 name|d
 operator|<<
 literal|" event="

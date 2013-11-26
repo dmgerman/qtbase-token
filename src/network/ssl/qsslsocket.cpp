@@ -1702,7 +1702,7 @@ name|sslSession
 operator|=
 name|configuration
 operator|.
-name|session
+name|sessionTicket
 argument_list|()
 expr_stmt|;
 name|d

@@ -1137,12 +1137,13 @@ end_comment
 begin_comment
 comment|// used instead.
 end_comment
-begin_function_decl
+begin_expr_stmt
 name|bool
 name|canBeNativeDialog
-parameter_list|()
-function_decl|;
-end_function_decl
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 specifier|inline
 name|bool

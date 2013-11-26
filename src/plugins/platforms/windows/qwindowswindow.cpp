@@ -1501,6 +1501,9 @@ parameter_list|,
 name|bool
 name|hasAlpha
 parameter_list|,
+name|bool
+name|openGL
+parameter_list|,
 name|qreal
 name|level
 parameter_list|)
@@ -1551,6 +1554,9 @@ if|if
 condition|(
 name|hasAlpha
 operator|&&
+operator|!
+name|openGL
+operator|&&
 operator|(
 name|flags
 operator|&
@@ -1560,7 +1566,7 @@ name|FramelessWindowHint
 operator|)
 condition|)
 block|{
-comment|// Windows with alpha: Use blend function to update.
+comment|// Non-GL windows with alpha: Use blend function to update.
 name|BLENDFUNCTION
 name|blend
 init|=
@@ -3540,6 +3546,8 @@ name|flags
 argument_list|,
 name|hasAlpha
 argument_list|,
+name|isGL
+argument_list|,
 name|opacityLevel
 argument_list|)
 expr_stmt|;
@@ -5048,6 +5056,11 @@ name|~
 name|QWindowsWindow
 parameter_list|()
 block|{
+name|setFlag
+argument_list|(
+name|WithinDestroy
+argument_list|)
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
@@ -6041,6 +6054,20 @@ block|{
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Popup
+condition|)
+return|return;
+comment|// QTBUG-34503, // a popup stays on top, no parent, see also WindowCreationData::fromWindow().
 comment|// Update transient parent.
 specifier|const
 name|HWND
@@ -8104,6 +8131,16 @@ break|break;
 case|case
 name|Qt
 operator|::
+name|WindowMaximized
+case|:
+case|case
+name|Qt
+operator|::
+name|WindowFullScreen
+case|:
+case|case
+name|Qt
+operator|::
 name|WindowNoState
 case|:
 block|{
@@ -8398,6 +8435,12 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|window
+argument_list|()
+operator|->
+name|isTopLevel
+argument_list|()
+operator|&&
 name|geometry_sys
 argument_list|()
 operator|==
@@ -9514,6 +9557,11 @@ argument_list|()
 operator|.
 name|hasAlpha
 argument_list|()
+argument_list|,
+name|testFlag
+argument_list|(
+name|OpenGLSurface
+argument_list|)
 argument_list|,
 name|level
 argument_list|)

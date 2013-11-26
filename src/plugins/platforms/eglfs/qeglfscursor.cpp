@@ -188,8 +188,9 @@ block|}
 end_function
 begin_function
 DECL|function|createShader
-specifier|static
 name|GLuint
+name|QEglFSCursor
+operator|::
 name|createShader
 parameter_list|(
 name|GLenum
@@ -310,8 +311,9 @@ block|}
 end_function
 begin_function
 DECL|function|createProgram
-specifier|static
 name|GLuint
+name|QEglFSCursor
+operator|::
 name|createProgram
 parameter_list|(
 name|GLuint
@@ -1530,6 +1532,9 @@ name|m_program
 condition|)
 block|{
 comment|// one time initialization
+name|initializeOpenGLFunctions
+argument_list|()
+expr_stmt|;
 name|createShaderPrograms
 argument_list|()
 expr_stmt|;

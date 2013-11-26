@@ -186,9 +186,9 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QtAndroid
+name|QAndroidPlatformIntegration
 operator|::
-name|nativeWindowSize
+name|defaultDesktopSize
 argument_list|()
 return|;
 block|}
@@ -354,6 +354,12 @@ name|EGLNativeWindowType
 name|window
 parameter_list|)
 block|{
+if|if
+condition|(
+name|window
+operator|!=
+literal|0
+condition|)
 name|ANativeWindow_release
 argument_list|(
 name|window

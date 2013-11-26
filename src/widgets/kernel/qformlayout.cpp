@@ -3426,7 +3426,12 @@ expr_stmt|;
 block|}
 block|}
 return|return
+name|qMax
+argument_list|(
 name|spacing
+argument_list|,
+literal|0
+argument_list|)
 return|;
 block|}
 end_function

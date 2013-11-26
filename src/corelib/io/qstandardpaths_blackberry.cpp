@@ -154,6 +154,9 @@ return|;
 case|case
 name|ConfigLocation
 case|:
+case|case
+name|GenericConfigLocation
+case|:
 return|return
 name|QDir
 operator|::

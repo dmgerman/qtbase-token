@@ -276,9 +276,6 @@ name|QStringList
 name|allSqlDrivers
 decl_stmt|;
 name|QStringList
-name|allConfigs
-decl_stmt|;
-name|QStringList
 name|disabledModules
 decl_stmt|;
 name|QStringList

@@ -104,6 +104,12 @@ name|resetSurface
 argument_list|()
 block|;
 name|void
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+block|;
+name|void
 name|setVisible
 argument_list|(
 argument|bool visible
@@ -118,6 +124,10 @@ name|void
 name|updateStaticNativeWindow
 argument_list|()
 block|;
+name|void
+name|updateStatusBarVisibility
+argument_list|()
+block|;
 name|private
 operator|:
 name|QSize
@@ -125,6 +135,11 @@ name|m_scheduledResize
 block|;
 name|QMutex
 name|m_lock
+block|;
+name|Qt
+operator|::
+name|WindowState
+name|m_state
 block|;
 specifier|static
 name|QReadWriteLock

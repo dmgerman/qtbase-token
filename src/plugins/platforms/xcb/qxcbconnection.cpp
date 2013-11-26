@@ -5891,6 +5891,9 @@ literal|"_MEEGOTOUCH_ORIENTATION_ANGLE\0"
 endif|#
 directive|endif
 literal|"_XSETTINGS_SETTINGS\0"
+literal|"_COMPIZ_DECOR_PENDING\0"
+literal|"_COMPIZ_DECOR_REQUEST\0"
+literal|"_COMPIZ_DECOR_DELETE_PIXMAP\0"
 comment|// \0\0 terminates loop.
 block|}
 decl_stmt|;
@@ -7455,6 +7458,55 @@ literal|true
 return|;
 block|}
 end_function
+begin_comment
+comment|// Starting from the xcb version 1.9.3 struct xcb_ge_event_t has changed:
+end_comment
+begin_comment
+comment|// - "pad0" became "extension"
+end_comment
+begin_comment
+comment|// - "pad1" and "pad" became "pad0"
+end_comment
+begin_comment
+comment|// New and old version of this struct share the following fields:
+end_comment
+begin_comment
+comment|// NOTE: API might change again in the next release of xcb in which case this comment will
+end_comment
+begin_comment
+comment|// need to be updated to reflect the reality.
+end_comment
+begin_typedef
+DECL|struct|qt_xcb_ge_event_t
+typedef|typedef
+struct|struct
+name|qt_xcb_ge_event_t
+block|{
+DECL|member|response_type
+name|uint8_t
+name|response_type
+decl_stmt|;
+DECL|member|extension
+name|uint8_t
+name|extension
+decl_stmt|;
+DECL|member|sequence
+name|uint16_t
+name|sequence
+decl_stmt|;
+DECL|member|length
+name|uint32_t
+name|length
+decl_stmt|;
+DECL|member|event_type
+name|uint16_t
+name|event_type
+decl_stmt|;
+block|}
+DECL|typedef|qt_xcb_ge_event_t
+name|qt_xcb_ge_event_t
+typedef|;
+end_typedef
 begin_function
 DECL|function|xi2PrepareXIGenericDeviceEvent
 name|bool
@@ -7464,18 +7516,29 @@ name|xi2PrepareXIGenericDeviceEvent
 parameter_list|(
 name|xcb_ge_event_t
 modifier|*
-name|event
+name|ev
 parameter_list|,
 name|int
 name|opCode
 parameter_list|)
 block|{
-comment|// xGenericEvent has "extension" on the second byte, xcb_ge_event_t has "pad0".
+name|qt_xcb_ge_event_t
+modifier|*
+name|event
+init|=
+operator|(
+name|qt_xcb_ge_event_t
+operator|*
+operator|)
+name|ev
+decl_stmt|;
+comment|// xGenericEvent has "extension" on the second byte, the same is true for xcb_ge_event_t starting from
+comment|// the xcb version 1.9.3, prior to that it was called "pad0".
 if|if
 condition|(
 name|event
 operator|->
-name|pad0
+name|extension
 operator|==
 name|opCode
 condition|)

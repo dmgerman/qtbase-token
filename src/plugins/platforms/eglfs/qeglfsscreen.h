@@ -207,6 +207,15 @@ argument_list|(
 argument|EGLSurface surface
 argument_list|)
 block|;
+name|virtual
+name|void
+name|topWindowChanged
+argument_list|(
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|)
+block|;
 name|private
 operator|:
 name|friend

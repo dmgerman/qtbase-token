@@ -1343,6 +1343,12 @@ specifier|const
 block|;
 endif|#
 directive|endif
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|Q_DECLARE_PRIVATE

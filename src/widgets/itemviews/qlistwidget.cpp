@@ -5105,7 +5105,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current item to \a item.      Unless the selection mode is \l{QAbstractItemView::}{NoSelection},     the item is also be selected. */
+comment|/*!     Sets the current item to \a item.      Unless the selection mode is \l{QAbstractItemView::}{NoSelection},     the item is also selected. */
 end_comment
 begin_function
 DECL|function|setCurrentItem

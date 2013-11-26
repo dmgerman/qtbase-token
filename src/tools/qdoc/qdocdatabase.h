@@ -1225,6 +1225,18 @@ name|SubType
 name|subtype
 argument_list|)
 decl_stmt|;
+name|void
+name|setShowInternal
+parameter_list|(
+name|bool
+name|value
+parameter_list|)
+block|{
+name|showInternal_
+operator|=
+name|value
+expr_stmt|;
+block|}
 comment|/* debugging functions */
 name|void
 name|printModules
@@ -1307,6 +1319,9 @@ specifier|static
 name|QDocDatabase
 modifier|*
 name|qdocDB_
+decl_stmt|;
+name|bool
+name|showInternal_
 decl_stmt|;
 name|QString
 name|version_

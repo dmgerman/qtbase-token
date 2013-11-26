@@ -45,6 +45,29 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|//this is to work around GL_TEXTURE_WRAP_R_OES which also has 0x8072 as value
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|GL_TEXTURE_WRAP_R
+argument_list|)
+end_if
+begin_define
+DECL|macro|GL_TEXTURE_WRAP_R
+define|#
+directive|define
+name|GL_TEXTURE_WRAP_R
+value|0x8072
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QOpenGLTexturePrivate
 name|QOpenGLTexturePrivate
@@ -4984,16 +5007,16 @@ begin_comment
 comment|/*!     \enum TextureUnitReset     This enum defines options ot control texture unit activation.      \value ResetTextureUnit The previous active texture unit will be reset     \value DontResetTextureUnit The previous active texture unit will not be rest */
 end_comment
 begin_comment
-comment|/*!     \enum QOpenGLTexture::TextureFormat     This enum defines the possible texture formats. Depending upon your OpenGL     implementation only a subset of these may be supported.      \value NoFormat Equivalent to GL_NONE      \value R8_UNorm Equivalent to GL_R8     \value RG8_UNorm Equivalent to GL_RG8     \value RGB8_UNorm Equivalent to GL_RGB8     \value RGBA8_UNorm Equivalent to GL_RGBA8      \value R16_UNorm Equivalent to GL_R16     \value RG16_UNorm Equivalent to GL_RG16     \value RGB16_UNorm Equivalent to GL_RGB16     \value RGBA16_UNorm Equivalent to GL_RGBA16      \value R8_SNorm Equivalent to GL_R8_SNORM     \value RG8_SNorm Equivalent to GL_RG8_SNORM     \value RGB8_SNorm Equivalent to GL_RGB8_SNORM     \value RGBA8_SNorm Equivalent to GL_RGBA8_SNORM      \value R16_SNorm Equivalent to GL_R16_SNORM     \value RG16_SNorm Equivalent to GL_RG16_SNORM     \value RGB16_SNorm Equivalent to GL_RGB16_SNORM     \value RGBA16_SNorm Equivalent to GL_RGBA16_SNORM      \value R8U Equivalent to GL_R8UI     \value RG8U Equivalent to GL_RG8UI     \value RGB8U Equivalent to GL_RGB8UI     \value RGBA8U Equivalent to GL_RGBA8UI      \value R16U Equivalent to GL_R16UI     \value RG16U Equivalent to GL_RG16UI     \value RGB16U Equivalent to GL_RGB16UI     \value RGBA16U Equivalent to GL_RGBA16UI      \value R32U Equivalent to GL_R32UI     \value RG32U Equivalent to GL_RG32UI     \value RGB32U Equivalent to GL_RGB32UI     \value RGBA32U Equivalent to GL_RGBA32UI      \value R8I Equivalent to GL_R8I     \value RG8I Equivalent to GL_RG8I     \value RGB8I Equivalent to GL_RGB8I     \value RGBA8I Equivalent to GL_RGBA8I      \value R16I Equivalent to GL_R16I     \value RG16I Equivalent to GL_RG16I     \value RGB16I Equivalent to GL_RGB16I     \value RGBA16I Equivalent to GL_RGBA16I      \value R32I Equivalent to GL_R32I     \value RG32I Equivalent to GL_RG32I     \value RGB32I Equivalent to GL_RGB32I     \value RGBA32I Equivalent to GL_RGBA32I      \value R16F Equivalent to GL_R16F     \value RG16F Equivalent to GL_RG16F     \value RGB16F Equivalent to GL_RGB16F     \value RGBA16F Equivalent to GL_RGBA16F      \value R32F Equivalent to GL_R32F     \value RG32F Equivalent to GL_RG32F     \value RGB32F Equivalent to GL_RGB32F     \value RGBA32F Equivalent to GL_RGBA32F      \value RGB9E5 Equivalent to GL_RGB9_E5     \value RG11B10F Equivalent to GL_R11F_G11F_B10F     \value RG3B2 Equivalent to GL_R3_G3_B2     \value R5G6B5 Equivalent to GL_RGB565     \value RGB5A1 Equivalent to GL_RGB5_A1     \value RGBA4 Equivalent to GL_RGBA4     \value RGB10A2 Equivalent to GL_RGB10_A2UI      \value D16 Equivalent to GL_DEPTH_COMPONENT16     \value D24 Equivalent to GL_DEPTH_COMPONENT24     \value D24S8 Equivalent to GL_DEPTH24_STENCIL8     \value D32 Equivalent to GL_DEPTH_COMPONENT32     \value D32F Equivalent to GL_DEPTH_COMPONENT32F     \value D32FS8X24 Equivalent to GL_DEPTH32F_STENCIL8      \value RGB_DXT1 Equivalent to GL_COMPRESSED_RGB_S3TC_DXT1_EXT     \value RGBA_DXT1 Equivalent to GL_COMPRESSED_RGBA_S3TC_DXT1_EXT     \value RGBA_DXT3 Equivalent to GL_COMPRESSED_RGBA_S3TC_DXT3_EXT     \value RGBA_DXT5 Equivalent to GL_COMPRESSED_RGBA_S3TC_DXT5_EXT     \value R_ATI1N_UNorm Equivalent to GL_COMPRESSED_RED_RGTC1     \value R_ATI1N_SNorm Equivalent to GL_COMPRESSED_SIGNED_RED_RGTC1     \value RG_ATI2N_UNorm Equivalent to GL_COMPRESSED_RG_RGTC2     \value RG_ATI2N_SNorm Equivalent to GL_COMPRESSED_SIGNED_RG_RGTC2     \value RGB_BP_UNSIGNED_FLOAT Equivalent to GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB     \value RGB_BP_SIGNED_FLOAT Equivalent to GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB     \value RGB_BP_UNorm Equivalent to GL_COMPRESSED_RGBA_BPTC_UNORM_ARB      \value SRGB8 Equivalent to GL_SRGB8     \value SRGB8_Alpha8 Equivalent to GL_SRGB8_ALPHA8     \value SRGB_DXT1 Equivalent to GL_COMPRESSED_SRGB_S3TC_DXT1_EXT     \value SRGB_Alpha_DXT1 Equivalent to GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT     \value SRGB_Alpha_DXT3 Equivalent to GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT     \value SRGB_Alpha_DXT5 Equivalent to GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT     \value SRGB_BP_UNorm Equivalent to GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB */
+comment|/*!     \enum QOpenGLTexture::TextureFormat     This enum defines the possible texture formats. Depending upon your OpenGL     implementation only a subset of these may be supported.      \value NoFormat Equivalent to GL_NONE      \value R8_UNorm Equivalent to GL_R8     \value RG8_UNorm Equivalent to GL_RG8     \value RGB8_UNorm Equivalent to GL_RGB8     \value RGBA8_UNorm Equivalent to GL_RGBA8      \value R16_UNorm Equivalent to GL_R16     \value RG16_UNorm Equivalent to GL_RG16     \value RGB16_UNorm Equivalent to GL_RGB16     \value RGBA16_UNorm Equivalent to GL_RGBA16      \value R8_SNorm Equivalent to GL_R8_SNORM     \value RG8_SNorm Equivalent to GL_RG8_SNORM     \value RGB8_SNorm Equivalent to GL_RGB8_SNORM     \value RGBA8_SNorm Equivalent to GL_RGBA8_SNORM      \value R16_SNorm Equivalent to GL_R16_SNORM     \value RG16_SNorm Equivalent to GL_RG16_SNORM     \value RGB16_SNorm Equivalent to GL_RGB16_SNORM     \value RGBA16_SNorm Equivalent to GL_RGBA16_SNORM      \value R8U Equivalent to GL_R8UI     \value RG8U Equivalent to GL_RG8UI     \value RGB8U Equivalent to GL_RGB8UI     \value RGBA8U Equivalent to GL_RGBA8UI      \value R16U Equivalent to GL_R16UI     \value RG16U Equivalent to GL_RG16UI     \value RGB16U Equivalent to GL_RGB16UI     \value RGBA16U Equivalent to GL_RGBA16UI      \value R32U Equivalent to GL_R32UI     \value RG32U Equivalent to GL_RG32UI     \value RGB32U Equivalent to GL_RGB32UI     \value RGBA32U Equivalent to GL_RGBA32UI      \value R8I Equivalent to GL_R8I     \value RG8I Equivalent to GL_RG8I     \value RGB8I Equivalent to GL_RGB8I     \value RGBA8I Equivalent to GL_RGBA8I      \value R16I Equivalent to GL_R16I     \value RG16I Equivalent to GL_RG16I     \value RGB16I Equivalent to GL_RGB16I     \value RGBA16I Equivalent to GL_RGBA16I      \value R32I Equivalent to GL_R32I     \value RG32I Equivalent to GL_RG32I     \value RGB32I Equivalent to GL_RGB32I     \value RGBA32I Equivalent to GL_RGBA32I      \value R16F Equivalent to GL_R16F     \value RG16F Equivalent to GL_RG16F     \value RGB16F Equivalent to GL_RGB16F     \value RGBA16F Equivalent to GL_RGBA16F      \value R32F Equivalent to GL_R32F     \value RG32F Equivalent to GL_RG32F     \value RGB32F Equivalent to GL_RGB32F     \value RGBA32F Equivalent to GL_RGBA32F      \value RGB9E5 Equivalent to GL_RGB9_E5     \value RG11B10F Equivalent to GL_R11F_G11F_B10F     \value RG3B2 Equivalent to GL_R3_G3_B2     \value R5G6B5 Equivalent to GL_RGB565     \value RGB5A1 Equivalent to GL_RGB5_A1     \value RGBA4 Equivalent to GL_RGBA4     \value RGB10A2 Equivalent to GL_RGB10_A2UI      \value D16 Equivalent to GL_DEPTH_COMPONENT16     \value D24 Equivalent to GL_DEPTH_COMPONENT24     \value D24S8 Equivalent to GL_DEPTH24_STENCIL8     \value D32 Equivalent to GL_DEPTH_COMPONENT32     \value D32F Equivalent to GL_DEPTH_COMPONENT32F     \value D32FS8X24 Equivalent to GL_DEPTH32F_STENCIL8      \value RGB_DXT1 Equivalent to GL_COMPRESSED_RGB_S3TC_DXT1_EXT     \value RGBA_DXT1 Equivalent to GL_COMPRESSED_RGBA_S3TC_DXT1_EXT     \value RGBA_DXT3 Equivalent to GL_COMPRESSED_RGBA_S3TC_DXT3_EXT     \value RGBA_DXT5 Equivalent to GL_COMPRESSED_RGBA_S3TC_DXT5_EXT     \value R_ATI1N_UNorm Equivalent to GL_COMPRESSED_RED_RGTC1     \value R_ATI1N_SNorm Equivalent to GL_COMPRESSED_SIGNED_RED_RGTC1     \value RG_ATI2N_UNorm Equivalent to GL_COMPRESSED_RG_RGTC2     \value RG_ATI2N_SNorm Equivalent to GL_COMPRESSED_SIGNED_RG_RGTC2     \value RGB_BP_UNSIGNED_FLOAT Equivalent to GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB     \value RGB_BP_SIGNED_FLOAT Equivalent to GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB     \value RGB_BP_UNorm Equivalent to GL_COMPRESSED_RGBA_BPTC_UNORM_ARB      \value SRGB8 Equivalent to GL_SRGB8     \value SRGB8_Alpha8 Equivalent to GL_SRGB8_ALPHA8     \value SRGB_DXT1 Equivalent to GL_COMPRESSED_SRGB_S3TC_DXT1_EXT     \value SRGB_Alpha_DXT1 Equivalent to GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT     \value SRGB_Alpha_DXT3 Equivalent to GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT     \value SRGB_Alpha_DXT5 Equivalent to GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT     \value SRGB_BP_UNorm Equivalent to GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB      \value DepthFormat Equivalent to GL_DEPTH_COMPONENT (OpenGL ES 2 only and  when OES_depth_texture is present)     \value AlphaFormat Equivalent to GL_ALPHA (OpenGL ES 2 only)     \value RGBFormat Equivalent to GL_RGB (OpenGL ES 2 only)     \value RGBAFormat Equivalent to GL_RGBA (OpenGL ES 2 only)     \value LuminanceFormat Equivalent to GL_LUMINANCE (OpenGL ES 2 only)     \value LuminanceAlphaFormat Equivalent to GL_LUMINANCE_ALPHA (OpenGL ES 2 only) */
 end_comment
 begin_comment
 comment|/*!     \enum QOpenGLTexture::CubeMapFace     This enum defines the possible CubeMap faces.      \value CubeMapPositiveX Equivalent to GL_TEXTURE_CUBE_MAP_POSITIVE_X     \value CubeMapNegativeX Equivalent to GL_TEXTURE_CUBE_MAP_NEGATIVE_X     \value CubeMapPositiveY Equivalent to GL_TEXTURE_CUBE_MAP_POSITIVE_Y     \value CubeMapNegativeY Equivalent to GL_TEXTURE_CUBE_MAP_NEGATIVE_Y     \value CubeMapPositiveZ Equivalent to GL_TEXTURE_CUBE_MAP_POSITIVE_Z     \value CubeMapNegativeZ Equivalent to GL_TEXTURE_CUBE_MAP_NEGATIVE_Z */
 end_comment
 begin_comment
-comment|/*!     \enum QOpenGLTexture::PixelFormat     This enum defines the possible client-side pixel formats for a pixel     transfer operation.      \value NoSourceFormat Equivalent to GL_NONE     \value Red Equivalent to GL_RED     \value RG Equivalent to GL_RG     \value RGB Equivalent to GL_RGB     \value BGR Equivalent to GL_BGR     \value RGBA Equivalent to GL_RGBA     \value BGRA Equivalent to GL_BGRA     \value Red_Integer Equivalent to GL_RED_INTEGER     \value RG_Integer Equivalent to GL_RG_INTEGER     \value RGB_Integer Equivalent to GL_RGB_INTEGER     \value BGR_Integer Equivalent to GL_BGR_INTEGER     \value RGBA_Integer Equivalent to GL_RGBA_INTEGER     \value BGRA_Integer Equivalent to GL_BGRA_INTEGER     \value Depth Equivalent to GL_DEPTH_COMPONENT     \value DepthStencil Equivalent to GL_DEPTH_STENCIL */
+comment|/*!     \enum QOpenGLTexture::PixelFormat     This enum defines the possible client-side pixel formats for a pixel     transfer operation.      \value NoSourceFormat Equivalent to GL_NONE     \value Red Equivalent to GL_RED     \value RG Equivalent to GL_RG     \value RGB Equivalent to GL_RGB     \value BGR Equivalent to GL_BGR     \value RGBA Equivalent to GL_RGBA     \value BGRA Equivalent to GL_BGRA     \value Red_Integer Equivalent to GL_RED_INTEGER     \value RG_Integer Equivalent to GL_RG_INTEGER     \value RGB_Integer Equivalent to GL_RGB_INTEGER     \value BGR_Integer Equivalent to GL_BGR_INTEGER     \value RGBA_Integer Equivalent to GL_RGBA_INTEGER     \value BGRA_Integer Equivalent to GL_BGRA_INTEGER     \value Depth Equivalent to GL_DEPTH_COMPONENT     \value DepthStencil Equivalent to GL_DEPTH_STENCIL     \value Alpha Equivalent to GL_ALPHA (OpenGL ES 2 only)     \value Luminance Equivalent to GL_LUMINANCE (OpenGL ES 2 only)     \value LuminanceAlpha Equivalent to GL_LUMINANCE_ALPHA (OpenGL ES 2 only)  */
 end_comment
 begin_comment
-comment|/*!     \enum PixelType     This enum defines the possible pixel data types for a pixel transfer operation      \value NoPixelType Equivalent to GL_NONE     \value Int8 Equivalent to GL_BYTE     \value UInt8 Equivalent to GL_UNSIGNED_BYTE     \value Int16 Equivalent to GL_SHORT     \value UInt16 Equivalent to GL_UNSIGNED_SHORT     \value Int32 Equivalent to GL_INT     \value UInt32 Equivalent to GL_UNSIGNED_INT     \value Float16 Equivalent to GL_HALF_FLOAT     \value Float32 Equivalent to GL_FLOAT     \value UInt32_RGB9_E5 Equivalent to GL_UNSIGNED_INT_5_9_9_9_REV     \value UInt32_RG11B10F Equivalent to GL_UNSIGNED_INT_10F_11F_11F_REV     \value UInt8_RG3B2 Equivalent to GL_UNSIGNED_BYTE_3_3_2     \value UInt8_RG3B2_Rev Equivalent to GL_UNSIGNED_BYTE_2_3_3_REV     \value UInt16_RGB5A1 Equivalent to GL_UNSIGNED_SHORT_5_5_5_1     \value UInt16_RGB5A1_Rev Equivalent to GL_UNSIGNED_SHORT_1_5_5_5_REV     \value UInt16_R5G6B5 Equivalent to GL_UNSIGNED_SHORT_5_6_5     \value UInt16_R5G6B5_Rev Equivalent to GL_UNSIGNED_SHORT_5_6_5_REV     \value UInt16_RGBA4 Equivalent to GL_UNSIGNED_SHORT_4_4_4_4     \value UInt16_RGBA4_Rev Equivalent to GL_UNSIGNED_SHORT_4_4_4_4_REV     \value UInt32_RGB10A2 Equivalent to GL_UNSIGNED_INT_10_10_10_2     \value UInt32_RGB10A2_Rev Equivalent to GL_UNSIGNED_INT_2_10_10_10_REV */
+comment|/*!     \enum PixelType     This enum defines the possible pixel data types for a pixel transfer operation      \value NoPixelType Equivalent to GL_NONE     \value Int8 Equivalent to GL_BYTE     \value UInt8 Equivalent to GL_UNSIGNED_BYTE     \value Int16 Equivalent to GL_SHORT     \value UInt16 Equivalent to GL_UNSIGNED_SHORT     \value Int32 Equivalent to GL_INT     \value UInt32 Equivalent to GL_UNSIGNED_INT     \value Float16 Equivalent to GL_HALF_FLOAT     \value Float16OES Equivalent to GL_HALF_FLOAT_OES     \value Float32 Equivalent to GL_FLOAT     \value UInt32_RGB9_E5 Equivalent to GL_UNSIGNED_INT_5_9_9_9_REV     \value UInt32_RG11B10F Equivalent to GL_UNSIGNED_INT_10F_11F_11F_REV     \value UInt8_RG3B2 Equivalent to GL_UNSIGNED_BYTE_3_3_2     \value UInt8_RG3B2_Rev Equivalent to GL_UNSIGNED_BYTE_2_3_3_REV     \value UInt16_RGB5A1 Equivalent to GL_UNSIGNED_SHORT_5_5_5_1     \value UInt16_RGB5A1_Rev Equivalent to GL_UNSIGNED_SHORT_1_5_5_5_REV     \value UInt16_R5G6B5 Equivalent to GL_UNSIGNED_SHORT_5_6_5     \value UInt16_R5G6B5_Rev Equivalent to GL_UNSIGNED_SHORT_5_6_5_REV     \value UInt16_RGBA4 Equivalent to GL_UNSIGNED_SHORT_4_4_4_4     \value UInt16_RGBA4_Rev Equivalent to GL_UNSIGNED_SHORT_4_4_4_4_REV     \value UInt32_RGB10A2 Equivalent to GL_UNSIGNED_INT_10_10_10_2     \value UInt32_RGB10A2_Rev Equivalent to GL_UNSIGNED_INT_2_10_10_10_REV */
 end_comment
 begin_comment
 comment|/*!     \enum QOpenGLTexture::Feature     This enum defines the OpenGL texture-related features that can be tested for.      \value ImmutableStorage Support for immutable texture storage     \value ImmutableMultisampleStorage Support for immutable texture storage with            multisample targets     \value TextureRectangle Support for the GL_TEXTURE_RECTANGLE target     \value TextureArrays Support for texture targets with array layers     \value Texture3D Support for the 3 dimensional texture target     \value TextureMultisample Support for texture targets that have multisample capabilities     \value TextureBuffer Support for textures that use OpenGL buffer objects            as their data source     \value TextureCubeMapArrays Support for cubemap array texture target     \value Swizzle Support for texture component swizzle masks     \value StencilTexturing Support for stencil texturing (i.e. looking up depth or stencil            components of a combined depth/stencil format texture in GLSL shaders).     \value AnisotropicFiltering Support for anisotropic texture filtering     \value NPOTTextures Basic support for non-power-of-two textures     \value NPOTTextureRepeat Full support for non-power-of-two textures including texture            repeat modes */
@@ -5955,6 +5978,24 @@ case|:
 case|case
 name|D32FS8X24
 case|:
+case|case
+name|DepthFormat
+case|:
+case|case
+name|AlphaFormat
+case|:
+case|case
+name|RGBFormat
+case|:
+case|case
+name|RGBAFormat
+case|:
+case|case
+name|LuminanceFormat
+case|:
+case|case
+name|LuminanceAlphaFormat
+case|:
 name|d
 operator|->
 name|formatClass
@@ -6207,7 +6248,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the width of a 1D, 2D or 3D texture.      \sa height(), depth(), setDimensions() */
+comment|/*!     Returns the width of a 1D, 2D or 3D texture.      \sa height(), depth(), setSize() */
 end_comment
 begin_function
 DECL|function|width
@@ -6235,7 +6276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the height of a 2D or 3D texture.      \sa width(), depth(), setDimensions() */
+comment|/*!     Returns the height of a 2D or 3D texture.      \sa width(), depth(), setSize() */
 end_comment
 begin_function
 DECL|function|height
@@ -6263,7 +6304,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the depth of a 3D texture.      \sa width(), height(), setDimensions() */
+comment|/*!     Returns the depth of a 3D texture.      \sa width(), height(), setSize() */
 end_comment
 begin_function
 DECL|function|depth
@@ -6439,7 +6480,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the maximum number of mipmap levels that this texture     can have given the current dimensions.      \sa setMipLevels(), mipLevels(), setDimensions() */
+comment|/*!     Returns the maximum number of mipmap levels that this texture     can have given the current dimensions.      \sa setMipLevels(), mipLevels(), setSize() */
 end_comment
 begin_function
 DECL|function|maximumMipLevels
@@ -6654,7 +6695,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if server-side storage for this texture as been     allocated.      The texture format, dimensions, mipmap levels and array layers     cannot be altered once storage ihas been allocated.      \sa allocateStorage(), setDimensions(), setMipLevels(), setLayers(), setFormat() */
+comment|/*!     Returns \c true if server-side storage for this texture as been     allocated.      The texture format, dimensions, mipmap levels and array layers     cannot be altered once storage ihas been allocated.      \sa allocateStorage(), setSize(), setMipLevels(), setLayers(), setFormat() */
 end_comment
 begin_function
 DECL|function|isStorageAllocated
@@ -7491,6 +7532,13 @@ condition|(
 name|feature
 condition|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 case|case
 name|ImmutableMultisampleStorage
 case|:
@@ -7681,49 +7729,158 @@ name|MaxFeatureFlag
 case|:
 break|break;
 block|}
+else|#
+directive|else
+case|case
+name|Texture3D
+case|:
+name|supported
+operator|=
+name|ctx
+operator|->
+name|hasExtension
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"GL_OES_texture_3D"
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|AnisotropicFiltering
+case|:
+name|supported
+operator|=
+name|ctx
+operator|->
+name|hasExtension
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"GL_EXT_texture_filter_anisotropic"
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|NPOTTextures
+case|:
+case|case
+name|NPOTTextureRepeat
+case|:
+name|supported
+operator|=
+name|f
+operator|.
+name|version
+argument_list|()
+operator|>=
+name|qMakePair
+argument_list|(
+literal|3
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|supported
+condition|)
+block|{
+name|supported
+operator|=
+name|ctx
+operator|->
+name|hasExtension
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"GL_OES_texture_npot"
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|supported
+condition|)
+name|supported
+operator|=
+name|ctx
+operator|->
+name|hasExtension
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"GL_ARB_texture_non_power_of_two"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+default|default:
+break|break;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_return
 return|return
 name|supported
 return|;
-block|}
-end_function
+end_return
 begin_comment
-comment|/*!     Sets the base mipmap level used for all texture lookups with this texture to \a baseLevel.      \sa mipBaseLevel(), setMipMaxLevel(), setMipLevelRange() */
+unit|}
+comment|/*!     Sets the base mipmap level used for all texture lookups with this texture to \a baseLevel.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa mipBaseLevel(), setMipMaxLevel(), setMipLevelRange() */
 end_comment
-begin_function
+begin_macro
+unit|void
 DECL|function|setMipBaseLevel
-name|void
 name|QOpenGLTexture
+end_macro
+begin_expr_stmt
+DECL|function|setMipBaseLevel
 operator|::
 name|setMipBaseLevel
-parameter_list|(
+operator|(
 name|int
 name|baseLevel
-parameter_list|)
+operator|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
 argument_list|)
-expr_stmt|;
+block|;
 name|d
 operator|->
 name|create
 argument_list|()
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|d
 operator|->
 name|textureId
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|d
 operator|->
 name|texFuncs
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|baseLevel
@@ -7732,13 +7889,13 @@ name|d
 operator|->
 name|maxLevel
 argument_list|)
-expr_stmt|;
+block|;
 name|d
 operator|->
 name|baseLevel
 operator|=
 name|baseLevel
-expr_stmt|;
+block|;
 name|d
 operator|->
 name|texFuncs
@@ -7757,19 +7914,30 @@ name|GL_TEXTURE_BASE_LEVEL
 argument_list|,
 name|baseLevel
 argument_list|)
-expr_stmt|;
+block|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|baseLevel
+argument_list|)
+block|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Mipmap base level is not supported"
+argument_list|)
+block|;
+endif|#
+directive|endif
 block|}
-end_function
-begin_comment
 comment|/*!     Returns the mipmap base level used for all texture lookups with this texture.     The default is 0.      \sa setMipBaseLevel(), mipMaxLevel(), mipLevelRange() */
-end_comment
-begin_function
 DECL|function|mipBaseLevel
 name|int
 name|QOpenGLTexture
 operator|::
 name|mipBaseLevel
-parameter_list|()
+operator|(
+operator|)
 specifier|const
 block|{
 name|Q_D
@@ -7777,16 +7945,16 @@ argument_list|(
 specifier|const
 name|QOpenGLTexture
 argument_list|)
-expr_stmt|;
+block|;
 return|return
 name|d
 operator|->
 name|baseLevel
 return|;
 block|}
-end_function
+end_expr_stmt
 begin_comment
-comment|/*!     Sets the maximum mipmap level used for all texture lookups with this texture to \a maxLevel.      \sa mipMaxLevel(), setMipBaseLevel(), setMipLevelRange() */
+comment|/*!     Sets the maximum mipmap level used for all texture lookups with this texture to \a maxLevel.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa mipMaxLevel(), setMipBaseLevel(), setMipLevelRange() */
 end_comment
 begin_function
 DECL|function|setMipMaxLevel
@@ -7799,6 +7967,13 @@ name|int
 name|maxLevel
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -7857,6 +8032,20 @@ argument_list|,
 name|maxLevel
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|maxLevel
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Mipmap max level is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -7885,7 +8074,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the range of mipmap levels that can be used for texture lookups with this texture     to range from \a baseLevel to \a maxLevel.      \sa setMipBaseLevel(), setMipMaxLevel(), mipLevelRange() */
+comment|/*!     Sets the range of mipmap levels that can be used for texture lookups with this texture     to range from \a baseLevel to \a maxLevel.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa setMipBaseLevel(), setMipMaxLevel(), mipLevelRange() */
 end_comment
 begin_function
 DECL|function|setMipLevelRange
@@ -7901,6 +8090,13 @@ name|int
 name|maxLevel
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -7970,10 +8166,29 @@ argument_list|,
 name|maxLevel
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|baseLevel
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|maxLevel
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Mipmap level range is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the range of mipmap levels that can be used for texture lookups with this texture.      \sa mipBaseLevel(), mipMaxLevel(), mipLevelRange() */
+comment|/*!     Returns the range of mipmap levels that can be used for texture lookups with this texture.      \sa mipBaseLevel(), mipMaxLevel() */
 end_comment
 begin_function
 DECL|function|mipLevelRange
@@ -8188,7 +8403,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     GLSL shaders are able to reorder the components of the vec4 returned by texture     functions. It is also desirable to be able to control this reordering from CPU     side code. This is made possible by swizzle masks since OpenGL 3.3.      Each component of the texture can be mapped to one of the SwizzleValue options.      This function maps \a component to the output \a value.      \sa swizzleMask() */
+comment|/*!     GLSL shaders are able to reorder the components of the vec4 returned by texture     functions. It is also desirable to be able to control this reordering from CPU     side code. This is made possible by swizzle masks since OpenGL 3.3.      Each component of the texture can be mapped to one of the SwizzleValue options.      This function maps \a component to the output \a value.      \note This function has no effect on Mac and Qt built for OpenGL ES 2.     \sa swizzleMask() */
 end_comment
 begin_function
 DECL|function|setSwizzleMask
@@ -8210,6 +8425,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
 argument_list|)
 name|Q_D
 argument_list|(
@@ -8287,11 +8508,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|qWarning
-argument_list|(
-literal|"Texture swizzling is not supported"
-argument_list|)
-expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|component
@@ -8300,6 +8516,11 @@ expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|value
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Texture swizzling is not supported"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -8335,6 +8556,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
 argument_list|)
 name|Q_D
 argument_list|(
@@ -8463,11 +8690,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|qWarning
-argument_list|(
-literal|"Texture swizzling is not supported"
-argument_list|)
-expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|r
@@ -8486,6 +8708,11 @@ expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|a
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Texture swizzling is not supported"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -8528,7 +8755,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If using a texture that has a combined depth/stencil format this function sets     which component of the texture is accessed to \a mode.      When the parameter is set to ?DepthMode, then accessing it from the     shader will access the depth component as a single float, as normal. But when     the parameter is set to StencilMode?, the shader will access the stencil component.      \sa depthStencilMode() */
+comment|/*!     If using a texture that has a combined depth/stencil format this function sets     which component of the texture is accessed to \a mode.      When the parameter is set to ?DepthMode, then accessing it from the     shader will access the depth component as a single float, as normal. But when     the parameter is set to StencilMode?, the shader will access the stencil component.      \note This function has no effect on Mac and Qt built for OpenGL ES 2.     \sa depthStencilMode() */
 end_comment
 begin_function
 DECL|function|setDepthStencilMode
@@ -8549,6 +8776,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
 argument_list|)
 name|Q_D
 argument_list|(
@@ -8628,7 +8861,7 @@ argument_list|)
 expr_stmt|;
 name|qWarning
 argument_list|(
-literal|"DepthStencil Mode is not supported"
+literal|"QOpenGLTexture: DepthStencil Mode is not supported"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -9248,7 +9481,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the border color of the texture to \a color.      \sa borderColor() */
+comment|/*!     Sets the border color of the texture to \a color.      \note This function has no effect on Mac and Qt built for OpenGL ES 2.     \sa borderColor() */
 end_comment
 begin_function
 DECL|function|setBorderColor
@@ -9261,6 +9494,13 @@ name|QColor
 name|color
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -9386,6 +9626,20 @@ argument_list|,
 name|values
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|color
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Border color is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -9411,6 +9665,13 @@ name|float
 name|a
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -9524,6 +9785,35 @@ argument_list|,
 name|values
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|g
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|b
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|a
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Border color is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -9549,6 +9839,13 @@ name|int
 name|a
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -9662,6 +9959,35 @@ argument_list|,
 name|values
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|g
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|b
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|a
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Border color is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// TODO Handle case of using glTextureParameterIiv() based on format
 block|}
 end_function
@@ -9688,6 +10014,13 @@ name|uint
 name|a
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -9813,6 +10146,35 @@ argument_list|,
 name|values
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|g
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|b
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|a
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Border color is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// TODO Handle case of using glTextureParameterIuiv() based on format
 block|}
 end_function
@@ -10218,7 +10580,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the minimum level of detail to \a value. This limits the selection of highest     resolution mipmap (lowest mipmap level). The default value is -1000.      \sa minimumLevelOfDetail(), setMaximumLevelOfDetail(), setLevelOfDetailRange() */
+comment|/*!     Sets the minimum level of detail to \a value. This limits the selection of highest     resolution mipmap (lowest mipmap level). The default value is -1000.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa minimumLevelOfDetail(), setMaximumLevelOfDetail(), setLevelOfDetailRange() */
 end_comment
 begin_function
 DECL|function|setMinimumLevelOfDetail
@@ -10231,6 +10593,13 @@ name|float
 name|value
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -10289,6 +10658,20 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Detail level is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -10317,7 +10700,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the maximum level of detail to \a value. This limits the selection of lowest     resolution mipmap (highest mipmap level). The default value is 1000.      \sa maximumLevelOfDetail(), setMinimumLevelOfDetail(), setLevelOfDetailRange() */
+comment|/*!     Sets the maximum level of detail to \a value. This limits the selection of lowest     resolution mipmap (highest mipmap level). The default value is 1000.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa maximumLevelOfDetail(), setMinimumLevelOfDetail(), setLevelOfDetailRange() */
 end_comment
 begin_function
 DECL|function|setMaximumLevelOfDetail
@@ -10330,6 +10713,13 @@ name|float
 name|value
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -10388,6 +10778,20 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Detail level is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -10416,7 +10820,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the minimum and maximum level of detail parameters.      \sa levelOfDetailRange(), setMinimumLevelOfDetail(), setMaximumLevelOfDetail() */
+comment|/*!     Sets the minimum and maximum level of detail parameters.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa levelOfDetailRange(), setMinimumLevelOfDetail(), setMaximumLevelOfDetail() */
 end_comment
 begin_function
 DECL|function|setLevelOfDetailRange
@@ -10432,6 +10836,13 @@ name|float
 name|max
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -10513,6 +10924,25 @@ argument_list|,
 name|max
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|min
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|max
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Detail level is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -10553,7 +10983,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the level of detail bias parameter.      \sa levelofDetailBias() */
+comment|/*!     Sets the level of detail bias parameter.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa levelofDetailBias() */
 end_comment
 begin_function
 DECL|function|setLevelofDetailBias
@@ -10566,6 +10996,13 @@ name|float
 name|bias
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|Q_D
 argument_list|(
 name|QOpenGLTexture
@@ -10615,6 +11052,20 @@ argument_list|,
 name|bias
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|bias
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture: Detail level is not supported"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

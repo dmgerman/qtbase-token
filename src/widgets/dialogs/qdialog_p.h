@@ -82,6 +82,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_WIDGETS_EXPORT
 name|QDialogPrivate
 range|:
 name|public
@@ -291,6 +292,12 @@ block|;
 name|QPlatformDialogHelper
 operator|*
 name|platformHelper
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|bool
+name|canBeNativeDialog
 argument_list|()
 specifier|const
 block|;

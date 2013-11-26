@@ -224,6 +224,11 @@ argument_list|(
 name|Q_OS_WIN
 argument_list|)
 end_elif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_define
 DECL|macro|_WIN32_WINNT
 define|#
@@ -231,6 +236,10 @@ directive|define
 name|_WIN32_WINNT
 value|0x0400
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include

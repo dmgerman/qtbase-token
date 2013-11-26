@@ -1,0 +1,165 @@
+begin_unit
+begin_comment
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QNETWORKREPLYNSURLCONNECTIONIMPL_H
+end_ifndef
+begin_define
+DECL|macro|QNETWORKREPLYNSURLCONNECTIONIMPL_H
+define|#
+directive|define
+name|QNETWORKREPLYNSURLCONNECTIONIMPL_H
+end_define
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is not part of the Qt API.  It exists for the convenience
+end_comment
+begin_comment
+comment|// of the Network Access API.  This header file may change from
+end_comment
+begin_comment
+comment|// version to version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_include
+include|#
+directive|include
+file|"qnetworkreply.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qnetworkreply_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qnetworkaccessmanager.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QFile>
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qabstractfileengine_p.h>
+end_include
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+DECL|variable|QNetworkReplyNSURLConnectionImplPrivate
+name|class
+name|QNetworkReplyNSURLConnectionImplPrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QNetworkReplyNSURLConnectionImpl
+range|:
+name|public
+name|QNetworkReply
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|QNetworkReplyNSURLConnectionImpl
+argument_list|(
+argument|QObject *parent
+argument_list|,
+argument|const QNetworkRequest&req
+argument_list|,
+argument|const QNetworkAccessManager::Operation op
+argument_list|,
+argument|QIODevice* outgoingData
+argument_list|)
+block|;
+name|virtual
+operator|~
+name|QNetworkReplyNSURLConnectionImpl
+argument_list|()
+block|;
+name|virtual
+name|void
+name|abort
+argument_list|()
+block|;
+comment|// reimplemented from QNetworkReply
+name|virtual
+name|void
+name|close
+argument_list|()
+block|;
+name|virtual
+name|qint64
+name|bytesAvailable
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|bool
+name|isSequential
+argument_list|()
+specifier|const
+block|;
+name|qint64
+name|size
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|qint64
+name|readData
+argument_list|(
+argument|char *data
+argument_list|,
+argument|qint64 maxlen
+argument_list|)
+block|;
+name|public
+name|Q_SLOTS
+operator|:
+name|void
+name|readyReadOutgoingData
+argument_list|()
+block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QNetworkReplyNSURLConnectionImpl
+argument_list|)
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QNetworkReplyNSURLConnectionImpl_H
+end_comment
+end_unit

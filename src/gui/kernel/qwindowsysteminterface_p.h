@@ -337,6 +337,11 @@ specifier|const
 name|QRect
 operator|&
 name|newGeometry
+argument_list|,
+specifier|const
+name|QRect
+operator|&
+name|oldGeometry
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -351,7 +356,12 @@ argument_list|)
 block|,
 name|newGeometry
 argument_list|(
-argument|newGeometry
+name|newGeometry
+argument_list|)
+block|,
+name|oldGeometry
+argument_list|(
+argument|oldGeometry
 argument_list|)
 block|{ }
 name|QPointer
@@ -362,6 +372,9 @@ name|tlw
 block|;
 name|QRect
 name|newGeometry
+block|;
+name|QRect
+name|oldGeometry
 block|;     }
 decl_stmt|;
 name|class

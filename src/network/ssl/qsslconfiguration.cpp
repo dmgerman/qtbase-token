@@ -973,14 +973,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 5.2    If QSsl::SslOptionDisableSessionPersistence was turned off, this   function returns the session used in the SSL handshake in ASN.1   format, suitable to e.g. be persisted to disk. If no session was   used or QSsl::SslOptionDisableSessionPersistence was not turned off,   this function returns an empty QByteArray.    \b{Note:} When persisting the session to disk or similar, be   careful not to expose the session to a potential attacker, as   knowledge of the session allows for eavesdropping on data   encrypted with the session parameters.    \sa setSession(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
+comment|/*!   \since 5.2    If QSsl::SslOptionDisableSessionPersistence was turned off, this   function returns the session ticket used in the SSL handshake in ASN.1   format, suitable to e.g. be persisted to disk. If no session ticket was   used or QSsl::SslOptionDisableSessionPersistence was not turned off,   this function returns an empty QByteArray.    \b{Note:} When persisting the session ticket to disk or similar, be   careful not to expose the session to a potential attacker, as   knowledge of the session allows for eavesdropping on data   encrypted with the session parameters.    \sa setSessionTicket(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
 end_comment
 begin_function
-DECL|function|session
+DECL|function|sessionTicket
 name|QByteArray
 name|QSslConfiguration
 operator|::
-name|session
+name|sessionTicket
 parameter_list|()
 specifier|const
 block|{
@@ -992,31 +992,31 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 5.2    Sets the session to be used in an SSL handshake.   QSsl::SslOptionDisableSessionPersistence must be turned off   for this to work, and \a session must be in ASN.1 format   as returned by session().    \sa session(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
+comment|/*!   \since 5.2    Sets the session ticket to be used in an SSL handshake.   QSsl::SslOptionDisableSessionPersistence must be turned off   for this to work, and \a sessionTicket must be in ASN.1 format   as returned by sessionTicket().    \sa sessionTicket(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
 end_comment
 begin_function
-DECL|function|setSession
+DECL|function|setSessionTicket
 name|void
 name|QSslConfiguration
 operator|::
-name|setSession
+name|setSessionTicket
 parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|session
+name|sessionTicket
 parameter_list|)
 block|{
 name|d
 operator|->
 name|sslSession
 operator|=
-name|session
+name|sessionTicket
 expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 5.2    If QSsl::SslOptionDisableSessionPersistence was turned off, this   function returns the session ticket life time hint sent by the   server (which might be 0).   If the server did not send a session ticket (e.g. when   resuming a session or when the server does not support it) or   QSsl::SslOptionDisableSessionPersistence was not turned off,   this function returns -1.    \sa session(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
+comment|/*!   \since 5.2    If QSsl::SslOptionDisableSessionPersistence was turned off, this   function returns the session ticket life time hint sent by the   server (which might be 0).   If the server did not send a session ticket (e.g. when   resuming a session or when the server does not support it) or   QSsl::SslOptionDisableSessionPersistence was not turned off,   this function returns -1.    \sa sessionTicket(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
 end_comment
 begin_function
 DECL|function|sessionTicketLifeTimeHint

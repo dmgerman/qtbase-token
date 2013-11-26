@@ -347,6 +347,15 @@ modifier|&
 name|locale
 parameter_list|)
 function_decl|;
+name|QByteArray
+name|readLocaleAliases
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+name|locale
+parameter_list|)
+function_decl|;
 name|void
 name|initPossibleLocations
 parameter_list|()

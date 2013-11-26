@@ -268,6 +268,8 @@ block|,
 name|IllegalExponentIndicator
 block|,
 name|IllegalIdentifier
+block|,
+name|IllegalHexadecimalEscapeSequence
 block|}
 block|;      enum
 name|RegExpBodyPrefix
@@ -564,6 +566,14 @@ argument_list|()
 block|;
 name|QChar
 name|decodeUnicodeEscapeCharacter
+argument_list|(
+name|bool
+operator|*
+name|ok
+argument_list|)
+block|;
+name|QChar
+name|decodeHexEscapeCharacter
 argument_list|(
 name|bool
 operator|*

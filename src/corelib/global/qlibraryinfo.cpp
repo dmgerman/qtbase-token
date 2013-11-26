@@ -708,6 +708,7 @@ block|{
 specifier|const
 name|char
 modifier|*
+specifier|volatile
 name|str
 init|=
 name|QT_CONFIGURE_LICENSEE
@@ -736,6 +737,7 @@ block|{
 specifier|const
 name|char
 modifier|*
+specifier|volatile
 name|str
 init|=
 name|QT_CONFIGURE_LICENSED_PRODUCTS

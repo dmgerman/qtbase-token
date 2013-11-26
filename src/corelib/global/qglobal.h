@@ -58,12 +58,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_BUILD_MOC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|QT_BUILD_QMAKE
 argument_list|)
 operator|&&
@@ -78,10 +72,6 @@ include|#
 directive|include
 file|<QtCore/qconfig.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -97,6 +87,10 @@ name|FEATURE
 parameter_list|)
 value|(!defined(QT_NO_##FEATURE))
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* These two macros makes it possible to turn the builtin line expander into a  * string literal. */
 end_comment
@@ -819,6 +813,20 @@ begin_comment
 DECL|macro|QT_POINTER_SIZE
 comment|// ### Add auto-detection to Windows configure
 end_comment
+begin_elif
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+end_elif
+begin_error
+error|#
+directive|error
+error|could not determine QT_POINTER_SIZE
+end_error
 begin_endif
 endif|#
 directive|endif
@@ -868,9 +876,6 @@ end_typedef
 begin_macro
 name|QT_END_INCLUDE_NAMESPACE
 end_macro
-begin_comment
-comment|// This logic must match the one in qmetatype.h
-end_comment
 begin_if
 if|#
 directive|if
@@ -883,30 +888,6 @@ begin_typedef
 DECL|typedef|qreal
 typedef|typedef
 name|QT_COORD_TYPE
-name|qreal
-typedef|;
-end_typedef
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|QT_NO_FPU
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_PROCESSOR_ARM
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-end_elif
-begin_typedef
-typedef|typedef
-name|float
 name|qreal
 typedef|;
 end_typedef
@@ -1432,17 +1413,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_INIT_RESOURCE_EXTERN
-define|#
-directive|define
-name|Q_INIT_RESOURCE_EXTERN
-parameter_list|(
-name|name
-parameter_list|)
-define|\
-value|extern int QT_MANGLE_NAMESPACE(qInitResources_ ## name) ();
-end_define
 begin_define
 DECL|macro|Q_INIT_RESOURCE
 define|#
@@ -2670,6 +2640,50 @@ name|ios
 parameter_list|)
 define|\
 value|(defined(__MAC_OS_X_VERSION_MIN_REQUIRED)&& osx != __MAC_NA&& __MAC_OS_X_VERSION_MIN_REQUIRED< osx) || \     (defined(__IPHONE_OS_VERSION_MIN_REQUIRED)&& ios != __IPHONE_NA&& __IPHONE_OS_VERSION_MIN_REQUIRED< ios)
+end_define
+begin_define
+DECL|macro|QT_IOS_PLATFORM_SDK_EQUAL_OR_ABOVE
+define|#
+directive|define
+name|QT_IOS_PLATFORM_SDK_EQUAL_OR_ABOVE
+parameter_list|(
+name|ios
+parameter_list|)
+define|\
+value|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE(__MAC_NA, ios)
+end_define
+begin_define
+DECL|macro|QT_OSX_PLATFORM_SDK_EQUAL_OR_ABOVE
+define|#
+directive|define
+name|QT_OSX_PLATFORM_SDK_EQUAL_OR_ABOVE
+parameter_list|(
+name|osx
+parameter_list|)
+define|\
+value|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE(osx, __IPHONE_NA)
+end_define
+begin_define
+DECL|macro|QT_IOS_DEPLOYMENT_TARGET_BELOW
+define|#
+directive|define
+name|QT_IOS_DEPLOYMENT_TARGET_BELOW
+parameter_list|(
+name|ios
+parameter_list|)
+define|\
+value|QT_MAC_DEPLOYMENT_TARGET_BELOW(__MAC_NA, ios)
+end_define
+begin_define
+DECL|macro|QT_OSX_DEPLOYMENT_TARGET_BELOW
+define|#
+directive|define
+name|QT_OSX_DEPLOYMENT_TARGET_BELOW
+parameter_list|(
+name|osx
+parameter_list|)
+define|\
+value|QT_MAC_DEPLOYMENT_TARGET_BELOW(osx, __IPHONE_NA)
 end_define
 begin_endif
 endif|#

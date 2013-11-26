@@ -674,11 +674,6 @@ name|QMAKE_MODE
 name|qmake_mode
 decl_stmt|;
 comment|//all modes
-DECL|member|qmake_args
-specifier|static
-name|QStringList
-name|qmake_args
-decl_stmt|;
 DECL|member|output
 specifier|static
 name|QFile

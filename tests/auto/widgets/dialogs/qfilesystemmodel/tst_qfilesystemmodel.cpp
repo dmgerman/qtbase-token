@@ -866,7 +866,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-specifier|const
 name|QString
 name|documentPath
 init|=
@@ -875,6 +874,47 @@ operator|.
 name|front
 argument_list|()
 decl_stmt|;
+comment|// In particular on Linux, ~/Documents (the first
+comment|// DocumentsLocation) may not exist, so choose ~ in that case:
+if|if
+condition|(
+operator|!
+name|QFile
+operator|::
+name|exists
+argument_list|(
+name|documentPath
+argument_list|)
+condition|)
+block|{
+name|documentPath
+operator|=
+name|QDir
+operator|::
+name|homePath
+argument_list|()
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"%s: first documentPath \"%s\" does not exist. Using ~ (\"%s\") instead."
+argument_list|,
+name|Q_FUNC_INFO
+argument_list|,
+name|qPrintable
+argument_list|(
+name|documentPaths
+operator|.
+name|front
+argument_list|()
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|documentPath
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|root
 operator|=
 name|model

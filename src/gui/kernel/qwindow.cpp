@@ -851,6 +851,15 @@ emit|;
 block|}
 block|}
 end_function
+begin_function
+DECL|function|clearFocusObject
+name|void
+name|QWindowPrivate
+operator|::
+name|clearFocusObject
+parameter_list|()
+block|{ }
+end_function
 begin_comment
 comment|/*!     Sets the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      The surfaceType will be used when the native surface is created     in the create() function. Calling this function after the native     surface has been created requires calling destroy() and create()     to release the old native surface and create a new one.      \sa QBackingStore, QOpenGLContext, create(), destroy() */
 end_comment
@@ -2426,6 +2435,10 @@ specifier|const
 name|QWindow
 argument_list|)
 expr_stmt|;
+comment|// If there is no platform window, do the second best thing and
+comment|// return the app global devicePixelRatio. This is the highest
+comment|// devicePixelRatio found on the system screens, and will be
+comment|// correct for single-display systems (a very common case).
 if|if
 condition|(
 operator|!
@@ -2434,7 +2447,10 @@ operator|->
 name|platformWindow
 condition|)
 return|return
-literal|1.0
+name|qApp
+operator|->
+name|devicePixelRatio
+argument_list|()
 return|;
 return|return
 name|d
@@ -4596,7 +4612,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Shows the window.      This equivalent to calling showFullScreen() or showNormal(), depending     on whether the platform defaults to windows being fullscreen or not, and     whether the window is a popup.      \sa showFullScreen(), showNormal(), hide(), QStyleHints::showIsFullScreen(), flags() */
+comment|/*!     Shows the window.      This is equivalent to calling showFullScreen(), showMaximized(), or showNormal(),     depending on the platform's default behavior for the window type and flags.      \sa showFullScreen(), showMaximized(), showNormal(), hide(), QStyleHints::showIsFullScreen(), flags() */
 end_comment
 begin_function
 DECL|function|show
@@ -4606,37 +4622,45 @@ operator|::
 name|show
 parameter_list|()
 block|{
-name|bool
-name|isPopup
+name|Qt
+operator|::
+name|WindowState
+name|defaultState
 init|=
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|defaultWindowState
+argument_list|(
 name|d_func
 argument_list|()
 operator|->
 name|windowFlags
-operator|&
-name|Qt
-operator|::
-name|Popup
-operator|&
-operator|~
-name|Qt
-operator|::
-name|Window
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|isPopup
-operator|&&
-name|qApp
-operator|->
-name|styleHints
-argument_list|()
-operator|->
-name|showIsFullScreen
-argument_list|()
+name|defaultState
+operator|==
+name|Qt
+operator|::
+name|WindowFullScreen
 condition|)
 name|showFullScreen
+argument_list|()
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|defaultState
+operator|==
+name|Qt
+operator|::
+name|WindowMaximized
+condition|)
+name|showMaximized
 argument_list|()
 expr_stmt|;
 else|else

@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qqnxglcontext.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QMutex>
 end_include
 begin_decl_stmt
@@ -49,6 +44,8 @@ argument_list|(
 argument|QWindow *window
 argument_list|,
 argument|screen_context_t context
+argument_list|,
+argument|bool needRootWindow
 argument_list|)
 block|;
 operator|~
@@ -104,16 +101,10 @@ name|requestedBufferSize
 argument_list|()
 specifier|const
 block|;
-name|WindowType
-name|windowType
+name|void
+name|adjustBufferSize
 argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|{
-return|return
-name|EGL
-return|;
-block|}
+block|;
 name|protected
 operator|:
 name|int

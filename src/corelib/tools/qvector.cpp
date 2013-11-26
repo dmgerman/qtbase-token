@@ -123,13 +123,13 @@ begin_comment
 comment|/*! \fn void QVector::remove(int i, int count)      \overload      Removes \a count elements from the middle of the vector, starting at     index position \a i.      \sa insert(), replace(), fill() */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::removeAt(int i)     \since 5.2      Equivalent to     \code     remove(i);     \endcode      Provided for compatibility with QList.      \sa remove(int), QList::removeAt(int) */
+comment|/*! \fn void QVector::removeAt(int i)     \since 5.2      Equivalent to     \code     remove(i);     \endcode      Provided for compatibility with QList.      \sa remove(), QList::removeAt() */
 end_comment
 begin_comment
 comment|/*! \fn int QVector::length() const     \since 5.2      Same as size() and count().      Provided for compatibility with QList.      \sa size(), count(), QList::length() */
 end_comment
 begin_comment
-comment|/*! \fn T QVector::takeAt(int i)     \since 5.2      Equivalent to     \code     T t = at(i);     remove(i);     return t;     \endcode      Provided for compatibility with QList.      \sa takeFirst(), takeLast(), QList::takeAt(int) */
+comment|/*! \fn T QVector::takeAt(int i)     \since 5.2      Equivalent to     \code     T t = at(i);     remove(i);     return t;     \endcode      Provided for compatibility with QList.      \sa takeFirst(), takeLast(), QList::takeAt() */
 end_comment
 begin_comment
 comment|/*! \fn void QVector::removeFirst()     \since 5.1     Removes the first item in the vector. Calling this function is     equivalent to calling remove(0). The vector must not be empty. If     the vector can be empty, call isEmpty() before calling this     function.      \sa remove(), takeFirst(), isEmpty() */
@@ -138,10 +138,10 @@ begin_comment
 comment|/*! \fn void QVector::removeLast()     \since 5.1     Removes the last item in the vector. Calling this function is     equivalent to calling remove(size() - 1). The vector must not be     empty. If the vector can be empty, call isEmpty() before calling     this function.      \sa remove(), takeLast(), removeFirst(), isEmpty() */
 end_comment
 begin_comment
-comment|/*! \fn T QVector::takeFirst()      Removes the first item in the vector and returns it. This function     assumes the vector is not empty. To avoid failure, call isEmpty()     before calling this function.      \sa takeLast(), removeFirst() */
+comment|/*! \fn T QVector::takeFirst()     \since 5.1      Removes the first item in the vector and returns it. This function     assumes the vector is not empty. To avoid failure, call isEmpty()     before calling this function.      \sa takeLast(), removeFirst() */
 end_comment
 begin_comment
-comment|/*! \fn T QVector::takeLast()      Removes the last item in the list and returns it. This function     assumes the vector is not empty. To avoid failure, call isEmpty()     before calling this function.      If you don't use the return value, removeLast() is more     efficient.      \sa takeFirst(), removeLast() */
+comment|/*! \fn T QVector::takeLast()     \since 5.1      Removes the last item in the list and returns it. This function     assumes the vector is not empty. To avoid failure, call isEmpty()     before calling this function.      If you don't use the return value, removeLast() is more     efficient.      \sa takeFirst(), removeLast() */
 end_comment
 begin_comment
 comment|/*! \fn QVector&QVector::fill(const T&value, int size = -1)      Assigns \a value to all items in the vector. If \a size is     different from -1 (the default), the vector is resized to size \a     size beforehand.      Example:     \snippet code/src_corelib_tools_qvector.cpp 11      \sa resize() */

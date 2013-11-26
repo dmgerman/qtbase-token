@@ -323,6 +323,9 @@ block|}
 case|case
 name|ConfigLocation
 case|:
+case|case
+name|GenericConfigLocation
+case|:
 block|{
 comment|// http://standards.freedesktop.org/basedir-spec/latest/
 name|QString
@@ -1235,6 +1238,9 @@ condition|)
 block|{
 case|case
 name|ConfigLocation
+case|:
+case|case
+name|GenericConfigLocation
 case|:
 block|{
 comment|// http://standards.freedesktop.org/basedir-spec/latest/

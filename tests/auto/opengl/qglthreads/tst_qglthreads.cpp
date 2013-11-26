@@ -1246,7 +1246,7 @@ operator|%
 literal|100
 operator|)
 operator|/
-literal|100.
+literal|100.f
 block|,
 operator|(
 name|rand
@@ -1255,7 +1255,7 @@ operator|%
 literal|100
 operator|)
 operator|/
-literal|100.
+literal|100.f
 block|,
 operator|(
 name|rand
@@ -1264,7 +1264,7 @@ operator|%
 literal|100
 operator|)
 operator|/
-literal|100.
+literal|100.f
 block|,
 operator|(
 name|rand
@@ -1273,7 +1273,7 @@ operator|%
 literal|100
 operator|)
 operator|/
-literal|100.
+literal|100.f
 block|,
 operator|(
 name|rand
@@ -1282,7 +1282,7 @@ operator|%
 literal|100
 operator|)
 operator|/
-literal|100.
+literal|100.f
 block|,
 operator|(
 name|rand
@@ -1291,7 +1291,7 @@ operator|%
 literal|100
 operator|)
 operator|/
-literal|100.
+literal|100.f
 block|}
 decl_stmt|;
 name|glVertexAttribPointer

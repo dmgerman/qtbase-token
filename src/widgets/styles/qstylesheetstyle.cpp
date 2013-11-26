@@ -32441,6 +32441,11 @@ operator|.
 name|hasBox
 argument_list|()
 operator|||
+name|rule
+operator|.
+name|hasBorder
+argument_list|()
+operator|||
 operator|!
 name|rule
 operator|.

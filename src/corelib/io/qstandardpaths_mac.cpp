@@ -59,6 +59,11 @@ name|QStandardPaths
 operator|::
 name|ConfigLocation
 case|:
+case|case
+name|QStandardPaths
+operator|::
+name|GenericConfigLocation
+case|:
 return|return
 name|kPreferencesFolderType
 return|;
@@ -498,6 +503,9 @@ expr_stmt|;
 return|return
 name|path
 return|;
+case|case
+name|GenericConfigLocation
+case|:
 case|case
 name|ConfigLocation
 case|:

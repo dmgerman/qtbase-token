@@ -145,9 +145,9 @@ name|QQmlJS
 operator|::
 name|AST
 operator|::
-name|UiImportList
+name|UiImport
 operator|*
-name|imports
+name|import
 argument_list|)
 block|;
 name|void
@@ -157,7 +157,7 @@ name|QQmlJS
 operator|::
 name|AST
 operator|::
-name|UiImportList
+name|UiImport
 operator|*
 name|definition
 argument_list|)

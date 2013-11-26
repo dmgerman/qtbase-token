@@ -1682,6 +1682,13 @@ expr_stmt|;
 block|}
 name|private
 label|:
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 comment|// DSA wrapper (so we can use pointer to member function as switch)
 specifier|inline
 name|void
@@ -2842,6 +2849,8 @@ name|bits
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 comment|// DSA-like API
 specifier|inline
 name|void
@@ -6019,6 +6028,13 @@ argument_list|(
 name|val
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|glGetIntegerv
 argument_list|(
 name|GL_UNPACK_SKIP_IMAGES
@@ -6129,6 +6145,8 @@ argument_list|(
 name|b
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|options
 return|;
@@ -6153,6 +6171,13 @@ name|alignment
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|glPixelStorei
 argument_list|(
 name|GL_UNPACK_SKIP_IMAGES
@@ -6223,6 +6248,8 @@ name|isSwapBytesEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|private
 label|:
@@ -7044,6 +7071,13 @@ decl_stmt|;
 name|CompressedTextureImage3DMemberFunc
 name|CompressedTextureImage3D
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 comment|// Raw function pointers for core and DSA functions
 comment|// EXT_direct_state_access used when DSA is available
 name|void
@@ -7792,6 +7826,8 @@ name|GLboolean
 name|fixedSampleLocations
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 comment|// OpenGL 1.0
 name|void
 function_decl|(

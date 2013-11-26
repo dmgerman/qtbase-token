@@ -1741,7 +1741,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.2      Returns \c true if the \a file exists; otherwise returns \c false.      \note If \a file is a symlink that points to a non-existing     file, false is returned.      \note Using this function is faster for than using     \c QFileInfo(file).exists() for file system access. */
+comment|/*!     \since 5.2      Returns \c true if the \a file exists; otherwise returns \c false.      \note If \a file is a symlink that points to a non-existing     file, false is returned.      \note Using this function is faster than using     \c QFileInfo(file).exists() for file system access. */
 end_comment
 begin_function
 DECL|function|exists

@@ -2107,6 +2107,9 @@ block|;
 name|triState
 name|IgnoreImportLibrary
 block|;
+name|triState
+name|ImageHasSafeExceptionHandlers
+block|;
 name|QString
 name|ImportLibrary
 block|;

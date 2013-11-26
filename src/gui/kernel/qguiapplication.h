@@ -511,6 +511,11 @@ specifier|const
 block|;
 endif|#
 directive|endif
+specifier|static
+name|void
+name|sync
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

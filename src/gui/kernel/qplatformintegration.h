@@ -208,6 +208,8 @@ block|,
 name|NativeWidgets
 block|,
 name|WindowManagement
+block|,
+name|SyncState
 block|}
 enum|;
 name|virtual
@@ -411,6 +413,8 @@ block|,
 name|PasswordMaskCharacter
 block|,
 name|SetFocusOnTouchRelease
+block|,
+name|ShowIsMaximized
 block|}
 enum|;
 name|virtual
@@ -422,6 +426,16 @@ name|hint
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|Qt
+operator|::
+name|WindowState
+name|defaultWindowState
+argument_list|(
+argument|Qt::WindowFlags
+argument_list|)
+specifier|const
+expr_stmt|;
 name|virtual
 name|Qt
 operator|::
@@ -492,6 +506,11 @@ decl|const
 decl_stmt|;
 endif|#
 directive|endif
+name|virtual
+name|void
+name|sync
+parameter_list|()
+function_decl|;
 name|protected
 label|:
 name|void

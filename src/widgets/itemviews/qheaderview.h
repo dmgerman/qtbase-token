@@ -418,8 +418,6 @@ name|void
 name|setResizeContentsPrecision
 argument_list|(
 argument|int precision
-argument_list|,
-argument|bool resizeNow = true
 argument_list|)
 block|;
 name|int

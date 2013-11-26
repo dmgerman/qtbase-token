@@ -138,6 +138,20 @@ end_endif
 begin_comment
 comment|/*  Print dialog class declarations      QPrintDialog:            The main Print Dialog, nothing really held here.      QUnixPrintWidget:     QUnixPrintWidgetPrivate: The real Unix Print Dialog implementation.                               Directly includes the upper half of the Print Dialog                              containing the Printer Selection widgets and                              Properties button.                               Embeds the Properties pop-up dialog from                              QPrintPropertiesDialog                               Embeds the lower half from separate widget class                              QPrintDialogPrivate                               Layout in qprintwidget.ui      QPrintDialogPrivate:     The lower half of the Print Dialog containing the                              Copies and Options tabs that expands when the                              Options button is selected.                               Layout in qprintsettingsoutput.ui      QPrintPropertiesDialog:  Dialog displayed when clicking on Properties button to                              allow editing of Page and Advanced tabs.                               Layout in qprintpropertieswidget.ui */
 end_comment
+begin_function
+DECL|function|initResources
+specifier|static
+name|void
+name|initResources
+parameter_list|()
+block|{
+name|Q_INIT_RESOURCE
+argument_list|(
+name|qprintdialog
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -953,7 +967,11 @@ name|collapseButton
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+name|initResources
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QPrintDialogPrivate

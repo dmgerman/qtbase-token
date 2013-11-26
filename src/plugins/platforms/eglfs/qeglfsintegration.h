@@ -234,6 +234,15 @@ return|return
 name|mInputContext
 return|;
 block|}
+name|protected
+label|:
+name|virtual
+name|QEglFSScreen
+operator|*
+name|createScreen
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 name|void

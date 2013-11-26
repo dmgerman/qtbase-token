@@ -1025,7 +1025,7 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QWidget: Must construct a QApplication before a QPaintDevice"
+literal|"QWidget: Must construct a QApplication before a QWidget"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -25365,7 +25365,7 @@ name|enable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     Shows the widget and its child widgets. This function is     equivalent to setVisible(true) in the normal case, and equivalent     to showFullScreen() if the QStyleHints::showIsFullScreen() hint     is true and the window is not a popup.      \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible(), windowFlags() */
+comment|/*!     Shows the widget and its child widgets.      This is equivalent to calling showFullScreen(), showMaximized(), or setVisible(true),     depending on the platform's default behavior for the window flags.       \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible(), windowFlags(), flags() */
 DECL|function|show
 name|void
 name|QWidget
@@ -25373,39 +25373,44 @@ operator|::
 name|show
 parameter_list|()
 block|{
-name|bool
-name|isPopup
+name|Qt
+operator|::
+name|WindowState
+name|defaultState
 init|=
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|defaultWindowState
+argument_list|(
 name|data
 operator|->
 name|window_flags
-operator|&
-name|Qt
-operator|::
-name|Popup
-operator|&
-operator|~
-name|Qt
-operator|::
-name|Window
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isWindow
-argument_list|()
-operator|&&
-operator|!
-name|isPopup
-operator|&&
-name|qApp
-operator|->
-name|styleHints
-argument_list|()
-operator|->
-name|showIsFullScreen
-argument_list|()
+name|defaultState
+operator|==
+name|Qt
+operator|::
+name|WindowFullScreen
 condition|)
 name|showFullScreen
+argument_list|()
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|defaultState
+operator|==
+name|Qt
+operator|::
+name|WindowMaximized
+condition|)
+name|showMaximized
 argument_list|()
 expr_stmt|;
 else|else
@@ -25414,6 +25419,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// FIXME: Why not showNormal(), like QWindow::show()?
 block|}
 comment|/*! \internal     Makes the widget visible in the isVisible() meaning of the word.    It is only called for toplevels or widgets with visible parents.  */
 DECL|function|show_recursive
