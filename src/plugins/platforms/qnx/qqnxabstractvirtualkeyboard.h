@@ -34,17 +34,17 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-comment|// NOTE:  Not all the following keyboard modes are currently used.
+comment|// Keyboard Types currently supported.
 comment|// Default - Regular Keyboard
 comment|// Url/Email - Enhanced keys for each types.
 comment|// Web - Regular keyboard with two blank keys, currently unused.
 comment|// NumPunc - Numbers& Punctionation, alternate to Symbol
+comment|// Number - Number pad
 comment|// Symbol - All symbols, alternate to NumPunc, currently unused.
-comment|// Phone - Phone enhanced keyboard - currently unused as no alternate keyboard available to access a-zA-Z
-comment|// Pin - Keyboard for entering Pins (Hex values) currently unused.
-comment|// Password - Keyboard for entering passwords.
-comment|//
-comment|// SPECIAL NOTE: Usage of NumPunc may have to be removed, ABC button is non-functional.
+comment|// Phone - Phone enhanced keyboard
+comment|// Pin - Keyboard for entering Pins (Hex values).
+comment|// Password - Keyboard with lots of extra characters for password input.
+comment|// Alphanumeric - Similar to password without any of the security implications.
 comment|//
 expr|enum
 name|KeyboardMode
@@ -59,6 +59,8 @@ name|Web
 block|,
 name|NumPunc
 block|,
+name|Number
+block|,
 name|Symbol
 block|,
 name|Phone
@@ -66,6 +68,29 @@ block|,
 name|Pin
 block|,
 name|Password
+block|,
+name|Alphanumeric
+block|}
+block|;     enum
+name|EnterKeyType
+block|{
+name|DefaultReturn
+block|,
+name|Connect
+block|,
+name|Done
+block|,
+name|Go
+block|,
+name|Join
+block|,
+name|Next
+block|,
+name|Search
+block|,
+name|Send
+block|,
+name|Submit
 block|}
 block|;
 name|explicit
@@ -129,6 +154,12 @@ argument|KeyboardMode mode
 argument_list|)
 block|;
 name|void
+name|setEnterKeyType
+argument_list|(
+argument|EnterKeyType type
+argument_list|)
+block|;
+name|void
 name|setInputHints
 argument_list|(
 argument|int inputHints
@@ -141,6 +172,15 @@ specifier|const
 block|{
 return|return
 name|m_keyboardMode
+return|;
+block|}
+name|EnterKeyType
+name|enterKeyType
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_enterKeyType
 return|;
 block|}
 name|Q_SIGNALS
@@ -170,10 +210,8 @@ name|protected
 operator|:
 name|virtual
 name|void
-name|applyKeyboardMode
-argument_list|(
-argument|KeyboardMode mode
-argument_list|)
+name|applyKeyboardOptions
+argument_list|()
 operator|=
 literal|0
 block|;
@@ -211,6 +249,9 @@ name|m_locale
 block|;
 name|KeyboardMode
 name|m_keyboardMode
+block|;
+name|EnterKeyType
+name|m_enterKeyType
 block|; }
 decl_stmt|;
 end_decl_stmt
