@@ -842,6 +842,13 @@ operator|->
 name|useRtlExtensions
 argument_list|()
 operator|<<
+literal|" mousePressAndHoldInterval="
+operator|<<
+name|styleHints
+operator|->
+name|mousePressAndHoldInterval
+argument_list|()
+operator|<<
 literal|'\n'
 expr_stmt|;
 specifier|const

@@ -57,6 +57,11 @@ name|mouseDoubleClickInterval
 argument_list|()
 specifier|const
 block|;
+name|int
+name|mousePressAndHoldInterval
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setStartDragDistance
 argument_list|(

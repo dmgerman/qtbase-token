@@ -415,6 +415,8 @@ block|,
 name|SetFocusOnTouchRelease
 block|,
 name|ShowIsMaximized
+block|,
+name|MousePressAndHoldInterval
 block|}
 enum|;
 name|virtual

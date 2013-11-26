@@ -281,6 +281,35 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the time limit in milliseconds that activates     a press and hold.      \since 5.3 */
+end_comment
+begin_function
+DECL|function|mousePressAndHoldInterval
+name|int
+name|QStyleHints
+operator|::
+name|mousePressAndHoldInterval
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|themeableHint
+argument_list|(
+name|QPlatformTheme
+operator|::
+name|MousePressAndHoldInterval
+argument_list|,
+name|QPlatformIntegration
+operator|::
+name|MousePressAndHoldInterval
+argument_list|)
+operator|.
+name|toInt
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Sets the \a startDragDistance.     \internal     \sa startDragDistance()     \since 5.3 */
 end_comment
 begin_function
