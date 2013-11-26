@@ -3598,6 +3598,7 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|format
 operator|.
 name|testOption
