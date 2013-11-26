@@ -346,6 +346,10 @@ modifier|&
 name|rgn
 parameter_list|)
 function_decl|;
+name|void
+name|doSync
+parameter_list|()
+function_decl|;
 name|bool
 name|bltRect
 parameter_list|(
