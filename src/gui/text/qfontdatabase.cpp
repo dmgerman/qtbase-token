@@ -2898,7 +2898,7 @@ struct|;
 end_struct
 begin_function_decl
 specifier|static
-name|void
+name|int
 name|match
 parameter_list|(
 name|int
@@ -2932,13 +2932,7 @@ argument_list|<
 name|int
 argument_list|>
 modifier|&
-name|blacklistedFamilies
-init|=
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|()
+name|blacklisted
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -4470,7 +4464,7 @@ end_comment
 begin_function
 DECL|function|match
 specifier|static
-name|void
+name|int
 name|match
 parameter_list|(
 name|int
@@ -4512,6 +4506,12 @@ argument_list|(
 name|force_encoding_id
 argument_list|)
 expr_stmt|;
+name|int
+name|result
+init|=
+operator|-
+literal|1
+decl_stmt|;
 name|QtFontStyle
 operator|::
 name|Key
@@ -4922,6 +4922,10 @@ operator|<
 name|score
 condition|)
 block|{
+name|result
+operator|=
+name|x
+expr_stmt|;
 name|score
 operator|=
 name|newscore
@@ -4941,6 +4945,9 @@ condition|)
 comment|// xlfd instead of FT... just accept it
 break|break;
 block|}
+return|return
+name|result
+return|;
 block|}
 end_function
 begin_function
