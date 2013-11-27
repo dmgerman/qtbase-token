@@ -874,7 +874,7 @@ name|Screen
 case|:
 name|result
 operator|=
-name|qPlatformScreenForWindow
+name|screenForWindow
 argument_list|(
 name|window
 argument_list|)
