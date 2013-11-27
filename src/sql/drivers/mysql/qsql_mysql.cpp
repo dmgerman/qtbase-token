@@ -4345,6 +4345,8 @@ name|time
 operator|.
 name|msec
 argument_list|()
+operator|*
+literal|1000
 expr_stmt|;
 block|}
 if|if
