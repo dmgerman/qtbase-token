@@ -4755,11 +4755,6 @@ argument_list|,
 name|script
 argument_list|)
 expr_stmt|;
-name|uint
-name|score_adjust
-init|=
-literal|0
-decl_stmt|;
 name|bool
 name|supported
 init|=
@@ -4911,10 +4906,6 @@ name|force_encoding_id
 argument_list|)
 expr_stmt|;
 block|}
-name|newscore
-operator|+=
-name|score_adjust
-expr_stmt|;
 if|if
 condition|(
 name|newscore
