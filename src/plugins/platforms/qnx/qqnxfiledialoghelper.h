@@ -190,6 +190,13 @@ name|dialogClosed
 argument_list|()
 block|;
 name|private
+name|Q_SLOTS
+operator|:
+name|void
+name|emitSignals
+argument_list|()
+block|;
+name|private
 operator|:
 name|void
 name|setNameFilter
