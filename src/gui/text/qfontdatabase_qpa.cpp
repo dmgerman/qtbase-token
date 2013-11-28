@@ -880,14 +880,6 @@ condition|(
 name|engine
 condition|)
 block|{
-name|engine
-operator|->
-name|smoothScalable
-operator|=
-name|style
-operator|->
-name|smoothScalable
-expr_stmt|;
 name|QFontCache
 operator|::
 name|Key

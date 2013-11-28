@@ -4567,20 +4567,7 @@ condition|(
 operator|!
 name|m_contextMenuVisible
 condition|)
-block|{
-name|Log
-operator|.
-name|e
-argument_list|(
-name|QtNative
-operator|.
-name|QtTAG
-argument_list|,
-literal|"invalid onContextMenuClosed call"
-argument_list|)
-expr_stmt|;
 return|return;
-block|}
 name|m_contextMenuVisible
 operator|=
 literal|false
