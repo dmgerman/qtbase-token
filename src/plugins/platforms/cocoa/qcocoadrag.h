@@ -52,6 +52,11 @@ name|QCocoaDrag
 argument_list|()
 block|;
 name|virtual
+operator|~
+name|QCocoaDrag
+argument_list|()
+block|;
+name|virtual
 name|QMimeData
 operator|*
 name|platformDropData
