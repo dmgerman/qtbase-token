@@ -117,13 +117,6 @@ argument_list|)
 member_init_list|,
 name|m_selectedFilter
 argument_list|()
-member_init_list|,
-name|m_result
-argument_list|(
-name|QPlatformDialogHelper
-operator|::
-name|Rejected
-argument_list|)
 block|{
 name|connect
 argument_list|(
