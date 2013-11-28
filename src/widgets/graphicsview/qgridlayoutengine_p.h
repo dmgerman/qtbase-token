@@ -1452,8 +1452,12 @@ block|{
 name|public
 label|:
 name|QGridLayoutEngine
-argument_list|()
-expr_stmt|;
+argument_list|(
+argument|Qt::Alignment defaultAlignment = Qt::Alignment(
+literal|0
+argument|)
+argument_list|)
+empty_stmt|;
 specifier|inline
 operator|~
 name|QGridLayoutEngine
@@ -2277,6 +2281,11 @@ name|Qt
 operator|::
 name|LayoutDirection
 name|m_visualDirection
+expr_stmt|;
+name|Qt
+operator|::
+name|Alignment
+name|m_defaultAlignment
 expr_stmt|;
 comment|// Lazily computed from the above user input
 name|mutable
