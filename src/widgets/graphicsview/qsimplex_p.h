@@ -508,6 +508,7 @@ function_decl|;
 name|private
 label|:
 comment|// Matrix handling
+specifier|inline
 name|qreal
 name|valueAt
 parameter_list|(
@@ -518,6 +519,7 @@ name|int
 name|column
 parameter_list|)
 function_decl|;
+specifier|inline
 name|void
 name|setValueAt
 parameter_list|(
