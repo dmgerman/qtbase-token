@@ -459,6 +459,10 @@ begin_decl_stmt
 name|class
 name|QSimplex
 block|{
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QSimplex
+argument_list|)
 name|public
 label|:
 name|QSimplex
