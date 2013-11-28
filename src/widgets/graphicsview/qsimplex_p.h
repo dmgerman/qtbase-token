@@ -604,7 +604,7 @@ name|solveMaxHelper
 parameter_list|()
 function_decl|;
 enum|enum
-name|solverFactor
+name|SolverFactor
 block|{
 name|Minimum
 init|=
@@ -619,7 +619,7 @@ enum|;
 name|qreal
 name|solver
 parameter_list|(
-name|solverFactor
+name|SolverFactor
 name|factor
 parameter_list|)
 function_decl|;
