@@ -6296,11 +6296,6 @@ literal|15
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QSKIP
-argument_list|(
-literal|"invalidating the layout does not reevaluate the default spacing (QTBUG-35099)"
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|styleSpacing
@@ -6477,11 +6472,6 @@ name|qreal
 argument_list|(
 literal|13
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|QSKIP
-argument_list|(
-literal|"invalidating the layout does not reevaluate the default spacing (QTBUG-35099)"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
