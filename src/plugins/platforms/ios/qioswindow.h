@@ -215,7 +215,7 @@ argument_list|)
 return|;
 block|}
 empty_stmt|;
-name|QIOSWindow
+name|QWindow
 operator|*
 name|topLevelWindow
 argument_list|()
