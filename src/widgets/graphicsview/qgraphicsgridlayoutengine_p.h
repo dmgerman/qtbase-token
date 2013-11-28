@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qgridlayoutengine_p.h"
+file|<QtGui/private/qgridlayoutengine_p.h>
 end_include
 begin_include
 include|#

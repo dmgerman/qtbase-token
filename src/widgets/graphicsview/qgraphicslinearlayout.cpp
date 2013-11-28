@@ -1556,7 +1556,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_DEBUG
+name|QGRIDLAYOUTENGINE_DEBUG
 if|if
 condition|(
 name|qt_graphicsLayoutDebug
@@ -1603,7 +1603,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_DEBUG
+name|QGRIDLAYOUTENGINE_DEBUG
 if|if
 condition|(
 name|qt_graphicsLayoutDebug
@@ -1773,7 +1773,7 @@ specifier|const
 block|{
 ifdef|#
 directive|ifdef
-name|QT_DEBUG
+name|QGRIDLAYOUTENGINE_DEBUG
 if|if
 condition|(
 name|qt_graphicsLayoutDebug

@@ -108,7 +108,7 @@ name|engine
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_DEBUG
+name|QGRIDLAYOUTENGINE_DEBUG
 name|void
 name|dump
 parameter_list|(
@@ -2382,7 +2382,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_DEBUG
+name|QGRIDLAYOUTENGINE_DEBUG
 end_ifdef
 begin_function
 DECL|function|dump
@@ -2543,7 +2543,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_DEBUG
+name|QGRIDLAYOUTENGINE_DEBUG
 if|if
 condition|(
 name|qt_graphicsLayoutDebug
