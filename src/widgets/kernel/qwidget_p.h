@@ -3191,6 +3191,21 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_function_decl
+specifier|static
+name|void
+name|setWidgetParentHelper
+parameter_list|(
+name|QObject
+modifier|*
+name|widgetAsObject
+parameter_list|,
+name|QObject
+modifier|*
+name|newParent
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|// Variables.
 end_comment

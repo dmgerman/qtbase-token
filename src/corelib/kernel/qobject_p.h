@@ -308,6 +308,21 @@ parameter_list|,
 name|int
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+function_decl|(
+modifier|*
+name|setWidgetParent
+function_decl|)
+parameter_list|(
+name|QObject
+modifier|*
+parameter_list|,
+name|QObject
+modifier|*
+parameter_list|)
+function_decl|;
+comment|// Used by the QML engine to specify parents for widgets. Set by QtWidgets.
 block|}
 end_decl_stmt
 begin_empty_stmt

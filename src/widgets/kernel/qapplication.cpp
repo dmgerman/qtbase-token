@@ -1867,6 +1867,15 @@ comment|// needed for a static build.
 name|qRegisterWidgetsVariant
 argument_list|()
 expr_stmt|;
+comment|// needed for widgets in QML
+name|QAbstractDeclarativeData
+operator|::
+name|setWidgetParent
+operator|=
+name|QWidgetPrivate
+operator|::
+name|setWidgetParentHelper
+expr_stmt|;
 if|if
 condition|(
 name|application_type
