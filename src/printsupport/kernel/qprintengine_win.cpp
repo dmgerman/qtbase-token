@@ -7443,6 +7443,59 @@ condition|(
 name|key
 condition|)
 block|{
+comment|// The following keys are properties or derived values and so cannot be set
+case|case
+name|PPK_PageRect
+case|:
+break|break;
+case|case
+name|PPK_PaperRect
+case|:
+break|break;
+case|case
+name|PPK_PaperSources
+case|:
+break|break;
+case|case
+name|PPK_SupportsMultipleCopies
+case|:
+break|break;
+case|case
+name|PPK_SupportedResolutions
+case|:
+break|break;
+comment|// The following keys are settings that are unsupported by the Windows PrintEngine
+case|case
+name|PPK_Creator
+case|:
+comment|// TODO Add value preservation support by using local variable
+break|break;
+case|case
+name|PPK_CustomBase
+case|:
+break|break;
+case|case
+name|PPK_Duplex
+case|:
+comment|// TODO Add support using DEVMODE.dmDuplex
+break|break;
+case|case
+name|PPK_FontEmbedding
+case|:
+break|break;
+case|case
+name|PPK_PageOrder
+case|:
+break|break;
+case|case
+name|PPK_PrinterProgram
+case|:
+break|break;
+case|case
+name|PPK_SelectionOption
+case|:
+break|break;
+comment|// The following keys are properties and settings that are supported by the Windows PrintEngine
 case|case
 name|PPK_CollateCopies
 case|:
@@ -7516,10 +7569,6 @@ name|doReinit
 argument_list|()
 expr_stmt|;
 block|}
-break|break;
-case|case
-name|PPK_Creator
-case|:
 break|break;
 case|case
 name|PPK_DocumentName
@@ -8291,14 +8340,6 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|PPK_SelectionOption
-case|:
-break|break;
-case|case
-name|PPK_SupportedResolutions
-case|:
-break|break;
-case|case
 name|PPK_WindowsPageSize
 case|:
 if|if
@@ -8635,9 +8676,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-default|default:
-comment|// Do nothing
-break|break;
+comment|// No default so that compiler will complain if new keys added and not handled in this engine
 block|}
 block|}
 end_function
@@ -8667,14 +8706,74 @@ condition|(
 name|key
 condition|)
 block|{
+comment|// The following keys are settings that are unsupported by the Windows PrintEngine
+comment|// Return sensible default values to ensure consistent behavior across platforms
 case|case
 name|PPK_CollateCopies
+case|:
+comment|// TODO Add support using DEVMODE.dmCollate to match setting
+name|value
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+case|case
+name|PPK_Creator
+case|:
+name|value
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|PPK_Duplex
+case|:
+comment|// TODO Add support using DEVMODE.dmDuplex
+name|value
+operator|=
+name|QPrinter
+operator|::
+name|DuplexNone
+expr_stmt|;
+break|break;
+case|case
+name|PPK_FontEmbedding
 case|:
 name|value
 operator|=
 literal|false
 expr_stmt|;
 break|break;
+case|case
+name|PPK_PageOrder
+case|:
+name|value
+operator|=
+name|QPrinter
+operator|::
+name|FirstPageFirst
+expr_stmt|;
+break|break;
+case|case
+name|PPK_PrinterProgram
+case|:
+name|value
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|PPK_SelectionOption
+case|:
+name|value
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+break|break;
+comment|// The following keys are properties and settings that are supported by the Windows PrintEngine
 case|case
 name|PPK_ColorMode
 case|:
@@ -9780,9 +9879,7 @@ name|margins
 expr_stmt|;
 break|break;
 block|}
-default|default:
-comment|// Do nothing
-break|break;
+comment|// No default so that compiler will complain if new keys added and not handled in this engine
 block|}
 return|return
 name|value
