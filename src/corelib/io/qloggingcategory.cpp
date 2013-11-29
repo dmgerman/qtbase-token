@@ -39,7 +39,7 @@ argument|(qtDefaultCategoryName)
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \class QLoggingCategory     \inmodule QtCore     \since 5.2      \brief The QLoggingCategory class represents a category, or 'area' in the     logging infrastructure.      QLoggingCategory represents a certain logging category - identified     by a string - at runtime. Whether a category should be actually logged or     not can be checked with the \l isEnabled() methods.      \section1 Creating category objects      The Q_LOGGING_CATEGORY() and the Q_DECLARE_LOGGING_CATEGORY() macros     conveniently declare and create QLoggingCategory objects:      \snippet qloggingcategory/main.cpp 1      \section1 Checking category configuration      QLoggingCategory provides \l isDebugEnabled(), \l isWarningEnabled(),     \l isCriticalEnabled(), \l isTraceEnabled(), as well as \l isEnabled()     to check whether messages for the given message type should be logged.      \note The qCDebug(), qCWarning(), qCCritical() macros prevent arguments     from being evaluated if the respective message types are not enabled for the     category, so explicit checking is not needed:      \snippet qloggingcategory/main.cpp 4      \section1 Default category configuration      In the default configuration \l isWarningEnabled() and \l isCriticalEnabled()     will return \c true. \l isDebugEnabled() will return \c true only     for the \c "default" category.      \section1 Changing the configuration of a category      Use either \l setFilterRules() or \l installFilter() to     configure categories, for example      \snippet qloggingcategory/main.cpp 2      \section1 Printing the category      Use the \c %{category} place holder to print the category in the default     message handler:      \snippet qloggingcategory/main.cpp 3 */
+comment|/*!     \class QLoggingCategory     \inmodule QtCore     \since 5.2      \brief The QLoggingCategory class represents a category, or 'area' in the     logging infrastructure.      QLoggingCategory represents a certain logging category - identified     by a string - at runtime. Whether a category should be actually logged or     not can be checked with the \l isEnabled() methods.      \section1 Creating category objects      The Q_LOGGING_CATEGORY() and the Q_DECLARE_LOGGING_CATEGORY() macros     conveniently declare and create QLoggingCategory objects:      \snippet qloggingcategory/main.cpp 1      \section1 Checking category configuration      QLoggingCategory provides \l isDebugEnabled(), \l isWarningEnabled(),     \l isCriticalEnabled(), \l isTraceEnabled(), as well as \l isEnabled()     to check whether messages for the given message type should be logged.      \note The qCDebug(), qCWarning(), qCCritical() macros prevent arguments     from being evaluated if the respective message types are not enabled for the     category, so explicit checking is not needed:      \snippet qloggingcategory/main.cpp 4      \section1 Default category configuration      In the default configuration \l isWarningEnabled() , \l isDebugEnabled() and     \l isCriticalEnabled() will return \c true.      \section1 Changing the configuration of a category      Use either \l setFilterRules() or \l installFilter() to     configure categories, for example      \snippet qloggingcategory/main.cpp 2      \section1 Printing the category      Use the \c %{category} place holder to print the category in the default     message handler:      \snippet qloggingcategory/main.cpp 3 */
 end_comment
 begin_comment
 comment|/*!     Constructs a QLoggingCategory object with the provided \a category name.     The object becomes the local identifier for the category.      If \a category is \c{0}, the category name is changed to \c "default". */
@@ -68,7 +68,7 @@ argument_list|)
 member_init_list|,
 name|enabledDebug
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 member_init_list|,
 name|enabledWarning
@@ -91,6 +91,7 @@ argument_list|(
 name|placeholder
 argument_list|)
 expr_stmt|;
+specifier|const
 name|bool
 name|isDefaultCategory
 init|=
@@ -111,20 +112,16 @@ operator|==
 literal|0
 operator|)
 decl_stmt|;
+comment|// normalize "default" category name, so that we can just do
+comment|// pointer comparison in QLoggingRegistry::updateCategory
 if|if
 condition|(
 name|isDefaultCategory
 condition|)
 block|{
-comment|// normalize default category names, so that we can just do
-comment|// pointer comparison in QLoggingRegistry::updateCategory
 name|name
 operator|=
 name|qtDefaultCategoryName
-expr_stmt|;
-name|enabledDebug
-operator|=
-literal|true
 expr_stmt|;
 block|}
 else|else

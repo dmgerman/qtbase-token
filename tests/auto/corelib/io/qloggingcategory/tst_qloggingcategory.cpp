@@ -1281,7 +1281,7 @@ operator|.
 name|isDebugEnabled
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1293,7 +1293,7 @@ argument_list|(
 name|QtDebugMsg
 argument_list|)
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1488,6 +1488,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|cat
 operator|.
 name|isDebugEnabled
@@ -1550,7 +1551,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|cat
 operator|.
 name|isDebugEnabled
@@ -1605,7 +1605,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|cat
 operator|.
 name|isDebugEnabled
@@ -1881,6 +1880,27 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"custom.debug: Check debug with no filter active"
+argument_list|)
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|customCategory
+argument_list|,
+literal|"Check debug with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
 name|qCDebug
 argument_list|(
 name|customCategory
@@ -1892,8 +1912,7 @@ name|QCOMPARE
 argument_list|(
 name|logMessage
 argument_list|,
-name|QString
-argument_list|()
+name|buf
 argument_list|)
 expr_stmt|;
 comment|// Check custom warning
@@ -1949,12 +1968,10 @@ name|customCategoryFilter
 argument_list|)
 expr_stmt|;
 comment|// Check custom debug
-name|buf
-operator|=
-name|QStringLiteral
-argument_list|(
-literal|"custom.debug: Check debug with filter active"
-argument_list|)
+name|logMessage
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 name|qCDebug
 argument_list|(
@@ -1967,7 +1984,8 @@ name|QCOMPARE
 argument_list|(
 name|logMessage
 argument_list|,
-name|buf
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Check different macro/category variants
@@ -1989,7 +2007,8 @@ name|QCOMPARE
 argument_list|(
 name|logMessage
 argument_list|,
-name|buf
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|qCDebug
@@ -2003,7 +2022,8 @@ name|QCOMPARE
 argument_list|(
 name|logMessage
 argument_list|,
-name|buf
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|buf
@@ -2090,6 +2110,13 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"custom.debug: Check debug with no filter active"
+argument_list|)
+expr_stmt|;
 name|qCDebug
 argument_list|(
 name|customCategory
@@ -2101,8 +2128,7 @@ name|QCOMPARE
 argument_list|(
 name|logMessage
 argument_list|,
-name|QString
-argument_list|()
+name|buf
 argument_list|)
 expr_stmt|;
 block|}
@@ -2279,13 +2305,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Check category debug
-name|logMessage
-operator|=
-literal|"should not change"
-expr_stmt|;
 name|buf
 operator|=
-name|logMessage
+name|QStringLiteral
+argument_list|(
+literal|"tst.log.debug: Check category Debug with no log active"
+argument_list|)
 expr_stmt|;
 name|qCDebug
 argument_list|(
@@ -4101,16 +4126,12 @@ argument_list|(
 literal|""
 argument_list|)
 decl_stmt|;
-name|logMessage
-operator|=
-literal|"no change"
-expr_stmt|;
 name|QString
 name|buf
 init|=
 name|QStringLiteral
 argument_list|(
-literal|"no change"
+literal|".debug: My Category Object"
 argument_list|)
 decl_stmt|;
 name|qCDebug
