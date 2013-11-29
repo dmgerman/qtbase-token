@@ -7912,8 +7912,8 @@ block|{
 comment|// docName() / setDocName() / PPK_DocumentName
 comment|// PdfFormat: Supported, default QString()
 comment|// NativeFormat, Cups: Supported, default QString()
-comment|// NativeFormat, Win: Supported, default "document1"
-comment|// NativeFormat, Mac: Unsupported, always QString()
+comment|// NativeFormat, Win: Supported, default QString()
+comment|// NativeFormat, Mac: Supported, default QString()
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -7976,24 +7976,6 @@ name|NativeFormat
 condition|)
 block|{
 comment|// Test default
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QCOMPARE
-argument_list|(
-name|native
-operator|.
-name|docName
-argument_list|()
-argument_list|,
-name|QString
-argument_list|(
-literal|"document1"
-argument_list|)
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QCOMPARE
 argument_list|(
 name|native
@@ -8005,9 +7987,6 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 comment|// Test set/get
 name|QString
 name|expected
@@ -8024,17 +8003,6 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|expected
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|native
