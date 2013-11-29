@@ -68,8 +68,6 @@ name|Connection
 block|,
 name|Screen
 block|,
-name|GraphicsDevice
-block|,
 name|EglContext
 block|,
 name|GLXContext
@@ -200,15 +198,6 @@ block|;
 name|void
 operator|*
 name|screenForWindow
-argument_list|(
-name|QWindow
-operator|*
-name|window
-argument_list|)
-block|;
-name|void
-operator|*
-name|graphicsDeviceForWindow
 argument_list|(
 name|QWindow
 operator|*

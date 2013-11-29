@@ -24,6 +24,7 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
+comment|//We require glxfbconfig, ie. glx 1.3
 name|GLXFBConfig
 name|config
 decl_stmt|;

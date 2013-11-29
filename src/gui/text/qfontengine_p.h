@@ -1294,9 +1294,6 @@ return|return
 name|m_userData
 return|;
 block|}
-name|bool
-name|smoothScalable
-decl_stmt|;
 name|protected
 label|:
 name|QFixed

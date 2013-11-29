@@ -154,11 +154,6 @@ argument_list|)
 block|,
 name|QByteArrayLiteral
 argument_list|(
-literal|"graphicsdevice"
-argument_list|)
-block|,
-name|QByteArrayLiteral
-argument_list|(
 literal|"eglcontext"
 argument_list|)
 block|,
@@ -874,7 +869,7 @@ name|Screen
 case|:
 name|result
 operator|=
-name|qPlatformScreenForWindow
+name|screenForWindow
 argument_list|(
 name|window
 argument_list|)
