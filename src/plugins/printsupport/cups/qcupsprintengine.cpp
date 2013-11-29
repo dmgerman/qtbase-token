@@ -803,6 +803,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|copies
+operator|>
+literal|1
+operator|&&
 name|collate
 condition|)
 name|options

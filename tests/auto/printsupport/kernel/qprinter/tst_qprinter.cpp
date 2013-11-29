@@ -6752,7 +6752,7 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6795,7 +6795,7 @@ name|native
 operator|.
 name|setCollateCopies
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|native
@@ -6847,7 +6847,7 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6911,7 +6911,7 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6954,7 +6954,7 @@ name|native
 operator|.
 name|setCollateCopies
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|native
@@ -7006,7 +7006,7 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -7041,10 +7041,10 @@ name|collateCopies
 parameter_list|()
 block|{
 comment|// collateCopies() / setCollateCopies() / PPK_ColorMode
-comment|// PdfFormat: Supported, default false
-comment|// NativeFormat, Cups: Supported, default false
-comment|// NativeFormat, Win: Part Supported if valid DevMode, can set but always returns false
-comment|// NativeFormat, Mac: Unsupported, always false
+comment|// PdfFormat: Supported, default true
+comment|// NativeFormat, Cups: Supported, default true
+comment|// NativeFormat, Win: Supported, default true
+comment|// NativeFormat, Mac: Supported, default true
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -7064,14 +7064,14 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|pdf
 operator|.
 name|setCollateCopies
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -7081,7 +7081,7 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|QPrinter
@@ -7107,14 +7107,14 @@ operator|.
 name|collateCopies
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Test set/get
 name|bool
 name|expected
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|native
 operator|.
@@ -7123,20 +7123,6 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|Q_OS_MAC
-operator|||
-name|defined
-name|Q_OS_WIN
-name|expected
-operator|=
-literal|false
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|native

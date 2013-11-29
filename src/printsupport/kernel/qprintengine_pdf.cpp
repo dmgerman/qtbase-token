@@ -1443,7 +1443,7 @@ argument_list|)
 member_init_list|,
 name|collate
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 member_init_list|,
 name|copies

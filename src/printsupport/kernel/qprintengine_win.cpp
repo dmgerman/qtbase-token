@@ -6497,6 +6497,12 @@ name|devMode
 operator|->
 name|dmCopies
 expr_stmt|;
+name|devMode
+operator|->
+name|dmCollate
+operator|=
+name|DMCOLLATE_TRUE
+expr_stmt|;
 block|}
 name|initHDC
 argument_list|()
@@ -8716,15 +8722,6 @@ block|{
 comment|// The following keys are settings that are unsupported by the Windows PrintEngine
 comment|// Return sensible default values to ensure consistent behavior across platforms
 case|case
-name|PPK_CollateCopies
-case|:
-comment|// TODO Add support using DEVMODE.dmCollate to match setting
-name|value
-operator|=
-literal|false
-expr_stmt|;
-break|break;
-case|case
 name|PPK_Creator
 case|:
 name|value
@@ -8781,6 +8778,20 @@ argument_list|()
 expr_stmt|;
 break|break;
 comment|// The following keys are properties and settings that are supported by the Windows PrintEngine
+case|case
+name|PPK_CollateCopies
+case|:
+name|value
+operator|=
+name|d
+operator|->
+name|devMode
+operator|->
+name|dmCollate
+operator|==
+name|DMCOLLATE_TRUE
+expr_stmt|;
+break|break;
 case|case
 name|PPK_ColorMode
 case|:
