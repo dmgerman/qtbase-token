@@ -466,6 +466,9 @@ literal|false
 return|;
 block|}
 block|}
+name|clearError
+argument_list|()
+expr_stmt|;
 return|return
 literal|true
 return|;

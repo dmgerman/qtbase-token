@@ -124,15 +124,7 @@ condition|)
 return|return;
 name|d
 operator|->
-name|error
-operator|=
-name|NoError
-expr_stmt|;
-name|d
-operator|->
-name|errorString
-operator|=
-name|QString
+name|clearError
 argument_list|()
 expr_stmt|;
 if|#

@@ -320,6 +320,23 @@ operator|->
 name|platformOffscreenSurface
 condition|)
 block|{
+if|if
+condition|(
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+operator|!=
+name|qGuiApp
+operator|->
+name|thread
+argument_list|()
+condition|)
+name|qWarning
+argument_list|(
+literal|"Attempting to create QWindow-based QOffscreenSurface outside the gui thread. Expect failures."
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|offscreenWindow

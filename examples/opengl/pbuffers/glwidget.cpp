@@ -902,8 +902,14 @@ argument_list|,
 literal|0
 argument_list|,
 name|width
+operator|*
+name|devicePixelRatio
+argument_list|()
 argument_list|,
 name|height
+operator|*
+name|devicePixelRatio
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|aspect
