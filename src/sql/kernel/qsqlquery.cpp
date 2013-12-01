@@ -531,7 +531,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns true if there is no field with this \a name; otherwise     returns isNull(int index) for the corresponding field index.      This overload is less efficient than \l{QSqlQuery::}{isNull()} */
+comment|/*!     \overload      Returns \c true if there is no field with this \a name; otherwise     returns isNull(int index) for the corresponding field index.      This overload is less efficient than \l{QSqlQuery::}{isNull()} */
 end_comment
 begin_function
 DECL|function|isNull
