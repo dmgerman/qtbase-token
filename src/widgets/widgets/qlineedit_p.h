@@ -481,6 +481,14 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|control
+operator|->
+name|preeditAreaText
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 return|;
 block|}
 end_expr_stmt
