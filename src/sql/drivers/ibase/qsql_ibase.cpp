@@ -9096,6 +9096,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|setOpenError
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
