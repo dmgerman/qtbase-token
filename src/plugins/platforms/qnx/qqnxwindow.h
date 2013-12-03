@@ -215,10 +215,6 @@ name|propagateSizeHints
 argument_list|()
 block|;
 name|void
-name|gainedFocus
-argument_list|()
-block|;
-name|void
 name|setMMRendererWindowName
 argument_list|(
 specifier|const

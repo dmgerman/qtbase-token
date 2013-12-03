@@ -2027,21 +2027,7 @@ operator|::
 name|requestActivateWindow
 parameter_list|()
 block|{
-name|qWindowDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"window ="
-operator|<<
-name|window
-argument_list|()
-expr_stmt|;
-comment|// TODO: Tell screen to set keyboard focus to this window.
-comment|// Notify that we gained focus.
-name|gainedFocus
-argument_list|()
-expr_stmt|;
+comment|// Overwrite the default implementation where the window is activated
 block|}
 end_function
 begin_function
@@ -2102,35 +2088,6 @@ operator|<<
 name|Q_FUNC_INFO
 operator|<<
 literal|": ignored"
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|gainedFocus
-name|void
-name|QQnxWindow
-operator|::
-name|gainedFocus
-parameter_list|()
-block|{
-name|qWindowDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"window ="
-operator|<<
-name|window
-argument_list|()
-expr_stmt|;
-comment|// Got focus
-name|QWindowSystemInterface
-operator|::
-name|handleWindowActivated
-argument_list|(
-name|window
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 end_function
