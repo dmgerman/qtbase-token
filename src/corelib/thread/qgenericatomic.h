@@ -67,6 +67,134 @@ block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// these integers are always supported, on all platforms
+end_comment
+begin_comment
+comment|//  - int, unsigned int and char32_t are 32-bit wide
+end_comment
+begin_comment
+comment|//  - long and unsigned long might be 64-bit wide on 64-bit platforms,
+end_comment
+begin_comment
+comment|//    but 64-bit integer support is required anyway
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|int
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|unsigned
+name|int
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|long
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|unsigned
+name|long
+operator|>
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_UNICODE_STRINGS
+end_ifdef
+begin_expr_stmt
+DECL|struct|char32_t
+name|template
+operator|<
+operator|>
+expr|struct
+name|QAtomicIntegerTraits
+operator|<
+name|char32_t
+operator|>
+DECL|enumerator|IsInteger
+block|{ enum
+block|{
+name|IsInteger
+operator|=
+sizeof|sizeof
+argument_list|(
+name|char32_t
+argument_list|)
+operator|==
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
+operator|?
+literal|1
+operator|:
+operator|-
+literal|1
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 DECL|struct|QAtomicAdditiveType
 name|template
