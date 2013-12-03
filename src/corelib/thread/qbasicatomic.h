@@ -412,29 +412,20 @@ name|T
 operator|>
 name|Ops
 expr_stmt|;
-end_expr_stmt
-begin_comment
 comment|// static check that this is a valid integer
-end_comment
-begin_typedef
-typedef|typedef
-name|char
-name|PermittedIntegerType
-index|[
+name|Q_STATIC_ASSERT_X
+argument_list|(
 name|QAtomicIntegerTraits
 operator|<
 name|T
 operator|>
 operator|::
 name|IsInteger
-condition|?
-literal|1
-else|:
-operator|-
-literal|1
-index|]
-typedef|;
-end_typedef
+argument_list|,
+literal|"Template parameter is not a supported integer on this platform"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 name|typename
 name|Ops
