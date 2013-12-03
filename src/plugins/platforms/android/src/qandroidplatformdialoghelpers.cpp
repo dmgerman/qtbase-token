@@ -854,7 +854,7 @@ name|QtAndroid
 operator|::
 name|findClass
 argument_list|(
-literal|"org/qtproject/qt5/android/QtMessageDialogHelper"
+literal|"org.qtproject.qt5.android.QtMessageDialogHelper"
 argument_list|,
 name|env
 argument_list|)
