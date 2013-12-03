@@ -313,14 +313,31 @@ expr_stmt|;
 comment|// static check that this is a valid integer
 name|Q_STATIC_ASSERT_X
 argument_list|(
-name|QAtomicIntegerTraits
+name|QTypeInfo
 operator|<
 name|T
 operator|>
 operator|::
-name|IsInteger
+name|isIntegral
 argument_list|,
-literal|"Template parameter is not a supported integer on this platform"
+literal|"template parameter is not an integral type"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|QAtomicOpsSupport
+operator|<
+sizeof|sizeof
+argument_list|(
+name|T
+argument_list|)
+operator|>
+operator|::
+name|IsSupported
+argument_list|,
+literal|"template parameter is an integral of a size not supported on this platform"
 argument_list|)
 expr_stmt|;
 end_expr_stmt

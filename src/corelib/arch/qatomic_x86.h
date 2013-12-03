@@ -377,17 +377,19 @@ name|Q_CC_GNU
 argument_list|)
 end_if
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|char
+literal|1
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -395,18 +397,19 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|signed
-name|char
+literal|2
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -414,129 +417,25 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|unsigned
-name|char
+literal|8
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_UNICODE_STRINGS
-end_ifdef
-begin_expr_stmt
-DECL|struct|char16_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char16_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*  * Guide for the inline assembly below:  *  * x86 instructions are in the form "{opcode}{length} {source}, {destination}",  * where the length is one of the letters "b" (byte), "w" (word, 16-bit), "l"  * (dword, 32-bit), "q" (qword, 64-bit).  *  * In most cases, we can omit the length because it's inferred from one of the  * registers. For example, "xchg %0,%1" doesn't need the length suffix because  * we can only exchange data of the same size and one of the operands must be a  * register.  *  * The exception is the increment and decrement functions, where we add and  * subtract an immediate value (1). For those, we need to specify the length.  * GCC and ICC support the syntax "add%z0 $1, %0", where "%z0" expands to the  * length of the operand. Unfortunately, clang as of 3.0 doesn't support that.  * For that reason, the ref() and deref() functions are rolled out for all  * sizes.  *  * The functions are also rolled out for the 1-byte operations since those  * require a special register constraint "q" to force the compiler to schedule  * one of the 8-bit registers. It's probably a compiler bug that it tries to  * use a register that doesn't exist.  *  * Finally, 64-bit operations are supported via the cmpxchg8b instruction on  * 32-bit processors, via specialisation below.  */
 end_comment

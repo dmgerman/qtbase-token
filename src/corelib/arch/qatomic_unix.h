@@ -101,48 +101,7 @@ DECL|macro|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_NOT_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_NOT_NATIVE
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_comment
 comment|// No definition, needs specialization
-end_comment
-begin_expr_stmt
 name|template
 operator|<
 name|typename

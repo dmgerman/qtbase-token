@@ -806,17 +806,19 @@ begin_comment
 comment|// LDREXB, LDREXH and LDREXD are available on ARMv6K or higher
 end_comment
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|char
+literal|1
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -824,18 +826,19 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|signed
-name|char
+literal|2
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -843,129 +846,25 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|unsigned
-name|char
+literal|8
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_UNICODE_STRINGS
-end_ifdef
-begin_expr_stmt
-DECL|struct|char16_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char16_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|Q_ATOMIC_INT8_IS_SUPPORTED
 define|#

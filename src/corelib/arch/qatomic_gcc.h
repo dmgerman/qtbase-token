@@ -110,38 +110,19 @@ DECL|macro|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_SOMETIMES_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_SOMETIMES_NATIVE
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|long
-name|long
+literal|8
 operator|>
 block|{ enum
 block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
