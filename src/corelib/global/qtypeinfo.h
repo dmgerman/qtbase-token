@@ -38,6 +38,10 @@ name|isPointer
 operator|=
 name|false
 block|,
+name|isIntegral
+operator|=
+name|false
+block|,
 name|isComplex
 operator|=
 name|true
@@ -93,6 +97,10 @@ name|isPointer
 operator|=
 name|false
 block|,
+name|isIntegral
+operator|=
+name|false
+block|,
 name|isComplex
 operator|=
 name|false
@@ -136,6 +144,10 @@ block|{
 name|isPointer
 operator|=
 name|true
+block|,
+name|isIntegral
+operator|=
+name|false
 block|,
 name|isComplex
 operator|=
@@ -280,6 +292,10 @@ name|isPointer
 operator|=
 name|false
 block|,
+name|isIntegral
+operator|=
+name|false
+block|,
 name|isDummy
 operator|=
 name|false
@@ -303,7 +319,7 @@ parameter_list|(
 name|CONTAINER
 parameter_list|)
 define|\
-value|template<typename T> class CONTAINER; \ template<typename T> \ class QTypeInfo< CONTAINER<T>> \ { \ public: \     enum { \         isPointer = false, \         isComplex = true, \         isStatic = false, \         isLarge = (sizeof(CONTAINER<T>)> sizeof(void*)), \         isDummy = false, \         sizeOf = sizeof(CONTAINER<T>) \     }; \ };
+value|template<typename T> class CONTAINER; \ template<typename T> \ class QTypeInfo< CONTAINER<T>> \ { \ public: \     enum { \         isPointer = false, \         isIntegral = false, \         isComplex = true, \         isStatic = false, \         isLarge = (sizeof(CONTAINER<T>)> sizeof(void*)), \         isDummy = false, \         sizeOf = sizeof(CONTAINER<T>) \     }; \ };
 end_define
 begin_macro
 DECL|function|Q_DECLARE_MOVABLE_CONTAINER
@@ -368,6 +384,10 @@ block|,
 name|Q_DUMMY_TYPE
 operator|=
 literal|0x4
+block|,
+name|Q_INTEGRAL_TYPE
+operator|=
+literal|0x8
 block|}
 expr_stmt|;
 end_expr_stmt
@@ -382,7 +402,7 @@ parameter_list|,
 name|FLAGS
 parameter_list|)
 define|\
-value|class QTypeInfo<TYPE> \ { \ public: \     enum { \         isComplex = (((FLAGS)& Q_PRIMITIVE_TYPE) == 0), \         isStatic = (((FLAGS)& (Q_MOVABLE_TYPE | Q_PRIMITIVE_TYPE)) == 0), \         isLarge = (sizeof(TYPE)>sizeof(void*)), \         isPointer = false, \         isDummy = (((FLAGS)& Q_DUMMY_TYPE) != 0), \         sizeOf = sizeof(TYPE) \     }; \     static inline const char *name() { return #TYPE; } \ }
+value|class QTypeInfo<TYPE> \ { \ public: \     enum { \         isComplex = (((FLAGS)& Q_PRIMITIVE_TYPE) == 0), \         isStatic = (((FLAGS)& (Q_MOVABLE_TYPE | Q_PRIMITIVE_TYPE)) == 0), \         isLarge = (sizeof(TYPE)>sizeof(void*)), \         isPointer = false, \         isIntegral = ((FLAGS)& Q_INTEGRAL_TYPE) != 0, \         isDummy = (((FLAGS)& Q_DUMMY_TYPE) != 0), \         sizeOf = sizeof(TYPE) \     }; \     static inline const char *name() { return #TYPE; } \ }
 end_define
 begin_define
 DECL|macro|Q_DECLARE_TYPEINFO
@@ -462,6 +482,8 @@ argument_list|(
 name|bool
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -471,6 +493,8 @@ argument_list|(
 name|char
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -479,7 +503,7 @@ name|Q_DECLARE_TYPEINFO
 argument_list|(
 argument|signed char
 argument_list|,
-argument|Q_PRIMITIVE_TYPE
+argument|Q_PRIMITIVE_TYPE | Q_INTEGRAL_TYPE
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -491,6 +515,8 @@ argument_list|(
 name|uchar
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -500,6 +526,8 @@ argument_list|(
 name|short
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -509,6 +537,8 @@ argument_list|(
 name|ushort
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -518,6 +548,8 @@ argument_list|(
 name|int
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -527,6 +559,8 @@ argument_list|(
 name|uint
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -536,6 +570,8 @@ argument_list|(
 name|long
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -545,6 +581,8 @@ argument_list|(
 name|ulong
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -554,6 +592,8 @@ argument_list|(
 name|qint64
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -563,6 +603,8 @@ argument_list|(
 name|quint64
 argument_list|,
 name|Q_PRIMITIVE_TYPE
+operator||
+name|Q_INTEGRAL_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -600,6 +642,69 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_UNICODE_STRINGS
+end_ifdef
+begin_comment
+comment|// ### Qt6: define as Q_PRIMITIVE_TYPE
+end_comment
+begin_comment
+comment|// We can't do it now because it would break BC on QList<char32_t>
+end_comment
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|char16_t
+argument_list|,
+name|Q_INTEGRAL_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|char32_t
+argument_list|,
+name|Q_INTEGRAL_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|_NATIVE_WCHAR_T_DEFINED
+argument_list|)
+end_if
+begin_comment
+comment|// ### Qt6: same as above
+end_comment
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|wchar_t
+argument_list|,
+name|Q_INTEGRAL_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
