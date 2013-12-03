@@ -1721,7 +1721,8 @@ literal|'-'
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*                   To avoid file name conflicts in the html directory,                   we prepend a prefix (by default, "qml-") to the file name of QML                   element doc files.                 */
+block|}
+comment|/*               To avoid file name conflicts in the html directory,               we prepend a prefix (by default, "qml-") to the file name of QML               element doc files.             */
 if|if
 condition|(
 operator|(
@@ -1760,7 +1761,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 elseif|else
