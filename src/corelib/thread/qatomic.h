@@ -72,7 +72,7 @@ operator|:
 comment|// Non-atomic API
 ifdef|#
 directive|ifdef
-name|Q_BASIC_ATOMIC_HAS_CONSTRUCTORS
+name|QT_BASIC_ATOMIC_HAS_CONSTRUCTORS
 name|constexpr
 name|QAtomicInt
 argument_list|(
