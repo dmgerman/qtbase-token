@@ -176,6 +176,21 @@ argument_list|(
 literal|"Babablabla"
 argument_list|)
 expr_stmt|;
+comment|// accept redundant space at end to keep compatibility with Qt< 5.2
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"Bubu "
+argument_list|)
+expr_stmt|;
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Bubu"
+expr_stmt|;
 block|}
 end_function
 begin_function
