@@ -136,11 +136,11 @@ directive|endif
 block|{
 name|this
 operator|->
-name|store
+name|storeRelease
 argument_list|(
 name|other
 operator|.
-name|load
+name|loadAcquire
 argument_list|()
 argument_list|)
 block|;     }
@@ -159,11 +159,11 @@ name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->
-name|store
+name|storeRelease
 argument_list|(
 name|other
 operator|.
-name|load
+name|loadAcquire
 argument_list|()
 argument_list|)
 block|;
@@ -513,11 +513,11 @@ name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->
-name|store
+name|storeRelease
 argument_list|(
 name|other
 operator|.
-name|load
+name|loadAcquire
 argument_list|()
 argument_list|)
 block|;     }
@@ -542,11 +542,11 @@ name|Q_DECL_NOTHROW
 block|{
 name|this
 operator|->
-name|store
+name|storeRelease
 argument_list|(
 name|other
 operator|.
-name|load
+name|loadAcquire
 argument_list|()
 argument_list|)
 block|;
