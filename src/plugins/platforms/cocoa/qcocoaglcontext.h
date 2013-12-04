@@ -139,6 +139,10 @@ name|isValid
 argument_list|()
 specifier|const
 block|;
+name|void
+name|windowWasHidden
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
