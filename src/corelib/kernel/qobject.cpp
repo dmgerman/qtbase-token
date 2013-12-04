@@ -906,6 +906,18 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+comment|// Don't check the version parameter in internal builds.
+comment|// This allows incompatible versions to be loaded, possibly for testing.
+name|Q_UNUSED
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 if|if
 condition|(
 name|version
@@ -921,6 +933,8 @@ argument_list|,
 name|QObjectPrivateVersion
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// QObjectData initialization
 name|q_ptr
 operator|=
