@@ -151,6 +151,12 @@ name|bool
 name|visible
 parameter_list|)
 function_decl|;
+name|bool
+name|isExposed
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|void
 name|raise
 parameter_list|()
