@@ -96,26 +96,9 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|virtual
-name|QPlatformPixmap
-operator|*
-name|createPlatformPixmap
-argument_list|(
-argument|QPlatformPixmap::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
-argument_list|(
-argument|QWindow *window
-argument_list|)
-specifier|const
-block|;
-name|QPlatformBackingStore
-operator|*
-name|createPlatformBackingStore
 argument_list|(
 argument|QWindow *window
 argument_list|)
@@ -186,13 +169,6 @@ specifier|const
 block|;
 endif|#
 directive|endif
-name|virtual
-name|QPlatformNativeInterface
-operator|*
-name|nativeInterface
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|QPlatformFontDatabase
 operator|*

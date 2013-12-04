@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsintegration.h"
+file|"qwindowsgdiintegration.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -121,7 +121,7 @@ literal|0
 condition|)
 return|return
 operator|new
-name|QWindowsIntegration
+name|QWindowsGdiIntegration
 argument_list|(
 name|paramList
 argument_list|)

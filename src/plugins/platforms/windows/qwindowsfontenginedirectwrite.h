@@ -277,6 +277,16 @@ operator|&
 name|familyName
 argument_list|)
 block|;
+name|IDWriteFontFace
+operator|*
+name|directWriteFontFace
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_directWriteFontFace
+return|;
+block|}
 name|private
 operator|:
 name|QImage
