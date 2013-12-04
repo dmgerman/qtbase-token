@@ -80,6 +80,8 @@ name|DirectFBClass
 block|,
 name|BlitterClass
 block|,
+name|Direct2DClass
+block|,
 name|CustomClass
 init|=
 literal|1024
