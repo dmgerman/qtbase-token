@@ -5986,6 +5986,9 @@ block|}
 if|if
 condition|(
 operator|!
+name|wasDeleted
+operator|&&
+operator|!
 name|isDeletingChildren
 operator|&&
 name|declarativeData

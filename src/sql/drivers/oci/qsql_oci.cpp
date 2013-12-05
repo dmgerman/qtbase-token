@@ -11933,6 +11933,9 @@ case|case
 name|FinishQuery
 case|:
 case|case
+name|CancelQuery
+case|:
+case|case
 name|MultipleResultSets
 case|:
 return|return

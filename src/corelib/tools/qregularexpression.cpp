@@ -324,15 +324,16 @@ name|name
 parameter_list|)
 specifier|const
 function_decl|;
-DECL|member|pattern
-name|QString
-name|pattern
-decl_stmt|;
+comment|// sizeof(QSharedData) == 4, so start our members with an enum
 DECL|member|patternOptions
 name|QRegularExpression
 operator|::
 name|PatternOptions
 name|patternOptions
+decl_stmt|;
+DECL|member|pattern
+name|QString
+name|pattern
 decl_stmt|;
 comment|// *All* of the following members are set managed while holding this mutex,
 comment|// except for isDirty which is set to true by QRegularExpression setters
@@ -573,13 +574,13 @@ operator|::
 name|QRegularExpressionPrivate
 parameter_list|()
 member_init_list|:
-name|pattern
-argument_list|()
-member_init_list|,
 name|patternOptions
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|pattern
+argument_list|()
 member_init_list|,
 name|mutex
 argument_list|()
@@ -662,18 +663,18 @@ argument_list|(
 name|other
 argument_list|)
 member_init_list|,
-name|pattern
+name|patternOptions
 argument_list|(
 name|other
 operator|.
-name|pattern
+name|patternOptions
 argument_list|)
 member_init_list|,
-name|patternOptions
+name|pattern
 argument_list|(
 name|other
 operator|.
-name|patternOptions
+name|pattern
 argument_list|)
 member_init_list|,
 name|mutex

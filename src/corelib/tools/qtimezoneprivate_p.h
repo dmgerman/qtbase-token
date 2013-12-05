@@ -901,22 +901,22 @@ argument_list|,
 argument|const QString&comment
 argument_list|)
 block|;
-name|int
-name|m_offsetFromUtc
-block|;
 name|QString
 name|m_name
 block|;
 name|QString
 name|m_abbreviation
 block|;
+name|QString
+name|m_comment
+block|;
 name|QLocale
 operator|::
 name|Country
 name|m_country
 block|;
-name|QString
-name|m_comment
+name|int
+name|m_offsetFromUtc
 block|; }
 decl_stmt|;
 end_decl_stmt

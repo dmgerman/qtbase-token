@@ -91,6 +91,7 @@ operator|:
 name|QImage
 name|mImage
 block|;
+specifier|const
 name|bool
 name|mDebug
 block|; }

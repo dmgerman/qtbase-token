@@ -87,7 +87,7 @@ modifier|*
 specifier|const
 name|QtNativeInputConnectionClassName
 init|=
-literal|"org/qtproject/qt5/android/QtNativeInputConnection"
+literal|"org.qtproject.qt5.android.QtNativeInputConnection"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -99,7 +99,7 @@ modifier|*
 specifier|const
 name|QtExtractedTextClassName
 init|=
-literal|"org/qtproject/qt5/android/QtExtractedText"
+literal|"org.qtproject.qt5.android.QtExtractedText"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

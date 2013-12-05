@@ -184,6 +184,12 @@ condition|(
 name|m_invocationHandle
 condition|)
 return|return;
+comment|// Clear any previous results
+name|m_selectedFiles
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|int
 name|errorCode
 init|=

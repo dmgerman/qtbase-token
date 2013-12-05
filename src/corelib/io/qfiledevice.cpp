@@ -64,14 +64,14 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|lastWasWrite
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|writeBuffer
 argument_list|(
 name|QFILE_WRITEBUFFER_SIZE
+argument_list|)
+member_init_list|,
+name|cachedSize
+argument_list|(
+literal|0
 argument_list|)
 member_init_list|,
 name|error
@@ -81,9 +81,9 @@ operator|::
 name|NoError
 argument_list|)
 member_init_list|,
-name|cachedSize
+name|lastWasWrite
 argument_list|(
-literal|0
+literal|false
 argument_list|)
 block|{ }
 end_constructor

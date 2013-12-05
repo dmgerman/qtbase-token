@@ -122,6 +122,9 @@ block|;
 name|bool
 name|shownOnce
 block|;
+name|bool
+name|inResize
+block|;
 name|mutable
 name|QSize
 name|sizeHint

@@ -17393,6 +17393,27 @@ name|i
 argument_list|)
 expr_stmt|;
 comment|// first, lets make sure relevant text is already shaped
+if|if
+condition|(
+name|item
+operator|.
+name|analysis
+operator|.
+name|flags
+operator|==
+name|QScriptAnalysis
+operator|::
+name|Object
+condition|)
+block|{
+name|length
+operator|+=
+name|item
+operator|.
+name|width
+expr_stmt|;
+continue|continue;
+block|}
 name|QGlyphLayout
 name|glyphs
 init|=

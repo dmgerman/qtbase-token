@@ -9607,7 +9607,7 @@ name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"debug"
+literal|"debug_info"
 argument_list|)
 operator|&&
 operator|!
@@ -10062,7 +10062,7 @@ name|project
 operator|->
 name|isActiveConfig
 argument_list|(
-literal|"debug"
+literal|"debug_info"
 argument_list|)
 operator|&&
 operator|!

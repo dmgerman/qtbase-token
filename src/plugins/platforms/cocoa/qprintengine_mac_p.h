@@ -469,6 +469,9 @@ name|QVariant
 operator|>
 name|valueCache
 block|;
+name|PMPaper
+name|customPaper
+block|;
 name|QMacPrintEnginePrivate
 argument_list|()
 operator|:

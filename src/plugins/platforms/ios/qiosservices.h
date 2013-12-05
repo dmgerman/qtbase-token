@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<qurl.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformservices.h>
 end_include
 begin_decl_stmt
@@ -45,6 +50,20 @@ name|QUrl
 operator|&
 name|url
 argument_list|)
+block|;
+name|bool
+name|handleUrl
+argument_list|(
+specifier|const
+name|QUrl
+operator|&
+name|url
+argument_list|)
+block|;
+name|private
+operator|:
+name|QUrl
+name|m_handlingUrl
 block|; }
 decl_stmt|;
 end_decl_stmt
