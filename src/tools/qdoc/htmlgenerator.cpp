@@ -1130,6 +1130,41 @@ operator|->
 name|buildCollections
 argument_list|()
 expr_stmt|;
+name|Node
+modifier|*
+name|qflags
+init|=
+name|qdb_
+operator|->
+name|findNodeByNameAndType
+argument_list|(
+name|QStringList
+argument_list|(
+literal|"QFlags"
+argument_list|)
+argument_list|,
+name|Node
+operator|::
+name|Class
+argument_list|,
+name|Node
+operator|::
+name|NoSubType
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|qflags
+condition|)
+name|qflagsHref_
+operator|=
+name|linkForNode
+argument_list|(
+name|qflags
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -20979,7 +21014,11 @@ argument_list|)
 operator|<<
 literal|" type is a typedef for "
 operator|<<
-literal|"<a href=\"qflags.html\">QFlags</a>&lt;"
+literal|"<a href=\""
+operator|<<
+name|qflagsHref_
+operator|<<
+literal|"\">QFlags</a>&lt;"
 operator|<<
 name|protectEnc
 argument_list|(

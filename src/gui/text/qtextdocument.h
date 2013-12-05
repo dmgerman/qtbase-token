@@ -152,6 +152,14 @@ name|class
 name|QVector
 expr_stmt|;
 end_expr_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_QDOC
+end_ifndef
+begin_comment
+comment|// Workaround for QTBUG-35230
+end_comment
 begin_decl_stmt
 name|namespace
 name|Qt
@@ -198,6 +206,13 @@ endif|#
 directive|endif
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_QDOC
+end_comment
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
