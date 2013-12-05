@@ -2534,16 +2534,6 @@ name|minDistance
 parameter_list|)
 specifier|const
 block|{
-name|int
-name|p
-init|=
-name|pick
-argument_list|(
-name|o
-argument_list|,
-name|pos
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|rect
@@ -2554,6 +2544,25 @@ name|pos
 argument_list|)
 condition|)
 block|{
+comment|//<pos> is in QToolBarAreaLayout coordinates.
+comment|//<item.pos> is in local dockarea coordinates (see ~20 lines below)
+comment|// Since we're comparing p with item.pos, we put them in the same coordinate system.
+specifier|const
+name|int
+name|p
+init|=
+name|pick
+argument_list|(
+name|o
+argument_list|,
+name|pos
+operator|-
+name|rect
+operator|.
+name|topLeft
+argument_list|()
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
