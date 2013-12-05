@@ -258,10 +258,6 @@ block|;
 name|int
 name|activateTimers
 argument_list|()
-block|;
-name|int
-name|activateSocketNotifiers
-argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
