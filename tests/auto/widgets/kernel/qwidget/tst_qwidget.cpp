@@ -30268,15 +30268,6 @@ operator|<=
 literal|0
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-26424"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|rt
