@@ -509,10 +509,10 @@ operator|->
 name|root
 argument_list|)
 decl_stmt|;
-name|xcb_randr_get_screen_resources_current_cookie_t
+name|xcb_randr_get_screen_resources_cookie_t
 name|resourcesCookie
 init|=
-name|xcb_randr_get_screen_resources_current
+name|xcb_randr_get_screen_resources
 argument_list|(
 name|xcb_connection
 argument_list|()
@@ -558,11 +558,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|xcb_randr_get_screen_resources_current_reply_t
+name|xcb_randr_get_screen_resources_reply_t
 modifier|*
 name|resources
 init|=
-name|xcb_randr_get_screen_resources_current_reply
+name|xcb_randr_get_screen_resources_reply
 argument_list|(
 name|xcb_connection
 argument_list|()
@@ -603,7 +603,7 @@ name|config_timestamp
 decl_stmt|;
 name|outputCount
 operator|=
-name|xcb_randr_get_screen_resources_current_outputs_length
+name|xcb_randr_get_screen_resources_outputs_length
 argument_list|(
 name|resources
 argument_list|)
@@ -612,7 +612,7 @@ name|xcb_randr_output_t
 modifier|*
 name|outputs
 init|=
-name|xcb_randr_get_screen_resources_current_outputs
+name|xcb_randr_get_screen_resources_outputs
 argument_list|(
 name|resources
 argument_list|)
