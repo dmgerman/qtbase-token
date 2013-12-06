@@ -364,10 +364,15 @@ name|void
 name|setInvalidSocketDescriptor
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|void
 name|setSocketDescriptor
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|socketDescriptor
 parameter_list|()
@@ -590,6 +595,9 @@ name|void
 name|taskQtBug7054TimeoutErrorResetting
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|invalidProxy_data
 parameter_list|()
@@ -606,6 +614,9 @@ name|void
 name|proxyFactory
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|qtbug14268_peek
 parameter_list|()
@@ -675,6 +686,9 @@ name|void
 name|remoteCloseErrorSlot
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|proxyAuthenticationRequired
 parameter_list|(
@@ -687,6 +701,8 @@ modifier|*
 name|auth
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|earlySocketBytesSent
 parameter_list|(
@@ -1383,6 +1399,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -1541,6 +1560,17 @@ argument_list|(
 name|proxy
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 name|qt_qhostinfo_clear_cache
 argument_list|()
@@ -1638,6 +1668,9 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 operator|::
 name|setApplicationProxy
@@ -1647,8 +1680,15 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|proxyAuthenticationRequired
 name|void
@@ -1684,6 +1724,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment
@@ -2403,6 +2450,11 @@ end_function
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_function
 DECL|function|setSocketDescriptor
 name|void
@@ -2656,6 +2708,13 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINRT
+end_comment
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment
@@ -8002,6 +8061,9 @@ block|{
 name|QTcpServer
 name|server
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|server
 operator|.
 name|setProxy
@@ -8014,6 +8076,8 @@ name|NoProxy
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|server
@@ -8649,6 +8713,9 @@ name|quit
 argument_list|()
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 DECL|function|proxyAuthenticationRequired
 specifier|inline
 name|void
@@ -8678,6 +8745,9 @@ literal|"password"
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 private|private:
 DECL|member|exitCode
 name|int
@@ -10095,6 +10165,9 @@ name|exitLoop
 argument_list|()
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 DECL|function|proxyAuthenticationRequired
 specifier|inline
 name|void
@@ -10124,6 +10197,9 @@ literal|"password"
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 block|}
 class|;
 end_class
@@ -13387,6 +13463,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|invalidProxy_data
 name|void
@@ -14525,6 +14606,13 @@ name|socket
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_comment
 comment|// there is a similar test inside tst_qtcpserver that uses the event loop instead
 end_comment

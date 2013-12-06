@@ -2625,6 +2625,10 @@ literal|"::1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// WinRT does not support sockaddr_in
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|QHostAddress
 name|addr
 argument_list|(
@@ -2673,6 +2677,9 @@ argument_list|,
 name|addr
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_function

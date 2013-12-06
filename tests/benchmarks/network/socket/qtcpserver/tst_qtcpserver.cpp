@@ -173,6 +173,9 @@ literal|false
 operator|<<
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QTest
 operator|::
 name|newRow
@@ -189,6 +192,8 @@ operator|::
 name|Socks5Proxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -229,6 +234,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -265,6 +273,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 block|}
 end_function
@@ -276,6 +295,9 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 operator|::
 name|setApplicationProxy
@@ -285,6 +307,8 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

@@ -274,6 +274,9 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|proxyAuthenticationRequired
 parameter_list|(
@@ -286,6 +289,8 @@ modifier|*
 name|auth
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -983,6 +988,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -1121,6 +1129,17 @@ argument_list|(
 name|proxy
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 name|qt_qhostinfo_clear_cache
 argument_list|()
@@ -1135,6 +1154,9 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 operator|::
 name|setApplicationProxy
@@ -1144,6 +1166,8 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_ifndef
@@ -1213,6 +1237,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|proxyAuthenticationRequired
 name|void
@@ -1248,6 +1277,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

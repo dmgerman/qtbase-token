@@ -235,10 +235,15 @@ name|void
 name|waitForConnectionTest
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|void
 name|setSocketDescriptor
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|listenWhileListening
 parameter_list|()
@@ -256,6 +261,9 @@ name|void
 name|setNewSocketDescriptorBlocking
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|invalidProxy_data
 parameter_list|()
@@ -272,6 +280,9 @@ name|void
 name|proxyFactory
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|qtbug14268_peek
 parameter_list|()
@@ -448,6 +459,9 @@ literal|false
 operator|<<
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SOCKS5
 name|QTest
 operator|::
 name|newRow
@@ -464,6 +478,8 @@ operator|::
 name|Socks5Proxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|crashingServerDir
 operator|=
 name|QFINDTESTDATA
@@ -577,6 +593,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -613,6 +632,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 block|}
 end_function
@@ -624,6 +654,9 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 operator|::
 name|setApplicationProxy
@@ -633,6 +666,8 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -1622,6 +1657,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -1642,6 +1680,17 @@ argument_list|(
 literal|"With socks5 only 1 connection is allowed ever"
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 comment|//### sees to fail sometimes ... a timing issue with the test on windows
 name|QTcpServer
@@ -1829,6 +1878,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -1849,6 +1901,17 @@ argument_list|(
 literal|"With socks5 we can not make hard requirements on the address or port"
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|//QT_NO_NETWORKPROXY
 block|}
 name|QTcpServer
 name|server
@@ -2022,6 +2085,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -2042,6 +2108,17 @@ argument_list|(
 literal|"Localhost servers don't work well with SOCKS5"
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 name|QTcpSocket
 name|findLocalIpSocket
@@ -2186,6 +2263,11 @@ end_function
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_function
 DECL|function|setSocketDescriptor
 name|void
@@ -2360,6 +2442,13 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINRT
+end_comment
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment
@@ -2428,6 +2517,9 @@ name|bool
 name|ok
 decl_stmt|;
 protected|protected:
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 DECL|function|incomingConnection
 name|void
 name|incomingConnection
@@ -2496,6 +2588,9 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 class|;
 end_class
@@ -2524,6 +2619,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -2544,6 +2642,17 @@ argument_list|(
 literal|"With socks5 this test does not make senans at the momment"
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 if|#
 directive|if
@@ -2801,6 +2910,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -2821,6 +2933,17 @@ argument_list|(
 literal|"With socks5 we can not make the socket descripter blocking"
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 name|SeverWithBlockingSockets
 name|server
@@ -2869,6 +2992,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|invalidProxy_data
 name|void
@@ -3814,6 +3942,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_class
 DECL|class|Qtbug14268Helper
 class|class
