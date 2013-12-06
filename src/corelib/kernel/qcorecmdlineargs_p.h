@@ -279,7 +279,7 @@ literal|'\\'
 condition|)
 block|{
 comment|// escape char?
-comment|// testing by looking at argc, argv shows that it only escapes quotes and backslashes
+comment|// testing by looking at argc, argv shows that it only escapes quotes
 if|if
 condition|(
 name|p
@@ -297,18 +297,6 @@ operator|==
 name|Char
 argument_list|(
 literal|'\"'
-argument_list|)
-operator|||
-operator|*
-operator|(
-name|p
-operator|+
-literal|1
-operator|)
-operator|==
-name|Char
-argument_list|(
-literal|'\\'
 argument_list|)
 operator|)
 condition|)
