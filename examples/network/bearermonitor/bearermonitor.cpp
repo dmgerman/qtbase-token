@@ -328,6 +328,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|connect
 argument_list|(
 name|registerButton
@@ -368,6 +374,7 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 name|nlaGroup
 operator|->
 name|hide
@@ -1321,6 +1328,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_if
 begin_function
 DECL|function|registerNetwork
@@ -1586,6 +1599,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Q_OS_WIN&& !Q_OS_WINRT
+end_comment
 begin_function
 DECL|function|showConfigurationFor
 name|void

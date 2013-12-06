@@ -128,6 +128,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|void
 name|registerNetwork
 parameter_list|()
@@ -138,6 +144,7 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 name|void
 name|showConfigurationFor
 parameter_list|(
