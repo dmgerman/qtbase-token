@@ -10333,7 +10333,7 @@ index|[
 literal|"OPENSSL"
 index|]
 operator|=
-literal|"auto"
+literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
