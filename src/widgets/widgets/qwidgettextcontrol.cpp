@@ -11973,6 +11973,9 @@ operator|->
 name|addSeparator
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|a
 operator|=
 name|menu
@@ -12022,7 +12025,12 @@ literal|"edit-cut"
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 if|if
 condition|(
 name|showTextSelectionActions
@@ -12135,6 +12143,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_CLIPBOARD
 if|if
 condition|(
 name|d
@@ -12146,13 +12157,9 @@ operator|::
 name|TextEditable
 condition|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
+ifndef|#
+directive|ifndef
 name|QT_NO_CLIPBOARD
-argument_list|)
 name|a
 operator|=
 name|menu
