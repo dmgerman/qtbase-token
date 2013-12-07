@@ -1675,6 +1675,15 @@ operator|::
 name|setupPrinter
 parameter_list|()
 block|{
+comment|// First setup the requested OutputFormat, Printer and Page Size first
+name|top
+operator|->
+name|d
+operator|->
+name|setupPrinter
+argument_list|()
+expr_stmt|;
+comment|// Then setup Print Job options
 name|Q_Q
 argument_list|(
 name|QPrintDialog
@@ -2206,13 +2215,6 @@ operator|->
 name|isChecked
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|top
-operator|->
-name|d
-operator|->
-name|setupPrinter
-argument_list|()
 expr_stmt|;
 block|}
 end_function
