@@ -1476,6 +1476,11 @@ define|#
 directive|define
 name|Q_ATOMIC_INT16_FETCH_AND_ADD_IS_WAIT_FREE
 end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_PROCESSOR_X86_64
+end_ifdef
 begin_define
 DECL|macro|Q_ATOMIC_INT64_IS_SUPPORTED
 define|#
@@ -1530,11 +1535,6 @@ define|#
 directive|define
 name|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_WAIT_FREE
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_PROCESSOR_X86_64
-end_ifdef
 begin_comment
 comment|// native support for 64-bit types
 end_comment
