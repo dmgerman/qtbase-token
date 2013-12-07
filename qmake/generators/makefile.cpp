@@ -10616,6 +10616,7 @@ name|ProKey
 modifier|&
 name|var
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|val
@@ -10642,6 +10643,7 @@ name|ProStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -10669,6 +10671,7 @@ name|QStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -10711,6 +10714,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -10758,6 +10762,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 name|ProStringList
 name|varList
@@ -10832,6 +10837,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 name|QString
 name|ret
@@ -10941,6 +10947,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 name|QString
 name|ret
@@ -11032,6 +11039,7 @@ name|ProKey
 modifier|&
 name|var
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valList
@@ -11058,6 +11066,7 @@ name|ProStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -11085,6 +11094,7 @@ name|QStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue

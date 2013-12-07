@@ -137,11 +137,9 @@ block|;
 name|QString
 name|var
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|value
+argument|const ProKey&value
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|precompH

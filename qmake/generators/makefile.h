@@ -1012,152 +1012,96 @@ name|virtual
 name|QString
 name|var
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|var
+argument|const ProKey&var
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|varGlue
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|var
+argument|const ProKey&var
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|before
+argument|const QString&before
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|glue
+argument|const QString&glue
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|after
+argument|const QString&after
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|fileVarGlue
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|var
+argument|const ProKey&var
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|before
+argument|const QString&before
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|glue
+argument|const QString&glue
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|after
+argument|const QString&after
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|varList
 argument_list|(
-specifier|const
-name|ProKey
-operator|&
-name|var
+argument|const ProKey&var
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|val
 argument_list|(
-specifier|const
-name|ProStringList
-operator|&
-name|varList
+argument|const ProStringList&varList
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|val
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|varList
+argument|const QStringList&varList
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|valGlue
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|varList
+argument|const QStringList&varList
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|before
+argument|const QString&before
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|glue
+argument|const QString&glue
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|after
+argument|const QString&after
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|valGlue
 argument_list|(
-specifier|const
-name|ProStringList
-operator|&
-name|varList
+argument|const ProStringList&varList
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|before
+argument|const QString&before
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|glue
+argument|const QString&glue
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|after
+argument|const QString&after
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|valList
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|varList
+argument|const QStringList&varList
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|valList
 argument_list|(
-specifier|const
-name|ProStringList
-operator|&
-name|varList
+argument|const ProStringList&varList
 argument_list|)
+specifier|const
 block|;
 name|QString
 name|filePrefixRoot
