@@ -268,12 +268,6 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_chbPrintLastFirstToggled(bool)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
 argument|void _q_togglePageSetCombo(bool)
 argument_list|)
 name|Q_PRIVATE_SLOT
