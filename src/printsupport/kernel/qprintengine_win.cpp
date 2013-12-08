@@ -8508,6 +8508,11 @@ literal|10.0
 argument_list|)
 expr_stmt|;
 block|}
+name|d
+operator|->
+name|doReinit
+argument_list|()
+expr_stmt|;
 break|break;
 block|}
 case|case
