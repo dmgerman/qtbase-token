@@ -2040,8 +2040,9 @@ name|defined
 argument_list|(
 name|ANGLE_OS_WINRT
 argument_list|)
+name|HRESULT
 name|result
-operator|=
+init|=
 name|factory
 operator|->
 name|CreateSwapChain
@@ -2054,7 +2055,7 @@ argument_list|,
 operator|&
 name|mSwapChain
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 else|#
 directive|else
 name|IDXGISwapChain1
