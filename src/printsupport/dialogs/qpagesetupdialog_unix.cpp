@@ -3243,10 +3243,6 @@ argument_list|,
 name|m_bottomMargin
 argument_list|)
 expr_stmt|;
-comment|// setup printer here the first time
-name|setupPrinter
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
