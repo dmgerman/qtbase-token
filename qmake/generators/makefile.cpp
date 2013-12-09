@@ -18558,7 +18558,6 @@ name|SubTargetSkipDefaultVariables
 operator|)
 condition|)
 block|{
-comment|/* Calling Option::fixPathToTargetOS() is necessary for MinGW/MSYS, which requires          * back-slashes to be turned into slashes. */
 name|t
 operator|<<
 literal|"QMAKE         = "
