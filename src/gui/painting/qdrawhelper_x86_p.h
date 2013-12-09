@@ -54,7 +54,7 @@ ifdef|#
 directive|ifdef
 name|__SSE2__
 name|void
-name|qt_memfill32_sse2
+name|qt_memfill32
 parameter_list|(
 name|quint32
 modifier|*
@@ -70,7 +70,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|qt_memfill16_sse2
+name|qt_memfill16
 parameter_list|(
 name|quint16
 modifier|*

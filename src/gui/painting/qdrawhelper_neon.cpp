@@ -39,9 +39,9 @@ file|<arm_neon.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|qt_memfill32_neon
+DECL|function|qt_memfill32
 name|void
-name|qt_memfill32_neon
+name|qt_memfill32
 parameter_list|(
 name|quint32
 modifier|*

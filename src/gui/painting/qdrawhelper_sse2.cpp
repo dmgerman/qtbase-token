@@ -1531,9 +1531,9 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|qt_memfill32_sse2
+DECL|function|qt_memfill32
 name|void
-name|qt_memfill32_sse2
+name|qt_memfill32
 parameter_list|(
 name|quint32
 modifier|*
@@ -1871,7 +1871,7 @@ operator|==
 literal|255
 condition|)
 block|{
-name|qt_memfill32_sse2
+name|qt_memfill32
 argument_list|(
 name|destPixels
 argument_list|,
@@ -2266,9 +2266,9 @@ endif|#
 directive|endif
 end_endif
 begin_function
-DECL|function|qt_memfill16_sse2
+DECL|function|qt_memfill16
 name|void
-name|qt_memfill16_sse2
+name|qt_memfill16
 parameter_list|(
 name|quint16
 modifier|*
@@ -2356,7 +2356,7 @@ operator|)
 operator||
 name|value
 decl_stmt|;
-name|qt_memfill32_sse2
+name|qt_memfill32
 argument_list|(
 cast|reinterpret_cast
 argument_list|<
