@@ -507,6 +507,14 @@ name|pwd
 expr_stmt|;
 block|}
 block|{
+name|QString
+name|isystem
+init|=
+name|var
+argument_list|(
+literal|"QMAKE_CFLAGS_ISYSTEM"
+argument_list|)
+decl_stmt|;
 specifier|const
 name|ProStringList
 modifier|&
@@ -552,12 +560,39 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|inc
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
+continue|continue;
+if|if
+condition|(
+operator|!
+name|isystem
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|isSystemInclude
+argument_list|(
+name|inc
+operator|.
+name|toQString
+argument_list|()
+argument_list|)
+condition|)
+name|t
+operator|<<
+literal|' '
+operator|<<
+name|isystem
+operator|<<
+literal|' '
+operator|<<
+name|inc
+expr_stmt|;
+else|else
 name|t
 operator|<<
 literal|" -I"

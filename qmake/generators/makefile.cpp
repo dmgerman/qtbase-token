@@ -2791,6 +2791,14 @@ argument_list|(
 literal|"-o "
 argument_list|)
 expr_stmt|;
+name|setSystemIncludes
+argument_list|(
+name|v
+index|[
+literal|"QMAKE_DEFAULT_INCDIRS"
+index|]
+argument_list|)
+expr_stmt|;
 name|ProStringList
 modifier|&
 name|quc
