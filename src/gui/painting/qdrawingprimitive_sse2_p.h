@@ -21,7 +21,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_COMPILER_SUPPORTS_SSE2
+name|__SSE2__
 end_ifdef
 begin_comment
 comment|//
@@ -225,7 +225,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_COMPILER_SUPPORTS_SSE2
+comment|// __SSE2__
 end_comment
 begin_endif
 endif|#

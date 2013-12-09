@@ -52,7 +52,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|QT_COMPILER_SUPPORTS_SSE2
+name|__SSE2__
 name|void
 name|qt_memfill32_sse2
 parameter_list|(
@@ -229,7 +229,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_COMPILER_SUPPORTS_SSE2
+comment|// __SSE2__
 end_comment
 begin_ifdef
 ifdef|#
