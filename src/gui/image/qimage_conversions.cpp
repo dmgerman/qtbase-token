@@ -12851,15 +12851,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|QT_COMPILER_SUPPORTS_NEON
-if|if
-condition|(
-name|qCpuHasFeature
-argument_list|(
-name|NEON
-argument_list|)
-condition|)
-block|{
+name|__ARM_NEON__
 specifier|extern
 name|void
 name|convert_RGB888_to_RGB32_neon
@@ -12920,8 +12912,6 @@ index|]
 operator|=
 name|convert_RGB888_to_RGB32_neon
 expr_stmt|;
-return|return;
-block|}
 endif|#
 directive|endif
 block|}

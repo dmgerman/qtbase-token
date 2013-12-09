@@ -4937,7 +4937,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 comment|// from qimage_neon.cpp
 if|if

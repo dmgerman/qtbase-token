@@ -41572,7 +41572,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 operator|&&
 operator|!
@@ -41580,13 +41580,6 @@ name|defined
 argument_list|(
 name|Q_OS_IOS
 argument_list|)
-if|if
-condition|(
-name|features
-operator|&
-name|NEON
-condition|)
-block|{
 name|qBlendFunctions
 index|[
 name|QImage
@@ -41923,7 +41916,6 @@ name|qt_fetch_radial_gradient
 operator|=
 name|qt_fetch_radial_gradient_neon
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 if|#

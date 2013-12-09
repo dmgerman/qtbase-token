@@ -817,7 +817,7 @@ operator|!
 operator|(
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 operator|||
 name|defined
@@ -1566,7 +1566,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 operator|&&
 operator|!
