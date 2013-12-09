@@ -2893,9 +2893,6 @@ name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_comment
-comment|//Batch files are not supported on Winfows CE
-end_comment
-begin_comment
 comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
 begin_comment
@@ -2996,7 +2993,7 @@ name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_comment
-comment|//Batch files are not supported on Winfows CE
+comment|// Batch files are not supported on Windows CE
 end_comment
 begin_function
 DECL|function|batFiles_data
