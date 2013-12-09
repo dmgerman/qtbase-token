@@ -928,10 +928,10 @@ begin_comment
 comment|// QT_NO_WHEELEVENT
 end_comment
 begin_comment
-comment|/*!     \fn QPoint QWheelEvent::pixelDelta() const      Returns the scrolling distance in pixels on screen. This value is     provided on platforms that support high-resolution pixel-based     delta values, such as Mac OS X. The value should be used directly     to scroll content on screen.      Example:      \snippet code/src_gui_kernel_qevent.cpp 0 */
+comment|/*!     \fn QPoint QWheelEvent::pixelDelta() const      Returns the scrolling distance in pixels on screen. This value is     provided on platforms that support high-resolution pixel-based     delta values, such as Mac OS X. The value should be used directly     to scroll content on screen.      Example:      \snippet code/src_gui_kernel_qevent.cpp 0      \note On platforms that support scrolling \l{phase()}{phases}, the delta may be null when:     \list     \li scrolling is about to begin, but the distance did not yet change (Qt::ScrollBegin),     \li or scrolling has ended and the distance did not change anymore (Qt::ScrollEnd).     \endlist */
 end_comment
 begin_comment
-comment|/*!     \fn QPoint QWheelEvent::angleDelta() const      Returns the distance that the wheel is rotated, in eighths of a     degree. A positive value indicates that the wheel was rotated     forwards away from the user; a negative value indicates that the     wheel was rotated backwards toward the user.      Most mouse types work in steps of 15 degrees, in which case the     delta value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.      However, some mice have finer-resolution wheels and send delta values     that are less than 120 units (less than 15 degrees). To support this     possibility, you can either cumulatively add the delta values from events     until the value of 120 is reached, then scroll the widget, or you can     partially scroll the widget in response to each wheel event.      Example:      \snippet code/src_gui_kernel_qevent.cpp 0 */
+comment|/*!     \fn QPoint QWheelEvent::angleDelta() const      Returns the distance that the wheel is rotated, in eighths of a     degree. A positive value indicates that the wheel was rotated     forwards away from the user; a negative value indicates that the     wheel was rotated backwards toward the user.      Most mouse types work in steps of 15 degrees, in which case the     delta value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.      However, some mice have finer-resolution wheels and send delta values     that are less than 120 units (less than 15 degrees). To support this     possibility, you can either cumulatively add the delta values from events     until the value of 120 is reached, then scroll the widget, or you can     partially scroll the widget in response to each wheel event.      Example:      \snippet code/src_gui_kernel_qevent.cpp 0      \note On platforms that support scrolling \l{phase()}{phases}, the delta may be null when:     \list     \li scrolling is about to begin, but the distance did not yet change (Qt::ScrollBegin),     \li or scrolling has ended and the distance did not change anymore (Qt::ScrollEnd).     \endlist */
 end_comment
 begin_comment
 comment|/*!     \fn int QWheelEvent::delta() const     \obsolete      This function has been deprecated, use pixelDelta() or angleDelta() instead. */
@@ -961,7 +961,7 @@ begin_comment
 comment|/*!     \fn const QPointF&QWheelEvent::globalPosF() const      Returns the global position of the mouse pointer \e{at the time     of the event}. This is important on asynchronous window systems     such as X11; whenever you move your widgets around in response to     mouse events, globalPosF() can differ a lot from the current     cursor position returned by QCursor::pos().      \sa posF() */
 end_comment
 begin_comment
-comment|/*!     \fn Qt::ScrollPhase QWheelEvent::phase() const     \since 5.2      Returns the scrolling phase of this wheel event. */
+comment|/*!     \fn Qt::ScrollPhase QWheelEvent::phase() const     \since 5.2      Returns the scrolling phase of this wheel event.      \note The Qt::ScrollBegin and Qt::ScrollEnd phases are currently     supported only on Mac OS X. */
 end_comment
 begin_comment
 comment|/*!     \class QKeyEvent     \brief The QKeyEvent class describes a key event.      \ingroup events     \inmodule QtGui      Key events are sent to the widget with keyboard input focus     when keys are pressed or released.      A key event contains a special accept flag that indicates whether     the receiver will handle the key event. You should call ignore()     if the key press or release event is not handled by your widget.     A key event is propagated up the parent widget chain until a     widget accepts it with accept() or an event filter consumes it.     Key events for multimedia keys are ignored by default. You should     call accept() if your widget handles those events.      The QWidget::setEnable() function can be used to enable or disable     mouse and keyboard events for a widget.      The event handlers QWidget::keyPressEvent(), QWidget::keyReleaseEvent(),     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent()     receive key events.      \sa QFocusEvent, QWidget::grabKeyboard() */
@@ -2568,6 +2568,11 @@ end_endif
 begin_comment
 comment|// QT_NO_TABLETEVENT
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
+end_ifndef
 begin_comment
 comment|/*!     \class QNativeGestureEvent     \since 5.2     \brief The QNativeGestureEvent class contains parameters that describe a gesture event.     \inmodule QtGui     \ingroup events      Native gesture events are generated by the operating system, typically by     interpreting touch events. Gesture events are high-level events such     as zoom or rotate.      \table     \header         \li Event Type         \li Description         \li Touch equence     \row         \li Qt::ZoomNativeGesture         \li Magnification delta in percent.         \li OS X: Two-finger pinch.     \row         \li Qt::SmartZoomNativeGesture         \li Boolean magnification state.         \li OS X: Two-finger douple tap (trackpad) / One-finger douple tap (magic mouse).     \row         \li Qt::RotateNativeGesture         \li Rotation delta in degrees.         \li OS X: Two-finger rotate.     \endtable       In addition, BeginNativeGesture and EndNativeGesture are sent before and after     gesture event streams:          BeginNativeGesture         ZoomNativeGesture         ZoomNativeGesture         ZoomNativeGesture         EndNativeGesture      \sa Qt::NativeGestureType, QGestureEvent */
 end_comment
@@ -2673,6 +2678,13 @@ comment|/*!     \fn QPointF QNativeGestureEvent::screenPos() const     \since 5.
 end_comment
 begin_comment
 comment|/*!     \fn QPointF QNativeGestureEvent::windowPos() const     \since 5.2      Returns the position of the gesture as a QPointF, relative to the     window that received the event. */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_GESTURES
 end_comment
 begin_ifndef
 ifndef|#
