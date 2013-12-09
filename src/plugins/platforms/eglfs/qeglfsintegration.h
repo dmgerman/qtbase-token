@@ -272,6 +272,9 @@ name|QPlatformInputContext
 modifier|*
 name|mInputContext
 decl_stmt|;
+name|bool
+name|mDisableInputHandlers
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
