@@ -1805,6 +1805,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|iface
+condition|)
+return|return
+literal|0
+return|;
+if|if
+condition|(
 name|m_child
 operator|!=
 operator|-
