@@ -61,7 +61,9 @@ name|newPage
 argument_list|()
 operator|=
 literal|0
-block|;      enum
+block|;
+comment|// ### Qt6 Remove in favor of QPage::PageSize
+block|enum
 name|PageSize
 block|{
 name|A4

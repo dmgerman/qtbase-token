@@ -128,6 +128,7 @@ block|,
 name|Landscape
 block|}
 block|;
+comment|// ### Qt6 Remove in favor of QPage::PageSize
 ifndef|#
 directive|ifndef
 name|Q_QDOC
