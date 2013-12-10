@@ -208,6 +208,10 @@ name|filesLayout
 block|;
 name|QCheckBox
 operator|*
+name|m_showDirsOnly
+block|;
+name|QCheckBox
+operator|*
 name|m_readOnly
 block|;
 name|QCheckBox
