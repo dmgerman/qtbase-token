@@ -7421,7 +7421,7 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
-literal|"###### Prefix headers\n"
+literal|"###### Precompiled headers\n"
 expr_stmt|;
 name|QString
 name|comps
