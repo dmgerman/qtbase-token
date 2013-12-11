@@ -87,8 +87,18 @@ name|focusWindow
 argument_list|)
 block|;
 name|void
-name|scrollRootView
+name|cursorRectangleChanged
 argument_list|()
+block|;
+name|void
+name|scrollToCursor
+argument_list|()
+block|;
+name|void
+name|scroll
+argument_list|(
+argument|int y
+argument_list|)
 block|;
 name|private
 operator|:
@@ -103,14 +113,12 @@ operator|>
 operator|*
 name|m_focusView
 block|;
-name|QTransform
-name|m_inputItemTransform
-block|;
 name|bool
 name|m_hasPendingHideRequest
 block|;
-name|bool
-name|m_inSetFocusObject
+name|QObject
+operator|*
+name|m_focusObject
 block|; }
 decl_stmt|;
 end_decl_stmt
