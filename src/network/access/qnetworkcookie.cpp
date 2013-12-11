@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtNetwork/qhostaddress.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qobject_p.h"
 end_include
 begin_macro
@@ -3979,6 +3984,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|d
 operator|->
 name|domain
@@ -3988,9 +3994,28 @@ operator|.
 name|host
 argument_list|()
 expr_stmt|;
-elseif|else
+block|}
+else|else
+block|{
+name|QHostAddress
+name|hostAddress
+argument_list|(
+name|d
+operator|->
+name|domain
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+name|hostAddress
+operator|.
+name|protocol
+argument_list|()
+operator|!=
+name|QAbstractSocket
+operator|::
+name|IPv4Protocol
+operator|&&
 operator|!
 name|d
 operator|->
@@ -4004,6 +4029,7 @@ literal|'.'
 argument_list|)
 argument_list|)
 condition|)
+block|{
 comment|// Ensure the domain starts with a dot if its field was not empty
 comment|// in the HTTP header. There are some servers that forget the
 comment|// leading dot and this is actually forbidden according to RFC 2109,
@@ -4020,6 +4046,8 @@ literal|'.'
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 end_function
 begin_ifndef
