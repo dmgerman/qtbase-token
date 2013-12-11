@@ -221,12 +221,6 @@ argument_list|)
 return|;
 block|}
 empty_stmt|;
-name|QWindow
-operator|*
-name|topLevelWindow
-argument_list|()
-specifier|const
-expr_stmt|;
 name|private
 label|:
 name|void
