@@ -788,12 +788,17 @@ argument_list|(
 name|printer
 argument_list|)
 decl_stmt|;
+comment|// WARNING: the following trick (with a [2]-extent) only works as
+comment|// WARNING: long as there's only one two-digit number in the list
+comment|// WARNING: and it is the last one (before the "\0")!
 specifier|static
 specifier|const
 name|char
-modifier|*
 name|pagesPerSheetData
 index|[]
+index|[
+literal|2
+index|]
 init|=
 block|{
 literal|"1"
@@ -806,17 +811,23 @@ literal|"6"
 block|,
 literal|"9"
 block|,
-literal|"16"
+block|{
+literal|'1'
 block|,
-literal|0
+literal|'6'
+block|}
+block|,
+literal|"\0"
 block|}
 decl_stmt|;
 specifier|static
 specifier|const
 name|char
-modifier|*
 name|pageLayoutData
 index|[]
+index|[
+literal|5
+index|]
 init|=
 block|{
 literal|"lrtb"
@@ -834,8 +845,6 @@ block|,
 literal|"tblr"
 block|,
 literal|"tbrl"
-block|,
-literal|0
 block|}
 decl_stmt|;
 name|setCupsOption
