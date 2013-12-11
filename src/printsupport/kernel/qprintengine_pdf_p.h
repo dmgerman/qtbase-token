@@ -108,6 +108,11 @@ include|#
 directive|include
 file|"qprintengine.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qprint_p.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QImage
@@ -330,7 +335,7 @@ block|;
 name|QString
 name|selectionOption
 block|;
-name|QPrinter
+name|QPrint
 operator|::
 name|DuplexMode
 name|duplex

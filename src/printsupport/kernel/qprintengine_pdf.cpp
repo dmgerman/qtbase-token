@@ -695,7 +695,7 @@ name|duplex
 operator|=
 cast|static_cast
 argument_list|<
-name|QPrinter
+name|QPrint
 operator|::
 name|DuplexMode
 argument_list|>
@@ -1371,7 +1371,7 @@ argument_list|()
 member_init_list|,
 name|duplex
 argument_list|(
-name|QPrinter
+name|QPrint
 operator|::
 name|DuplexNone
 argument_list|)

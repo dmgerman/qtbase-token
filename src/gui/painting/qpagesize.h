@@ -709,10 +709,6 @@ name|friend
 name|class
 name|QPlatformPrintDevice
 decl_stmt|;
-name|friend
-name|class
-name|QCupsPrintEnginePrivate
-decl_stmt|;
 name|QPageSize
 argument_list|(
 specifier|const
