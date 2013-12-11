@@ -10166,6 +10166,25 @@ literal|"gcc_MD_depends"
 argument_list|)
 condition|)
 block|{
+comment|// use -MMD if we know about -isystem too
+name|ProString
+name|MD_flag
+argument_list|(
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_CFLAGS_ISYSTEM"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|"-MD"
+else|:
+literal|"-MMD"
+argument_list|)
+decl_stmt|;
 name|project
 operator|->
 name|values
@@ -10173,7 +10192,7 @@ argument_list|(
 literal|"QMAKE_CFLAGS"
 argument_list|)
 operator|+=
-literal|"-MD"
+name|MD_flag
 expr_stmt|;
 name|project
 operator|->
@@ -10182,7 +10201,7 @@ argument_list|(
 literal|"QMAKE_CXXFLAGS"
 argument_list|)
 operator|+=
-literal|"-MD"
+name|MD_flag
 expr_stmt|;
 block|}
 if|if

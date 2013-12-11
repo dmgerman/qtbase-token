@@ -4355,6 +4355,15 @@ name|lfn
 operator|.
 name|isNull
 argument_list|()
+operator|&&
+operator|!
+name|isSystemInclude
+argument_list|(
+name|lfn
+operator|.
+name|real
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|dep
