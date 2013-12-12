@@ -3705,13 +3705,13 @@ unit|};
 name|template
 operator|<
 name|typename
-name|const_iterator
+name|value_type
 operator|>
 expr|struct
 name|IteratorOwner
 operator|<
 specifier|const
-name|const_iterator
+name|value_type
 operator|*
 operator|>
 block|{
@@ -3721,7 +3721,7 @@ name|assign
 argument_list|(
 argument|void **ptr
 argument_list|,
-argument|const const_iterator *iterator
+argument|const value_type *iterator
 argument_list|)
 block|{
 operator|*
@@ -3729,7 +3729,7 @@ name|ptr
 operator|=
 name|const_cast
 operator|<
-name|const_iterator
+name|value_type
 operator|*
 operator|>
 operator|(
@@ -3745,13 +3745,13 @@ argument_list|,
 argument|int step
 argument_list|)
 block|{
-name|const_iterator
+name|value_type
 operator|*
 name|it
 operator|=
 name|static_cast
 operator|<
-name|const_iterator
+name|value_type
 operator|*
 operator|>
 operator|(
@@ -3800,7 +3800,7 @@ name|void
 operator|*
 name|getData
 argument_list|(
-argument|const const_iterator *it
+argument|const value_type *it
 argument_list|)
 block|{
 return|return
