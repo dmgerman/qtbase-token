@@ -54,8 +54,10 @@ operator|&
 name|metaTypes
 argument_list|,
 specifier|const
-name|QSet
+name|QHash
 operator|<
+name|QByteArray
+argument_list|,
 name|QByteArray
 operator|>
 operator|&
@@ -281,8 +283,10 @@ name|QByteArray
 operator|>
 name|metaTypes
 expr_stmt|;
-name|QSet
+name|QHash
 operator|<
+name|QByteArray
+operator|,
 name|QByteArray
 operator|>
 name|knownQObjectClasses
