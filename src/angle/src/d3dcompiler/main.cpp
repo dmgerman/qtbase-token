@@ -666,9 +666,16 @@ end_namespace
 begin_comment
 comment|// namespace D3DCompiler
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__MINGW32__
+end_ifdef
 begin_extern
 extern|extern
 literal|"C"
+endif|#
+directive|endif
 name|__declspec
 argument_list|(
 argument|dllexport
@@ -697,7 +704,6 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|t
 parameter_list|,
 specifier|const
 name|char
