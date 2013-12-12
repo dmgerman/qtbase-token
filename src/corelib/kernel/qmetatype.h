@@ -3611,6 +3611,33 @@ argument_list|)
 block|;     }
 specifier|static
 name|void
+name|assign
+argument_list|(
+argument|void **ptr
+argument_list|,
+argument|void * const * src
+argument_list|)
+block|{
+operator|*
+name|ptr
+operator|=
+name|new
+name|const_iterator
+argument_list|(
+operator|*
+name|static_cast
+operator|<
+name|const_iterator
+operator|*
+operator|>
+operator|(
+operator|*
+name|src
+operator|)
+argument_list|)
+block|;     }
+specifier|static
+name|void
 name|advance
 argument_list|(
 argument|void **iterator
@@ -3734,6 +3761,28 @@ operator|*
 operator|>
 operator|(
 name|iterator
+operator|)
+block|;     }
+specifier|static
+name|void
+name|assign
+argument_list|(
+argument|void **ptr
+argument_list|,
+argument|void * const * src
+argument_list|)
+block|{
+operator|*
+name|ptr
+operator|=
+name|static_cast
+operator|<
+name|value_type
+operator|*
+operator|>
+operator|(
+operator|*
+name|src
 operator|)
 block|;     }
 specifier|static
@@ -4638,9 +4687,9 @@ operator|>
 operator|::
 name|assign
 argument_list|(
-argument|dest
+name|dest
 argument_list|,
-argument|*static_cast<typename T::const_iterator*>(*src)
+name|src
 argument_list|)
 block|; }
 name|public
@@ -5801,9 +5850,9 @@ operator|>
 operator|::
 name|assign
 argument_list|(
-argument|dest
+name|dest
 argument_list|,
-argument|*static_cast<typename T::const_iterator*>(*src)
+name|src
 argument_list|)
 block|; }
 name|public
