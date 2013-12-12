@@ -3834,10 +3834,9 @@ operator|::
 name|ParseAsCompactedShortOptions
 argument_list|)
 operator|<<
+literal|"\\\\server\\path"
+operator|<<
 literal|"-DKEY1=\"VALUE1\""
-operator|<<
-literal|"-DKEY2=\\\"VALUE2\\\""
-operator|<<
 literal|"-DQTBUG-15379=C:\\path\\'file.ext"
 operator|<<
 literal|"-DQTBUG-30628=C:\\temp\\'file'.ext"
@@ -3895,7 +3894,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"KEY1=\"VALUE1\""
+literal|"\\\\server\\path"
 argument_list|)
 argument_list|,
 name|qPrintable
@@ -3910,7 +3909,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"KEY2=\\\"VALUE2\\\""
+literal|"KEY1=\"VALUE1\""
 argument_list|)
 argument_list|,
 name|qPrintable
