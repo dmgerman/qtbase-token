@@ -3212,6 +3212,11 @@ name|QString
 modifier|&
 name|platformPluginPath
 parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|platformThemeName
+parameter_list|,
 name|int
 modifier|&
 name|argc
@@ -3458,18 +3463,35 @@ expr_stmt|;
 return|return;
 block|}
 comment|// Create the platform theme:
-comment|// 1) Ask the platform integration for a list of names.
-specifier|const
+comment|// 1) Fetch the platform name from the environment if present.
 name|QStringList
 name|themeNames
-init|=
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|platformThemeName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|themeNames
+operator|.
+name|append
+argument_list|(
+name|platformThemeName
+argument_list|)
+expr_stmt|;
+comment|// 2) Ask the platform integration for a list of names and try loading them.
+name|themeNames
+operator|+=
 name|QGuiApplicationPrivate
 operator|::
 name|platform_integration
 operator|->
 name|themeNames
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const
@@ -3501,7 +3523,7 @@ name|platform_theme
 condition|)
 break|break;
 block|}
-comment|// 2) If none found, look for a theme plugin. Theme plugins are located in the
+comment|// 3) If none found, look for a theme plugin. Theme plugins are located in the
 comment|// same directory as platform plugins.
 if|if
 condition|(
@@ -3544,7 +3566,7 @@ break|break;
 block|}
 comment|// No error message; not having a theme plugin is allowed.
 block|}
-comment|// 3) Fall back on the built-in "null" platform theme.
+comment|// 4) Fall back on the built-in "null" platform theme.
 if|if
 condition|(
 operator|!
@@ -3891,6 +3913,19 @@ operator|=
 name|platformNameEnv
 expr_stmt|;
 block|}
+name|QString
+name|platformThemeName
+init|=
+name|QString
+operator|::
+name|fromLocal8Bit
+argument_list|(
+name|qgetenv
+argument_list|(
+literal|"QT_QPA_PLATFORMTHEME"
+argument_list|)
+argument_list|)
+decl_stmt|;
 comment|// Get command line params
 name|int
 name|j
@@ -4006,6 +4041,34 @@ if|if
 condition|(
 name|arg
 operator|==
+literal|"-platformtheme"
+condition|)
+block|{
+if|if
+condition|(
+operator|++
+name|i
+operator|<
+name|argc
+condition|)
+name|platformThemeName
+operator|=
+name|QString
+operator|::
+name|fromLocal8Bit
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|arg
+operator|==
 literal|"-qwindowgeometry"
 operator|||
 operator|(
@@ -4081,6 +4144,8 @@ name|platformName
 argument_list|)
 argument_list|,
 name|platformPluginPath
+argument_list|,
+name|platformThemeName
 argument_list|,
 name|argc
 argument_list|,
