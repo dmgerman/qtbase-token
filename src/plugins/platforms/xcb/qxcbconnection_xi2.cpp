@@ -849,9 +849,6 @@ modifier|*
 name|dev
 decl|,
 name|m_touchDevices
-operator|.
-name|values
-argument_list|()
 control|)
 block|{
 name|mask
