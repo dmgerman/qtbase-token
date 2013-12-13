@@ -168,6 +168,8 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QKdeTheme
 argument_list|)
+name|public
+operator|:
 name|QKdeTheme
 argument_list|(
 argument|const QString&kdeHome
@@ -175,8 +177,6 @@ argument_list|,
 argument|int kdeVersion
 argument_list|)
 block|;
-name|public
-operator|:
 specifier|static
 name|QPlatformTheme
 operator|*
