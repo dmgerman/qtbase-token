@@ -348,6 +348,11 @@ argument_list|()
 block|;
 name|virtual
 name|void
+name|notifyLayoutDirectionChange
+argument_list|()
+block|;
+name|virtual
+name|void
 name|notifyActiveWindowChange
 argument_list|(
 name|QWindow
