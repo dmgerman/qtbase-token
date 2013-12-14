@@ -57,6 +57,14 @@ ifndef|#
 directive|ifndef
 name|QT_NO_PROCESS
 end_ifndef
+begin_include
+include|#
+directive|include
+file|<private/qprocess_p.h>
+end_include
+begin_comment
+comment|// only so we get QPROCESS_USE_SPAWN
+end_comment
 begin_if
 if|#
 directive|if
@@ -1492,6 +1500,20 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|QProcess
@@ -1538,6 +1560,20 @@ literal|"arg2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|QProcess
@@ -4001,6 +4037,20 @@ argument_list|(
 literal|"blurdybloop"
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 operator|!
@@ -8605,6 +8655,16 @@ operator|::
 name|failToStart
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QSKIP
+argument_list|(
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|qRegisterMetaType
 argument_list|<
 name|QProcess
@@ -9068,6 +9128,16 @@ operator|::
 name|failToStartWithWait
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QSKIP
+argument_list|(
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|qRegisterMetaType
 argument_list|<
 name|QProcess
@@ -9294,6 +9364,16 @@ operator|::
 name|failToStartWithEventLoop
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QSKIP
+argument_list|(
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|qRegisterMetaType
 argument_list|<
 name|QProcess
@@ -10790,6 +10870,20 @@ name|waitForReadyRead
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QProcess cannot detect failure to start when using posix_spawn()"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|errorSpy

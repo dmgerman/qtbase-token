@@ -84,11 +84,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qprocess_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qstandardpaths.h>
 end_include
 begin_include
@@ -2835,34 +2830,6 @@ operator|->
 name|appendApplicationPathToLibraryPaths
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_QOBJECT
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-operator|)
-comment|// Make sure the process manager thread object is created in the main
-comment|// thread.
-name|QProcessPrivate
-operator|::
-name|initializeProcessManager
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 ifdef|#
