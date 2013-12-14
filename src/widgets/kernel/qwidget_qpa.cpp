@@ -191,7 +191,7 @@ condition|(
 operator|!
 name|childWidget
 operator|->
-name|windowHandle
+name|internalWinId
 argument_list|()
 condition|)
 name|childWidget
