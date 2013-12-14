@@ -9,21 +9,12 @@ name|defined
 argument_list|(
 name|QSTRING_H
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_BOOTSTRAPPED
-argument_list|)
 end_if
 begin_error
 error|#
 directive|error
 literal|"This file cannot be compiled with pre-compiled headers"
 end_error
-begin_comment
-comment|//       (unless it's configure.exe, which is bootstrapped)
-end_comment
 begin_endif
 endif|#
 directive|endif
