@@ -63,6 +63,13 @@ name|NEWLINE
 value|10
 end_define
 begin_define
+DECL|macro|PARENS_NEST_LIMIT
+define|#
+directive|define
+name|PARENS_NEST_LIMIT
+value|250
+end_define
+begin_define
 DECL|macro|POSIX_MALLOC_THRESHOLD
 define|#
 directive|define

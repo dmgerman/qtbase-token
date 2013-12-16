@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *      Perl-Compatible Regular Expressions       * *************************************************/
 end_comment
 begin_comment
-comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2012 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
 comment|/* This module contains an internal function for validating UTF-16 character strings. */
@@ -40,7 +40,7 @@ begin_comment
 comment|/************************************************* *         Validate a UTF-16 string                * *************************************************/
 end_comment
 begin_comment
-comment|/* This function is called (optionally) at the start of compile or match, to check that a supposed UTF-16 string is actually valid. The early check means that subsequent code can assume it is dealing with a valid string. The check can be turned off for maximum performance, but the consequences of supplying an invalid string are then undefined.  From release 8.21 more information about the details of the error are passed back in the returned value:  PCRE_UTF16_ERR0  No error PCRE_UTF16_ERR1  Missing low surrogate at the end of the string PCRE_UTF16_ERR2  Invalid low surrogate PCRE_UTF16_ERR3  Isolated low surrogate PCRE_UTF16_ERR4  Non-character  Arguments:   string       points to the string   length       length of string, or -1 if the string is zero-terminated   errp         pointer to an error position offset variable  Returns:       = 0    if the string is a valid UTF-16 string> 0    otherwise, setting the offset of the bad character */
+comment|/* This function is called (optionally) at the start of compile or match, to check that a supposed UTF-16 string is actually valid. The early check means that subsequent code can assume it is dealing with a valid string. The check can be turned off for maximum performance, but the consequences of supplying an invalid string are then undefined.  From release 8.21 more information about the details of the error are passed back in the returned value:  PCRE_UTF16_ERR0  No error PCRE_UTF16_ERR1  Missing low surrogate at the end of the string PCRE_UTF16_ERR2  Invalid low surrogate PCRE_UTF16_ERR3  Isolated low surrogate PCRE_UTF16_ERR4  Unused (was non-character)  Arguments:   string       points to the string   length       length of string, or -1 if the string is zero-terminated   errp         pointer to an error position offset variable  Returns:       = 0    if the string is a valid UTF-16 string> 0    otherwise, setting the offset of the bad character */
 end_comment
 begin_function
 name|int
@@ -133,39 +133,6 @@ literal|0xd800
 condition|)
 block|{
 comment|/* Normal UTF-16 code point. Neither high nor low surrogate. */
-comment|/* Check for non-characters */
-if|if
-condition|(
-operator|(
-name|c
-operator|&
-literal|0xfffeu
-operator|)
-operator|==
-literal|0xfffeu
-operator|||
-operator|(
-name|c
-operator|>=
-literal|0xfdd0u
-operator|&&
-name|c
-operator|<=
-literal|0xfdefu
-operator|)
-condition|)
-block|{
-operator|*
-name|erroroffset
-operator|=
-name|p
-operator|-
-name|string
-expr_stmt|;
-return|return
-name|PCRE_UTF16_ERR4
-return|;
-block|}
 block|}
 elseif|else
 if|if
@@ -179,8 +146,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* High surrogate. */
-comment|/* Must be a followed by a low surrogate. */
+comment|/* High surrogate. Must be a followed by a low surrogate. */
 if|if
 condition|(
 name|length
@@ -227,55 +193,6 @@ expr_stmt|;
 return|return
 name|PCRE_UTF16_ERR2
 return|;
-block|}
-else|else
-block|{
-comment|/* Valid surrogate, but check for non-characters */
-name|c
-operator|=
-operator|(
-operator|(
-operator|(
-name|c
-operator|&
-literal|0x3ffu
-operator|)
-operator|<<
-literal|10
-operator|)
-operator||
-operator|(
-operator|*
-name|p
-operator|&
-literal|0x3ffu
-operator|)
-operator|)
-operator|+
-literal|0x10000u
-expr_stmt|;
-if|if
-condition|(
-operator|(
-name|c
-operator|&
-literal|0xfffeu
-operator|)
-operator|==
-literal|0xfffeu
-condition|)
-block|{
-operator|*
-name|erroroffset
-operator|=
-name|p
-operator|-
-name|string
-expr_stmt|;
-return|return
-name|PCRE_UTF16_ERR4
-return|;
-block|}
 block|}
 block|}
 else|else

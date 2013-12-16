@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *      Perl-Compatible Regular Expressions       * *************************************************/
 end_comment
 begin_comment
-comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2012 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
 comment|/* This header contains definitions that are shared between the different modules, but which are not relevant to the exported API. This includes some functions whose names all begin with "_pcre_", "_pcre16_" or "_pcre32_" depending on the PRIV macro. */
@@ -441,6 +441,20 @@ name|short
 name|pcre_int16
 typedef|;
 end_typedef
+begin_define
+DECL|macro|PCRE_UINT16_MAX
+define|#
+directive|define
+name|PCRE_UINT16_MAX
+value|USHRT_MAX
+end_define
+begin_define
+DECL|macro|PCRE_INT16_MAX
+define|#
+directive|define
+name|PCRE_INT16_MAX
+value|SHRT_MAX
+end_define
 begin_elif
 elif|#
 directive|elif
@@ -463,6 +477,20 @@ name|int
 name|pcre_int16
 typedef|;
 end_typedef
+begin_define
+DECL|macro|PCRE_UINT16_MAX
+define|#
+directive|define
+name|PCRE_UINT16_MAX
+value|UINT_MAX
+end_define
+begin_define
+DECL|macro|PCRE_INT16_MAX
+define|#
+directive|define
+name|PCRE_INT16_MAX
+value|INT_MAX
+end_define
 begin_else
 else|#
 directive|else
@@ -470,7 +498,7 @@ end_else
 begin_error
 error|#
 directive|error
-error|Cannot determine a type for 16-bit unsigned integers
+error|Cannot determine a type for 16-bit integers
 end_error
 begin_endif
 endif|#
@@ -481,7 +509,7 @@ if|#
 directive|if
 name|UINT_MAX
 operator|==
-literal|4294967295
+literal|4294967295U
 end_if
 begin_typedef
 DECL|typedef|pcre_uint32
@@ -498,12 +526,26 @@ name|int
 name|pcre_int32
 typedef|;
 end_typedef
+begin_define
+DECL|macro|PCRE_UINT32_MAX
+define|#
+directive|define
+name|PCRE_UINT32_MAX
+value|UINT_MAX
+end_define
+begin_define
+DECL|macro|PCRE_INT32_MAX
+define|#
+directive|define
+name|PCRE_INT32_MAX
+value|INT_MAX
+end_define
 begin_elif
 elif|#
 directive|elif
 name|ULONG_MAX
 operator|==
-literal|4294967295
+literal|4294967295UL
 end_elif
 begin_typedef
 DECL|typedef|pcre_uint32
@@ -522,6 +564,20 @@ name|int
 name|pcre_int32
 typedef|;
 end_typedef
+begin_define
+DECL|macro|PCRE_UINT32_MAX
+define|#
+directive|define
+name|PCRE_UINT32_MAX
+value|ULONG_MAX
+end_define
+begin_define
+DECL|macro|PCRE_INT32_MAX
+define|#
+directive|define
+name|PCRE_INT32_MAX
+value|LONG_MAX
+end_define
 begin_else
 else|#
 directive|else
@@ -529,7 +585,7 @@ end_else
 begin_error
 error|#
 directive|error
-error|Cannot determine a type for 32-bit unsigned integers
+error|Cannot determine a type for 32-bit integers
 end_error
 begin_endif
 endif|#
@@ -3057,14 +3113,14 @@ begin_comment
 comment|/* ------ End of whitespace macros ------ */
 end_comment
 begin_comment
-comment|/* Private flags containing information about the compiled regex. They used to live at the top end of the options word, but that got almost full, so now they are in a 16-bit flags word. From release 8.00, PCRE_NOPARTIAL is unused, as the restrictions on partial matching have been lifted. It remains for backwards compatibility. */
+comment|/* Private flags containing information about the compiled regex. They used to live at the top end of the options word, but that got almost full, so they were moved to a 16-bit flags word - which got almost full, so now they are in a 32-bit flags word. From release 8.00, PCRE_NOPARTIAL is unused, as the restrictions on partial matching have been lifted. It remains for backwards compatibility. */
 end_comment
 begin_define
 DECL|macro|PCRE_MODE8
 define|#
 directive|define
 name|PCRE_MODE8
-value|0x0001
+value|0x00000001
 end_define
 begin_comment
 DECL|macro|PCRE_MODE8
@@ -3075,7 +3131,7 @@ DECL|macro|PCRE_MODE16
 define|#
 directive|define
 name|PCRE_MODE16
-value|0x0002
+value|0x00000002
 end_define
 begin_comment
 DECL|macro|PCRE_MODE16
@@ -3086,7 +3142,7 @@ DECL|macro|PCRE_MODE32
 define|#
 directive|define
 name|PCRE_MODE32
-value|0x0004
+value|0x00000004
 end_define
 begin_comment
 DECL|macro|PCRE_MODE32
@@ -3097,7 +3153,7 @@ DECL|macro|PCRE_FIRSTSET
 define|#
 directive|define
 name|PCRE_FIRSTSET
-value|0x0010
+value|0x00000010
 end_define
 begin_comment
 DECL|macro|PCRE_FIRSTSET
@@ -3108,7 +3164,7 @@ DECL|macro|PCRE_FCH_CASELESS
 define|#
 directive|define
 name|PCRE_FCH_CASELESS
-value|0x0020
+value|0x00000020
 end_define
 begin_comment
 DECL|macro|PCRE_FCH_CASELESS
@@ -3119,7 +3175,7 @@ DECL|macro|PCRE_REQCHSET
 define|#
 directive|define
 name|PCRE_REQCHSET
-value|0x0040
+value|0x00000040
 end_define
 begin_comment
 DECL|macro|PCRE_REQCHSET
@@ -3130,7 +3186,7 @@ DECL|macro|PCRE_RCH_CASELESS
 define|#
 directive|define
 name|PCRE_RCH_CASELESS
-value|0x0080
+value|0x00000080
 end_define
 begin_comment
 DECL|macro|PCRE_RCH_CASELESS
@@ -3141,7 +3197,7 @@ DECL|macro|PCRE_STARTLINE
 define|#
 directive|define
 name|PCRE_STARTLINE
-value|0x0100
+value|0x00000100
 end_define
 begin_comment
 DECL|macro|PCRE_STARTLINE
@@ -3152,7 +3208,7 @@ DECL|macro|PCRE_NOPARTIAL
 define|#
 directive|define
 name|PCRE_NOPARTIAL
-value|0x0200
+value|0x00000200
 end_define
 begin_comment
 DECL|macro|PCRE_NOPARTIAL
@@ -3163,7 +3219,7 @@ DECL|macro|PCRE_JCHANGED
 define|#
 directive|define
 name|PCRE_JCHANGED
-value|0x0400
+value|0x00000400
 end_define
 begin_comment
 DECL|macro|PCRE_JCHANGED
@@ -3174,7 +3230,7 @@ DECL|macro|PCRE_HASCRORLF
 define|#
 directive|define
 name|PCRE_HASCRORLF
-value|0x0800
+value|0x00000800
 end_define
 begin_comment
 DECL|macro|PCRE_HASCRORLF
@@ -3185,11 +3241,44 @@ DECL|macro|PCRE_HASTHEN
 define|#
 directive|define
 name|PCRE_HASTHEN
-value|0x1000
+value|0x00001000
 end_define
 begin_comment
 DECL|macro|PCRE_HASTHEN
 comment|/* pattern contains (*THEN) */
+end_comment
+begin_define
+DECL|macro|PCRE_MLSET
+define|#
+directive|define
+name|PCRE_MLSET
+value|0x00002000
+end_define
+begin_comment
+DECL|macro|PCRE_MLSET
+comment|/* match limit set by regex */
+end_comment
+begin_define
+DECL|macro|PCRE_RLSET
+define|#
+directive|define
+name|PCRE_RLSET
+value|0x00004000
+end_define
+begin_comment
+DECL|macro|PCRE_RLSET
+comment|/* recursion limit set by regex */
+end_comment
+begin_define
+DECL|macro|PCRE_MATCH_EMPTY
+define|#
+directive|define
+name|PCRE_MATCH_EMPTY
+value|0x00008000
+end_define
+begin_comment
+DECL|macro|PCRE_MATCH_EMPTY
+comment|/* pattern can match empty string */
 end_comment
 begin_if
 if|#
@@ -3282,7 +3371,7 @@ define|#
 directive|define
 name|PUBLIC_COMPILE_OPTIONS
 define|\
-value|(PCRE_CASELESS|PCRE_EXTENDED|PCRE_ANCHORED|PCRE_MULTILINE| \    PCRE_DOTALL|PCRE_DOLLAR_ENDONLY|PCRE_EXTRA|PCRE_UNGREEDY|PCRE_UTF8| \    PCRE_NO_AUTO_CAPTURE|PCRE_NO_UTF8_CHECK|PCRE_AUTO_CALLOUT|PCRE_FIRSTLINE| \    PCRE_DUPNAMES|PCRE_NEWLINE_BITS|PCRE_BSR_ANYCRLF|PCRE_BSR_UNICODE| \    PCRE_JAVASCRIPT_COMPAT|PCRE_UCP|PCRE_NO_START_OPTIMIZE)
+value|(PCRE_CASELESS|PCRE_EXTENDED|PCRE_ANCHORED|PCRE_MULTILINE| \    PCRE_DOTALL|PCRE_DOLLAR_ENDONLY|PCRE_EXTRA|PCRE_UNGREEDY|PCRE_UTF8| \    PCRE_NO_AUTO_CAPTURE|PCRE_NO_AUTO_POSSESS| \    PCRE_NO_UTF8_CHECK|PCRE_AUTO_CALLOUT|PCRE_FIRSTLINE| \    PCRE_DUPNAMES|PCRE_NEWLINE_BITS|PCRE_BSR_ANYCRLF|PCRE_BSR_UNICODE| \    PCRE_JAVASCRIPT_COMPAT|PCRE_UCP|PCRE_NO_START_OPTIMIZE|PCRE_NEVER_UTF)
 end_define
 begin_define
 DECL|macro|PUBLIC_EXEC_OPTIONS
@@ -5187,6 +5276,20 @@ name|STRING_DEFINE
 value|"DEFINE"
 end_define
 begin_define
+DECL|macro|STRING_WEIRD_STARTWORD
+define|#
+directive|define
+name|STRING_WEIRD_STARTWORD
+value|"[:<:]]"
+end_define
+begin_define
+DECL|macro|STRING_WEIRD_ENDWORD
+define|#
+directive|define
+name|STRING_WEIRD_ENDWORD
+value|"[:>:]]"
+end_define
+begin_define
 DECL|macro|STRING_CR_RIGHTPAR
 define|#
 directive|define
@@ -5271,11 +5374,32 @@ name|STRING_UCP_RIGHTPAR
 value|"UCP)"
 end_define
 begin_define
+DECL|macro|STRING_NO_AUTO_POSSESS_RIGHTPAR
+define|#
+directive|define
+name|STRING_NO_AUTO_POSSESS_RIGHTPAR
+value|"NO_AUTO_POSSESS)"
+end_define
+begin_define
 DECL|macro|STRING_NO_START_OPT_RIGHTPAR
 define|#
 directive|define
 name|STRING_NO_START_OPT_RIGHTPAR
 value|"NO_START_OPT)"
+end_define
+begin_define
+DECL|macro|STRING_LIMIT_MATCH_EQ
+define|#
+directive|define
+name|STRING_LIMIT_MATCH_EQ
+value|"LIMIT_MATCH="
+end_define
+begin_define
+DECL|macro|STRING_LIMIT_RECURSION_EQ
+define|#
+directive|define
+name|STRING_LIMIT_RECURSION_EQ
+value|"LIMIT_RECURSION="
 end_define
 begin_else
 else|#
@@ -6926,6 +7050,20 @@ name|STRING_DEFINE
 value|STR_D STR_E STR_F STR_I STR_N STR_E
 end_define
 begin_define
+DECL|macro|STRING_WEIRD_STARTWORD
+define|#
+directive|define
+name|STRING_WEIRD_STARTWORD
+value|STR_LEFT_SQUARE_BRACKET STR_COLON STR_LESS_THAN_SIGN STR_COLON STR_RIGHT_SQUARE_BRACKET STR_RIGHT_SQUARE_BRACKET
+end_define
+begin_define
+DECL|macro|STRING_WEIRD_ENDWORD
+define|#
+directive|define
+name|STRING_WEIRD_ENDWORD
+value|STR_LEFT_SQUARE_BRACKET STR_COLON STR_GREATER_THAN_SIGN STR_COLON STR_RIGHT_SQUARE_BRACKET STR_RIGHT_SQUARE_BRACKET
+end_define
+begin_define
 DECL|macro|STRING_CR_RIGHTPAR
 define|#
 directive|define
@@ -7010,11 +7148,32 @@ name|STRING_UCP_RIGHTPAR
 value|STR_U STR_C STR_P STR_RIGHT_PARENTHESIS
 end_define
 begin_define
+DECL|macro|STRING_NO_AUTO_POSSESS_RIGHTPAR
+define|#
+directive|define
+name|STRING_NO_AUTO_POSSESS_RIGHTPAR
+value|STR_N STR_O STR_UNDERSCORE STR_A STR_U STR_T STR_O STR_UNDERSCORE STR_P STR_O STR_S STR_S STR_E STR_S STR_S STR_RIGHT_PARENTHESIS
+end_define
+begin_define
 DECL|macro|STRING_NO_START_OPT_RIGHTPAR
 define|#
 directive|define
 name|STRING_NO_START_OPT_RIGHTPAR
 value|STR_N STR_O STR_UNDERSCORE STR_S STR_T STR_A STR_R STR_T STR_UNDERSCORE STR_O STR_P STR_T STR_RIGHT_PARENTHESIS
+end_define
+begin_define
+DECL|macro|STRING_LIMIT_MATCH_EQ
+define|#
+directive|define
+name|STRING_LIMIT_MATCH_EQ
+value|STR_L STR_I STR_M STR_I STR_T STR_UNDERSCORE STR_M STR_A STR_T STR_C STR_H STR_EQUALS_SIGN
+end_define
+begin_define
+DECL|macro|STRING_LIMIT_RECURSION_EQ
+define|#
+directive|define
+name|STRING_LIMIT_RECURSION_EQ
+value|STR_L STR_I STR_M STR_I STR_T STR_UNDERSCORE STR_R STR_E STR_C STR_U STR_R STR_S STR_I STR_O STR_N STR_EQUALS_SIGN
 end_define
 begin_endif
 endif|#
@@ -7222,6 +7381,64 @@ begin_comment
 DECL|macro|PT_CLIST
 comment|/* Pseudo-property: match character list */
 end_comment
+begin_define
+DECL|macro|PT_UCNC
+define|#
+directive|define
+name|PT_UCNC
+value|10
+end_define
+begin_comment
+DECL|macro|PT_UCNC
+comment|/* Universal Character nameable character */
+end_comment
+begin_define
+DECL|macro|PT_TABSIZE
+define|#
+directive|define
+name|PT_TABSIZE
+value|11
+end_define
+begin_comment
+DECL|macro|PT_TABSIZE
+comment|/* Size of square table for autopossessify tests */
+end_comment
+begin_comment
+comment|/* The following special properties are used only in XCLASS items, when POSIX classes are specified and PCRE_UCP is set - in other words, for Unicode handling of these classes. They are not available via the \p or \P escapes like those in the above list, and so they do not take part in the autopossessifying table. */
+end_comment
+begin_define
+DECL|macro|PT_PXGRAPH
+define|#
+directive|define
+name|PT_PXGRAPH
+value|11
+end_define
+begin_comment
+DECL|macro|PT_PXGRAPH
+comment|/* [:graph:] - characters that mark the paper */
+end_comment
+begin_define
+DECL|macro|PT_PXPRINT
+define|#
+directive|define
+name|PT_PXPRINT
+value|12
+end_define
+begin_comment
+DECL|macro|PT_PXPRINT
+comment|/* [:print:] - [:graph:] plus non-control spaces */
+end_comment
+begin_define
+DECL|macro|PT_PXPUNCT
+define|#
+directive|define
+name|PT_PXPUNCT
+value|13
+end_define
+begin_comment
+DECL|macro|PT_PXPUNCT
+comment|/* [:punct:] - punctuation characters */
+end_comment
 begin_comment
 comment|/* Flag bits and data types for the extended class (OP_XCLASS) for classes that contain characters with values greater than 255. */
 end_comment
@@ -7415,8 +7632,35 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/* Opcode table: Starting from 1 (i.e. after OP_END), the values up to OP_EOD must correspond in order to the list of escapes immediately above.  *** NOTE NOTE NOTE *** Whenever this list is updated, the two macro definitions that follow must also be updated to match. There are also tables called "coptable" and "poptable" in pcre_dfa_exec.c that must be updated. */
+comment|/********************** Opcode definitions ******************/
 end_comment
+begin_comment
+comment|/****** NOTE NOTE NOTE ******  Starting from 1 (i.e. after OP_END), the values up to OP_EOD must correspond in order to the list of escapes immediately above. Furthermore, values up to OP_DOLLM must not be changed without adjusting the table called autoposstab in pcre_compile.c  Whenever this list is updated, the two macro definitions that follow must be updated to match. The possessification table called "opcode_possessify" in pcre_compile.c must also be updated, and also the tables called "coptable" and "poptable" in pcre_dfa_exec.c.  ****** NOTE NOTE NOTE ******/
+end_comment
+begin_comment
+comment|/* The values between FIRST_AUTOTAB_OP and LAST_AUTOTAB_RIGHT_OP, inclusive, are used in a table for deciding whether a repeated character type can be auto-possessified. */
+end_comment
+begin_define
+DECL|macro|FIRST_AUTOTAB_OP
+define|#
+directive|define
+name|FIRST_AUTOTAB_OP
+value|OP_NOT_DIGIT
+end_define
+begin_define
+DECL|macro|LAST_AUTOTAB_LEFT_OP
+define|#
+directive|define
+name|LAST_AUTOTAB_LEFT_OP
+value|OP_EXTUNI
+end_define
+begin_define
+DECL|macro|LAST_AUTOTAB_RIGHT_OP
+define|#
+directive|define
+name|LAST_AUTOTAB_RIGHT_OP
+value|OP_DOLLM
+end_define
 begin_enum
 enum|enum
 block|{
@@ -7521,22 +7765,24 @@ DECL|enumerator|OP_EOD
 name|OP_EOD
 block|,
 comment|/* 24 End of data (\z) */
-DECL|enumerator|OP_CIRC
-name|OP_CIRC
-block|,
-comment|/* 25 Start of line - not multiline */
-DECL|enumerator|OP_CIRCM
-name|OP_CIRCM
-block|,
-comment|/* 26 Start of line - multiline */
+comment|/* Line end assertions */
 DECL|enumerator|OP_DOLL
 name|OP_DOLL
 block|,
-comment|/* 27 End of line - not multiline */
+comment|/* 25 End of line - not multiline */
 DECL|enumerator|OP_DOLLM
 name|OP_DOLLM
 block|,
-comment|/* 28 End of line - multiline */
+comment|/* 26 End of line - multiline */
+DECL|enumerator|OP_CIRC
+name|OP_CIRC
+block|,
+comment|/* 27 Start of line - not multiline */
+DECL|enumerator|OP_CIRCM
+name|OP_CIRCM
+block|,
+comment|/* 28 Start of line - multiline */
+comment|/* Single characters; caseful must precede the caseless ones */
 DECL|enumerator|OP_CHAR
 name|OP_CHAR
 block|,
@@ -7554,7 +7800,7 @@ name|OP_NOTI
 block|,
 comment|/* 32 Match one character, not the given one, caselessly */
 comment|/* The following sets of 13 opcodes must always be kept in step because   the offset from the first one is used to generate the others. */
-comment|/**** Single characters, caseful, must precede the caseless ones ****/
+comment|/* Repeated characters; caseful must precede the caseless ones */
 DECL|enumerator|OP_STAR
 name|OP_STAR
 block|,
@@ -7607,7 +7853,7 @@ DECL|enumerator|OP_POSUPTO
 name|OP_POSUPTO
 block|,
 comment|/* 45 Possessified upto, caseful */
-comment|/**** Single characters, caseless, must follow the caseful ones */
+comment|/* Repeated characters; caseless must follow the caseful ones */
 DECL|enumerator|OP_STARI
 name|OP_STARI
 block|,
@@ -7660,8 +7906,8 @@ DECL|enumerator|OP_POSUPTOI
 name|OP_POSUPTOI
 block|,
 comment|/* 58 Possessified upto, caseless */
-comment|/**** The negated ones must follow the non-negated ones, and match them ****/
-comment|/**** Negated single character, caseful; must precede the caseless ones ****/
+comment|/* The negated ones must follow the non-negated ones, and match them */
+comment|/* Negated repeated character, caseful; must precede the caseless ones */
 DECL|enumerator|OP_NOTSTAR
 name|OP_NOTSTAR
 block|,
@@ -7714,7 +7960,7 @@ DECL|enumerator|OP_NOTPOSUPTO
 name|OP_NOTPOSUPTO
 block|,
 comment|/* 71 */
-comment|/**** Negated single character, caseless; must follow the caseful ones ****/
+comment|/* Negated repeated character, caseless; must follow the caseful ones */
 DECL|enumerator|OP_NOTSTARI
 name|OP_NOTSTARI
 block|,
@@ -7767,7 +8013,7 @@ DECL|enumerator|OP_NOTPOSUPTOI
 name|OP_NOTPOSUPTOI
 block|,
 comment|/* 84 */
-comment|/**** Character types ****/
+comment|/* Character types */
 DECL|enumerator|OP_TYPESTAR
 name|OP_TYPESTAR
 block|,
@@ -7853,214 +8099,238 @@ DECL|enumerator|OP_CRMINRANGE
 name|OP_CRMINRANGE
 block|,
 comment|/* 105 */
+DECL|enumerator|OP_CRPOSSTAR
+name|OP_CRPOSSTAR
+block|,
+comment|/* 106 Possessified versions */
+DECL|enumerator|OP_CRPOSPLUS
+name|OP_CRPOSPLUS
+block|,
+comment|/* 107 */
+DECL|enumerator|OP_CRPOSQUERY
+name|OP_CRPOSQUERY
+block|,
+comment|/* 108 */
+DECL|enumerator|OP_CRPOSRANGE
+name|OP_CRPOSRANGE
+block|,
+comment|/* 109 */
 comment|/* End of quantifier opcodes */
 DECL|enumerator|OP_CLASS
 name|OP_CLASS
 block|,
-comment|/* 106 Match a character class, chars< 256 only */
+comment|/* 110 Match a character class, chars< 256 only */
 DECL|enumerator|OP_NCLASS
 name|OP_NCLASS
 block|,
-comment|/* 107 Same, but the bitmap was created from a negative                               class - the difference is relevant only when a                               character> 255 is encountered. */
+comment|/* 111 Same, but the bitmap was created from a negative                               class - the difference is relevant only when a                               character> 255 is encountered. */
 DECL|enumerator|OP_XCLASS
 name|OP_XCLASS
 block|,
-comment|/* 108 Extended class for handling> 255 chars within the                               class. This does both positive and negative. */
+comment|/* 112 Extended class for handling> 255 chars within the                               class. This does both positive and negative. */
 DECL|enumerator|OP_REF
 name|OP_REF
 block|,
-comment|/* 109 Match a back reference, casefully */
+comment|/* 113 Match a back reference, casefully */
 DECL|enumerator|OP_REFI
 name|OP_REFI
 block|,
-comment|/* 110 Match a back reference, caselessly */
+comment|/* 114 Match a back reference, caselessly */
+DECL|enumerator|OP_DNREF
+name|OP_DNREF
+block|,
+comment|/* 115 Match a duplicate name backref, casefully */
+DECL|enumerator|OP_DNREFI
+name|OP_DNREFI
+block|,
+comment|/* 116 Match a duplicate name backref, caselessly */
 DECL|enumerator|OP_RECURSE
 name|OP_RECURSE
 block|,
-comment|/* 111 Match a numbered subpattern (possibly recursive) */
+comment|/* 117 Match a numbered subpattern (possibly recursive) */
 DECL|enumerator|OP_CALLOUT
 name|OP_CALLOUT
 block|,
-comment|/* 112 Call out to external function if provided */
+comment|/* 118 Call out to external function if provided */
 DECL|enumerator|OP_ALT
 name|OP_ALT
 block|,
-comment|/* 113 Start of alternation */
+comment|/* 119 Start of alternation */
 DECL|enumerator|OP_KET
 name|OP_KET
 block|,
-comment|/* 114 End of group that doesn't have an unbounded repeat */
+comment|/* 120 End of group that doesn't have an unbounded repeat */
 DECL|enumerator|OP_KETRMAX
 name|OP_KETRMAX
 block|,
-comment|/* 115 These two must remain together and in this */
+comment|/* 121 These two must remain together and in this */
 DECL|enumerator|OP_KETRMIN
 name|OP_KETRMIN
 block|,
-comment|/* 116 order. They are for groups the repeat for ever. */
+comment|/* 122 order. They are for groups the repeat for ever. */
 DECL|enumerator|OP_KETRPOS
 name|OP_KETRPOS
 block|,
-comment|/* 117 Possessive unlimited repeat. */
+comment|/* 123 Possessive unlimited repeat. */
 comment|/* The assertions must come before BRA, CBRA, ONCE, and COND, and the four   asserts must remain in order. */
 DECL|enumerator|OP_REVERSE
 name|OP_REVERSE
 block|,
-comment|/* 118 Move pointer back - used in lookbehind assertions */
+comment|/* 124 Move pointer back - used in lookbehind assertions */
 DECL|enumerator|OP_ASSERT
 name|OP_ASSERT
 block|,
-comment|/* 119 Positive lookahead */
+comment|/* 125 Positive lookahead */
 DECL|enumerator|OP_ASSERT_NOT
 name|OP_ASSERT_NOT
 block|,
-comment|/* 120 Negative lookahead */
+comment|/* 126 Negative lookahead */
 DECL|enumerator|OP_ASSERTBACK
 name|OP_ASSERTBACK
 block|,
-comment|/* 121 Positive lookbehind */
+comment|/* 127 Positive lookbehind */
 DECL|enumerator|OP_ASSERTBACK_NOT
 name|OP_ASSERTBACK_NOT
 block|,
-comment|/* 122 Negative lookbehind */
+comment|/* 128 Negative lookbehind */
 comment|/* ONCE, ONCE_NC, BRA, BRAPOS, CBRA, CBRAPOS, and COND must come immediately   after the assertions, with ONCE first, as there's a test for>= ONCE for a   subpattern that isn't an assertion. The POS versions must immediately follow   the non-POS versions in each case. */
 DECL|enumerator|OP_ONCE
 name|OP_ONCE
 block|,
-comment|/* 123 Atomic group, contains captures */
+comment|/* 129 Atomic group, contains captures */
 DECL|enumerator|OP_ONCE_NC
 name|OP_ONCE_NC
 block|,
-comment|/* 124 Atomic group containing no captures */
+comment|/* 130 Atomic group containing no captures */
 DECL|enumerator|OP_BRA
 name|OP_BRA
 block|,
-comment|/* 125 Start of non-capturing bracket */
+comment|/* 131 Start of non-capturing bracket */
 DECL|enumerator|OP_BRAPOS
 name|OP_BRAPOS
 block|,
-comment|/* 126 Ditto, with unlimited, possessive repeat */
+comment|/* 132 Ditto, with unlimited, possessive repeat */
 DECL|enumerator|OP_CBRA
 name|OP_CBRA
 block|,
-comment|/* 127 Start of capturing bracket */
+comment|/* 133 Start of capturing bracket */
 DECL|enumerator|OP_CBRAPOS
 name|OP_CBRAPOS
 block|,
-comment|/* 128 Ditto, with unlimited, possessive repeat */
+comment|/* 134 Ditto, with unlimited, possessive repeat */
 DECL|enumerator|OP_COND
 name|OP_COND
 block|,
-comment|/* 129 Conditional group */
+comment|/* 135 Conditional group */
 comment|/* These five must follow the previous five, in the same order. There's a   check for>= SBRA to distinguish the two sets. */
 DECL|enumerator|OP_SBRA
 name|OP_SBRA
 block|,
-comment|/* 130 Start of non-capturing bracket, check empty  */
+comment|/* 136 Start of non-capturing bracket, check empty  */
 DECL|enumerator|OP_SBRAPOS
 name|OP_SBRAPOS
 block|,
-comment|/* 131 Ditto, with unlimited, possessive repeat */
+comment|/* 137 Ditto, with unlimited, possessive repeat */
 DECL|enumerator|OP_SCBRA
 name|OP_SCBRA
 block|,
-comment|/* 132 Start of capturing bracket, check empty */
+comment|/* 138 Start of capturing bracket, check empty */
 DECL|enumerator|OP_SCBRAPOS
 name|OP_SCBRAPOS
 block|,
-comment|/* 133 Ditto, with unlimited, possessive repeat */
+comment|/* 139 Ditto, with unlimited, possessive repeat */
 DECL|enumerator|OP_SCOND
 name|OP_SCOND
 block|,
-comment|/* 134 Conditional group, check empty */
+comment|/* 140 Conditional group, check empty */
 comment|/* The next two pairs must (respectively) be kept together. */
 DECL|enumerator|OP_CREF
 name|OP_CREF
 block|,
-comment|/* 135 Used to hold a capture number as condition */
-DECL|enumerator|OP_NCREF
-name|OP_NCREF
+comment|/* 141 Used to hold a capture number as condition */
+DECL|enumerator|OP_DNCREF
+name|OP_DNCREF
 block|,
-comment|/* 136 Same, but generated by a name reference*/
+comment|/* 142 Used to point to duplicate names as a condition */
 DECL|enumerator|OP_RREF
 name|OP_RREF
 block|,
-comment|/* 137 Used to hold a recursion number as condition */
-DECL|enumerator|OP_NRREF
-name|OP_NRREF
+comment|/* 143 Used to hold a recursion number as condition */
+DECL|enumerator|OP_DNRREF
+name|OP_DNRREF
 block|,
-comment|/* 138 Same, but generated by a name reference*/
+comment|/* 144 Used to point to duplicate names as a condition */
 DECL|enumerator|OP_DEF
 name|OP_DEF
 block|,
-comment|/* 139 The DEFINE condition */
+comment|/* 145 The DEFINE condition */
 DECL|enumerator|OP_BRAZERO
 name|OP_BRAZERO
 block|,
-comment|/* 140 These two must remain together and in this */
+comment|/* 146 These two must remain together and in this */
 DECL|enumerator|OP_BRAMINZERO
 name|OP_BRAMINZERO
 block|,
-comment|/* 141 order. */
+comment|/* 147 order. */
 DECL|enumerator|OP_BRAPOSZERO
 name|OP_BRAPOSZERO
 block|,
-comment|/* 142 */
+comment|/* 148 */
 comment|/* These are backtracking control verbs */
 DECL|enumerator|OP_MARK
 name|OP_MARK
 block|,
-comment|/* 143 always has an argument */
+comment|/* 149 always has an argument */
 DECL|enumerator|OP_PRUNE
 name|OP_PRUNE
 block|,
-comment|/* 144 */
+comment|/* 150 */
 DECL|enumerator|OP_PRUNE_ARG
 name|OP_PRUNE_ARG
 block|,
-comment|/* 145 same, but with argument */
+comment|/* 151 same, but with argument */
 DECL|enumerator|OP_SKIP
 name|OP_SKIP
 block|,
-comment|/* 146 */
+comment|/* 152 */
 DECL|enumerator|OP_SKIP_ARG
 name|OP_SKIP_ARG
 block|,
-comment|/* 147 same, but with argument */
+comment|/* 153 same, but with argument */
 DECL|enumerator|OP_THEN
 name|OP_THEN
 block|,
-comment|/* 148 */
+comment|/* 154 */
 DECL|enumerator|OP_THEN_ARG
 name|OP_THEN_ARG
 block|,
-comment|/* 149 same, but with argument */
+comment|/* 155 same, but with argument */
 DECL|enumerator|OP_COMMIT
 name|OP_COMMIT
 block|,
-comment|/* 150 */
+comment|/* 156 */
 comment|/* These are forced failure and success verbs */
 DECL|enumerator|OP_FAIL
 name|OP_FAIL
 block|,
-comment|/* 151 */
+comment|/* 157 */
 DECL|enumerator|OP_ACCEPT
 name|OP_ACCEPT
 block|,
-comment|/* 152 */
+comment|/* 158 */
 DECL|enumerator|OP_ASSERT_ACCEPT
 name|OP_ASSERT_ACCEPT
 block|,
-comment|/* 153 Used inside assertions */
+comment|/* 159 Used inside assertions */
 DECL|enumerator|OP_CLOSE
 name|OP_CLOSE
 block|,
-comment|/* 154 Used before OP_ACCEPT to close open captures */
+comment|/* 160 Used before OP_ACCEPT to close open captures */
 comment|/* This is used to skip a subpattern with a {0} quantifier */
 DECL|enumerator|OP_SKIPZERO
 name|OP_SKIPZERO
 block|,
-comment|/* 155 */
+comment|/* 161 */
 comment|/* This is not an opcode, but is used to check that tables indexed by opcode   are the correct length, in order to catch updating errors - there have been   some in the past. */
 DECL|enumerator|OP_TABLE_LENGTH
 name|OP_TABLE_LENGTH
@@ -8068,7 +8338,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/* *** NOTE NOTE NOTE *** Whenever the list above is updated, the two macro definitions that follow must also be updated to match. There are also tables called "coptable" and "poptable" in pcre_dfa_exec.c that must be updated. */
+comment|/* *** NOTE NOTE NOTE *** Whenever the list above is updated, the two macro definitions that follow must also be updated to match. There are also tables called "opcode_possessify" in pcre_compile.c and "coptable" and "poptable" in pcre_dfa_exec.c that must be updated. */
 end_comment
 begin_comment
 comment|/* This macro defines textual names for all the opcodes. These are used only for debugging, and some of them are only partial names. The macro is referenced only in pcre_printint.c, which fills out the full names in many cases (and in some cases doesn't actually use these names at all). */
@@ -8079,7 +8349,7 @@ define|#
 directive|define
 name|OP_NAME_LIST
 define|\
-value|"End", "\\A", "\\G", "\\K", "\\B", "\\b", "\\D", "\\d",         \   "\\S", "\\s", "\\W", "\\w", "Any", "AllAny", "Anybyte",         \   "notprop", "prop", "\\R", "\\H", "\\h", "\\V", "\\v",           \   "extuni",  "\\Z", "\\z",                                        \   "^", "^", "$", "$", "char", "chari", "not", "noti",             \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??", "{", "{", "{",                 \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??", "{", "{",                      \   "class", "nclass", "xclass", "Ref", "Refi",                     \   "Recurse", "Callout",                                           \   "Alt", "Ket", "KetRmax", "KetRmin", "KetRpos",                  \   "Reverse", "Assert", "Assert not", "AssertB", "AssertB not",    \   "Once", "Once_NC",                                              \   "Bra", "BraPos", "CBra", "CBraPos",                             \   "Cond",                                                         \   "SBra", "SBraPos", "SCBra", "SCBraPos",                         \   "SCond",                                                        \   "Cond ref", "Cond nref", "Cond rec", "Cond nrec", "Cond def",   \   "Brazero", "Braminzero", "Braposzero",                          \   "*MARK", "*PRUNE", "*PRUNE", "*SKIP", "*SKIP",                  \   "*THEN", "*THEN", "*COMMIT", "*FAIL",                           \   "*ACCEPT", "*ASSERT_ACCEPT",                                    \   "Close", "Skip zero"
+value|"End", "\\A", "\\G", "\\K", "\\B", "\\b", "\\D", "\\d",         \   "\\S", "\\s", "\\W", "\\w", "Any", "AllAny", "Anybyte",         \   "notprop", "prop", "\\R", "\\H", "\\h", "\\V", "\\v",           \   "extuni",  "\\Z", "\\z",                                        \   "$", "$", "^", "^", "char", "chari", "not", "noti",             \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??",                                \   "{", "{", "{",                                                  \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??", "{", "{", "{",                 \   "*+","++", "?+", "{",                                           \   "*", "*?", "+", "+?", "?", "??", "{", "{",                      \   "*+","++", "?+", "{",                                           \   "class", "nclass", "xclass", "Ref", "Refi", "DnRef", "DnRefi",  \   "Recurse", "Callout",                                           \   "Alt", "Ket", "KetRmax", "KetRmin", "KetRpos",                  \   "Reverse", "Assert", "Assert not", "AssertB", "AssertB not",    \   "Once", "Once_NC",                                              \   "Bra", "BraPos", "CBra", "CBraPos",                             \   "Cond",                                                         \   "SBra", "SBraPos", "SCBra", "SCBraPos",                         \   "SCond",                                                        \   "Cond ref", "Cond dnref", "Cond rec", "Cond dnrec", "Cond def", \   "Brazero", "Braminzero", "Braposzero",                          \   "*MARK", "*PRUNE", "*PRUNE", "*SKIP", "*SKIP",                  \   "*THEN", "*THEN", "*COMMIT", "*FAIL",                           \   "*ACCEPT", "*ASSERT_ACCEPT",                                    \   "Close", "Skip zero"
 end_define
 begin_comment
 comment|/* This macro defines the length of fixed length operations in the compiled regex. The lengths are used when searching for specific things, and also in the debugging printing of a compiled regex. We use a macro so that it can be defined close to the definitions of the opcodes themselves.  As things have been extended, some of these are no longer fixed lenths, but are minima instead. For example, the length of a single-character repeat may vary in UTF-8 mode. The code that uses this table must know about such things. */
@@ -8105,7 +8375,7 @@ comment|/* \R, \H, \h, \V, \v                     */
 value|\   1,
 comment|/* \X                                     */
 value|\   1, 1, 1, 1, 1, 1,
-comment|/* \Z, \z, ^, ^M, $, $M                   */
+comment|/* \Z, \z, $, $M ^, ^M                    */
 value|\   2,
 comment|/* Char  - the minimum length             */
 value|\   2,
@@ -8166,6 +8436,8 @@ value|\   1, 1, 1, 1, 1, 1,
 comment|/* *, *?, +, +?, ?, ??                    */
 value|\   1+2*IMM2_SIZE, 1+2*IMM2_SIZE,
 comment|/* CRRANGE, CRMINRANGE                    */
+value|\   1, 1, 1, 1+2*IMM2_SIZE,
+comment|/* Possessive *+, ++, ?+, CRPOSRANGE      */
 value|\   1+(32/sizeof(pcre_uchar)),
 comment|/* CLASS                                  */
 value|\   1+(32/sizeof(pcre_uchar)),
@@ -8176,6 +8448,10 @@ value|\   1+IMM2_SIZE,
 comment|/* REF                                    */
 value|\   1+IMM2_SIZE,
 comment|/* REFI                                   */
+value|\   1+2*IMM2_SIZE,
+comment|/* DNREF                                  */
+value|\   1+2*IMM2_SIZE,
+comment|/* DNREFI                                 */
 value|\   1+LINK_SIZE,
 comment|/* RECURSE                                */
 value|\   2+2*LINK_SIZE,
@@ -8224,10 +8500,10 @@ value|\   1+LINK_SIZE+IMM2_SIZE,
 comment|/* SCBRAPOS                               */
 value|\   1+LINK_SIZE,
 comment|/* SCOND                                  */
-value|\   1+IMM2_SIZE, 1+IMM2_SIZE,
-comment|/* CREF, NCREF                            */
-value|\   1+IMM2_SIZE, 1+IMM2_SIZE,
-comment|/* RREF, NRREF                            */
+value|\   1+IMM2_SIZE, 1+2*IMM2_SIZE,
+comment|/* CREF, DNCREF                           */
+value|\   1+IMM2_SIZE, 1+2*IMM2_SIZE,
+comment|/* RREF, DNRREF                           */
 value|\   1,
 comment|/* DEF                                    */
 value|\   1, 1, 1,
@@ -8246,7 +8522,7 @@ begin_comment
 comment|/* CLOSE, SKIPZERO                        */
 end_comment
 begin_comment
-comment|/* A magic value for OP_RREF and OP_NRREF to indicate the "any recursion" condition. */
+comment|/* A magic value for OP_RREF to indicate the "any recursion" condition. */
 end_comment
 begin_define
 DECL|macro|RREF_ANY
@@ -8479,7 +8755,8 @@ DECL|enumerator|ERR74
 DECL|enumerator|ERR75
 DECL|enumerator|ERR76
 DECL|enumerator|ERR77
-DECL|enumerator|ERRCOUNT
+DECL|enumerator|ERR78
+DECL|enumerator|ERR79
 name|ERR70
 block|,
 name|ERR71
@@ -8495,6 +8772,26 @@ block|,
 name|ERR76
 block|,
 name|ERR77
+block|,
+name|ERR78
+block|,
+name|ERR79
+block|,
+DECL|enumerator|ERR80
+DECL|enumerator|ERR81
+DECL|enumerator|ERR82
+DECL|enumerator|ERR83
+DECL|enumerator|ERR84
+DECL|enumerator|ERRCOUNT
+name|ERR80
+block|,
+name|ERR81
+block|,
+name|ERR82
+block|,
+name|ERR83
+block|,
+name|ERR84
 block|,
 name|ERRCOUNT
 block|}
@@ -8521,53 +8818,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/* The real format of the start of the pcre block; the index of names and the code vector run on as long as necessary after the end. We store an explicit offset to the name table so that if a regex is compiled on one host, saved, and then run on another where the size of pointers is different, all might still be well. For the case of compiled-on-4 and run-on-8, we include an extra pointer that is always NULL. For future-proofing, a few dummy fields were originally included - even though you can never get this planning right - but there is only one left now.  NOTE NOTE NOTE: Because people can now save and re-use compiled patterns, any additions to this structure should be made at the end, and something earlier (e.g. a new flag in the options or one of the dummy fields) should indicate that the new fields are present. Currently PCRE always sets the dummy fields to zero. NOTE NOTE NOTE */
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-name|COMPILE_PCRE8
-end_if
-begin_define
-DECL|macro|REAL_PCRE
-define|#
-directive|define
-name|REAL_PCRE
-value|real_pcre
-end_define
-begin_elif
-elif|#
-directive|elif
-name|defined
-name|COMPILE_PCRE16
-end_elif
-begin_define
-DECL|macro|REAL_PCRE
-define|#
-directive|define
-name|REAL_PCRE
-value|real_pcre16
-end_define
-begin_elif
-elif|#
-directive|elif
-name|defined
-name|COMPILE_PCRE32
-end_elif
-begin_define
-DECL|macro|REAL_PCRE
-define|#
-directive|define
-name|REAL_PCRE
-value|real_pcre32
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* It is necessary to fork the struct for 32 bit, since it needs to use  * pcre_uchar for first_char and req_char. Can't put an ifdef inside the  * typedef since pcretest needs access to  the struct of the 8-, 16-  * and 32-bit variants. */
+comment|/* The real format of the start of the pcre block; the index of names and the code vector run on as long as necessary after the end. We store an explicit offset to the name table so that if a regex is compiled on one host, saved, and then run on another where the size of pointers is different, all might still be well.  The size of the structure must be a multiple of 8 bytes. For the case of compiled-on-4 and run-on-8, we include an extra pointer that is always NULL so that there are an even number of pointers which therefore are a multiple of 8 bytes.  It is necessary to fork the struct for the 32 bit library, since it needs to use pcre_uint32 for first_char and req_char. We can't put an ifdef inside the typedef because pcretest needs access to the struct of the 8-, 16- and 32-bit variants.  *** WARNING *** When new fields are added to these structures, remember to adjust the code in pcre_byte_order.c that is concerned with swapping the byte order of the fields when a compiled regex is reloaded on a host with different endianness. *** WARNING *** There is also similar byte-flipping code in pcretest.c, which is used for testing the byte-flipping features. It must also be kept in step. *** WARNING *** */
 end_comment
 begin_typedef
 DECL|struct|real_pcre8_or_16
@@ -8590,10 +8841,30 @@ name|options
 decl_stmt|;
 comment|/* Public options */
 DECL|member|flags
-name|pcre_uint16
+name|pcre_uint32
 name|flags
 decl_stmt|;
 comment|/* Private flags */
+DECL|member|limit_match
+name|pcre_uint32
+name|limit_match
+decl_stmt|;
+comment|/* Limit set from regex */
+DECL|member|limit_recursion
+name|pcre_uint32
+name|limit_recursion
+decl_stmt|;
+comment|/* Limit set from regex */
+DECL|member|first_char
+name|pcre_uint16
+name|first_char
+decl_stmt|;
+comment|/* Starting character */
+DECL|member|req_char
+name|pcre_uint16
+name|req_char
+decl_stmt|;
+comment|/* This character must be seen */
 DECL|member|max_lookbehind
 name|pcre_uint16
 name|max_lookbehind
@@ -8609,16 +8880,6 @@ name|pcre_uint16
 name|top_backref
 decl_stmt|;
 comment|/* Highest numbered back reference */
-DECL|member|first_char
-name|pcre_uint16
-name|first_char
-decl_stmt|;
-comment|/* Starting character */
-DECL|member|req_char
-name|pcre_uint16
-name|req_char
-decl_stmt|;
-comment|/* This character must be seen */
 DECL|member|name_table_offset
 name|pcre_uint16
 name|name_table_offset
@@ -8639,6 +8900,21 @@ name|pcre_uint16
 name|ref_count
 decl_stmt|;
 comment|/* Reference count */
+DECL|member|dummy1
+name|pcre_uint16
+name|dummy1
+decl_stmt|;
+comment|/* To ensure size is a multiple of 8 */
+DECL|member|dummy2
+name|pcre_uint16
+name|dummy2
+decl_stmt|;
+comment|/* To ensure size is a multiple of 8 */
+DECL|member|dummy3
+name|pcre_uint16
+name|dummy3
+decl_stmt|;
+comment|/* To ensure size is a multiple of 8 */
 DECL|member|tables
 specifier|const
 name|pcre_uint8
@@ -8647,8 +8923,7 @@ name|tables
 decl_stmt|;
 comment|/* Pointer to tables or NULL for std */
 DECL|member|nullpad
-specifier|const
-name|pcre_uint8
+name|void
 modifier|*
 name|nullpad
 decl_stmt|;
@@ -8695,10 +8970,30 @@ name|options
 decl_stmt|;
 comment|/* Public options */
 DECL|member|flags
-name|pcre_uint16
+name|pcre_uint32
 name|flags
 decl_stmt|;
 comment|/* Private flags */
+DECL|member|limit_match
+name|pcre_uint32
+name|limit_match
+decl_stmt|;
+comment|/* Limit set from regex */
+DECL|member|limit_recursion
+name|pcre_uint32
+name|limit_recursion
+decl_stmt|;
+comment|/* Limit set from regex */
+DECL|member|first_char
+name|pcre_uint32
+name|first_char
+decl_stmt|;
+comment|/* Starting character */
+DECL|member|req_char
+name|pcre_uint32
+name|req_char
+decl_stmt|;
+comment|/* This character must be seen */
 DECL|member|max_lookbehind
 name|pcre_uint16
 name|max_lookbehind
@@ -8714,16 +9009,6 @@ name|pcre_uint16
 name|top_backref
 decl_stmt|;
 comment|/* Highest numbered back reference */
-DECL|member|first_char
-name|pcre_uint32
-name|first_char
-decl_stmt|;
-comment|/* Starting character */
-DECL|member|req_char
-name|pcre_uint32
-name|req_char
-decl_stmt|;
-comment|/* This character must be seen */
 DECL|member|name_table_offset
 name|pcre_uint16
 name|name_table_offset
@@ -8744,16 +9029,11 @@ name|pcre_uint16
 name|ref_count
 decl_stmt|;
 comment|/* Reference count */
-DECL|member|dummy1
+DECL|member|dummy
 name|pcre_uint16
-name|dummy1
+name|dummy
 decl_stmt|;
-comment|/* for later expansion */
-DECL|member|dummy2
-name|pcre_uint16
-name|dummy2
-decl_stmt|;
-comment|/* for later expansion */
+comment|/* To ensure size is a multiple of 8 */
 DECL|member|tables
 specifier|const
 name|pcre_uint8
@@ -8766,12 +9046,55 @@ name|void
 modifier|*
 name|nullpad
 decl_stmt|;
-comment|/* for later expansion */
+comment|/* NULL padding */
 block|}
 DECL|typedef|real_pcre32
 name|real_pcre32
 typedef|;
 end_typedef
+begin_if
+if|#
+directive|if
+name|defined
+name|COMPILE_PCRE8
+end_if
+begin_define
+DECL|macro|REAL_PCRE
+define|#
+directive|define
+name|REAL_PCRE
+value|real_pcre
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE16
+end_elif
+begin_define
+DECL|macro|REAL_PCRE
+define|#
+directive|define
+name|REAL_PCRE
+value|real_pcre16
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|COMPILE_PCRE32
+end_elif
+begin_define
+DECL|macro|REAL_PCRE
+define|#
+directive|define
+name|REAL_PCRE
+value|real_pcre32
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* Assert that the size of REAL_PCRE is divisible by 8 */
 end_comment
@@ -8911,6 +9234,37 @@ name|open_capitem
 typedef|;
 end_typedef
 begin_comment
+comment|/* Structure for building a list of named groups during the first pass of compiling. */
+end_comment
+begin_typedef
+DECL|struct|named_group
+typedef|typedef
+struct|struct
+name|named_group
+block|{
+DECL|member|name
+specifier|const
+name|pcre_uchar
+modifier|*
+name|name
+decl_stmt|;
+comment|/* Points to the name in the pattern */
+DECL|member|length
+name|int
+name|length
+decl_stmt|;
+comment|/* Length of the name */
+DECL|member|number
+name|pcre_uint32
+name|number
+decl_stmt|;
+comment|/* Group number */
+block|}
+DECL|typedef|named_group
+name|named_group
+typedef|;
+end_typedef
+begin_comment
 comment|/* Structure for passing "static" information around between the functions doing the compiling, so that they are thread-safe. */
 end_comment
 begin_typedef
@@ -8975,18 +9329,24 @@ modifier|*
 name|end_pattern
 decl_stmt|;
 comment|/* The end of the pattern */
-DECL|member|open_caps
-name|open_capitem
-modifier|*
-name|open_caps
-decl_stmt|;
-comment|/* Chain of open capture items */
 DECL|member|hwm
 name|pcre_uchar
 modifier|*
 name|hwm
 decl_stmt|;
 comment|/* High watermark of workspace */
+DECL|member|open_caps
+name|open_capitem
+modifier|*
+name|open_caps
+decl_stmt|;
+comment|/* Chain of open capture items */
+DECL|member|named_groups
+name|named_group
+modifier|*
+name|named_groups
+decl_stmt|;
+comment|/* Points to vector in pre-compile */
 DECL|member|name_table
 name|pcre_uchar
 modifier|*
@@ -9003,6 +9363,11 @@ name|int
 name|name_entry_size
 decl_stmt|;
 comment|/* Size of each entry */
+DECL|member|named_group_list_size
+name|int
+name|named_group_list_size
+decl_stmt|;
+comment|/* Number of entries in the list */
 DECL|member|workspace_size
 name|int
 name|workspace_size
@@ -9035,18 +9400,29 @@ name|int
 name|backref_map
 decl_stmt|;
 comment|/* Bitmap of low back refs */
+DECL|member|namedrefcount
+name|unsigned
+name|int
+name|namedrefcount
+decl_stmt|;
+comment|/* Number of backreferences by name */
+DECL|member|parens_depth
+name|int
+name|parens_depth
+decl_stmt|;
+comment|/* Depth of nested parentheses */
 DECL|member|assert_depth
 name|int
 name|assert_depth
 decl_stmt|;
 comment|/* Depth of nested assertions */
 DECL|member|external_options
-name|int
+name|pcre_uint32
 name|external_options
 decl_stmt|;
 comment|/* External (initial) options */
 DECL|member|external_flags
-name|int
+name|pcre_uint32
 name|external_flags
 decl_stmt|;
 comment|/* External flag bits to be set */
@@ -9070,6 +9446,11 @@ name|BOOL
 name|check_lookbehind
 decl_stmt|;
 comment|/* Lookbehinds need later checking */
+DECL|member|dupnames
+name|BOOL
+name|dupnames
+decl_stmt|;
+comment|/* Duplicate names exist */
 DECL|member|nltype
 name|int
 name|nltype
@@ -9151,6 +9532,11 @@ name|int
 name|saved_max
 decl_stmt|;
 comment|/* Number of saved offsets */
+DECL|member|saved_capture_last
+name|int
+name|saved_capture_last
+decl_stmt|;
+comment|/* Last capture number */
 DECL|member|subject_position
 name|PCRE_PUCHAR
 name|subject_position
@@ -9279,6 +9665,18 @@ name|int
 name|name_entry_size
 decl_stmt|;
 comment|/* Size of entry in names table */
+DECL|member|skip_arg_count
+name|unsigned
+name|int
+name|skip_arg_count
+decl_stmt|;
+comment|/* For counting SKIP_ARGs */
+DECL|member|ignore_skip_arg
+name|unsigned
+name|int
+name|ignore_skip_arg
+decl_stmt|;
+comment|/* For re-run when SKIP arg name not found */
 DECL|member|name_table
 name|pcre_uchar
 modifier|*
@@ -9314,11 +9712,6 @@ modifier|*
 name|ctypes
 decl_stmt|;
 comment|/* Points to table of type maps */
-DECL|member|offset_overflow
-name|BOOL
-name|offset_overflow
-decl_stmt|;
-comment|/* Set if too many extractions */
 DECL|member|notbol
 name|BOOL
 name|notbol
@@ -9374,11 +9767,6 @@ name|BOOL
 name|hasthen
 decl_stmt|;
 comment|/* Pattern contains (*THEN) */
-DECL|member|ignore_skip_arg
-name|BOOL
-name|ignore_skip_arg
-decl_stmt|;
-comment|/* For re-run when SKIP name not found */
 DECL|member|start_code
 specifier|const
 name|pcre_uchar
@@ -9422,10 +9810,10 @@ name|end_offset_top
 decl_stmt|;
 comment|/* Highwater mark at end of match */
 DECL|member|capture_last
-name|int
+name|pcre_int32
 name|capture_last
 decl_stmt|;
-comment|/* Most recent capture number */
+comment|/* Most recent capture number + overflow flag */
 DECL|member|start_offset
 name|int
 name|start_offset

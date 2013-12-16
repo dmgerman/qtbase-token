@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *       Perl-Compatible Regular Expressions      * *************************************************/
 end_comment
 begin_comment
-comment|/* This is the public header file for the PCRE library, to be #included by applications that call the PCRE functions.             Copyright (c) 1997-2012 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* This is the public header file for the PCRE library, to be #included by applications that call the PCRE functions.             Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_ifndef
 ifndef|#
@@ -31,7 +31,7 @@ DECL|macro|PCRE_MINOR
 define|#
 directive|define
 name|PCRE_MINOR
-value|32
+value|34
 end_define
 begin_define
 DECL|macro|PCRE_PRERELEASE
@@ -44,7 +44,7 @@ DECL|macro|PCRE_DATE
 define|#
 directive|define
 name|PCRE_DATE
-value|2012-11-30
+value|2013-12-15
 end_define
 begin_comment
 comment|/* When an application links to a PCRE DLL in Windows, the symbols that are imported have to be identified as such. When building PCRE, the appropriate export setting is defined in pcre_internal.h, which includes this file. So we don't change existing definitions of PCRE_EXP_DECL and PCRECPP_EXP_DECL. */
@@ -225,7 +225,7 @@ literal|"C"
 block|{
 endif|#
 directive|endif
-comment|/* Public options. Some are compile-time only, some are run-time only, and some are both, so we keep them all distinct. However, almost all the bits in the options word are now used. In the long run, we may have to re-use some of the compile-time only bits for runtime options, or vice versa. Any of the compile-time options may be inspected during studying (and therefore JIT compiling).  Some options for pcre_compile() change its behaviour but do not affect the behaviour of the execution functions. Other options are passed through to the execution functions and affect their behaviour, with or without affecting the behaviour of pcre_compile().  Options that can be passed to pcre_compile() are tagged Cx below, with these variants:  C1   Affects compile only C2   Does not affect compile; affects exec, dfa_exec C3   Affects compile, exec, dfa_exec C4   Affects compile, exec, dfa_exec, study C5   Affects compile, exec, study  Options that can be set for pcre_exec() and/or pcre_dfa_exec() are flagged with E and D, respectively. They take precedence over C3, C4, and C5 settings passed from pcre_compile(). Those that are compatible with JIT execution are flagged with J. */
+comment|/* Public options. Some are compile-time only, some are run-time only, and some are both. Most of the compile-time options are saved with the compiled regex so that they can be inspected during studying (and therefore JIT compiling). Note that pcre_study() has its own set of options. Originally, all the options defined here used distinct bits. However, almost all the bits in a 32-bit word are now used, so in order to conserve them, option bits that were previously only recognized at matching time (i.e. by pcre_exec() or pcre_dfa_exec()) may also be used for compile-time options that affect only compiling and are not relevant for studying or JIT compiling.  Some options for pcre_compile() change its behaviour but do not affect the behaviour of the execution functions. Other options are passed through to the execution functions and affect their behaviour, with or without affecting the behaviour of pcre_compile().  Options that can be passed to pcre_compile() are tagged Cx below, with these variants:  C1   Affects compile only C2   Does not affect compile; affects exec, dfa_exec C3   Affects compile, exec, dfa_exec C4   Affects compile, exec, dfa_exec, study C5   Affects compile, exec, study  Options that can be set for pcre_exec() and/or pcre_dfa_exec() are flagged with E and D, respectively. They take precedence over C3, C4, and C5 settings passed from pcre_compile(). Those that are compatible with JIT execution are flagged with J. */
 DECL|macro|PCRE_CASELESS
 define|#
 directive|define
@@ -352,18 +352,32 @@ directive|define
 name|PCRE_PARTIAL
 value|0x00008000
 comment|/*    E D J  )          */
+comment|/* This pair use the same bit. */
+DECL|macro|PCRE_NEVER_UTF
+define|#
+directive|define
+name|PCRE_NEVER_UTF
+value|0x00010000
+comment|/* C1        ) Overlaid */
 DECL|macro|PCRE_DFA_SHORTEST
 define|#
 directive|define
 name|PCRE_DFA_SHORTEST
 value|0x00010000
-comment|/*      D   */
+comment|/*      D    ) Overlaid */
+comment|/* This pair use the same bit. */
+DECL|macro|PCRE_NO_AUTO_POSSESS
+define|#
+directive|define
+name|PCRE_NO_AUTO_POSSESS
+value|0x00020000
+comment|/* C1        ) Overlaid */
 DECL|macro|PCRE_DFA_RESTART
 define|#
 directive|define
 name|PCRE_DFA_RESTART
 value|0x00020000
-comment|/*      D   */
+comment|/*      D    ) Overlaid */
 DECL|macro|PCRE_FIRSTLINE
 define|#
 directive|define
@@ -649,6 +663,11 @@ define|#
 directive|define
 name|PCRE_ERROR_BADLENGTH
 value|(-32)
+DECL|macro|PCRE_ERROR_UNSET
+define|#
+directive|define
+name|PCRE_ERROR_UNSET
+value|(-33)
 comment|/* Specific error codes for UTF-8 validity checks */
 DECL|macro|PCRE_UTF8_ERR0
 define|#
@@ -765,6 +784,7 @@ define|#
 directive|define
 name|PCRE_UTF8_ERR22
 value|22
+comment|/* Unused (was non-character) */
 comment|/* Specific error codes for UTF-16 validity checks */
 DECL|macro|PCRE_UTF16_ERR0
 define|#
@@ -791,6 +811,7 @@ define|#
 directive|define
 name|PCRE_UTF16_ERR4
 value|4
+comment|/* Unused (was non-character) */
 comment|/* Specific error codes for UTF-32 validity checks */
 DECL|macro|PCRE_UTF32_ERR0
 define|#
@@ -807,6 +828,7 @@ define|#
 directive|define
 name|PCRE_UTF32_ERR2
 value|2
+comment|/* Unused (was non-character) */
 DECL|macro|PCRE_UTF32_ERR3
 define|#
 directive|define
@@ -934,6 +956,21 @@ define|#
 directive|define
 name|PCRE_INFO_REQUIREDCHARFLAGS
 value|22
+DECL|macro|PCRE_INFO_MATCHLIMIT
+define|#
+directive|define
+name|PCRE_INFO_MATCHLIMIT
+value|23
+DECL|macro|PCRE_INFO_RECURSIONLIMIT
+define|#
+directive|define
+name|PCRE_INFO_RECURSIONLIMIT
+value|24
+DECL|macro|PCRE_INFO_MATCH_EMPTY
+define|#
+directive|define
+name|PCRE_INFO_MATCH_EMPTY
+value|25
 comment|/* Request types for pcre_config(). Do not re-arrange, in order to remain compatible. */
 DECL|macro|PCRE_CONFIG_UTF8
 define|#
@@ -1000,6 +1037,11 @@ define|#
 directive|define
 name|PCRE_CONFIG_UTF32
 value|12
+DECL|macro|PCRE_CONFIG_PARENS_LIMIT
+define|#
+directive|define
+name|PCRE_CONFIG_PARENS_LIMIT
+value|13
 comment|/* Request types for pcre_study(). Do not re-arrange, in order to remain compatible. */
 DECL|macro|PCRE_STUDY_JIT_COMPILE
 define|#
@@ -3248,6 +3290,27 @@ name|pcre32_jit_callback
 parameter_list|,
 name|void
 modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre_jit_free_unused_memory
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre16_jit_free_unused_memory
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|void
+name|pcre32_jit_free_unused_memory
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 ifdef|#

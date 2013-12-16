@@ -201,7 +201,7 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-comment|/* Then the character class tables. Don't try to be clever and save effort on exclusive ones - in some locales things may be different. Note that the table for "space" includes everything "isspace" gives, including VT in the default locale. This makes it work for the POSIX class [:space:]. Note also that it is possible for a character to be alnum or alpha without being lower or upper, such as "male and female ordinals" (\xAA and \xBA) in the fr_FR locale (at least under Debian Linux's locales as of 12/2005). So we must test for alnum specially. */
+comment|/* Then the character class tables. Don't try to be clever and save effort on exclusive ones - in some locales things may be different.  Note that the table for "space" includes everything "isspace" gives, including VT in the default locale. This makes it work for the POSIX class [:space:]. From release 8.34 is is also correct for Perl space, because Perl added VT at release 5.18.  Note also that it is possible for a character to be alnum or alpha without being lower or upper, such as "male and female ordinals" (\xAA and \xBA) in the fr_FR locale (at least under Debian Linux's locales as of 12/2005). So we must test for alnum specially. */
 name|memset
 argument_list|(
 name|p
@@ -493,7 +493,7 @@ name|p
 operator|+=
 name|cbit_length
 expr_stmt|;
-comment|/* Finally, the character type table. In this, we exclude VT from the white space chars, because Perl doesn't recognize it as such for \s and for comments within regexes. */
+comment|/* Finally, the character type table. In this, we used to exclude VT from the white space chars, because Perl didn't recognize it as such for \s and for comments within regexes. However, Perl changed at release 5.18, so PCRE changed at release 8.34. */
 for|for
 control|(
 name|i
@@ -515,10 +515,6 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|i
-operator|!=
-name|CHAR_VT
-operator|&&
 name|isspace
 argument_list|(
 name|i

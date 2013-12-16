@@ -65,6 +65,9 @@ begin_comment
 comment|/* #define SLJIT_CONFIG_SPARC_32 1 */
 end_comment
 begin_comment
+comment|/* #define SLJIT_CONFIG_TILEGX 1 */
+end_comment
+begin_comment
 comment|/* #define SLJIT_CONFIG_AUTO 1 */
 end_comment
 begin_comment
