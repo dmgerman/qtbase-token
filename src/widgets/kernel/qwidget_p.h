@@ -2240,11 +2240,6 @@ operator|&
 name|p
 argument_list|,
 name|bool
-argument_list|,
-name|bool
-name|includeFrame
-operator|=
-name|false
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3952,12 +3947,6 @@ end_function_decl
 begin_function_decl
 name|void
 name|finishCocoaMaskSetup
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
-name|syncUnifiedMode
 parameter_list|()
 function_decl|;
 end_function_decl
