@@ -6368,8 +6368,11 @@ name|kerningEnabled
 block|,
 literal|0
 block|,
-operator|-
+name|uint
+argument_list|(
+argument|-
 literal|1
+argument_list|)
 block|}
 block|}
 decl_stmt|;
