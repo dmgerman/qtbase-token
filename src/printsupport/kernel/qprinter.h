@@ -267,6 +267,19 @@ block|,
 name|FormSource
 block|,
 name|MaxPageSource
+block|,
+comment|// Deprecated
+name|First
+block|,
+name|Last
+block|,
+name|Upper
+block|,
+name|CustomSource
+block|,
+name|LastPaperSource
+init|=
+name|CustomSource
 block|}
 enum|;
 end_enum
