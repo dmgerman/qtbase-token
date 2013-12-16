@@ -796,6 +796,9 @@ argument_list|,
 literal|512
 argument_list|>
 name|buffer
+argument_list|(
+literal|512
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -820,7 +823,7 @@ argument_list|()
 argument_list|,
 name|buffer
 operator|.
-name|capacity
+name|size
 argument_list|()
 operator|-
 literal|1
@@ -842,7 +845,7 @@ name|EMSGSIZE
 operator|&&
 name|buffer
 operator|.
-name|capacity
+name|size
 argument_list|()
 operator|<
 name|MAX_PPS_SIZE
@@ -862,7 +865,7 @@ name|qMin
 argument_list|(
 name|buffer
 operator|.
-name|capacity
+name|size
 argument_list|()
 operator|*
 literal|2
