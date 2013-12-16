@@ -4934,6 +4934,11 @@ block|,
 literal|"e-islem.kktcmerkezbankasi.org"
 block|,
 comment|// Turktrust mis-issued intermediate certificate
+literal|"03:1d:a7"
+block|,
+literal|"AC DG Tr\xC3\xA9sor SSL"
+block|,
+comment|// intermediate certificate linking back to ANSSI French National Security Agency
 literal|0
 block|}
 decl_stmt|;

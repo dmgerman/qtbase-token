@@ -215,6 +215,8 @@ name|PasswordMaskCharacter
 block|,
 name|DialogSnapToDefaultButton
 block|,
+name|ContextMenuOnMouseRelease
+block|,
 name|MousePressAndHoldInterval
 block|}
 enum|;
