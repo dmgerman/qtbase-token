@@ -35,6 +35,13 @@ end_include
 begin_macro
 name|HB_BEGIN_DECLS
 end_macro
+begin_define
+DECL|macro|HB_SET_VALUE_INVALID
+define|#
+directive|define
+name|HB_SET_VALUE_INVALID
+value|((hb_codepoint_t) -1)
+end_define
 begin_typedef
 DECL|typedef|hb_set_t
 typedef|typedef

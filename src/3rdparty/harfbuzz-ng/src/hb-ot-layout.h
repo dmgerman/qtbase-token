@@ -54,6 +54,11 @@ define|#
 directive|define
 name|HB_OT_TAG_GPOS
 value|HB_TAG('G','P','O','S')
+DECL|macro|HB_OT_TAG_JSTF
+define|#
+directive|define
+name|HB_OT_TAG_JSTF
+value|HB_TAG('J','S','T','F')
 comment|/*  * GDEF  */
 name|hb_bool_t
 name|hb_ot_layout_has_glyph_classes
@@ -548,6 +553,20 @@ name|int
 modifier|*
 name|lookup_indexes
 comment|/* OUT */
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|unsigned
+name|int
+name|hb_ot_layout_table_get_lookup_count
+parameter_list|(
+name|hb_face_t
+modifier|*
+name|face
+parameter_list|,
+name|hb_tag_t
+name|table_tag
 parameter_list|)
 function_decl|;
 end_function_decl
