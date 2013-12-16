@@ -1182,7 +1182,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_OSX
 comment|// When using the unified toolbar on Mac OS X, the user can click and
 comment|// drag between toolbar contents to move the window. Make this work by
 comment|// implementing the standard mouse-dragging code and then call
@@ -1323,7 +1323,7 @@ else|else
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_OSX
 if|if
 condition|(
 operator|!
@@ -1377,7 +1377,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_OSX
 if|if
 condition|(
 operator|!

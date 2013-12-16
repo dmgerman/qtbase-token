@@ -148,7 +148,7 @@ literal|0
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_OSX
 block|,
 name|macWindowDragging
 argument_list|(
@@ -246,7 +246,7 @@ name|state
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_OSX
 name|bool
 name|macWindowDragging
 block|;
