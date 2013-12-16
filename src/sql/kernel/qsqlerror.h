@@ -51,6 +51,14 @@ block|,
 name|UnknownError
 block|}
 enum|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 name|QSqlError
 argument_list|(
 argument|const QString& driverText = QString()
@@ -61,6 +69,19 @@ argument|ErrorType type = NoError
 argument_list|,
 argument|int number = -
 literal|1
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
+name|QSqlError
+argument_list|(
+argument|const QString&driverText
+argument_list|,
+argument|const QString&databaseText
+argument_list|,
+argument|ErrorType type
+argument_list|,
+argument|const QString&errorCode
 argument_list|)
 empty_stmt|;
 name|QSqlError
@@ -123,8 +144,23 @@ name|type
 argument_list|()
 specifier|const
 expr_stmt|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 name|int
 name|number
+argument_list|()
+specifier|const
+expr_stmt|;
+endif|#
+directive|endif
+name|QString
+name|nativeErrorCode
 argument_list|()
 specifier|const
 expr_stmt|;
