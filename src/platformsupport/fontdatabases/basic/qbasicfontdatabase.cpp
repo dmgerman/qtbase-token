@@ -256,6 +256,11 @@ name|QLatin1String
 argument_list|(
 literal|"*.pfb"
 argument_list|)
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|"*.otf"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|dir
