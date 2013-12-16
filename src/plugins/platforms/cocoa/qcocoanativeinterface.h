@@ -289,6 +289,18 @@ argument|QWindow *window
 argument_list|,
 argument|bool enable
 argument_list|)
+block|;
+comment|// Request a unified title and toolbar look for the window.
+specifier|static
+name|void
+name|setContentBorderThickness
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|int topThickness
+argument_list|,
+argument|int bottomThickness
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
