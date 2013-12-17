@@ -2322,6 +2322,38 @@ name|q_cachedConstraintOrientation
 range|:
 literal|3
 decl_stmt|;
+comment|// this is useful to cache
+name|mutable
+name|QGridLayoutBox
+name|q_totalBoxes
+index|[
+name|NOrientations
+index|]
+decl_stmt|;
+enum|enum
+block|{
+name|NotCached
+init|=
+operator|-
+literal|2
+block|,
+comment|// Cache is empty. Happens when the engine is invalidated.
+name|CachedWithNoConstraint
+init|=
+operator|-
+literal|1
+comment|// cache has a totalBox without any HFW/WFH constraints.
+comment|//>= 0                     // cache has a totalBox with this specific constraint.
+block|}
+enum|;
+name|mutable
+name|qreal
+name|q_totalBoxCachedConstraints
+index|[
+name|NOrientations
+index|]
+decl_stmt|;
+comment|// holds the constraint used for the cached totalBox
 comment|// Layout item input
 name|mutable
 name|QGridLayoutRowData
@@ -2331,28 +2363,10 @@ name|mutable
 name|QGridLayoutRowData
 name|q_rowData
 decl_stmt|;
-name|mutable
-name|QGridLayoutBox
-name|q_totalBoxes
-index|[
-name|NOrientations
-index|]
-decl_stmt|;
 comment|// Output
 name|mutable
 name|QSizeF
 name|q_cachedSize
-decl_stmt|;
-name|mutable
-name|bool
-name|q_totalBoxesValid
-decl_stmt|;
-name|mutable
-name|bool
-name|q_sizeHintValid
-index|[
-name|NOrientations
-index|]
 decl_stmt|;
 name|mutable
 name|QVector
