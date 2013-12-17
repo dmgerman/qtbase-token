@@ -91,6 +91,25 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QPrintDevice
+name|createPrintDevice
+argument_list|(
+argument|const QString&id
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|QStringList
+name|availablePrintDeviceIds
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QString
+name|defaultPrintDeviceId
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QList
 operator|<
 name|QPrinterInfo
