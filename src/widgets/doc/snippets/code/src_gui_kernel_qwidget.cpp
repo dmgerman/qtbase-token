@@ -32,6 +32,7 @@ name|w
 operator|->
 name|setWindowState
 argument_list|(
+operator|(
 name|w
 operator|->
 name|windowState
@@ -41,6 +42,7 @@ operator|~
 name|Qt
 operator|::
 name|WindowMinimized
+operator|)
 operator||
 name|Qt
 operator|::
