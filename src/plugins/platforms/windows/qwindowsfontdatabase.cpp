@@ -2805,9 +2805,6 @@ case|:
 case|case
 name|TURKISH_CHARSET
 case|:
-case|case
-name|OEM_CHARSET
-case|:
 return|return
 name|QFontDatabase
 operator|::
@@ -2904,8 +2901,6 @@ name|QFontDatabase
 operator|::
 name|Symbol
 return|;
-comment|// ### case MAC_CHARSET:
-comment|// ### case DEFAULT_CHARSET:
 default|default:
 break|break;
 block|}
