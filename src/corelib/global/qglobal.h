@@ -5421,16 +5421,21 @@ begin_macro
 name|QT_END_NAMESPACE
 end_macro
 begin_comment
-comment|// Q_GLOBAL_STATIC
+comment|// We need to keep QTypeInfo, QSysInfo, QFlags, qDebug& family in qglobal.h for compatibility with Qt 4.
+end_comment
+begin_comment
+comment|// Be careful when changing the order of these files.
 end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/qglobalstatic.h>
+file|<QtCore/qtypeinfo.h>
 end_include
-begin_comment
-comment|// qDebug and friends
-end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/qsysinfo.h>
+end_include
 begin_include
 include|#
 directive|include
@@ -5444,12 +5449,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qsysinfo.h>
+file|<QtCore/qatomic.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qtypeinfo.h>
+file|<QtCore/qglobalstatic.h>
 end_include
 begin_endif
 endif|#
