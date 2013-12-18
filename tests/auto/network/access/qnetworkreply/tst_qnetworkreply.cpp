@@ -41056,22 +41056,20 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
+if|if
+condition|(
+name|reply
+operator|->
+name|error
+argument_list|()
+operator|==
+name|QNetworkReply
+operator|::
+name|HostNotFoundError
+condition|)
+name|QSKIP
 argument_list|(
-literal|"http+socksauth"
-argument_list|,
-literal|"QTBUG-23136 - danted accepts bad authentication but blocks the connection"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"https+socksauth"
-argument_list|,
-literal|"QTBUG-23136 - danted accepts bad authentication but blocks the connection"
-argument_list|,
-name|Continue
+literal|"skip because of quirk in the old test server"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
