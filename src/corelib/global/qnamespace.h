@@ -1603,6 +1603,10 @@ name|AA_UseHighDpiPixmaps
 init|=
 literal|13
 block|,
+name|AA_ForceRasterWidgets
+init|=
+literal|14
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}

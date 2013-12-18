@@ -210,6 +210,8 @@ block|,
 name|WindowManagement
 block|,
 name|SyncState
+block|,
+name|RasterGLSurface
 block|}
 enum|;
 name|virtual

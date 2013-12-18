@@ -7,21 +7,38 @@ include|#
 directive|include
 file|"qsurface.h"
 end_include
-begin_macro
+begin_function
 name|QT_BEGIN_NAMESPACE
-end_macro
-begin_comment
 comment|/*!     \class QSurface     \inmodule QtGui     \since 5.0     \brief The QSurface class is an abstraction of renderable surfaces in Qt.      The size of the surface is accessible with the size() function. The rendering     specific attributes of the surface are accessible through the format() function.  */
-end_comment
-begin_comment
 comment|/*!     \enum QSurface::SurfaceClass      The SurfaceClass enum describes the actual subclass of the surface.      \value Window The surface is an instance of QWindow.     \value Offscreen The surface is an instance of QOffscreenSurface.  */
-end_comment
-begin_comment
-comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface this is.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.  */
-end_comment
-begin_comment
+comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface this is.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.     \value RasterGLSurface The surface can be rendered to using a software rasterizer,     and also supports OpenGL. This surface type is intended for internal Qt use, and     requires the use of private API.  */
 comment|/*!     \fn QSurfaceFormat QSurface::format() const      Returns the format of the surface.  */
-end_comment
+comment|/*!   Returns true if the surface is OpenGL compatible and can be used in   conjunction with QOpenGLContext; otherwise returns false.    \since 5.3 */
+DECL|function|supportsOpenGL
+name|bool
+name|QSurface
+operator|::
+name|supportsOpenGL
+parameter_list|()
+specifier|const
+block|{
+name|SurfaceType
+name|type
+init|=
+name|surfaceType
+argument_list|()
+decl_stmt|;
+return|return
+name|type
+operator|==
+name|OpenGLSurface
+operator|||
+name|type
+operator|==
+name|RasterGLSurface
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \fn QPlatformSurface *QSurface::surfaceHandle() const      Returns a handle to the platform-specific implementation of the surface.  */
 end_comment
