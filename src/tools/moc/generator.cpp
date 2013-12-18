@@ -1228,8 +1228,6 @@ argument_list|,
 literal|"    char stringdata[%d];\n"
 argument_list|,
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1661,6 +1659,18 @@ operator|+=
 name|spanLen
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|i
+operator|!=
+name|strings
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+condition|)
+comment|// skip the last \0 the c++ will add it for us
 name|fputs
 argument_list|(
 literal|"\\0"
