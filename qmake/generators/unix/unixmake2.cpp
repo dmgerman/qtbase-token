@@ -1230,6 +1230,21 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|<<
+literal|" "
+operator|<<
+name|valList
+argument_list|(
+name|escapeFilePaths
+argument_list|(
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"SOURCES"
+argument_list|)
+argument_list|)
+argument_list|)
+operator|<<
 name|endl
 expr_stmt|;
 name|t
@@ -6407,7 +6422,7 @@ argument_list|)
 operator|<<
 literal|"\n\t"
 operator|<<
-literal|"$(COPY_FILE) --parents $(SOURCES) $(DIST) "
+literal|"$(COPY_FILE) --parents $(DIST) "
 operator|<<
 name|ddir_c
 operator|<<
