@@ -1532,6 +1532,7 @@ literal|" -o filename,format  : Output results to file in the specified format\n
 literal|"                       Use - to output to stdout\n"
 literal|"                       Valid formats are:\n"
 literal|"                         txt      : Plain text\n"
+literal|"                         csv      : CSV format (suitable for benchmarks)\n"
 literal|"                         xunitxml : XML XUnit document\n"
 literal|"                         xml      : XML document\n"
 literal|"                         lightxml : A stream of XML tags\n"
@@ -1541,6 +1542,7 @@ literal|"\n"
 literal|" Old-style logging options:\n"
 literal|" -o filename         : Write the output into file\n"
 literal|" -txt                : Output results in Plain Text\n"
+literal|" -csv                : Output results in a CSV format (suitable for benchmarks)\n"
 literal|" -xunitxml           : Output results as XML XUnit document\n"
 literal|" -xml                : Output results as XML document\n"
 literal|" -lightxml           : Output results as stream of XML tags\n"
@@ -1788,6 +1790,29 @@ operator|=
 name|QTestLog
 operator|::
 name|Plain
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
+literal|"-csv"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|CSV
 expr_stmt|;
 block|}
 elseif|else
@@ -2087,6 +2112,24 @@ name|strcmp
 argument_list|(
 name|format
 argument_list|,
+literal|"csv"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|CSV
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|format
+argument_list|,
 literal|"lightxml"
 argument_list|)
 operator|==
@@ -2140,7 +2183,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"output format must be one of txt, lightxml, xml or xunitxml\n"
+literal|"output format must be one of txt, csv, lightxml, xml or xunitxml\n"
 argument_list|)
 expr_stmt|;
 name|exit

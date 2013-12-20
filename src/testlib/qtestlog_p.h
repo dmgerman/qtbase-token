@@ -80,6 +80,8 @@ block|,
 name|LightXML
 block|,
 name|XunitXML
+block|,
+name|CSV
 block|}
 enum|;
 specifier|static
