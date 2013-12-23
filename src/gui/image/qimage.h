@@ -1672,6 +1672,12 @@ pragma|#
 directive|pragma
 name|warning
 name|(
+name|push
+name|)
+pragma|#
+directive|pragma
+name|warning
+name|(
 name|disable
 name|:
 name|4996
@@ -2176,9 +2182,7 @@ pragma|#
 directive|pragma
 name|warning
 name|(
-name|default
-name|:
-name|4996
+name|pop
 name|)
 end_pragma
 begin_endif

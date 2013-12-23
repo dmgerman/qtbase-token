@@ -789,7 +789,7 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_comment
-comment|/**  * hb_unicode_decompose_compatibility_func_t:  * @ufuncs: Unicode function structure  * @u: codepoint to decompose  * @decomposed: address of codepoint array (of length %HB_UNICODE_MAX_DECOMPOSITION_LEN) to write decomposition into  * @user_data: user data pointer as passed to hb_unicode_funcs_set_decompose_compatibility_func()  *  * Fully decompose @u to its Unicode compatibility decomposition. The codepoints of the decomposition will be written to @decomposed.  * The complete length of the decomposition will be returned.  *  * If @u has no compatibility decomposition, zero should be returned.  *  * The Unicode standard guarantees that a buffer of length %HB_UNICODE_MAX_DECOMPOSITION_LEN codepoints will always be sufficient for any  * compatibility decomposition plus an terminating value of 0.  Consequently, @decompose must be allocated by the caller to be at least this length.  Implementations  * of this function type must ensure that they do not write past the provided array.  *  * Return value: number of codepoints in the full compatibility decomposition of @u, or 0 if no decomposition available.  */
+comment|/**  * hb_unicode_decompose_compatibility_func_t:  * @ufuncs: a Unicode function structure  * @u: codepoint to decompose  * @decomposed: address of codepoint array (of length %HB_UNICODE_MAX_DECOMPOSITION_LEN) to write decomposition into  * @user_data: user data pointer as passed to hb_unicode_funcs_set_decompose_compatibility_func()  *  * Fully decompose @u to its Unicode compatibility decomposition. The codepoints of the decomposition will be written to @decomposed.  * The complete length of the decomposition will be returned.  *  * If @u has no compatibility decomposition, zero should be returned.  *  * The Unicode standard guarantees that a buffer of length %HB_UNICODE_MAX_DECOMPOSITION_LEN codepoints will always be sufficient for any  * compatibility decomposition plus an terminating value of 0.  Consequently, @decompose must be allocated by the caller to be at least this length.  Implementations  * of this function type must ensure that they do not write past the provided array.  *  * Return value: number of codepoints in the full compatibility decomposition of @u, or 0 if no decomposition available.  */
 end_comment
 begin_typedef
 DECL|typedef|hb_unicode_decompose_compatibility_func_t
@@ -835,6 +835,9 @@ end_comment
 begin_comment
 comment|/* setters */
 end_comment
+begin_comment
+comment|/**  * hb_unicode_funcs_set_combining_class_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_combining_class_func
@@ -844,7 +847,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_combining_class_func_t
-name|combining_class_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -855,6 +858,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_eastasian_width_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_eastasian_width_func
@@ -864,7 +870,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_eastasian_width_func_t
-name|eastasian_width_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -875,6 +881,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_general_category_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_general_category_func
@@ -884,7 +893,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_general_category_func_t
-name|general_category_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -895,6 +904,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_mirroring_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_mirroring_func
@@ -904,7 +916,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_mirroring_func_t
-name|mirroring_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -915,6 +927,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_script_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_script_func
@@ -924,7 +939,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_script_func_t
-name|script_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -935,6 +950,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_compose_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_compose_func
@@ -944,7 +962,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_compose_func_t
-name|compose_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -955,6 +973,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_decompose_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_decompose_func
@@ -964,7 +985,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_decompose_func_t
-name|decompose_func
+name|func
 parameter_list|,
 name|void
 modifier|*
@@ -975,6 +996,9 @@ name|destroy
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * hb_unicode_funcs_set_decompose_compatibility_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+end_comment
 begin_function_decl
 name|void
 name|hb_unicode_funcs_set_decompose_compatibility_func
@@ -984,7 +1008,7 @@ modifier|*
 name|ufuncs
 parameter_list|,
 name|hb_unicode_decompose_compatibility_func_t
-name|decompose_compatibility_func
+name|func
 parameter_list|,
 name|void
 modifier|*

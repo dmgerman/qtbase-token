@@ -57,7 +57,7 @@ name|Promise
 argument_list|(
 argument|int itemId
 argument_list|,
-argument|QMacPasteboardMime *c
+argument|QMacInternalPasteboardMime *c
 argument_list|,
 argument|QString m
 argument_list|,
@@ -97,7 +97,7 @@ name|itemId
 operator|,
 name|offset
 expr_stmt|;
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 modifier|*
 name|convertor
 decl_stmt|;

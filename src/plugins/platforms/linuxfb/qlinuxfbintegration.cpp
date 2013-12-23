@@ -77,11 +77,6 @@ argument_list|(
 name|paramList
 argument_list|)
 expr_stmt|;
-name|screenAdded
-argument_list|(
-name|m_primaryScreen
-argument_list|)
-expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -107,12 +102,17 @@ parameter_list|()
 block|{
 if|if
 condition|(
-operator|!
 name|m_primaryScreen
 operator|->
 name|initialize
 argument_list|()
 condition|)
+name|screenAdded
+argument_list|(
+name|m_primaryScreen
+argument_list|)
+expr_stmt|;
+else|else
 name|qWarning
 argument_list|(
 literal|"linuxfb: Failed to initialize screen"

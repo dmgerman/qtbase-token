@@ -6181,8 +6181,9 @@ expr_stmt|;
 name|uint
 name|buffer_flags
 init|=
-name|HB_BUFFER_FLAG_DEFAULT
+literal|0
 decl_stmt|;
+comment|// HB_BUFFER_FLAG_DEFAULT
 comment|// Symbol encoding used to encode various crap in the 32..255 character code range,
 comment|// and thus might override U+00AD [SHY]; avoid hiding default ignorables
 if|if
@@ -6368,8 +6369,11 @@ name|kerningEnabled
 block|,
 literal|0
 block|,
-operator|-
+name|uint
+argument_list|(
+argument|-
 literal|1
+argument_list|)
 block|}
 block|}
 decl_stmt|;

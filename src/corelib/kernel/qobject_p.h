@@ -313,6 +313,34 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|// This is an implementation of QAbstractDeclarativeData that is identical with
+end_comment
+begin_comment
+comment|// the implementation in QtDeclarative and QtQml for the first bit
+end_comment
+begin_decl_stmt
+DECL|struct|QAbstractDeclarativeData
+name|struct
+name|QAbstractDeclarativeDataImpl
+range|:
+name|public
+name|QAbstractDeclarativeData
+block|{
+DECL|member|ownedByQml1
+name|quint32
+name|ownedByQml1
+operator|:
+literal|1
+block|;
+DECL|member|unused
+name|quint32
+name|unused
+operator|:
+literal|31
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT

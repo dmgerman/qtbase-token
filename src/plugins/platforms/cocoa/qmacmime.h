@@ -27,7 +27,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// Duplicate of QMacPasteboardMime in QtMacExtras. Keep in sync!
 name|class
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 block|{
 name|char
 name|type
@@ -61,14 +61,14 @@ name|MIME_CLIP
 block|}
 enum|;
 name|explicit
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 parameter_list|(
 name|char
 parameter_list|)
 function_decl|;
 name|virtual
 operator|~
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 argument_list|()
 expr_stmt|;
 specifier|static
@@ -84,7 +84,7 @@ function_decl|;
 specifier|static
 name|QList
 operator|<
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 operator|*
 operator|>
 name|all
@@ -93,7 +93,7 @@ name|uchar
 argument_list|)
 expr_stmt|;
 specifier|static
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 modifier|*
 name|convertor
 parameter_list|(
@@ -217,7 +217,7 @@ begin_function_decl
 name|void
 name|qt_mac_addToGlobalMimeList
 parameter_list|(
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 modifier|*
 name|macMime
 parameter_list|)
@@ -227,7 +227,7 @@ begin_function_decl
 name|void
 name|qt_mac_removeFromGlobalMimeList
 parameter_list|(
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 modifier|*
 name|macMime
 parameter_list|)
