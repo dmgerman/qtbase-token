@@ -1222,11 +1222,6 @@ expr_stmt|;
 block|}
 else|#
 directive|else
-name|EGLNativeDisplayType
-name|dpy
-init|=
-name|EGL_DEFAULT_DISPLAY
-decl_stmt|;
 name|m_connection
 operator|=
 name|xcb_connect
@@ -1266,6 +1261,11 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|XCB_USE_EGL
+name|EGLNativeDisplayType
+name|dpy
+init|=
+name|EGL_DEFAULT_DISPLAY
+decl_stmt|;
 name|EGLDisplay
 name|eglDisplay
 init|=
