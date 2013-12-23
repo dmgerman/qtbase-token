@@ -993,7 +993,7 @@ name|pixmap
 parameter_list|)
 specifier|const
 block|{
-name|int
+name|qreal
 name|scale
 init|=
 name|pixmap

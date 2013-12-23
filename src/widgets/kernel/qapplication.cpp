@@ -6750,6 +6750,18 @@ end_function
 begin_comment
 comment|/*!    \fn void QApplication::syncX()     Was used to synchronize with the X server in 4.x, here for source compatibility.     \internal     \obsolete */
 end_comment
+begin_comment
+comment|// ### FIXME: topLevelWindows does not contain QWidgets without a parent
+end_comment
+begin_comment
+comment|// until create_sys is called. So we have to override the
+end_comment
+begin_comment
+comment|// QGuiApplication::notifyLayoutDirectionChange
+end_comment
+begin_comment
+comment|// to do the right thing.
+end_comment
 begin_function
 DECL|function|notifyLayoutDirectionChange
 name|void
@@ -6758,6 +6770,7 @@ operator|::
 name|notifyLayoutDirectionChange
 parameter_list|()
 block|{
+specifier|const
 name|QWidgetList
 name|list
 init|=
@@ -6766,6 +6779,15 @@ operator|::
 name|topLevelWidgets
 argument_list|()
 decl_stmt|;
+name|QWindowList
+name|windowList
+init|=
+name|QGuiApplication
+operator|::
+name|topLevelWindows
+argument_list|()
+decl_stmt|;
+comment|// send to all top-level QWidgets
 for|for
 control|(
 name|int
@@ -6795,6 +6817,16 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|windowList
+operator|.
+name|removeAll
+argument_list|(
+name|w
+operator|->
+name|windowHandle
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QEvent
 name|ev
 argument_list|(
@@ -6808,6 +6840,50 @@ operator|::
 name|sendEvent
 argument_list|(
 name|w
+argument_list|,
+operator|&
+name|ev
+argument_list|)
+expr_stmt|;
+block|}
+comment|// in case there are any plain QWindows in this QApplication-using
+comment|// application, also send the notification to them
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|windowList
+operator|.
+name|size
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|QEvent
+name|ev
+argument_list|(
+name|QEvent
+operator|::
+name|ApplicationLayoutDirectionChange
+argument_list|)
+decl_stmt|;
+name|QCoreApplication
+operator|::
+name|sendEvent
+argument_list|(
+name|windowList
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
 argument_list|,
 operator|&
 name|ev

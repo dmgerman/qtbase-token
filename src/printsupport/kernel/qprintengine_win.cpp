@@ -8473,6 +8473,11 @@ literal|10.0
 argument_list|)
 expr_stmt|;
 block|}
+name|d
+operator|->
+name|doReinit
+argument_list|()
+expr_stmt|;
 break|break;
 block|}
 case|case
@@ -11840,7 +11845,7 @@ name|dmPaperSize
 decl_stmt|;
 name|has_custom_paper_size
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 if|if
 condition|(
@@ -11858,6 +11863,10 @@ operator|::
 name|Custom
 condition|)
 block|{
+name|has_custom_paper_size
+operator|=
+literal|true
+expr_stmt|;
 specifier|const
 name|QList
 argument_list|<

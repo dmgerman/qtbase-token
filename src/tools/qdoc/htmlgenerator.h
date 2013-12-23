@@ -1130,6 +1130,9 @@ block|;
 name|QString
 name|buildversion
 block|;
+name|QString
+name|qflagsHref_
+block|;
 name|public
 operator|:
 specifier|static

@@ -14477,7 +14477,16 @@ name|newIndex
 operator|--
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|e
+operator|->
+name|delta
+argument_list|()
+operator|<
+literal|0
+condition|)
 block|{
 name|newIndex
 operator|++

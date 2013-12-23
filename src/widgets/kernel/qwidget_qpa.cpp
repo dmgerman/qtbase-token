@@ -619,6 +619,14 @@ name|Qt
 operator|::
 name|Desktop
 condition|)
+block|{
+if|if
+condition|(
+name|q
+operator|->
+name|isTopLevel
+argument_list|()
+condition|)
 name|q
 operator|->
 name|setBackingStore
@@ -630,7 +638,9 @@ name|win
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|q
 operator|->
 name|setAttribute
@@ -642,6 +652,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|setWindowModified_helper
 argument_list|()

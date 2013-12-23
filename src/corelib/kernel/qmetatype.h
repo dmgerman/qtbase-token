@@ -3611,6 +3611,33 @@ argument_list|)
 block|;     }
 specifier|static
 name|void
+name|assign
+argument_list|(
+argument|void **ptr
+argument_list|,
+argument|void * const * src
+argument_list|)
+block|{
+operator|*
+name|ptr
+operator|=
+name|new
+name|const_iterator
+argument_list|(
+operator|*
+name|static_cast
+operator|<
+name|const_iterator
+operator|*
+operator|>
+operator|(
+operator|*
+name|src
+operator|)
+argument_list|)
+block|;     }
+specifier|static
+name|void
 name|advance
 argument_list|(
 argument|void **iterator
@@ -3700,18 +3727,61 @@ name|it
 return|;
 block|}
 end_expr_stmt
+begin_function
+specifier|static
+name|bool
+name|equal
+parameter_list|(
+name|void
+modifier|*
+specifier|const
+modifier|*
+name|it
+parameter_list|,
+name|void
+modifier|*
+specifier|const
+modifier|*
+name|other
+parameter_list|)
+block|{
+return|return
+operator|*
+name|static_cast
+operator|<
+name|const_iterator
+operator|*
+operator|>
+operator|(
+operator|*
+name|it
+operator|)
+operator|==
+operator|*
+name|static_cast
+operator|<
+name|const_iterator
+operator|*
+operator|>
+operator|(
+operator|*
+name|other
+operator|)
+return|;
+block|}
+end_function
 begin_expr_stmt
 unit|};
 name|template
 operator|<
 name|typename
-name|const_iterator
+name|value_type
 operator|>
 expr|struct
 name|IteratorOwner
 operator|<
 specifier|const
-name|const_iterator
+name|value_type
 operator|*
 operator|>
 block|{
@@ -3721,7 +3791,7 @@ name|assign
 argument_list|(
 argument|void **ptr
 argument_list|,
-argument|const const_iterator *iterator
+argument|const value_type *iterator
 argument_list|)
 block|{
 operator|*
@@ -3729,11 +3799,33 @@ name|ptr
 operator|=
 name|const_cast
 operator|<
-name|const_iterator
+name|value_type
 operator|*
 operator|>
 operator|(
 name|iterator
+operator|)
+block|;     }
+specifier|static
+name|void
+name|assign
+argument_list|(
+argument|void **ptr
+argument_list|,
+argument|void * const * src
+argument_list|)
+block|{
+operator|*
+name|ptr
+operator|=
+name|static_cast
+operator|<
+name|value_type
+operator|*
+operator|>
+operator|(
+operator|*
+name|src
 operator|)
 block|;     }
 specifier|static
@@ -3745,13 +3837,13 @@ argument_list|,
 argument|int step
 argument_list|)
 block|{
-name|const_iterator
+name|value_type
 operator|*
 name|it
 operator|=
 name|static_cast
 operator|<
-name|const_iterator
+name|value_type
 operator|*
 operator|>
 operator|(
@@ -3800,7 +3892,7 @@ name|void
 operator|*
 name|getData
 argument_list|(
-argument|const const_iterator *it
+argument|const value_type *it
 argument_list|)
 block|{
 return|return
@@ -3808,6 +3900,47 @@ name|it
 return|;
 block|}
 end_expr_stmt
+begin_function
+specifier|static
+name|bool
+name|equal
+parameter_list|(
+name|void
+modifier|*
+specifier|const
+modifier|*
+name|it
+parameter_list|,
+name|void
+modifier|*
+specifier|const
+modifier|*
+name|other
+parameter_list|)
+block|{
+return|return
+name|static_cast
+operator|<
+name|value_type
+operator|*
+operator|>
+operator|(
+operator|*
+name|it
+operator|)
+operator|==
+name|static_cast
+operator|<
+name|value_type
+operator|*
+operator|>
+operator|(
+operator|*
+name|other
+operator|)
+return|;
+block|}
+end_function
 begin_enum
 unit|};
 enum|enum
@@ -4558,33 +4691,20 @@ argument|void * const *other
 argument_list|)
 block|{
 return|return
-operator|*
-name|static_cast
+name|IteratorOwner
 operator|<
 name|typename
 name|T
 operator|::
 name|const_iterator
-operator|*
 operator|>
-operator|(
-operator|*
+operator|::
+name|equal
+argument_list|(
 name|iterator
-operator|)
-operator|==
-operator|*
-name|static_cast
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|*
-operator|>
-operator|(
-operator|*
+argument_list|,
 name|other
-operator|)
+argument_list|)
 return|;
 block|}
 name|template
@@ -4638,9 +4758,9 @@ operator|>
 operator|::
 name|assign
 argument_list|(
-argument|dest
+name|dest
 argument_list|,
-argument|*static_cast<typename T::const_iterator*>(*src)
+name|src
 argument_list|)
 block|; }
 name|public
@@ -5748,33 +5868,20 @@ argument|void * const *other
 argument_list|)
 block|{
 return|return
-operator|*
-name|static_cast
+name|IteratorOwner
 operator|<
 name|typename
 name|T
 operator|::
 name|const_iterator
-operator|*
 operator|>
-operator|(
-operator|*
+operator|::
+name|equal
+argument_list|(
 name|iterator
-operator|)
-operator|==
-operator|*
-name|static_cast
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|*
-operator|>
-operator|(
-operator|*
+argument_list|,
 name|other
-operator|)
+argument_list|)
 return|;
 block|}
 name|template
@@ -5801,9 +5908,9 @@ operator|>
 operator|::
 name|assign
 argument_list|(
-argument|dest
+name|dest
 argument_list|,
-argument|*static_cast<typename T::const_iterator*>(*src)
+name|src
 argument_list|)
 block|; }
 name|public
@@ -8786,7 +8893,7 @@ parameter_list|(
 name|SINGLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|QT_BEGIN_NAMESPACE \ template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.load()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         const int tNameLen = qstrlen(tName); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SINGLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + 1); \         typeName.append(#SINGLE_ARG_TEMPLATE, int(sizeof(#SINGLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>( \                         typeName, \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ namespace QtPrivate { \ template<typename T> \ struct IsSequentialContainer<SINGLE_ARG_TEMPLATE<T>> \ { \     enum { Value = true }; \ }; \ } \ QT_END_NAMESPACE
+value|QT_BEGIN_NAMESPACE \ template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.load()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         Q_ASSERT(tName); \         const int tNameLen = int(qstrlen(tName)); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#SINGLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + 1); \         typeName.append(#SINGLE_ARG_TEMPLATE, int(sizeof(#SINGLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< SINGLE_ARG_TEMPLATE<T>>( \                         typeName, \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ namespace QtPrivate { \ template<typename T> \ struct IsSequentialContainer<SINGLE_ARG_TEMPLATE<T>> \ { \     enum { Value = true }; \ }; \ } \ QT_END_NAMESPACE
 end_define
 begin_define
 DECL|macro|Q_DECLARE_METATYPE_TEMPLATE_2ARG
@@ -8797,7 +8904,7 @@ parameter_list|(
 name|DOUBLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|QT_BEGIN_NAMESPACE \ template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \         Q_ASSERT(tName); \         Q_ASSERT(uName); \         const int tNameLen = qstrlen(tName); \         const int uNameLen = qstrlen(uName); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#DOUBLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + uNameLen + 1 + 1); \         typeName.append(#DOUBLE_ARG_TEMPLATE, int(sizeof(#DOUBLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen).append(',').append(uName, uNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         typeName, \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ QT_END_NAMESPACE
+value|QT_BEGIN_NAMESPACE \ template<typename T, typename U> \ struct QMetaTypeId< DOUBLE_ARG_TEMPLATE<T, U>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined&& QMetaTypeId2<U>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (const int id = metatype_id.loadAcquire()) \             return id; \         const char *tName = QMetaType::typeName(qMetaTypeId<T>()); \         const char *uName = QMetaType::typeName(qMetaTypeId<U>()); \         Q_ASSERT(tName); \         Q_ASSERT(uName); \         const int tNameLen = int(qstrlen(tName)); \         const int uNameLen = int(qstrlen(uName)); \         QByteArray typeName; \         typeName.reserve(int(sizeof(#DOUBLE_ARG_TEMPLATE)) + 1 + tNameLen + 1 + uNameLen + 1 + 1); \         typeName.append(#DOUBLE_ARG_TEMPLATE, int(sizeof(#DOUBLE_ARG_TEMPLATE)) - 1) \             .append('<').append(tName, tNameLen).append(',').append(uName, uNameLen); \         if (typeName.endsWith('>')) \             typeName.append(' '); \         typeName.append('>'); \         const int newId = qRegisterNormalizedMetaType< DOUBLE_ARG_TEMPLATE<T, U>>(\                         typeName, \                         reinterpret_cast< DOUBLE_ARG_TEMPLATE<T, U> *>(quintptr(-1))); \         metatype_id.storeRelease(newId); \         return newId; \     } \ }; \ QT_END_NAMESPACE
 end_define
 begin_decl_stmt
 name|namespace

@@ -141,6 +141,17 @@ name|name
 argument_list|)
 decl|const
 decl_stmt|;
+name|QPlatformDrag
+operator|*
+name|drag
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher

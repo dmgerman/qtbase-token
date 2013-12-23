@@ -2700,6 +2700,15 @@ literal|false
 argument_list|)
 argument_list|)
 return|;
+case|case
+name|ContextMenuOnMouseRelease
+case|:
+return|return
+name|QVariant
+argument_list|(
+literal|true
+argument_list|)
+return|;
 default|default:
 break|break;
 block|}

@@ -2422,7 +2422,7 @@ argument_list|)
 operator|)
 operator|||
 operator|(
-name|min
+name|max
 operator|>=
 literal|0
 operator|&&

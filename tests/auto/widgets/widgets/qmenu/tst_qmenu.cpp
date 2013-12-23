@@ -3895,6 +3895,13 @@ argument_list|)
 decl_stmt|;
 name|menu
 operator|.
+name|addAction
+argument_list|(
+literal|"foo"
+argument_list|)
+expr_stmt|;
+name|menu
+operator|.
 name|move
 argument_list|(
 name|win

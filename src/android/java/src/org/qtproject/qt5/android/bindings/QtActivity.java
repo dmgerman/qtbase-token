@@ -826,7 +826,7 @@ index|[]
 name|m_sources
 init|=
 block|{
-literal|"https://download.qt-project.org/ministro/android/qt5/latest"
+literal|"https://download.qt-project.org/ministro/android/qt5/qt-5.2"
 block|}
 decl_stmt|;
 comment|// Make sure you are using ONLY secure locations

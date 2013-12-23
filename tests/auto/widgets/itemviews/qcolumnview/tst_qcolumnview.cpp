@@ -6470,6 +6470,12 @@ operator|&
 name|delegate
 argument_list|)
 expr_stmt|;
+name|centerOnScreen
+argument_list|(
+operator|&
+name|view
+argument_list|)
+expr_stmt|;
 name|view
 operator|.
 name|show
@@ -6495,15 +6501,19 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|QTest
 operator|::
-name|qWait
+name|qWaitForWindowExposed
 argument_list|(
-literal|200
+operator|&
+name|view
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//let the time for painting to occur
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|delegate
 operator|.

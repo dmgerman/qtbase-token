@@ -906,6 +906,18 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+comment|// Don't check the version parameter in internal builds.
+comment|// This allows incompatible versions to be loaded, possibly for testing.
+name|Q_UNUSED
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 if|if
 condition|(
 name|version
@@ -921,6 +933,8 @@ argument_list|,
 name|QObjectPrivateVersion
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// QObjectData initialization
 name|q_ptr
 operator|=
@@ -9908,7 +9922,7 @@ begin_comment
 comment|/*!     \fn bool QObject::disconnect(const QObject *receiver, const char *method) const     \overload disconnect()      Disconnects all signals in this object from \a receiver's \a     method.      A signal-slot connection is removed when either of the objects     involved are destroyed. */
 end_comment
 begin_comment
-comment|/*!     \since 5.0      This virtual function is called when something has been connected     to \a signal in this object.      If you want to compare \a signal with a specific signal, you can     use QMetaMethod::fromSignal() as follows:      \snippet code/src_corelib_kernel_qobject.cpp 32      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal.      \sa connect(), disconnectNotify() */
+comment|/*!     \since 5.0      This virtual function is called when something has been connected     to \a signal in this object.      If you want to compare \a signal with a specific signal, you can     use QMetaMethod::fromSignal() as follows:      \snippet code/src_corelib_kernel_qobject.cpp 32      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal.      \warning This function is called from the thread which performs the     connection, which may be a different thread from the thread in     which this object lives.      \sa connect(), disconnectNotify() */
 end_comment
 begin_function
 DECL|function|connectNotify
@@ -9931,7 +9945,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      This virtual function is called when something has been     disconnected from \a signal in this object.      See connectNotify() for an example of how to compare     \a signal with a specific signal.      If all signals were disconnected from this object (e.g., the     signal argument to disconnect() was 0), disconnectNotify()     is only called once, and the \a signal will be an invalid     QMetaMethod (QMetaMethod::isValid() returns \c false).      \warning This function violates the object-oriented principle of     modularity. However, it might be useful for optimizing access to     expensive resources.      \sa disconnect(), connectNotify() */
+comment|/*!     \since 5.0      This virtual function is called when something has been     disconnected from \a signal in this object.      See connectNotify() for an example of how to compare     \a signal with a specific signal.      If all signals were disconnected from this object (e.g., the     signal argument to disconnect() was 0), disconnectNotify()     is only called once, and the \a signal will be an invalid     QMetaMethod (QMetaMethod::isValid() returns \c false).      \warning This function violates the object-oriented principle of     modularity. However, it might be useful for optimizing access to     expensive resources.      \warning This function is called from the thread which performs the     disconnection, which may be a different thread from the thread in     which this object lives. This function may also be called with a QObject     internal mutex locked. It is therefore not allowed to re-enter any     of any QObject functions from your reimplementation and if you lock     a mutex in your reimplementation, make sure that you don't call QObject     functions with that mutex held in other places or it will result in     a deadlock.      \sa disconnect(), connectNotify() */
 end_comment
 begin_function
 DECL|function|disconnectNotify

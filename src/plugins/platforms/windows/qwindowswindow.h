@@ -455,6 +455,10 @@ block|,
 name|WithinCreate
 operator|=
 literal|0x20000
+block|,
+name|WithinMaximize
+operator|=
+literal|0x40000
 block|}
 decl_stmt|;
 end_decl_stmt
