@@ -958,6 +958,14 @@ name|QByteArray
 operator|>
 name|knownQObjectClasses
 block|;
+name|QHash
+operator|<
+name|QByteArray
+block|,
+name|QByteArray
+operator|>
+name|knownGadgets
+block|;
 name|QMap
 operator|<
 name|QString
