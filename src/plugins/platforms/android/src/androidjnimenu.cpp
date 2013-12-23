@@ -551,12 +551,12 @@ name|visibleMenuBar
 operator|=
 name|menuBar
 expr_stmt|;
-break|break;
-block|}
-block|}
 name|resetMenuBar
 argument_list|()
 expr_stmt|;
+break|break;
+block|}
+block|}
 block|}
 DECL|function|addMenuBar
 name|void
