@@ -4299,19 +4299,6 @@ name|warning
 name|(
 name|disable
 name|:
-name|4660
-name|)
-end_pragma
-begin_comment
-comment|/* template-class specialization 'identifier' is already instantiated */
-end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
 name|4355
 name|)
 end_pragma
