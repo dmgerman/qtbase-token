@@ -203,7 +203,13 @@ name|MulticastLoopbackOption
 block|,
 comment|// IP_MULTICAST_LOOPBACK
 name|TypeOfServiceOption
+block|,
 comment|//IP_TOS
+name|SendBufferSizeSocketOption
+block|,
+comment|//SO_SNDBUF
+name|ReceiveBufferSizeSocketOption
+comment|//SO_RCVBUF
 block|}
 block|;     enum
 name|BindFlag
