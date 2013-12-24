@@ -2332,11 +2332,7 @@ operator|=
 literal|true
 expr_stmt|;
 name|QAccessibleStateChangeEvent
-modifier|*
-name|ev
-init|=
-operator|new
-name|QAccessibleStateChangeEvent
+name|e
 argument_list|(
 name|this
 argument_list|,
@@ -2347,7 +2343,8 @@ name|QAccessible
 operator|::
 name|updateAccessibility
 argument_list|(
-name|ev
+operator|&
+name|e
 argument_list|)
 expr_stmt|;
 endif|#

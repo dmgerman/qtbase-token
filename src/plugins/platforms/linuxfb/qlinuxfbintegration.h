@@ -130,7 +130,7 @@ block|;
 name|QPlatformFontDatabase
 operator|*
 name|m_fontDb
-block|; }
+block|;  }
 decl_stmt|;
 end_decl_stmt
 begin_macro

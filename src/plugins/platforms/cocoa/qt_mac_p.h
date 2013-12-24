@@ -546,9 +546,9 @@ unit|} }
 empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
-DECL|variable|QMacPasteboardMime
+DECL|variable|QMacInternalPasteboardMime
 name|class
-name|QMacPasteboardMime
+name|QMacInternalPasteboardMime
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

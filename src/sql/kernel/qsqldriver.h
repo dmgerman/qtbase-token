@@ -94,6 +94,10 @@ name|friend
 name|class
 name|QSqlDatabase
 block|;
+name|friend
+name|class
+name|QSqlResultPrivate
+block|;
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
 argument_list|(
