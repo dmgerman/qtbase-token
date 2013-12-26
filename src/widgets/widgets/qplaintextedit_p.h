@@ -575,6 +575,9 @@ argument_list|)
 block|;
 name|int
 name|originalOffsetY
+block|;
+name|QString
+name|placeholderText
 block|; }
 block|;
 name|QT_END_NAMESPACE
