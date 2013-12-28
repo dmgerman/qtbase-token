@@ -494,6 +494,13 @@ argument_list|(
 name|QPdfWriter
 argument_list|)
 expr_stmt|;
+name|QPagedPaintDevice
+operator|::
+name|setMargins
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
 specifier|const
 name|qreal
 name|multiplier
