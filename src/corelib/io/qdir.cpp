@@ -2950,7 +2950,7 @@ expr_stmt|;
 end_expr_stmt
 begin_comment
 unit|}
-comment|/*!     Changes the QDir's directory to \a dirName.      Returns \c true if the new directory exists and is readable;     otherwise returns \c false. Note that the logical cd() operation is     not performed if the new directory does not exist.      Calling cd("..") is equivalent to calling cdUp().      \sa cdUp(), isReadable(), exists(), path() */
+comment|/*!     Changes the QDir's directory to \a dirName.      Returns \c true if the new directory exists;     otherwise returns \c false. Note that the logical cd() operation is     not performed if the new directory does not exist.      Calling cd("..") is equivalent to calling cdUp().      \sa cdUp(), isReadable(), exists(), path() */
 end_comment
 begin_macro
 unit|bool
@@ -3250,7 +3250,7 @@ return|;
 end_return
 begin_comment
 unit|}
-comment|/*!     Changes directory by moving one directory up from the QDir's     current directory.      Returns \c true if the new directory exists and is readable;     otherwise returns \c false. Note that the logical cdUp() operation is     not performed if the new directory does not exist.      \sa cd(), isReadable(), exists(), path() */
+comment|/*!     Changes directory by moving one directory up from the QDir's     current directory.      Returns \c true if the new directory exists;     otherwise returns \c false. Note that the logical cdUp() operation is     not performed if the new directory does not exist.      \sa cd(), isReadable(), exists(), path() */
 end_comment
 begin_macro
 unit|bool
