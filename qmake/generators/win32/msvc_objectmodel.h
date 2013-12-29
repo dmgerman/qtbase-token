@@ -3256,6 +3256,9 @@ decl_stmt|;
 name|QString
 name|PlatformName
 decl_stmt|;
+name|QString
+name|SdkVersion
+decl_stmt|;
 comment|// XML sub-parts
 name|VCConfiguration
 name|Configuration
@@ -3949,6 +3952,9 @@ name|SccLocalPath
 decl_stmt|;
 name|QString
 name|PlatformName
+decl_stmt|;
+name|QString
+name|SdkVersion
 decl_stmt|;
 comment|// Single projects
 name|QList
