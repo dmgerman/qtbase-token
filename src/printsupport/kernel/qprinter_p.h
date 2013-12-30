@@ -169,16 +169,6 @@ argument_list|)
 operator|,
 name|validPrinter
 argument_list|(
-name|false
-argument_list|)
-operator|,
-name|hasCustomPageMargins
-argument_list|(
-name|false
-argument_list|)
-operator|,
-name|hasUserSetPageSize
-argument_list|(
 argument|false
 argument_list|)
 block|{     }
@@ -330,11 +320,6 @@ literal|1
 decl_stmt|;
 name|uint
 name|hasCustomPageMargins
-range|:
-literal|1
-decl_stmt|;
-name|uint
-name|hasUserSetPageSize
 range|:
 literal|1
 decl_stmt|;
