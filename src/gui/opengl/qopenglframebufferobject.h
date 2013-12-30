@@ -240,6 +240,10 @@ name|texture
 argument_list|()
 specifier|const
 expr_stmt|;
+name|GLuint
+name|takeTexture
+parameter_list|()
+function_decl|;
 name|QSize
 name|size
 argument_list|()
