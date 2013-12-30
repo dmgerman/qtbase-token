@@ -3339,12 +3339,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|xcb_flush
-argument_list|(
-name|xcb_connection
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|connection
 argument_list|()
 operator|->
@@ -10643,12 +10637,6 @@ name|m_syncCounter
 argument_list|,
 name|m_syncValue
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|xcb_flush
-argument_list|(
-name|xcb_connection
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|connection
