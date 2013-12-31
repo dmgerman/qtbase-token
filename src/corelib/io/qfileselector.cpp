@@ -52,6 +52,20 @@ include|#
 directive|include
 file|<QtCore/QDebug>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<sys/utsname.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|//Environment variable to allow tooling full control of file selectors
