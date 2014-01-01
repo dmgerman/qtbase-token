@@ -300,6 +300,18 @@ name|applicationVersion
 argument_list|()
 block|;
 specifier|static
+name|void
+name|setSetuidAllowed
+argument_list|(
+argument|bool allow
+argument_list|)
+block|;
+specifier|static
+name|bool
+name|isSetuidAllowed
+argument_list|()
+block|;
+specifier|static
 name|QCoreApplication
 operator|*
 name|instance
