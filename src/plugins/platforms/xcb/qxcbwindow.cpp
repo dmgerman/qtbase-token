@@ -9441,6 +9441,9 @@ condition|(
 name|isWheel
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|XCB_USE_XINPUT21
 comment|// Logic borrowed from qapplication_x11.cpp
 name|int
 name|delta
@@ -9541,6 +9544,8 @@ argument_list|,
 name|modifiers
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return;
 block|}
 name|handleMouseEvent
