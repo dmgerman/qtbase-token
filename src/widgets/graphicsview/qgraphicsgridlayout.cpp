@@ -145,15 +145,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|m_styleInfo
-operator|->
-name|updateChanged
-argument_list|(
-name|QAbstractLayoutStyleInfo
-operator|::
-name|Unknown
-argument_list|)
-expr_stmt|;
 return|return
 name|m_styleInfo
 return|;

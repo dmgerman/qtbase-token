@@ -152,27 +152,6 @@ operator|::
 name|invalidate
 argument_list|()
 block|;     }
-name|virtual
-name|bool
-name|hasChangedCore
-argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|{
-name|QStyle
-operator|*
-name|s
-operator|=
-name|m_style
-block|;
-comment|// Note that style() will change m_style
-return|return
-name|s
-operator|!=
-name|style
-argument_list|()
-return|;
-block|}
 name|QWidget
 operator|*
 name|widget

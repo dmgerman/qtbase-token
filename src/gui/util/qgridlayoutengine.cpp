@@ -10185,12 +10185,6 @@ specifier|const
 block|{
 if|if
 condition|(
-operator|!
-name|styleInfo
-operator|->
-name|hasChanged
-argument_list|()
-operator|&&
 name|q_cachedSize
 operator|==
 name|size
