@@ -150,12 +150,12 @@ argument_list|()
 specifier|const
 block|;
 comment|// these functions do not check if the property is valid
-name|void
+name|bool
 name|property
 argument_list|(
 argument|const QMetaProperty&mp
 argument_list|,
-argument|QVariant&where
+argument|void *returnValuePtr
 argument_list|)
 specifier|const
 block|;
