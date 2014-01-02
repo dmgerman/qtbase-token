@@ -284,7 +284,13 @@ name|r1
 operator|.
 name|unit
 operator|==
-literal|"msec"
+literal|"msecs"
+operator|||
+name|r1
+operator|.
+name|unit
+operator|==
+literal|"WalltimeMilliseconds"
 condition|)
 block|{
 name|variance
@@ -314,7 +320,13 @@ name|r1
 operator|.
 name|unit
 operator|==
-literal|"ticks"
+literal|"CPU ticks"
+operator|||
+name|r1
+operator|.
+name|unit
+operator|==
+literal|"CPUTicks"
 condition|)
 block|{
 name|variance
