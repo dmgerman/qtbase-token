@@ -218,12 +218,17 @@ name|UserInputEvent
 operator||
 literal|0x19
 block|,
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
 name|Gesture
 init|=
 name|UserInputEvent
 operator||
 literal|0x1a
 block|,
+endif|#
+directive|endif
 name|ApplicationStateChanged
 init|=
 literal|0x19
@@ -1944,6 +1949,9 @@ block|;     }
 decl_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
 name|class
 name|GestureEvent
 range|:
@@ -2031,6 +2039,8 @@ name|quint64
 name|intValue
 block|;     }
 decl_stmt|;
+endif|#
+directive|endif
 name|class
 name|WindowSystemEventList
 block|{
