@@ -3616,6 +3616,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+DECL|variable|Q_DECL_UNUSED
 name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
@@ -3629,6 +3630,7 @@ name|double
 name|p2
 argument_list|)
 name|Q_REQUIRED_RESULT
+name|Q_DECL_UNUSED
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -3674,6 +3676,7 @@ return|;
 block|}
 end_function
 begin_decl_stmt
+DECL|variable|Q_DECL_UNUSED
 name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
@@ -3687,6 +3690,7 @@ name|float
 name|p2
 argument_list|)
 name|Q_REQUIRED_RESULT
+name|Q_DECL_UNUSED
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -3735,6 +3739,7 @@ begin_comment
 comment|/*!   \internal */
 end_comment
 begin_decl_stmt
+DECL|variable|Q_DECL_UNUSED
 name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
@@ -3745,6 +3750,7 @@ name|double
 name|d
 argument_list|)
 name|Q_REQUIRED_RESULT
+name|Q_DECL_UNUSED
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -3773,6 +3779,7 @@ begin_comment
 comment|/*!   \internal */
 end_comment
 begin_decl_stmt
+DECL|variable|Q_DECL_UNUSED
 name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
@@ -3783,6 +3790,7 @@ name|float
 name|f
 argument_list|)
 name|Q_REQUIRED_RESULT
+name|Q_DECL_UNUSED
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -3811,6 +3819,7 @@ begin_comment
 comment|/*    This function tests a double for a null value. It doesn't    check whether the actual value is 0 or close to 0, but whether    it is binary 0, disregarding sign. */
 end_comment
 begin_decl_stmt
+DECL|variable|Q_DECL_UNUSED
 specifier|static
 specifier|inline
 name|bool
@@ -3820,6 +3829,7 @@ name|double
 name|d
 argument_list|)
 name|Q_REQUIRED_RESULT
+name|Q_DECL_UNUSED
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -3873,6 +3883,7 @@ begin_comment
 comment|/*    This function tests a float for a null value. It doesn't    check whether the actual value is 0 or close to 0, but whether    it is binary 0, disregarding sign. */
 end_comment
 begin_decl_stmt
+DECL|variable|Q_DECL_UNUSED
 specifier|static
 specifier|inline
 name|bool
@@ -3882,6 +3893,7 @@ name|float
 name|f
 argument_list|)
 name|Q_REQUIRED_RESULT
+name|Q_DECL_UNUSED
 decl_stmt|;
 end_decl_stmt
 begin_function
