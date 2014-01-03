@@ -2210,11 +2210,14 @@ operator|)
 specifier|const
 block|{
 return|return
+name|int
+argument_list|(
 name|i
 operator|-
 name|j
 operator|.
 name|i
+argument_list|)
 return|;
 block|}
 end_expr_stmt

@@ -5173,10 +5173,6 @@ argument_list|(
 name|glyph_pos
 argument_list|)
 expr_stmt|;
-name|lastEngine
-operator|=
-name|engineIdx
-expr_stmt|;
 name|QFontEngine
 modifier|*
 name|actualFontEngine
@@ -5244,6 +5240,10 @@ name|leading
 argument_list|)
 expr_stmt|;
 block|}
+name|lastEngine
+operator|=
+name|engineIdx
+expr_stmt|;
 if|if
 condition|(
 name|QChar

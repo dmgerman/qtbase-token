@@ -11796,6 +11796,13 @@ name|QPlatformTheme
 operator|::
 name|FontDialog
 case|:
+case|case
+name|QPlatformTheme
+operator|::
+name|MessageDialog
+case|:
+break|break;
+default|default:
 break|break;
 block|}
 return|return
@@ -11923,6 +11930,13 @@ name|QPlatformTheme
 operator|::
 name|FontDialog
 case|:
+case|case
+name|QPlatformTheme
+operator|::
+name|MessageDialog
+case|:
+break|break;
+default|default:
 break|break;
 block|}
 return|return

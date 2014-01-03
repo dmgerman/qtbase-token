@@ -1769,7 +1769,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the position of the mouse cursor in scene coordinates at the moment the     the context menu was requested.      \sa pos(), screenPos() */
+comment|/*!     Returns the position of the mouse cursor in scene coordinates at the moment the     context menu was requested.      \sa pos(), screenPos() */
 end_comment
 begin_function
 DECL|function|scenePos
@@ -1823,7 +1823,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the position of the mouse cursor in screen coordinates at the moment the     the context menu was requested.      \sa pos(), scenePos() */
+comment|/*!     Returns the position of the mouse cursor in screen coordinates at the moment the     context menu was requested.      \sa pos(), scenePos() */
 end_comment
 begin_function
 DECL|function|screenPos

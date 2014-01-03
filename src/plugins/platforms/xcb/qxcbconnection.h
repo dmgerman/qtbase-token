@@ -2190,6 +2190,16 @@ name|bool
 name|has_xkb
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|bool
+name|debug_xinput_devices
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|debug_xinput
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|Qt
 operator|::

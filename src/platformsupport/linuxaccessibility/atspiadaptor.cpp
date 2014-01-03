@@ -8631,6 +8631,12 @@ name|keyBindings
 decl_stmt|;
 name|action
 operator|.
+name|name
+operator|=
+name|actionName
+expr_stmt|;
+name|action
+operator|.
 name|description
 operator|=
 name|actionInterface

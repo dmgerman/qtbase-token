@@ -4086,6 +4086,8 @@ argument|const T *t
 argument_list|)
 block|{
 return|return
+name|int
+argument_list|(
 name|std
 operator|::
 name|distance
@@ -4099,6 +4101,7 @@ name|t
 operator|->
 name|end
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -5565,6 +5568,8 @@ argument|const void *p
 argument_list|)
 block|{
 return|return
+name|int
+argument_list|(
 name|std
 operator|::
 name|distance
@@ -5594,6 +5599,7 @@ operator|)
 operator|->
 name|end
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}

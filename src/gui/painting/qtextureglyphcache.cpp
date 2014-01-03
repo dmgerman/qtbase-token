@@ -583,6 +583,12 @@ decl_stmt|;
 if|if
 condition|(
 name|locked
+operator|&&
+operator|!
+name|locked
+operator|->
+name|isNull
+argument_list|()
 condition|)
 name|fontEngine
 operator|->
