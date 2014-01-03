@@ -629,6 +629,18 @@ name|m_alertRequest
 block|;
 name|id
 name|monitor
+block|;
+comment|// used by showFullScreen in fake mode
+name|QRect
+name|m_normalGeometry
+block|;
+name|Qt
+operator|::
+name|WindowFlags
+name|m_oldWindowFlags
+block|;
+name|NSApplicationPresentationOptions
+name|m_presentationOptions
 block|; }
 decl_stmt|;
 end_decl_stmt
