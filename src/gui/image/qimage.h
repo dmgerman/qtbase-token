@@ -1078,6 +1078,92 @@ argument_list|,
 argument|int h
 argument_list|)
 block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_REF_QUALIFIERS
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_COMPILING_QIMAGE_COMPAT_CPP
+argument_list|)
+name|QImage
+name|mirrored
+argument_list|(
+argument|bool horizontally = false
+argument_list|,
+argument|bool vertically = true
+argument_list|)
+specifier|const
+operator|&
+block|{
+return|return
+name|mirrored_helper
+argument_list|(
+name|horizontally
+argument_list|,
+name|vertically
+argument_list|)
+return|;
+block|}
+name|QImage
+operator|&&
+name|mirrored
+argument_list|(
+argument|bool horizontally = false
+argument_list|,
+argument|bool vertically = true
+argument_list|)
+operator|&&
+block|{
+name|mirrored_inplace
+argument_list|(
+name|horizontally
+argument_list|,
+name|vertically
+argument_list|)
+block|;
+return|return
+name|qMove
+argument_list|(
+operator|*
+name|this
+argument_list|)
+return|;
+block|}
+name|QImage
+name|rgbSwapped
+argument_list|()
+specifier|const
+operator|&
+block|{
+return|return
+name|rgbSwapped_helper
+argument_list|()
+return|;
+block|}
+name|QImage
+operator|&&
+name|rgbSwapped
+argument_list|()
+operator|&&
+block|{
+name|rgbSwapped_inplace
+argument_list|()
+block|;
+return|return
+name|qMove
+argument_list|(
+operator|*
+name|this
+argument_list|)
+return|;
+block|}
+else|#
+directive|else
 name|QImage
 name|mirrored
 argument_list|(
@@ -1092,6 +1178,8 @@ name|rgbSwapped
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|void
 name|invertPixels
 argument_list|(
@@ -1455,6 +1543,32 @@ argument_list|(
 argument|PaintDeviceMetric metric
 argument_list|)
 specifier|const
+block|;
+name|QImage
+name|mirrored_helper
+argument_list|(
+argument|bool horizontal
+argument_list|,
+argument|bool vertical
+argument_list|)
+specifier|const
+block|;
+name|QImage
+name|rgbSwapped_helper
+argument_list|()
+specifier|const
+block|;
+name|void
+name|mirrored_inplace
+argument_list|(
+argument|bool horizontal
+argument_list|,
+argument|bool vertical
+argument_list|)
+block|;
+name|void
+name|rgbSwapped_inplace
+argument_list|()
 block|;
 name|private
 operator|:
