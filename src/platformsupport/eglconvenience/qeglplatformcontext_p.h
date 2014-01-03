@@ -177,9 +177,6 @@ block|;
 name|EGLDisplay
 name|m_eglDisplay
 block|;
-name|EGLenum
-name|m_eglApi
-block|;
 name|EGLConfig
 name|m_eglConfig
 block|;
