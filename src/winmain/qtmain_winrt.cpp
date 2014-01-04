@@ -159,6 +159,13 @@ argument_list|>
 name|ActivatedHandler
 typedef|;
 end_typedef
+begin_decl_stmt
+DECL|variable|g_mainExitCode
+specifier|static
+name|int
+name|g_mainExitCode
+decl_stmt|;
+end_decl_stmt
 begin_class
 DECL|class|AppContainer
 class|class
@@ -364,7 +371,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|g_mainExitCode
+operator|=
 name|main
 argument_list|(
 name|m_argv
@@ -377,6 +385,9 @@ operator|.
 name|data
 argument_list|()
 argument_list|)
+expr_stmt|;
+return|return
+name|S_OK
 return|;
 block|}
 DECL|function|Uninitialize
@@ -808,7 +819,6 @@ condition|)
 return|return
 literal|2
 return|;
-return|return
 name|appFactory
 operator|->
 name|Run
@@ -826,6 +836,9 @@ operator|.
 name|Get
 argument_list|()
 argument_list|)
+expr_stmt|;
+return|return
+name|g_mainExitCode
 return|;
 block|}
 end_function
