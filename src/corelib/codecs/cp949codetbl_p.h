@@ -8,10 +8,10 @@ directive|ifndef
 name|CP949CODETBL_P_H
 end_ifndef
 begin_define
-DECL|macro|CP494CODETBL_P_H
+DECL|macro|CP949CODETBL_P_H
 define|#
 directive|define
-name|CP494CODETBL_P_H
+name|CP949CODETBL_P_H
 end_define
 begin_comment
 comment|//
@@ -17704,6 +17704,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// CP494CODETBL_P_H
+comment|// CP949CODETBL_P_H
 end_comment
 end_unit
