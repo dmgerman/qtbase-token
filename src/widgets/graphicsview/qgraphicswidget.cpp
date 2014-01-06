@@ -6778,7 +6778,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|const
 name|QSize
 name|pixmapSize
@@ -7269,7 +7269,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|realPainter
 operator|->
 name|drawPixmap
