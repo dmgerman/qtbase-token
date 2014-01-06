@@ -10302,13 +10302,6 @@ literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"ACCESSIBILITY"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"OPENGL"
 index|]
 operator|=
