@@ -17,12 +17,9 @@ include|#
 directive|include
 file|<qpa/qplatformwindow.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<EGL/egl.h>
-end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
+comment|/*!     \class QEGLPlatformContext     \brief An EGL context implementation.     \since 5.2     \internal     \ingroup qpa      Implement QPlatformOpenGLContext using EGL. To use it in platform     plugins a subclass must be created since     eglSurfaceForPlatformSurface() has to be reimplemented. This     function is used for mapping platform surfaces (windows) to EGL     surfaces and is necessary since different platform plugins may     have different ways of handling native windows (for example, a     plugin may choose not to back every platform window by a real EGL     surface). Other than that, no further customization is necessary.  */
 DECL|function|bindApi
 specifier|static
 specifier|inline
@@ -200,6 +197,23 @@ member_init_list|,
 name|m_eglConfig
 argument_list|(
 name|config
+argument_list|)
+member_init_list|,
+name|m_swapInterval
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+member_init_list|,
+name|m_swapIntervalEnvChecked
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|m_swapIntervalFromEnv
+argument_list|(
+operator|-
+literal|1
 argument_list|)
 block|{
 name|init
@@ -595,7 +609,7 @@ if|if
 condition|(
 name|qEnvironmentVariableIsSet
 argument_list|(
-literal|"QT_QPA_EGL_SWAPINTERVAL"
+literal|"QT_QPA_EGLFS_SWAPINTERVAL"
 argument_list|)
 condition|)
 block|{
@@ -604,7 +618,7 @@ name|swapIntervalString
 init|=
 name|qgetenv
 argument_list|(
-literal|"QT_QPA_EGL_SWAPINTERVAL"
+literal|"QT_QPA_EGLFS_SWAPINTERVAL"
 argument_list|)
 decl_stmt|;
 name|bool
@@ -937,4 +951,7 @@ name|m_eglConfig
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
