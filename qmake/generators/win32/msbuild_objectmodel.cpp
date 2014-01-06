@@ -5943,6 +5943,9 @@ name|toString
 parameter_list|(
 name|debugOption
 name|option
+parameter_list|,
+name|DotNET
+name|compilerVersion
 parameter_list|)
 block|{
 switch|switch
@@ -5960,6 +5963,13 @@ break|break;
 case|case
 name|debugDisabled
 case|:
+if|if
+condition|(
+name|compilerVersion
+operator|<=
+name|NET2010
+condition|)
+break|break;
 return|return
 literal|"None"
 return|;
@@ -7531,6 +7541,12 @@ argument_list|(
 name|tool
 operator|.
 name|DebugInformationFormat
+argument_list|,
+name|tool
+operator|.
+name|config
+operator|->
+name|CompilerVersion
 argument_list|)
 argument_list|)
 operator|<<
