@@ -1282,6 +1282,7 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
+comment|//qDebug()<< "\nSTART PROJECT:"<< config.getString(CONFIG_PROJECT).toLower();
 comment|/*       Add the defines to the configuration variables.      */
 name|QStringList
 name|defs
@@ -2321,6 +2322,11 @@ expr_stmt|;
 name|usedParsers
 operator|.
 name|clear
+argument_list|()
+expr_stmt|;
+name|qdb
+operator|->
+name|resolveInheritance
 argument_list|()
 expr_stmt|;
 comment|/*       Parse each source text file in the set using the appropriate parser and       add it to the big tree.      */

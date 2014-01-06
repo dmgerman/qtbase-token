@@ -156,6 +156,28 @@ operator|>
 name|ExampleNodeMap
 expr_stmt|;
 end_typedef
+begin_typedef
+DECL|typedef|NodeTypePair
+typedef|typedef
+name|QPair
+operator|<
+name|int
+operator|,
+name|int
+operator|>
+name|NodeTypePair
+expr_stmt|;
+end_typedef
+begin_typedef
+DECL|typedef|NodeTypeList
+typedef|typedef
+name|QList
+operator|<
+name|NodeTypePair
+operator|>
+name|NodeTypeList
+expr_stmt|;
+end_typedef
 begin_decl_stmt
 name|class
 name|Node
@@ -959,6 +981,20 @@ parameter_list|(
 name|bool
 parameter_list|)
 block|{ }
+name|virtual
+name|Node
+modifier|*
+name|disambiguate
+parameter_list|(
+name|Type
+parameter_list|,
+name|SubType
+parameter_list|)
+block|{
+return|return
+name|this
+return|;
+block|}
 name|bool
 name|isIndexNode
 argument_list|()
@@ -996,6 +1032,16 @@ return|return
 name|NoSubType
 return|;
 block|}
+name|bool
+name|match
+argument_list|(
+specifier|const
+name|NodeTypeList
+operator|&
+name|types
+argument_list|)
+decl|const
+decl_stmt|;
 name|InnerNode
 operator|*
 name|parent
@@ -1620,11 +1666,9 @@ name|Node
 operator|*
 name|findChildNodeByName
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|name
+argument|const QString& name
 argument_list|)
+specifier|const
 block|;
 name|Node
 operator|*
@@ -1634,6 +1678,7 @@ argument|const QString& name
 argument_list|,
 argument|bool qml
 argument_list|)
+specifier|const
 block|;
 name|Node
 operator|*
@@ -1665,11 +1710,9 @@ name|FunctionNode
 operator|*
 name|findFunctionNode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|name
+argument|const QString& name
 argument_list|)
+specifier|const
 block|;
 name|FunctionNode
 operator|*
@@ -1747,55 +1790,6 @@ return|return
 name|false
 return|;
 block|}
-specifier|const
-name|Node
-operator|*
-name|findChildNodeByName
-argument_list|(
-argument|const QString& name
-argument_list|)
-specifier|const
-block|;
-specifier|const
-name|Node
-operator|*
-name|findChildNodeByName
-argument_list|(
-argument|const QString& name
-argument_list|,
-argument|bool qml
-argument_list|)
-specifier|const
-block|;
-specifier|const
-name|Node
-operator|*
-name|findChildNodeByNameAndType
-argument_list|(
-argument|const QString& name
-argument_list|,
-argument|Type type
-argument_list|)
-specifier|const
-block|;
-specifier|const
-name|FunctionNode
-operator|*
-name|findFunctionNode
-argument_list|(
-argument|const QString& name
-argument_list|)
-specifier|const
-block|;
-specifier|const
-name|FunctionNode
-operator|*
-name|findFunctionNode
-argument_list|(
-argument|const FunctionNode* clone
-argument_list|)
-specifier|const
-block|;
 specifier|const
 name|EnumNode
 operator|*
@@ -2227,29 +2221,54 @@ DECL|function|RelatedClass
 name|RelatedClass
 argument_list|()
 block|{ }
+comment|// constructor for resolved base class
 DECL|function|RelatedClass
 name|RelatedClass
 argument_list|(
-argument|Node::Access access0
+argument|Node::Access access
 argument_list|,
-argument|ClassNode* node0
-argument_list|,
-argument|const QString& dataTypeWithTemplateArgs0 = QString()
+argument|ClassNode* node
 argument_list|)
 operator|:
+name|access_
+argument_list|(
 name|access
-argument_list|(
-name|access0
 argument_list|)
 block|,
-name|node
+name|node_
 argument_list|(
-name|node0
+argument|node
+argument_list|)
+block|{ }
+comment|// constructor for unresolved base class
+DECL|function|RelatedClass
+name|RelatedClass
+argument_list|(
+argument|Node::Access access
+argument_list|,
+argument|const QStringList& path
+argument_list|,
+argument|const QString& signature
+argument_list|)
+operator|:
+name|access_
+argument_list|(
+name|access
 argument_list|)
 block|,
-name|dataTypeWithTemplateArgs
+name|node_
 argument_list|(
-argument|dataTypeWithTemplateArgs0
+literal|0
+argument_list|)
+block|,
+name|path_
+argument_list|(
+name|path
+argument_list|)
+block|,
+name|signature_
+argument_list|(
+argument|signature
 argument_list|)
 block|{ }
 name|QString
@@ -2257,20 +2276,24 @@ name|accessString
 argument_list|()
 specifier|const
 block|;
-DECL|member|access
+DECL|member|access_
 name|Node
 operator|::
 name|Access
-name|access
+name|access_
 block|;
-DECL|member|node
+DECL|member|node_
 name|ClassNode
 operator|*
-name|node
+name|node_
 block|;
-DECL|member|dataTypeWithTemplateArgs
+DECL|member|path_
+name|QStringList
+name|path_
+block|;
+DECL|member|signature_
 name|QString
-name|dataTypeWithTemplateArgs
+name|signature_
 block|; }
 block|;
 DECL|variable|PropertyNode
@@ -2353,19 +2376,71 @@ operator|=
 name|true
 block|; }
 name|void
-name|addBaseClass
+name|addResolvedBaseClass
 argument_list|(
 argument|Access access
 argument_list|,
 argument|ClassNode* node
+argument_list|)
+block|;
+name|void
+name|addUnresolvedBaseClass
+argument_list|(
+argument|Access access
 argument_list|,
-argument|const QString&dataTypeWithTemplateArgs = QString()
+argument|const QStringList& path
+argument_list|,
+argument|const QString& signature
 argument_list|)
 block|;
 name|void
 name|fixBaseClasses
 argument_list|()
 block|;
+name|void
+name|fixPropertyUsingBaseClasses
+argument_list|(
+name|PropertyNode
+operator|*
+name|pn
+argument_list|)
+block|;
+name|QList
+operator|<
+name|RelatedClass
+operator|>
+operator|&
+name|baseClasses
+argument_list|()
+block|{
+return|return
+name|bases_
+return|;
+block|}
+name|QList
+operator|<
+name|RelatedClass
+operator|>
+operator|&
+name|derivedClasses
+argument_list|()
+block|{
+return|return
+name|derived_
+return|;
+block|}
+name|QList
+operator|<
+name|RelatedClass
+operator|>
+operator|&
+name|ignoredBaseClasses
+argument_list|()
+block|{
+return|return
+name|ignoredBases_
+return|;
+block|}
 specifier|const
 name|QList
 operator|<
@@ -2377,7 +2452,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|bases
+name|bases_
 return|;
 block|}
 specifier|const
@@ -2391,7 +2466,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|derived
+name|derived_
 return|;
 block|}
 specifier|const
@@ -2405,7 +2480,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|ignoredBases
+name|ignoredBases_
 return|;
 block|}
 name|QString
@@ -2488,19 +2563,19 @@ name|QList
 operator|<
 name|RelatedClass
 operator|>
-name|bases
+name|bases_
 block|;
 name|QList
 operator|<
 name|RelatedClass
 operator|>
-name|derived
+name|derived_
 block|;
 name|QList
 operator|<
 name|RelatedClass
 operator|>
-name|ignoredBases
+name|ignoredBases_
 block|;
 name|bool
 name|abstract_
@@ -2898,6 +2973,16 @@ argument_list|(
 argument|const Node* origin
 argument_list|)
 specifier|const
+block|;
+name|virtual
+name|Node
+operator|*
+name|disambiguate
+argument_list|(
+argument|Type t
+argument_list|,
+argument|SubType st
+argument_list|)
 block|;
 name|InnerNode
 operator|*
@@ -4004,15 +4089,6 @@ name|qmlModuleIdentifier
 argument_list|()
 return|;
 block|}
-name|PropertyNode
-operator|*
-name|correspondingProperty
-argument_list|(
-name|QDocDatabase
-operator|*
-name|qdb
-argument_list|)
-block|;
 specifier|const
 name|QString
 operator|&
@@ -4035,6 +4111,17 @@ name|element
 argument_list|()
 return|;
 block|}
+name|private
+operator|:
+name|PropertyNode
+operator|*
+name|findCorrespondingCppProperty
+argument_list|(
+name|QDocDatabase
+operator|*
+name|qdb
+argument_list|)
+block|;
 name|private
 operator|:
 name|QString

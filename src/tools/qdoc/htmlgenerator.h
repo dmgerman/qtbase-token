@@ -785,9 +785,6 @@ argument_list|,
 argument|const Node* relative
 argument_list|,
 argument|bool alignNames = false
-argument_list|,
-argument|const Node* self =
-literal|0
 argument_list|)
 block|;
 name|void
