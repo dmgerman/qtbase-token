@@ -1686,8 +1686,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QByteArray
-name|hash
+name|QString
+name|fileName
 init|=
 name|QCryptographicHash
 operator|::
@@ -1702,6 +1702,11 @@ argument_list|)
 operator|.
 name|toHex
 argument_list|()
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"!main!ps_4_0!0"
+argument_list|)
 decl_stmt|;
 name|QFile
 name|input
@@ -1715,7 +1720,7 @@ argument_list|(
 literal|"source/"
 argument_list|)
 operator|+
-name|hash
+name|fileName
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1908,7 +1913,7 @@ argument_list|(
 literal|"binary/"
 argument_list|)
 operator|+
-name|hash
+name|fileName
 argument_list|)
 argument_list|)
 decl_stmt|;
