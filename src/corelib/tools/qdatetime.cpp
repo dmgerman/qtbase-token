@@ -8720,6 +8720,37 @@ literal|0
 expr_stmt|;
 return|return;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+comment|// If not valid time zone then is invalid
+if|if
+condition|(
+name|m_spec
+operator|==
+name|Qt
+operator|::
+name|TimeZone
+operator|&&
+operator|!
+name|m_timeZone
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|clearValidDateTime
+argument_list|()
+expr_stmt|;
+name|m_offsetFromUtc
+operator|=
+literal|0
+expr_stmt|;
+return|return;
+block|}
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 comment|// We have a valid date and time and a Qt::LocalTime or Qt::TimeZone that needs calculating
 comment|// LocalTime and TimeZone might fall into "missing" DaylightTime transition hour
 comment|// Calling toEpochMSecs will adjust the returned date/time if it does
