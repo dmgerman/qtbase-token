@@ -5711,7 +5711,7 @@ name|vcProject
 operator|.
 name|Version
 operator|=
-literal|"13.00"
+literal|"12.00"
 expr_stmt|;
 break|break;
 case|case
@@ -5721,7 +5721,7 @@ name|vcProject
 operator|.
 name|Version
 operator|=
-literal|"12.00"
+literal|"11.00"
 expr_stmt|;
 break|break;
 case|case
