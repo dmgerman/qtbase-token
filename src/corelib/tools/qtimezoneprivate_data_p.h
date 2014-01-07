@@ -63,12 +63,12 @@ DECL|member|country
 name|quint16
 name|country
 decl_stmt|;
-comment|// Country of Olsen ID's, AnyCountry means No Country
-DECL|member|olsenIdIndex
+comment|// Country of IANA ID's, AnyCountry means No Country
+DECL|member|ianaIdIndex
 name|quint16
-name|olsenIdIndex
+name|ianaIdIndex
 decl_stmt|;
-comment|// All Olsen ID's for the Windows ID and Country, space separated
+comment|// All IANA ID's for the Windows ID and Country, space separated
 block|}
 struct|;
 end_struct
@@ -87,11 +87,11 @@ name|quint16
 name|windowsIdIndex
 decl_stmt|;
 comment|// Windows ID Literal
-DECL|member|olsenIdIndex
+DECL|member|ianaIdIndex
 name|quint16
-name|olsenIdIndex
+name|ianaIdIndex
 decl_stmt|;
-comment|// Default Olsen ID for the Windows ID
+comment|// Default IANA ID for the Windows ID
 DECL|member|offsetFromUtc
 name|qint32
 name|offsetFromUtc
@@ -105,11 +105,11 @@ DECL|struct|QUtcData
 struct|struct
 name|QUtcData
 block|{
-DECL|member|olsenIdIndex
+DECL|member|ianaIdIndex
 name|quint16
-name|olsenIdIndex
+name|ianaIdIndex
 decl_stmt|;
-comment|// Olsen ID's
+comment|// IANA ID's
 DECL|member|offsetFromUtc
 name|qint32
 name|offsetFromUtc
@@ -128,7 +128,7 @@ begin_comment
 comment|/*     This part of the file was generated on 2013-03-18 from the     Common Locale Data Repository supplemental/windowsZones.xml file     $Revision: 7825 $ $Date: 2012-10-10 14:45:31 -0700 (Wed, 10 Oct 2012) $      http://www.unicode.org/cldr/      Do not change this data, only generate it using cldr2qtimezone.py. */
 end_comment
 begin_comment
-comment|// Windows ID Key, Country Enum, Olsen ID Index
+comment|// Windows ID Key, Country Enum, IANA ID Index
 end_comment
 begin_decl_stmt
 DECL|variable|zoneDataTable
@@ -3166,7 +3166,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// Windows ID Key, Windows ID Index, Olsen ID Index, UTC Offset
+comment|// Windows ID Key, Windows ID Index, IANA ID Index, UTC Offset
 end_comment
 begin_decl_stmt
 DECL|variable|windowsDataTable
@@ -4307,7 +4307,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// Olsen ID Index, UTC Offset
+comment|// IANA ID Index, UTC Offset
 end_comment
 begin_decl_stmt
 DECL|variable|utcDataTable
@@ -9266,11 +9266,11 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|olsenIdData
+DECL|variable|ianaIdData
 specifier|static
 specifier|const
 name|char
-name|olsenIdData
+name|ianaIdData
 index|[]
 init|=
 block|{

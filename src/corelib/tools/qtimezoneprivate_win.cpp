@@ -1710,7 +1710,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 member_init_list|:
 name|QTimeZonePrivate
@@ -1718,7 +1718,7 @@ argument_list|()
 block|{
 name|init
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 expr_stmt|;
 block|}
@@ -1814,12 +1814,12 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -1842,12 +1842,12 @@ name|m_windowsId
 operator|=
 name|ianaIdToWindowsId
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 expr_stmt|;
 name|m_id
 operator|=
-name|olsenId
+name|ianaId
 expr_stmt|;
 block|}
 if|if
@@ -3177,7 +3177,7 @@ name|windowsSystemZoneId
 argument_list|()
 decl_stmt|;
 name|QByteArray
-name|olsenId
+name|ianaId
 decl_stmt|;
 comment|// If we have a real country, then try get a specific match for that country
 if|if
@@ -3188,7 +3188,7 @@ name|QLocale
 operator|::
 name|AnyCountry
 condition|)
-name|olsenId
+name|ianaId
 operator|=
 name|windowsIdToDefaultIanaId
 argument_list|(
@@ -3200,13 +3200,13 @@ expr_stmt|;
 comment|// If we don't have a real country, or there wasn't a specific match, try the global default
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|olsenId
+name|ianaId
 operator|=
 name|windowsIdToDefaultIanaId
 argument_list|(
@@ -3216,7 +3216,7 @@ expr_stmt|;
 comment|// If no global default then probably an unknown Windows ID so return UTC
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -3229,7 +3229,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|olsenId
+name|ianaId
 return|;
 block|}
 end_function
@@ -3267,7 +3267,7 @@ control|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 decl|,
 name|windowsIdToIanaIds
 argument_list|(
@@ -3276,7 +3276,7 @@ argument_list|)
 control|)
 name|set
 operator|<<
-name|olsenId
+name|ianaId
 expr_stmt|;
 block|}
 return|return

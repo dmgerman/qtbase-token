@@ -129,7 +129,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
 ifdef|#
@@ -142,7 +142,7 @@ return|return
 operator|new
 name|QIcuTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 else|#
@@ -151,7 +151,7 @@ return|return
 operator|new
 name|QUtcTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 endif|#
@@ -167,7 +167,7 @@ return|return
 operator|new
 name|QMacTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 elif|#
@@ -178,7 +178,7 @@ return|return
 operator|new
 name|QTzTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 comment|// Registry based timezone backend not available on WinRT
@@ -194,7 +194,7 @@ return|return
 operator|new
 name|QWinTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 elif|#
@@ -205,7 +205,7 @@ return|return
 operator|new
 name|QIcuTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 else|#
@@ -214,7 +214,7 @@ return|return
 operator|new
 name|QUtcTimeZonePrivate
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 return|;
 endif|#
@@ -1827,15 +1827,15 @@ name|tz
 parameter_list|)
 block|{
 name|QString
-name|olsenId
+name|ianaId
 decl_stmt|;
 name|ds
 operator|>>
-name|olsenId
+name|ianaId
 expr_stmt|;
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|==
 name|QStringLiteral
 argument_list|(
@@ -1860,7 +1860,7 @@ name|comment
 decl_stmt|;
 name|ds
 operator|>>
-name|olsenId
+name|ianaId
 operator|>>
 name|utcOffset
 operator|>>
@@ -1876,7 +1876,7 @@ name|tz
 operator|=
 name|QTimeZone
 argument_list|(
-name|olsenId
+name|ianaId
 operator|.
 name|toUtf8
 argument_list|()
@@ -1904,7 +1904,7 @@ name|tz
 operator|=
 name|QTimeZone
 argument_list|(
-name|olsenId
+name|ianaId
 operator|.
 name|toUtf8
 argument_list|()

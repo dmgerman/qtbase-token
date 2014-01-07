@@ -210,13 +210,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Return the Olsen ID literal for a given QWindowsData
+comment|// Return the IANA ID literal for a given QWindowsData
 end_comment
 begin_function
-DECL|function|olsenId
+DECL|function|ianaId
 specifier|static
 name|QByteArray
-name|olsenId
+name|ianaId
 parameter_list|(
 specifier|const
 name|QWindowsData
@@ -226,23 +226,23 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|olsenIdData
+name|ianaIdData
 operator|+
 name|windowsData
 operator|->
-name|olsenIdIndex
+name|ianaIdIndex
 operator|)
 return|;
 block|}
 end_function
 begin_comment
-comment|// Return the Olsen ID literal for a given QZoneData
+comment|// Return the IANA ID literal for a given QZoneData
 end_comment
 begin_function
-DECL|function|olsenId
+DECL|function|ianaId
 specifier|static
 name|QByteArray
-name|olsenId
+name|ianaId
 parameter_list|(
 specifier|const
 name|QZoneData
@@ -252,11 +252,11 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|olsenIdData
+name|ianaIdData
 operator|+
 name|zoneData
 operator|->
-name|olsenIdIndex
+name|ianaIdIndex
 operator|)
 return|;
 block|}
@@ -275,11 +275,11 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|olsenIdData
+name|ianaIdData
 operator|+
 name|utcData
 operator|->
-name|olsenIdIndex
+name|ianaIdIndex
 operator|)
 return|;
 block|}
@@ -587,7 +587,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|olsenId
+name|ianaId
 argument_list|(
 name|data
 argument_list|)
@@ -1461,7 +1461,7 @@ name|country
 condition|)
 name|regionSet
 operator|+=
-name|olsenId
+name|ianaId
 argument_list|(
 name|zoneData
 argument_list|(
@@ -1490,7 +1490,7 @@ control|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 decl|,
 name|availableTimeZoneIds
 argument_list|()
@@ -1502,12 +1502,12 @@ name|regionSet
 operator|.
 name|contains
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 condition|)
 name|set
 operator|<<
-name|olsenId
+name|ianaId
 expr_stmt|;
 block|}
 return|return
@@ -1609,7 +1609,7 @@ name|windowsIdKey
 condition|)
 name|offsetSet
 operator|+=
-name|olsenId
+name|ianaId
 argument_list|(
 name|data
 argument_list|)
@@ -1637,7 +1637,7 @@ control|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 decl|,
 name|availableTimeZoneIds
 argument_list|()
@@ -1649,12 +1649,12 @@ name|offsetSet
 operator|.
 name|contains
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 condition|)
 name|set
 operator|<<
-name|olsenId
+name|ianaId
 expr_stmt|;
 block|}
 return|return
@@ -1898,10 +1898,10 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
-comment|// Rules for defining TZ/Olsen names as per ftp://ftp.iana.org/tz/code/Theory
+comment|// Rules for defining TZ/IANA names as per ftp://ftp.iana.org/tz/code/Theory
 comment|// * Use only valid POSIX file name components
 comment|// * Within a file name component, use only ASCII letters, `.', `-' and `_'.
 comment|// * Do not use digits
@@ -1909,7 +1909,7 @@ comment|// * A file name component must not exceed 14 characters or start with `
 comment|// Aliases such as "Etc/GMT+7" and "SystemV/EST5EDT" are valid so we need to accept digits
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|contains
 argument_list|(
@@ -1925,7 +1925,7 @@ name|QByteArray
 argument_list|>
 name|parts
 init|=
-name|olsenId
+name|ianaId
 operator|.
 name|split
 argument_list|(
@@ -2207,7 +2207,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|olsenId
+name|ianaId
 argument_list|(
 name|data
 argument_list|)
@@ -2293,7 +2293,7 @@ operator|==
 name|windowsIdKey
 condition|)
 return|return
-name|olsenId
+name|ianaId
 argument_list|(
 name|data
 argument_list|)
@@ -2425,7 +2425,7 @@ name|windowsIdKey
 condition|)
 name|list
 operator|<<
-name|olsenId
+name|ianaId
 argument_list|(
 name|data
 argument_list|)
@@ -2531,7 +2531,7 @@ operator|)
 name|country
 condition|)
 return|return
-name|olsenId
+name|ianaId
 argument_list|(
 name|data
 argument_list|)
