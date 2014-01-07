@@ -6254,6 +6254,14 @@ name|CompileAsWinRT
 operator|=
 name|_False
 expr_stmt|;
+name|conf
+operator|.
+name|linker
+operator|.
+name|GenerateWindowsMetadata
+operator|=
+name|_False
+expr_stmt|;
 block|}
 block|}
 name|conf
