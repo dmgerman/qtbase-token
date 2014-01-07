@@ -5042,8 +5042,8 @@ name|accel
 expr_stmt|;
 block|}
 block|}
-else|#
-directive|else
+endif|#
+directive|endif
 name|int
 name|i
 init|=
@@ -5218,8 +5218,6 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|int
 name|p
 init|=

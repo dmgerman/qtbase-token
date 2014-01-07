@@ -4638,29 +4638,6 @@ argument_list|,
 name|keycode
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"Win+A"
-argument_list|,
-literal|"QTBUG-24406 - This test fails on OSX"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"Simon+G"
-argument_list|,
-literal|"QTBUG-24406 - This test fails on OSX"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|QKeySequence
