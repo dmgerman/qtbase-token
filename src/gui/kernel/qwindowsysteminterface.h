@@ -644,6 +644,11 @@ operator|=
 name|Qt
 operator|::
 name|MouseEventNotSynthesized
+argument_list|,
+name|bool
+name|inverted
+operator|=
+name|false
 argument_list|)
 decl_stmt|;
 comment|// Wheel event compatibility functions. Will be removed: do not use.

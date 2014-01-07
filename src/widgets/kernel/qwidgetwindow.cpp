@@ -4275,6 +4275,11 @@ name|event
 operator|->
 name|source
 argument_list|()
+argument_list|,
+name|event
+operator|->
+name|inverted
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|QGuiApplication

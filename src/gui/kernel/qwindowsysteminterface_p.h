@@ -974,6 +974,8 @@ argument_list|,
 argument|Qt::ScrollPhase phase = Qt::NoScrollPhase
 argument_list|,
 argument|Qt::MouseEventSource src = Qt::MouseEventNotSynthesized
+argument_list|,
+argument|bool inverted = false
 argument_list|)
 operator|:
 name|InputEvent
@@ -1024,7 +1026,12 @@ argument_list|)
 block|,
 name|source
 argument_list|(
-argument|src
+name|src
+argument_list|)
+block|,
+name|inverted
+argument_list|(
+argument|inverted
 argument_list|)
 block|{ }
 name|QPoint
@@ -1056,6 +1063,9 @@ name|Qt
 operator|::
 name|MouseEventSource
 name|source
+block|;
+name|bool
+name|inverted
 block|;     }
 decl_stmt|;
 name|class

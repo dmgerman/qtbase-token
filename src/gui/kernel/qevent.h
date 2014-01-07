@@ -870,6 +870,31 @@ argument_list|,
 argument|Qt::MouseEventSource source
 argument_list|)
 block|;
+name|QWheelEvent
+argument_list|(
+argument|const QPointF&pos
+argument_list|,
+argument|const QPointF&globalPos
+argument_list|,
+argument|QPoint pixelDelta
+argument_list|,
+argument|QPoint angleDelta
+argument_list|,
+argument|int qt4Delta
+argument_list|,
+argument|Qt::Orientation qt4Orientation
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers
+argument_list|,
+argument|Qt::ScrollPhase phase
+argument_list|,
+argument|Qt::MouseEventSource source
+argument_list|,
+argument|bool inverted
+argument_list|)
+block|;
 operator|~
 name|QWheelEvent
 argument_list|()
@@ -1052,6 +1077,16 @@ name|ph
 argument_list|)
 return|;
 block|}
+specifier|inline
+name|bool
+name|inverted
+argument_list|()
+specifier|const
+block|{
+return|return
+name|invertedScrolling
+return|;
+block|}
 name|Qt
 operator|::
 name|MouseEventSource
@@ -1105,10 +1140,15 @@ name|src
 operator|:
 literal|2
 block|;
+name|bool
+name|invertedScrolling
+operator|:
+literal|1
+block|;
 name|int
 name|reserved
 operator|:
-literal|28
+literal|27
 block|;
 name|friend
 name|class

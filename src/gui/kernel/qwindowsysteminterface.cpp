@@ -1864,6 +1864,9 @@ name|Qt
 operator|::
 name|MouseEventSource
 name|source
+parameter_list|,
+name|bool
+name|invertedScrolling
 parameter_list|)
 block|{
 comment|// Qt 4 sends two separate wheel events for horizontal and vertical
@@ -1960,6 +1963,8 @@ argument_list|,
 name|phase
 argument_list|,
 name|source
+argument_list|,
+name|invertedScrolling
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -2036,6 +2041,8 @@ argument_list|,
 name|phase
 argument_list|,
 name|source
+argument_list|,
+name|invertedScrolling
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -2097,6 +2104,8 @@ argument_list|,
 name|phase
 argument_list|,
 name|source
+argument_list|,
+name|invertedScrolling
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -2157,6 +2166,8 @@ argument_list|,
 name|phase
 argument_list|,
 name|source
+argument_list|,
+name|invertedScrolling
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
