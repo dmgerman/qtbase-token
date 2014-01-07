@@ -967,6 +967,21 @@ operator|::
 name|NoFocus
 argument_list|)
 expr_stmt|;
+comment|// Native dialogs use ALT-Left even in RTL mode, so do the same, even if it might be counter-intuitive.
+name|setShortcut
+argument_list|(
+name|QKeySequence
+argument_list|(
+name|Qt
+operator|::
+name|ALT
+operator||
+name|Qt
+operator|::
+name|Key_Left
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_function

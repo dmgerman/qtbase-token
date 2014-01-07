@@ -8369,6 +8369,45 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Vista: Add shortcut for 'next'. Note: native dialogs use ALT-Right
+comment|// even in RTL mode, so do the same, even if it might be counter-intuitive.
+comment|// The shortcut for 'back' is set in class QVistaBackButton.
+if|if
+condition|(
+name|btns
+index|[
+name|QWizard
+operator|::
+name|NextButton
+index|]
+condition|)
+name|btns
+index|[
+name|QWizard
+operator|::
+name|NextButton
+index|]
+operator|->
+name|setShortcut
+argument_list|(
+name|isVistaThemeEnabled
+argument_list|()
+condition|?
+name|QKeySequence
+argument_list|(
+name|Qt
+operator|::
+name|ALT
+operator||
+name|Qt
+operator|::
+name|Key_Right
+argument_list|)
+else|:
+name|QKeySequence
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
