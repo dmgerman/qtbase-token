@@ -302,6 +302,15 @@ return|return
 name|m_windowGroupName
 return|;
 block|}
+name|void
+name|joinWindowGroup
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|groupName
+argument_list|)
+block|;
 name|protected
 operator|:
 name|virtual
@@ -418,8 +427,13 @@ block|;
 name|screen_window_t
 name|m_mmRendererWindow
 block|;
+comment|// Group name of window group headed by this window
 name|QByteArray
 name|m_windowGroupName
+block|;
+comment|// Group name that we have joined or "" if we've not joined any group.
+name|QByteArray
+name|m_parentGroupName
 block|;
 name|bool
 name|m_isTopLevel
