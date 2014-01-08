@@ -52,6 +52,12 @@ name|caption
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_function_decl
+name|QString
+name|msgDialogButtonDiscard
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -139,6 +139,14 @@ argument|ThemeHint hint
 argument_list|)
 specifier|const
 block|;
+name|QString
+name|standardButtonText
+argument_list|(
+argument|int button
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 specifier|static
 specifier|const
 name|char
