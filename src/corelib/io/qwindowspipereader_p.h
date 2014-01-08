@@ -207,9 +207,9 @@ operator|:
 name|void
 name|notified
 argument_list|(
-argument|DWORD numberOfBytesRead
+argument|quint32 numberOfBytesRead
 argument_list|,
-argument|DWORD errorCode
+argument|quint32 errorCode
 argument_list|,
 argument|OVERLAPPED *notifiedOverlapped
 argument_list|)

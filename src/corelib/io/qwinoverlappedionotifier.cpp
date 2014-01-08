@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qt_windows.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qobject_p.h>
 end_include
 begin_macro
@@ -907,6 +912,8 @@ name|QWinOverlappedIoNotifier
 operator|::
 name|setHandle
 parameter_list|(
+name|Qt
+operator|::
 name|HANDLE
 name|h
 parameter_list|)
@@ -926,6 +933,8 @@ block|}
 end_function
 begin_function
 DECL|function|handle
+name|Qt
+operator|::
 name|HANDLE
 name|QWinOverlappedIoNotifier
 operator|::

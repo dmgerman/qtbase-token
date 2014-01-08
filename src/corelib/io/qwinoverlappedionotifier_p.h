@@ -48,11 +48,14 @@ include|#
 directive|include
 file|<qobject.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qt_windows.h>
-end_include
+begin_typedef
+DECL|typedef|OVERLAPPED
+typedef|typedef
+name|struct
+name|_OVERLAPPED
+name|OVERLAPPED
+typedef|;
+end_typedef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWinOverlappedIoNotifierPrivate
@@ -105,9 +108,11 @@ block|;
 name|void
 name|setHandle
 argument_list|(
-argument|HANDLE h
+argument|Qt::HANDLE h
 argument_list|)
 block|;
+name|Qt
+operator|::
 name|HANDLE
 name|handle
 argument_list|()
@@ -132,9 +137,9 @@ operator|:
 name|void
 name|notified
 argument_list|(
-argument|DWORD numberOfBytes
+argument|quint32 numberOfBytes
 argument_list|,
-argument|DWORD errorCode
+argument|quint32 errorCode
 argument_list|,
 argument|OVERLAPPED *overlapped
 argument_list|)

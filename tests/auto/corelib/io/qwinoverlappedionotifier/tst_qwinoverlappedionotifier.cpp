@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qbytearray.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
