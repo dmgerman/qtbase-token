@@ -2274,6 +2274,21 @@ name|QNativeSocketEngine
 operator|::
 name|SendBufferSocketOption
 case|:
+comment|// see QTBUG-30478 SO_SNDBUF should not be used on Vista or later
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|windowsVersion
+argument_list|()
+operator|>=
+name|QSysInfo
+operator|::
+name|WV_VISTA
+condition|)
+return|return
+literal|false
+return|;
 name|n
 operator|=
 name|SO_SNDBUF
