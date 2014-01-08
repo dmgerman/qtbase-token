@@ -18,13 +18,6 @@ include|#
 directive|include
 file|<qpa/qplatformcursor.h>
 end_include
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-DECL|variable|QKmsScreen
-name|class
-name|QKmsScreen
-decl_stmt|;
-end_decl_stmt
 begin_struct_decl
 struct_decl|struct
 name|gbm_device
@@ -35,6 +28,13 @@ struct_decl|struct
 name|gbm_bo
 struct_decl|;
 end_struct_decl
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+DECL|variable|QKmsScreen
+name|class
+name|QKmsScreen
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|QKmsCursor

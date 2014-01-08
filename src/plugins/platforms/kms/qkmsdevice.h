@@ -37,15 +37,13 @@ include|#
 directive|include
 file|<QObject>
 end_include
-begin_macro
-name|QT_BEGIN_NAMESPACE
-end_macro
 begin_struct_decl
 struct_decl|struct
 name|gbm_device
 struct_decl|;
 end_struct_decl
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QKmsIntegration
 name|class
 name|QKmsIntegration
