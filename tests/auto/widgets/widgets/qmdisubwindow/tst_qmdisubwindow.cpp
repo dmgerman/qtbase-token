@@ -701,6 +701,10 @@ operator||
 name|Qt
 operator|::
 name|WindowMinMaxButtonsHint
+operator||
+name|Qt
+operator|::
+name|WindowCloseButtonHint
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
