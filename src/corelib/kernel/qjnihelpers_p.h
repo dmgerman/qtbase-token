@@ -86,6 +86,10 @@ name|jobject
 name|classLoader
 parameter_list|()
 function_decl|;
+name|jint
+name|androidSdkVersion
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_macro
