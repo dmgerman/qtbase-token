@@ -9006,14 +9006,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|QWindowsNativeFileDialogBase
-modifier|*
-name|nfd
-init|=
-name|nativeFileDialog
+name|hasNativeDialog
 argument_list|()
 condition|)
-name|nfd
+comment|// Might be invoked from the QFileDialog constructor.
+name|nativeFileDialog
+argument_list|()
 operator|->
 name|selectFile
 argument_list|(
