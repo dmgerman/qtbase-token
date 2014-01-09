@@ -389,10 +389,19 @@ begin_comment
 comment|/*!     \macro qCDebug(category)     \relates QLoggingCategory     \since 5.2      Returns an output stream for debug messages in the logging category     \a category.      The macro expands to code that checks whether     \l QLoggingCategory::isDebugEnabled() evaluates to \c true.     If so, the stream arguments are processed and sent to the message handler.      Example:      \snippet qloggingcategory/main.cpp 10      \note Arguments are not processed if debug output for the category is not     enabled, so do not rely on any side effects.      \sa qDebug() */
 end_comment
 begin_comment
+comment|/*!     \macro qCDebug(category, const char *message, ...)     \relates QLoggingCategory     \since 5.3      Logs a debug message \a message in the logging category \a category.     \a message might contain place holders that are replaced by additional     arguments, similar to the C printf() function.      Example:      \snippet qloggingcategory/main.cpp 13      \note Arguments might not be processed if debug output for the category is     not enabled, so do not rely on any side effects.      \sa qDebug() */
+end_comment
+begin_comment
 comment|/*!     \macro qCWarning(category)     \relates QLoggingCategory     \since 5.2      Returns an output stream for warning messages in the logging category     \a category.      The macro expands to code that checks whether     \l QLoggingCategory::isWarningEnabled() evaluates to \c true.     If so, the stream arguments are processed and sent to the message handler.      Example:      \snippet qloggingcategory/main.cpp 11      \note Arguments are not processed if warning output for the category is not     enabled, so do not rely on any side effects.      \sa qWarning() */
 end_comment
 begin_comment
+comment|/*!     \macro qCWarning(category, const char *message, ...)     \relates QLoggingCategory     \since 5.3      Logs a warning message \a message in the logging category \a category.     \a message might contain place holders that are replaced by additional     arguments, similar to the C printf() function.      Example:      \snippet qloggingcategory/main.cpp 14      \note Arguments might not be processed if warning output for the category is     not enabled, so do not rely on any side effects.      \sa qWarning() */
+end_comment
+begin_comment
 comment|/*!     \macro qCCritical(category)     \relates QLoggingCategory     \since 5.2      Returns an output stream for critical messages in the logging category     \a category.      The macro expands to code that checks whether     \l QLoggingCategory::isCriticalEnabled() evaluates to \c true.     If so, the stream arguments are processed and sent to the message handler.      Example:      \snippet qloggingcategory/main.cpp 12      \note Arguments are not processed if critical output for the category is not     enabled, so do not rely on any side effects.      \sa qCritical() */
+end_comment
+begin_comment
+comment|/*!     \macro qCCritical(category, const char *message, ...)     \relates QLoggingCategory     \since 5.3      Logs a critical message \a message in the logging category \a category.     \a message might contain place holders that are replaced by additional     arguments, similar to the C printf() function.      Example:      \snippet qloggingcategory/main.cpp 15      \note Arguments might not be processed if critical output for the category     is not enabled, so do not rely on any side effects.      \sa qCritical() */
 end_comment
 begin_comment
 comment|/*!     \macro Q_DECLARE_LOGGING_CATEGORY(name)     \relates QLoggingCategory     \since 5.2      Declares a logging category \a name. The macro can be used to declare     a common logging category shared in different parts of the program.      This macro must be used outside of a class or method. */

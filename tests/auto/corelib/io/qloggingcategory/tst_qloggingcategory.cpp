@@ -1783,6 +1783,20 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
+name|qCDebug
+argument_list|(
+name|defaultCategory
+argument_list|,
+literal|"Check debug with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
 comment|// Check default warning
 name|buf
 operator|=
@@ -1805,6 +1819,20 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
+name|qCWarning
+argument_list|(
+name|defaultCategory
+argument_list|,
+literal|"Check warning with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
 comment|// Check default critical
 name|buf
 operator|=
@@ -1819,6 +1847,20 @@ name|defaultCategory
 argument_list|)
 operator|<<
 literal|"Check critical with no filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|qCCritical
+argument_list|(
+name|defaultCategory
+argument_list|,
+literal|"Check critical with no filter active"
+argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -1920,6 +1962,112 @@ name|customCategory
 argument_list|)
 operator|<<
 literal|"Check debug with filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+comment|// Check different macro/category variants
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"tst.log.debug: Check debug with no filter active"
+argument_list|)
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|TST_LOG
+argument_list|)
+operator|<<
+literal|"Check debug with no filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|TST_LOG
+argument_list|,
+literal|"Check debug with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"tst.log.warning: Check warning with no filter active"
+argument_list|)
+expr_stmt|;
+name|qCWarning
+argument_list|(
+name|TST_LOG
+argument_list|)
+operator|<<
+literal|"Check warning with no filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|qCWarning
+argument_list|(
+name|TST_LOG
+argument_list|,
+literal|"Check warning with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"tst.log.critical: Check critical with no filter active"
+argument_list|)
+expr_stmt|;
+name|qCCritical
+argument_list|(
+name|TST_LOG
+argument_list|)
+operator|<<
+literal|"Check critical with no filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|qCCritical
+argument_list|(
+name|TST_LOG
+argument_list|,
+literal|"Check critical with no filter active"
+argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
