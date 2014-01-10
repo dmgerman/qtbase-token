@@ -193,7 +193,7 @@ parameter_list|(
 name|name
 parameter_list|)
 define|\
-value|extern QLoggingCategory&name();
+value|extern const QLoggingCategory&name();
 end_define
 begin_comment
 comment|// relies on QLoggingCategory(QString) being thread safe!
@@ -209,7 +209,7 @@ parameter_list|,
 name|string
 parameter_list|)
 define|\
-value|QLoggingCategory&name() \     { \         static QLoggingCategory category(string); \         return category; \     }
+value|const QLoggingCategory&name() \     { \         static const QLoggingCategory category(string); \         return category; \     }
 end_define
 begin_ifdef
 ifdef|#

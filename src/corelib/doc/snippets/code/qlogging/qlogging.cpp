@@ -99,6 +99,7 @@ begin_comment
 comment|//! [2]
 end_comment
 begin_function_decl
+specifier|const
 name|QLoggingCategory
 modifier|&
 name|category

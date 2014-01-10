@@ -331,6 +331,7 @@ literal|3
 argument_list|)
 decl_stmt|;
 typedef|typedef
+specifier|const
 name|QLoggingCategory
 modifier|&
 function_decl|(
