@@ -193,7 +193,7 @@ block|}
 block|,
 comment|// B8
 block|{
-literal|33
+literal|44
 block|,
 literal|62
 block|}
@@ -280,7 +280,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!   \enum QPagedPaintDevice::PageSize    This enum type specifies the page size of the paint device.    \value A0 841 x 1189 mm   \value A1 594 x 841 mm   \value A2 420 x 594 mm   \value A3 297 x 420 mm   \value A4 210 x 297 mm, 8.26 x 11.69 inches   \value A5 148 x 210 mm   \value A6 105 x 148 mm   \value A7 74 x 105 mm   \value A8 52 x 74 mm   \value A9 37 x 52 mm   \value B0 1000 x 1414 mm   \value B1 707 x 1000 mm   \value B2 500 x 707 mm   \value B3 353 x 500 mm   \value B4 250 x 353 mm   \value B5 176 x 250 mm, 6.93 x 9.84 inches   \value B6 125 x 176 mm   \value B7 88 x 125 mm   \value B8 62 x 88 mm   \value B9 33 x 62 mm   \value B10 31 x 44 mm   \value C5E 163 x 229 mm   \value Comm10E 105 x 241 mm, U.S. Common 10 Envelope   \value DLE 110 x 220 mm   \value Executive 7.5 x 10 inches, 190.5 x 254 mm   \value Folio 210 x 330 mm   \value Ledger 431.8 x 279.4 mm   \value Legal 8.5 x 14 inches, 215.9 x 355.6 mm   \value Letter 8.5 x 11 inches, 215.9 x 279.4 mm   \value Tabloid 279.4 x 431.8 mm   \value Custom Unknown, or a user defined size.    \omitvalue NPageSize    The page size can also be specified in millimeters using setPageSizeMM(). In this case the   page size enum is set to Custom. */
+comment|/*!   \enum QPagedPaintDevice::PageSize    This enum type specifies the page size of the paint device.    \value A0 841 x 1189 mm   \value A1 594 x 841 mm   \value A2 420 x 594 mm   \value A3 297 x 420 mm   \value A4 210 x 297 mm, 8.26 x 11.69 inches   \value A5 148 x 210 mm   \value A6 105 x 148 mm   \value A7 74 x 105 mm   \value A8 52 x 74 mm   \value A9 37 x 52 mm   \value B0 1000 x 1414 mm   \value B1 707 x 1000 mm   \value B2 500 x 707 mm   \value B3 353 x 500 mm   \value B4 250 x 353 mm   \value B5 176 x 250 mm, 6.93 x 9.84 inches   \value B6 125 x 176 mm   \value B7 88 x 125 mm   \value B8 62 x 88 mm   \value B9 44 x 62 mm   \value B10 31 x 44 mm   \value C5E 163 x 229 mm   \value Comm10E 105 x 241 mm, U.S. Common 10 Envelope   \value DLE 110 x 220 mm   \value Executive 7.5 x 10 inches, 190.5 x 254 mm   \value Folio 210 x 330 mm   \value Ledger 431.8 x 279.4 mm   \value Legal 8.5 x 14 inches, 215.9 x 355.6 mm   \value Letter 8.5 x 11 inches, 215.9 x 279.4 mm   \value Tabloid 279.4 x 431.8 mm   \value Custom Unknown, or a user defined size.    \omitvalue NPageSize    The page size can also be specified in millimeters using setPageSizeMM(). In this case the   page size enum is set to Custom. */
 end_comment
 begin_comment
 comment|/*!   \fn bool QPagedPaintDevice::newPage()    Starts a new page. Returns \c true on success. */

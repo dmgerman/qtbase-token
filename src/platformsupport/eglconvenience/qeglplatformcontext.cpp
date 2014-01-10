@@ -126,11 +126,6 @@ argument_list|(
 name|display
 argument_list|)
 member_init_list|,
-name|m_eglApi
-argument_list|(
-name|eglApi
-argument_list|)
-member_init_list|,
 name|m_eglConfig
 argument_list|(
 name|q_configFromGLFormat
@@ -165,6 +160,11 @@ argument_list|,
 name|share
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|eglApi
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_constructor
@@ -197,11 +197,6 @@ argument_list|(
 name|display
 argument_list|)
 member_init_list|,
-name|m_eglApi
-argument_list|(
-name|eglApi
-argument_list|)
-member_init_list|,
 name|m_eglConfig
 argument_list|(
 name|config
@@ -212,6 +207,11 @@ argument_list|(
 name|format
 argument_list|,
 name|share
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|eglApi
 argument_list|)
 expr_stmt|;
 block|}

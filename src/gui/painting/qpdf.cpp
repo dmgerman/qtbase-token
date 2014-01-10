@@ -8569,10 +8569,6 @@ name|resolution
 operator|=
 literal|1200
 expr_stmt|;
-name|postscript
-operator|=
-literal|false
-expr_stmt|;
 name|currentObject
 operator|=
 literal|1
@@ -8718,12 +8714,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-name|d
-operator|->
-name|postscript
-operator|=
-literal|false
-expr_stmt|;
 name|d
 operator|->
 name|currentObject
@@ -14254,30 +14244,19 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|||
-operator|(
-operator|!
-name|postscript
-operator|&&
-operator|(
-operator|(
 name|fe
 operator|->
 name|fsType
 operator|&
 literal|0x200
-operator|)
 comment|/* bitmap embedding only */
 operator|||
-operator|(
 name|fe
 operator|->
 name|fsType
 operator|==
 literal|2
-operator|)
 comment|/* no embedding allowed */
-operator|)
-operator|)
 condition|)
 block|{
 operator|*

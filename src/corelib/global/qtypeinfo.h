@@ -460,7 +460,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|QT_END_NAMESPACE \ namespace std { \     template<> inline void swap<QT_PREPEND_NAMESPACE(TYPE)>(QT_PREPEND_NAMESPACE(TYPE)&value1, QT_PREPEND_NAMESPACE(TYPE)&value2) \     { value1.swap(value2); } \ } \ QT_BEGIN_NAMESPACE
+value|QT_END_NAMESPACE \ namespace std { \     template<> inline void swap< QT_PREPEND_NAMESPACE(TYPE)>(QT_PREPEND_NAMESPACE(TYPE)&value1, QT_PREPEND_NAMESPACE(TYPE)&value2) \     { value1.swap(value2); } \ } \ QT_BEGIN_NAMESPACE
 end_define
 begin_define
 DECL|macro|Q_DECLARE_SHARED

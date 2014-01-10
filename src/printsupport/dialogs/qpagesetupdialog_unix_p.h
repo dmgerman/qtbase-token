@@ -214,6 +214,7 @@ block|;
 name|QSizeF
 name|m_paperSize
 block|;
+comment|// In QPrinter::Point
 name|qreal
 name|m_currentMultiplier
 block|;

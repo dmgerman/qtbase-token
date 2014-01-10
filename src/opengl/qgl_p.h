@@ -957,6 +957,9 @@ name|QPaintDevice
 modifier|*
 name|paintDevice
 decl_stmt|;
+name|QSize
+name|readback_target_size
+decl_stmt|;
 name|QColor
 name|transpColor
 decl_stmt|;

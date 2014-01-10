@@ -941,9 +941,6 @@ name|void
 name|newPage
 argument_list|()
 block|;
-name|bool
-name|postscript
-block|;
 name|int
 name|currentObject
 block|;

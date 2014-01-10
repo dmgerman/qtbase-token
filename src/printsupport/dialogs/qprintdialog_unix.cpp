@@ -4878,6 +4878,9 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|propertiesDialogShown
+operator|&&
 name|propertiesDialog
 operator|->
 name|result

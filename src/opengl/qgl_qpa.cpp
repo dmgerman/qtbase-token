@@ -675,6 +675,9 @@ operator|::
 name|Widget
 condition|)
 block|{
+comment|// Unlike in Qt 4, the only possible target is a widget backed by an OpenGL-based
+comment|// QWindow. Pixmaps in particular are not supported anymore as paint devices since
+comment|// starting from Qt 5 QPixmap is raster-backed on almost all platforms.
 name|d
 operator|->
 name|valid

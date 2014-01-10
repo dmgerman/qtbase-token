@@ -470,13 +470,20 @@ name|pos
 init|=
 literal|0
 decl_stmt|;
-specifier|const
 name|char
 name|pattern
 index|[]
 init|=
-literal|"QTMETADATA  "
+literal|"qTMETADATA  "
 decl_stmt|;
+name|pattern
+index|[
+literal|0
+index|]
+operator|=
+literal|'Q'
+expr_stmt|;
+comment|// Ensure the pattern "QTMETADATA" is not found in this library should QPluginLoader ever encounter it.
 specifier|const
 name|ulong
 name|plen

@@ -2008,6 +2008,14 @@ block|{
 name|initPerf
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|fd
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
 comment|// pid == 0 -> attach to the current process
 comment|// cpu == -1 -> monitor on all CPUs
 comment|// group_fd == -1 -> this is the group leader
@@ -2061,6 +2069,7 @@ argument_list|,
 name|FD_CLOEXEC
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// enable the counter
 operator|::

@@ -1363,14 +1363,21 @@ comment|// That means that if a menu action shortcut has not been already proces
 comment|// (and reaches this point), then the menu item itself has been disabled.
 comment|// This occurs at the QPA level on Mac, were we disable all the Cocoa menus
 comment|// when showing a modal window.
-name|Q_UNUSED
-argument_list|(
-name|menu
-argument_list|)
-expr_stmt|;
+if|if
+condition|(
+name|a
+operator|->
+name|shortcut
+argument_list|()
+operator|.
+name|count
+argument_list|()
+operator|<=
+literal|1
+condition|)
 continue|continue;
-else|#
-directive|else
+endif|#
+directive|endif
 name|QAction
 modifier|*
 name|a
@@ -1394,8 +1401,6 @@ condition|)
 return|return
 literal|true
 return|;
-endif|#
-directive|endif
 block|}
 elseif|else
 endif|#

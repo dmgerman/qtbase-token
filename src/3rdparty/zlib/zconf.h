@@ -648,6 +648,13 @@ directive|define
 name|zlibVersion
 value|z_zlibVersion
 end_define
+begin_define
+DECL|macro|z_errmsg
+define|#
+directive|define
+name|z_errmsg
+value|z_z_errmsg
+end_define
 begin_comment
 comment|/* all zlib typedefs in zlib.h and zconf.h */
 end_comment
