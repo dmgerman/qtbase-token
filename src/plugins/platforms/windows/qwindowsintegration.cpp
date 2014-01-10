@@ -603,21 +603,7 @@ operator|::
 name|~
 name|QWindowsIntegration
 parameter_list|()
-block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseIntegration
-condition|)
-name|qDebug
-argument_list|(
-literal|"%s"
-argument_list|,
-name|__FUNCTION__
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_destructor
 begin_function
 DECL|function|hasCapability
@@ -803,10 +789,6 @@ if|if
 condition|(
 name|QWindowsContext
 operator|::
-name|verboseIntegration
-operator|||
-name|QWindowsContext
-operator|::
 name|verboseWindows
 condition|)
 name|qDebug
@@ -981,7 +963,7 @@ if|if
 condition|(
 name|QWindowsContext
 operator|::
-name|verboseIntegration
+name|verboseGL
 condition|)
 name|qDebug
 argument_list|()
@@ -1284,7 +1266,7 @@ if|if
 condition|(
 name|QWindowsContext
 operator|::
-name|verboseIntegration
+name|verboseFonts
 condition|)
 block|{
 name|qDebug

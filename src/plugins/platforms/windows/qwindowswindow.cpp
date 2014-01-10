@@ -5154,10 +5154,6 @@ if|if
 condition|(
 name|QWindowsContext
 operator|::
-name|verboseIntegration
-operator|||
-name|QWindowsContext
-operator|::
 name|verboseWindows
 condition|)
 name|qDebug

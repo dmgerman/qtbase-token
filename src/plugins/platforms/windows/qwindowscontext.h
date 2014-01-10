@@ -434,10 +434,6 @@ enum|;
 comment|// Verbose flag set by environment variable QT_QPA_VERBOSE
 specifier|static
 name|int
-name|verboseIntegration
-decl_stmt|;
-specifier|static
-name|int
 name|verboseWindows
 decl_stmt|;
 specifier|static
@@ -467,10 +463,6 @@ decl_stmt|;
 specifier|static
 name|int
 name|verboseDialogs
-decl_stmt|;
-specifier|static
-name|int
-name|verboseTheming
 decl_stmt|;
 specifier|static
 name|int
