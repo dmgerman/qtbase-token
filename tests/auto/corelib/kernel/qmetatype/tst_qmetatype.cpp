@@ -67,6 +67,27 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// mingw gcc 4.8 also takes way too long, letting the CI system abort the test
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__MINGW32__
+argument_list|)
+end_if
+begin_define
+DECL|macro|TST_QMETATYPE_BROKEN_COMPILER
+define|#
+directive|define
+name|TST_QMETATYPE_BROKEN_COMPILER
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
