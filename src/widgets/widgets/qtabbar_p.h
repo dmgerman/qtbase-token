@@ -795,6 +795,13 @@ name|updateMacBorderMetrics
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_expr_stmt
+name|bool
+name|isTabInMacUnifiedToolbarArea
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|void
 name|setupMovableTab

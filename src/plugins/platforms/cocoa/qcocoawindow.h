@@ -747,6 +747,13 @@ argument_list|(
 argument|bool enable
 argument_list|)
 block|;
+name|bool
+name|testContentBorderAreaPosition
+argument_list|(
+argument|int position
+argument_list|)
+specifier|const
+block|;
 name|void
 name|applyContentBorderThickness
 argument_list|(

@@ -340,6 +340,17 @@ argument_list|,
 argument|bool enable
 argument_list|)
 block|;
+comment|// Returns true if the given coordinate is inside the current
+comment|// content border.
+specifier|static
+name|bool
+name|testContentBorderPosition
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|int position
+argument_list|)
+block|;
 comment|// Sets a NSToolbar instance for the given QWindow. The
 comment|// toolbar will be attached to the native NSWindow when
 comment|// that is created;
