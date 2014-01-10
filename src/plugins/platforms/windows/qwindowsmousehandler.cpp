@@ -744,14 +744,10 @@ operator|==
 name|WM_MOUSELEAVE
 condition|)
 block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"WM_MOUSELEAVE for "
 operator|<<
@@ -785,14 +781,10 @@ name|m_windowUnderMouse
 else|:
 name|m_trackedWindow
 decl_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Generating leave event for "
 operator|<<
@@ -934,14 +926,10 @@ operator|::
 name|AutoMouseCapture
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Automatic mouse capture for missing buttondown event"
 operator|<<
@@ -1091,14 +1079,10 @@ operator|::
 name|AutoMouseCapture
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Automatic mouse capture "
 operator|<<
@@ -1188,14 +1172,10 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Releasing automatic mouse capture "
 operator|<<
@@ -1346,14 +1326,10 @@ name|window
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Synthetic leave for "
 operator|<<
@@ -1429,14 +1405,10 @@ name|m_previousCaptureWindow
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Entering "
 operator|<<
