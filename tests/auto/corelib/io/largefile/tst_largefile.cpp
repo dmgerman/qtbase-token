@@ -249,15 +249,10 @@ name|void
 name|mapFile
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
 name|void
 name|mapOffsetOverflow
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 DECL|function|closeFile
 name|void
 name|closeFile
@@ -2385,11 +2380,6 @@ end_function
 begin_comment
 comment|//Mac: memory-mapping beyond EOF may succeed but it could generate bus error on access
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
-end_ifndef
 begin_function
 DECL|function|mapOffsetOverflow
 name|void
@@ -2398,6 +2388,9 @@ operator|::
 name|mapOffsetOverflow
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 comment|// Out-of-range mappings should fail, and not silently clip the offset
 for|for
 control|(
@@ -2488,12 +2481,10 @@ name|address
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_macro
 name|QTEST_APPLESS_MAIN
 argument_list|(
