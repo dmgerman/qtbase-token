@@ -4211,7 +4211,7 @@ name|4251
 name|)
 end_pragma
 begin_comment
-comment|/* class 'A' needs to have dll interface for to be used by clients of class 'B'. */
+comment|/* class 'type' needs to have dll-interface to be used by clients of class 'type2' */
 end_comment
 begin_pragma
 pragma|#
@@ -4224,7 +4224,7 @@ name|4244
 name|)
 end_pragma
 begin_comment
-comment|/* 'conversion' conversion from 'type1' to 'type2', possible loss of data */
+comment|/* conversion from 'type1' to 'type2', possible loss of data */
 end_comment
 begin_pragma
 pragma|#
@@ -4250,7 +4250,7 @@ name|4514
 name|)
 end_pragma
 begin_comment
-comment|/* unreferenced inline/local function has been removed */
+comment|/* unreferenced inline function has been removed */
 end_comment
 begin_pragma
 pragma|#
@@ -4302,7 +4302,7 @@ name|4786
 name|)
 end_pragma
 begin_comment
-comment|/* truncating debug info after 255 characters */
+comment|/* 'identifier' : identifier was truncated to 'number' characters in the debug information */
 end_comment
 begin_pragma
 pragma|#
@@ -4328,7 +4328,7 @@ name|4231
 name|)
 end_pragma
 begin_comment
-comment|/* nonstandard extension used : 'extern' before template explicit instantiation */
+comment|/* nonstandard extension used : 'identifier' before template explicit instantiation */
 end_comment
 begin_pragma
 pragma|#
@@ -4354,7 +4354,7 @@ name|4530
 name|)
 end_pragma
 begin_comment
-comment|/* C++ exception handler used, but unwind semantics are not enabled. Specify -GX */
+comment|/* C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc */
 end_comment
 begin_elif
 elif|#
