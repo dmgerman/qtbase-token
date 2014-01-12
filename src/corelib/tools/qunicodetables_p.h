@@ -254,7 +254,13 @@ name|WordBreak_RegionalIndicator
 block|,
 name|WordBreak_Katakana
 block|,
+name|WordBreak_HebrewLetter
+block|,
 name|WordBreak_ALetter
+block|,
+name|WordBreak_SingleQuote
+block|,
+name|WordBreak_DoubleQuote
 block|,
 name|WordBreak_MidNumLet
 block|,
