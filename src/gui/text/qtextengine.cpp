@@ -1095,6 +1095,14 @@ block|,
 literal|"DirNSM"
 block|,
 literal|"DirBN"
+block|,
+literal|"DirLRI"
+block|,
+literal|"DirRLI"
+block|,
+literal|"DirFSI"
+block|,
+literal|"DirPDI"
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -15114,7 +15122,20 @@ condition|)
 return|return
 literal|false
 return|;
+comment|// ### U+A872 has joining type L
 return|return
+name|string
+operator|.
+name|at
+argument_list|(
+name|pos
+argument_list|)
+operator|==
+name|QChar
+argument_list|(
+literal|0xA872
+argument_list|)
+operator|||
 name|string
 operator|.
 name|at
@@ -15232,59 +15253,52 @@ name|c
 operator|.
 name|unicode
 argument_list|()
-operator|==
+operator|>=
 literal|0x202a
-comment|// LRE
-operator|||
+operator|&&
 name|c
 operator|.
 name|unicode
 argument_list|()
-operator|==
-literal|0x202b
-comment|// LRE
-operator|||
-name|c
-operator|.
-name|unicode
-argument_list|()
-operator|==
-literal|0x202c
-comment|// PDF
-operator|||
-name|c
-operator|.
-name|unicode
-argument_list|()
-operator|==
-literal|0x202d
-comment|// LRO
-operator|||
-name|c
-operator|.
-name|unicode
-argument_list|()
-operator|==
+operator|<=
 literal|0x202e
-comment|// RLO
+operator|)
+comment|// LRE, RLE, PDF, LRO, RLO
 operator|||
+operator|(
 name|c
 operator|.
 name|unicode
 argument_list|()
-operator|==
+operator|>=
 literal|0x200e
-comment|// LRM
-operator|||
+operator|&&
 name|c
 operator|.
 name|unicode
 argument_list|()
-operator|==
+operator|<=
 literal|0x200f
 operator|)
+comment|// LRM, RLM
+operator|||
+operator|(
+name|c
+operator|.
+name|unicode
+argument_list|()
+operator|>=
+literal|0x2066
+operator|&&
+name|c
+operator|.
+name|unicode
+argument_list|()
+operator|<=
+literal|0x2069
+operator|)
 return|;
-comment|// RLM
+comment|// LRM, RLM
 block|}
 end_function
 begin_function

@@ -634,6 +634,14 @@ block|,
 name|DirNSM
 block|,
 name|DirBN
+block|,
+name|DirLRI
+block|,
+name|DirRLI
+block|,
+name|DirFSI
+block|,
+name|DirPDI
 block|}
 enum|;
 enum|enum
@@ -800,6 +808,8 @@ block|,
 name|Unicode_6_1
 block|,
 name|Unicode_6_2
+block|,
+name|Unicode_6_3
 block|}
 enum|;
 comment|// ****** WHEN ADDING FUNCTIONS, CONSIDER ADDING TO QCharRef TOO
