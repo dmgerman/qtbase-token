@@ -9833,7 +9833,7 @@ argument_list|)
 operator|<<
 literal|"ddd/MMM/yy AP"
 operator|<<
-literal|"man./des./74 PM"
+literal|"man./des./74 P.M."
 expr_stmt|;
 name|QTest
 operator|::
@@ -9867,7 +9867,7 @@ argument_list|)
 operator|<<
 literal|"dddd/MMMM/y apa"
 operator|<<
-literal|"mandag/desember/y pmpm"
+literal|"mandag/desember/y p.m.p.m."
 expr_stmt|;
 name|QTest
 operator|::
@@ -16473,9 +16473,11 @@ operator|.
 name|amText
 argument_list|()
 argument_list|,
-name|QLatin1String
+name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"AM"
+literal|"à®®à¯à®±à¯à®ªà®à®²à¯"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16486,9 +16488,11 @@ operator|.
 name|pmText
 argument_list|()
 argument_list|,
-name|QLatin1String
+name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"PM"
+literal|"à®ªà®¿à®±à¯à®ªà®à®²à¯"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16741,7 +16745,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"HH:mm"
+literal|"HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16758,7 +16762,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"HH:mm"
+literal|"HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16775,7 +16779,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"'kl'. HH:mm:ss t"
+literal|"HH.mm.ss t"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16963,7 +16967,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"dd.MM.yy HH:mm"
+literal|"dd.MM.yy HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16980,7 +16984,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"dd.MM.yy HH:mm"
+literal|"dd.MM.yy HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16997,7 +17001,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"dddd d. MMMM yyyy 'kl'. HH:mm:ss t"
+literal|"dddd d. MMMM yyyy HH.mm.ss t"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17881,7 +17885,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"($1,234)"
+literal|"$-1,234"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17918,7 +17922,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"($1,234.56)"
+literal|"$-1,234.56"
 argument_list|)
 argument_list|)
 expr_stmt|;

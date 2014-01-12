@@ -1383,6 +1383,18 @@ name|Ugaritic
 init|=
 literal|311
 block|,
+name|Akoose
+init|=
+literal|312
+block|,
+name|Lakota
+init|=
+literal|313
+block|,
+name|StandardMoroccanTamazight
+init|=
+literal|314
+block|,
 name|Norwegian
 init|=
 name|NorwegianBokmal
@@ -1441,7 +1453,7 @@ name|Uighur
 block|,
 name|LastLanguage
 init|=
-name|Ugaritic
+name|StandardMoroccanTamazight
 block|}
 enum|;
 enum|enum
