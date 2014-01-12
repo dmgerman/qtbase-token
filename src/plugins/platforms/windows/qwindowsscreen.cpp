@@ -1729,6 +1729,14 @@ modifier|&
 name|newData
 parameter_list|)
 block|{
+name|m_data
+operator|.
+name|physicalSizeMM
+operator|=
+name|newData
+operator|.
+name|physicalSizeMM
+expr_stmt|;
 if|if
 condition|(
 name|m_data
