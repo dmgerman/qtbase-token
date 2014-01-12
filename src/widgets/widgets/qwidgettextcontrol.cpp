@@ -17385,7 +17385,7 @@ DECL|macro|NUM_CONTROL_CHARACTERS
 define|#
 directive|define
 name|NUM_CONTROL_CHARACTERS
-value|10
+value|14
 end_define
 begin_struct
 DECL|struct|QUnicodeControlCharacter
@@ -17520,7 +17520,51 @@ argument_list|)
 block|,
 literal|0x202c
 block|}
-block|, }
+block|,
+block|{
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QUnicodeControlCharacterMenu"
+argument_list|,
+literal|"LRI Left-to-right isolate"
+argument_list|)
+block|,
+literal|0x2066
+block|}
+block|,
+block|{
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QUnicodeControlCharacterMenu"
+argument_list|,
+literal|"RLI Right-to-left isolate"
+argument_list|)
+block|,
+literal|0x2067
+block|}
+block|,
+block|{
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QUnicodeControlCharacterMenu"
+argument_list|,
+literal|"FSI First strong isolate"
+argument_list|)
+block|,
+literal|0x2068
+block|}
+block|,
+block|{
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QUnicodeControlCharacterMenu"
+argument_list|,
+literal|"PDI Pop directional isolate"
+argument_list|)
+block|,
+literal|0x2069
+block|}
+block|}
 struct|;
 end_struct
 begin_constructor
