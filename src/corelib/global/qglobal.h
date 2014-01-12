@@ -4242,7 +4242,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*    Avoid some particularly useless warnings from some stupid compilers.    To get ALL C++ compiler warnings, define QT_CC_WARNINGS or comment out    the line "#define QT_NO_WARNINGS". */
+comment|/*    Avoid some particularly useless warnings from some compilers.    To get ALL C++ compiler warnings, define QT_CC_WARNINGS or comment out    the line "#define QT_NO_WARNINGS".    These warnings can only suppressed when building QT. For end-user applications    they will be enabled. */
 end_comment
 begin_if
 if|#
@@ -4251,6 +4251,11 @@ operator|!
 name|defined
 argument_list|(
 name|QT_CC_WARNINGS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|QT_BUILDING_QT
 argument_list|)
 end_if
 begin_define
