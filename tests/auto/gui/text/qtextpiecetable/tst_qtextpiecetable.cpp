@@ -687,10 +687,10 @@ argument_list|,
 name|str
 argument_list|)
 expr_stmt|;
-comment|// 	    if (table->text() != compare) {
-comment|// 		qDebug("compare failed: i=%d (current char=%c) insert at %d\nexpected '%s'\ngot      '%s'", i, (i % 26) + (i>25?'A':'a'), pos, compare.latin1(), table->text().latin1());
-comment|// 		exit(12);
-comment|// 	    }
+comment|//        if (table->text() != compare) {
+comment|//            qDebug("compare failed: i=%d (current char=%c) insert at %d\nexpected '%s'\ngot      '%s'", i, (i % 26) + (i>25?'A':'a'), pos, compare.latin1(), table->text().latin1());
+comment|//            exit(12);
+comment|//        }
 block|}
 name|QVERIFY
 argument_list|(
@@ -1376,10 +1376,10 @@ literal|1
 else|:
 literal|2
 expr_stmt|;
-comment|// 	    if (table->text() != compare) {
-comment|// 		qDebug("compare failed: i=%d (current char=%c) insert at %d\nexpected '%s'\ngot      '%s'", i, (i % 26) + (i>25?'A':'a'), pos, compare.latin1(), table->text().latin1());
-comment|// 		exit(12);
-comment|// 	    }
+comment|//        if (table->text() != compare) {
+comment|//            qDebug("compare failed: i=%d (current char=%c) insert at %d\nexpected '%s'\ngot      '%s'", i, (i % 26) + (i>25?'A':'a'), pos, compare.latin1(), table->text().latin1());
+comment|//            exit(12);
+comment|//        }
 block|}
 name|QVERIFY
 argument_list|(
@@ -1608,10 +1608,10 @@ literal|1
 else|:
 literal|2
 expr_stmt|;
-comment|// 	if (table->plainText() != compare) {
-comment|// 	    qDebug("compare failed: i=%d (current char=%c) insert at %d\nexpected '%s'\ngot      '%s'", i, (i % 26) + (i>25?'A':'a'), pos, compare.latin1(), table->plainText().latin1());
-comment|// 	    exit(12);
-comment|// 	}
+comment|//        if (table->plainText() != compare) {
+comment|//            qDebug("compare failed: i=%d (current char=%c) insert at %d\nexpected '%s'\ngot      '%s'", i, (i % 26) + (i>25?'A':'a'), pos, compare.latin1(), table->plainText().latin1());
+comment|//            exit(12);
+comment|//        }
 block|}
 name|QVERIFY
 argument_list|(

@@ -2177,7 +2177,7 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|/* 	QTextCursor fourthCell = table->cellAt(1, 1).firstCursorPosition(); 	fourthCell.movePosition(QTextCursor::NextBlock); 	table = fourthCell.currentTable(); 	QVERIFY(table); 	QVERIFY(table != cursor.currentTable()); 	QCOMPARE(table->columns(), 2); 	QCOMPARE(table->rows(), 3);         */
+comment|/*         QTextCursor fourthCell = table->cellAt(1, 1).firstCursorPosition();         fourthCell.movePosition(QTextCursor::NextBlock);         table = fourthCell.currentTable();         QVERIFY(table);         QVERIFY(table != cursor.currentTable());         QCOMPARE(table->columns(), 2);         QCOMPARE(table->rows(), 3);         */
 block|}
 block|{
 specifier|const

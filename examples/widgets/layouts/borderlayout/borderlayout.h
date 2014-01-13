@@ -162,7 +162,7 @@ block|;
 name|position
 operator|=
 name|p
-block|; 	}
+block|;         }
 name|QLayoutItem
 operator|*
 name|item

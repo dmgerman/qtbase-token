@@ -805,7 +805,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|//     while ( testWidget->size() == dlgSize )
-comment|// 	qApp->processEvents();
+comment|//         qApp->processEvents();
 name|QTEST
 argument_list|(
 name|testWidget

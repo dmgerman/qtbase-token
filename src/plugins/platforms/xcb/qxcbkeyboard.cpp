@@ -1787,7 +1787,7 @@ name|Qt
 operator|::
 name|Key_Muhenkan
 block|,
-comment|//XK_Henkan_Mode,		Qt::Key_Henkan_Mode,
+comment|//XK_Henkan_Mode,           Qt::Key_Henkan_Mode,
 name|XK_Henkan_Mode
 block|,
 name|Qt
@@ -1878,9 +1878,9 @@ name|Qt
 operator|::
 name|Key_Eisu_toggle
 block|,
-comment|//XK_Kanji_Bangou,		Qt::Key_Kanji_Bangou,
-comment|//XK_Zen_Koho,		Qt::Key_Zen_Koho,
-comment|//XK_Mae_Koho,		Qt::Key_Mae_Koho,
+comment|//XK_Kanji_Bangou,          Qt::Key_Kanji_Bangou,
+comment|//XK_Zen_Koho,              Qt::Key_Zen_Koho,
+comment|//XK_Mae_Koho,              Qt::Key_Mae_Koho,
 name|XK_Kanji_Bangou
 block|,
 name|Qt
@@ -1939,7 +1939,7 @@ name|Qt
 operator|::
 name|Key_Hangul_Romaja
 block|,
-comment|//XK_Hangul_Codeinput,	Qt::Key_Hangul_Codeinput,
+comment|//XK_Hangul_Codeinput,      Qt::Key_Hangul_Codeinput,
 name|XK_Hangul_Codeinput
 block|,
 name|Qt
@@ -1997,7 +1997,7 @@ name|Qt
 operator|::
 name|Key_Hangul_Special
 block|,
-comment|//XK_Hangul_switch,		Qt::Key_Hangul_switch,
+comment|//XK_Hangul_switch,         Qt::Key_Hangul_switch,
 name|XK_Hangul_switch
 block|,
 name|Qt

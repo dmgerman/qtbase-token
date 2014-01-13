@@ -87,7 +87,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|typedef ret (*_q_PTR_##func)(arg);					\     static _q_PTR_##func _q_##func = 0;					\     ret q_##func(arg) {						\         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err;								\         } \         funcret _q_##func(a); \     }
+value|typedef ret (*_q_PTR_##func)(arg); \     static _q_PTR_##func _q_##func = 0; \     ret q_##func(arg) { \         if (Q_UNLIKELY(!_q_##func)) { \             qsslSocketUnresolvedSymbolWarning(#func); \             err; \         } \         funcret _q_##func(a); \     }
 comment|// ret func(arg1, arg2)
 DECL|macro|DEFINEFUNC2
 define|#
@@ -367,7 +367,7 @@ parameter_list|,
 name|funcret
 parameter_list|)
 define|\
-value|ret q_##func(arg) {	funcret func(a); }
+value|ret q_##func(arg) { funcret func(a); }
 comment|// ret func(arg1, arg2)
 define|#
 directive|define
@@ -2435,7 +2435,7 @@ name|q_X509_dup
 parameter_list|(
 name|x509
 parameter_list|)
-value|(X509 *)q_ASN1_dup((i2d_of_void *)q_i2d_X509, \ 		(d2i_of_void *)q_d2i_X509,(char *)x509)
+value|(X509 *)q_ASN1_dup((i2d_of_void *)q_i2d_X509, \                 (d2i_of_void *)q_d2i_X509,(char *)x509)
 end_define
 begin_else
 else|#
@@ -3024,7 +3024,7 @@ parameter_list|,
 name|u
 parameter_list|)
 define|\
-value|PEM_ASN1_write_bio((int (*)(void*, unsigned char**))q_i2d_RSAPrivateKey,PEM_STRING_RSA,\ 			bp,(char *)x,enc,kstr,klen,cb,u)
+value|PEM_ASN1_write_bio((int (*)(void*, unsigned char**))q_i2d_RSAPrivateKey,PEM_STRING_RSA,\                            bp,(char *)x,enc,kstr,klen,cb,u)
 end_define
 begin_define
 DECL|macro|q_PEM_write_bio_DSAPrivateKey
@@ -3047,7 +3047,7 @@ parameter_list|,
 name|u
 parameter_list|)
 define|\
-value|PEM_ASN1_write_bio((int (*)(void*, unsigned char**))q_i2d_DSAPrivateKey,PEM_STRING_DSA,\ 			bp,(char *)x,enc,kstr,klen,cb,u)
+value|PEM_ASN1_write_bio((int (*)(void*, unsigned char**))q_i2d_DSAPrivateKey,PEM_STRING_DSA,\                            bp,(char *)x,enc,kstr,klen,cb,u)
 end_define
 begin_endif
 endif|#
@@ -3212,7 +3212,7 @@ name|pkey
 parameter_list|,
 name|rsa
 parameter_list|)
-value|q_EVP_PKEY_assign((pkey),EVP_PKEY_RSA,\ 					(char *)(rsa))
+value|q_EVP_PKEY_assign((pkey),EVP_PKEY_RSA,\                                         (char *)(rsa))
 end_define
 begin_define
 DECL|macro|q_EVP_PKEY_assign_DSA
@@ -3224,7 +3224,7 @@ name|pkey
 parameter_list|,
 name|dsa
 parameter_list|)
-value|q_EVP_PKEY_assign((pkey),EVP_PKEY_DSA,\ 					(char *)(dsa))
+value|q_EVP_PKEY_assign((pkey),EVP_PKEY_DSA,\                                         (char *)(dsa))
 end_define
 begin_define
 DECL|macro|q_OpenSSL_add_all_algorithms
