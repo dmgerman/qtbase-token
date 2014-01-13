@@ -234,7 +234,10 @@ modifier|*
 name|QThreadData
 operator|::
 name|current
-parameter_list|()
+parameter_list|(
+name|bool
+name|createIfNecessary
+parameter_list|)
 block|{
 name|qt_create_tls
 argument_list|()
@@ -259,6 +262,8 @@ if|if
 condition|(
 operator|!
 name|threadData
+operator|&&
+name|createIfNecessary
 condition|)
 block|{
 name|threadData
