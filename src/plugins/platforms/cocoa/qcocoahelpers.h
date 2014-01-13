@@ -512,6 +512,17 @@ specifier|const
 name|QRect
 modifier|&
 name|rect
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|NSRect
+name|qt_mac_flipRect
+parameter_list|(
+specifier|const
+name|QRect
+modifier|&
+name|rect
 parameter_list|,
 name|QWindow
 modifier|*
