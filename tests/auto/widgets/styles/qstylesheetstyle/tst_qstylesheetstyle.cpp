@@ -5142,20 +5142,6 @@ argument_list|(
 literal|60
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Numerous failures related to Qt::WA_UnderMouse, see QTBUGT-23685"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|widget
@@ -5194,20 +5180,6 @@ operator|&
 name|image
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Numerous failures related to Qt::WA_UnderMouse, see QTBUGT-23685"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY2
 argument_list|(
 name|testForColors
@@ -5248,20 +5220,6 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Numerous failures related to Qt::WA_UnderMouse, see QTBUGT-23685"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY2
 argument_list|(
 name|testForColors
