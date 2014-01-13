@@ -676,6 +676,7 @@ name|AlignLeft
 expr_stmt|;
 if|if
 condition|(
+operator|!
 operator|(
 name|alignment
 operator|&
@@ -683,8 +684,6 @@ name|Qt
 operator|::
 name|AlignAbsolute
 operator|)
-operator|==
-literal|0
 operator|&&
 operator|(
 name|alignment
