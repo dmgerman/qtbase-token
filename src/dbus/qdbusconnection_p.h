@@ -1795,6 +1795,11 @@ end_decl_stmt
 begin_comment
 comment|// protected by the callDeliveryMutex mutex
 end_comment
+begin_decl_stmt
+name|bool
+name|anonymousAuthenticationAllowed
+decl_stmt|;
+end_decl_stmt
 begin_label
 name|public
 label|:

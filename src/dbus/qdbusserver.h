@@ -108,6 +108,17 @@ name|address
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setAnonymousAuthenticationAllowed
+argument_list|(
+argument|bool value
+argument_list|)
+block|;
+name|bool
+name|isAnonymousAuthenticationAllowed
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
