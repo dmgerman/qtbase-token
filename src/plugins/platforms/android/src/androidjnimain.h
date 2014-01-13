@@ -362,6 +362,10 @@ modifier|*
 name|qtTagText
 parameter_list|()
 function_decl|;
+name|QString
+name|deviceName
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_endif

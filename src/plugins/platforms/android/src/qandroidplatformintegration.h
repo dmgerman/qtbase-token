@@ -436,6 +436,11 @@ endif|#
 directive|endif
 name|private
 operator|:
+specifier|static
+name|bool
+name|needsBasicRenderloopWorkaround
+argument_list|()
+block|;
 name|friend
 name|class
 name|QEglFSAndroidHooks
