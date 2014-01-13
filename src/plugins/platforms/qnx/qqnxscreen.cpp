@@ -2502,9 +2502,6 @@ argument_list|(
 name|window
 argument_list|)
 expr_stmt|;
-name|updateHierarchy
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_function
@@ -2547,9 +2544,6 @@ name|push_front
 argument_list|(
 name|window
 argument_list|)
-expr_stmt|;
-name|updateHierarchy
-argument_list|()
 expr_stmt|;
 block|}
 block|}
