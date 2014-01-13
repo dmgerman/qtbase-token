@@ -8834,9 +8834,23 @@ parameter_list|(
 specifier|const
 name|QSize
 modifier|&
-comment|/*step*/
+name|step
 parameter_list|)
 block|{
+name|horizontalScrollBar
+argument_list|()
+operator|->
+name|setSingleStep
+argument_list|(
+name|step
+operator|.
+name|width
+argument_list|()
+operator|+
+name|spacing
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|horizontalScrollBar
 argument_list|()
 operator|->
@@ -8868,7 +8882,6 @@ name|width
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we do not want to overwrite (a possible user set) single step
 block|}
 end_function
 begin_function
@@ -8881,9 +8894,23 @@ parameter_list|(
 specifier|const
 name|QSize
 modifier|&
-comment|/*step*/
+name|step
 parameter_list|)
 block|{
+name|verticalScrollBar
+argument_list|()
+operator|->
+name|setSingleStep
+argument_list|(
+name|step
+operator|.
+name|height
+argument_list|()
+operator|+
+name|spacing
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|verticalScrollBar
 argument_list|()
 operator|->
@@ -8915,7 +8942,6 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we do not want to overwrite (a possible user set) single step
 block|}
 end_function
 begin_function
