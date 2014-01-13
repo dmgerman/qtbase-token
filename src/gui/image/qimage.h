@@ -673,6 +673,78 @@ name|format
 argument_list|()
 specifier|const
 block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_REF_QUALIFIERS
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_COMPILING_QIMAGE_COMPAT_CPP
+argument_list|)
+name|QImage
+name|convertToFormat
+argument_list|(
+argument|Format f
+argument_list|,
+argument|Qt::ImageConversionFlags flags = Qt::AutoColor
+argument_list|)
+specifier|const
+operator|&
+name|Q_REQUIRED_RESULT
+block|{
+return|return
+name|convertToFormat_helper
+argument_list|(
+name|f
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+name|QImage
+name|convertToFormat
+argument_list|(
+argument|Format f
+argument_list|,
+argument|Qt::ImageConversionFlags flags = Qt::AutoColor
+argument_list|)
+operator|&&
+name|Q_REQUIRED_RESULT
+block|{
+if|if
+condition|(
+name|convertToFormat_inplace
+argument_list|(
+name|f
+argument_list|,
+name|flags
+argument_list|)
+condition|)
+return|return
+name|std
+operator|::
+name|move
+argument_list|(
+operator|*
+name|this
+argument_list|)
+return|;
+else|else
+return|return
+name|convertToFormat_helper
+argument_list|(
+name|f
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+else|#
+directive|else
 name|QImage
 name|convertToFormat
 argument_list|(
@@ -683,6 +755,8 @@ argument_list|)
 specifier|const
 name|Q_REQUIRED_RESULT
 block|;
+endif|#
+directive|endif
 name|QImage
 name|convertToFormat
 argument_list|(
@@ -1569,6 +1643,23 @@ block|;
 name|void
 name|rgbSwapped_inplace
 argument_list|()
+block|;
+name|QImage
+name|convertToFormat_helper
+argument_list|(
+argument|Format format
+argument_list|,
+argument|Qt::ImageConversionFlags flags
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|convertToFormat_inplace
+argument_list|(
+argument|Format format
+argument_list|,
+argument|Qt::ImageConversionFlags flags
+argument_list|)
 block|;
 name|private
 operator|:

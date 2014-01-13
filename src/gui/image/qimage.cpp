@@ -5043,14 +5043,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a copy of the image in the given \a format.      The specified image conversion \a flags control how the image data     is handled during the conversion process.      \sa {Image Formats} */
+comment|/*!     \fn QImage QImage::convertToFormat(Format format, Qt::ImageConversionFlags flags) const      Returns a copy of the image in the given \a format.      The specified image conversion \a flags control how the image data     is handled during the conversion process.      \sa {Image Formats} */
+end_comment
+begin_comment
+comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|convertToFormat
+DECL|function|convertToFormat_helper
 name|QImage
 name|QImage
 operator|::
-name|convertToFormat
+name|convertToFormat_helper
 parameter_list|(
 name|Format
 name|format
@@ -5232,6 +5235,39 @@ name|flags
 argument_list|)
 operator|.
 name|convertToFormat
+argument_list|(
+name|format
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_function
+DECL|function|convertToFormat_inplace
+name|bool
+name|QImage
+operator|::
+name|convertToFormat_inplace
+parameter_list|(
+name|Format
+name|format
+parameter_list|,
+name|Qt
+operator|::
+name|ImageConversionFlags
+name|flags
+parameter_list|)
+block|{
+return|return
+name|d
+operator|&&
+name|d
+operator|->
+name|convertInPlace
 argument_list|(
 name|format
 argument_list|,
