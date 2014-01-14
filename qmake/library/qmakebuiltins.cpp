@@ -11373,12 +11373,9 @@ operator|::
 name|Append
 expr_stmt|;
 block|}
-return|return
-name|writeFile
-argument_list|(
 name|QString
-argument_list|()
-argument_list|,
+name|path
+init|=
 name|resolvePath
 argument_list|(
 name|args
@@ -11393,6 +11390,20 @@ argument_list|(
 name|m_tmp1
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|path
+operator|.
+name|detach
+argument_list|()
+expr_stmt|;
+comment|// make sure to not leak m_tmp1 into the map of written files.
+return|return
+name|writeFile
+argument_list|(
+name|QString
+argument_list|()
+argument_list|,
+name|path
 argument_list|,
 name|mode
 argument_list|,
