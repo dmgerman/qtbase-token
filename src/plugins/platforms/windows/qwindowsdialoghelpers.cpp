@@ -3224,6 +3224,19 @@ operator|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|parent
+condition|)
+name|parent
+operator|=
+name|QGuiApplication
+operator|::
+name|focusWindow
+argument_list|()
+expr_stmt|;
+comment|// Need a parent window, else the application loses activation when closed.
+if|if
+condition|(
 name|parent
 condition|)
 block|{
