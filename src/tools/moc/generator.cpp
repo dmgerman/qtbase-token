@@ -1251,8 +1251,8 @@ name|out
 argument_list|,
 literal|"#define QT_MOC_LITERAL(idx, ofs, len) \\\n"
 literal|"    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \\\n"
-literal|"    offsetof(qt_meta_stringdata_%s_t, stringdata) + ofs \\\n"
-literal|"        - idx * sizeof(QByteArrayData) \\\n"
+literal|"    qptrdiff(offsetof(qt_meta_stringdata_%s_t, stringdata) + ofs \\\n"
+literal|"        - idx * sizeof(QByteArrayData)) \\\n"
 literal|"    )\n"
 argument_list|,
 name|qualifiedClassNameIdentifier
