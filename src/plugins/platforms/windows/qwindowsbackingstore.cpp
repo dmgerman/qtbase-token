@@ -571,13 +571,35 @@ argument_list|,
 name|SRCCOPY
 argument_list|)
 condition|)
+block|{
+specifier|const
+name|DWORD
+name|lastError
+init|=
+name|GetLastError
+argument_list|()
+decl_stmt|;
+comment|// QTBUG-35926, QTBUG-29716: may fail after lock screen.
+if|if
+condition|(
+name|lastError
+operator|!=
+name|ERROR_SUCCESS
+operator|&&
+name|lastError
+operator|!=
+name|ERROR_INVALID_HANDLE
+condition|)
 name|qErrnoWarning
 argument_list|(
+name|lastError
+argument_list|,
 literal|"%s: BitBlt failed"
 argument_list|,
 name|__FUNCTION__
 argument_list|)
 expr_stmt|;
+block|}
 name|rw
 operator|->
 name|releaseDC
