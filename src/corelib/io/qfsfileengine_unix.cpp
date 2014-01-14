@@ -32,6 +32,11 @@ include|#
 directive|include
 file|"qfilesystemengine_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qcoreapplication.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -447,6 +452,49 @@ literal|1
 return|;
 block|}
 end_function
+begin_function
+DECL|function|msgOpenDirectory
+specifier|static
+specifier|inline
+name|QString
+name|msgOpenDirectory
+parameter_list|()
+block|{
+specifier|const
+name|char
+name|message
+index|[]
+init|=
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QIODevice"
+argument_list|,
+literal|"file to open is a directory"
+argument_list|)
+decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+return|return
+name|QIODevice
+operator|::
+name|tr
+argument_list|(
+name|message
+argument_list|)
+return|;
+else|#
+directive|else
+return|return
+name|QLatin1String
+argument_list|(
+name|message
+argument_list|)
+return|;
+endif|#
+directive|endif
+block|}
+end_function
 begin_comment
 comment|/*!     \internal */
 end_comment
@@ -592,10 +640,8 @@ name|QFile
 operator|::
 name|OpenError
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"file to open is a directory"
-argument_list|)
+name|msgOpenDirectory
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QT_CLOSE
@@ -814,10 +860,8 @@ name|QFile
 operator|::
 name|OpenError
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"file to open is a directory"
-argument_list|)
+name|msgOpenDirectory
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fclose
