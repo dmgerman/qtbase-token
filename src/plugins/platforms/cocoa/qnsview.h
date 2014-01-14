@@ -120,6 +120,10 @@ name|m_glContext
 block|;
 name|bool
 name|m_shouldSetGLContextinDrawRect
+block|;
+name|NSString
+operator|*
+name|m_inputSource
 block|; }
 operator|-
 operator|(
