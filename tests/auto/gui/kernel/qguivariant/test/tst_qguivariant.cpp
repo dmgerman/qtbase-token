@@ -4523,7 +4523,7 @@ name|QVERIFY
 argument_list|(
 name|readVariant
 operator|.
-name|type
+name|userType
 argument_list|()
 operator|==
 name|QMetaType
