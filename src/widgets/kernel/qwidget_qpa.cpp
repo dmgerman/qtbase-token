@@ -4130,9 +4130,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// generate a move event for QWidgets without window handles. QWidgets with native
+comment|// window handles already receive a move event from
+comment|// QGuiApplicationPrivate::processGeometryChangeEvent.
 if|if
 condition|(
 name|isMove
+operator|&&
+operator|(
+operator|!
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+operator|||
+name|q
+operator|->
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_DontShowOnScreen
+argument_list|)
+operator|)
 condition|)
 block|{
 name|QMoveEvent
