@@ -6122,7 +6122,7 @@ specifier|static
 name|int
 name|test
 argument_list|(
-name|A2
+argument|const typename RemoveRef<A2>::Type&
 argument_list|)
 block|;
 specifier|static
@@ -6133,7 +6133,15 @@ operator|...
 argument_list|)
 block|;
 specifier|static
+specifier|const
+name|typename
+name|RemoveRef
+operator|<
 name|A1
+operator|>
+operator|::
+name|Type
+operator|&
 name|dummy
 argument_list|()
 block|;         enum
