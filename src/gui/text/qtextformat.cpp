@@ -2146,6 +2146,9 @@ begin_comment
 comment|/*!     \fn bool QTextFormat::isValid() const      Returns \c true if the format is valid (i.e. is not     InvalidFormat); otherwise returns \c false. */
 end_comment
 begin_comment
+comment|/*!     \fn bool QTextFormat::isEmpty() const     \since 5.3      Returns true if the format does not store any properties; false otherwise.      \sa propertyCount(), properties() */
+end_comment
+begin_comment
 comment|/*!     \fn bool QTextFormat::isCharFormat() const      Returns \c true if this text format is a \c CharFormat; otherwise     returns \c false. */
 end_comment
 begin_comment
