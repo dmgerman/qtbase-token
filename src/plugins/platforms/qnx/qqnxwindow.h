@@ -342,7 +342,7 @@ name|void
 name|createWindowGroup
 argument_list|()
 block|;
-name|QRect
+name|void
 name|setGeometryHelper
 argument_list|(
 specifier|const
@@ -354,15 +354,6 @@ block|;
 name|void
 name|removeFromParent
 argument_list|()
-block|;
-name|void
-name|setOffset
-argument_list|(
-specifier|const
-name|QPoint
-operator|&
-name|setOffset
-argument_list|)
 block|;
 name|void
 name|updateVisibility
