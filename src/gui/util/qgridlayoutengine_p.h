@@ -2348,6 +2348,13 @@ name|bool
 name|q_totalBoxesValid
 decl_stmt|;
 name|mutable
+name|bool
+name|q_sizeHintValid
+index|[
+name|NOrientations
+index|]
+decl_stmt|;
+name|mutable
 name|QVector
 operator|<
 name|qreal
