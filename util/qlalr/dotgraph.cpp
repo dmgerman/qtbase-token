@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/QTextStream>
+file|"dotgraph.h"
 end_include
 begin_include
 include|#
@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"dotgraph.h"
+file|<QtCore/qtextstream.h>
 end_include
 begin_constructor
 DECL|function|DotGraph
