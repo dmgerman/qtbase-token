@@ -651,7 +651,9 @@ name|end
 argument_list|)
 expr_stmt|;
 block|}
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|sortedTable
 operator|.

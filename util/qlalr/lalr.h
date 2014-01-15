@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
 file|<functional>
 end_include
 begin_decl_stmt
@@ -1452,7 +1457,9 @@ block|{
 name|edge_iterator
 name|it
 operator|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|outs
 operator|.

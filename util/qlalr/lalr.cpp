@@ -609,7 +609,9 @@ block|{
 name|ItemPointer
 name|it
 init|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|kernel
 operator|.
@@ -679,7 +681,9 @@ block|{
 name|ItemPointer
 name|it
 init|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|closure
 operator|.
@@ -818,7 +822,9 @@ block|{
 name|Name
 name|name
 init|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|names
 operator|.
@@ -1451,7 +1457,9 @@ block|{
 name|StatePointer
 name|it
 init|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|states
 operator|.
