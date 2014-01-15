@@ -7450,6 +7450,10 @@ DECL|member|convertFromARGB32PM
 name|ConvertFunc
 name|convertFromARGB32PM
 decl_stmt|;
+DECL|member|convertFromRGB32
+name|ConvertFunc
+name|convertFromRGB32
+decl_stmt|;
 block|}
 struct|;
 end_struct
