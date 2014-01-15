@@ -248,19 +248,22 @@ operator|==
 name|EGL_NO_SURFACE
 condition|)
 block|{
+specifier|const
+name|EGLenum
+name|error
+init|=
 name|QQnxGLContext
 operator|::
 name|checkEGLError
 argument_list|(
 literal|"eglCreateWindowSurface"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|qFatal
 argument_list|(
 literal|"QQNX: failed to create EGL surface, err=%d"
 argument_list|,
-name|eglGetError
-argument_list|()
+name|error
 argument_list|)
 expr_stmt|;
 block|}

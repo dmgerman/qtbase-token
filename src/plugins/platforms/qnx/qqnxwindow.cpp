@@ -2541,8 +2541,10 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
-name|setScreen
-argument_list|(
+name|QQnxScreen
+modifier|*
+name|platformScreen
+init|=
 cast|static_cast
 argument_list|<
 name|QQnxScreen
@@ -2558,6 +2560,10 @@ operator|->
 name|handle
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|setScreen
+argument_list|(
+name|platformScreen
 argument_list|)
 expr_stmt|;
 if|if
@@ -2585,6 +2591,14 @@ name|defined
 argument_list|(
 name|Q_OS_BLACKBERRY_TABLET
 argument_list|)
+if|if
+condition|(
+name|platformScreen
+operator|->
+name|rootWindow
+argument_list|()
+condition|)
+block|{
 name|screen_set_window_property_pv
 argument_list|(
 name|m_screen
@@ -2614,6 +2628,15 @@ operator|new
 name|QQnxNavigatorCover
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"No root window for cover window"
+argument_list|)
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|m_exposed
