@@ -8073,10 +8073,12 @@ name|QGridLayoutRowData
 modifier|*
 name|rowData
 parameter_list|,
+specifier|const
 name|qreal
 modifier|*
 name|colPositions
 parameter_list|,
+specifier|const
 name|qreal
 modifier|*
 name|colSizes
@@ -9908,10 +9910,12 @@ name|QGridLayoutBox
 modifier|*
 name|totalBox
 parameter_list|,
+specifier|const
 name|qreal
 modifier|*
 name|colPositions
 parameter_list|,
+specifier|const
 name|qreal
 modifier|*
 name|colSizes

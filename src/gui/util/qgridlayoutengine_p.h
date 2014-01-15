@@ -2182,10 +2182,12 @@ name|QGridLayoutRowData
 operator|*
 name|rowData
 argument_list|,
+specifier|const
 name|qreal
 operator|*
 name|colPositions
 argument_list|,
+specifier|const
 name|qreal
 operator|*
 name|colSizes
@@ -2218,10 +2220,12 @@ name|QGridLayoutBox
 operator|*
 name|totalBox
 argument_list|,
+specifier|const
 name|qreal
 operator|*
 name|colPositions
 argument_list|,
+specifier|const
 name|qreal
 operator|*
 name|colSizes
