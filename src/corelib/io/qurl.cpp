@@ -10734,21 +10734,29 @@ operator|->
 name|isEmpty
 argument_list|()
 return|;
-comment|// Compare which sections are present, but ignore Host
-comment|// which is set by parsing but not by construction, when empty.
-specifier|const
+comment|// First, compare which sections are present, since it speeds up the
+comment|// processing considerably. We just have to ignore the host-is-present flag
+comment|// for local files (the "file" protocol), due to the requirements of the
+comment|// XDG file URI specification.
 name|int
 name|mask
 init|=
 name|QUrlPrivate
 operator|::
 name|FullUrl
-operator|&
+decl_stmt|;
+if|if
+condition|(
+name|isLocalFile
+argument_list|()
+condition|)
+name|mask
+operator|&=
 operator|~
 name|QUrlPrivate
 operator|::
 name|Host
-decl_stmt|;
+expr_stmt|;
 return|return
 operator|(
 name|d
@@ -10909,20 +10917,29 @@ operator|->
 name|isEmpty
 argument_list|()
 return|;
-comment|// Compare which sections are present, but ignore Host
-comment|// which is set by parsing but not by construction, when empty.
+comment|// First, compare which sections are present, since it speeds up the
+comment|// processing considerably. We just have to ignore the host-is-present flag
+comment|// for local files (the "file" protocol), due to the requirements of the
+comment|// XDG file URI specification.
 name|int
 name|mask
 init|=
 name|QUrlPrivate
 operator|::
 name|FullUrl
-operator|&
+decl_stmt|;
+if|if
+condition|(
+name|isLocalFile
+argument_list|()
+condition|)
+name|mask
+operator|&=
 operator|~
 name|QUrlPrivate
 operator|::
 name|Host
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|options
