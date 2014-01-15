@@ -2267,13 +2267,6 @@ operator|>
 name|ItemDecorationList
 expr_stmt|;
 name|QTextEngine
-argument_list|(
-name|LayoutData
-operator|*
-name|data
-argument_list|)
-expr_stmt|;
-name|QTextEngine
 argument_list|()
 expr_stmt|;
 name|QTextEngine
