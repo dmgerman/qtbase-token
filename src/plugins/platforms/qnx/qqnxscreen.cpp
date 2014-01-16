@@ -821,6 +821,17 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|m_coverWindow
+condition|)
+name|m_coverWindow
+operator|->
+name|setScreen
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 operator|delete
 name|m_cursor
 expr_stmt|;
