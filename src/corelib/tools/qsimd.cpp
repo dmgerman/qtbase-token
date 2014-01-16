@@ -92,11 +92,6 @@ name|defined
 argument_list|(
 name|QT_COMPILER_SUPPORTS_IWMMXT
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
-argument_list|)
 operator|)
 end_elif
 begin_include
@@ -292,11 +287,6 @@ operator|||
 name|defined
 argument_list|(
 name|QT_COMPILER_SUPPORTS_IWMMXT
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
 argument_list|)
 end_elif
 begin_function

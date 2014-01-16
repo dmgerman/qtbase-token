@@ -21723,21 +21723,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"NEON"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|tmpStream
-operator|<<
-literal|"#define QT_COMPILER_SUPPORTS_NEON"
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"QREAL"
 index|]
 operator|!=

@@ -4691,12 +4691,6 @@ undef|#
 directive|undef
 name|QT_COMPILER_SUPPORTS_IWMMXT
 end_undef
-begin_undef
-DECL|macro|QT_COMPILER_SUPPORTS_NEON
-undef|#
-directive|undef
-name|QT_COMPILER_SUPPORTS_NEON
-end_undef
 begin_endif
 endif|#
 directive|endif

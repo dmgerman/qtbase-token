@@ -4953,7 +4953,7 @@ name|qt_convert_rgb888_to_rgb32_neon
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_COMPILER_SUPPORTS_NEON
+comment|// __ARM_NEON__
 if|#
 directive|if
 name|defined
