@@ -205,10 +205,14 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
-specifier|const
-name|char
-operator|*
+name|QByteArray
 name|fbDeviceName
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|int
+name|framebufferIndex
 argument_list|()
 specifier|const
 expr_stmt|;
