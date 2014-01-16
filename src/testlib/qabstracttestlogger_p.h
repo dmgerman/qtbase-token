@@ -190,8 +190,8 @@ name|MessageTypes
 name|type
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 name|message
 parameter_list|,
 specifier|const

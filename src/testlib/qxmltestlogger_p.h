@@ -133,7 +133,7 @@ name|addMessage
 argument_list|(
 argument|MessageTypes type
 argument_list|,
-argument|const char *message
+argument|const QString&message
 argument_list|,
 argument|const char *file =
 literal|0

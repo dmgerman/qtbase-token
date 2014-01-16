@@ -2047,6 +2047,31 @@ block|{
 continue|continue;
 block|}
 block|}
+if|if
+condition|(
+name|subtest
+operator|==
+literal|"badxml"
+operator|&&
+operator|(
+name|loggerSet
+operator|.
+name|name
+operator|==
+literal|"all loggers"
+operator|||
+name|loggerSet
+operator|.
+name|name
+operator|.
+name|contains
+argument_list|(
+literal|"txt"
+argument_list|)
+operator|)
+condition|)
+continue|continue;
+comment|// XML only, do not mix txt and XML for encoding test.
 specifier|const
 name|bool
 name|crashes
