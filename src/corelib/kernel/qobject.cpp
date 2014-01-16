@@ -12171,9 +12171,21 @@ name|isSignalConnected
 argument_list|(
 name|signal_index
 argument_list|)
+operator|&&
+operator|!
+name|qt_signal_spy_callback_set
+operator|.
+name|signal_begin_callback
+operator|&&
+operator|!
+name|qt_signal_spy_callback_set
+operator|.
+name|signal_end_callback
 condition|)
+block|{
 return|return;
 comment|// nothing connected to these signals, and no spy
+block|}
 if|if
 condition|(
 name|sender
