@@ -2122,7 +2122,17 @@ name|option
 parameter_list|)
 specifier|const
 block|{
+comment|// option.names() might be empty if the constructor failed
 return|return
+operator|!
+name|option
+operator|.
+name|names
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|isSet
 argument_list|(
 name|option
