@@ -455,16 +455,27 @@ operator|::
 name|Uninitialized
 argument_list|)
 block|;
+comment|// we abuse const_cast / constData here because we know we've just
+comment|// allocated the data and we're the only reference count
 name|typename
 name|T
 operator|::
 name|iterator
 name|d
 operator|=
+name|const_cast
+operator|<
+name|typename
+name|T
+operator|::
+name|iterator
+operator|>
+operator|(
 name|s
 operator|.
-name|data
+name|constData
 argument_list|()
+operator|)
 block|;
 name|typename
 name|T
