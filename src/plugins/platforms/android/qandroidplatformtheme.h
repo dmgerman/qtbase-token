@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformtheme.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QPalette>
+end_include
 begin_decl_stmt
 DECL|variable|QAndroidPlatformNativeInterface
 name|class
@@ -119,6 +124,9 @@ operator|:
 name|QAndroidPlatformNativeInterface
 operator|*
 name|m_androidPlatformNativeInterface
+block|;
+name|QPalette
+name|m_defaultPalette
 block|; }
 decl_stmt|;
 end_decl_stmt
