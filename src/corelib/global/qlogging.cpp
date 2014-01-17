@@ -4065,6 +4065,8 @@ parameter_list|)
 block|{
 name|android_LogPriority
 name|priority
+init|=
+name|ANDROID_LOG_DEBUG
 decl_stmt|;
 switch|switch
 condition|(

@@ -657,6 +657,11 @@ name|QJNIObjectData
 argument_list|()
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|jobj
+condition|)
+block|{
 name|QJNIEnvironmentPrivate
 name|env
 decl_stmt|;
@@ -705,6 +710,7 @@ argument_list|(
 name|objectClass
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 operator|*

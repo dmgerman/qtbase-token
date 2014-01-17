@@ -473,6 +473,12 @@ operator|::
 name|WindowFlags
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|window
+condition|)
+return|return;
 name|bool
 name|isNonRegularWindow
 init|=
