@@ -5143,6 +5143,8 @@ name|minuteFractionInt
 argument_list|)
 operator|/
 operator|(
+name|std
+operator|::
 name|pow
 argument_list|(
 name|double
@@ -5313,6 +5315,8 @@ argument_list|(
 name|msecInt
 operator|/
 operator|(
+name|std
+operator|::
 name|pow
 argument_list|(
 name|double
