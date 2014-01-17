@@ -837,7 +837,6 @@ comment|// conversion between Latin 1 and UTF-16
 end_comment
 begin_function
 DECL|function|qt_from_latin1
-specifier|static
 name|void
 name|qt_from_latin1
 parameter_list|(
