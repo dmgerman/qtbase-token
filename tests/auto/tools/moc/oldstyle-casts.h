@@ -20,7 +20,7 @@ file|<QtCore/qobject.h>
 end_include
 begin_decl_stmt
 name|class
-name|Foo
+name|OldStyleCast
 range|:
 name|public
 name|QObject
