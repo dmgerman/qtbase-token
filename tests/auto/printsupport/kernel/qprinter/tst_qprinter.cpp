@@ -10433,11 +10433,8 @@ block|{
 comment|// printerSelectionOption() / setPrinterSelectionOption() / PPK_SelectionOption
 comment|// PdfFormat: Supported
 comment|// NativeFormat, Cups: Supported
-comment|// NativeFormat, Win: Unsupported, ifdef'd out TODO remove ifdef, always QString()
+comment|// NativeFormat, Win: Unsupported, always QString()
 comment|// NativeFormat, Mac: Unsupported, always QString()
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -10527,9 +10524,13 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|Q_OS_MAC
+operator|||
+name|defined
+name|Q_OS_WIN
 name|expected
 operator|.
 name|clear
@@ -10537,7 +10538,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_MAC
+comment|// Q_OS_MAC || Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|native
@@ -10596,9 +10597,6 @@ literal|"No printers installed, cannot test NativeFormat, please install printer
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 block|}
 end_function
 begin_function
