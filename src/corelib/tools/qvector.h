@@ -3553,6 +3553,16 @@ argument_list|(
 argument|std::initializer_list<T> args
 argument_list|)
 block|{
+if|if
+condition|(
+name|args
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|d
 operator|=
 name|Data
@@ -3564,7 +3574,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-block|;
+expr_stmt|;
 comment|// std::initializer_list<T>::iterator is guaranteed to be
 comment|// const T* ([support.initlist]/1), so can be memcpy'ed away from by copyConstruct
 name|copyConstruct
@@ -3584,7 +3594,7 @@ operator|->
 name|begin
 argument_list|()
 argument_list|)
-block|;
+expr_stmt|;
 name|d
 operator|->
 name|size
@@ -3596,10 +3606,28 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-block|; }
+expr_stmt|;
+block|}
+end_expr_stmt
+begin_else
+else|else
+block|{
+name|d
+operator|=
+name|Data
+operator|::
+name|sharedNull
+argument_list|()
+expr_stmt|;
+block|}
+end_else
+begin_endif
+unit|}
 endif|#
 directive|endif
-name|template
+end_endif
+begin_expr_stmt
+unit|template
 operator|<
 name|typename
 name|T
