@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxscreen.h"
 end_include
 begin_include
@@ -172,10 +177,6 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 specifier|const
 name|int
 name|result
@@ -189,6 +190,13 @@ argument_list|,
 name|val
 argument_list|)
 decl_stmt|;
+name|Q_SCREEN_CHECKERROR
+argument_list|(
+name|result
+argument_list|,
+literal|"Failed to query display physical size"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|result
@@ -196,13 +204,6 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|qFatal
-argument_list|(
-literal|"QQnxScreen: failed to query display physical size, errno=%d"
-argument_list|,
-name|errno
-argument_list|)
-expr_stmt|;
 return|return
 name|QSize
 argument_list|(
@@ -627,10 +628,6 @@ operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Cache initial orientation of this display
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|result
 init|=
@@ -644,17 +641,11 @@ operator|&
 name|m_initialRotation
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CHECKERROR
 argument_list|(
-literal|"QQnxScreen: failed to query display rotation, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query display rotation"
 argument_list|)
 expr_stmt|;
 name|m_currentRotation
@@ -662,18 +653,14 @@ operator|=
 name|m_initialRotation
 expr_stmt|;
 comment|// Cache size of this display in pixels
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|val
 index|[
 literal|2
 index|]
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_get_display_property_iv
 argument_list|(
 name|m_display
@@ -682,18 +669,8 @@ name|SCREEN_PROPERTY_SIZE
 argument_list|,
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxScreen: failed to query display size, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query display size"
 argument_list|)
 expr_stmt|;
 name|m_currentGeometry

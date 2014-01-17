@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxwindow.h"
 end_include
 begin_include
@@ -200,9 +205,6 @@ operator|->
 name|size
 argument_list|()
 expr_stmt|;
-name|int
-name|result
-decl_stmt|;
 name|QQnxScreen
 modifier|*
 name|platformScreen
@@ -285,23 +287,22 @@ name|rootWindow
 argument_list|()
 expr_stmt|;
 block|}
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|m_isTopLevel
 condition|)
 block|{
-name|result
-operator|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_create_window
 argument_list|(
 operator|&
 name|m_window
 argument_list|,
 name|m_screenContext
+argument_list|)
+argument_list|,
+literal|"Could not create top level window"
 argument_list|)
 expr_stmt|;
 comment|// Creates an application window
@@ -332,8 +333,8 @@ block|}
 block|}
 else|else
 block|{
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_create_window_type
 argument_list|(
 operator|&
@@ -343,21 +344,11 @@ name|m_screenContext
 argument_list|,
 name|SCREEN_CHILD_WINDOW
 argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to create window, errno=%d"
 argument_list|,
-name|errno
+literal|"Could not create child window"
 argument_list|)
 expr_stmt|;
+block|}
 name|createWindowGroup
 argument_list|()
 expr_stmt|;
@@ -564,10 +555,6 @@ name|rect
 argument_list|)
 expr_stmt|;
 comment|// Set window geometry equal to widget geometry
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|val
 index|[
@@ -594,9 +581,8 @@ operator|.
 name|y
 argument_list|()
 expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -605,23 +591,9 @@ name|SCREEN_PROPERTY_POSITION
 argument_list|,
 name|val
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window position, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window position"
 argument_list|)
-expr_stmt|;
-name|errno
-operator|=
-literal|0
 expr_stmt|;
 name|val
 index|[
@@ -643,8 +615,8 @@ operator|.
 name|height
 argument_list|()
 expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -653,27 +625,13 @@ name|SCREEN_PROPERTY_SIZE
 argument_list|,
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window size, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window size"
 argument_list|)
 expr_stmt|;
 comment|// Set viewport size equal to window size
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -682,18 +640,8 @@ name|SCREEN_PROPERTY_SOURCE_SIZE
 argument_list|,
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window source size, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window source size"
 argument_list|)
 expr_stmt|;
 name|screen_flush_context
@@ -876,10 +824,6 @@ name|window
 argument_list|()
 expr_stmt|;
 comment|// Set window visibility
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|val
 init|=
@@ -893,9 +837,8 @@ literal|1
 else|:
 literal|0
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -905,18 +848,8 @@ argument_list|,
 operator|&
 name|val
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window visibility, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window visibility"
 argument_list|)
 expr_stmt|;
 name|Q_FOREACH
@@ -962,10 +895,6 @@ operator|<<
 name|level
 expr_stmt|;
 comment|// Set window global alpha
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|val
 init|=
@@ -978,9 +907,8 @@ operator|*
 literal|255
 argument_list|)
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -990,18 +918,8 @@ argument_list|,
 operator|&
 name|val
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window global alpha, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set global alpha"
 argument_list|)
 expr_stmt|;
 name|screen_flush_context
@@ -1110,10 +1028,6 @@ operator|<<
 name|size
 expr_stmt|;
 comment|// Set window buffer size
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 comment|// libscreen fails when creating empty buffers
 specifier|const
 name|QSize
@@ -1151,9 +1065,8 @@ name|height
 argument_list|()
 block|}
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -1162,18 +1075,8 @@ name|SCREEN_PROPERTY_BUFFER_SIZE
 argument_list|,
 name|val
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window buffer size, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window buffer size"
 argument_list|)
 expr_stmt|;
 comment|// Create window buffers if they do not exist
@@ -1205,12 +1108,8 @@ literal|1
 condition|)
 comment|// The platform GL context was not set yet on the window, so we can't procede
 return|return;
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -1219,63 +1118,30 @@ name|SCREEN_PROPERTY_FORMAT
 argument_list|,
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window pixel format, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window format"
 argument_list|)
 expr_stmt|;
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_create_window_buffers
 argument_list|(
 name|m_window
 argument_list|,
 name|MAX_BUFFER_COUNT
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QQnxWindow: Buffer size was"
-operator|<<
-name|size
-expr_stmt|;
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to create window buffers, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to create window buffers"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// check if there are any buffers available
 name|int
 name|bufferCount
 init|=
 literal|0
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_get_window_property_iv
 argument_list|(
 name|m_window
@@ -1285,18 +1151,8 @@ argument_list|,
 operator|&
 name|bufferCount
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to query window buffer count, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query render buffer count"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1358,12 +1214,8 @@ operator|=
 name|SCREEN_TRANSPARENCY_SOURCE_OVER
 expr_stmt|;
 block|}
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -1372,18 +1224,8 @@ name|SCREEN_PROPERTY_TRANSPARENCY
 argument_list|,
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window transparency, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window transparency"
 argument_list|)
 expr_stmt|;
 comment|// Cache new buffer size
@@ -1477,27 +1319,11 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|QQnxIntegration
-modifier|*
-name|platformIntegration
-init|=
-cast|static_cast
-argument_list|<
-name|QQnxIntegration
-operator|*
-argument_list|>
-argument_list|(
-name|QGuiApplicationPrivate
-operator|::
-name|platformIntegration
-argument_list|()
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 operator|(
-name|platformIntegration
-operator|->
+name|QQnxIntegration
+operator|::
 name|options
 argument_list|()
 operator|&
@@ -1538,10 +1364,6 @@ name|m_isTopLevel
 condition|)
 block|{
 comment|// Move window to proper screen/display
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|screen_display_t
 name|display
 init|=
@@ -1550,9 +1372,8 @@ operator|->
 name|nativeDisplay
 argument_list|()
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_pv
 argument_list|(
 name|m_window
@@ -1567,27 +1388,13 @@ operator|)
 operator|&
 name|display
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window display, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window display"
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|Q_FOREACH
 argument_list|(
 argument|QQnxWindow *childWindow
@@ -2240,13 +2047,8 @@ literal|"angle ="
 operator|<<
 name|rotation
 expr_stmt|;
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -2256,18 +2058,8 @@ argument_list|,
 operator|&
 name|rotation
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxRootWindow: failed to set window rotation, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window rotation"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2281,18 +2073,13 @@ name|initWindow
 parameter_list|()
 block|{
 comment|// Alpha channel is always pre-multiplied if present
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|val
 init|=
 name|SCREEN_PRE_MULTIPLIED_ALPHA
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -2302,31 +2089,17 @@ argument_list|,
 operator|&
 name|val
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window alpha mode, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set alpha mode"
 argument_list|)
 expr_stmt|;
 comment|// Set the window swap interval
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|val
 operator|=
 literal|1
 expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -2336,18 +2109,8 @@ argument_list|,
 operator|&
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window swap interval, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set swap interval"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2363,16 +2126,12 @@ operator|::
 name|WindowDoesNotAcceptFocus
 condition|)
 block|{
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|val
 operator|=
 name|SCREEN_SENSITIVITY_NO_FOCUS
 expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|m_window
@@ -2382,18 +2141,8 @@ argument_list|,
 operator|&
 name|val
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window sensitivity, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set window sensitivity"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2631,13 +2380,8 @@ name|toLatin1
 argument_list|()
 expr_stmt|;
 comment|// Create window group so child windows can be parented by container window
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_create_window_group
 argument_list|(
 name|m_window
@@ -2647,18 +2391,8 @@ operator|.
 name|constData
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxRootWindow: failed to create app window group, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to create window group"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2826,13 +2560,8 @@ modifier|&
 name|topZorder
 parameter_list|)
 block|{
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_window_property_iv
 argument_list|(
 name|window
@@ -2842,26 +2571,12 @@ argument_list|,
 operator|&
 name|topZorder
 argument_list|)
-decl_stmt|;
+argument_list|,
+literal|"Failed to set window z-order"
+argument_list|)
+expr_stmt|;
 name|topZorder
 operator|++
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to set window z-order=%d, errno=%d, mWindow=%p"
-argument_list|,
-name|topZorder
-argument_list|,
-name|errno
-argument_list|,
-name|window
-argument_list|)
 expr_stmt|;
 block|}
 end_function

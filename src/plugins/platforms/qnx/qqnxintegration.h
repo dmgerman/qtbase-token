@@ -215,6 +215,10 @@ block|,
 name|RootWindow
 operator|=
 literal|0x2
+block|,
+name|AlwaysFlushScreenContext
+operator|=
+literal|0x4
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -437,10 +441,15 @@ name|primaryDisplay
 argument_list|()
 specifier|const
 block|;
+specifier|static
 name|Options
 name|options
 argument_list|()
-specifier|const
+block|;
+specifier|static
+name|screen_context_t
+name|screenContext
+argument_list|()
 block|;
 name|private
 operator|:
@@ -468,8 +477,9 @@ argument_list|(
 argument|screen_window_t qnxWindow
 argument_list|)
 block|;
+specifier|static
 name|screen_context_t
-name|m_screenContext
+name|ms_screenContext
 block|;
 if|#
 directive|if
@@ -590,9 +600,9 @@ specifier|static
 name|QMutex
 name|ms_windowMapperMutex
 block|;
-specifier|const
+specifier|static
 name|Options
-name|m_options
+name|ms_options
 block|;
 name|friend
 name|class

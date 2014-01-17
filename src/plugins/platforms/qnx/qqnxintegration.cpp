@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxintegration.h"
 end_include
 begin_if
@@ -376,6 +381,27 @@ operator|::
 name|FullScreenApplication
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|paramList
+operator|.
+name|contains
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"flush-screen-context"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|options
+operator||=
+name|QQnxIntegration
+operator|::
+name|AlwaysFlushScreenContext
+expr_stmt|;
+block|}
 comment|// On Blackberry the first window is treated as a root window
 ifdef|#
 directive|ifdef
@@ -585,47 +611,31 @@ argument_list|()
 argument_list|)
 endif|#
 directive|endif
-member_init_list|,
-name|m_options
-argument_list|(
+block|{
+name|ms_options
+operator|=
 name|parseOptions
 argument_list|(
 name|paramList
 argument_list|)
-argument_list|)
-block|{
+expr_stmt|;
 name|qIntegrationDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Open connection to QNX composition manager
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_create_context
 argument_list|(
 operator|&
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|SCREEN_APPLICATION_CONTEXT
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnx: failed to connect to composition manager, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to create screen context"
 argument_list|)
 expr_stmt|;
 comment|// Not on BlackBerry, it has specialized event dispatcher which also handles navigator events
@@ -694,7 +704,7 @@ operator|=
 operator|new
 name|QQnxScreenEventThread
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|m_screenEventHandler
 argument_list|)
@@ -1087,7 +1097,7 @@ expr_stmt|;
 comment|// Close connection to QNX composition manager
 name|screen_destroy_context
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|)
 expr_stmt|;
 if|#
@@ -1262,7 +1272,7 @@ name|QQnxRasterWindow
 argument_list|(
 name|window
 argument_list|,
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|needRootWindow
 argument_list|)
@@ -1285,7 +1295,7 @@ name|QQnxEglWindow
 argument_list|(
 name|window
 argument_list|,
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|needRootWindow
 argument_list|)
@@ -1625,7 +1635,7 @@ name|ShowIsFullScreen
 operator|)
 operator|&&
 operator|(
-name|m_options
+name|ms_options
 operator|&
 name|FullScreenApplication
 operator|)
@@ -1875,19 +1885,17 @@ operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Query number of displays
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|displayCount
+init|=
+literal|0
 decl_stmt|;
 name|int
 name|result
 init|=
 name|screen_get_context_property_iv
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|SCREEN_PROPERTY_DISPLAY_COUNT
 argument_list|,
@@ -1895,17 +1903,11 @@ operator|&
 name|displayCount
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CRITICALERROR
 argument_list|(
-literal|"QQnxIntegration: failed to query display count, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query display count"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1925,10 +1927,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Get all displays
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|screen_display_t
 modifier|*
 name|displays
@@ -1951,7 +1949,7 @@ name|result
 operator|=
 name|screen_get_context_property_pv
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|SCREEN_PROPERTY_DISPLAYS
 argument_list|,
@@ -1963,17 +1961,11 @@ operator|)
 name|displays
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CRITICALERROR
 argument_list|(
-literal|"QQnxIntegration: failed to query displays, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query displays"
 argument_list|)
 expr_stmt|;
 comment|// If it's primary, we create a QScreen for it even if it's not attached
@@ -2007,7 +1999,7 @@ block|{
 name|int
 name|isAttached
 init|=
-literal|0
+literal|1
 decl_stmt|;
 name|result
 operator|=
@@ -2024,26 +2016,13 @@ operator|&
 name|isAttached
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-block|{
-name|qWarning
+name|Q_SCREEN_CHECKERROR
 argument_list|(
-literal|"QQnxIntegration: failed to query display attachment, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query display attachment"
 argument_list|)
 expr_stmt|;
-name|isAttached
-operator|=
-literal|1
-expr_stmt|;
-comment|// assume attached
-block|}
 if|if
 condition|(
 operator|!
@@ -2106,7 +2085,7 @@ init|=
 operator|new
 name|QQnxScreen
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|display
 argument_list|,
@@ -2425,13 +2404,47 @@ name|QQnxIntegration
 operator|::
 name|options
 parameter_list|()
-specifier|const
 block|{
 return|return
-name|m_options
+name|ms_options
 return|;
 block|}
 end_function
+begin_function
+DECL|function|screenContext
+name|screen_context_t
+name|QQnxIntegration
+operator|::
+name|screenContext
+parameter_list|()
+block|{
+return|return
+name|ms_screenContext
+return|;
+block|}
+end_function
+begin_decl_stmt
+DECL|member|ms_screenContext
+name|screen_context_t
+name|QQnxIntegration
+operator|::
+name|ms_screenContext
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|member|ms_options
+name|QQnxIntegration
+operator|::
+name|Options
+name|QQnxIntegration
+operator|::
+name|ms_options
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|supportsNavigatorEvents
 name|bool

@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxscreeneventthread.h"
 end_include
 begin_include
@@ -253,6 +258,11 @@ name|Q_FUNC_INFO
 operator|<<
 literal|"screen event thread started"
 expr_stmt|;
+name|int
+name|errorCounter
+init|=
+literal|0
+decl_stmt|;
 comment|// loop indefinitely
 while|while
 condition|(
@@ -264,37 +274,22 @@ name|screen_event_t
 name|event
 decl_stmt|;
 comment|// create screen event
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_create_event
 argument_list|(
 operator|&
 name|event
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to create screen event, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to create screen event"
 argument_list|)
 expr_stmt|;
 comment|// block until screen event is available
-name|errno
-operator|=
-literal|0
-expr_stmt|;
+specifier|const
+name|int
 name|result
-operator|=
+init|=
 name|screen_get_event
 argument_list|(
 name|m_screenContext
@@ -304,29 +299,55 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
+decl_stmt|;
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
+name|result
+argument_list|,
+literal|"Failed to get screen event"
+argument_list|)
+expr_stmt|;
+comment|// Only allow 50 consecutive errors before we exit the thread
+if|if
+condition|(
+operator|!
+name|result
+condition|)
+block|{
+name|errorCounter
+operator|++
 expr_stmt|;
 if|if
 condition|(
-name|result
+name|errorCounter
+operator|>
+literal|50
 condition|)
-name|qFatal
+name|m_quit
+operator|=
+literal|true
+expr_stmt|;
+name|screen_destroy_event
 argument_list|(
-literal|"QQNX: failed to get screen event, errno=%d"
-argument_list|,
-name|errno
+name|event
 argument_list|)
 expr_stmt|;
-comment|// process received event
-comment|// get the event type
-name|errno
+continue|continue;
+block|}
+else|else
+block|{
+name|errorCounter
 operator|=
 literal|0
 expr_stmt|;
+block|}
+comment|// process received event
+comment|// get the event type
 name|int
 name|qnxType
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -336,16 +357,8 @@ argument_list|,
 operator|&
 name|qnxType
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query screen event type, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query screen event type"
 argument_list|)
 expr_stmt|;
 if|if
@@ -440,42 +453,25 @@ name|screen_event_t
 name|event
 decl_stmt|;
 comment|// create screen event
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_create_event
 argument_list|(
 operator|&
 name|event
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to create screen event, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to create screen event"
 argument_list|)
 expr_stmt|;
 comment|// set the event type as user
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|type
 init|=
 name|SCREEN_EVENT_USER
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_set_event_property_iv
 argument_list|(
 name|event
@@ -485,26 +481,14 @@ argument_list|,
 operator|&
 name|type
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to set screen event type, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set screen type"
 argument_list|)
 expr_stmt|;
 comment|// NOTE: ignore SCREEN_PROPERTY_USER_DATA; treat all user events as shutdown events
 comment|// post event to event loop so it will wake up and die
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_send_event
 argument_list|(
 name|m_screenContext
@@ -514,16 +498,8 @@ argument_list|,
 name|getpid
 argument_list|()
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to set screen event type, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to set screen event type"
 argument_list|)
 expr_stmt|;
 comment|// cleanup

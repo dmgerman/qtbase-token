@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxscreeneventhandler.h"
 end_include
 begin_if
@@ -291,16 +296,11 @@ name|event
 parameter_list|)
 block|{
 comment|// get the event type
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|qnxType
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -310,16 +310,8 @@ argument_list|,
 operator|&
 name|qnxType
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event type, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event type"
 argument_list|)
 expr_stmt|;
 return|return
@@ -902,16 +894,11 @@ name|event
 parameter_list|)
 block|{
 comment|// get flags of key event
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|flags
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -921,28 +908,16 @@ argument_list|,
 operator|&
 name|flags
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event flags, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event flags"
 argument_list|)
 expr_stmt|;
 comment|// get key code
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|sym
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -952,23 +927,15 @@ argument_list|,
 operator|&
 name|sym
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event sym, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event sym"
 argument_list|)
 expr_stmt|;
 name|int
 name|modifiers
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -978,23 +945,15 @@ argument_list|,
 operator|&
 name|modifiers
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event modifiers, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event modifieres"
 argument_list|)
 expr_stmt|;
 name|int
 name|scan
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1004,23 +963,15 @@ argument_list|,
 operator|&
 name|scan
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event modifiers, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event scan"
 argument_list|)
 expr_stmt|;
 name|int
 name|cap
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1030,16 +981,8 @@ argument_list|,
 operator|&
 name|cap
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event cap, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event cap"
 argument_list|)
 expr_stmt|;
 name|int
@@ -1053,8 +996,8 @@ name|defined
 argument_list|(
 name|Q_OS_BLACKBERRY
 argument_list|)
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1064,16 +1007,8 @@ argument_list|,
 operator|&
 name|sequenceId
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event seqId, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event seqId"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1159,9 +1094,8 @@ name|void
 modifier|*
 name|handle
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_pv
 argument_list|(
 name|event
@@ -1171,16 +1105,8 @@ argument_list|,
 operator|&
 name|handle
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event window, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event window"
 argument_list|)
 expr_stmt|;
 name|qnxWindow
@@ -1199,8 +1125,8 @@ name|buttonState
 init|=
 literal|0
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1210,16 +1136,8 @@ argument_list|,
 operator|&
 name|buttonState
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event button state, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event button state"
 argument_list|)
 expr_stmt|;
 comment|// Query the window position
@@ -1229,8 +1147,8 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1239,16 +1157,8 @@ name|SCREEN_PROPERTY_SOURCE_POSITION
 argument_list|,
 name|windowPos
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event window position, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event window position"
 argument_list|)
 expr_stmt|;
 comment|// Query the screen position
@@ -1258,8 +1168,8 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1268,16 +1178,8 @@ name|SCREEN_PROPERTY_POSITION
 argument_list|,
 name|pos
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event position, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event position"
 argument_list|)
 expr_stmt|;
 comment|// Query the wheel delta
@@ -1286,8 +1188,8 @@ name|wheelDelta
 init|=
 literal|0
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1297,16 +1199,8 @@ argument_list|,
 operator|&
 name|wheelDelta
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event wheel delta, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event wheel delta"
 argument_list|)
 expr_stmt|;
 comment|// Map window handle to top-level QWindow
@@ -1693,19 +1587,14 @@ name|qnxType
 parameter_list|)
 block|{
 comment|// get display coordinates of touch
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|pos
 index|[
 literal|2
 index|]
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1714,16 +1603,8 @@ name|SCREEN_PROPERTY_POSITION
 argument_list|,
 name|pos
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event position, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event position"
 argument_list|)
 expr_stmt|;
 name|QCursor
@@ -1742,18 +1623,14 @@ index|]
 argument_list|)
 expr_stmt|;
 comment|// get window coordinates of touch
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|windowPos
 index|[
 literal|2
 index|]
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1762,28 +1639,16 @@ name|SCREEN_PROPERTY_SOURCE_POSITION
 argument_list|,
 name|windowPos
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event window position, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event window position"
 argument_list|)
 expr_stmt|;
 comment|// determine which finger touched
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|touchId
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1793,29 +1658,17 @@ argument_list|,
 operator|&
 name|touchId
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event touch id, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event touch id"
 argument_list|)
 expr_stmt|;
 comment|// determine which window was touched
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|void
 modifier|*
 name|handle
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_pv
 argument_list|(
 name|event
@@ -1825,16 +1678,8 @@ argument_list|,
 operator|&
 name|handle
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event window, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event window"
 argument_list|)
 expr_stmt|;
 name|errno
@@ -1847,8 +1692,8 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1857,27 +1702,15 @@ name|SCREEN_PROPERTY_SIZE
 argument_list|,
 name|touchArea
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event touch area, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event touch area"
 argument_list|)
-expr_stmt|;
-name|errno
-operator|=
-literal|0
 expr_stmt|;
 name|int
 name|touchPressure
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -1887,16 +1720,8 @@ argument_list|,
 operator|&
 name|touchPressure
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query event touch pressure, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query event touch pressure"
 argument_list|)
 expr_stmt|;
 name|screen_window_t
@@ -2426,8 +2251,8 @@ name|window
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_pv
 argument_list|(
 name|event
@@ -2442,14 +2267,8 @@ operator|)
 operator|&
 name|window
 argument_list|)
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnx: failed to query window property, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query window property"
 argument_list|)
 expr_stmt|;
 name|Q_EMIT
@@ -2501,8 +2320,8 @@ name|window
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_pv
 argument_list|(
 name|event
@@ -2517,14 +2336,8 @@ operator|)
 operator|&
 name|window
 argument_list|)
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnx: failed to query window property, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query window property"
 argument_list|)
 expr_stmt|;
 name|Q_EMIT
@@ -2747,8 +2560,8 @@ expr_stmt|;
 name|int
 name|objectType
 decl_stmt|;
-if|if
-condition|(
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -2758,14 +2571,8 @@ argument_list|,
 operator|&
 name|objectType
 argument_list|)
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query object type property, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query object type property"
 argument_list|)
 expr_stmt|;
 if|if

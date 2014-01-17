@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxrasterwindow.h"
 end_include
 begin_include
@@ -243,13 +248,8 @@ argument_list|()
 block|}
 decl_stmt|;
 comment|// Update the display with contents of render buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_post_window
 argument_list|(
 name|nativeHandle
@@ -266,18 +266,8 @@ name|dirtyRect
 argument_list|,
 literal|0
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to post window buffer, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to post window"
 argument_list|)
 expr_stmt|;
 comment|// Advance to next nender buffer
@@ -396,16 +386,13 @@ literal|1
 condition|)
 block|{
 comment|// Get all buffers available for rendering
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|screen_buffer_t
 name|buffers
 index|[
 name|MAX_BUFFER_COUNT
 index|]
 decl_stmt|;
+specifier|const
 name|int
 name|result
 init|=
@@ -424,17 +411,11 @@ operator|)
 name|buffers
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CRITICALERROR
 argument_list|(
-literal|"QQnxRasterWindow: failed to query window buffers, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query window buffers"
 argument_list|)
 expr_stmt|;
 comment|// Wrap each buffer and clear
@@ -467,10 +448,6 @@ index|]
 argument_list|)
 expr_stmt|;
 comment|// Clear Buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|bg
 index|[]
@@ -483,8 +460,8 @@ block|,
 name|SCREEN_BLIT_END
 block|}
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_fill
 argument_list|(
 name|screen
@@ -500,27 +477,13 @@ index|]
 argument_list|,
 name|bg
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to clear window buffer, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to clear window buffer"
 argument_list|)
 expr_stmt|;
 block|}
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_flush_blits
 argument_list|(
 name|screen
@@ -531,18 +494,8 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to flush blits, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to flush blits"
 argument_list|)
 expr_stmt|;
 comment|// Use the first available render buffer
@@ -844,14 +797,8 @@ name|SCREEN_BLIT_END
 block|}
 decl_stmt|;
 comment|// Queue blit operation
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-specifier|const
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_blit
 argument_list|(
 name|m_screenContext
@@ -868,18 +815,8 @@ argument_list|()
 argument_list|,
 name|attribs
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to blit buffers, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to blit buffers"
 argument_list|)
 expr_stmt|;
 block|}
@@ -890,32 +827,16 @@ name|flush
 condition|)
 block|{
 comment|// Wait for all blits to complete
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-specifier|const
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_flush_blits
 argument_list|(
 name|m_screenContext
 argument_list|,
 name|SCREEN_WAIT_IDLE
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to flush blits, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to flush blits"
 argument_list|)
 expr_stmt|;
 comment|// Buffer was modified outside the CPU
