@@ -7721,8 +7721,8 @@ block|{
 comment|// creator() / setCreator() / PPK_Creator
 comment|// PdfFormat: Supported, default QString()
 comment|// NativeFormat, Cups: Supported, default QString()
-comment|// NativeFormat, Win: Unsupported, always QString()
-comment|// NativeFormat, Mac: Unsupported, always QString()
+comment|// NativeFormat, Win: Supported, default QString()
+comment|// NativeFormat, Mac: Supported, default QString()
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -7812,21 +7812,6 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|Q_OS_MAC
-operator|||
-name|defined
-name|Q_OS_WIN
-name|expected
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC || Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|native

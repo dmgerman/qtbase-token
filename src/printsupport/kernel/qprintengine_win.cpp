@@ -7479,11 +7479,6 @@ case|:
 break|break;
 comment|// The following keys are settings that are unsupported by the Windows PrintEngine
 case|case
-name|PPK_Creator
-case|:
-comment|// TODO Add value preservation support by using local variable
-break|break;
-case|case
 name|PPK_CustomBase
 case|:
 break|break;
@@ -7582,6 +7577,19 @@ name|doReinit
 argument_list|()
 expr_stmt|;
 block|}
+break|break;
+case|case
+name|PPK_Creator
+case|:
+name|d
+operator|->
+name|m_creator
+operator|=
+name|value
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 name|PPK_DocumentName
@@ -8722,15 +8730,6 @@ block|{
 comment|// The following keys are settings that are unsupported by the Windows PrintEngine
 comment|// Return sensible default values to ensure consistent behavior across platforms
 case|case
-name|PPK_Creator
-case|:
-name|value
-operator|=
-name|QString
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
 name|PPK_Duplex
 case|:
 comment|// TODO Add support using DEVMODE.dmDuplex
@@ -8835,6 +8834,16 @@ name|GrayScale
 expr_stmt|;
 block|}
 block|}
+break|break;
+case|case
+name|PPK_Creator
+case|:
+name|value
+operator|=
+name|d
+operator|->
+name|m_creator
+expr_stmt|;
 break|break;
 case|case
 name|PPK_DocumentName
