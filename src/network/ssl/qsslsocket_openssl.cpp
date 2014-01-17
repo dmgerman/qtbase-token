@@ -2677,6 +2677,12 @@ name|QSslCipher
 argument_list|>
 name|ciphers
 decl_stmt|;
+name|QList
+argument_list|<
+name|QSslCipher
+argument_list|>
+name|defaultCiphers
+decl_stmt|;
 name|STACK_OF
 argument_list|(
 name|SSL_CIPHER
@@ -2747,6 +2753,7 @@ name|isNull
 argument_list|()
 condition|)
 block|{
+comment|// Unconditionally exclude ADH ciphers since they offer no MITM protection
 if|if
 condition|(
 operator|!
@@ -2767,6 +2774,19 @@ argument_list|)
 argument_list|)
 condition|)
 name|ciphers
+operator|<<
+name|ciph
+expr_stmt|;
+if|if
+condition|(
+name|ciph
+operator|.
+name|usedBits
+argument_list|()
+operator|>=
+literal|128
+condition|)
+name|defaultCiphers
 operator|<<
 name|ciph
 expr_stmt|;
@@ -2791,7 +2811,7 @@ argument_list|)
 expr_stmt|;
 name|setDefaultCiphers
 argument_list|(
-name|ciphers
+name|defaultCiphers
 argument_list|)
 expr_stmt|;
 block|}

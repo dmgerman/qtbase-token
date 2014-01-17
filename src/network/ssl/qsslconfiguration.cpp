@@ -1035,7 +1035,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the default SSL configuration to be used in new SSL     connections.      The default SSL configuration consists of:      \list       \li no local certificate and no private key       \li protocol SecureProtocols (meaning either TLS 1.0 or SSL 3 will be used)       \li the system's default CA certificate list       \li the cipher list equal to the list of the SSL libraries'          supported SSL ciphers     \endlist      \sa QSslSocket::supportedCiphers(), setDefaultConfiguration() */
+comment|/*!     Returns the default SSL configuration to be used in new SSL     connections.      The default SSL configuration consists of:      \list       \li no local certificate and no private key       \li protocol SecureProtocols (meaning either TLS 1.0 or SSL 3 will be used)       \li the system's default CA certificate list       \li the cipher list equal to the list of the SSL libraries'          supported SSL ciphers that are 128 bits or more     \endlist      \sa QSslSocket::supportedCiphers(), setDefaultConfiguration() */
 end_comment
 begin_function
 DECL|function|defaultConfiguration

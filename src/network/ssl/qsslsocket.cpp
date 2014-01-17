@@ -4443,6 +4443,11 @@ operator|::
 name|defaultCiphers
 parameter_list|()
 block|{
+name|QSslSocketPrivate
+operator|::
+name|ensureInitialized
+argument_list|()
+expr_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
