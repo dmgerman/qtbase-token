@@ -67,6 +67,15 @@ operator|*
 name|instance
 argument_list|()
 block|;
+name|QPlatformWindow
+operator|*
+name|createPlatformWindow
+argument_list|(
+argument|QWindow *window
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface

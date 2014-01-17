@@ -36,6 +36,17 @@ struct_decl|struct
 name|QWindowsIntegrationPrivate
 struct_decl|;
 end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|QWindowsWindowData
+struct_decl|;
+end_struct_decl
+begin_decl_stmt
+DECL|variable|QWindowsWindow
+name|class
+name|QWindowsWindow
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|QWindowsIntegration
@@ -93,6 +104,13 @@ name|bool
 name|hasCapability
 argument_list|(
 argument|QPlatformIntegration::Capability cap
+argument_list|)
+specifier|const
+block|;
+name|QWindowsWindowData
+name|createWindowData
+argument_list|(
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;

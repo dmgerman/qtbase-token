@@ -1675,9 +1675,7 @@ name|WindowCreationData
 block|{
 DECL|typedef|WindowData
 typedef|typedef
-name|QWindowsWindow
-operator|::
-name|WindowData
+name|QWindowsWindowData
 name|WindowData
 typedef|;
 DECL|enum|Flags
@@ -2624,9 +2622,7 @@ block|}
 block|}
 end_function
 begin_function
-name|QWindowsWindow
-operator|::
-name|WindowData
+name|QWindowsWindowData
 DECL|function|create
 name|WindowCreationData
 operator|::
@@ -4675,7 +4671,7 @@ modifier|*
 name|aWindow
 parameter_list|,
 specifier|const
-name|WindowData
+name|QWindowsWindowData
 modifier|&
 name|data
 parameter_list|)
@@ -5561,13 +5557,9 @@ return|;
 block|}
 end_function
 begin_function
-name|QWindowsWindow
-operator|::
-name|WindowData
+name|QWindowsWindowData
 DECL|function|create
-name|QWindowsWindow
-operator|::
-name|WindowData
+name|QWindowsWindowData
 operator|::
 name|create
 parameter_list|(
@@ -5577,7 +5569,7 @@ modifier|*
 name|w
 parameter_list|,
 specifier|const
-name|WindowData
+name|QWindowsWindowData
 modifier|&
 name|parameters
 parameter_list|,
@@ -5601,7 +5593,7 @@ operator|.
 name|flags
 argument_list|)
 expr_stmt|;
-name|WindowData
+name|QWindowsWindowData
 name|result
 init|=
 name|creationData
@@ -7898,9 +7890,7 @@ block|}
 end_function
 begin_function
 DECL|function|setWindowFlags_sys
-name|QWindowsWindow
-operator|::
-name|WindowData
+name|QWindowsWindowData
 name|QWindowsWindow
 operator|::
 name|setWindowFlags_sys
@@ -7952,7 +7942,7 @@ argument_list|,
 name|m_opacity
 argument_list|)
 expr_stmt|;
-name|WindowData
+name|QWindowsWindowData
 name|result
 init|=
 name|m_data
