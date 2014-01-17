@@ -153,6 +153,26 @@ name|void
 name|init
 argument_list|()
 block|;
+name|virtual
+name|void
+name|writeDefaultVariables
+argument_list|(
+name|QTextStream
+operator|&
+name|t
+argument_list|)
+block|;
+name|virtual
+name|void
+name|writeSubTargets
+argument_list|(
+argument|QTextStream&t
+argument_list|,
+argument|QList<SubTarget*> subtargets
+argument_list|,
+argument|int flags
+argument_list|)
+block|;
 name|void
 name|writeMakeParts
 argument_list|(

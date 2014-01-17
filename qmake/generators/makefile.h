@@ -398,6 +398,7 @@ operator|&
 name|t
 argument_list|)
 block|;
+name|virtual
 name|void
 name|writeDefaultVariables
 argument_list|(
@@ -543,6 +544,7 @@ operator|&
 name|makeFileIn
 argument_list|)
 block|;
+name|virtual
 name|void
 name|writeSubTargets
 argument_list|(
