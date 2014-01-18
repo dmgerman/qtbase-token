@@ -386,6 +386,12 @@ name|void
 name|applyWindowState
 argument_list|()
 block|;
+name|void
+name|setFocus
+argument_list|(
+argument|screen_window_t newFocusWindow
+argument_list|)
+block|;
 name|screen_window_t
 name|m_window
 block|;
