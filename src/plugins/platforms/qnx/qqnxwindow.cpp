@@ -1004,8 +1004,13 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
-comment|// TODO: How to handle children of this window? If we change all the visibilities, then
-comment|//       the transparency will look wrong...
+name|screen_flush_context
+argument_list|(
+name|m_screenContext
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2513,6 +2518,15 @@ name|window
 argument_list|()
 operator|->
 name|windowState
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setOpacity
+argument_list|(
+name|window
+argument_list|()
+operator|->
+name|opacity
 argument_list|()
 argument_list|)
 expr_stmt|;
