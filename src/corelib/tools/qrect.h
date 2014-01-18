@@ -3230,7 +3230,7 @@ name|qreal
 name|x
 parameter_list|,
 name|qreal
-name|t
+name|y
 parameter_list|)
 function_decl|;
 specifier|inline
