@@ -133,11 +133,6 @@ operator|::
 name|initPossibleLocations
 parameter_list|()
 block|{
-comment|// AFAICT there is no way to know the exact location
-comment|// of the compose files. It depends on how Xlib was configured
-comment|// on a specific platform. During the "./configure" process
-comment|// xlib generates a config.h file which contains a bunch of defines,
-comment|// including XLOCALEDIR which points to the location of the compose file dir.
 comment|// To add an extra system path use the QTCOMPOSE environment variable
 if|if
 condition|(
@@ -167,7 +162,8 @@ name|append
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"/usr/share/X11/locale"
+name|COMPOSE_X11_PREFIX
+literal|"/share/X11/locale"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -177,7 +173,8 @@ name|append
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"/usr/lib/X11/locale"
+name|COMPOSE_X11_PREFIX
+literal|"/lib/X11/locale"
 argument_list|)
 argument_list|)
 expr_stmt|;
