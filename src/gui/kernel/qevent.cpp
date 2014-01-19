@@ -455,6 +455,30 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!      \since 5.3       Returns the mouse event flags.       The mouse event flags provide additional information about a mouse event.       \sa Qt::MouseEventFlag  */
+end_comment
+begin_function
+DECL|function|flags
+name|Qt
+operator|::
+name|MouseEventFlags
+name|QMouseEvent
+operator|::
+name|flags
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QGuiApplicationPrivate
+operator|::
+name|mouseEventFlags
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \fn QPointF QMouseEvent::localPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     widget or item that received the event.      If you move the widget as a result of the mouse event, use the     screen position returned by screenPos() to avoid a shaking     motion.      \sa x(), y(), windowPos(), screenPos() */
 end_comment
 begin_comment

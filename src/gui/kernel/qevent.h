@@ -604,6 +604,13 @@ name|source
 argument_list|()
 specifier|const
 block|;
+name|Qt
+operator|::
+name|MouseEventFlags
+name|flags
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|QPointF
