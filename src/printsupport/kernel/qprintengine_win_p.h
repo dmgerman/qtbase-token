@@ -353,14 +353,6 @@ parameter_list|(
 name|QString
 modifier|&
 name|name
-parameter_list|,
-name|QString
-modifier|&
-name|program
-parameter_list|,
-name|QString
-modifier|&
-name|port
 parameter_list|)
 function_decl|;
 name|private
@@ -663,12 +655,6 @@ block|;
 comment|// Printer info
 name|QString
 name|name
-block|;
-name|QString
-name|program
-block|;
-name|QString
-name|port
 block|;
 comment|// Document info
 name|QString

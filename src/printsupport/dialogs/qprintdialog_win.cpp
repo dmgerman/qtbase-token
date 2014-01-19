@@ -793,11 +793,10 @@ name|ep
 operator|->
 name|fileName
 operator|=
-name|d
-operator|->
-name|ep
-operator|->
-name|port
+name|QLatin1String
+argument_list|(
+literal|"FILE:"
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
