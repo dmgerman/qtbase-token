@@ -749,6 +749,10 @@ parameter_list|)
 block|{
 name|env
 operator|->
+name|DeleteLocalRef
+argument_list|(
+name|env
+operator|->
 name|CallObjectMethod
 argument_list|(
 name|menuItem
@@ -757,7 +761,12 @@ name|setCheckableMenuItemMethodID
 argument_list|,
 name|checkable
 argument_list|)
+argument_list|)
 expr_stmt|;
+name|env
+operator|->
+name|DeleteLocalRef
+argument_list|(
 name|env
 operator|->
 name|CallObjectMethod
@@ -768,7 +777,12 @@ name|setCheckedMenuItemMethodID
 argument_list|,
 name|checked
 argument_list|)
+argument_list|)
 expr_stmt|;
+name|env
+operator|->
+name|DeleteLocalRef
+argument_list|(
 name|env
 operator|->
 name|CallObjectMethod
@@ -778,6 +792,7 @@ argument_list|,
 name|setEnabledMenuItemMethodID
 argument_list|,
 name|enabled
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -850,6 +865,10 @@ block|{
 comment|// Make sure we have a valid image.
 name|env
 operator|->
+name|DeleteLocalRef
+argument_list|(
+name|env
+operator|->
 name|CallObjectMethod
 argument_list|(
 name|menuItem
@@ -868,9 +887,14 @@ argument_list|,
 name|env
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|env
+operator|->
+name|DeleteLocalRef
+argument_list|(
 name|env
 operator|->
 name|CallObjectMethod
@@ -880,6 +904,7 @@ argument_list|,
 name|setVisibleMenuItemMethodID
 argument_list|,
 name|visible
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1035,6 +1060,13 @@ name|item
 operator|->
 name|icon
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|env
+operator|->
+name|DeleteLocalRef
+argument_list|(
+name|menuItem
 argument_list|)
 expr_stmt|;
 block|}
