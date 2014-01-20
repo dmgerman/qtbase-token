@@ -346,6 +346,26 @@ operator|&
 name|printerInfo
 argument_list|)
 expr_stmt|;
+comment|/* Used by print/page setup dialogs */
+name|void
+name|setGlobalDevMode
+parameter_list|(
+name|HGLOBAL
+name|globalDevNames
+parameter_list|,
+name|HGLOBAL
+name|globalDevMode
+parameter_list|)
+function_decl|;
+name|HGLOBAL
+modifier|*
+name|createGlobalDevNames
+parameter_list|()
+function_decl|;
+name|HGLOBAL
+name|globalDevMode
+parameter_list|()
+function_decl|;
 specifier|static
 name|void
 name|queryDefaultPrinter
@@ -497,24 +517,6 @@ comment|/* Resets the DC with changes in devmode. If the printer is active      
 name|void
 name|doReinit
 argument_list|()
-block|;
-comment|/* Used by print/page setup dialogs */
-name|HGLOBAL
-operator|*
-name|createDevNames
-argument_list|()
-block|;
-name|void
-name|readDevmode
-argument_list|(
-argument|HGLOBAL globalDevmode
-argument_list|)
-block|;
-name|void
-name|readDevnames
-argument_list|(
-argument|HGLOBAL globalDevnames
-argument_list|)
 block|;
 specifier|inline
 name|bool
