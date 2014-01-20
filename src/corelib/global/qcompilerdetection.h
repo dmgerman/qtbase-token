@@ -993,7 +993,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* Compaq have disabled EDG's _BOOL macro and use _BOOL_EXISTS instead    - observed on Compaq C++ V6.3-002.    In any case versions prior to Compaq C++ V6.0-005 do not have bool. */
+comment|/* Compaq has disabled EDG's _BOOL macro and uses _BOOL_EXISTS instead    - observed on Compaq C++ V6.3-002.    In any case versions prior to Compaq C++ V6.0-005 do not have bool. */
 end_comment
 begin_if
 if|#
@@ -3620,7 +3620,7 @@ directive|define
 name|Q_COMPILER_STATIC_ASSERT
 end_define
 begin_comment
-comment|//  MSVC's library has std::initilizer_list, but the compiler does not support the braces initialization
+comment|//  MSVC's library has std::initializer_list, but the compiler does not support the braces initialization
 end_comment
 begin_comment
 comment|//#      define Q_COMPILER_INITIALIZER_LISTS
@@ -3650,7 +3650,7 @@ name|Q_DECL_OVERRIDE
 end_undef
 begin_comment
 DECL|macro|Q_DECL_OVERRIDE
-comment|/* undo 2005/2098 settings... */
+comment|/* undo 2005/2008 settings... */
 end_comment
 begin_undef
 DECL|macro|Q_DECL_FINAL

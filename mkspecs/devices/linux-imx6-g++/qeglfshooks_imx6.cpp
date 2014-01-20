@@ -137,7 +137,8 @@ name|mNativeDisplay
 operator|=
 name|fbGetDisplayByIndex
 argument_list|(
-literal|0
+name|framebufferIndex
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fbGetDisplayGeometry

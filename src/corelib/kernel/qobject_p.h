@@ -932,7 +932,7 @@ block|; }
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*! \internal    Returns \c true if the signal with index \a signal_index from object \a sender is connected.   Signals with indices above a certain range are always considered connected (see connectedSignals   in QObjectPrivate). If a signal spy is installed, all signals are considered connected.    \a signal_index must be the index returned by QObjectPrivate::signalIndex; */
+comment|/*! \internal    Returns \c true if the signal with index \a signal_index from object \a sender is connected.   Signals with indices above a certain range are always considered connected (see connectedSignals   in QObjectPrivate).    \a signal_index must be the index returned by QObjectPrivate::signalIndex; */
 end_comment
 begin_expr_stmt
 DECL|function|isSignalConnected
@@ -993,14 +993,6 @@ argument_list|,
 name|signal_index
 argument_list|)
 operator|)
-operator|||
-name|qt_signal_spy_callback_set
-operator|.
-name|signal_begin_callback
-operator|||
-name|qt_signal_spy_callback_set
-operator|.
-name|signal_end_callback
 operator|)
 return|;
 block|}

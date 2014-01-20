@@ -564,7 +564,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*! \internal      Resets the socket layer, clears the read and write buffers and     deletes any socket notifiers. */
+comment|/*! \internal      Resets the socket layer and deletes any socket notifiers. */
 end_comment
 begin_function
 DECL|function|resetSocketLayer
@@ -5288,7 +5288,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initializes QAbstractSocket with the native socket descriptor \a     socketDescriptor. Returns \c true if \a socketDescriptor is accepted     as a valid socket descriptor; otherwise returns \c false.     The socket is opened in the mode specified by \a openMode, and     enters the socket state specified by \a socketState.      \b{Note:} It is not possible to initialize two abstract sockets     with the same native socket descriptor.      \sa socketDescriptor() */
+comment|/*!     Initializes QAbstractSocket with the native socket descriptor \a     socketDescriptor. Returns \c true if \a socketDescriptor is accepted     as a valid socket descriptor; otherwise returns \c false.     The socket is opened in the mode specified by \a openMode, and     enters the socket state specified by \a socketState.     Read and write buffers are cleared, discarding any pending data.      \b{Note:} It is not possible to initialize two abstract sockets     with the same native socket descriptor.      \sa socketDescriptor() */
 end_comment
 begin_function
 DECL|function|setSocketDescriptor
@@ -5315,6 +5315,20 @@ expr_stmt|;
 name|d
 operator|->
 name|resetSocketLayer
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|writeBuffer
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|buffer
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 name|d
@@ -7271,6 +7285,13 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|d
+operator|->
+name|writeBuffer
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|d
@@ -7334,13 +7355,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|d
-operator|->
-name|writeBuffer
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|d
 operator|->
 name|abortCalled

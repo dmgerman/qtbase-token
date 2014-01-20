@@ -61,6 +61,7 @@ name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QTest
 block|{
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void

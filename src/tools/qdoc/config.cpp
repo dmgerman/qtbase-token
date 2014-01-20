@@ -1580,7 +1580,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|loc
 operator|=
 name|Location
@@ -1588,9 +1587,7 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|loc
 operator|.
 name|setEtc
@@ -1598,7 +1595,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 name|lastLocation_
 operator|=
 name|Location
@@ -2317,13 +2313,11 @@ name|cv
 operator|.
 name|plus_
 condition|)
-block|{
 name|t
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
 specifier|const
 name|QString
 name|d
@@ -3983,9 +3977,7 @@ operator|.
 name|exists
 argument_list|()
 condition|)
-block|{
 break|break;
-block|}
 operator|++
 name|d
 expr_stmt|;
@@ -4082,7 +4074,9 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 break|break;
+block|}
 name|userFriendlyFilePath
 operator|+=
 name|QLatin1Char
@@ -4440,7 +4434,6 @@ operator|)
 operator|>
 literal|0
 condition|)
-block|{
 name|outFile
 operator|.
 name|write
@@ -4450,7 +4443,6 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|outFileName
 return|;
@@ -5081,9 +5073,11 @@ name|cc
 operator|==
 literal|0
 condition|)
+block|{
 operator|++
 name|i
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -5993,7 +5987,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|QDir
 operator|::
 name|setCurrent
@@ -6004,7 +5997,6 @@ name|top
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -6200,7 +6192,6 @@ argument_list|(
 name|c
 argument_list|)
 condition|)
-block|{
 name|result
 operator|.
 name|append
@@ -6208,7 +6199,6 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 operator|++
 name|fn
@@ -6338,14 +6328,12 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 return|return
 name|workingDirs_
 operator|.
 name|pop
 argument_list|()
 return|;
-block|}
 name|qDebug
 argument_list|()
 operator|<<

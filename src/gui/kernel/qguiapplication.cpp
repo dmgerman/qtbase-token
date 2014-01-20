@@ -5961,6 +5961,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
 case|case
 name|QWindowSystemInterfacePrivate
 operator|::
@@ -5983,6 +5986,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
+endif|#
+directive|endif
 case|case
 name|QWindowSystemInterfacePrivate
 operator|::
