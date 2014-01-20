@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qeglfscursor.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtDebug>
 end_include
 begin_include
