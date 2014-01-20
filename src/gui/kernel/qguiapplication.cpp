@@ -95,6 +95,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qnumeric.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtDebug>
 end_include
 begin_ifndef
@@ -322,9 +327,11 @@ name|QGuiApplicationPrivate
 operator|::
 name|lastCursorPosition
 argument_list|(
-literal|0.0
+name|qInf
+argument_list|()
 argument_list|,
-literal|0.0
+name|qInf
+argument_list|()
 argument_list|)
 decl_stmt|;
 end_decl_stmt
