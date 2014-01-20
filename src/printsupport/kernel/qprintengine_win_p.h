@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qpagelayout.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtPrintSupport/QPrintEngine>
 end_include
 begin_include
@@ -71,12 +76,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPrintSupport/QPrinterInfo>
+file|<private/qpaintengine_alpha_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<private/qpaintengine_alpha_p.h>
+file|<private/qprintdevice_p.h>
 end_include
 begin_include
 include|#
@@ -313,14 +318,25 @@ name|HDC
 argument_list|)
 decl|const
 decl_stmt|;
-specifier|static
+comment|/* Used by print/page setup dialogs */
 name|void
-name|queryDefaultPrinter
+name|setGlobalDevMode
 parameter_list|(
-name|QString
-modifier|&
-name|name
+name|HGLOBAL
+name|globalDevNames
+parameter_list|,
+name|HGLOBAL
+name|globalDevMode
 parameter_list|)
+function_decl|;
+name|HGLOBAL
+modifier|*
+name|createGlobalDevNames
+parameter_list|()
+function_decl|;
+name|HGLOBAL
+name|globalDevMode
+parameter_list|()
 function_decl|;
 name|private
 label|:
@@ -431,11 +447,6 @@ operator|~
 name|QWin32PrintEnginePrivate
 argument_list|()
 block|;
-comment|/* Reads the default printer name and its driver (printerProgram) into        the engines private data. */
-name|void
-name|queryDefault
-argument_list|()
-block|;
 comment|/* Initializes the printer data based on the current printer name. This        function creates a DEVMODE struct, HDC and a printer handle. If these        structures are already in use, they are freed using release     */
 name|void
 name|initialize
@@ -450,15 +461,6 @@ comment|/* Releases all the handles the printer currently holds, HDC, DEVMODE,  
 name|void
 name|release
 argument_list|()
-block|;
-comment|/* Queries the resolutions for the current printer, and returns them        in a list. */
-name|QList
-operator|<
-name|QVariant
-operator|>
-name|queryResolutions
-argument_list|()
-specifier|const
 block|;
 comment|/* Resets the DC with changes in devmode. If the printer is active        this function only sets the reinit variable to true so it        is handled in the next begin or newpage. */
 name|void
@@ -547,6 +549,19 @@ argument|qreal width
 argument_list|)
 block|;
 name|void
+name|setPageSize
+argument_list|(
+specifier|const
+name|QPageSize
+operator|&
+name|pageSize
+argument_list|)
+block|;
+name|void
+name|updatePageSize
+argument_list|()
+block|;
+name|void
 name|updateOrigin
 argument_list|()
 block|;
@@ -570,10 +585,6 @@ name|QRect
 name|getPageMargins
 argument_list|()
 specifier|const
-block|;
-name|void
-name|updateCustomPaperSize
-argument_list|()
 block|;
 comment|// Windows GDI printer references.
 name|HANDLE
@@ -601,9 +612,9 @@ operator|::
 name|PrinterMode
 name|mode
 block|;
-comment|// Printer info
-name|QString
-name|name
+comment|// Print Device
+name|QPrintDevice
+name|m_printDevice
 block|;
 comment|// Document info
 name|QString
@@ -622,6 +633,10 @@ name|state
 block|;
 name|int
 name|resolution
+block|;
+comment|// Page Layout
+name|QPageSize
+name|m_pageSize
 block|;
 comment|// This QRect is used to store the exact values
 comment|// entered into the PageSetup Dialog because those are
@@ -719,6 +734,7 @@ block|;
 name|QSizeF
 name|paper_size
 block|;
+comment|// In points
 name|QTransform
 name|painterMatrix
 block|;
