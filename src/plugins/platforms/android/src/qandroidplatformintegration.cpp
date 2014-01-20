@@ -410,11 +410,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_function
-DECL|function|needsBasicRenderloopWorkaround
+DECL|function|needsWorkaround
 name|bool
 name|QAndroidPlatformIntegration
 operator|::
-name|needsBasicRenderloopWorkaround
+name|needsWorkaround
 parameter_list|()
 block|{
 specifier|static
@@ -523,7 +523,7 @@ name|ThreadedOpenGL
 case|:
 if|if
 condition|(
-name|needsBasicRenderloopWorkaround
+name|needsWorkaround
 argument_list|()
 condition|)
 return|return

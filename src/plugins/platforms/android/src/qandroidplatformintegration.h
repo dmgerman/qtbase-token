@@ -434,13 +434,13 @@ specifier|const
 block|;
 endif|#
 directive|endif
-name|private
-operator|:
 specifier|static
 name|bool
-name|needsBasicRenderloopWorkaround
+name|needsWorkaround
 argument_list|()
 block|;
+name|private
+operator|:
 name|friend
 name|class
 name|QEglFSAndroidHooks
