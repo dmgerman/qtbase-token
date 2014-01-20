@@ -10245,6 +10245,9 @@ operator|->
 name|inputMethodQuery
 argument_list|(
 name|property
+argument_list|,
+name|QVariant
+argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|const

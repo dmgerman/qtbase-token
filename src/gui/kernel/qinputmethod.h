@@ -44,6 +44,12 @@ name|QTransform
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QInputMethodQueryEvent
+name|class
+name|QInputMethodQueryEvent
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QInputMethod
@@ -161,6 +167,15 @@ name|LayoutDirection
 name|inputDirection
 argument_list|()
 specifier|const
+block|;
+specifier|static
+name|QVariant
+name|queryFocusObject
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|,
+argument|QVariant argument
+argument_list|)
 block|;
 name|public
 name|Q_SLOTS

@@ -908,6 +908,8 @@ name|QVariant
 name|inputMethodQuery
 argument_list|(
 argument|Qt::InputMethodQuery property
+argument_list|,
+argument|QVariant argument
 argument_list|)
 specifier|const
 block|;
