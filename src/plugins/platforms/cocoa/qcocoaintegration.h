@@ -429,6 +429,30 @@ argument_list|(
 argument|int index
 argument_list|)
 block|;
+name|void
+name|setToolbar
+argument_list|(
+name|QWindow
+operator|*
+name|window
+argument_list|,
+name|NSToolbar
+operator|*
+name|toolbar
+argument_list|)
+block|;
+name|NSToolbar
+operator|*
+name|toolbar
+argument_list|(
+argument|QWindow *window
+argument_list|)
+specifier|const
+block|;
+name|void
+name|clearToolbars
+argument_list|()
+block|;
 name|private
 operator|:
 specifier|static
@@ -499,6 +523,16 @@ operator|<
 name|QCocoaKeyMapper
 operator|>
 name|mKeyboardMapper
+block|;
+name|QHash
+operator|<
+name|QWindow
+operator|*
+block|,
+name|NSToolbar
+operator|*
+operator|>
+name|mToolbars
 block|; }
 decl_stmt|;
 end_decl_stmt

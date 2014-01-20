@@ -301,6 +301,22 @@ argument|int topThickness
 argument_list|,
 argument|int bottomThickness
 argument_list|)
+block|;
+comment|// Sets a NSToolbar instance for the given QWindow. The
+comment|// toolbar will be attached to the native NSWindow when
+comment|// that is created;
+specifier|static
+name|void
+name|setNSToolbar
+argument_list|(
+name|QWindow
+operator|*
+name|window
+argument_list|,
+name|void
+operator|*
+name|nsToolbar
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

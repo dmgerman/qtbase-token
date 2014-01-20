@@ -457,6 +457,10 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|updateNSToolbar
+argument_list|()
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
