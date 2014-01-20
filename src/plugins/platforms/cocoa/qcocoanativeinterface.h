@@ -304,6 +304,9 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -311,7 +314,4 @@ end_endif
 begin_comment
 comment|// QCOCOANATIVEINTERFACE_H
 end_comment
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 end_unit
