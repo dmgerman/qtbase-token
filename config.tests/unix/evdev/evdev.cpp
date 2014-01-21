@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<linux/input.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<linux/kd.h>
+end_include
 begin_enum
 enum|enum
 block|{

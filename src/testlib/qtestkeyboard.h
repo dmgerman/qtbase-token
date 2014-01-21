@@ -830,6 +830,7 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void
@@ -874,6 +875,7 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void
@@ -916,6 +918,7 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void
@@ -958,6 +961,7 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void
@@ -1002,6 +1006,7 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void
@@ -1044,6 +1049,7 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_UNUSED
 specifier|inline
 specifier|static
 name|void

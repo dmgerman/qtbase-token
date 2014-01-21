@@ -777,7 +777,10 @@ modifier|*
 name|QThreadData
 operator|::
 name|current
-parameter_list|()
+parameter_list|(
+name|bool
+name|createIfNecessary
+parameter_list|)
 block|{
 name|QThreadData
 modifier|*
@@ -790,6 +793,8 @@ if|if
 condition|(
 operator|!
 name|data
+operator|&&
+name|createIfNecessary
 condition|)
 block|{
 name|data

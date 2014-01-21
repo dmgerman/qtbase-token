@@ -541,6 +541,9 @@ operator|*
 name|e
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
 specifier|static
 name|void
 name|processGestureEvent
@@ -552,6 +555,8 @@ operator|*
 name|e
 argument_list|)
 block|;
+endif|#
+directive|endif
 specifier|static
 name|void
 name|processPlatformPanelEvent

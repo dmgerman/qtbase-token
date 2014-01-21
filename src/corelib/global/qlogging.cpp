@@ -320,6 +320,7 @@ comment|// !Q_OS_WINCE&& !Q_OS_WINRT
 end_comment
 begin_function
 DECL|function|qWinLogToStderr
+name|Q_CORE_EXPORT
 name|bool
 name|qWinLogToStderr
 parameter_list|()

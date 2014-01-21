@@ -10210,7 +10210,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns the ASCII Compatible Encoding of the given domain name \a domain.     The result of this function is considered equivalent to \a domain.      The ASCII-Compatible Encoding (ACE) is defined by RFC 3490, RFC 3491     and RFC 3492. It is part of the Internationalizing Domain Names in     Applications (IDNA) specification, which allows for domain names     (like \c "example.com") to be written using international     characters.      This function return an empty QByteArra if \a domain is not a valid     hostname. Note, in particular, that IPv6 literals are not valid domain     names. */
+comment|/*!     \since 4.2      Returns the ASCII Compatible Encoding of the given domain name \a domain.     The result of this function is considered equivalent to \a domain.      The ASCII-Compatible Encoding (ACE) is defined by RFC 3490, RFC 3491     and RFC 3492. It is part of the Internationalizing Domain Names in     Applications (IDNA) specification, which allows for domain names     (like \c "example.com") to be written using international     characters.      This function returns an empty QByteArray if \a domain is not a valid     hostname. Note, in particular, that IPv6 literals are not valid domain     names. */
 end_comment
 begin_function
 DECL|function|toAce

@@ -434,6 +434,22 @@ argument_list|(
 argument|bool enable
 argument_list|)
 block|;
+name|void
+name|setContentBorderThickness
+argument_list|(
+argument|int topThickness
+argument_list|,
+argument|int bottomThickness
+argument_list|)
+block|;
+name|void
+name|applyContentBorderThickness
+argument_list|(
+name|NSWindow
+operator|*
+name|window
+argument_list|)
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
@@ -629,6 +645,15 @@ name|m_alertRequest
 block|;
 name|id
 name|monitor
+block|;
+name|bool
+name|m_drawContentBorderGradient
+block|;
+name|int
+name|m_topContentBorderThickness
+block|;
+name|int
+name|m_bottomContentBorderThickness
 block|;
 comment|// used by showFullScreen in fake mode
 name|QRect

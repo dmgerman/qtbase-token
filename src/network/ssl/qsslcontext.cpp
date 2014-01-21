@@ -777,18 +777,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Register a custom callback to get all verification errors.
-name|X509_STORE_set_verify_cb_func
-argument_list|(
-name|sslContext
-operator|->
-name|ctx
-operator|->
-name|cert_store
-argument_list|,
-name|q_X509Callback
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!

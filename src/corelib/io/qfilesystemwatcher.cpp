@@ -195,6 +195,11 @@ argument_list|)
 return|;
 else|#
 directive|else
+name|Q_UNUSED
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;

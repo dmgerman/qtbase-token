@@ -713,7 +713,12 @@ specifier|static
 name|QThreadData
 modifier|*
 name|current
-parameter_list|()
+parameter_list|(
+name|bool
+name|createIfNecessary
+init|=
+name|true
+parameter_list|)
 function_decl|;
 specifier|static
 name|void
