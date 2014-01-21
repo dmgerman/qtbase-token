@@ -3923,7 +3923,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Mismatch at line %1 (%2, %3): '%4' != '%5'"
+literal|"Mismatch at line %1 (%2, %3):\n'%4'\n !=\n'%5'"
 argument_list|)
 operator|.
 name|arg

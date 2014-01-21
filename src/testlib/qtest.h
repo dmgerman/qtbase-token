@@ -159,7 +159,7 @@ block|{
 return|return
 name|QTest
 operator|::
-name|toHexRepresentation
+name|toPrettyCString
 argument_list|(
 name|ba
 operator|.
