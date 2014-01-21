@@ -96,19 +96,31 @@ name|char
 operator|*
 name|toString
 argument_list|(
-argument|const QLatin1String&str
+argument|const QString&str
 argument_list|)
 block|{
 return|return
-name|qstrdup
+name|QTest
+operator|::
+name|toPrettyUnicode
 argument_list|(
-name|qPrintable
-argument_list|(
-name|QString
-argument_list|(
+name|reinterpret_cast
+operator|<
+specifier|const
+name|ushort
+operator|*
+operator|>
+operator|(
 name|str
-argument_list|)
-argument_list|)
+operator|.
+name|constData
+argument_list|()
+operator|)
+argument_list|,
+name|str
+operator|.
+name|length
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -120,13 +132,13 @@ name|char
 operator|*
 name|toString
 argument_list|(
-argument|const QString&str
+argument|const QLatin1String&str
 argument_list|)
 block|{
 return|return
-name|qstrdup
+name|toString
 argument_list|(
-name|qPrintable
+name|QString
 argument_list|(
 name|str
 argument_list|)
@@ -1043,8 +1055,8 @@ name|msg
 argument_list|)
 argument_list|,
 literal|"Compared lists have different sizes.\n"
-literal|"   Actual   (%s) size: '%d'\n"
-literal|"   Expected (%s) size: '%d'"
+literal|"   Actual   (%s) size: %d\n"
+literal|"   Expected (%s) size: %d"
 argument_list|,
 name|actual
 argument_list|,
@@ -1109,8 +1121,8 @@ name|msg
 argument_list|)
 argument_list|,
 literal|"Compared lists differ at index %d.\n"
-literal|"   Actual   (%s): '%s'\n"
-literal|"   Expected (%s): '%s'"
+literal|"   Actual   (%s): %s\n"
+literal|"   Expected (%s): %s"
 argument_list|,
 name|i
 argument_list|,
