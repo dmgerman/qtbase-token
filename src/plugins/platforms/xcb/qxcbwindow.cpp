@@ -8651,6 +8651,10 @@ name|handleWindowActivated
 argument_list|(
 name|window
 argument_list|()
+argument_list|,
+name|Qt
+operator|::
+name|ActiveWindowFocusReason
 argument_list|)
 expr_stmt|;
 block|}
@@ -10500,6 +10504,10 @@ operator|::
 name|handleWindowActivated
 argument_list|(
 name|w
+argument_list|,
+name|Qt
+operator|::
+name|ActiveWindowFocusReason
 argument_list|)
 expr_stmt|;
 block|}
@@ -10531,6 +10539,10 @@ operator|::
 name|handleWindowActivated
 argument_list|(
 literal|0
+argument_list|,
+name|Qt
+operator|::
+name|ActiveWindowFocusReason
 argument_list|)
 expr_stmt|;
 return|return
