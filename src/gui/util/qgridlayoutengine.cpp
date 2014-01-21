@@ -4655,13 +4655,6 @@ name|Orientations
 name|orientations
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|spacing
-operator|>=
-literal|0.0
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|orientations
