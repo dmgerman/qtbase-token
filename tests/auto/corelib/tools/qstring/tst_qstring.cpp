@@ -42438,25 +42438,14 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Setting the locale is not supported on OS X (you can set the C locale, but that won't affect CFStringCompare which is used to compare strings)"
-argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
+operator|||
 name|defined
 argument_list|(
 name|QT_USE_ICU
 argument_list|)
-name|QLocale
-operator|::
-name|setDefault
+name|QSKIP
 argument_list|(
-name|QLocale
-argument_list|(
-name|locale
-argument_list|)
+literal|"Setting the locale is not supported on OS X or ICU (you can set the C locale, but that won't affect localeAwareCompare)"
 argument_list|)
 expr_stmt|;
 else|#
