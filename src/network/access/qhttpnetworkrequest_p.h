@@ -322,6 +322,18 @@ name|uploadByteDevice
 argument_list|()
 specifier|const
 block|;
+name|QByteArray
+name|methodName
+argument_list|()
+specifier|const
+block|;
+name|QByteArray
+name|uri
+argument_list|(
+argument|bool throughProxy
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|QSharedDataPointer
@@ -341,6 +353,10 @@ block|;
 name|friend
 name|class
 name|QHttpNetworkConnectionChannel
+block|;
+name|friend
+name|class
+name|QHttpProtocolHandler
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -383,18 +399,6 @@ name|QHttpNetworkRequestPrivate
 operator|&
 name|other
 operator|)
-specifier|const
-block|;
-name|QByteArray
-name|methodName
-argument_list|()
-specifier|const
-block|;
-name|QByteArray
-name|uri
-argument_list|(
-argument|bool throughProxy
-argument_list|)
 specifier|const
 block|;
 specifier|static
