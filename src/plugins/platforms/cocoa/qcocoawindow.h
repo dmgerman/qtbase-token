@@ -632,9 +632,6 @@ block|;
 name|bool
 name|m_resizableTransientParent
 block|;
-name|bool
-name|m_overrideBecomeKey
-block|;
 specifier|static
 specifier|const
 name|int

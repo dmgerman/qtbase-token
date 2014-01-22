@@ -434,6 +434,11 @@ specifier|const
 block|;
 endif|#
 directive|endif
+specifier|static
+name|bool
+name|needsWorkaround
+argument_list|()
+block|;
 name|private
 operator|:
 name|friend

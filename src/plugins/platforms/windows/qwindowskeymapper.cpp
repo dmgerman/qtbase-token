@@ -3883,7 +3883,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|// WM_CHAR messages already contain the character in question so there is
+comment|// WM_(IME_)CHAR messages already contain the character in question so there is
 comment|// no need to fiddle with our key map. In any other case add this key to the
 comment|// keymap if it is not present yet.
 if|if
@@ -3893,6 +3893,12 @@ operator|.
 name|message
 operator|!=
 name|WM_CHAR
+operator|&&
+name|msg
+operator|.
+name|message
+operator|!=
+name|WM_IME_CHAR
 condition|)
 name|updateKeyMap
 argument_list|(
