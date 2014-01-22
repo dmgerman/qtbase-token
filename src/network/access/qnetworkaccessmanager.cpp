@@ -1940,7 +1940,7 @@ directive|ifndef
 name|QT_NO_SSL
 end_ifndef
 begin_comment
-comment|/*!     \since 5.2      Initiates a connection to the host given by \a hostName at port \a port, using     \a sslConfiguration. This function is useful to complete the TCP and SSL handshake     to a host before the HTTPS request is made, resulting in a lower network latency.      \note This function has no possibility to report errors.      \sa connectToHost(), get(), post(), put(), deleteResource() */
+comment|/*!     \since 5.2      Initiates a connection to the host given by \a hostName at port \a port, using     \a sslConfiguration. This function is useful to complete the TCP and SSL handshake     to a host before the HTTPS request is made, resulting in a lower network latency.      \note Preconnecting a SPDY connection can be done by calling setAllowedNextProtocols()     on \a sslConfiguration with QSslConfiguration::NextProtocolSpdy3_0 contained in     the list of allowed protocols. When using SPDY, one single connection per host is     enough, i.e. calling this method multiple times per host will not result in faster     network transactions.      \note This function has no possibility to report errors.      \sa connectToHost(), get(), post(), put(), deleteResource() */
 end_comment
 begin_function
 DECL|function|connectToHostEncrypted
@@ -2010,6 +2010,33 @@ operator|.
 name|setSslConfiguration
 argument_list|(
 name|sslConfiguration
+argument_list|)
+expr_stmt|;
+comment|// There is no way to enable SPDY via a request, so we need to check
+comment|// the ssl configuration whether SPDY is allowed here.
+if|if
+condition|(
+name|sslConfiguration
+operator|.
+name|allowedNextProtocols
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|QSslConfiguration
+operator|::
+name|NextProtocolSpdy3_0
+argument_list|)
+condition|)
+name|request
+operator|.
+name|setAttribute
+argument_list|(
+name|QNetworkRequest
+operator|::
+name|SpdyAllowedAttribute
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|get

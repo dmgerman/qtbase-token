@@ -256,12 +256,12 @@ block|;
 name|QHttpNetworkRequest
 name|request
 block|;
-comment|// current request
+comment|// current request, only used for HTTP
 name|QHttpNetworkReply
 operator|*
 name|reply
 block|;
-comment|// current reply for this request
+comment|// current reply for this request, only used for HTTP
 name|qint64
 name|written
 block|;
@@ -326,6 +326,15 @@ block|;
 name|QSslConfiguration
 name|sslConfiguration
 block|;
+name|QMultiMap
+operator|<
+name|int
+block|,
+name|HttpMessagePair
+operator|>
+name|spdyRequestsToSend
+block|;
+comment|// sorted by priority
 name|void
 name|ignoreSslErrors
 argument_list|()
@@ -349,6 +358,20 @@ specifier|const
 name|QSslConfiguration
 operator|&
 name|config
+argument_list|)
+block|;
+name|void
+name|requeueSpdyRequests
+argument_list|()
+block|;
+comment|// when we wanted SPDY but got HTTP
+comment|// to emit the signal for all in-flight replies:
+name|void
+name|emitFinishedWithError
+argument_list|(
+argument|QNetworkReply::NetworkError error
+argument_list|,
+argument|const char *message
 argument_list|)
 block|;
 endif|#

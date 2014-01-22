@@ -293,7 +293,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void replyDownloadMetaData(QList<QPair<QByteArray,QByteArray>>,int,QString,bool,QSharedPointer<char>,qint64)
+argument|void replyDownloadMetaData(QList<QPair<QByteArray,QByteArray>>,                                                         int, QString, bool, QSharedPointer<char>,                                                         qint64, bool)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
@@ -843,6 +843,8 @@ name|char
 operator|>
 argument_list|,
 name|qint64
+argument_list|,
+name|bool
 argument_list|)
 block|;
 name|void

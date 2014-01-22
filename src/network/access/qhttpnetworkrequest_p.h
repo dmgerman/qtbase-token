@@ -276,6 +276,17 @@ argument|bool b
 argument_list|)
 block|;
 name|bool
+name|isSPDYAllowed
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setSPDYAllowed
+argument_list|(
+argument|bool b
+argument_list|)
+block|;
+name|bool
 name|withCredentials
 argument_list|()
 specifier|const
@@ -357,6 +368,10 @@ block|;
 name|friend
 name|class
 name|QHttpProtocolHandler
+block|;
+name|friend
+name|class
+name|QSpdyProtocolHandler
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -433,6 +448,9 @@ name|autoDecompress
 block|;
 name|bool
 name|pipeliningAllowed
+block|;
+name|bool
+name|spdyAllowed
 block|;
 name|bool
 name|withCredentials

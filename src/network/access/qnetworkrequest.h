@@ -118,6 +118,10 @@ block|,
 comment|// internal
 name|BackgroundRequestAttribute
 block|,
+name|SpdyAllowedAttribute
+block|,
+name|SpdyWasUsedAttribute
+block|,
 name|User
 init|=
 literal|1000
