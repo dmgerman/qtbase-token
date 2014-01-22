@@ -2710,7 +2710,7 @@ parameter_list|,
 name|ios
 parameter_list|)
 define|\
-value|(defined(__MAC_OS_X_VERSION_MAX_ALLOWED)&& __MAC_OS_X_VERSION_MAX_ALLOWED>= osx) || \     (defined(__IPHONE_OS_VERSION_MAX_ALLOWED)&& __IPHONE_OS_VERSION_MAX_ALLOWED>= ios)
+value|((defined(__MAC_OS_X_VERSION_MAX_ALLOWED)&& __MAC_OS_X_VERSION_MAX_ALLOWED>= osx) || \      (defined(__IPHONE_OS_VERSION_MAX_ALLOWED)&& __IPHONE_OS_VERSION_MAX_ALLOWED>= ios))
 end_define
 begin_define
 DECL|macro|QT_MAC_DEPLOYMENT_TARGET_BELOW
@@ -2723,7 +2723,7 @@ parameter_list|,
 name|ios
 parameter_list|)
 define|\
-value|(defined(__MAC_OS_X_VERSION_MIN_REQUIRED)&& osx != __MAC_NA&& __MAC_OS_X_VERSION_MIN_REQUIRED< osx) || \     (defined(__IPHONE_OS_VERSION_MIN_REQUIRED)&& ios != __IPHONE_NA&& __IPHONE_OS_VERSION_MIN_REQUIRED< ios)
+value|((defined(__MAC_OS_X_VERSION_MIN_REQUIRED)&& osx != __MAC_NA&& __MAC_OS_X_VERSION_MIN_REQUIRED< osx) || \      (defined(__IPHONE_OS_VERSION_MIN_REQUIRED)&& ios != __IPHONE_NA&& __IPHONE_OS_VERSION_MIN_REQUIRED< ios))
 end_define
 begin_define
 DECL|macro|QT_IOS_PLATFORM_SDK_EQUAL_OR_ABOVE
