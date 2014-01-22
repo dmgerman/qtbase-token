@@ -24,7 +24,7 @@ directive|include
 file|<qatomic.h>
 end_include
 begin_comment
-comment|/*  * qt_module_config.prf defines the QT_COMPILER_SUPPORTS_XXX macros.  * They mean the compiler supports the necessary flags and the headers  * for the x86 and ARM intrinsics:  *  - GCC: the -mXXX or march=YYY flag is necessary before #include  *  - Intel CC: #include can happen unconditionally  *  - MSVC: #include can happen unconditionally  *  - RVCT: ???  *  * We will try to include all headers possible under this configuration.  *  * MSVC does not define __SSE2__& family, so we will define them.  *  * Supported XXX are:  *   Flag  | Arch |  GCC  | Intel CC |  MSVC  |  *  NEON   | ARM  | I& C | None     |   ?    |  *  IWMMXT | ARM  | I& C | None     | I& C  |  *  SSE2   | x86  | I& C | I& C    | I& C  |  *  SSE3   | x86  | I& C | I& C    | I only |  *  SSSE3  | x86  | I& C | I& C    | I only |  *  SSE4_1 | x86  | I& C | I& C    | I only |  *  SSE4_2 | x86  | I& C | I& C    | I only |  *  AVX    | x86  | I& C | I& C    | I& C  |  *  AVX2   | x86  | I& C | I& C    | I only |  * I = intrinsics; C = code generation  */
+comment|/*  * qt_module_config.prf defines the QT_COMPILER_SUPPORTS_XXX macros.  * They mean the compiler supports the necessary flags and the headers  * for the x86 and ARM intrinsics:  *  - GCC: the -mXXX or march=YYY flag is necessary before #include  *  - Intel CC: #include can happen unconditionally  *  - MSVC: #include can happen unconditionally  *  - RVCT: ???  *  * We will try to include all headers possible under this configuration.  *  * MSVC does not define __SSE2__& family, so we will define them. MSVC 2013&  * up do define __AVX__ if the -arch:AVX option is passed on the command-line.  *  * Supported XXX are:  *   Flag  | Arch |  GCC  | Intel CC |  MSVC  |  *  NEON   | ARM  | I& C | None     |   ?    |  *  IWMMXT | ARM  | I& C | None     | I& C  |  *  SSE2   | x86  | I& C | I& C    | I& C  |  *  SSE3   | x86  | I& C | I& C    | I only |  *  SSSE3  | x86  | I& C | I& C    | I only |  *  SSE4_1 | x86  | I& C | I& C    | I only |  *  SSE4_2 | x86  | I& C | I& C    | I only |  *  AVX    | x86  | I& C | I& C    | I& C  |  *  AVX2   | x86  | I& C | I& C    | I only |  * I = intrinsics; C = code generation  */
 end_comment
 begin_if
 if|#
@@ -332,19 +332,26 @@ argument_list|(
 name|Q_CC_MSVC
 argument_list|)
 operator|&&
+operator|(
 name|defined
 argument_list|(
 name|_M_AVX
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__AVX__
+argument_list|)
+operator|)
 end_if
 begin_comment
 comment|// MS Visual Studio 2010 has no macro pre-defined to identify the use of /arch:AVX
 end_comment
 begin_comment
-comment|// See: http://connect.microsoft.com/VisualStudio/feedback/details/605858/arch-avx-should-define-a-predefined-macro-in-x64-and-set-a-unique-value-for-m-ix86-fp-in-win32
+comment|// MS Visual Studio 2013 adds it: __AVX__
 end_comment
 begin_comment
-comment|// When such a macro exists, add it above, replacing _M_AVX as appropriate
+comment|// See: http://connect.microsoft.com/VisualStudio/feedback/details/605858/arch-avx-should-define-a-predefined-macro-in-x64-and-set-a-unique-value-for-m-ix86-fp-in-win32
 end_comment
 begin_define
 DECL|macro|__SSE3__
@@ -377,43 +384,16 @@ directive|define
 name|__SSE4_2__
 value|1
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__AVX__
+end_ifndef
 begin_define
 DECL|macro|__AVX__
 define|#
 directive|define
 name|__AVX__
-value|1
-end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|_M_AVX2
-end_ifdef
-begin_comment
-comment|// replace the macro above with the proper MS macro when it exists
-end_comment
-begin_comment
-comment|// All processors with AVX2 will support BMI1 and FMA
-end_comment
-begin_define
-DECL|macro|__AVX2__
-define|#
-directive|define
-name|__AVX2__
-value|1
-end_define
-begin_define
-DECL|macro|__BMI__
-define|#
-directive|define
-name|__BMI__
-value|1
-end_define
-begin_define
-DECL|macro|__FMA__
-define|#
-directive|define
-name|__FMA__
 value|1
 end_define
 begin_endif
