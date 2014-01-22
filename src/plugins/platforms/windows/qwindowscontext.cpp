@@ -1749,6 +1749,15 @@ name|CS_OWNDC
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|Qt
+operator|::
+name|NoDropShadowWindowHint
+operator|)
+operator|&&
 operator|(
 name|QSysInfo
 operator|::
