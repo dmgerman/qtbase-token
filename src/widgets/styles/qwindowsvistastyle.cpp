@@ -8307,7 +8307,7 @@ comment|// windows always has a check column, regardless whether we have an icon
 name|int
 name|checkcol
 init|=
-literal|28
+literal|25
 decl_stmt|;
 block|{
 name|SIZE
@@ -8384,7 +8384,7 @@ name|maxIconWidth
 argument_list|,
 name|int
 argument_list|(
-literal|6
+literal|3
 operator|+
 name|size
 operator|.
@@ -8409,6 +8409,23 @@ operator|->
 name|rect
 decl_stmt|;
 comment|//draw vertical menu line
+if|if
+condition|(
+name|option
+operator|->
+name|direction
+operator|==
+name|Qt
+operator|::
+name|LeftToRight
+condition|)
+name|checkcol
+operator|+=
+name|rect
+operator|.
+name|x
+argument_list|()
+expr_stmt|;
 name|QPoint
 name|p1
 init|=
