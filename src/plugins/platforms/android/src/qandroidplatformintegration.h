@@ -510,10 +510,15 @@ name|QAndroidPlatformServices
 operator|*
 name|m_androidPlatformServices
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|QPlatformClipboard
 operator|*
 name|m_androidPlatformClipboard
 block|;
+endif|#
+directive|endif
 name|QAndroidSystemLocale
 operator|*
 name|m_androidSystemLocale
