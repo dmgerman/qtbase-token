@@ -2070,7 +2070,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the print orientation to \a orientation.    The orientation can be either QPrinter::Portrait or   QPrinter::Landscape.    The printer driver reads this setting and prints using the   specified orientation.    On Windows, this option can be changed while printing and will   take effect from the next call to newPage().    On Mac OS X, changing the orientation during a print job has no effect.    \sa orientation() */
+comment|/*!   Sets the print orientation to \a orientation.    The orientation can be either QPrinter::Portrait or   QPrinter::Landscape.    The printer driver reads this setting and prints using the   specified orientation.    On Windows and Mac, this option can be changed while printing and will   take effect from the next call to newPage().    \sa orientation() */
 end_comment
 begin_function
 DECL|function|setOrientation
