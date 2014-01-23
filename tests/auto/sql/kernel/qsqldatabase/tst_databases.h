@@ -1276,16 +1276,16 @@ name|QDir
 operator|::
 name|toNativeSeparators
 argument_list|(
-name|QDir
-operator|::
-name|tempPath
+name|dbDir
+operator|.
+name|path
 argument_list|()
 operator|+
 literal|"/foo.db"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//         addDb( "QSQLITE2", QDir::toNativeSeparators(QDir::tempPath()+"/foo2.db") );
+comment|//         addDb( "QSQLITE2", QDir::toNativeSeparators(dbDir.path() + "/foo2.db") );
 comment|//         addDb( "QODBC3", "DRIVER={SQL SERVER};SERVER=iceblink.qt-project.org\\ICEBLINK", "troll", "trond", "" );
 comment|//         addDb( "QODBC3", "DRIVER={SQL Native Client};SERVER=silence.qt-project.org\\SQLEXPRESS", "troll", "trond", "" );
 comment|//         addDb( "QODBC", "DRIVER={MySQL ODBC 5.1 Driver};SERVER=bq-mysql50.qt-project.org;DATABASE=testdb", "testuser", "Ee4Gabf6_", "" );
@@ -2747,6 +2747,9 @@ name|dbNames
 decl_stmt|;
 name|int
 name|counter
+decl_stmt|;
+name|QTemporaryDir
+name|dbDir
 decl_stmt|;
 block|}
 end_decl_stmt
