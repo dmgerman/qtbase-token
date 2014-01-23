@@ -4102,6 +4102,7 @@ literal|0x00ff00ffU
 operator|/
 name|alpha
 decl_stmt|;
+comment|// We add 0x8000 to get even rounding. The rounding also ensures that PREMUL(INV_PREMUL(p)) == p for all p.
 return|return
 name|qRgba
 argument_list|(
@@ -4112,6 +4113,8 @@ name|p
 argument_list|)
 operator|*
 name|invAlpha
+operator|+
+literal|0x8000
 operator|)
 operator|>>
 literal|16
@@ -4123,6 +4126,8 @@ name|p
 argument_list|)
 operator|*
 name|invAlpha
+operator|+
+literal|0x8000
 operator|)
 operator|>>
 literal|16
@@ -4134,6 +4139,8 @@ name|p
 argument_list|)
 operator|*
 name|invAlpha
+operator|+
+literal|0x8000
 operator|)
 operator|>>
 literal|16
