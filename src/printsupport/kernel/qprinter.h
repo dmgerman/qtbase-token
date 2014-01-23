@@ -269,17 +269,16 @@ block|,
 name|MaxPageSource
 block|,
 comment|// Deprecated
-name|First
-block|,
-name|Last
-block|,
-name|Upper
-block|,
 name|CustomSource
 block|,
 name|LastPaperSource
 init|=
 name|CustomSource
+block|,
+name|Upper
+init|=
+name|OnlyOne
+comment|// As defined in Windows
 block|}
 enum|;
 end_enum
