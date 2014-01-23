@@ -5565,6 +5565,14 @@ name|cursor
 operator|&&
 operator|!
 name|m_gtkCursorThemeInitialized
+operator|&&
+name|m_screen
+operator|->
+name|xSettings
+argument_list|()
+operator|->
+name|initialized
+argument_list|()
 condition|)
 block|{
 name|QByteArray

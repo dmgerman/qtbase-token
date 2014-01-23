@@ -45,6 +45,11 @@ operator|*
 name|screen
 argument_list|)
 block|;
+name|bool
+name|initialized
+argument_list|()
+specifier|const
+block|;
 name|QVariant
 name|setting
 argument_list|(

@@ -237,6 +237,11 @@ name|screen
 argument_list|(
 name|screen
 argument_list|)
+member_init_list|,
+name|initialized
+argument_list|(
+literal|false
+argument_list|)
 block|{     }
 DECL|function|getSettings
 name|QByteArray
@@ -861,6 +866,10 @@ name|QXcbXSettingsPropertyValue
 argument_list|>
 name|settings
 decl_stmt|;
+DECL|member|initialized
+name|bool
+name|initialized
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -956,13 +965,6 @@ condition|(
 name|error
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Failed to find XSETTINGS_S atom"
-expr_stmt|;
 name|free
 argument_list|(
 name|error
@@ -1017,13 +1019,6 @@ condition|(
 name|error
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Failed to get selection owner for XSETTINGS_S atom"
-expr_stmt|;
 name|free
 argument_list|(
 name|error
@@ -1097,8 +1092,36 @@ name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|d_ptr
+operator|->
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 block|}
 end_constructor
+begin_function
+DECL|function|initialized
+name|bool
+name|QXcbXSettings
+operator|::
+name|initialized
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QXcbXSettings
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|initialized
+return|;
+block|}
+end_function
 begin_function
 DECL|function|handlePropertyNotifyEvent
 name|void
