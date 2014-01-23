@@ -10254,9 +10254,6 @@ name|metrics
 operator|.
 name|horiAdvance
 argument_list|)
-operator|.
-name|round
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
