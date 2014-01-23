@@ -3986,6 +3986,13 @@ directive|define
 name|Q_DECL_CONSTEXPR
 value|constexpr
 end_define
+begin_define
+DECL|macro|Q_CONSTEXPR
+define|#
+directive|define
+name|Q_CONSTEXPR
+value|constexpr
+end_define
 begin_else
 else|#
 directive|else
@@ -3995,6 +4002,13 @@ DECL|macro|Q_DECL_CONSTEXPR
 define|#
 directive|define
 name|Q_DECL_CONSTEXPR
+end_define
+begin_define
+DECL|macro|Q_CONSTEXPR
+define|#
+directive|define
+name|Q_CONSTEXPR
+value|const
 end_define
 begin_endif
 endif|#
