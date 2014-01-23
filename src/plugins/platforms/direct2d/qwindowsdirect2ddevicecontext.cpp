@@ -151,7 +151,7 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|refCount
-operator|>=
+operator|>
 literal|0
 argument_list|)
 expr_stmt|;
