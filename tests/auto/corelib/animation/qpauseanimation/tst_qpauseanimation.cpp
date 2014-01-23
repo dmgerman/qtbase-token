@@ -1060,7 +1060,7 @@ condition|(
 name|animation
 operator|.
 name|m_updateCurrentTimeCount
-operator|!=
+operator|<
 literal|3
 condition|)
 name|QEXPECT_FAIL
