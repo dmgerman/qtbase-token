@@ -42,9 +42,9 @@ name|QKmsDevice
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QKmsVTHandler
+DECL|variable|QFbVtHandler
 name|class
-name|QKmsVTHandler
+name|QFbVtHandler
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -192,7 +192,7 @@ name|QPlatformNativeInterface
 modifier|*
 name|m_nativeInterface
 decl_stmt|;
-name|QKmsVTHandler
+name|QFbVtHandler
 modifier|*
 name|m_vtHandler
 decl_stmt|;

@@ -37,11 +37,6 @@ include|#
 directive|include
 file|"qkmsnativeinterface.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"qkmsvthandler.h"
-end_include
 begin_if
 if|#
 directive|if
@@ -79,6 +74,11 @@ begin_include
 include|#
 directive|include
 file|<QtPlatformSupport/private/qgenericunixfontdatabase_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformSupport/private/qfbvthandler_p.h>
 end_include
 begin_include
 include|#
@@ -133,7 +133,7 @@ expr_stmt|;
 name|m_vtHandler
 operator|=
 operator|new
-name|QKmsVTHandler
+name|QFbVtHandler
 expr_stmt|;
 name|m_deviceDiscovery
 operator|=
