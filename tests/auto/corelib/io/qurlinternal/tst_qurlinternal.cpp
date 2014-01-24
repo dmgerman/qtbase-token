@@ -7057,12 +7057,15 @@ control|(
 name|int
 name|i
 init|=
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|QTest
 operator|::
 name|currentDataTag
 argument_list|()
+argument_list|)
 argument_list|)
 init|;
 name|i

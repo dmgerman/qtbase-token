@@ -584,13 +584,16 @@ name|reparseInfo
 operator|->
 name|ReparseTargetLength
 operator|=
-name|DWORD
+name|WORD
 argument_list|(
 name|target
 operator|.
 name|size
 argument_list|()
+argument_list|)
 operator|*
+name|WORD
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|wchar_t

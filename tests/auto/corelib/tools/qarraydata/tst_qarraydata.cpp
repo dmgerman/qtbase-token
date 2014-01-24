@@ -3123,10 +3123,13 @@ name|v1
 operator|.
 name|insert
 argument_list|(
+name|int
+argument_list|(
 name|v1
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|,
 name|v6
 operator|.
@@ -8150,7 +8153,10 @@ index|[
 name|i
 index|]
 operator|=
+name|int
+argument_list|(
 name|i
+argument_list|)
 expr_stmt|;
 name|vs
 index|[
@@ -11523,7 +11529,10 @@ name|back
 argument_list|()
 operator|=
 operator|-
+name|int
+argument_list|(
 name|i
+argument_list|)
 expr_stmt|;
 name|vector
 operator|.
