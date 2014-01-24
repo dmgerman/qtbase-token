@@ -685,7 +685,7 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
-comment|/*event*/
+comment|/* event */
 parameter_list|)
 block|{ }
 end_function
