@@ -133,10 +133,6 @@ operator|.
 name|rect
 argument_list|()
 decl_stmt|;
-name|m_dirty
-operator||=
-name|imageRect
-expr_stmt|;
 foreach|foreach
 control|(
 specifier|const
