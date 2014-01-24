@@ -4220,10 +4220,13 @@ argument|const std::vector<T> *t
 argument_list|)
 block|{
 return|return
+name|int
+argument_list|(
 name|t
 operator|->
 name|size
 argument_list|()
+argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -4263,10 +4266,13 @@ argument|const std::list<T> *t
 argument_list|)
 block|{
 return|return
+name|int
+argument_list|(
 name|t
 operator|->
 name|size
 argument_list|()
+argument_list|)
 return|;
 block|}
 end_expr_stmt

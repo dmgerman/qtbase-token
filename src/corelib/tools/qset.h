@@ -68,10 +68,13 @@ argument_list|)
 block|{
 name|reserve
 argument_list|(
+name|int
+argument_list|(
 name|list
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 block|;
 for|for
