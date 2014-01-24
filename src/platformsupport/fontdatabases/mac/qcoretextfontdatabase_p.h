@@ -16,6 +16,25 @@ end_define
 begin_include
 include|#
 directive|include
+file|<qglobal.h>
+end_include
+begin_define
+DECL|macro|HAVE_CORETEXT
+define|#
+directive|define
+name|HAVE_CORETEXT
+value|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE(__MAC_10_8, __IPHONE_4_1)
+end_define
+begin_define
+DECL|macro|HAVE_ATS
+define|#
+directive|define
+name|HAVE_ATS
+value|QT_MAC_PLATFORM_SDK_EQUAL_OR_ABOVE(__MAC_10_5, __IPHONE_NA)
+end_define
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformfontdatabase.h>
 end_include
 begin_include
@@ -51,11 +70,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_MACX
-end_ifdef
+begin_if
+if|#
+directive|if
+name|HAVE_CORETEXT
+end_if
 begin_expr_stmt
 name|Q_DECLARE_METATYPE
 argument_list|(
@@ -76,6 +95,15 @@ operator|>
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|HAVE_ATS
+end_if
 begin_expr_stmt
 DECL|variable|ATSFontContainerRef
 name|Q_DECLARE_METATYPE
@@ -144,9 +172,6 @@ argument|QChar::Script script
 argument_list|)
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MACX
 name|QStringList
 name|addApplicationFont
 argument_list|(
@@ -161,8 +186,6 @@ operator|&
 name|fileName
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|void
 name|releaseHandle
 argument_list|(
@@ -218,18 +241,12 @@ name|void
 name|removeApplicationFonts
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MACX
 name|QVector
 operator|<
 name|QVariant
 operator|>
 name|m_applicationFonts
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
