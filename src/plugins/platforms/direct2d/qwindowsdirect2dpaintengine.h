@@ -21,7 +21,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPaintEngine>
+file|<QtGui/private/qpaintengineex_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<d2d1_1.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<dwrite_1.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -41,7 +51,7 @@ name|class
 name|QWindowsDirect2DPaintEngine
 range|:
 name|public
-name|QPaintEngine
+name|QPaintEngineEx
 block|{
 name|Q_DECLARE_PRIVATE
 argument_list|(
@@ -68,13 +78,6 @@ name|end
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
-name|void
-name|updateState
-argument_list|(
-argument|const QPaintEngineState&state
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
 name|Type
 name|type
 argument_list|()
@@ -82,17 +85,88 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|void
-name|drawEllipse
+name|fill
 argument_list|(
-argument|const QRectF&rect
+argument|const QVectorPath&path
+argument_list|,
+argument|const QBrush&brush
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
-name|drawEllipse
+name|clip
+argument_list|(
+argument|const QVectorPath&path
+argument_list|,
+argument|Qt::ClipOperation op
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|clip
 argument_list|(
 argument|const QRect&rect
+argument_list|,
+argument|Qt::ClipOperation op
 argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|clip
+argument_list|(
+argument|const QRegion&region
+argument_list|,
+argument|Qt::ClipOperation op
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|clip
+argument_list|(
+argument|const QPainterPath&path
+argument_list|,
+argument|Qt::ClipOperation op
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|clipEnabledChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|penChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|brushChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|brushOriginChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|opacityChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|compositionModeChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|renderHintsChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|transformChanged
+argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
 name|void
@@ -109,31 +183,6 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
-name|drawLines
-argument_list|(
-argument|const QLineF *lines
-argument_list|,
-argument|int lineCount
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|drawLines
-argument_list|(
-argument|const QLine *lines
-argument_list|,
-argument|int lineCount
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|drawPath
-argument_list|(
-argument|const QPainterPath&path
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
 name|drawPixmap
 argument_list|(
 argument|const QRectF&r
@@ -145,42 +194,9 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
-name|drawPolygon
+name|drawStaticTextItem
 argument_list|(
-argument|const QPointF *points
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|drawPolygon
-argument_list|(
-argument|const QPoint *points
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|drawRects
-argument_list|(
-argument|const QRectF *rects
-argument_list|,
-argument|int rectCount
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|drawRects
-argument_list|(
-argument|const QRect *rects
-argument_list|,
-argument|int rectCount
+argument|QStaticTextItem *staticTextItem
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -193,24 +209,27 @@ argument|const QTextItem&textItem
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|void
-name|drawTiledPixmap
-argument_list|(
-argument|const QRectF&rect
-argument_list|,
-argument|const QPixmap&pixmap
-argument_list|,
-argument|const QPointF&p
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
 name|private
 operator|:
-name|QScopedPointer
-operator|<
-name|QWindowsDirect2DPaintEnginePrivate
-operator|>
-name|d_ptr
+name|void
+name|drawGlyphRun
+argument_list|(
+argument|const D2D1_POINT_2F&pos
+argument_list|,
+argument|IDWriteFontFace *fontFace
+argument_list|,
+argument|const QFont&font
+argument_list|,
+argument|int numGlyphs
+argument_list|,
+argument|const UINT16 *glyphIndices
+argument_list|,
+argument|const FLOAT *glyphAdvances
+argument_list|,
+argument|const DWRITE_GLYPH_OFFSET *glyphOffsets
+argument_list|,
+argument|bool rtl
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
