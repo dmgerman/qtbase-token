@@ -143,6 +143,14 @@ name|q_physicalScreenSizeFromFb
 parameter_list|(
 name|int
 name|framebufferDevice
+parameter_list|,
+specifier|const
+name|QSize
+modifier|&
+name|screenSize
+init|=
+name|QSize
+argument_list|()
 parameter_list|)
 function_decl|;
 end_function_decl

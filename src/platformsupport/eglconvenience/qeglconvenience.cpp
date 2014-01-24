@@ -2088,6 +2088,11 @@ name|q_physicalScreenSizeFromFb
 parameter_list|(
 name|int
 name|framebufferDevice
+parameter_list|,
+specifier|const
+name|QSize
+modifier|&
+name|screenSize
 parameter_list|)
 block|{
 specifier|const
@@ -2236,12 +2241,21 @@ block|}
 block|}
 else|else
 block|{
+comment|// Use the provided screen size, when available, since some platforms may have their own
+comment|// specific way to query it. Otherwise try querying it from the framebuffer.
 name|screenResolution
 operator|=
+name|screenSize
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
 name|q_screenSizeFromFb
 argument_list|(
 name|framebufferDevice
 argument_list|)
+else|:
+name|screenSize
 expr_stmt|;
 block|}
 name|size

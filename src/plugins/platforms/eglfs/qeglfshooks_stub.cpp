@@ -245,6 +245,9 @@ return|return
 name|q_physicalScreenSizeFromFb
 argument_list|(
 name|framebuffer
+argument_list|,
+name|screenSize
+argument_list|()
 argument_list|)
 return|;
 block|}
