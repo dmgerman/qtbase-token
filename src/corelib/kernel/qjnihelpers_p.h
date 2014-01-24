@@ -86,6 +86,7 @@ name|jobject
 name|classLoader
 parameter_list|()
 function_decl|;
+name|Q_CORE_EXPORT
 name|jint
 name|androidSdkVersion
 parameter_list|()
