@@ -2268,7 +2268,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Sets the paper size based on \a paperSize in \a unit.      \sa paperSize() */
+comment|/*!     \since 4.4      Sets the paper size based on \a paperSize in \a unit.      Note that the paper size is defined in a portrait layout, regardless of     what the current printer orientation is set to.      \sa paperSize() */
 end_comment
 begin_function
 DECL|function|setPaperSize
@@ -2327,7 +2327,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \reimp   */
+comment|/*!     \reimp      Note that the page size is defined in a portrait layout, regardless of     what the current printer orientation is set to. */
 end_comment
 begin_function
 DECL|function|setPageSizeMM
@@ -2383,7 +2383,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns the paper size in \a unit.      \sa setPaperSize() */
+comment|/*!     \since 4.4      Returns the paper size in \a unit.      Note that the returned size reflects the current paper orientation.      \sa setPaperSize() */
 end_comment
 begin_function
 DECL|function|paperSize
