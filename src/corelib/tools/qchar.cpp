@@ -77,13 +77,24 @@ comment|/*!     \class QLatin1Char     \inmodule QtCore     \brief The QLatin1Ch
 comment|/*!     \fn const char QLatin1Char::toLatin1() const      Converts a Latin-1 character to an 8-bit ASCII representation of the character. */
 comment|/*!     \fn const ushort QLatin1Char::unicode() const      Converts a Latin-1 character to an 16-bit-encoded Unicode representation     of the character. */
 comment|/*!     \fn QLatin1Char::QLatin1Char(char c)      Constructs a Latin-1 character for \a c. This constructor should be     used when the encoding of the input character is known to be Latin-1. */
-comment|/*!     \class QChar     \inmodule QtCore     \brief The QChar class provides a 16-bit Unicode character.      \ingroup string-processing     \reentrant      In Qt, Unicode characters are 16-bit entities without any markup     or structure. This class represents such an entity. It is     lightweight, so it can be used everywhere. Most compilers treat     it like a \c{unsigned short}.      QChar provides a full complement of testing/classification     functions, converting to and from other formats, converting from     composed to decomposed Unicode, and trying to compare and     case-convert if you ask it to.      The classification functions include functions like those in the     standard C++ header \<cctype\> (formerly \<ctype.h\>), but     operating on the full range of Unicode characters, not just for the ASCII     range. They all return true if the character is a certain type of character;     otherwise they return false. These classification functions are     isNull() (returns \c true if the character is '\\0'), isPrint()     (true if the character is any sort of printable character,     including whitespace), isPunct() (any sort of punctation),     isMark() (Unicode Mark), isLetter() (a letter), isNumber() (any     sort of numeric character, not just 0-9), isLetterOrNumber(), and     isDigit() (decimal digits). All of these are wrappers around     category() which return the Unicode-defined category of each     character. Some of these also calculate the derived properties     (for example isSpace() returns \c true if the character is of category     Separator_* or an exceptional code point from Other_Control category).      QChar also provides direction(), which indicates the "natural"     writing direction of this character. The joining() function     indicates how the character joins with it's neighbors (needed     mostly for Arabic) and finally hasMirrored(), which indicates     whether the character needs to be mirrored when it is printed in     it's "unnatural" writing direction.      Composed Unicode characters (like \a ring) can be converted to     decomposed Unicode ("a" followed by "ring above") by using decomposition().      In Unicode, comparison is not necessarily possible and case     conversion is very difficult at best. Unicode, covering the     "entire" world, also includes most of the world's case and     sorting problems. operator==() and friends will do comparison     based purely on the numeric Unicode value (code point) of the     characters, and toUpper() and toLower() will do case changes when     the character has a well-defined uppercase/lowercase equivalent.     For locale-dependent comparisons, use QString::localeAwareCompare().      The conversion functions include unicode() (to a scalar),     toLatin1() (to scalar, but converts all non-Latin-1 characters to     0), row() (gives the Unicode row), cell() (gives the Unicode     cell), digitValue() (gives the integer value of any of the     numerous digit characters), and a host of constructors.      QChar provides constructors and cast operators that make it easy     to convert to and from traditional 8-bit \c{char}s. If you     defined \c QT_NO_CAST_FROM_ASCII and \c QT_NO_CAST_TO_ASCII, as     explained in the QString documentation, you will need to     explicitly call fromLatin1(), or use QLatin1Char,     to construct a QChar from an 8-bit \c char, and you will need to     call toLatin1() to get the 8-bit value back.      For more information see     \l{http://www.unicode.org/ucd/}{"About the Unicode Character Database"}.      \sa Unicode, QString, QLatin1Char */
+comment|/*!     \class QChar     \inmodule QtCore     \brief The QChar class provides a 16-bit Unicode character.      \ingroup string-processing     \reentrant      In Qt, Unicode characters are 16-bit entities without any markup     or structure. This class represents such an entity. It is     lightweight, so it can be used everywhere. Most compilers treat     it like a \c{unsigned short}.      QChar provides a full complement of testing/classification     functions, converting to and from other formats, converting from     composed to decomposed Unicode, and trying to compare and     case-convert if you ask it to.      The classification functions include functions like those in the     standard C++ header \<cctype\> (formerly \<ctype.h\>), but     operating on the full range of Unicode characters, not just for the ASCII     range. They all return true if the character is a certain type of character;     otherwise they return false. These classification functions are     isNull() (returns \c true if the character is '\\0'), isPrint()     (true if the character is any sort of printable character,     including whitespace), isPunct() (any sort of punctation),     isMark() (Unicode Mark), isLetter() (a letter), isNumber() (any     sort of numeric character, not just 0-9), isLetterOrNumber(), and     isDigit() (decimal digits). All of these are wrappers around     category() which return the Unicode-defined category of each     character. Some of these also calculate the derived properties     (for example isSpace() returns \c true if the character is of category     Separator_* or an exceptional code point from Other_Control category).      QChar also provides direction(), which indicates the "natural"     writing direction of this character. The joiningType() function     indicates how the character joins with it's neighbors (needed     mostly for Arabic or Syriac) and finally hasMirrored(), which indicates     whether the character needs to be mirrored when it is printed in     it's "unnatural" writing direction.      Composed Unicode characters (like \a ring) can be converted to     decomposed Unicode ("a" followed by "ring above") by using decomposition().      In Unicode, comparison is not necessarily possible and case     conversion is very difficult at best. Unicode, covering the     "entire" world, also includes most of the world's case and     sorting problems. operator==() and friends will do comparison     based purely on the numeric Unicode value (code point) of the     characters, and toUpper() and toLower() will do case changes when     the character has a well-defined uppercase/lowercase equivalent.     For locale-dependent comparisons, use QString::localeAwareCompare().      The conversion functions include unicode() (to a scalar),     toLatin1() (to scalar, but converts all non-Latin-1 characters to     0), row() (gives the Unicode row), cell() (gives the Unicode     cell), digitValue() (gives the integer value of any of the     numerous digit characters), and a host of constructors.      QChar provides constructors and cast operators that make it easy     to convert to and from traditional 8-bit \c{char}s. If you     defined \c QT_NO_CAST_FROM_ASCII and \c QT_NO_CAST_TO_ASCII, as     explained in the QString documentation, you will need to     explicitly call fromLatin1(), or use QLatin1Char,     to construct a QChar from an 8-bit \c char, and you will need to     call toLatin1() to get the 8-bit value back.      For more information see     \l{http://www.unicode.org/ucd/}{"About the Unicode Character Database"}.      \sa Unicode, QString, QLatin1Char */
 comment|/*!     \enum QChar::UnicodeVersion      Specifies which version of the \l{http://www.unicode.org/}{Unicode standard}     introduced a certain character.      \value Unicode_1_1  Version 1.1     \value Unicode_2_0  Version 2.0     \value Unicode_2_1_2  Version 2.1.2     \value Unicode_3_0  Version 3.0     \value Unicode_3_1  Version 3.1     \value Unicode_3_2  Version 3.2     \value Unicode_4_0  Version 4.0     \value Unicode_4_1  Version 4.1     \value Unicode_5_0  Version 5.0     \value Unicode_5_1  Version 5.1     \value Unicode_5_2  Version 5.2     \value Unicode_6_0  Version 6.0     \value Unicode_6_1  Version 6.1     \value Unicode_6_2  Version 6.2     \value Unicode_6_3  Version 6.3  Since Qt 5.3     \value Unicode_Unassigned  The value is not assigned to any character                                in version 6.3 of Unicode.      \sa unicodeVersion(), currentUnicodeVersion() */
 comment|/*!     \enum QChar::Category      This enum maps the Unicode character categories.      The following characters are normative in Unicode:      \value Mark_NonSpacing  Unicode class name Mn      \value Mark_SpacingCombining  Unicode class name Mc      \value Mark_Enclosing  Unicode class name Me      \value Number_DecimalDigit  Unicode class name Nd      \value Number_Letter  Unicode class name Nl      \value Number_Other  Unicode class name No      \value Separator_Space  Unicode class name Zs      \value Separator_Line  Unicode class name Zl      \value Separator_Paragraph  Unicode class name Zp      \value Other_Control  Unicode class name Cc      \value Other_Format  Unicode class name Cf      \value Other_Surrogate  Unicode class name Cs      \value Other_PrivateUse  Unicode class name Co      \value Other_NotAssigned  Unicode class name Cn       The following categories are informative in Unicode:      \value Letter_Uppercase  Unicode class name Lu      \value Letter_Lowercase  Unicode class name Ll      \value Letter_Titlecase  Unicode class name Lt      \value Letter_Modifier  Unicode class name Lm      \value Letter_Other Unicode class name Lo      \value Punctuation_Connector  Unicode class name Pc      \value Punctuation_Dash  Unicode class name Pd      \value Punctuation_Open  Unicode class name Ps      \value Punctuation_Close  Unicode class name Pe      \value Punctuation_InitialQuote  Unicode class name Pi      \value Punctuation_FinalQuote  Unicode class name Pf      \value Punctuation_Other  Unicode class name Po      \value Symbol_Math  Unicode class name Sm      \value Symbol_Currency  Unicode class name Sc      \value Symbol_Modifier  Unicode class name Sk      \value Symbol_Other  Unicode class name So      \sa category() */
 comment|/*!     \enum QChar::Script     \since 5.1      This enum type defines the Unicode script property values.      For details about the Unicode script property values see     \l{http://www.unicode.org/reports/tr24/}{Unicode Standard Annex #24}.      In order to conform to C/C++ naming conventions "Script_" is prepended     to the codes used in the Unicode Standard.      \value Script_Unknown    For unassigned, private-use, noncharacter, and surrogate code points.     \value Script_Inherited  For characters that may be used with multiple scripts                              and that inherit their script from the preceding characters.                              These include nonspacing marks, enclosing marks,                              and zero width joiner/non-joiner characters.     \value Script_Common     For characters that may be used with multiple scripts                              and that do not inherit their script from the preceding characters.      \value Script_Latin     \value Script_Greek     \value Script_Cyrillic     \value Script_Armenian     \value Script_Hebrew     \value Script_Arabic     \value Script_Syriac     \value Script_Thaana     \value Script_Devanagari     \value Script_Bengali     \value Script_Gurmukhi     \value Script_Gujarati     \value Script_Oriya     \value Script_Tamil     \value Script_Telugu     \value Script_Kannada     \value Script_Malayalam     \value Script_Sinhala     \value Script_Thai     \value Script_Lao     \value Script_Tibetan     \value Script_Myanmar     \value Script_Georgian     \value Script_Hangul     \value Script_Ethiopic     \value Script_Cherokee     \value Script_CanadianAboriginal     \value Script_Ogham     \value Script_Runic     \value Script_Khmer     \value Script_Mongolian     \value Script_Hiragana     \value Script_Katakana     \value Script_Bopomofo     \value Script_Han     \value Script_Yi     \value Script_OldItalic     \value Script_Gothic     \value Script_Deseret     \value Script_Tagalog     \value Script_Hanunoo     \value Script_Buhid     \value Script_Tagbanwa     \value Script_Coptic     \value Script_Limbu     \value Script_TaiLe     \value Script_LinearB     \value Script_Ugaritic     \value Script_Shavian     \value Script_Osmanya     \value Script_Cypriot     \value Script_Braille     \value Script_Buginese     \value Script_NewTaiLue     \value Script_Glagolitic     \value Script_Tifinagh     \value Script_SylotiNagri     \value Script_OldPersian     \value Script_Kharoshthi     \value Script_Balinese     \value Script_Cuneiform     \value Script_Phoenician     \value Script_PhagsPa     \value Script_Nko     \value Script_Sundanese     \value Script_Lepcha     \value Script_OlChiki     \value Script_Vai     \value Script_Saurashtra     \value Script_KayahLi     \value Script_Rejang     \value Script_Lycian     \value Script_Carian     \value Script_Lydian     \value Script_Cham     \value Script_TaiTham     \value Script_TaiViet     \value Script_Avestan     \value Script_EgyptianHieroglyphs     \value Script_Samaritan     \value Script_Lisu     \value Script_Bamum     \value Script_Javanese     \value Script_MeeteiMayek     \value Script_ImperialAramaic     \value Script_OldSouthArabian     \value Script_InscriptionalParthian     \value Script_InscriptionalPahlavi     \value Script_OldTurkic     \value Script_Kaithi     \value Script_Batak     \value Script_Brahmi     \value Script_Mandaic     \value Script_Chakma     \value Script_MeroiticCursive     \value Script_MeroiticHieroglyphs     \value Script_Miao     \value Script_Sharada     \value Script_SoraSompeng     \value Script_Takri      \omitvalue ScriptCount      \sa script() */
 comment|/*!     \enum QChar::Direction      This enum type defines the Unicode direction attributes. See the     \l{http://www.unicode.org/}{Unicode Standard} for a description     of the values.      In order to conform to C/C++ naming conventions "Dir" is prepended     to the codes used in the Unicode Standard.      \value DirAL     \value DirAN     \value DirB     \value DirBN     \value DirCS     \value DirEN     \value DirES     \value DirET     \value DirFSI Since Qt 5.3     \value DirL     \value DirLRE     \value DirLRI Since Qt 5.3     \value DirLRO     \value DirNSM     \value DirON     \value DirPDF     \value DirPDI Since Qt 5.3     \value DirR     \value DirRLE     \value DirRLI Since Qt 5.3     \value DirRLO     \value DirS     \value DirWS      \sa direction() */
 comment|/*!     \enum QChar::Decomposition      This enum type defines the Unicode decomposition attributes. See     the \l{http://www.unicode.org/}{Unicode Standard} for a     description of the values.      \value NoDecomposition     \value Canonical     \value Circle     \value Compat     \value Final     \value Font     \value Fraction     \value Initial     \value Isolated     \value Medial     \value Narrow     \value NoBreak     \value Small     \value Square     \value Sub     \value Super     \value Vertical     \value Wide      \sa decomposition() */
-comment|/*!     \enum QChar::Joining      This enum type defines the Unicode joining attributes. See the     \l{http://www.unicode.org/}{Unicode Standard} for a description     of the values.      \value Center     \value Dual     \value OtherJoining     \value Right      \sa joining() */
+comment|/*!     \enum QChar::JoiningType     since 5.3      This enum type defines the Unicode joining type attributes. See the     \l{http://www.unicode.org/}{Unicode Standard} for a description of the values.      In order to conform to C/C++ naming conventions "Joining_" is prepended     to the codes used in the Unicode Standard.      \value Joining_None     \value Joining_Causing     \value Joining_Dual     \value Joining_Right     \value Joining_Left     \value Joining_Transparent      \sa joiningType() */
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
+comment|/*!     \enum QChar::Joining     \deprecated in 5.3, use JoiningType instead.      This enum type defines the Unicode joining attributes. See the     \l{http://www.unicode.org/}{Unicode Standard} for a description     of the values.      \value Center     \value Dual     \value OtherJoining     \value Right      \sa joining() */
+endif|#
+directive|endif
 comment|/*!     \enum QChar::CombiningClass      \internal      This enum type defines names for some of the Unicode combining     classes. See the \l{http://www.unicode.org/}{Unicode Standard}     for a description of the values.      \value Combining_Above     \value Combining_AboveAttached     \value Combining_AboveLeft     \value Combining_AboveLeftAttached     \value Combining_AboveRight     \value Combining_AboveRightAttached     \value Combining_Below     \value Combining_BelowAttached     \value Combining_BelowLeft     \value Combining_BelowLeftAttached     \value Combining_BelowRight     \value Combining_BelowRightAttached     \value Combining_DoubleAbove     \value Combining_DoubleBelow     \value Combining_IotaSubscript     \value Combining_Left     \value Combining_LeftAttached     \value Combining_Right     \value Combining_RightAttached */
 comment|/*!     \enum QChar::SpecialCharacter      \value Null A QChar with this value isNull().     \value Tabulation Character tabulation.     \value LineFeed     \value CarriageReturn     \value Space     \value Nbsp Non-breaking space.     \value SoftHyphen     \value ReplacementCharacter The character shown when a font has no glyph            for a certain codepoint. A special question mark character is often            used. Codecs use this codepoint when input data cannot be            represented in Unicode.     \value ObjectReplacementCharacter Used to represent an object such as an            image when such objects cannot be presented.     \value ByteOrderMark     \value ByteOrderSwapped     \value ParagraphSeparator     \value LineSeparator     \value LastValidCodePoint */
 comment|/*!     \fn void QChar::setCell(uchar cell)     \internal */
@@ -838,10 +849,65 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QChar::Joining QChar::joining() const      Returns information about the joining properties of the character     (needed for certain languages such as Arabic). */
+comment|/*!     \fn QChar::JoiningType QChar::joiningType() const     \since 5.3      Returns information about the joining type attributes of the character     (needed for certain languages such as Arabic or Syriac). */
 end_comment
 begin_comment
-comment|/*!     \overload     Returns information about the joining properties of the UCS-4-encoded     character specified by \a ucs4 (needed for certain languages such as Arabic). */
+comment|/*!     \overload     \since 5.3      Returns information about the joining type attributes of the UCS-4-encoded     character specified by \a ucs4     (needed for certain languages such as Arabic or Syriac). */
+end_comment
+begin_function
+DECL|function|joiningType
+name|QChar
+operator|::
+name|JoiningType
+name|QChar
+operator|::
+name|joiningType
+parameter_list|(
+name|uint
+name|ucs4
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ucs4
+operator|>
+name|LastValidCodePoint
+condition|)
+return|return
+name|QChar
+operator|::
+name|Joining_None
+return|;
+return|return
+name|QChar
+operator|::
+name|JoiningType
+argument_list|(
+name|qGetProp
+argument_list|(
+name|ucs4
+argument_list|)
+operator|->
+name|joining
+argument_list|)
+return|;
+block|}
+end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
+end_if
+begin_comment
+comment|/*!     \fn QChar::Joining QChar::joining() const     \deprecated in 5.3, use joiningType() instead.      Returns information about the joining properties of the character     (needed for certain languages such as Arabic). */
+end_comment
+begin_comment
+comment|/*!     \overload     \deprecated in 5.3, use joiningType() instead.      Returns information about the joining properties of the UCS-4-encoded     character specified by \a ucs4 (needed for certain languages such as Arabic). */
 end_comment
 begin_function
 DECL|function|joining
@@ -867,21 +933,60 @@ name|QChar
 operator|::
 name|OtherJoining
 return|;
-return|return
-operator|(
-name|QChar
-operator|::
-name|Joining
-operator|)
+switch|switch
+condition|(
 name|qGetProp
 argument_list|(
 name|ucs4
 argument_list|)
 operator|->
 name|joining
+condition|)
+block|{
+case|case
+name|QChar
+operator|::
+name|Joining_Causing
+case|:
+return|return
+name|QChar
+operator|::
+name|Center
+return|;
+case|case
+name|QChar
+operator|::
+name|Joining_Dual
+case|:
+return|return
+name|QChar
+operator|::
+name|Dual
+return|;
+case|case
+name|QChar
+operator|::
+name|Joining_Right
+case|:
+return|return
+name|QChar
+operator|::
+name|Right
+return|;
+default|default:
+break|break;
+block|}
+return|return
+name|QChar
+operator|::
+name|OtherJoining
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \fn bool QChar::hasMirrored() const      Returns \c true if the character should be reversed if the text     direction is reversed; otherwise returns \c false.      A bit faster equivalent of (ch.mirroredChar() != ch).      \sa mirroredChar() */
 end_comment

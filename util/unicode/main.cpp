@@ -1191,15 +1191,12 @@ block|}
 block|}
 end_function
 begin_enum
-DECL|enum|Joining
+DECL|enum|JoiningType
 enum|enum
-name|Joining
+name|JoiningType
 block|{
 DECL|enumerator|Joining_None
 name|Joining_None
-block|,
-DECL|enumerator|Joining_Left
-name|Joining_Left
 block|,
 DECL|enumerator|Joining_Causing
 name|Joining_Causing
@@ -1209,6 +1206,9 @@ name|Joining_Dual
 block|,
 DECL|enumerator|Joining_Right
 name|Joining_Right
+block|,
+DECL|enumerator|Joining_Left
+name|Joining_Left
 block|,
 DECL|enumerator|Joining_Transparent
 name|Joining_Transparent
@@ -1225,7 +1225,7 @@ name|QHash
 argument_list|<
 name|QByteArray
 argument_list|,
-name|Joining
+name|JoiningType
 argument_list|>
 name|joining_map
 decl_stmt|;
@@ -1240,7 +1240,7 @@ block|{
 struct|struct
 name|JoiningList
 block|{
-name|Joining
+name|JoiningType
 name|joining
 decl_stmt|;
 specifier|const
@@ -1260,12 +1260,6 @@ literal|"U"
 block|}
 block|,
 block|{
-name|Joining_Left
-block|,
-literal|"L"
-block|}
-block|,
-block|{
 name|Joining_Causing
 block|,
 literal|"C"
@@ -1281,6 +1275,12 @@ block|{
 name|Joining_Right
 block|,
 literal|"R"
+block|}
+block|,
+block|{
+name|Joining_Left
+block|,
+literal|"L"
 block|}
 block|,
 block|{
@@ -3445,8 +3445,8 @@ literal|"struct Properties {\n"
 literal|"    ushort category            : 8; /* 5 used */\n"
 literal|"    ushort direction           : 8; /* 5 used */\n"
 literal|"    ushort combiningClass      : 8;\n"
-literal|"    ushort joining             : 2;\n"
-literal|"    signed short digitValue    : 6; /* 5 used */\n"
+literal|"    ushort joining             : 3;\n"
+literal|"    signed short digitValue    : 5; /* 5 used */\n"
 literal|"    signed short mirrorDiff    : 16;\n"
 literal|"    signed short lowerCaseDiff : 16;\n"
 literal|"    signed short upperCaseDiff : 16;\n"
@@ -3680,10 +3680,10 @@ comment|// from ArabicShaping.txt
 DECL|member|joining
 name|QChar
 operator|::
-name|Joining
+name|JoiningType
 name|joining
 range|:
-literal|2
+literal|3
 decl_stmt|;
 comment|// from DerivedAge.txt
 DECL|member|age
@@ -4521,7 +4521,7 @@ name|joining
 operator|=
 name|QChar
 operator|::
-name|OtherJoining
+name|Joining_None
 expr_stmt|;
 name|p
 operator|.
@@ -6074,7 +6074,7 @@ name|NoDecomposition
 condition|)
 name|qFatal
 argument_list|(
-literal|"unassigned decomposition type: %s"
+literal|"unhandled decomposition type: %s"
 argument_list|,
 name|d
 index|[
@@ -6604,7 +6604,18 @@ argument_list|(
 name|ok
 argument_list|)
 expr_stmt|;
-name|Joining
+name|UnicodeData
+modifier|&
+name|d
+init|=
+name|UnicodeData
+operator|::
+name|valueRef
+argument_list|(
+name|codepoint
+argument_list|)
+decl_stmt|;
+name|JoiningType
 name|joining
 init|=
 name|joining_map
@@ -6622,15 +6633,19 @@ argument_list|,
 name|Joining_Unassigned
 argument_list|)
 decl_stmt|;
-if|if
+switch|switch
 condition|(
 name|joining
-operator|==
-name|Joining_Unassigned
 condition|)
+block|{
+case|case
+name|Joining_Unassigned
+case|:
 name|qFatal
 argument_list|(
-literal|"unassigned or unhandled joining value: %s"
+literal|"%x: unassigned or unhandled joining type: %s"
+argument_list|,
+name|codepoint
 argument_list|,
 name|l
 index|[
@@ -6641,32 +6656,97 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
+case|case
+name|Joining_Transparent
+case|:
 if|if
 condition|(
-name|joining
-operator|==
-name|Joining_Left
+name|d
+operator|.
+name|p
+operator|.
+name|category
+operator|!=
+name|QChar
+operator|::
+name|Mark_NonSpacing
+operator|&&
+name|d
+operator|.
+name|p
+operator|.
+name|category
+operator|!=
+name|QChar
+operator|::
+name|Mark_Enclosing
+operator|&&
+name|d
+operator|.
+name|p
+operator|.
+name|category
+operator|!=
+name|QChar
+operator|::
+name|Other_Format
 condition|)
 block|{
-name|qWarning
+name|qFatal
 argument_list|(
-literal|"ACHTUNG!!! joining type '%s' has been met for U+%X; the current implementation needs to be revised!"
+literal|"%x: joining type '%s' was met; the current implementation needs to be revised!"
+argument_list|,
+name|codepoint
 argument_list|,
 name|l
 index|[
 literal|2
 index|]
 operator|.
-name|trimmed
-argument_list|()
-operator|.
 name|constData
 argument_list|()
-argument_list|,
-name|codepoint
 argument_list|)
 expr_stmt|;
 block|}
+comment|// fall through
+default|default:
+name|d
+operator|.
+name|p
+operator|.
+name|joining
+operator|=
+name|QChar
+operator|::
+name|JoiningType
+argument_list|(
+name|joining
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
+block|}
+comment|// Code points that are not explicitly listed in ArabicShaping.txt are either of joining type T or U:
+comment|// - Those that not explicitly listed that are of General Category Mn, Me, or Cf have joining type T.
+comment|// - All others not explicitly listed have joining type U.
+for|for
+control|(
+name|int
+name|codepoint
+init|=
+literal|0
+init|;
+name|codepoint
+operator|<=
+name|QChar
+operator|::
+name|LastValidCodePoint
+condition|;
+operator|++
+name|codepoint
+control|)
+block|{
 name|UnicodeData
 modifier|&
 name|d
@@ -6680,26 +6760,48 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|joining
-operator|==
-name|Joining_Right
-condition|)
 name|d
 operator|.
 name|p
 operator|.
 name|joining
-operator|=
+operator|==
 name|QChar
 operator|::
-name|Right
-expr_stmt|;
-elseif|else
+name|Joining_None
+condition|)
+block|{
 if|if
 condition|(
-name|joining
+name|d
+operator|.
+name|p
+operator|.
+name|category
 operator|==
-name|Joining_Dual
+name|QChar
+operator|::
+name|Mark_NonSpacing
+operator|||
+name|d
+operator|.
+name|p
+operator|.
+name|category
+operator|==
+name|QChar
+operator|::
+name|Mark_Enclosing
+operator|||
+name|d
+operator|.
+name|p
+operator|.
+name|category
+operator|==
+name|QChar
+operator|::
+name|Other_Format
 condition|)
 name|d
 operator|.
@@ -6709,36 +6811,9 @@ name|joining
 operator|=
 name|QChar
 operator|::
-name|Dual
+name|Joining_Transparent
 expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|joining
-operator|==
-name|Joining_Causing
-condition|)
-name|d
-operator|.
-name|p
-operator|.
-name|joining
-operator|=
-name|QChar
-operator|::
-name|Center
-expr_stmt|;
-else|else
-name|d
-operator|.
-name|p
-operator|.
-name|joining
-operator|=
-name|QChar
-operator|::
-name|OtherJoining
-expr_stmt|;
+block|}
 block|}
 block|}
 end_function
@@ -12153,7 +12228,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort joining             : 2;\n"
+comment|//     "        ushort joining             : 3;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -12169,7 +12244,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        signed short digitValue    : 6; /* 5 used */\n"
+comment|//     "        signed short digitValue    : 5; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
