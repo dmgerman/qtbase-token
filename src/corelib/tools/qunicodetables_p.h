@@ -84,13 +84,13 @@ decl_stmt|;
 name|ushort
 name|joining
 range|:
-literal|2
+literal|3
 decl_stmt|;
 name|signed
 name|short
 name|digitValue
 range|:
-literal|6
+literal|5
 decl_stmt|;
 comment|/* 5 used */
 name|signed
