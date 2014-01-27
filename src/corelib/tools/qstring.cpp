@@ -898,15 +898,6 @@ control|)
 block|{
 specifier|const
 name|__m128i
-name|nullMask
-init|=
-name|_mm_set1_epi32
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-specifier|const
-name|__m128i
 name|chunk
 init|=
 name|_mm_loadu_si128
@@ -923,6 +914,46 @@ operator|)
 argument_list|)
 decl_stmt|;
 comment|// load
+ifdef|#
+directive|ifdef
+name|__AVX2__
+comment|// zero extend to an YMM register
+specifier|const
+name|__m256i
+name|extended
+init|=
+name|_mm256_cvtepu8_epi16
+argument_list|(
+name|chunk
+argument_list|)
+decl_stmt|;
+comment|// store
+name|_mm256_storeu_si256
+argument_list|(
+operator|(
+name|__m256i
+operator|*
+operator|)
+operator|(
+name|dst
+operator|+
+name|offset
+operator|)
+argument_list|,
+name|extended
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
+specifier|const
+name|__m128i
+name|nullMask
+init|=
+name|_mm_set1_epi32
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 comment|// unpack the first 8 bytes, padding with zeros
 specifier|const
 name|__m128i
@@ -981,6 +1012,8 @@ name|secondHalf
 argument_list|)
 expr_stmt|;
 comment|// store
+endif|#
+directive|endif
 block|}
 name|size
 operator|=
@@ -2763,7 +2796,7 @@ literal|16
 control|)
 block|{
 comment|// similar to fromLatin1_helper:
-comment|// load Latin 1 data and expand to UTF-16
+comment|// load 16 bytes of Latin 1 data
 name|__m128i
 name|chunk
 init|=
@@ -2780,6 +2813,57 @@ name|offset
 operator|)
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|__AVX2__
+comment|// expand Latin 1 data via zero extension
+name|__m256i
+name|ldata
+init|=
+name|_mm256_cvtepu8_epi16
+argument_list|(
+name|chunk
+argument_list|)
+decl_stmt|;
+comment|// load UTF-16 data and compare
+name|__m256i
+name|ucdata
+init|=
+name|_mm256_loadu_si256
+argument_list|(
+operator|(
+name|__m256i
+operator|*
+operator|)
+operator|(
+name|uc
+operator|+
+name|offset
+operator|)
+argument_list|)
+decl_stmt|;
+name|__m256i
+name|result
+init|=
+name|_mm256_cmpeq_epi16
+argument_list|(
+name|ldata
+argument_list|,
+name|ucdata
+argument_list|)
+decl_stmt|;
+name|uint
+name|mask
+init|=
+name|~
+name|_mm256_movemask_epi8
+argument_list|(
+name|result
+argument_list|)
+decl_stmt|;
+else|#
+directive|else
+comment|// expand via unpacking
 name|__m128i
 name|firstHalf
 init|=
@@ -2873,6 +2957,8 @@ operator|<<
 literal|16
 operator|)
 decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|mask
