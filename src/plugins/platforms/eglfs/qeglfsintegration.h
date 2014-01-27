@@ -119,10 +119,6 @@ name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
-name|void
-name|createInputHandlers
-argument_list|()
-block|;
 name|bool
 name|mDisableInputHandlers
 block|; }

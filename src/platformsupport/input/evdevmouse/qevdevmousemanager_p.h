@@ -72,6 +72,15 @@ operator|~
 name|QEvdevMouseManager
 argument_list|()
 block|;
+name|QDeviceDiscovery
+operator|*
+name|deviceDiscovery
+argument_list|()
+block|{
+return|return
+name|m_deviceDiscovery
+return|;
+block|}
 name|public
 name|slots
 operator|:

@@ -249,6 +249,10 @@ return|return
 name|EGL_DEFAULT_DISPLAY
 return|;
 block|}
+name|void
+name|createInputHandlers
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|QEGLPlatformScreen
