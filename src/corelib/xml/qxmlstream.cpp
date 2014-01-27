@@ -5706,7 +5706,18 @@ name|QXmlStream
 operator|::
 name|tr
 argument_list|(
-literal|"Attribute redefined."
+literal|"Attribute '%1' redefined."
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|attribute
+operator|.
+name|qualifiedName
+argument_list|()
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
