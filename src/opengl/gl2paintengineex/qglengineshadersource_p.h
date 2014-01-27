@@ -310,14 +310,6 @@ init|=
 name|qglslPositionWithTextureBrushVertexShader
 decl_stmt|;
 end_decl_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
-end_if
 begin_comment
 comment|// OpenGL ES does not support GL_REPEAT wrap modes for NPOT textures. So instead,
 end_comment
@@ -328,37 +320,29 @@ begin_comment
 comment|// TODO: Special case POT textures which don't need this emulation
 end_comment
 begin_decl_stmt
-DECL|variable|qglslTextureBrushSrcFragmentShader
+DECL|variable|qglslTextureBrushSrcFragmentShader_ES
 specifier|static
 specifier|const
 name|char
 modifier|*
 specifier|const
-name|qglslTextureBrushSrcFragmentShader
+name|qglslTextureBrushSrcFragmentShader_ES
 init|=
 literal|"\n\     varying highp   vec2      brushTextureCoords; \n\     uniform         sampler2D brushTexture; \n\     lowp vec4 srcPixel() { \n\         return texture2D(brushTexture, fract(brushTextureCoords)); \n\     }\n"
 decl_stmt|;
 end_decl_stmt
-begin_else
-else|#
-directive|else
-end_else
 begin_decl_stmt
-DECL|variable|qglslTextureBrushSrcFragmentShader
+DECL|variable|qglslTextureBrushSrcFragmentShader_desktop
 specifier|static
 specifier|const
 name|char
 modifier|*
 specifier|const
-name|qglslTextureBrushSrcFragmentShader
+name|qglslTextureBrushSrcFragmentShader_desktop
 init|=
 literal|"\n\     varying   highp   vec2      brushTextureCoords; \n\     uniform           sampler2D brushTexture; \n\     lowp vec4 srcPixel() \n\     { \n\         return texture2D(brushTexture, brushTextureCoords); \n\     }\n"
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|qglslTextureBrushSrcWithPatternFragmentShader
 specifier|static

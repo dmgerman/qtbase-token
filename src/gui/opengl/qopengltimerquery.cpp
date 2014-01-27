@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<QtGui/QOpenGLContext>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QOpenGLFunctions>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -322,6 +327,23 @@ operator|::
 name|create
 parameter_list|()
 block|{
+if|if
+condition|(
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QOpenGLTimerQuery: Not supported on dynamic GL ES"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|QOpenGLContext
 modifier|*
 name|ctx

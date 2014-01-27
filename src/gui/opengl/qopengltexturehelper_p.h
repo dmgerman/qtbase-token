@@ -1814,13 +1814,6 @@ expr_stmt|;
 block|}
 name|private
 label|:
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 comment|// DSA wrapper (so we can use pointer to member function as switch)
 name|void
 name|dsa_TextureParameteri
@@ -2567,8 +2560,6 @@ modifier|*
 name|bits
 parameter_list|)
 function_decl|;
-endif|#
-directive|endif
 comment|// DSA emulation API
 name|void
 name|qt_TextureParameteri
@@ -5897,13 +5888,6 @@ decl_stmt|;
 name|CompressedTextureImage3DMemberFunc
 name|CompressedTextureImage3D
 decl_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 comment|// Raw function pointers for core and DSA functions
 comment|// EXT_direct_state_access used when DSA is available
 name|void
@@ -6652,8 +6636,6 @@ name|GLboolean
 name|fixedSampleLocations
 parameter_list|)
 function_decl|;
-endif|#
-directive|endif
 comment|// OpenGL 1.0
 name|void
 function_decl|(

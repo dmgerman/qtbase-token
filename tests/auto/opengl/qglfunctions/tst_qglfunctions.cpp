@@ -339,8 +339,22 @@ name|initializeGLFunctions
 argument_list|()
 expr_stmt|;
 comment|// Validate the features against what we expect for this platform.
+if|if
+condition|(
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES
+argument_list|)
+operator|||
 name|defined
 argument_list|(
 name|QT_OPENGL_ES_2
@@ -580,6 +594,12 @@ name|defined
 argument_list|(
 name|QT_OPENGL_ES
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
 name|QVERIFY
 argument_list|(
 name|funcs
@@ -752,8 +772,11 @@ literal|"GL_OES_texture_npot"
 argument_list|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
+endif|#
+directive|endif
+block|}
+else|else
+block|{
 comment|// We check for both the extension name and the minimum OpenGL version
 comment|// for the feature.  This will help us catch situations where a platform
 comment|// doesn't list an extension by name but does have the feature by virtue
@@ -1089,8 +1112,7 @@ operator|!=
 literal|0
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 block|}
 end_function
 begin_comment

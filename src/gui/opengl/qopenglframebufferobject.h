@@ -95,18 +95,6 @@ argument_list|,
 argument|GLenum target = GL_TEXTURE_2D
 argument_list|)
 empty_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_QDOC
-argument_list|)
 name|QOpenGLFramebufferObject
 argument_list|(
 argument|const QSize&size
@@ -115,7 +103,8 @@ argument|Attachment attachment
 argument_list|,
 argument|GLenum target = GL_TEXTURE_2D
 argument_list|,
-argument|GLenum internal_format = GL_RGBA8
+argument|GLenum internal_format =
+literal|0
 argument_list|)
 empty_stmt|;
 name|QOpenGLFramebufferObject
@@ -128,37 +117,10 @@ argument|Attachment attachment
 argument_list|,
 argument|GLenum target = GL_TEXTURE_2D
 argument_list|,
-argument|GLenum internal_format = GL_RGBA8
+argument|GLenum internal_format =
+literal|0
 argument_list|)
 empty_stmt|;
-else|#
-directive|else
-name|QOpenGLFramebufferObject
-argument_list|(
-argument|const QSize&size
-argument_list|,
-argument|Attachment attachment
-argument_list|,
-argument|GLenum target = GL_TEXTURE_2D
-argument_list|,
-argument|GLenum internal_format = GL_RGBA
-argument_list|)
-empty_stmt|;
-name|QOpenGLFramebufferObject
-argument_list|(
-argument|int width
-argument_list|,
-argument|int height
-argument_list|,
-argument|Attachment attachment
-argument_list|,
-argument|GLenum target = GL_TEXTURE_2D
-argument_list|,
-argument|GLenum internal_format = GL_RGBA
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 name|QOpenGLFramebufferObject
 argument_list|(
 specifier|const

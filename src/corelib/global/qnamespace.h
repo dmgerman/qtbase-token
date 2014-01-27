@@ -1607,6 +1607,14 @@ name|AA_ForceRasterWidgets
 init|=
 literal|14
 block|,
+name|AA_UseDesktopOpenGL
+init|=
+literal|15
+block|,
+name|AA_UseOpenGLES
+init|=
+literal|16
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}

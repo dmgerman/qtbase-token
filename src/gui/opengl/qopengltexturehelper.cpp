@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<QOpenGLContext>
 end_include
+begin_include
+include|#
+directive|include
+file|<QOpenGLFunctions>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|QOpenGLTextureHelper
@@ -25,15 +30,14 @@ name|context
 parameter_list|)
 block|{
 comment|// Resolve EXT_direct_state_access entry points if present
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 if|if
 condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+operator|&&
 name|context
 operator|->
 name|hasExtension
@@ -1051,8 +1055,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-endif|#
-directive|endif
 comment|// Use our own DSA emulation
 name|TextureParameteri
 operator|=
@@ -1194,26 +1196,16 @@ name|QOpenGLTextureHelper
 operator|::
 name|qt_CompressedTextureImage3D
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 block|}
-endif|#
-directive|endif
 comment|// Some DSA functions are part of NV_texture_multisample instead
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 if|if
 condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+operator|&&
 name|context
 operator|->
 name|hasExtension
@@ -1316,8 +1308,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-endif|#
-directive|endif
 name|TextureImage3DMultisample
 operator|=
 operator|&
@@ -1332,16 +1322,7 @@ name|QOpenGLTextureHelper
 operator|::
 name|qt_TextureImage2DMultisample
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 block|}
-endif|#
-directive|endif
 comment|// wglGetProcAddress should not be used to (and indeed will not) load OpenGL<= 1.1 functions.
 comment|// Hence, we resolve them "the hard way"
 if|#
@@ -1359,11 +1340,29 @@ argument_list|)
 name|HMODULE
 name|handle
 init|=
+cast|static_cast
+argument_list|<
+name|HMODULE
+argument_list|>
+argument_list|(
+name|QOpenGLFunctions
+operator|::
+name|platformGLHandle
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|handle
+condition|)
+name|handle
+operator|=
 name|GetModuleHandleA
 argument_list|(
 literal|"opengl32.dll"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// OpenGL 1.0
 name|GetIntegerv
 operator|=
@@ -2556,14 +2555,13 @@ operator|)
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
 if|if
 condition|(
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+operator|&&
 name|context
 operator|->
 name|hasExtension
@@ -2755,8 +2753,6 @@ operator|)
 expr_stmt|;
 block|}
 else|else
-endif|#
-directive|endif
 block|{
 comment|// OpenGL 1.2
 name|TexImage3D
@@ -3487,15 +3483,6 @@ operator|)
 expr_stmt|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
-end_if
 begin_function
 DECL|function|dsa_TextureParameteri
 name|void
@@ -4943,13 +4930,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !defined(QT_OPENGL_ES_2)
-end_comment
 begin_function
 DECL|function|qt_TextureParameteri
 name|void

@@ -177,16 +177,10 @@ name|QVector2D
 operator|>
 name|texCoords
 block|;
-ifdef|#
-directive|ifdef
-name|QT_OPENGL_ES_2
 name|QGLShaderProgram
 operator|*
 name|program
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
