@@ -413,9 +413,32 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|pageMarginsSet
+name|m_pageLayout
 argument_list|(
-name|false
+name|QPageLayout
+argument_list|(
+name|QPageSize
+argument_list|(
+name|QPageSize
+operator|::
+name|A4
+argument_list|)
+argument_list|,
+name|QPageLayout
+operator|::
+name|Portrait
+argument_list|,
+name|QMarginsF
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
 argument_list|)
 block|,
 name|num_copies
@@ -428,17 +451,7 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|fullPage
-argument_list|(
-name|false
-argument_list|)
-block|,
 name|reinit
-argument_list|(
-name|false
-argument_list|)
-block|,
-name|has_custom_paper_size
 argument_list|(
 argument|false
 argument_list|)
@@ -558,31 +571,15 @@ name|pageSize
 argument_list|)
 block|;
 name|void
-name|updatePageSize
+name|updatePageLayout
 argument_list|()
 block|;
 name|void
-name|updateOrigin
+name|updateMetrics
 argument_list|()
 block|;
 name|void
-name|initDevRects
-argument_list|()
-block|;
-name|void
-name|setPageMargins
-argument_list|(
-argument|int margin_left
-argument_list|,
-argument|int margin_top
-argument_list|,
-argument|int margin_right
-argument_list|,
-argument|int margin_bottom
-argument_list|)
-block|;
-name|QRect
-name|getPageMargins
+name|debugMetrics
 argument_list|()
 specifier|const
 block|;
@@ -635,31 +632,17 @@ name|int
 name|resolution
 block|;
 comment|// Page Layout
-name|QPageSize
-name|m_pageSize
+name|QPageLayout
+name|m_pageLayout
 block|;
-comment|// This QRect is used to store the exact values
-comment|// entered into the PageSetup Dialog because those are
-comment|// entered in mm but are since converted to device coordinates.
-comment|// If they were to be converted back when displaying the dialog
-comment|// again, there would be inaccuracies so when the user entered 10
-comment|// it may show up as 9.99 the next time the dialog is opened.
-comment|// We don't want that confusion.
+comment|// Page metrics cache
 name|QRect
-name|previousDialogMargins
+name|m_paintRectPixels
 block|;
-name|bool
-name|pageMarginsSet
+name|QSize
+name|m_paintSizeMM
 block|;
-name|QRect
-name|devPageRect
-block|;
-name|QRect
-name|devPhysicalPageRect
-block|;
-name|QRect
-name|devPaperRect
-block|;
+comment|// Windows painting
 name|qreal
 name|stretch_x
 block|;
@@ -686,11 +669,6 @@ name|num_copies
 block|;
 name|uint
 name|printToFile
-operator|:
-literal|1
-block|;
-name|uint
-name|fullPage
 operator|:
 literal|1
 block|;
