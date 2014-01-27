@@ -283,6 +283,17 @@ name|QPlatformCursor
 block|{
 name|public
 operator|:
+expr|enum
+name|CursorState
+block|{
+name|CursorShowing
+block|,
+name|CursorHidden
+block|,
+name|CursorSuppressed
+comment|// Cursor suppressed by touch interaction (Windows 8).
+block|}
+block|;
 name|QWindowsCursor
 argument_list|()
 block|{}
@@ -344,6 +355,11 @@ block|;
 specifier|static
 name|QPoint
 name|mousePosition
+argument_list|()
+block|;
+specifier|static
+name|CursorState
+name|cursorState
 argument_list|()
 block|;
 name|QWindowsWindowCursor
