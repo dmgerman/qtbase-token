@@ -5335,7 +5335,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Creates a QOpenGLTexture object that can later be bound to the 2D texture     target and contains the pixel data contained in \a image. If you wish     to have a chain of mipmaps generated then set \a useMipMaps to true (this     is the default).      This does create the underlying OpenGL texture object. Therefore,     construction using this constructor does require a valid current     OpenGL context. */
+comment|/*!     Creates a QOpenGLTexture object that can later be bound to the 2D texture     target and contains the pixel data contained in \a image. If you wish     to have a chain of mipmaps generated then set \a genMipMaps to \c true (this     is the default).      This does create the underlying OpenGL texture object. Therefore,     construction using this constructor does require a valid current     OpenGL context. */
 end_comment
 begin_constructor
 DECL|function|QOpenGLTexture
@@ -5384,7 +5384,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Creates the underlying OpenGL texture object. This requires a current valid     OpenGL context. If the texture object already exists, this function does     nothing.      Once the texture object is created you can obtain the object     name from the textureId() function. This may be useful if you wish to make     some raw OpenGL calls related to this texture.      Normally it should not be necessary to call this function directly as all     functions that set properties of the texture object implicitly call create()     on your behalf.      \sa destroy(), isCreated(), textureId() */
+comment|/*!     Creates the underlying OpenGL texture object. This requires a current valid     OpenGL context. If the texture object already exists, this function does     nothing.      Once the texture object is created you can obtain the object     name from the textureId() function. This may be useful if you wish to make     some raw OpenGL calls related to this texture.      Normally it should not be necessary to call this function directly as all     functions that set properties of the texture object implicitly call create()     on your behalf.      Returns \c true if the creation succeeded, otherwise returns \c false.      \sa destroy(), isCreated(), textureId() */
 end_comment
 begin_function
 DECL|function|create
@@ -5514,7 +5514,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Binds this texture to texture unit \a unit ready for     rendering. Note that you do not need to bind QOpenGLTexture objects     in order to modify them as the implementation makes use of the     EXT_direct_state_access extension where available and simulates it     where it is not.      If \a restoreTextureUnit is true then this function     will restore the active unit to the texture unit that was active     upon entry.      \sa release() */
+comment|/*!     Binds this texture to texture unit \a unit ready for     rendering. Note that you do not need to bind QOpenGLTexture objects     in order to modify them as the implementation makes use of the     EXT_direct_state_access extension where available and simulates it     where it is not.      If parameter \a reset is \c true then this function will restore     the active unit to the texture unit that was active upon entry.      \sa release() */
 end_comment
 begin_function
 DECL|function|bind
@@ -5577,7 +5577,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Unbinds this texture from texture unit \a unit.      If \a restoreTextureUnit is true then this function     will restore the active unit to the texture unit that was active     upon entry. */
+comment|/*!     Unbinds this texture from texture unit \a unit.      If parameter \a reset is \c true then this function     will restore the active unit to the texture unit that was active     upon entry. */
 end_comment
 begin_function
 DECL|function|release
@@ -6319,7 +6319,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the dimensions of this texture object. The default     for each dimension is 1. The maximum allowable texture size     is dependent upon your OpenGL implementation. Allocating     storage for a texture less than the maximum size can still     fail if your system is low on resources.      \sa width(), height(), depth() */
+comment|/*!     Sets the dimensions of this texture object to \a width,     \a height, and \a depth. The default for each dimension is 1.     The maximum allowable texture size is dependent upon your OpenGL     implementation. Allocating storage for a texture less than the     maximum size can still fail if your system is low on resources.      \sa width(), height(), depth() */
 end_comment
 begin_function
 DECL|function|setSize
@@ -6617,7 +6617,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For texture targets that support mipmaps this function     sets the requested number of mipmap levels to allocate storage     for. This function should be called before storage is allocated     for the texture.      If the texture target does not support mipmaps this function     has no effect.      \sa mipLevels(), maximumMipLevels(), isStorageAllocated() */
+comment|/*!     For texture targets that support mipmaps, this function     sets the requested number of mipmap \a levels to allocate storage     for. This function should be called before storage is allocated     for the texture.      If the texture target does not support mipmaps this function     has no effect.      \sa mipLevels(), maximumMipLevels(), isStorageAllocated() */
 end_comment
 begin_function
 DECL|function|setMipLevels
@@ -6791,7 +6791,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For those texture targets that support array layers this function     sets the number of array layers to allocate storage for. This     function should be called before storage is allocated for the tecture.      For tarets that do not support array layers this function has     no effect.      \sa layers(), isStorageAllocated() */
+comment|/*!     Sets the number of array \a layers to allocate storage for. This     function should be called before storage is allocated for the texture.      For targets that do not support array layers this function has     no effect.      \sa layers(), isStorageAllocated() */
 end_comment
 begin_function
 DECL|function|setLayers
@@ -7005,7 +7005,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to create a texture view onto this texture. A texture     view is somewhat analogous to a view in SQL in that it presents     a restricted or reinterpreted view of the original data. Texture     views do not allocate any more server-side storage, insted relying     on the storage buffer of the source texture.      Texture views are only available when using immutable storage. For     more information on texture views see     http://www.opengl.org/wiki/Texture_Storage#Texture_views.      The \a target argument specifies the target to use for the view.     Only some targets can be used depending upon the target of the original     target. For e.g. a view onto a Target1DArray texture can specify     either Target1DArray or Target1D but for the latter the number of     array layers specified with \a minimumLayer and \a maximumLayer must     be exactly 1.      Simpliar constraints apply for the \a viewFormat. See the above link     and the specification for more details.      The \a minimumMipmapLevel, \a maximumMipmapLevel, \a mimimumLayer,     and \a maximumLayer arguments serve to restrict the parts of the     texture accessible by the texture view.      If creation of the texture view fails this function will return     0. If the function succeeds it will return a pointer to a new     QOpenGLTexture object that will return true from its isTextureView()     function.      \sa isTextureView() */
+comment|/*!     Attempts to create a texture view onto this texture. A texture     view is somewhat analogous to a view in SQL in that it presents     a restricted or reinterpreted view of the original data. Texture     views do not allocate any more server-side storage, insted relying     on the storage buffer of the source texture.      Texture views are only available when using immutable storage. For     more information on texture views see     http://www.opengl.org/wiki/Texture_Storage#Texture_views.      The \a target argument specifies the target to use for the view.     Only some targets can be used depending upon the target of the original     target. For e.g. a view onto a Target1DArray texture can specify     either Target1DArray or Target1D but for the latter the number of     array layers specified with \a minimumLayer and \a maximumLayer must     be exactly 1.      Simpliar constraints apply for the \a viewFormat. See the above link     and the specification for more details.      The \a minimumMipmapLevel, \a maximumMipmapLevel, \a minimumLayer,     and \a maximumLayer arguments serve to restrict the parts of the     texture accessible by the texture view.      If creation of the texture view fails this function will return     0. If the function succeeds it will return a pointer to a new     QOpenGLTexture object that will return \c true from its isTextureView()     function.      \sa isTextureView() */
 end_comment
 begin_function
 DECL|function|createTextureView
@@ -7124,7 +7124,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Uploads pixel \a data for this texture object \a mipLevel, array \a layer and \acubeFace.     Storage must have been allocated before uploading pixel data. Some overloads of setData()     will set appropriate dimensions, mipmap levels, and array layers and then allocate storage     for you if they have enough information to do so. This will be noted in the function     documentation.      The structure of the pixel data pointed to by \a data is specified by \a sourceFormat     and \a sourceType. The pixel data upload can optionally be controlled by \a options.      If using a compressed format() then you should use setCompressedData() instead of this     function.      \since 5.3     \sa setCompressedData() */
+comment|/*!     Uploads pixel \a data for this texture object \a mipLevel, array \a layer, and \a cubeFace.     Storage must have been allocated before uploading pixel data. Some overloads of setData()     will set appropriate dimensions, mipmap levels, and array layers and then allocate storage     for you if they have enough information to do so. This will be noted in the function     documentation.      The structure of the pixel data pointed to by \a data is specified by \a sourceFormat     and \a sourceType. The pixel data upload can optionally be controlled by \a options.      If using a compressed format() then you should use setCompressedData() instead of this     function.      \since 5.3     \sa setCompressedData() */
 end_comment
 begin_function
 DECL|function|setData
@@ -7686,7 +7686,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This overload of setData() will allocate storage for you.      \overload */
+comment|/*!     This overload of setData() will allocate storage for you.     The pixel data is contained in \a image. Mipmaps are generated by default.     Set \a genMipMaps to \l DontGenerateMipMaps to turn off mipmap generation.      \overload */
 end_comment
 begin_function
 DECL|function|setData
@@ -7786,7 +7786,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Uploads compressed pixel \a data to \a mipLevel, array \a layer and \a cubeFace.     The pixel transfer can optionally be controlled with \a options. The \a dataSize     argument should specify the size of the data pointed to by \a data.      If not using a compressed format() then you should use setData() instead of this     function.      \since 5.3 */
+comment|/*!     Uploads compressed pixel \a data to \a mipLevel, array \a layer, and \a cubeFace.     The pixel transfer can optionally be controlled with \a options. The \a dataSize     argument should specify the size of the data pointed to by \a data.      If not using a compressed format() then you should use setData() instead of this     function.      \since 5.3 */
 end_comment
 begin_function
 DECL|function|setCompressedData
@@ -9152,7 +9152,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a enabled is true, enables automatic mipmap generation for this texture object     to occur whenever the level 0 mipmap data is set via setData().      The automatic mipmap generation is enabled by default.      \sa isAutoMipMapGenerationEnabled(), generateMipMaps() */
+comment|/*!     If \a enabled is \c true, enables automatic mipmap generation for this texture object     to occur whenever the level 0 mipmap data is set via setData().      The automatic mipmap generation is enabled by default.      \sa isAutoMipMapGenerationEnabled(), generateMipMaps() */
 end_comment
 begin_function
 DECL|function|setAutoMipMapGenerationEnabled
@@ -9255,7 +9255,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Generates mipmaps for this texture object from mipmap level \baseLevel. If you are     using a texture target and filtering option that requires mipmaps and you     have disabled automatic mipmap generation then you need to call this function     or the overload to create the mipmap chain.      The generation of mipmaps to above \baseLevel is achieved by setting the mipmap     base level to \a baseLevel and then generating the mipmap chain. If \a resetBaseLevel     is true, then the baseLevel of the texture will be reset to its previous value.      \sa setAutoMipMapGenerationEnabled(), setMipLevels(), mipLevels() */
+comment|/*!     Generates mipmaps for this texture object from mipmap level \baseLevel. If you are     using a texture target and filtering option that requires mipmaps and you     have disabled automatic mipmap generation then you need to call this function     or the overload to create the mipmap chain.      The generation of mipmaps to above \baseLevel is achieved by setting the mipmap     base level to \a baseLevel and then generating the mipmap chain. If \a resetBaseLevel     is \c true, then the baseLevel of the texture will be reset to its previous value.      \sa setAutoMipMapGenerationEnabled(), setMipLevels(), mipLevels() */
 end_comment
 begin_function
 DECL|function|generateMipMaps
@@ -9481,7 +9481,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Parameters \a {r}, \a {g}, \a {b}, and \a {a}  are values used for setting     the colors red, green, blue, and the alpha value.     \overload */
 end_comment
 begin_function
 DECL|function|setSwizzleMask
@@ -10399,7 +10399,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Holds the texture dimension \a direction.     \overload */
 end_comment
 begin_function
 DECL|function|setWrapMode
@@ -10670,7 +10670,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \{b}, and \a {a} to the     alpha value.     \overload */
 end_comment
 begin_function
 DECL|function|setBorderColor
@@ -10862,7 +10862,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and \a the alpha     value to {a}.     \overload */
 end_comment
 begin_function
 DECL|function|setBorderColor
@@ -11055,7 +11055,7 @@ comment|// TODO Handle case of using glTextureParameterIiv() based on format
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and \a the alpha     value to {a}.     \overload */
 end_comment
 begin_function
 DECL|function|setBorderColor
@@ -11375,7 +11375,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes the texture border color into the first 4 elements     of the array pointed to by \a border.      \sa setBorderColor() */
+comment|/*!     Writes the texture border color into the first four elements     of the array pointed to by \a border.      \sa setBorderColor() */
 end_comment
 begin_function
 DECL|function|borderColor
@@ -11470,7 +11470,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Writes the texture border color into the first four elements     of the array pointed to by \a border.      \overload */
 end_comment
 begin_function
 DECL|function|borderColor
@@ -11565,7 +11565,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \overload */
+comment|/*!     Writes the texture border color into the first four elements     of the array pointed to by \a border.      \overload */
 end_comment
 begin_function
 DECL|function|borderColor
@@ -11937,7 +11937,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the minimum and maximum level of detail parameters.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa levelOfDetailRange(), setMinimumLevelOfDetail(), setMaximumLevelOfDetail() */
+comment|/*!     Sets the minimum level of detail parameters to \a min and the maximum level     to \a max.     \note This function has no effect on Qt built for OpenGL ES 2.     \sa levelOfDetailRange(), setMinimumLevelOfDetail(), setMaximumLevelOfDetail() */
 end_comment
 begin_function
 DECL|function|setLevelOfDetailRange
@@ -12122,7 +12122,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the level of detail bias parameter.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa levelofDetailBias() */
+comment|/*!     Sets the level of detail bias to \a bias.     Level of detail bias affects the point at which mipmapping levels change.     Increasing values for level of detail bias makes the overall images blurrier     or smoother. Decreasing values make the overall images sharper.      \note This function has no effect on Qt built for OpenGL ES 2.     \sa levelofDetailBias() */
 end_comment
 begin_function
 DECL|function|setLevelofDetailBias

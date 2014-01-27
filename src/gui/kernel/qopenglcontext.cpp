@@ -356,7 +356,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the OpenGL profile. Only make sense if profiles are supported by this version.      \sa setProfile(), supportsProfiles() */
+comment|/*!     Returns the OpenGL profile. Only makes sense if profiles are supported by this version.      \sa setProfile(), supportsProfiles() */
 end_comment
 begin_function
 DECL|function|profile
@@ -377,7 +377,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the profile.  Only make sense if profiles are supported by this version.      \sa profile(), supportsProfiles() */
+comment|/*!     Sets the OpenGL profile \a profile. Only makes sense if profiles are supported by     this version.      \sa profile(), supportsProfiles() */
 end_comment
 begin_function
 DECL|function|setProfile
@@ -475,7 +475,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the version number is valid. Note that for a default constructed     QOpenGLVersionProfile object this function will return false.      \sa setVersion(), version() */
+comment|/*!     Returns \c true if the version number is valid. Note that for a default constructed     QOpenGLVersionProfile object this function will return \c false.      \sa setVersion(), version() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -1482,7 +1482,7 @@ begin_comment
 comment|/*!     \fn T *QOpenGLContext::versionFunctions() const      \overload versionFunctions()      Returns a pointer to an object that provides access to all functions for     the version and profile of this context. Before using any of the functions     they must be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type.      \code         QOpenGLFunctions_3_3_Core* funcs = 0;         funcs = context->versionFunctions<QOpenGLFunctions_3_3_Core>();         if (!funcs) {             qWarning()<< "Could not obtain required OpenGL context version";             exit(1);         }         funcs->initializeOpenGLFunctions(context);     \endcode      It is possible to request a functions object for a different version and profile     than that for which the context was created. To do this either use the template     version of this function specifying the desired functions object type as the     template parameter or by passing in a QOpenGLVersionProfile object as an argument     to the non-template function.      Note that requests for function objects of other versions or profiles can fail and     in doing so will return a null pointer. Situations in which creation of the functions     object can fail are if the request cannot be satisfied due to asking for functions     that are not in the version or profile of this context. For example:      \list         \li Requesting a 3.3 core profile functions object would succeed.         \li Requesting a 3.3 compatibility profile functions object would fail. We would fail             to resolve the deprecated functions.         \li Requesting a 4.3 core profile functions object would fail. We would fail to resolve             the new core functions introduced in versions 4.0-4.3.         \li Requesting a 3.1 functions object would succeed. There is nothing in 3.1 that is not             also in 3.3 core.     \endlist      Note that if creating a functions object via this method that the QOpenGLContext     retains ownership of the object. This is to allow the object to be cached and shared. */
 end_comment
 begin_comment
-comment|/*!     Returns a pointer to an object that provides access to all functions for     the version of the current context. Before using any of the functions     they must be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type. */
+comment|/*!     Returns a pointer to an object that provides access to all functions for the     \a versionProfile of the current context. Before using any of the functions they must     be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type. */
 end_comment
 begin_function
 DECL|function|versionFunctions
@@ -1753,7 +1753,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if this OpenGL context supports the specified OpenGL     \a extension, false otherwise.      The context or a sharing context must be current.      \sa extensions() */
+comment|/*!     Returns \c true if this OpenGL context supports the specified OpenGL     \a extension, \c false otherwise.      The context or a sharing context must be current.      \sa extensions() */
 end_comment
 begin_function
 DECL|function|hasExtension
