@@ -175,6 +175,12 @@ case|:
 return|return
 literal|true
 return|;
+case|case
+name|WindowManagement
+case|:
+return|return
+literal|false
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
