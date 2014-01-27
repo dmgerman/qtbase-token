@@ -9328,6 +9328,14 @@ name|w
 operator|%
 literal|8
 decl_stmt|;
+specifier|const
+name|uchar
+modifier|*
+name|bitflip
+init|=
+name|qt_get_bitflip_array
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -9380,8 +9388,7 @@ block|{
 operator|*
 name|a
 operator|=
-name|qt_get_bitflip_array
-argument_list|()
+name|bitflip
 index|[
 operator|*
 name|a
