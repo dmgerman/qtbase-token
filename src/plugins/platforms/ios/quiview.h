@@ -16,9 +16,6 @@ name|interface
 name|QUIView
 range|:
 name|UIView
-operator|<
-name|UIKeyInput
-operator|>
 block|{ @
 name|public
 name|UITextAutocapitalizationType
@@ -154,9 +151,20 @@ name|BOOL
 name|secureTextEntry
 decl_stmt|;
 end_decl_stmt
-begin_macro
+begin_expr_stmt
 DECL|variable|secureTextEntry
 unit|@
 name|end
-end_macro
+expr|@
+name|interface
+name|QUIView
+argument_list|(
+name|TextInput
+argument_list|)
+operator|<
+name|UIKeyInput
+operator|>
+expr|@
+name|end
+end_expr_stmt
 end_unit
