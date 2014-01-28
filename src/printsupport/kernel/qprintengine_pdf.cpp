@@ -333,10 +333,6 @@ case|case
 name|PPK_CustomBase
 case|:
 break|break;
-case|case
-name|PPK_WindowsPageSize
-case|:
-break|break;
 comment|// The following keys are properties and settings that are supported by the PDF PrintEngine
 case|case
 name|PPK_CollateCopies
@@ -608,6 +604,30 @@ block|}
 block|}
 break|break;
 block|}
+case|case
+name|PPK_WindowsPageSize
+case|:
+name|d
+operator|->
+name|m_pageLayout
+operator|.
+name|setPageSize
+argument_list|(
+name|QPageSize
+argument_list|(
+name|QPageSize
+operator|::
+name|id
+argument_list|(
+name|value
+operator|.
+name|toInt
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|PPK_PaperSource
 case|:
@@ -980,11 +1000,6 @@ name|PPK_CustomBase
 case|:
 comment|// Special case, leave null
 break|break;
-case|case
-name|PPK_WindowsPageSize
-case|:
-comment|// Special case, leave null
-break|break;
 comment|// The following keys are properties and settings that are supported by the PDF PrintEngine
 case|case
 name|PPK_CollateCopies
@@ -1141,6 +1156,22 @@ name|pageSize
 argument_list|()
 operator|.
 name|name
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|PPK_WindowsPageSize
+case|:
+name|ret
+operator|=
+name|d
+operator|->
+name|m_pageLayout
+operator|.
+name|pageSize
+argument_list|()
+operator|.
+name|windowsId
 argument_list|()
 expr_stmt|;
 break|break;

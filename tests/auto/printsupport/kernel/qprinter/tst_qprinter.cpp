@@ -10112,13 +10112,51 @@ name|windowsPageSize
 parameter_list|()
 block|{
 comment|// winPageSize() / setWinPageSize() / PPK_WindowsPageSize
-comment|// PdfFormat: ifdef'd out TODO remove ifdef
-comment|// NativeFormat, Cups: ifdef'd out TODO remove ifdef
+comment|// PdfFormat: Supported, defaults to printer default
+comment|// NativeFormat, Cups: Supported, defaults to printer default
 comment|// NativeFormat, Win: Supported, defaults to printer default
-comment|// NativeFormat, Mac: ifdef'd out TODO remove ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
+comment|// NativeFormat, Mac: Supported, defaults to printer default
+name|QPrinter
+name|pdf
+decl_stmt|;
+name|pdf
+operator|.
+name|setOutputFormat
+argument_list|(
+name|QPrinter
+operator|::
+name|PdfFormat
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|pdf
+operator|.
+name|winPageSize
+argument_list|()
+argument_list|,
+literal|9
+argument_list|)
+expr_stmt|;
+comment|// DMPAPER_A4
+name|pdf
+operator|.
+name|setWinPageSize
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// DMPAPER_LETTER
+name|QCOMPARE
+argument_list|(
+name|pdf
+operator|.
+name|winPageSize
+argument_list|()
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 name|QPrinter
 name|native
 decl_stmt|;
@@ -10163,9 +10201,10 @@ operator|.
 name|winPageSize
 argument_list|()
 argument_list|,
-name|DMPAPER_A4
+literal|9
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_A4
 name|native
 operator|.
 name|setPaperSize
@@ -10194,16 +10233,18 @@ operator|.
 name|winPageSize
 argument_list|()
 argument_list|,
-name|DMPAPER_LETTER
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_LETTER
 name|native
 operator|.
 name|setWinPageSize
 argument_list|(
-name|DMPAPER_A4
+literal|9
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_A4
 name|QCOMPARE
 argument_list|(
 name|native
@@ -10223,16 +10264,18 @@ operator|.
 name|winPageSize
 argument_list|()
 argument_list|,
-name|DMPAPER_A4
+literal|9
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_A4
 name|native
 operator|.
 name|setWinPageSize
 argument_list|(
-name|DMPAPER_LETTER
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_LETTER
 name|QCOMPARE
 argument_list|(
 name|native
@@ -10252,9 +10295,10 @@ operator|.
 name|winPageSize
 argument_list|()
 argument_list|,
-name|DMPAPER_LETTER
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_LETTER
 comment|// Test value preservation
 name|native
 operator|.
@@ -10284,9 +10328,10 @@ operator|.
 name|winPageSize
 argument_list|()
 argument_list|,
-name|DMPAPER_LETTER
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_LETTER
 name|native
 operator|.
 name|setOutputFormat
@@ -10315,9 +10360,10 @@ operator|.
 name|winPageSize
 argument_list|()
 argument_list|,
-name|DMPAPER_LETTER
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// DMPAPER_LETTER
 block|}
 else|else
 block|{
@@ -10327,9 +10373,6 @@ literal|"No printers installed, cannot test NativeFormat, please install printer
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 block|}
 end_function
 begin_comment

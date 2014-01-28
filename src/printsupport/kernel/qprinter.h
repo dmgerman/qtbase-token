@@ -1061,11 +1061,6 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-end_ifdef
 begin_function_decl
 name|void
 name|setWinPageSize
@@ -1082,10 +1077,6 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|QRect
 name|paperRect

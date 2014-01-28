@@ -3849,16 +3849,8 @@ name|printEngine
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-end_if
 begin_comment
-comment|/*!     \obsolete Use QPageSize::id(windowsId) and setPageLayout(QPageSize) instead.      Sets the page size to be used by the printer under Windows to \a     pageSize.      \warning This function is not portable so you may prefer to use     setPaperSize() instead.      \sa pageLayout() */
+comment|/*!     \obsolete Use QPageSize::id(windowsId) and setPageLayout(QPageSize) instead.      Sets the page size to be used by the printer under Windows to \a     pageSize.      \sa pageLayout() */
 end_comment
 begin_function
 DECL|function|setWinPageSize
@@ -3895,7 +3887,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete Use pageLayout.pageSize().windowsId() instead.      Returns the page size used by the printer under Windows.      \warning This function is not portable so you may prefer to use     paperSize() instead.      \sa pageLayout() */
+comment|/*!     \obsolete Use pageLayout.pageSize().windowsId() instead.      Returns the page size used by the printer under Windows.      \sa pageLayout() */
 end_comment
 begin_function
 DECL|function|winPageSize
@@ -3929,13 +3921,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_WIN
-end_comment
 begin_comment
 comment|/*!     Returns a list of the resolutions (a list of dots-per-inch     integers) that the printer says it supports.      For X11 where all printing is directly to PDF, this     function will always return a one item list containing only the     PDF resolution, i.e., 72 (72 dpi -- but see PrinterMode). */
 end_comment
