@@ -11949,7 +11949,7 @@ name|paperSizes
 operator|.
 name|at
 argument_list|(
-name|paperSize
+name|i
 argument_list|)
 operator|.
 name|first
