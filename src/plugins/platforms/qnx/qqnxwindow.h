@@ -341,10 +341,6 @@ name|QQnxAbstractCover
 operator|>
 name|m_cover
 block|;
-name|QQnxWindow
-operator|*
-name|m_parentWindow
-block|;
 name|private
 operator|:
 name|void
@@ -399,6 +395,10 @@ block|;
 name|QQnxScreen
 operator|*
 name|m_screen
+block|;
+name|QQnxWindow
+operator|*
+name|m_parentWindow
 block|;
 name|QList
 operator|<

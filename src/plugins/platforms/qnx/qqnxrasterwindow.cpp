@@ -531,7 +531,11 @@ specifier|const
 name|QSize
 name|windowSize
 init|=
-name|m_parentWindow
+name|window
+argument_list|()
+operator|->
+name|parent
+argument_list|()
 condition|?
 name|QSize
 argument_list|(

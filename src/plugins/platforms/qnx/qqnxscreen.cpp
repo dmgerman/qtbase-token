@@ -3139,7 +3139,7 @@ name|windowName
 operator|.
 name|startsWith
 argument_list|(
-literal|"BbVideoWindowControl"
+literal|"MmRendererVideoWindowControl"
 argument_list|)
 condition|)
 block|{
