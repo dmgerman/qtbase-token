@@ -6134,6 +6134,16 @@ operator|&&
 operator|!
 name|w
 operator|->
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_DontShowOnScreen
+argument_list|)
+operator|&&
+operator|!
+name|w
+operator|->
 name|data
 operator|->
 name|is_closing
