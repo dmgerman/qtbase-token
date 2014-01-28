@@ -138,6 +138,31 @@ name|rect
 argument_list|)
 block|;
 name|void
+name|clipChildWindows
+argument_list|()
+block|;
+name|void
+name|clipWindow
+argument_list|(
+specifier|const
+name|NSRect
+operator|&
+name|clipRect
+argument_list|)
+block|;
+name|void
+name|show
+argument_list|(
+argument|bool becauseOfAncestor = false
+argument_list|)
+block|;
+name|void
+name|hide
+argument_list|(
+argument|bool becauseOfAncestor = false
+argument_list|)
+block|;
+name|void
 name|setVisible
 argument_list|(
 argument|bool visible
@@ -450,8 +475,6 @@ argument_list|)
 block|;
 name|protected
 operator|:
-comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
-comment|// in an existing NSWindow or in one created by Qt.
 name|void
 name|recreateWindow
 argument_list|(
@@ -499,6 +522,22 @@ argument_list|(
 argument|Qt::WindowState newState
 argument_list|)
 block|;
+name|void
+name|reinsertChildWindow
+argument_list|(
+name|QCocoaWindow
+operator|*
+name|child
+argument_list|)
+block|;
+name|void
+name|removeChildWindow
+argument_list|(
+name|QCocoaWindow
+operator|*
+name|child
+argument_list|)
+block|;
 comment|// private:
 name|public
 operator|:
@@ -523,6 +562,10 @@ name|QNSWindow
 operator|*
 name|m_nsWindow
 block|;
+name|QCocoaWindow
+operator|*
+name|m_forwardWindow
+block|;
 comment|// TODO merge to one variable if possible
 name|bool
 name|m_contentViewIsEmbedded
@@ -535,6 +578,17 @@ comment|// true if the m_contentView is intended to be embedded in a "foreign" N
 name|QCocoaWindow
 operator|*
 name|m_parentCocoaWindow
+block|;
+name|bool
+name|m_isNSWindowChild
+block|;
+comment|// this window is a non-top level QWindow with a NSWindow.
+name|QList
+operator|<
+name|QCocoaWindow
+operator|*
+operator|>
+name|m_childWindows
 block|;
 name|QNSWindowDelegate
 operator|*
@@ -608,6 +662,12 @@ name|m_resizableTransientParent
 block|;
 name|bool
 name|m_overrideBecomeKey
+block|;
+name|bool
+name|m_hiddenByClipping
+block|;
+name|bool
+name|m_hiddenByAncestor
 block|;
 specifier|static
 specifier|const
