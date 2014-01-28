@@ -17338,13 +17338,10 @@ name|qmakeVars
 operator|+=
 literal|"QT_LFLAGS_SQLITE += "
 operator|+
-name|formatPath
-argument_list|(
 name|dictionary
 index|[
 literal|"QT_LFLAGS_SQLITE"
 index|]
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
