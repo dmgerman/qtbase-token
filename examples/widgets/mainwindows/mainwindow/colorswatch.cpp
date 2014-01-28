@@ -4303,11 +4303,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|mousePressEvent
+DECL|function|mouseReleaseEvent
 name|void
 name|BlueTitleBar
 operator|::
-name|mousePressEvent
+name|mouseReleaseEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
