@@ -6938,6 +6938,18 @@ name|Qt
 operator|::
 name|NoButton
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|e
+operator|->
+name|window
+operator|.
+name|isNull
+argument_list|()
+condition|)
+block|{
+comment|// QTBUG-36364, check if window closed in response to press
 specifier|const
 name|QEvent
 operator|::
@@ -7003,6 +7015,7 @@ operator|&
 name|dblClickEvent
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
