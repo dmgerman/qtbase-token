@@ -3432,6 +3432,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+comment|//: Accessible name for button undocking a dock widget (floating state)
 name|button
 operator|->
 name|setAccessibleName
@@ -3511,6 +3512,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+comment|//: Accessible name for button closing a dock widget
 name|button
 operator|->
 name|setAccessibleName
