@@ -2833,7 +2833,6 @@ operator|.
 name|value
 argument_list|()
 argument_list|,
-operator|-
 name|QFixed
 argument_list|(
 name|y_ppem

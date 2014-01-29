@@ -25,6 +25,16 @@ file|<ApplicationServices/ApplicationServices.h>
 end_include
 begin_function_decl
 name|HB_BEGIN_DECLS
+DECL|macro|HB_CORETEXT_TAG_MORT
+define|#
+directive|define
+name|HB_CORETEXT_TAG_MORT
+value|HB_TAG('m','o','r','t')
+DECL|macro|HB_CORETEXT_TAG_MORX
+define|#
+directive|define
+name|HB_CORETEXT_TAG_MORX
+value|HB_TAG('m','o','r','x')
 name|CGFontRef
 name|hb_coretext_face_get_cg_font
 parameter_list|(
