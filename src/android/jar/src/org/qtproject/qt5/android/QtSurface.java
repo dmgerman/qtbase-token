@@ -132,11 +132,6 @@ name|m_accessibilityDelegate
 init|=
 literal|null
 decl_stmt|;
-DECL|field|m_onTop
-specifier|private
-name|boolean
-name|m_onTop
-decl_stmt|;
 DECL|method|QtSurface
 specifier|public
 name|QtSurface
@@ -165,10 +160,6 @@ name|setFocusableInTouchMode
 argument_list|(
 literal|false
 argument_list|)
-expr_stmt|;
-name|m_onTop
-operator|=
-name|onTop
 expr_stmt|;
 name|setZOrderMediaOverlay
 argument_list|(
