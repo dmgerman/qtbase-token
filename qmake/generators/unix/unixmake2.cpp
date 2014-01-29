@@ -7152,7 +7152,14 @@ name|dir_sep
 expr_stmt|;
 name|t
 operator|<<
-literal|"distclean: clean\n"
+literal|"distclean: clean "
+operator|<<
+name|var
+argument_list|(
+literal|"DISTCLEAN_DEPS"
+argument_list|)
+operator|<<
+literal|'\n'
 expr_stmt|;
 if|if
 condition|(

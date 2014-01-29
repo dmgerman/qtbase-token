@@ -4335,7 +4335,12 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"distclean: clean"
+literal|"distclean: clean "
+operator|<<
+name|var
+argument_list|(
+literal|"DISTCLEAN_DEPS"
+argument_list|)
 expr_stmt|;
 block|{
 specifier|const

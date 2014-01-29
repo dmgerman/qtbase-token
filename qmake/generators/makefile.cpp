@@ -19761,6 +19761,26 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|suffix
+operator|==
+literal|"distclean"
+condition|)
+name|t
+operator|<<
+name|varGlue
+argument_list|(
+literal|"DISTCLEAN_DEPS"
+argument_list|,
+literal|" "
+argument_list|,
+literal|" "
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 name|t
 operator|<<
 literal|" FORCE\n"
