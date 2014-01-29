@@ -85,6 +85,15 @@ name|windowFlags
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setParent
+argument_list|(
+specifier|const
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|)
+block|;
 name|WId
 name|winId
 argument_list|()
