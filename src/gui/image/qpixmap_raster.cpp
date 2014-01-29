@@ -965,7 +965,7 @@ block|}
 block|}
 name|pixel
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|color
 operator|.

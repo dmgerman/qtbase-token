@@ -1252,7 +1252,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*    Define Q_PROCESSOR_WORDSIZE to be the size of the machine's word (usually,    the size of the register). On some architectures where a pointer could be    smaller than the register, the macro is defined above.     Try our best to define it to a literal, so it can be used in the preprocessor,    but fall back to sizeof(void*) on practically every 32-bit build. */
+comment|/*    Define Q_PROCESSOR_WORDSIZE to be the size of the machine's word (usually,    the size of the register). On some architectures where a pointer could be    smaller than the register, the macro is defined above.     Falls back to QT_POINTER_SIZE if not set explicitly for the platform. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -1313,7 +1313,7 @@ DECL|macro|Q_PROCESSOR_WORDSIZE
 define|#
 directive|define
 name|Q_PROCESSOR_WORDSIZE
-value|sizeof(void*)
+value|QT_POINTER_SIZE
 end_define
 begin_endif
 endif|#

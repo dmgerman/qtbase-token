@@ -2614,7 +2614,7 @@ specifier|const
 name|uint
 name|color
 init|=
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|src
 index|[
@@ -3937,7 +3937,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 operator|(
 name|alpha
@@ -4470,7 +4470,7 @@ index|[
 name|i
 index|]
 operator|=
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|src
 index|[
@@ -5011,7 +5011,7 @@ index|]
 operator|=
 name|qConvertRgb32To16
 argument_list|(
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|src
 index|[
@@ -5082,7 +5082,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|clut
 index|[
@@ -5180,7 +5180,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|src
 index|[
@@ -5304,7 +5304,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|RGBA2ARGB
 argument_list|(
@@ -5369,7 +5369,7 @@ index|[
 name|i
 index|]
 operator|=
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|src
 index|[
@@ -5495,7 +5495,7 @@ index|]
 operator|=
 name|ARGB2RGBA
 argument_list|(
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|src
 index|[
@@ -5626,7 +5626,7 @@ name|ARGB2RGBA
 argument_list|(
 literal|0xff000000
 operator||
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|src
 index|[
@@ -7932,7 +7932,7 @@ block|{
 name|QRgb
 name|color_0
 init|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|rbuf
 operator|->
@@ -7942,7 +7942,7 @@ decl_stmt|;
 name|QRgb
 name|color_1
 init|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|rbuf
 operator|->
@@ -7951,7 +7951,7 @@ argument_list|)
 decl_stmt|;
 name|color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|color
 argument_list|)
@@ -43613,7 +43613,7 @@ name|buffer
 argument_list|()
 argument_list|)
 argument_list|,
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|color
 argument_list|)
@@ -43743,7 +43743,7 @@ argument_list|)
 argument_list|,
 name|ARGB2RGBA
 argument_list|(
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|color
 argument_list|)

@@ -4499,7 +4499,7 @@ name|Format_RGBA8888_Premultiplied
 condition|)
 name|pixel
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|pixel
 argument_list|)
@@ -6791,12 +6791,7 @@ index|[
 name|x
 index|]
 operator|=
-name|uint
-argument_list|(
-literal|255
-operator|<<
-literal|24
-argument_list|)
+literal|0xff000000
 operator||
 name|index_or_rgb
 expr_stmt|;
@@ -6837,7 +6832,7 @@ index|]
 operator|=
 name|qConvertRgb32To16
 argument_list|(
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|index_or_rgb
 argument_list|)
@@ -6860,9 +6855,9 @@ index|]
 operator|=
 name|ARGB2RGBA
 argument_list|(
-name|index_or_rgb
-operator||
 literal|0xff000000
+operator||
+name|index_or_rgb
 argument_list|)
 expr_stmt|;
 return|return;

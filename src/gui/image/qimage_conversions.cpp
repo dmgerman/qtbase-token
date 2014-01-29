@@ -557,7 +557,6 @@ name|uchar
 modifier|*
 name|qt_get_bitflip_array
 parameter_list|()
-comment|// called from QPixmap code
 block|{
 return|return
 name|bitflip
@@ -1402,7 +1401,7 @@ block|{
 operator|*
 name|dest_data
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 operator|*
 name|src_data
@@ -2262,7 +2261,7 @@ name|dest_data
 operator|=
 name|ARGB2RGBA
 argument_list|(
-name|PREMUL
+name|qPremultiply
 argument_list|(
 operator|*
 name|src_data
@@ -2827,7 +2826,7 @@ block|{
 operator|*
 name|dest_data
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|RGBA2ARGB
 argument_list|(
@@ -2946,7 +2945,7 @@ block|{
 operator|*
 name|rgb_data
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|RGBA2ARGB
 argument_list|(
@@ -3208,7 +3207,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|data
 operator|->
@@ -4505,7 +4504,7 @@ block|{
 operator|*
 name|dest_data
 operator|=
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 operator|*
 name|src_data
@@ -4706,7 +4705,7 @@ name|dest_data
 operator|=
 literal|0xff000000
 operator||
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 operator|*
 name|src_data
@@ -4893,7 +4892,7 @@ name|ARGB2RGBA
 argument_list|(
 literal|0xff000000
 operator||
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 operator|*
 name|src_data
@@ -5079,7 +5078,7 @@ name|dest_data
 operator|=
 name|ARGB2RGBA
 argument_list|(
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 operator|*
 name|src_data
@@ -5659,7 +5658,7 @@ block|{
 operator|*
 name|dest_data
 operator|=
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|RGBA2ARGB
 argument_list|(
@@ -5847,7 +5846,7 @@ name|dest_data
 operator|=
 literal|0xff000000
 operator||
-name|INV_PREMUL
+name|qUnpremultiply
 argument_list|(
 name|RGBA2ARGB
 argument_list|(
@@ -6506,7 +6505,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|colorTable
 operator|.

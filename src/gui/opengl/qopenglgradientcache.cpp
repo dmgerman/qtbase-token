@@ -768,7 +768,7 @@ index|]
 operator|=
 name|ARGB2RGBA
 argument_list|(
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|current_color
 argument_list|)
@@ -812,7 +812,7 @@ name|colorInterpolation
 condition|)
 name|current_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|current_color
 argument_list|)
@@ -881,7 +881,7 @@ name|colorInterpolation
 condition|)
 name|next_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|next_color
 argument_list|)
@@ -965,7 +965,7 @@ index|]
 operator|=
 name|ARGB2RGBA
 argument_list|(
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|INTERPOLATE_PIXEL_256
 argument_list|(
@@ -1008,7 +1008,7 @@ name|last_color
 init|=
 name|ARGB2RGBA
 argument_list|(
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|ARGB_COMBINE_ALPHA
 argument_list|(
