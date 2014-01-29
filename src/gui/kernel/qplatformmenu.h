@@ -436,6 +436,13 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|virtual
+name|QPlatformMenuItem
+operator|*
+name|createMenuItem
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

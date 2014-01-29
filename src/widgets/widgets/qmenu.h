@@ -573,6 +573,14 @@ operator|*
 name|platformMenu
 argument_list|()
 block|;
+name|void
+name|setPlatformMenu
+argument_list|(
+name|QPlatformMenu
+operator|*
+name|platformMenu
+argument_list|)
+block|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
