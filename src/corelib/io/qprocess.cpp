@@ -410,6 +410,8 @@ name|QLatin1Char
 argument_list|(
 literal|'='
 argument_list|)
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
 if|if
