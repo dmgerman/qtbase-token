@@ -151,6 +151,16 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|protected
+operator|:
+name|void
+name|timerEvent
+argument_list|(
+name|QTimerEvent
+operator|*
+name|event
+argument_list|)
+block|;
 if|#
 directive|if
 name|defined
@@ -276,7 +286,9 @@ name|m_eventThread
 block|;
 endif|#
 directive|endif
-block|}
+name|int
+name|m_focusLostTimer
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
