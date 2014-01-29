@@ -11262,6 +11262,7 @@ name|feCache
 operator|.
 name|prevScaledFontEngine
 condition|)
+block|{
 name|releaseCachedFontEngine
 argument_list|(
 name|feCache
@@ -11269,6 +11270,13 @@ operator|.
 name|prevScaledFontEngine
 argument_list|)
 expr_stmt|;
+name|feCache
+operator|.
+name|prevScaledFontEngine
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
