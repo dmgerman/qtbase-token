@@ -287,6 +287,16 @@ operator|&
 name|fontDef
 argument_list|)
 block|;
+specifier|static
+name|QStringList
+name|extraTryFontsForFamily
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|family
+argument_list|)
+block|;
 name|private
 operator|:
 name|void

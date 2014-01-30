@@ -89,21 +89,6 @@ name|defaultFont
 argument_list|()
 specifier|const
 block|;
-specifier|static
-name|HFONT
-name|systemFont
-argument_list|()
-block|;
-specifier|static
-name|QFont
-name|LOGFONT_to_QFont
-argument_list|(
-argument|const LOGFONT& lf
-argument_list|,
-argument|int verticalDPI =
-literal|0
-argument_list|)
-block|;
 name|private
 operator|:
 name|void

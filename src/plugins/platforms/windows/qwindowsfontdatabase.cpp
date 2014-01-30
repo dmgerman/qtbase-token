@@ -7898,8 +7898,9 @@ block|}
 end_function
 begin_function
 DECL|function|extraTryFontsForFamily
-specifier|static
 name|QStringList
+name|QWindowsFontDatabase
+operator|::
 name|extraTryFontsForFamily
 parameter_list|(
 specifier|const
@@ -8257,6 +8258,8 @@ name|result
 operator|.
 name|append
 argument_list|(
+name|QWindowsFontDatabase
+operator|::
 name|extraTryFontsForFamily
 argument_list|(
 name|family
@@ -9176,9 +9179,12 @@ name|NoFontMerging
 operator|)
 condition|)
 block|{
+specifier|const
 name|QStringList
 name|extraFonts
 init|=
+name|QWindowsFontDatabase
+operator|::
 name|extraTryFontsForFamily
 argument_list|(
 name|request
@@ -9433,7 +9439,9 @@ name|qFont
 operator|.
 name|setUnderline
 argument_list|(
-literal|false
+name|logFont
+operator|.
+name|lfUnderline
 argument_list|)
 expr_stmt|;
 name|qFont
@@ -9447,7 +9455,9 @@ name|qFont
 operator|.
 name|setStrikeOut
 argument_list|(
-literal|false
+name|logFont
+operator|.
+name|lfStrikeOut
 argument_list|)
 expr_stmt|;
 return|return
