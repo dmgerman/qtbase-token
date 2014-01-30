@@ -7040,7 +7040,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Draws the row in the tree view that contains the model item \a index,     using the \a painter given. The \a option control how the item is     displayed.      \sa setAlternatingRowColors() */
+comment|/*!     Draws the row in the tree view that contains the model item \a index,     using the \a painter given. The \a option controls how the item is     displayed.      \sa setAlternatingRowColors() */
 end_comment
 begin_function
 DECL|function|drawRow
