@@ -11210,13 +11210,6 @@ argument_list|(
 name|QColorDialog
 argument_list|)
 expr_stmt|;
-name|QDialog
-operator|::
-name|done
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|result
@@ -11252,6 +11245,13 @@ name|QColor
 argument_list|()
 expr_stmt|;
 block|}
+name|QDialog
+operator|::
+name|done
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|d
