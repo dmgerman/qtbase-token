@@ -2,6 +2,17 @@ begin_unit
 begin_comment
 comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
+begin_comment
+comment|// We have to include this before the X11 headers dragged in by
+end_comment
+begin_comment
+comment|// qglxconvenience_p.h.
+end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/QByteArray>
+end_include
 begin_include
 include|#
 directive|include
@@ -546,6 +557,69 @@ name|int
 name|drawableBit
 parameter_list|)
 block|{
+comment|// Allow forcing LIBGL_ALWAYS_SOFTWARE for Qt 5 applications only.
+comment|// This is most useful with drivers that only support OpenGL 1.
+comment|// We need OpenGL 2, but the user probably doesn't want
+comment|// LIBGL_ALWAYS_SOFTWARE in OpenGL 1 apps.
+specifier|static
+name|bool
+name|checkedForceSoftwareOpenGL
+init|=
+literal|false
+decl_stmt|;
+specifier|static
+name|bool
+name|forceSoftwareOpenGL
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|checkedForceSoftwareOpenGL
+condition|)
+block|{
+comment|// If LIBGL_ALWAYS_SOFTWARE is already set, don't mess with it.
+comment|// We want to unset LIBGL_ALWAYS_SOFTWARE at the end so it does not
+comment|// get inherited by other processes, of course only if it wasn't
+comment|// already set before.
+if|if
+condition|(
+operator|!
+name|qEnvironmentVariableIsEmpty
+argument_list|(
+literal|"QT_XCB_FORCE_SOFTWARE_OPENGL"
+argument_list|)
+operator|&&
+operator|!
+name|qEnvironmentVariableIsSet
+argument_list|(
+literal|"LIBGL_ALWAYS_SOFTWARE"
+argument_list|)
+condition|)
+name|forceSoftwareOpenGL
+operator|=
+literal|true
+expr_stmt|;
+name|checkedForceSoftwareOpenGL
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|forceSoftwareOpenGL
+condition|)
+name|qputenv
+argument_list|(
+literal|"LIBGL_ALWAYS_SOFTWARE"
+argument_list|,
+name|QByteArrayLiteral
+argument_list|(
+literal|"1"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|bool
 name|reduced
 init|=
@@ -767,6 +841,16 @@ name|reduced
 argument_list|)
 expr_stmt|;
 block|}
+comment|// unset LIBGL_ALWAYS_SOFTWARE now so other processes don't inherit it
+if|if
+condition|(
+name|forceSoftwareOpenGL
+condition|)
+name|qunsetenv
+argument_list|(
+literal|"LIBGL_ALWAYS_SOFTWARE"
+argument_list|)
+expr_stmt|;
 return|return
 name|chosenConfig
 return|;
