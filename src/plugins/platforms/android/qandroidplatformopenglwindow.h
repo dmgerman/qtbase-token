@@ -143,10 +143,7 @@ operator|-
 literal|1
 decl_stmt|;
 name|QJNIObjectPrivate
-name|m_androidSurface
-decl_stmt|;
-name|QJNIObjectPrivate
-name|m_changedAndroidSurface
+name|m_androidSurfaceObject
 decl_stmt|;
 name|QWaitCondition
 name|m_surfaceWaitCondition
