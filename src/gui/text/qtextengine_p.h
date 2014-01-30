@@ -2737,6 +2737,10 @@ name|QScriptLineArray
 name|lines
 decl_stmt|;
 end_decl_stmt
+begin_label
+name|private
+label|:
+end_label
 begin_struct
 struct|struct
 name|FontEngineCache
@@ -2804,6 +2808,10 @@ name|FontEngineCache
 name|feCache
 decl_stmt|;
 end_decl_stmt
+begin_label
+name|public
+label|:
+end_label
 begin_decl_stmt
 name|QString
 name|text
