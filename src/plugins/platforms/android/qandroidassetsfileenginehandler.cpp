@@ -1062,6 +1062,11 @@ name|assetDir
 argument_list|)
 condition|)
 block|{
+name|AAssetDir_rewind
+argument_list|(
+name|assetDir
+argument_list|)
+expr_stmt|;
 name|aad
 operator|=
 operator|new
