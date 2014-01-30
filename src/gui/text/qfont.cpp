@@ -7365,14 +7365,14 @@ name|fixedPitch
 operator|=
 name|g
 operator|.
-name|advances_x
+name|advances
 index|[
 literal|0
 index|]
 operator|==
 name|g
 operator|.
-name|advances_x
+name|advances
 index|[
 literal|1
 index|]

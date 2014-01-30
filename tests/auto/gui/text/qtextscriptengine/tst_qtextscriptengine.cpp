@@ -6711,7 +6711,7 @@ argument_list|(
 name|Q_OS_UNIX
 argument_list|)
 comment|// ### the test is incorrect -> disable for now
-block|QString s;     s.append(QChar(0x0915));     s.append(QChar(0x094d));     s.append(QChar(0x200d));     s.append(QChar(0x0915));      QTextLayout layout(s);     QTextEngine *e = layout.engine();     e->itemize();     e->shape(0);      QCOMPARE(e->layoutData->items[0].num_glyphs, ushort(2));     QVERIFY(e->layoutData->glyphLayout.advances_x[1] != 0);
+block|QString s;     s.append(QChar(0x0915));     s.append(QChar(0x094d));     s.append(QChar(0x200d));     s.append(QChar(0x0915));      QTextLayout layout(s);     QTextEngine *e = layout.engine();     e->itemize();     e->shape(0);      QCOMPARE(e->layoutData->items[0].num_glyphs, ushort(2));     QVERIFY(e->layoutData->glyphLayout.advances[1].toInt() != 0);
 endif|#
 directive|endif
 block|}
@@ -6827,16 +6827,7 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-23064"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|e
 operator|->
@@ -6844,11 +6835,14 @@ name|layoutData
 operator|->
 name|glyphLayout
 operator|.
-name|advances_y
+name|advances
 index|[
 literal|2
 index|]
-operator|>
+operator|.
+name|toInt
+argument_list|()
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -6959,7 +6953,7 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|e
 operator|->
@@ -6967,11 +6961,14 @@ name|layoutData
 operator|->
 name|glyphLayout
 operator|.
-name|advances_x
+name|advances
 index|[
 literal|1
 index|]
-operator|==
+operator|.
+name|toInt
+argument_list|()
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

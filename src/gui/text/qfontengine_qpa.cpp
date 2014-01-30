@@ -2031,7 +2031,7 @@ continue|continue;
 block|}
 name|glyphs
 operator|->
-name|advances_x
+name|advances
 index|[
 name|i
 index|]
@@ -2039,15 +2039,6 @@ operator|=
 name|g
 operator|->
 name|advance
-expr_stmt|;
-name|glyphs
-operator|->
-name|advances_y
-index|[
-name|i
-index|]
-operator|=
-literal|0
 expr_stmt|;
 block|}
 block|}

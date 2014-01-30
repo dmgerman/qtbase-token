@@ -1475,7 +1475,7 @@ name|width
 operator|+=
 name|glyphs
 operator|.
-name|advances_x
+name|advances
 index|[
 name|i
 index|]
@@ -1654,7 +1654,7 @@ name|qRound
 argument_list|(
 name|glyphs
 operator|.
-name|advances_x
+name|advances
 index|[
 literal|0
 index|]
@@ -1926,7 +1926,7 @@ name|qRound
 argument_list|(
 name|glyphs
 operator|.
-name|advances_x
+name|advances
 index|[
 literal|0
 index|]
@@ -4167,7 +4167,7 @@ expr_stmt|;
 return|return
 name|glyphs
 operator|.
-name|advances_x
+name|advances
 index|[
 literal|0
 index|]
