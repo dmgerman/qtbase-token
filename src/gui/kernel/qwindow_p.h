@@ -242,6 +242,10 @@ name|QWindowPrivate
 argument_list|()
 block|{     }
 name|void
+name|init
+argument_list|()
+block|;
+name|void
 name|maybeQuitOnLastWindowClosed
 argument_list|()
 block|;
