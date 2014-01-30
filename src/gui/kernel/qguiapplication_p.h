@@ -1023,6 +1023,11 @@ modifier|*
 name|inputMethod
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|QString
+name|firstWindowTitle
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 specifier|static
 name|QList
