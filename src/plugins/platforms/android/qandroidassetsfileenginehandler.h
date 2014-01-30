@@ -70,6 +70,10 @@ specifier|const
 block|;
 name|private
 operator|:
+name|void
+name|prepopulateCache
+argument_list|()
+block|;
 name|AAssetManager
 operator|*
 name|m_assetManager
@@ -88,6 +92,9 @@ block|;
 name|mutable
 name|QMutex
 name|m_assetsCacheMutext
+block|;
+name|bool
+name|m_hasPrepopulatedCache
 block|; }
 decl_stmt|;
 end_decl_stmt
