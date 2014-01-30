@@ -366,6 +366,13 @@ directive|define
 name|HB_TAG_NONE
 value|HB_TAG(0,0,0,0)
 end_define
+begin_define
+DECL|macro|HB_TAG_MAX
+define|#
+directive|define
+name|HB_TAG_MAX
+value|HB_TAG(0xff,0xff,0xff,0xff)
+end_define
 begin_comment
 comment|/* len=-1 means str is NUL-terminated. */
 end_comment
@@ -2144,6 +2151,13 @@ comment|/*---*/
 name|HB_SCRIPT_INVALID
 init|=
 name|HB_TAG_NONE
+block|,
+comment|/* Dummy value to ensure any hb_tag_t value can be passed/stored as hb_script_t    * without risking undefined behavior. */
+DECL|enumerator|_HB_SCRIPT_MAX_VALUE
+comment|/*---*/
+name|_HB_SCRIPT_MAX_VALUE
+init|=
+name|HB_TAG_MAX
 block|}
 DECL|typedef|hb_script_t
 name|hb_script_t

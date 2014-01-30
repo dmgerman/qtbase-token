@@ -55,6 +55,25 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_DEBUG
+argument_list|)
+end_if
+begin_define
+DECL|macro|NDEBUG
+define|#
+directive|define
+name|NDEBUG
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// because strdup() is not part of strict Posix, declare it here
 end_comment

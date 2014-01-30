@@ -605,24 +605,6 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|hb_ot_shape_plan_collect_lookups
-parameter_list|(
-name|hb_shape_plan_t
-modifier|*
-name|shape_plan
-parameter_list|,
-name|hb_tag_t
-name|table_tag
-parameter_list|,
-name|hb_set_t
-modifier|*
-name|lookup_indexes
-comment|/* OUT */
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
 name|hb_ot_layout_lookup_collect_glyphs
 parameter_list|(
 name|hb_face_t
