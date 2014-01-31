@@ -213,6 +213,7 @@ operator|::
 name|PixelType
 name|sourceType
 argument_list|,
+specifier|const
 name|void
 operator|*
 name|data
@@ -241,6 +242,7 @@ argument_list|,
 name|int
 name|dataSize
 argument_list|,
+specifier|const
 name|void
 operator|*
 name|data
