@@ -1291,6 +1291,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|level
 argument_list|,
 name|format
@@ -1357,6 +1359,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|level
 argument_list|,
@@ -1435,6 +1439,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|level
 argument_list|,
 name|format
@@ -1511,6 +1517,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|level
 argument_list|,
@@ -1602,6 +1610,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|level
 argument_list|,
 name|format
@@ -1692,6 +1702,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|level
 argument_list|,
@@ -1776,6 +1788,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|samples
 argument_list|,
 name|format
@@ -1837,6 +1851,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|samples
 argument_list|,
@@ -1913,6 +1929,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevels
 argument_list|,
 name|format
@@ -1948,6 +1966,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevels
 argument_list|,
@@ -1995,6 +2015,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevels
 argument_list|,
 name|format
@@ -2035,6 +2057,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevels
 argument_list|,
@@ -2089,6 +2113,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevels
 argument_list|,
@@ -2145,6 +2171,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevels
 argument_list|,
 name|format
@@ -2200,6 +2228,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|samples
 argument_list|,
@@ -2262,6 +2292,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|samples
 argument_list|,
@@ -2368,6 +2400,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevel
 argument_list|,
 literal|0
@@ -2409,6 +2443,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -2459,6 +2495,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -2513,6 +2551,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -2571,6 +2611,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -2637,6 +2679,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|cubeFace
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -2706,6 +2750,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevel
 argument_list|,
 literal|0
@@ -2774,6 +2820,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 literal|0
 argument_list|,
@@ -2912,6 +2960,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevel
 argument_list|,
 literal|0
@@ -2953,6 +3003,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -3003,6 +3055,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -3057,6 +3111,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -3115,6 +3171,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -3181,6 +3239,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|cubeFace
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|mipLevel
 argument_list|,
@@ -3250,6 +3310,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|mipLevel
 argument_list|,
 literal|0
@@ -3318,6 +3380,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 literal|0
 argument_list|,
@@ -3443,6 +3507,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
 name|mode
@@ -3504,6 +3570,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
 name|mode
@@ -3516,6 +3584,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_WRAP_T
 argument_list|,
@@ -3553,6 +3623,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
 name|mode
@@ -3566,6 +3638,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_WRAP_T
 argument_list|,
 name|mode
@@ -3578,6 +3652,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_WRAP_R
 argument_list|,
@@ -3651,6 +3727,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
 name|mode
@@ -3735,6 +3813,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
 name|mode
@@ -3760,6 +3840,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_WRAP_T
 argument_list|,
@@ -3810,6 +3892,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|direction
 argument_list|,
 name|mode
@@ -3836,6 +3920,8 @@ name|textureId
 argument_list|,
 name|target
 argument_list|,
+name|bindingTarget
+argument_list|,
 name|direction
 argument_list|,
 name|mode
@@ -3861,6 +3947,8 @@ argument_list|(
 name|textureId
 argument_list|,
 name|target
+argument_list|,
+name|bindingTarget
 argument_list|,
 name|direction
 argument_list|,
@@ -8458,6 +8546,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_BASE_LEVEL
 argument_list|,
 name|baseLevel
@@ -8575,6 +8667,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_MAX_LEVEL
 argument_list|,
 name|maxLevel
@@ -8690,6 +8786,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_BASE_LEVEL
 argument_list|,
 name|baseLevel
@@ -8708,6 +8808,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_MAX_LEVEL
 argument_list|,
@@ -8867,6 +8971,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|)
 expr_stmt|;
 block|}
@@ -8937,6 +9045,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|)
 expr_stmt|;
 if|if
@@ -9048,6 +9160,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|component
 argument_list|,
@@ -9231,6 +9347,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_SWIZZLE_RGBA
 argument_list|,
 name|swizzleMask
@@ -9395,6 +9515,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_DEPTH_STENCIL_TEXTURE_MODE
 argument_list|,
 name|mode
@@ -9503,6 +9627,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_MIN_FILTER
 argument_list|,
 name|filter
@@ -9596,6 +9724,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_MAG_FILTER
 argument_list|,
@@ -9702,6 +9834,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_MIN_FILTER
 argument_list|,
 name|minificationFilter
@@ -9720,6 +9856,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_MAG_FILTER
 argument_list|,
@@ -9855,6 +9995,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_MAX_ANISOTROPY_EXT
 argument_list|,
@@ -10169,6 +10313,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_BORDER_COLOR
 argument_list|,
 name|values
@@ -10327,6 +10475,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_BORDER_COLOR
 argument_list|,
@@ -10501,6 +10653,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_BORDER_COLOR
 argument_list|,
@@ -10688,6 +10844,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_BORDER_COLOR
 argument_list|,
@@ -11201,6 +11361,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_MIN_LOD
 argument_list|,
 name|value
@@ -11320,6 +11484,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_MAX_LOD
 argument_list|,
@@ -11448,6 +11616,10 @@ name|d
 operator|->
 name|target
 argument_list|,
+name|d
+operator|->
+name|bindingTarget
+argument_list|,
 name|GL_TEXTURE_MIN_LOD
 argument_list|,
 name|min
@@ -11466,6 +11638,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_MAX_LOD
 argument_list|,
@@ -11594,6 +11770,10 @@ argument_list|,
 name|d
 operator|->
 name|target
+argument_list|,
+name|d
+operator|->
+name|bindingTarget
 argument_list|,
 name|GL_TEXTURE_LOD_BIAS
 argument_list|,
