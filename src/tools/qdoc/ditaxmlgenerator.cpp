@@ -2101,14 +2101,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Traverses the database generating all the DITA XML documentation.  */
+comment|/*!   Traverses the current tree generating all the DITA XML documentation.  */
 end_comment
 begin_function
-DECL|function|generateTree
+DECL|function|generateDocs
 name|void
 name|DitaXmlGenerator
 operator|::
-name|generateTree
+name|generateDocs
 parameter_list|()
 block|{
 name|qdb_
@@ -2125,7 +2125,7 @@ condition|)
 block|{
 name|Generator
 operator|::
-name|generateTree
+name|generateDocs
 argument_list|()
 expr_stmt|;
 name|generateCollisionPages
@@ -16057,7 +16057,7 @@ name|children
 init|=
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 operator|->
 name|childNodes
@@ -28891,7 +28891,7 @@ comment|/*     Remove #if 0 to get a flat ditamap. */
 if|#
 directive|if
 literal|0
-block|beginSubPage(qdb_->treeRoot(),"qt.ditamap");     doctype = "<!DOCTYPE map PUBLIC \"-//OASIS//DTD DITA Map//EN\" \"map.dtd\">";     xmlWriter().writeDTD(doctype);     writeStartTag(DT_map);     writeStartTag(DT_topicmeta);     writeStartTag(DT_shortdesc);     xmlWriter().writeCharacters("The top level map for the Qt documentation");     writeEndTag();
+block|beginSubPage(qdb_->primaryTreeRoot(),"qt.ditamap");     doctype = "<!DOCTYPE map PUBLIC \"-//OASIS//DTD DITA Map//EN\" \"map.dtd\">";     xmlWriter().writeDTD(doctype);     writeStartTag(DT_map);     writeStartTag(DT_topicmeta);     writeStartTag(DT_shortdesc);     xmlWriter().writeCharacters("The top level map for the Qt documentation");     writeEndTag();
 comment|//</shortdesc>
 block|writeEndTag();
 comment|//</topicmeta>
@@ -28980,7 +28980,7 @@ name|collectNodesByTypeAndSubtype
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -28988,7 +28988,7 @@ name|beginSubPage
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 literal|"qt.ditamap"
@@ -32214,7 +32214,7 @@ if|if
 condition|(
 name|n
 operator|->
-name|findChildNodeByName
+name|findChildNode
 argument_list|(
 name|t
 operator|.
@@ -32370,7 +32370,7 @@ name|p
 init|=
 name|n
 operator|->
-name|findChildNodeByName
+name|findChildNode
 argument_list|(
 operator|*
 name|t

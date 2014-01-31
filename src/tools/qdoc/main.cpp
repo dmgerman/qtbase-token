@@ -193,6 +193,15 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|autolinkErrors
+specifier|static
+name|bool
+name|autolinkErrors
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|obsoleteLinks
 specifier|static
 name|bool
@@ -1245,6 +1254,22 @@ name|config
 operator|.
 name|setStringList
 argument_list|(
+name|CONFIG_AUTOLINKERRORS
+argument_list|,
+name|QStringList
+argument_list|(
+name|autolinkErrors
+condition|?
+literal|"true"
+else|:
+literal|"false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setStringList
+argument_list|(
 name|CONFIG_OBSOLETELINKS
 argument_list|,
 name|QStringList
@@ -1613,6 +1638,23 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
+name|qdb
+operator|->
+name|newPrimaryTree
+argument_list|(
+name|config
+operator|.
+name|getString
+argument_list|(
+name|CONFIG_PROJECT
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qdb
+operator|->
+name|setSearchOrder
+argument_list|()
+expr_stmt|;
 name|QSet
 argument_list|<
 name|QString
@@ -1639,7 +1681,7 @@ name|excludedFilesList
 decl_stmt|;
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Reading excludedirs"
 argument_list|)
@@ -1696,7 +1738,7 @@ expr_stmt|;
 block|}
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Reading excludefiles"
 argument_list|)
@@ -1740,7 +1782,7 @@ expr_stmt|;
 block|}
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Reading headerdirs"
 argument_list|)
@@ -1873,7 +1915,7 @@ expr_stmt|;
 block|}
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Reading sourcedirs"
 argument_list|)
@@ -2007,7 +2049,7 @@ block|}
 comment|/*       Find all the qdoc files in the example dirs, and add       them to the source files to be parsed.      */
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Reading exampledirs"
 argument_list|)
@@ -2107,7 +2149,7 @@ block|}
 block|}
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Adding doc/image dirs found in exampledirs to imagedirs"
 argument_list|)
@@ -2220,9 +2262,10 @@ modifier|*
 argument_list|>
 name|usedParsers
 decl_stmt|;
+comment|//Config::debug_ = true;
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Parsing header files"
 argument_list|)
@@ -2336,7 +2379,7 @@ literal|0
 expr_stmt|;
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Parsing source files"
 argument_list|)
@@ -2388,6 +2431,22 @@ block|{
 operator|++
 name|parsed
 expr_stmt|;
+comment|//Generator::setDebugFlag(true);
+name|Generator
+operator|::
+name|debug
+argument_list|(
+name|QString
+argument_list|(
+literal|"Parsing "
+operator|+
+name|s
+operator|.
+name|key
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|codeParser
 operator|->
 name|parseSourceFile
@@ -2415,6 +2474,17 @@ operator|++
 name|s
 expr_stmt|;
 block|}
+name|Generator
+operator|::
+name|debug
+argument_list|(
+name|QString
+argument_list|(
+literal|"Parsing done."
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//Generator::setDebugFlag(false);
 foreach|foreach
 control|(
 name|CodeParser
@@ -2431,7 +2501,7 @@ expr_stmt|;
 comment|/*       Now the big tree has been built from all the header and       source files. Resolve all the class names, function names,       targets, URLs, links, and other stuff that needs resolving.      */
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Resolving stuff prior to generating docs"
 argument_list|)
@@ -2444,7 +2514,7 @@ expr_stmt|;
 comment|/*       The tree is built and all the stuff that needed resolving       has been resolved. Now traverse the tree and generate the       documentation output. More than one output format can be       requested. The tree is traversed for each one.      */
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Generating docs"
 argument_list|)
@@ -2512,7 +2582,7 @@ argument_list|)
 expr_stmt|;
 name|generator
 operator|->
-name|generateTree
+name|generateDocs
 argument_list|()
 expr_stmt|;
 operator|++
@@ -2522,7 +2592,7 @@ block|}
 comment|//Generator::writeOutFileNames();
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Shutting down qdoc"
 argument_list|)
@@ -2612,7 +2682,7 @@ endif|#
 directive|endif
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"qdoc finished!"
 argument_list|)
@@ -3007,12 +3077,25 @@ if|if
 condition|(
 name|opt
 operator|==
+literal|"-autolink-errors"
+condition|)
+block|{
+name|autolinkErrors
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
 literal|"-debug"
 condition|)
 block|{
 name|Generator
 operator|::
-name|setDebugSegfaultFlag
+name|setDebugFlag
 argument_list|(
 literal|true
 argument_list|)

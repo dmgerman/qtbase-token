@@ -109,6 +109,10 @@ name|qdb_
 operator|=
 literal|0
 expr_stmt|;
+name|gen_
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_destructor
 begin_comment
@@ -204,14 +208,13 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "READING INDEX:"<< indexFile;
+comment|//qDebug()<< "  LOAD INDEX FILE:"<< indexFile;
 name|readIndexFile
 argument_list|(
 name|indexFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|//qDebug()<< "DONE READING INDEX FILES";
 block|}
 end_function
 begin_comment
@@ -370,6 +373,17 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|NamespaceNode
+modifier|*
+name|root
+init|=
+name|qdb_
+operator|->
+name|newIndexTree
+argument_list|(
+name|project_
+argument_list|)
+decl_stmt|;
 comment|// Scan all elements in the XML file, constructing a map that contains
 comment|// base classes for each class found.
 name|QDomElement
@@ -393,10 +407,7 @@ name|readIndexSection
 argument_list|(
 name|child
 argument_list|,
-name|qdb_
-operator|->
-name|treeRoot
-argument_list|()
+name|root
 argument_list|,
 name|indexUrl
 argument_list|)
@@ -2994,11 +3005,13 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|node
+name|qdb_
 operator|->
-name|setModuleName
+name|addToModule
 argument_list|(
 name|moduleName
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
 if|if
@@ -4086,7 +4099,7 @@ name|node
 operator|!=
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 condition|)
 return|return
@@ -7450,7 +7463,7 @@ name|writer
 argument_list|,
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|generateInternalNodes

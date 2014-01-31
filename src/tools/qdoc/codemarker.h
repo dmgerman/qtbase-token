@@ -38,12 +38,6 @@ name|class
 name|Config
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|Tree
-name|class
-name|Tree
-decl_stmt|;
-end_decl_stmt
 begin_typedef
 DECL|typedef|QString
 DECL|typedef|MemberMap

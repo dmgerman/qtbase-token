@@ -748,7 +748,7 @@ operator|::
 name|qdocDB
 argument_list|()
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 decl_stmt|;
 name|NodeList

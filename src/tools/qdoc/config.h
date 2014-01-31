@@ -215,6 +215,10 @@ operator|~
 name|Config
 argument_list|()
 expr_stmt|;
+specifier|static
+name|bool
+name|debug_
+decl_stmt|;
 name|void
 name|load
 parameter_list|(
@@ -788,6 +792,11 @@ specifier|static
 name|QString
 name|ALIAS
 decl_stmt|;
+DECL|member|AUTOLINKERRORS
+specifier|static
+name|QString
+name|AUTOLINKERRORS
+decl_stmt|;
 DECL|member|BASE
 specifier|static
 name|QString
@@ -1142,6 +1151,13 @@ define|#
 directive|define
 name|CONFIG_ALIAS
 value|ConfigStrings::ALIAS
+end_define
+begin_define
+DECL|macro|CONFIG_AUTOLINKERRORS
+define|#
+directive|define
+name|CONFIG_AUTOLINKERRORS
+value|ConfigStrings::AUTOLINKERRORS
 end_define
 begin_define
 DECL|macro|CONFIG_BASE

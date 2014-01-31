@@ -3787,7 +3787,7 @@ name|rootNode
 operator|=
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 expr_stmt|;
 if|if

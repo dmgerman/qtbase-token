@@ -187,7 +187,7 @@ literal|0
 function_decl|;
 name|virtual
 name|void
-name|generateTree
+name|generateDocs
 parameter_list|()
 function_decl|;
 name|virtual
@@ -306,7 +306,7 @@ argument_list|)
 decl_stmt|;
 specifier|static
 name|void
-name|debugSegfault
+name|debug
 parameter_list|(
 specifier|const
 name|QString
@@ -316,7 +316,7 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|setDebugSegfaultFlag
+name|setDebugFlag
 parameter_list|(
 name|bool
 name|b
@@ -338,6 +338,15 @@ parameter_list|()
 block|{
 return|return
 name|noLinkErrors_
+return|;
+block|}
+specifier|static
+name|bool
+name|autolinkErrors
+parameter_list|()
+block|{
+return|return
+name|autolinkErrors_
 return|;
 block|}
 specifier|static
@@ -1284,6 +1293,10 @@ decl_stmt|;
 specifier|static
 name|bool
 name|noLinkErrors_
+decl_stmt|;
+specifier|static
+name|bool
+name|autolinkErrors_
 decl_stmt|;
 specifier|static
 name|bool

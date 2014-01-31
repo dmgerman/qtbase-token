@@ -1664,7 +1664,7 @@ argument_list|()
 block|;
 name|Node
 operator|*
-name|findChildNodeByName
+name|findChildNode
 argument_list|(
 argument|const QString& name
 argument_list|)
@@ -1672,7 +1672,7 @@ specifier|const
 block|;
 name|Node
 operator|*
-name|findChildNodeByName
+name|findChildNode
 argument_list|(
 argument|const QString& name
 argument_list|,
@@ -1682,7 +1682,7 @@ specifier|const
 block|;
 name|Node
 operator|*
-name|findChildNodeByNameAndType
+name|findChildNode
 argument_list|(
 argument|const QString& name
 argument_list|,
@@ -1985,6 +1985,19 @@ argument_list|(
 argument|const QString&
 argument_list|)
 specifier|const
+block|;
+name|void
+name|addChild
+argument_list|(
+name|Node
+operator|*
+name|child
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|title
+argument_list|)
 block|;
 name|void
 name|printChildren
@@ -2631,13 +2644,12 @@ block|; }
 name|void
 name|setTitle
 argument_list|(
-argument|const QString&title
-argument_list|)
-block|{
-name|title_
-operator|=
+specifier|const
+name|QString
+operator|&
 name|title
-block|; }
+argument_list|)
+block|;
 name|void
 name|setSubTitle
 argument_list|(
@@ -4607,10 +4619,6 @@ block|;
 name|QString
 name|def
 block|; }
-block|;
-DECL|variable|PropertyNode
-name|class
-name|PropertyNode
 block|;
 name|class
 name|FunctionNode

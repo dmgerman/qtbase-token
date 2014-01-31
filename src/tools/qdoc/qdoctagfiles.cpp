@@ -327,7 +327,7 @@ name|node
 operator|!=
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 condition|)
 continue|continue;
@@ -767,7 +767,7 @@ name|node
 operator|!=
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 condition|)
 continue|continue;
@@ -1599,7 +1599,7 @@ name|writer
 argument_list|,
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|)
 expr_stmt|;

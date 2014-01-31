@@ -317,6 +317,16 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|autolinkErrors_
+name|bool
+name|Generator
+operator|::
+name|autolinkErrors_
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|redirectDocumentationToDevNull_
 name|bool
 name|Generator
@@ -349,31 +359,22 @@ literal|true
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|setDebugSegfaultFlag
+DECL|function|setDebugFlag
 name|void
 name|Generator
 operator|::
-name|setDebugSegfaultFlag
+name|setDebugFlag
 parameter_list|(
 name|bool
 name|b
 parameter_list|)
 block|{
-if|if
-condition|(
-name|b
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"DEBUG: Setting debug flag."
-expr_stmt|;
-else|else
-name|qDebug
-argument_list|()
-operator|<<
-literal|"DEBUG: Clearing debug flag."
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block|if (b)         qDebug()<< "DEBUG: Setting debug flag.";     else         qDebug()<< "DEBUG: Clearing debug flag.";
+endif|#
+directive|endif
 name|debugging_
 operator|=
 name|b
@@ -384,11 +385,11 @@ begin_comment
 comment|/*!   Prints \a message as an aid to debugging the release version.  */
 end_comment
 begin_function
-DECL|function|debugSegfault
+DECL|function|debug
 name|void
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 parameter_list|(
 specifier|const
 name|QString
@@ -1340,7 +1341,7 @@ argument_list|)
 expr_stmt|;
 name|Generator
 operator|::
-name|debugSegfault
+name|debug
 argument_list|(
 literal|"Writing: "
 operator|+
@@ -7588,21 +7589,21 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Traverses the database recursivly to generate all the documentation.  */
+comment|/*!   Traverses the current tree to generate all the documentation.  */
 end_comment
 begin_function
-DECL|function|generateTree
+DECL|function|generateDocs
 name|void
 name|Generator
 operator|::
-name|generateTree
+name|generateDocs
 parameter_list|()
 block|{
 name|generateInnerNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9410,6 +9411,15 @@ operator|.
 name|getBool
 argument_list|(
 name|CONFIG_NOLINKERRORS
+argument_list|)
+expr_stmt|;
+name|autolinkErrors_
+operator|=
+name|config
+operator|.
+name|getBool
+argument_list|(
+name|CONFIG_AUTOLINKERRORS
 argument_list|)
 expr_stmt|;
 block|}

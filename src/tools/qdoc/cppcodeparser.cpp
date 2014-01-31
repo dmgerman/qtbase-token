@@ -50,6 +50,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"generator.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/* qmake ignore Q_OBJECT */
@@ -492,7 +497,7 @@ name|matchDeclList
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -666,7 +671,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   This is called after all the header files have been parsed.   I think the most important thing it does is resolve class   inheritance links in the tree. But it also initializes a   bunch of stuff.  */
+comment|/*!   This is called after all the C++ header files have been   parsed. The most important thing it does is resolve C++   class inheritance links in the tree. It also initializes   a bunch of other collections.  */
 end_comment
 begin_function
 DECL|function|doneParsingHeaderFiles
@@ -870,7 +875,7 @@ parameter_list|()
 block|{
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 operator|->
 name|clearCurrentChildPointers
@@ -878,7 +883,7 @@ argument_list|()
 expr_stmt|;
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 operator|->
 name|normalizeOverloads
@@ -896,7 +901,7 @@ argument_list|()
 expr_stmt|;
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 operator|->
 name|makeUndocumentedChildrenInternal
@@ -1114,25 +1119,6 @@ name|func
 operator|=
 name|qdb_
 operator|->
-name|findNodeInOpenNamespace
-argument_list|(
-name|parentPath
-argument_list|,
-name|clone
-argument_list|)
-expr_stmt|;
-comment|/*               Search the root namespace if no match was found.             */
-if|if
-condition|(
-name|func
-operator|==
-literal|0
-condition|)
-block|{
-name|func
-operator|=
-name|qdb_
-operator|->
 name|findFunctionNode
 argument_list|(
 name|parentPath
@@ -1140,7 +1126,6 @@ argument_list|,
 name|clone
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|func
@@ -1161,7 +1146,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|func
 operator|=
 name|qdb_
@@ -1174,6 +1158,24 @@ name|clone
 argument_list|)
 expr_stmt|;
 block|}
+comment|/*               If the node was not found, then search for it in the               open C++ namespaces. We don't expect this search to               be necessary often. Nor do we expect it to succeed               very often.             */
+if|if
+condition|(
+name|func
+operator|==
+literal|0
+condition|)
+name|func
+operator|=
+name|qdb_
+operator|->
+name|findNodeInOpenNamespace
+argument_list|(
+name|parentPath
+argument_list|,
+name|clone
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|func
@@ -1226,54 +1228,10 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
-name|doc
-operator|.
-name|location
-argument_list|()
-operator|.
-name|warning
-argument_list|(
-name|tr
-argument_list|(
-literal|"Missing '%1::' for '%2' in '\\%3'"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|lastPath_
-operator|.
-name|join
-argument_list|(
-literal|"::"
-argument_list|)
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|clone
-operator|->
-name|name
-argument_list|()
-operator|+
-literal|"()"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|COMMAND_FN
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
 name|lastPath_
 operator|=
 name|parentPath
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|func
@@ -1328,7 +1286,7 @@ name|root
 operator|=
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 expr_stmt|;
 name|extra
@@ -1515,7 +1473,7 @@ name|FunctionNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -1656,7 +1614,6 @@ name|node
 init|=
 literal|0
 decl_stmt|;
-comment|/*           If the command refers to something that can be in a           C++ namespace, search for it first in all the known           C++ namespaces.          */
 name|node
 operator|=
 name|qdb_
@@ -1670,14 +1627,12 @@ argument_list|,
 name|subtype
 argument_list|)
 expr_stmt|;
-comment|/*           If the node was not found in a C++ namespace, search           for it in the root namespace.          */
 if|if
 condition|(
 name|node
 operator|==
 literal|0
 condition|)
-block|{
 name|node
 operator|=
 name|qdb_
@@ -1691,7 +1646,6 @@ argument_list|,
 name|subtype
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|node
@@ -1738,7 +1692,26 @@ name|isInnerNode
 argument_list|()
 condition|)
 block|{
-comment|/*               This treets a class as a namespace.              */
+comment|/*               This treats a class as a namespace.              */
+if|if
+condition|(
+operator|(
+name|type
+operator|==
+name|Node
+operator|::
+name|Class
+operator|)
+operator|||
+operator|(
+name|type
+operator|==
+name|Node
+operator|::
+name|Namespace
+operator|)
+condition|)
+block|{
 if|if
 condition|(
 name|path
@@ -1773,6 +1746,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 return|return
 name|node
 return|;
@@ -1801,7 +1775,7 @@ name|ExampleNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -1846,7 +1820,7 @@ name|DocNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -1893,7 +1867,7 @@ name|DocNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -1975,7 +1949,7 @@ name|DocNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -2255,7 +2229,7 @@ name|DitaMapNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|args
@@ -2272,7 +2246,7 @@ name|DocNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|args
@@ -2331,7 +2305,7 @@ name|DitaMapNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -2511,7 +2485,7 @@ name|QmlClassNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|names
@@ -2548,6 +2522,7 @@ if|if
 condition|(
 name|ncn
 condition|)
+block|{
 name|ncn
 operator|->
 name|addCollision
@@ -2555,6 +2530,7 @@ argument_list|(
 name|qcn
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|qcn
 return|;
@@ -2576,7 +2552,7 @@ name|QmlBasicTypeNode
 argument_list|(
 name|qdb_
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|,
 name|arg
@@ -7499,7 +7475,7 @@ name|n
 init|=
 name|parent
 operator|->
-name|findChildNodeByNameAndType
+name|findChildNode
 argument_list|(
 name|previousLexeme
 argument_list|()
@@ -7789,7 +7765,7 @@ argument_list|>
 argument_list|(
 name|parent
 operator|->
-name|findChildNodeByNameAndType
+name|findChildNode
 argument_list|(
 name|namespaceName
 argument_list|,
@@ -8442,7 +8418,7 @@ operator|&&
 operator|!
 name|parent
 operator|->
-name|findChildNodeByNameAndType
+name|findChildNode
 argument_list|(
 name|name
 argument_list|,
@@ -9593,7 +9569,7 @@ argument_list|>
 argument_list|(
 name|parent
 operator|->
-name|findChildNodeByNameAndType
+name|findChildNode
 argument_list|(
 name|name
 argument_list|,
@@ -9962,13 +9938,14 @@ name|func
 operator|=
 name|qdb_
 operator|->
-name|findNodeInOpenNamespace
+name|findFunctionNode
 argument_list|(
 name|parentPath
 argument_list|,
 name|clone
 argument_list|)
 expr_stmt|;
+comment|/*                       If the node was not found, then search for it in the                       open C++ namespaces. We don't expect this search to                       be necessary often. Nor do we expect it to succeed                       very often.                     */
 if|if
 condition|(
 name|func
@@ -9979,7 +9956,7 @@ name|func
 operator|=
 name|qdb_
 operator|->
-name|findFunctionNode
+name|findNodeInOpenNamespace
 argument_list|(
 name|parentPath
 argument_list|,
@@ -10400,12 +10377,16 @@ name|m
 operator|->
 name|parent
 argument_list|()
-operator|!=
-name|qdb_
+operator|&&
+name|m
 operator|->
-name|treeRoot
+name|moduleName
+argument_list|()
+operator|.
+name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|m
 operator|=
 name|m
@@ -10413,6 +10394,7 @@ operator|->
 name|parent
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|m
@@ -11037,7 +11019,7 @@ operator|::
 name|qdocDB
 argument_list|()
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 argument_list|)
 expr_stmt|;

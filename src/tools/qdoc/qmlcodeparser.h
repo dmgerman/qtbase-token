@@ -61,12 +61,6 @@ name|QString
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|Tree
-name|class
-name|Tree
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QmlCodeParser
 range|:

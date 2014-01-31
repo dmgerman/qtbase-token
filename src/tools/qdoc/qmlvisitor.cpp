@@ -333,7 +333,7 @@ operator|::
 name|qdocDB
 argument_list|()
 operator|->
-name|treeRoot
+name|primaryTreeRoot
 argument_list|()
 expr_stmt|;
 block|}

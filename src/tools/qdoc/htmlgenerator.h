@@ -133,7 +133,7 @@ argument_list|()
 block|;
 name|virtual
 name|void
-name|generateTree
+name|generateDocs
 argument_list|()
 block|;
 name|void
