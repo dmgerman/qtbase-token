@@ -2697,6 +2697,7 @@ name|QDialog
 operator|::
 name|Accepted
 condition|)
+block|{
 name|retrieveSettings
 argument_list|(
 name|m_printer
@@ -2705,6 +2706,15 @@ name|data
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|print
+argument_list|(
+name|m_printer
+operator|.
+name|data
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
