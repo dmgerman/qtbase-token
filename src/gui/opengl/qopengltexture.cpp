@@ -7493,7 +7493,7 @@ name|UInt8
 argument_list|,
 name|glImage
 operator|.
-name|bits
+name|constBits
 argument_list|()
 argument_list|,
 operator|&
