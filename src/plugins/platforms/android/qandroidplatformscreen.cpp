@@ -60,11 +60,11 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_warning
-warning|#
-directive|warning
-warning|REMOVE ME
-end_warning
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QANDROIDPLATFORMSCREEN_DEBUG
+end_ifdef
 begin_class
 DECL|class|ScopedProfiler
 class|class
@@ -120,6 +120,19 @@ directive|define
 name|PROFILE_SCOPE
 value|ScopedProfiler ___sp___(__func__)
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+define|#
+directive|define
+name|PROFILE_SCOPE
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QAndroidPlatformScreen
 name|QAndroidPlatformScreen
