@@ -804,7 +804,7 @@ argument_list|(
 literal|"eglMakeCurrent"
 argument_list|)
 expr_stmt|;
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQNX: failed to set current EGL context, err=%d"
 argument_list|,
@@ -812,6 +812,9 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 return|return
 operator|(

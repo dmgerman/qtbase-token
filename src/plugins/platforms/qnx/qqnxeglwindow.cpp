@@ -173,12 +173,13 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQNX: Trying to create 0 size EGL surface. "
 literal|"Please set a valid window size before calling QOpenGLContext::makeCurrent()"
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|setBufferSize
 argument_list|(
@@ -259,7 +260,7 @@ argument_list|(
 literal|"eglCreateWindowSurface"
 argument_list|)
 decl_stmt|;
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQNX: failed to create EGL surface, err=%d"
 argument_list|,
