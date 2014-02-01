@@ -25397,7 +25397,7 @@ name|enable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     Shows the widget and its child widgets.      This is equivalent to calling showFullScreen(), showMaximized(), or setVisible(true),     depending on the platform's default behavior for the window flags.       \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible(), windowFlags(), flags() */
+comment|/*!     Shows the widget and its child widgets.      This is equivalent to calling showFullScreen(), showMaximized(), or setVisible(true),     depending on the platform's default behavior for the window flags.       \sa raise(), showEvent(), hide(), setVisible(), showMinimized(), showMaximized(),     showNormal(), isVisible(), windowFlags() */
 DECL|function|show
 name|void
 name|QWidget

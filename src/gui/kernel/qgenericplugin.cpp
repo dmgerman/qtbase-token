@@ -51,7 +51,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn QObject* QGenericPlugin::create(const QString&key, const QString& specification)      Implement this function to create a driver matching the type     specified by the given \a key and \a specification parameters. Note that     keys are case-insensitive.      \sa keys() */
+comment|/*!     \fn QObject* QGenericPlugin::create(const QString&key, const QString& specification)      Implement this function to create a driver matching the type     specified by the given \a key and \a specification parameters. Note that     keys are case-insensitive. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
