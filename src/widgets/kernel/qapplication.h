@@ -440,6 +440,12 @@ name|QFontMetrics
 name|fontMetrics
 argument_list|()
 block|;
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+literal|0x060000
+comment|// remove these forwarders in Qt 6
 specifier|static
 name|void
 name|setWindowIcon
@@ -455,6 +461,8 @@ name|QIcon
 name|windowIcon
 argument_list|()
 block|;
+endif|#
+directive|endif
 specifier|static
 name|QWidgetList
 name|allWidgets

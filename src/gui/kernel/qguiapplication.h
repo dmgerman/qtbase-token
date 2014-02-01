@@ -147,6 +147,10 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
+argument|QIcon windowIcon READ windowIcon WRITE setWindowIcon
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|QString applicationDisplayName READ applicationDisplayName WRITE setApplicationDisplayName
 argument_list|)
 name|Q_PROPERTY
@@ -238,6 +242,21 @@ name|QPoint
 operator|&
 name|pos
 argument_list|)
+block|;
+specifier|static
+name|void
+name|setWindowIcon
+argument_list|(
+specifier|const
+name|QIcon
+operator|&
+name|icon
+argument_list|)
+block|;
+specifier|static
+name|QIcon
+name|windowIcon
+argument_list|()
 block|;
 specifier|static
 name|QString

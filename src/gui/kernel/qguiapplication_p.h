@@ -779,6 +779,13 @@ block|}
 end_function
 begin_decl_stmt
 specifier|static
+name|QIcon
+modifier|*
+name|app_icon
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
 name|QString
 modifier|*
 name|platform_name
@@ -1356,6 +1363,13 @@ name|basePixmap
 return|;
 block|}
 end_decl_stmt
+begin_function_decl
+name|virtual
+name|void
+name|notifyWindowIconChanged
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_function_decl
 specifier|static
 name|QRect

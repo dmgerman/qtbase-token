@@ -427,6 +427,11 @@ operator|&
 name|globalPosF
 argument_list|)
 block|;
+name|void
+name|notifyWindowIconChanged
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 comment|//modality
 name|bool
 name|isWindowBlocked
@@ -693,11 +698,6 @@ specifier|static
 name|QWidget
 operator|*
 name|active_window
-block|;
-specifier|static
-name|QIcon
-operator|*
-name|app_icon
 block|;
 ifndef|#
 directive|ifndef
