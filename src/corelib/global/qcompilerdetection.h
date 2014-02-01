@@ -493,6 +493,12 @@ directive|if
 name|__INTEL_COMPILER
 operator|>=
 literal|1300
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|__APPLE__
+argument_list|)
 end_if
 begin_define
 DECL|macro|Q_DECL_DEPRECATED_X
