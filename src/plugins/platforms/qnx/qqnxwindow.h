@@ -144,13 +144,6 @@ return|return
 name|m_window
 return|;
 block|}
-name|virtual
-name|void
-name|adjustBufferSize
-argument_list|()
-operator|=
-literal|0
-block|;
 name|void
 name|setBufferSize
 argument_list|(

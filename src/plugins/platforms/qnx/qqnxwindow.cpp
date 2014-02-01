@@ -1635,9 +1635,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|adjustBufferSize
-argument_list|()
-expr_stmt|;
 name|m_screen
 operator|->
 name|updateHierarchy

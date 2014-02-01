@@ -101,10 +101,6 @@ name|requestedBufferSize
 argument_list|()
 specifier|const
 block|;
-name|void
-name|adjustBufferSize
-argument_list|()
-block|;
 name|protected
 operator|:
 name|int
