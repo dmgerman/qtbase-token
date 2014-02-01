@@ -414,6 +414,16 @@ literal|false
 argument_list|)
 condition|)
 block|{
+specifier|const
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|m_mutex
+argument_list|)
+decl_stmt|;
+comment|//Set geomety must not reset the requestedBufferSize till
+comment|//the surface is created
 if|if
 condition|(
 name|m_eglSurface
@@ -538,14 +548,6 @@ name|requestedBufferSize
 parameter_list|()
 specifier|const
 block|{
-specifier|const
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|m_mutex
-argument_list|)
-decl_stmt|;
 return|return
 name|m_requestedBufferSize
 return|;
@@ -746,14 +748,6 @@ operator|::
 name|resetBuffers
 parameter_list|()
 block|{
-specifier|const
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|m_mutex
-argument_list|)
-decl_stmt|;
 name|m_requestedBufferSize
 operator|=
 name|QSize
