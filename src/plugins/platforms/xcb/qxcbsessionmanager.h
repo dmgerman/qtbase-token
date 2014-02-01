@@ -85,21 +85,23 @@ block|;
 name|void
 name|setSessionId
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|id
+argument|const QString&id
 argument_list|)
-block|;
+block|{
+name|m_sessionId
+operator|=
+name|id
+block|; }
 name|void
 name|setSessionKey
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|key
+argument|const QString&key
 argument_list|)
-block|;
+block|{
+name|m_sessionKey
+operator|=
+name|key
+block|; }
 name|bool
 name|allowsInteraction
 argument_list|()
@@ -146,16 +148,6 @@ name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|requestPhase2
-argument_list|()
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|appCommitData
-argument_list|()
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|appSaveState
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
