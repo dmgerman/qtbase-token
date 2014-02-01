@@ -4894,7 +4894,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \preliminary      Returns the QPlatformWindow this widget will be drawn into. */
+comment|/*!     If this is a native widget, return the associated QWindow.     Otherwise return null.      Native widgets include toplevel widgets, QGLWidget, and child widgets     on which winId() was called.      \since 5.0      \sa winId() */
 end_comment
 begin_function
 DECL|function|windowHandle
