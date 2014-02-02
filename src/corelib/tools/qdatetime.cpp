@@ -5978,10 +5978,31 @@ operator|&
 name|t
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-36080 Workaround for systems without the POSIX timezone
+comment|// variable. This solution is not very efficient but fixing it is up to
+comment|// the libc implementations.
+comment|//
+comment|// tm_gmtoff has some important differences compared to the timezone
+comment|// variable:
+comment|// - It returns the number of seconds east of UTC, and we want the
+comment|//   number of seconds west of UTC.
+comment|// - It also takes DST into account, so we need to adjust it to always
+comment|//   get the Standard Time offset.
 return|return
+operator|-
 name|t
 operator|.
 name|tm_gmtoff
+operator|+
+operator|(
+name|t
+operator|.
+name|tm_isdst
+condition|?
+name|SECS_PER_HOUR
+else|:
+literal|0L
+operator|)
 return|;
 else|#
 directive|else
