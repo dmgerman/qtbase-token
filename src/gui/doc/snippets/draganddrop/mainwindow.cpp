@@ -97,9 +97,7 @@ name|SIGNAL
 argument_list|(
 name|mimeTypes
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -109,9 +107,7 @@ name|SLOT
 argument_list|(
 name|setMimeTypes
 argument_list|(
-specifier|const
 name|QStringList
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
@@ -124,9 +120,7 @@ name|SIGNAL
 argument_list|(
 name|dragResult
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|,
@@ -136,9 +130,7 @@ name|SLOT
 argument_list|(
 name|setDragResult
 argument_list|(
-specifier|const
 name|QString
-operator|&
 argument_list|)
 argument_list|)
 argument_list|)
