@@ -242,10 +242,6 @@ name|QKmsCursor
 operator|*
 name|m_cursor
 block|;
-name|unsigned
-name|int
-name|m_refreshTime
-block|;
 name|gbm_surface
 operator|*
 name|m_gbmSurface

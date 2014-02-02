@@ -130,11 +130,6 @@ operator|::
 name|Format_Invalid
 argument_list|)
 member_init_list|,
-name|m_refreshTime
-argument_list|(
-literal|16000
-argument_list|)
-member_init_list|,
 name|m_eglWindowSurface
 argument_list|(
 name|EGL_NO_SURFACE
