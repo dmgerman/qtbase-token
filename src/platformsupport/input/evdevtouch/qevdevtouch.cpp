@@ -639,6 +639,14 @@ name|bits
 parameter_list|)
 value|(((bits) + LONG_BITS - 1) / LONG_BITS)
 end_define
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_NO_MTDEV
+argument_list|)
+end_if
 begin_function
 DECL|function|testBit
 specifier|static
@@ -673,6 +681,10 @@ literal|1
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QEvdevTouchScreenHandler
 name|QEvdevTouchScreenHandler
