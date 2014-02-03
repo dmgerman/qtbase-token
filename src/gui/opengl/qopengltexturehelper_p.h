@@ -5005,7 +5005,9 @@ directive|endif
 block|}
 name|private
 label|:
-comment|// Typedefs and pointers to member functions used to switch between EXT_direct_state_access and our own emulated DSA
+comment|// Typedefs and pointers to member functions used to switch between EXT_direct_state_access and our own emulated DSA.
+comment|// The argument match the corresponding GL function, but there's an extra "GLenum bindingTarget" which gets used with
+comment|// the DSA emulation -- it contains the right GL_BINDING_TEXTURE_X to use.
 typedef|typedef
 name|void
 argument_list|(
