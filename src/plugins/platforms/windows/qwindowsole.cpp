@@ -302,6 +302,12 @@ argument_list|)
 block|;
 if|if
 condition|(
+name|QWindowsContext
+operator|::
+name|verbose
+operator|>
+literal|1
+operator|&&
 name|lcQpaMime
 argument_list|()
 operator|.
