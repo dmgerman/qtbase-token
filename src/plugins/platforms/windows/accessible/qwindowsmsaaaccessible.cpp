@@ -4964,6 +4964,16 @@ name|st
 operator||=
 name|STATE_SYSTEM_TRAVERSED
 expr_stmt|;
+if|if
+condition|(
+name|state
+operator|.
+name|disabled
+condition|)
+name|st
+operator||=
+name|STATE_SYSTEM_UNAVAILABLE
+expr_stmt|;
 operator|(
 operator|*
 name|pvarState
