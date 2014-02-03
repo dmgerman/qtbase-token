@@ -174,15 +174,6 @@ operator|)
 block|;
 name|private
 operator|:
-specifier|inline
-name|QWindow
-operator|*
-name|findDragOverWindow
-argument_list|(
-argument|const POINTL&pt
-argument_list|)
-specifier|const
-block|;
 name|void
 name|handleDrag
 argument_list|(
