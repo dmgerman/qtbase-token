@@ -7340,6 +7340,9 @@ name|l
 init|=
 literal|2
 decl_stmt|;
+if|if
+condition|(
+operator|!
 name|engine
 operator|->
 name|stringToCMap
@@ -7355,6 +7358,16 @@ operator|&
 name|l
 argument_list|,
 literal|0
+argument_list|)
+condition|)
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|l
+operator|==
+literal|2
 argument_list|)
 expr_stmt|;
 name|engine
