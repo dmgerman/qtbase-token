@@ -445,8 +445,6 @@ argument_list|,
 argument|int numChars
 argument_list|,
 argument|QGlyphLayout *glyphs
-argument_list|,
-argument|bool mirrored
 argument_list|)
 specifier|const
 block|;

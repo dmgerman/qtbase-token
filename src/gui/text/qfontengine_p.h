@@ -213,10 +213,6 @@ enum|;
 enum|enum
 name|ShaperFlag
 block|{
-name|RightToLeft
-init|=
-literal|0x0001
-block|,
 name|DesignMetrics
 init|=
 literal|0x0002
