@@ -2322,11 +2322,6 @@ name|QFontDef
 modifier|&
 name|fontDef
 parameter_list|,
-name|QChar
-operator|::
-name|Script
-name|script
-parameter_list|,
 name|void
 modifier|*
 name|handle
@@ -2341,8 +2336,6 @@ operator|::
 name|fontEngine
 argument_list|(
 name|fontDef
-argument_list|,
-name|script
 argument_list|,
 name|handle
 argument_list|)
@@ -2359,8 +2352,6 @@ operator|<<
 name|fontDef
 operator|.
 name|family
-operator|<<
-name|script
 operator|<<
 name|fe
 operator|<<

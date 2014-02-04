@@ -1066,26 +1066,11 @@ name|QFontDef
 modifier|&
 name|fontDef
 parameter_list|,
-name|QChar
-operator|::
-name|Script
-name|script
-parameter_list|,
 name|void
 modifier|*
 name|handle
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|script
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|handle
-argument_list|)
-expr_stmt|;
 name|QByteArray
 modifier|*
 name|fileDataPtr
@@ -1112,7 +1097,7 @@ operator|*
 name|fileDataPtr
 argument_list|)
 decl_stmt|;
-comment|//qDebug()<< fontDef.pixelSize<< fontDef.weight<< fontDef.style<< fontDef.stretch<< fontDef.styleHint<< fontDef.styleStrategy<< fontDef.family<< script;
+comment|//qDebug()<< fontDef.pixelSize<< fontDef.weight<< fontDef.style<< fontDef.stretch<< fontDef.styleHint<< fontDef.styleStrategy<< fontDef.family;
 return|return
 name|engine
 return|;

@@ -134,11 +134,14 @@ name|QFontEngine
 operator|*
 name|fontEngine
 argument_list|(
-argument|const QFontDef&fontDef
+specifier|const
+name|QFontDef
+operator|&
+name|fontDef
 argument_list|,
-argument|QChar::Script script
-argument_list|,
-argument|void *handle
+name|void
+operator|*
+name|handle
 argument_list|)
 block|;
 name|virtual
