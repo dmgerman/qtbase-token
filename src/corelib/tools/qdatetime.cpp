@@ -1351,7 +1351,10 @@ operator|.
 name|arg
 argument_list|(
 operator|(
+name|qAbs
+argument_list|(
 name|offset
+argument_list|)
 operator|/
 literal|60
 operator|)
