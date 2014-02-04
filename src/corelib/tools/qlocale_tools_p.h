@@ -399,21 +399,6 @@ return|;
 block|}
 block|}
 end_function
-begin_comment
-comment|// Removes thousand-group separators in "C" locale.
-end_comment
-begin_decl_stmt
-name|bool
-name|removeGroupSeparators
-argument_list|(
-name|QLocaleData
-operator|::
-name|CharBuff
-operator|*
-name|num
-argument_list|)
-decl_stmt|;
-end_decl_stmt
 begin_function_decl
 name|Q_CORE_EXPORT
 name|char
