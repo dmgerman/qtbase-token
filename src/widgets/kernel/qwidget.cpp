@@ -3026,6 +3026,7 @@ operator|::
 name|AA_ImmediateWidgetCreation
 argument_list|)
 condition|)
+comment|// ### fixme: Qt 6: Remove AA_ImmediateWidgetCreation.
 name|q
 operator|->
 name|create
@@ -34009,6 +34010,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+comment|// ### fixme: Qt 6: Remove AA_ImmediateWidgetCreation.
 if|if
 condition|(
 name|QApplicationPrivate
