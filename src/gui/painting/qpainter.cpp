@@ -23743,8 +23743,6 @@ operator|+
 name|ti
 operator|.
 name|descent
-operator|+
-literal|1
 operator|)
 operator|.
 name|toReal
