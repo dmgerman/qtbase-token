@@ -591,14 +591,6 @@ name|QFontDialogPrivate
 decl_stmt|;
 name|friend
 name|class
-name|QFontEngineMultiXLFD
-decl_stmt|;
-name|friend
-name|class
-name|QFontEngineMultiQWS
-decl_stmt|;
-name|friend
-name|class
 name|QFontEngineMultiQPA
 decl_stmt|;
 name|QFontDatabasePrivate

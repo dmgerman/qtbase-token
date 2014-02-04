@@ -882,19 +882,6 @@ condition|)
 block|{
 name|QFontCache
 operator|::
-name|Key
-name|key
-argument_list|(
-name|def
-argument_list|,
-name|script
-argument_list|)
-decl_stmt|;
-name|QFontCache
-operator|::
-name|instance
-argument_list|()
-operator|->
 name|instance
 argument_list|()
 operator|->
@@ -1146,7 +1133,7 @@ name|engine
 operator|=
 name|pfMultiEngine
 expr_stmt|;
-comment|// Cache Multi font engine as well in case we got the FT single
+comment|// Cache Multi font engine as well in case we got the single
 comment|// font engine when we are actually looking for a Multi one
 name|QFontCache
 operator|::
@@ -1162,9 +1149,6 @@ argument_list|)
 decl_stmt|;
 name|QFontCache
 operator|::
-name|instance
-argument_list|()
-operator|->
 name|instance
 argument_list|()
 operator|->
