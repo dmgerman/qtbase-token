@@ -7467,6 +7467,19 @@ operator|->
 name|isTopLevel
 argument_list|()
 operator|&&
+operator|!
+operator|(
+name|window
+argument_list|()
+operator|->
+name|flags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|X11BypassWindowManagerHint
+operator|)
+operator|&&
 name|connection
 argument_list|()
 operator|->
@@ -7620,6 +7633,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 name|Q_XCB_CALL
 argument_list|(
 name|xcb_set_input_focus
@@ -7639,6 +7654,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|connection
 argument_list|()
 operator|->
