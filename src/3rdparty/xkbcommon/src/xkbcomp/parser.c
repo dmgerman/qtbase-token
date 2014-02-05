@@ -82,7 +82,7 @@ DECL|macro|YYLSP_NEEDED
 define|#
 directive|define
 name|YYLSP_NEEDED
-value|1
+value|0
 end_define
 begin_comment
 comment|/* Substitute the variable and function names.  */
@@ -136,13 +136,6 @@ directive|define
 name|yynerrs
 value|_xkbcommon_nerrs
 end_define
-begin_define
-DECL|macro|yylloc
-define|#
-directive|define
-name|yylloc
-value|_xkbcommon_lloc
-end_define
 begin_comment
 comment|/* Copy the first part of user declarations.  */
 end_comment
@@ -152,7 +145,7 @@ end_comment
 begin_line
 line|#
 directive|line
-number|27
+number|33
 file|"parser.y"
 end_line
 begin_include
@@ -201,14 +194,9 @@ end_struct
 begin_function
 specifier|static
 name|void
-DECL|function|_xkbcommon_error
-name|_xkbcommon_error
+DECL|function|parser_error
+name|parser_error
 parameter_list|(
-name|struct
-name|YYLTYPE
-modifier|*
-name|loc
-parameter_list|,
 name|struct
 name|parser_param
 modifier|*
@@ -222,8 +210,6 @@ parameter_list|)
 block|{
 name|scanner_error
 argument_list|(
-name|loc
-argument_list|,
 name|param
 operator|->
 name|scanner
@@ -231,6 +217,164 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_function
+specifier|static
+name|void
+DECL|function|parser_warn
+name|parser_warn
+parameter_list|(
+name|struct
+name|parser_param
+modifier|*
+name|param
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|msg
+parameter_list|)
+block|{
+name|scanner_warn
+argument_list|(
+name|param
+operator|->
+name|scanner
+argument_list|,
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+specifier|static
+name|void
+DECL|function|_xkbcommon_error
+name|_xkbcommon_error
+parameter_list|(
+name|struct
+name|parser_param
+modifier|*
+name|param
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|msg
+parameter_list|)
+block|{
+name|parser_error
+argument_list|(
+name|param
+argument_list|,
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+specifier|static
+name|bool
+DECL|function|resolve_keysym
+name|resolve_keysym
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|str
+parameter_list|,
+name|xkb_keysym_t
+modifier|*
+name|sym_rtrn
+parameter_list|)
+block|{
+name|xkb_keysym_t
+name|sym
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|str
+operator|||
+name|istreq
+argument_list|(
+name|str
+argument_list|,
+literal|"any"
+argument_list|)
+operator|||
+name|istreq
+argument_list|(
+name|str
+argument_list|,
+literal|"nosymbol"
+argument_list|)
+condition|)
+block|{
+operator|*
+name|sym_rtrn
+operator|=
+name|XKB_KEY_NoSymbol
+expr_stmt|;
+return|return
+name|true
+return|;
+block|}
+if|if
+condition|(
+name|istreq
+argument_list|(
+name|str
+argument_list|,
+literal|"none"
+argument_list|)
+operator|||
+name|istreq
+argument_list|(
+name|str
+argument_list|,
+literal|"voidsymbol"
+argument_list|)
+condition|)
+block|{
+operator|*
+name|sym_rtrn
+operator|=
+name|XKB_KEY_VoidSymbol
+expr_stmt|;
+return|return
+name|true
+return|;
+block|}
+name|sym
+operator|=
+name|xkb_keysym_from_name
+argument_list|(
+name|str
+argument_list|,
+name|XKB_KEYSYM_NO_FLAGS
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|sym
+operator|!=
+name|XKB_KEY_NoSymbol
+condition|)
+block|{
+operator|*
+name|sym_rtrn
+operator|=
+name|sym
+expr_stmt|;
+return|return
+name|true
+return|;
+block|}
+return|return
+name|false
+return|;
 block|}
 end_function
 begin_define
@@ -246,7 +390,7 @@ end_comment
 begin_line
 line|#
 directive|line
-number|101
+number|137
 file|"src/xkbcomp/parser.c"
 end_line
 begin_comment
@@ -1130,15 +1274,11 @@ block|{
 comment|/* Line 293 of yacc.c  */
 line|#
 directive|line
-number|127
+number|167
 file|"parser.y"
 DECL|member|ival
 name|int
 name|ival
-decl_stmt|;
-DECL|member|uval
-name|unsigned
-name|uval
 decl_stmt|;
 DECL|member|num
 name|int64_t
@@ -1167,6 +1307,10 @@ DECL|member|mapFlags
 name|enum
 name|xkb_map_flags
 name|mapFlags
+decl_stmt|;
+DECL|member|keysym
+name|xkb_keysym_t
+name|keysym
 decl_stmt|;
 DECL|member|any
 name|ParseCommon
@@ -1246,7 +1390,7 @@ decl_stmt|;
 comment|/* Line 293 of yacc.c  */
 line|#
 directive|line
-number|295
+number|331
 file|"src/xkbcomp/parser.c"
 block|}
 DECL|typedef|YYSTYPE
@@ -1282,73 +1426,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-name|YYLTYPE
-operator|&&
-operator|!
-name|defined
-name|YYLTYPE_IS_DECLARED
-end_if
-begin_typedef
-DECL|struct|YYLTYPE
-typedef|typedef
-struct|struct
-name|YYLTYPE
-block|{
-DECL|member|first_line
-name|int
-name|first_line
-decl_stmt|;
-DECL|member|first_column
-name|int
-name|first_column
-decl_stmt|;
-DECL|member|last_line
-name|int
-name|last_line
-decl_stmt|;
-DECL|member|last_column
-name|int
-name|last_column
-decl_stmt|;
-block|}
-DECL|typedef|YYLTYPE
-name|YYLTYPE
-typedef|;
-end_typedef
-begin_define
-DECL|macro|yyltype
-define|#
-directive|define
-name|yyltype
-value|YYLTYPE
-end_define
-begin_comment
-DECL|macro|yyltype
-comment|/* obsolescent; will be withdrawn */
-end_comment
-begin_define
-DECL|macro|YYLTYPE_IS_DECLARED
-define|#
-directive|define
-name|YYLTYPE_IS_DECLARED
-value|1
-end_define
-begin_define
-DECL|macro|YYLTYPE_IS_TRIVIAL
-define|#
-directive|define
-name|YYLTYPE_IS_TRIVIAL
-value|1
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/* Copy the second part of user declarations.  */
 end_comment
@@ -1358,7 +1435,7 @@ end_comment
 begin_line
 line|#
 directive|line
-number|320
+number|343
 file|"src/xkbcomp/parser.c"
 end_line
 begin_ifdef
@@ -2230,12 +2307,6 @@ expr|\
 operator|||
 operator|(
 name|defined
-name|YYLTYPE_IS_TRIVIAL
-operator|&&
-name|YYLTYPE_IS_TRIVIAL
-expr|\
-operator|&&
-name|defined
 name|YYSTYPE_IS_TRIVIAL
 operator|&&
 name|YYSTYPE_IS_TRIVIAL
@@ -2258,10 +2329,6 @@ decl_stmt|;
 DECL|member|yyvs_alloc
 name|YYSTYPE
 name|yyvs_alloc
-decl_stmt|;
-DECL|member|yyls_alloc
-name|YYLTYPE
-name|yyls_alloc
 decl_stmt|;
 block|}
 union|;
@@ -2288,7 +2355,7 @@ parameter_list|(
 name|N
 parameter_list|)
 define|\
-value|((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE) + sizeof (YYLTYPE)) \       + 2 * YYSTACK_GAP_MAXIMUM)
+value|((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE)) \       + YYSTACK_GAP_MAXIMUM)
 end_define
 begin_define
 DECL|macro|YYCOPY_NEEDED
@@ -4741,81 +4808,65 @@ init|=
 block|{
 literal|0
 block|,
-literal|198
+literal|238
 block|,
-literal|198
+literal|238
 block|,
-literal|200
+literal|240
 block|,
-literal|202
-block|,
-literal|206
-block|,
-literal|212
-block|,
-literal|213
-block|,
-literal|214
-block|,
-literal|217
-block|,
-literal|224
-block|,
-literal|228
-block|,
-literal|243
-block|,
-literal|244
-block|,
-literal|245
+literal|242
 block|,
 literal|246
 block|,
-literal|247
+literal|252
 block|,
-literal|250
-block|,
-literal|251
+literal|253
 block|,
 literal|254
 block|,
-literal|255
-block|,
-literal|258
-block|,
-literal|259
-block|,
-literal|260
-block|,
-literal|261
-block|,
-literal|262
-block|,
-literal|263
+literal|257
 block|,
 literal|264
 block|,
-literal|265
-block|,
 literal|268
-block|,
-literal|270
-block|,
-literal|273
-block|,
-literal|278
 block|,
 literal|283
 block|,
-literal|288
+literal|284
 block|,
-literal|293
+literal|285
+block|,
+literal|286
+block|,
+literal|287
+block|,
+literal|290
+block|,
+literal|291
+block|,
+literal|294
+block|,
+literal|295
 block|,
 literal|298
 block|,
+literal|299
+block|,
+literal|300
+block|,
+literal|301
+block|,
+literal|302
+block|,
 literal|303
 block|,
+literal|304
+block|,
+literal|305
+block|,
 literal|308
+block|,
+literal|310
 block|,
 literal|313
 block|,
@@ -4825,157 +4876,139 @@ literal|323
 block|,
 literal|328
 block|,
-literal|329
-block|,
-literal|330
-block|,
-literal|331
+literal|333
 block|,
 literal|338
 block|,
-literal|340
+literal|343
 block|,
-literal|342
+literal|348
 block|,
-literal|346
-block|,
-literal|350
-block|,
-literal|354
+literal|353
 block|,
 literal|358
 block|,
-literal|360
+literal|363
 block|,
-literal|364
+literal|368
 block|,
-literal|366
+literal|369
 block|,
 literal|370
 block|,
-literal|376
+literal|371
 block|,
 literal|378
 block|,
+literal|380
+block|,
 literal|382
 block|,
-literal|384
+literal|386
 block|,
-literal|388
+literal|390
 block|,
 literal|394
 block|,
-literal|400
+literal|398
 block|,
-literal|402
+literal|400
 block|,
 literal|404
 block|,
-literal|407
-block|,
-literal|408
-block|,
-literal|409
+literal|406
 block|,
 literal|410
 block|,
-literal|411
-block|,
-literal|414
-block|,
 literal|416
 block|,
-literal|420
+literal|418
+block|,
+literal|422
 block|,
 literal|424
 block|,
 literal|428
 block|,
-literal|432
-block|,
 literal|434
-block|,
-literal|438
 block|,
 literal|440
 block|,
+literal|442
+block|,
 literal|444
+block|,
+literal|447
 block|,
 literal|448
 block|,
 literal|449
 block|,
-literal|452
+literal|450
+block|,
+literal|451
 block|,
 literal|454
 block|,
 literal|456
 block|,
-literal|458
-block|,
 literal|460
 block|,
 literal|464
 block|,
-literal|465
-block|,
 literal|468
 block|,
-literal|469
-block|,
-literal|473
+literal|472
 block|,
 literal|474
 block|,
-literal|477
+literal|478
 block|,
-literal|479
+literal|480
 block|,
-literal|483
-block|,
-literal|487
+literal|484
 block|,
 literal|488
 block|,
-literal|491
+literal|489
+block|,
+literal|492
 block|,
 literal|494
 block|,
 literal|496
 block|,
-literal|500
+literal|498
 block|,
-literal|502
+literal|500
 block|,
 literal|504
 block|,
+literal|505
+block|,
 literal|508
 block|,
-literal|510
+literal|509
+block|,
+literal|513
 block|,
 literal|514
 block|,
-literal|518
+literal|517
 block|,
-literal|522
+literal|519
 block|,
 literal|523
 block|,
-literal|524
-block|,
-literal|525
+literal|527
 block|,
 literal|528
 block|,
-literal|529
-block|,
-literal|532
+literal|531
 block|,
 literal|534
 block|,
 literal|536
-block|,
-literal|538
 block|,
 literal|540
 block|,
@@ -4983,21 +5016,13 @@ literal|542
 block|,
 literal|544
 block|,
-literal|546
-block|,
 literal|548
 block|,
 literal|550
 block|,
-literal|552
+literal|554
 block|,
-literal|556
-block|,
-literal|557
-block|,
-literal|560
-block|,
-literal|561
+literal|558
 block|,
 literal|562
 block|,
@@ -5005,13 +5030,23 @@ literal|563
 block|,
 literal|564
 block|,
+literal|565
+block|,
+literal|568
+block|,
+literal|569
+block|,
+literal|572
+block|,
 literal|574
 block|,
-literal|575
+literal|576
 block|,
 literal|578
 block|,
 literal|580
+block|,
+literal|582
 block|,
 literal|584
 block|,
@@ -5023,49 +5058,83 @@ literal|590
 block|,
 literal|592
 block|,
-literal|594
+literal|596
 block|,
-literal|598
+literal|597
 block|,
 literal|600
 block|,
+literal|601
+block|,
 literal|602
+block|,
+literal|603
 block|,
 literal|604
 block|,
-literal|606
+literal|614
 block|,
-literal|608
-block|,
-literal|610
-block|,
-literal|612
-block|,
-literal|616
+literal|615
 block|,
 literal|618
 block|,
-literal|622
+literal|620
+block|,
+literal|624
 block|,
 literal|626
 block|,
-literal|633
+literal|628
 block|,
-literal|641
+literal|630
+block|,
+literal|632
+block|,
+literal|634
+block|,
+literal|638
+block|,
+literal|640
+block|,
+literal|642
+block|,
+literal|644
+block|,
+literal|646
+block|,
+literal|648
 block|,
 literal|650
 block|,
-literal|661
+literal|652
+block|,
+literal|656
+block|,
+literal|658
+block|,
+literal|662
+block|,
+literal|666
 block|,
 literal|668
 block|,
-literal|675
+literal|670
 block|,
-literal|679
+literal|672
 block|,
-literal|688
+literal|676
 block|,
-literal|689
+literal|678
+block|,
+literal|680
+block|,
+literal|682
+block|,
+literal|686
+block|,
+literal|687
+block|,
+literal|690
 block|,
 literal|692
 block|,
@@ -5073,23 +5142,19 @@ literal|694
 block|,
 literal|696
 block|,
-literal|698
+literal|700
 block|,
-literal|702
+literal|704
 block|,
-literal|706
+literal|710
 block|,
-literal|707
+literal|711
 block|,
-literal|708
-block|,
-literal|722
-block|,
-literal|723
+literal|725
 block|,
 literal|726
 block|,
-literal|727
+literal|729
 block|,
 literal|730
 block|,
@@ -5099,15 +5164,17 @@ literal|736
 block|,
 literal|739
 block|,
-literal|740
+literal|742
 block|,
 literal|743
 block|,
 literal|746
 block|,
-literal|747
+literal|749
 block|,
 literal|750
+block|,
+literal|753
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -12144,7 +12211,7 @@ parameter_list|,
 name|Value
 parameter_list|)
 define|\
-value|do								\   if (yychar == YYEMPTY&& yylen == 1)				\     {								\       yychar = (Token);						\       yylval = (Value);						\       YYPOPSTACK (1);						\       goto yybackup;						\     }								\   else								\     {								\       yyerror (&yylloc, param, YY_("syntax error: cannot back up")); \       YYERROR;							\     }								\ while (YYID (0))
+value|do								\   if (yychar == YYEMPTY&& yylen == 1)				\     {								\       yychar = (Token);						\       yylval = (Value);						\       YYPOPSTACK (1);						\       goto yybackup;						\     }								\   else								\     {								\       yyerror (param, YY_("syntax error: cannot back up")); \       YYERROR;							\     }								\ while (YYID (0))
 end_define
 begin_define
 DECL|macro|YYTERROR
@@ -12200,38 +12267,13 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* YY_LOCATION_PRINT -- Print the location on the stream.    This macro was not mandated originally: define only if we know    we won't break user code: when these are the locations we know.  */
+comment|/* This macro is provided for backward compatibility. */
 end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|YY_LOCATION_PRINT
 end_ifndef
-begin_if
-if|#
-directive|if
-name|defined
-name|YYLTYPE_IS_TRIVIAL
-operator|&&
-name|YYLTYPE_IS_TRIVIAL
-end_if
-begin_define
-DECL|macro|YY_LOCATION_PRINT
-define|#
-directive|define
-name|YY_LOCATION_PRINT
-parameter_list|(
-name|File
-parameter_list|,
-name|Loc
-parameter_list|)
-define|\
-value|fprintf (File, "%d.%d-%d.%d",			\ 	      (Loc).first_line, (Loc).first_column,	\ 	      (Loc).last_line,  (Loc).last_column)
-end_define
-begin_else
-else|#
-directive|else
-end_else
 begin_define
 DECL|macro|YY_LOCATION_PRINT
 define|#
@@ -12244,10 +12286,6 @@ name|Loc
 parameter_list|)
 value|((void) 0)
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
@@ -12265,7 +12303,7 @@ DECL|macro|YYLEX
 define|#
 directive|define
 name|YYLEX
-value|yylex (&yylval,&yylloc, YYLEX_PARAM)
+value|yylex (&yylval, YYLEX_PARAM)
 end_define
 begin_else
 else|#
@@ -12276,7 +12314,7 @@ DECL|macro|YYLEX
 define|#
 directive|define
 name|YYLEX
-value|yylex (&yylval,&yylloc, scanner)
+value|yylex (&yylval, scanner)
 end_define
 begin_endif
 endif|#
@@ -12340,7 +12378,7 @@ parameter_list|,
 name|Location
 parameter_list|)
 define|\
-value|do {									  \   if (yydebug)								  \     {									  \       YYFPRINTF (stderr, "%s ", Title);					  \       yy_symbol_print (stderr,						  \ 		  Type, Value, Location, param); \       YYFPRINTF (stderr, "\n");						  \     }									  \ } while (YYID (0))
+value|do {									  \   if (yydebug)								  \     {									  \       YYFPRINTF (stderr, "%s ", Title);					  \       yy_symbol_print (stderr,						  \ 		  Type, Value, param); \       YYFPRINTF (stderr, "\n");						  \     }									  \ } while (YYID (0))
 end_define
 begin_comment
 comment|/*--------------------------------. | Print this symbol on YYOUTPUT.  | `--------------------------------*/
@@ -12385,12 +12423,6 @@ modifier|*
 specifier|const
 name|yyvaluep
 parameter_list|,
-name|YYLTYPE
-specifier|const
-modifier|*
-specifier|const
-name|yylocationp
-parameter_list|,
 name|struct
 name|parser_param
 modifier|*
@@ -12405,8 +12437,6 @@ parameter_list|,
 name|yytype
 parameter_list|,
 name|yyvaluep
-parameter_list|,
-name|yylocationp
 parameter_list|,
 name|param
 parameter_list|)
@@ -12423,12 +12453,6 @@ modifier|*
 specifier|const
 name|yyvaluep
 decl_stmt|;
-name|YYLTYPE
-specifier|const
-modifier|*
-specifier|const
-name|yylocationp
-decl_stmt|;
 name|struct
 name|parser_param
 modifier|*
@@ -12443,11 +12467,6 @@ operator|!
 name|yyvaluep
 condition|)
 return|return;
-name|YYUSE
-argument_list|(
-name|yylocationp
-argument_list|)
-expr_stmt|;
 name|YYUSE
 argument_list|(
 name|param
@@ -12534,12 +12553,6 @@ modifier|*
 specifier|const
 name|yyvaluep
 parameter_list|,
-name|YYLTYPE
-specifier|const
-modifier|*
-specifier|const
-name|yylocationp
-parameter_list|,
 name|struct
 name|parser_param
 modifier|*
@@ -12555,8 +12568,6 @@ name|yytype
 parameter_list|,
 name|yyvaluep
 parameter_list|,
-name|yylocationp
-parameter_list|,
 name|param
 parameter_list|)
 name|FILE
@@ -12571,12 +12582,6 @@ specifier|const
 modifier|*
 specifier|const
 name|yyvaluep
-decl_stmt|;
-name|YYLTYPE
-specifier|const
-modifier|*
-specifier|const
-name|yylocationp
 decl_stmt|;
 name|struct
 name|parser_param
@@ -12617,21 +12622,6 @@ name|yytype
 index|]
 argument_list|)
 expr_stmt|;
-name|YY_LOCATION_PRINT
-argument_list|(
-name|yyoutput
-argument_list|,
-operator|*
-name|yylocationp
-argument_list|)
-expr_stmt|;
-name|YYFPRINTF
-argument_list|(
-name|yyoutput
-argument_list|,
-literal|": "
-argument_list|)
-expr_stmt|;
 name|yy_symbol_value_print
 argument_list|(
 name|yyoutput
@@ -12639,8 +12629,6 @@ argument_list|,
 name|yytype
 argument_list|,
 name|yyvaluep
-argument_list|,
-name|yylocationp
 argument_list|,
 name|param
 argument_list|)
@@ -12795,10 +12783,6 @@ name|YYSTYPE
 modifier|*
 name|yyvsp
 parameter_list|,
-name|YYLTYPE
-modifier|*
-name|yylsp
-parameter_list|,
 name|int
 name|yyrule
 parameter_list|,
@@ -12813,8 +12797,6 @@ function|static void yy_reduce_print
 parameter_list|(
 name|yyvsp
 parameter_list|,
-name|yylsp
-parameter_list|,
 name|yyrule
 parameter_list|,
 name|param
@@ -12822,10 +12804,6 @@ parameter_list|)
 name|YYSTYPE
 modifier|*
 name|yyvsp
-decl_stmt|;
-name|YYLTYPE
-modifier|*
-name|yylsp
 decl_stmt|;
 name|int
 name|yyrule
@@ -12928,22 +12906,6 @@ operator|)
 index|]
 operator|)
 argument_list|,
-operator|&
-operator|(
-name|yylsp
-index|[
-operator|(
-name|yyi
-operator|+
-literal|1
-operator|)
-operator|-
-operator|(
-name|yynrhs
-operator|)
-index|]
-operator|)
-argument_list|,
 name|param
 argument_list|)
 expr_stmt|;
@@ -12966,7 +12928,7 @@ parameter_list|(
 name|Rule
 parameter_list|)
 define|\
-value|do {					\   if (yydebug)				\     yy_reduce_print (yyvsp, yylsp, Rule, param); \ } while (YYID (0))
+value|do {					\   if (yydebug)				\     yy_reduce_print (yyvsp, Rule, param); \ } while (YYID (0))
 end_define
 begin_comment
 comment|/* Nonzero means print parse trace.  It is left uninitialized so that    multiple parsers can coexist.  */
@@ -13992,10 +13954,6 @@ name|YYSTYPE
 operator|*
 name|yyvaluep
 argument_list|,
-name|YYLTYPE
-operator|*
-name|yylocationp
-argument_list|,
 expr|struct
 name|parser_param
 operator|*
@@ -14012,8 +13970,6 @@ argument_list|,
 name|yytype
 argument_list|,
 name|yyvaluep
-argument_list|,
-name|yylocationp
 argument_list|,
 name|param
 argument_list|)
@@ -14035,12 +13991,6 @@ name|yyvaluep
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|YYLTYPE
-modifier|*
-name|yylocationp
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|struct
 name|parser_param
 modifier|*
@@ -14056,11 +14006,6 @@ block|{
 name|YYUSE
 argument_list|(
 name|yyvaluep
-argument_list|)
-expr_stmt|;
-name|YYUSE
-argument_list|(
-name|yylocationp
 argument_list|)
 expr_stmt|;
 name|YYUSE
@@ -14303,10 +14248,6 @@ comment|/* The semantic value of the lookahead symbol.  */
 name|YYSTYPE
 name|yylval
 decl_stmt|;
-comment|/* Location data for the lookahead symbol.  */
-name|YYLTYPE
-name|yylloc
-decl_stmt|;
 comment|/* Number of syntax errors so far.  */
 name|int
 name|yynerrs
@@ -14318,7 +14259,7 @@ comment|/* Number of tokens to shift before error messages enabled.  */
 name|int
 name|yyerrstatus
 decl_stmt|;
-comment|/* The stacks and their tools:        `yyss': related to states.        `yyvs': related to semantic values.        `yyls': related to locations.         Refer to the stacks thru separate pointers, to allow yyoverflow        to reallocate them elsewhere.  */
+comment|/* The stacks and their tools:        `yyss': related to states.        `yyvs': related to semantic values.         Refer to the stacks thru separate pointers, to allow yyoverflow        to reallocate them elsewhere.  */
 comment|/* The state stack.  */
 name|yytype_int16
 name|yyssa
@@ -14349,28 +14290,6 @@ name|YYSTYPE
 modifier|*
 name|yyvsp
 decl_stmt|;
-comment|/* The location stack.  */
-name|YYLTYPE
-name|yylsa
-index|[
-name|YYINITDEPTH
-index|]
-decl_stmt|;
-name|YYLTYPE
-modifier|*
-name|yyls
-decl_stmt|;
-name|YYLTYPE
-modifier|*
-name|yylsp
-decl_stmt|;
-comment|/* The locations where the error started and ended.  */
-name|YYLTYPE
-name|yyerror_range
-index|[
-literal|3
-index|]
-decl_stmt|;
 name|YYSIZE_T
 name|yystacksize
 decl_stmt|;
@@ -14387,9 +14306,6 @@ decl_stmt|;
 comment|/* The variables used to return semantic value and location from the      action routines.  */
 name|YYSTYPE
 name|yyval
-decl_stmt|;
-name|YYLTYPE
-name|yyloc
 decl_stmt|;
 if|#
 directive|if
@@ -14422,7 +14338,7 @@ name|YYPOPSTACK
 parameter_list|(
 name|N
 parameter_list|)
-value|(yyvsp -= (N), yyssp -= (N), yylsp -= (N))
+value|(yyvsp -= (N), yyssp -= (N))
 comment|/* The number of symbols on the RHS of the reduced rule.      Keep to zero when no symbol should be popped.  */
 name|int
 name|yylen
@@ -14440,10 +14356,6 @@ expr_stmt|;
 name|yyvs
 operator|=
 name|yyvsa
-expr_stmt|;
-name|yyls
-operator|=
-name|yylsa
 expr_stmt|;
 name|yystacksize
 operator|=
@@ -14484,39 +14396,6 @@ name|yyvsp
 operator|=
 name|yyvs
 expr_stmt|;
-name|yylsp
-operator|=
-name|yyls
-expr_stmt|;
-if|#
-directive|if
-name|defined
-name|YYLTYPE_IS_TRIVIAL
-operator|&&
-name|YYLTYPE_IS_TRIVIAL
-comment|/* Initialize the default location before parsing starts.  */
-name|yylloc
-operator|.
-name|first_line
-operator|=
-name|yylloc
-operator|.
-name|last_line
-operator|=
-literal|1
-expr_stmt|;
-name|yylloc
-operator|.
-name|first_column
-operator|=
-name|yylloc
-operator|.
-name|last_column
-operator|=
-literal|1
-expr_stmt|;
-endif|#
-directive|endif
 goto|goto
 name|yysetstate
 goto|;
@@ -14572,12 +14451,6 @@ name|yyss1
 init|=
 name|yyss
 decl_stmt|;
-name|YYLTYPE
-modifier|*
-name|yyls1
-init|=
-name|yyls
-decl_stmt|;
 comment|/* Each stack pointer address is followed by the size of the 	   data in use in that stack, in bytes.  This used to be a 	   conditional around just the two extra args, but that might 	   be undefined if yyoverflow is a macro.  */
 name|yyoverflow
 argument_list|(
@@ -14609,23 +14482,8 @@ name|yyvsp
 argument_list|)
 argument_list|,
 operator|&
-name|yyls1
-argument_list|,
-name|yysize
-operator|*
-sizeof|sizeof
-argument_list|(
-operator|*
-name|yylsp
-argument_list|)
-argument_list|,
-operator|&
 name|yystacksize
 argument_list|)
-expr_stmt|;
-name|yyls
-operator|=
-name|yyls1
 expr_stmt|;
 name|yyss
 operator|=
@@ -14718,13 +14576,6 @@ argument_list|,
 name|yyvs
 argument_list|)
 expr_stmt|;
-name|YYSTACK_RELOCATE
-argument_list|(
-name|yyls_alloc
-argument_list|,
-name|yyls
-argument_list|)
-expr_stmt|;
 undef|#
 directive|undef
 name|YYSTACK_RELOCATE
@@ -14756,14 +14607,6 @@ expr_stmt|;
 name|yyvsp
 operator|=
 name|yyvs
-operator|+
-name|yysize
-operator|-
-literal|1
-expr_stmt|;
-name|yylsp
-operator|=
-name|yyls
 operator|+
 name|yysize
 operator|-
@@ -15006,12 +14849,6 @@ name|yyvsp
 operator|=
 name|yylval
 expr_stmt|;
-operator|*
-operator|++
-name|yylsp
-operator|=
-name|yylloc
-expr_stmt|;
 goto|goto
 name|yynewstate
 goto|;
@@ -15058,20 +14895,6 @@ operator|-
 name|yylen
 index|]
 expr_stmt|;
-comment|/* Default location.  */
-name|YYLLOC_DEFAULT
-argument_list|(
-name|yyloc
-argument_list|,
-operator|(
-name|yylsp
-operator|-
-name|yylen
-operator|)
-argument_list|,
-name|yylen
-argument_list|)
-expr_stmt|;
 name|YY_REDUCE_PRINT
 argument_list|(
 name|yyn
@@ -15088,7 +14911,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|199
+number|239
 file|"parser.y"
 block|{
 operator|(
@@ -15130,7 +14953,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|201
+number|241
 file|"parser.y"
 block|{
 operator|(
@@ -15174,7 +14997,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|203
+number|243
 file|"parser.y"
 block|{
 operator|(
@@ -15203,7 +15026,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|209
+number|249
 file|"parser.y"
 block|{
 operator|(
@@ -15290,7 +15113,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|212
+number|252
 file|"parser.y"
 block|{
 operator|(
@@ -15309,7 +15132,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|213
+number|253
 file|"parser.y"
 block|{
 operator|(
@@ -15328,7 +15151,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|214
+number|254
 file|"parser.y"
 block|{
 operator|(
@@ -15347,7 +15170,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|218
+number|258
 file|"parser.y"
 block|{
 if|if
@@ -15447,7 +15270,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|225
+number|265
 file|"parser.y"
 block|{
 operator|(
@@ -15479,7 +15302,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|231
+number|271
 file|"parser.y"
 block|{
 if|if
@@ -15631,7 +15454,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|243
+number|283
 file|"parser.y"
 block|{
 operator|(
@@ -15650,7 +15473,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|244
+number|284
 file|"parser.y"
 block|{
 operator|(
@@ -15669,7 +15492,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|245
+number|285
 file|"parser.y"
 block|{
 operator|(
@@ -15688,7 +15511,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|246
+number|286
 file|"parser.y"
 block|{
 operator|(
@@ -15707,7 +15530,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|247
+number|287
 file|"parser.y"
 block|{
 operator|(
@@ -15726,7 +15549,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|250
+number|290
 file|"parser.y"
 block|{
 operator|(
@@ -15758,7 +15581,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|251
+number|291
 file|"parser.y"
 block|{
 operator|(
@@ -15777,7 +15600,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|254
+number|294
 file|"parser.y"
 block|{
 operator|(
@@ -15826,7 +15649,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|255
+number|295
 file|"parser.y"
 block|{
 operator|(
@@ -15858,7 +15681,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|258
+number|298
 file|"parser.y"
 block|{
 operator|(
@@ -15877,7 +15700,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|259
+number|299
 file|"parser.y"
 block|{
 operator|(
@@ -15896,7 +15719,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|260
+number|300
 file|"parser.y"
 block|{
 operator|(
@@ -15915,7 +15738,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|261
+number|301
 file|"parser.y"
 block|{
 operator|(
@@ -15934,7 +15757,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|262
+number|302
 file|"parser.y"
 block|{
 operator|(
@@ -15953,7 +15776,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|263
+number|303
 file|"parser.y"
 block|{
 operator|(
@@ -15972,7 +15795,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|264
+number|304
 file|"parser.y"
 block|{
 operator|(
@@ -15991,7 +15814,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|265
+number|305
 file|"parser.y"
 block|{
 operator|(
@@ -16010,7 +15833,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|269
+number|309
 file|"parser.y"
 block|{
 operator|(
@@ -16060,7 +15883,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|270
+number|310
 file|"parser.y"
 block|{
 operator|(
@@ -16079,7 +15902,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|274
+number|314
 file|"parser.y"
 block|{
 operator|(
@@ -16146,7 +15969,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|279
+number|319
 file|"parser.y"
 block|{
 operator|(
@@ -16213,7 +16036,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|284
+number|324
 file|"parser.y"
 block|{
 operator|(
@@ -16280,7 +16103,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|289
+number|329
 file|"parser.y"
 block|{
 operator|(
@@ -16347,7 +16170,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|294
+number|334
 file|"parser.y"
 block|{
 operator|(
@@ -16414,7 +16237,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|299
+number|339
 file|"parser.y"
 block|{
 operator|(
@@ -16481,7 +16304,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|304
+number|344
 file|"parser.y"
 block|{
 operator|(
@@ -16548,7 +16371,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|309
+number|349
 file|"parser.y"
 block|{
 operator|(
@@ -16615,7 +16438,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|314
+number|354
 file|"parser.y"
 block|{
 operator|(
@@ -16682,7 +16505,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|319
+number|359
 file|"parser.y"
 block|{
 operator|(
@@ -16749,7 +16572,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|324
+number|364
 file|"parser.y"
 block|{
 operator|(
@@ -16816,7 +16639,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|328
+number|368
 file|"parser.y"
 block|{
 operator|(
@@ -16835,7 +16658,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|329
+number|369
 file|"parser.y"
 block|{
 operator|(
@@ -16854,7 +16677,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|330
+number|370
 file|"parser.y"
 block|{
 operator|(
@@ -16873,7 +16696,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|332
+number|372
 file|"parser.y"
 block|{
 operator|(
@@ -16948,7 +16771,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|339
+number|379
 file|"parser.y"
 block|{
 operator|(
@@ -16998,7 +16821,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|341
+number|381
 file|"parser.y"
 block|{
 operator|(
@@ -17024,7 +16847,7 @@ operator|.
 name|sval
 operator|)
 argument_list|,
-literal|1
+name|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -17035,7 +16858,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|343
+number|383
 file|"parser.y"
 block|{
 operator|(
@@ -17061,7 +16884,7 @@ operator|.
 name|sval
 operator|)
 argument_list|,
-literal|0
+name|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -17072,7 +16895,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|347
+number|387
 file|"parser.y"
 block|{
 operator|(
@@ -17122,7 +16945,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|351
+number|391
 file|"parser.y"
 block|{
 operator|(
@@ -17172,7 +16995,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|355
+number|395
 file|"parser.y"
 block|{
 operator|(
@@ -17204,7 +17027,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|359
+number|399
 file|"parser.y"
 block|{
 operator|(
@@ -17264,7 +17087,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|361
+number|401
 file|"parser.y"
 block|{
 operator|(
@@ -17296,7 +17119,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|365
+number|405
 file|"parser.y"
 block|{
 operator|(
@@ -17333,7 +17156,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|367
+number|407
 file|"parser.y"
 block|{
 operator|(
@@ -17383,7 +17206,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|373
+number|413
 file|"parser.y"
 block|{
 operator|(
@@ -17447,7 +17270,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|377
+number|417
 file|"parser.y"
 block|{
 operator|(
@@ -17470,7 +17293,7 @@ literal|3
 operator|)
 index|]
 operator|.
-name|str
+name|keysym
 operator|)
 argument_list|,
 operator|(
@@ -17497,7 +17320,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|379
+number|419
 file|"parser.y"
 block|{
 operator|(
@@ -17520,7 +17343,7 @@ literal|1
 operator|)
 index|]
 operator|.
-name|str
+name|keysym
 operator|)
 argument_list|,
 name|NULL
@@ -17534,7 +17357,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|383
+number|423
 file|"parser.y"
 block|{
 operator|(
@@ -17594,7 +17417,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|385
+number|425
 file|"parser.y"
 block|{
 operator|(
@@ -17626,7 +17449,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|391
+number|431
 file|"parser.y"
 block|{
 operator|(
@@ -17676,7 +17499,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|397
+number|437
 file|"parser.y"
 block|{
 operator|(
@@ -17703,10 +17526,6 @@ name|sval
 operator|)
 argument_list|,
 operator|(
-name|ExprDef
-operator|*
-operator|)
-operator|(
 name|yyvsp
 index|[
 operator|(
@@ -17730,7 +17549,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|401
+number|441
 file|"parser.y"
 block|{
 operator|(
@@ -17790,7 +17609,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|403
+number|443
 file|"parser.y"
 block|{
 operator|(
@@ -17822,7 +17641,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|404
+number|444
 file|"parser.y"
 block|{
 operator|(
@@ -17841,7 +17660,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|407
+number|447
 file|"parser.y"
 block|{
 operator|(
@@ -17891,7 +17710,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|408
+number|448
 file|"parser.y"
 block|{
 operator|(
@@ -17941,7 +17760,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|409
+number|449
 file|"parser.y"
 block|{
 operator|(
@@ -17967,7 +17786,7 @@ operator|.
 name|sval
 operator|)
 argument_list|,
-literal|1
+name|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -17978,7 +17797,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|410
+number|450
 file|"parser.y"
 block|{
 operator|(
@@ -18004,7 +17823,7 @@ operator|.
 name|sval
 operator|)
 argument_list|,
-literal|0
+name|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -18015,7 +17834,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|411
+number|451
 file|"parser.y"
 block|{
 operator|(
@@ -18052,7 +17871,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|415
+number|455
 file|"parser.y"
 block|{
 operator|(
@@ -18084,7 +17903,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|417
+number|457
 file|"parser.y"
 block|{
 operator|(
@@ -18123,7 +17942,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|421
+number|461
 file|"parser.y"
 block|{
 operator|(
@@ -18173,7 +17992,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|425
+number|465
 file|"parser.y"
 block|{
 operator|(
@@ -18223,7 +18042,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|429
+number|469
 file|"parser.y"
 block|{
 operator|(
@@ -18273,7 +18092,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|433
+number|473
 file|"parser.y"
 block|{
 operator|(
@@ -18325,7 +18144,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|435
+number|475
 file|"parser.y"
 block|{
 operator|(
@@ -18377,7 +18196,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|439
+number|479
 file|"parser.y"
 block|{
 operator|(
@@ -18396,7 +18215,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|441
+number|481
 file|"parser.y"
 block|{
 operator|(
@@ -18415,7 +18234,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|445
+number|485
 file|"parser.y"
 block|{
 operator|(
@@ -18434,7 +18253,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|448
+number|488
 file|"parser.y"
 block|{
 operator|(
@@ -18453,7 +18272,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|449
+number|489
 file|"parser.y"
 block|{
 operator|(
@@ -18472,7 +18291,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|453
+number|493
 file|"parser.y"
 block|{
 operator|(
@@ -18491,7 +18310,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|455
+number|495
 file|"parser.y"
 block|{
 name|FreeStmt
@@ -18531,7 +18350,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|457
+number|497
 file|"parser.y"
 block|{
 operator|(
@@ -18550,7 +18369,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|459
+number|499
 file|"parser.y"
 block|{
 name|FreeStmt
@@ -18590,7 +18409,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|461
+number|501
 file|"parser.y"
 block|{
 operator|(
@@ -18609,7 +18428,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|464
+number|504
 file|"parser.y"
 block|{
 operator|(
@@ -18628,7 +18447,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|465
+number|505
 file|"parser.y"
 block|{
 operator|(
@@ -18647,7 +18466,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|468
+number|508
 file|"parser.y"
 block|{
 operator|(
@@ -18666,7 +18485,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|470
+number|510
 file|"parser.y"
 block|{
 name|FreeStmt
@@ -18706,7 +18525,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|473
+number|513
 file|"parser.y"
 block|{
 operator|(
@@ -18725,7 +18544,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|474
+number|514
 file|"parser.y"
 block|{
 operator|(
@@ -18744,7 +18563,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|478
+number|518
 file|"parser.y"
 block|{
 operator|(
@@ -18763,7 +18582,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|480
+number|520
 file|"parser.y"
 block|{
 name|FreeStmt
@@ -18803,7 +18622,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|484
+number|524
 file|"parser.y"
 block|{
 operator|(
@@ -18822,7 +18641,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|487
+number|527
 file|"parser.y"
 block|{
 operator|(
@@ -18841,7 +18660,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|488
+number|528
 file|"parser.y"
 block|{
 operator|(
@@ -18860,7 +18679,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|491
+number|531
 file|"parser.y"
 block|{
 operator|(
@@ -18879,7 +18698,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|495
+number|535
 file|"parser.y"
 block|{
 operator|(
@@ -18898,7 +18717,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|497
+number|537
 file|"parser.y"
 block|{
 operator|(
@@ -18917,7 +18736,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|501
+number|541
 file|"parser.y"
 block|{
 operator|(
@@ -18936,7 +18755,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|503
+number|543
 file|"parser.y"
 block|{
 operator|(
@@ -18955,7 +18774,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|505
+number|545
 file|"parser.y"
 block|{
 name|FreeStmt
@@ -18995,7 +18814,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|509
+number|549
 file|"parser.y"
 block|{
 operator|(
@@ -19014,7 +18833,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|511
+number|551
 file|"parser.y"
 block|{
 operator|(
@@ -19033,7 +18852,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|515
+number|555
 file|"parser.y"
 block|{
 operator|(
@@ -19052,7 +18871,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|519
+number|559
 file|"parser.y"
 block|{
 name|FreeStmt
@@ -19092,13 +18911,13 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|522
+number|562
 file|"parser.y"
 block|{
 operator|(
 name|yyval
 operator|.
-name|uval
+name|ival
 operator|)
 operator|=
 literal|0
@@ -19111,13 +18930,13 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|523
+number|563
 file|"parser.y"
 block|{
 operator|(
 name|yyval
 operator|.
-name|uval
+name|ival
 operator|)
 operator|=
 literal|0
@@ -19130,13 +18949,13 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|524
+number|564
 file|"parser.y"
 block|{
 operator|(
 name|yyval
 operator|.
-name|uval
+name|ival
 operator|)
 operator|=
 literal|0
@@ -19149,13 +18968,13 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|525
+number|565
 file|"parser.y"
 block|{
 operator|(
 name|yyval
 operator|.
-name|uval
+name|ival
 operator|)
 operator|=
 literal|0
@@ -19168,7 +18987,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|528
+number|568
 file|"parser.y"
 block|{
 operator|(
@@ -19200,7 +19019,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|529
+number|569
 file|"parser.y"
 block|{
 operator|(
@@ -19232,7 +19051,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|533
+number|573
 file|"parser.y"
 block|{
 operator|(
@@ -19241,7 +19060,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19258,7 +19077,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|535
+number|575
 file|"parser.y"
 block|{
 operator|(
@@ -19267,7 +19086,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19284,7 +19103,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|537
+number|577
 file|"parser.y"
 block|{
 operator|(
@@ -19293,7 +19112,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19310,7 +19129,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|539
+number|579
 file|"parser.y"
 block|{
 operator|(
@@ -19319,7 +19138,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19336,7 +19155,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|541
+number|581
 file|"parser.y"
 block|{
 operator|(
@@ -19345,7 +19164,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19362,7 +19181,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|543
+number|583
 file|"parser.y"
 block|{
 operator|(
@@ -19371,7 +19190,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19388,7 +19207,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|545
+number|585
 file|"parser.y"
 block|{
 operator|(
@@ -19397,7 +19216,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -19414,7 +19233,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|547
+number|587
 file|"parser.y"
 block|{
 operator|(
@@ -19433,7 +19252,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|549
+number|589
 file|"parser.y"
 block|{
 operator|(
@@ -19452,7 +19271,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|551
+number|591
 file|"parser.y"
 block|{
 operator|(
@@ -19471,7 +19290,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|553
+number|593
 file|"parser.y"
 block|{
 operator|(
@@ -19490,7 +19309,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|556
+number|596
 file|"parser.y"
 block|{
 operator|(
@@ -19522,7 +19341,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|557
+number|597
 file|"parser.y"
 block|{
 operator|(
@@ -19541,7 +19360,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|560
+number|600
 file|"parser.y"
 block|{
 operator|(
@@ -19560,7 +19379,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|561
+number|601
 file|"parser.y"
 block|{
 operator|(
@@ -19579,7 +19398,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|562
+number|602
 file|"parser.y"
 block|{
 operator|(
@@ -19598,7 +19417,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|563
+number|603
 file|"parser.y"
 block|{
 operator|(
@@ -19617,7 +19436,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|565
+number|605
 file|"parser.y"
 block|{
 comment|/*                      * This used to be MERGE_ALT_FORM. This functionality was                      * unused and has been removed.                      */
@@ -19637,7 +19456,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|574
+number|614
 file|"parser.y"
 block|{
 operator|(
@@ -19669,7 +19488,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|575
+number|615
 file|"parser.y"
 block|{
 operator|(
@@ -19688,7 +19507,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|579
+number|619
 file|"parser.y"
 block|{
 operator|(
@@ -19748,7 +19567,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|581
+number|621
 file|"parser.y"
 block|{
 operator|(
@@ -19780,7 +19599,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|585
+number|625
 file|"parser.y"
 block|{
 operator|(
@@ -19832,7 +19651,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|587
+number|627
 file|"parser.y"
 block|{
 operator|(
@@ -19884,7 +19703,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|589
+number|629
 file|"parser.y"
 block|{
 operator|(
@@ -19936,7 +19755,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|591
+number|631
 file|"parser.y"
 block|{
 operator|(
@@ -19988,7 +19807,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|593
+number|633
 file|"parser.y"
 block|{
 operator|(
@@ -20040,7 +19859,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|595
+number|635
 file|"parser.y"
 block|{
 operator|(
@@ -20072,7 +19891,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|599
+number|639
 file|"parser.y"
 block|{
 operator|(
@@ -20100,6 +19919,8 @@ operator|.
 name|expr
 operator|)
 operator|->
+name|expr
+operator|.
 name|value_type
 argument_list|,
 operator|(
@@ -20126,7 +19947,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|601
+number|641
 file|"parser.y"
 block|{
 operator|(
@@ -20154,6 +19975,8 @@ operator|.
 name|expr
 operator|)
 operator|->
+name|expr
+operator|.
 name|value_type
 argument_list|,
 operator|(
@@ -20180,7 +20003,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|603
+number|643
 file|"parser.y"
 block|{
 operator|(
@@ -20219,7 +20042,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|605
+number|645
 file|"parser.y"
 block|{
 operator|(
@@ -20247,6 +20070,8 @@ operator|.
 name|expr
 operator|)
 operator|->
+name|expr
+operator|.
 name|value_type
 argument_list|,
 operator|(
@@ -20273,7 +20098,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|607
+number|647
 file|"parser.y"
 block|{
 operator|(
@@ -20305,7 +20130,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|609
+number|649
 file|"parser.y"
 block|{
 operator|(
@@ -20314,7 +20139,7 @@ operator|.
 name|expr
 operator|)
 operator|=
-name|ActionCreate
+name|ExprCreateAction
 argument_list|(
 operator|(
 name|yyvsp
@@ -20355,7 +20180,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|611
+number|651
 file|"parser.y"
 block|{
 operator|(
@@ -20387,7 +20212,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|613
+number|653
 file|"parser.y"
 block|{
 operator|(
@@ -20419,7 +20244,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|617
+number|657
 file|"parser.y"
 block|{
 operator|(
@@ -20479,7 +20304,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|619
+number|659
 file|"parser.y"
 block|{
 operator|(
@@ -20511,7 +20336,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|623
+number|663
 file|"parser.y"
 block|{
 operator|(
@@ -20520,7 +20345,7 @@ operator|.
 name|expr
 operator|)
 operator|=
-name|ActionCreate
+name|ExprCreateAction
 argument_list|(
 operator|(
 name|yyvsp
@@ -20561,28 +20386,17 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|627
+number|667
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
-name|expr
-decl_stmt|;
-name|expr
-operator|=
-name|ExprCreate
-argument_list|(
-name|EXPR_IDENT
-argument_list|,
-name|EXPR_TYPE_UNKNOWN
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
+operator|(
+name|yyval
 operator|.
-name|str
+name|expr
+operator|)
 operator|=
+name|ExprCreateIdent
+argument_list|(
 operator|(
 name|yyvsp
 index|[
@@ -20597,14 +20411,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -20614,30 +20421,17 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|634
+number|669
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
+operator|(
+name|yyval
+operator|.
 name|expr
-decl_stmt|;
-name|expr
+operator|)
 operator|=
-name|ExprCreate
+name|ExprCreateFieldRef
 argument_list|(
-name|EXPR_FIELD_REF
-argument_list|,
-name|EXPR_TYPE_UNKNOWN
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|field
-operator|.
-name|element
-operator|=
 operator|(
 name|yyvsp
 index|[
@@ -20652,15 +20446,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|field
-operator|.
-name|field
-operator|=
+argument_list|,
 operator|(
 name|yyvsp
 index|[
@@ -20675,14 +20461,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -20692,40 +20471,19 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|642
+number|671
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
+operator|(
+name|yyval
+operator|.
 name|expr
-decl_stmt|;
-name|expr
+operator|)
 operator|=
-name|ExprCreate
+name|ExprCreateArrayRef
 argument_list|(
-name|EXPR_ARRAY_REF
-argument_list|,
-name|EXPR_TYPE_UNKNOWN
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|array
-operator|.
-name|element
-operator|=
 name|XKB_ATOM_NONE
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|array
-operator|.
-name|field
-operator|=
+argument_list|,
 operator|(
 name|yyvsp
 index|[
@@ -20740,15 +20498,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|array
-operator|.
-name|entry
-operator|=
+argument_list|,
 operator|(
 name|yyvsp
 index|[
@@ -20763,14 +20513,7 @@ index|]
 operator|.
 name|expr
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -20780,30 +20523,17 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|651
+number|673
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
+operator|(
+name|yyval
+operator|.
 name|expr
-decl_stmt|;
-name|expr
+operator|)
 operator|=
-name|ExprCreate
+name|ExprCreateArrayRef
 argument_list|(
-name|EXPR_ARRAY_REF
-argument_list|,
-name|EXPR_TYPE_UNKNOWN
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|array
-operator|.
-name|element
-operator|=
 operator|(
 name|yyvsp
 index|[
@@ -20818,15 +20548,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|array
-operator|.
-name|field
-operator|=
+argument_list|,
 operator|(
 name|yyvsp
 index|[
@@ -20841,15 +20563,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
-operator|.
-name|array
-operator|.
-name|entry
-operator|=
+argument_list|,
 operator|(
 name|yyvsp
 index|[
@@ -20864,14 +20578,7 @@ index|]
 operator|.
 name|expr
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -20881,28 +20588,17 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|662
+number|677
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
-name|expr
-decl_stmt|;
-name|expr
-operator|=
-name|ExprCreate
-argument_list|(
-name|EXPR_VALUE
-argument_list|,
-name|EXPR_TYPE_STRING
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
+operator|(
+name|yyval
 operator|.
-name|str
+name|expr
+operator|)
 operator|=
+name|ExprCreateString
+argument_list|(
 operator|(
 name|yyvsp
 index|[
@@ -20917,14 +20613,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -20934,28 +20623,17 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|669
+number|679
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
-name|expr
-decl_stmt|;
-name|expr
-operator|=
-name|ExprCreate
-argument_list|(
-name|EXPR_VALUE
-argument_list|,
-name|EXPR_TYPE_INT
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
+operator|(
+name|yyval
 operator|.
-name|ival
+name|expr
+operator|)
 operator|=
+name|ExprCreateInteger
+argument_list|(
 operator|(
 name|yyvsp
 index|[
@@ -20970,14 +20648,7 @@ index|]
 operator|.
 name|ival
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -20987,7 +20658,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|676
+number|681
 file|"parser.y"
 block|{
 operator|(
@@ -21006,28 +20677,17 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|680
+number|683
 file|"parser.y"
 block|{
-name|ExprDef
-modifier|*
-name|expr
-decl_stmt|;
-name|expr
-operator|=
-name|ExprCreate
-argument_list|(
-name|EXPR_VALUE
-argument_list|,
-name|EXPR_TYPE_KEYNAME
-argument_list|)
-expr_stmt|;
-name|expr
-operator|->
-name|value
+operator|(
+name|yyval
 operator|.
-name|keyName
+name|expr
+operator|)
 operator|=
+name|ExprCreateKeyName
+argument_list|(
 operator|(
 name|yyvsp
 index|[
@@ -21042,14 +20702,7 @@ index|]
 operator|.
 name|sval
 operator|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|expr
-operator|)
-operator|=
-name|expr
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -21059,7 +20712,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|688
+number|686
 file|"parser.y"
 block|{
 operator|(
@@ -21091,7 +20744,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|689
+number|687
 file|"parser.y"
 block|{
 operator|(
@@ -21110,7 +20763,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|693
+number|691
 file|"parser.y"
 block|{
 operator|(
@@ -21119,7 +20772,7 @@ operator|.
 name|expr
 operator|)
 operator|=
-name|AppendKeysymList
+name|ExprAppendKeysymList
 argument_list|(
 operator|(
 name|yyvsp
@@ -21148,7 +20801,7 @@ literal|3
 operator|)
 index|]
 operator|.
-name|str
+name|keysym
 operator|)
 argument_list|)
 expr_stmt|;
@@ -21160,7 +20813,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|695
+number|693
 file|"parser.y"
 block|{
 operator|(
@@ -21169,7 +20822,7 @@ operator|.
 name|expr
 operator|)
 operator|=
-name|AppendMultiKeysymList
+name|ExprAppendMultiKeysymList
 argument_list|(
 operator|(
 name|yyvsp
@@ -21210,7 +20863,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|697
+number|695
 file|"parser.y"
 block|{
 operator|(
@@ -21219,7 +20872,7 @@ operator|.
 name|expr
 operator|)
 operator|=
-name|CreateKeysymList
+name|ExprCreateKeysymList
 argument_list|(
 operator|(
 name|yyvsp
@@ -21233,7 +20886,7 @@ literal|1
 operator|)
 index|]
 operator|.
-name|str
+name|keysym
 operator|)
 argument_list|)
 expr_stmt|;
@@ -21245,7 +20898,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|699
+number|697
 file|"parser.y"
 block|{
 operator|(
@@ -21254,7 +20907,7 @@ operator|.
 name|expr
 operator|)
 operator|=
-name|CreateMultiKeysymList
+name|ExprCreateMultiKeysymList
 argument_list|(
 operator|(
 name|yyvsp
@@ -21280,7 +20933,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|703
+number|701
 file|"parser.y"
 block|{
 operator|(
@@ -21312,15 +20965,14 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|706
+number|705
 file|"parser.y"
 block|{
-operator|(
-name|yyval
-operator|.
-name|str
-operator|)
-operator|=
+if|if
+condition|(
+operator|!
+name|resolve_keysym
+argument_list|(
 operator|(
 name|yyvsp
 index|[
@@ -21335,6 +20987,39 @@ index|]
 operator|.
 name|str
 operator|)
+argument_list|,
+operator|&
+operator|(
+name|yyval
+operator|.
+name|keysym
+operator|)
+argument_list|)
+condition|)
+name|parser_warn
+argument_list|(
+name|param
+argument_list|,
+literal|"unrecognized keysym"
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+operator|(
+name|yyvsp
+index|[
+operator|(
+literal|1
+operator|)
+operator|-
+operator|(
+literal|1
+operator|)
+index|]
+operator|.
+name|str
+operator|)
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -21344,19 +21029,16 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|707
+number|710
 file|"parser.y"
 block|{
 operator|(
 name|yyval
 operator|.
-name|str
+name|keysym
 operator|)
 operator|=
-name|strdup
-argument_list|(
-literal|"section"
-argument_list|)
+name|XKB_KEY_section
 expr_stmt|;
 block|}
 break|break;
@@ -21366,7 +21048,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|709
+number|712
 file|"parser.y"
 block|{
 if|if
@@ -21389,27 +21071,15 @@ operator|<
 literal|10
 condition|)
 block|{
-comment|/* XK_0 .. XK_9 */
+comment|/* XKB_KEY_0 .. XKB_KEY_9 */
 operator|(
 name|yyval
 operator|.
-name|str
+name|keysym
 operator|)
 operator|=
-name|malloc
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|str
-operator|)
-index|[
-literal|0
-index|]
-operator|=
+name|XKB_KEY_0
+operator|+
 operator|(
 name|yyvsp
 index|[
@@ -21424,43 +21094,24 @@ index|]
 operator|.
 name|ival
 operator|)
-operator|+
-literal|'0'
-expr_stmt|;
-operator|(
-name|yyval
-operator|.
-name|str
-operator|)
-index|[
-literal|1
-index|]
-operator|=
-literal|'\0'
 expr_stmt|;
 block|}
 else|else
 block|{
-operator|(
-name|yyval
-operator|.
-name|str
-operator|)
-operator|=
-name|malloc
-argument_list|(
+name|char
+name|buf
+index|[
 literal|17
-argument_list|)
-expr_stmt|;
+index|]
+decl_stmt|;
 name|snprintf
 argument_list|(
-operator|(
-name|yyval
-operator|.
-name|str
-operator|)
+name|buf
 argument_list|,
-literal|17
+sizeof|sizeof
+argument_list|(
+name|buf
+argument_list|)
 argument_list|,
 literal|"0x%x"
 argument_list|,
@@ -21480,6 +21131,28 @@ name|ival
 operator|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|resolve_keysym
+argument_list|(
+name|buf
+argument_list|,
+operator|&
+operator|(
+name|yyval
+operator|.
+name|keysym
+operator|)
+argument_list|)
+condition|)
+name|parser_warn
+argument_list|(
+name|param
+argument_list|,
+literal|"unrecognized keysym"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 break|break;
@@ -21489,7 +21162,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|722
+number|725
 file|"parser.y"
 block|{
 operator|(
@@ -21522,7 +21195,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|723
+number|726
 file|"parser.y"
 block|{
 operator|(
@@ -21554,7 +21227,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|726
+number|729
 file|"parser.y"
 block|{
 operator|(
@@ -21586,7 +21259,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|727
+number|730
 file|"parser.y"
 block|{
 operator|(
@@ -21618,7 +21291,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|730
+number|733
 file|"parser.y"
 block|{
 operator|(
@@ -21637,7 +21310,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|733
+number|736
 file|"parser.y"
 block|{
 operator|(
@@ -21669,7 +21342,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|736
+number|739
 file|"parser.y"
 block|{
 operator|(
@@ -21701,7 +21374,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|739
+number|742
 file|"parser.y"
 block|{
 operator|(
@@ -21740,7 +21413,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|740
+number|743
 file|"parser.y"
 block|{
 operator|(
@@ -21749,7 +21422,7 @@ operator|.
 name|sval
 operator|)
 operator|=
-name|xkb_atom_intern
+name|xkb_atom_intern_literal
 argument_list|(
 name|param
 operator|->
@@ -21766,7 +21439,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|743
+number|746
 file|"parser.y"
 block|{
 operator|(
@@ -21805,7 +21478,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|746
+number|749
 file|"parser.y"
 block|{
 operator|(
@@ -21837,7 +21510,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|747
+number|750
 file|"parser.y"
 block|{
 operator|(
@@ -21856,7 +21529,7 @@ case|:
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|750
+number|753
 file|"parser.y"
 block|{
 operator|(
@@ -21885,7 +21558,7 @@ break|break;
 comment|/* Line 1806 of yacc.c  */
 line|#
 directive|line
-number|3386
+number|3325
 file|"src/xkbcomp/parser.c"
 default|default:
 break|break;
@@ -21928,12 +21601,6 @@ operator|++
 name|yyvsp
 operator|=
 name|yyval
-expr_stmt|;
-operator|*
-operator|++
-name|yylsp
-operator|=
-name|yyloc
 expr_stmt|;
 comment|/* Now `shift' the result of the reduction.  Determine what state      that goes to, based on the state we popped back to and the rule      number reduced by.  */
 name|yyn
@@ -22026,9 +21693,6 @@ operator|!
 name|YYERROR_VERBOSE
 name|yyerror
 argument_list|(
-operator|&
-name|yylloc
-argument_list|,
 name|param
 argument_list|,
 name|YY_
@@ -22135,9 +21799,6 @@ block|}
 block|}
 name|yyerror
 argument_list|(
-operator|&
-name|yylloc
-argument_list|,
 name|param
 argument_list|,
 name|yymsgp
@@ -22159,13 +21820,6 @@ name|YYSYNTAX_ERROR
 endif|#
 directive|endif
 block|}
-name|yyerror_range
-index|[
-literal|1
-index|]
-operator|=
-name|yylloc
-expr_stmt|;
 if|if
 condition|(
 name|yyerrstatus
@@ -22202,9 +21856,6 @@ argument_list|,
 operator|&
 name|yylval
 argument_list|,
-operator|&
-name|yylloc
-argument_list|,
 name|param
 argument_list|)
 expr_stmt|;
@@ -22230,18 +21881,6 @@ condition|)
 goto|goto
 name|yyerrorlab
 goto|;
-name|yyerror_range
-index|[
-literal|1
-index|]
-operator|=
-name|yylsp
-index|[
-literal|1
-operator|-
-name|yylen
-index|]
-expr_stmt|;
 comment|/* Do not reclaim the symbols of the rule which action triggered      this YYERROR.  */
 name|YYPOPSTACK
 argument_list|(
@@ -22344,14 +21983,6 @@ name|yyss
 condition|)
 name|YYABORT
 expr_stmt|;
-name|yyerror_range
-index|[
-literal|1
-index|]
-operator|=
-operator|*
-name|yylsp
-expr_stmt|;
 name|yydestruct
 argument_list|(
 literal|"Error: popping"
@@ -22362,8 +21993,6 @@ name|yystate
 index|]
 argument_list|,
 name|yyvsp
-argument_list|,
-name|yylsp
 argument_list|,
 name|param
 argument_list|)
@@ -22391,29 +22020,6 @@ operator|++
 name|yyvsp
 operator|=
 name|yylval
-expr_stmt|;
-name|yyerror_range
-index|[
-literal|2
-index|]
-operator|=
-name|yylloc
-expr_stmt|;
-comment|/* Using YYLLOC is tempting, but would change the location of      the lookahead.  YYLOC is available though.  */
-name|YYLLOC_DEFAULT
-argument_list|(
-name|yyloc
-argument_list|,
-name|yyerror_range
-argument_list|,
-literal|2
-argument_list|)
-expr_stmt|;
-operator|*
-operator|++
-name|yylsp
-operator|=
-name|yyloc
 expr_stmt|;
 comment|/* Shift the error token.  */
 name|YY_SYMBOL_PRINT
@@ -22471,9 +22077,6 @@ name|yyexhaustedlab
 label|:
 name|yyerror
 argument_list|(
-operator|&
-name|yylloc
-argument_list|,
 name|param
 argument_list|,
 name|YY_
@@ -22515,9 +22118,6 @@ argument_list|,
 operator|&
 name|yylval
 argument_list|,
-operator|&
-name|yylloc
-argument_list|,
 name|param
 argument_list|)
 expr_stmt|;
@@ -22553,8 +22153,6 @@ name|yyssp
 index|]
 argument_list|,
 name|yyvsp
-argument_list|,
-name|yylsp
 argument_list|,
 name|param
 argument_list|)
@@ -22612,7 +22210,7 @@ end_comment
 begin_line
 line|#
 directive|line
-number|753
+number|756
 file|"parser.y"
 end_line
 begin_undef
@@ -22642,10 +22240,6 @@ modifier|*
 name|map
 parameter_list|)
 block|{
-name|struct
-name|parser_param
-name|param
-decl_stmt|;
 name|int
 name|ret
 decl_stmt|;
@@ -22655,18 +22249,22 @@ name|first
 init|=
 name|NULL
 decl_stmt|;
+name|struct
+name|parser_param
 name|param
+init|=
+block|{
 operator|.
 name|scanner
 operator|=
 name|scanner
-expr_stmt|;
-name|param
+block|,
 operator|.
 name|ctx
 operator|=
 name|ctx
-expr_stmt|;
+block|,     }
+decl_stmt|;
 comment|/*      * If we got a specific map, we look for it exclusively and return      * immediately upon finding it. Otherwise, we need to get the      * default map. If we find a map marked as default, we return it      * immediately. If there are no maps marked as default, we return      * the first map in the file.      */
 while|while
 condition|(
@@ -22790,4 +22388,11 @@ name|first
 return|;
 block|}
 end_function
+begin_define
+DECL|macro|scanner
+define|#
+directive|define
+name|scanner
+value|param->scanner
+end_define
 end_unit

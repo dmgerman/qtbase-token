@@ -1136,6 +1136,8 @@ if|if
 condition|(
 name|expr
 operator|->
+name|expr
+operator|.
 name|op
 operator|==
 name|EXPR_ACTION_DECL
@@ -1156,8 +1158,6 @@ name|ctx
 argument_list|,
 name|expr
 operator|->
-name|value
-operator|.
 name|action
 operator|.
 name|name
@@ -1197,8 +1197,6 @@ name|expr
 operator|=
 name|expr
 operator|->
-name|value
-operator|.
 name|action
 operator|.
 name|args
@@ -1209,6 +1207,8 @@ if|if
 condition|(
 name|expr
 operator|->
+name|expr
+operator|.
 name|op
 operator|==
 name|EXPR_IDENT
@@ -1229,9 +1229,9 @@ name|ctx
 argument_list|,
 name|expr
 operator|->
-name|value
+name|ident
 operator|.
-name|str
+name|ident
 argument_list|)
 decl_stmt|;
 if|if
@@ -3298,6 +3298,8 @@ name|def
 operator|->
 name|name
 operator|->
+name|expr
+operator|.
 name|op
 operator|==
 name|EXPR_FIELD_REF
@@ -3464,44 +3466,16 @@ operator|->
 name|merge
 operator|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|LookupKeysym
-argument_list|(
-name|def
-operator|->
-name|sym
-argument_list|,
-operator|&
 name|si
 operator|.
 name|interp
 operator|.
 name|sym
-argument_list|)
-condition|)
-block|{
-name|log_err
-argument_list|(
-name|info
-operator|->
-name|keymap
-operator|->
-name|ctx
-argument_list|,
-literal|"Could not resolve keysym %s; "
-literal|"Symbol interpretation ignored\n"
-argument_list|,
+operator|=
 name|def
 operator|->
 name|sym
-argument_list|)
 expr_stmt|;
-return|return
-name|false
-return|;
-block|}
 name|si
 operator|.
 name|interp
@@ -3979,7 +3953,7 @@ name|keymap
 operator|->
 name|ctx
 argument_list|,
-literal|"Interpretation files may not include other types; "
+literal|"Compat files may not include other types; "
 literal|"Ignoring %s\n"
 argument_list|,
 name|stmt_type_to_string
@@ -4035,6 +4009,24 @@ block|}
 block|}
 block|}
 end_function
+begin_comment
+comment|/* Temporary struct for CopyInterps. */
+end_comment
+begin_struct
+DECL|struct|collect
+struct|struct
+name|collect
+block|{
+DECL|member|sym_interprets
+name|darray
+argument_list|(
+argument|struct xkb_sym_interpret
+argument_list|)
+name|sym_interprets
+expr_stmt|;
+block|}
+struct|;
+end_struct
 begin_function
 specifier|static
 name|void
@@ -4051,6 +4043,11 @@ parameter_list|,
 name|enum
 name|xkb_match_operation
 name|pred
+parameter_list|,
+name|struct
+name|collect
+modifier|*
+name|collect
 parameter_list|)
 block|{
 name|SymInterpInfo
@@ -4087,9 +4084,7 @@ name|needSymbol
 condition|)
 name|darray_append
 argument_list|(
-name|info
-operator|->
-name|keymap
+name|collect
 operator|->
 name|sym_interprets
 argument_list|,
@@ -4366,6 +4361,13 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+name|XkbEscapeMapName
+argument_list|(
+name|keymap
+operator|->
+name|compat_section_name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -4377,6 +4379,17 @@ name|interps
 argument_list|)
 condition|)
 block|{
+name|struct
+name|collect
+name|collect
+decl_stmt|;
+name|darray_init
+argument_list|(
+name|collect
+operator|.
+name|sym_interprets
+argument_list|)
+expr_stmt|;
 comment|/* Most specific to least specific. */
 name|CopyInterps
 argument_list|(
@@ -4385,6 +4398,9 @@ argument_list|,
 name|true
 argument_list|,
 name|MATCH_EXACTLY
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4394,6 +4410,9 @@ argument_list|,
 name|true
 argument_list|,
 name|MATCH_ALL
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4403,6 +4422,9 @@ argument_list|,
 name|true
 argument_list|,
 name|MATCH_NONE
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4412,6 +4434,9 @@ argument_list|,
 name|true
 argument_list|,
 name|MATCH_ANY
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4421,6 +4446,9 @@ argument_list|,
 name|true
 argument_list|,
 name|MATCH_ANY_OR_NONE
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4430,6 +4458,9 @@ argument_list|,
 name|false
 argument_list|,
 name|MATCH_EXACTLY
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4439,6 +4470,9 @@ argument_list|,
 name|false
 argument_list|,
 name|MATCH_ALL
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4448,6 +4482,9 @@ argument_list|,
 name|false
 argument_list|,
 name|MATCH_NONE
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4457,6 +4494,9 @@ argument_list|,
 name|false
 argument_list|,
 name|MATCH_ANY
+argument_list|,
+operator|&
+name|collect
 argument_list|)
 expr_stmt|;
 name|CopyInterps
@@ -4466,6 +4506,33 @@ argument_list|,
 name|false
 argument_list|,
 name|MATCH_ANY_OR_NONE
+argument_list|,
+operator|&
+name|collect
+argument_list|)
+expr_stmt|;
+name|keymap
+operator|->
+name|num_sym_interprets
+operator|=
+name|darray_size
+argument_list|(
+name|collect
+operator|.
+name|sym_interprets
+argument_list|)
+expr_stmt|;
+name|keymap
+operator|->
+name|sym_interprets
+operator|=
+name|darray_mem
+argument_list|(
+name|collect
+operator|.
+name|sym_interprets
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

@@ -2058,6 +2058,37 @@ name|XKB_KEY_dead_currency
 value|0xfe6f
 end_define
 begin_comment
+comment|/* extra dead elements for German T3 layout */
+end_comment
+begin_define
+DECL|macro|XKB_KEY_dead_lowline
+define|#
+directive|define
+name|XKB_KEY_dead_lowline
+value|0xfe90
+end_define
+begin_define
+DECL|macro|XKB_KEY_dead_aboveverticalline
+define|#
+directive|define
+name|XKB_KEY_dead_aboveverticalline
+value|0xfe91
+end_define
+begin_define
+DECL|macro|XKB_KEY_dead_belowverticalline
+define|#
+directive|define
+name|XKB_KEY_dead_belowverticalline
+value|0xfe92
+end_define
+begin_define
+DECL|macro|XKB_KEY_dead_longsolidusoverlay
+define|#
+directive|define
+name|XKB_KEY_dead_longsolidusoverlay
+value|0xfe93
+end_define
+begin_comment
 comment|/* dead vowels for universal syllable entry */
 end_comment
 begin_define
@@ -23415,6 +23446,17 @@ end_define
 begin_comment
 DECL|macro|XKB_KEY_XF86TouchpadOff
 comment|/* The touchpad got switched off */
+end_comment
+begin_define
+DECL|macro|XKB_KEY_XF86AudioMicMute
+define|#
+directive|define
+name|XKB_KEY_XF86AudioMicMute
+value|0x1008FFB2
+end_define
+begin_comment
+DECL|macro|XKB_KEY_XF86AudioMicMute
+comment|/* Mute the Mic from the system */
 end_comment
 begin_comment
 comment|/* Keys for special action keys (hot keys) */
