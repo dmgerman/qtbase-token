@@ -227,7 +227,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|if (!category().isDebugEnabled()) {} else \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).debug(__VA_ARGS__)
+value|for (bool qt_category_enabled = category().isDebugEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).debug(__VA_ARGS__)
 end_define
 begin_define
 DECL|macro|qCWarning
@@ -240,7 +240,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|if (!category().isWarningEnabled()) {} else \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).warning(__VA_ARGS__)
+value|for (bool qt_category_enabled = category().isWarningEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).warning(__VA_ARGS__)
 end_define
 begin_define
 DECL|macro|qCCritical
@@ -253,7 +253,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|if (!category().isCriticalEnabled()) {} else \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).critical(__VA_ARGS__)
+value|for (bool qt_category_enabled = category().isCriticalEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).critical(__VA_ARGS__)
 end_define
 begin_else
 else|#
