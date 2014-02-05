@@ -279,6 +279,10 @@ operator|:
 name|void
 name|updateGeometry
 argument_list|()
+block|;
+name|void
+name|updateNormalGeometry
+argument_list|()
 block|;      enum
 name|FocusWidgets
 block|{

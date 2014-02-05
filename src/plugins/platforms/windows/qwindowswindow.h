@@ -590,6 +590,14 @@ name|geometry
 return|;
 block|}
 end_expr_stmt
+begin_expr_stmt
+name|QRect
+name|normalGeometry
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|virtual
 name|void

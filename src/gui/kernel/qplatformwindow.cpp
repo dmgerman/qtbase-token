@@ -253,6 +253,24 @@ name|rect
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the geometry of a window in 'normal' state     (neither maximized, fullscreen nor minimized) for saving geometries to     application settings.      \since 5.3 */
+end_comment
+begin_function
+DECL|function|normalGeometry
+name|QRect
+name|QPlatformWindow
+operator|::
+name|normalGeometry
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QRect
+argument_list|()
+return|;
+block|}
+end_function
 begin_function
 DECL|function|frameMargins
 name|QMargins

@@ -176,6 +176,12 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|QRect
+name|normalGeometry
+argument_list|()
+specifier|const
+block|;
+name|virtual
 name|QMargins
 name|frameMargins
 argument_list|()
