@@ -1269,6 +1269,18 @@ name|QOpenGLTexture
 operator|::
 name|Target1D
 case|:
+if|if
+condition|(
+name|features
+operator|.
+name|testFlag
+argument_list|(
+name|QOpenGLTexture
+operator|::
+name|Texture1D
+argument_list|)
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -1320,6 +1332,16 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"1D textures are not supported"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 break|break;
 case|case
 name|QOpenGLTexture
@@ -1328,6 +1350,15 @@ name|Target1DArray
 case|:
 if|if
 condition|(
+name|features
+operator|.
+name|testFlag
+argument_list|(
+name|QOpenGLTexture
+operator|::
+name|Texture1D
+argument_list|)
+operator|&&
 name|features
 operator|.
 name|testFlag
@@ -1396,7 +1427,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"Array textures are not supported"
+literal|"1D array textures are not supported"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1921,6 +1952,18 @@ name|QOpenGLTexture
 operator|::
 name|Target1D
 case|:
+if|if
+condition|(
+name|features
+operator|.
+name|testFlag
+argument_list|(
+name|QOpenGLTexture
+operator|::
+name|Texture1D
+argument_list|)
+condition|)
+block|{
 name|texFuncs
 operator|->
 name|glTextureStorage1D
@@ -1941,6 +1984,16 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"1D textures are not supported"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 break|break;
 case|case
 name|QOpenGLTexture
@@ -1949,6 +2002,15 @@ name|Target1DArray
 case|:
 if|if
 condition|(
+name|features
+operator|.
+name|testFlag
+argument_list|(
+name|QOpenGLTexture
+operator|::
+name|Texture1D
+argument_list|)
+operator|&&
 name|features
 operator|.
 name|testFlag
@@ -1986,7 +2048,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"Array textures are not supported"
+literal|"1D array textures are not supported"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5109,7 +5171,7 @@ begin_comment
 comment|/*!     \enum PixelType     This enum defines the possible pixel data types for a pixel transfer operation      \value NoPixelType Equivalent to GL_NONE     \value Int8 Equivalent to GL_BYTE     \value UInt8 Equivalent to GL_UNSIGNED_BYTE     \value Int16 Equivalent to GL_SHORT     \value UInt16 Equivalent to GL_UNSIGNED_SHORT     \value Int32 Equivalent to GL_INT     \value UInt32 Equivalent to GL_UNSIGNED_INT     \value Float16 Equivalent to GL_HALF_FLOAT     \value Float16OES Equivalent to GL_HALF_FLOAT_OES     \value Float32 Equivalent to GL_FLOAT     \value UInt32_RGB9_E5 Equivalent to GL_UNSIGNED_INT_5_9_9_9_REV     \value UInt32_RG11B10F Equivalent to GL_UNSIGNED_INT_10F_11F_11F_REV     \value UInt8_RG3B2 Equivalent to GL_UNSIGNED_BYTE_3_3_2     \value UInt8_RG3B2_Rev Equivalent to GL_UNSIGNED_BYTE_2_3_3_REV     \value UInt16_RGB5A1 Equivalent to GL_UNSIGNED_SHORT_5_5_5_1     \value UInt16_RGB5A1_Rev Equivalent to GL_UNSIGNED_SHORT_1_5_5_5_REV     \value UInt16_R5G6B5 Equivalent to GL_UNSIGNED_SHORT_5_6_5     \value UInt16_R5G6B5_Rev Equivalent to GL_UNSIGNED_SHORT_5_6_5_REV     \value UInt16_RGBA4 Equivalent to GL_UNSIGNED_SHORT_4_4_4_4     \value UInt16_RGBA4_Rev Equivalent to GL_UNSIGNED_SHORT_4_4_4_4_REV     \value UInt32_RGB10A2 Equivalent to GL_UNSIGNED_INT_10_10_10_2     \value UInt32_RGB10A2_Rev Equivalent to GL_UNSIGNED_INT_2_10_10_10_REV */
 end_comment
 begin_comment
-comment|/*!     \enum QOpenGLTexture::Feature     This enum defines the OpenGL texture-related features that can be tested for.      \value ImmutableStorage Support for immutable texture storage     \value ImmutableMultisampleStorage Support for immutable texture storage with            multisample targets     \value TextureRectangle Support for the GL_TEXTURE_RECTANGLE target     \value TextureArrays Support for texture targets with array layers     \value Texture3D Support for the 3 dimensional texture target     \value TextureMultisample Support for texture targets that have multisample capabilities     \value TextureBuffer Support for textures that use OpenGL buffer objects            as their data source     \value TextureCubeMapArrays Support for cubemap array texture target     \value Swizzle Support for texture component swizzle masks     \value StencilTexturing Support for stencil texturing (i.e. looking up depth or stencil            components of a combined depth/stencil format texture in GLSL shaders).     \value AnisotropicFiltering Support for anisotropic texture filtering     \value NPOTTextures Basic support for non-power-of-two textures     \value NPOTTextureRepeat Full support for non-power-of-two textures including texture            repeat modes */
+comment|/*!     \enum QOpenGLTexture::Feature     This enum defines the OpenGL texture-related features that can be tested for.      \value ImmutableStorage Support for immutable texture storage     \value ImmutableMultisampleStorage Support for immutable texture storage with            multisample targets     \value TextureRectangle Support for the GL_TEXTURE_RECTANGLE target     \value TextureArrays Support for texture targets with array layers     \value Texture3D Support for the 3 dimensional texture target     \value TextureMultisample Support for texture targets that have multisample capabilities     \value TextureBuffer Support for textures that use OpenGL buffer objects            as their data source     \value TextureCubeMapArrays Support for cubemap array texture target     \value Swizzle Support for texture component swizzle masks     \value StencilTexturing Support for stencil texturing (i.e. looking up depth or stencil            components of a combined depth/stencil format texture in GLSL shaders).     \value AnisotropicFiltering Support for anisotropic texture filtering     \value NPOTTextures Basic support for non-power-of-two textures     \value NPOTTextureRepeat Full support for non-power-of-two textures including texture            repeat modes     \value Texture1D Support for the 1 dimensional texture target */
 end_comment
 begin_comment
 comment|/*!     \enum QOpenGLTexture::SwizzleComponent     This enum defines the texture color components that can be assigned a swizzle mask.      \value SwizzleRed The red component. Equivalent to GL_TEXTURE_SWIZZLE_R     \value SwizzleGreen The green component. Equivalent to GL_TEXTURE_SWIZZLE_G     \value SwizzleBlue The blue component. Equivalent to GL_TEXTURE_SWIZZLE_B     \value SwizzleAlpha The alpha component. Equivalent to GL_TEXTURE_SWIZZLE_A */
@@ -8357,6 +8419,24 @@ name|QByteArrayLiteral
 argument_list|(
 literal|"GL_ARB_texture_non_power_of_two"
 argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|Texture1D
+case|:
+name|supported
+operator|=
+name|f
+operator|.
+name|version
+argument_list|()
+operator|>=
+name|qMakePair
+argument_list|(
+literal|1
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 break|break;

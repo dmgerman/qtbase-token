@@ -1640,12 +1640,16 @@ name|NPOTTextureRepeat
 init|=
 literal|0x00001000
 block|,
+name|Texture1D
+init|=
+literal|0x00002000
+block|,
 ifndef|#
 directive|ifndef
 name|Q_QDOC
 name|MaxFeatureFlag
 init|=
-literal|0x00002000
+literal|0x00004000
 endif|#
 directive|endif
 block|}
