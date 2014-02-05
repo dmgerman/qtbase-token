@@ -886,7 +886,7 @@ expr_stmt|;
 block|}
 do|while
 condition|(
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|c
 argument_list|)
@@ -1276,7 +1276,7 @@ expr_stmt|;
 block|}
 do|while
 condition|(
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|c
 argument_list|)
@@ -7616,7 +7616,7 @@ name|s
 operator|=
 name|s00
 init|;
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(

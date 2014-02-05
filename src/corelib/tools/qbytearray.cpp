@@ -8143,7 +8143,7 @@ begin_comment
 comment|/*! \fn const QByteArray operator+(char a1, const QByteArray&a2)     \relates QByteArray      \overload      Returns a byte array that is the result of concatenating character     \a a1 and byte array \a a2. */
 end_comment
 begin_comment
-comment|/*!     Returns a byte array that has whitespace removed from the start     and the end, and which has each sequence of internal whitespace     replaced with a single space.      Whitespace means any character for which the standard C++     isspace() function returns \c true. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 32      \sa trimmed() */
+comment|/*!     Returns a byte array that has whitespace removed from the start     and the end, and which has each sequence of internal whitespace     replaced with a single space.      Whitespace means any character for which the standard C++     isspace() function returns \c true in the C locale. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 32      \sa trimmed() */
 end_comment
 begin_function
 DECL|function|simplified
@@ -8227,7 +8227,7 @@ name|from
 operator|!=
 name|fromend
 operator|&&
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(
@@ -8246,7 +8246,7 @@ operator|!=
 name|fromend
 operator|&&
 operator|!
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(
@@ -8313,7 +8313,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array that has whitespace removed from the start     and the end.      Whitespace means any character for which the standard C++     isspace() function returns \c true. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 33      Unlike simplified(), trimmed() leaves internal whitespace alone.      \sa simplified() */
+comment|/*!     Returns a byte array that has whitespace removed from the start     and the end.      Whitespace means any character for which the standard C++     isspace() function returns \c true in the C locale. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 33      Unlike simplified(), trimmed() leaves internal whitespace alone.      \sa simplified() */
 end_comment
 begin_function
 DECL|function|trimmed
@@ -8349,7 +8349,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(
@@ -8359,7 +8359,7 @@ argument_list|)
 argument_list|)
 operator|&&
 operator|!
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(
@@ -8398,7 +8398,7 @@ name|start
 operator|<=
 name|end
 operator|&&
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(
@@ -8425,7 +8425,7 @@ while|while
 condition|(
 name|end
 operator|&&
-name|isspace
+name|ascii_isspace
 argument_list|(
 name|uchar
 argument_list|(
