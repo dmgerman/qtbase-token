@@ -72,9 +72,7 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-specifier|extern
 name|QString
-name|Q_GUI_EXPORT
 name|qt_accStripAmp
 parameter_list|(
 specifier|const

@@ -189,6 +189,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qaccessiblewidgetfactory_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qthread.h>
 end_include
 begin_include
@@ -1563,6 +1568,20 @@ block|;
 name|qt_gui_eval_init
 argument_list|(
 name|application_type
+argument_list|)
+block|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+comment|// factory for accessible interfaces for widgets shipped with Qt
+name|QAccessible
+operator|::
+name|installFactory
+argument_list|(
+operator|&
+name|qAccessibleFactory
 argument_list|)
 block|;
 endif|#

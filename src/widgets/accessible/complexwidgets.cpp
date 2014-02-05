@@ -115,7 +115,6 @@ end_ifndef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 name|QString
-name|Q_GUI_EXPORT
 name|qt_accStripAmp
 parameter_list|(
 specifier|const

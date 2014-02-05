@@ -477,7 +477,6 @@ end_function
 begin_function
 DECL|function|qt_accStripAmp
 name|QString
-name|Q_WIDGETS_EXPORT
 name|qt_accStripAmp
 parameter_list|(
 specifier|const
@@ -537,7 +536,6 @@ end_function
 begin_function
 DECL|function|qt_accHotKey
 name|QString
-name|Q_WIDGETS_EXPORT
 name|qt_accHotKey
 parameter_list|(
 specifier|const

@@ -38,7 +38,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_MENU
 name|QString
-name|Q_GUI_EXPORT
 name|qt_accStripAmp
 parameter_list|(
 specifier|const
@@ -50,7 +49,6 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|QString
-name|Q_GUI_EXPORT
 name|qt_accHotKey
 parameter_list|(
 specifier|const
