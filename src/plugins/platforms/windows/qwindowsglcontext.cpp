@@ -5419,7 +5419,6 @@ expr_stmt|;
 name|qCDebug
 argument_list|(
 name|lcQpaGl
-argument_list|()
 argument_list|)
 operator|<<
 name|__FUNCTION__
