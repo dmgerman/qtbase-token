@@ -1342,6 +1342,8 @@ argument_list|)
 block|}
 endif|#
 directive|endif
+comment|// wglGetProcAddress should not be used to (and indeed will not) load OpenGL<= 1.1 functions.
+comment|// Hence, we resolve them "the hard way"
 if|#
 directive|if
 name|defined
