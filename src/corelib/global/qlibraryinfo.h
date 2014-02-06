@@ -59,6 +59,13 @@ endif|#
 directive|endif
 comment|//QT_NO_DATESTRING
 specifier|static
+specifier|const
+name|char
+modifier|*
+name|build
+parameter_list|()
+function_decl|;
+specifier|static
 name|bool
 name|isDebugBuild
 parameter_list|()

@@ -446,9 +446,10 @@ name|std
 operator|::
 name|cout
 operator|<<
-literal|"Qt "
-operator|<<
-name|QT_VERSION_STR
+name|QLibraryInfo
+operator|::
+name|build
+argument_list|()
 operator|<<
 literal|" on \""
 operator|<<
@@ -461,12 +462,6 @@ name|toStdString
 argument_list|()
 operator|<<
 literal|"\" "
-operator|<<
-name|QSysInfo
-operator|::
-name|WordSize
-operator|<<
-literal|" bit/"
 operator|<<
 operator|(
 name|QSysInfo
@@ -483,17 +478,6 @@ literal|"big endian"
 operator|)
 operator|<<
 literal|'/'
-operator|<<
-operator|(
-name|QLibraryInfo
-operator|::
-name|isDebugBuild
-argument_list|()
-condition|?
-literal|"debug"
-else|:
-literal|"release"
-operator|)
 operator|<<
 literal|'\n'
 expr_stmt|;
