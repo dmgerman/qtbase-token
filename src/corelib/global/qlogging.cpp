@@ -1145,6 +1145,15 @@ name|catFunc
 call|)
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|cat
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+return|return;
 name|QMessageLogContext
 name|ctxt
 decl_stmt|;
