@@ -506,6 +506,16 @@ literal|"amd64"
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|arch
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"x86"
+argument_list|)
+expr_stmt|;
+block|}
 specifier|const
 name|QString
 name|msvcVer
