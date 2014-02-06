@@ -2191,6 +2191,7 @@ name|title
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|QAccessible
 operator|::
@@ -2203,10 +2204,11 @@ argument_list|(
 name|groupBox
 argument_list|()
 operator|->
-name|title
+name|toolTip
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 default|default:
 break|break;
 block|}

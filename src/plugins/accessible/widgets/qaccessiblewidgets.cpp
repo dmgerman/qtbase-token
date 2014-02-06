@@ -3181,12 +3181,6 @@ operator|==
 name|QAccessible
 operator|::
 name|Name
-operator|||
-name|t
-operator|==
-name|QAccessible
-operator|::
-name|Value
 condition|)
 block|{
 return|return

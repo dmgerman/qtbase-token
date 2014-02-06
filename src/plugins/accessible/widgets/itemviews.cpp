@@ -6411,11 +6411,6 @@ block|{
 case|case
 name|QAccessible
 operator|::
-name|Value
-case|:
-case|case
-name|QAccessible
-operator|::
 name|Name
 case|:
 name|value
@@ -6959,11 +6954,6 @@ condition|(
 name|t
 condition|)
 block|{
-case|case
-name|QAccessible
-operator|::
-name|Value
-case|:
 case|case
 name|QAccessible
 operator|::
