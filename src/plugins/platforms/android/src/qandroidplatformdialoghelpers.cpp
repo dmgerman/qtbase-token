@@ -5,16 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QApplication>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtWidgets/QStyle>
-end_include
-begin_include
-include|#
-directive|include
 file|"qandroidplatformdialoghelpers.h"
 end_include
 begin_include
