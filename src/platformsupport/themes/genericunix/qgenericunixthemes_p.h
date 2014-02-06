@@ -172,7 +172,7 @@ name|public
 operator|:
 name|QKdeTheme
 argument_list|(
-argument|const QString&kdeHome
+argument|const QStringList& kdeDirs
 argument_list|,
 argument|int kdeVersion
 argument_list|)
