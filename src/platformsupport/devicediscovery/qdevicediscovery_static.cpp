@@ -251,17 +251,8 @@ block|{
 name|QStringList
 name|devices
 decl_stmt|;
-comment|// check for input devices
 name|QDir
 name|dir
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|QT_EVDEV_DEVICE_PATH
-argument_list|)
-argument_list|)
 decl_stmt|;
 name|dir
 operator|.
@@ -270,6 +261,26 @@ argument_list|(
 name|QDir
 operator|::
 name|System
+argument_list|)
+expr_stmt|;
+comment|// check for input devices
+if|if
+condition|(
+name|m_types
+operator|&
+name|Device_InputMask
+condition|)
+block|{
+name|dir
+operator|.
+name|setPath
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|QT_EVDEV_DEVICE_PATH
+argument_list|)
 argument_list|)
 expr_stmt|;
 foreach|foreach
@@ -314,7 +325,15 @@ operator|<<
 name|absoluteFilePath
 expr_stmt|;
 block|}
+block|}
 comment|// check for drm devices
+if|if
+condition|(
+name|m_types
+operator|&
+name|Device_VideoMask
+condition|)
+block|{
 name|dir
 operator|.
 name|setPath
@@ -368,6 +387,7 @@ name|devices
 operator|<<
 name|absoluteFilePath
 expr_stmt|;
+block|}
 block|}
 ifdef|#
 directive|ifdef

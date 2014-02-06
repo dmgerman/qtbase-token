@@ -26,10 +26,10 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// This file is not part of the Qt API.  It exists for the convenience
+comment|// This file is not part of the Qt API.
 end_comment
 begin_comment
-comment|// of QIODevice. This header file may change from version to
+comment|// This header file may change from version to
 end_comment
 begin_comment
 comment|// version without notice, or even be removed.

@@ -4394,6 +4394,16 @@ end_pragma
 begin_comment
 comment|/* assignment within conditional expression */
 end_comment
+begin_if
+if|#
+directive|if
+name|_MSC_VER
+operator|<=
+literal|1310
+end_if
+begin_comment
+comment|// MSVC 2003
+end_comment
 begin_pragma
 pragma|#
 directive|pragma
@@ -4407,6 +4417,10 @@ end_pragma
 begin_comment
 comment|/* 'identifier' : identifier was truncated to 'number' characters in the debug information */
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_pragma
 pragma|#
 directive|pragma
@@ -4419,6 +4433,16 @@ name|)
 end_pragma
 begin_comment
 comment|/* 'this' : used in base member initializer list */
+end_comment
+begin_if
+if|#
+directive|if
+name|_MSC_VER
+operator|<
+literal|1800
+end_if
+begin_comment
+comment|// MSVC 2013
 end_comment
 begin_pragma
 pragma|#
@@ -4433,6 +4457,10 @@ end_pragma
 begin_comment
 comment|/* nonstandard extension used : 'identifier' before template explicit instantiation */
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_pragma
 pragma|#
 directive|pragma

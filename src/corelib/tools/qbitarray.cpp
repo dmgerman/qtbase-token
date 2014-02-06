@@ -37,9 +37,6 @@ begin_comment
 comment|/*!     \fn QBitArray::QBitArray(QBitArray&&other)      Move-constructs a QBitArray instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     \fn QBitArray&QBitArray::operator=(QBitArray&&other)      Move-assigns \a other to this QBitArray instance.      \since 5.2 */
-end_comment
-begin_comment
 comment|/*! \fn QBitArray::QBitArray()      Constructs an empty bit array.      \sa isEmpty() */
 end_comment
 begin_comment
@@ -743,7 +740,7 @@ begin_comment
 comment|/*! \fn QBitArray&QBitArray::operator=(const QBitArray&other)      Assigns \a other to this bit array and returns a reference to     this bit array. */
 end_comment
 begin_comment
-comment|/*! \fn QBitArray&QBitArray::operator=(QBitArray&&other)      Moves \a other to this bit array and returns a reference to     this bit array. */
+comment|/*! \fn QBitArray&QBitArray::operator=(QBitArray&&other)     \since 5.2      Moves \a other to this bit array and returns a reference to     this bit array. */
 end_comment
 begin_comment
 comment|/*! \fn void QBitArray::swap(QBitArray&other)     \since 4.8      Swaps bit array \a other with this bit array. This operation is very     fast and never fails. */

@@ -6114,6 +6114,10 @@ literal|" "
 operator|<<
 name|replaceExtraCompilerVariables
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|tmp_out
 operator|.
 name|first
@@ -6121,6 +6125,9 @@ argument_list|()
 operator|.
 name|toQString
 argument_list|()
+argument_list|,
+literal|false
+argument_list|)
 argument_list|,
 name|file_name
 argument_list|,

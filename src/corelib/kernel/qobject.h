@@ -1047,7 +1047,7 @@ argument|const QObject *receiver
 argument_list|,
 argument|PointerToMemberFunction method
 argument_list|,
-argument|Qt::ConnectionType type
+argument|Qt::ConnectionType type = Qt::AutoConnection
 argument_list|)
 expr_stmt|;
 specifier|static
@@ -1077,7 +1077,7 @@ argument|const QObject *context
 argument_list|,
 argument|Functor functor
 argument_list|,
-argument|Qt::ConnectionType type
+argument|Qt::ConnectionType type = Qt::AutoConnection
 argument_list|)
 expr_stmt|;
 else|#

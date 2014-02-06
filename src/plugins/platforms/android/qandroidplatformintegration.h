@@ -353,11 +353,16 @@ name|m_touchDevice
 operator|=
 name|touchDevice
 block|; }
-name|private
-operator|:
+specifier|static
+name|bool
+name|needsWorkaround
+argument_list|()
+block|;
 name|EGLDisplay
 name|m_eglDisplay
 block|;
+name|private
+operator|:
 name|QTouchDevice
 operator|*
 name|m_touchDevice
@@ -418,10 +423,15 @@ name|QAndroidPlatformServices
 operator|*
 name|m_androidPlatformServices
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|QPlatformClipboard
 operator|*
 name|m_androidPlatformClipboard
 block|;
+endif|#
+directive|endif
 name|QAndroidSystemLocale
 operator|*
 name|m_androidSystemLocale

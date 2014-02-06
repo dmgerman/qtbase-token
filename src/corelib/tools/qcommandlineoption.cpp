@@ -63,7 +63,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \since 5.2     \class QCommandLineOption     \brief The QCommandLineOption class defines a possible command-line option.     \inmodule QtCore     \ingroup shared     \ingroup tools      This class is used to describe an option on the command line. It allows     different ways of defining the same option with multiple aliases possible.     It is also used to describe how the option is used - it may be a flag (e.g. \c{-v})     or take an argument (e.g. \c{-o file}).      Examples:     \snippet code/src_corelib_tools_qcommandlineoption.cpp 0      \sa QCommandLineParser */
+comment|/*!     \since 5.2     \class QCommandLineOption     \brief The QCommandLineOption class defines a possible command-line option.     \inmodule QtCore     \ingroup shared     \ingroup tools      This class is used to describe an option on the command line. It allows     different ways of defining the same option with multiple aliases possible.     It is also used to describe how the option is used - it may be a flag (e.g. \c{-v})     or take a value (e.g. \c{-o file}).      Examples:     \snippet code/src_corelib_tools_qcommandlineoption.cpp 0      \sa QCommandLineParser */
 end_comment
 begin_comment
 comment|/*!     \fn QCommandLineOption&QCommandLineOption::operator=(QCommandLineOption&&other)      Move-assigns \a other to this QCommandLineOption instance.      \since 5.2 */
@@ -421,7 +421,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the name of the expected value, for the documentation, to \a valueName.      Options without a value assigned have a boolean-like behavior:     either the user specifies --option or they don't.      Options with a value assigned need to set a name for the expected value,     for the documentation of the option in the help output. An option with names \c{o} and \c{output},     and a value name of \c{file} will appear as \c{-o, --output<file>}.      Call QCommandLineParser::argument() if you expect the option to be present     only once, and QCommandLineParser::arguments() if you expect that option     to be present multiple times.      \sa valueName()  */
+comment|/*!     Sets the name of the expected value, for the documentation, to \a valueName.      Options without a value assigned have a boolean-like behavior:     either the user specifies --option or they don't.      Options with a value assigned need to set a name for the expected value,     for the documentation of the option in the help output. An option with names \c{o} and \c{output},     and a value name of \c{file} will appear as \c{-o, --output<file>}.      Call QCommandLineParser::value() if you expect the option to be present     only once, and QCommandLineParser::values() if you expect that option     to be present multiple times.      \sa valueName()  */
 end_comment
 begin_function
 DECL|function|setValueName

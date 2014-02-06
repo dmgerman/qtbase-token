@@ -2349,7 +2349,7 @@ index|[
 literal|64
 index|]
 decl_stmt|;
-name|sprintf_s
+name|snprintf
 argument_list|(
 name|adapterLuidString
 argument_list|,
@@ -2358,7 +2358,7 @@ argument_list|(
 name|adapterLuidString
 argument_list|)
 argument_list|,
-literal|" (adapter LUID: %08x%08x)"
+literal|" (adapter LUID: %08l%08l)"
 argument_list|,
 name|adapterLuid
 operator|.

@@ -13211,11 +13211,19 @@ argument_list|,
 name|r
 argument_list|)
 decl_stmt|;
+comment|// The spinbox in Windows QStyle is drawn with frameless QLineEdit inside it
+comment|// That however breaks with QtQuickControls where this results in transparent
+comment|// spinbox background, so if there's no "widget" passed (QtQuickControls case),
+comment|// let ftheme.noContent be false, which fixes the spinbox rendering in QQC
 name|ftheme
 operator|.
 name|noContent
 operator|=
-literal|true
+operator|(
+name|widget
+operator|!=
+name|NULL
+operator|)
 expr_stmt|;
 name|d
 operator|->

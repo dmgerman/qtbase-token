@@ -7040,7 +7040,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Draws the row in the tree view that contains the model item \a index,     using the \a painter given. The \a option control how the item is     displayed.      \sa setAlternatingRowColors() */
+comment|/*!     Draws the row in the tree view that contains the model item \a index,     using the \a painter given. The \a option controls how the item is     displayed.      \sa setAlternatingRowColors() */
 end_comment
 begin_function
 DECL|function|drawRow
@@ -19591,7 +19591,27 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// here we do not want to overwrite (a possible user set) single step
+name|vbar
+operator|->
+name|setSingleStep
+argument_list|(
+name|qMax
+argument_list|(
+name|viewportSize
+operator|.
+name|height
+argument_list|()
+operator|/
+operator|(
+name|itemsInViewport
+operator|+
+literal|1
+operator|)
+argument_list|,
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 specifier|const
 name|int
@@ -19787,7 +19807,27 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// here we do not want to overwrite (a possible user set) single step
+name|hbar
+operator|->
+name|setSingleStep
+argument_list|(
+name|qMax
+argument_list|(
+name|viewportSize
+operator|.
+name|width
+argument_list|()
+operator|/
+operator|(
+name|columnsInViewport
+operator|+
+literal|1
+operator|)
+argument_list|,
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function

@@ -8830,6 +8830,13 @@ name|lastTab
 argument_list|)
 expr_stmt|;
 comment|// update external variables
+name|int
+name|previousIndex
+init|=
+name|d
+operator|->
+name|currentIndex
+decl_stmt|;
 name|d
 operator|->
 name|currentIndex
@@ -8982,6 +8989,22 @@ argument_list|(
 name|from
 argument_list|,
 name|to
+argument_list|)
+emit|;
+if|if
+condition|(
+name|previousIndex
+operator|!=
+name|d
+operator|->
+name|currentIndex
+condition|)
+emit|emit
+name|currentChanged
+argument_list|(
+name|d
+operator|->
+name|currentIndex
 argument_list|)
 emit|;
 emit|emit

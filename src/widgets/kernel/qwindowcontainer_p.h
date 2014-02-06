@@ -27,6 +27,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_WIDGETS_EXPORT
 name|QWindowContainer
 range|:
 name|public
@@ -54,6 +55,12 @@ block|;
 operator|~
 name|QWindowContainer
 argument_list|()
+block|;
+name|QWindow
+operator|*
+name|containedWindow
+argument_list|()
+specifier|const
 block|;
 specifier|static
 name|void
