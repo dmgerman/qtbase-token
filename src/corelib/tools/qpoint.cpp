@@ -244,6 +244,12 @@ modifier|&
 name|p
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
 name|dbg
 operator|.
 name|nospace
@@ -267,9 +273,6 @@ literal|')'
 expr_stmt|;
 return|return
 name|dbg
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function
@@ -280,7 +283,7 @@ name|operator
 name|<<
 parameter_list|(
 name|QDebug
-name|d
+name|dbg
 parameter_list|,
 specifier|const
 name|QPointF
@@ -288,7 +291,13 @@ modifier|&
 name|p
 parameter_list|)
 block|{
-name|d
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
+name|dbg
 operator|.
 name|nospace
 argument_list|()
@@ -300,7 +309,7 @@ operator|.
 name|x
 argument_list|()
 operator|<<
-literal|", "
+literal|','
 operator|<<
 name|p
 operator|.
@@ -310,10 +319,7 @@ operator|<<
 literal|')'
 expr_stmt|;
 return|return
-name|d
-operator|.
-name|space
-argument_list|()
+name|dbg
 return|;
 block|}
 end_function
