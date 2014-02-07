@@ -876,7 +876,7 @@ name|button
 condition|)
 block|{
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Yes
 case|:
@@ -891,7 +891,7 @@ literal|"Yes"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|YesToAll
 case|:
@@ -906,7 +906,7 @@ literal|"Yes to All"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|No
 case|:
@@ -921,7 +921,7 @@ literal|"No"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|NoToAll
 case|:

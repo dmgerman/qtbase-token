@@ -2298,10 +2298,11 @@ case|:
 return|return
 name|QVariant
 argument_list|(
-literal|2
+name|QPlatformDialogHelper
+operator|::
+name|KdeLayout
 argument_list|)
 return|;
-comment|// QDialogButtonBox::KdeLayout
 case|case
 name|QPlatformTheme
 operator|::
@@ -2774,10 +2775,11 @@ case|:
 return|return
 name|QVariant
 argument_list|(
-literal|3
+name|QPlatformDialogHelper
+operator|::
+name|GnomeLayout
 argument_list|)
 return|;
-comment|// QDialogButtonBox::GnomeLayout
 case|case
 name|QPlatformTheme
 operator|::
@@ -2960,7 +2962,7 @@ name|button
 condition|)
 block|{
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Ok
 case|:
@@ -2975,7 +2977,7 @@ literal|"&OK"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Save
 case|:
@@ -2990,7 +2992,7 @@ literal|"&Save"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Cancel
 case|:
@@ -3005,9 +3007,7 @@ literal|"&Cancel"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
-operator|::
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Close
 case|:
@@ -3022,7 +3022,7 @@ literal|"&Close"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Discard
 case|:

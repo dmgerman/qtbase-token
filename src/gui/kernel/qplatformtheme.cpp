@@ -4452,7 +4452,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns the text of a standard \a button.    \since 5.3   \sa QMessageDialogOptions::StandardButton  */
+comment|/*!    Returns the text of a standard \a button.    \since 5.3   \sa QPlatformDialogHelper::StandardButton  */
 end_comment
 begin_function
 DECL|function|standardButtonText
@@ -4493,7 +4493,7 @@ name|button
 condition|)
 block|{
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Ok
 case|:
@@ -4508,7 +4508,7 @@ literal|"OK"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Save
 case|:
@@ -4523,7 +4523,7 @@ literal|"Save"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|SaveAll
 case|:
@@ -4538,7 +4538,7 @@ literal|"Save All"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Open
 case|:
@@ -4553,7 +4553,7 @@ literal|"Open"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Yes
 case|:
@@ -4568,7 +4568,7 @@ literal|"&Yes"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|YesToAll
 case|:
@@ -4583,7 +4583,7 @@ literal|"Yes to&All"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|No
 case|:
@@ -4598,7 +4598,7 @@ literal|"&No"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|NoToAll
 case|:
@@ -4613,7 +4613,7 @@ literal|"N&o to All"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Abort
 case|:
@@ -4628,7 +4628,7 @@ literal|"Abort"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Retry
 case|:
@@ -4643,7 +4643,7 @@ literal|"Retry"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Ignore
 case|:
@@ -4658,7 +4658,7 @@ literal|"Ignore"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Close
 case|:
@@ -4673,7 +4673,7 @@ literal|"Close"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Cancel
 case|:
@@ -4688,7 +4688,7 @@ literal|"Cancel"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Discard
 case|:
@@ -4703,7 +4703,7 @@ literal|"Discard"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Help
 case|:
@@ -4718,7 +4718,7 @@ literal|"Help"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Apply
 case|:
@@ -4733,7 +4733,7 @@ literal|"Apply"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|Reset
 case|:
@@ -4748,7 +4748,7 @@ literal|"Reset"
 argument_list|)
 return|;
 case|case
-name|QMessageDialogOptions
+name|QPlatformDialogHelper
 operator|::
 name|RestoreDefaults
 case|:

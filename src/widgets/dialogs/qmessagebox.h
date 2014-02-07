@@ -105,6 +105,7 @@ operator|:
 expr|enum
 name|Icon
 block|{
+comment|// keep this in sync with QMessageDialogOptions::Icon
 name|NoIcon
 operator|=
 literal|0
@@ -128,7 +129,7 @@ block|}
 block|;      enum
 name|ButtonRole
 block|{
-comment|// keep this in sync with QDialogButtonBox::ButtonRole
+comment|// keep this in sync with QDialogButtonBox::ButtonRole and QPlatformDialogHelper::ButtonRole
 name|InvalidRole
 operator|=
 operator|-
@@ -157,7 +158,7 @@ block|}
 block|;      enum
 name|StandardButton
 block|{
-comment|// keep this in sync with QDialogButtonBox::StandardButton and QMessageDialogOptions::StandardButton
+comment|// keep this in sync with QDialogButtonBox::StandardButton and QPlatformDialogHelper::StandardButton
 name|NoButton
 operator|=
 literal|0x00000000
@@ -1616,7 +1617,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_clicked(QMessageDialogOptions::StandardButton, QMessageDialogOptions::ButtonRole)
+argument|void _q_clicked(QPlatformDialogHelper::StandardButton, QPlatformDialogHelper::ButtonRole)
 argument_list|)
 end_macro
 begin_macro

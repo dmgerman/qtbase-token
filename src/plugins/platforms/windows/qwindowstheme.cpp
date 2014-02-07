@@ -2526,13 +2526,11 @@ case|:
 return|return
 name|QVariant
 argument_list|(
-name|int
-argument_list|(
-literal|0
-argument_list|)
+name|QPlatformDialogHelper
+operator|::
+name|WinLayout
 argument_list|)
 return|;
-comment|// QDialogButtonBox::WinLayout
 case|case
 name|IconThemeSearchPaths
 case|:
