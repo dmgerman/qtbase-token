@@ -16709,7 +16709,7 @@ name|convert_RGBA_to_RGB
 block|,
 name|convert_RGBA_to_ARGB
 block|,
-name|convert_RGBA_to_ARGB_PM
+name|convert_RGBA_to_ARGB
 block|,
 literal|0
 block|,
