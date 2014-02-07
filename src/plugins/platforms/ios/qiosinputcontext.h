@@ -136,10 +136,6 @@ name|m_focusView
 block|;
 name|bool
 name|m_hasPendingHideRequest
-block|;
-name|QObject
-operator|*
-name|m_focusObject
 block|; }
 decl_stmt|;
 end_decl_stmt
