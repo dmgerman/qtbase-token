@@ -24770,18 +24770,6 @@ condition|)
 block|{
 comment|// set geometry before setting the window state to make
 comment|// sure the window is maximized to the right screen.
-comment|// Skip on windows: the window is restored into a broken
-comment|// half-maximized state.
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-name|setGeometry
-argument_list|(
-name|restoredNormalGeometry
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|Qt
 operator|::
 name|WindowStates
@@ -24790,6 +24778,85 @@ init|=
 name|windowState
 argument_list|()
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+name|setGeometry
+argument_list|(
+name|restoredNormalGeometry
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
+if|if
+condition|(
+name|ws
+operator|&
+name|Qt
+operator|::
+name|WindowFullScreen
+condition|)
+block|{
+comment|// Full screen is not a real window state on Windows.
+name|move
+argument_list|(
+name|availableGeometry
+operator|.
+name|topLeft
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|ws
+operator|&
+name|Qt
+operator|::
+name|WindowMaximized
+condition|)
+block|{
+comment|// Setting a geometry on an already maximized window causes this to be
+comment|// restored into a broken, half-maximized state, non-resizable state (QTBUG-4397).
+comment|// Move the window in normal state if needed.
+if|if
+condition|(
+name|restoredScreenNumber
+operator|!=
+name|desktop
+operator|->
+name|screenNumber
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
+name|setWindowState
+argument_list|(
+name|Qt
+operator|::
+name|WindowNoState
+argument_list|)
+expr_stmt|;
+name|setGeometry
+argument_list|(
+name|restoredNormalGeometry
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|setGeometry
+argument_list|(
+name|restoredNormalGeometry
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 if|if
 condition|(
 name|maximized
