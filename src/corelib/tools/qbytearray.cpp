@@ -9312,12 +9312,16 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|float
+name|QLocaleData
+operator|::
+name|convertDoubleToFloat
 argument_list|(
 name|toDouble
 argument_list|(
 name|ok
 argument_list|)
+argument_list|,
+name|ok
 argument_list|)
 return|;
 block|}
