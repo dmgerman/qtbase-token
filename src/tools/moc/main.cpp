@@ -1152,7 +1152,7 @@ name|setDescription
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"Force #include [optional<file>] (overwrite default)."
+literal|"Force #include<file> (overwrite default)."
 argument_list|)
 argument_list|)
 expr_stmt|;
