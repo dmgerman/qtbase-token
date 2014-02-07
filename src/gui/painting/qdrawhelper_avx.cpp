@@ -104,6 +104,13 @@ name|qt_bitmapblit32_sse2
 value|qt_bitmapblit32_avx
 end_define
 begin_define
+DECL|macro|qt_bitmapblit8888_sse2
+define|#
+directive|define
+name|qt_bitmapblit8888_sse2
+value|qt_bitmapblit8888_avx
+end_define
+begin_define
 DECL|macro|qt_bitmapblit16_sse2
 define|#
 directive|define
