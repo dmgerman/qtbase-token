@@ -22,6 +22,14 @@ include|#
 directive|include
 file|<QtCore/QRegularExpression>
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -42,6 +50,10 @@ include|#
 directive|include
 file|<sys/ioctl.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
