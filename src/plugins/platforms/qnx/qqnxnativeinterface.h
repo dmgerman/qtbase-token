@@ -20,6 +20,12 @@ file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QQnxIntegration
+name|class
+name|QQnxIntegration
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QQnxNativeInterface
 range|:
@@ -28,6 +34,13 @@ name|QPlatformNativeInterface
 block|{
 name|public
 operator|:
+name|QQnxNativeInterface
+argument_list|(
+name|QQnxIntegration
+operator|*
+name|integration
+argument_list|)
+block|;
 name|void
 operator|*
 name|nativeResourceForWindow
@@ -54,6 +67,16 @@ argument_list|,
 name|QScreen
 operator|*
 name|screen
+argument_list|)
+block|;
+name|void
+operator|*
+name|nativeResourceForIntegration
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|resource
 argument_list|)
 block|;
 name|void
@@ -96,6 +119,12 @@ name|QByteArray
 operator|&
 name|resource
 argument_list|)
+block|;
+name|private
+operator|:
+name|QQnxIntegration
+operator|*
+name|m_integration
 block|; }
 decl_stmt|;
 end_decl_stmt

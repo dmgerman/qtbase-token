@@ -451,6 +451,11 @@ name|screen_context_t
 name|screenContext
 argument_list|()
 block|;
+name|QQnxNavigatorEventHandler
+operator|*
+name|navigatorEventHandler
+argument_list|()
+block|;
 name|private
 operator|:
 name|void

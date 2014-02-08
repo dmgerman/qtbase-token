@@ -118,6 +118,10 @@ argument|const QByteArray&id
 argument_list|,
 argument|Qt::WindowState state
 argument_list|)
+block|;
+name|void
+name|swipeDown
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
