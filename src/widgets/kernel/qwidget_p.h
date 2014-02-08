@@ -2522,6 +2522,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|widget
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 return|return
