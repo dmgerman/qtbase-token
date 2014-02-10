@@ -77,12 +77,17 @@ operator|&
 name|offset
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QImage
 name|toImage
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
 name|void
 name|resize
 argument_list|(

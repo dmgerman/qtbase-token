@@ -114,6 +114,9 @@ block|;
 name|bool
 name|m_subscribesForGlobalFrameNotifications
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QCocoaGLContext
 operator|*
 name|m_glContext
@@ -121,6 +124,8 @@ block|;
 name|bool
 name|m_shouldSetGLContextinDrawRect
 block|;
+endif|#
+directive|endif
 name|NSString
 operator|*
 name|m_inputSource
@@ -153,6 +158,11 @@ operator|)
 name|platformWindow
 expr_stmt|;
 end_expr_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_expr_stmt
 operator|-
 operator|(
@@ -167,6 +177,10 @@ operator|)
 name|context
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 operator|-
 operator|(

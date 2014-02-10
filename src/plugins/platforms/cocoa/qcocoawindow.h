@@ -28,11 +28,20 @@ include|#
 directive|include
 file|<QRect>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_include
 include|#
 directive|include
 file|"qcocoaglcontext.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -651,6 +660,9 @@ argument_list|(
 argument|Qt::WindowFlags flags
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|void
 name|setCurrentContext
 argument_list|(
@@ -665,6 +677,8 @@ name|currentContext
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|bool
 name|setWindowModified
 argument_list|(
@@ -943,10 +957,15 @@ block|;
 name|bool
 name|m_inConstructor
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QCocoaGLContext
 operator|*
 name|m_glContext
 block|;
+endif|#
+directive|endif
 name|QCocoaMenuBar
 operator|*
 name|m_menubar

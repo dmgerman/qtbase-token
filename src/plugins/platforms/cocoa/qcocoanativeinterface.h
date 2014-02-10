@@ -72,6 +72,9 @@ operator|:
 name|QCocoaNativeInterface
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|void
 operator|*
 name|nativeResourceForContext
@@ -86,6 +89,8 @@ operator|*
 name|context
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 operator|*
 name|nativeResourceForWindow
@@ -112,6 +117,9 @@ name|void
 name|beep
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 specifier|static
 name|void
 operator|*
@@ -132,6 +140,8 @@ operator|*
 name|context
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|public
 name|Q_SLOTS
 operator|:
