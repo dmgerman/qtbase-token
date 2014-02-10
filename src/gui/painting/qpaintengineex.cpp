@@ -7315,9 +7315,9 @@ name|fontEngine
 operator|->
 name|glyphFormat
 operator|==
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Raster_ARGB
+name|Format_ARGB
 condition|)
 return|return
 literal|true

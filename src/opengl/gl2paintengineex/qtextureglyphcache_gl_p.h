@@ -311,7 +311,7 @@ name|public
 operator|:
 name|QGLTextureGlyphCache
 argument_list|(
-argument|QFontEngineGlyphCache::Type type
+argument|QFontEngine::GlyphFormat format
 argument_list|,
 argument|const QTransform&matrix
 argument_list|)

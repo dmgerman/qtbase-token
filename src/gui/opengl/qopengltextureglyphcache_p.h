@@ -270,7 +270,7 @@ name|public
 operator|:
 name|QOpenGLTextureGlyphCache
 argument_list|(
-argument|QFontEngineGlyphCache::Type type
+argument|QFontEngine::GlyphFormat glyphFormat
 argument_list|,
 argument|const QTransform&matrix
 argument_list|)

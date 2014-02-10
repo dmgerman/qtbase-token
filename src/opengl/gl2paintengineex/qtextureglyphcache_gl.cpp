@@ -40,10 +40,10 @@ name|QGLTextureGlyphCache
 operator|::
 name|QGLTextureGlyphCache
 parameter_list|(
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Type
-name|type
+name|GlyphFormat
+name|format
 parameter_list|,
 specifier|const
 name|QTransform
@@ -53,7 +53,7 @@ parameter_list|)
 member_init_list|:
 name|QImageTextureGlyphCache
 argument_list|(
-name|type
+name|format
 argument_list|,
 name|matrix
 argument_list|)
@@ -420,11 +420,11 @@ name|height
 expr_stmt|;
 if|if
 condition|(
-name|m_type
+name|m_format
 operator|==
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Raster_RGBMask
+name|Format_A32
 condition|)
 block|{
 name|QVarLengthArray

@@ -972,8 +972,8 @@ name|virtual
 name|int
 name|glyphMargin
 argument_list|(
-argument|QFontEngineGlyphCache::Type
-comment|/* type */
+argument|QFontEngine::GlyphFormat
+comment|/* format */
 argument_list|)
 block|{
 return|return

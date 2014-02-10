@@ -370,12 +370,12 @@ name|virtual
 name|int
 name|glyphMargin
 argument_list|(
-argument|QFontEngineGlyphCache::Type type
+argument|QFontEngine::GlyphFormat format
 argument_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
-name|type
+name|format
 argument_list|)
 block|;
 return|return
@@ -445,9 +445,9 @@ decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 specifier|static
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Type
+name|GlyphFormat
 name|defaultGlyphFormat
 expr_stmt|;
 end_expr_stmt
