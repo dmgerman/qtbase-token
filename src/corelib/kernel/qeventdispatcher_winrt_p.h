@@ -214,6 +214,13 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|sendPostedEvents
+argument_list|(
+argument|QEventLoop::ProcessEventsFlags flags
+argument_list|)
+block|;
 name|bool
 name|event
 argument_list|(
