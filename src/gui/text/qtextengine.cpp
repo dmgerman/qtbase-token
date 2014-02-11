@@ -4369,6 +4369,79 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_enum
+DECL|enum|JustificationClass
+enum|enum
+name|JustificationClass
+block|{
+DECL|enumerator|Justification_Prohibited
+name|Justification_Prohibited
+init|=
+literal|0
+block|,
+comment|// Justification can not be applied after this glyph
+DECL|enumerator|Justification_Arabic_Space
+name|Justification_Arabic_Space
+init|=
+literal|1
+block|,
+comment|// This glyph represents a space inside arabic text
+DECL|enumerator|Justification_Character
+name|Justification_Character
+init|=
+literal|2
+block|,
+comment|// Inter-character justification point follows this glyph
+DECL|enumerator|Justification_Space
+name|Justification_Space
+init|=
+literal|4
+block|,
+comment|// This glyph represents a blank outside an Arabic run
+DECL|enumerator|Justification_Arabic_Normal
+name|Justification_Arabic_Normal
+init|=
+literal|7
+block|,
+comment|// Normal Middle-Of-Word glyph that connects to the right (begin)
+DECL|enumerator|Justification_Arabic_Waw
+name|Justification_Arabic_Waw
+init|=
+literal|8
+block|,
+comment|// Next character is final form of Waw/Ain/Qaf/Feh
+DECL|enumerator|Justification_Arabic_BaRa
+name|Justification_Arabic_BaRa
+init|=
+literal|9
+block|,
+comment|// Next two characters are Ba + Ra/Ya/AlefMaksura
+DECL|enumerator|Justification_Arabic_Alef
+name|Justification_Arabic_Alef
+init|=
+literal|10
+block|,
+comment|// Next character is final form of Alef/Tah/Lam/Kaf/Gaf
+DECL|enumerator|Justification_Arabic_HahDal
+name|Justification_Arabic_HahDal
+init|=
+literal|11
+block|,
+comment|// Next character is final form of Hah/Dal/Teh Marbuta
+DECL|enumerator|Justification_Arabic_Seen
+name|Justification_Arabic_Seen
+init|=
+literal|12
+block|,
+comment|// Initial or medial form of Seen/Sad
+DECL|enumerator|Justification_Arabic_Kashida
+name|Justification_Arabic_Kashida
+init|=
+literal|13
+comment|// User-inserted Kashida(U+0640)
+block|}
+enum|;
+end_enum
 begin_comment
 comment|// shape all the items that intersect with the line, taking tab widths into account to find out what text actually fits in the line.
 end_comment
@@ -5601,9 +5674,7 @@ index|]
 operator|.
 name|justification
 operator|==
-name|QGlyphAttributes
-operator|::
-name|Space
+name|Justification_Space
 operator|||
 name|glyphs
 operator|.
@@ -5614,9 +5685,7 @@ index|]
 operator|.
 name|justification
 operator|==
-name|QGlyphAttributes
-operator|::
-name|Arabic_Space
+name|Justification_Arabic_Space
 condition|)
 block|{
 comment|// word spacing only gets added once to a consecutive run of spaces (see CSS spec)
@@ -5642,9 +5711,7 @@ index|]
 operator|.
 name|justification
 operator|!=
-name|QGlyphAttributes
-operator|::
-name|Space
+name|Justification_Space
 operator|&&
 name|glyphs
 operator|.
@@ -5657,9 +5724,7 @@ index|]
 operator|.
 name|justification
 operator|!=
-name|QGlyphAttributes
-operator|::
-name|Arabic_Space
+name|Justification_Arabic_Space
 operator|)
 condition|)
 name|glyphs
@@ -11736,9 +11801,7 @@ if|if
 condition|(
 name|type
 operator|>=
-name|QGlyphAttributes
-operator|::
-name|Arabic_Normal
+name|Justification_Arabic_Normal
 condition|)
 block|{
 name|QChar
@@ -11837,9 +11900,7 @@ name|point
 operator|->
 name|type
 operator|=
-name|QGlyphAttributes
-operator|::
-name|NoJustification
+name|Justification_Prohibited
 expr_stmt|;
 name|point
 operator|->
@@ -12166,9 +12227,7 @@ decl_stmt|;
 name|int
 name|kashida_type
 init|=
-name|QGlyphAttributes
-operator|::
-name|Arabic_Normal
+name|Justification_Arabic_Normal
 decl_stmt|;
 name|int
 name|kashida_pos
@@ -12356,21 +12415,15 @@ name|justification
 condition|)
 block|{
 case|case
-name|QGlyphAttributes
-operator|::
-name|NoJustification
+name|Justification_Prohibited
 case|:
 break|break;
 case|case
-name|QGlyphAttributes
-operator|::
-name|Space
+name|Justification_Space
 case|:
 comment|// fall through
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_Space
+name|Justification_Arabic_Space
 case|:
 if|if
 condition|(
@@ -12455,15 +12508,11 @@ literal|1
 expr_stmt|;
 name|kashida_type
 operator|=
-name|QGlyphAttributes
-operator|::
-name|Arabic_Normal
+name|Justification_Arabic_Normal
 expr_stmt|;
 comment|// fall through
 case|case
-name|QGlyphAttributes
-operator|::
-name|Character
+name|Justification_Character
 case|:
 name|set
 argument_list|(
@@ -12500,39 +12549,25 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_Normal
+name|Justification_Arabic_Normal
 case|:
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_Waw
+name|Justification_Arabic_Waw
 case|:
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_BaRa
+name|Justification_Arabic_BaRa
 case|:
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_Alef
+name|Justification_Arabic_Alef
 case|:
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_HaaDal
+name|Justification_Arabic_HahDal
 case|:
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_Seen
+name|Justification_Arabic_Seen
 case|:
 case|case
-name|QGlyphAttributes
-operator|::
-name|Arabic_Kashida
+name|Justification_Arabic_Kashida
 case|:
 if|if
 condition|(
@@ -12679,9 +12714,7 @@ if|if
 condition|(
 name|maxJustify
 operator|>=
-name|QGlyphAttributes
-operator|::
-name|Arabic_Normal
+name|Justification_Arabic_Normal
 condition|)
 block|{
 while|while
@@ -12704,9 +12737,7 @@ name|minKashida
 operator|&&
 name|type
 operator|>=
-name|QGlyphAttributes
-operator|::
-name|Arabic_Normal
+name|Justification_Arabic_Normal
 condition|;
 operator|--
 name|type
@@ -12824,9 +12855,7 @@ name|maxJustify
 argument_list|,
 name|int
 argument_list|(
-name|QGlyphAttributes
-operator|::
-name|Space
+name|Justification_Space
 argument_list|)
 argument_list|)
 expr_stmt|;
