@@ -142,6 +142,19 @@ name|queryKeyboardModifiers
 argument_list|()
 specifier|const
 block|;
+name|QStringList
+name|themeNames
+argument_list|()
+specifier|const
+block|;
+name|QPlatformTheme
+operator|*
+name|createPlatformTheme
+argument_list|(
+argument|const QString&name
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|bool
