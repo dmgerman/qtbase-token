@@ -10811,14 +10811,24 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|processedWindows
-operator|.
-name|push_back
-argument_list|(
+if|if
+condition|(
+name|QWindow
+modifier|*
+name|window
+init|=
 name|w
 operator|->
 name|windowHandle
 argument_list|()
+condition|)
+block|{
+comment|// Menus, popup widgets may not have a QWindow
+name|processedWindows
+operator|.
+name|push_back
+argument_list|(
+name|window
 argument_list|)
 expr_stmt|;
 if|if
@@ -10846,6 +10856,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 block|}
 return|return
 name|QGuiApplicationPrivate
