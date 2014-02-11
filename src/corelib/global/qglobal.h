@@ -4559,6 +4559,11 @@ end_endif
 begin_if
 if|#
 directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_DECLTYPE
+argument_list|)
+operator|||
 operator|(
 name|defined
 argument_list|(
@@ -4573,7 +4578,7 @@ argument_list|)
 operator|)
 end_if
 begin_comment
-comment|/* make use of typeof-extension */
+comment|/* make use of decltype or GCC's __typeof__ extension */
 end_comment
 begin_expr_stmt
 name|template
@@ -4638,6 +4643,39 @@ name|control
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_DECLTYPE
+end_ifdef
+begin_define
+DECL|macro|QT_FOREACH_DECLTYPE
+define|#
+directive|define
+name|QT_FOREACH_DECLTYPE
+parameter_list|(
+name|x
+parameter_list|)
+value|typename QtPrivate::remove_reference<decltype(x)>::type
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|QT_FOREACH_DECLTYPE
+define|#
+directive|define
+name|QT_FOREACH_DECLTYPE
+parameter_list|(
+name|x
+parameter_list|)
+value|__typeof__((x))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// Explanation of the control word:
 end_comment
@@ -4676,7 +4714,7 @@ parameter_list|,
 name|container
 parameter_list|)
 define|\
-value|for (QForeachContainer<__typeof__((container))> _container_((container)); \      _container_.control&& _container_.i != _container_.e;         \      ++_container_.i, _container_.control ^= 1)                     \     for (variable = *_container_.i; _container_.control; _container_.control = 0)
+value|for (QForeachContainer<QT_FOREACH_DECLTYPE(container)> _container_((container)); \      _container_.control&& _container_.i != _container_.e;         \      ++_container_.i, _container_.control ^= 1)                     \     for (variable = *_container_.i; _container_.control; _container_.control = 0)
 end_define
 begin_else
 else|#
