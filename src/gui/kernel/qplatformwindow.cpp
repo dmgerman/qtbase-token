@@ -1271,6 +1271,18 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Invalidates the window's surface by releasing its surface buffers.      Many platforms do not support releasing the surface memory,     and the default implementation does nothing.      The platform window is expected to recreate the surface again if     it is needed. For instance, if an OpenGL context is made current     on this window.  */
+end_comment
+begin_function
+DECL|function|invalidateSurface
+name|void
+name|QPlatformWindow
+operator|::
+name|invalidateSurface
+parameter_list|()
+block|{ }
+end_function
+begin_comment
 comment|/*!     Helper function to get initial geometry on windowing systems which do not     do smart positioning and also do not provide a means of centering a     transient window w.r.t. its parent. For example this is useful on Windows     and MacOS but not X11, because an X11 window manager typically tries to     layout new windows to optimize usage of the available desktop space.     However if the given window already has geometry which the application has     initialized, it takes priority. */
 end_comment
 begin_function
