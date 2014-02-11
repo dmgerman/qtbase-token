@@ -45,24 +45,6 @@ operator|~
 name|QEglFSIntegration
 argument_list|()
 block|;
-name|QPlatformOpenGLContext
-operator|*
-name|createPlatformOpenGLContext
-argument_list|(
-argument|QOpenGLContext *context
-argument_list|)
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
-name|QPlatformOffscreenSurface
-operator|*
-name|createPlatformOffscreenSurface
-argument_list|(
-argument|QOffscreenSurface *surface
-argument_list|)
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
 name|void
 name|initialize
 argument_list|()
@@ -107,6 +89,32 @@ operator|*
 name|createWindow
 argument_list|(
 argument|QWindow *window
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QEGLPlatformContext
+operator|*
+name|createContext
+argument_list|(
+argument|const QSurfaceFormat&format
+argument_list|,
+argument|QPlatformOpenGLContext *shareContext
+argument_list|,
+argument|EGLDisplay display
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QPlatformOffscreenSurface
+operator|*
+name|createOffscreenSurface
+argument_list|(
+argument|EGLDisplay display
+argument_list|,
+argument|const QSurfaceFormat&format
+argument_list|,
+argument|QOffscreenSurface *surface
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE

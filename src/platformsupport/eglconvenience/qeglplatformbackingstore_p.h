@@ -36,6 +36,12 @@ name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformTextureList
+name|class
+name|QPlatformTextureList
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QEGLPlatformWindow
 name|class
 name|QEGLPlatformWindow
@@ -57,58 +63,73 @@ operator|*
 name|window
 argument_list|)
 block|;
+operator|~
+name|QEGLPlatformBackingStore
+argument_list|()
+block|;
 name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|beginPaint
 argument_list|(
-specifier|const
-name|QRegion
-operator|&
+argument|const QRegion&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|flush
 argument_list|(
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|offset
+argument|const QPoint&offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resize
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
+argument|const QSize&size
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|staticContents
+argument|const QRegion&staticContents
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|uint
-name|texture
+name|QImage
+name|toImage
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|composeAndFlush
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|const QRegion&region
+argument_list|,
+argument|const QPoint&offset
+argument_list|,
+argument|QPlatformTextureList *textures
+argument_list|,
+argument|QOpenGLContext *context
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+specifier|const
+name|QPlatformTextureList
+operator|*
+name|textures
 argument_list|()
 specifier|const
 block|{
 return|return
-name|m_texture
+name|m_textures
 return|;
 block|}
 name|virtual
@@ -124,6 +145,10 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|composited
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
@@ -137,11 +162,19 @@ block|;
 name|QImage
 name|m_image
 block|;
-name|uint
-name|m_texture
-block|;
 name|QRegion
 name|m_dirty
+block|;
+name|uint
+name|m_bsTexture
+block|;
+name|QPlatformTextureList
+operator|*
+name|m_textures
+block|;
+name|QPlatformTextureList
+operator|*
+name|m_lockedWidgetTextures
 block|; }
 decl_stmt|;
 end_decl_stmt

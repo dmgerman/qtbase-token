@@ -60,18 +60,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|QEGL_EXTRA_DEBUG
-name|qWarning
-argument_list|(
-literal|"QEglScreen %p\n"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|m_cursor
 operator|=
 name|QEglFSHooks

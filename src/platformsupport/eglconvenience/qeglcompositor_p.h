@@ -20,15 +20,15 @@ file|<QtCore/QTimer>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QOpenGLShaderProgram
-name|class
-name|QOpenGLShaderProgram
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QOpenGLContext
 name|class
 name|QOpenGLContext
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QOpenGLTextureBlitter
+name|class
+name|QOpenGLTextureBlitter
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -89,16 +89,10 @@ block|;
 name|void
 name|render
 argument_list|(
-argument|QEGLPlatformWindow *window
-argument_list|,
-argument|uint texture
-argument_list|,
-argument|bool raster
+name|QEGLPlatformWindow
+operator|*
+name|window
 argument_list|)
-block|;
-name|void
-name|ensureProgram
-argument_list|()
 block|;
 name|QOpenGLContext
 operator|*
@@ -111,18 +105,9 @@ block|;
 name|QTimer
 name|m_updateTimer
 block|;
-name|QOpenGLShaderProgram
+name|QOpenGLTextureBlitter
 operator|*
-name|m_program
-block|;
-name|int
-name|m_vertexCoordEntry
-block|;
-name|int
-name|m_textureCoordEntry
-block|;
-name|int
-name|m_isRasterEntry
+name|m_blitter
 block|; }
 decl_stmt|;
 end_decl_stmt

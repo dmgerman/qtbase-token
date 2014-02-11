@@ -80,27 +80,7 @@ name|m_flags
 argument_list|(
 literal|0
 argument_list|)
-block|{
-ifdef|#
-directive|ifdef
-name|QEGL_EXTRA_DEBUG
-name|qWarning
-argument_list|(
-literal|"QEglWindow %p: %p 0x%x\n"
-argument_list|,
-name|this
-argument_list|,
-name|w
-argument_list|,
-name|uint
-argument_list|(
-name|m_window
-argument_list|)
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~QEglFSWindow
@@ -338,10 +318,18 @@ name|screen
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|context
 operator|->
 name|create
 argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"EGLFS: Failed to create compositing context"
+argument_list|)
 expr_stmt|;
 name|screen
 operator|->

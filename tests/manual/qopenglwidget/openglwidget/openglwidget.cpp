@@ -78,11 +78,6 @@ include|#
 directive|include
 file|<qopengl.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<GL/glext.h>
-end_include
 begin_class
 DECL|class|OpenGLWidgetPrivate
 class|class

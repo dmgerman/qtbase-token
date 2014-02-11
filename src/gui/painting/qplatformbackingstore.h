@@ -156,6 +156,18 @@ name|count
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|isEmpty
+argument_list|()
+specifier|const
+block|{
+return|return
+name|count
+argument_list|()
+operator|==
+literal|0
+return|;
+block|}
 name|GLuint
 name|textureId
 argument_list|(
@@ -188,6 +200,10 @@ argument|GLuint textureId
 argument_list|,
 argument|const QRect&geometry
 argument_list|)
+block|;
+name|void
+name|clear
+argument_list|()
 block|;
 name|Q_SIGNALS
 operator|:
