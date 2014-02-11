@@ -797,6 +797,17 @@ name|XmlOutput
 operator|&
 argument_list|,
 specifier|const
+name|VCWinDeployQtTool
+operator|&
+argument_list|)
+block|;
+name|void
+name|write
+argument_list|(
+name|XmlOutput
+operator|&
+argument_list|,
+specifier|const
 name|VCConfiguration
 operator|&
 argument_list|)
