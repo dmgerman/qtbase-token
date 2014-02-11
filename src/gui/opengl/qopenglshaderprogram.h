@@ -338,6 +338,10 @@ name|void
 name|release
 argument_list|()
 block|;
+name|bool
+name|create
+argument_list|()
+block|;
 name|GLuint
 name|programId
 argument_list|()
