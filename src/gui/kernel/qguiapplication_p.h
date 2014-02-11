@@ -194,6 +194,11 @@ operator|&
 name|processedWindows
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|tryCloseAllWindows
+argument_list|()
+block|;
 specifier|static
 name|Qt
 operator|::
@@ -1408,6 +1413,15 @@ name|virtual
 name|void
 name|notifyThemeChanged
 parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|bool
+name|tryCloseRemainingWindows
+parameter_list|(
+name|QWindowList
+name|processedWindows
+parameter_list|)
 function_decl|;
 end_function_decl
 begin_ifndef
