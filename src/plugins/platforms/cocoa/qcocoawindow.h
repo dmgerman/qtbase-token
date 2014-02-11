@@ -677,9 +677,6 @@ name|bool
 name|m_resizableTransientParent
 block|;
 name|bool
-name|m_overrideBecomeKey
-block|;
-name|bool
 name|m_hiddenByClipping
 block|;
 name|bool

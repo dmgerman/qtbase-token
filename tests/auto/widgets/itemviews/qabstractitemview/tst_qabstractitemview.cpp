@@ -6794,6 +6794,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
+expr_stmt|;
 name|QSignalSpy
 name|spy
 argument_list|(

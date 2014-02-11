@@ -5705,6 +5705,32 @@ literal|"ICON"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QString
+name|bundleIdentifier
+init|=
+literal|"com.yourcompany."
+operator|+
+name|var
+argument_list|(
+literal|"QMAKE_BUNDLE"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|bundleIdentifier
+operator|.
+name|endsWith
+argument_list|(
+literal|".app"
+argument_list|)
+condition|)
+name|bundleIdentifier
+operator|.
+name|chop
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
 name|t
 operator|<<
 literal|"@$(DEL_FILE) "
@@ -5743,6 +5769,12 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
+operator|<<
+literal|",g\" "
+operator|<<
+literal|"-e \"s,@BUNDLEIDENTIFIER@,"
+operator|<<
+name|bundleIdentifier
 operator|<<
 literal|",g\" "
 operator|<<

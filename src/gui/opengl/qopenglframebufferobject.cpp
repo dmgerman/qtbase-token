@@ -963,6 +963,9 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_OPENGL_ES_2
 name|GLint
 name|maxSamples
 decl_stmt|;
@@ -991,6 +994,8 @@ name|maxSamples
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|size
 operator|=
 name|sz

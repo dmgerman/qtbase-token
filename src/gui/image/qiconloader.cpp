@@ -2429,7 +2429,7 @@ argument_list|()
 operator|!=
 name|actualSize
 condition|)
-name|basePixmap
+name|cachedPixmap
 operator|=
 name|basePixmap
 operator|.
@@ -2446,6 +2446,7 @@ operator|::
 name|SmoothTransformation
 argument_list|)
 expr_stmt|;
+else|else
 name|cachedPixmap
 operator|=
 name|basePixmap
@@ -2485,7 +2486,7 @@ name|applyQIconStyleHelper
 argument_list|(
 name|mode
 argument_list|,
-name|basePixmap
+name|cachedPixmap
 argument_list|)
 expr_stmt|;
 name|QPixmapCache

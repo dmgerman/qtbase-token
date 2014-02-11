@@ -61,7 +61,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn QAccessibleInterface *QAccessiblePlugin::create(const QString&key, QObject *object)      Creates and returns a QAccessibleInterface implementation for the     class \a key and the object \a object. Keys are case sensitive.      \sa keys() */
+comment|/*!     \fn QAccessibleInterface *QAccessiblePlugin::create(const QString&key, QObject *object)      Creates and returns a QAccessibleInterface implementation for the     class \a key and the object \a object. Keys are case sensitive. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

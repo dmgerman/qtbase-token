@@ -2212,6 +2212,20 @@ ifdef|#
 directive|ifdef
 name|Q_CC_MSVC
 end_ifdef
+begin_comment
+comment|// behavior change: an object of POD type constructed with an initializer of the form ()
+end_comment
+begin_comment
+comment|// will be default-initialized
+end_comment
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|push
+name|)
+end_pragma
 begin_pragma
 pragma|#
 directive|pragma
@@ -2222,9 +2236,6 @@ name|:
 name|4345
 name|)
 end_pragma
-begin_comment
-comment|// behavior change: an object of POD type constructed with an initializer of the form () will be default-initialized
-end_comment
 begin_endif
 endif|#
 directive|endif
@@ -2317,9 +2328,7 @@ pragma|#
 directive|pragma
 name|warning
 name|(
-name|default
-name|:
-name|4345
+name|pop
 name|)
 end_pragma
 begin_endif

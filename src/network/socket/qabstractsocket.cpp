@@ -6991,7 +6991,7 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocket::waitForBytesWritten returns \c true"
+literal|"QAbstractSocket::waitForBytesWritten returns true"
 argument_list|)
 expr_stmt|;
 endif|#
