@@ -5733,6 +5733,15 @@ decl_stmt|;
 name|QFile
 name|manifestFile
 argument_list|(
+name|Option
+operator|::
+name|output_dir
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+operator|+
 name|manifest
 argument_list|)
 decl_stmt|;
