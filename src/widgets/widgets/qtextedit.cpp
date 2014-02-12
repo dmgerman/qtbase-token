@@ -2365,7 +2365,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTextEdit::document     \brief the underlying document of the text editor.      \note The editor \e{does not take ownership of the document} unless it     is the document's parent object. The parent object of the provided document     remains the owner of the object. The editor does not delete any previously     assigned document, even if it is a child of the editor. */
+comment|/*!     \property QTextEdit::document     \brief the underlying document of the text editor.      \note The editor \e{does not take ownership of the document} unless it     is the document's parent object. The parent object of the provided document     remains the owner of the object. If the previously assigned document is a     child of the editor then it will be deleted. */
 end_comment
 begin_function
 DECL|function|setDocument

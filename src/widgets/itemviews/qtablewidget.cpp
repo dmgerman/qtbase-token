@@ -9689,7 +9689,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Removes all items in the view.    This will also remove all selections.    The table dimensions stay the same. */
+comment|/*!    Removes all items in the view.    This will also remove all selections and headers.    If you don't want to remove the headers, use    QTableWidget::clearContents().    The table dimensions stay the same. */
 end_comment
 begin_function
 DECL|function|clear

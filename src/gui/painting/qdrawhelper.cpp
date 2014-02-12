@@ -40962,10 +40962,10 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|qt_gradient_quint32
+DECL|function|qt_gradient_argb32
 specifier|static
 name|void
-name|qt_gradient_quint32
+name|qt_gradient_argb32
 parameter_list|(
 name|int
 name|count
@@ -43846,7 +43846,7 @@ comment|// Format_RGB32,
 block|{
 name|blend_color_argb
 block|,
-name|qt_gradient_quint32
+name|qt_gradient_argb32
 block|,
 name|qt_bitmapblit_quint32
 block|,
@@ -43861,7 +43861,7 @@ comment|// Format_ARGB32,
 block|{
 name|blend_color_generic
 block|,
-name|qt_gradient_quint32
+name|qt_gradient_argb32
 block|,
 name|qt_bitmapblit_quint32
 block|,
@@ -43876,7 +43876,7 @@ comment|// Format_ARGB32_Premultiplied
 block|{
 name|blend_color_argb
 block|,
-name|qt_gradient_quint32
+name|qt_gradient_argb32
 block|,
 name|qt_bitmapblit_quint32
 block|,
@@ -44026,7 +44026,7 @@ comment|// Format_RGBX8888
 block|{
 name|blend_color_generic
 block|,
-name|qt_gradient_quint32
+name|blend_src_generic
 block|,
 name|qt_bitmapblit_quint32
 block|,
@@ -44054,7 +44054,7 @@ comment|// Format_RGBA8888
 block|{
 name|blend_color_generic
 block|,
-name|qt_gradient_quint32
+name|blend_src_generic
 block|,
 name|qt_bitmapblit_quint32
 block|,
@@ -44082,7 +44082,7 @@ comment|// Format_RGB8888_Premultiplied
 block|{
 name|blend_color_generic
 block|,
-name|qt_gradient_quint32
+name|blend_src_generic
 block|,
 name|qt_bitmapblit_quint32
 block|,

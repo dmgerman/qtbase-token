@@ -3383,6 +3383,12 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|that
+condition|)
+return|return;
 name|QObject
 operator|::
 name|disconnect
@@ -3439,12 +3445,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|that
-condition|)
-return|return;
 name|actionsCopy
 operator|.
 name|clear

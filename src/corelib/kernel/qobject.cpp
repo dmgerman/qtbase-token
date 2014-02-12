@@ -12819,7 +12819,6 @@ operator|->
 name|ref
 argument_list|()
 expr_stmt|;
-specifier|const
 name|QScopedPointer
 argument_list|<
 name|QtPrivate
@@ -12852,6 +12851,14 @@ name|argv
 else|:
 name|empty_argv
 argument_list|)
+expr_stmt|;
+comment|// Make sure the slot object gets destroyed before the mutex is locked again, as the
+comment|// destructor of the slot object might also lock a mutex from the signalSlotLock() mutex pool,
+comment|// and that would deadlock if the pool happens to return the same mutex.
+name|obj
+operator|.
+name|reset
+argument_list|()
 expr_stmt|;
 name|locker
 operator|.

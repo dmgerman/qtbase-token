@@ -5797,7 +5797,7 @@ begin_comment
 comment|/*!     \fn QDir QDir::temp()      Returns the system's temporary directory.      The directory is constructed using the absolute path of the temporary directory,     ensuring that its path() will be the same as its absolutePath().      See tempPath() for details.      \sa drives(), current(), home(), root() */
 end_comment
 begin_comment
-comment|/*!     Returns the absolute path of the system's temporary directory.      On Unix/Linux systems this is the path in the \c TMPDIR environment     variable or \c{/tmp} if \c TMPDIR is not defined. On Windows this is     usually the path in the \c TEMP or \c TMP environment     variable. Whether a directory separator is added to the end or     not, depends on the operating system.      \sa temp(), currentPath(), homePath(), rootPath() */
+comment|/*!     Returns the absolute path of the system's temporary directory.      On Unix/Linux systems this is the path in the \c TMPDIR environment     variable or \c{/tmp} if \c TMPDIR is not defined. On Windows this is     usually the path in the \c TEMP or \c TMP environment     variable.     The path returned by this method doesn't end with a directory separator     unless it is the root directory (of a drive).      \sa temp(), currentPath(), homePath(), rootPath() */
 end_comment
 begin_function
 DECL|function|tempPath
