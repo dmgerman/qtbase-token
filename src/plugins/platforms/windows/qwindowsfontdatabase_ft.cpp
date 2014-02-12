@@ -1814,7 +1814,7 @@ begin_function
 DECL|function|storeFont
 specifier|static
 name|int
-name|CALLBACK
+name|QT_WIN_CALLBACK
 name|storeFont
 parameter_list|(
 name|ENUMLOGFONTEX

@@ -3584,7 +3584,7 @@ begin_function
 DECL|function|findDialogEnumWindowsProc
 specifier|static
 name|BOOL
-name|CALLBACK
+name|QT_WIN_CALLBACK
 name|findDialogEnumWindowsProc
 parameter_list|(
 name|HWND
@@ -9690,7 +9690,7 @@ begin_function
 DECL|function|xpFileDialogGetExistingDirCallbackProc
 specifier|static
 name|int
-name|CALLBACK
+name|QT_WIN_CALLBACK
 name|xpFileDialogGetExistingDirCallbackProc
 parameter_list|(
 name|HWND
