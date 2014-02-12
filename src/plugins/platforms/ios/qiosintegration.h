@@ -104,6 +104,12 @@ name|fontDatabase
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QPlatformClipboard
+operator|*
+name|clipboard
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QPlatformInputContext
 operator|*
 name|inputContext
@@ -177,6 +183,10 @@ label|:
 name|QPlatformFontDatabase
 modifier|*
 name|m_fontDatabase
+decl_stmt|;
+name|QPlatformClipboard
+modifier|*
+name|m_clipboard
 decl_stmt|;
 name|QPlatformInputContext
 modifier|*
