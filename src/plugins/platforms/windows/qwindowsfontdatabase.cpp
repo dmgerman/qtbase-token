@@ -4524,10 +4524,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|storeFont
 specifier|static
 name|int
+name|QT_ENSURE_STACK_ALIGNED_FOR_SSE
 name|CALLBACK
+DECL|function|storeFont
 name|storeFont
 parameter_list|(
 name|ENUMLOGFONTEX
