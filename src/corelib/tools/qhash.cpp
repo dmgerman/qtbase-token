@@ -504,6 +504,46 @@ return|;
 block|}
 end_function
 begin_function
+name|uint
+name|qHashBits
+parameter_list|(
+specifier|const
+name|void
+modifier|*
+name|p
+parameter_list|,
+name|size_t
+name|len
+parameter_list|,
+name|uint
+name|seed
+parameter_list|)
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|hash
+argument_list|(
+cast|static_cast
+argument_list|<
+specifier|const
+name|uchar
+operator|*
+argument_list|>
+argument_list|(
+name|p
+argument_list|)
+argument_list|,
+name|int
+argument_list|(
+name|len
+argument_list|)
+argument_list|,
+name|seed
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 specifier|static
 specifier|inline
 name|uint
@@ -2840,6 +2880,9 @@ directive|endif
 end_endif
 begin_comment
 comment|/*!     \fn uint qHash(const QPair<T1, T2>&key, uint seed = 0)     \since 5.0     \relates QHash      Returns the hash value for the \a key, using \a seed to seed the calculation.      Types \c T1 and \c T2 must be supported by qHash(). */
+end_comment
+begin_comment
+comment|/*! \fn uint qHashBits(const void *p, size_t len, uint seed = 0)     \relates QHash     \since 5.4      Returns the hash value for the memory block of size \a len pointed     to by \a p, using \a seed to seed the calculation.      Use this function only to implement qHash() for your own custom     types. E.g., here's how you could implement a qHash() overload for     std::vector<int>:      \snippet code/src_corelib_tools_qhash.cpp qhashbits      It bears repeating that the implementation of qHashBits() - like     the qHash() overloads offered by Qt - may change at any time. You     \b{must not} rely on the fact that qHashBits() will give the same     results (for the same inputs) across different Qt versions. */
 end_comment
 begin_comment
 comment|/*! \fn uint qHash(char key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */
