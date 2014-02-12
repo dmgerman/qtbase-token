@@ -39,22 +39,17 @@ directive|include
 file|"qnsview.h"
 end_include
 begin_expr_stmt
+DECL|function|QT_FORWARD_DECLARE_CLASS
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(
 name|QCocoaWindow
 argument_list|)
 expr|@
-name|class
-name|QNSWindowDelegate
-expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
-unit|@
 name|interface
 name|QNSWindow
-range|:
-name|NSPanel
-block|{ @
+operator|:
+name|NSWindow
+block|{     @
 name|public
 name|QCocoaWindow
 operator|*
@@ -62,29 +57,105 @@ name|m_cocoaPlatformWindow
 block|; }
 operator|-
 operator|(
+name|id
+operator|)
+name|initWithContentRect
+operator|:
+operator|(
+name|NSRect
+operator|)
+name|contentRect
+name|styleMask
+operator|:
+operator|(
+name|NSUInteger
+operator|)
+name|windowStyle
+name|qPlatformWindow
+operator|:
+operator|(
+name|QCocoaWindow
+operator|*
+operator|)
+name|qpw
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
 name|void
 operator|)
 name|clearPlatformWindow
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 unit|@
 name|end
+expr|@
+name|interface
+name|QNSPanel
+operator|:
+name|NSPanel
+block|{     @
+name|public
+name|QCocoaWindow
+operator|*
+name|m_cocoaPlatformWindow
+block|; }
+operator|-
+operator|(
+name|id
+operator|)
+name|initWithContentRect
+operator|:
+operator|(
+name|NSRect
+operator|)
+name|contentRect
+name|styleMask
+operator|:
+operator|(
+name|NSUInteger
+operator|)
+name|windowStyle
+name|qPlatformWindow
+operator|:
+operator|(
+name|QCocoaWindow
+operator|*
+operator|)
+name|qpw
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|clearPlatformWindow
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+unit|@
+name|end
+expr|@
+DECL|variable|QNSWindowDelegate
+name|class
+name|QNSWindowDelegate
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// QCocoaWindow
 comment|//
-comment|// A QCocoaWindow is backed by a NSView and optionally a NSWindow.
+comment|// QCocoaWindow is an NSView (not an NSWindow!) in the sense
+comment|// that it relies on a NSView for all event handling and
+comment|// graphics output and does not require a NSWindow, except for
+comment|// for the window-related functions like setWindowTitle.
 comment|//
-comment|// The NSView is used for most event handling and graphics output.
-comment|//
-comment|// Top-level QWindows are always backed by a NSWindow in addition to
-comment|// the NSView. Child QWindows can also be backed by NSWindows, which
-comment|// enables proper stacking of GL Widgets and threaded GL rendering
-comment|// to multiple contexts.
-comment|//
-comment|// It is possible to embed the QCocoaWindow in an NSView hierarchy
-comment|// by getting a pointer to the backing NSView and not calling
-comment|// QCocoaWindow::show():
+comment|// As a consequence of this it is possible to embed the QCocoaWindow
+comment|// in an NSView hierarchy by getting a pointer to the "backing"
+comment|// NSView and not calling QCocoaWindow::show():
 comment|//
 comment|// QWindow *qtWindow = new MyWindow();
 comment|// qtWindow->create();
@@ -350,11 +421,6 @@ argument|Qt::WindowType type = Qt::Widget
 argument_list|)
 specifier|const
 block|;
-name|bool
-name|windowShouldBehaveAsPanel
-argument_list|()
-specifier|const
-block|;
 name|void
 name|setSynchedWindowStateFromWindow
 argument_list|()
@@ -500,7 +566,7 @@ operator|*
 name|parentWindow
 argument_list|)
 block|;
-name|QNSWindow
+name|NSWindow
 operator|*
 name|createNSWindow
 argument_list|()
@@ -508,7 +574,7 @@ block|;
 name|void
 name|setNSWindow
 argument_list|(
-name|QNSWindow
+name|NSWindow
 operator|*
 name|window
 argument_list|)
@@ -516,10 +582,14 @@ block|;
 name|void
 name|clearNSWindow
 argument_list|(
-name|QNSWindow
+name|NSWindow
 operator|*
 name|window
 argument_list|)
+block|;
+name|bool
+name|shouldUseNSPanel
+argument_list|()
 block|;
 name|QRect
 name|windowGeometry
@@ -574,7 +644,7 @@ name|QNSView
 operator|*
 name|m_qtView
 block|;
-name|QNSWindow
+name|NSWindow
 operator|*
 name|m_nsWindow
 block|;
