@@ -10213,7 +10213,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload contains()     \since 5.1      Returns \c true if the regular expression \a re matches somewhere in this     string; otherwise returns \c false.      If the match is successful and \a match is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed by \a match.      \sa QRegularExpression::match() */
+comment|/*!     \overload contains()     \since 5.1      Returns \c true if the regular expression \a re matches somewhere in this     string; otherwise returns \c false.      If the match is successful and \a match is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed to by \a match.      \sa QRegularExpression::match() */
 end_comment
 begin_function
 DECL|function|contains
