@@ -4559,6 +4559,7 @@ end_endif
 begin_if
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|Q_CC_GNU
@@ -4567,14 +4568,9 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_CC_INTEL
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_CC_RVCT
 argument_list|)
+operator|)
 end_if
 begin_comment
 comment|/* make use of typeof-extension */
@@ -4604,11 +4600,6 @@ argument_list|(
 name|t
 argument_list|)
 block|,
-name|brk
-argument_list|(
-literal|0
-argument_list|)
-block|,
 name|i
 argument_list|(
 name|c
@@ -4619,15 +4610,20 @@ argument_list|)
 block|,
 name|e
 argument_list|(
-argument|c.end()
+name|c
+operator|.
+name|end
+argument_list|()
+argument_list|)
+block|,
+name|control
+argument_list|(
+literal|1
 argument_list|)
 block|{ }
 specifier|const
 name|T
 name|c
-block|;
-name|int
-name|brk
 block|;
 name|typename
 name|T
@@ -4636,9 +4632,39 @@ name|const_iterator
 name|i
 block|,
 name|e
+block|;
+name|int
+name|control
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// Explanation of the control word:
+end_comment
+begin_comment
+comment|//  - it's initialized to 1
+end_comment
+begin_comment
+comment|//  - that means both the inner and outer loops start
+end_comment
+begin_comment
+comment|//  - if there were no breaks, at the end of the inner loop, it's set to 0, which
+end_comment
+begin_comment
+comment|//    causes it to exit (the inner loop is run exactly once)
+end_comment
+begin_comment
+comment|//  - at the end of the outer loop, it's inverted, so it becomes 1 again, allowing
+end_comment
+begin_comment
+comment|//    the outer loop to continue executing
+end_comment
+begin_comment
+comment|//  - if there was a break inside the inner loop, it will exit with control still
+end_comment
+begin_comment
+comment|//    set to 1; in that case, the outer loop will invert it to 0 and will exit too
+end_comment
 begin_define
 DECL|macro|Q_FOREACH
 define|#
@@ -4650,7 +4676,7 @@ parameter_list|,
 name|container
 parameter_list|)
 define|\
-value|for (QForeachContainer<__typeof__((container))> _container_((container)); \      !_container_.brk&& _container_.i != _container_.e;              \      __extension__  ({ ++_container_.brk; ++_container_.i; }))                       \     for (variable = *_container_.i;; __extension__ ({--_container_.brk; break;}))
+value|for (QForeachContainer<__typeof__((container))> _container_((container)); \      _container_.control&& _container_.i != _container_.e;         \      ++_container_.i, _container_.control ^= 1)                     \     for (variable = *_container_.i; _container_.control; _container_.control = 0)
 end_define
 begin_else
 else|#
