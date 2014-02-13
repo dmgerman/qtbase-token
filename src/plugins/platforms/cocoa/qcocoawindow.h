@@ -715,6 +715,22 @@ argument|int bottomThickness
 argument_list|)
 block|;
 name|void
+name|registerContentBorderArea
+argument_list|(
+argument|quintptr identifier
+argument_list|,
+argument|int upper
+argument_list|,
+argument|int lower
+argument_list|)
+block|;
+name|void
+name|enableContentBorderArea
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
+name|void
 name|applyContentBorderThickness
 argument_list|(
 name|NSWindow
@@ -970,12 +986,66 @@ name|m_oldWindowFlags
 block|;
 name|NSApplicationPresentationOptions
 name|m_presentationOptions
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_macro
+block|;      struct
+name|BorderRange
+block|{
+name|BorderRange
+argument_list|(
+argument|int u
+argument_list|,
+argument|int l
+argument_list|)
+operator|:
+name|upper
+argument_list|(
+name|u
+argument_list|)
+block|,
+name|lower
+argument_list|(
+argument|l
+argument_list|)
+block|{ }
+name|int
+name|upper
+block|;
+name|int
+name|lower
+block|;
+name|bool
+name|operator
+operator|<
+operator|(
+name|BorderRange
+specifier|const
+operator|&
+name|right
+operator|)
+specifier|const
+block|{
+return|return
+name|upper
+operator|<
+name|right
+operator|.
+name|upper
+return|;
+block|}
+expr|}
+block|;
+name|QHash
+operator|<
+name|quintptr
+block|,
+name|BorderRange
+operator|>
+name|m_contentBorderAreas
+block|;
+comment|// identifer -> uppper/lower
+block|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
