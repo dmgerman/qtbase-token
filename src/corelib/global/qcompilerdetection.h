@@ -2019,12 +2019,6 @@ directive|define
 name|Q_COMPILER_STATIC_ASSERT
 end_define
 begin_define
-DECL|macro|Q_COMPILER_THREAD_LOCAL
-define|#
-directive|define
-name|Q_COMPILER_THREAD_LOCAL
-end_define
-begin_define
 DECL|macro|Q_COMPILER_VARIADIC_MACROS
 define|#
 directive|define
