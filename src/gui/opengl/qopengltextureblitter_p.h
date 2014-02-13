@@ -120,9 +120,6 @@ specifier|const
 name|QRect
 modifier|&
 name|viewport
-parameter_list|,
-name|Origin
-name|origin
 parameter_list|)
 function_decl|;
 specifier|static

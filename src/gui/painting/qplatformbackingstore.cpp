@@ -637,10 +637,6 @@ name|i
 argument_list|)
 argument_list|,
 name|windowRect
-argument_list|,
-name|QOpenGLTextureBlitter
-operator|::
-name|OriginTopLeft
 argument_list|)
 decl_stmt|;
 name|d_ptr
@@ -695,10 +691,6 @@ argument_list|(
 name|windowRect
 argument_list|,
 name|windowRect
-argument_list|,
-name|QOpenGLTextureBlitter
-operator|::
-name|OriginTopLeft
 argument_list|)
 decl_stmt|;
 name|d_ptr

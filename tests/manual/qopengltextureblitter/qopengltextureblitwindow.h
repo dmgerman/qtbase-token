@@ -102,6 +102,9 @@ name|m_blitter
 block|;
 name|QImage
 name|m_image
+block|;
+name|QImage
+name|m_image_mirrord
 block|; }
 decl_stmt|;
 end_decl_stmt

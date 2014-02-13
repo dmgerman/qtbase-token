@@ -453,10 +453,6 @@ name|i
 argument_list|)
 argument_list|,
 name|targetWindowRect
-argument_list|,
-name|QOpenGLTextureBlitter
-operator|::
-name|OriginTopLeft
 argument_list|)
 decl_stmt|;
 name|m_blitter
