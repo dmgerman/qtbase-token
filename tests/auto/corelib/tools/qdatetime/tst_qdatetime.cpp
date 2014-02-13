@@ -14407,7 +14407,11 @@ name|dateTime3
 operator|<<
 name|dateTime3e
 operator|<<
-literal|false
+operator|(
+name|localTimeType
+operator|==
+name|LocalTimeIsUtc
+operator|)
 operator|<<
 literal|false
 expr_stmt|;
