@@ -903,6 +903,21 @@ name|LANGLE
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|type
+operator|.
+name|name
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// '<' cannot start a type
+return|return
+name|type
+return|;
+block|}
 name|type
 operator|.
 name|name

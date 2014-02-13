@@ -333,6 +333,21 @@ name|value
 argument_list|)
 emit|;
 block|}
+name|bool
+name|operator
+name|<
+parameter_list|(
+specifier|const
+name|Sender
+modifier|&
+parameter_list|)
+specifier|const
+block|{
+comment|/* QTBUG-36834 */
+return|return
+literal|true
+return|;
+block|}
 signals|signals:
 name|void
 name|send
