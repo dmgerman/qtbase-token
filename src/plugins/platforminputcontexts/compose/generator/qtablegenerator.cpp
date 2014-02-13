@@ -1621,7 +1621,7 @@ directive|endif
 return|return
 name|QString
 operator|::
-name|fromLocal8Bit
+name|fromUtf8
 argument_list|(
 name|chars
 argument_list|)

@@ -6335,13 +6335,6 @@ name|ATSPI_STATE_MANAGES_DESCENDANTS
 argument_list|)
 expr_stmt|;
 block|}
-comment|// FIXME: figure out if this is a top level window and set its active state accordingly
-comment|//        if (interface->object()&& interface->object()->isWidgetType()) {
-comment|//            QWidget *w = qobject_cast<QWidget*>(interface->object());
-comment|//            if (w->topLevelWidget()&& w->isActiveWindow()) {
-comment|//                setSpiStateBit(&spiState, ATSPI_STATE_ACTIVE);
-comment|//            }
-comment|//        }
 name|QAccessible
 operator|::
 name|Role

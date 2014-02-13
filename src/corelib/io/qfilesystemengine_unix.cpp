@@ -4099,7 +4099,7 @@ name|temp
 operator|=
 name|QLatin1String
 argument_list|(
-literal|"/tmp/"
+literal|"/tmp"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4137,7 +4137,7 @@ name|temp
 operator|=
 name|QLatin1String
 argument_list|(
-literal|"/tmp/"
+literal|"/tmp"
 argument_list|)
 expr_stmt|;
 return|return
