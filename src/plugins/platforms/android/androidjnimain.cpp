@@ -1382,7 +1382,8 @@ operator|!
 name|env
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 name|m_surfacesMutex
 operator|.
