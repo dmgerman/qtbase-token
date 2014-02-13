@@ -206,6 +206,15 @@ argument_list|)
 decl_stmt|;
 name|texture
 operator|.
+name|setWrapMode
+argument_list|(
+name|QOpenGLTexture
+operator|::
+name|ClampToEdge
+argument_list|)
+expr_stmt|;
+name|texture
+operator|.
 name|create
 argument_list|()
 expr_stmt|;
