@@ -715,12 +715,7 @@ name|stream
 operator|->
 name|ts
 operator|<<
-name|QString
-operator|::
-name|number
-argument_list|(
 name|t
-argument_list|)
 block|;
 return|return
 name|maybeSpace
@@ -743,12 +738,7 @@ name|stream
 operator|->
 name|ts
 operator|<<
-name|QString
-operator|::
-name|number
-argument_list|(
 name|t
-argument_list|)
 block|;
 return|return
 name|maybeSpace
