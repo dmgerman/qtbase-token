@@ -23009,6 +23009,7 @@ operator|++
 name|dstFormat
 control|)
 block|{
+comment|// Indexed8 can't be painted to, and Alpha8 can't hold a color.
 if|if
 condition|(
 name|dstFormat
@@ -23016,6 +23017,12 @@ operator|==
 name|QImage
 operator|::
 name|Format_Indexed8
+operator|||
+name|dstFormat
+operator|==
+name|QImage
+operator|::
+name|Format_Alpha8
 condition|)
 continue|continue;
 for|for

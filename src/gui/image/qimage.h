@@ -357,13 +357,6 @@ name|Format_RGBA8888
 block|,
 name|Format_RGBA8888_Premultiplied
 block|,
-if|#
-directive|if
-literal|0
-comment|// reserved for future use
-block|Format_RGB15,         Format_Grayscale16,         Format_Grayscale8,         Format_Grayscale4,         Format_Grayscale4LSB,         Format_Grayscale2,         Format_Grayscale2LSB
-endif|#
-directive|endif
 name|Format_BGR30
 block|,
 name|Format_A2BGR30_Premultiplied
@@ -372,6 +365,17 @@ name|Format_RGB30
 block|,
 name|Format_A2RGB30_Premultiplied
 block|,
+name|Format_Alpha8
+block|,
+name|Format_Grayscale8
+block|,
+if|#
+directive|if
+literal|0
+comment|// reserved for future use
+block|Format_Grayscale16,
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|Q_QDOC

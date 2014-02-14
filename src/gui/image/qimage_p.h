@@ -519,6 +519,16 @@ name|QImage
 operator|::
 name|Format_Indexed8
 case|:
+case|case
+name|QImage
+operator|::
+name|Format_Alpha8
+case|:
+case|case
+name|QImage
+operator|::
+name|Format_Grayscale8
+case|:
 name|depth
 operator|=
 literal|8

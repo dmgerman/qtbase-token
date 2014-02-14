@@ -6648,7 +6648,7 @@ argument_list|()
 return|;
 block|}
 name|QImage
-name|indexed
+name|alphaMap
 argument_list|(
 name|mask
 operator|->
@@ -6662,57 +6662,9 @@ argument_list|()
 argument_list|,
 name|QImage
 operator|::
-name|Format_Indexed8
+name|Format_Alpha8
 argument_list|)
 decl_stmt|;
-comment|// ### This part is kinda pointless, but we'll crash later if we don't because some
-comment|// code paths expects there to be colortables for index8-bit...
-name|QVector
-argument_list|<
-name|QRgb
-argument_list|>
-name|colors
-argument_list|(
-literal|256
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-literal|256
-condition|;
-operator|++
-name|i
-control|)
-name|colors
-index|[
-name|i
-index|]
-operator|=
-name|qRgba
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-name|i
-argument_list|)
-expr_stmt|;
-name|indexed
-operator|.
-name|setColorTable
-argument_list|(
-name|colors
-argument_list|)
-expr_stmt|;
 comment|// Copy data... Cannot use QPainter here as GDI has messed up the
 comment|// Alpha channel of the ni.image pixels...
 for|for
@@ -6737,7 +6689,7 @@ name|uchar
 modifier|*
 name|dest
 init|=
-name|indexed
+name|alphaMap
 operator|.
 name|scanLine
 argument_list|(
@@ -6938,7 +6890,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|indexed
+name|alphaMap
 return|;
 block|}
 DECL|macro|SPI_GETFONTSMOOTHINGCONTRAST

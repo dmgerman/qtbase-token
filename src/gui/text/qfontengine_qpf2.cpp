@@ -2049,7 +2049,7 @@ name|bytesPerLine
 argument_list|,
 name|QImage
 operator|::
-name|Format_Indexed8
+name|Format_Alpha8
 argument_list|)
 decl_stmt|;
 return|return

@@ -3023,6 +3023,15 @@ operator|==
 name|QImage
 operator|::
 name|Format_Indexed8
+operator|||
+name|img
+operator|.
+name|format
+argument_list|()
+operator|==
+name|QImage
+operator|::
+name|Format_Grayscale8
 argument_list|)
 expr_stmt|;
 comment|// choose the alpha such that pixels at radius distance from a fully
@@ -3646,6 +3655,15 @@ operator|==
 name|QImage
 operator|::
 name|Format_Indexed8
+operator|||
+name|source
+operator|.
+name|format
+argument_list|()
+operator|==
+name|QImage
+operator|::
+name|Format_Grayscale8
 condition|)
 block|{
 comment|// assumes grayscale
@@ -4681,6 +4699,15 @@ operator|==
 name|QImage
 operator|::
 name|Format_Indexed8
+operator|||
+name|blurImage
+operator|.
+name|format
+argument_list|()
+operator|==
+name|QImage
+operator|::
+name|Format_Grayscale8
 condition|)
 name|expblur
 argument_list|<

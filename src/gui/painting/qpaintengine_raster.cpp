@@ -1852,6 +1852,11 @@ name|QImage
 operator|::
 name|Format_A2RGB30_Premultiplied
 case|:
+case|case
+name|QImage
+operator|::
+name|Format_Alpha8
+case|:
 name|gccaps
 operator||=
 name|PorterDuff
@@ -1901,6 +1906,11 @@ case|case
 name|QImage
 operator|::
 name|Format_RGB30
+case|:
+case|case
+name|QImage
+operator|::
+name|Format_Grayscale8
 case|:
 break|break;
 default|default:

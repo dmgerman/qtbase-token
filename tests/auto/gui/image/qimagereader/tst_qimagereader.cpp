@@ -3452,7 +3452,7 @@ argument_list|)
 operator|<<
 name|QImage
 operator|::
-name|Format_Indexed8
+name|Format_Grayscale8
 expr_stmt|;
 name|QTest
 operator|::
@@ -3557,7 +3557,7 @@ argument_list|)
 operator|<<
 name|QImage
 operator|::
-name|Format_Indexed8
+name|Format_Grayscale8
 expr_stmt|;
 name|QTest
 operator|::
