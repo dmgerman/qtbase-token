@@ -8461,7 +8461,7 @@ decl_stmt|;
 name|QByteArray
 name|expected
 init|=
-literal|"{\"Array\": [true,999,\"string\",null,\"\\\\\\u0007\\n\\r\\b\\tabcABC\\\"\"],\"\\\\Key\\n\": \"Value\",\"null\": null}"
+literal|"{\"Array\":[true,999,\"string\",null,\"\\\\\\u0007\\n\\r\\b\\tabcABC\\\"\"],\"\\\\Key\\n\":\"Value\",\"null\":null}"
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -13816,7 +13816,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonObject({\"foo\": \"bar\"})"
+literal|"QJsonObject({\"foo\":\"bar\"})"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13926,7 +13926,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument({\"foo\": \"bar\"})"
+literal|"QJsonDocument({\"foo\":\"bar\"})"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14166,7 +14166,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(object, QJsonObject({\"foo\": \"bar\"}) )"
+literal|"QJsonValue(object, QJsonObject({\"foo\":\"bar\"}) )"
 argument_list|)
 expr_stmt|;
 name|qDebug

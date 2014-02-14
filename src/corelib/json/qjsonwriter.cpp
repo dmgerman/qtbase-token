@@ -986,6 +986,10 @@ argument_list|)
 expr_stmt|;
 name|json
 operator|+=
+name|compact
+condition|?
+literal|"\":"
+else|:
 literal|"\": "
 expr_stmt|;
 name|valueToJson
