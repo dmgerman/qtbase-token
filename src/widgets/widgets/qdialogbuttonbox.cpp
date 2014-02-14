@@ -788,7 +788,7 @@ expr_stmt|;
 comment|// Mac modeless
 block|}
 specifier|const
-name|quint32
+name|int
 modifier|*
 name|currentLayout
 init|=

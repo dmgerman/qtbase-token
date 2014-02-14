@@ -309,13 +309,13 @@ name|Stretch
 operator|=
 literal|0x20000000
 block|,
-name|EOL
+name|Reverse
 operator|=
 literal|0x40000000
 block|,
-name|Reverse
+name|EOL
 operator|=
-literal|0x80000000
+name|InvalidRole
 block|}
 block|;      enum
 name|ButtonLayout
@@ -389,7 +389,7 @@ argument_list|)
 block|;
 specifier|static
 specifier|const
-name|quint32
+name|int
 operator|*
 name|buttonLayout
 argument_list|(

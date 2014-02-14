@@ -48,7 +48,7 @@ comment|/*!     \class QPlatformDialogHelper     \since 5.0     \internal     \i
 DECL|variable|buttonRoleLayouts
 specifier|static
 specifier|const
-name|quint32
+name|int
 name|buttonRoleLayouts
 index|[
 literal|2
@@ -3511,7 +3511,7 @@ end_function
 begin_function
 DECL|function|buttonLayout
 specifier|const
-name|quint32
+name|int
 modifier|*
 name|QPlatformDialogHelper
 operator|::
