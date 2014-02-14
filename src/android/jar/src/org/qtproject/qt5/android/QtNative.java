@@ -2820,6 +2820,24 @@ name|menu
 parameter_list|)
 function_decl|;
 comment|// menu methods
+comment|// activity methods
+DECL|method|onActivityResult
+specifier|public
+specifier|static
+specifier|native
+name|void
+name|onActivityResult
+parameter_list|(
+name|int
+name|requestCode
+parameter_list|,
+name|int
+name|resultCode
+parameter_list|,
+name|Intent
+name|data
+parameter_list|)
+function_decl|;
 block|}
 end_class
 end_unit
