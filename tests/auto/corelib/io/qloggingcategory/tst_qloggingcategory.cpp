@@ -2026,6 +2026,22 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|qCDebug
+argument_list|(
+name|TST_LOG
+argument_list|()
+argument_list|,
+literal|"Check debug with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|buf
 operator|=
 name|QStringLiteral
