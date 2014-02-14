@@ -570,6 +570,10 @@ name|awake
 argument_list|()
 emit|;
 block|}
+else|else
+block|{
+break|break;
+block|}
 block|}
 name|d
 operator|->
