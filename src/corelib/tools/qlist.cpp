@@ -1832,7 +1832,7 @@ begin_comment
 comment|/*!     \fn QList::QList(QList<T>&&other)      Move-constructs a QList instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     \fn QList<T> QList<T>::mid(int pos, int length) const      Returns a list whose elements are copied from this list,     starting at position \a pos. If \a length is -1 (the default), all     elements from \a pos are copied; otherwise \a length elements (or     all remaining elements if there are less than \a length elements)     are copied. */
+comment|/*!     \fn QList<T> QList<T>::mid(int pos, int length) const      Returns a sub-list which includes elements from this list,     starting at position \a pos. If \a length is -1 (the default), all     elements from \a pos are included; otherwise \a length elements (or     all remaining elements if there are less than \a length elements)     are included. */
 end_comment
 begin_comment
 comment|/*! \fn QList::QList()      Constructs an empty list. */
