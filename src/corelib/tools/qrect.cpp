@@ -1423,6 +1423,24 @@ begin_comment
 comment|/*!     \fn bool operator!=(const QRect&r1, const QRect&r2)     \relates QRect      Returns \c true if the rectangles \a r1 and \a r2 are different, otherwise     returns \c false. */
 end_comment
 begin_comment
+comment|/*!     \fn QRect operator+(const QRect&rectangle, const QMargins&margins)     \relates QRect      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect operator+(const QMargins&margins, const QRect&rectangle)     \relates QRect     \overload      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::marginsAdded(const QMargins&margins) const      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=()      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::operator+=(const QMargins&margins) const      Adds the \a margins to the rectangle, growing it.      \sa marginsAdded(), marginsRemoved(), operator-=()      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::marginsRemoved(const QMargins&margins) const      Removes the \a margins from the rectangle, shrinking it.      \sa marginsAdded(), operator+=(), operator-=()      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::operator -=(const QMargins&margins) const      Returns a rectangle shrunk by the \a margins.      \sa marginsRemoved(), operator+=(), marginsAdded()      \since 5.1 */
+end_comment
+begin_comment
 comment|/*****************************************************************************   QRect stream functions  *****************************************************************************/
 end_comment
 begin_ifndef
