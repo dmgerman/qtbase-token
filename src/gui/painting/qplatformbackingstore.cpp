@@ -912,6 +912,15 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
+if|if
+condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -930,6 +939,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|glTexParameterf
