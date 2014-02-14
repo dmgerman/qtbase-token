@@ -8775,7 +8775,7 @@ name|len
 condition|)
 block|{
 name|rc
-operator|=
+operator|+=
 name|QString
 operator|::
 name|fromUtf16
@@ -8858,7 +8858,7 @@ name|qCWarning
 argument_list|(
 name|qglLc
 argument_list|,
-literal|"Failed to load %s (%s)"
+literal|"Failed to load %s: %s"
 argument_list|,
 name|name
 argument_list|,
@@ -8886,16 +8886,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
-name|qglLc
-argument_list|()
-operator|.
-name|setEnabled
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|qEnvironmentVariableIsSet
@@ -8903,14 +8893,14 @@ argument_list|(
 literal|"QT_OPENGLPROXY_DEBUG"
 argument_list|)
 condition|)
-name|qglLc
-argument_list|()
-operator|.
-name|setEnabled
+name|QLoggingCategory
+operator|::
+name|setFilterRules
 argument_list|(
-name|QtDebugMsg
-argument_list|,
-literal|true
+name|QStringLiteral
+argument_list|(
+literal|"qt.gui.openglproxy=true"
+argument_list|)
 argument_list|)
 expr_stmt|;
 enum|enum
