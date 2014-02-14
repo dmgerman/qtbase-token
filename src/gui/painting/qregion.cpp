@@ -12420,6 +12420,7 @@ name|ET
 decl_stmt|;
 comment|/* header node for ET      */
 name|EdgeTableEntry
+modifier|*
 name|AET
 decl_stmt|;
 comment|/* header node for AET     */
@@ -12909,6 +12910,11 @@ operator|->
 name|vectorize
 argument_list|()
 expr_stmt|;
+name|AET
+operator|=
+operator|new
+name|EdgeTableEntry
+expr_stmt|;
 name|pts
 operator|=
 name|FirstPtBlock
@@ -12924,7 +12930,6 @@ argument_list|,
 operator|&
 name|ET
 argument_list|,
-operator|&
 name|AET
 argument_list|,
 name|pETEs
@@ -12971,6 +12976,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+operator|delete
+name|AET
+expr_stmt|;
 operator|delete
 name|region
 expr_stmt|;
@@ -13020,7 +13028,6 @@ condition|)
 block|{
 name|loadAET
 argument_list|(
-operator|&
 name|AET
 argument_list|,
 name|pSLL
@@ -13037,13 +13044,12 @@ expr_stmt|;
 block|}
 name|pPrevAET
 operator|=
-operator|&
 name|AET
 expr_stmt|;
 name|pAET
 operator|=
 name|AET
-operator|.
+operator|->
 name|next
 expr_stmt|;
 comment|/*                  *  for each active edge                  */
@@ -13153,7 +13159,6 @@ argument_list|)
 block|}
 name|InsertionSort
 argument_list|(
-operator|&
 name|AET
 argument_list|)
 expr_stmt|;
@@ -13194,7 +13199,6 @@ condition|)
 block|{
 name|loadAET
 argument_list|(
-operator|&
 name|AET
 argument_list|,
 name|pSLL
@@ -13204,7 +13208,6 @@ argument_list|)
 expr_stmt|;
 name|computeWAET
 argument_list|(
-operator|&
 name|AET
 argument_list|)
 expr_stmt|;
@@ -13217,13 +13220,12 @@ expr_stmt|;
 block|}
 name|pPrevAET
 operator|=
-operator|&
 name|AET
 expr_stmt|;
 name|pAET
 operator|=
 name|AET
-operator|.
+operator|->
 name|next
 expr_stmt|;
 name|pWETE
@@ -13355,7 +13357,6 @@ if|if
 condition|(
 name|InsertionSort
 argument_list|(
-operator|&
 name|AET
 argument_list|)
 operator|||
@@ -13364,7 +13365,6 @@ condition|)
 block|{
 name|computeWAET
 argument_list|(
-operator|&
 name|AET
 argument_list|)
 expr_stmt|;
@@ -13491,6 +13491,9 @@ operator|=
 name|tmpPtBlock
 expr_stmt|;
 block|}
+operator|delete
+name|AET
+expr_stmt|;
 name|free
 argument_list|(
 name|pETEs
