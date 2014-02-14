@@ -34,9 +34,27 @@ empty|#import<Cocoa/Cocoa.h>
 end_empty
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QMacMimeData
+name|class
+name|QMacMimeData
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QMacPasteboard
 block|{
+name|public
+label|:
+enum|enum
+name|DataRequestType
+block|{
+name|EagerRequest
+block|,
+name|LazyRequest
+block|}
+enum|;
+name|private
+label|:
 struct|struct
 name|Promise
 block|{
@@ -53,6 +71,46 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
+specifier|static
+name|Promise
+name|eagerPromise
+argument_list|(
+argument|int itemId
+argument_list|,
+argument|QMacInternalPasteboardMime *c
+argument_list|,
+argument|QString m
+argument_list|,
+argument|QMacMimeData *d
+argument_list|,
+argument|int o =
+literal|0
+argument_list|)
+expr_stmt|;
+specifier|static
+name|Promise
+name|lazyPromise
+parameter_list|(
+name|int
+name|itemId
+parameter_list|,
+name|QMacInternalPasteboardMime
+modifier|*
+name|c
+parameter_list|,
+name|QString
+name|m
+parameter_list|,
+name|QMacMimeData
+modifier|*
+name|d
+parameter_list|,
+name|int
+name|o
+init|=
+literal|0
+parameter_list|)
+function_decl|;
 name|Promise
 argument_list|(
 argument|int itemId
@@ -61,42 +119,18 @@ argument|QMacInternalPasteboardMime *c
 argument_list|,
 argument|QString m
 argument_list|,
-argument|QVariant d
+argument|QMacMimeData *md
 argument_list|,
-argument|int o=
-literal|0
+argument|int o
+argument_list|,
+argument|DataRequestType drt
 argument_list|)
-operator|:
-name|itemId
-argument_list|(
-name|itemId
-argument_list|)
-operator|,
-name|offset
-argument_list|(
-name|o
-argument_list|)
-operator|,
-name|convertor
-argument_list|(
-name|c
-argument_list|)
-operator|,
-name|mime
-argument_list|(
-name|m
-argument_list|)
-operator|,
-name|data
-argument_list|(
-argument|d
-argument_list|)
-block|{ }
+empty_stmt|;
 name|int
 name|itemId
-operator|,
+decl_stmt|,
 name|offset
-expr_stmt|;
+decl_stmt|;
 name|QMacInternalPasteboardMime
 modifier|*
 name|convertor
@@ -104,8 +138,17 @@ decl_stmt|;
 name|QString
 name|mime
 decl_stmt|;
+name|QPointer
+operator|<
+name|QMacMimeData
+operator|>
+name|mimeData
+expr_stmt|;
 name|QVariant
-name|data
+name|variantData
+decl_stmt|;
+name|DataRequestType
+name|dataRequestType
 decl_stmt|;
 block|}
 struct|;
@@ -211,6 +254,11 @@ parameter_list|(
 name|QMimeData
 modifier|*
 name|mime
+parameter_list|,
+name|DataRequestType
+name|dataRequestType
+init|=
+name|EagerRequest
 parameter_list|)
 function_decl|;
 name|QStringList
