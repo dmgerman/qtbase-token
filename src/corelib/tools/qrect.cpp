@@ -1429,6 +1429,9 @@ begin_comment
 comment|/*!     \fn QRect operator+(const QMargins&margins, const QRect&rectangle)     \relates QRect     \overload      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
 end_comment
 begin_comment
+comment|/*!     \fn QRect operator-(const QRect&lhs, const QMargins&rhs)     \relates QRect      Returns the \a lhs rectangle shrunken by the \a rhs margins.      \since 5.3 */
+end_comment
+begin_comment
 comment|/*!     \fn QRect QRect::marginsAdded(const QMargins&margins) const      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=()      \since 5.1 */
 end_comment
 begin_comment
