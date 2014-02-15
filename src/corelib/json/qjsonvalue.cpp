@@ -793,7 +793,7 @@ begin_comment
 comment|/*!     \fn bool QJsonValue::isUndefined() const      Returns \c true if the value is undefined. This can happen in certain     error cases as e.g. accessing a non existing key in a QJsonObject.  */
 end_comment
 begin_comment
-comment|/*!     Converts \a variant to a QJsonValue and returns it.      The conversion will convert QVariant types as follows:      \list     \li QVariant::Bool to Bool     \li QVariant::Int     \li QVariant::Double     \li QVariant::LongLong     \li QVariant::ULongLong     \li QVariant::UInt to Double     \li QVariant::String to String     \li QVariant::StringList     \li QVariant::VariantList to Array     \li QVariant::VariantMap to Object     \endlist      For all other QVariant types a conversion to a QString will be attempted. If the returned string     is empty, a Null QJsonValue will be stored, otherwise a String value using the returned QString.      \sa toVariant()  */
+comment|/*!     Converts \a variant to a QJsonValue and returns it.      The conversion will convert QVariant types as follows:      \list     \li QMetaType::Bool to Bool     \li QMetaType::Int     \li QMetaType::Double     \li QMetaType::LongLong     \li QMetaType::ULongLong     \li QMetaType::UInt to Double     \li QMetaType::QString to String     \li QMetaType::QStringList     \li QMetaType::QVariantList to Array     \li QMetaType::QVariantMap to Object     \endlist      For all other QVariant types a conversion to a QString will be attempted. If the returned string     is empty, a Null QJsonValue will be stored, otherwise a String value using the returned QString.      \sa toVariant()  */
 end_comment
 begin_function
 DECL|function|fromVariant
@@ -966,7 +966,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to a QVariant.      The QJsonValue types will be converted as follows:      \value Null     QVariant()     \value Bool     QVariant::Bool     \value Double   QVariant::Double     \value String   QVariant::String     \value Array    QVariantList     \value Object   QVariantMap     \value Undefined QVariant()      \sa fromVariant()  */
+comment|/*!     Converts the value to a QVariant.      The QJsonValue types will be converted as follows:      \value Null     QVariant()     \value Bool     QMetaType::Bool     \value Double   QMetaType::Double     \value String   QString     \value Array    QVariantList     \value Object   QVariantMap     \value Undefined QVariant()      \sa fromVariant()  */
 end_comment
 begin_function
 DECL|function|toVariant

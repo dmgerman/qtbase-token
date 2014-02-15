@@ -5685,7 +5685,7 @@ begin_comment
 comment|/*!     \fn QVariant::QVariant()      Constructs an invalid variant. */
 end_comment
 begin_comment
-comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, and \c QMetaType::QObjectStar.      \sa QVariant::fromValue(), Type */
+comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, and \c QMetaType::QObjectStar.      \sa QVariant::fromValue(), QMetaType::Type */
 end_comment
 begin_comment
 comment|/*!     \fn QVariant::QVariant(Type type)      Constructs a null variant of type \a type. */
@@ -7689,7 +7689,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convert this variant to type Invalid and free up any resources     used. */
+comment|/*!     Convert this variant to type QMetaType::UnknownType and free up any resources     used. */
 end_comment
 begin_function
 DECL|function|clear
@@ -7766,7 +7766,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the int representation of the storage type, \a typeId, to     its string representation.      Returns a null pointer if the type is QVariant::Invalid or doesn't exist. */
+comment|/*!     Converts the int representation of the storage type, \a typeId, to     its string representation.      Returns a null pointer if the type is QMetaType::UnknownType or doesn't exist. */
 end_comment
 begin_function
 DECL|function|typeToName
@@ -8777,7 +8777,7 @@ begin_comment
 comment|//QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::isValid() const      Returns \c true if the storage type of this variant is not     QVariant::Invalid; otherwise returns \c false. */
+comment|/*!     \fn bool QVariant::isValid() const      Returns \c true if the storage type of this variant is not     QMetaType::UnknownType; otherwise returns \c false. */
 end_comment
 begin_function
 template|template
