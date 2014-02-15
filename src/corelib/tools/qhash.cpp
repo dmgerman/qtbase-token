@@ -1253,7 +1253,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     The prime_deltas array is a table of selected prime values, even     though it doesn't look like one. The primes we are using are 1,     2, 5, 11, 17, 37, 67, 131, 257, ..., i.e. primes in the immediate     surrounding of a power of two.      The primeForNumBits() function returns the prime associated to a     power of two. For example, primeForNumBits(8) returns 257. */
+comment|/*     The prime_deltas array contains the difference between a power     of two and the next prime number:      prime_deltas[i] = nextprime(2^i) - 2^i      Basically, it's sequence A092131 from OEIS, assuming:     - nextprime(1) = 1     - nextprime(2) = 2     and     - left-extending it for the offset 0 (A092131 starts at i=1)     - stopping the sequence at i = 28 (the table is big enough...) */
 end_comment
 begin_decl_stmt
 DECL|variable|prime_deltas
@@ -1290,15 +1290,15 @@ literal|5
 block|,
 literal|3
 block|,
-literal|9
+literal|17
 block|,
-literal|25
+literal|27
 block|,
 literal|3
 block|,
 literal|1
 block|,
-literal|21
+literal|29
 block|,
 literal|3
 block|,
@@ -1306,15 +1306,15 @@ literal|21
 block|,
 literal|7
 block|,
+literal|17
+block|,
 literal|15
 block|,
 literal|9
 block|,
-literal|5
+literal|43
 block|,
-literal|3
-block|,
-literal|29
+literal|35
 block|,
 literal|15
 block|,
@@ -1330,6 +1330,9 @@ literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|/*     The primeForNumBits() function returns the prime associated to a     power of two. For example, primeForNumBits(8) returns 257. */
+end_comment
 begin_function
 DECL|function|primeForNumBits
 specifier|static
