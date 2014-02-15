@@ -17499,7 +17499,14 @@ name|specialData
 operator|->
 name|resolvedFormats
 operator|.
-name|resize
+name|clear
+argument_list|()
+expr_stmt|;
+name|QVector
+argument_list|<
+name|QTextCharFormat
+argument_list|>
+name|resolvedFormats
 argument_list|(
 name|layoutData
 operator|->
@@ -17508,7 +17515,7 @@ operator|.
 name|count
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QVarLengthArray
 argument_list|<
 name|int
@@ -17850,8 +17857,6 @@ name|QTextCharFormat
 modifier|&
 name|format
 init|=
-name|specialData
-operator|->
 name|resolvedFormats
 index|[
 name|i
@@ -17961,6 +17966,12 @@ expr_stmt|;
 comment|// get shared copy
 block|}
 block|}
+name|specialData
+operator|->
+name|resolvedFormats
+operator|=
+name|resolvedFormats
+expr_stmt|;
 block|}
 end_function
 begin_function
