@@ -1315,10 +1315,10 @@ name|threadPool
 operator|.
 name|setMaxThreadCount
 argument_list|(
-literal|5
+literal|20
 argument_list|)
 expr_stmt|;
-comment|// do 5 DNS lookups in parallel
+comment|// do up to 20 DNS lookups in parallel
 block|}
 end_constructor
 begin_destructor
