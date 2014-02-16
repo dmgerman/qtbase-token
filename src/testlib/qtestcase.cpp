@@ -5060,6 +5060,11 @@ name|length
 parameter_list|)
 block|{
 comment|// keep it simple for the vast majority of cases
+name|bool
+name|trimmed
+init|=
+literal|false
+decl_stmt|;
 name|QScopedArrayPointer
 argument_list|<
 name|char
@@ -5069,11 +5074,7 @@ argument_list|(
 operator|new
 name|char
 index|[
-name|length
-operator|*
-literal|6
-operator|+
-literal|3
+literal|256
 index|]
 argument_list|)
 decl_stmt|;
@@ -5114,6 +5115,25 @@ control|)
 block|{
 if|if
 condition|(
+name|dst
+operator|-
+name|buffer
+operator|.
+name|data
+argument_list|()
+operator|>
+literal|245
+condition|)
+block|{
+comment|// plus the the quote, the three dots and NUL, it's 250, 251 or 255
+name|trimmed
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+if|if
+condition|(
 operator|*
 name|p
 operator|<
@@ -5140,6 +5160,7 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|// write as an escape sequence
+comment|// this means we may advance dst to buffer.data() + 246 or 250
 operator|*
 name|dst
 operator|++
@@ -5280,6 +5301,30 @@ operator|++
 operator|=
 literal|'"'
 expr_stmt|;
+if|if
+condition|(
+name|trimmed
+condition|)
+block|{
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'.'
+expr_stmt|;
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'.'
+expr_stmt|;
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'.'
+expr_stmt|;
+block|}
 operator|*
 name|dst
 operator|++
