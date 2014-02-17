@@ -455,16 +455,6 @@ argument_list|,
 name|targetWindowRect
 argument_list|)
 decl_stmt|;
-name|m_blitter
-operator|->
-name|setSwizzleRB
-argument_list|(
-name|window
-operator|->
-name|isRaster
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|textures
@@ -484,6 +474,14 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// Backingstore for a widget with QOpenGLWidget subwidgets
+name|m_blitter
+operator|->
+name|setSwizzleRB
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|glEnable
 argument_list|(
 name|GL_BLEND
@@ -526,6 +524,14 @@ operator|==
 literal|1
 condition|)
 block|{
+comment|// A regular QWidget window
+name|m_blitter
+operator|->
+name|setSwizzleRB
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|m_blitter
 operator|->
 name|blit
@@ -542,6 +548,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Texture from an FBO belonging to a QOpenGLWidget
+name|m_blitter
+operator|->
+name|setSwizzleRB
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|m_blitter
 operator|->
 name|blit
