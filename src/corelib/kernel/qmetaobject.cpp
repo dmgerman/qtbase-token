@@ -2597,7 +2597,7 @@ name|char
 modifier|*
 name|rparens
 init|=
-name|strchr
+name|strrchr
 argument_list|(
 name|lparens
 operator|+

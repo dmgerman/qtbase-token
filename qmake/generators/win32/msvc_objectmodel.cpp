@@ -3187,6 +3187,23 @@ literal|3
 expr_stmt|;
 break|break;
 case|case
+literal|'S'
+case|:
+if|if
+condition|(
+name|config
+operator|->
+name|CompilerVersion
+operator|<
+name|NET2013
+condition|)
+name|found
+operator|=
+literal|false
+expr_stmt|;
+comment|// Ignore this flag. Visual Studio 2013 takes care of this setting.
+break|break;
+case|case
 literal|'r'
 case|:
 name|BrowseInformation

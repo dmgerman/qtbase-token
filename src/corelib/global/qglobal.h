@@ -5635,6 +5635,11 @@ include|#
 directive|include
 file|<QtCore/qglobalstatic.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qnumeric.h>
+end_include
 begin_endif
 endif|#
 directive|endif
