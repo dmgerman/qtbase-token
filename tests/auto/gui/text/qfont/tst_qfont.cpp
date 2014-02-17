@@ -3427,7 +3427,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Font family '%1' is not one of the following accaptable results: "
+literal|"Font family '%1' is not one of the following acceptable results: "
 argument_list|)
 operator|.
 name|arg
