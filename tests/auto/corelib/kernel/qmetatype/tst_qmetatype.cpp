@@ -31,6 +31,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|// At least these specific versions of MSVC2010 has a severe performance problem with this file,
 end_comment
@@ -14795,9 +14800,19 @@ argument_list|,
 name|sorted
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|unsorted
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|unsorted
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
