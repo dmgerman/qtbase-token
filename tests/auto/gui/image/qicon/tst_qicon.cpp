@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<qiconengine.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_class
 DECL|class|tst_QIcon
 class|class
@@ -3049,7 +3054,9 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|availableSizes
 operator|.

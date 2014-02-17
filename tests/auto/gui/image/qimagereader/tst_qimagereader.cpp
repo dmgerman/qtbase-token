@@ -67,6 +67,11 @@ include|#
 directive|include
 file|<QTemporaryDir>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_typedef
 DECL|typedef|QStringMap
 typedef|typedef
@@ -4164,9 +4169,19 @@ name|sortedFormats
 init|=
 name|formats
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|sortedFormats
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|sortedFormats
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check that the list is sorted
@@ -4237,9 +4252,19 @@ name|sortedMimeTypes
 init|=
 name|mimeTypes
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|sortedMimeTypes
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|sortedMimeTypes
+operator|.
+name|end
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// check that the list is sorted
