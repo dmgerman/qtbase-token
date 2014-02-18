@@ -157,6 +157,11 @@ include|#
 directive|include
 file|"QtTest/qtestaccessible.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_comment
 comment|// Make a widget frameless to prevent size constraints of title bars
 end_comment
@@ -14459,7 +14464,9 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|buttons
 operator|.
@@ -14744,7 +14751,9 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|buttons
 operator|.
