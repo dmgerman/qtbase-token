@@ -235,8 +235,8 @@ expr_stmt|;
 name|WindowStackType
 name|m_windowStack
 decl_stmt|;
-name|QRegion
-name|m_repaintRegion
+name|QRect
+name|m_dirtyRect
 decl_stmt|;
 name|QTimer
 name|m_redrawTimer
