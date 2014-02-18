@@ -4092,14 +4092,14 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Neither the TEMP nor the TMPDIR environment variable is set, falling back to /tmp."
+literal|"Neither the TEMP nor the TMPDIR environment variable is set, falling back to /var/tmp."
 argument_list|)
 expr_stmt|;
 name|temp
 operator|=
 name|QLatin1String
 argument_list|(
-literal|"/tmp"
+literal|"/var/tmp"
 argument_list|)
 expr_stmt|;
 block|}
