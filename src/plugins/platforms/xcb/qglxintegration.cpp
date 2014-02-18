@@ -2530,6 +2530,8 @@ name|m_supportsThreading
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
 specifier|const
 name|char
 modifier|*
@@ -2544,7 +2546,8 @@ name|glGetString
 argument_list|(
 name|GL_RENDERER
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -2583,6 +2586,9 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+block|}
+if|if
+condition|(
 specifier|const
 name|char
 modifier|*
@@ -2597,7 +2603,8 @@ name|glGetString
 argument_list|(
 name|GL_VENDOR
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -2634,6 +2641,7 @@ operator|=
 literal|false
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 name|context
