@@ -110,11 +110,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QApplication>
-end_include
-begin_include
-include|#
-directive|include
 file|<qabstracteventdispatcher.h>
 end_include
 begin_include
