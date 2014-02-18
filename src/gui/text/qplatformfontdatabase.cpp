@@ -2039,6 +2039,12 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+name|hasScript
+condition|)
+block|{
+if|if
+condition|(
 name|codePageRange
 index|[
 literal|0
@@ -2369,6 +2375,7 @@ operator|::
 name|Symbol
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|writingSystems
 return|;
