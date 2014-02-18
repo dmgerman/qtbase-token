@@ -84,6 +84,11 @@ name|m_msg
 operator|=
 name|msg
 expr_stmt|;
+name|m_timer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 DECL|function|~ScopedProfiler
 name|~
