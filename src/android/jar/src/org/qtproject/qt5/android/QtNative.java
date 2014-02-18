@@ -2284,6 +2284,10 @@ parameter_list|,
 specifier|final
 name|int
 name|h
+parameter_list|,
+specifier|final
+name|int
+name|imageDepth
 parameter_list|)
 block|{
 name|runAction
@@ -2314,6 +2318,8 @@ argument_list|,
 name|w
 argument_list|,
 name|h
+argument_list|,
+name|imageDepth
 argument_list|)
 expr_stmt|;
 block|}

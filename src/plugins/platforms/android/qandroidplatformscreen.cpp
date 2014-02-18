@@ -996,6 +996,8 @@ argument_list|,
 name|m_geometry
 argument_list|,
 literal|true
+argument_list|,
+name|m_depth
 argument_list|)
 expr_stmt|;
 name|m_surfaceWaitCondition

@@ -5450,6 +5450,9 @@ name|w
 parameter_list|,
 name|int
 name|h
+parameter_list|,
+name|int
+name|imageDepth
 parameter_list|)
 block|{
 if|if
@@ -5606,6 +5609,8 @@ argument_list|,
 name|id
 argument_list|,
 name|onTop
+argument_list|,
+name|imageDepth
 argument_list|)
 decl_stmt|;
 if|if

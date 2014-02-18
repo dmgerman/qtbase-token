@@ -1380,6 +1380,9 @@ name|geometry
 parameter_list|,
 name|bool
 name|onTop
+parameter_list|,
+name|int
+name|imageDepth
 parameter_list|)
 block|{
 name|QJNIEnvironmentPrivate
@@ -1510,6 +1513,8 @@ argument_list|,
 name|w
 argument_list|,
 name|h
+argument_list|,
+name|imageDepth
 argument_list|)
 expr_stmt|;
 return|return
@@ -3240,7 +3245,7 @@ name|m_applicationClass
 argument_list|,
 literal|"createSurface"
 argument_list|,
-literal|"(IZIIII)V"
+literal|"(IZIIIII)V"
 argument_list|)
 expr_stmt|;
 name|GET_AND_CHECK_STATIC_METHOD

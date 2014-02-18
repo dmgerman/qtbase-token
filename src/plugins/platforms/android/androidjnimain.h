@@ -120,6 +120,9 @@ name|geometry
 parameter_list|,
 name|bool
 name|onTop
+parameter_list|,
+name|int
+name|imageDepth
 parameter_list|)
 function_decl|;
 name|int
