@@ -5853,7 +5853,7 @@ specifier|const
 name|HWND
 name|activeHwnd
 init|=
-name|GetActiveWindow
+name|GetForegroundWindow
 argument_list|()
 condition|)
 if|if
