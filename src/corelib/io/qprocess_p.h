@@ -1709,6 +1709,21 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
+name|Q_OS_BLACKBERRY
+name|QList
+operator|<
+name|QSocketNotifier
+operator|*
+operator|>
+name|defaultNotifiers
+argument_list|()
+specifier|const
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_BLACKBERRY
+ifdef|#
+directive|ifdef
 name|Q_OS_UNIX
 specifier|static
 name|void
