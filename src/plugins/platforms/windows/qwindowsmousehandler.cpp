@@ -563,14 +563,26 @@ argument_list|,
 name|result
 argument_list|)
 return|;
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
+init|=
+name|Qt
+operator|::
+name|MouseEventNotSynthesized
+decl_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
+comment|// Check for events synthesized from touch. Lower byte is touch index, 0 means pen.
 specifier|static
 specifier|const
 name|bool
 name|passSynthesizedMouseEvents
 init|=
+operator|!
+operator|(
 name|QWindowsIntegration
 operator|::
 name|instance
@@ -581,7 +593,8 @@ argument_list|()
 operator|&
 name|QWindowsIntegration
 operator|::
-name|PassOsMouseEventsSynthesizedFromTouch
+name|DontPassOsMouseEventsSynthesizedFromTouch
+operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -624,6 +637,12 @@ condition|)
 return|return
 literal|false
 return|;
+name|source
+operator|=
+name|Qt
+operator|::
+name|MouseEventSynthesizedBySystem
+expr_stmt|;
 block|}
 endif|#
 directive|endif
@@ -702,6 +721,8 @@ name|QWindowsKeyMapper
 operator|::
 name|queryKeyboardModifiers
 argument_list|()
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 return|return
@@ -723,14 +744,10 @@ operator|==
 name|WM_MOUSELEAVE
 condition|)
 block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"WM_MOUSELEAVE for "
 operator|<<
@@ -764,14 +781,10 @@ name|m_windowUnderMouse
 else|:
 name|m_trackedWindow
 decl_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Generating leave event for "
 operator|<<
@@ -913,14 +926,10 @@ operator|::
 name|AutoMouseCapture
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Automatic mouse capture for missing buttondown event"
 operator|<<
@@ -1070,14 +1079,10 @@ operator|::
 name|AutoMouseCapture
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Automatic mouse capture "
 operator|<<
@@ -1167,14 +1172,10 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Releasing automatic mouse capture "
 operator|<<
@@ -1325,14 +1326,10 @@ name|window
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Synthetic leave for "
 operator|<<
@@ -1408,14 +1405,10 @@ name|m_previousCaptureWindow
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseEvents
-condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaEvents
+argument_list|)
 operator|<<
 literal|"Entering "
 operator|<<
@@ -1472,6 +1465,8 @@ name|QWindowsKeyMapper
 operator|::
 name|queryKeyboardModifiers
 argument_list|()
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 name|m_previousCaptureWindow

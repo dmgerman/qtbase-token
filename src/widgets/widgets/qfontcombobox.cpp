@@ -1737,15 +1737,12 @@ comment|//we need to block the signals so that the model doesn't emit reset
 comment|//this prevents the current index from changing
 comment|//it will be updated just after this
 comment|///TODO: we should finda way to avoid blocking signals and have a real update of the model
+block|{
 specifier|const
-name|bool
-name|old
-init|=
-name|m
-operator|->
-name|blockSignals
+name|QSignalBlocker
+name|blocker
 argument_list|(
-literal|true
+name|m
 argument_list|)
 decl_stmt|;
 name|m
@@ -1755,13 +1752,7 @@ argument_list|(
 name|list
 argument_list|)
 expr_stmt|;
-name|m
-operator|->
-name|blockSignals
-argument_list|(
-name|old
-argument_list|)
-expr_stmt|;
+block|}
 if|if
 condition|(
 name|list

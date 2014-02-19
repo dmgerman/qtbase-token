@@ -538,7 +538,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7      \property QLineEdit::placeholderText     \brief the line edit's placeholder text      Setting this property makes the line edit display a grayed-out     placeholder text as long as the text() is empty.      By default, this property contains an empty string.      \sa text() */
+comment|/*!     \since 4.7      \property QLineEdit::placeholderText     \brief the line edit's placeholder text      Setting this property makes the line edit display a grayed-out     placeholder text as long as the line edit is empty.      Normally, an empty line edit shows the placeholder text even     when it has focus. However, if the content is horizontally     centered, the placeholder text is not displayed under     the cursor when the line edit has focus.      By default, this property contains an empty string.      \sa text() */
 end_comment
 begin_function
 DECL|function|placeholderText
@@ -599,12 +599,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|control
-operator|->
-name|text
-argument_list|()
-operator|.
-name|isEmpty
+name|shouldShowPlaceholderText
 argument_list|()
 condition|)
 name|update
@@ -6130,22 +6125,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|control
-operator|->
-name|text
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-name|d
-operator|->
-name|control
-operator|->
-name|preeditAreaText
-argument_list|()
-operator|.
-name|isEmpty
+name|shouldShowPlaceholderText
 argument_list|()
 condition|)
 block|{

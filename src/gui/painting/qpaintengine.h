@@ -757,6 +757,8 @@ name|PaintBuffer
 block|,
 name|Blitter
 block|,
+name|Direct2D
+block|,
 name|User
 init|=
 literal|50

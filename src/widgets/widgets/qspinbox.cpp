@@ -943,7 +943,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     This virtual function is used by the spin box whenever it needs to     display the given \a value. The default implementation returns a     string containing \a value printed in the standard way using     QWidget::locale().toString(), but with the thousand separator     removed. Reimplementations may return anything. (See the example     in the detailed description.)      Note: QSpinBox does not call this function for specialValueText()     and that neither prefix() nor suffix() should be included in the     return value.      If you reimplement this, you may also need to reimplement     valueFromText() and validate()      \sa valueFromText(), validate(), QLocale::groupSeparator() */
+comment|/*!     This virtual function is used by the spin box whenever it needs to     display the given \a value. The default implementation returns a     string containing \a value printed in the standard way using     QWidget::locale().toString(), but with the thousand separator     removed unless setGroupSeparatorShown() is set. Reimplementations may     return anything. (See the example in the detailed description.)      Note: QSpinBox does not call this function for specialValueText()     and that neither prefix() nor suffix() should be included in the     return value.      If you reimplement this, you may also need to reimplement     valueFromText() and validate()      \sa valueFromText(), validate(), QLocale::groupSeparator() */
 end_comment
 begin_function
 DECL|function|textFromValue
@@ -1019,6 +1019,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|showGroupSeparator
+operator|&&
+operator|(
 name|qAbs
 argument_list|(
 name|value
@@ -1029,6 +1035,7 @@ operator|||
 name|value
 operator|==
 name|INT_MIN
+operator|)
 condition|)
 block|{
 name|str
@@ -1178,6 +1185,12 @@ name|input
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isGroupSeparatorShown
+argument_list|()
+condition|)
 name|input
 operator|.
 name|remove
@@ -1858,7 +1871,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This virtual function is used by the spin box whenever it needs to     display the given \a value. The default implementation returns a string     containing \a value printed using QWidget::locale().toString(\a value,     QLatin1Char('f'), decimals()) and will remove the thousand     separator. Reimplementations may return anything.      Note: QDoubleSpinBox does not call this function for     specialValueText() and that neither prefix() nor suffix() should     be included in the return value.      If you reimplement this, you may also need to reimplement     valueFromText().      \sa valueFromText(), QLocale::groupSeparator() */
+comment|/*!     This virtual function is used by the spin box whenever it needs to     display the given \a value. The default implementation returns a string     containing \a value printed using QWidget::locale().toString(\a value,     QLatin1Char('f'), decimals()) and will remove the thousand     separator unless setGroupSeparatorShown() is set. Reimplementations may     return anything.      Note: QDoubleSpinBox does not call this function for     specialValueText() and that neither prefix() nor suffix() should     be included in the return value.      If you reimplement this, you may also need to reimplement     valueFromText().      \sa valueFromText(), QLocale::groupSeparator() */
 end_comment
 begin_function
 DECL|function|textFromValue
@@ -1897,6 +1910,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|showGroupSeparator
+operator|&&
 name|qAbs
 argument_list|(
 name|value
@@ -1904,7 +1922,6 @@ argument_list|)
 operator|>=
 literal|1000.0
 condition|)
-block|{
 name|str
 operator|.
 name|remove
@@ -1916,7 +1933,6 @@ name|groupSeparator
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|str
 return|;

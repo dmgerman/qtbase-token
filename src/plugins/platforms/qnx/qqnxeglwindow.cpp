@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*************************************************************************** ** ** Copyright (C) 2013 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/*************************************************************************** ** ** Copyright (C) 2013 - 2014 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -208,12 +208,13 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQNX: Trying to create 0 size EGL surface. "
 literal|"Please set a valid window size before calling QOpenGLContext::makeCurrent()"
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|setBufferSize
 argument_list|(
@@ -283,19 +284,22 @@ operator|==
 name|EGL_NO_SURFACE
 condition|)
 block|{
+specifier|const
+name|EGLenum
+name|error
+init|=
 name|QQnxGLContext
 operator|::
 name|checkEGLError
 argument_list|(
 literal|"eglCreateWindowSurface"
 argument_list|)
-expr_stmt|;
-name|qFatal
+decl_stmt|;
+name|qWarning
 argument_list|(
 literal|"QQNX: failed to create EGL surface, err=%d"
 argument_list|,
-name|eglGetError
-argument_list|()
+name|error
 argument_list|)
 expr_stmt|;
 block|}
@@ -415,13 +419,7 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|m_cover
-condition|)
-name|m_cover
-operator|->
-name|updateCover
+name|windowPosted
 argument_list|()
 expr_stmt|;
 block|}
@@ -446,6 +444,16 @@ literal|false
 argument_list|)
 condition|)
 block|{
+specifier|const
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|m_mutex
+argument_list|)
+decl_stmt|;
+comment|//Set geomety must not reset the requestedBufferSize till
+comment|//the surface is created
 if|if
 condition|(
 name|m_eglSurface
@@ -570,49 +578,9 @@ name|requestedBufferSize
 parameter_list|()
 specifier|const
 block|{
-specifier|const
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|m_mutex
-argument_list|)
-decl_stmt|;
 return|return
 name|m_requestedBufferSize
 return|;
-block|}
-end_function
-begin_function
-DECL|function|adjustBufferSize
-name|void
-name|QQnxEglWindow
-operator|::
-name|adjustBufferSize
-parameter_list|()
-block|{
-specifier|const
-name|QSize
-name|windowSize
-init|=
-name|window
-argument_list|()
-operator|->
-name|size
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|windowSize
-operator|!=
-name|bufferSize
-argument_list|()
-condition|)
-name|setBufferSize
-argument_list|(
-name|windowSize
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -778,14 +746,6 @@ operator|::
 name|resetBuffers
 parameter_list|()
 block|{
-specifier|const
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|m_mutex
-argument_list|)
-decl_stmt|;
 name|m_requestedBufferSize
 operator|=
 name|QSize

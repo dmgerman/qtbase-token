@@ -107,6 +107,12 @@ name|WindowEventFlag
 operator|+
 literal|3
 block|,
+name|MouseActivateWindowEvent
+init|=
+name|WindowEventFlag
+operator|+
+literal|4
+block|,
 name|LeaveEvent
 init|=
 name|WindowEventFlag
@@ -424,6 +430,14 @@ else|:
 name|QtWindows
 operator|::
 name|DeactivateApplicationEvent
+return|;
+case|case
+name|WM_MOUSEACTIVATE
+case|:
+return|return
+name|QtWindows
+operator|::
+name|MouseActivateWindowEvent
 return|;
 case|case
 name|WM_ACTIVATE

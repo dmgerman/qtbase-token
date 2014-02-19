@@ -523,7 +523,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     Test plan:         insertItem (all flavors and combinations) 	removing menu items 	clearing the menu  	check the common behaviour + emitted signals for: 	    accelerator keys 	    navigating tru the menu and then pressing ENTER 	    mouse clicks 	    mouse drags 	    combinations of key + mouse (if possible) 	    checked / unckecked state of menu options 	    active / inactive state      Can't test these without pixmap comparison... 	show and hide 	icons in a menu 	pixmaps in a menu  */
+comment|/*!     Test plan:         insertItem (all flavors and combinations)         removing menu items         clearing the menu          check the common behaviour + emitted signals for:             accelerator keys             navigating tru the menu and then pressing ENTER             mouse clicks             mouse drags             combinations of key + mouse (if possible)             checked / unckecked state of menu options             active / inactive state      Can't test these without pixmap comparison...         show and hide         icons in a menu         pixmaps in a menu  */
 end_comment
 begin_constructor
 DECL|function|tst_QMenuBar
@@ -5069,7 +5069,7 @@ begin_comment
 comment|//     if (QSystem::curStyle() == "Motif")
 end_comment
 begin_comment
-comment|// 	QSKIP("This fails in Motif due to a bug in the testing framework");
+comment|//         QSKIP("This fails in Motif due to a bug in the testing framework");
 end_comment
 begin_comment
 comment|//     QFETCH( QString, popup_item );
@@ -5228,7 +5228,7 @@ begin_comment
 comment|//     if (QSystem::curStyle() == "Motif")
 end_comment
 begin_comment
-comment|// 	QSKIP("This fails in Motif due to a bug in the testing framework");
+comment|//         QSKIP("This fails in Motif due to a bug in the testing framework");
 end_comment
 begin_comment
 comment|//     QFETCH( QString, label );

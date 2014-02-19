@@ -2508,11 +2508,20 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
 begin_comment
 comment|// #fixme: Remove.
 end_comment
@@ -2596,9 +2605,18 @@ operator|=
 literal|0
 expr_stmt|;
 comment|//### this should not be necessary
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 if|if
 condition|(
 name|displayDC

@@ -606,7 +606,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -946,7 +946,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;
 name|QIcuTimeZonePrivate
@@ -1099,7 +1099,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;
 name|UCalendar
@@ -1146,7 +1146,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;
 name|QTzTimeZonePrivate
@@ -1314,7 +1314,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;      struct
 name|QTzTransitionTime
@@ -1439,7 +1439,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;
 name|QMacTimeZonePrivate
@@ -1629,7 +1629,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;
 name|QWinTimeZonePrivate
@@ -1766,7 +1766,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|olsenId
+name|ianaId
 argument_list|)
 block|;
 name|QWinTransitionRule

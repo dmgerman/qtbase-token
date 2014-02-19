@@ -243,11 +243,62 @@ begin_comment
 DECL|macro|GL_GLEXT_LEGACY
 comment|// Prevents GL/gl.h from #including system glext.h
 end_comment
+begin_comment
+comment|// In dynamic GL builds qopenglproxy will export the GL functions that are
+end_comment
+begin_comment
+comment|// called also in QtGui itself. To prevent linker warnings (msvc) or errors (mingw)
+end_comment
+begin_comment
+comment|// we need to make sure the prototypes do not have dllimport.
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_OPENGL_DYNAMIC_IN_GUI
+end_ifdef
+begin_undef
+DECL|macro|WINGDIAPI
+undef|#
+directive|undef
+name|WINGDIAPI
+end_undef
+begin_define
+DECL|macro|WINGDIAPI
+define|#
+directive|define
+name|WINGDIAPI
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_OPENGL_DYNAMIC_IN_GUI
+end_comment
 begin_include
 include|#
 directive|include
 file|<GL/gl.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_OPENGL_DYNAMIC_IN_GUI
+end_ifdef
+begin_undef
+DECL|macro|WINGDIAPI
+undef|#
+directive|undef
+name|WINGDIAPI
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_OPENGL_DYNAMIC_IN_GUI
+end_comment
 begin_include
 include|#
 directive|include

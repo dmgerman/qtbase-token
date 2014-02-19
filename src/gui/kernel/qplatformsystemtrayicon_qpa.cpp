@@ -70,6 +70,24 @@ end_comment
 begin_comment
 comment|/*!     \fn void QPlatformSystemTrayIcon::messageClicked()      This signal is emitted when the message displayed using showMessage()     was clicked by the user.      \sa activated() */
 end_comment
+begin_comment
+comment|/*!     This method is called in case there is no QPlatformMenu available when     updating the menu. This allows the abstraction to provide a menu for the     system tray icon even if normally a non-native menu is used.      The default implementation returns a null pointer.      \sa updateMenu()     \since 5.3  */
+end_comment
+begin_function
+DECL|function|createMenu
+name|QPlatformMenu
+modifier|*
+name|QPlatformSystemTrayIcon
+operator|::
+name|createMenu
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|Q_NULLPTR
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -407,11 +407,13 @@ argument_list|()
 operator|.
 name|d
 operator|->
+name|m_data
+operator|->
 name|validateChars
 argument_list|(
 name|input
 argument_list|,
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|IntegerMode
 argument_list|,
@@ -506,7 +508,7 @@ decl_stmt|;
 name|qlonglong
 name|entered
 init|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|bytearrayToLongLong
 argument_list|(
@@ -633,11 +635,13 @@ argument_list|()
 operator|.
 name|d
 operator|->
+name|m_data
+operator|->
 name|validateChars
 argument_list|(
 name|input
 argument_list|,
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|IntegerMode
 argument_list|,
@@ -656,7 +660,7 @@ decl_stmt|;
 name|qlonglong
 name|entered
 init|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|bytearrayToLongLong
 argument_list|(
@@ -917,7 +921,7 @@ name|QString
 modifier|&
 name|input
 parameter_list|,
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|NumberMode
 name|numMode
@@ -1077,12 +1081,12 @@ specifier|const
 name|QDoubleValidator
 argument_list|)
 expr_stmt|;
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|NumberMode
 name|numMode
 init|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|DoubleStandardMode
 decl_stmt|;
@@ -1098,7 +1102,7 @@ name|StandardNotation
 case|:
 name|numMode
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|DoubleStandardMode
 expr_stmt|;
@@ -1108,7 +1112,7 @@ name|ScientificNotation
 case|:
 name|numMode
 operator|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|DoubleScientificMode
 expr_stmt|;
@@ -1142,7 +1146,7 @@ name|QString
 modifier|&
 name|input
 parameter_list|,
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|NumberMode
 name|numMode
@@ -1169,6 +1173,8 @@ operator|!
 name|locale
 operator|.
 name|d
+operator|->
+name|m_data
 operator|->
 name|validateChars
 argument_list|(
@@ -1249,7 +1255,7 @@ decl_stmt|;
 name|double
 name|i
 init|=
-name|QLocalePrivate
+name|QLocaleData
 operator|::
 name|bytearrayToDouble
 argument_list|(

@@ -100,6 +100,7 @@ name|Data
 argument_list|)
 operator|&&
 operator|(
+operator|(
 operator|!
 name|QTypeInfo
 operator|<
@@ -107,6 +108,12 @@ name|T
 operator|>
 operator|::
 name|isStatic
+operator|)
+operator|||
+name|Q_IS_ENUM
+argument_list|(
+name|T
+argument_list|)
 operator|)
 block|; }
 expr_stmt|;

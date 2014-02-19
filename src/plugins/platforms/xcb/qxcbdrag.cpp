@@ -3107,7 +3107,7 @@ unit|static Window findXdndAwareParent(Window window) {     Window target = 0;  
 comment|// check if window has XdndAware
 end_comment
 begin_comment
-unit|Atom type = 0;         int f;         unsigned long n, a;         unsigned char *data = 0;         if (XGetWindowProperty(X11->display, window, ATOM(XdndAware), 0, 0, False,                                AnyPropertyType,&type,&f,&n,&a,&data) == Success) { 	    if (data)                 XFree(data); 	    if (type) {                 target = window;                 break;             }         }
+unit|Atom type = 0;         int f;         unsigned long n, a;         unsigned char *data = 0;         if (XGetWindowProperty(X11->display, window, ATOM(XdndAware), 0, 0, False,                                AnyPropertyType,&type,&f,&n,&a,&data) == Success) {             if (data)                 XFree(data);             if (type) {                 target = window;                 break;             }         }
 comment|// try window's parent
 end_comment
 begin_comment

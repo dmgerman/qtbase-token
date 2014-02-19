@@ -87,6 +87,10 @@ name|StreamingIndexBufferInterface
 decl_stmt|;
 enum|enum
 block|{
+name|MAX_VERTEX_UNIFORM_VECTORS_D3D9
+init|=
+literal|254
+block|,
 name|MAX_VERTEX_UNIFORM_VECTORS_D3D11
 init|=
 literal|1024
@@ -167,7 +171,7 @@ name|SwapChain
 operator|*
 name|createSwapChain
 argument_list|(
-argument|HWND window
+argument|EGLNativeWindowType window
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
@@ -984,6 +988,15 @@ name|mDxgiFactory
 return|;
 block|}
 block|;
+name|D3D_FEATURE_LEVEL
+name|getFeatureLevel
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mFeatureLevel
+return|;
+block|}
 name|bool
 name|getRenderTargetResource
 argument_list|(

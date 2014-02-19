@@ -67,7 +67,7 @@ operator|:
 expr|enum
 name|ButtonRole
 block|{
-comment|// keep this in sync with QMessageBox::ButtonRole
+comment|// keep this in sync with QMessageBox::ButtonRole and QPlatformDialogHelper::ButtonRole
 name|InvalidRole
 operator|=
 operator|-
@@ -96,7 +96,7 @@ block|}
 block|;      enum
 name|StandardButton
 block|{
-comment|// keep this in sync with QMessageBox::StandardButton
+comment|// keep this in sync with QMessageBox::StandardButton and QPlatformDialogHelper::StandardButton
 name|NoButton
 operator|=
 literal|0x00000000
@@ -196,6 +196,7 @@ argument_list|)
 expr|enum
 name|ButtonLayout
 block|{
+comment|// keep this in sync with QMessageBox::ButtonLayout and QPlatformDialogHelper::ButtonLayout
 name|WinLayout
 block|,
 name|MacLayout

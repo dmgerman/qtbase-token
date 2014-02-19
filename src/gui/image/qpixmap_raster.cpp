@@ -488,11 +488,6 @@ name|ImageConversionFlags
 name|flags
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|flags
-argument_list|)
-expr_stmt|;
 name|QImage
 name|image
 init|=
@@ -506,6 +501,35 @@ name|flags
 argument_list|,
 comment|/* inplace = */
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|fromImageInPlace
+name|void
+name|QRasterPlatformPixmap
+operator|::
+name|fromImageInPlace
+parameter_list|(
+name|QImage
+modifier|&
+name|sourceImage
+parameter_list|,
+name|Qt
+operator|::
+name|ImageConversionFlags
+name|flags
+parameter_list|)
+block|{
+name|createPixmapForImage
+argument_list|(
+name|sourceImage
+argument_list|,
+name|flags
+argument_list|,
+comment|/* inplace = */
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -793,7 +817,7 @@ operator|!
 operator|(
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 operator|||
 name|defined
@@ -941,7 +965,7 @@ block|}
 block|}
 name|pixel
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|color
 operator|.
@@ -1542,7 +1566,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 operator|&&
 operator|!

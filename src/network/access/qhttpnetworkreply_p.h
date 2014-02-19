@@ -584,6 +584,10 @@ name|friend
 name|class
 name|QHttpNetworkConnectionChannel
 decl_stmt|;
+name|friend
+name|class
+name|QHttpProtocolHandler
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

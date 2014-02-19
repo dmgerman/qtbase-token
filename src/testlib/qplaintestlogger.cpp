@@ -1858,8 +1858,8 @@ name|MessageTypes
 name|type
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 name|message
 parameter_list|,
 specifier|const
@@ -1897,7 +1897,10 @@ argument_list|(
 name|type
 argument_list|)
 argument_list|,
+name|qPrintable
+argument_list|(
 name|message
+argument_list|)
 argument_list|,
 name|file
 argument_list|,

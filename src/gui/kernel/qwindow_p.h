@@ -242,6 +242,10 @@ name|QWindowPrivate
 argument_list|()
 block|{     }
 name|void
+name|init
+argument_list|()
+block|;
+name|void
 name|maybeQuitOnLastWindowClosed
 argument_list|()
 block|;
@@ -317,6 +321,14 @@ name|offset
 return|;
 block|}
 end_decl_stmt
+begin_expr_stmt
+name|QWindow
+operator|*
+name|topLevelWindow
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function
 name|virtual
 name|QWindow

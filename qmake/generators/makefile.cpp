@@ -2791,6 +2791,14 @@ argument_list|(
 literal|"-o "
 argument_list|)
 expr_stmt|;
+name|setSystemIncludes
+argument_list|(
+name|v
+index|[
+literal|"QMAKE_DEFAULT_INCDIRS"
+index|]
+argument_list|)
+expr_stmt|;
 name|ProStringList
 modifier|&
 name|quc
@@ -10616,6 +10624,7 @@ name|ProKey
 modifier|&
 name|var
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|val
@@ -10642,6 +10651,7 @@ name|ProStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -10669,6 +10679,7 @@ name|QStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -10711,6 +10722,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -10758,6 +10770,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 name|ProStringList
 name|varList
@@ -10832,6 +10845,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 name|QString
 name|ret
@@ -10941,6 +10955,7 @@ name|QString
 modifier|&
 name|after
 parameter_list|)
+specifier|const
 block|{
 name|QString
 name|ret
@@ -11032,6 +11047,7 @@ name|ProKey
 modifier|&
 name|var
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valList
@@ -11058,6 +11074,7 @@ name|ProStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -11085,6 +11102,7 @@ name|QStringList
 modifier|&
 name|varList
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|valGlue
@@ -18548,7 +18566,6 @@ name|SubTargetSkipDefaultVariables
 operator|)
 condition|)
 block|{
-comment|/* Calling Option::fixPathToTargetOS() is necessary for MinGW/MSYS, which requires          * back-slashes to be turned into slashes. */
 name|t
 operator|<<
 literal|"QMAKE         = "
@@ -19736,6 +19753,26 @@ operator|<<
 name|varGlue
 argument_list|(
 literal|"CLEAN_DEPS"
+argument_list|,
+literal|" "
+argument_list|,
+literal|" "
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|suffix
+operator|==
+literal|"distclean"
+condition|)
+name|t
+operator|<<
+name|varGlue
+argument_list|(
+literal|"DISTCLEAN_DEPS"
 argument_list|,
 literal|" "
 argument_list|,

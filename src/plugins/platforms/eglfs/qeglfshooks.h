@@ -40,9 +40,9 @@ file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QEglFSCursor
+DECL|variable|QEGLPlatformCursor
 name|class
-name|QEglFSCursor
+name|QEGLPlatformCursor
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -176,11 +176,11 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|virtual
-name|QEglFSCursor
+name|QEGLPlatformCursor
 modifier|*
 name|createCursor
 argument_list|(
-name|QEglFSScreen
+name|QPlatformScreen
 operator|*
 name|screen
 argument_list|)

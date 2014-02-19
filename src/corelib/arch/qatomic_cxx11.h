@@ -90,17 +90,19 @@ DECL|macro|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_SOMETIMES_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_SOMETIMES_NATIVE
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|int
+literal|1
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -108,18 +110,19 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|unsigned
-name|int
+literal|2
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -127,223 +130,25 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|char
+literal|8
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|signed
-name|char
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|char
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_UNICODE_STRINGS
-end_ifdef
-begin_expr_stmt
-DECL|struct|char16_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char16_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|struct|char32_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char32_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|Q_ATOMIC_INT8_IS_SUPPORTED
 define|#
@@ -718,15 +523,20 @@ specifier|static
 name|bool
 name|testAndSetRelaxed
 argument_list|(
-argument|Type&_q_value
+argument|std::atomic<T>&_q_value
 argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-return|return
+name|bool
+name|tmp
+operator|=
 name|_q_value
 operator|.
 name|compare_exchange_strong
@@ -739,11 +549,24 @@ name|std
 operator|::
 name|memory_order_relaxed
 argument_list|)
-return|;
-block|}
+block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|expectedValue
+expr_stmt|;
 end_expr_stmt
+begin_return
+return|return
+name|tmp
+return|;
+end_return
 begin_expr_stmt
-name|template
+unit|}      template
 operator|<
 name|typename
 name|T
@@ -752,15 +575,20 @@ specifier|static
 name|bool
 name|testAndSetAcquire
 argument_list|(
-argument|Type&_q_value
+argument|std::atomic<T>&_q_value
 argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-return|return
+name|bool
+name|tmp
+operator|=
 name|_q_value
 operator|.
 name|compare_exchange_strong
@@ -773,11 +601,24 @@ name|std
 operator|::
 name|memory_order_acquire
 argument_list|)
-return|;
-block|}
+block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|expectedValue
+expr_stmt|;
 end_expr_stmt
+begin_return
+return|return
+name|tmp
+return|;
+end_return
 begin_expr_stmt
-name|template
+unit|}      template
 operator|<
 name|typename
 name|T
@@ -786,15 +627,20 @@ specifier|static
 name|bool
 name|testAndSetRelease
 argument_list|(
-argument|Type&_q_value
+argument|std::atomic<T>&_q_value
 argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-return|return
+name|bool
+name|tmp
+operator|=
 name|_q_value
 operator|.
 name|compare_exchange_strong
@@ -807,11 +653,24 @@ name|std
 operator|::
 name|memory_order_release
 argument_list|)
-return|;
-block|}
+block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|expectedValue
+expr_stmt|;
 end_expr_stmt
+begin_return
+return|return
+name|tmp
+return|;
+end_return
 begin_expr_stmt
-name|template
+unit|}      template
 operator|<
 name|typename
 name|T
@@ -820,15 +679,20 @@ specifier|static
 name|bool
 name|testAndSetOrdered
 argument_list|(
-argument|Type&_q_value
+argument|std::atomic<T>&_q_value
 argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-return|return
+name|bool
+name|tmp
+operator|=
 name|_q_value
 operator|.
 name|compare_exchange_strong
@@ -841,11 +705,24 @@ name|std
 operator|::
 name|memory_order_acq_rel
 argument_list|)
-return|;
-block|}
+block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|expectedValue
+expr_stmt|;
 end_expr_stmt
+begin_return
+return|return
+name|tmp
+return|;
+end_return
 begin_function
-specifier|static
+unit|}      static
 specifier|inline
 name|Q_DECL_CONSTEXPR
 name|bool

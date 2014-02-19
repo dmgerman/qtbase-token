@@ -100,6 +100,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"qfunctions_winrt.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -5930,6 +5944,65 @@ argument_list|)
 expr_stmt|;
 return|return
 name|offset
+return|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_BSD4
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_DARWIN
+argument_list|)
+name|time_t
+name|clock
+init|=
+name|time
+argument_list|(
+name|NULL
+argument_list|)
+decl_stmt|;
+name|struct
+name|tm
+name|t
+decl_stmt|;
+name|localtime_r
+argument_list|(
+operator|&
+name|clock
+argument_list|,
+operator|&
+name|t
+argument_list|)
+expr_stmt|;
+comment|// QTBUG-36080 Workaround for systems without the POSIX timezone
+comment|// variable. This solution is not very efficient but fixing it is up to
+comment|// the libc implementations.
+comment|//
+comment|// tm_gmtoff has some important differences compared to the timezone
+comment|// variable:
+comment|// - It returns the number of seconds east of UTC, and we want the
+comment|//   number of seconds west of UTC.
+comment|// - It also takes DST into account, so we need to adjust it to always
+comment|//   get the Standard Time offset.
+return|return
+operator|-
+name|t
+operator|.
+name|tm_gmtoff
+operator|+
+operator|(
+name|t
+operator|.
+name|tm_isdst
+condition|?
+name|SECS_PER_HOUR
+else|:
+literal|0L
+operator|)
 return|;
 else|#
 directive|else

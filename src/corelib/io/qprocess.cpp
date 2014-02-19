@@ -3607,7 +3607,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the native process identifier for the running process, if     available.  If no process is currently running, 0 is returned. */
+comment|/*!     \deprecated     Use processId() instead.      Returns the native process identifier for the running process, if     available.  If no process is currently running, \c 0 is returned.      \note Unlike \l processId(), pid() returns an integer on Unix and a pointer on Windows.      \sa Q_PID, processId() */
 end_comment
 begin_function
 DECL|function|pid
@@ -3617,6 +3617,7 @@ operator|::
 name|pid
 parameter_list|()
 specifier|const
+comment|// ### Qt 6 remove or rename this method to processInformation()
 block|{
 name|Q_D
 argument_list|(
@@ -3629,6 +3630,51 @@ name|d
 operator|->
 name|pid
 return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.3      Returns the native process identifier for the running process, if     available. If no process is currently running, \c 0 is returned.  */
+end_comment
+begin_function
+DECL|function|processId
+name|qint64
+name|QProcess
+operator|::
+name|processId
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QProcess
+argument_list|)
+expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+return|return
+name|d
+operator|->
+name|pid
+condition|?
+name|d
+operator|->
+name|pid
+operator|->
+name|dwProcessId
+else|:
+literal|0
+return|;
+else|#
+directive|else
+return|return
+name|d
+operator|->
+name|pid
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

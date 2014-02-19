@@ -602,8 +602,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//	QScrollBar *sb = new QScrollBar( Qt::Horizontal,  this );
-comment|//	sb->setGeometry( 5, pb->geometry().bottom() + 5, 100, sb->sizeHint().height() );
+comment|//    QScrollBar *sb = new QScrollBar( Qt::Horizontal,  this );
+comment|//    sb->setGeometry( 5, pb->geometry().bottom() + 5, 100, sb->sizeHint().height() );
 name|d
 operator|=
 operator|new

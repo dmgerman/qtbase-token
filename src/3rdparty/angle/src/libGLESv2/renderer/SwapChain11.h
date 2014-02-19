@@ -57,7 +57,7 @@ name|SwapChain11
 argument_list|(
 argument|Renderer11 *renderer
 argument_list|,
-argument|HWND window
+argument|EGLNativeWindowType window
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,

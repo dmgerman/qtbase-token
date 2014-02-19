@@ -341,6 +341,66 @@ name|_current
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|class
+name|QScrollbarStyleAnimation
+range|:
+name|public
+name|QNumberStyleAnimation
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+expr|enum
+name|Mode
+block|{
+name|Activating
+block|,
+name|Deactivating
+block|}
+block|;
+name|QScrollbarStyleAnimation
+argument_list|(
+argument|Mode mode
+argument_list|,
+argument|QObject *target
+argument_list|)
+block|;
+name|Mode
+name|mode
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|wasActive
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setActive
+argument_list|(
+argument|bool active
+argument_list|)
+block|;
+name|private
+name|slots
+operator|:
+name|void
+name|updateCurrentTime
+argument_list|(
+argument|int time
+argument_list|)
+block|;
+name|private
+operator|:
+name|Mode
+name|_mode
+block|;
+name|bool
+name|_active
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

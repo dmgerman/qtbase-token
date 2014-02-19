@@ -2059,6 +2059,14 @@ operator|<<
 literal|" "
 expr_stmt|;
 block|}
+name|QString
+name|isystem
+init|=
+name|var
+argument_list|(
+literal|"QMAKE_CFLAGS_ISYSTEM"
+argument_list|)
+decl_stmt|;
 specifier|const
 name|ProStringList
 modifier|&
@@ -2129,9 +2137,31 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isystem
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|isSystemInclude
+argument_list|(
+name|inc
+argument_list|)
+condition|)
+name|t
+operator|<<
+name|isystem
+operator|<<
+literal|' '
+expr_stmt|;
+else|else
 name|t
 operator|<<
 literal|"-I"
+expr_stmt|;
+name|t
 operator|<<
 name|quote
 operator|<<

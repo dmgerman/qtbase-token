@@ -334,9 +334,9 @@ init|=
 block|{
 literal|"30 30 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"           ........           "
 block|,
@@ -416,9 +416,9 @@ init|=
 block|{
 literal|"15 15 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"     .....     "
 block|,
@@ -628,9 +628,9 @@ init|=
 block|{
 literal|"18 18 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"      ......      "
 block|,
@@ -686,9 +686,9 @@ init|=
 block|{
 literal|"9 9 2 1"
 block|,
-literal|"         c None"
+literal|"  c None"
 block|,
-literal|".        c #000000"
+literal|". c #000000"
 block|,
 literal|"   ...   "
 block|,
@@ -723,9 +723,9 @@ init|=
 block|{
 literal|"15 8 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"..............."
 block|,
@@ -758,9 +758,9 @@ init|=
 block|{
 literal|"17 9 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"................."
 block|,
@@ -798,9 +798,9 @@ init|=
 block|{
 literal|"24 24 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"                        "
 block|,
@@ -868,9 +868,9 @@ init|=
 block|{
 literal|"26 26 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"                          "
 block|,
@@ -942,9 +942,9 @@ init|=
 block|{
 literal|"9 8 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"        ."
 block|,
@@ -980,9 +980,9 @@ init|=
 block|{
 literal|"8 8 2 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"       ."
 block|,
@@ -1018,11 +1018,11 @@ init|=
 block|{
 literal|"30 30 3 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
-literal|"+	c #0078CC"
+literal|"+ c #0078CC"
 block|,
 literal|"           ........           "
 block|,
@@ -1102,11 +1102,11 @@ init|=
 block|{
 literal|"15 15 3 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
-literal|"+	c #3192D6"
+literal|"+ c #3192D6"
 block|,
 literal|"     .....     "
 block|,
@@ -1156,13 +1156,13 @@ init|=
 block|{
 literal|"28 28 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FDFFFC"
+literal|"@ c #FDFFFC"
 block|,
 literal|"                            "
 block|,
@@ -1238,13 +1238,13 @@ init|=
 block|{
 literal|"14 14 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FCFFFC"
+literal|"@ c #FCFFFC"
 block|,
 literal|"              "
 block|,
@@ -1292,13 +1292,13 @@ init|=
 block|{
 literal|"28 28 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FDFFFC"
+literal|"@ c #FDFFFC"
 block|,
 literal|"                            "
 block|,
@@ -1374,13 +1374,13 @@ init|=
 block|{
 literal|"14 14 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FCFFFC"
+literal|"@ c #FCFFFC"
 block|,
 literal|"              "
 block|,
@@ -1428,13 +1428,13 @@ init|=
 block|{
 literal|"28 28 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FDFFFC"
+literal|"@ c #FDFFFC"
 block|,
 literal|"                            "
 block|,
@@ -1510,13 +1510,13 @@ init|=
 block|{
 literal|"14 14 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FCFFFC"
+literal|"@ c #FCFFFC"
 block|,
 literal|"              "
 block|,
@@ -1564,13 +1564,13 @@ init|=
 block|{
 literal|"28 28 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FDFFFC"
+literal|"@ c #FDFFFC"
 block|,
 literal|"                            "
 block|,
@@ -1646,13 +1646,13 @@ init|=
 block|{
 literal|"14 14 4 1"
 block|,
-literal|" 	c #09454A"
+literal|"  c #09454A"
 block|,
-literal|".	c #218C98"
+literal|". c #218C98"
 block|,
-literal|"+	c #47D8E5"
+literal|"+ c #47D8E5"
 block|,
-literal|"@	c #FCFFFC"
+literal|"@ c #FCFFFC"
 block|,
 literal|"              "
 block|,
@@ -1700,95 +1700,95 @@ init|=
 block|{
 literal|"26 41 45 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
-literal|"+	c #E7E7E7"
+literal|"+ c #E7E7E7"
 block|,
-literal|"@	c #D6D7D6"
+literal|"@ c #D6D7D6"
 block|,
-literal|"#	c #949294"
+literal|"# c #949294"
 block|,
-literal|"$	c #737573"
+literal|"$ c #737573"
 block|,
-literal|"%	c #636563"
+literal|"% c #636563"
 block|,
-literal|"&	c #636163"
+literal|"& c #636163"
 block|,
-literal|"*	c #5A5D5A"
+literal|"* c #5A5D5A"
 block|,
-literal|"=	c #5A595A"
+literal|"= c #5A595A"
 block|,
-literal|"-	c #525552"
+literal|"- c #525552"
 block|,
-literal|";	c #525152"
+literal|"; c #525152"
 block|,
-literal|">	c #4A4D4A"
+literal|"> c #4A4D4A"
 block|,
-literal|",	c #7B797B"
+literal|", c #7B797B"
 block|,
-literal|"'	c #CECFCE"
+literal|"' c #CECFCE"
 block|,
-literal|")	c #CED3CE"
+literal|") c #CED3CE"
 block|,
-literal|"!	c #6B6D6B"
+literal|"! c #6B6D6B"
 block|,
-literal|"~	c #6B696B"
+literal|"~ c #6B696B"
 block|,
-literal|"{	c #737173"
+literal|"{ c #737173"
 block|,
-literal|"]	c #7B7D7B"
+literal|"] c #7B7D7B"
 block|,
-literal|"^	c #848684"
+literal|"^ c #848684"
 block|,
-literal|"/	c #848284"
+literal|"/ c #848284"
 block|,
-literal|"(	c #8C8A8C"
+literal|"( c #8C8A8C"
 block|,
-literal|"_	c #8C8E8C"
+literal|"_ c #8C8E8C"
 block|,
-literal|":	c #B5B2B5"
+literal|": c #B5B2B5"
 block|,
-literal|"<	c #FFFFFF"
+literal|"< c #FFFFFF"
 block|,
-literal|"[	c #949694"
+literal|"[ c #949694"
 block|,
-literal|"}	c #B5B6B5"
+literal|"} c #B5B6B5"
 block|,
-literal|"|	c #9C9A9C"
+literal|"| c #9C9A9C"
 block|,
-literal|"1	c #ADAEAD"
+literal|"1 c #ADAEAD"
 block|,
-literal|"2	c #9C9E9C"
+literal|"2 c #9C9E9C"
 block|,
-literal|"3	c #BDBABD"
+literal|"3 c #BDBABD"
 block|,
-literal|"4	c #BDBEBD"
+literal|"4 c #BDBEBD"
 block|,
-literal|"5	c #F7F3F7"
+literal|"5 c #F7F3F7"
 block|,
-literal|"6	c #C6C3C6"
+literal|"6 c #C6C3C6"
 block|,
-literal|"7	c #C6C7C6"
+literal|"7 c #C6C7C6"
 block|,
-literal|"8	c #A5A2A5"
+literal|"8 c #A5A2A5"
 block|,
-literal|"9	c #CECBCE"
+literal|"9 c #CECBCE"
 block|,
-literal|"0	c #FFFBFF"
+literal|"0 c #FFFBFF"
 block|,
-literal|"a	c #ADAAAD"
+literal|"a c #ADAAAD"
 block|,
-literal|"b	c #A5A6A5"
+literal|"b c #A5A6A5"
 block|,
-literal|"c	c #D6D3D6"
+literal|"c c #D6D3D6"
 block|,
-literal|"d	c #B5BAB5"
+literal|"d c #B5BAB5"
 block|,
-literal|"e	c #DEDFDE"
+literal|"e c #DEDFDE"
 block|,
-literal|"f	c #DEDBDE"
+literal|"f c #DEDBDE"
 block|,
 literal|".........................."
 block|,
@@ -1885,97 +1885,97 @@ init|=
 block|{
 literal|"26 40 46 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #E7E7E7"
+literal|". c #E7E7E7"
 block|,
-literal|"+	c #DEDFDE"
+literal|"+ c #DEDFDE"
 block|,
-literal|"@	c #BDBEBD"
+literal|"@ c #BDBEBD"
 block|,
-literal|"#	c #B5B2B5"
+literal|"# c #B5B2B5"
 block|,
-literal|"$	c #ADAAAD"
+literal|"$ c #ADAAAD"
 block|,
-literal|"%	c #A5A6A5"
+literal|"% c #A5A6A5"
 block|,
-literal|"&	c #A5A2A5"
+literal|"& c #A5A2A5"
 block|,
-literal|"*	c #9C9E9C"
+literal|"* c #9C9E9C"
 block|,
-literal|"=	c #9C9A9C"
+literal|"= c #9C9A9C"
 block|,
-literal|"-	c #949694"
+literal|"- c #949694"
 block|,
-literal|";	c #949294"
+literal|"; c #949294"
 block|,
-literal|">	c #D6D7D6"
+literal|"> c #D6D7D6"
 block|,
-literal|",	c #DEDBDE"
+literal|", c #DEDBDE"
 block|,
-literal|"'	c #D6DBD6"
+literal|"' c #D6DBD6"
 block|,
-literal|")	c #ADAEAD"
+literal|") c #ADAEAD"
 block|,
-literal|"!	c #8C8E8C"
+literal|"! c #8C8E8C"
 block|,
-literal|"~	c #8C8A8C"
+literal|"~ c #8C8A8C"
 block|,
-literal|"{	c #BDBABD"
+literal|"{ c #BDBABD"
 block|,
-literal|"]	c #848684"
+literal|"] c #848684"
 block|,
-literal|"^	c #B5BAB5"
+literal|"^ c #B5BAB5"
 block|,
-literal|"/	c #848284"
+literal|"/ c #848284"
 block|,
-literal|"(	c #848A84"
+literal|"( c #848A84"
 block|,
-literal|"_	c #7B7D7B"
+literal|"_ c #7B7D7B"
 block|,
-literal|":	c #7B797B"
+literal|": c #7B797B"
 block|,
-literal|"<	c #C6C3C6"
+literal|"< c #C6C3C6"
 block|,
-literal|"[	c #D6D3D6"
+literal|"[ c #D6D3D6"
 block|,
-literal|"}	c #FFFBFF"
+literal|"} c #FFFBFF"
 block|,
-literal|"|	c #CECFCE"
+literal|"| c #CECFCE"
 block|,
-literal|"1	c #FFFFFF"
+literal|"1 c #FFFFFF"
 block|,
-literal|"2	c #737573"
+literal|"2 c #737573"
 block|,
-literal|"3	c #F7F3F7"
+literal|"3 c #F7F3F7"
 block|,
-literal|"4	c #CECBCE"
+literal|"4 c #CECBCE"
 block|,
-literal|"5	c #737173"
+literal|"5 c #737173"
 block|,
-literal|"6	c #C6C7C6"
+literal|"6 c #C6C7C6"
 block|,
-literal|"7	c #6B6D6B"
+literal|"7 c #6B6D6B"
 block|,
-literal|"8	c #B5B6B5"
+literal|"8 c #B5B6B5"
 block|,
-literal|"9	c #6B696B"
+literal|"9 c #6B696B"
 block|,
-literal|"0	c #636563"
+literal|"0 c #636563"
 block|,
-literal|"a	c #636163"
+literal|"a c #636163"
 block|,
-literal|"b	c #5A5D5A"
+literal|"b c #5A5D5A"
 block|,
-literal|"c	c #5A595A"
+literal|"c c #5A595A"
 block|,
-literal|"d	c #525552"
+literal|"d c #525552"
 block|,
-literal|"e	c #525152"
+literal|"e c #525152"
 block|,
-literal|"f	c #4A4D4A"
+literal|"f c #4A4D4A"
 block|,
-literal|"g	c #C6CBC6"
+literal|"g c #C6CBC6"
 block|,
 literal|".+@#$$$%%%%&&&**==---;-%>."
 block|,
@@ -2070,83 +2070,83 @@ init|=
 block|{
 literal|"26 34 39 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #949294"
+literal|". c #949294"
 block|,
-literal|"+	c #9C9E9C"
+literal|"+ c #9C9E9C"
 block|,
-literal|"@	c #9C9A9C"
+literal|"@ c #9C9A9C"
 block|,
-literal|"#	c #949694"
+literal|"# c #949694"
 block|,
-literal|"$	c #8C8E8C"
+literal|"$ c #8C8E8C"
 block|,
-literal|"%	c #8C8A8C"
+literal|"% c #8C8A8C"
 block|,
-literal|"&	c #848684"
+literal|"& c #848684"
 block|,
-literal|"*	c #848284"
+literal|"* c #848284"
 block|,
-literal|"=	c #7B7D7B"
+literal|"= c #7B7D7B"
 block|,
-literal|"-	c #7B797B"
+literal|"- c #7B797B"
 block|,
-literal|";	c #6B696B"
+literal|"; c #6B696B"
 block|,
-literal|">	c #636563"
+literal|"> c #636563"
 block|,
-literal|",	c #737573"
+literal|", c #737573"
 block|,
-literal|"'	c #636163"
+literal|"' c #636163"
 block|,
-literal|")	c #737173"
+literal|") c #737173"
 block|,
-literal|"!	c #5A5D5A"
+literal|"! c #5A5D5A"
 block|,
-literal|"~	c #6B6D6B"
+literal|"~ c #6B6D6B"
 block|,
-literal|"{	c #5A595A"
+literal|"{ c #5A595A"
 block|,
-literal|"]	c #B5B6B5"
+literal|"] c #B5B6B5"
 block|,
-literal|"^	c #BDBEBD"
+literal|"^ c #BDBEBD"
 block|,
-literal|"/	c #ADAEAD"
+literal|"/ c #ADAEAD"
 block|,
-literal|"(	c #BDBABD"
+literal|"( c #BDBABD"
 block|,
-literal|"_	c #525552"
+literal|"_ c #525552"
 block|,
-literal|":	c #313031"
+literal|": c #313031"
 block|,
-literal|"<	c #525152"
+literal|"< c #525152"
 block|,
-literal|"[	c #ADAAAD"
+literal|"[ c #ADAAAD"
 block|,
-literal|"}	c #BDBAB5"
+literal|"} c #BDBAB5"
 block|,
-literal|"|	c #4A4D4A"
+literal|"| c #4A4D4A"
 block|,
-literal|"1	c #4A494A"
+literal|"1 c #4A494A"
 block|,
-literal|"2	c #C6C3C6"
+literal|"2 c #C6C3C6"
 block|,
-literal|"3	c #C6CBC6"
+literal|"3 c #C6CBC6"
 block|,
-literal|"4	c #E7E7E7"
+literal|"4 c #E7E7E7"
 block|,
-literal|"5	c #DEDFDE"
+literal|"5 c #DEDFDE"
 block|,
-literal|"6	c #E7E3E7"
+literal|"6 c #E7E3E7"
 block|,
-literal|"7	c #DEE3DE"
+literal|"7 c #DEE3DE"
 block|,
-literal|"8	c #CECBCE"
+literal|"8 c #CECBCE"
 block|,
-literal|"9	c #8C928C"
+literal|"9 c #8C928C"
 block|,
-literal|"0	c #CECFCE"
+literal|"0 c #CECFCE"
 block|,
 literal|"..+++@@@###...$$%&&**==-;>"
 block|,
@@ -2229,81 +2229,81 @@ init|=
 block|{
 literal|"26 34 38 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #E7E7E7"
+literal|". c #E7E7E7"
 block|,
-literal|"+	c #D6DBD6"
+literal|"+ c #D6DBD6"
 block|,
-literal|"@	c #C6C7C6"
+literal|"@ c #C6C7C6"
 block|,
-literal|"#	c #B5B6B5"
+literal|"# c #B5B6B5"
 block|,
-literal|"$	c #ADAEAD"
+literal|"$ c #ADAEAD"
 block|,
-literal|"%	c #ADAAAD"
+literal|"% c #ADAAAD"
 block|,
-literal|"&	c #A5A6A5"
+literal|"& c #A5A6A5"
 block|,
-literal|"*	c #A5A2A5"
+literal|"* c #A5A2A5"
 block|,
-literal|"=	c #BDBEBD"
+literal|"= c #BDBEBD"
 block|,
-literal|"-	c #DEDFDE"
+literal|"- c #DEDFDE"
 block|,
-literal|";	c #C6CBC6"
+literal|"; c #C6CBC6"
 block|,
-literal|">	c #9C9E9C"
+literal|"> c #9C9E9C"
 block|,
-literal|",	c #E7E3E7"
+literal|", c #E7E3E7"
 block|,
-literal|"'	c #BDBABD"
+literal|"' c #BDBABD"
 block|,
-literal|")	c #B5B2B5"
+literal|") c #B5B2B5"
 block|,
-literal|"!	c #9C9A9C"
+literal|"! c #9C9A9C"
 block|,
-literal|"~	c #DEE3DE"
+literal|"~ c #DEE3DE"
 block|,
-literal|"{	c #949694"
+literal|"{ c #949694"
 block|,
-literal|"]	c #D6D7D6"
+literal|"] c #D6D7D6"
 block|,
-literal|"^	c #949294"
+literal|"^ c #949294"
 block|,
-literal|"/	c #DEDBDE"
+literal|"/ c #DEDBDE"
 block|,
-literal|"(	c #8C8E8C"
+literal|"( c #8C8E8C"
 block|,
-literal|"_	c #8C8A8C"
+literal|"_ c #8C8A8C"
 block|,
-literal|":	c #848684"
+literal|": c #848684"
 block|,
-literal|"<	c #D6D3CE"
+literal|"< c #D6D3CE"
 block|,
-literal|"[	c #CECBCE"
+literal|"[ c #CECBCE"
 block|,
-literal|"}	c #D6D3D6"
+literal|"} c #D6D3D6"
 block|,
-literal|"|	c #848284"
+literal|"| c #848284"
 block|,
-literal|"1	c #313031"
+literal|"1 c #313031"
 block|,
-literal|"2	c #7B7D7B"
+literal|"2 c #7B7D7B"
 block|,
-literal|"3	c #CECFCE"
+literal|"3 c #CECFCE"
 block|,
-literal|"4	c #CECBC6"
+literal|"4 c #CECBC6"
 block|,
-literal|"5	c #7B797B"
+literal|"5 c #7B797B"
 block|,
-literal|"6	c #737573"
+literal|"6 c #737573"
 block|,
-literal|"7	c #737173"
+literal|"7 c #737173"
 block|,
-literal|"8	c #6B6D6B"
+literal|"8 c #6B6D6B"
 block|,
-literal|"9	c #6B696B"
+literal|"9 c #6B696B"
 block|,
 literal|"....+@#$$%%%%&&&***$=-...."
 block|,
@@ -2386,29 +2386,29 @@ init|=
 block|{
 literal|"26 2 12 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #949294"
+literal|". c #949294"
 block|,
-literal|"+	c #A5A2A5"
+literal|"+ c #A5A2A5"
 block|,
-literal|"@	c #9C9E9C"
+literal|"@ c #9C9E9C"
 block|,
-literal|"#	c #9C9A9C"
+literal|"# c #9C9A9C"
 block|,
-literal|"$	c #949694"
+literal|"$ c #949694"
 block|,
-literal|"%	c #8C8E8C"
+literal|"% c #8C8E8C"
 block|,
-literal|"&	c #8C8A8C"
+literal|"& c #8C8A8C"
 block|,
-literal|"*	c #848684"
+literal|"* c #848684"
 block|,
-literal|"=	c #848284"
+literal|"= c #848284"
 block|,
-literal|"-	c #7B7D7B"
+literal|"- c #7B7D7B"
 block|,
-literal|";	c #6B696B"
+literal|"; c #6B696B"
 block|,
 literal|"..++@@@###$$$..%%&&*==--;;"
 block|,
@@ -2427,399 +2427,399 @@ init|=
 block|{
 literal|"8 46 197 2"
 block|,
-literal|"  	c None"
+literal|"   c None"
 block|,
-literal|". 	c #66759E"
+literal|".  c #66759E"
 block|,
-literal|"+ 	c #6C789D"
+literal|"+  c #6C789D"
 block|,
-literal|"@ 	c #6A789E"
+literal|"@  c #6A789E"
 block|,
-literal|"# 	c #6B789E"
+literal|"#  c #6B789E"
 block|,
-literal|"$ 	c #6A779D"
+literal|"$  c #6A779D"
 block|,
-literal|"% 	c #6C789C"
+literal|"%  c #6C789C"
 block|,
-literal|"& 	c #6F7D9B"
+literal|"&  c #6F7D9B"
 block|,
-literal|"* 	c #6F7D9A"
+literal|"*  c #6F7D9A"
 block|,
-literal|"= 	c #9DB6EE"
+literal|"=  c #9DB6EE"
 block|,
-literal|"- 	c #9DB6ED"
+literal|"-  c #9DB6ED"
 block|,
-literal|"; 	c #9CB6ED"
+literal|";  c #9CB6ED"
 block|,
-literal|"> 	c #A1B6EF"
+literal|">  c #A1B6EF"
 block|,
-literal|", 	c #A2B6F0"
+literal|",  c #A2B6F0"
 block|,
-literal|"' 	c #93AAE9"
+literal|"'  c #93AAE9"
 block|,
-literal|") 	c #95ABEA"
+literal|")  c #95ABEA"
 block|,
-literal|"! 	c #94ABEA"
+literal|"!  c #94ABEA"
 block|,
-literal|"~ 	c #94A9E8"
+literal|"~  c #94A9E8"
 block|,
-literal|"{ 	c #8BA8EA"
+literal|"{  c #8BA8EA"
 block|,
-literal|"] 	c #8BA7EA"
+literal|"]  c #8BA7EA"
 block|,
-literal|"^ 	c #8AA7EA"
+literal|"^  c #8AA7EA"
 block|,
-literal|"/ 	c #8EAAE8"
+literal|"/  c #8EAAE8"
 block|,
-literal|"( 	c #8FAAE8"
+literal|"(  c #8FAAE8"
 block|,
-literal|"_ 	c #88A2E7"
+literal|"_  c #88A2E7"
 block|,
-literal|": 	c #8CA3E8"
+literal|":  c #8CA3E8"
 block|,
-literal|"< 	c #8BA3E7"
+literal|"<  c #8BA3E7"
 block|,
-literal|"[ 	c #8BA3E8"
+literal|"[  c #8BA3E8"
 block|,
-literal|"} 	c #8BA2E7"
+literal|"}  c #8BA2E7"
 block|,
-literal|"| 	c #8CA2E7"
+literal|"|  c #8CA2E7"
 block|,
-literal|"1 	c #8DA2E7"
+literal|"1  c #8DA2E7"
 block|,
-literal|"2 	c #87A1E8"
+literal|"2  c #87A1E8"
 block|,
-literal|"3 	c #87A1E9"
+literal|"3  c #87A1E9"
 block|,
-literal|"4 	c #86A0E8"
+literal|"4  c #86A0E8"
 block|,
-literal|"5 	c #86A1E7"
+literal|"5  c #86A1E7"
 block|,
-literal|"6 	c #87A2E7"
+literal|"6  c #87A2E7"
 block|,
-literal|"7 	c #859EE9"
+literal|"7  c #859EE9"
 block|,
-literal|"8 	c #849DE9"
+literal|"8  c #849DE9"
 block|,
-literal|"9 	c #869EE9"
+literal|"9  c #869EE9"
 block|,
-literal|"0 	c #869FE9"
+literal|"0  c #869FE9"
 block|,
-literal|"a 	c #7C9BEA"
+literal|"a  c #7C9BEA"
 block|,
-literal|"b 	c #7C9CEA"
+literal|"b  c #7C9CEA"
 block|,
-literal|"c 	c #7B9CEA"
+literal|"c  c #7B9CEA"
 block|,
-literal|"d 	c #7C9BE9"
+literal|"d  c #7C9BE9"
 block|,
-literal|"e 	c #7E9CE9"
+literal|"e  c #7E9CE9"
 block|,
-literal|"f 	c #7B9AEA"
+literal|"f  c #7B9AEA"
 block|,
-literal|"g 	c #7C99E9"
+literal|"g  c #7C99E9"
 block|,
-literal|"h 	c #7C9AEA"
+literal|"h  c #7C9AEA"
 block|,
-literal|"i 	c #7B9AE8"
+literal|"i  c #7B9AE8"
 block|,
-literal|"j 	c #7A9AEA"
+literal|"j  c #7A9AEA"
 block|,
-literal|"k 	c #7996E1"
+literal|"k  c #7996E1"
 block|,
-literal|"l 	c #7C96E4"
+literal|"l  c #7C96E4"
 block|,
-literal|"m 	c #7B96E3"
+literal|"m  c #7B96E3"
 block|,
-literal|"n 	c #7B95E3"
+literal|"n  c #7B95E3"
 block|,
-literal|"o 	c #7E95E5"
+literal|"o  c #7E95E5"
 block|,
-literal|"p 	c #7E95E6"
+literal|"p  c #7E95E6"
 block|,
-literal|"q 	c #7292E1"
+literal|"q  c #7292E1"
 block|,
-literal|"r 	c #7490DF"
+literal|"r  c #7490DF"
 block|,
-literal|"s 	c #7591E0"
+literal|"s  c #7591E0"
 block|,
-literal|"t 	c #7590DF"
+literal|"t  c #7590DF"
 block|,
-literal|"u 	c #7392E1"
+literal|"u  c #7392E1"
 block|,
-literal|"v 	c #6D8CDE"
+literal|"v  c #6D8CDE"
 block|,
-literal|"w 	c #6F8EDD"
+literal|"w  c #6F8EDD"
 block|,
-literal|"x 	c #6E8DDD"
+literal|"x  c #6E8DDD"
 block|,
-literal|"y 	c #6E8DDE"
+literal|"y  c #6E8DDE"
 block|,
-literal|"z 	c #6F8EDE"
+literal|"z  c #6F8EDE"
 block|,
-literal|"A 	c #6E8EDE"
+literal|"A  c #6E8EDE"
 block|,
-literal|"B 	c #718EDD"
+literal|"B  c #718EDD"
 block|,
-literal|"C 	c #728EDD"
+literal|"C  c #728EDD"
 block|,
-literal|"D 	c #6B89E0"
+literal|"D  c #6B89E0"
 block|,
-literal|"E 	c #6C89DF"
+literal|"E  c #6C89DF"
 block|,
-literal|"F 	c #6D89E0"
+literal|"F  c #6D89E0"
 block|,
-literal|"G 	c #6D89DF"
+literal|"G  c #6D89DF"
 block|,
-literal|"H 	c #6C88DF"
+literal|"H  c #6C88DF"
 block|,
-literal|"I 	c #6D88DF"
+literal|"I  c #6D88DF"
 block|,
-literal|"J 	c #6D86DD"
+literal|"J  c #6D86DD"
 block|,
-literal|"K 	c #6086E0"
+literal|"K  c #6086E0"
 block|,
-literal|"L 	c #6686E0"
+literal|"L  c #6686E0"
 block|,
-literal|"M 	c #6586E0"
+literal|"M  c #6586E0"
 block|,
-literal|"N 	c #6486E0"
+literal|"N  c #6486E0"
 block|,
-literal|"O 	c #6485E0"
+literal|"O  c #6485E0"
 block|,
-literal|"P 	c #6786DF"
+literal|"P  c #6786DF"
 block|,
-literal|"Q 	c #5F85E0"
+literal|"Q  c #5F85E0"
 block|,
-literal|"R 	c #6583DE"
+literal|"R  c #6583DE"
 block|,
-literal|"S 	c #6683DE"
+literal|"S  c #6683DE"
 block|,
-literal|"T 	c #6682DD"
+literal|"T  c #6682DD"
 block|,
-literal|"U 	c #6086DF"
+literal|"U  c #6086DF"
 block|,
-literal|"V 	c #5F86E0"
+literal|"V  c #5F86E0"
 block|,
-literal|"W 	c #567ED7"
+literal|"W  c #567ED7"
 block|,
-literal|"X 	c #567ED8"
+literal|"X  c #567ED8"
 block|,
-literal|"Y 	c #557DD7"
+literal|"Y  c #557DD7"
 block|,
-literal|"Z 	c #5A7FD8"
+literal|"Z  c #5A7FD8"
 block|,
-literal|"` 	c #6281DA"
+literal|"`  c #6281DA"
 block|,
-literal|" .	c #5379D9"
+literal|" . c #5379D9"
 block|,
-literal|"..	c #5278D9"
+literal|".. c #5278D9"
 block|,
-literal|"+.	c #547BD8"
+literal|"+. c #547BD8"
 block|,
-literal|"@.	c #4C73D7"
+literal|"@. c #4C73D7"
 block|,
-literal|"#.	c #4B72D2"
+literal|"#. c #4B72D2"
 block|,
-literal|"$.	c #4C73D4"
+literal|"$. c #4C73D4"
 block|,
-literal|"%.	c #4C73D3"
+literal|"%. c #4C73D3"
 block|,
-literal|"&.	c #4B72D4"
+literal|"&. c #4B72D4"
 block|,
-literal|"*.	c #4F75D3"
+literal|"*. c #4F75D3"
 block|,
-literal|"=.	c #5074D2"
+literal|"=. c #5074D2"
 block|,
-literal|"-.	c #4971D0"
+literal|"-. c #4971D0"
 block|,
-literal|";.	c #4871D0"
+literal|";. c #4871D0"
 block|,
-literal|">.	c #335ECF"
+literal|">. c #335ECF"
 block|,
-literal|",.	c #325ECB"
+literal|",. c #325ECB"
 block|,
-literal|"'.	c #335ECD"
+literal|"'. c #335ECD"
 block|,
-literal|").	c #335ECE"
+literal|"). c #335ECE"
 block|,
-literal|"!.	c #325DCD"
+literal|"!. c #325DCD"
 block|,
-literal|"~.	c #2E59C9"
+literal|"~. c #2E59C9"
 block|,
-literal|"{.	c #3059C9"
+literal|"{. c #3059C9"
 block|,
-literal|"].	c #2F59C9"
+literal|"]. c #2F59C9"
 block|,
-literal|"^.	c #2F59C8"
+literal|"^. c #2F59C8"
 block|,
-literal|"/.	c #2B59CA"
+literal|"/. c #2B59CA"
 block|,
-literal|"(.	c #3355C6"
+literal|"(. c #3355C6"
 block|,
-literal|"_.	c #3354C5"
+literal|"_. c #3354C5"
 block|,
-literal|":.	c #3156C7"
+literal|":. c #3156C7"
 block|,
-literal|"<.	c #3056C7"
+literal|"<. c #3056C7"
 block|,
-literal|"[.	c #3355C7"
+literal|"[. c #3355C7"
 block|,
-literal|"}.	c #3355C5"
+literal|"}. c #3355C5"
 block|,
-literal|"|.	c #254EBF"
+literal|"|. c #254EBF"
 block|,
-literal|"1.	c #1F51C1"
+literal|"1. c #1F51C1"
 block|,
-literal|"2.	c #234FC0"
+literal|"2. c #234FC0"
 block|,
-literal|"3.	c #234FBF"
+literal|"3. c #234FBF"
 block|,
-literal|"4.	c #2350C0"
+literal|"4. c #2350C0"
 block|,
-literal|"5.	c #1E50BE"
+literal|"5. c #1E50BE"
 block|,
-literal|"6.	c #1D50C0"
+literal|"6. c #1D50C0"
 block|,
-literal|"7.	c #264DBE"
+literal|"7. c #264DBE"
 block|,
-literal|"8.	c #264CBD"
+literal|"8. c #264CBD"
 block|,
-literal|"9.	c #254DBE"
+literal|"9. c #254DBE"
 block|,
-literal|"0.	c #244EBF"
+literal|"0. c #244EBF"
 block|,
-literal|"a.	c #254DBF"
+literal|"a. c #254DBF"
 block|,
-literal|"b.	c #234CBF"
+literal|"b. c #234CBF"
 block|,
-literal|"c.	c #244CC0"
+literal|"c. c #244CC0"
 block|,
-literal|"d.	c #244BC0"
+literal|"d. c #244BC0"
 block|,
-literal|"e.	c #234BC0"
+literal|"e. c #234BC0"
 block|,
-literal|"f.	c #234BBF"
+literal|"f. c #234BBF"
 block|,
-literal|"g.	c #234CBE"
+literal|"g. c #234CBE"
 block|,
-literal|"h.	c #2049B7"
+literal|"h. c #2049B7"
 block|,
-literal|"i.	c #2A49B5"
+literal|"i. c #2A49B5"
 block|,
-literal|"j.	c #2749B5"
+literal|"j. c #2749B5"
 block|,
-literal|"k.	c #2749B6"
+literal|"k. c #2749B6"
 block|,
-literal|"l.	c #2D49B4"
+literal|"l. c #2D49B4"
 block|,
-literal|"m.	c #2649B6"
+literal|"m. c #2649B6"
 block|,
-literal|"n.	c #2946B5"
+literal|"n. c #2946B5"
 block|,
-literal|"o.	c #2A48B6"
+literal|"o. c #2A48B6"
 block|,
-literal|"p.	c #2947B5"
+literal|"p. c #2947B5"
 block|,
-literal|"q.	c #2946B6"
+literal|"q. c #2946B6"
 block|,
-literal|"r.	c #2848B6"
+literal|"r. c #2848B6"
 block|,
-literal|"s.	c #2549B5"
+literal|"s. c #2549B5"
 block|,
-literal|"t.	c #2648B6"
+literal|"t. c #2648B6"
 block|,
-literal|"u.	c #2744B5"
+literal|"u. c #2744B5"
 block|,
-literal|"v.	c #2744B4"
+literal|"v. c #2744B4"
 block|,
-literal|"w.	c #2744AF"
+literal|"w. c #2744AF"
 block|,
-literal|"x.	c #2543B4"
+literal|"x. c #2543B4"
 block|,
-literal|"y.	c #2543B2"
+literal|"y. c #2543B2"
 block|,
-literal|"z.	c #2442B2"
+literal|"z. c #2442B2"
 block|,
-literal|"A.	c #2442B3"
+literal|"A. c #2442B3"
 block|,
-literal|"B.	c #2442B5"
+literal|"B. c #2442B5"
 block|,
-literal|"C.	c #2543B3"
+literal|"C. c #2543B3"
 block|,
-literal|"D.	c #1F40B1"
+literal|"D. c #1F40B1"
 block|,
-literal|"E.	c #1E40B1"
+literal|"E. c #1E40B1"
 block|,
-literal|"F.	c #243EAE"
+literal|"F. c #243EAE"
 block|,
-literal|"G.	c #273BAC"
+literal|"G. c #273BAC"
 block|,
-literal|"H.	c #263DAC"
+literal|"H. c #263DAC"
 block|,
-literal|"I.	c #253CAB"
+literal|"I. c #253CAB"
 block|,
-literal|"J.	c #273CAB"
+literal|"J. c #273CAB"
 block|,
-literal|"K.	c #273CAC"
+literal|"K. c #273CAC"
 block|,
-literal|"L.	c #263BAA"
+literal|"L. c #263BAA"
 block|,
-literal|"M.	c #253CAE"
+literal|"M. c #253CAE"
 block|,
-literal|"N.	c #263BA6"
+literal|"N. c #263BA6"
 block|,
-literal|"O.	c #253BA5"
+literal|"O. c #253BA5"
 block|,
-literal|"P.	c #253AA5"
+literal|"P. c #253AA5"
 block|,
-literal|"Q.	c #253BA6"
+literal|"Q. c #253BA6"
 block|,
-literal|"R.	c #253CA7"
+literal|"R. c #253CA7"
 block|,
-literal|"S.	c #263AA6"
+literal|"S. c #263AA6"
 block|,
-literal|"T.	c #243CA6"
+literal|"T. c #243CA6"
 block|,
-literal|"U.	c #253CA5"
+literal|"U. c #253CA5"
 block|,
-literal|"V.	c #273BA8"
+literal|"V. c #273BA8"
 block|,
-literal|"W.	c #2F4DA4"
+literal|"W. c #2F4DA4"
 block|,
-literal|"X.	c #2F4DA3"
+literal|"X. c #2F4DA3"
 block|,
-literal|"Y.	c #1B2F85"
+literal|"Y. c #1B2F85"
 block|,
-literal|"Z.	c #B5B5B6"
+literal|"Z. c #B5B5B6"
 block|,
-literal|"`.	c #B5B5B5"
+literal|"`. c #B5B5B5"
 block|,
-literal|" +	c #B5B6B6"
+literal|" + c #B5B6B6"
 block|,
-literal|".+	c #B5B4B6"
+literal|".+ c #B5B4B6"
 block|,
-literal|"++	c #C2C3C5"
+literal|"++ c #C2C3C5"
 block|,
-literal|"@+	c #C0C3C3"
+literal|"@+ c #C0C3C3"
 block|,
-literal|"#+	c #C1C3C4"
+literal|"#+ c #C1C3C4"
 block|,
-literal|"$+	c #E3E3E3"
+literal|"$+ c #E3E3E3"
 block|,
-literal|"%+	c #E3E3E4"
+literal|"%+ c #E3E3E4"
 block|,
-literal|"&+	c #E4E3E4"
+literal|"&+ c #E4E3E4"
 block|,
-literal|"*+	c #E2E3E4"
+literal|"*+ c #E2E3E4"
 block|,
-literal|"=+	c #ECEEEB"
+literal|"=+ c #ECEEEB"
 block|,
-literal|"-+	c #EBEDEA"
+literal|"-+ c #EBEDEA"
 block|,
-literal|";+	c #EEF0ED"
+literal|";+ c #EEF0ED"
 block|,
-literal|">+	c #EFF0EE"
+literal|">+ c #EFF0EE"
 block|,
 literal|". + @ @ # # $ % "
 block|,
@@ -2926,2955 +2926,2955 @@ init|=
 block|{
 literal|"100 46 1475 2"
 block|,
-literal|"  	c None"
+literal|"   c None"
 block|,
-literal|". 	c #FBFBFC"
+literal|".  c #FBFBFC"
 block|,
-literal|"+ 	c #E8EAE7"
+literal|"+  c #E8EAE7"
 block|,
-literal|"@ 	c #758DC3"
+literal|"@  c #758DC3"
 block|,
-literal|"# 	c #42599E"
+literal|"#  c #42599E"
 block|,
-literal|"$ 	c #28418A"
+literal|"$  c #28418A"
 block|,
-literal|"% 	c #19418F"
+literal|"%  c #19418F"
 block|,
-literal|"& 	c #3F5695"
+literal|"&  c #3F5695"
 block|,
-literal|"* 	c #415896"
+literal|"*  c #415896"
 block|,
-literal|"= 	c #435A98"
+literal|"=  c #435A98"
 block|,
-literal|"- 	c #445C99"
+literal|"-  c #445C99"
 block|,
-literal|"; 	c #465E9B"
+literal|";  c #465E9B"
 block|,
-literal|"> 	c #48609B"
+literal|">  c #48609B"
 block|,
-literal|", 	c #49629C"
+literal|",  c #49629C"
 block|,
-literal|"' 	c #4A639D"
+literal|"'  c #4A639D"
 block|,
-literal|") 	c #49639D"
+literal|")  c #49639D"
 block|,
-literal|"! 	c #4A629D"
+literal|"!  c #4A629D"
 block|,
-literal|"~ 	c #4B639D"
+literal|"~  c #4B639D"
 block|,
-literal|"{ 	c #4B649D"
+literal|"{  c #4B649D"
 block|,
-literal|"] 	c #4C659D"
+literal|"]  c #4C659D"
 block|,
-literal|"^ 	c #4D669D"
+literal|"^  c #4D669D"
 block|,
-literal|"/ 	c #4E689D"
+literal|"/  c #4E689D"
 block|,
-literal|"( 	c #506A9D"
+literal|"(  c #506A9D"
 block|,
-literal|"_ 	c #516A9D"
+literal|"_  c #516A9D"
 block|,
-literal|": 	c #536B9C"
+literal|":  c #536B9C"
 block|,
-literal|"< 	c #546C9C"
+literal|"<  c #546C9C"
 block|,
-literal|"[ 	c #566D9B"
+literal|"[  c #566D9B"
 block|,
-literal|"} 	c #576D9B"
+literal|"}  c #576D9B"
 block|,
-literal|"| 	c #586E9C"
+literal|"|  c #586E9C"
 block|,
-literal|"1 	c #5B6F9D"
+literal|"1  c #5B6F9D"
 block|,
-literal|"2 	c #61739D"
+literal|"2  c #61739D"
 block|,
-literal|"3 	c #63749E"
+literal|"3  c #63749E"
 block|,
-literal|"4 	c #64749E"
+literal|"4  c #64749E"
 block|,
-literal|"5 	c #68769E"
+literal|"5  c #68769E"
 block|,
-literal|"6 	c #6A779E"
+literal|"6  c #6A779E"
 block|,
-literal|"7 	c #6B789E"
+literal|"7  c #6B789E"
 block|,
-literal|"8 	c #66759E"
+literal|"8  c #66759E"
 block|,
-literal|"9 	c #6C789D"
+literal|"9  c #6C789D"
 block|,
-literal|"0 	c #EEF0ED"
+literal|"0  c #EEF0ED"
 block|,
-literal|"a 	c #D0D3DC"
+literal|"a  c #D0D3DC"
 block|,
-literal|"b 	c #3E51A3"
+literal|"b  c #3E51A3"
 block|,
-literal|"c 	c #28428B"
+literal|"c  c #28428B"
 block|,
-literal|"d 	c #29428C"
+literal|"d  c #29428C"
 block|,
-literal|"e 	c #425996"
+literal|"e  c #425996"
 block|,
-literal|"f 	c #455C99"
+literal|"f  c #455C99"
 block|,
-literal|"g 	c #485F9C"
+literal|"g  c #485F9C"
 block|,
-literal|"h 	c #49619E"
+literal|"h  c #49619E"
 block|,
-literal|"i 	c #4A63A0"
+literal|"i  c #4A63A0"
 block|,
-literal|"j 	c #4B64A1"
+literal|"j  c #4B64A1"
 block|,
-literal|"k 	c #4B65A1"
+literal|"k  c #4B65A1"
 block|,
-literal|"l 	c #4C66A2"
+literal|"l  c #4C66A2"
 block|,
-literal|"m 	c #4D67A2"
+literal|"m  c #4D67A2"
 block|,
-literal|"n 	c #4F69A1"
+literal|"n  c #4F69A1"
 block|,
-literal|"o 	c #516AA1"
+literal|"o  c #516AA1"
 block|,
-literal|"p 	c #536CA0"
+literal|"p  c #536CA0"
 block|,
-literal|"q 	c #556DA1"
+literal|"q  c #556DA1"
 block|,
-literal|"r 	c #576EA0"
+literal|"r  c #576EA0"
 block|,
-literal|"s 	c #586F9F"
+literal|"s  c #586F9F"
 block|,
-literal|"t 	c #586E9F"
+literal|"t  c #586E9F"
 block|,
-literal|"u 	c #596F9E"
+literal|"u  c #596F9E"
 block|,
-literal|"v 	c #5A6F9E"
+literal|"v  c #5A6F9E"
 block|,
-literal|"w 	c #5C709E"
+literal|"w  c #5C709E"
 block|,
-literal|"x 	c #5E719E"
+literal|"x  c #5E719E"
 block|,
-literal|"y 	c #5F729F"
+literal|"y  c #5F729F"
 block|,
-literal|"z 	c #62739F"
+literal|"z  c #62739F"
 block|,
-literal|"A 	c #63739E"
+literal|"A  c #63739E"
 block|,
-literal|"B 	c #64749D"
+literal|"B  c #64749D"
 block|,
-literal|"C 	c #65749E"
+literal|"C  c #65749E"
 block|,
-literal|"D 	c #69769D"
+literal|"D  c #69769D"
 block|,
-literal|"E 	c #6C799E"
+literal|"E  c #6C799E"
 block|,
-literal|"F 	c #6D799F"
+literal|"F  c #6D799F"
 block|,
-literal|"G 	c #707D9F"
+literal|"G  c #707D9F"
 block|,
-literal|"H 	c #717F9E"
+literal|"H  c #717F9E"
 block|,
-literal|"I 	c #6E7AA1"
+literal|"I  c #6E7AA1"
 block|,
-literal|"J 	c #6C789E"
+literal|"J  c #6C789E"
 block|,
-literal|"K 	c #6F7C9C"
+literal|"K  c #6F7C9C"
 block|,
-literal|"L 	c #6F7D9B"
+literal|"L  c #6F7D9B"
 block|,
-literal|"M 	c #2A4AA0"
+literal|"M  c #2A4AA0"
 block|,
-literal|"N 	c #4971D0"
+literal|"N  c #4971D0"
 block|,
-literal|"O 	c #4C72D8"
+literal|"O  c #4C72D8"
 block|,
-literal|"P 	c #5472C0"
+literal|"P  c #5472C0"
 block|,
-literal|"Q 	c #5573BF"
+literal|"Q  c #5573BF"
 block|,
-literal|"R 	c #5774BF"
+literal|"R  c #5774BF"
 block|,
-literal|"S 	c #5875BF"
+literal|"S  c #5875BF"
 block|,
-literal|"T 	c #5976C1"
+literal|"T  c #5976C1"
 block|,
-literal|"U 	c #5A76C1"
+literal|"U  c #5A76C1"
 block|,
-literal|"V 	c #5C78C2"
+literal|"V  c #5C78C2"
 block|,
-literal|"W 	c #5E7AC2"
+literal|"W  c #5E7AC2"
 block|,
-literal|"X 	c #607CC3"
+literal|"X  c #607CC3"
 block|,
-literal|"Y 	c #627EC3"
+literal|"Y  c #627EC3"
 block|,
-literal|"Z 	c #637FC4"
+literal|"Z  c #637FC4"
 block|,
-literal|"` 	c #6581C5"
+literal|"`  c #6581C5"
 block|,
-literal|" .	c #6682C6"
+literal|" . c #6682C6"
 block|,
-literal|"..	c #6783C7"
+literal|".. c #6783C7"
 block|,
-literal|"+.	c #6984C8"
+literal|"+. c #6984C8"
 block|,
-literal|"@.	c #6B85C9"
+literal|"@. c #6B85C9"
 block|,
-literal|"#.	c #6D87CA"
+literal|"#. c #6D87CA"
 block|,
-literal|"$.	c #6F89CB"
+literal|"$. c #6F89CB"
 block|,
-literal|"%.	c #718CCD"
+literal|"%. c #718CCD"
 block|,
-literal|"&.	c #748ECF"
+literal|"&. c #748ECF"
 block|,
-literal|"*.	c #7690D0"
+literal|"*. c #7690D0"
 block|,
-literal|"=.	c #7992D2"
+literal|"=. c #7992D2"
 block|,
-literal|"-.	c #7A93D3"
+literal|"-. c #7A93D3"
 block|,
-literal|";.	c #7C95D5"
+literal|";. c #7C95D5"
 block|,
-literal|">.	c #7F98D7"
+literal|">. c #7F98D7"
 block|,
-literal|",.	c #8099D8"
+literal|",. c #8099D8"
 block|,
-literal|"'.	c #859CDB"
+literal|"'. c #859CDB"
 block|,
-literal|").	c #8AA0DD"
+literal|"). c #8AA0DD"
 block|,
-literal|"!.	c #8DA3DF"
+literal|"!. c #8DA3DF"
 block|,
-literal|"~.	c #8FA5E0"
+literal|"~. c #8FA5E0"
 block|,
-literal|"{.	c #90A5E0"
+literal|"{. c #90A5E0"
 block|,
-literal|"].	c #91A6E1"
+literal|"]. c #91A6E1"
 block|,
-literal|"^.	c #91A5E1"
+literal|"^. c #91A5E1"
 block|,
-literal|"/.	c #90A4E0"
+literal|"/. c #90A4E0"
 block|,
-literal|"(.	c #8EA3DE"
+literal|"(. c #8EA3DE"
 block|,
-literal|"_.	c #92A6E2"
+literal|"_. c #92A6E2"
 block|,
-literal|":.	c #8FA4DF"
+literal|":. c #8FA4DF"
 block|,
-literal|"<.	c #90A5DE"
+literal|"<. c #90A5DE"
 block|,
-literal|"[.	c #90A5DC"
+literal|"[. c #90A5DC"
 block|,
-literal|"}.	c #90A6DB"
+literal|"}. c #90A6DB"
 block|,
-literal|"|.	c #91A6E0"
+literal|"|. c #91A6E0"
 block|,
-literal|"1.	c #93A7E2"
+literal|"1. c #93A7E2"
 block|,
-literal|"2.	c #95AAE6"
+literal|"2. c #95AAE6"
 block|,
-literal|"3.	c #99AEEA"
+literal|"3. c #99AEEA"
 block|,
-literal|"4.	c #9AB2EA"
+literal|"4. c #9AB2EA"
 block|,
-literal|"5.	c #99B1E9"
+literal|"5. c #99B1E9"
 block|,
-literal|"6.	c #99B1E7"
+literal|"6. c #99B1E7"
 block|,
-literal|"7.	c #98AFE6"
+literal|"7. c #98AFE6"
 block|,
-literal|"8.	c #93A8E2"
+literal|"8. c #93A8E2"
 block|,
-literal|"9.	c #97ACE7"
+literal|"9. c #97ACE7"
 block|,
-literal|"0.	c #9AB3EB"
+literal|"0. c #9AB3EB"
 block|,
-literal|"a.	c #9DB5ED"
+literal|"a. c #9DB5ED"
 block|,
-literal|"b.	c #9DB6EE"
+literal|"b. c #9DB6EE"
 block|,
-literal|"c.	c #375095"
+literal|"c. c #375095"
 block|,
-literal|"d.	c #4056AD"
+literal|"d. c #4056AD"
 block|,
-literal|"e.	c #506DCD"
+literal|"e. c #506DCD"
 block|,
-literal|"f.	c #4360CC"
+literal|"f. c #4360CC"
 block|,
-literal|"g.	c #345ED6"
+literal|"g. c #345ED6"
 block|,
-literal|"h.	c #335ECF"
+literal|"h. c #335ECF"
 block|,
-literal|"i.	c #355ED6"
+literal|"i. c #355ED6"
 block|,
-literal|"j.	c #355FD6"
+literal|"j. c #355FD6"
 block|,
-literal|"k.	c #365FD6"
+literal|"k. c #365FD6"
 block|,
-literal|"l.	c #355FD0"
+literal|"l. c #355FD0"
 block|,
-literal|"m.	c #3760D5"
+literal|"m. c #3760D5"
 block|,
-literal|"n.	c #3A63D4"
+literal|"n. c #3A63D4"
 block|,
-literal|"o.	c #3C63D1"
+literal|"o. c #3C63D1"
 block|,
-literal|"p.	c #3B63CD"
+literal|"p. c #3B63CD"
 block|,
-literal|"q.	c #3B63C9"
+literal|"q. c #3B63C9"
 block|,
-literal|"r.	c #3B62C9"
+literal|"r. c #3B62C9"
 block|,
-literal|"s.	c #3D63C8"
+literal|"s. c #3D63C8"
 block|,
-literal|"t.	c #4065C5"
+literal|"t. c #4065C5"
 block|,
-literal|"u.	c #4567C5"
+literal|"u. c #4567C5"
 block|,
-literal|"v.	c #496BC5"
+literal|"v. c #496BC5"
 block|,
-literal|"w.	c #4F70C7"
+literal|"w. c #4F70C7"
 block|,
-literal|"x.	c #5273C8"
+literal|"x. c #5273C8"
 block|,
-literal|"y.	c #5475CA"
+literal|"y. c #5475CA"
 block|,
-literal|"z.	c #5777CB"
+literal|"z. c #5777CB"
 block|,
-literal|"A.	c #5879CD"
+literal|"A. c #5879CD"
 block|,
-literal|"B.	c #5A7BCE"
+literal|"B. c #5A7BCE"
 block|,
-literal|"C.	c #5D7DCF"
+literal|"C. c #5D7DCF"
 block|,
-literal|"D.	c #5F7ECF"
+literal|"D. c #5F7ECF"
 block|,
-literal|"E.	c #617FD0"
+literal|"E. c #617FD0"
 block|,
-literal|"F.	c #6381D1"
+literal|"F. c #6381D1"
 block|,
-literal|"G.	c #6583D2"
+literal|"G. c #6583D2"
 block|,
-literal|"H.	c #6785D2"
+literal|"H. c #6785D2"
 block|,
-literal|"I.	c #6886D3"
+literal|"I. c #6886D3"
 block|,
-literal|"J.	c #6A88D4"
+literal|"J. c #6A88D4"
 block|,
-literal|"K.	c #6C89D5"
+literal|"K. c #6C89D5"
 block|,
-literal|"L.	c #6E8BD6"
+literal|"L. c #6E8BD6"
 block|,
-literal|"M.	c #708CD7"
+literal|"M. c #708CD7"
 block|,
-literal|"N.	c #718DD8"
+literal|"N. c #718DD8"
 block|,
-literal|"O.	c #738EDA"
+literal|"O. c #738EDA"
 block|,
-literal|"P.	c #748FDB"
+literal|"P. c #748FDB"
 block|,
-literal|"Q.	c #7691DC"
+literal|"Q. c #7691DC"
 block|,
-literal|"R.	c #7893DD"
+literal|"R. c #7893DD"
 block|,
-literal|"S.	c #7994DD"
+literal|"S. c #7994DD"
 block|,
-literal|"T.	c #7A96DE"
+literal|"T. c #7A96DE"
 block|,
-literal|"U.	c #7B97DF"
+literal|"U. c #7B97DF"
 block|,
-literal|"V.	c #7C98E0"
+literal|"V. c #7C98E0"
 block|,
-literal|"W.	c #7E9AE2"
+literal|"W. c #7E9AE2"
 block|,
-literal|"X.	c #7F9BE3"
+literal|"X. c #7F9BE3"
 block|,
-literal|"Y.	c #829DE4"
+literal|"Y. c #829DE4"
 block|,
-literal|"Z.	c #849FE5"
+literal|"Z. c #849FE5"
 block|,
-literal|"`.	c #87A0E6"
+literal|"`. c #87A0E6"
 block|,
-literal|" +	c #88A1E7"
+literal|" + c #88A1E7"
 block|,
-literal|".+	c #89A2E6"
+literal|".+ c #89A2E6"
 block|,
-literal|"++	c #8CA3E7"
+literal|"++ c #8CA3E7"
 block|,
-literal|"@+	c #8EA5E9"
+literal|"@+ c #8EA5E9"
 block|,
-literal|"#+	c #8EA6E9"
+literal|"#+ c #8EA6E9"
 block|,
-literal|"$+	c #8FA7E9"
+literal|"$+ c #8FA7E9"
 block|,
-literal|"%+	c #8FA8E8"
+literal|"%+ c #8FA8E8"
 block|,
-literal|"&+	c #8FA9E8"
+literal|"&+ c #8FA9E8"
 block|,
-literal|"*+	c #91A9E8"
+literal|"*+ c #91A9E8"
 block|,
-literal|"=+	c #90A7E8"
+literal|"=+ c #90A7E8"
 block|,
-literal|"-+	c #8FA8EA"
+literal|"-+ c #8FA8EA"
 block|,
-literal|";+	c #90AAEA"
+literal|";+ c #90AAEA"
 block|,
-literal|">+	c #93ABEA"
+literal|">+ c #93ABEA"
 block|,
-literal|",+	c #95ABEA"
+literal|",+ c #95ABEA"
 block|,
-literal|"'+	c #93ABE9"
+literal|"'+ c #93ABE9"
 block|,
-literal|")+	c #94ABEA"
+literal|")+ c #94ABEA"
 block|,
-literal|"!+	c #90A9EA"
+literal|"!+ c #90A9EA"
 block|,
-literal|"~+	c #93AAE9"
+literal|"~+ c #93AAE9"
 block|,
-literal|"{+	c #273E7E"
+literal|"{+ c #273E7E"
 block|,
-literal|"]+	c #345ED5"
+literal|"]+ c #345ED5"
 block|,
-literal|"^+	c #3D60CE"
+literal|"^+ c #3D60CE"
 block|,
-literal|"/+	c #3D60CF"
+literal|"/+ c #3D60CF"
 block|,
-literal|"(+	c #345ECF"
+literal|"(+ c #345ECF"
 block|,
-literal|"_+	c #335ED0"
+literal|"_+ c #335ED0"
 block|,
-literal|":+	c #355FD3"
+literal|":+ c #355FD3"
 block|,
-literal|"<+	c #3A60CE"
+literal|"<+ c #3A60CE"
 block|,
-literal|"[+	c #3A5FCB"
+literal|"[+ c #3A5FCB"
 block|,
-literal|"}+	c #385FC9"
+literal|"}+ c #385FC9"
 block|,
-literal|"|+	c #3B60C8"
+literal|"|+ c #3B60C8"
 block|,
-literal|"1+	c #3C63CB"
+literal|"1+ c #3C63CB"
 block|,
-literal|"2+	c #3E64CB"
+literal|"2+ c #3E64CB"
 block|,
-literal|"3+	c #4166CA"
+literal|"3+ c #4166CA"
 block|,
-literal|"4+	c #4568C9"
+literal|"4+ c #4568C9"
 block|,
-literal|"5+	c #4A6CC7"
+literal|"5+ c #4A6CC7"
 block|,
-literal|"6+	c #4F71C8"
+literal|"6+ c #4F71C8"
 block|,
-literal|"7+	c #5172CA"
+literal|"7+ c #5172CA"
 block|,
-literal|"8+	c #5475CE"
+literal|"8+ c #5475CE"
 block|,
-literal|"9+	c #5678D3"
+literal|"9+ c #5678D3"
 block|,
-literal|"0+	c #597CD6"
+literal|"0+ c #597CD6"
 block|,
-literal|"a+	c #5C7ED7"
+literal|"a+ c #5C7ED7"
 block|,
-literal|"b+	c #5E7FD8"
+literal|"b+ c #5E7FD8"
 block|,
-literal|"c+	c #6181D9"
+literal|"c+ c #6181D9"
 block|,
-literal|"d+	c #6383DA"
+literal|"d+ c #6383DA"
 block|,
-literal|"e+	c #6585DA"
+literal|"e+ c #6585DA"
 block|,
-literal|"f+	c #6786DB"
+literal|"f+ c #6786DB"
 block|,
-literal|"g+	c #6988DC"
+literal|"g+ c #6988DC"
 block|,
-literal|"h+	c #6B8ADD"
+literal|"h+ c #6B8ADD"
 block|,
-literal|"i+	c #6D8BDE"
+literal|"i+ c #6D8BDE"
 block|,
-literal|"j+	c #6F8DDE"
+literal|"j+ c #6F8DDE"
 block|,
-literal|"k+	c #718EDF"
+literal|"k+ c #718EDF"
 block|,
-literal|"l+	c #728FE0"
+literal|"l+ c #728FE0"
 block|,
-literal|"m+	c #7390E1"
+literal|"m+ c #7390E1"
 block|,
-literal|"n+	c #7390E2"
+literal|"n+ c #7390E2"
 block|,
-literal|"o+	c #7491E3"
+literal|"o+ c #7491E3"
 block|,
-literal|"p+	c #7592E4"
+literal|"p+ c #7592E4"
 block|,
-literal|"q+	c #7693E4"
+literal|"q+ c #7693E4"
 block|,
-literal|"r+	c #7794E5"
+literal|"r+ c #7794E5"
 block|,
-literal|"s+	c #7894E5"
+literal|"s+ c #7894E5"
 block|,
-literal|"t+	c #7995E6"
+literal|"t+ c #7995E6"
 block|,
-literal|"u+	c #7B96E6"
+literal|"u+ c #7B96E6"
 block|,
-literal|"v+	c #7C97E7"
+literal|"v+ c #7C97E7"
 block|,
-literal|"w+	c #7D9AE8"
+literal|"w+ c #7D9AE8"
 block|,
-literal|"x+	c #7F9CE9"
+literal|"x+ c #7F9CE9"
 block|,
-literal|"y+	c #829DE9"
+literal|"y+ c #829DE9"
 block|,
-literal|"z+	c #849EE9"
+literal|"z+ c #849EE9"
 block|,
-literal|"A+	c #859EE9"
+literal|"A+ c #859EE9"
 block|,
-literal|"B+	c #87A0E7"
+literal|"B+ c #87A0E7"
 block|,
-literal|"C+	c #8AA2E7"
+literal|"C+ c #8AA2E7"
 block|,
-literal|"D+	c #8BA3E8"
+literal|"D+ c #8BA3E8"
 block|,
-literal|"E+	c #89A2E7"
+literal|"E+ c #89A2E7"
 block|,
-literal|"F+	c #8CA6EA"
+literal|"F+ c #8CA6EA"
 block|,
-literal|"G+	c #8BA6EA"
+literal|"G+ c #8BA6EA"
 block|,
-literal|"H+	c #8BA7EA"
+literal|"H+ c #8BA7EA"
 block|,
-literal|"I+	c #8CA3E8"
+literal|"I+ c #8CA3E8"
 block|,
-literal|"J+	c #8BA8EA"
+literal|"J+ c #8BA8EA"
 block|,
-literal|"K+	c #8CA7EA"
+literal|"K+ c #8CA7EA"
 block|,
-literal|"L+	c #8CA8EA"
+literal|"L+ c #8CA8EA"
 block|,
-literal|"M+	c #4659C7"
+literal|"M+ c #4659C7"
 block|,
-literal|"N+	c #355ECF"
+literal|"N+ c #355ECF"
 block|,
-literal|"O+	c #3660CF"
+literal|"O+ c #3660CF"
 block|,
-literal|"P+	c #3860CE"
+literal|"P+ c #3860CE"
 block|,
-literal|"Q+	c #3961CD"
+literal|"Q+ c #3961CD"
 block|,
-literal|"R+	c #3B61CB"
+literal|"R+ c #3B61CB"
 block|,
-literal|"S+	c #3B61CA"
+literal|"S+ c #3B61CA"
 block|,
-literal|"T+	c #3D62CA"
+literal|"T+ c #3D62CA"
 block|,
-literal|"U+	c #3D63CA"
+literal|"U+ c #3D63CA"
 block|,
-literal|"V+	c #4165CB"
+literal|"V+ c #4165CB"
 block|,
-literal|"W+	c #456ACB"
+literal|"W+ c #456ACB"
 block|,
-literal|"X+	c #4B6FCD"
+literal|"X+ c #4B6FCD"
 block|,
-literal|"Y+	c #5174CE"
+literal|"Y+ c #5174CE"
 block|,
-literal|"Z+	c #5275D1"
+literal|"Z+ c #5275D1"
 block|,
-literal|"`+	c #5477D4"
+literal|"`+ c #5477D4"
 block|,
-literal|" @	c #5678D9"
+literal|" @ c #5678D9"
 block|,
-literal|".@	c #587ADB"
+literal|".@ c #587ADB"
 block|,
-literal|"+@	c #597BDB"
+literal|"+@ c #597BDB"
 block|,
-literal|"@@	c #5B7DDC"
+literal|"@@ c #5B7DDC"
 block|,
-literal|"#@	c #5E7FDC"
+literal|"#@ c #5E7FDC"
 block|,
-literal|"$@	c #6081DD"
+literal|"$@ c #6081DD"
 block|,
-literal|"%@	c #6283DE"
+literal|"%@ c #6283DE"
 block|,
-literal|"&@	c #6484DF"
+literal|"&@ c #6484DF"
 block|,
-literal|"*@	c #6787E0"
+literal|"*@ c #6787E0"
 block|,
-literal|"=@	c #6989E1"
+literal|"=@ c #6989E1"
 block|,
-literal|"-@	c #6B8BE1"
+literal|"-@ c #6B8BE1"
 block|,
-literal|";@	c #6D8DE2"
+literal|";@ c #6D8DE2"
 block|,
-literal|">@	c #6F8EE3"
+literal|">@ c #6F8EE3"
 block|,
-literal|",@	c #718FE4"
+literal|",@ c #718FE4"
 block|,
-literal|"'@	c #7290E4"
+literal|"'@ c #7290E4"
 block|,
-literal|")@	c #7491E5"
+literal|")@ c #7491E5"
 block|,
-literal|"!@	c #7692E6"
+literal|"!@ c #7692E6"
 block|,
-literal|"~@	c #7793E5"
+literal|"~@ c #7793E5"
 block|,
-literal|"{@	c #7894E6"
+literal|"{@ c #7894E6"
 block|,
-literal|"]@	c #7895E7"
+literal|"]@ c #7895E7"
 block|,
-literal|"^@	c #7996E8"
+literal|"^@ c #7996E8"
 block|,
-literal|"/@	c #7A97E8"
+literal|"/@ c #7A97E8"
 block|,
-literal|"(@	c #7B98E9"
+literal|"(@ c #7B98E9"
 block|,
-literal|"_@	c #7D99E8"
+literal|"_@ c #7D99E8"
 block|,
-literal|":@	c #7F9AE8"
+literal|":@ c #7F9AE8"
 block|,
-literal|"<@	c #7F9BE9"
+literal|"<@ c #7F9BE9"
 block|,
-literal|"[@	c #7F9CEA"
+literal|"[@ c #7F9CEA"
 block|,
-literal|"}@	c #859EE8"
+literal|"}@ c #859EE8"
 block|,
-literal|"|@	c #859FE8"
+literal|"|@ c #859FE8"
 block|,
-literal|"1@	c #85A0E9"
+literal|"1@ c #85A0E9"
 block|,
-literal|"2@	c #869FE9"
+literal|"2@ c #869FE9"
 block|,
-literal|"3@	c #86A1E7"
+literal|"3@ c #86A1E7"
 block|,
-literal|"4@	c #86A0E9"
+literal|"4@ c #86A0E9"
 block|,
-literal|"5@	c #87A1E7"
+literal|"5@ c #87A1E7"
 block|,
-literal|"6@	c #88A2E7"
+literal|"6@ c #88A2E7"
 block|,
-literal|"7@	c #87A1E9"
+literal|"7@ c #87A1E9"
 block|,
-literal|"8@	c #5A6FCA"
+literal|"8@ c #5A6FCA"
 block|,
-literal|"9@	c #365FCF"
+literal|"9@ c #365FCF"
 block|,
-literal|"0@	c #345ED0"
+literal|"0@ c #345ED0"
 block|,
-literal|"a@	c #385FCC"
+literal|"a@ c #385FCC"
 block|,
-literal|"b@	c #385FCE"
+literal|"b@ c #385FCE"
 block|,
-literal|"c@	c #3A61CC"
+literal|"c@ c #3A61CC"
 block|,
-literal|"d@	c #3B62CD"
+literal|"d@ c #3B62CD"
 block|,
-literal|"e@	c #3E64CD"
+literal|"e@ c #3E64CD"
 block|,
-literal|"f@	c #4167CF"
+literal|"f@ c #4167CF"
 block|,
-literal|"g@	c #4469CF"
+literal|"g@ c #4469CF"
 block|,
-literal|"h@	c #486CD1"
+literal|"h@ c #486CD1"
 block|,
-literal|"i@	c #4D71D2"
+literal|"i@ c #4D71D2"
 block|,
-literal|"j@	c #5175D4"
+literal|"j@ c #5175D4"
 block|,
-literal|"k@	c #5376D6"
+literal|"k@ c #5376D6"
 block|,
-literal|"l@	c #5578DA"
+literal|"l@ c #5578DA"
 block|,
-literal|"m@	c #5679DC"
+literal|"m@ c #5679DC"
 block|,
-literal|"n@	c #587BDD"
+literal|"n@ c #587BDD"
 block|,
-literal|"o@	c #5A7DDE"
+literal|"o@ c #5A7DDE"
 block|,
-literal|"p@	c #5D80DE"
+literal|"p@ c #5D80DE"
 block|,
-literal|"q@	c #5F82DF"
+literal|"q@ c #5F82DF"
 block|,
-literal|"r@	c #6284DF"
+literal|"r@ c #6284DF"
 block|,
-literal|"s@	c #6585E0"
+literal|"s@ c #6585E0"
 block|,
-literal|"t@	c #6787E1"
+literal|"t@ c #6787E1"
 block|,
-literal|"u@	c #6988E2"
+literal|"u@ c #6988E2"
 block|,
-literal|"v@	c #6B8AE2"
+literal|"v@ c #6B8AE2"
 block|,
-literal|"w@	c #6D8CE3"
+literal|"w@ c #6D8CE3"
 block|,
-literal|"x@	c #6E8DE3"
+literal|"x@ c #6E8DE3"
 block|,
-literal|"y@	c #708EE4"
+literal|"y@ c #708EE4"
 block|,
-literal|"z@	c #718FE3"
+literal|"z@ c #718FE3"
 block|,
-literal|"A@	c #7391E4"
+literal|"A@ c #7391E4"
 block|,
-literal|"B@	c #7592E5"
+literal|"B@ c #7592E5"
 block|,
-literal|"C@	c #7895E5"
+literal|"C@ c #7895E5"
 block|,
-literal|"D@	c #7996E6"
+literal|"D@ c #7996E6"
 block|,
-literal|"E@	c #7A97E6"
+literal|"E@ c #7A97E6"
 block|,
-literal|"F@	c #7B98E7"
+literal|"F@ c #7B98E7"
 block|,
-literal|"G@	c #7A98E8"
+literal|"G@ c #7A98E8"
 block|,
-literal|"H@	c #7B99E9"
+literal|"H@ c #7B99E9"
 block|,
-literal|"I@	c #7E9AE9"
+literal|"I@ c #7E9AE9"
 block|,
-literal|"J@	c #7D9AE9"
+literal|"J@ c #7D9AE9"
 block|,
-literal|"K@	c #7E9AEA"
+literal|"K@ c #7E9AEA"
 block|,
-literal|"L@	c #809CE9"
+literal|"L@ c #809CE9"
 block|,
-literal|"M@	c #819DE8"
+literal|"M@ c #819DE8"
 block|,
-literal|"N@	c #7F9BEA"
+literal|"N@ c #7F9BEA"
 block|,
-literal|"O@	c #819DE9"
+literal|"O@ c #819DE9"
 block|,
-literal|"P@	c #819CE9"
+literal|"P@ c #819CE9"
 block|,
-literal|"Q@	c #839EE9"
+literal|"Q@ c #839EE9"
 block|,
-literal|"R@	c #839EE8"
+literal|"R@ c #839EE8"
 block|,
-literal|"S@	c #839DEA"
+literal|"S@ c #839DEA"
 block|,
-literal|"T@	c #859FE9"
+literal|"T@ c #859FE9"
 block|,
-literal|"U@	c #87A0E8"
+literal|"U@ c #87A0E8"
 block|,
-literal|"V@	c #86A0E8"
+literal|"V@ c #86A0E8"
 block|,
-literal|"W@	c #87A1E8"
+literal|"W@ c #87A1E8"
 block|,
-literal|"X@	c #3760CF"
+literal|"X@ c #3760CF"
 block|,
-literal|"Y@	c #3A61CE"
+literal|"Y@ c #3A61CE"
 block|,
-literal|"Z@	c #3A62CD"
+literal|"Z@ c #3A62CD"
 block|,
-literal|"`@	c #3F66CE"
+literal|"`@ c #3F66CE"
 block|,
-literal|" #	c #4368D0"
+literal|" # c #4368D0"
 block|,
-literal|".#	c #466CD2"
+literal|".# c #466CD2"
 block|,
-literal|"+#	c #496DD5"
+literal|"+# c #496DD5"
 block|,
-literal|"@#	c #4E72D6"
+literal|"@# c #4E72D6"
 block|,
-literal|"##	c #5175D8"
+literal|"## c #5175D8"
 block|,
-literal|"$#	c #5276DA"
+literal|"$# c #5276DA"
 block|,
-literal|"%#	c #5578DC"
+literal|"%# c #5578DC"
 block|,
-literal|"&#	c #577ADC"
+literal|"&# c #577ADC"
 block|,
-literal|"*#	c #597CDD"
+literal|"*# c #597CDD"
 block|,
-literal|"=#	c #5B7DDD"
+literal|"=# c #5B7DDD"
 block|,
-literal|"-#	c #5D7FDE"
+literal|"-# c #5D7FDE"
 block|,
-literal|";#	c #5E81DE"
+literal|";# c #5E81DE"
 block|,
-literal|">#	c #6183DF"
+literal|"># c #6183DF"
 block|,
-literal|",#	c #6386DF"
+literal|",# c #6386DF"
 block|,
-literal|"'#	c #6687E0"
+literal|"'# c #6687E0"
 block|,
-literal|")#	c #6888E0"
+literal|")# c #6888E0"
 block|,
-literal|"!#	c #6A89E1"
+literal|"!# c #6A89E1"
 block|,
-literal|"~#	c #6C8AE1"
+literal|"~# c #6C8AE1"
 block|,
-literal|"{#	c #6E8CE2"
+literal|"{# c #6E8CE2"
 block|,
-literal|"]#	c #6F8DE2"
+literal|"]# c #6F8DE2"
 block|,
-literal|"^#	c #7390E4"
+literal|"^# c #7390E4"
 block|,
-literal|"/#	c #7390E3"
+literal|"/# c #7390E3"
 block|,
-literal|"(#	c #7491E4"
+literal|"(# c #7491E4"
 block|,
-literal|"_#	c #7693E5"
+literal|"_# c #7693E5"
 block|,
-literal|":#	c #7895E6"
+literal|":# c #7895E6"
 block|,
-literal|"<#	c #7896E6"
+literal|"<# c #7896E6"
 block|,
-literal|"[#	c #7997E7"
+literal|"[# c #7997E7"
 block|,
-literal|"}#	c #7B97E7"
+literal|"}# c #7B97E7"
 block|,
-literal|"|#	c #7B98E8"
+literal|"|# c #7B98E8"
 block|,
-literal|"1#	c #7C98E8"
+literal|"1# c #7C98E8"
 block|,
-literal|"2#	c #7E9BE9"
+literal|"2# c #7E9BE9"
 block|,
-literal|"3#	c #809CEA"
+literal|"3# c #809CEA"
 block|,
-literal|"4#	c #819CEA"
+literal|"4# c #819CEA"
 block|,
-literal|"5#	c #839DE9"
+literal|"5# c #839DE9"
 block|,
-literal|"6#	c #365FD0"
+literal|"6# c #365FD0"
 block|,
-literal|"7#	c #3660D0"
+literal|"7# c #3660D0"
 block|,
-literal|"8#	c #3961CF"
+literal|"8# c #3961CF"
 block|,
-literal|"9#	c #3B63CF"
+literal|"9# c #3B63CF"
 block|,
-literal|"0#	c #3D64D0"
+literal|"0# c #3D64D0"
 block|,
-literal|"a#	c #4067D0"
+literal|"a# c #4067D0"
 block|,
-literal|"b#	c #4469D2"
+literal|"b# c #4469D2"
 block|,
-literal|"c#	c #466BD3"
+literal|"c# c #466BD3"
 block|,
-literal|"d#	c #496ED5"
+literal|"d# c #496ED5"
 block|,
-literal|"e#	c #4C71D6"
+literal|"e# c #4C71D6"
 block|,
-literal|"f#	c #4E72D8"
+literal|"f# c #4E72D8"
 block|,
-literal|"g#	c #5074D9"
+literal|"g# c #5074D9"
 block|,
-literal|"h#	c #5376DB"
+literal|"h# c #5376DB"
 block|,
-literal|"i#	c #5578DB"
+literal|"i# c #5578DB"
 block|,
-literal|"j#	c #587ADC"
+literal|"j# c #587ADC"
 block|,
-literal|"k#	c #5B7CDC"
+literal|"k# c #5B7CDC"
 block|,
-literal|"l#	c #5D7EDD"
+literal|"l# c #5D7EDD"
 block|,
-literal|"m#	c #5F80DD"
+literal|"m# c #5F80DD"
 block|,
-literal|"n#	c #6081DE"
+literal|"n# c #6081DE"
 block|,
-literal|"o#	c #6383DE"
+literal|"o# c #6383DE"
 block|,
-literal|"p#	c #6686DF"
+literal|"p# c #6686DF"
 block|,
-literal|"q#	c #6887E0"
+literal|"q# c #6887E0"
 block|,
-literal|"r#	c #6988E0"
+literal|"r# c #6988E0"
 block|,
-literal|"s#	c #6B89E1"
+literal|"s# c #6B89E1"
 block|,
-literal|"t#	c #6C8AE0"
+literal|"t# c #6C8AE0"
 block|,
-literal|"u#	c #6E8CE1"
+literal|"u# c #6E8CE1"
 block|,
-literal|"v#	c #708EE2"
+literal|"v# c #708EE2"
 block|,
-literal|"w#	c #718FE2"
+literal|"w# c #718FE2"
 block|,
-literal|"x#	c #7290E3"
+literal|"x# c #7290E3"
 block|,
-literal|"y#	c #7391E2"
+literal|"y# c #7391E2"
 block|,
-literal|"z#	c #7492E1"
+literal|"z# c #7492E1"
 block|,
-literal|"A#	c #7592E2"
+literal|"A# c #7592E2"
 block|,
-literal|"B#	c #7691E3"
+literal|"B# c #7691E3"
 block|,
-literal|"C#	c #7591E3"
+literal|"C# c #7591E3"
 block|,
-literal|"D#	c #7692E3"
+literal|"D# c #7692E3"
 block|,
-literal|"E#	c #7693E3"
+literal|"E# c #7693E3"
 block|,
-literal|"F#	c #7793E4"
+literal|"F# c #7793E4"
 block|,
-literal|"G#	c #7893E4"
+literal|"G# c #7893E4"
 block|,
-literal|"H#	c #7994E5"
+literal|"H# c #7994E5"
 block|,
-literal|"I#	c #7D97E8"
+literal|"I# c #7D97E8"
 block|,
-literal|"J#	c #7E98E8"
+literal|"J# c #7E98E8"
 block|,
-literal|"K#	c #7D98E8"
+literal|"K# c #7D98E8"
 block|,
-literal|"L#	c #7D99E9"
+literal|"L# c #7D99E9"
 block|,
-literal|"M#	c #7D9BEA"
+literal|"M# c #7D9BEA"
 block|,
-literal|"N#	c #7D9CEA"
+literal|"N# c #7D9CEA"
 block|,
-literal|"O#	c #7E99E8"
+literal|"O# c #7E99E8"
 block|,
-literal|"P#	c #7D9AEA"
+literal|"P# c #7D9AEA"
 block|,
-literal|"Q#	c #7C9BEA"
+literal|"Q# c #7C9BEA"
 block|,
-literal|"R#	c #7C9CEA"
+literal|"R# c #7C9CEA"
 block|,
-literal|"S#	c #355FCF"
+literal|"S# c #355FCF"
 block|,
-literal|"T#	c #3860D0"
+literal|"T# c #3860D0"
 block|,
-literal|"U#	c #3A62D0"
+literal|"U# c #3A62D0"
 block|,
-literal|"V#	c #3C64D1"
+literal|"V# c #3C64D1"
 block|,
-literal|"W#	c #4167D1"
+literal|"W# c #4167D1"
 block|,
-literal|"X#	c #4369D3"
+literal|"X# c #4369D3"
 block|,
-literal|"Y#	c #466BD4"
+literal|"Y# c #466BD4"
 block|,
-literal|"Z#	c #486DD5"
+literal|"Z# c #486DD5"
 block|,
-literal|"`#	c #4A6ED7"
+literal|"`# c #4A6ED7"
 block|,
-literal|" $	c #4C70D8"
+literal|" $ c #4C70D8"
 block|,
-literal|".$	c #5478D9"
+literal|".$ c #5478D9"
 block|,
-literal|"+$	c #577BDA"
+literal|"+$ c #577BDA"
 block|,
-literal|"@$	c #597DDB"
+literal|"@$ c #597DDB"
 block|,
-literal|"#$	c #5B7EDB"
+literal|"#$ c #5B7EDB"
 block|,
-literal|"$$	c #5D7FDC"
+literal|"$$ c #5D7FDC"
 block|,
-literal|"%$	c #6182DE"
+literal|"%$ c #6182DE"
 block|,
-literal|"&$	c #6284DE"
+literal|"&$ c #6284DE"
 block|,
-literal|"*$	c #6485DF"
+literal|"*$ c #6485DF"
 block|,
-literal|"=$	c #6586DF"
+literal|"=$ c #6586DF"
 block|,
-literal|"-$	c #6787DF"
+literal|"-$ c #6787DF"
 block|,
-literal|";$	c #6888DF"
+literal|";$ c #6888DF"
 block|,
-literal|">$	c #6A8ADF"
+literal|">$ c #6A8ADF"
 block|,
-literal|",$	c #6C8BE0"
+literal|",$ c #6C8BE0"
 block|,
-literal|"'$	c #6D8CE0"
+literal|"'$ c #6D8CE0"
 block|,
-literal|")$	c #6E8DE1"
+literal|")$ c #6E8DE1"
 block|,
-literal|"!$	c #6F8DE1"
+literal|"!$ c #6F8DE1"
 block|,
-literal|"~$	c #708EE1"
+literal|"~$ c #708EE1"
 block|,
-literal|"{$	c #718FE0"
+literal|"{$ c #718FE0"
 block|,
-literal|"]$	c #728FE1"
+literal|"]$ c #728FE1"
 block|,
-literal|"^$	c #7390E0"
+literal|"^$ c #7390E0"
 block|,
-literal|"/$	c #738FE0"
+literal|"/$ c #738FE0"
 block|,
-literal|"($	c #7490E1"
+literal|"($ c #7490E1"
 block|,
-literal|"_$	c #7590E1"
+literal|"_$ c #7590E1"
 block|,
-literal|":$	c #7591E1"
+literal|":$ c #7591E1"
 block|,
-literal|"<$	c #7592E1"
+literal|"<$ c #7592E1"
 block|,
-literal|"[$	c #7692E2"
+literal|"[$ c #7692E2"
 block|,
-literal|"}$	c #7794E2"
+literal|"}$ c #7794E2"
 block|,
-literal|"|$	c #7894E3"
+literal|"|$ c #7894E3"
 block|,
-literal|"1$	c #7996E3"
+literal|"1$ c #7996E3"
 block|,
-literal|"2$	c #7A96E5"
+literal|"2$ c #7A96E5"
 block|,
-literal|"3$	c #7B98E6"
+literal|"3$ c #7B98E6"
 block|,
-literal|"4$	c #7B9AE8"
+literal|"4$ c #7B9AE8"
 block|,
-literal|"5$	c #7C99E8"
+literal|"5$ c #7C99E8"
 block|,
-literal|"6$	c #7C96E5"
+literal|"6$ c #7C96E5"
 block|,
-literal|"7$	c #7D97E7"
+literal|"7$ c #7D97E7"
 block|,
-literal|"8$	c #7C99E9"
+literal|"8$ c #7C99E9"
 block|,
-literal|"9$	c #7B9AE9"
+literal|"9$ c #7B9AE9"
 block|,
-literal|"0$	c #7B9AEA"
+literal|"0$ c #7B9AEA"
 block|,
-literal|"a$	c #5B6DCF"
+literal|"a$ c #5B6DCF"
 block|,
-literal|"b$	c #305EC8"
+literal|"b$ c #305EC8"
 block|,
-literal|"c$	c #335ECE"
+literal|"c$ c #335ECE"
 block|,
-literal|"d$	c #305ECA"
+literal|"d$ c #305ECA"
 block|,
-literal|"e$	c #345FCF"
+literal|"e$ c #345FCF"
 block|,
-literal|"f$	c #3761D0"
+literal|"f$ c #3761D0"
 block|,
-literal|"g$	c #3A62D1"
+literal|"g$ c #3A62D1"
 block|,
-literal|"h$	c #3C64D2"
+literal|"h$ c #3C64D2"
 block|,
-literal|"i$	c #4066D3"
+literal|"i$ c #4066D3"
 block|,
-literal|"j$	c #466BD5"
+literal|"j$ c #466BD5"
 block|,
-literal|"k$	c #486ED6"
+literal|"k$ c #486ED6"
 block|,
-literal|"l$	c #4A6ED6"
+literal|"l$ c #4A6ED6"
 block|,
-literal|"m$	c #4D71D8"
+literal|"m$ c #4D71D8"
 block|,
-literal|"n$	c #4F72D9"
+literal|"n$ c #4F72D9"
 block|,
-literal|"o$	c #5073D9"
+literal|"o$ c #5073D9"
 block|,
-literal|"p$	c #4F72D8"
+literal|"p$ c #4F72D8"
 block|,
-literal|"q$	c #5074D8"
+literal|"q$ c #5074D8"
 block|,
-literal|"r$	c #5276D9"
+literal|"r$ c #5276D9"
 block|,
-literal|"s$	c #587ADA"
+literal|"s$ c #587ADA"
 block|,
-literal|"t$	c #5B7CDB"
+literal|"t$ c #5B7CDB"
 block|,
-literal|"u$	c #5D7EDC"
+literal|"u$ c #5D7EDC"
 block|,
-literal|"v$	c #5F7FDD"
+literal|"v$ c #5F7FDD"
 block|,
-literal|"w$	c #6081DC"
+literal|"w$ c #6081DC"
 block|,
-literal|"x$	c #6182DD"
+literal|"x$ c #6182DD"
 block|,
-literal|"y$	c #6283DD"
+literal|"y$ c #6283DD"
 block|,
-literal|"z$	c #6484DE"
+literal|"z$ c #6484DE"
 block|,
-literal|"A$	c #6585DD"
+literal|"A$ c #6585DD"
 block|,
-literal|"B$	c #6787DE"
+literal|"B$ c #6787DE"
 block|,
-literal|"C$	c #6988DF"
+literal|"C$ c #6988DF"
 block|,
-literal|"D$	c #6A89DE"
+literal|"D$ c #6A89DE"
 block|,
-literal|"E$	c #6C8ADF"
+literal|"E$ c #6C8ADF"
 block|,
-literal|"F$	c #6D8BDF"
+literal|"F$ c #6D8BDF"
 block|,
-literal|"G$	c #6E8CE0"
+literal|"G$ c #6E8CE0"
 block|,
-literal|"H$	c #6F8DE0"
+literal|"H$ c #6F8DE0"
 block|,
-literal|"I$	c #718EE0"
+literal|"I$ c #718EE0"
 block|,
-literal|"J$	c #728FDF"
+literal|"J$ c #728FDF"
 block|,
-literal|"K$	c #728FDE"
+literal|"K$ c #728FDE"
 block|,
-literal|"L$	c #7290E0"
+literal|"L$ c #7290E0"
 block|,
-literal|"M$	c #7190E0"
+literal|"M$ c #7190E0"
 block|,
-literal|"N$	c #7291E0"
+literal|"N$ c #7291E0"
 block|,
-literal|"O$	c #7191E0"
+literal|"O$ c #7191E0"
 block|,
-literal|"P$	c #7392E1"
+literal|"P$ c #7392E1"
 block|,
-literal|"Q$	c #7493E1"
+literal|"Q$ c #7493E1"
 block|,
-literal|"R$	c #7594E1"
+literal|"R$ c #7594E1"
 block|,
-literal|"S$	c #7594E2"
+literal|"S$ c #7594E2"
 block|,
-literal|"T$	c #7694E2"
+literal|"T$ c #7694E2"
 block|,
-literal|"U$	c #7695E2"
+literal|"U$ c #7695E2"
 block|,
-literal|"V$	c #7A96E4"
+literal|"V$ c #7A96E4"
 block|,
-literal|"W$	c #7895E2"
+literal|"W$ c #7895E2"
 block|,
-literal|"X$	c #7A96E2"
+literal|"X$ c #7A96E2"
 block|,
-literal|"Y$	c #7A96E3"
+literal|"Y$ c #7A96E3"
 block|,
-literal|"Z$	c #7B96E3"
+literal|"Z$ c #7B96E3"
 block|,
-literal|"`$	c #7996E1"
+literal|"`$ c #7996E1"
 block|,
-literal|" %	c #7C96E4"
+literal|" % c #7C96E4"
 block|,
-literal|".%	c #305EC9"
+literal|".% c #305EC9"
 block|,
-literal|"+%	c #315ECC"
+literal|"+% c #315ECC"
 block|,
-literal|"@%	c #325ECE"
+literal|"@% c #325ECE"
 block|,
-literal|"#%	c #3760D0"
+literal|"#% c #3760D0"
 block|,
-literal|"$%	c #3962D1"
+literal|"$% c #3962D1"
 block|,
-literal|"%%	c #3E66D3"
+literal|"%% c #3E66D3"
 block|,
-literal|"&%	c #4268D4"
+literal|"&% c #4268D4"
 block|,
-literal|"*%	c #446BD5"
+literal|"*% c #446BD5"
 block|,
-literal|"=%	c #476CD6"
+literal|"=% c #476CD6"
 block|,
-literal|"-%	c #496ED7"
+literal|"-% c #496ED7"
 block|,
-literal|";%	c #4B6FD7"
+literal|";% c #4B6FD7"
 block|,
-literal|">%	c #4C70D7"
+literal|">% c #4C70D7"
 block|,
-literal|",%	c #4E71D7"
+literal|",% c #4E71D7"
 block|,
-literal|"'%	c #5074D7"
+literal|"'% c #5074D7"
 block|,
-literal|")%	c #5276D8"
+literal|")% c #5276D8"
 block|,
-literal|"!%	c #5376D8"
+literal|"!% c #5376D8"
 block|,
-literal|"~%	c #5779DA"
+literal|"~% c #5779DA"
 block|,
-literal|"{%	c #597ADA"
+literal|"{% c #597ADA"
 block|,
-literal|"]%	c #5A7BDB"
+literal|"]% c #5A7BDB"
 block|,
-literal|"^%	c #5B7CDA"
+literal|"^% c #5B7CDA"
 block|,
-literal|"/%	c #5D7EDB"
+literal|"/% c #5D7EDB"
 block|,
-literal|"(%	c #5E7FDB"
+literal|"(% c #5E7FDB"
 block|,
-literal|"_%	c #6182DB"
+literal|"_% c #6182DB"
 block|,
-literal|":%	c #6384DC"
+literal|":% c #6384DC"
 block|,
-literal|"<%	c #6586DD"
+literal|"<% c #6586DD"
 block|,
-literal|"[%	c #6686DC"
+literal|"[% c #6686DC"
 block|,
-literal|"}%	c #6887DD"
+literal|"}% c #6887DD"
 block|,
-literal|"|%	c #6988DD"
+literal|"|% c #6988DD"
 block|,
-literal|"1%	c #6A8ADE"
+literal|"1% c #6A8ADE"
 block|,
-literal|"2%	c #6B8BDE"
+literal|"2% c #6B8BDE"
 block|,
-literal|"3%	c #6C8CDE"
+literal|"3% c #6C8CDE"
 block|,
-literal|"4%	c #6E8DDF"
+literal|"4% c #6E8DDF"
 block|,
-literal|"5%	c #6E8CDF"
+literal|"5% c #6E8CDF"
 block|,
-literal|"6%	c #6D8DDF"
+literal|"6% c #6D8DDF"
 block|,
-literal|"7%	c #6C8BDF"
+literal|"7% c #6C8BDF"
 block|,
-literal|"8%	c #6F8DDF"
+literal|"8% c #6F8DDF"
 block|,
-literal|"9%	c #718FDF"
+literal|"9% c #718FDF"
 block|,
-literal|"0%	c #7290DF"
+literal|"0% c #7290DF"
 block|,
-literal|"a%	c #7391E0"
+literal|"a% c #7391E0"
 block|,
-literal|"b%	c #7491E0"
+literal|"b% c #7491E0"
 block|,
-literal|"c%	c #7292E1"
+literal|"c% c #7292E1"
 block|,
-literal|"d%	c #3959C5"
+literal|"d% c #3959C5"
 block|,
-literal|"e%	c #345BC5"
+literal|"e% c #345BC5"
 block|,
-literal|"f%	c #315EC8"
+literal|"f% c #315EC8"
 block|,
-literal|"g%	c #355BC5"
+literal|"g% c #355BC5"
 block|,
-literal|"h%	c #325EC8"
+literal|"h% c #325EC8"
 block|,
-literal|"i%	c #315ECB"
+literal|"i% c #315ECB"
 block|,
-literal|"j%	c #345DCC"
+literal|"j% c #345DCC"
 block|,
-literal|"k%	c #335ECD"
+literal|"k% c #335ECD"
 block|,
-literal|"l%	c #345ECD"
+literal|"l% c #345ECD"
 block|,
-literal|"m%	c #355FCE"
+literal|"m% c #355FCE"
 block|,
-literal|"n%	c #3862D0"
+literal|"n% c #3862D0"
 block|,
-literal|"o%	c #3E66D2"
+literal|"o% c #3E66D2"
 block|,
-literal|"p%	c #456BD5"
+literal|"p% c #456BD5"
 block|,
-literal|"q%	c #476CD5"
+literal|"q% c #476CD5"
 block|,
-literal|"r%	c #4B6ED7"
+literal|"r% c #4B6ED7"
 block|,
-literal|"s%	c #4B6FD6"
+literal|"s% c #4B6FD6"
 block|,
-literal|"t%	c #4B6FD5"
+literal|"t% c #4B6FD5"
 block|,
-literal|"u%	c #4D71D6"
+literal|"u% c #4D71D6"
 block|,
-literal|"v%	c #5073D7"
+literal|"v% c #5073D7"
 block|,
-literal|"w%	c #5174D7"
+literal|"w% c #5174D7"
 block|,
-literal|"x%	c #5275D8"
+literal|"x% c #5275D8"
 block|,
-literal|"y%	c #5577D8"
+literal|"y% c #5577D8"
 block|,
-literal|"z%	c #5678D8"
+literal|"z% c #5678D8"
 block|,
-literal|"A%	c #5779D9"
+literal|"A% c #5779D9"
 block|,
-literal|"B%	c #587AD8"
+literal|"B% c #587AD8"
 block|,
-literal|"C%	c #597CD9"
+literal|"C% c #597CD9"
 block|,
-literal|"D%	c #5B7DD9"
+literal|"D% c #5B7DD9"
 block|,
-literal|"E%	c #5D7FDA"
+literal|"E% c #5D7FDA"
 block|,
-literal|"F%	c #5F80DB"
+literal|"F% c #5F80DB"
 block|,
-literal|"G%	c #6182DC"
+literal|"G% c #6182DC"
 block|,
-literal|"H%	c #6484DC"
+literal|"H% c #6484DC"
 block|,
-literal|"I%	c #6585DC"
+literal|"I% c #6585DC"
 block|,
-literal|"J%	c #6787DD"
+literal|"J% c #6787DD"
 block|,
-literal|"K%	c #6988DE"
+literal|"K% c #6988DE"
 block|,
-literal|"L%	c #6B8ADE"
+literal|"L% c #6B8ADE"
 block|,
-literal|"M%	c #6B8ADF"
+literal|"M% c #6B8ADF"
 block|,
-literal|"N%	c #6989DE"
+literal|"N% c #6989DE"
 block|,
-literal|"O%	c #6B89DE"
+literal|"O% c #6B89DE"
 block|,
-literal|"P%	c #6E8BDF"
+literal|"P% c #6E8BDF"
 block|,
-literal|"Q%	c #708CDE"
+literal|"Q% c #708CDE"
 block|,
-literal|"R%	c #708DDF"
+literal|"R% c #708DDF"
 block|,
-literal|"S%	c #708FDF"
+literal|"S% c #708FDF"
 block|,
-literal|"T%	c #728EDF"
+literal|"T% c #728EDF"
 block|,
-literal|"U%	c #6F8EDD"
+literal|"U% c #6F8EDD"
 block|,
-literal|"V%	c #728EDD"
+literal|"V% c #728EDD"
 block|,
-literal|"W%	c #7390DF"
+literal|"W% c #7390DF"
 block|,
-literal|"X%	c #7490DF"
+literal|"X% c #7490DF"
 block|,
-literal|"Y%	c #335DC8"
+literal|"Y% c #335DC8"
 block|,
-literal|"Z%	c #3759C5"
+literal|"Z% c #3759C5"
 block|,
-literal|"`%	c #3859C5"
+literal|"`% c #3859C5"
 block|,
-literal|"&	c #335EC8"
+literal|"& c #335EC8"
 block|,
-literal|".&	c #325DCA"
+literal|".& c #325DCA"
 block|,
-literal|"+&	c #345CCB"
+literal|"+& c #345CCB"
 block|,
-literal|"@&	c #335DCC"
+literal|"@& c #335DCC"
 block|,
-literal|"#&	c #345DCD"
+literal|"#& c #345DCD"
 block|,
-literal|"$&	c #355FCD"
+literal|"$& c #355FCD"
 block|,
-literal|"%&	c #3861D0"
+literal|"%& c #3861D0"
 block|,
-literal|"&&	c #3B64D1"
+literal|"&& c #3B64D1"
 block|,
-literal|"*&	c #3E65D2"
+literal|"*& c #3E65D2"
 block|,
-literal|"=&	c #4168D3"
+literal|"=& c #4168D3"
 block|,
-literal|"-&	c #456AD5"
+literal|"-& c #456AD5"
 block|,
-literal|";&	c #4B6ED5"
+literal|";& c #4B6ED5"
 block|,
-literal|">&	c #4C6FD4"
+literal|">& c #4C6FD4"
 block|,
-literal|",&	c #4D70D5"
+literal|",& c #4D70D5"
 block|,
-literal|"'&	c #4F72D6"
+literal|"'& c #4F72D6"
 block|,
-literal|")&	c #5173D6"
+literal|")& c #5173D6"
 block|,
-literal|"!&	c #5375D7"
+literal|"!& c #5375D7"
 block|,
-literal|"~&	c #5476D8"
+literal|"~& c #5476D8"
 block|,
-literal|"{&	c #5577D7"
+literal|"{& c #5577D7"
 block|,
-literal|"]&	c #5477D8"
+literal|"]& c #5477D8"
 block|,
-literal|"^&	c #5677D8"
+literal|"^& c #5677D8"
 block|,
-literal|"/&	c #5879D9"
+literal|"/& c #5879D9"
 block|,
-literal|"(&	c #597AD9"
+literal|"(& c #597AD9"
 block|,
-literal|"_&	c #5C7DDA"
+literal|"_& c #5C7DDA"
 block|,
-literal|":&	c #6080DC"
+literal|":& c #6080DC"
 block|,
-literal|"<&	c #6080DB"
+literal|"<& c #6080DB"
 block|,
-literal|"[&	c #6181DC"
+literal|"[& c #6181DC"
 block|,
-literal|"}&	c #6282DC"
+literal|"}& c #6282DC"
 block|,
-literal|"|&	c #6383DD"
+literal|"|& c #6383DD"
 block|,
-literal|"1&	c #6484DD"
+literal|"1& c #6484DD"
 block|,
-literal|"2&	c #6686DE"
+literal|"2& c #6686DE"
 block|,
-literal|"3&	c #6685DE"
+literal|"3& c #6685DE"
 block|,
-literal|"4&	c #6786DE"
+literal|"4& c #6786DE"
 block|,
-literal|"5&	c #6687DE"
+literal|"5& c #6687DE"
 block|,
-literal|"6&	c #6887DE"
+literal|"6& c #6887DE"
 block|,
-literal|"7&	c #6987DE"
+literal|"7& c #6987DE"
 block|,
-literal|"8&	c #6788DF"
+literal|"8& c #6788DF"
 block|,
-literal|"9&	c #6785DF"
+literal|"9& c #6785DF"
 block|,
-literal|"0&	c #6B89DF"
+literal|"0& c #6B89DF"
 block|,
-literal|"a&	c #6C89DF"
+literal|"a& c #6C89DF"
 block|,
-literal|"b&	c #6F8DDD"
+literal|"b& c #6F8DDD"
 block|,
-literal|"c&	c #6D8CDE"
+literal|"c& c #6D8CDE"
 block|,
-literal|"d&	c #445BBB"
+literal|"d& c #445BBB"
 block|,
-literal|"e&	c #3759BE"
+literal|"e& c #3759BE"
 block|,
-literal|"f&	c #375AC6"
+literal|"f& c #375AC6"
 block|,
-literal|"g&	c #355CC8"
+literal|"g& c #355CC8"
 block|,
-literal|"h&	c #345CCA"
+literal|"h& c #345CCA"
 block|,
-literal|"i&	c #355ECC"
+literal|"i& c #355ECC"
 block|,
-literal|"j&	c #365FCD"
+literal|"j& c #365FCD"
 block|,
-literal|"k&	c #3761CE"
+literal|"k& c #3761CE"
 block|,
-literal|"l&	c #3A63D0"
+literal|"l& c #3A63D0"
 block|,
-literal|"m&	c #3D65D1"
+literal|"m& c #3D65D1"
 block|,
-literal|"n&	c #466AD4"
+literal|"n& c #466AD4"
 block|,
-literal|"o&	c #476BD4"
+literal|"o& c #476BD4"
 block|,
-literal|"p&	c #486CD3"
+literal|"p& c #486CD3"
 block|,
-literal|"q&	c #4A6ED4"
+literal|"q& c #4A6ED4"
 block|,
-literal|"r&	c #4B6ED4"
+literal|"r& c #4B6ED4"
 block|,
-literal|"s&	c #4E71D6"
+literal|"s& c #4E71D6"
 block|,
-literal|"t&	c #4F71D5"
+literal|"t& c #4F71D5"
 block|,
-literal|"u&	c #5072D6"
+literal|"u& c #5072D6"
 block|,
-literal|"v&	c #5274D7"
+literal|"v& c #5274D7"
 block|,
-literal|"w&	c #5273D7"
+literal|"w& c #5273D7"
 block|,
-literal|"x&	c #5274D6"
+literal|"x& c #5274D6"
 block|,
-literal|"y&	c #5476D7"
+literal|"y& c #5476D7"
 block|,
-literal|"z&	c #5779D8"
+literal|"z& c #5779D8"
 block|,
-literal|"A&	c #587AD9"
+literal|"A& c #587AD9"
 block|,
-literal|"B&	c #5A7CDA"
+literal|"B& c #5A7CDA"
 block|,
-literal|"C&	c #5C7DDB"
+literal|"C& c #5C7DDB"
 block|,
-literal|"D&	c #5D7EDA"
+literal|"D& c #5D7EDA"
 block|,
-literal|"E&	c #6081DA"
+literal|"E& c #6081DA"
 block|,
-literal|"F&	c #6181DB"
+literal|"F& c #6181DB"
 block|,
-literal|"G&	c #6283DC"
+literal|"G& c #6283DC"
 block|,
-literal|"H&	c #6483DD"
+literal|"H& c #6483DD"
 block|,
-literal|"I&	c #6483DE"
+literal|"I& c #6483DE"
 block|,
-literal|"J&	c #6585DE"
+literal|"J& c #6585DE"
 block|,
-literal|"K&	c #6786DF"
+literal|"K& c #6786DF"
 block|,
-literal|"L&	c #6886DE"
+literal|"L& c #6886DE"
 block|,
-literal|"M&	c #6887DF"
+literal|"M& c #6887DF"
 block|,
-literal|"N&	c #6987DF"
+literal|"N& c #6987DF"
 block|,
-literal|"O&	c #6A88DF"
+literal|"O& c #6A88DF"
 block|,
-literal|"P&	c #6786E0"
+literal|"P& c #6786E0"
 block|,
-literal|"Q&	c #6A86DE"
+literal|"Q& c #6A86DE"
 block|,
-literal|"R&	c #6B89E0"
+literal|"R& c #6B89E0"
 block|,
-literal|"S&	c #365BC8"
+literal|"S& c #365BC8"
 block|,
-literal|"T&	c #365CC8"
+literal|"T& c #365CC8"
 block|,
-literal|"U&	c #375DCA"
+literal|"U& c #375DCA"
 block|,
-literal|"V&	c #375FCB"
+literal|"V& c #375FCB"
 block|,
-literal|"W&	c #3860CD"
+literal|"W& c #3860CD"
 block|,
-literal|"X&	c #3C63D0"
+literal|"X& c #3C63D0"
 block|,
-literal|"Y&	c #4167D2"
+literal|"Y& c #4167D2"
 block|,
-literal|"Z&	c #4268D2"
+literal|"Z& c #4268D2"
 block|,
-literal|"`&	c #4368D2"
+literal|"`& c #4368D2"
 block|,
-literal|" *	c #4367D2"
+literal|" * c #4367D2"
 block|,
-literal|".*	c #4568D2"
+literal|".* c #4568D2"
 block|,
-literal|"+*	c #466AD2"
+literal|"+* c #466AD2"
 block|,
-literal|"@*	c #496CD3"
+literal|"@* c #496CD3"
 block|,
-literal|"#*	c #4A6DD3"
+literal|"#* c #4A6DD3"
 block|,
-literal|"$*	c #4A6DD4"
+literal|"$* c #4A6DD4"
 block|,
-literal|"%*	c #4D70D4"
+literal|"%* c #4D70D4"
 block|,
-literal|"&*	c #4F72D5"
+literal|"&* c #4F72D5"
 block|,
-literal|"**	c #4C70D4"
+literal|"** c #4C70D4"
 block|,
-literal|"=*	c #4E72D5"
+literal|"=* c #4E72D5"
 block|,
-literal|"-*	c #5173D5"
+literal|"-* c #5173D5"
 block|,
-literal|";*	c #5375D6"
+literal|";* c #5375D6"
 block|,
-literal|">*	c #597BDA"
+literal|">* c #597BDA"
 block|,
-literal|",*	c #5B7DDA"
+literal|",* c #5B7DDA"
 block|,
-literal|"'*	c #5C7EDB"
+literal|"'* c #5C7EDB"
 block|,
-literal|")*	c #5D7FDB"
+literal|")* c #5D7FDB"
 block|,
-literal|"!*	c #5E80DB"
+literal|"!* c #5E80DB"
 block|,
-literal|"~*	c #5E81DA"
+literal|"~* c #5E81DA"
 block|,
-literal|"{*	c #5F81DB"
+literal|"{* c #5F81DB"
 block|,
-literal|"]*	c #5F82DB"
+literal|"]* c #5F82DB"
 block|,
-literal|"^*	c #6384DD"
+literal|"^* c #6384DD"
 block|,
-literal|"/*	c #6384DE"
+literal|"/* c #6384DE"
 block|,
-literal|"(*	c #6585DF"
+literal|"(* c #6585DF"
 block|,
-literal|"_*	c #6486E0"
+literal|"_* c #6486E0"
 block|,
-literal|":*	c #6583DD"
+literal|":* c #6583DD"
 block|,
-literal|"<*	c #6386E0"
+literal|"<* c #6386E0"
 block|,
-literal|"[*	c #6686E0"
+literal|"[* c #6686E0"
 block|,
-literal|"}*	c #6B86DD"
+literal|"}* c #6B86DD"
 block|,
-literal|"|*	c #6D86DD"
+literal|"|* c #6D86DD"
 block|,
-literal|"1*	c #6086E0"
+literal|"1* c #6086E0"
 block|,
-literal|"2*	c #5573CD"
+literal|"2* c #5573CD"
 block|,
-literal|"3*	c #3959C3"
+literal|"3* c #3959C3"
 block|,
-literal|"4*	c #3959C4"
+literal|"4* c #3959C4"
 block|,
-literal|"5*	c #3759C0"
+literal|"5* c #3759C0"
 block|,
-literal|"6*	c #375BC7"
+literal|"6* c #375BC7"
 block|,
-literal|"7*	c #365CC7"
+literal|"7* c #365CC7"
 block|,
-literal|"8*	c #395FCC"
+literal|"8* c #395FCC"
 block|,
-literal|"9*	c #3B62CE"
+literal|"9* c #3B62CE"
 block|,
-literal|"0*	c #3E64D0"
+literal|"0* c #3E64D0"
 block|,
-literal|"a*	c #4066D1"
+literal|"a* c #4066D1"
 block|,
-literal|"b*	c #4166D1"
+literal|"b* c #4166D1"
 block|,
-literal|"c*	c #4064CF"
+literal|"c* c #4064CF"
 block|,
-literal|"d*	c #4065CF"
+literal|"d* c #4065CF"
 block|,
-literal|"e*	c #4266D0"
+literal|"e* c #4266D0"
 block|,
-literal|"f*	c #4468D1"
+literal|"f* c #4468D1"
 block|,
-literal|"g*	c #4569D1"
+literal|"g* c #4569D1"
 block|,
-literal|"h*	c #476BD2"
+literal|"h* c #476BD2"
 block|,
-literal|"i*	c #466AD1"
+literal|"i* c #466AD1"
 block|,
-literal|"j*	c #476AD2"
+literal|"j* c #476AD2"
 block|,
-literal|"k*	c #456AD1"
+literal|"k* c #456AD1"
 block|,
-literal|"l*	c #496DD2"
+literal|"l* c #496DD2"
 block|,
-literal|"m*	c #4A6FD3"
+literal|"m* c #4A6FD3"
 block|,
-literal|"n*	c #496ED2"
+literal|"n* c #496ED2"
 block|,
-literal|"o*	c #4B70D4"
+literal|"o* c #4B70D4"
 block|,
-literal|"p*	c #4D71D4"
+literal|"p* c #4D71D4"
 block|,
-literal|"q*	c #4E72D4"
+literal|"q* c #4E72D4"
 block|,
-literal|"r*	c #5073D4"
+literal|"r* c #5073D4"
 block|,
-literal|"s*	c #5174D5"
+literal|"s* c #5174D5"
 block|,
-literal|"t*	c #5175D5"
+literal|"t* c #5175D5"
 block|,
-literal|"u*	c #5276D6"
+literal|"u* c #5276D6"
 block|,
-literal|"v*	c #5377D6"
+literal|"v* c #5377D6"
 block|,
-literal|"w*	c #5478D7"
+literal|"w* c #5478D7"
 block|,
-literal|"x*	c #5579D7"
+literal|"x* c #5579D7"
 block|,
-literal|"y*	c #567AD8"
+literal|"y* c #567AD8"
 block|,
-literal|"z*	c #577BD9"
+literal|"z* c #577BD9"
 block|,
-literal|"A*	c #597CD8"
+literal|"A* c #597CD8"
 block|,
-literal|"B*	c #5A7DD9"
+literal|"B* c #5A7DD9"
 block|,
-literal|"C*	c #5A7ED9"
+literal|"C* c #5A7ED9"
 block|,
-literal|"D*	c #5B7FDA"
+literal|"D* c #5B7FDA"
 block|,
-literal|"E*	c #5C80DA"
+literal|"E* c #5C80DA"
 block|,
-literal|"F*	c #5D80DA"
+literal|"F* c #5D80DA"
 block|,
-literal|"G*	c #5E81DB"
+literal|"G* c #5E81DB"
 block|,
-literal|"H*	c #5D80DB"
+literal|"H* c #5D80DB"
 block|,
-literal|"I*	c #6082DC"
+literal|"I* c #6082DC"
 block|,
-literal|"J*	c #6183DD"
+literal|"J* c #6183DD"
 block|,
-literal|"K*	c #6183DE"
+literal|"K* c #6183DE"
 block|,
-literal|"L*	c #6082DB"
+literal|"L* c #6082DB"
 block|,
-literal|"M*	c #6282DE"
+literal|"M* c #6282DE"
 block|,
-literal|"N*	c #6682DE"
+literal|"N* c #6682DE"
 block|,
-literal|"O*	c #6583DE"
+literal|"O* c #6583DE"
 block|,
-literal|"P*	c #3759BF"
+literal|"P* c #3759BF"
 block|,
-literal|"Q*	c #375AC2"
+literal|"Q* c #375AC2"
 block|,
-literal|"R*	c #375AC1"
+literal|"R* c #375AC1"
 block|,
-literal|"S*	c #375AC4"
+literal|"S* c #375AC4"
 block|,
-literal|"T*	c #395DCA"
+literal|"T* c #395DCA"
 block|,
-literal|"U*	c #3A5ECA"
+literal|"U* c #3A5ECA"
 block|,
-literal|"V*	c #3C60CC"
+literal|"V* c #3C60CC"
 block|,
-literal|"W*	c #3D61CD"
+literal|"W* c #3D61CD"
 block|,
-literal|"X*	c #3D61CC"
+literal|"X* c #3D61CC"
 block|,
-literal|"Y*	c #3C61CD"
+literal|"Y* c #3C61CD"
 block|,
-literal|"Z*	c #3E62CD"
+literal|"Z* c #3E62CD"
 block|,
-literal|"`*	c #3F64CE"
+literal|"`* c #3F64CE"
 block|,
-literal|" =	c #4266CF"
+literal|" = c #4266CF"
 block|,
-literal|".=	c #4468D0"
+literal|".= c #4468D0"
 block|,
-literal|"+=	c #4267CF"
+literal|"+= c #4267CF"
 block|,
-literal|"@=	c #4166CE"
+literal|"@= c #4166CE"
 block|,
-literal|"#=	c #4065CE"
+literal|"#= c #4065CE"
 block|,
-literal|"$=	c #4166CD"
+literal|"$= c #4166CD"
 block|,
-literal|"%=	c #4267CE"
+literal|"%= c #4267CE"
 block|,
-literal|"&=	c #456AD0"
+literal|"&= c #456AD0"
 block|,
-literal|"*=	c #4368CE"
+literal|"*= c #4368CE"
 block|,
-literal|"==	c #4468CF"
+literal|"== c #4468CF"
 block|,
-literal|"-=	c #4569D0"
+literal|"-= c #4569D0"
 block|,
-literal|";=	c #486BD1"
+literal|";= c #486BD1"
 block|,
-literal|">=	c #4B6FD3"
+literal|">= c #4B6FD3"
 block|,
-literal|",=	c #4C70D3"
+literal|",= c #4C70D3"
 block|,
-literal|"'=	c #4F73D4"
+literal|"'= c #4F73D4"
 block|,
-literal|")=	c #5275D5"
+literal|")= c #5275D5"
 block|,
-literal|"!=	c #5477D6"
+literal|"!= c #5477D6"
 block|,
-literal|"~=	c #577BD7"
+literal|"~= c #577BD7"
 block|,
-literal|"{=	c #587CD8"
+literal|"{= c #587CD8"
 block|,
-literal|"]=	c #577CD8"
+literal|"]= c #577CD8"
 block|,
-literal|"^=	c #597DD9"
+literal|"^= c #597DD9"
 block|,
-literal|"/=	c #5A7DDA"
+literal|"/= c #5A7DDA"
 block|,
-literal|"(=	c #597DDA"
+literal|"(= c #597DDA"
 block|,
-literal|"_=	c #587CDA"
+literal|"_= c #587CDA"
 block|,
-literal|":=	c #5A7EDA"
+literal|":= c #5A7EDA"
 block|,
-literal|"<=	c #567BD8"
+literal|"<= c #567BD8"
 block|,
-literal|"[=	c #557AD9"
+literal|"[= c #557AD9"
 block|,
-literal|"}=	c #567BD9"
+literal|"}= c #567BD9"
 block|,
-literal|"|=	c #577CD9"
+literal|"|= c #577CD9"
 block|,
-literal|"1=	c #587DD9"
+literal|"1= c #587DD9"
 block|,
-literal|"2=	c #587ED9"
+literal|"2= c #587ED9"
 block|,
-literal|"3=	c #577ED8"
+literal|"3= c #577ED8"
 block|,
-literal|"4=	c #587DD8"
+literal|"4= c #587DD8"
 block|,
-literal|"5=	c #587ED8"
+literal|"5= c #587ED8"
 block|,
-literal|"6=	c #567ED7"
+literal|"6= c #567ED7"
 block|,
-literal|"7=	c #526ABD"
+literal|"7= c #526ABD"
 block|,
-literal|"8=	c #3759C1"
+literal|"8= c #3759C1"
 block|,
-literal|"9=	c #385BC7"
+literal|"9= c #385BC7"
 block|,
-literal|"0=	c #395CC8"
+literal|"0= c #395CC8"
 block|,
-literal|"a=	c #3B5DC9"
+literal|"a= c #3B5DC9"
 block|,
-literal|"b=	c #3B5ECA"
+literal|"b= c #3B5ECA"
 block|,
-literal|"c=	c #3A5FCA"
+literal|"c= c #3A5FCA"
 block|,
-literal|"d=	c #3B60CC"
+literal|"d= c #3B60CC"
 block|,
-literal|"e=	c #3C61CC"
+literal|"e= c #3C61CC"
 block|,
-literal|"f=	c #3D62CD"
+literal|"f= c #3D62CD"
 block|,
-literal|"g=	c #3E63CD"
+literal|"g= c #3E63CD"
 block|,
-literal|"h=	c #3C61CB"
+literal|"h= c #3C61CB"
 block|,
-literal|"i=	c #3C61CA"
+literal|"i= c #3C61CA"
 block|,
-literal|"j=	c #3D62CB"
+literal|"j= c #3D62CB"
 block|,
-literal|"k=	c #3F64CC"
+literal|"k= c #3F64CC"
 block|,
-literal|"l=	c #4065CD"
+literal|"l= c #4065CD"
 block|,
-literal|"m=	c #4669D0"
+literal|"m= c #4669D0"
 block|,
-literal|"n=	c #476AD0"
+literal|"n= c #476AD0"
 block|,
-literal|"o=	c #496BD1"
+literal|"o= c #496BD1"
 block|,
-literal|"p=	c #4A6DD2"
+literal|"p= c #4A6DD2"
 block|,
-literal|"q=	c #4B6ED2"
+literal|"q= c #4B6ED2"
 block|,
-literal|"r=	c #4D71D3"
+literal|"r= c #4D71D3"
 block|,
-literal|"s=	c #4E73D4"
+literal|"s= c #4E73D4"
 block|,
-literal|"t=	c #4F74D4"
+literal|"t= c #4F74D4"
 block|,
-literal|"u=	c #5075D5"
+literal|"u= c #5075D5"
 block|,
-literal|"v=	c #5276D5"
+literal|"v= c #5276D5"
 block|,
-literal|"w=	c #5377D7"
+literal|"w= c #5377D7"
 block|,
-literal|"x=	c #5278D7"
+literal|"x= c #5278D7"
 block|,
-literal|"y=	c #5277D6"
+literal|"y= c #5277D6"
 block|,
-literal|"z=	c #5378D7"
+literal|"z= c #5378D7"
 block|,
-literal|"A=	c #5379D8"
+literal|"A= c #5379D8"
 block|,
-literal|"B=	c #5379D9"
+literal|"B= c #5379D9"
 block|,
-literal|"C=	c #5278D8"
+literal|"C= c #5278D8"
 block|,
-literal|"D=	c #5178D7"
+literal|"D= c #5178D7"
 block|,
-literal|"E=	c #3355C0"
+literal|"E= c #3355C0"
 block|,
-literal|"F=	c #3556C1"
+literal|"F= c #3556C1"
 block|,
-literal|"G=	c #395AC6"
+literal|"G= c #395AC6"
 block|,
-literal|"H=	c #385AC7"
+literal|"H= c #385AC7"
 block|,
-literal|"I=	c #395BC7"
+literal|"I= c #395BC7"
 block|,
-literal|"J=	c #395EC9"
+literal|"J= c #395EC9"
 block|,
-literal|"K=	c #395FCA"
+literal|"K= c #395FCA"
 block|,
-literal|"L=	c #3B60CA"
+literal|"L= c #3B60CA"
 block|,
-literal|"M=	c #3B60CB"
+literal|"M= c #3B60CB"
 block|,
-literal|"N=	c #375DC7"
+literal|"N= c #375DC7"
 block|,
-literal|"O=	c #385EC8"
+literal|"O= c #385EC8"
 block|,
-literal|"P=	c #395FC9"
+literal|"P= c #395FC9"
 block|,
-literal|"Q=	c #3A60CA"
+literal|"Q= c #3A60CA"
 block|,
-literal|"R=	c #3D63CC"
+literal|"R= c #3D63CC"
 block|,
-literal|"S=	c #4367CF"
+literal|"S= c #4367CF"
 block|,
-literal|"T=	c #476BD1"
+literal|"T= c #476BD1"
 block|,
-literal|"U=	c #4A6ED2"
+literal|"U= c #4A6ED2"
 block|,
-literal|"V=	c #4B6FD2"
+literal|"V= c #4B6FD2"
 block|,
-literal|"W=	c #4C6FD2"
+literal|"W= c #4C6FD2"
 block|,
-literal|"X=	c #4D70D1"
+literal|"X= c #4D70D1"
 block|,
-literal|"Y=	c #4E71D2"
+literal|"Y= c #4E71D2"
 block|,
-literal|"Z=	c #4E72D2"
+literal|"Z= c #4E72D2"
 block|,
-literal|"`=	c #4E74D4"
+literal|"`= c #4E74D4"
 block|,
-literal|" -	c #4E75D5"
+literal|" - c #4E75D5"
 block|,
-literal|".-	c #4E75D4"
+literal|".- c #4E75D4"
 block|,
-literal|"+-	c #4F75D3"
+literal|"+- c #4F75D3"
 block|,
-literal|"@-	c #5075D2"
+literal|"@- c #5075D2"
 block|,
-literal|"#-	c #5075D3"
+literal|"#- c #5075D3"
 block|,
-literal|"$-	c #5177D7"
+literal|"$- c #5177D7"
 block|,
-literal|"%-	c #5178D8"
+literal|"%- c #5178D8"
 block|,
-literal|"&-	c #4F75D5"
+literal|"&- c #4F75D5"
 block|,
-literal|"*-	c #5076D5"
+literal|"*- c #5076D5"
 block|,
-literal|"=-	c #4F76D6"
+literal|"=- c #4F76D6"
 block|,
-literal|"--	c #5279D9"
+literal|"-- c #5279D9"
 block|,
-literal|";-	c #3C52B1"
+literal|";- c #3C52B1"
 block|,
-literal|">-	c #3656C3"
+literal|">- c #3656C3"
 block|,
-literal|",-	c #3757C5"
+literal|",- c #3757C5"
 block|,
-literal|"'-	c #3758C6"
+literal|"'- c #3758C6"
 block|,
-literal|")-	c #3759C6"
+literal|")- c #3759C6"
 block|,
-literal|"!-	c #375BC6"
+literal|"!- c #375BC6"
 block|,
-literal|"~-	c #385CC7"
+literal|"~- c #385CC7"
 block|,
-literal|"{-	c #385DC8"
+literal|"{- c #385DC8"
 block|,
-literal|"]-	c #365CC6"
+literal|"]- c #365CC6"
 block|,
-literal|"^-	c #355BC6"
+literal|"^- c #355BC6"
 block|,
-literal|"/-	c #355CC6"
+literal|"/- c #355CC6"
 block|,
-literal|"(-	c #365DC7"
+literal|"(- c #365DC7"
 block|,
-literal|"_-	c #375EC8"
+literal|"_- c #375EC8"
 block|,
-literal|":-	c #375CC6"
+literal|":- c #375CC6"
 block|,
-literal|"<-	c #385EC6"
+literal|"<- c #385EC6"
 block|,
-literal|"[-	c #3A5FC7"
+literal|"[- c #3A5FC7"
 block|,
-literal|"}-	c #3C60C8"
+literal|"}- c #3C60C8"
 block|,
-literal|"|-	c #3D61C9"
+literal|"|- c #3D61C9"
 block|,
-literal|"1-	c #3E62CA"
+literal|"1- c #3E62CA"
 block|,
-literal|"2-	c #4063CC"
+literal|"2- c #4063CC"
 block|,
-literal|"3-	c #4165CE"
+literal|"3- c #4165CE"
 block|,
-literal|"4-	c #4268D0"
+literal|"4- c #4268D0"
 block|,
-literal|"5-	c #4269D1"
+literal|"5- c #4269D1"
 block|,
-literal|"6-	c #436AD2"
+literal|"6- c #436AD2"
 block|,
-literal|"7-	c #446AD2"
+literal|"7- c #446AD2"
 block|,
-literal|"8-	c #456BD2"
+literal|"8- c #456BD2"
 block|,
-literal|"9-	c #496CD1"
+literal|"9- c #496CD1"
 block|,
-literal|"0-	c #4C6CD0"
+literal|"0- c #4C6CD0"
 block|,
-literal|"a-	c #4D6CCF"
+literal|"a- c #4D6CCF"
 block|,
-literal|"b-	c #4E6DD0"
+literal|"b- c #4E6DD0"
 block|,
-literal|"c-	c #4F6ECF"
+literal|"c- c #4F6ECF"
 block|,
-literal|"d-	c #4E6FCF"
+literal|"d- c #4E6FCF"
 block|,
-literal|"e-	c #4C70CF"
+literal|"e- c #4C70CF"
 block|,
-literal|"f-	c #4A71D0"
+literal|"f- c #4A71D0"
 block|,
-literal|"g-	c #4F6FCF"
+literal|"g- c #4F6FCF"
 block|,
-literal|"h-	c #4B71D0"
+literal|"h- c #4B71D0"
 block|,
-literal|"i-	c #4A72D1"
+literal|"i- c #4A72D1"
 block|,
-literal|"j-	c #4B73D4"
+literal|"j- c #4B73D4"
 block|,
-literal|"k-	c #4F70D0"
+literal|"k- c #4F70D0"
 block|,
-literal|"l-	c #4C73D3"
+literal|"l- c #4C73D3"
 block|,
-literal|"m-	c #4C73D6"
+literal|"m- c #4C73D6"
 block|,
-literal|"n-	c #4B72D2"
+literal|"n- c #4B72D2"
 block|,
-literal|"o-	c #4B71D1"
+literal|"o- c #4B71D1"
 block|,
-literal|"p-	c #4C73D7"
+literal|"p- c #4C73D7"
 block|,
-literal|"q-	c #3354C0"
+literal|"q- c #3354C0"
 block|,
-literal|"r-	c #3152BE"
+literal|"r- c #3152BE"
 block|,
-literal|"s-	c #3052BE"
+literal|"s- c #3052BE"
 block|,
-literal|"t-	c #3051BF"
+literal|"t- c #3051BF"
 block|,
-literal|"u-	c #2E4FBF"
+literal|"u- c #2E4FBF"
 block|,
-literal|"v-	c #2E4FBE"
+literal|"v- c #2E4FBE"
 block|,
-literal|"w-	c #2E50BF"
+literal|"w- c #2E50BF"
 block|,
-literal|"x-	c #2F50BF"
+literal|"x- c #2F50BF"
 block|,
-literal|"y-	c #3156C4"
+literal|"y- c #3156C4"
 block|,
-literal|"z-	c #2F56C5"
+literal|"z- c #2F56C5"
 block|,
-literal|"A-	c #2E57C5"
+literal|"A- c #2E57C5"
 block|,
-literal|"B-	c #2F57C5"
+literal|"B- c #2F57C5"
 block|,
-literal|"C-	c #3057C6"
+literal|"C- c #3057C6"
 block|,
-literal|"D-	c #3258C6"
+literal|"D- c #3258C6"
 block|,
-literal|"E-	c #3459C7"
+literal|"E- c #3459C7"
 block|,
-literal|"F-	c #365AC7"
+literal|"F- c #365AC7"
 block|,
-literal|"G-	c #385BC8"
+literal|"G- c #385BC8"
 block|,
-literal|"H-	c #3B5DCA"
+literal|"H- c #3B5DCA"
 block|,
-literal|"I-	c #3B5DCB"
+literal|"I- c #3B5DCB"
 block|,
-literal|"J-	c #3C5ECC"
+literal|"J- c #3C5ECC"
 block|,
-literal|"K-	c #3C60CD"
+literal|"K- c #3C60CD"
 block|,
-literal|"L-	c #3C62CE"
+literal|"L- c #3C62CE"
 block|,
-literal|"M-	c #3D65D0"
+literal|"M- c #3D65D0"
 block|,
-literal|"N-	c #3D66D1"
+literal|"N- c #3D66D1"
 block|,
-literal|"O-	c #4166D2"
+literal|"O- c #4166D2"
 block|,
-literal|"P-	c #4667D2"
+literal|"P- c #4667D2"
 block|,
-literal|"Q-	c #4A67D1"
+literal|"Q- c #4A67D1"
 block|,
-literal|"R-	c #4C68D0"
+literal|"R- c #4C68D0"
 block|,
-literal|"S-	c #4C69CF"
+literal|"S- c #4C69CF"
 block|,
-literal|"T-	c #4D6BCE"
+literal|"T- c #4D6BCE"
 block|,
-literal|"U-	c #4E6DCD"
+literal|"U- c #4E6DCD"
 block|,
-literal|"V-	c #4E6ECE"
+literal|"V- c #4E6ECE"
 block|,
-literal|"W-	c #4E6DCE"
+literal|"W- c #4E6DCE"
 block|,
-literal|"X-	c #4970D0"
+literal|"X- c #4970D0"
 block|,
-literal|"Y-	c #4770D0"
+literal|"Y- c #4770D0"
 block|,
-literal|"Z-	c #4B6BCE"
+literal|"Z- c #4B6BCE"
 block|,
-literal|"`-	c #4A6CCE"
+literal|"`- c #4A6CCE"
 block|,
-literal|" ;	c #496DCF"
+literal|" ; c #496DCF"
 block|,
-literal|".;	c #476FD0"
+literal|".; c #476FD0"
 block|,
-literal|"+;	c #4870D0"
+literal|"+; c #4870D0"
 block|,
-literal|"@;	c #486DCF"
+literal|"@; c #486DCF"
 block|,
-literal|"#;	c #242F79"
+literal|"#; c #242F79"
 block|,
-literal|"$;	c #2F41AC"
+literal|"$; c #2F41AC"
 block|,
-literal|"%;	c #2040B8"
+literal|"%; c #2040B8"
 block|,
-literal|"&;	c #2041B8"
+literal|"&; c #2041B8"
 block|,
-literal|"*;	c #2243B3"
+literal|"*; c #2243B3"
 block|,
-literal|"=;	c #2243B8"
+literal|"=; c #2243B8"
 block|,
-literal|"-;	c #2343B8"
+literal|"-; c #2343B8"
 block|,
-literal|";;	c #2444B8"
+literal|";; c #2444B8"
 block|,
-literal|">;	c #2445B8"
+literal|">; c #2445B8"
 block|,
-literal|",;	c #2445B6"
+literal|",; c #2445B6"
 block|,
-literal|"';	c #2445B7"
+literal|"'; c #2445B7"
 block|,
-literal|");	c #2444B9"
+literal|"); c #2444B9"
 block|,
-literal|"!;	c #2949BE"
+literal|"!; c #2949BE"
 block|,
-literal|"~;	c #2649BF"
+literal|"~; c #2649BF"
 block|,
-literal|"{;	c #234BBF"
+literal|"{; c #234BBF"
 block|,
-literal|"];	c #224CBF"
+literal|"]; c #224CBF"
 block|,
-literal|"^;	c #224AC0"
+literal|"^; c #224AC0"
 block|,
-literal|"/;	c #244CC0"
+literal|"/; c #244CC0"
 block|,
-literal|"(;	c #254DC0"
+literal|"(; c #254DC0"
 block|,
-literal|"_;	c #254DC1"
+literal|"_; c #254DC1"
 block|,
-literal|":;	c #264DC2"
+literal|":; c #264DC2"
 block|,
-literal|"<;	c #274EC3"
+literal|"<; c #274EC3"
 block|,
-literal|"[;	c #274CC3"
+literal|"[; c #274CC3"
 block|,
-literal|"};	c #274DC4"
+literal|"}; c #274DC4"
 block|,
-literal|"|;	c #254DC5"
+literal|"|; c #254DC5"
 block|,
-literal|"1;	c #214EC5"
+literal|"1; c #214EC5"
 block|,
-literal|"2;	c #204FC6"
+literal|"2; c #204FC6"
 block|,
-literal|"3;	c #1F50C8"
+literal|"3; c #1F50C8"
 block|,
-literal|"4;	c #2151C9"
+literal|"4; c #2151C9"
 block|,
-literal|"5;	c #2B53C8"
+literal|"5; c #2B53C8"
 block|,
-literal|"6;	c #3154C7"
+literal|"6; c #3154C7"
 block|,
-literal|"7;	c #3255C6"
+literal|"7; c #3255C6"
 block|,
-literal|"8;	c #2F57C7"
+literal|"8; c #2F57C7"
 block|,
-literal|"9;	c #2C58C9"
+literal|"9; c #2C58C9"
 block|,
-literal|"0;	c #2D59CA"
+literal|"0; c #2D59CA"
 block|,
-literal|"a;	c #2D58C9"
+literal|"a; c #2D58C9"
 block|,
-literal|"b;	c #2E5BCC"
+literal|"b; c #2E5BCC"
 block|,
-literal|"c;	c #325ECC"
+literal|"c; c #325ECC"
 block|,
-literal|"d;	c #325ECB"
+literal|"d; c #325ECB"
 block|,
-literal|"e;	c #1F40B1"
+literal|"e; c #1F40B1"
 block|,
-literal|"f;	c #1F40B2"
+literal|"f; c #1F40B2"
 block|,
-literal|"g;	c #1F40B3"
+literal|"g; c #1F40B3"
 block|,
-literal|"h;	c #2A44BD"
+literal|"h; c #2A44BD"
 block|,
-literal|"i;	c #2845BE"
+literal|"i; c #2845BE"
 block|,
-literal|"j;	c #2745BE"
+literal|"j; c #2745BE"
 block|,
-literal|"k;	c #2646BF"
+literal|"k; c #2646BF"
 block|,
-literal|"l;	c #2546BE"
+literal|"l; c #2546BE"
 block|,
-literal|"m;	c #2347BF"
+literal|"m; c #2347BF"
 block|,
-literal|"n;	c #2147BF"
+literal|"n; c #2147BF"
 block|,
-literal|"o;	c #2048C0"
+literal|"o; c #2048C0"
 block|,
-literal|"p;	c #1D48C0"
+literal|"p; c #1D48C0"
 block|,
-literal|"q;	c #1C48C0"
+literal|"q; c #1C48C0"
 block|,
-literal|"r;	c #1B47C0"
+literal|"r; c #1B47C0"
 block|,
-literal|"s;	c #1C48BF"
+literal|"s; c #1C48BF"
 block|,
-literal|"t;	c #1E49BE"
+literal|"t; c #1E49BE"
 block|,
-literal|"u;	c #214ABD"
+literal|"u; c #214ABD"
 block|,
-literal|"v;	c #244CBD"
+literal|"v; c #244CBD"
 block|,
-literal|"w;	c #264DBE"
+literal|"w; c #264DBE"
 block|,
-literal|"x;	c #254EC0"
+literal|"x; c #254EC0"
 block|,
-literal|"y;	c #214FC2"
+literal|"y; c #214FC2"
 block|,
-literal|"z;	c #1B51C5"
+literal|"z; c #1B51C5"
 block|,
-literal|"A;	c #1C51C7"
+literal|"A; c #1C51C7"
 block|,
-literal|"B;	c #2250C8"
+literal|"B; c #2250C8"
 block|,
-literal|"C;	c #2A52C8"
+literal|"C; c #2A52C8"
 block|,
-literal|"D;	c #3254C6"
+literal|"D; c #3254C6"
 block|,
-literal|"E;	c #3355C5"
+literal|"E; c #3355C5"
 block|,
-literal|"F;	c #3154C8"
+literal|"F; c #3154C8"
 block|,
-literal|"G;	c #3355C6"
+literal|"G; c #3355C6"
 block|,
-literal|"H;	c #2F57C8"
+literal|"H; c #2F57C8"
 block|,
-literal|"I;	c #2E58C9"
+literal|"I; c #2E58C9"
 block|,
-literal|"J;	c #2E59C9"
+literal|"J; c #2E59C9"
 block|,
-literal|"K;	c #3059C9"
+literal|"K; c #3059C9"
 block|,
-literal|"L;	c #2040B6"
+literal|"L; c #2040B6"
 block|,
-literal|"M;	c #2743BB"
+literal|"M; c #2743BB"
 block|,
-literal|"N;	c #2844BC"
+literal|"N; c #2844BC"
 block|,
-literal|"O;	c #2743BD"
+literal|"O; c #2743BD"
 block|,
-literal|"P;	c #2844BE"
+literal|"P; c #2844BE"
 block|,
-literal|"Q;	c #2844BD"
+literal|"Q; c #2844BD"
 block|,
-literal|"R;	c #2346BE"
+literal|"R; c #2346BE"
 block|,
-literal|"S;	c #2047BF"
+literal|"S; c #2047BF"
 block|,
-literal|"T;	c #1E48C0"
+literal|"T; c #1E48C0"
 block|,
-literal|"U;	c #1D47C0"
+literal|"U; c #1D47C0"
 block|,
-literal|"V;	c #1D49BF"
+literal|"V; c #1D49BF"
 block|,
-literal|"W;	c #1F49BF"
+literal|"W; c #1F49BF"
 block|,
-literal|"X;	c #204ABE"
+literal|"X; c #204ABE"
 block|,
-literal|"Y;	c #254DBF"
+literal|"Y; c #254DBF"
 block|,
-literal|"Z;	c #234EC0"
+literal|"Z; c #234EC0"
 block|,
-literal|"`;	c #2050C1"
+literal|"`; c #2050C1"
 block|,
-literal|">	c #1C51C3"
+literal|"> c #1C51C3"
 block|,
-literal|".>	c #1F51C6"
+literal|".> c #1F51C6"
 block|,
-literal|"+>	c #2651C8"
+literal|"+> c #2651C8"
 block|,
-literal|"@>	c #2D53C7"
+literal|"@> c #2D53C7"
 block|,
-literal|"#>	c #3155C6"
+literal|"#> c #3155C6"
 block|,
-literal|"$>	c #3155C7"
+literal|"$> c #3155C7"
 block|,
-literal|"%>	c #3355C7"
+literal|"%> c #3355C7"
 block|,
-literal|"&>	c #3254C7"
+literal|"&> c #3254C7"
 block|,
-literal|"*>	c #1E40B1"
+literal|"*> c #1E40B1"
 block|,
-literal|"=>	c #2141B8"
+literal|"=> c #2141B8"
 block|,
-literal|"->	c #2442B9"
+literal|"-> c #2442B9"
 block|,
-literal|";>	c #2744BB"
+literal|";> c #2744BB"
 block|,
-literal|">>	c #2945BB"
+literal|">> c #2945BB"
 block|,
-literal|",>	c #2A45BB"
+literal|",> c #2A45BB"
 block|,
-literal|"'>	c #2944BA"
+literal|"'> c #2944BA"
 block|,
-literal|")>	c #2745BB"
+literal|")> c #2745BB"
 block|,
-literal|"!>	c #2545BC"
+literal|"!> c #2545BC"
 block|,
-literal|"~>	c #2246BD"
+literal|"~> c #2246BD"
 block|,
-literal|"{>	c #2047BE"
+literal|"{> c #2047BE"
 block|,
-literal|"]>	c #1F47BD"
+literal|"]> c #1F47BD"
 block|,
-literal|"^>	c #1D48BE"
+literal|"^> c #1D48BE"
 block|,
-literal|"/>	c #1E49C0"
+literal|"/> c #1E49C0"
 block|,
-literal|"(>	c #1F4AC0"
+literal|"(> c #1F4AC0"
 block|,
-literal|"_>	c #214BBF"
+literal|"_> c #214BBF"
 block|,
-literal|":>	c #244CBE"
+literal|":> c #244CBE"
 block|,
-literal|"<>	c #254DBE"
+literal|"<> c #254DBE"
 block|,
-literal|"[>	c #244DBE"
+literal|"[> c #244DBE"
 block|,
-literal|"}>	c #224FBF"
+literal|"}> c #224FBF"
 block|,
-literal|"|>	c #2051C1"
+literal|"|> c #2051C1"
 block|,
-literal|"1>	c #2151C3"
+literal|"1> c #2151C3"
 block|,
-literal|"2>	c #2252C5"
+literal|"2> c #2252C5"
 block|,
-literal|"3>	c #2151C1"
+literal|"3> c #2151C1"
 block|,
-literal|"4>	c #2851C6"
+literal|"4> c #2851C6"
 block|,
-literal|"5>	c #2A50C6"
+literal|"5> c #2A50C6"
 block|,
-literal|"6>	c #2E54C6"
+literal|"6> c #2E54C6"
 block|,
-literal|"7>	c #1F51C2"
+literal|"7> c #1F51C2"
 block|,
-literal|"8>	c #1D52C5"
+literal|"8> c #1D52C5"
 block|,
-literal|"9>	c #2651C9"
+literal|"9> c #2651C9"
 block|,
-literal|"0>	c #2950C7"
+literal|"0> c #2950C7"
 block|,
-literal|"a>	c #2D40A5"
+literal|"a> c #2D40A5"
 block|,
-literal|"b>	c #2040B0"
+literal|"b> c #2040B0"
 block|,
-literal|"c>	c #1F40B0"
+literal|"c> c #1F40B0"
 block|,
-literal|"d>	c #223CAE"
+literal|"d> c #223CAE"
 block|,
-literal|"e>	c #233CAE"
+literal|"e> c #233CAE"
 block|,
-literal|"f>	c #253BAC"
+literal|"f> c #253BAC"
 block|,
-literal|"g>	c #253BAD"
+literal|"g> c #253BAD"
 block|,
-literal|"h>	c #233CB0"
+literal|"h> c #233CB0"
 block|,
-literal|"i>	c #213EB2"
+literal|"i> c #213EB2"
 block|,
-literal|"j>	c #1F3FB4"
+literal|"j> c #1F3FB4"
 block|,
-literal|"k>	c #1E40B6"
+literal|"k> c #1E40B6"
 block|,
-literal|"l>	c #1F3FB7"
+literal|"l> c #1F3FB7"
 block|,
-literal|"m>	c #1E3EB8"
+literal|"m> c #1E3EB8"
 block|,
-literal|"n>	c #1F3FB8"
+literal|"n> c #1F3FB8"
 block|,
-literal|"o>	c #2040B7"
+literal|"o> c #2040B7"
 block|,
-literal|"p>	c #2141B6"
+literal|"p> c #2141B6"
 block|,
-literal|"q>	c #2140B7"
+literal|"q> c #2140B7"
 block|,
-literal|"r>	c #2241B6"
+literal|"r> c #2241B6"
 block|,
-literal|"s>	c #2342B5"
+literal|"s> c #2342B5"
 block|,
-literal|"t>	c #2442B6"
+literal|"t> c #2442B6"
 block|,
-literal|"u>	c #2543B5"
+literal|"u> c #2543B5"
 block|,
-literal|"v>	c #2643B4"
+literal|"v> c #2643B4"
 block|,
-literal|"w>	c #2544B6"
+literal|"w> c #2544B6"
 block|,
-literal|"x>	c #2346B8"
+literal|"x> c #2346B8"
 block|,
-literal|"y>	c #2247B9"
+literal|"y> c #2247B9"
 block|,
-literal|"z>	c #2048BC"
+literal|"z> c #2048BC"
 block|,
-literal|"A>	c #1F48BF"
+literal|"A> c #1F48BF"
 block|,
-literal|"B>	c #2049C0"
+literal|"B> c #2049C0"
 block|,
-literal|"C>	c #214AC0"
+literal|"C> c #214AC0"
 block|,
-literal|"D>	c #224BBF"
+literal|"D> c #224BBF"
 block|,
-literal|"E>	c #234CBE"
+literal|"E> c #234CBE"
 block|,
-literal|"F>	c #244DBF"
+literal|"F> c #244DBF"
 block|,
-literal|"G>	c #234CBF"
+literal|"G> c #234CBF"
 block|,
-literal|"H>	c #264DC0"
+literal|"H> c #264DC0"
 block|,
-literal|"I>	c #274EBF"
+literal|"I> c #274EBF"
 block|,
-literal|"J>	c #264DBF"
+literal|"J> c #264DBF"
 block|,
-literal|"K>	c #254EBF"
+literal|"K> c #254EBF"
 block|,
-literal|"L>	c #2050C0"
+literal|"L> c #2050C0"
 block|,
-literal|"M>	c #1F51C1"
+literal|"M> c #1F51C1"
 block|,
-literal|"N>	c #1E42A4"
+literal|"N> c #1E42A4"
 block|,
-literal|"O>	c #263BA6"
+literal|"O> c #263BA6"
 block|,
-literal|"P>	c #253BA7"
+literal|"P> c #253BA7"
 block|,
-literal|"Q>	c #253CA7"
+literal|"Q> c #253CA7"
 block|,
-literal|"R>	c #1E41A5"
+literal|"R> c #1E41A5"
 block|,
-literal|"S>	c #1F40AF"
+literal|"S> c #1F40AF"
 block|,
-literal|"T>	c #273AAC"
+literal|"T> c #273AAC"
 block|,
-literal|"U>	c #1E40B0"
+literal|"U> c #1E40B0"
 block|,
-literal|"V>	c #1F40B5"
+literal|"V> c #1F40B5"
 block|,
-literal|"W>	c #1F40B6"
+literal|"W> c #1F40B6"
 block|,
-literal|"X>	c #1F40B8"
+literal|"X> c #1F40B8"
 block|,
-literal|"Y>	c #1E40B8"
+literal|"Y> c #1E40B8"
 block|,
-literal|"Z>	c #1F3EB8"
+literal|"Z> c #1F3EB8"
 block|,
-literal|"`>	c #203FB7"
+literal|"`> c #203FB7"
 block|,
-literal|" ,	c #2240B6"
+literal|" , c #2240B6"
 block|,
-literal|".,	c #2341B7"
+literal|"., c #2341B7"
 block|,
-literal|"+,	c #2345B9"
+literal|"+, c #2345B9"
 block|,
-literal|"@,	c #2147BB"
+literal|"@, c #2147BB"
 block|,
-literal|"#,	c #2148BA"
+literal|"#, c #2148BA"
 block|,
-literal|"$,	c #2049BB"
+literal|"$, c #2049BB"
 block|,
-literal|"%,	c #2049BD"
+literal|"%, c #2049BD"
 block|,
-literal|"&,	c #2049BF"
+literal|"&, c #2049BF"
 block|,
-literal|"*,	c #224BBE"
+literal|"*, c #224BBE"
 block|,
-literal|"=,	c #244DBD"
+literal|"=, c #244DBD"
 block|,
-literal|"-,	c #244CBF"
+literal|"-, c #244CBF"
 block|,
-literal|";,	c #182969"
+literal|";, c #182969"
 block|,
-literal|">,	c #273BAD"
+literal|">, c #273BAD"
 block|,
-literal|",,	c #2739AB"
+literal|",, c #2739AB"
 block|,
-literal|"',	c #263AAC"
+literal|"', c #263AAC"
 block|,
-literal|"),	c #243CAE"
+literal|"), c #243CAE"
 block|,
-literal|"!,	c #233DAE"
+literal|"!, c #233DAE"
 block|,
-literal|"~,	c #213EAF"
+literal|"~, c #213EAF"
 block|,
-literal|"{,	c #1F3FB0"
+literal|"{, c #1F3FB0"
 block|,
-literal|"],	c #2040B4"
+literal|"], c #2040B4"
 block|,
-literal|"^,	c #1F3FB6"
+literal|"^, c #1F3FB6"
 block|,
-literal|"/,	c #1E3EB7"
+literal|"/, c #1E3EB7"
 block|,
-literal|"(,	c #2240B7"
+literal|"(, c #2240B7"
 block|,
-literal|"_,	c #2341B6"
+literal|"_, c #2341B6"
 block|,
-literal|":,	c #2543B4"
+literal|":, c #2543B4"
 block|,
-literal|"<,	c #2644B3"
+literal|"<, c #2644B3"
 block|,
-literal|"[,	c #2544B5"
+literal|"[, c #2544B5"
 block|,
-literal|"},	c #2545B5"
+literal|"}, c #2545B5"
 block|,
-literal|"|,	c #2547B6"
+literal|"|, c #2547B6"
 block|,
-literal|"1,	c #2548B7"
+literal|"1, c #2548B7"
 block|,
-literal|"2,	c #2349BA"
+literal|"2, c #2349BA"
 block|,
-literal|"3,	c #1F49BE"
+literal|"3, c #1F49BE"
 block|,
-literal|"4,	c #2149BD"
+literal|"4, c #2149BD"
 block|,
-literal|"5,	c #2049BE"
+literal|"5, c #2049BE"
 block|,
-literal|"6,	c #214BBE"
+literal|"6, c #214BBE"
 block|,
-literal|"7,	c #2249BE"
+literal|"7, c #2249BE"
 block|,
-literal|"8,	c #234CBD"
+literal|"8, c #234CBD"
 block|,
-literal|"9,	c #2149BE"
+literal|"9, c #2149BE"
 block|,
-literal|"0,	c #1E49BF"
+literal|"0, c #1E49BF"
 block|,
-literal|"a,	c #253BA9"
+literal|"a, c #253BA9"
 block|,
-literal|"b,	c #253BAB"
+literal|"b, c #253BAB"
 block|,
-literal|"c,	c #263AAB"
+literal|"c, c #263AAB"
 block|,
-literal|"d,	c #213DAF"
+literal|"d, c #213DAF"
 block|,
-literal|"e,	c #203EAF"
+literal|"e, c #203EAF"
 block|,
-literal|"f,	c #1D40AF"
+literal|"f, c #1D40AF"
 block|,
-literal|"g,	c #1D40B0"
+literal|"g, c #1D40B0"
 block|,
-literal|"h,	c #1E40B4"
+literal|"h, c #1E40B4"
 block|,
-literal|"i,	c #2241B7"
+literal|"i, c #2241B7"
 block|,
-literal|"j,	c #2643B6"
+literal|"j, c #2643B6"
 block|,
-literal|"k,	c #2744B5"
+literal|"k, c #2744B5"
 block|,
-literal|"l,	c #2643B5"
+literal|"l, c #2643B5"
 block|,
-literal|"m,	c #2346B6"
+literal|"m, c #2346B6"
 block|,
-literal|"n,	c #2147B7"
+literal|"n, c #2147B7"
 block|,
-literal|"o,	c #2644B6"
+literal|"o, c #2644B6"
 block|,
-literal|"p,	c #2247B7"
+literal|"p, c #2247B7"
 block|,
-literal|"q,	c #2248B8"
+literal|"q, c #2248B8"
 block|,
-literal|"r,	c #2647B7"
+literal|"r, c #2647B7"
 block|,
-literal|"s,	c #2549B7"
+literal|"s, c #2549B7"
 block|,
-literal|"t,	c #2645B7"
+literal|"t, c #2645B7"
 block|,
-literal|"u,	c #2148B8"
+literal|"u, c #2148B8"
 block|,
-literal|"v,	c #2847B6"
+literal|"v, c #2847B6"
 block|,
-literal|"w,	c #2549B6"
+literal|"w, c #2549B6"
 block|,
-literal|"x,	c #2849B6"
+literal|"x, c #2849B6"
 block|,
-literal|"y,	c #2049B7"
+literal|"y, c #2049B7"
 block|,
-literal|"z,	c #2A49B5"
+literal|"z, c #2A49B5"
 block|,
-literal|"A,	c #243BA4"
+literal|"A, c #243BA4"
 block|,
-literal|"B,	c #253BA5"
+literal|"B, c #253BA5"
 block|,
-literal|"C,	c #253BA6"
+literal|"C, c #253BA6"
 block|,
-literal|"D,	c #263AA7"
+literal|"D, c #263AA7"
 block|,
-literal|"E,	c #263AA8"
+literal|"E, c #263AA8"
 block|,
-literal|"F,	c #2739AA"
+literal|"F, c #2739AA"
 block|,
-literal|"G,	c #243CAD"
+literal|"G, c #243CAD"
 block|,
-literal|"H,	c #223DAE"
+literal|"H, c #223DAE"
 block|,
-literal|"I,	c #1F3EAF"
+literal|"I, c #1F3EAF"
 block|,
-literal|"J,	c #1E3FB0"
+literal|"J, c #1E3FB0"
 block|,
-literal|"K,	c #1D40B1"
+literal|"K, c #1D40B1"
 block|,
-literal|"L,	c #1E3FB1"
+literal|"L, c #1E3FB1"
 block|,
-literal|"M,	c #1F3FB3"
+literal|"M, c #1F3FB3"
 block|,
-literal|"N,	c #1F3FB5"
+literal|"N, c #1F3FB5"
 block|,
-literal|"O,	c #2140B6"
+literal|"O, c #2140B6"
 block|,
-literal|"P,	c #2140B8"
+literal|"P, c #2140B8"
 block|,
-literal|"Q,	c #2744B4"
+literal|"Q, c #2744B4"
 block|,
-literal|"R,	c #2746B6"
+literal|"R, c #2746B6"
 block|,
-literal|"S,	c #2947B6"
+literal|"S, c #2947B6"
 block|,
-literal|"T,	c #2946B5"
+literal|"T, c #2946B5"
 block|,
-literal|"U,	c #2A48B6"
+literal|"U, c #2A48B6"
 block|,
-literal|"V,	c #3551A8"
+literal|"V, c #3551A8"
 block|,
-literal|"W,	c #1F399C"
+literal|"W, c #1F399C"
 block|,
-literal|"X,	c #143D9F"
+literal|"X, c #143D9F"
 block|,
-literal|"Y,	c #263BA5"
+literal|"Y, c #263BA5"
 block|,
-literal|"Z,	c #273BA8"
+literal|"Z, c #273BA8"
 block|,
-literal|"`,	c #273BAA"
+literal|"`, c #273BAA"
 block|,
-literal|" '	c #263AAD"
+literal|" ' c #263AAD"
 block|,
-literal|".'	c #233CAD"
+literal|".' c #233CAD"
 block|,
-literal|"+'	c #213DAE"
+literal|"+' c #213DAE"
 block|,
-literal|"@'	c #203FB2"
+literal|"@' c #203FB2"
 block|,
-literal|"#'	c #2342B6"
+literal|"#' c #2342B6"
 block|,
-literal|"$'	c #2443B6"
+literal|"$' c #2443B6"
 block|,
-literal|"%'	c #2543B6"
+literal|"%' c #2543B6"
 block|,
-literal|"&'	c #2644B5"
+literal|"&' c #2644B5"
 block|,
-literal|"*'	c #133D9E"
+literal|"*' c #133D9E"
 block|,
-literal|"='	c #263BA7"
+literal|"=' c #263BA7"
 block|,
-literal|"-'	c #263BA9"
+literal|"-' c #263BA9"
 block|,
-literal|";'	c #273BA9"
+literal|";' c #273BA9"
 block|,
-literal|">'	c #263AAA"
+literal|">' c #263AAA"
 block|,
-literal|",'	c #2539AB"
+literal|",' c #2539AB"
 block|,
-literal|"''	c #2639AB"
+literal|"'' c #2639AB"
 block|,
-literal|")'	c #253AAC"
+literal|")' c #253AAC"
 block|,
-literal|"!'	c #243BAD"
+literal|"!' c #243BAD"
 block|,
-literal|"~'	c #223DAF"
+literal|"~' c #223DAF"
 block|,
-literal|"{'	c #203FB0"
+literal|"{' c #203FB0"
 block|,
-literal|"]'	c #2040B1"
+literal|"]' c #2040B1"
 block|,
-literal|"^'	c #2140B3"
+literal|"^' c #2140B3"
 block|,
-literal|"/'	c #2543B1"
+literal|"/' c #2543B1"
 block|,
-literal|"('	c #2744AF"
+literal|"(' c #2744AF"
 block|,
-literal|"_'	c #1A3CA0"
+literal|"_' c #1A3CA0"
 block|,
-literal|":'	c #1D3BA2"
+literal|":' c #1D3BA2"
 block|,
-literal|"<'	c #233BA4"
+literal|"<' c #233BA4"
 block|,
-literal|"['	c #263AA5"
+literal|"[' c #263AA5"
 block|,
-literal|"}'	c #253AA5"
+literal|"}' c #253AA5"
 block|,
-literal|"|'	c #263AA6"
+literal|"|' c #263AA6"
 block|,
-literal|"1'	c #263BA4"
+literal|"1' c #263BA4"
 block|,
-literal|"2'	c #243BA5"
+literal|"2' c #243BA5"
 block|,
-literal|"3'	c #263BA8"
+literal|"3' c #263BA8"
 block|,
-literal|"4'	c #223EAF"
+literal|"4' c #223EAF"
 block|,
-literal|"5'	c #3B4CA5"
+literal|"5' c #3B4CA5"
 block|,
-literal|"6'	c #1D379A"
+literal|"6' c #1D379A"
 block|,
-literal|"7'	c #1E389C"
+literal|"7' c #1E389C"
 block|,
-literal|"8'	c #1E399F"
+literal|"8' c #1E399F"
 block|,
-literal|"9'	c #1F3BA2"
+literal|"9' c #1F3BA2"
 block|,
-literal|"0'	c #1F3BA3"
+literal|"0' c #1F3BA3"
 block|,
-literal|"a'	c #213BA4"
+literal|"a' c #213BA4"
 block|,
-literal|"b'	c #233AA3"
+literal|"b' c #233AA3"
 block|,
-literal|"c'	c #243AA3"
+literal|"c' c #243AA3"
 block|,
-literal|"d'	c #2539A4"
+literal|"d' c #2539A4"
 block|,
-literal|"e'	c #253AA6"
+literal|"e' c #253AA6"
 block|,
-literal|"f'	c #243BA7"
+literal|"f' c #243BA7"
 block|,
-literal|"g'	c #253CAA"
+literal|"g' c #253CAA"
 block|,
-literal|"h'	c #253CAC"
+literal|"h' c #253CAC"
 block|,
-literal|"i'	c #253CAD"
+literal|"i' c #253CAD"
 block|,
-literal|"j'	c #253CAE"
+literal|"j' c #253CAE"
 block|,
-literal|"k'	c #243DAE"
+literal|"k' c #243DAE"
 block|,
-literal|"l'	c #213FAF"
+literal|"l' c #213FAF"
 block|,
-literal|"m'	c #223FAF"
+literal|"m' c #223FAF"
 block|,
-literal|"n'	c #2040AF"
+literal|"n' c #2040AF"
 block|,
-literal|"o'	c #253D93"
+literal|"o' c #253D93"
 block|,
-literal|"p'	c #1D3894"
+literal|"p' c #1D3894"
 block|,
-literal|"q'	c #1F379A"
+literal|"q' c #1F379A"
 block|,
-literal|"r'	c #1E389B"
+literal|"r' c #1E389B"
 block|,
-literal|"s'	c #1D399C"
+literal|"s' c #1D399C"
 block|,
-literal|"t'	c #1C3A9D"
+literal|"t' c #1C3A9D"
 block|,
-literal|"u'	c #1B3A9D"
+literal|"u' c #1B3A9D"
 block|,
-literal|"v'	c #183B9E"
+literal|"v' c #183B9E"
 block|,
-literal|"w'	c #163C9E"
+literal|"w' c #163C9E"
 block|,
-literal|"x'	c #153C9E"
+literal|"x' c #153C9E"
 block|,
-literal|"y'	c #163B9D"
+literal|"y' c #163B9D"
 block|,
-literal|"z'	c #173B9D"
+literal|"z' c #173B9D"
 block|,
-literal|"A'	c #193A9D"
+literal|"A' c #193A9D"
 block|,
-literal|"B'	c #1C3A9E"
+literal|"B' c #1C3A9E"
 block|,
-literal|"C'	c #1F3AA1"
+literal|"C' c #1F3AA1"
 block|,
-literal|"D'	c #223AA4"
+literal|"D' c #223AA4"
 block|,
-literal|"E'	c #253BA8"
+literal|"E' c #253BA8"
 block|,
-literal|"F'	c #273BA7"
+literal|"F' c #273BA7"
 block|,
-literal|"G'	c #263CAB"
+literal|"G' c #263CAB"
 block|,
-literal|"H'	c #263CAC"
+literal|"H' c #263CAC"
 block|,
-literal|"I'	c #243EAE"
+literal|"I' c #243EAE"
 block|,
-literal|"J'	c #273BAC"
+literal|"J' c #273BAC"
 block|,
-literal|"K'	c #2A3795"
+literal|"K' c #2A3795"
 block|,
-literal|"L'	c #1F389B"
+literal|"L' c #1F389B"
 block|,
-literal|"M'	c #1D389B"
+literal|"M' c #1D389B"
 block|,
-literal|"N'	c #1C399C"
+literal|"N' c #1C399C"
 block|,
-literal|"O'	c #1B399C"
+literal|"O' c #1B399C"
 block|,
-literal|"P'	c #1A3A9D"
+literal|"P' c #1A3A9D"
 block|,
-literal|"Q'	c #1D399B"
+literal|"Q' c #1D399B"
 block|,
-literal|"R'	c #1B399B"
+literal|"R' c #1B399B"
 block|,
-literal|"S'	c #1A3A9C"
+literal|"S' c #1A3A9C"
 block|,
-literal|"T'	c #1B3A9F"
+literal|"T' c #1B3A9F"
 block|,
-literal|"U'	c #1D3AA0"
+literal|"U' c #1D3AA0"
 block|,
-literal|"V'	c #203BA2"
+literal|"V' c #203BA2"
 block|,
-literal|"W'	c #203BA3"
+literal|"W' c #203BA3"
 block|,
-literal|"X'	c #2639A6"
+literal|"X' c #2639A6"
 block|,
-literal|"Y'	c #1B3692"
+literal|"Y' c #1B3692"
 block|,
-literal|"Z'	c #1C3794"
+literal|"Z' c #1C3794"
 block|,
-literal|"`'	c #1D3796"
+literal|"`' c #1D3796"
 block|,
-literal|" )	c #1E3898"
+literal|" ) c #1E3898"
 block|,
-literal|".)	c #1E389A"
+literal|".) c #1E389A"
 block|,
-literal|"+)	c #1F399B"
+literal|"+) c #1F399B"
 block|,
-literal|"@)	c #1A399C"
+literal|"@) c #1A399C"
 block|,
-literal|"#)	c #193A9E"
+literal|"#) c #193A9E"
 block|,
-literal|"$)	c #1A3BA0"
+literal|"$) c #1A3BA0"
 block|,
-literal|"%)	c #1C3BA2"
+literal|"%) c #1C3BA2"
 block|,
-literal|"&)	c #1D3CA3"
+literal|"&) c #1D3CA3"
 block|,
-literal|"*)	c #203CA4"
+literal|"*) c #203CA4"
 block|,
-literal|"=)	c #223BA5"
+literal|"=) c #223BA5"
 block|,
-literal|"-)	c #3C4699"
+literal|"-) c #3C4699"
 block|,
-literal|";)	c #2B4595"
+literal|";) c #2B4595"
 block|,
-literal|">)	c #1C3793"
+literal|">) c #1C3793"
 block|,
-literal|",)	c #1D3895"
+literal|",) c #1D3895"
 block|,
-literal|"')	c #1E3897"
+literal|"') c #1E3897"
 block|,
-literal|"))	c #1F3998"
+literal|")) c #1F3998"
 block|,
-literal|"!)	c #1F3999"
+literal|"!) c #1F3999"
 block|,
-literal|"~)	c #1F399A"
+literal|"~) c #1F399A"
 block|,
-literal|"{)	c #1E399C"
+literal|"{) c #1E399C"
 block|,
-literal|"])	c #1C3B9E"
+literal|"]) c #1C3B9E"
 block|,
-literal|"^)	c #1D3BA0"
+literal|"^) c #1D3BA0"
 block|,
-literal|"/)	c #1E3CA2"
+literal|"/) c #1E3CA2"
 block|,
-literal|"()	c #223CA5"
+literal|"() c #223CA5"
 block|,
-literal|"_)	c #243CA6"
+literal|"_) c #243CA6"
 block|,
-literal|":)	c #596FA9"
+literal|":) c #596FA9"
 block|,
-literal|"<)	c #3B4894"
+literal|"<) c #3B4894"
 block|,
-literal|"[)	c #314993"
+literal|"[) c #314993"
 block|,
-literal|"})	c #29499F"
+literal|"}) c #29499F"
 block|,
-literal|"|)	c #28489E"
+literal|"|) c #28489E"
 block|,
-literal|"1)	c #2B4BA1"
+literal|"1) c #2B4BA1"
 block|,
-literal|"2)	c #2C4BA1"
+literal|"2) c #2C4BA1"
 block|,
-literal|"3)	c #2D4CA2"
+literal|"3) c #2D4CA2"
 block|,
-literal|"4)	c #2E4CA3"
+literal|"4) c #2E4CA3"
 block|,
-literal|"5)	c #2F4CA4"
+literal|"5) c #2F4CA4"
 block|,
-literal|"6)	c #2E4CA4"
+literal|"6) c #2E4CA4"
 block|,
-literal|"7)	c #2F4DA3"
+literal|"7) c #2F4DA3"
 block|,
-literal|"8)	c #2F4DA4"
+literal|"8) c #2F4DA4"
 block|,
-literal|"9)	c #D3D5D2"
+literal|"9) c #D3D5D2"
 block|,
-literal|"0)	c #3B4794"
+literal|"0) c #3B4794"
 block|,
-literal|"a)	c #314791"
+literal|"a) c #314791"
 block|,
-literal|"b)	c #304892"
+literal|"b) c #304892"
 block|,
-literal|"c)	c #304893"
+literal|"c) c #304893"
 block|,
-literal|"d)	c #2F4995"
+literal|"d) c #2F4995"
 block|,
-literal|"e)	c #2F4997"
+literal|"e) c #2F4997"
 block|,
-literal|"f)	c #2D4A9A"
+literal|"f) c #2D4A9A"
 block|,
-literal|"g)	c #2A4A9D"
+literal|"g) c #2A4A9D"
 block|,
-literal|"h)	c #294A9F"
+literal|"h) c #294A9F"
 block|,
-literal|"i)	c #284AA0"
+literal|"i) c #284AA0"
 block|,
-literal|"j)	c #294AA0"
+literal|"j) c #294AA0"
 block|,
-literal|"k)	c #2B4AA1"
+literal|"k) c #2B4AA1"
 block|,
-literal|"l)	c #2D4CA3"
+literal|"l) c #2D4CA3"
 block|,
-literal|"m)	c #C9CAC9"
+literal|"m) c #C9CAC9"
 block|,
-literal|"n)	c #455D9B"
+literal|"n) c #455D9B"
 block|,
-literal|"o)	c #242F78"
+literal|"o) c #242F78"
 block|,
-literal|"p)	c #1B2F85"
+literal|"p) c #1B2F85"
 block|,
-literal|"q)	c #C6C3C8"
+literal|"q) c #C6C3C8"
 block|,
-literal|"r)	c #B5B2B6"
+literal|"r) c #B5B2B6"
 block|,
-literal|"s)	c #B5B7B4"
+literal|"s) c #B5B7B4"
 block|,
-literal|"t)	c #B5B7B3"
+literal|"t) c #B5B7B3"
 block|,
-literal|"u)	c #B5B2B5"
+literal|"u) c #B5B2B5"
 block|,
-literal|"v)	c #B5B3B4"
+literal|"v) c #B5B3B4"
 block|,
-literal|"w)	c #B5B5B4"
+literal|"w) c #B5B5B4"
 block|,
-literal|"x)	c #B5B6B3"
+literal|"x) c #B5B6B3"
 block|,
-literal|"y)	c #B5B4B4"
+literal|"y) c #B5B4B4"
 block|,
-literal|"z)	c #B5B3B5"
+literal|"z) c #B5B3B5"
 block|,
-literal|"A)	c #B5B4B5"
+literal|"A) c #B5B4B5"
 block|,
-literal|"B)	c #B5B5B5"
+literal|"B) c #B5B5B5"
 block|,
-literal|"C)	c #B5B5B3"
+literal|"C) c #B5B5B3"
 block|,
-literal|"D)	c #B5B5B6"
+literal|"D) c #B5B5B6"
 block|,
-literal|"E)	c #BAC3BE"
+literal|"E) c #BAC3BE"
 block|,
-literal|"F)	c #B9C3BD"
+literal|"F) c #B9C3BD"
 block|,
-literal|"G)	c #C1C3C4"
+literal|"G) c #C1C3C4"
 block|,
-literal|"H)	c #BFC3C2"
+literal|"H) c #BFC3C2"
 block|,
-literal|"I)	c #B9C3BE"
+literal|"I) c #B9C3BE"
 block|,
-literal|"J)	c #BBC3BF"
+literal|"J) c #BBC3BF"
 block|,
-literal|"K)	c #BDC3C1"
+literal|"K) c #BDC3C1"
 block|,
-literal|"L)	c #C0C3C3"
+literal|"L) c #C0C3C3"
 block|,
-literal|"M)	c #BEC3C1"
+literal|"M) c #BEC3C1"
 block|,
-literal|"N)	c #C2C3C5"
+literal|"N) c #C2C3C5"
 block|,
-literal|"O)	c #E6E3E8"
+literal|"O) c #E6E3E8"
 block|,
-literal|"P)	c #E0E2DF"
+literal|"P) c #E0E2DF"
 block|,
-literal|"Q)	c #E1E1E1"
+literal|"Q) c #E1E1E1"
 block|,
-literal|"R)	c #E2E1E3"
+literal|"R) c #E2E1E3"
 block|,
-literal|"S)	c #E4E1E6"
+literal|"S) c #E4E1E6"
 block|,
-literal|"T)	c #E4E2E7"
+literal|"T) c #E4E2E7"
 block|,
-literal|"U)	c #E4E2E6"
+literal|"U) c #E4E2E6"
 block|,
-literal|"V)	c #E3E3E4"
+literal|"V) c #E3E3E4"
 block|,
-literal|"W)	c #E2E3E3"
+literal|"W) c #E2E3E3"
 block|,
-literal|"X)	c #E1E3E2"
+literal|"X) c #E1E3E2"
 block|,
-literal|"Y)	c #E3E3E3"
+literal|"Y) c #E3E3E3"
 block|,
-literal|"Z)	c #E3E3E2"
+literal|"Z) c #E3E3E2"
 block|,
-literal|"`)	c #EBEDEA"
+literal|"`) c #EBEDEA"
 block|,
-literal|" !	c #EAECE9"
+literal|" ! c #EAECE9"
 block|,
-literal|".!	c #E9EBE8"
+literal|".! c #E9EBE8"
 block|,
-literal|"+!	c #ECEEEB"
+literal|"+! c #ECEEEB"
 block|,
 literal|". . + @ # $ $ $ $ $ $ $ % $ $ $ $ $ % $ $ $ $ $ $ % $ $ $ $ $ % $ $ $ $ $ $ $ $ $ % $ $& * = - ;> , , ' ) ! ! ~ { ] ^ / ( _ :< [ } | | 1 2 3 3 4 4 4 4 4 4 4 5 6 4 4 4 5 6 7 8 9 4 5 6 7 8 9 6 7 8 9 "
 block|,
@@ -5981,1565 +5981,1565 @@ init|=
 block|{
 literal|"100 46 780 2"
 block|,
-literal|"  	c None"
+literal|"   c None"
 block|,
-literal|". 	c #6A779D"
+literal|".  c #6A779D"
 block|,
-literal|"+ 	c #6C789C"
+literal|"+  c #6C789C"
 block|,
-literal|"@ 	c #6C789D"
+literal|"@  c #6C789D"
 block|,
-literal|"# 	c #6B789D"
+literal|"#  c #6B789D"
 block|,
-literal|"$ 	c #6A779E"
+literal|"$  c #6A779E"
 block|,
-literal|"% 	c #66759E"
+literal|"%  c #66759E"
 block|,
-literal|"& 	c #64749E"
+literal|"&  c #64749E"
 block|,
-literal|"* 	c #63749E"
+literal|"*  c #63749E"
 block|,
-literal|"= 	c #61739D"
+literal|"=  c #61739D"
 block|,
-literal|"- 	c #576D9B"
+literal|"-  c #576D9B"
 block|,
-literal|"; 	c #556C9C"
+literal|";  c #556C9C"
 block|,
-literal|"> 	c #4D679D"
+literal|">  c #4D679D"
 block|,
-literal|", 	c #4A649D"
+literal|",  c #4A649D"
 block|,
-literal|"' 	c #49629D"
+literal|"'  c #49629D"
 block|,
-literal|") 	c #465E9C"
+literal|")  c #465E9C"
 block|,
-literal|"! 	c #40579C"
+literal|"!  c #40579C"
 block|,
-literal|"~ 	c #3B5394"
+literal|"~  c #3B5394"
 block|,
-literal|"{ 	c #2C4E97"
+literal|"{  c #2C4E97"
 block|,
-literal|"] 	c #314993"
+literal|"]  c #314993"
 block|,
-literal|"^ 	c #2B4595"
+literal|"^  c #2B4595"
 block|,
-literal|"/ 	c #1B4296"
+literal|"/  c #1B4296"
 block|,
-literal|"( 	c #253D93"
+literal|"(  c #253D93"
 block|,
-literal|"_ 	c #19418F"
+literal|"_  c #19418F"
 block|,
-literal|": 	c #0F3C96"
+literal|":  c #0F3C96"
 block|,
-literal|"< 	c #42599E"
+literal|"<  c #42599E"
 block|,
-literal|"[ 	c #758DC3"
+literal|"[  c #758DC3"
 block|,
-literal|"} 	c #E8EAE7"
+literal|"}  c #E8EAE7"
 block|,
-literal|"| 	c #EEF0ED"
+literal|"|  c #EEF0ED"
 block|,
-literal|"1 	c #FBFBFC"
+literal|"1  c #FBFBFC"
 block|,
-literal|"2 	c #6F7D9B"
+literal|"2  c #6F7D9B"
 block|,
-literal|"3 	c #6F7D9A"
+literal|"3  c #6F7D9A"
 block|,
-literal|"4 	c #6E7B9C"
+literal|"4  c #6E7B9C"
 block|,
-literal|"5 	c #67759E"
+literal|"5  c #67759E"
 block|,
-literal|"6 	c #63739E"
+literal|"6  c #63739E"
 block|,
-literal|"7 	c #62739D"
+literal|"7  c #62739D"
 block|,
-literal|"8 	c #596F9C"
+literal|"8  c #596F9C"
 block|,
-literal|"9 	c #4A639D"
+literal|"9  c #4A639D"
 block|,
-literal|"0 	c #47609C"
+literal|"0  c #47609C"
 block|,
-literal|"a 	c #445B9F"
+literal|"a  c #445B9F"
 block|,
-literal|"b 	c #3E5697"
+literal|"b  c #3E5697"
 block|,
-literal|"c 	c #2E509A"
+literal|"c  c #2E509A"
 block|,
-literal|"d 	c #2D509A"
+literal|"d  c #2D509A"
 block|,
-literal|"e 	c #2D4F99"
+literal|"e  c #2D4F99"
 block|,
-literal|"f 	c #2D4F98"
+literal|"f  c #2D4F98"
 block|,
-literal|"g 	c #28418A"
+literal|"g  c #28418A"
 block|,
-literal|"h 	c #3E51A3"
+literal|"h  c #3E51A3"
 block|,
-literal|"i 	c #D0D3DC"
+literal|"i  c #D0D3DC"
 block|,
-literal|"j 	c #A1B6EF"
+literal|"j  c #A1B6EF"
 block|,
-literal|"k 	c #A2B6F0"
+literal|"k  c #A2B6F0"
 block|,
-literal|"l 	c #A1B6F0"
+literal|"l  c #A1B6F0"
 block|,
-literal|"m 	c #A3B6F0"
+literal|"m  c #A3B6F0"
 block|,
-literal|"n 	c #A0B6EF"
+literal|"n  c #A0B6EF"
 block|,
-literal|"o 	c #9DB6EE"
+literal|"o  c #9DB6EE"
 block|,
-literal|"p 	c #9CB5EF"
+literal|"p  c #9CB5EF"
 block|,
-literal|"q 	c #9CB2F0"
+literal|"q  c #9CB2F0"
 block|,
-literal|"r 	c #9FB5EE"
+literal|"r  c #9FB5EE"
 block|,
-literal|"s 	c #9CB4EB"
+literal|"s  c #9CB4EB"
 block|,
-literal|"t 	c #9AB3EC"
+literal|"t  c #9AB3EC"
 block|,
-literal|"u 	c #9AB0EC"
+literal|"u  c #9AB0EC"
 block|,
-literal|"v 	c #9DB3EB"
+literal|"v  c #9DB3EB"
 block|,
-literal|"w 	c #9BB4EC"
+literal|"w  c #9BB4EC"
 block|,
-literal|"x 	c #9BB4EE"
+literal|"x  c #9BB4EE"
 block|,
-literal|"y 	c #9BB1EF"
+literal|"y  c #9BB1EF"
 block|,
-literal|"z 	c #9BB0F0"
+literal|"z  c #9BB0F0"
 block|,
-literal|"A 	c #90ACF0"
+literal|"A  c #90ACF0"
 block|,
-literal|"B 	c #93ABEE"
+literal|"B  c #93ABEE"
 block|,
-literal|"C 	c #91A8EB"
+literal|"C  c #91A8EB"
 block|,
-literal|"D 	c #8BA3E8"
+literal|"D  c #8BA3E8"
 block|,
-literal|"E 	c #88A1E7"
+literal|"E  c #88A1E7"
 block|,
-literal|"F 	c #809DE9"
+literal|"F  c #809DE9"
 block|,
-literal|"G 	c #7A99E8"
+literal|"G  c #7A99E8"
 block|,
-literal|"H 	c #7491E5"
+literal|"H  c #7491E5"
 block|,
-literal|"I 	c #698AE4"
+literal|"I  c #698AE4"
 block|,
-literal|"J 	c #6184E3"
+literal|"J  c #6184E3"
 block|,
-literal|"K 	c #507EDC"
+literal|"K  c #507EDC"
 block|,
-literal|"L 	c #4E7CDB"
+literal|"L  c #4E7CDB"
 block|,
-literal|"M 	c #4F7DDC"
+literal|"M  c #4F7DDC"
 block|,
-literal|"N 	c #5479DA"
+literal|"N  c #5479DA"
 block|,
-literal|"O 	c #567BDC"
+literal|"O  c #567BDC"
 block|,
-literal|"P 	c #577CDD"
+literal|"P  c #577CDD"
 block|,
-literal|"Q 	c #5074DA"
+literal|"Q  c #5074DA"
 block|,
-literal|"R 	c #5174DB"
+literal|"R  c #5174DB"
 block|,
-literal|"S 	c #5175DC"
+literal|"S  c #5175DC"
 block|,
-literal|"T 	c #5276DD"
+literal|"T  c #5276DD"
 block|,
-literal|"U 	c #4D71DE"
+literal|"U  c #4D71DE"
 block|,
-literal|"V 	c #4C72D8"
+literal|"V  c #4C72D8"
 block|,
-literal|"W 	c #3A6CE0"
+literal|"W  c #3A6CE0"
 block|,
-literal|"X 	c #2B49A6"
+literal|"X  c #2B49A6"
 block|,
-literal|"Y 	c #E0E2DF"
+literal|"Y  c #E0E2DF"
 block|,
-literal|"Z 	c #93AAE9"
+literal|"Z  c #93AAE9"
 block|,
-literal|"` 	c #94A9E8"
+literal|"`  c #94A9E8"
 block|,
-literal|" .	c #94AAE9"
+literal|" . c #94AAE9"
 block|,
-literal|"..	c #93A9E9"
+literal|".. c #93A9E9"
 block|,
-literal|"+.	c #92AAE9"
+literal|"+. c #92AAE9"
 block|,
-literal|"@.	c #8DA9E8"
+literal|"@. c #8DA9E8"
 block|,
-literal|"#.	c #8CA7E9"
+literal|"#. c #8CA7E9"
 block|,
-literal|"$.	c #92ABE9"
+literal|"$. c #92ABE9"
 block|,
-literal|"%.	c #8EAAE9"
+literal|"%. c #8EAAE9"
 block|,
-literal|"&.	c #8EA9E9"
+literal|"&. c #8EA9E9"
 block|,
-literal|"*.	c #8FAAE9"
+literal|"*. c #8FAAE9"
 block|,
-literal|"=.	c #8CA8E9"
+literal|"=. c #8CA8E9"
 block|,
-literal|"-.	c #8CA2E7"
+literal|"-. c #8CA2E7"
 block|,
-literal|";.	c #86A1E6"
+literal|";. c #86A1E6"
 block|,
-literal|">.	c #839EE9"
+literal|">. c #839EE9"
 block|,
-literal|",.	c #7F9CE9"
+literal|",. c #7F9CE9"
 block|,
-literal|"'.	c #7A97E8"
+literal|"'. c #7A97E8"
 block|,
-literal|").	c #7693E7"
+literal|"). c #7693E7"
 block|,
-literal|"!.	c #6E8EE8"
+literal|"!. c #6E8EE8"
 block|,
-literal|"~.	c #678AE9"
+literal|"~. c #678AE9"
 block|,
-literal|"{.	c #5D84E3"
+literal|"{. c #5D84E3"
 block|,
-literal|"].	c #577CDF"
+literal|"]. c #577CDF"
 block|,
-literal|"^.	c #4E77DF"
+literal|"^. c #4E77DF"
 block|,
-literal|"/.	c #4A70DB"
+literal|"/. c #4A70DB"
 block|,
-literal|"(.	c #4870DB"
+literal|"(. c #4870DB"
 block|,
-literal|"_.	c #4870DC"
+literal|"_. c #4870DC"
 block|,
-literal|":.	c #4770E3"
+literal|":. c #4770E3"
 block|,
-literal|"<.	c #496FDC"
+literal|"<. c #496FDC"
 block|,
-literal|"[.	c #486EDB"
+literal|"[. c #486EDB"
 block|,
-literal|"}.	c #466FE4"
+literal|"}. c #466FE4"
 block|,
-literal|"|.	c #466EE3"
+literal|"|. c #466EE3"
 block|,
-literal|"1.	c #4167D9"
+literal|"1. c #4167D9"
 block|,
-literal|"2.	c #4066D8"
+literal|"2. c #4066D8"
 block|,
-literal|"3.	c #3F66D8"
+literal|"3. c #3F66D8"
 block|,
-literal|"4.	c #3D64D7"
+literal|"4. c #3D64D7"
 block|,
-literal|"5.	c #3960DA"
+literal|"5. c #3960DA"
 block|,
-literal|"6.	c #476DD9"
+literal|"6. c #476DD9"
 block|,
-literal|"7.	c #446EE5"
+literal|"7. c #446EE5"
 block|,
-literal|"8.	c #305EC8"
+literal|"8. c #305EC8"
 block|,
-literal|"9.	c #8EAAE8"
+literal|"9. c #8EAAE8"
 block|,
-literal|"0.	c #8FAAE8"
+literal|"0. c #8FAAE8"
 block|,
-literal|"a.	c #91AAE9"
+literal|"a. c #91AAE9"
 block|,
-literal|"b.	c #8FA9E8"
+literal|"b. c #8FA9E8"
 block|,
-literal|"c.	c #8BA8E8"
+literal|"c. c #8BA8E8"
 block|,
-literal|"d.	c #8AA7E9"
+literal|"d. c #8AA7E9"
 block|,
-literal|"e.	c #8BA5EA"
+literal|"e. c #8BA5EA"
 block|,
-literal|"f.	c #8AA7E8"
+literal|"f. c #8AA7E8"
 block|,
-literal|"g.	c #87A2E6"
+literal|"g. c #87A2E6"
 block|,
-literal|"h.	c #859FE8"
+literal|"h. c #859FE8"
 block|,
-literal|"i.	c #7F9DE8"
+literal|"i. c #7F9DE8"
 block|,
-literal|"j.	c #7C9AE8"
+literal|"j. c #7C9AE8"
 block|,
-literal|"k.	c #7B95E7"
+literal|"k. c #7B95E7"
 block|,
-literal|"l.	c #7090E8"
+literal|"l. c #7090E8"
 block|,
-literal|"m.	c #6B8BE9"
+literal|"m. c #6B8BE9"
 block|,
-literal|"n.	c #6386E6"
+literal|"n. c #6386E6"
 block|,
-literal|"o.	c #5881E1"
+literal|"o. c #5881E1"
 block|,
-literal|"p.	c #5479DE"
+literal|"p. c #5479DE"
 block|,
-literal|"q.	c #4D74DE"
+literal|"q. c #4D74DE"
 block|,
-literal|"r.	c #476EDB"
+literal|"r. c #476EDB"
 block|,
-literal|"s.	c #446EE1"
+literal|"s. c #446EE1"
 block|,
-literal|"t.	c #446EE0"
+literal|"t. c #446EE0"
 block|,
-literal|"u.	c #446EDF"
+literal|"u. c #446EDF"
 block|,
-literal|"v.	c #446DE0"
+literal|"v. c #446DE0"
 block|,
-literal|"w.	c #426ADF"
+literal|"w. c #426ADF"
 block|,
-literal|"x.	c #3C64DA"
+literal|"x. c #3C64DA"
 block|,
-literal|"y.	c #4360CC"
+literal|"y. c #4360CC"
 block|,
-literal|"z.	c #D3D5D2"
+literal|"z. c #D3D5D2"
 block|,
-literal|"A.	c #E6E3E8"
+literal|"A. c #E6E3E8"
 block|,
-literal|"B.	c #8DA2E7"
+literal|"B. c #8DA2E7"
 block|,
-literal|"C.	c #8CA6EA"
+literal|"C. c #8CA6EA"
 block|,
-literal|"D.	c #8DA3E9"
+literal|"D. c #8DA3E9"
 block|,
-literal|"E.	c #88A2E7"
+literal|"E. c #88A2E7"
 block|,
-literal|"F.	c #87A1E7"
+literal|"F. c #87A1E7"
 block|,
-literal|"G.	c #8AA1E7"
+literal|"G. c #8AA1E7"
 block|,
-literal|"H.	c #849EE9"
+literal|"H. c #849EE9"
 block|,
-literal|"I.	c #7D9AE9"
+literal|"I. c #7D9AE9"
 block|,
-literal|"J.	c #7B98E8"
+literal|"J. c #7B98E8"
 block|,
-literal|"K.	c #7796E5"
+literal|"K. c #7796E5"
 block|,
-literal|"L.	c #7191E7"
+literal|"L. c #7191E7"
 block|,
-literal|"M.	c #688CE9"
+literal|"M. c #688CE9"
 block|,
-literal|"N.	c #6687E5"
+literal|"N. c #6687E5"
 block|,
-literal|"O.	c #5C83E1"
+literal|"O. c #5C83E1"
 block|,
-literal|"P.	c #557BDE"
+literal|"P. c #557BDE"
 block|,
-literal|"Q.	c #4F76DE"
+literal|"Q. c #4F76DE"
 block|,
-literal|"R.	c #4C72DE"
+literal|"R. c #4C72DE"
 block|,
-literal|"S.	c #456EDF"
+literal|"S. c #456EDF"
 block|,
-literal|"T.	c #426AD9"
+literal|"T. c #426AD9"
 block|,
-literal|"U.	c #4269D9"
+literal|"U. c #4269D9"
 block|,
-literal|"V.	c #4269D8"
+literal|"V. c #4269D8"
 block|,
-literal|"W.	c #3D64D9"
+literal|"W. c #3D64D9"
 block|,
-literal|"X.	c #3A61DA"
+literal|"X. c #3A61DA"
 block|,
-literal|"Y.	c #345ED6"
+literal|"Y. c #345ED6"
 block|,
-literal|"Z.	c #335ECF"
+literal|"Z. c #335ECF"
 block|,
-literal|"`.	c #C6C3C8"
+literal|"`. c #C6C3C8"
 block|,
-literal|" +	c #86A1E7"
+literal|" + c #86A1E7"
 block|,
-literal|".+	c #87A2E7"
+literal|".+ c #87A2E7"
 block|,
-literal|"++	c #87A0E7"
+literal|"++ c #87A0E7"
 block|,
-literal|"@+	c #859EE8"
+literal|"@+ c #859EE8"
 block|,
-literal|"#+	c #849DE9"
+literal|"#+ c #849DE9"
 block|,
-literal|"$+	c #7E9BE9"
+literal|"$+ c #7E9BE9"
 block|,
-literal|"%+	c #7A99E9"
+literal|"%+ c #7A99E9"
 block|,
-literal|"&+	c #7A95E5"
+literal|"&+ c #7A95E5"
 block|,
-literal|"*+	c #7593E7"
+literal|"*+ c #7593E7"
 block|,
-literal|"=+	c #6F8EE9"
+literal|"=+ c #6F8EE9"
 block|,
-literal|"-+	c #668AE5"
+literal|"-+ c #668AE5"
 block|,
-literal|";+	c #6386E0"
+literal|";+ c #6386E0"
 block|,
-literal|">+	c #5B82DF"
+literal|">+ c #5B82DF"
 block|,
-literal|",+	c #5379DE"
+literal|",+ c #5379DE"
 block|,
-literal|"'+	c #5075DE"
+literal|"'+ c #5075DE"
 block|,
-literal|")+	c #4B6FDC"
+literal|")+ c #4B6FDC"
 block|,
-literal|"!+	c #446AD7"
+literal|"!+ c #446AD7"
 block|,
-literal|"~+	c #4269D6"
+literal|"~+ c #4269D6"
 block|,
-literal|"{+	c #4269D5"
+literal|"{+ c #4269D5"
 block|,
-literal|"]+	c #3E65D7"
+literal|"]+ c #3E65D7"
 block|,
-literal|"^+	c #C9CAC9"
+literal|"^+ c #C9CAC9"
 block|,
-literal|"/+	c #869EE9"
+literal|"/+ c #869EE9"
 block|,
-literal|"(+	c #859FE9"
+literal|"(+ c #859FE9"
 block|,
-literal|"_+	c #849FE9"
+literal|"_+ c #849FE9"
 block|,
-literal|":+	c #829DE8"
+literal|":+ c #829DE8"
 block|,
-literal|"<+	c #819DE8"
+literal|"<+ c #819DE8"
 block|,
-literal|"[+	c #7B9AE9"
+literal|"[+ c #7B9AE9"
 block|,
-literal|"}+	c #7A96E6"
+literal|"}+ c #7A96E6"
 block|,
-literal|"|+	c #7290E8"
+literal|"|+ c #7290E8"
 block|,
-literal|"1+	c #698CE6"
+literal|"1+ c #698CE6"
 block|,
-literal|"2+	c #6689E0"
+literal|"2+ c #6689E0"
 block|,
-literal|"3+	c #5D84E0"
+literal|"3+ c #5D84E0"
 block|,
-literal|"4+	c #587FDF"
+literal|"4+ c #587FDF"
 block|,
-literal|"5+	c #5377DD"
+literal|"5+ c #5377DD"
 block|,
-literal|"6+	c #4B74DE"
+literal|"6+ c #4B74DE"
 block|,
-literal|"7+	c #496BD8"
+literal|"7+ c #496BD8"
 block|,
-literal|"8+	c #7C9BE9"
+literal|"8+ c #7C9BE9"
 block|,
-literal|"9+	c #7E9CE9"
+literal|"9+ c #7E9CE9"
 block|,
-literal|"0+	c #7D9AEA"
+literal|"0+ c #7D9AEA"
 block|,
-literal|"a+	c #7D9BEA"
+literal|"a+ c #7D9BEA"
 block|,
-literal|"b+	c #7D98E8"
+literal|"b+ c #7D98E8"
 block|,
-literal|"c+	c #7C98E8"
+literal|"c+ c #7C98E8"
 block|,
-literal|"d+	c #7796E4"
+literal|"d+ c #7796E4"
 block|,
-literal|"e+	c #7592E6"
+literal|"e+ c #7592E6"
 block|,
-literal|"f+	c #7390E1"
+literal|"f+ c #7390E1"
 block|,
-literal|"g+	c #698DE0"
+literal|"g+ c #698DE0"
 block|,
-literal|"h+	c #6588DE"
+literal|"h+ c #6588DE"
 block|,
-literal|"i+	c #5E84E0"
+literal|"i+ c #5E84E0"
 block|,
-literal|"j+	c #5880DF"
+literal|"j+ c #5880DF"
 block|,
-literal|"k+	c #5479DC"
+literal|"k+ c #5479DC"
 block|,
-literal|"l+	c #4F75DE"
+literal|"l+ c #4F75DE"
 block|,
-literal|"m+	c #4A6FDB"
+literal|"m+ c #4A6FDB"
 block|,
-literal|"n+	c #436AD7"
+literal|"n+ c #436AD7"
 block|,
-literal|"o+	c #3F65D7"
+literal|"o+ c #3F65D7"
 block|,
-literal|"p+	c #BAC3BE"
+literal|"p+ c #BAC3BE"
 block|,
-literal|"q+	c #7B9AE8"
+literal|"q+ c #7B9AE8"
 block|,
-literal|"r+	c #7B9AEA"
+literal|"r+ c #7B9AEA"
 block|,
-literal|"s+	c #7A9AEA"
+literal|"s+ c #7A9AEA"
 block|,
-literal|"t+	c #7B99E9"
+literal|"t+ c #7B99E9"
 block|,
-literal|"u+	c #7D97E7"
+literal|"u+ c #7D97E7"
 block|,
-literal|"v+	c #7D95E6"
+literal|"v+ c #7D95E6"
 block|,
-literal|"w+	c #7D95E5"
+literal|"w+ c #7D95E5"
 block|,
-literal|"x+	c #7C95E6"
+literal|"x+ c #7C95E6"
 block|,
-literal|"y+	c #7493E3"
+literal|"y+ c #7493E3"
 block|,
-literal|"z+	c #7290DF"
+literal|"z+ c #7290DF"
 block|,
-literal|"A+	c #6C8DDE"
+literal|"A+ c #6C8DDE"
 block|,
-literal|"B+	c #6B89E1"
+literal|"B+ c #6B89E1"
 block|,
-literal|"C+	c #6486DF"
+literal|"C+ c #6486DF"
 block|,
-literal|"D+	c #5D81DF"
+literal|"D+ c #5D81DF"
 block|,
-literal|"E+	c #567DDE"
+literal|"E+ c #567DDE"
 block|,
-literal|"F+	c #4F73DE"
+literal|"F+ c #4F73DE"
 block|,
-literal|"G+	c #496EDA"
+literal|"G+ c #496EDA"
 block|,
-literal|"H+	c #355ED6"
+literal|"H+ c #355ED6"
 block|,
-literal|"I+	c #345ED5"
+literal|"I+ c #345ED5"
 block|,
-literal|"J+	c #7E95E5"
+literal|"J+ c #7E95E5"
 block|,
-literal|"K+	c #7C97E8"
+literal|"K+ c #7C97E8"
 block|,
-literal|"L+	c #7C97E7"
+literal|"L+ c #7C97E7"
 block|,
-literal|"M+	c #7B94E6"
+literal|"M+ c #7B94E6"
 block|,
-literal|"N+	c #7A95E4"
+literal|"N+ c #7A95E4"
 block|,
-literal|"O+	c #7695E5"
+literal|"O+ c #7695E5"
 block|,
-literal|"P+	c #7694E4"
+literal|"P+ c #7694E4"
 block|,
-literal|"Q+	c #7994E6"
+literal|"Q+ c #7994E6"
 block|,
-literal|"R+	c #7995E4"
+literal|"R+ c #7995E4"
 block|,
-literal|"S+	c #7594E4"
+literal|"S+ c #7594E4"
 block|,
-literal|"T+	c #7391E2"
+literal|"T+ c #7391E2"
 block|,
-literal|"U+	c #6E8EDE"
+literal|"U+ c #6E8EDE"
 block|,
-literal|"V+	c #6B8ADE"
+literal|"V+ c #6B8ADE"
 block|,
-literal|"W+	c #6688DF"
+literal|"W+ c #6688DF"
 block|,
-literal|"X+	c #5F84E0"
+literal|"X+ c #5F84E0"
 block|,
-literal|"Y+	c #5980E0"
+literal|"Y+ c #5980E0"
 block|,
-literal|"Z+	c #4D72DD"
+literal|"Z+ c #4D72DD"
 block|,
-literal|"`+	c #456BD7"
+literal|"`+ c #456BD7"
 block|,
-literal|" @	c #4168D6"
+literal|" @ c #4168D6"
 block|,
-literal|".@	c #3C64D7"
+literal|".@ c #3C64D7"
 block|,
-literal|"+@	c #335ED0"
+literal|"+@ c #335ED0"
 block|,
-literal|"@@	c #4659C7"
+literal|"@@ c #4659C7"
 block|,
-literal|"#@	c #7292E1"
+literal|"#@ c #7292E1"
 block|,
-literal|"$@	c #7392E1"
+literal|"$@ c #7392E1"
 block|,
-literal|"%@	c #7492E1"
+literal|"%@ c #7492E1"
 block|,
-literal|"&@	c #718FDF"
+literal|"&@ c #718FDF"
 block|,
-literal|"*@	c #6F8EDE"
+literal|"*@ c #6F8EDE"
 block|,
-literal|"=@	c #6D8BDE"
+literal|"=@ c #6D8BDE"
 block|,
-literal|"-@	c #6B88DF"
+literal|"-@ c #6B88DF"
 block|,
-literal|";@	c #597FDF"
+literal|";@ c #597FDF"
 block|,
-literal|">@	c #557ADD"
+literal|">@ c #557ADD"
 block|,
-literal|",@	c #5176DC"
+literal|",@ c #5176DC"
 block|,
-literal|"'@	c #4D74DD"
+literal|"'@ c #4D74DD"
 block|,
-literal|")@	c #496DDA"
+literal|")@ c #496DDA"
 block|,
-literal|"!@	c #3860D8"
+literal|"!@ c #3860D8"
 block|,
-literal|"~@	c #7391E0"
+literal|"~@ c #7391E0"
 block|,
-literal|"{@	c #7290DE"
+literal|"{@ c #7290DE"
 block|,
-literal|"]@	c #6D8EDD"
+literal|"]@ c #6D8EDD"
 block|,
-literal|"^@	c #6D8DDD"
+literal|"^@ c #6D8DDD"
 block|,
-literal|"/@	c #7190E0"
+literal|"/@ c #7190E0"
 block|,
-literal|"(@	c #6C8DDD"
+literal|"(@ c #6C8DDD"
 block|,
-literal|"_@	c #6B89DF"
+literal|"_@ c #6B89DF"
 block|,
-literal|":@	c #6487E0"
+literal|":@ c #6487E0"
 block|,
-literal|"<@	c #6085DF"
+literal|"<@ c #6085DF"
 block|,
-literal|"[@	c #5F81DE"
+literal|"[@ c #5F81DE"
 block|,
-literal|"}@	c #567EDE"
+literal|"}@ c #567EDE"
 block|,
-literal|"|@	c #4F74D9"
+literal|"|@ c #4F74D9"
 block|,
-literal|"1@	c #466BD7"
+literal|"1@ c #466BD7"
 block|,
-literal|"2@	c #4067D5"
+literal|"2@ c #4067D5"
 block|,
-literal|"3@	c #3C63D7"
+literal|"3@ c #3C63D7"
 block|,
-literal|"4@	c #335ED3"
+literal|"4@ c #335ED3"
 block|,
-literal|"5@	c #335ED1"
+literal|"5@ c #335ED1"
 block|,
-literal|"6@	c #718EDD"
+literal|"6@ c #718EDD"
 block|,
-literal|"7@	c #728EDD"
+literal|"7@ c #728EDD"
 block|,
-literal|"8@	c #748EDD"
+literal|"8@ c #748EDD"
 block|,
-literal|"9@	c #708EDD"
+literal|"9@ c #708EDD"
 block|,
-literal|"0@	c #6F8DDD"
+literal|"0@ c #6F8DDD"
 block|,
-literal|"a@	c #6E8DDD"
+literal|"a@ c #6E8DDD"
 block|,
-literal|"b@	c #6C8ADE"
+literal|"b@ c #6C8ADE"
 block|,
-literal|"c@	c #6C89DF"
+literal|"c@ c #6C89DF"
 block|,
-literal|"d@	c #6988DF"
+literal|"d@ c #6988DF"
 block|,
-literal|"e@	c #6387DF"
+literal|"e@ c #6387DF"
 block|,
-literal|"f@	c #6282DE"
+literal|"f@ c #6282DE"
 block|,
-literal|"g@	c #5681E0"
+literal|"g@ c #5681E0"
 block|,
-literal|"h@	c #577BDD"
+literal|"h@ c #577BDD"
 block|,
-literal|"i@	c #5277DB"
+literal|"i@ c #5277DB"
 block|,
-literal|"j@	c #4D73D8"
+literal|"j@ c #4D73D8"
 block|,
-literal|"k@	c #4A70D8"
+literal|"k@ c #4A70D8"
 block|,
-literal|"l@	c #436AD5"
+literal|"l@ c #436AD5"
 block|,
-literal|"m@	c #3F66D6"
+literal|"m@ c #3F66D6"
 block|,
-literal|"n@	c #3C63D8"
+literal|"n@ c #3C63D8"
 block|,
-literal|"o@	c #3960D8"
+literal|"o@ c #3960D8"
 block|,
-literal|"p@	c #3860D7"
+literal|"p@ c #3860D7"
 block|,
-literal|"q@	c #335ED2"
+literal|"q@ c #335ED2"
 block|,
-literal|"r@	c #345ED4"
+literal|"r@ c #345ED4"
 block|,
-literal|"s@	c #6C88DF"
+literal|"s@ c #6C88DF"
 block|,
-literal|"t@	c #6D88DF"
+literal|"t@ c #6D88DF"
 block|,
-literal|"u@	c #6B89DE"
+literal|"u@ c #6B89DE"
 block|,
-literal|"v@	c #6888DF"
+literal|"v@ c #6888DF"
 block|,
-literal|"w@	c #6587E0"
+literal|"w@ c #6587E0"
 block|,
-literal|"x@	c #6989DF"
+literal|"x@ c #6989DF"
 block|,
-literal|"y@	c #6687E0"
+literal|"y@ c #6687E0"
 block|,
-literal|"z@	c #6287E0"
+literal|"z@ c #6287E0"
 block|,
-literal|"A@	c #6281DD"
+literal|"A@ c #6281DD"
 block|,
-literal|"B@	c #5881E0"
+literal|"B@ c #5881E0"
 block|,
-literal|"C@	c #557ADB"
+literal|"C@ c #557ADB"
 block|,
-literal|"D@	c #5176D9"
+literal|"D@ c #5176D9"
 block|,
-literal|"E@	c #4E75D7"
+literal|"E@ c #4E75D7"
 block|,
-literal|"F@	c #4A6FD8"
+literal|"F@ c #4A6FD8"
 block|,
-literal|"G@	c #476BD6"
+literal|"G@ c #476BD6"
 block|,
-literal|"H@	c #4067D6"
+literal|"H@ c #4067D6"
 block|,
-literal|"I@	c #3C62D7"
+literal|"I@ c #3C62D7"
 block|,
-literal|"J@	c #3C60D4"
+literal|"J@ c #3C60D4"
 block|,
-literal|"K@	c #365ED1"
+literal|"K@ c #365ED1"
 block|,
-literal|"L@	c #345ED3"
+literal|"L@ c #345ED3"
 block|,
-literal|"M@	c #6786DF"
+literal|"M@ c #6786DF"
 block|,
-literal|"N@	c #5F85E0"
+literal|"N@ c #5F85E0"
 block|,
-literal|"O@	c #5F86E0"
+literal|"O@ c #5F86E0"
 block|,
-literal|"P@	c #6186DF"
+literal|"P@ c #6186DF"
 block|,
-literal|"Q@	c #6286E0"
+literal|"Q@ c #6286E0"
 block|,
-literal|"R@	c #6284DF"
+literal|"R@ c #6284DF"
 block|,
-literal|"S@	c #6384DF"
+literal|"S@ c #6384DF"
 block|,
-literal|"T@	c #5B7FDE"
+literal|"T@ c #5B7FDE"
 block|,
-literal|"U@	c #577DDC"
+literal|"U@ c #577DDC"
 block|,
-literal|"V@	c #557BDA"
+literal|"V@ c #557BDA"
 block|,
-literal|"W@	c #5278D8"
+literal|"W@ c #5278D8"
 block|,
-literal|"X@	c #4E76D6"
+literal|"X@ c #4E76D6"
 block|,
-literal|"Y@	c #4C72D7"
+literal|"Y@ c #4C72D7"
 block|,
-literal|"Z@	c #486DD8"
+literal|"Z@ c #486DD8"
 block|,
-literal|"`@	c #4469D6"
+literal|"`@ c #4469D6"
 block|,
-literal|" #	c #3F62D2"
+literal|" # c #3F62D2"
 block|,
-literal|".#	c #3C60CF"
+literal|".# c #3C60CF"
 block|,
-literal|"+#	c #345ECF"
+literal|"+# c #345ECF"
 block|,
-literal|"@#	c #6086DF"
+literal|"@# c #6086DF"
 block|,
-literal|"##	c #6085E0"
+literal|"## c #6085E0"
 block|,
-literal|"$#	c #6285DF"
+literal|"$# c #6285DF"
 block|,
-literal|"%#	c #6383DD"
+literal|"%# c #6383DD"
 block|,
-literal|"&#	c #6481DC"
+literal|"&# c #6481DC"
 block|,
-literal|"*#	c #6380DD"
+literal|"*# c #6380DD"
 block|,
-literal|"=#	c #6183DE"
+literal|"=# c #6183DE"
 block|,
-literal|"-#	c #6083DD"
+literal|"-# c #6083DD"
 block|,
-literal|";#	c #6081DC"
+literal|";# c #6081DC"
 block|,
-literal|">#	c #6080DD"
+literal|"># c #6080DD"
 block|,
-literal|",#	c #6083DE"
+literal|",# c #6083DE"
 block|,
-literal|"'#	c #6181DC"
+literal|"'# c #6181DC"
 block|,
-literal|")#	c #6280DD"
+literal|")# c #6280DD"
 block|,
-literal|"!#	c #577EDB"
+literal|"!# c #577EDB"
 block|,
-literal|"~#	c #557CD7"
+literal|"~# c #557CD7"
 block|,
-literal|"{#	c #4F76D6"
+literal|"{# c #4F76D6"
 block|,
-literal|"]#	c #4E74D7"
+literal|"]# c #4E74D7"
 block|,
-literal|"^#	c #466CD7"
+literal|"^# c #466CD7"
 block|,
-literal|"/#	c #3B64D6"
+literal|"/# c #3B64D6"
 block|,
-literal|"(#	c #4261CD"
+literal|"(# c #4261CD"
 block|,
-literal|"_#	c #375FCE"
+literal|"_# c #375FCE"
 block|,
-literal|":#	c #5A7FD8"
+literal|":# c #5A7FD8"
 block|,
-literal|"<#	c #6281DA"
+literal|"<# c #6281DA"
 block|,
-literal|"[#	c #5F81D8"
+literal|"[# c #5F81D8"
 block|,
-literal|"}#	c #5C80D8"
+literal|"}# c #5C80D8"
 block|,
-literal|"|#	c #557DD7"
+literal|"|# c #557DD7"
 block|,
-literal|"1#	c #577ED8"
+literal|"1# c #577ED8"
 block|,
-literal|"2#	c #567ED7"
+literal|"2# c #567ED7"
 block|,
-literal|"3#	c #587DD8"
+literal|"3# c #587DD8"
 block|,
-literal|"4#	c #577DD8"
+literal|"4# c #577DD8"
 block|,
-literal|"5#	c #587ED8"
+literal|"5# c #587ED8"
 block|,
-literal|"6#	c #567DD8"
+literal|"6# c #567DD8"
 block|,
-literal|"7#	c #5379D9"
+literal|"7# c #5379D9"
 block|,
-literal|"8#	c #5177D7"
+literal|"8# c #5177D7"
 block|,
-literal|"9#	c #4D74D5"
+literal|"9# c #4D74D5"
 block|,
-literal|"0#	c #486ED9"
+literal|"0# c #486ED9"
 block|,
-literal|"a#	c #4068D4"
+literal|"a# c #4068D4"
 block|,
-literal|"b#	c #3D65D2"
+literal|"b# c #3D65D2"
 block|,
-literal|"c#	c #4361CC"
+literal|"c# c #4361CC"
 block|,
-literal|"d#	c #345ECE"
+literal|"d# c #345ECE"
 block|,
-literal|"e#	c #325DCF"
+literal|"e# c #325DCF"
 block|,
-literal|"f#	c #2C5AD1"
+literal|"f# c #2C5AD1"
 block|,
-literal|"g#	c #3959C5"
+literal|"g# c #3959C5"
 block|,
-literal|"h#	c #547BD8"
+literal|"h# c #547BD8"
 block|,
-literal|"i#	c #567DD7"
+literal|"i# c #567DD7"
 block|,
-literal|"j#	c #557BD8"
+literal|"j# c #557BD8"
 block|,
-literal|"k#	c #5279D9"
+literal|"k# c #5279D9"
 block|,
-literal|"l#	c #5278D9"
+literal|"l# c #5278D9"
 block|,
-literal|"m#	c #4D74D6"
+literal|"m# c #4D74D6"
 block|,
-literal|"n#	c #4B71D8"
+literal|"n# c #4B71D8"
 block|,
-literal|"o#	c #496CD8"
+literal|"o# c #496CD8"
 block|,
-literal|"p#	c #4669D7"
+literal|"p# c #4669D7"
 block|,
-literal|"q#	c #3D66D3"
+literal|"q# c #3D66D3"
 block|,
-literal|"r#	c #3F62CF"
+literal|"r# c #3F62CF"
 block|,
-literal|"s#	c #4260CC"
+literal|"s# c #4260CC"
 block|,
-literal|"t#	c #5379D8"
+literal|"t# c #5379D8"
 block|,
-literal|"u#	c #4E75D4"
+literal|"u# c #4E75D4"
 block|,
-literal|"v#	c #4C73D7"
+literal|"v# c #4C73D7"
 block|,
-literal|"w#	c #476CD7"
+literal|"w# c #476CD7"
 block|,
-literal|"x#	c #4869D0"
+literal|"x# c #4869D0"
 block|,
-literal|"y#	c #4067D2"
+literal|"y# c #4067D2"
 block|,
-literal|"z#	c #3D64D1"
+literal|"z# c #3D64D1"
 block|,
-literal|"A#	c #4261CC"
+literal|"A# c #4261CC"
 block|,
-literal|"B#	c #395FCE"
+literal|"B# c #395FCE"
 block|,
-literal|"C#	c #4F75D3"
+literal|"C# c #4F75D3"
 block|,
-literal|"D#	c #5074D2"
+literal|"D# c #5074D2"
 block|,
-literal|"E#	c #5174D1"
+literal|"E# c #5174D1"
 block|,
-literal|"F#	c #5175D1"
+literal|"F# c #5175D1"
 block|,
-literal|"G#	c #4F74D3"
+literal|"G# c #4F74D3"
 block|,
-literal|"H#	c #4C73D5"
+literal|"H# c #4C73D5"
 block|,
-literal|"I#	c #4C73D4"
+literal|"I# c #4C73D4"
 block|,
-literal|"J#	c #4A72D1"
+literal|"J# c #4A72D1"
 block|,
-literal|"K#	c #4B70CF"
+literal|"K# c #4B70CF"
 block|,
-literal|"L#	c #506CCC"
+literal|"L# c #506CCC"
 block|,
-literal|"M#	c #4D6BCE"
+literal|"M# c #4D6BCE"
 block|,
-literal|"N#	c #4167D0"
+literal|"N# c #4167D0"
 block|,
-literal|"O#	c #3D65D1"
+literal|"O# c #3D65D1"
 block|,
-literal|"P#	c #3F63CF"
+literal|"P# c #3F63CF"
 block|,
-literal|"Q#	c #3B5FCD"
+literal|"Q# c #3B5FCD"
 block|,
-literal|"R#	c #3159CD"
+literal|"R# c #3159CD"
 block|,
-literal|"S#	c #4971D0"
+literal|"S# c #4971D0"
 block|,
-literal|"T#	c #4870CF"
+literal|"T# c #4870CF"
 block|,
-literal|"U#	c #4C6FCF"
+literal|"U# c #4C6FCF"
 block|,
-literal|"V#	c #4E6CCE"
+literal|"V# c #4E6CCE"
 block|,
-literal|"W#	c #4E6BCE"
+literal|"W# c #4E6BCE"
 block|,
-literal|"X#	c #4769CF"
+literal|"X# c #4769CF"
 block|,
-literal|"Y#	c #3D66D0"
+literal|"Y# c #3D66D0"
 block|,
-literal|"Z#	c #3C65D1"
+literal|"Z# c #3C65D1"
 block|,
-literal|"`#	c #4062CE"
+literal|"`# c #4062CE"
 block|,
-literal|" $	c #3D5FCD"
+literal|" $ c #3D5FCD"
 block|,
-literal|".$	c #365FCF"
+literal|".$ c #365FCF"
 block|,
-literal|"+$	c #325DCD"
+literal|"+$ c #325DCD"
 block|,
-literal|"@$	c #2D5AD0"
+literal|"@$ c #2D5AD0"
 block|,
-literal|"#$	c #3859C5"
+literal|"#$ c #3859C5"
 block|,
-literal|"$$	c #355FCF"
+literal|"$$ c #355FCF"
 block|,
-literal|"%$	c #355ECF"
+literal|"%$ c #355ECF"
 block|,
-literal|"&$	c #335ECE"
+literal|"&$ c #335ECE"
 block|,
-literal|"*$	c #305CCD"
+literal|"*$ c #305CCD"
 block|,
-literal|"=$	c #2B5ACE"
+literal|"=$ c #2B5ACE"
 block|,
-literal|"-$	c #3056C9"
+literal|"-$ c #3056C9"
 block|,
-literal|";$	c #2553C6"
+literal|";$ c #2553C6"
 block|,
-literal|">$	c #2153C8"
+literal|">$ c #2153C8"
 block|,
-literal|",$	c #1F4FC7"
+literal|",$ c #1F4FC7"
 block|,
-literal|"'$	c #274CC5"
+literal|"'$ c #274CC5"
 block|,
-literal|")$	c #214AC7"
+literal|")$ c #214AC7"
 block|,
-literal|"!$	c #1C48C8"
+literal|"!$ c #1C48C8"
 block|,
-literal|"~$	c #1244C9"
+literal|"~$ c #1244C9"
 block|,
-literal|"{$	c #1043C9"
+literal|"{$ c #1043C9"
 block|,
-literal|"]$	c #1144C9"
+literal|"]$ c #1144C9"
 block|,
-literal|"^$	c #2A45BE"
+literal|"^$ c #2A45BE"
 block|,
-literal|"/$	c #2744B5"
+literal|"/$ c #2744B5"
 block|,
-literal|"($	c #1D49C0"
+literal|"($ c #1D49C0"
 block|,
-literal|"_$	c #2B58DE"
+literal|"_$ c #2B58DE"
 block|,
-literal|":$	c #002D94"
+literal|":$ c #002D94"
 block|,
-literal|"<$	c #2B59CA"
+literal|"<$ c #2B59CA"
 block|,
-literal|"[$	c #2A59CA"
+literal|"[$ c #2A59CA"
 block|,
-literal|"}$	c #2E57C8"
+literal|"}$ c #2E57C8"
 block|,
-literal|"|$	c #3255C6"
+literal|"|$ c #3255C6"
 block|,
-literal|"1$	c #3355C5"
+literal|"1$ c #3355C5"
 block|,
-literal|"2$	c #1C52C8"
+literal|"2$ c #1C52C8"
 block|,
-literal|"3$	c #1D50C7"
+literal|"3$ c #1D50C7"
 block|,
-literal|"4$	c #234FC6"
+literal|"4$ c #234FC6"
 block|,
-literal|"5$	c #264CC5"
+literal|"5$ c #264CC5"
 block|,
-literal|"6$	c #1D48C7"
+literal|"6$ c #1D48C7"
 block|,
-literal|"7$	c #1245C8"
+literal|"7$ c #1245C8"
 block|,
-literal|"8$	c #1F44C2"
+literal|"8$ c #1F44C2"
 block|,
-literal|"9$	c #2945BE"
+literal|"9$ c #2945BE"
 block|,
-literal|"0$	c #2A45BD"
+literal|"0$ c #2A45BD"
 block|,
-literal|"a$	c #2040BF"
+literal|"a$ c #2040BF"
 block|,
-literal|"b$	c #3156C7"
+literal|"b$ c #3156C7"
 block|,
-literal|"c$	c #3056C7"
+literal|"c$ c #3056C7"
 block|,
-literal|"d$	c #3354C5"
+literal|"d$ c #3354C5"
 block|,
-literal|"e$	c #3355C6"
+literal|"e$ c #3355C6"
 block|,
-literal|"f$	c #3255C5"
+literal|"f$ c #3255C5"
 block|,
-literal|"g$	c #3254C5"
+literal|"g$ c #3254C5"
 block|,
-literal|"h$	c #1952C7"
+literal|"h$ c #1952C7"
 block|,
-literal|"i$	c #1951C8"
+literal|"i$ c #1951C8"
 block|,
-literal|"j$	c #2050C7"
+literal|"j$ c #2050C7"
 block|,
-literal|"k$	c #274CC4"
+literal|"k$ c #274CC4"
 block|,
-literal|"l$	c #244CC6"
+literal|"l$ c #244CC6"
 block|,
-literal|"m$	c #1F49C7"
+literal|"m$ c #1F49C7"
 block|,
-literal|"n$	c #1E47C5"
+literal|"n$ c #1E47C5"
 block|,
-literal|"o$	c #2045C3"
+literal|"o$ c #2045C3"
 block|,
-literal|"p$	c #1C44BF"
+literal|"p$ c #1C44BF"
 block|,
-literal|"q$	c #2045BE"
+literal|"q$ c #2045BE"
 block|,
-literal|"r$	c #2040B8"
+literal|"r$ c #2040B8"
 block|,
-literal|"s$	c #3254C6"
+literal|"s$ c #3254C6"
 block|,
-literal|"t$	c #3055C6"
+literal|"t$ c #3055C6"
 block|,
-literal|"u$	c #2A54C6"
+literal|"u$ c #2A54C6"
 block|,
-literal|"v$	c #2353C7"
+literal|"v$ c #2353C7"
 block|,
-literal|"w$	c #3054C5"
+literal|"w$ c #3054C5"
 block|,
-literal|"x$	c #2F55C5"
+literal|"x$ c #2F55C5"
 block|,
-literal|"y$	c #2A54C5"
+literal|"y$ c #2A54C5"
 block|,
-literal|"z$	c #2553C5"
+literal|"z$ c #2553C5"
 block|,
-literal|"A$	c #2F54C5"
+literal|"A$ c #2F54C5"
 block|,
-literal|"B$	c #3155C6"
+literal|"B$ c #3155C6"
 block|,
-literal|"C$	c #2A54C7"
+literal|"C$ c #2A54C7"
 block|,
-literal|"D$	c #1A52C8"
+literal|"D$ c #1A52C8"
 block|,
-literal|"E$	c #204FC2"
+literal|"E$ c #204FC2"
 block|,
-literal|"F$	c #264DC6"
+literal|"F$ c #264DC6"
 block|,
-literal|"G$	c #234BC5"
+literal|"G$ c #234BC5"
 block|,
-literal|"H$	c #1D48C1"
+literal|"H$ c #1D48C1"
 block|,
-literal|"I$	c #1E48BF"
+literal|"I$ c #1E48BF"
 block|,
-literal|"J$	c #2646BE"
+literal|"J$ c #2646BE"
 block|,
-literal|"K$	c #2B45BD"
+literal|"K$ c #2B45BD"
 block|,
-literal|"L$	c #1E43BE"
+literal|"L$ c #1E43BE"
 block|,
-literal|"M$	c #2643BF"
+literal|"M$ c #2643BF"
 block|,
-literal|"N$	c #2243BF"
+literal|"N$ c #2243BF"
 block|,
-literal|"O$	c #3049BC"
+literal|"O$ c #3049BC"
 block|,
-literal|"P$	c #1E50BE"
+literal|"P$ c #1E50BE"
 block|,
-literal|"Q$	c #1D50C0"
+literal|"Q$ c #1D50C0"
 block|,
-literal|"R$	c #1D50BF"
+literal|"R$ c #1D50BF"
 block|,
-literal|"S$	c #1852C1"
+literal|"S$ c #1852C1"
 block|,
-literal|"T$	c #1E51C0"
+literal|"T$ c #1E51C0"
 block|,
-literal|"U$	c #214FBF"
+literal|"U$ c #214FBF"
 block|,
-literal|"V$	c #2050C0"
+literal|"V$ c #2050C0"
 block|,
-literal|"W$	c #244EBF"
+literal|"W$ c #244EBF"
 block|,
-literal|"X$	c #2151C0"
+literal|"X$ c #2151C0"
 block|,
-literal|"Y$	c #234FBF"
+literal|"Y$ c #234FBF"
 block|,
-literal|"Z$	c #2350C0"
+literal|"Z$ c #2350C0"
 block|,
-literal|"`$	c #2351C0"
+literal|"`$ c #2351C0"
 block|,
-literal|" %	c #244FBF"
+literal|" % c #244FBF"
 block|,
-literal|".%	c #2250C0"
+literal|".% c #2250C0"
 block|,
-literal|"+%	c #2051C0"
+literal|"+% c #2051C0"
 block|,
-literal|"@%	c #1E50C0"
+literal|"@% c #1E50C0"
 block|,
-literal|"#%	c #244DBE"
+literal|"#% c #244DBE"
 block|,
-literal|"$%	c #274DBF"
+literal|"$% c #274DBF"
 block|,
-literal|"%%	c #244CBF"
+literal|"%% c #244CBF"
 block|,
-literal|"&%	c #1C48C0"
+literal|"&% c #1C48C0"
 block|,
-literal|"*%	c #2247BF"
+literal|"*% c #2247BF"
 block|,
-literal|"=%	c #2C44BD"
+literal|"=% c #2C44BD"
 block|,
-literal|"-%	c #1C44BE"
+literal|"-% c #1C44BE"
 block|,
-literal|";%	c #1444BF"
+literal|";% c #1444BF"
 block|,
-literal|">%	c #1841BF"
+literal|">% c #1841BF"
 block|,
-literal|",%	c #1F40BF"
+literal|",% c #1F40BF"
 block|,
-literal|"'%	c #254DBE"
+literal|"'% c #254DBE"
 block|,
-literal|")%	c #224FBE"
+literal|")% c #224FBE"
 block|,
-literal|"!%	c #224FBF"
+literal|"!% c #224FBF"
 block|,
-literal|"~%	c #234EBF"
+literal|"~% c #234EBF"
 block|,
-literal|"{%	c #254CBD"
+literal|"{% c #254CBD"
 block|,
-literal|"]%	c #244DBD"
+literal|"]% c #244DBD"
 block|,
-literal|"^%	c #244CBD"
+literal|"^% c #244CBD"
 block|,
-literal|"/%	c #264DBE"
+literal|"/% c #264DBE"
 block|,
-literal|"(%	c #264DBD"
+literal|"(% c #264DBD"
 block|,
-literal|"_%	c #214BC0"
+literal|"_% c #214BC0"
 block|,
-literal|":%	c #1D48C0"
+literal|":% c #1D48C0"
 block|,
-literal|"<%	c #2347BF"
+literal|"<% c #2347BF"
 block|,
-literal|"[%	c #2B44BD"
+literal|"[% c #2B44BD"
 block|,
-literal|"}%	c #2444BE"
+literal|"}% c #2444BE"
 block|,
-literal|"|%	c #0F42BF"
+literal|"|% c #0F42BF"
 block|,
-literal|"1%	c #0641BF"
+literal|"1% c #0641BF"
 block|,
-literal|"2%	c #0F41BF"
+literal|"2% c #0F41BF"
 block|,
-literal|"3%	c #1741BE"
+literal|"3% c #1741BE"
 block|,
-literal|"4%	c #1F40BD"
+literal|"4% c #1F40BD"
 block|,
-literal|"5%	c #234BBF"
+literal|"5% c #234BBF"
 block|,
-literal|"6%	c #234CBE"
+literal|"6% c #234CBE"
 block|,
-literal|"7%	c #214BBE"
+literal|"7% c #214BBE"
 block|,
-literal|"8%	c #244CBE"
+literal|"8% c #244CBE"
 block|,
-literal|"9%	c #214ABE"
+literal|"9% c #214ABE"
 block|,
-literal|"0%	c #214ABF"
+literal|"0% c #214ABF"
 block|,
-literal|"a%	c #1F48C0"
+literal|"a% c #1F48C0"
 block|,
-literal|"b%	c #2746BE"
+literal|"b% c #2746BE"
 block|,
-literal|"c%	c #1F43BE"
+literal|"c% c #1F43BE"
 block|,
-literal|"d%	c #0941BE"
+literal|"d% c #0941BE"
 block|,
-literal|"e%	c #0342BA"
+literal|"e% c #0342BA"
 block|,
-literal|"f%	c #0242BC"
+literal|"f% c #0242BC"
 block|,
-literal|"g%	c #1241B8"
+literal|"g% c #1241B8"
 block|,
-literal|"h%	c #1F40B7"
+literal|"h% c #1F40B7"
 block|,
-literal|"i%	c #2F41AC"
+literal|"i% c #2F41AC"
 block|,
-literal|"j%	c #2644AE"
+literal|"j% c #2644AE"
 block|,
-literal|"k%	c #2D49B4"
+literal|"k% c #2D49B4"
 block|,
-literal|"l%	c #2649B6"
+literal|"l% c #2649B6"
 block|,
-literal|"m%	c #2949B7"
+literal|"m% c #2949B7"
 block|,
-literal|"n%	c #2849B5"
+literal|"n% c #2849B5"
 block|,
-literal|"o%	c #2149B8"
+literal|"o% c #2149B8"
 block|,
-literal|"p%	c #1E49B9"
+literal|"p% c #1E49B9"
 block|,
-literal|"q%	c #1F48B8"
+literal|"q% c #1F48B8"
 block|,
-literal|"r%	c #1F49B9"
+literal|"r% c #1F49B9"
 block|,
-literal|"s%	c #2545B6"
+literal|"s% c #2545B6"
 block|,
-literal|"t%	c #2744B7"
+literal|"t% c #2744B7"
 block|,
-literal|"u%	c #2844B7"
+literal|"u% c #2844B7"
 block|,
-literal|"v%	c #2043B8"
+literal|"v% c #2043B8"
 block|,
-literal|"w%	c #1241B7"
+literal|"w% c #1241B7"
 block|,
-literal|"x%	c #1340B8"
+literal|"x% c #1340B8"
 block|,
-literal|"y%	c #0D41B8"
+literal|"y% c #0D41B8"
 block|,
-literal|"z%	c #1941B8"
+literal|"z% c #1941B8"
 block|,
-literal|"A%	c #1F40B8"
+literal|"A% c #1F40B8"
 block|,
-literal|"B%	c #203FB8"
+literal|"B% c #203FB8"
 block|,
-literal|"C%	c #2549B5"
+literal|"C% c #2549B5"
 block|,
-literal|"D%	c #2648B6"
+literal|"D% c #2648B6"
 block|,
-literal|"E%	c #2547B7"
+literal|"E% c #2547B7"
 block|,
-literal|"F%	c #2248B7"
+literal|"F% c #2248B7"
 block|,
-literal|"G%	c #2048B7"
+literal|"G% c #2048B7"
 block|,
-literal|"H%	c #2346B6"
+literal|"H% c #2346B6"
 block|,
-literal|"I%	c #2146B6"
+literal|"I% c #2146B6"
 block|,
-literal|"J%	c #2247B7"
+literal|"J% c #2247B7"
 block|,
-literal|"K%	c #2148B7"
+literal|"K% c #2148B7"
 block|,
-literal|"L%	c #2743B4"
+literal|"L% c #2743B4"
 block|,
-literal|"M%	c #2643B5"
+literal|"M% c #2643B5"
 block|,
-literal|"N%	c #2542B6"
+literal|"N% c #2542B6"
 block|,
-literal|"O%	c #1D42B7"
+literal|"O% c #1D42B7"
 block|,
-literal|"P%	c #0E42B8"
+literal|"P% c #0E42B8"
 block|,
-literal|"Q%	c #0C41B8"
+literal|"Q% c #0C41B8"
 block|,
-literal|"R%	c #1341B8"
+literal|"R% c #1341B8"
 block|,
-literal|"S%	c #1740B8"
+literal|"S% c #1740B8"
 block|,
-literal|"T%	c #1C41B8"
+literal|"T% c #1C41B8"
 block|,
-literal|"U%	c #1F40B1"
+literal|"U% c #1F40B1"
 block|,
-literal|"V%	c #2644B5"
+literal|"V% c #2644B5"
 block|,
-literal|"W%	c #2544B5"
+literal|"W% c #2544B5"
 block|,
-literal|"X%	c #2544B4"
+literal|"X% c #2544B4"
 block|,
-literal|"Y%	c #2444B5"
+literal|"Y% c #2444B5"
 block|,
-literal|"Z%	c #2444B4"
+literal|"Z% c #2444B4"
 block|,
-literal|"`%	c #2744B4"
+literal|"`% c #2744B4"
 block|,
-literal|"&	c #2241B7"
+literal|"& c #2241B7"
 block|,
-literal|".&	c #1D41B8"
+literal|".& c #1D41B8"
 block|,
-literal|"+&	c #0B42B8"
+literal|"+& c #0B42B8"
 block|,
-literal|"@&	c #0942B8"
+literal|"@& c #0942B8"
 block|,
-literal|"#&	c #0C42B8"
+literal|"#& c #0C42B8"
 block|,
-literal|"$&	c #0F41B8"
+literal|"$& c #0F41B8"
 block|,
-literal|"%&	c #1641B8"
+literal|"%& c #1641B8"
 block|,
-literal|"&&	c #2442B5"
+literal|"&& c #2442B5"
 block|,
-literal|"*&	c #2543B3"
+literal|"*& c #2543B3"
 block|,
-literal|"=&	c #2342B2"
+literal|"=& c #2342B2"
 block|,
-literal|"-&	c #2341B4"
+literal|"-& c #2341B4"
 block|,
-literal|";&	c #2141B3"
+literal|";& c #2141B3"
 block|,
-literal|">&	c #2141B5"
+literal|">& c #2141B5"
 block|,
-literal|",&	c #2140B5"
+literal|",& c #2140B5"
 block|,
-literal|"'&	c #2040B5"
+literal|"'& c #2040B5"
 block|,
-literal|")&	c #1C40B7"
+literal|")& c #1C40B7"
 block|,
-literal|"!&	c #1B41B3"
+literal|"!& c #1B41B3"
 block|,
-literal|"~&	c #0142B6"
+literal|"~& c #0142B6"
 block|,
-literal|"{&	c #0E41B7"
+literal|"{& c #0E41B7"
 block|,
-literal|"]&	c #1141B7"
+literal|"]& c #1141B7"
 block|,
-literal|"^&	c #1440B2"
+literal|"^& c #1440B2"
 block|,
-literal|"/&	c #113FB0"
+literal|"/& c #113FB0"
 block|,
-literal|"(&	c #1440B0"
+literal|"(& c #1440B0"
 block|,
-literal|"_&	c #213EAF"
+literal|"_& c #213EAF"
 block|,
-literal|":&	c #233DAE"
+literal|":& c #233DAE"
 block|,
-literal|"<&	c #223EAF"
+literal|"<& c #223EAF"
 block|,
-literal|"[&	c #1E40B1"
+literal|"[& c #1E40B1"
 block|,
-literal|"}&	c #173EAD"
+literal|"}& c #173EAD"
 block|,
-literal|"|&	c #1440AF"
+literal|"|& c #1440AF"
 block|,
-literal|"1&	c #0D40AF"
+literal|"1& c #0D40AF"
 block|,
-literal|"2&	c #0941B0"
+literal|"2& c #0941B0"
 block|,
-literal|"3&	c #0D3FAE"
+literal|"3& c #0D3FAE"
 block|,
-literal|"4&	c #1B3CAC"
+literal|"4& c #1B3CAC"
 block|,
-literal|"5&	c #233CAD"
+literal|"5& c #233CAD"
 block|,
-literal|"6&	c #203FB0"
+literal|"6& c #203FB0"
 block|,
-literal|"7&	c #273BAD"
+literal|"7& c #273BAD"
 block|,
-literal|"8&	c #1D40B0"
+literal|"8& c #1D40B0"
 block|,
-literal|"9&	c #2040B1"
+literal|"9& c #2040B1"
 block|,
-literal|"0&	c #1E40B0"
+literal|"0& c #1E40B0"
 block|,
-literal|"a&	c #1C40B0"
+literal|"a& c #1C40B0"
 block|,
-literal|"b&	c #1B3DAC"
+literal|"b& c #1B3DAC"
 block|,
-literal|"c&	c #143DAC"
+literal|"c& c #143DAC"
 block|,
-literal|"d&	c #193DAD"
+literal|"d& c #193DAD"
 block|,
-literal|"e&	c #1B3DAD"
+literal|"e& c #1B3DAD"
 block|,
-literal|"f&	c #173DAD"
+literal|"f& c #173DAD"
 block|,
-literal|"g&	c #153DAC"
+literal|"g& c #153DAC"
 block|,
-literal|"h&	c #1C3CAC"
+literal|"h& c #1C3CAC"
 block|,
-literal|"i&	c #243CAD"
+literal|"i& c #243CAD"
 block|,
-literal|"j&	c #213FB0"
+literal|"j& c #213FB0"
 block|,
-literal|"k&	c #263BAA"
+literal|"k& c #263BAA"
 block|,
-literal|"l&	c #253CAE"
+literal|"l& c #253CAE"
 block|,
-literal|"m&	c #273AAC"
+literal|"m& c #273AAC"
 block|,
-literal|"n&	c #273AAD"
+literal|"n& c #273AAD"
 block|,
-literal|"o&	c #253BAD"
+literal|"o& c #253BAD"
 block|,
-literal|"p&	c #1D3CAC"
+literal|"p& c #1D3CAC"
 block|,
-literal|"q&	c #243BAD"
+literal|"q& c #243BAD"
 block|,
-literal|"r&	c #1E3CAC"
+literal|"r& c #1E3CAC"
 block|,
-literal|"s&	c #263BAD"
+literal|"s& c #263BAD"
 block|,
-literal|"t&	c #1A3DAC"
+literal|"t& c #1A3DAC"
 block|,
-literal|"u&	c #143DAB"
+literal|"u& c #143DAB"
 block|,
-literal|"v&	c #163DAC"
+literal|"v& c #163DAC"
 block|,
-literal|"w&	c #1A3CAC"
+literal|"w& c #1A3CAC"
 block|,
-literal|"x&	c #1F3CAD"
+literal|"x& c #1F3CAD"
 block|,
-literal|"y&	c #263BAB"
+literal|"y& c #263BAB"
 block|,
-literal|"z&	c #263BA6"
+literal|"z& c #263BA6"
 block|,
-literal|"A&	c #1E42A4"
+literal|"A& c #1E42A4"
 block|,
-literal|"B&	c #2D40A5"
+literal|"B& c #2D40A5"
 block|,
-literal|"C&	c #253BA6"
+literal|"C& c #253BA6"
 block|,
-literal|"D&	c #253CA7"
+literal|"D& c #253CA7"
 block|,
-literal|"E&	c #263AA5"
+literal|"E& c #263AA5"
 block|,
-literal|"F&	c #253BA7"
+literal|"F& c #253BA7"
 block|,
-literal|"G&	c #1E3BA6"
+literal|"G& c #1E3BA6"
 block|,
-literal|"H&	c #193DA6"
+literal|"H& c #193DA6"
 block|,
-literal|"I&	c #173DA5"
+literal|"I& c #173DA5"
 block|,
-literal|"J&	c #143DA6"
+literal|"J& c #143DA6"
 block|,
-literal|"K&	c #1A3DA7"
+literal|"K& c #1A3DA7"
 block|,
-literal|"L&	c #133DA6"
+literal|"L& c #133DA6"
 block|,
-literal|"M&	c #123DA5"
+literal|"M& c #123DA5"
 block|,
-literal|"N&	c #1A3CA7"
+literal|"N& c #1A3CA7"
 block|,
-literal|"O&	c #243BA6"
+literal|"O& c #243BA6"
 block|,
-literal|"P&	c #263AA7"
+literal|"P& c #263AA7"
 block|,
-literal|"Q&	c #273BA7"
+literal|"Q& c #273BA7"
 block|,
-literal|"R&	c #263AA6"
+literal|"R& c #263AA6"
 block|,
-literal|"S&	c #223BA6"
+literal|"S& c #223BA6"
 block|,
-literal|"T&	c #1D3BA6"
+literal|"T& c #1D3BA6"
 block|,
-literal|"U&	c #173CA6"
+literal|"U& c #173CA6"
 block|,
-literal|"V&	c #133DA5"
+literal|"V& c #133DA5"
 block|,
-literal|"W&	c #1B3DA6"
+literal|"W& c #1B3DA6"
 block|,
-literal|"X&	c #193DA5"
+literal|"X& c #193DA5"
 block|,
-literal|"Y&	c #123DA4"
+literal|"Y& c #123DA4"
 block|,
-literal|"Z&	c #163CA5"
+literal|"Z& c #163CA5"
 block|,
-literal|"`&	c #213CA6"
+literal|"`& c #213CA6"
 block|,
-literal|" *	c #273BA8"
+literal|" * c #273BA8"
 block|,
-literal|".*	c #263BA7"
+literal|".* c #263BA7"
 block|,
-literal|"+*	c #253BA5"
+literal|"+* c #253BA5"
 block|,
-literal|"@*	c #263BA5"
+literal|"@* c #263BA5"
 block|,
-literal|"#*	c #1C3BA6"
+literal|"#* c #1C3BA6"
 block|,
-literal|"$*	c #1B3BA9"
+literal|"$* c #1B3BA9"
 block|,
-literal|"%*	c #133BA8"
+literal|"%* c #133BA8"
 block|,
-literal|"&*	c #0A3BA7"
+literal|"&* c #0A3BA7"
 block|,
-literal|"**	c #083AA6"
+literal|"** c #083AA6"
 block|,
-literal|"=*	c #123CA5"
+literal|"=* c #123CA5"
 block|,
-literal|"-*	c #0839A8"
+literal|"-* c #0839A8"
 block|,
-literal|";*	c #0239A6"
+literal|";* c #0239A6"
 block|,
-literal|">*	c #123AA8"
+literal|">* c #123AA8"
 block|,
-literal|",*	c #1F49C8"
+literal|",* c #1F49C8"
 block|,
-literal|"'*	c #2F4DA4"
+literal|"'* c #2F4DA4"
 block|,
-literal|")*	c #2E4DA3"
+literal|")* c #2E4DA3"
 block|,
-literal|"!*	c #384CA4"
+literal|"!* c #384CA4"
 block|,
-literal|"~*	c #3C4DA7"
+literal|"~* c #3C4DA7"
 block|,
-literal|"{*	c #394EA7"
+literal|"{* c #394EA7"
 block|,
-literal|"]*	c #3B4CA5"
+literal|"]* c #3B4CA5"
 block|,
-literal|"^*	c #3C52B1"
+literal|"^* c #3C52B1"
 block|,
-literal|"/*	c #3551A8"
+literal|"/* c #3551A8"
 block|,
-literal|"(*	c #3759BE"
+literal|"(* c #3759BE"
 block|,
-literal|"_*	c #4161C7"
+literal|"_* c #4161C7"
 block|,
-literal|":*	c #0033A8"
+literal|":* c #0033A8"
 block|,
-literal|"<*	c #596FA9"
+literal|"<* c #596FA9"
 block|,
-literal|"[*	c #2F4DA3"
+literal|"[* c #2F4DA3"
 block|,
-literal|"}*	c #2D4BA5"
+literal|"}* c #2D4BA5"
 block|,
-literal|"|*	c #2E4CA4"
+literal|"|* c #2E4CA4"
 block|,
-literal|"1*	c #2C4AA5"
+literal|"1* c #2C4AA5"
 block|,
-literal|"2*	c #2D4BA4"
+literal|"2* c #2D4BA4"
 block|,
-literal|"3*	c #354DA4"
+literal|"3* c #354DA4"
 block|,
-literal|"4*	c #3A4BA4"
+literal|"4* c #3A4BA4"
 block|,
-literal|"5*	c #394DA6"
+literal|"5* c #394DA6"
 block|,
-literal|"6*	c #4056AD"
+literal|"6* c #4056AD"
 block|,
-literal|"7*	c #445BBB"
+literal|"7* c #445BBB"
 block|,
-literal|"8*	c #B5B7B4"
+literal|"8* c #B5B7B4"
 block|,
-literal|"9*	c #1B2F85"
+literal|"9* c #1B2F85"
 block|,
-literal|"0*	c #242F79"
+literal|"0* c #242F79"
 block|,
-literal|"a*	c #B5B5B5"
+literal|"a* c #B5B5B5"
 block|,
-literal|"b*	c #B5B2B6"
+literal|"b* c #B5B2B6"
 block|,
-literal|"c*	c #C0C3C3"
+literal|"c* c #C0C3C3"
 block|,
-literal|"d*	c #E3E3E4"
+literal|"d* c #E3E3E4"
 block|,
-literal|"e*	c #EBEDEA"
+literal|"e* c #EBEDEA"
 block|,
 literal|". + @ + # $ %& # $ %& # $ %& # $ %&& * = - ;> , ' ) ! ~ { { { { { { { ] ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ / / / ( / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / _ _ / / : /< [ } | | | 1 1 "
 block|,
@@ -7646,69 +7646,69 @@ init|=
 block|{
 literal|"33 42 32 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #CECFEF"
+literal|". c #CECFEF"
 block|,
-literal|"+	c #CECBE7"
+literal|"+ c #CECBE7"
 block|,
-literal|"@	c #C6C7E7"
+literal|"@ c #C6C7E7"
 block|,
-literal|"#	c #C6CBE7"
+literal|"# c #C6CBE7"
 block|,
-literal|"$	c #BDBEDE"
+literal|"$ c #BDBEDE"
 block|,
-literal|"%	c #BDC3DE"
+literal|"% c #BDC3DE"
 block|,
-literal|"&	c #CECBEF"
+literal|"& c #CECBEF"
 block|,
-literal|"*	c #B5B6D6"
+literal|"* c #B5B6D6"
 block|,
-literal|"=	c #ADAECE"
+literal|"= c #ADAECE"
 block|,
-literal|"-	c #ADB2CE"
+literal|"- c #ADB2CE"
 block|,
-literal|";	c #BDBAD6"
+literal|"; c #BDBAD6"
 block|,
-literal|">	c #B5BAD6"
+literal|"> c #B5BAD6"
 block|,
-literal|",	c #C6C3DE"
+literal|", c #C6C3DE"
 block|,
-literal|"'	c #ADAAC6"
+literal|"' c #ADAAC6"
 block|,
-literal|")	c #B5B2CE"
+literal|") c #B5B2CE"
 block|,
-literal|"!	c #B5B6CE"
+literal|"! c #B5B6CE"
 block|,
-literal|"~	c #A5A2BD"
+literal|"~ c #A5A2BD"
 block|,
-literal|"{	c #A5A6BD"
+literal|"{ c #A5A6BD"
 block|,
-literal|"]	c #9C9EB5"
+literal|"] c #9C9EB5"
 block|,
-literal|"^	c #9CA2BD"
+literal|"^ c #9CA2BD"
 block|,
-literal|"/	c #ADAEC6"
+literal|"/ c #ADAEC6"
 block|,
-literal|"(	c #C6C3E7"
+literal|"( c #C6C3E7"
 block|,
-literal|"_	c #9C9AB5"
+literal|"_ c #9C9AB5"
 block|,
-literal|":	c #A5A6C6"
+literal|": c #A5A6C6"
 block|,
-literal|"<	c #949AAD"
+literal|"< c #949AAD"
 block|,
-literal|"[	c #A5AAC6"
+literal|"[ c #A5AAC6"
 block|,
-literal|"}	c #9496AD"
+literal|"} c #9496AD"
 block|,
-literal|"|	c #BDBADE"
+literal|"| c #BDBADE"
 block|,
-literal|"1	c #BDBED6"
+literal|"1 c #BDBED6"
 block|,
-literal|"2	c #9CA2B5"
+literal|"2 c #9CA2B5"
 block|,
-literal|"3	c #A5AABD"
+literal|"3 c #A5AABD"
 block|,
 literal|"..........................+@.#.#."
 block|,
@@ -7807,61 +7807,61 @@ init|=
 block|{
 literal|"33 39 28 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #CECFEF"
+literal|". c #CECFEF"
 block|,
-literal|"+	c #EFF3EF"
+literal|"+ c #EFF3EF"
 block|,
-literal|"@	c #FFFBFF"
+literal|"@ c #FFFBFF"
 block|,
-literal|"#	c #F7FBF7"
+literal|"# c #F7FBF7"
 block|,
-literal|"$	c #FFFFFF"
+literal|"$ c #FFFFFF"
 block|,
-literal|"%	c #EFEFEF"
+literal|"% c #EFEFEF"
 block|,
-literal|"&	c #F7F7F7"
+literal|"& c #F7F7F7"
 block|,
-literal|"*	c #DEDFDE"
+literal|"* c #DEDFDE"
 block|,
-literal|"=	c #E7E7E7"
+literal|"= c #E7E7E7"
 block|,
-literal|"-	c #D6D3D6"
+literal|"- c #D6D3D6"
 block|,
-literal|";	c #DEE3DE"
+literal|"; c #DEE3DE"
 block|,
-literal|">	c #EFEBEF"
+literal|"> c #EFEBEF"
 block|,
-literal|",	c #F7F3F7"
+literal|", c #F7F3F7"
 block|,
-literal|"'	c #CECBCE"
+literal|"' c #CECBCE"
 block|,
-literal|")	c #CECFCE"
+literal|") c #CECFCE"
 block|,
-literal|"!	c #D6D7D6"
+literal|"! c #D6D7D6"
 block|,
-literal|"~	c #DEDBDE"
+literal|"~ c #DEDBDE"
 block|,
-literal|"{	c #E7EBE7"
+literal|"{ c #E7EBE7"
 block|,
-literal|"]	c #C6C7C6"
+literal|"] c #C6C7C6"
 block|,
-literal|"^	c #E7E3E7"
+literal|"^ c #E7E3E7"
 block|,
-literal|"/	c #BDC3BD"
+literal|"/ c #BDC3BD"
 block|,
-literal|"(	c #CED3CE"
+literal|"( c #CED3CE"
 block|,
-literal|"_	c #BDBABD"
+literal|"_ c #BDBABD"
 block|,
-literal|":	c #C6C3C6"
+literal|": c #C6C3C6"
 block|,
-literal|"<	c #C6CBC6"
+literal|"< c #C6CBC6"
 block|,
-literal|"[	c #D6DBD6"
+literal|"[ c #D6DBD6"
 block|,
-literal|"}	c #BDBEBD"
+literal|"} c #BDBEBD"
 block|,
 literal|"..........................+@#$#$$"
 block|,
@@ -7954,71 +7954,71 @@ init|=
 block|{
 literal|"33 42 33 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #FFFFFF"
+literal|". c #FFFFFF"
 block|,
-literal|"+	c #CECBE7"
+literal|"+ c #CECBE7"
 block|,
-literal|"@	c #C6C7E7"
+literal|"@ c #C6C7E7"
 block|,
-literal|"#	c #CECFEF"
+literal|"# c #CECFEF"
 block|,
-literal|"$	c #C6CBE7"
+literal|"$ c #C6CBE7"
 block|,
-literal|"%	c #BDBEDE"
+literal|"% c #BDBEDE"
 block|,
-literal|"&	c #BDC3DE"
+literal|"& c #BDC3DE"
 block|,
-literal|"*	c #CECBEF"
+literal|"* c #CECBEF"
 block|,
-literal|"=	c #B5B6D6"
+literal|"= c #B5B6D6"
 block|,
-literal|"-	c #ADAECE"
+literal|"- c #ADAECE"
 block|,
-literal|";	c #ADB2CE"
+literal|"; c #ADB2CE"
 block|,
-literal|">	c #BDBAD6"
+literal|"> c #BDBAD6"
 block|,
-literal|",	c #B5BAD6"
+literal|", c #B5BAD6"
 block|,
-literal|"'	c #C6C3DE"
+literal|"' c #C6C3DE"
 block|,
-literal|")	c #ADAAC6"
+literal|") c #ADAAC6"
 block|,
-literal|"!	c #B5B2CE"
+literal|"! c #B5B2CE"
 block|,
-literal|"~	c #B5B6CE"
+literal|"~ c #B5B6CE"
 block|,
-literal|"{	c #A5A2BD"
+literal|"{ c #A5A2BD"
 block|,
-literal|"]	c #A5A6BD"
+literal|"] c #A5A6BD"
 block|,
-literal|"^	c #9C9EB5"
+literal|"^ c #9C9EB5"
 block|,
-literal|"/	c #9CA2BD"
+literal|"/ c #9CA2BD"
 block|,
-literal|"(	c #ADAEC6"
+literal|"( c #ADAEC6"
 block|,
-literal|"_	c #C6C3E7"
+literal|"_ c #C6C3E7"
 block|,
-literal|":	c #9C9AB5"
+literal|": c #9C9AB5"
 block|,
-literal|"<	c #A5A6C6"
+literal|"< c #A5A6C6"
 block|,
-literal|"[	c #949AAD"
+literal|"[ c #949AAD"
 block|,
-literal|"}	c #A5AAC6"
+literal|"} c #A5AAC6"
 block|,
-literal|"|	c #9496AD"
+literal|"| c #9496AD"
 block|,
-literal|"1	c #BDBADE"
+literal|"1 c #BDBADE"
 block|,
-literal|"2	c #BDBED6"
+literal|"2 c #BDBED6"
 block|,
-literal|"3	c #9CA2B5"
+literal|"3 c #9CA2B5"
 block|,
-literal|"4	c #A5AABD"
+literal|"4 c #A5AABD"
 block|,
 literal|"..........................+@#$#$#"
 block|,
@@ -8117,11 +8117,11 @@ init|=
 block|{
 literal|"33 42 3 1"
 block|,
-literal|" 	c None"
+literal|"  c None"
 block|,
-literal|".	c #CECFEF"
+literal|". c #CECFEF"
 block|,
-literal|"+	c #FFFFFF"
+literal|"+ c #FFFFFF"
 block|,
 literal|"..........................+++++++"
 block|,

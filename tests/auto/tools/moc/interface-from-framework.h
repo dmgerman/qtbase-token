@@ -5,9 +5,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|INTERFACE_FROM
-name|-
-name|FRAMEWORK_H
+name|INTERFACE_FROM_FRAMEWORK_H
 end_ifndef
 begin_define
 DECL|macro|INTERFACE_FROM_FRAMEWORK_H

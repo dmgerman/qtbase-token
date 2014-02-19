@@ -483,6 +483,41 @@ name|key
 argument_list|)
 condition|)
 block|{
+comment|// The following keys are properties or derived values and so cannot be set
+case|case
+name|PPK_PageRect
+case|:
+break|break;
+case|case
+name|PPK_PaperRect
+case|:
+break|break;
+case|case
+name|PPK_PaperSources
+case|:
+break|break;
+case|case
+name|PPK_SupportsMultipleCopies
+case|:
+break|break;
+case|case
+name|PPK_SupportedResolutions
+case|:
+break|break;
+comment|// The following keys are settings that are unsupported by the PDF PrintEngine
+case|case
+name|PPK_CustomBase
+case|:
+break|break;
+case|case
+name|PPK_PaperName
+case|:
+break|break;
+case|case
+name|PPK_WindowsPageSize
+case|:
+break|break;
+comment|// The following keys are properties and settings that are supported by the PDF PrintEngine
 case|case
 name|PPK_CollateCopies
 case|:
@@ -874,8 +909,7 @@ literal|true
 expr_stmt|;
 break|break;
 block|}
-default|default:
-break|break;
+comment|// No default so that compiler will complain if new keys added and not handled in this engine
 block|}
 block|}
 end_function
@@ -908,6 +942,28 @@ name|key
 argument_list|)
 condition|)
 block|{
+comment|// The following keys are settings that are unsupported by the PDF PrintEngine
+comment|// Return sensible default values to ensure consistent behavior across platforms
+case|case
+name|PPK_CustomBase
+case|:
+comment|// Special case, leave null
+break|break;
+case|case
+name|PPK_PaperName
+case|:
+name|ret
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|PPK_WindowsPageSize
+case|:
+comment|// Special case, leave null
+break|break;
+comment|// The following keys are properties and settings that are supported by the PDF PrintEngine
 case|case
 name|PPK_CollateCopies
 case|:
@@ -1218,8 +1274,7 @@ name|margins
 expr_stmt|;
 break|break;
 block|}
-default|default:
-break|break;
+comment|// No default so that compiler will complain if new keys added and not handled in this engine
 block|}
 return|return
 name|ret
@@ -1388,7 +1443,7 @@ argument_list|)
 member_init_list|,
 name|collate
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 member_init_list|,
 name|copies

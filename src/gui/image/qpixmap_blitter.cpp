@@ -561,7 +561,7 @@ block|}
 name|uint
 name|pixel
 init|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|color
 operator|.

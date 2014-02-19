@@ -211,6 +211,10 @@ block|,
 name|HaveCustomButton3
 operator|=
 literal|0x00008000
+block|,
+name|NoCancelButtonOnLastPage
+operator|=
+literal|0x00010000
 block|}
 block|;
 name|Q_DECLARE_FLAGS

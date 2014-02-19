@@ -368,6 +368,24 @@ name|NoRole
 return|;
 block|}
 end_function
+begin_function
+DECL|function|msgDialogButtonDiscard
+name|QString
+name|msgDialogButtonDiscard
+parameter_list|()
+block|{
+return|return
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"QCocoaTheme"
+argument_list|,
+literal|"Don't Save"
+argument_list|)
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

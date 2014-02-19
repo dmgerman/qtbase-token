@@ -2108,6 +2108,12 @@ operator|::
 name|X11ExcludeTimers
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
 name|QAbstractEventDispatcher
 modifier|*
 name|eventDispatcher
@@ -2117,12 +2123,6 @@ operator|::
 name|eventDispatcher
 argument_list|()
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
 if|if
 condition|(
 operator|!

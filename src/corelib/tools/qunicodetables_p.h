@@ -84,13 +84,13 @@ decl_stmt|;
 name|ushort
 name|joining
 range|:
-literal|2
+literal|3
 decl_stmt|;
 name|signed
 name|short
 name|digitValue
 range|:
-literal|6
+literal|5
 decl_stmt|;
 comment|/* 5 used */
 name|signed
@@ -254,7 +254,13 @@ name|WordBreak_RegionalIndicator
 block|,
 name|WordBreak_Katakana
 block|,
+name|WordBreak_HebrewLetter
+block|,
 name|WordBreak_ALetter
+block|,
+name|WordBreak_SingleQuote
+block|,
+name|WordBreak_DoubleQuote
 block|,
 name|WordBreak_MidNumLet
 block|,

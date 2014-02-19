@@ -108,7 +108,7 @@ begin_comment
 comment|// doesn't support SysV IPC or shared memory. See for example:
 end_comment
 begin_comment
-comment|// 	http://afni.nimh.nih.gov/afni/afniboard/messages/1725.html
+comment|//      http://afni.nimh.nih.gov/afni/afniboard/messages/1725.html
 end_comment
 begin_include
 include|#

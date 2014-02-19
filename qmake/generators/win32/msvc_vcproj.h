@@ -327,6 +327,10 @@ name|initDeploymentTool
 argument_list|()
 block|;
 name|void
+name|initWinDeployQtTool
+argument_list|()
+block|;
+name|void
 name|initPreLinkEventTools
 argument_list|()
 block|;

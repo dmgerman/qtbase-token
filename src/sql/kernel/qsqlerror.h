@@ -25,6 +25,12 @@ file|<QtSql/qsql.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QSqlErrorPrivate
+name|class
+name|QSqlErrorPrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_SQL_EXPORT
 name|QSqlError
@@ -45,6 +51,14 @@ block|,
 name|UnknownError
 block|}
 enum|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 name|QSqlError
 argument_list|(
 argument|const QString& driverText = QString()
@@ -55,6 +69,19 @@ argument|ErrorType type = NoError
 argument_list|,
 argument|int number = -
 literal|1
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
+name|QSqlError
+argument_list|(
+argument|const QString&driverText
+argument_list|,
+argument|const QString&databaseText
+argument_list|,
+argument|ErrorType type
+argument_list|,
+argument|const QString&errorCode
 argument_list|)
 empty_stmt|;
 name|QSqlError
@@ -117,8 +144,23 @@ name|type
 argument_list|()
 specifier|const
 expr_stmt|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 name|int
 name|number
+argument_list|()
+specifier|const
+expr_stmt|;
+endif|#
+directive|endif
+name|QString
+name|nativeErrorCode
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -180,18 +222,35 @@ endif|#
 directive|endif
 name|private
 label|:
+comment|// ### Qt6: Keep the pointer and remove the rest.
 name|QString
-name|driverError
+name|unused1
 decl_stmt|;
 name|QString
-name|databaseError
+name|unused2
 decl_stmt|;
+struct|struct
+name|Unused
+block|{
 name|ErrorType
-name|errorType
+name|unused3
 decl_stmt|;
 name|int
-name|errorNumber
+name|unused4
 decl_stmt|;
+block|}
+struct|;
+union|union
+block|{
+name|QSqlErrorPrivate
+modifier|*
+name|d
+decl_stmt|;
+name|Unused
+name|unused5
+decl_stmt|;
+block|}
+union|;
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -115,7 +115,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"bar "
+literal|"bar"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -124,7 +124,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"custom-bar "
+literal|"custom-bar"
 argument_list|)
 expr_stmt|;
 name|qWarning
@@ -202,7 +202,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"QDateTime(\"%1\") "
+literal|"QDateTime(\"%1\")"
 argument_list|)
 operator|.
 name|arg

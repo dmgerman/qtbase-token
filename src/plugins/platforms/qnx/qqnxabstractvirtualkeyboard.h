@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*************************************************************************** ** ** Copyright (C) 2011 - 2012 Research In Motion ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/*************************************************************************** ** ** Copyright (C) 2013 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -34,16 +34,17 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-comment|// NOTE:  Not all the following keyboard modes are currently used.
+comment|// Keyboard Types currently supported.
 comment|// Default - Regular Keyboard
 comment|// Url/Email - Enhanced keys for each types.
 comment|// Web - Regular keyboard with two blank keys, currently unused.
 comment|// NumPunc - Numbers& Punctionation, alternate to Symbol
+comment|// Number - Number pad
 comment|// Symbol - All symbols, alternate to NumPunc, currently unused.
-comment|// Phone - Phone enhanced keyboard - currently unused as no alternate keyboard available to access a-zA-Z
-comment|// Pin - Keyboard for entering Pins (Hex values) currently unused.
-comment|//
-comment|// SPECIAL NOTE: Usage of NumPunc may have to be removed, ABC button is non-functional.
+comment|// Phone - Phone enhanced keyboard
+comment|// Pin - Keyboard for entering Pins (Hex values).
+comment|// Password - Keyboard with lots of extra characters for password input.
+comment|// Alphanumeric - Similar to password without any of the security implications.
 comment|//
 expr|enum
 name|KeyboardMode
@@ -58,11 +59,38 @@ name|Web
 block|,
 name|NumPunc
 block|,
+name|Number
+block|,
 name|Symbol
 block|,
 name|Phone
 block|,
 name|Pin
+block|,
+name|Password
+block|,
+name|Alphanumeric
+block|}
+block|;     enum
+name|EnterKeyType
+block|{
+name|DefaultReturn
+block|,
+name|Connect
+block|,
+name|Done
+block|,
+name|Go
+block|,
+name|Join
+block|,
+name|Next
+block|,
+name|Search
+block|,
+name|Send
+block|,
+name|Submit
 block|}
 block|;
 name|explicit
@@ -126,11 +154,15 @@ argument|KeyboardMode mode
 argument_list|)
 block|;
 name|void
-name|setInputHintsFromObject
+name|setEnterKeyType
 argument_list|(
-name|QObject
-operator|*
-name|focusObject
+argument|EnterKeyType type
+argument_list|)
+block|;
+name|void
+name|setInputHints
+argument_list|(
+argument|int inputHints
 argument_list|)
 block|;
 name|KeyboardMode
@@ -140,6 +172,15 @@ specifier|const
 block|{
 return|return
 name|m_keyboardMode
+return|;
+block|}
+name|EnterKeyType
+name|enterKeyType
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_enterKeyType
 return|;
 block|}
 name|Q_SIGNALS
@@ -169,10 +210,8 @@ name|protected
 operator|:
 name|virtual
 name|void
-name|applyKeyboardMode
-argument_list|(
-argument|KeyboardMode mode
-argument_list|)
+name|applyKeyboardOptions
+argument_list|()
 operator|=
 literal|0
 block|;
@@ -210,6 +249,9 @@ name|m_locale
 block|;
 name|KeyboardMode
 name|m_keyboardMode
+block|;
+name|EnterKeyType
+name|m_enterKeyType
 block|; }
 decl_stmt|;
 end_decl_stmt

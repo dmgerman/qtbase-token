@@ -1750,6 +1750,13 @@ name|STRING_Xsp0
 value|STR_X STR_s STR_p "\0"
 end_define
 begin_define
+DECL|macro|STRING_Xuc0
+define|#
+directive|define
+name|STRING_Xuc0
+value|STR_X STR_u STR_c "\0"
+end_define
+begin_define
 DECL|macro|STRING_Xwd0
 define|#
 directive|define
@@ -1939,6 +1946,7 @@ name|STRING_Vai0
 name|STRING_Xan0
 name|STRING_Xps0
 name|STRING_Xsp0
+name|STRING_Xuc0
 name|STRING_Xwd0
 name|STRING_Yi0
 name|STRING_Z0
@@ -3072,7 +3080,7 @@ block|,
 block|{
 literal|1023
 block|,
-name|PT_WORD
+name|PT_UCNC
 block|,
 literal|0
 block|}
@@ -3080,13 +3088,21 @@ block|,
 block|{
 literal|1027
 block|,
+name|PT_WORD
+block|,
+literal|0
+block|}
+block|,
+block|{
+literal|1031
+block|,
 name|PT_SC
 block|,
 name|ucp_Yi
 block|}
 block|,
 block|{
-literal|1030
+literal|1034
 block|,
 name|PT_GC
 block|,
@@ -3094,7 +3110,7 @@ name|ucp_Z
 block|}
 block|,
 block|{
-literal|1032
+literal|1036
 block|,
 name|PT_PC
 block|,
@@ -3102,7 +3118,7 @@ name|ucp_Zl
 block|}
 block|,
 block|{
-literal|1035
+literal|1039
 block|,
 name|PT_PC
 block|,
@@ -3110,7 +3126,7 @@ name|ucp_Zp
 block|}
 block|,
 block|{
-literal|1038
+literal|1042
 block|,
 name|PT_PC
 block|,

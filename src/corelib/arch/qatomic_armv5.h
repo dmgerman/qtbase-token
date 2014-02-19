@@ -85,43 +85,6 @@ directive|error
 literal|"Qt is misconfigured: this ARMv5 implementation is only possible on Linux"
 endif|#
 directive|endif
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|int
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|int
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 DECL|struct|size
 name|template
 operator|<
@@ -546,6 +509,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -564,14 +529,24 @@ name|originalValue
 operator|!=
 name|expectedValue
 condition|)
+block|{
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|originalValue
+expr_stmt|;
 return|return
 name|false
 return|;
 block|}
 end_expr_stmt
-begin_while
-while|while
-condition|(
+begin_expr_stmt
+unit|} while
+operator|(
 name|_q_cmpxchg
 argument_list|(
 name|expectedValue
@@ -583,9 +558,9 @@ name|_q_value
 argument_list|)
 operator|!=
 literal|0
-condition|)
-empty_stmt|;
-end_while
+operator|)
+expr_stmt|;
+end_expr_stmt
 begin_return
 return|return
 name|true

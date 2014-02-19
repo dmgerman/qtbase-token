@@ -20,7 +20,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 end_ifdef
 begin_include
 include|#
@@ -39,9 +39,9 @@ file|<arm_neon.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|qt_memfill32_neon
+DECL|function|qt_memfill32
 name|void
-name|qt_memfill32_neon
+name|qt_memfill32
 parameter_list|(
 name|quint32
 modifier|*
@@ -6348,6 +6348,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_COMPILER_SUPPORTS_NEON
+comment|// __ARM_NEON__
 end_comment
 end_unit

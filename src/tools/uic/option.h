@@ -137,6 +137,10 @@ DECL|member|translateFunction
 name|QString
 name|translateFunction
 decl_stmt|;
+DECL|member|includeFile
+name|QString
+name|includeFile
+decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_UIC_JAVA_GENERATOR

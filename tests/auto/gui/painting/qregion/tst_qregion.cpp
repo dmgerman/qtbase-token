@@ -1751,9 +1751,9 @@ init|=
 block|{
 literal|"20 20 2 1"
 block|,
-literal|"	c #FFFFFF"
+literal|"  c #FFFFFF"
 block|,
-literal|".	c #000000"
+literal|". c #000000"
 block|,
 literal|"       ......       "
 block|,

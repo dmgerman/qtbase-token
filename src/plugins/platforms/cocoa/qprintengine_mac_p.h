@@ -431,6 +431,9 @@ block|;
 name|QString
 name|outputFilename
 block|;
+name|QString
+name|m_creator
+block|;
 name|bool
 name|fullPage
 block|;

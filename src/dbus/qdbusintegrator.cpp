@@ -2010,6 +2010,20 @@ argument_list|(
 name|data
 argument_list|)
 decl_stmt|;
+comment|// allow anonymous authentication
+if|if
+condition|(
+name|serverConnection
+operator|->
+name|anonymousAuthenticationAllowed
+condition|)
+name|q_dbus_connection_set_allow_anonymous
+argument_list|(
+name|connection
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|QDBusConnectionPrivate
 modifier|*
 name|newConnection
@@ -5660,6 +5674,11 @@ argument_list|(
 literal|'/'
 argument_list|)
 argument_list|)
+argument_list|)
+member_init_list|,
+name|anonymousAuthenticationAllowed
+argument_list|(
+literal|false
 argument_list|)
 block|{
 specifier|static

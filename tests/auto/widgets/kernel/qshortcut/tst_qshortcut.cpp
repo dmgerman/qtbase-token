@@ -5002,7 +5002,7 @@ operator|<<
 name|NoResult
 expr_stmt|;
 comment|// Clear all
-comment|/* Testing Single Sequences        Shift + Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Plus                Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Plus 	              Qt::Key_Plus on  Ctrl + Qt::Key_Plus     */
+comment|/* Testing Single Sequences        Shift + Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Plus                Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Plus                       Qt::Key_Plus on  Ctrl + Qt::Key_Plus     */
 name|QTest
 operator|::
 name|newRow
@@ -7037,7 +7037,7 @@ directive|if
 literal|0
 block|qFatal("Not testing statusbar text feedback yet, since not implemented");
 comment|/* Testing Disabled Accel, and the corresponding statusbar feedback        Ctrl + Qt::Key_K, Ctrl + Qt::Key_L on slot1        Ctrl + Qt::Key_K, Ctrl + Qt::Key_M on slot2 (disabled)     */
-block|cut1->setKey(QKeySequence("Ctrl+K, Ctrl+L"));     cut4->setKey(QKeySequence("Ctrl+K, Ctrl+M"));      cut1->setEnabled(true);     cut4->setEnabled(false);      currentResult = NoResult;     sendKeyEvents( Qt::CTRL+Qt::Key_K, 0 );     sendKeyEvents( Qt::CTRL+Qt::Key_Q, 0 );     QCOMPARE( currentResult, NoResult );     if (over_330)     	QCOMPARE( sbText, QString("Ctrl+K, Ctrl+Q not defined") );      currentResult = NoResult;     sendKeyEvents( Qt::CTRL+Qt::Key_K, 0 );     sendKeyEvents( Qt::CTRL+Qt::Key_M, 0 );     QCOMPARE( currentResult, NoResult );     if (over_330)     	QCOMPARE( sbText, QString::null );      currentResult = NoResult;     sendKeyEvents( Qt::CTRL+Qt::Key_K, 0 );     sendKeyEvents( Qt::CTRL+Qt::Key_L, 0 );     QCOMPARE( currentResult, Slot1Triggered );     if (over_330)     	QCOMPARE( sbText, QString::null );
+block|cut1->setKey(QKeySequence("Ctrl+K, Ctrl+L"));     cut4->setKey(QKeySequence("Ctrl+K, Ctrl+M"));      cut1->setEnabled(true);     cut4->setEnabled(false);      currentResult = NoResult;     sendKeyEvents( Qt::CTRL+Qt::Key_K, 0 );     sendKeyEvents( Qt::CTRL+Qt::Key_Q, 0 );     QCOMPARE( currentResult, NoResult );     if (over_330)         QCOMPARE( sbText, QString("Ctrl+K, Ctrl+Q not defined") );      currentResult = NoResult;     sendKeyEvents( Qt::CTRL+Qt::Key_K, 0 );     sendKeyEvents( Qt::CTRL+Qt::Key_M, 0 );     QCOMPARE( currentResult, NoResult );     if (over_330)         QCOMPARE( sbText, QString::null );      currentResult = NoResult;     sendKeyEvents( Qt::CTRL+Qt::Key_K, 0 );     sendKeyEvents( Qt::CTRL+Qt::Key_L, 0 );     QCOMPARE( currentResult, Slot1Triggered );     if (over_330)         QCOMPARE( sbText, QString::null );
 endif|#
 directive|endif
 name|clearAllShortcuts

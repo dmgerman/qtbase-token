@@ -593,10 +593,10 @@ name|QWindowsPipeReader
 operator|::
 name|notified
 parameter_list|(
-name|DWORD
+name|quint32
 name|numberOfBytesRead
 parameter_list|,
-name|DWORD
+name|quint32
 name|errorCode
 parameter_list|,
 name|OVERLAPPED

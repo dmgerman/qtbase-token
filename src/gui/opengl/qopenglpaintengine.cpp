@@ -852,29 +852,27 @@ operator|::
 name|KeepAspectRatio
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
-comment|// OpenGL ES does not support GL_REPEAT wrap modes for NPOT textures. So instead,
-comment|// we emulate GL_REPEAT by only taking the fractional part of the texture coords
-comment|// in the qopenglslTextureBrushSrcFragmentShader program.
-name|GLuint
-name|wrapMode
-init|=
-name|GL_CLAMP_TO_EDGE
-decl_stmt|;
-else|#
-directive|else
 name|GLuint
 name|wrapMode
 init|=
 name|GL_REPEAT
 decl_stmt|;
-endif|#
-directive|endif
+if|if
+condition|(
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
+comment|// OpenGL ES does not support GL_REPEAT wrap modes for NPOT textures. So instead,
+comment|// we emulate GL_REPEAT by only taking the fractional part of the texture coords
+comment|// in the qopenglslTextureBrushSrcFragmentShader program.
+name|wrapMode
+operator|=
+name|GL_CLAMP_TO_EDGE
+expr_stmt|;
+block|}
 name|funcs
 operator|.
 name|glActiveTexture
@@ -2937,6 +2935,15 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
+if|if
+condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
 name|Q_ASSERT
 argument_list|(
 name|QOpenGLContext
@@ -3198,8 +3205,10 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 endif|#
 directive|endif
+comment|// QT_OPENGL_ES_2
 name|d
 operator|->
 name|lastTextureUsed
@@ -3345,9 +3354,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_OPENGL_ES_2
+if|if
+condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
 comment|// gl_Color, corresponding to vertex attribute 3, may have been changed
 name|float
 name|color
@@ -3372,8 +3387,7 @@ argument_list|,
 name|color
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 block|}
 end_function
 begin_function
@@ -7493,13 +7507,18 @@ name|renderHintsChanged
 operator|=
 literal|true
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
+ifndef|#
+directive|ifndef
 name|QT_OPENGL_ES_2
-argument_list|)
+if|if
+condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 operator|(
@@ -7535,8 +7554,10 @@ argument_list|(
 name|GL_MULTISAMPLE
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
+comment|// QT_OPENGL_ES_2
 name|Q_D
 argument_list|(
 name|QOpenGL2PaintEngineEx
@@ -11826,20 +11847,6 @@ argument_list|(
 name|GL_SCISSOR_TEST
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
-name|glDisable
-argument_list|(
-name|GL_MULTISAMPLE
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|d
 operator|->
 name|glyphCacheType
@@ -11848,13 +11855,23 @@ name|QFontEngineGlyphCache
 operator|::
 name|Raster_A8
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
+ifndef|#
+directive|ifndef
 name|QT_OPENGL_ES_2
+if|if
+condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
+name|glDisable
+argument_list|(
+name|GL_MULTISAMPLE
 argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|glyphCacheType
@@ -11863,14 +11880,18 @@ name|QFontEngineGlyphCache
 operator|::
 name|Raster_RGBMask
 expr_stmt|;
+name|d
+operator|->
+name|multisamplingAlwaysEnabled
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_2
-argument_list|)
+comment|// QT_OPENGL_ES_2
+block|{
 comment|// OpenGL ES can't switch MSAA off, so if the gl paint device is
 comment|// multisampled, it's always multisampled.
 name|d
@@ -11892,16 +11913,7 @@ argument_list|()
 operator|>
 literal|1
 expr_stmt|;
-else|#
-directive|else
-name|d
-operator|->
-name|multisamplingAlwaysEnabled
-operator|=
-literal|false
-expr_stmt|;
-endif|#
-directive|endif
+block|}
 return|return
 literal|true
 return|;

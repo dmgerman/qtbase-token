@@ -458,10 +458,15 @@ name|handle
 operator|=
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|id
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|waiters
 operator|=
 literal|0

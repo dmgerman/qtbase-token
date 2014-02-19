@@ -50,7 +50,7 @@ block|{
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
 comment|// The text boundaries determination algorithm.
-comment|// See http://www.unicode.org/reports/tr29/tr29-21.html
+comment|// See http://www.unicode.org/reports/tr29/tr29-23.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|GB
@@ -646,18 +646,15 @@ name|Action
 block|{
 DECL|enumerator|NoBreak
 name|NoBreak
-init|=
-literal|0
 block|,
 DECL|enumerator|Break
 name|Break
-init|=
-literal|1
 block|,
 DECL|enumerator|Lookup
 name|Lookup
-init|=
-literal|2
+block|,
+DECL|enumerator|LookupW
+name|LookupW
 block|}
 enum|;
 DECL|member|breakTable
@@ -681,7 +678,7 @@ literal|1
 index|]
 init|=
 block|{
-comment|//    Other      CR       LF    Newline   Extend    RI    Katakana ALetter MidNumLet MidLetter MidNum  Numeric  ExtendNumLet
+comment|//    Other      CR       LF    Newline   Extend    RI    Katakana HLetter  ALetter  SQuote   DQuote  MidNumLet MidLetter MidNum  Numeric  ExtendNumLet
 block|{
 name|Break
 block|,
@@ -692,6 +689,12 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -737,10 +740,22 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// CR
 block|{
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
 name|Break
 block|,
 name|Break
@@ -795,6 +810,12 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// Newline
@@ -808,6 +829,12 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -853,6 +880,12 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// RegionalIndicator
@@ -870,6 +903,12 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -902,9 +941,50 @@ name|Break
 block|,
 name|NoBreak
 block|,
-name|Lookup
+name|NoBreak
+block|,
+name|LookupW
 block|,
 name|Lookup
+block|,
+name|LookupW
+block|,
+name|LookupW
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|NoBreak
+block|}
+block|,
+comment|// HebrewLetter
+block|{
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|NoBreak
+block|,
+name|LookupW
+block|,
+name|Break
+block|,
+name|LookupW
+block|,
+name|LookupW
 block|,
 name|Break
 block|,
@@ -924,6 +1004,82 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|}
+block|,
+comment|// SingleQuote
+block|{
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|}
+block|,
+comment|// DoubleQuote
+block|{
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -969,6 +1125,12 @@ block|,
 name|Break
 block|,
 name|Break
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|}
 block|,
 comment|// MidLetter
@@ -982,6 +1144,12 @@ block|,
 name|Break
 block|,
 name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -1018,6 +1186,12 @@ name|Break
 block|,
 name|NoBreak
 block|,
+name|NoBreak
+block|,
+name|Lookup
+block|,
+name|Break
+block|,
 name|Lookup
 block|,
 name|Break
@@ -1046,6 +1220,12 @@ block|,
 name|NoBreak
 block|,
 name|NoBreak
+block|,
+name|NoBreak
+block|,
+name|Break
+block|,
+name|Break
 block|,
 name|Break
 block|,
@@ -1222,8 +1402,8 @@ condition|)
 block|{
 comment|// as of Unicode 5.1, some punctuation marks were mapped to MidLetter and MidNumLet
 comment|// which caused "hi.there" to be treated like if it were just a single word;
-comment|// by remapping those characters in the Unicode tables generator.
-comment|// this code is needed to pass the coverage tests; remove once the issue is fixed.
+comment|// we keep the pre-5.1 behavior by remapping these characters in the Unicode tables generator
+comment|// and this code is needed to pass the coverage tests; remove once the issue is fixed.
 if|if
 condition|(
 name|ucs4
@@ -1267,24 +1447,48 @@ index|[
 name|ncls
 index|]
 decl_stmt|;
+switch|switch
+condition|(
+name|action
+condition|)
+block|{
+case|case
+name|WB
+operator|::
+name|Break
+case|:
+break|break;
+case|case
+name|WB
+operator|::
+name|NoBreak
+case|:
 if|if
 condition|(
 name|Q_UNLIKELY
 argument_list|(
-name|action
+name|ncls
 operator|==
-name|WB
+name|QUnicodeTables
 operator|::
-name|Lookup
+name|WordBreak_Extend
 argument_list|)
 condition|)
 block|{
-name|action
-operator|=
+comment|// WB4: X(Extend|Format)* -> X
+continue|continue;
+block|}
+break|break;
+case|case
 name|WB
 operator|::
-name|Break
-expr_stmt|;
+name|Lookup
+case|:
+case|case
+name|WB
+operator|::
+name|LookupW
+case|:
 for|for
 control|(
 name|quint32
@@ -1395,7 +1599,10 @@ operator|::
 name|WordBreak_Extend
 argument_list|)
 condition|)
+block|{
+comment|// WB4: X(Extend|Format)* -> X
 continue|continue;
+block|}
 if|if
 condition|(
 name|Q_LIKELY
@@ -1403,6 +1610,28 @@ argument_list|(
 name|tcls
 operator|==
 name|cls
+operator|||
+operator|(
+name|action
+operator|==
+name|WB
+operator|::
+name|LookupW
+operator|&&
+operator|(
+name|tcls
+operator|==
+name|QUnicodeTables
+operator|::
+name|WordBreak_HebrewLetter
+operator|||
+name|tcls
+operator|==
+name|QUnicodeTables
+operator|::
+name|WordBreak_ALetter
+operator|)
+operator|)
 argument_list|)
 condition|)
 block|{
@@ -1423,8 +1652,21 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-block|}
-elseif|else
+if|if
+condition|(
+name|action
+operator|!=
+name|WB
+operator|::
+name|NoBreak
+condition|)
+block|{
+name|action
+operator|=
+name|WB
+operator|::
+name|Break
+expr_stmt|;
 if|if
 condition|(
 name|Q_UNLIKELY
@@ -1433,23 +1675,24 @@ name|ncls
 operator|==
 name|QUnicodeTables
 operator|::
-name|WordBreak_Extend
+name|WordBreak_SingleQuote
+operator|&&
+name|cls
+operator|==
+name|QUnicodeTables
+operator|::
+name|WordBreak_HebrewLetter
 argument_list|)
 condition|)
-block|{
-comment|// WB4: X(Extend|Format)* -> X
-if|if
-condition|(
-name|Q_LIKELY
-argument_list|(
 name|action
-operator|!=
+operator|=
 name|WB
 operator|::
-name|Break
-argument_list|)
-condition|)
-continue|continue;
+name|NoBreak
+expr_stmt|;
+comment|// WB7a
+block|}
+break|break;
 block|}
 name|cls
 operator|=
@@ -1512,6 +1755,11 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
+case|case
+name|QUnicodeTables
+operator|::
+name|WordBreak_HebrewLetter
+case|:
 case|case
 name|QUnicodeTables
 operator|::
@@ -2366,7 +2614,7 @@ block|}
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
 comment|// The line breaking algorithm.
-comment|// See http://www.unicode.org/reports/tr14/tr14-30.html
+comment|// See http://www.unicode.org/reports/tr14/tr14-32.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|LB

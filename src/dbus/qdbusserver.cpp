@@ -392,6 +392,47 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.3      If \a value is set to true, an incoming connection can proceed even if the     connecting client is not authenticated as a user.      By default, this value is false.      \sa isAnonymousAuthenticationAllowed() */
+end_comment
+begin_function
+DECL|function|setAnonymousAuthenticationAllowed
+name|void
+name|QDBusServer
+operator|::
+name|setAnonymousAuthenticationAllowed
+parameter_list|(
+name|bool
+name|value
+parameter_list|)
+block|{
+name|d
+operator|->
+name|anonymousAuthenticationAllowed
+operator|=
+name|value
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.3      Returns true if anonymous authentication is allowed.      \sa setAnonymousAuthenticationAllowed() */
+end_comment
+begin_function
+DECL|function|isAnonymousAuthenticationAllowed
+name|bool
+name|QDBusServer
+operator|::
+name|isAnonymousAuthenticationAllowed
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|anonymousAuthenticationAllowed
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   \fn void QDBusServer::newConnection(const QDBusConnection&connection)    This signal is emitted when a new client connection \a connection is   established to the server.  */
 end_comment
 begin_macro

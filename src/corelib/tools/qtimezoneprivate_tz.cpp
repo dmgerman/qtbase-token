@@ -432,6 +432,15 @@ comment|// Is in Standard time
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QTzType
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// TZ File parsing
 end_comment
@@ -2826,7 +2835,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 ifdef|#
 directive|ifdef
@@ -2842,7 +2851,7 @@ comment|// QT_USE_ICU
 block|{
 name|init
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 expr_stmt|;
 block|}
@@ -2944,7 +2953,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|olsenId
+name|ianaId
 parameter_list|)
 block|{
 name|QFile
@@ -2952,7 +2961,7 @@ name|tzif
 decl_stmt|;
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -2999,7 +3008,7 @@ name|QString
 operator|::
 name|fromLocal8Bit
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3029,7 +3038,7 @@ name|QString
 operator|::
 name|fromLocal8Bit
 argument_list|(
-name|olsenId
+name|ianaId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3693,7 +3702,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -3706,7 +3715,7 @@ expr_stmt|;
 else|else
 name|m_id
 operator|=
-name|olsenId
+name|ianaId
 expr_stmt|;
 block|}
 end_function
@@ -5184,7 +5193,7 @@ specifier|const
 block|{
 comment|// Check TZ env var first, if not populated try find it
 name|QByteArray
-name|olsenId
+name|ianaId
 init|=
 name|qgetenv
 argument_list|(
@@ -5194,12 +5203,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
 operator|&&
-name|olsenId
+name|ianaId
 operator|.
 name|at
 argument_list|(
@@ -5208,9 +5217,9 @@ argument_list|)
 operator|==
 literal|':'
 condition|)
-name|olsenId
+name|ianaId
 operator|=
-name|olsenId
+name|ianaId
 operator|.
 name|mid
 argument_list|(
@@ -5220,7 +5229,7 @@ expr_stmt|;
 comment|// On Debian Etch and later /etc/localtime is real file with name held in /etc/timezone
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -5263,7 +5272,7 @@ operator|.
 name|atEnd
 argument_list|()
 condition|)
-name|olsenId
+name|ianaId
 operator|=
 name|ts
 operator|.
@@ -5278,7 +5287,7 @@ block|}
 comment|// On other distros /etc/localtime is symlink to real file so can extract name from the path
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -5323,7 +5332,7 @@ argument_list|)
 operator|+
 literal|10
 decl_stmt|;
-name|olsenId
+name|ianaId
 operator|=
 name|path
 operator|.
@@ -5341,7 +5350,7 @@ comment|// On some Red Hat distros /etc/localtime is real file with name held in
 comment|// in a line like ZONE="Europe/Oslo" or TIMEZONE="Europe/Oslo"
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -5381,7 +5390,7 @@ name|line
 decl_stmt|;
 while|while
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
@@ -5424,7 +5433,7 @@ literal|"ZONE="
 argument_list|)
 condition|)
 block|{
-name|olsenId
+name|ianaId
 operator|=
 name|line
 operator|.
@@ -5460,7 +5469,7 @@ literal|"TIMEZONE="
 argument_list|)
 condition|)
 block|{
-name|olsenId
+name|ianaId
 operator|=
 name|line
 operator|.
@@ -5486,12 +5495,12 @@ block|}
 comment|// Give up for now and return UTC
 if|if
 condition|(
-name|olsenId
+name|ianaId
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|olsenId
+name|ianaId
 operator|=
 name|QByteArrayLiteral
 argument_list|(
@@ -5499,7 +5508,7 @@ literal|"UTC"
 argument_list|)
 expr_stmt|;
 return|return
-name|olsenId
+name|ianaId
 return|;
 block|}
 end_function

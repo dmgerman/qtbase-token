@@ -275,7 +275,7 @@ end_function
 begin_function
 DECL|function|methodName
 name|QByteArray
-name|QHttpNetworkRequestPrivate
+name|QHttpNetworkRequest
 operator|::
 name|methodName
 parameter_list|()
@@ -283,6 +283,8 @@ specifier|const
 block|{
 switch|switch
 condition|(
+name|d
+operator|->
 name|operation
 condition|)
 block|{
@@ -356,6 +358,8 @@ operator|::
 name|Custom
 case|:
 return|return
+name|d
+operator|->
 name|customVerb
 return|;
 default|default:
@@ -370,7 +374,7 @@ end_function
 begin_function
 DECL|function|uri
 name|QByteArray
-name|QHttpNetworkRequestPrivate
+name|QHttpNetworkRequest
 operator|::
 name|uri
 parameter_list|(
@@ -400,6 +404,8 @@ decl_stmt|;
 comment|// for POST, query data is send as content
 if|if
 condition|(
+name|d
+operator|->
 name|operation
 operator|==
 name|QHttpNetworkRequest
@@ -407,6 +413,8 @@ operator|::
 name|Post
 operator|&&
 operator|!
+name|d
+operator|->
 name|uploadByteDevice
 condition|)
 name|format
@@ -434,6 +442,8 @@ expr_stmt|;
 name|QUrl
 name|copy
 init|=
+name|d
+operator|->
 name|url
 decl_stmt|;
 if|if
@@ -525,8 +535,6 @@ name|ba
 operator|+=
 name|request
 operator|.
-name|d
-operator|->
 name|methodName
 argument_list|()
 expr_stmt|;
@@ -538,8 +546,6 @@ name|ba
 operator|+=
 name|request
 operator|.
-name|d
-operator|->
 name|uri
 argument_list|(
 name|throughProxy

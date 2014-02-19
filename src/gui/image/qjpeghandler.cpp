@@ -4937,7 +4937,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 argument_list|)
 comment|// from qimage_neon.cpp
 if|if
@@ -4953,7 +4953,7 @@ name|qt_convert_rgb888_to_rgb32_neon
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_COMPILER_SUPPORTS_NEON
+comment|// __ARM_NEON__
 if|#
 directive|if
 name|defined
@@ -4965,33 +4965,7 @@ if|if
 condition|(
 literal|false
 condition|)
-block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_AVX
-argument_list|)
-block|}
-elseif|else
-if|if
-condition|(
-name|qCpuHasFeature
-argument_list|(
-name|AVX
-argument_list|)
-condition|)
-block|{
-name|rgb888ToRgb32ConverterPtr
-operator|=
-name|qt_convert_rgb888_to_rgb32_avx
-expr_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|__AVX__
-block|}
+block|{     }
 elseif|else
 if|if
 condition|(
@@ -5005,8 +4979,6 @@ name|rgb888ToRgb32ConverterPtr
 operator|=
 name|qt_convert_rgb888_to_rgb32_ssse3
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 endif|#
 directive|endif

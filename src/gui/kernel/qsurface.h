@@ -62,6 +62,8 @@ block|{
 name|RasterSurface
 block|,
 name|OpenGLSurface
+block|,
+name|RasterGLSurface
 block|}
 enum|;
 name|virtual
@@ -98,6 +100,11 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
+expr_stmt|;
+name|bool
+name|supportsOpenGL
+argument_list|()
+specifier|const
 expr_stmt|;
 name|virtual
 name|QSize

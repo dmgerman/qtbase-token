@@ -306,6 +306,20 @@ argument|QTextDocument::FindFlags options =
 literal|0
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+name|bool
+name|find
+argument_list|(
+argument|const QRegExp&exp
+argument_list|,
+argument|QTextDocument::FindFlags options =
+literal|0
+argument_list|)
+block|;
+endif|#
+directive|endif
 name|QString
 name|toPlainText
 argument_list|()
@@ -894,6 +908,8 @@ name|QVariant
 name|inputMethodQuery
 argument_list|(
 argument|Qt::InputMethodQuery property
+argument_list|,
+argument|QVariant argument
 argument_list|)
 specifier|const
 block|;

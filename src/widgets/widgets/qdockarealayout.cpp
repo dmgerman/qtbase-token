@@ -11632,14 +11632,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|bool
-name|blocked
-init|=
-name|tabBar
-operator|->
-name|blockSignals
+specifier|const
+name|QSignalBlocker
+name|blocker
 argument_list|(
-literal|true
+name|tabBar
 argument_list|)
 decl_stmt|;
 name|bool
@@ -11943,13 +11940,6 @@ name|tab_idx
 argument_list|)
 expr_stmt|;
 block|}
-name|tabBar
-operator|->
-name|blockSignals
-argument_list|(
-name|blocked
-argument_list|)
-expr_stmt|;
 comment|//returns if the tabbar is visible or not
 return|return
 operator|(

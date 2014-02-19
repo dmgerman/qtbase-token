@@ -554,6 +554,29 @@ argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_RVALUE_REFS
+specifier|static
+name|QPixmap
+name|fromImage
+argument_list|(
+argument|QImage&&image
+argument_list|,
+argument|Qt::ImageConversionFlags flags = Qt::AutoColor
+argument_list|)
+block|{
+return|return
+name|fromImageInPlace
+argument_list|(
+name|image
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+endif|#
+directive|endif
 name|bool
 name|load
 argument_list|(
@@ -775,6 +798,15 @@ argument_list|(
 argument|PaintDeviceMetric
 argument_list|)
 specifier|const
+block|;
+specifier|static
+name|QPixmap
+name|fromImageInPlace
+argument_list|(
+argument|QImage&image
+argument_list|,
+argument|Qt::ImageConversionFlags flags = Qt::AutoColor
+argument_list|)
 block|;
 name|private
 operator|:

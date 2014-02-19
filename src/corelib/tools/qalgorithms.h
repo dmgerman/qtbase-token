@@ -43,7 +43,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qSortHelper
@@ -65,7 +68,10 @@ operator|,
 name|typename
 name|T
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 specifier|inline
 name|void
 name|qSortHelper
@@ -88,7 +94,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qStableSortHelper
@@ -110,7 +119,10 @@ operator|,
 name|typename
 name|T
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 specifier|inline
 name|void
 name|qStableSortHelper
@@ -135,7 +147,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::lower_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBoundHelper
@@ -160,7 +175,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::upper_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBoundHelper
@@ -185,7 +203,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::binary_search"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFindHelper
@@ -225,7 +246,10 @@ name|typename
 name|OutputIterator
 operator|>
 DECL|function|qCopy
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::copy"
+argument_list|)
 specifier|inline
 name|OutputIterator
 name|qCopy
@@ -268,7 +292,10 @@ name|typename
 name|BiIterator2
 operator|>
 DECL|function|qCopyBackward
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::copy_backward"
+argument_list|)
 specifier|inline
 name|BiIterator2
 name|qCopyBackward
@@ -311,7 +338,10 @@ name|typename
 name|InputIterator2
 operator|>
 DECL|function|qEqual
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::equal"
+argument_list|)
 specifier|inline
 name|bool
 name|qEqual
@@ -367,7 +397,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qFill
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::fill"
+argument_list|)
 specifier|inline
 name|void
 name|qFill
@@ -407,7 +440,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qFill
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::fill"
+argument_list|)
 specifier|inline
 name|void
 name|qFill
@@ -442,7 +478,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qFind
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::find"
+argument_list|)
 specifier|inline
 name|InputIterator
 name|qFind
@@ -488,7 +527,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qFind
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::find"
+argument_list|)
 specifier|inline
 name|typename
 name|Container
@@ -534,7 +576,10 @@ name|typename
 name|Size
 operator|>
 DECL|function|qCount
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::count"
+argument_list|)
 specifier|inline
 name|void
 name|qCount
@@ -585,7 +630,10 @@ name|typename
 name|Size
 operator|>
 DECL|function|qCount
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::count"
+argument_list|)
 specifier|inline
 name|void
 name|qCount
@@ -645,7 +693,10 @@ name|typename
 name|T
 operator|>
 name|class
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::less"
+argument_list|)
 name|qLess
 block|{
 name|public
@@ -684,7 +735,10 @@ name|typename
 name|T
 operator|>
 name|class
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::greater"
+argument_list|)
 name|qGreater
 block|{
 name|public
@@ -727,7 +781,10 @@ name|typename
 name|RandomAccessIterator
 operator|>
 DECL|function|qSort
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 specifier|inline
 name|void
 name|qSort
@@ -768,7 +825,10 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qSort
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 specifier|inline
 name|void
 name|qSort
@@ -809,7 +869,10 @@ name|typename
 name|Container
 operator|>
 DECL|function|qSort
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 specifier|inline
 name|void
 name|qSort
@@ -866,7 +929,10 @@ name|typename
 name|RandomAccessIterator
 operator|>
 DECL|function|qStableSort
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 specifier|inline
 name|void
 name|qStableSort
@@ -907,7 +973,10 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qStableSort
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 specifier|inline
 name|void
 name|qStableSort
@@ -948,7 +1017,10 @@ name|typename
 name|Container
 operator|>
 DECL|function|qStableSort
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 specifier|inline
 name|void
 name|qStableSort
@@ -1009,7 +1081,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qLowerBound
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::lower_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBound
@@ -1107,7 +1182,10 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qLowerBound
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::lower_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBound
@@ -1148,7 +1226,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qLowerBound
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::lower_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|Container
@@ -1199,7 +1280,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qUpperBound
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::upper_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBound
@@ -1295,7 +1379,10 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qUpperBound
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::upper_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBound
@@ -1336,7 +1423,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qUpperBound
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::upper_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|Container
@@ -1387,7 +1477,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qBinaryFind
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::binary_search"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFind
@@ -1447,7 +1540,10 @@ name|typename
 name|LessThan
 operator|>
 DECL|function|qBinaryFind
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::binary_search"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFind
@@ -1488,7 +1584,10 @@ name|typename
 name|T
 operator|>
 DECL|function|qBinaryFind
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::binary_search"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|Container
@@ -1617,7 +1716,10 @@ block|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qSortHelper
@@ -1907,7 +2009,10 @@ operator|,
 name|typename
 name|T
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::sort"
+argument_list|)
 specifier|inline
 name|void
 name|qSortHelper
@@ -1940,7 +2045,10 @@ operator|<
 name|typename
 name|RandomAccessIterator
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::reverse"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qReverse
@@ -1978,7 +2086,10 @@ operator|<
 name|typename
 name|RandomAccessIterator
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::rotate"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qRotate
@@ -2022,7 +2133,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::merge"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qMerge
@@ -2260,7 +2374,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|qStableSortHelper
@@ -2350,7 +2467,10 @@ operator|,
 name|typename
 name|T
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::stable_sort"
+argument_list|)
 specifier|inline
 name|void
 name|qStableSortHelper
@@ -2389,7 +2509,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::lower_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qLowerBoundHelper
@@ -2489,7 +2612,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::upper_bound"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qUpperBoundHelper
@@ -2586,7 +2712,10 @@ operator|,
 name|typename
 name|LessThan
 operator|>
-name|QT_DEPRECATED
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use std::binary_search"
+argument_list|)
 name|Q_OUTOFLINE_TEMPLATE
 name|RandomAccessIterator
 name|qBinaryFindHelper

@@ -2165,6 +2165,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|blockTagClosed
+operator|&&
 name|hasBlock
 condition|)
 block|{

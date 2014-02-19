@@ -52,6 +52,12 @@ name|QDialog
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QThread
+name|class
+name|QThread
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QWindowsNativeDialogBase
 name|class
 name|QWindowsNativeDialogBase
@@ -114,6 +120,13 @@ name|QWindowsNativeDialogBase
 operator|>
 name|QWindowsNativeDialogBasePtr
 expr_stmt|;
+operator|~
+name|QWindowsDialogHelperBase
+argument_list|()
+block|{
+name|cleanupThread
+argument_list|()
+block|; }
 name|virtual
 name|void
 name|exec
@@ -241,6 +254,12 @@ name|stopTimer
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|cleanupThread
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|QWindowsNativeDialogBasePtr
 name|m_nativeDialog
@@ -254,6 +273,12 @@ end_decl_stmt
 begin_decl_stmt
 name|int
 name|m_timerId
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QThread
+modifier|*
+name|m_thread
 decl_stmt|;
 end_decl_stmt
 begin_macro

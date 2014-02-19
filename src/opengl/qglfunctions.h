@@ -54,6 +54,11 @@ include|#
 directive|include
 file|<QtGui/qopenglcontext.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qopenglfunctions.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro

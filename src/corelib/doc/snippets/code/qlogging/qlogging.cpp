@@ -95,4 +95,18 @@ end_function
 begin_comment
 comment|//! [1]
 end_comment
+begin_comment
+comment|//! [2]
+end_comment
+begin_function_decl
+specifier|const
+name|QLoggingCategory
+modifier|&
+name|category
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_comment
+comment|//! [2]
+end_comment
 end_unit

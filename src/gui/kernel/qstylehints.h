@@ -26,6 +26,12 @@ name|QPlatformIntegration
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QStyleHintsPrivate
+name|class
+name|QStyleHintsPrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QStyleHints
@@ -34,17 +40,44 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QStyleHints
+argument_list|)
 name|public
 operator|:
+name|void
+name|setMouseDoubleClickInterval
+argument_list|(
+argument|int mouseDoubleClickInterval
+argument_list|)
+block|;
 name|int
 name|mouseDoubleClickInterval
 argument_list|()
 specifier|const
 block|;
 name|int
+name|mousePressAndHoldInterval
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setStartDragDistance
+argument_list|(
+argument|int startDragDistance
+argument_list|)
+block|;
+name|int
 name|startDragDistance
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setStartDragTime
+argument_list|(
+argument|int startDragTime
+argument_list|)
 block|;
 name|int
 name|startDragTime
@@ -56,6 +89,12 @@ name|startDragVelocity
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setKeyboardInputInterval
+argument_list|(
+argument|int keyboardInputInterval
+argument_list|)
+block|;
 name|int
 name|keyboardInputInterval
 argument_list|()
@@ -65,6 +104,12 @@ name|int
 name|keyboardAutoRepeatRate
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setCursorFlashTime
+argument_list|(
+argument|int cursorFlashTime
+argument_list|)
 block|;
 name|int
 name|cursorFlashTime

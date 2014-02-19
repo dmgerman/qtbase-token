@@ -92,11 +92,6 @@ name|defined
 argument_list|(
 name|QT_COMPILER_SUPPORTS_IWMMXT
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
-argument_list|)
 operator|)
 end_elif
 begin_include
@@ -292,11 +287,6 @@ operator|||
 name|defined
 argument_list|(
 name|QT_COMPILER_SUPPORTS_IWMMXT
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_NEON
 argument_list|)
 end_elif
 begin_function
@@ -534,7 +524,7 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-name|qintptr
+name|qregisterint
 name|tmp1
 decl_stmt|;
 if|#
@@ -621,7 +611,7 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-name|qintptr
+name|qregisterint
 name|tmp1
 decl_stmt|;
 asm|asm ("xchg " PICreg", %2\n"          "cpuid\n"          "xchg " PICreg", %2\n"         : "=&c" (ecx), "=&d" (edx), "=&r" (tmp1)         : "a" (1));
@@ -719,7 +709,7 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-name|quintptr
+name|qregisteruint
 name|rbx
 decl_stmt|;
 comment|// in case it's 64-bit

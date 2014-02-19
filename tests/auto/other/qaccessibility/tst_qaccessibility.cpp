@@ -17,11 +17,20 @@ include|#
 directive|include
 file|<QtCore/qt_windows.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<oleacc.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -23398,9 +23407,18 @@ parameter_list|()
 block|{
 comment|// For now this is a simple test to see if the bridge is working at all.
 comment|// Ideally it should be extended to test all aspects of the bridge.
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 comment|// First, test MSAA part of bridge
 name|QWidget
 modifier|*

@@ -993,6 +993,12 @@ elif|#
 directive|elif
 name|defined
 name|Q_OS_WIN
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|HANDLE
 name|thread
 decl_stmt|;

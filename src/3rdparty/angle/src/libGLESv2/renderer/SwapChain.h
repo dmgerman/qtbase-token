@@ -47,7 +47,7 @@ name|public
 label|:
 name|SwapChain
 argument_list|(
-argument|HWND window
+argument|EGLNativeWindowType window
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
@@ -150,7 +150,7 @@ empty_stmt|;
 name|protected
 label|:
 specifier|const
-name|HWND
+name|EGLNativeWindowType
 name|mWindow
 decl_stmt|;
 comment|// Window that the surface is created for.

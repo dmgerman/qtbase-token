@@ -949,11 +949,22 @@ name|QByteArray
 operator|>
 name|metaTypes
 block|;
-name|QSet
+comment|// map from class name to fully qualified name
+name|QHash
 operator|<
+name|QByteArray
+block|,
 name|QByteArray
 operator|>
 name|knownQObjectClasses
+block|;
+name|QHash
+operator|<
+name|QByteArray
+block|,
+name|QByteArray
+operator|>
+name|knownGadgets
 block|;
 name|QMap
 operator|<

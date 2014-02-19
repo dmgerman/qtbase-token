@@ -48,21 +48,19 @@ include|#
 directive|include
 file|<qobject.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qt_windows.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qqueue.h>
-end_include
+begin_typedef
+DECL|typedef|OVERLAPPED
+typedef|typedef
+name|struct
+name|_OVERLAPPED
+name|OVERLAPPED
+typedef|;
+end_typedef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QWinIoCompletionPort
+DECL|variable|QWinOverlappedIoNotifierPrivate
 name|class
-name|QWinIoCompletionPort
+name|QWinOverlappedIoNotifierPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -74,6 +72,24 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QWinOverlappedIoNotifier
+argument_list|)
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QWinOverlappedIoNotifier
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|OVERLAPPED *_q_notified()
+argument_list|)
+name|friend
+name|class
+name|QWinIoCompletionPort
+block|;
 name|public
 operator|:
 name|QWinOverlappedIoNotifier
@@ -92,18 +108,16 @@ block|;
 name|void
 name|setHandle
 argument_list|(
-argument|HANDLE h
+argument|Qt::HANDLE h
 argument_list|)
 block|;
+name|Qt
+operator|::
 name|HANDLE
 name|handle
 argument_list|()
 specifier|const
-block|{
-return|return
-name|hHandle
-return|;
-block|}
+block|;
 name|void
 name|setEnabled
 argument_list|(
@@ -123,112 +137,27 @@ operator|:
 name|void
 name|notified
 argument_list|(
-argument|DWORD numberOfBytes
+argument|quint32 numberOfBytes
 argument_list|,
-argument|DWORD errorCode
+argument|quint32 errorCode
 argument_list|,
 argument|OVERLAPPED *overlapped
 argument_list|)
 block|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
 name|void
 name|_q_notify
 argument_list|()
 block|;
-name|private
-name|Q_SLOTS
-operator|:
-name|OVERLAPPED
-operator|*
-name|_q_notified
-argument_list|()
-block|;
-name|private
-operator|:
-name|void
-name|notify
-argument_list|(
-argument|DWORD numberOfBytes
-argument_list|,
-argument|DWORD errorCode
-argument_list|,
-argument|OVERLAPPED *overlapped
-argument_list|)
-block|;
-name|private
-operator|:
-specifier|static
-name|QWinIoCompletionPort
-operator|*
-name|iocp
-block|;
-specifier|static
-name|HANDLE
-name|iocpInstanceLock
-block|;
-specifier|static
-name|unsigned
-name|int
-name|iocpInstanceRefCount
-block|;
-name|HANDLE
-name|hHandle
-block|;
-name|HANDLE
-name|hSemaphore
-block|;
-name|HANDLE
-name|hResultsMutex
-block|;      struct
-name|IOResult
-block|{
-name|IOResult
-argument_list|(
-argument|DWORD n =
-literal|0
-argument_list|,
-argument|DWORD e =
-literal|0
-argument_list|,
-argument|OVERLAPPED *p =
-literal|0
-argument_list|)
-operator|:
-name|numberOfBytes
-argument_list|(
-name|n
-argument_list|)
-block|,
-name|errorCode
-argument_list|(
-name|e
-argument_list|)
-block|,
-name|overlapped
-argument_list|(
-argument|p
-argument_list|)
-block|{}
-name|DWORD
-name|numberOfBytes
-block|;
-name|DWORD
-name|errorCode
-block|;
-name|OVERLAPPED
-operator|*
-name|overlapped
-block|;     }
-block|;
-name|QQueue
-operator|<
-name|IOResult
-operator|>
-name|results
-block|;
-name|friend
-name|class
-name|QWinIoCompletionPort
-block|; }
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

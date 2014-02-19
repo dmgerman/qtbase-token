@@ -956,7 +956,7 @@ name|Display
 operator|::
 name|createWindowSurface
 parameter_list|(
-name|HWND
+name|EGLNativeWindowType
 name|window
 parameter_list|,
 name|EGLConfig
@@ -2118,7 +2118,7 @@ name|Display
 operator|::
 name|hasExistingWindowSurface
 parameter_list|(
-name|HWND
+name|EGLNativeWindowType
 name|window
 parameter_list|)
 block|{
@@ -2174,17 +2174,6 @@ operator|::
 name|initExtensionString
 parameter_list|()
 block|{
-name|HMODULE
-name|swiftShader
-init|=
-name|GetModuleHandle
-argument_list|(
-name|TEXT
-argument_list|(
-literal|"swiftshader_d3d9.dll"
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|bool
 name|shareHandleSupported
 init|=
@@ -2217,6 +2206,24 @@ name|mExtensionString
 operator|+=
 literal|"EGL_ANGLE_query_surface_pointer "
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_OS_WINRT
+argument_list|)
+name|HMODULE
+name|swiftShader
+init|=
+name|GetModuleHandle
+argument_list|(
+name|TEXT
+argument_list|(
+literal|"swiftshader_d3d9.dll"
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|swiftShader
@@ -2227,6 +2234,8 @@ operator|+=
 literal|"EGL_ANGLE_software_display "
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|shareHandleSupported

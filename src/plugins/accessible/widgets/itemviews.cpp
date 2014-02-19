@@ -6333,6 +6333,7 @@ operator|.
 name|isNull
 argument_list|()
 condition|)
+block|{
 name|r
 operator|.
 name|translate
@@ -6372,6 +6373,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|r
 return|;

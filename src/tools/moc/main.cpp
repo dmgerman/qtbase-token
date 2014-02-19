@@ -1393,7 +1393,28 @@ condition|)
 block|{
 name|error
 argument_list|(
-literal|"Too many input files specified"
+name|qPrintable
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"Too many input files specified: '"
+argument_list|)
+operator|+
+name|files
+operator|.
+name|join
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"' '"
+argument_list|)
+argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'\''
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|parser

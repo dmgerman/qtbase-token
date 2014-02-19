@@ -81,103 +81,6 @@ DECL|macro|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_ALWAYS_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_POINTER_FETCH_AND_ADD_IS_ALWAYS_NATIVE
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|int
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|int
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_COMPILER_UNICODE_STRINGS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_PROCESSOR_MIPS_64
-argument_list|)
-end_if
-begin_comment
-comment|// for MIPS32, ensure that char32_t (an uint_least32_t), is 32-bit
-end_comment
-begin_comment
-comment|// it's extremely unlikely it won't be on a 32-bit MIPS, but just to be sure
-end_comment
-begin_comment
-comment|// For MIPS64, we're sure it works, but the definition is below
-end_comment
-begin_expr_stmt
-DECL|struct|char32_t
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char32_t
-operator|>
-DECL|enumerator|IsInteger
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-sizeof|sizeof
-argument_list|(
-name|char32_t
-argument_list|)
-operator|==
-sizeof|sizeof
-argument_list|(
-name|int
-argument_list|)
-operator|?
-literal|1
-operator|:
-operator|-
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_expr_stmt
 DECL|struct|size
 name|template
 operator|<
@@ -309,7 +212,6 @@ return|;
 block|}
 end_function
 begin_expr_stmt
-DECL|member|Q_DECL_NOTHROW
 name|template
 operator|<
 name|typename
@@ -317,6 +219,7 @@ name|T
 operator|>
 specifier|static
 name|bool
+DECL|member|Q_DECL_NOTHROW
 name|testAndSetRelaxed
 argument_list|(
 argument|T&_q_value
@@ -324,6 +227,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -752,6 +658,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -765,8 +673,8 @@ name|asm
 specifier|volatile
 operator|(
 literal|"0:\n"
-literal|"ll %[result], %[_q_value]\n"
-literal|"xor %[result], %[result], %[expectedValue]\n"
+literal|"ll %[tempValue], %[_q_value]\n"
+literal|"xor %[result], %[tempValue], %[expectedValue]\n"
 literal|"bnez %[result], 0f\n"
 literal|"nop\n"
 literal|"move %[tempValue], %[newValue]\n"
@@ -820,15 +728,25 @@ operator|,
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|tempValue
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|result
 operator|==
 literal|0
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -1037,106 +955,25 @@ directive|define
 name|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_ALWAYS_NATIVE
 end_define
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|long
-name|long
+literal|8
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_UNICODE_STRINGS
-end_ifdef
-begin_expr_stmt
-DECL|struct|char16_t
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char16_t
-operator|>
-DECL|enumerator|IsInteger
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-sizeof|sizeof
-argument_list|(
-name|char16_t
-argument_list|)
-operator|==
-sizeof|sizeof
-argument_list|(
-name|int
-argument_list|)
-operator|?
-literal|1
-operator|:
-operator|-
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|struct|char32_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char32_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|template
 operator|<
@@ -1329,6 +1166,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -1342,8 +1181,8 @@ name|asm
 specifier|volatile
 operator|(
 literal|"0:\n"
-literal|"lld %[result], %[_q_value]\n"
-literal|"xor %[result], %[result], %[expectedValue]\n"
+literal|"lld %[tempValue], %[_q_value]\n"
+literal|"xor %[result], %[tempValue], %[expectedValue]\n"
 literal|"bnez %[result], 0f\n"
 literal|"nop\n"
 literal|"move %[tempValue], %[newValue]\n"
@@ -1397,15 +1236,25 @@ operator|,
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|tempValue
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|result
 operator|==
 literal|0
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template

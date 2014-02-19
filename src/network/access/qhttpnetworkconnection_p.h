@@ -412,6 +412,10 @@ name|friend
 name|class
 name|QHttpNetworkConnectionChannel
 block|;
+name|friend
+name|class
+name|QHttpProtocolHandler
+block|;
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()

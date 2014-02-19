@@ -103,6 +103,14 @@ argument|Qt::ImageConversionFlags flags
 argument_list|)
 block|;
 name|void
+name|fromImageInPlace
+argument_list|(
+argument|QImage&image
+argument_list|,
+argument|Qt::ImageConversionFlags flags
+argument_list|)
+block|;
+name|void
 name|fromImageReader
 argument_list|(
 argument|QImageReader *imageReader

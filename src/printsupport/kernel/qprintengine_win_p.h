@@ -675,6 +675,9 @@ name|QString
 name|docName
 block|;
 name|QString
+name|m_creator
+block|;
+name|QString
 name|fileName
 block|;
 name|QPrinter

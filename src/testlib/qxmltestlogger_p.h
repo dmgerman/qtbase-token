@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<QtTest/private/qabstracttestlogger_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qelapsedtimer.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -128,7 +133,7 @@ name|addMessage
 argument_list|(
 argument|MessageTypes type
 argument_list|,
-argument|const char *message
+argument|const QString&message
 argument_list|,
 argument|const char *file =
 literal|0
@@ -191,6 +196,12 @@ name|private
 operator|:
 name|XmlMode
 name|xmlmode
+block|;
+name|QElapsedTimer
+name|m_functionTime
+block|;
+name|QElapsedTimer
+name|m_totalTime
 block|; }
 decl_stmt|;
 end_decl_stmt

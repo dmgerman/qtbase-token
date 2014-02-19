@@ -39,7 +39,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|/* 	Cocoa Application Categories */
+comment|/*         Cocoa Application Categories */
 end_comment
 begin_include
 include|#

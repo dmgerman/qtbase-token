@@ -36,6 +36,17 @@ struct_decl|struct
 name|QWindowsIntegrationPrivate
 struct_decl|;
 end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|QWindowsWindowData
+struct_decl|;
+end_struct_decl
+begin_decl_stmt
+DECL|variable|QWindowsWindow
+name|class
+name|QWindowsWindow
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|QWindowsIntegration
@@ -69,10 +80,10 @@ name|XpNativeDialogs
 operator|=
 literal|0x10
 block|,
-name|PassOsMouseEventsSynthesizedFromTouch
+name|DontPassOsMouseEventsSynthesizedFromTouch
 operator|=
 literal|0x20
-comment|// Pass OS-generated mouse events from touch.
+comment|// Do not pass OS-generated mouse events from touch.
 block|}
 block|;
 name|explicit
@@ -96,26 +107,16 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|virtual
-name|QPlatformPixmap
-operator|*
-name|createPlatformPixmap
+name|QWindowsWindowData
+name|createWindowData
 argument_list|(
-argument|QPlatformPixmap::PixelType type
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
-argument_list|(
-argument|QWindow *window
-argument_list|)
-specifier|const
-block|;
-name|QPlatformBackingStore
-operator|*
-name|createPlatformBackingStore
 argument_list|(
 argument|QWindow *window
 argument_list|)
@@ -186,13 +187,6 @@ specifier|const
 block|;
 endif|#
 directive|endif
-name|virtual
-name|QPlatformNativeInterface
-operator|*
-name|nativeInterface
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|QPlatformFontDatabase
 operator|*

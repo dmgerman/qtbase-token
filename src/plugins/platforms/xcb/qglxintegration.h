@@ -163,6 +163,9 @@ block|;
 name|bool
 name|m_isPBufferCurrent
 block|;
+name|int
+name|m_swapInterval
+block|;
 specifier|static
 name|bool
 name|m_queriedDummyContext

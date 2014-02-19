@@ -412,6 +412,10 @@ block|;
 endif|#
 directive|endif
 specifier|static
+name|bool
+name|setuidAllowed
+block|;
+specifier|static
 name|uint
 name|attribs
 block|;

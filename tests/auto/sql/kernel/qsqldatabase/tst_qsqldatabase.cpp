@@ -4100,7 +4100,7 @@ name|isAutoValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//	qDebug(QString(" field: %1 type: %2 variant type: %3").arg(fieldDefs[ i ].fieldName()).arg(QVariant::typeToName(inf.field(i+1)->type())).arg(QVariant::typeToName(inf.field(i+1)->value().type())));
+comment|//      qDebug(QString(" field: %1 type: %2 variant type: %3").arg(fieldDefs[ i ].fieldName()).arg(QVariant::typeToName(inf.field(i+1)->type())).arg(QVariant::typeToName(inf.field(i+1)->value().type())));
 block|}
 block|}
 end_function
@@ -5200,9 +5200,9 @@ argument_list|,
 literal|"1 day 12:59:10"
 argument_list|)
 block|,
-comment|//	LOL... you can create a "line" datatype in PostgreSQL<= 7.2.x but
-comment|//	as soon as you want to insert data you get a "not implemented yet" error
-comment|//	FieldDef("line", QVariant::Polygon, QPolygon(QRect(1, 2, 3, 4))),
+comment|//      LOL... you can create a "line" datatype in PostgreSQL<= 7.2.x but
+comment|//      as soon as you want to insert data you get a "not implemented yet" error
+comment|//      FieldDef("line", QVariant::Polygon, QPolygon(QRect(1, 2, 3, 4))),
 name|FieldDef
 argument_list|(
 literal|"lseg"
@@ -6279,7 +6279,7 @@ argument_list|)
 argument_list|)
 block|,
 comment|// using BOOLEAN results in "SQL0486N  The BOOLEAN data type is currently only supported internally."
-comment|//X	FieldDef("boolean" , QVariant::Bool,		QVariant(true, 1)),
+comment|//X     FieldDef("boolean" , QVariant::Bool,           QVariant(true, 1)),
 name|FieldDef
 argument_list|(
 literal|"smallint"
@@ -6417,10 +6417,10 @@ name|currentDateTime
 argument_list|()
 argument_list|)
 block|,
-comment|//     FieldDef("graphic(20)", QVariant::String,	QString("Blah4")),
-comment|//     FieldDef("vargraphic(20)", QVariant::String,	QString("Blah5")),
-comment|//     FieldDef("long vargraphic", QVariant::String,	QString("Blah6")),
-comment|//X	FieldDef("datalink", QVariant::String,		QString("DLVALUE('Blah10')")),
+comment|//         FieldDef("graphic(20)", QVariant::String,       QString("Blah4")),
+comment|//         FieldDef("vargraphic(20)", QVariant::String,    QString("Blah5")),
+comment|//         FieldDef("long vargraphic", QVariant::String,   QString("Blah6")),
+comment|//X FieldDef("datalink", QVariant::String,          QString("DLVALUE('Blah10')")),
 name|FieldDef
 argument_list|()
 block|}

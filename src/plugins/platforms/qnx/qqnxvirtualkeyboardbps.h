@@ -18,6 +18,11 @@ include|#
 directive|include
 file|"qqnxabstractvirtualkeyboard.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<bps/virtualkeyboard.h>
+end_include
 begin_struct_decl
 struct_decl|struct
 name|bps_event_t
@@ -63,10 +68,8 @@ block|;
 name|protected
 operator|:
 name|void
-name|applyKeyboardMode
-argument_list|(
-argument|KeyboardMode mode
-argument_list|)
+name|applyKeyboardOptions
+argument_list|()
 block|;
 name|private
 operator|:
@@ -85,6 +88,16 @@ name|bps_event_t
 operator|*
 name|event
 argument_list|)
+block|;
+name|virtualkeyboard_layout_t
+name|keyboardLayout
+argument_list|()
+specifier|const
+block|;
+name|virtualkeyboard_enter_t
+name|enterKey
+argument_list|()
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -569,6 +569,11 @@ block|;
 name|QSpinBoxValidator
 operator|*
 name|validator
+block|;
+name|uint
+name|showGroupSeparator
+operator|:
+literal|1
 block|; }
 decl_stmt|;
 end_decl_stmt

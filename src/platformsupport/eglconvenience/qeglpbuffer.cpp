@@ -20,6 +20,9 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     \class QEGLPbuffer     \brief A pbuffer-based implementation of QPlatformOffscreenSurface for EGL.     \since 5.2     \internal     \ingroup qpa      To use this implementation in the platform plugin simply     reimplement QPlatformIntegration::createPlatformOffscreenSurface()     and return a new instance of this class. */
+end_comment
 begin_constructor
 DECL|function|QEGLPbuffer
 name|QEGLPbuffer

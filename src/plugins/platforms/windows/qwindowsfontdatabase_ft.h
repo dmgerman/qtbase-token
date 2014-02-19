@@ -46,11 +46,14 @@ name|QFontEngine
 operator|*
 name|fontEngine
 argument_list|(
-argument|const QFontDef&fontDef
+specifier|const
+name|QFontDef
+operator|&
+name|fontDef
 argument_list|,
-argument|QChar::Script script
-argument_list|,
-argument|void *handle
+name|void
+operator|*
+name|handle
 argument_list|)
 block|;
 name|QFontEngine
@@ -88,21 +91,6 @@ name|QFont
 name|defaultFont
 argument_list|()
 specifier|const
-block|;
-specifier|static
-name|HFONT
-name|systemFont
-argument_list|()
-block|;
-specifier|static
-name|QFont
-name|LOGFONT_to_QFont
-argument_list|(
-argument|const LOGFONT& lf
-argument_list|,
-argument|int verticalDPI =
-literal|0
-argument_list|)
 block|;
 name|private
 operator|:

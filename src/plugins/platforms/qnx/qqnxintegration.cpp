@@ -1,7 +1,12 @@
 begin_unit
 begin_comment
-comment|/*************************************************************************** ** ** Copyright (C) 2011 - 2013 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/*************************************************************************** ** ** Copyright (C) 2013 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
+begin_include
+include|#
+directive|include
+file|"qqnxglobal.h"
+end_include
 begin_include
 include|#
 directive|include
@@ -376,6 +381,27 @@ operator|::
 name|FullScreenApplication
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|paramList
+operator|.
+name|contains
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"flush-screen-context"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|options
+operator||=
+name|QQnxIntegration
+operator|::
+name|AlwaysFlushScreenContext
+expr_stmt|;
+block|}
 comment|// On Blackberry the first window is treated as a root window
 ifdef|#
 directive|ifdef
@@ -539,7 +565,9 @@ name|m_nativeInterface
 argument_list|(
 operator|new
 name|QQnxNativeInterface
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 argument_list|)
 member_init_list|,
 name|m_screenEventHandler
@@ -585,47 +613,31 @@ argument_list|()
 argument_list|)
 endif|#
 directive|endif
-member_init_list|,
-name|m_options
-argument_list|(
+block|{
+name|ms_options
+operator|=
 name|parseOptions
 argument_list|(
 name|paramList
 argument_list|)
-argument_list|)
-block|{
+expr_stmt|;
 name|qIntegrationDebug
 argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Open connection to QNX composition manager
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_create_context
 argument_list|(
 operator|&
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|SCREEN_APPLICATION_CONTEXT
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnx: failed to connect to composition manager, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to create screen context"
 argument_list|)
 expr_stmt|;
 comment|// Not on BlackBerry, it has specialized event dispatcher which also handles navigator events
@@ -694,7 +706,7 @@ operator|=
 operator|new
 name|QQnxScreenEventThread
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|m_screenEventHandler
 argument_list|)
@@ -929,6 +941,21 @@ operator|*
 name|m_virtualKeyboard
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QQNX_IMF
+argument_list|)
+name|m_screenEventHandler
+operator|->
+name|addScreenEventFilter
+argument_list|(
+name|m_inputContext
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}
@@ -988,26 +1015,6 @@ name|m_drag
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNX_PPS
-argument_list|)
-comment|// Destroy the hardware button notifier
-operator|delete
-name|m_buttonsNotifier
-expr_stmt|;
-comment|// Destroy input context
-operator|delete
-name|m_inputContext
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Destroy the keyboard class.
-operator|delete
-name|m_virtualKeyboard
-expr_stmt|;
 if|#
 directive|if
 operator|!
@@ -1092,7 +1099,7 @@ expr_stmt|;
 comment|// Close connection to QNX composition manager
 name|screen_destroy_context
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|)
 expr_stmt|;
 if|#
@@ -1110,6 +1117,26 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QQNX_PPS
+argument_list|)
+comment|// Destroy the hardware button notifier
+operator|delete
+name|m_buttonsNotifier
+expr_stmt|;
+comment|// Destroy input context
+operator|delete
+name|m_inputContext
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Destroy the keyboard class.
+operator|delete
+name|m_virtualKeyboard
+expr_stmt|;
 comment|// Destroy services class
 operator|delete
 name|m_services
@@ -1247,7 +1274,7 @@ name|QQnxRasterWindow
 argument_list|(
 name|window
 argument_list|,
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|needRootWindow
 argument_list|)
@@ -1270,7 +1297,7 @@ name|QQnxEglWindow
 argument_list|(
 name|window
 argument_list|,
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|needRootWindow
 argument_list|)
@@ -1610,7 +1637,7 @@ name|ShowIsFullScreen
 operator|)
 operator|&&
 operator|(
-name|m_options
+name|ms_options
 operator|&
 name|FullScreenApplication
 operator|)
@@ -1860,19 +1887,17 @@ operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Query number of displays
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|displayCount
+init|=
+literal|0
 decl_stmt|;
 name|int
 name|result
 init|=
 name|screen_get_context_property_iv
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|SCREEN_PROPERTY_DISPLAY_COUNT
 argument_list|,
@@ -1880,17 +1905,11 @@ operator|&
 name|displayCount
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CRITICALERROR
 argument_list|(
-literal|"QQnxIntegration: failed to query display count, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query display count"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1910,10 +1929,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Get all displays
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|screen_display_t
 modifier|*
 name|displays
@@ -1936,7 +1951,7 @@ name|result
 operator|=
 name|screen_get_context_property_pv
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|SCREEN_PROPERTY_DISPLAYS
 argument_list|,
@@ -1948,17 +1963,11 @@ operator|)
 name|displays
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CRITICALERROR
 argument_list|(
-literal|"QQnxIntegration: failed to query displays, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query displays"
 argument_list|)
 expr_stmt|;
 comment|// If it's primary, we create a QScreen for it even if it's not attached
@@ -1992,7 +2001,7 @@ block|{
 name|int
 name|isAttached
 init|=
-literal|0
+literal|1
 decl_stmt|;
 name|result
 operator|=
@@ -2009,26 +2018,13 @@ operator|&
 name|isAttached
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-block|{
-name|qWarning
+name|Q_SCREEN_CHECKERROR
 argument_list|(
-literal|"QQnxIntegration: failed to query display attachment, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query display attachment"
 argument_list|)
 expr_stmt|;
-name|isAttached
-operator|=
-literal|1
-expr_stmt|;
-comment|// assume attached
-block|}
 if|if
 condition|(
 operator|!
@@ -2091,7 +2087,7 @@ init|=
 operator|new
 name|QQnxScreen
 argument_list|(
-name|m_screenContext
+name|ms_screenContext
 argument_list|,
 name|display
 argument_list|,
@@ -2410,13 +2406,61 @@ name|QQnxIntegration
 operator|::
 name|options
 parameter_list|()
-specifier|const
 block|{
 return|return
-name|m_options
+name|ms_options
 return|;
 block|}
 end_function
+begin_function
+DECL|function|screenContext
+name|screen_context_t
+name|QQnxIntegration
+operator|::
+name|screenContext
+parameter_list|()
+block|{
+return|return
+name|ms_screenContext
+return|;
+block|}
+end_function
+begin_function
+DECL|function|navigatorEventHandler
+name|QQnxNavigatorEventHandler
+modifier|*
+name|QQnxIntegration
+operator|::
+name|navigatorEventHandler
+parameter_list|()
+block|{
+return|return
+name|m_navigatorEventHandler
+return|;
+block|}
+end_function
+begin_decl_stmt
+DECL|member|ms_screenContext
+name|screen_context_t
+name|QQnxIntegration
+operator|::
+name|ms_screenContext
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|member|ms_options
+name|QQnxIntegration
+operator|::
+name|Options
+name|QQnxIntegration
+operator|::
+name|ms_options
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|supportsNavigatorEvents
 name|bool

@@ -459,12 +459,15 @@ begin_decl_stmt
 name|class
 name|QSimplex
 block|{
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QSimplex
+argument_list|)
 name|public
 label|:
 name|QSimplex
 argument_list|()
 expr_stmt|;
-name|virtual
 operator|~
 name|QSimplex
 argument_list|()
@@ -504,6 +507,7 @@ function_decl|;
 name|private
 label|:
 comment|// Matrix handling
+specifier|inline
 name|qreal
 name|valueAt
 parameter_list|(
@@ -514,6 +518,7 @@ name|int
 name|column
 parameter_list|)
 function_decl|;
+specifier|inline
 name|void
 name|setValueAt
 parameter_list|(
@@ -599,7 +604,7 @@ name|solveMaxHelper
 parameter_list|()
 function_decl|;
 enum|enum
-name|solverFactor
+name|SolverFactor
 block|{
 name|Minimum
 init|=
@@ -614,7 +619,7 @@ enum|;
 name|qreal
 name|solver
 parameter_list|(
-name|solverFactor
+name|SolverFactor
 name|factor
 parameter_list|)
 function_decl|;

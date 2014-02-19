@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2014 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QSSLSOCKET_DEBUG
@@ -1716,6 +1716,39 @@ operator|.
 name|sessionTicketLifeTimeHint
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|configuration
+operator|.
+name|nextAllowedProtocols
+operator|=
+name|configuration
+operator|.
+name|allowedNextProtocols
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|configuration
+operator|.
+name|nextNegotiatedProtocol
+operator|=
+name|configuration
+operator|.
+name|nextNegotiatedProtocol
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|configuration
+operator|.
+name|nextProtocolNegotiationStatus
+operator|=
+name|configuration
+operator|.
+name|nextProtocolNegotiationStatus
+argument_list|()
+expr_stmt|;
 comment|// if the CA certificates were set explicitly (either via
 comment|// QSslConfiguration::setCaCertificates() or QSslSocket::setCaCertificates(),
 comment|// we cannot load the certificates on demand
@@ -2283,33 +2316,10 @@ name|SkipEmptyParts
 argument_list|)
 control|)
 block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-literal|3
-condition|;
-operator|++
-name|i
-control|)
-block|{
-comment|// ### Crude
 name|QSslCipher
 name|cipher
 argument_list|(
 name|cipherName
-argument_list|,
-name|QSsl
-operator|::
-name|SslProtocol
-argument_list|(
-name|i
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -2328,7 +2338,6 @@ name|ciphers
 operator|<<
 name|cipher
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -4443,6 +4452,11 @@ operator|::
 name|defaultCiphers
 parameter_list|()
 block|{
+name|QSslSocketPrivate
+operator|::
+name|ensureInitialized
+argument_list|()
+expr_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(

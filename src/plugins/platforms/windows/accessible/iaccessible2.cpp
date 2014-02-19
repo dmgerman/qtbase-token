@@ -73,10 +73,12 @@ operator|==
 name|IID_IUnknown
 condition|)
 block|{
-name|accessibleDebug
+name|qCDebug
 argument_list|(
-literal|"AccessibleApplication::QI(): IID_IUnknown"
+name|lcQpaAccessibility
 argument_list|)
+operator|<<
+literal|"AccessibleApplication::QI(): IID_IUnknown"
 expr_stmt|;
 operator|*
 name|iface
@@ -96,10 +98,12 @@ operator|==
 name|IID_IAccessibleApplication
 condition|)
 block|{
-name|accessibleDebug
+name|qCDebug
 argument_list|(
-literal|"AccessibleApplication::QI(): IID_IAccessibleApplication"
+name|lcQpaAccessibility
 argument_list|)
+operator|<<
+literal|"AccessibleApplication::QI(): IID_IAccessibleApplication"
 expr_stmt|;
 operator|*
 name|iface
@@ -1788,12 +1792,18 @@ condition|)
 return|return
 name|E_FAIL
 return|;
-name|accessibleDebug
+name|qCDebug
 argument_list|(
-literal|"uniqueID: %08x"
-argument_list|,
-name|id
+name|lcQpaAccessibility
 argument_list|)
+operator|<<
+literal|"uniqueID: "
+operator|<<
+name|showbase
+operator|<<
+name|hex
+operator|<<
+name|id
 expr_stmt|;
 operator|*
 name|outUniqueID
@@ -3748,13 +3758,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|accessibleDebug
+name|qCDebug
 argument_list|(
-literal|"found cell? %p"
-argument_list|,
+name|lcQpaAccessibility
+argument_list|)
+operator|<<
+literal|"found cell? "
+operator|<<
 operator|*
 name|cell
-argument_list|)
 expr_stmt|;
 return|return
 operator|*
@@ -7431,17 +7443,16 @@ name|iface
 operator|=
 literal|0
 expr_stmt|;
-name|accessibleDebug
+name|qCDebug
 argument_list|(
-literal|"QWindowsIA2Accessible::QS(): %s"
-argument_list|,
+name|lcQpaAccessibility
+argument_list|)
+operator|<<
+literal|"QWindowsIA2Accessible::QS(): "
+operator|<<
 name|IIDToString
 argument_list|(
 name|riid
-argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

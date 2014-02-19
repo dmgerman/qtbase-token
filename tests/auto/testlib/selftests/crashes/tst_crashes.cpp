@@ -65,6 +65,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 comment|//we avoid the error dialogbox to appear on windows
 name|SetErrorMode
 argument_list|(

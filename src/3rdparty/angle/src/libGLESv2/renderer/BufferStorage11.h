@@ -86,6 +86,8 @@ argument_list|,
 argument|unsigned int size
 argument_list|,
 argument|unsigned int offset
+argument_list|,
+argument|unsigned int target
 argument_list|)
 block|;
 name|virtual

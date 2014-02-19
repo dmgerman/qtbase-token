@@ -2526,13 +2526,11 @@ case|:
 return|return
 name|QVariant
 argument_list|(
-name|int
-argument_list|(
-literal|0
-argument_list|)
+name|QPlatformDialogHelper
+operator|::
+name|WinLayout
 argument_list|)
 return|;
-comment|// QDialogButtonBox::WinLayout
 case|case
 name|IconThemeSearchPaths
 case|:
@@ -2837,41 +2835,6 @@ operator|*
 name|m_palettes
 index|[
 name|MenuPalette
-index|]
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseTheming
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-name|__FUNCTION__
-operator|<<
-literal|'\n'
-operator|<<
-literal|"  system="
-operator|<<
-name|paletteToString
-argument_list|(
-operator|*
-name|m_palettes
-index|[
-name|SystemPalette
-index|]
-argument_list|)
-operator|<<
-literal|"  tooltip="
-operator|<<
-name|paletteToString
-argument_list|(
-operator|*
-name|m_palettes
-index|[
-name|ToolTipPalette
 index|]
 argument_list|)
 expr_stmt|;
@@ -3189,27 +3152,6 @@ name|QFont
 argument_list|(
 name|fixedFont
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseTheming
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-name|__FUNCTION__
-operator|<<
-literal|'\n'
-operator|<<
-literal|"  menuFont="
-operator|<<
-name|menuFont
-operator|<<
-literal|"  messageBox="
-operator|<<
-name|MessageBoxFont
 expr_stmt|;
 endif|#
 directive|endif

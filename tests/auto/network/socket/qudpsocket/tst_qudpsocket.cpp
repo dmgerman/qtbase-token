@@ -464,6 +464,9 @@ literal|false
 operator|<<
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SOCKS5
 if|if
 condition|(
 operator|!
@@ -485,6 +488,8 @@ operator|::
 name|Socks5Proxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
@@ -589,6 +594,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_SOCKS5
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -625,6 +633,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_SOCKS5
 block|}
 block|}
 end_function
@@ -636,6 +654,9 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 operator|::
 name|setApplicationProxy
@@ -645,6 +666,9 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 block|}
 end_function
 begin_comment
@@ -1113,6 +1137,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -1133,6 +1160,17 @@ argument_list|(
 literal|"With socks5 Broadcast is not supported."
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 ifdef|#
 directive|ifdef
@@ -4988,6 +5026,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|int
@@ -5008,6 +5049,17 @@ argument_list|(
 literal|"With socks5 explicit port binding is not supported."
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 name|QUdpSocket
 name|socket

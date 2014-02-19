@@ -50,6 +50,14 @@ argument_list|()
 expr_stmt|;
 name|QSslCipher
 argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
+expr_stmt|;
+name|QSslCipher
+argument_list|(
 argument|const QString&name
 argument_list|,
 argument|QSsl::SslProtocol protocol

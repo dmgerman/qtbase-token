@@ -139,6 +139,9 @@ name|size
 parameter_list|,
 name|GLenum
 name|usage
+parameter_list|,
+name|GLenum
+name|target
 parameter_list|)
 block|{
 name|mBufferStorage
@@ -160,6 +163,8 @@ argument_list|,
 name|size
 argument_list|,
 literal|0
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 name|mUsage
@@ -214,6 +219,9 @@ name|size
 parameter_list|,
 name|GLintptr
 name|offset
+parameter_list|,
+name|GLenum
+name|target
 parameter_list|)
 block|{
 name|mBufferStorage
@@ -225,6 +233,8 @@ argument_list|,
 name|size
 argument_list|,
 name|offset
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 name|mIndexRangeCache

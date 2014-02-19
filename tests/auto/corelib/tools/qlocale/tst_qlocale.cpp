@@ -429,9 +429,18 @@ name|void
 name|cleanupTestCase
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|void
 name|windowsDefaultLocale
 parameter_list|()
@@ -9824,7 +9833,7 @@ argument_list|)
 operator|<<
 literal|"ddd/MMM/yy AP"
 operator|<<
-literal|"man./des./74 PM"
+literal|"man./des./74 P.M."
 expr_stmt|;
 name|QTest
 operator|::
@@ -9858,7 +9867,7 @@ argument_list|)
 operator|<<
 literal|"dddd/MMMM/y apa"
 operator|<<
-literal|"mandag/desember/y pmpm"
+literal|"mandag/desember/y p.m.p.m."
 expr_stmt|;
 name|QTest
 operator|::
@@ -13061,11 +13070,20 @@ end_endif
 begin_comment
 comment|// Q_OS_MAC
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -13243,6 +13261,57 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|LOCALE_SSHORTTIME
+end_ifndef
+begin_define
+DECL|macro|LOCALE_SSHORTTIME
+define|#
+directive|define
+name|LOCALE_SSHORTTIME
+value|0x00000079
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_function
+DECL|function|shortTimeType
+specifier|static
+specifier|inline
+name|LCTYPE
+name|shortTimeType
+parameter_list|()
+block|{
+return|return
+operator|(
+name|QSysInfo
+operator|::
+name|windowsVersion
+argument_list|()
+operator|&
+name|QSysInfo
+operator|::
+name|WV_NT_based
+operator|)
+operator|&&
+name|QSysInfo
+operator|::
+name|windowsVersion
+argument_list|()
+operator|>=
+name|QSysInfo
+operator|::
+name|WV_WINDOWS7
+condition|?
+name|LOCALE_SSHORTTIME
+else|:
+name|LOCALE_STIMEFORMAT
+return|;
+block|}
+end_function
 begin_class
 DECL|class|RestoreLocaleHelper
 class|class
@@ -13285,7 +13354,8 @@ name|m_time
 operator|=
 name|getWinLocaleInfo
 argument_list|(
-name|LOCALE_STIMEFORMAT
+name|shortTimeType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -13325,7 +13395,8 @@ argument_list|)
 expr_stmt|;
 name|setWinLocaleInfo
 argument_list|(
-name|LOCALE_STIMEFORMAT
+name|shortTimeType
+argument_list|()
 argument_list|,
 name|m_time
 argument_list|)
@@ -13357,11 +13428,20 @@ end_endif
 begin_comment
 comment|// Q_OS_WIN
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
 begin_function
 DECL|function|windowsDefaultLocale
 name|void
@@ -13372,6 +13452,26 @@ parameter_list|()
 block|{
 name|RestoreLocaleHelper
 name|systemLocale
+decl_stmt|;
+specifier|const
+name|bool
+name|win7OrLater
+init|=
+operator|(
+name|QSysInfo
+operator|::
+name|windowsVersion
+argument_list|()
+operator|&
+name|QSysInfo
+operator|::
+name|WV_NT_based
+operator|)
+operator|&&
+name|QSysInfo
+operator|::
+name|windowsVersion
+argument_list|()
 decl_stmt|;
 comment|// set weird system defaults and make sure we're using them
 name|setWinLocaleInfo
@@ -13394,34 +13494,53 @@ literal|"?"
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QString
+name|shortDateFormat
+init|=
+name|QStringLiteral
+argument_list|(
+literal|"d*M*yyyy"
+argument_list|)
+decl_stmt|;
 name|setWinLocaleInfo
 argument_list|(
 name|LOCALE_SSHORTDATE
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"d*M*yyyy"
-argument_list|)
+name|shortDateFormat
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QString
+name|longDateFormat
+init|=
+name|QStringLiteral
+argument_list|(
+literal|"d@M@yyyy"
+argument_list|)
+decl_stmt|;
 name|setWinLocaleInfo
 argument_list|(
 name|LOCALE_SLONGDATE
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"d@M@yyyy"
-argument_list|)
+name|longDateFormat
 argument_list|)
 expr_stmt|;
-name|setWinLocaleInfo
-argument_list|(
-name|LOCALE_STIMEFORMAT
-argument_list|,
-name|QLatin1String
+specifier|const
+name|QString
+name|shortTimeFormat
+init|=
+name|QStringLiteral
 argument_list|(
 literal|"h^m^s"
 argument_list|)
+decl_stmt|;
+name|setWinLocaleInfo
+argument_list|(
+name|shortTimeType
+argument_list|()
+argument_list|,
+name|shortTimeFormat
 argument_list|)
 expr_stmt|;
 name|QLocale
@@ -13470,10 +13589,7 @@ operator|::
 name|ShortFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"d*M*yyyy"
-argument_list|)
+name|shortDateFormat
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13487,10 +13603,7 @@ operator|::
 name|LongFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"d@M@yyyy"
-argument_list|)
+name|longDateFormat
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13504,27 +13617,7 @@ operator|::
 name|ShortFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"h^m^s"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|locale
-operator|.
-name|timeFormat
-argument_list|(
-name|QLocale
-operator|::
-name|LongFormat
-argument_list|)
-argument_list|,
-name|QString
-argument_list|(
-literal|"h^m^s"
-argument_list|)
+name|shortTimeFormat
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13538,12 +13631,38 @@ operator|::
 name|ShortFormat
 argument_list|)
 argument_list|,
-name|QString
+name|shortDateFormat
+operator|+
+name|QLatin1Char
 argument_list|(
-literal|"d*M*yyyy h^m^s"
+literal|' '
 argument_list|)
+operator|+
+name|shortTimeFormat
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QString
+name|expectedLongDateTimeFormat
+init|=
+name|longDateFormat
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+operator|+
+operator|(
+name|win7OrLater
+condition|?
+name|QStringLiteral
+argument_list|(
+literal|"h:mm:ss AP"
+argument_list|)
+else|:
+name|shortTimeFormat
+operator|)
+decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|locale
@@ -13555,10 +13674,7 @@ operator|::
 name|LongFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"d@M@yyyy h^m^s"
-argument_list|)
+name|expectedLongDateTimeFormat
 argument_list|)
 expr_stmt|;
 comment|// make sure we are using the system to parse them
@@ -13668,6 +13784,28 @@ literal|"1@12@1974"
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QString
+name|expectedFormattedShortTimeSeconds
+init|=
+name|QStringLiteral
+argument_list|(
+literal|"1^2^3"
+argument_list|)
+decl_stmt|;
+specifier|const
+name|QString
+name|expectedFormattedShortTime
+init|=
+name|win7OrLater
+condition|?
+name|QStringLiteral
+argument_list|(
+literal|"1^2"
+argument_list|)
+else|:
+name|expectedFormattedShortTimeSeconds
+decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|locale
@@ -13688,10 +13826,7 @@ operator|::
 name|ShortFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"1^2^3"
-argument_list|)
+name|expectedFormattedShortTime
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13733,6 +13868,19 @@ name|ShortFormat
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QString
+name|expectedFormattedLongTime
+init|=
+name|win7OrLater
+condition|?
+name|QStringLiteral
+argument_list|(
+literal|"1:02:03 AM"
+argument_list|)
+else|:
+name|expectedFormattedShortTimeSeconds
+decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|locale
@@ -13753,10 +13901,7 @@ operator|::
 name|LongFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"1^2^3"
-argument_list|)
+name|expectedFormattedLongTime
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13791,10 +13936,12 @@ operator|::
 name|ShortFormat
 argument_list|)
 argument_list|,
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"1*12*1974 1^2^3"
+literal|"1*12*1974 "
 argument_list|)
+operator|+
+name|expectedFormattedShortTime
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13892,10 +14039,12 @@ operator|::
 name|LongFormat
 argument_list|)
 argument_list|,
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"1@12@1974 1^2^3"
+literal|"1@12@1974 "
 argument_list|)
+operator|+
+name|expectedFormattedLongTime
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13918,10 +14067,7 @@ operator|::
 name|LongFormat
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"1^2^3"
-argument_list|)
+name|expectedFormattedLongTime
 argument_list|)
 expr_stmt|;
 block|}
@@ -16446,9 +16592,11 @@ operator|.
 name|amText
 argument_list|()
 argument_list|,
-name|QLatin1String
+name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"AM"
+literal|"à®®à¯à®±à¯à®ªà®à®²à¯"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16459,9 +16607,11 @@ operator|.
 name|pmText
 argument_list|()
 argument_list|,
-name|QLatin1String
+name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"PM"
+literal|"à®ªà®¿à®±à¯à®ªà®à®²à¯"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16714,7 +16864,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"HH:mm"
+literal|"HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16731,7 +16881,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"HH:mm"
+literal|"HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16748,7 +16898,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"'kl'. HH:mm:ss t"
+literal|"HH.mm.ss t"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16936,7 +17086,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"dd.MM.yy HH:mm"
+literal|"dd.MM.yy HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16953,7 +17103,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"dd.MM.yy HH:mm"
+literal|"dd.MM.yy HH.mm"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16970,7 +17120,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"dddd d. MMMM yyyy 'kl'. HH:mm:ss t"
+literal|"dddd d. MMMM yyyy HH.mm.ss t"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17854,7 +18004,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"($1,234)"
+literal|"$-1,234"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17891,7 +18041,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"($1,234.56)"
+literal|"$-1,234.56"
 argument_list|)
 argument_list|)
 expr_stmt|;

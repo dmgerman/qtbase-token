@@ -4996,9 +4996,15 @@ operator|.
 name|flags
 argument_list|()
 operator|&
+operator|(
 name|QMetaType
 operator|::
 name|MovableType
+operator||
+name|QMetaType
+operator|::
+name|IsEnumeration
+operator|)
 operator|)
 condition|)
 block|{

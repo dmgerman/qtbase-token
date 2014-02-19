@@ -43,8 +43,31 @@ include|#
 directive|include
 file|<string.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<exception>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_EXCEPTIONS
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QRegularExpression
+name|class
+name|QRegularExpression
+decl_stmt|;
+end_decl_stmt
+begin_define
 DECL|macro|QVERIFY
 define|#
 directive|define
@@ -54,6 +77,8 @@ name|statement
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qVerify((statement), #statement, "", __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QFAIL
 define|#
 directive|define
@@ -63,6 +88,8 @@ name|message
 parameter_list|)
 define|\
 value|do {\     QTest::qFail(message, __FILE__, __LINE__);\     return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QVERIFY2
 define|#
 directive|define
@@ -74,6 +101,8 @@ name|description
 parameter_list|)
 define|\
 value|do {\     if (statement) {\         if (!QTest::qVerify(true, #statement, (description), __FILE__, __LINE__))\             return;\     } else {\         if (!QTest::qVerify(false, #statement, (description), __FILE__, __LINE__))\             return;\     }\ } while (0)
+end_define
+begin_define
 DECL|macro|QCOMPARE
 define|#
 directive|define
@@ -85,7 +114,103 @@ name|expected
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qCompare(actual, expected, #actual, #expected, __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+end_ifndef
+begin_define
+DECL|macro|QVERIFY_EXCEPTION_THROWN
+define|#
+directive|define
+name|QVERIFY_EXCEPTION_THROWN
+parameter_list|(
+name|expression
+parameter_list|,
+name|exceptiontype
+parameter_list|)
+define|\
+value|do {\         QT_TRY {\             QT_TRY {\                 expression;\                 QTest::qFail("Expected exception of type " #exceptiontype " to be thrown" \                              " but no exception caught", __FILE__, __LINE__);\                 return;\             } QT_CATCH (const exceptiontype&) {\             }\         } QT_CATCH (const std::exception&e) {\             QByteArray msg = QByteArray() + "Expected exception of type " #exceptiontype \                              " to be thrown but std::exception caught with message: " + e.what(); \             QTest::qFail(msg.constData(), __FILE__, __LINE__);\             return;\         } QT_CATCH (...) {\             QTest::qFail("Expected exception of type " #exceptiontype " to be thrown" \                          " but unknown exception caught", __FILE__, __LINE__);\             return;\         }\     } while (0)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|// QT_NO_EXCEPTIONS
+end_comment
+begin_comment
+comment|/*  * The expression passed to the macro should throw an exception and we can't  * catch it because Qt has been compiled without exception support. We can't  * skip the expression because it may have side effects and must be executed.  * So, users must use Qt with exception support enabled if they use exceptions  * in their code.  */
+end_comment
+begin_define
+DECL|macro|QVERIFY_EXCEPTION_THROWN
+define|#
+directive|define
+name|QVERIFY_EXCEPTION_THROWN
+parameter_list|(
+name|expression
+parameter_list|,
+name|exceptiontype
+parameter_list|)
+define|\
+value|Q_STATIC_ASSERT_X(false, "Support of exceptions is disabled")
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_EXCEPTIONS
+end_comment
+begin_define
+DECL|macro|QTRY_LOOP_IMPL
+define|#
+directive|define
+name|QTRY_LOOP_IMPL
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__timeoutValue
+parameter_list|,
+name|__step
+parameter_list|)
+define|\
+value|if (!(__expr)) { \         QTest::qWait(0); \     } \     int __i = 0; \     for (; __i< __timeoutValue&& !(__expr); __i += __step) { \         QTest::qWait(__step); \     }
+end_define
+begin_define
+DECL|macro|QTRY_TIMEOUT_DEBUG_IMPL
+define|#
+directive|define
+name|QTRY_TIMEOUT_DEBUG_IMPL
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__timeoutValue
+parameter_list|,
+name|__step
+parameter_list|)
+define|\
+value|if (!(__expr)) { \         QTRY_LOOP_IMPL(__expr, (2 * __timeoutValue), __step);\         if (__expr) { \             QString msg = QString::fromUtf8("QTestLib: This test case check (\"%1\") failed because the requested timeout (%2 ms) was too short, %3 ms would have been sufficient this time."); \             msg = msg.arg(QString::fromUtf8(#__expr)).arg(__timeoutValue).arg(__timeoutValue + __i); \             QFAIL(qPrintable(msg)); \         } \     }
+end_define
+begin_define
+DECL|macro|QTRY_IMPL
+define|#
+directive|define
+name|QTRY_IMPL
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__timeout
+parameter_list|)
+define|\
+value|const int __step = 50; \     const int __timeoutValue = __timeout; \     QTRY_LOOP_IMPL(__expr, __timeoutValue, __step); \     QTRY_TIMEOUT_DEBUG_IMPL(__expr, __timeoutValue, __step)
+end_define
+begin_comment
+unit|\
 comment|// Will try to wait for the expression to become true while allowing event processing
+end_comment
+begin_define
 DECL|macro|QTRY_VERIFY_WITH_TIMEOUT
 define|#
 directive|define
@@ -96,7 +221,9 @@ parameter_list|,
 name|__timeout
 parameter_list|)
 define|\
-value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if (!(__expr)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& !(__expr); __i+=__step) { \         QTest::qWait(__step); \     } \     QVERIFY(__expr); \ } while (0)
+value|do { \     QTRY_IMPL(__expr, __timeout);\     QVERIFY(__expr); \ } while (0)
+end_define
+begin_define
 DECL|macro|QTRY_VERIFY
 define|#
 directive|define
@@ -105,7 +232,11 @@ parameter_list|(
 name|__expr
 parameter_list|)
 value|QTRY_VERIFY_WITH_TIMEOUT(__expr, 5000)
+end_define
+begin_comment
 comment|// Will try to wait for the comparison to become successful while allowing event processing
+end_comment
+begin_define
 DECL|macro|QTRY_COMPARE_WITH_TIMEOUT
 define|#
 directive|define
@@ -118,7 +249,9 @@ parameter_list|,
 name|__timeout
 parameter_list|)
 define|\
-value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
+value|do { \     QTRY_IMPL(((__expr) == (__expected)), __timeout);\     QCOMPARE(__expr, __expected); \ } while (0)
+end_define
+begin_define
 DECL|macro|QTRY_COMPARE
 define|#
 directive|define
@@ -129,6 +262,8 @@ parameter_list|,
 name|__expected
 parameter_list|)
 value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
+end_define
+begin_define
 DECL|macro|QSKIP_INTERNAL
 define|#
 directive|define
@@ -138,9 +273,13 @@ name|statement
 parameter_list|)
 define|\
 value|do {\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
+end_define
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_VARIADIC_MACROS
+end_ifdef
+begin_define
 DECL|macro|QSKIP
 define|#
 directive|define
@@ -151,8 +290,13 @@ parameter_list|,
 modifier|...
 parameter_list|)
 value|QSKIP_INTERNAL(statement)
+end_define
+begin_else
 else|#
 directive|else
+end_else
+begin_define
+DECL|macro|QSKIP
 define|#
 directive|define
 name|QSKIP
@@ -160,8 +304,12 @@ parameter_list|(
 name|statement
 parameter_list|)
 value|QSKIP_INTERNAL(statement)
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_define
 DECL|macro|QEXPECT_FAIL
 define|#
 directive|define
@@ -175,6 +323,8 @@ name|mode
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qExpectFail(dataIndex, comment, QTest::mode, __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QFETCH
 define|#
 directive|define
@@ -186,6 +336,8 @@ name|name
 parameter_list|)
 define|\
 value|type name = *static_cast<type *>(QTest::qData(#name, ::qMetaTypeId<type>()))
+end_define
+begin_define
 DECL|macro|QFETCH_GLOBAL
 define|#
 directive|define
@@ -197,6 +349,8 @@ name|name
 parameter_list|)
 define|\
 value|type name = *static_cast<type *>(QTest::qGlobalData(#name, ::qMetaTypeId<type>()))
+end_define
+begin_define
 DECL|macro|QTEST
 define|#
 directive|define
@@ -208,6 +362,8 @@ name|testElement
 parameter_list|)
 define|\
 value|do {\     if (!QTest::qTest(actual, testElement, #actual, #testElement, __FILE__, __LINE__))\         return;\ } while (0)
+end_define
+begin_define
 DECL|macro|QWARN
 define|#
 directive|define
@@ -217,9 +373,13 @@ name|msg
 parameter_list|)
 define|\
 value|QTest::qWarn(msg, __FILE__, __LINE__)
+end_define
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_TESTCASE_BUILDDIR
+end_ifdef
+begin_define
 DECL|macro|QFINDTESTDATA
 define|#
 directive|define
@@ -229,8 +389,13 @@ name|basepath
 parameter_list|)
 define|\
 value|QTest::qFindTestData(basepath, __FILE__, __LINE__, QT_TESTCASE_BUILDDIR)
+end_define
+begin_else
 else|#
 directive|else
+end_else
+begin_define
+DECL|macro|QFINDTESTDATA
 define|#
 directive|define
 name|QFINDTESTDATA
@@ -239,8 +404,12 @@ name|basepath
 parameter_list|)
 define|\
 value|QTest::qFindTestData(basepath, __FILE__, __LINE__)
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_decl_stmt
 DECL|variable|QObject
 name|class
 name|QObject
@@ -293,6 +462,20 @@ specifier|const
 name|char
 modifier|*
 name|ba
+parameter_list|,
+name|int
+name|length
+parameter_list|)
+function_decl|;
+name|Q_TESTLIB_EXPORT
+name|char
+modifier|*
+name|toPrettyUnicode
+parameter_list|(
+specifier|const
+name|ushort
+modifier|*
+name|unicode
 parameter_list|,
 name|int
 name|length
@@ -474,6 +657,19 @@ specifier|const
 name|char
 modifier|*
 name|message
+parameter_list|)
+function_decl|;
+name|Q_TESTLIB_EXPORT
+name|void
+name|ignoreMessage
+parameter_list|(
+name|QtMsgType
+name|type
+parameter_list|,
+specifier|const
+name|QRegularExpression
+modifier|&
+name|messagePattern
 parameter_list|)
 function_decl|;
 name|Q_TESTLIB_EXPORT

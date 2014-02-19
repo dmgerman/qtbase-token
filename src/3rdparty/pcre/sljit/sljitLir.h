@@ -37,7 +37,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* The following header file defines useful macros for fine tuning sljit based code generators. They are listed in the begining of sljitConfigInternal.h */
+comment|/* The following header file defines useful macros for fine tuning sljit based code generators. They are listed in the beginning of sljitConfigInternal.h */
 end_comment
 begin_include
 include|#
@@ -316,6 +316,13 @@ DECL|macro|SLJIT_FLOAT_REG6
 define|#
 directive|define
 name|SLJIT_FLOAT_REG6
+value|6
+end_define
+begin_define
+DECL|macro|SLJIT_NO_FLOAT_REGISTERS
+define|#
+directive|define
+name|SLJIT_NO_FLOAT_REGISTERS
 value|6
 end_define
 begin_comment
@@ -735,6 +742,24 @@ if|#
 directive|if
 operator|(
 name|defined
+name|SLJIT_CONFIG_TILEGX
+operator|&&
+name|SLJIT_CONFIG_TILEGX
+operator|)
+DECL|member|cache_arg
+name|sljit_si
+name|cache_arg
+decl_stmt|;
+DECL|member|cache_argw
+name|sljit_sw
+name|cache_argw
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|defined
 name|SLJIT_VERBOSE
 operator|&&
 name|SLJIT_VERBOSE
@@ -824,7 +849,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Returns the current error code. If an error is occured, future sljit    calls which uses the same compiler argument returns early with the same    error code. Thus there is no need for checking the error after every    call, it is enough to do it before the code is compiled. Removing    these checks increases the performance of the compiling process. */
+comment|/* Returns the current error code. If an error is occurred, future sljit    calls which uses the same compiler argument returns early with the same    error code. Thus there is no need for checking the error after every    call, it is enough to do it before the code is compiled. Removing    these checks increases the performance of the compiling process. */
 end_comment
 begin_function
 DECL|function|sljit_get_compiler_error
@@ -1085,7 +1110,7 @@ begin_comment
 comment|/*    Source and destination values for arithmetical instructions     imm              - a simple immediate value (cannot be used as a destination)     reg              - any of the registers (immediate argument must be 0)     [imm]            - absolute immediate memory address     [reg+imm]        - indirect memory address     [reg+(reg<<imm)] - indirect indexed memory address (shift must be between 0 and 3)                        useful for (byte, half, int, sljit_sw) array access                        (fully supported by both x86 and ARM architectures, and cheap operation on others) */
 end_comment
 begin_comment
-comment|/*    IMPORATNT NOTE: memory access MUST be naturally aligned except                    SLJIT_UNALIGNED macro is defined and its value is 1.       length | alignment    ---------+-----------      byte   | 1 byte (any physical_address is accepted)      half   | 2 byte (physical_address& 0x1 == 0)      int    | 4 byte (physical_address& 0x3 == 0)      word   | 4 byte if SLJIT_32BIT_ARCHITECTURE is defined and its value is 1             | 8 byte if SLJIT_64BIT_ARCHITECTURE is defined and its value is 1     pointer | size of sljit_p type (4 byte on 32 bit machines, 4 or 8 byte             | on 64 bit machines)     Note:   Different architectures have different addressing limitations.            A single instruction is enough for the following addressing            modes. Other adrressing modes are emulated by instruction            sequences. This information could help to improve those code            generators which focuses only a few architectures.     x86:    [reg+imm], -2^32+1<= imm<= 2^32-1 (full adress space on x86-32)            [reg+(reg<<imm)] is supported            [imm], -2^32+1<= imm<= 2^32-1 is supported            Write-back is not supported    arm:    [reg+imm], -4095<= imm<= 4095 or -255<= imm<= 255 for signed                 bytes, any halfs or floating point values)            [reg+(reg<<imm)] is supported            Write-back is supported    arm-t2: [reg+imm], -255<= imm<= 4095            [reg+(reg<<imm)] is supported            Write back is supported only for [reg+imm], where -255<= imm<= 255    ppc:    [reg+imm], -65536<= imm<= 65535. 64 bit loads/stores and 32 bit                 signed load on 64 bit requires immediates divisible by 4.                 [reg+imm] is not supported for signed 8 bit values.            [reg+reg] is supported            Write-back is supported except for one instruction: 32 bit signed                 load with [reg+imm] addressing mode on 64 bit.    mips:   [reg+imm], -65536<= imm<= 65535    sparc:  [reg+imm], -4096<= imm<= 4095            [reg+reg] is supported */
+comment|/*    IMPORATNT NOTE: memory access MUST be naturally aligned except                    SLJIT_UNALIGNED macro is defined and its value is 1.       length | alignment    ---------+-----------      byte   | 1 byte (any physical_address is accepted)      half   | 2 byte (physical_address& 0x1 == 0)      int    | 4 byte (physical_address& 0x3 == 0)      word   | 4 byte if SLJIT_32BIT_ARCHITECTURE is defined and its value is 1             | 8 byte if SLJIT_64BIT_ARCHITECTURE is defined and its value is 1     pointer | size of sljit_p type (4 byte on 32 bit machines, 4 or 8 byte             | on 64 bit machines)     Note:   Different architectures have different addressing limitations.            A single instruction is enough for the following addressing            modes. Other adrressing modes are emulated by instruction            sequences. This information could help to improve those code            generators which focuses only a few architectures.     x86:    [reg+imm], -2^32+1<= imm<= 2^32-1 (full address space on x86-32)            [reg+(reg<<imm)] is supported            [imm], -2^32+1<= imm<= 2^32-1 is supported            Write-back is not supported    arm:    [reg+imm], -4095<= imm<= 4095 or -255<= imm<= 255 for signed                 bytes, any halfs or floating point values)            [reg+(reg<<imm)] is supported            Write-back is supported    arm-t2: [reg+imm], -255<= imm<= 4095            [reg+(reg<<imm)] is supported            Write back is supported only for [reg+imm], where -255<= imm<= 255    ppc:    [reg+imm], -65536<= imm<= 65535. 64 bit loads/stores and 32 bit                 signed load on 64 bit requires immediates divisible by 4.                 [reg+imm] is not supported for signed 8 bit values.            [reg+reg] is supported            Write-back is supported except for one instruction: 32 bit signed                 load with [reg+imm] addressing mode on 64 bit.    mips:   [reg+imm], -65536<= imm<= 65535    sparc:  [reg+imm], -4096<= imm<= 4095            [reg+reg] is supported */
 end_comment
 begin_comment
 comment|/* Register output: simply the name of the register.    For destination, you can use SLJIT_UNUSED as well. */
@@ -1853,12 +1878,25 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* The following function is a helper function for sljit_emit_op_custom.    It returns with the real machine register index of any SLJIT_SCRATCH    SLJIT_SAVED or SLJIT_LOCALS register.    Note: it returns with -1 for virtual registers (all EREGs on x86-32).    Note: register returned by SLJIT_LOCALS_REG is not necessary the real          stack pointer register of the target architecture. */
+comment|/* The following function is a helper function for sljit_emit_op_custom.    It returns with the real machine register index of any SLJIT_SCRATCH    SLJIT_SAVED or SLJIT_LOCALS register.    Note: it returns with -1 for virtual registers (all EREGs on x86-32). */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE
 name|sljit_si
 name|sljit_get_register_index
+parameter_list|(
+name|sljit_si
+name|reg
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/* The following function is a helper function for sljit_emit_op_custom.    It returns with the real machine register index of any SLJIT_FLOAT register.    Note: the index is divided by 2 on ARM 32 bit architectures. */
+end_comment
+begin_function_decl
+name|SLJIT_API_FUNC_ATTRIBUTE
+name|sljit_si
+name|sljit_get_float_register_index
 parameter_list|(
 name|sljit_si
 name|reg
@@ -2680,7 +2718,7 @@ DECL|macro|SLJIT_MINOR_VERSION
 define|#
 directive|define
 name|SLJIT_MINOR_VERSION
-value|90
+value|91
 end_define
 begin_comment
 comment|/* Get the human readable name of the platform. Can be useful on platforms    like ARM, where ARM and Thumb2 functions can be mixed, and    it is useful to know the type of the code generator. */

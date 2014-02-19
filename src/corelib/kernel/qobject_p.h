@@ -737,11 +737,6 @@ argument_list|()
 return|;
 block|}
 name|int
-name|senderSignalIndex
-argument_list|()
-specifier|const
-block|;
-name|int
 name|signalIndex
 argument_list|(
 argument|const char *signalName
@@ -1485,7 +1480,7 @@ argument|sender
 argument_list|,
 argument|reinterpret_cast<void **>(&signal)
 argument_list|,
-argument|receiverPrivate->q_func()
+argument|receiverPrivate->q_ptr
 argument_list|,
 argument|reinterpret_cast<void **>(&slot)
 argument_list|,
@@ -1611,8 +1606,7 @@ operator|)
 argument_list|,
 name|receiverPrivate
 operator|->
-name|q_func
-argument_list|()
+name|q_ptr
 argument_list|,
 name|reinterpret_cast
 operator|<

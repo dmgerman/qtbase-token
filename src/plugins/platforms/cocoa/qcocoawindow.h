@@ -57,17 +57,35 @@ name|m_cocoaPlatformWindow
 block|; }
 operator|-
 operator|(
-name|void
+name|id
 operator|)
-name|clearPlatformWindow
+name|initWithContentRect
+operator|:
+operator|(
+name|NSRect
+operator|)
+name|contentRect
+name|styleMask
+operator|:
+operator|(
+name|NSUInteger
+operator|)
+name|windowStyle
+name|qPlatformWindow
+operator|:
+operator|(
+name|QCocoaWindow
+operator|*
+operator|)
+name|qpw
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 operator|-
 operator|(
-name|BOOL
+name|void
 operator|)
-name|canBecomeKeyWindow
+name|clearPlatformWindow
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -86,17 +104,35 @@ name|m_cocoaPlatformWindow
 block|; }
 operator|-
 operator|(
-name|void
+name|id
 operator|)
-name|clearPlatformWindow
+name|initWithContentRect
+operator|:
+operator|(
+name|NSRect
+operator|)
+name|contentRect
+name|styleMask
+operator|:
+operator|(
+name|NSUInteger
+operator|)
+name|windowStyle
+name|qPlatformWindow
+operator|:
+operator|(
+name|QCocoaWindow
+operator|*
+operator|)
+name|qpw
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 operator|-
 operator|(
-name|BOOL
+name|void
 operator|)
-name|canBecomeKeyWindow
+name|clearPlatformWindow
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -170,6 +206,31 @@ specifier|const
 name|QRect
 operator|&
 name|rect
+argument_list|)
+block|;
+name|void
+name|clipChildWindows
+argument_list|()
+block|;
+name|void
+name|clipWindow
+argument_list|(
+specifier|const
+name|NSRect
+operator|&
+name|clipRect
+argument_list|)
+block|;
+name|void
+name|show
+argument_list|(
+argument|bool becauseOfAncestor = false
+argument_list|)
+block|;
+name|void
+name|hide
+argument_list|(
+argument|bool becauseOfAncestor = false
 argument_list|)
 block|;
 name|void
@@ -319,6 +380,18 @@ operator|*
 name|contentView
 argument_list|)
 block|;
+name|QNSView
+operator|*
+name|qtView
+argument_list|()
+specifier|const
+block|;
+name|NSWindow
+operator|*
+name|nativeWindow
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setEmbeddedInForeignView
 argument_list|(
@@ -450,6 +523,10 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|updateNSToolbar
+argument_list|()
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
@@ -480,8 +557,6 @@ argument_list|)
 block|;
 name|protected
 operator|:
-comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
-comment|// in an existing NSWindow or in one created by Qt.
 name|void
 name|recreateWindow
 argument_list|(
@@ -512,6 +587,10 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|bool
+name|shouldUseNSPanel
+argument_list|()
+block|;
 name|QRect
 name|windowGeometry
 argument_list|()
@@ -527,6 +606,22 @@ name|void
 name|syncWindowState
 argument_list|(
 argument|Qt::WindowState newState
+argument_list|)
+block|;
+name|void
+name|reinsertChildWindow
+argument_list|(
+name|QCocoaWindow
+operator|*
+name|child
+argument_list|)
+block|;
+name|void
+name|removeChildWindow
+argument_list|(
+name|QCocoaWindow
+operator|*
+name|child
 argument_list|)
 block|;
 comment|// private:
@@ -553,6 +648,10 @@ name|NSWindow
 operator|*
 name|m_nsWindow
 block|;
+name|QCocoaWindow
+operator|*
+name|m_forwardWindow
+block|;
 comment|// TODO merge to one variable if possible
 name|bool
 name|m_contentViewIsEmbedded
@@ -562,6 +661,21 @@ name|bool
 name|m_contentViewIsToBeEmbedded
 block|;
 comment|// true if the m_contentView is intended to be embedded in a "foreign" NSView hiearchy
+name|QCocoaWindow
+operator|*
+name|m_parentCocoaWindow
+block|;
+name|bool
+name|m_isNSWindowChild
+block|;
+comment|// this window is a non-top level QWindow with a NSWindow.
+name|QList
+operator|<
+name|QCocoaWindow
+operator|*
+operator|>
+name|m_childWindows
+block|;
 name|QNSWindowDelegate
 operator|*
 name|m_nsWindowDelegate
@@ -632,6 +746,12 @@ block|;
 name|bool
 name|m_resizableTransientParent
 block|;
+name|bool
+name|m_hiddenByClipping
+block|;
+name|bool
+name|m_hiddenByAncestor
+block|;
 specifier|static
 specifier|const
 name|int
@@ -651,6 +771,18 @@ name|m_topContentBorderThickness
 block|;
 name|int
 name|m_bottomContentBorderThickness
+block|;
+comment|// used by showFullScreen in fake mode
+name|QRect
+name|m_normalGeometry
+block|;
+name|Qt
+operator|::
+name|WindowFlags
+name|m_oldWindowFlags
+block|;
+name|NSApplicationPresentationOptions
+name|m_presentationOptions
 block|; }
 decl_stmt|;
 end_decl_stmt

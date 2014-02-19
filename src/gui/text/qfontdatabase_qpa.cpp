@@ -863,13 +863,6 @@ name|fontEngine
 argument_list|(
 name|def
 argument_list|,
-name|QChar
-operator|::
-name|Script
-argument_list|(
-name|script
-argument_list|)
-argument_list|,
 name|size
 operator|->
 name|handle
@@ -880,21 +873,50 @@ condition|(
 name|engine
 condition|)
 block|{
-name|QFontCache
-operator|::
-name|Key
-name|key
+comment|// Also check for OpenType tables when using complex scripts
+if|if
+condition|(
+operator|!
+name|engine
+operator|->
+name|supportsScript
 argument_list|(
-name|def
+name|QChar
+operator|::
+name|Script
+argument_list|(
+name|script
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"  OpenType support missing for script %d"
 argument_list|,
 name|script
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+if|if
+condition|(
+name|engine
+operator|->
+name|ref
+operator|.
+name|load
+argument_list|()
+operator|==
+literal|0
+condition|)
+operator|delete
+name|engine
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 name|QFontCache
 operator|::
-name|instance
-argument_list|()
-operator|->
 name|instance
 argument_list|()
 operator|->
@@ -1146,7 +1168,7 @@ name|engine
 operator|=
 name|pfMultiEngine
 expr_stmt|;
-comment|// Cache Multi font engine as well in case we got the FT single
+comment|// Cache Multi font engine as well in case we got the single
 comment|// font engine when we are actually looking for a Multi one
 name|QFontCache
 operator|::
@@ -1162,9 +1184,6 @@ argument_list|)
 decl_stmt|;
 name|QFontCache
 operator|::
-name|instance
-argument_list|()
-operator|->
 name|instance
 argument_list|()
 operator|->

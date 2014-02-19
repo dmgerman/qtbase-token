@@ -132,12 +132,6 @@ specifier|const
 block|;
 name|private
 operator|:
-name|QWindowsWindow
-operator|*
-name|rasterWindow
-argument_list|()
-specifier|const
-block|;
 name|QScopedPointer
 operator|<
 name|QWindowsNativeImage

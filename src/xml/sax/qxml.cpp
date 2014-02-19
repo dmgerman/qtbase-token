@@ -3120,7 +3120,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|/* 	    We want to access d->ns.value(""), but as an optimization 	    we use the fact that "" compares less than any other 	    string, so it's either first in the map or not there. 	*/
+comment|/*             We want to access d->ns.value(""), but as an optimization             we use the fact that "" compares less than any other             string, so it's either first in the map or not there.         */
 name|NamespaceMap
 operator|::
 name|const_iterator

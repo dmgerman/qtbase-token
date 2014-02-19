@@ -210,6 +210,8 @@ block|,
 name|WindowManagement
 block|,
 name|SyncState
+block|,
+name|RasterGLSurface
 block|}
 enum|;
 name|virtual
@@ -415,6 +417,8 @@ block|,
 name|SetFocusOnTouchRelease
 block|,
 name|ShowIsMaximized
+block|,
+name|MousePressAndHoldInterval
 block|}
 enum|;
 name|virtual

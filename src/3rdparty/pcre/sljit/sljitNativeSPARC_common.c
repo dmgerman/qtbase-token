@@ -44,6 +44,42 @@ modifier|*
 name|to
 parameter_list|)
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__SUNPRO_C
+argument_list|)
+operator|&&
+name|__SUNPRO_C
+operator|<
+literal|0x590
+asm|__asm (
+comment|/* if (from == to) return */
+literal|"cmp %i0, %i1\n"
+literal|"be .leave\n"
+literal|"nop\n"
+comment|/* loop until from>= to */
+literal|".mainloop:\n"
+literal|"flush %i0\n"
+literal|"add %i0, 8, %i0\n"
+literal|"cmp %i0, %i1\n"
+literal|"bcs .mainloop\n"
+literal|"nop\n"
+comment|/* The comparison was done above. */
+literal|"bne .leave\n"
+comment|/* nop is not necessary here, since the 		   sub operation has no side effect. */
+literal|"sub %i0, 4, %i0\n"
+literal|"flush %i0\n"
+literal|".leave:"
+block|)
+function|;
+end_function
+begin_else
+else|#
+directive|else
+end_else
+begin_if
 if|if
 condition|(
 name|SLJIT_UNLIKELY
@@ -54,6 +90,8 @@ name|to
 argument_list|)
 condition|)
 return|return;
+end_if
+begin_do
 do|do
 block|{
 asm|__asm__
@@ -72,6 +110,8 @@ operator|<
 name|to
 condition|)
 do|;
+end_do
+begin_if
 if|if
 condition|(
 name|from
@@ -80,16 +120,20 @@ name|to
 condition|)
 block|{
 comment|/* Flush the last word. */
-name|to
+name|from
 operator|--
 expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|( 			"flush %0\n" 			: : "r"(to) 		);
+asm|( 			"flush %0\n" 			: : "r"(from) 		);
 block|}
-block|}
-end_function
+end_if
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
+unit|}
 comment|/* TMP_REG2 is not used by getput_arg */
 end_comment
 begin_define
@@ -142,8 +186,9 @@ name|TMP_FREG2
 value|((SLJIT_FLOAT_REG6 + 1)<< 1)
 end_define
 begin_decl_stmt
+DECL|macro|TMP_FREG2
+unit|static
 DECL|variable|reg_map
-specifier|static
 name|SLJIT_CONST
 name|sljit_ub
 name|reg_map
@@ -1908,9 +1953,11 @@ name|compiler
 operator|->
 name|executable_size
 operator|=
-name|compiler
-operator|->
-name|size
+operator|(
+name|code_ptr
+operator|-
+name|code
+operator|)
 operator|*
 sizeof|sizeof
 argument_list|(
@@ -6105,6 +6152,28 @@ name|reg_map
 index|[
 name|reg
 index|]
+return|;
+block|}
+end_function
+begin_function
+DECL|function|sljit_get_float_register_index
+name|SLJIT_API_FUNC_ATTRIBUTE
+name|sljit_si
+name|sljit_get_float_register_index
+parameter_list|(
+name|sljit_si
+name|reg
+parameter_list|)
+block|{
+name|check_sljit_get_float_register_index
+argument_list|(
+name|reg
+argument_list|)
+expr_stmt|;
+return|return
+name|reg
+operator|<<
+literal|1
 return|;
 block|}
 end_function

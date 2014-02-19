@@ -338,7 +338,7 @@ name|event
 argument_list|)
 block|;
 name|void
-name|mousePressEvent
+name|mouseReleaseEvent
 argument_list|(
 name|QMouseEvent
 operator|*

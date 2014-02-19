@@ -29,6 +29,7 @@ directive|include
 file|<EGL/egl.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QEGLPlatformContext
 range|:
@@ -182,9 +183,21 @@ name|m_eglConfig
 block|;
 name|QSurfaceFormat
 name|m_format
+block|;
+name|int
+name|m_swapInterval
+block|;
+name|bool
+name|m_swapIntervalEnvChecked
+block|;
+name|int
+name|m_swapIntervalFromEnv
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

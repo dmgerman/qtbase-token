@@ -243,6 +243,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|void
 name|toWinHBITMAP_data
 parameter_list|()
@@ -5097,6 +5103,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QT_BEGIN_NAMESPACE
 name|Q_GUI_EXPORT
 name|HBITMAP
@@ -6509,7 +6521,7 @@ comment|// Q_OS_WINCE
 block|}
 endif|#
 directive|endif
-comment|// Q_OS_WIN
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 DECL|function|onlyNullPixmapsOutsideGuiThread
 name|void
 name|tst_QPixmap

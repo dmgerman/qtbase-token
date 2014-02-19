@@ -99,6 +99,11 @@ include|#
 directive|include
 file|<objbase.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -107,12 +112,16 @@ end_include
 begin_include
 include|#
 directive|include
-file|<initguid.h>
+file|<accctrl.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
-file|<accctrl.h>
+file|<initguid.h>
 end_include
 begin_include
 include|#
@@ -129,6 +138,11 @@ include|#
 directive|include
 file|<stdio.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_define
 DECL|macro|SECURITY_WIN32
 define|#
@@ -140,6 +154,10 @@ include|#
 directive|include
 file|<security.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -264,6 +282,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QString
 name|prefix
 init|=
@@ -373,20 +397,6 @@ name|accessRights
 operator||=
 name|GENERIC_WRITE
 expr_stmt|;
-name|SECURITY_ATTRIBUTES
-name|securityAtts
-init|=
-block|{
-sizeof|sizeof
-argument_list|(
-name|SECURITY_ATTRIBUTES
-argument_list|)
-block|,
-name|NULL
-block|,
-name|FALSE
-block|}
-decl_stmt|;
 comment|// WriteOnly can create files, ReadOnly cannot.
 name|DWORD
 name|creationDisp
@@ -404,6 +414,23 @@ else|:
 name|OPEN_EXISTING
 decl_stmt|;
 comment|// Create the file handle.
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+name|SECURITY_ATTRIBUTES
+name|securityAtts
+init|=
+block|{
+sizeof|sizeof
+argument_list|(
+name|SECURITY_ATTRIBUTES
+argument_list|)
+block|,
+name|NULL
+block|,
+name|FALSE
+block|}
+decl_stmt|;
 name|fileHandle
 operator|=
 name|CreateFile
@@ -435,6 +462,38 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// !Q_OS_WINRT
+name|fileHandle
+operator|=
+name|CreateFile2
+argument_list|(
+operator|(
+specifier|const
+name|wchar_t
+operator|*
+operator|)
+name|fileEntry
+operator|.
+name|nativeFilePath
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|,
+name|accessRights
+argument_list|,
+name|shareMode
+argument_list|,
+name|creationDisp
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WINRT
 comment|// Bail out on error.
 if|if
 condition|(
@@ -1855,6 +1914,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|HANDLE
 name|handle
 init|=
@@ -2447,6 +2512,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QString
 name|ret
 decl_stmt|;
@@ -2598,6 +2669,7 @@ name|ret
 return|;
 else|#
 directive|else
+comment|// !Q_OS_WINCE&& !Q_OS_WINRT
 name|Q_UNUSED
 argument_list|(
 name|fileName
@@ -2614,6 +2686,7 @@ argument_list|()
 return|;
 endif|#
 directive|endif
+comment|// Q_OS_WINCE || Q_OS_WINRT
 block|}
 end_function
 begin_function
@@ -2682,6 +2755,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 if|#
 directive|if
 name|defined
@@ -2749,6 +2828,7 @@ name|ret
 return|;
 else|#
 directive|else
+comment|// !Q_OS_WINCE&& !Q_OS_WINRT
 name|ret
 operator|.
 name|append
@@ -2767,6 +2847,7 @@ name|ret
 return|;
 endif|#
 directive|endif
+comment|// Q_OS_WINCE || Q_OS_WINRT
 block|}
 end_function
 begin_function
@@ -2908,6 +2989,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 if|#
 directive|if
@@ -3195,8 +3282,12 @@ return|;
 endif|#
 directive|endif
 comment|// QT_NO_LIBRARY
-else|#
-directive|else
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 name|QString
 name|linkName
 init|=
@@ -3324,9 +3415,23 @@ expr_stmt|;
 return|return
 name|ret
 return|;
+else|#
+directive|else
+comment|// Q_OS_WINCE
+name|Q_UNUSED
+argument_list|(
+name|newName
+argument_list|)
+expr_stmt|;
+name|Q_UNIMPLEMENTED
+argument_list|()
+expr_stmt|;
+return|return
+literal|false
+return|;
 endif|#
 directive|endif
-comment|// Q_OS_WINCE
+comment|// Q_OS_WINRT
 block|}
 end_function
 begin_comment
@@ -4566,6 +4671,9 @@ name|MemoryMapFlags
 name|flags
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINPHONE
 name|Q_Q
 argument_list|(
 name|QFSFileEngine
@@ -4777,6 +4885,9 @@ name|PAGE_READWRITE
 else|:
 name|PAGE_READONLY
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|mapHandle
 operator|=
 operator|::
@@ -4795,6 +4906,26 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|mapHandle
+operator|=
+operator|::
+name|CreateFileMappingFromApp
+argument_list|(
+name|handle
+argument_list|,
+literal|0
+argument_list|,
+name|protection
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|mapHandle
@@ -4880,6 +5011,9 @@ decl_stmt|;
 name|SYSTEM_INFO
 name|sysinfo
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 operator|::
 name|GetSystemInfo
 argument_list|(
@@ -4887,6 +5021,17 @@ operator|&
 name|sysinfo
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+operator|::
+name|GetNativeSystemInfo
+argument_list|(
+operator|&
+name|sysinfo
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|DWORD
 name|mask
 init|=
@@ -4913,6 +5058,9 @@ operator|~
 name|mask
 expr_stmt|;
 comment|// attempt to create the map
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|LPVOID
 name|mapAddress
 init|=
@@ -4932,6 +5080,25 @@ operator|+
 name|extra
 argument_list|)
 decl_stmt|;
+else|#
+directive|else
+name|LPVOID
+name|mapAddress
+init|=
+operator|::
+name|MapViewOfFileFromApp
+argument_list|(
+name|mapHandle
+argument_list|,
+name|access
+argument_list|,
+name|offset
+argument_list|,
+name|size
+argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|mapAddress
@@ -5013,6 +5180,30 @@ name|mapHandle
 operator|=
 name|NULL
 expr_stmt|;
+else|#
+directive|else
+comment|// !Q_OS_WINPHONE
+name|Q_UNUSED
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|flags
+argument_list|)
+expr_stmt|;
+name|Q_UNIMPLEMENTED
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WINPHONE
 return|return
 literal|0
 return|;
@@ -5030,6 +5221,9 @@ modifier|*
 name|ptr
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINPHONE
 name|Q_Q
 argument_list|(
 name|QFSFileEngine
@@ -5129,6 +5323,23 @@ block|}
 return|return
 literal|true
 return|;
+else|#
+directive|else
+comment|// !Q_OS_WINPHONE
+name|Q_UNUSED
+argument_list|(
+name|ptr
+argument_list|)
+expr_stmt|;
+name|Q_UNIMPLEMENTED
+argument_list|()
+expr_stmt|;
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// Q_OS_WINPHONE
 block|}
 end_function
 begin_macro

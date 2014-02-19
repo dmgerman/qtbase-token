@@ -52,6 +52,23 @@ include|#
 directive|include
 file|<qt_windows.h>
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<winsock2.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -2608,6 +2625,10 @@ literal|"::1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// WinRT does not support sockaddr_in
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|QHostAddress
 name|addr
 argument_list|(
@@ -2656,6 +2677,9 @@ argument_list|,
 name|addr
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_function

@@ -144,6 +144,10 @@ name|testArrayNestedEmpty
 parameter_list|()
 function_decl|;
 name|void
+name|testArrayComfortOperators
+parameter_list|()
+function_decl|;
+name|void
 name|testObjectNestedEmpty
 parameter_list|()
 function_decl|;
@@ -4291,6 +4295,79 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|testArrayComfortOperators
+name|void
+name|tst_QtJson
+operator|::
+name|testArrayComfortOperators
+parameter_list|()
+block|{
+name|QJsonArray
+name|first
+decl_stmt|;
+name|first
+operator|.
+name|append
+argument_list|(
+literal|123.
+argument_list|)
+expr_stmt|;
+name|first
+operator|.
+name|append
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QJsonArray
+name|second
+init|=
+name|QJsonArray
+argument_list|()
+operator|<<
+literal|123.
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|"foo"
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|first
+argument_list|,
+name|second
+argument_list|)
+expr_stmt|;
+name|first
+operator|=
+name|first
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"bar"
+argument_list|)
+expr_stmt|;
+name|second
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|"bar"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|first
+argument_list|,
+name|second
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|testValueRef
 name|void
 name|tst_QtJson
@@ -8384,7 +8461,7 @@ decl_stmt|;
 name|QByteArray
 name|expected
 init|=
-literal|"{\"Array\": [true,999,\"string\",null,\"\\\\\\u0007\\n\\r\\b\\tabcABC\\\"\"],\"\\\\Key\\n\": \"Value\",\"null\": null}"
+literal|"{\"Array\":[true,999,\"string\",null,\"\\\\\\u0007\\n\\r\\b\\tabcABC\\\"\"],\"\\\\Key\\n\":\"Value\",\"null\":null}"
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -11031,7 +11108,7 @@ name|error
 operator|.
 name|offset
 argument_list|,
-literal|14
+literal|12
 argument_list|)
 expr_stmt|;
 block|}
@@ -11190,7 +11267,7 @@ name|error
 operator|.
 name|offset
 argument_list|,
-literal|15
+literal|13
 argument_list|)
 expr_stmt|;
 block|}
@@ -13710,7 +13787,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonObject() "
+literal|"QJsonObject()"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13739,7 +13816,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonObject({\"foo\": \"bar\"}) "
+literal|"QJsonObject({\"foo\":\"bar\"})"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13759,7 +13836,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonArray() "
+literal|"QJsonArray()"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13790,7 +13867,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonArray([1,\"foo\"]) "
+literal|"QJsonArray([1,\"foo\"])"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13810,7 +13887,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument() "
+literal|"QJsonDocument()"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13849,7 +13926,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument({\"foo\": \"bar\"}) "
+literal|"QJsonDocument({\"foo\":\"bar\"})"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13883,7 +13960,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonDocument([1,\"foo\"]) "
+literal|"QJsonDocument([1,\"foo\"])"
 argument_list|)
 expr_stmt|;
 name|doc
@@ -13910,7 +13987,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(null) "
+literal|"QJsonValue(null)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13932,7 +14009,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(bool, true) "
+literal|"QJsonValue(bool, true)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13957,7 +14034,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(double, 4.2) "
+literal|"QJsonValue(double, 4.2)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -13982,7 +14059,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(double, 42) "
+literal|"QJsonValue(double, 42)"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14007,7 +14084,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(string, \"foo\") "
+literal|"QJsonValue(string, \"foo\")"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14049,7 +14126,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(array, QJsonArray([1,\"foo\"]) ) "
+literal|"QJsonValue(array, QJsonArray([1,\"foo\"]) )"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14089,7 +14166,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(object, QJsonObject({\"foo\": \"bar\"}) ) "
+literal|"QJsonValue(object, QJsonObject({\"foo\":\"bar\"}) )"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -15393,6 +15470,115 @@ name|QJsonValue
 argument_list|(
 name|QJsonArray
 argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+name|QString
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+literal|"\x66\x6f\x6f"
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+name|QString
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+literal|"\x62\x61\x72"
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+literal|"bar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+name|UNICODE_NON_CHARACTER
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+name|QString
+argument_list|(
+name|UNICODE_NON_CHARACTER
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+name|UNICODE_DJE
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+name|QString
+argument_list|(
+name|UNICODE_DJE
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QJsonValue
+argument_list|(
+literal|"\xc3\xa9"
+argument_list|)
+operator|==
+name|QJsonValue
+argument_list|(
+name|QString
+argument_list|(
+literal|"\xc3\xa9"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

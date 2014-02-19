@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2014 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|/**************************************************************************** ** ** In addition, as a special exception, the copyright holders listed above give ** permission to link the code of its release of Qt with the OpenSSL project's ** "OpenSSL" library (or modified versions of the "OpenSSL" library that use the ** same license as the original version), and distribute the linked executables. ** ** You must comply with the GNU General Public License version 2 in all ** respects for all of the code used other than the "OpenSSL" code.  If you ** modify this file, you may extend this exception to your version of the file, ** but you are not obligated to do so.  If you do not wish to do so, delete ** this exception statement from your version of this file. ** ****************************************************************************/
@@ -3732,6 +3732,117 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x1000100fL
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_TLSEXT
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_NEXTPROTONEG
+argument_list|)
+end_if
+begin_macro
+name|DEFINEFUNC6
+argument_list|(
+argument|int
+argument_list|,
+argument|SSL_select_next_proto
+argument_list|,
+argument|unsigned char **out
+argument_list|,
+argument|out
+argument_list|,
+argument|unsigned char *outlen
+argument_list|,
+argument|outlen
+argument_list|,
+argument|const unsigned char *in
+argument_list|,
+argument|in
+argument_list|,
+argument|unsigned int inlen
+argument_list|,
+argument|inlen
+argument_list|,
+argument|const unsigned char *client
+argument_list|,
+argument|client
+argument_list|,
+argument|unsigned int client_len
+argument_list|,
+argument|client_len
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|void
+argument_list|,
+argument|SSL_CTX_set_next_proto_select_cb
+argument_list|,
+argument|SSL_CTX *s
+argument_list|,
+argument|s
+argument_list|,
+argument|int (*cb) (SSL *ssl, unsigned char **out,                        unsigned char *outlen,                        const unsigned char *in,                        unsigned int inlen, void *arg)
+argument_list|,
+argument|cb
+argument_list|,
+argument|void *arg
+argument_list|,
+argument|arg
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|void
+argument_list|,
+argument|SSL_get0_next_proto_negotiated
+argument_list|,
+argument|const SSL *s
+argument_list|,
+argument|s
+argument_list|,
+argument|const unsigned char **data
+argument_list|,
+argument|data
+argument_list|,
+argument|unsigned *len
+argument_list|,
+argument|len
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// OPENSSL_VERSION_NUMBER>= 0x1000100fL ...
+end_comment
 begin_define
 DECL|macro|RESOLVEFUNC
 define|#
@@ -5846,6 +5957,38 @@ name|RESOLVEFUNC
 argument_list|(
 argument|d2i_SSL_SESSION
 argument_list|)
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x1000100fL
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_TLSEXT
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_NEXTPROTONEG
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_select_next_proto
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_CTX_set_next_proto_select_cb
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_get0_next_proto_negotiated
+argument_list|)
+endif|#
+directive|endif
+comment|// OPENSSL_VERSION_NUMBER>= 0x1000100fL ...
 name|symbolsResolved
 operator|=
 literal|true

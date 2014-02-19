@@ -111,6 +111,10 @@ name|showPreviewDialog
 argument_list|()
 block|;
 name|void
+name|showPageSetupDialog
+argument_list|()
+block|;
+name|void
 name|enableCustomSizeControl
 argument_list|()
 block|;

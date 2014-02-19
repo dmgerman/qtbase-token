@@ -288,6 +288,15 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*! \fn QJsonArray&QJsonArray::operator+=(const QJsonValue&value)      Appends \a value to the array, and returns a reference to the array itself.      \since 5.3     \sa append(), operator<<() */
+end_comment
+begin_comment
+comment|/*! \fn QJsonArray QJsonArray::operator+(const QJsonValue&value) const      Returns an array that contains all the items in this array followed     by the provided \a value.      \since 5.3     \sa operator+=() */
+end_comment
+begin_comment
+comment|/*! \fn QJsonArray&QJsonArray::operator<<(const QJsonValue&value)      Appends \a value to the array, and returns a reference to the array itself.      \since 5.3     \sa operator+=(), append() */
+end_comment
+begin_comment
 comment|/*!     Converts the string list \a list to a QJsonArray.      The values in \a list will be converted to JSON values.      \sa toVariantList(), QJsonValue::fromVariant()  */
 end_comment
 begin_function

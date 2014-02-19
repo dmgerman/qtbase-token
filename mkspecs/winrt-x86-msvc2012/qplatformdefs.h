@@ -5,6 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"../win32-msvc2005/qplatformdefs.h"
+file|"../common/winrt_winphone/qplatformdefs.h"
 end_include
 end_unit

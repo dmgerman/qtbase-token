@@ -1615,6 +1615,15 @@ name|defined
 argument_list|(
 name|QT_OPENGL_ES
 argument_list|)
+if|if
+condition|(
+operator|!
+name|QOpenGLFunctions
+operator|::
+name|isES
+argument_list|()
+condition|)
+block|{
 comment|// On desktop, request latest released version
 name|QSurfaceFormat
 name|format
@@ -1678,8 +1687,10 @@ argument_list|(
 name|format
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
+comment|// QT_OPENGL_ES
 name|d
 operator|->
 name|context

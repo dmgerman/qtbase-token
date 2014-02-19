@@ -1152,7 +1152,7 @@ begin_comment
 comment|/*!   \enum QPrinter::ColorMode    This enum type is used to indicate whether QPrinter should print   in color or not.    \value Color  print in color if available, otherwise in grayscale.    \value GrayScale  print in grayscale, even on color printers. */
 end_comment
 begin_comment
-comment|/*!   \enum QPrinter::PaperSource    This enum type specifies what paper source QPrinter is to use.   QPrinter does not check that the paper source is available; it   just uses this information to try and set the paper source.   Whether it will set the paper source depends on whether the   printer has that particular source.    \warning This is currently only implemented for Windows.    \value Auto   \value Cassette   \value Envelope   \value EnvelopeManual   \value FormSource   \value LargeCapacity   \value LargeFormat   \value Lower   \value MaxPageSource   \value Middle   \value Manual   \value OnlyOne   \value Tractor   \value SmallFormat */
+comment|/*!   \enum QPrinter::PaperSource    This enum type specifies what paper source QPrinter is to use.   QPrinter does not check that the paper source is available; it   just uses this information to try and set the paper source.   Whether it will set the paper source depends on whether the   printer has that particular source.    \warning This is currently only implemented for Windows.    \value Auto   \value Cassette   \value Envelope   \value EnvelopeManual   \value FormSource   \value LargeCapacity   \value LargeFormat   \value Lower   \value MaxPageSource Deprecated, use LastPaperSource instead   \value Middle   \value Manual   \value OnlyOne   \value Tractor   \value SmallFormat   \value Upper   \value CustomSource A PaperSource defined by the printer that is unknown to Qt   \value LastPaperSource The highest valid PaperSource value, currently CustomSource */
 end_comment
 begin_comment
 comment|/*!   \enum QPrinter::Unit   \since 4.4    This enum type is used to specify the measurement unit for page and   paper sizes.    \value Millimeter   \value Point   \value Inch   \value Pica   \value Didot   \value Cicero   \value DevicePixel    Note the difference between Point and DevicePixel. The Point unit is   defined to be 1/72th of an inch, while the DevicePixel unit is   resolution dependant and is based on the actual pixels, or dots, on   the printer. */
@@ -2070,7 +2070,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the print orientation to \a orientation.    The orientation can be either QPrinter::Portrait or   QPrinter::Landscape.    The printer driver reads this setting and prints using the   specified orientation.    On Windows, this option can be changed while printing and will   take effect from the next call to newPage().    On Mac OS X, changing the orientation during a print job has no effect.    \sa orientation() */
+comment|/*!   Sets the print orientation to \a orientation.    The orientation can be either QPrinter::Portrait or   QPrinter::Landscape.    The printer driver reads this setting and prints using the   specified orientation.    On Windows and Mac, this option can be changed while printing and will   take effect from the next call to newPage().    \sa orientation() */
 end_comment
 begin_function
 DECL|function|setOrientation
@@ -4537,16 +4537,8 @@ begin_comment
 comment|// Q_OS_WIN
 end_comment
 begin_comment
-comment|/*!     \fn QString QPrinter::printerSelectionOption() const      Returns the printer options selection string. This is useful only     if the print command has been explicitly set.      The default value (an empty string) implies that the printer should     be selected in a system-dependent manner.      Any other value implies that the given value should be used.      \warning This function is not available on Windows.      \sa setPrinterSelectionOption() */
+comment|/*!     \fn QString QPrinter::printerSelectionOption() const      Returns the printer options selection string. This is useful only     if the print command has been explicitly set.      The default value (an empty string) implies that the printer should     be selected in a system-dependent manner.      Any other value implies that the given value should be used.      This function always returns an empty string on Windows and Mac.      \sa setPrinterSelectionOption(), setPrintProgram() */
 end_comment
-begin_comment
-comment|/*!     \fn void QPrinter::setPrinterSelectionOption(const QString&option)      Sets the printer to use \a option to select the printer. \a option     is null by default (which implies that Qt should be smart enough     to guess correctly), but it can be set to other values to use a     specific printer selection option.      If the printer selection option is changed while the printer is     active, the current print job may or may not be affected.      \warning This function is not available on Windows.      \sa printerSelectionOption() */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-end_ifndef
 begin_function
 DECL|function|printerSelectionOption
 name|QString
@@ -4579,6 +4571,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QPrinter::setPrinterSelectionOption(const QString&option)      Sets the printer to use \a option to select the printer. \a option     is null by default (which implies that Qt should be smart enough     to guess correctly), but it can be set to other values to use a     specific printer selection option.      If the printer selection option is changed while the printer is     active, the current print job may or may not be affected.      This function has no effect on Windows or Mac.      \sa printerSelectionOption(), setPrintProgram() */
+end_comment
 begin_function
 DECL|function|setPrinterSelectionOption
 name|void
@@ -4610,10 +4605,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \since 4.1     \fn int QPrinter::fromPage() const      Returns the number of the first page in a range of pages to be printed     (the "from page" setting). Pages in a document are numbered according to     the convention that the first page is page 1.      By default, this function returns a special value of 0, meaning that     the "from page" setting is unset.      \note If fromPage() and toPage() both return 0, this indicates that     \e{the whole document will be printed}.      \sa setFromTo(), toPage() */
 end_comment

@@ -1856,7 +1856,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal    Both solveMin and solveMax are interfaces to this method.    The enum solverFactor admits 2 values: Minimum (-1) and Maximum (+1).    This method sets the original objective and runs the second phase   Simplex to obtain the optimal solution for the problem. As the internal   simplex solver is only able to _maximize_ objectives, we handle the   minimization case by inverting the original objective and then   maximizing it. */
+comment|/*!   \internal    Both solveMin and solveMax are interfaces to this method.    The enum SolverFactor admits 2 values: Minimum (-1) and Maximum (+1).    This method sets the original objective and runs the second phase   Simplex to obtain the optimal solution for the problem. As the internal   simplex solver is only able to _maximize_ objectives, we handle the   minimization case by inverting the original objective and then   maximizing it. */
 end_comment
 begin_function
 DECL|function|solver
@@ -1865,7 +1865,7 @@ name|QSimplex
 operator|::
 name|solver
 parameter_list|(
-name|solverFactor
+name|SolverFactor
 name|factor
 parameter_list|)
 block|{

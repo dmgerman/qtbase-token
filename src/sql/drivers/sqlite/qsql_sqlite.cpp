@@ -3002,16 +3002,6 @@ condition|)
 name|close
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|db
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
 name|int
 name|timeOut
 init|=

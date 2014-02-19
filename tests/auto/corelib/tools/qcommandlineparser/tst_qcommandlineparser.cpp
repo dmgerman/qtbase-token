@@ -3805,6 +3805,16 @@ operator|::
 name|testQuoteEscaping
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QCoreApplication
 name|app
 argument_list|(
@@ -3948,6 +3958,9 @@ name|output
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_PROCESS
 block|}
 end_function
 begin_macro

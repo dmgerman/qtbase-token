@@ -442,6 +442,7 @@ argument_list|(
 argument|o.i
 argument_list|)
 block|{}
+comment|// #### Qt 6: remove, the implicit version is fine
 specifier|inline
 name|T
 operator|&
@@ -910,6 +911,7 @@ argument_list|(
 argument|o.i
 argument_list|)
 block|{}
+comment|// #### Qt 6: remove, the default version is fine
 specifier|inline
 name|explicit
 name|const_iterator

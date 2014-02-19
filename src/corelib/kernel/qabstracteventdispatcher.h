@@ -155,6 +155,7 @@ argument_list|()
 operator|=
 literal|0
 block|;
+comment|// ### Qt6: remove, mark final or make protected
 name|virtual
 name|void
 name|registerSocketNotifier

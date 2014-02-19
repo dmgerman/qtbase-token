@@ -168,6 +168,8 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QKdeTheme
 argument_list|)
+name|public
+operator|:
 name|QKdeTheme
 argument_list|(
 argument|const QString&kdeHome
@@ -175,8 +177,6 @@ argument_list|,
 argument|int kdeVersion
 argument_list|)
 block|;
-name|public
-operator|:
 specifier|static
 name|QPlatformTheme
 operator|*
@@ -265,6 +265,14 @@ argument_list|(
 argument|Font type
 argument_list|)
 specifier|const
+block|;
+name|QString
+name|standardButtonText
+argument_list|(
+argument|int button
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 specifier|const

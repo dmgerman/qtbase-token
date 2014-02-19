@@ -267,6 +267,18 @@ block|,
 name|FormSource
 block|,
 name|MaxPageSource
+block|,
+comment|// Deprecated
+name|CustomSource
+block|,
+name|LastPaperSource
+init|=
+name|CustomSource
+block|,
+name|Upper
+init|=
+name|OnlyOne
+comment|// As defined in Windows
 block|}
 enum|;
 end_enum
@@ -822,20 +834,6 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_QDOC
-argument_list|)
-end_if
 begin_expr_stmt
 name|QString
 name|printerSelectionOption
@@ -853,10 +851,6 @@ modifier|&
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function_decl
 name|bool
 name|newPage

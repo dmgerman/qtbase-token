@@ -20,7 +20,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_COMPILER_SUPPORTS_NEON
+name|__ARM_NEON__
 end_ifdef
 begin_function
 name|QT_BEGIN_NAMESPACE
@@ -383,6 +383,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_COMPILER_SUPPORTS_NEON
+comment|// __ARM_NEON__
 end_comment
 end_unit

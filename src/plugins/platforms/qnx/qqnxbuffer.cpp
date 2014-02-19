@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qqnxglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxbuffer.h"
 end_include
 begin_include
@@ -99,19 +104,14 @@ operator|<<
 literal|"normal"
 expr_stmt|;
 comment|// Get size of buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|size
 index|[
 literal|2
 index|]
 decl_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_get_buffer_property_iv
 argument_list|(
 name|buffer
@@ -120,30 +120,16 @@ name|SCREEN_PROPERTY_BUFFER_SIZE
 argument_list|,
 name|size
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query buffer size, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query buffer size"
 argument_list|)
 expr_stmt|;
 comment|// Get stride of buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|stride
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_buffer_property_iv
 argument_list|(
 name|buffer
@@ -153,18 +139,8 @@ argument_list|,
 operator|&
 name|stride
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query buffer stride, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query buffer stride"
 argument_list|)
 expr_stmt|;
 comment|// Get access to buffer's data
@@ -178,8 +154,8 @@ name|dataPtr
 init|=
 literal|0
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
 name|screen_get_buffer_property_pv
 argument_list|(
 name|buffer
@@ -194,18 +170,8 @@ operator|)
 operator|&
 name|dataPtr
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query buffer pointer, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query buffer pointer"
 argument_list|)
 expr_stmt|;
 if|if
@@ -222,15 +188,11 @@ name|errno
 argument_list|)
 expr_stmt|;
 comment|// Get format of buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|screenFormat
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_get_buffer_property_iv
 argument_list|(
 name|buffer
@@ -240,18 +202,8 @@ argument_list|,
 operator|&
 name|screenFormat
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQNX: failed to query buffer format, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to query buffer format"
 argument_list|)
 expr_stmt|;
 comment|// Convert screen format to QImage format

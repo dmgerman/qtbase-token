@@ -13,6 +13,29 @@ define|#
 directive|define
 name|QOBJECTDEFS_H
 end_define
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__OBJC__
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|__cplusplus
+argument_list|)
+end_if
+begin_warning
+warning|#
+directive|warning
+literal|"File built in Objective-C mode (.m), but using Qt requires Objective-C++ (.mm)"
+end_warning
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -2096,6 +2119,7 @@ DECL|member|relatedMetaObjects
 specifier|const
 name|QMetaObject
 modifier|*
+specifier|const
 modifier|*
 name|relatedMetaObjects
 decl_stmt|;

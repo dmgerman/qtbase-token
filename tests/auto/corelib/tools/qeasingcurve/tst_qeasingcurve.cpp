@@ -6455,7 +6455,7 @@ specifier|const
 name|float
 name|errorBound
 init|=
-literal|0.0005
+literal|0.0005f
 decl_stmt|;
 for|for
 control|(

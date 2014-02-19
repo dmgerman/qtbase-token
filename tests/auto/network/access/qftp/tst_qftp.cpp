@@ -688,6 +688,9 @@ literal|0
 operator|<<
 literal|false
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SOCKS5
 name|QTest
 operator|::
 name|newRow
@@ -706,6 +709,8 @@ argument_list|)
 operator|<<
 literal|false
 expr_stmt|;
+endif|#
+directive|endif
 comment|//### doesn't work well yet.
 comment|//QTest::newRow("WithHttpProxy")<< true<< int(QNetworkProxy::HttpProxy);
 ifndef|#
@@ -724,6 +729,9 @@ literal|0
 operator|<<
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SOCKS5
 name|QTest
 operator|::
 name|newRow
@@ -742,6 +750,8 @@ argument_list|)
 operator|<<
 literal|true
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}
@@ -864,6 +874,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 if|if
 condition|(
 name|proxyType
@@ -923,6 +936,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|#
+directive|else
+comment|// !QT_NO_NETWORKPROXY
+name|Q_UNUSED
+argument_list|(
+name|proxyType
+argument_list|)
+expr_stmt|;
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 ifndef|#
 directive|ifndef
@@ -1180,6 +1209,9 @@ condition|(
 name|setProxy
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 operator|::
 name|setApplicationProxy
@@ -1189,6 +1221,15 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"No proxy support"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 operator|delete
 name|ftp
@@ -4704,9 +4745,18 @@ argument_list|,
 name|useIODevice
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_NETWORKPROXY
+argument_list|)
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -4742,6 +4792,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|// OS_WIN&& !QT_NO_NETWORKPROXY
 specifier|const
 name|int
 name|timestep

@@ -1209,6 +1209,9 @@ name|ConvertTextureFormat
 parameter_list|(
 name|GLenum
 name|internalformat
+parameter_list|,
+name|D3D_FEATURE_LEVEL
+name|featureLevel
 parameter_list|)
 block|{
 switch|switch
@@ -1244,7 +1247,13 @@ case|case
 name|GL_ALPHA8_EXT
 case|:
 return|return
+name|featureLevel
+operator|>=
+name|D3D_FEATURE_LEVEL_10_0
+condition|?
 name|DXGI_FORMAT_A8_UNORM
+else|:
+name|DXGI_FORMAT_B8G8R8A8_UNORM
 return|;
 case|case
 name|GL_COMPRESSED_RGB_S3TC_DXT1_EXT

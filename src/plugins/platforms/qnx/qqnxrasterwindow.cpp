@@ -1,7 +1,12 @@
 begin_unit
 begin_comment
-comment|/*************************************************************************** ** ** Copyright (C) 2013 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/*************************************************************************** ** ** Copyright (C) 2013 - 2014 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
+begin_include
+include|#
+directive|include
+file|"qqnxglobal.h"
+end_include
 begin_include
 include|#
 directive|include
@@ -282,13 +287,8 @@ argument_list|()
 block|}
 decl_stmt|;
 comment|// Update the display with contents of render buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_post_window
 argument_list|(
 name|nativeHandle
@@ -305,18 +305,8 @@ name|dirtyRect
 argument_list|,
 literal|0
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to post window buffer, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to post window"
 argument_list|)
 expr_stmt|;
 comment|// Advance to next nender buffer
@@ -345,13 +335,7 @@ operator|=
 name|QRegion
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|m_cover
-condition|)
-name|m_cover
-operator|->
-name|updateCover
+name|windowPosted
 argument_list|()
 expr_stmt|;
 block|}
@@ -435,16 +419,13 @@ literal|1
 condition|)
 block|{
 comment|// Get all buffers available for rendering
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|screen_buffer_t
 name|buffers
 index|[
 name|MAX_BUFFER_COUNT
 index|]
 decl_stmt|;
+specifier|const
 name|int
 name|result
 init|=
@@ -463,17 +444,11 @@ operator|)
 name|buffers
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
+name|Q_SCREEN_CRITICALERROR
 argument_list|(
-literal|"QQnxRasterWindow: failed to query window buffers, errno=%d"
+name|result
 argument_list|,
-name|errno
+literal|"Failed to query window buffers"
 argument_list|)
 expr_stmt|;
 comment|// Wrap each buffer and clear
@@ -506,10 +481,6 @@ index|]
 argument_list|)
 expr_stmt|;
 comment|// Clear Buffer
-name|errno
-operator|=
-literal|0
-expr_stmt|;
 name|int
 name|bg
 index|[]
@@ -522,8 +493,8 @@ block|,
 name|SCREEN_BLIT_END
 block|}
 decl_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_fill
 argument_list|(
 name|screen
@@ -539,27 +510,13 @@ index|]
 argument_list|,
 name|bg
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to clear window buffer, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to clear window buffer"
 argument_list|)
 expr_stmt|;
 block|}
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_flush_blits
 argument_list|(
 name|screen
@@ -570,18 +527,8 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to flush blits, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to flush blits"
 argument_list|)
 expr_stmt|;
 comment|// Use the first available render buffer
@@ -604,6 +551,31 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|setParent
+name|void
+name|QQnxRasterWindow
+operator|::
+name|setParent
+parameter_list|(
+specifier|const
+name|QPlatformWindow
+modifier|*
+name|wnd
+parameter_list|)
+block|{
+name|QQnxWindow
+operator|::
+name|setParent
+argument_list|(
+name|wnd
+argument_list|)
+expr_stmt|;
+name|adjustBufferSize
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|adjustBufferSize
 name|void
 name|QQnxRasterWindow
@@ -617,7 +589,11 @@ specifier|const
 name|QSize
 name|windowSize
 init|=
-name|m_parentWindow
+name|window
+argument_list|()
+operator|->
+name|parent
+argument_list|()
 condition|?
 name|QSize
 argument_list|(
@@ -883,14 +859,8 @@ name|SCREEN_BLIT_END
 block|}
 decl_stmt|;
 comment|// Queue blit operation
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-specifier|const
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_blit
 argument_list|(
 name|m_screenContext
@@ -907,18 +877,8 @@ argument_list|()
 argument_list|,
 name|attribs
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to blit buffers, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to blit buffers"
 argument_list|)
 expr_stmt|;
 block|}
@@ -929,32 +889,16 @@ name|flush
 condition|)
 block|{
 comment|// Wait for all blits to complete
-name|errno
-operator|=
-literal|0
-expr_stmt|;
-specifier|const
-name|int
-name|result
-init|=
+name|Q_SCREEN_CHECKERROR
+argument_list|(
 name|screen_flush_blits
 argument_list|(
 name|m_screenContext
 argument_list|,
 name|SCREEN_WAIT_IDLE
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|0
-condition|)
-name|qFatal
-argument_list|(
-literal|"QQnxWindow: failed to flush blits, errno=%d"
 argument_list|,
-name|errno
+literal|"Failed to flush blits"
 argument_list|)
 expr_stmt|;
 comment|// Buffer was modified outside the CPU

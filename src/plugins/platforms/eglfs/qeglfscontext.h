@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglconvenience_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtPlatformSupport/private/qeglplatformcontext_p.h>
 end_include
 begin_decl_stmt
@@ -44,34 +39,19 @@ argument_list|,
 argument|EGLenum eglApi = EGL_OPENGL_ES_API
 argument_list|)
 block|;
-name|bool
-name|makeCurrent
-argument_list|(
-name|QPlatformSurface
-operator|*
-name|surface
-argument_list|)
-block|;
 name|EGLSurface
 name|eglSurfaceForPlatformSurface
 argument_list|(
-name|QPlatformSurface
-operator|*
-name|surface
+argument|QPlatformSurface *surface
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|swapBuffers
 argument_list|(
-name|QPlatformSurface
-operator|*
-name|surface
+argument|QPlatformSurface *surface
 argument_list|)
-block|;
-name|private
-operator|:
-name|bool
-name|m_swapIntervalSet
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -201,17 +201,19 @@ DECL|macro|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_ALWAYS_NATIVE
 define|#
 directive|define
 name|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_ALWAYS_NATIVE
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|int
+literal|1
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -219,18 +221,19 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|unsigned
-name|int
+literal|2
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
@@ -238,223 +241,25 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|struct|QAtomicOpsSupport
+DECL|enumerator|IsSupported
 name|template
 operator|<
 operator|>
 expr|struct
-name|QAtomicIntegerTraits
+name|QAtomicOpsSupport
 operator|<
-name|char
+literal|8
 operator|>
 block|{ enum
 block|{
-name|IsInteger
+name|IsSupported
 operator|=
 literal|1
 block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|signed
-name|char
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|char
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|short
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|unsigned
-name|long
-name|long
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_UNICODE_STRINGS
-end_ifdef
-begin_expr_stmt
-DECL|struct|char16_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char16_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|struct|char32_t
-DECL|enumerator|IsInteger
-name|template
-operator|<
-operator|>
-expr|struct
-name|QAtomicIntegerTraits
-operator|<
-name|char32_t
-operator|>
-block|{ enum
-block|{
-name|IsInteger
-operator|=
-literal|1
-block|}
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 DECL|struct|size
 name|template
@@ -655,6 +460,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -675,6 +483,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -695,6 +506,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -715,6 +529,9 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 expr_stmt|;
@@ -1998,6 +1815,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2034,15 +1853,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2064,6 +1893,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2100,15 +1931,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2130,6 +1971,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2166,15 +2009,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2196,6 +2049,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2232,15 +2087,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2262,6 +2127,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2298,15 +2165,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2328,6 +2205,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2364,15 +2243,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2394,6 +2283,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2430,15 +2321,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template
@@ -2460,6 +2361,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -2496,15 +2399,25 @@ operator|:
 literal|"memory"
 operator|)
 block|;
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|ret
+expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|ret
 operator|==
 name|expectedValue
 return|;
-block|}
-end_expr_stmt
+end_return
 begin_expr_stmt
-name|template
+unit|}  template
 operator|<
 operator|>
 name|template

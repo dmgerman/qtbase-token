@@ -38,6 +38,9 @@ public|public:
 name|tst_QFileSystemWatcher
 parameter_list|()
 constructor_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 private|private
 name|slots
 private|:
@@ -125,6 +128,9 @@ DECL|member|m_tempDirPattern
 name|QString
 name|m_tempDirPattern
 decl_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_FILESYSTEMWATCHER
 block|}
 class|;
 end_class
@@ -135,6 +141,9 @@ operator|::
 name|tst_QFileSystemWatcher
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|m_tempDirPattern
 operator|=
 name|QDir
@@ -169,8 +178,16 @@ argument_list|(
 literal|"tst_qfilesystemwatcherXXXXXX"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_FILESYSTEMWATCHER
 block|}
 end_constructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
+end_ifndef
 begin_function
 DECL|function|basicTest_data
 name|void
@@ -3374,6 +3391,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_FILESYSTEMWATCHER
+end_comment
 begin_macro
 name|QTEST_MAIN
 argument_list|(

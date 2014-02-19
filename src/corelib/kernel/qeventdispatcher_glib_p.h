@@ -129,18 +129,16 @@ block|;
 name|void
 name|registerSocketNotifier
 argument_list|(
-name|QSocketNotifier
-operator|*
-name|socketNotifier
+argument|QSocketNotifier *socketNotifier
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|void
 name|unregisterSocketNotifier
 argument_list|(
-name|QSocketNotifier
-operator|*
-name|socketNotifier
+argument|QSocketNotifier *socketNotifier
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|void
 name|registerTimer
@@ -153,20 +151,21 @@ argument|Qt::TimerType timerType
 argument_list|,
 argument|QObject *object
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|bool
 name|unregisterTimer
 argument_list|(
 argument|int timerId
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|bool
 name|unregisterTimers
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|QList
 operator|<
@@ -177,24 +176,29 @@ argument_list|(
 argument|QObject *object
 argument_list|)
 specifier|const
+name|Q_DECL_FINAL
 block|;
 name|int
 name|remainingTime
 argument_list|(
 argument|int timerId
 argument_list|)
+name|Q_DECL_FINAL
 block|;
 name|void
 name|wakeUp
 argument_list|()
+name|Q_DECL_FINAL
 block|;
 name|void
 name|interrupt
 argument_list|()
+name|Q_DECL_FINAL
 block|;
 name|void
 name|flush
 argument_list|()
+name|Q_DECL_FINAL
 block|;
 specifier|static
 name|bool

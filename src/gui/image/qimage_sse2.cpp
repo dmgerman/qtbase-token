@@ -360,7 +360,7 @@ condition|)
 operator|*
 name|p
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 operator|*
 name|p

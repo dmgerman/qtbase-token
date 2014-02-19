@@ -126,6 +126,11 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_if
 begin_if
 if|#
@@ -1714,6 +1719,9 @@ operator|new
 name|QHostAddressPrivate
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 if|if
 condition|(
 name|sockaddr
@@ -1764,6 +1772,8 @@ operator|.
 name|qt_s6_addr
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_comment
@@ -2145,6 +2155,9 @@ modifier|*
 name|sockaddr
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 name|clear
 argument_list|()
 expr_stmt|;
@@ -2198,6 +2211,8 @@ operator|.
 name|qt_s6_addr
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

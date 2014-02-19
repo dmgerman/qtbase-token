@@ -583,6 +583,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|Type type READ type WRITE setType NOTIFY typeChanged
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QHostAddress nameserver READ nameserver WRITE setNameserver NOTIFY nameserverChanged
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -666,6 +670,18 @@ argument|QObject *parent =
 literal|0
 argument_list|)
 block|;
+name|QDnsLookup
+argument_list|(
+argument|Type type
+argument_list|,
+argument|const QString&name
+argument_list|,
+argument|const QHostAddress&nameserver
+argument_list|,
+argument|QObject *parent =
+literal|0
+argument_list|)
+block|;
 operator|~
 name|QDnsLookup
 argument_list|()
@@ -710,6 +726,20 @@ argument_list|(
 name|QDnsLookup
 operator|::
 name|Type
+argument_list|)
+block|;
+name|QHostAddress
+name|nameserver
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setNameserver
+argument_list|(
+specifier|const
+name|QHostAddress
+operator|&
+name|nameserver
 argument_list|)
 block|;
 name|QList
@@ -798,6 +828,15 @@ name|void
 name|typeChanged
 argument_list|(
 argument|Type type
+argument_list|)
+block|;
+name|void
+name|nameserverChanged
+argument_list|(
+specifier|const
+name|QHostAddress
+operator|&
+name|nameserver
 argument_list|)
 block|;
 name|private

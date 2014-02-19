@@ -557,6 +557,20 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|dbus_connection_set_allow_anonymous
+argument_list|,
+argument|(DBusConnection             *connection,                                                                 dbus_bool_t                 value)
+argument_list|,
+argument|(connection, value)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_comment
 comment|/* dbus-errors.h */
 end_comment

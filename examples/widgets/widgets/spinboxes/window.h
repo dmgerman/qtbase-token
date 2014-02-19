@@ -26,6 +26,12 @@ name|QDateTimeEdit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QSpinBox
+name|class
+name|QSpinBox
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDoubleSpinBox
 name|class
 name|QDoubleSpinBox
@@ -121,6 +127,14 @@ block|;
 name|QLabel
 operator|*
 name|meetingLabel
+block|;
+name|QSpinBox
+operator|*
+name|groupSeparatorSpinBox
+block|;
+name|QDoubleSpinBox
+operator|*
+name|groupSeparatorSpinBox_d
 block|; }
 decl_stmt|;
 end_decl_stmt

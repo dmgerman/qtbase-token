@@ -9962,7 +9962,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     ### Please add QEvent::WindowFlagsChange event */
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|setWindowFlags
@@ -9988,8 +9988,8 @@ operator|!
 name|parent
 condition|)
 block|{
-name|q
-operator|->
+name|QWidgetPrivate
+operator|::
 name|setWindowFlags
 argument_list|(
 name|windowFlags
@@ -10181,8 +10181,8 @@ name|sizeGrip
 expr_stmt|;
 endif|#
 directive|endif
-name|q
-operator|->
+name|QWidgetPrivate
+operator|::
 name|setWindowFlags
 argument_list|(
 name|windowFlags

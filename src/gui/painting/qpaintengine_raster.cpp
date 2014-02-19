@@ -9895,7 +9895,7 @@ name|solid
 operator|.
 name|color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|ARGB_COMBINE_ALPHA
 argument_list|(
@@ -13048,7 +13048,7 @@ name|solid
 operator|.
 name|color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|ARGB_COMBINE_ALPHA
 argument_list|(
@@ -22192,7 +22192,7 @@ decl_stmt|;
 name|QRgb
 name|fg
 init|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|color
 operator|.
@@ -22469,7 +22469,7 @@ literal|true
 expr_stmt|;
 name|destColor0
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|image
 operator|->
@@ -22482,7 +22482,7 @@ argument_list|)
 expr_stmt|;
 name|destColor1
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|image
 operator|->
@@ -25631,14 +25631,14 @@ condition|)
 block|{
 name|first_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|first_color
 argument_list|)
 expr_stmt|;
 name|second_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|second_color
 argument_list|)
@@ -25790,7 +25790,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|first_color
 argument_list|)
@@ -25987,7 +25987,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|color
 argument_list|)
@@ -26022,7 +26022,7 @@ index|[
 name|i
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|second_color
 argument_list|)
@@ -26057,7 +26057,7 @@ condition|)
 block|{
 name|current_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|current_color
 argument_list|)
@@ -26143,7 +26143,7 @@ name|pos
 operator|++
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|current_color
 argument_list|)
@@ -26262,14 +26262,14 @@ condition|)
 block|{
 name|current_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|current_color
 argument_list|)
 expr_stmt|;
 name|next_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|next_color
 argument_list|)
@@ -26386,7 +26386,7 @@ index|[
 name|pos
 index|]
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|INTERPOLATE_PIXEL_256
 argument_list|(
@@ -26512,14 +26512,14 @@ literal|1
 condition|)
 name|current_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|current_color
 argument_list|)
 expr_stmt|;
 name|next_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|next_color
 argument_list|)
@@ -26589,7 +26589,7 @@ block|}
 comment|// After last point
 name|current_color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|ARGB_COMBINE_ALPHA
 argument_list|(
@@ -26800,7 +26800,7 @@ name|solid
 operator|.
 name|color
 operator|=
-name|PREMUL
+name|qPremultiply
 argument_list|(
 name|ARGB_COMBINE_ALPHA
 argument_list|(

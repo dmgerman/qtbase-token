@@ -668,11 +668,6 @@ name|anchor
 operator|=
 name|position
 expr_stmt|;
-name|priv
-operator|->
-name|finishEdit
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_function

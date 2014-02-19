@@ -179,7 +179,12 @@ specifier|static
 name|EGLint
 operator|*
 name|contextAttrs
-argument_list|()
+argument_list|(
+specifier|const
+name|QSurfaceFormat
+operator|&
+name|format
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

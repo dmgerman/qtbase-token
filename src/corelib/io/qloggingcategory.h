@@ -117,6 +117,20 @@ operator|*
 name|this
 return|;
 block|}
+specifier|const
+name|QLoggingCategory
+operator|&
+name|operator
+argument_list|()
+operator|(
+operator|)
+specifier|const
+block|{
+return|return
+operator|*
+name|this
+return|;
+block|}
 specifier|static
 name|QLoggingCategory
 modifier|*
@@ -193,7 +207,7 @@ parameter_list|(
 name|name
 parameter_list|)
 define|\
-value|extern QLoggingCategory&name();
+value|extern const QLoggingCategory&name();
 end_define
 begin_comment
 comment|// relies on QLoggingCategory(QString) being thread safe!
@@ -209,8 +223,13 @@ parameter_list|,
 name|string
 parameter_list|)
 define|\
-value|QLoggingCategory&name() \     { \         static QLoggingCategory category(string); \         return category; \     }
+value|const QLoggingCategory&name() \     { \         static const QLoggingCategory category(string); \         return category; \     }
 end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_VARIADIC_MACROS
+end_ifdef
 begin_define
 DECL|macro|qCDebug
 define|#
@@ -218,9 +237,11 @@ directive|define
 name|qCDebug
 parameter_list|(
 name|category
+parameter_list|,
+modifier|...
 parameter_list|)
 define|\
-value|for (bool enabled = category().isDebugEnabled(); Q_UNLIKELY(enabled); enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).debug()
+value|for (bool qt_category_enabled = category().isDebugEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).debug(__VA_ARGS__)
 end_define
 begin_define
 DECL|macro|qCWarning
@@ -229,9 +250,11 @@ directive|define
 name|qCWarning
 parameter_list|(
 name|category
+parameter_list|,
+modifier|...
 parameter_list|)
 define|\
-value|for (bool enabled = category().isWarningEnabled(); enabled; enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).warning()
+value|for (bool qt_category_enabled = category().isWarningEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).warning(__VA_ARGS__)
 end_define
 begin_define
 DECL|macro|qCCritical
@@ -240,10 +263,47 @@ directive|define
 name|qCCritical
 parameter_list|(
 name|category
+parameter_list|,
+modifier|...
 parameter_list|)
 define|\
-value|for (bool enabled = category().isCriticalEnabled(); enabled; enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).critical()
+value|for (bool qt_category_enabled = category().isCriticalEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO, category().categoryName()).critical(__VA_ARGS__)
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|// check for enabled category inside QMessageLogger.
+end_comment
+begin_define
+DECL|macro|qCDebug
+define|#
+directive|define
+name|qCDebug
+value|qDebug
+end_define
+begin_define
+DECL|macro|qCWarning
+define|#
+directive|define
+name|qCWarning
+value|qWarning
+end_define
+begin_define
+DECL|macro|qCCritical
+define|#
+directive|define
+name|qCCritical
+value|qCritical
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_COMPILER_VARIADIC_MACROS
+end_comment
 begin_if
 if|#
 directive|if

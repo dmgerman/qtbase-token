@@ -318,6 +318,11 @@ operator|*
 name|e
 argument_list|)
 block|;
+name|bool
+name|canBeNativeDialog
+argument_list|()
+specifier|const
+block|;
 name|QWellArray
 operator|*
 name|custom

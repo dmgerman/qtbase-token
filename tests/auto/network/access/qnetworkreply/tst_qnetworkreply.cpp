@@ -274,12 +274,21 @@ argument_list|(
 argument|QAuthenticator*
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
 argument|QNetworkProxyQuery
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_typedef
 DECL|typedef|QNetworkReplyPtr
 typedef|typedef
@@ -304,6 +313,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 DECL|struct|ProxyData
 struct|struct
 name|ProxyData
@@ -354,6 +366,9 @@ name|requiresAuthentication
 decl_stmt|;
 block|}
 struct|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 DECL|member|seedCreated
 specifier|static
 name|bool
@@ -497,6 +512,9 @@ DECL|member|uniqueExtension
 name|QString
 name|uniqueExtension
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 DECL|member|proxies
 name|QList
 argument_list|<
@@ -504,6 +522,8 @@ name|ProxyData
 argument_list|>
 name|proxies
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|manager
 name|QNetworkAccessManager
 name|manager
@@ -900,6 +920,9 @@ name|void
 name|getErrors
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|headFromHttp_data
 parameter_list|()
@@ -908,6 +931,9 @@ name|void
 name|headFromHttp
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|putToFile_data
 parameter_list|()
@@ -1122,6 +1148,9 @@ name|void
 name|ioGetFromHttpWithAuthSynchronous
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|ioGetFromHttpWithProxyAuth
 parameter_list|()
@@ -1134,6 +1163,9 @@ name|void
 name|ioGetFromHttpWithSocksProxy
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -1183,6 +1215,9 @@ name|void
 name|ioGetFromHttpWithCache
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|ioGetWithManyProxies_data
 parameter_list|()
@@ -1191,6 +1226,9 @@ name|void
 name|ioGetWithManyProxies
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|ioPutToFileFromFile_data
 parameter_list|()
@@ -1252,6 +1290,9 @@ name|void
 name|ioPostToHttpFromFile
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|ioPostToHttpFromSocket_data
 parameter_list|()
@@ -1268,6 +1309,9 @@ name|void
 name|ioPostToHttpFromSocketSynchronous_data
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|ioPostToHttpFromMiddleOfFileToEnd
 parameter_list|()
@@ -1382,6 +1426,9 @@ name|void
 name|nestedEventLoops
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|httpProxyCommands_data
 parameter_list|()
@@ -1402,6 +1449,9 @@ name|void
 name|proxyChange
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|authorizationError_data
 parameter_list|()
@@ -1609,6 +1659,9 @@ name|void
 name|httpUserAgent
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|void
 name|authenticationCacheAfterCancel_data
 parameter_list|()
@@ -1621,6 +1674,9 @@ name|void
 name|authenticationWithDifferentRealm
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|void
 name|synchronousAuthenticationCache
 parameter_list|()
@@ -2611,6 +2667,11 @@ block|}
 block|}
 class|;
 end_class
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_class
 DECL|class|MyProxyFactory
 class|class
@@ -2700,6 +2761,13 @@ block|}
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_class
 DECL|class|MyMemoryCache
 class|class
@@ -4970,12 +5038,17 @@ operator|*
 argument_list|>
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|qRegisterMetaType
 argument_list|<
 name|QNetworkProxy
 argument_list|>
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -5026,6 +5099,9 @@ argument_list|(
 name|cookieJar
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QHostInfo
 name|hostInfo
 init|=
@@ -5166,6 +5242,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 name|printf
 argument_list|(
 literal|"==================================================================\n"
@@ -5181,7 +5260,13 @@ argument_list|(
 literal|"==================================================================\n"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_NETWORKPROXY
 block|}
 end_constructor
 begin_destructor
@@ -6596,6 +6681,9 @@ operator|.
 name|clearAccessCache
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|manager
 operator|.
 name|setProxy
@@ -6604,6 +6692,8 @@ name|QNetworkProxy
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|manager
 operator|.
 name|setCache
@@ -8553,6 +8643,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|headFromHttp_data
 name|void
@@ -9178,6 +9273,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_function
 DECL|function|getErrors_data
 name|void
@@ -15883,7 +15985,7 @@ literal|400
 operator|<<
 name|QNetworkReply
 operator|::
-name|UnknownContentError
+name|ProtocolInvalidOperationError
 operator|<<
 name|QByteArray
 argument_list|()
@@ -15921,7 +16023,7 @@ literal|501
 operator|<<
 name|QNetworkReply
 operator|::
-name|ProtocolUnknownError
+name|OperationNotImplementedError
 operator|<<
 name|QByteArray
 argument_list|()
@@ -19214,6 +19316,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|ioGetFromHttpWithProxyAuth
 name|void
@@ -20357,6 +20464,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -23092,6 +23206,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|ioGetWithManyProxies_data
 name|void
@@ -24748,6 +24867,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_function
 DECL|function|ioPutToFileFromFile_data
 name|void
@@ -26658,6 +26784,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|ioPostToHttpFromSocket_data
 name|void
@@ -27815,6 +27946,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_comment
 comment|// this tests checks if rewinding the POST-data to some place in the middle
 end_comment
@@ -33866,6 +34004,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|httpProxyCommands_data
 name|void
@@ -34209,6 +34352,13 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_struct
 DECL|struct|QThreadCleanup
 struct|struct
@@ -34277,6 +34427,11 @@ block|}
 block|}
 struct|;
 end_struct
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|httpProxyCommandsSynchronous
 name|void
@@ -34728,6 +34883,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_function
 DECL|function|authorizationError_data
 name|void
@@ -40394,6 +40556,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
+end_ifndef
 begin_function
 DECL|function|authenticationCacheAfterCancel_data
 name|void
@@ -41940,6 +42107,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_NETWORKPROXY
+end_comment
 begin_class
 DECL|class|QtBug13431Helper
 class|class

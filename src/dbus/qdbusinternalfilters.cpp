@@ -156,6 +156,12 @@ literal|"<arg name=\"interface_name\" type=\"s\" direction=\"in\"/>\n"
 literal|"<arg name=\"values\" type=\"a{sv}\" direction=\"out\"/>\n"
 literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"QVariantMap\"/>\n"
 literal|"</method>\n"
+literal|"<signal name=\"PropertiesChanged\">\n"
+literal|"<arg name=\"interface_name\" type=\"s\" direction=\"out\"/>\n"
+literal|"<arg name=\"changed_properties\" type=\"a{sv}\" direction=\"out\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out1\" value=\"QVariantMap\"/>\n"
+literal|"<arg name=\"invalidated_properties\" type=\"as\" direction=\"out\"/>\n"
+literal|"</signal>\n"
 literal|"</interface>\n"
 decl_stmt|;
 end_decl_stmt

@@ -875,6 +875,10 @@ name|void
 name|html_fromFirefox
 parameter_list|()
 function_decl|;
+name|void
+name|html_emptyInlineInsideBlock
+parameter_list|()
+function_decl|;
 private|private:
 DECL|function|setHtml
 specifier|inline
@@ -2177,7 +2181,7 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|/* 	QTextCursor fourthCell = table->cellAt(1, 1).firstCursorPosition(); 	fourthCell.movePosition(QTextCursor::NextBlock); 	table = fourthCell.currentTable(); 	QVERIFY(table); 	QVERIFY(table != cursor.currentTable()); 	QCOMPARE(table->columns(), 2); 	QCOMPARE(table->rows(), 3);         */
+comment|/*         QTextCursor fourthCell = table->cellAt(1, 1).firstCursorPosition();         fourthCell.movePosition(QTextCursor::NextBlock);         table = fourthCell.currentTable();         QVERIFY(table);         QVERIFY(table != cursor.currentTable());         QCOMPARE(table->columns(), 2);         QCOMPARE(table->rows(), 3);         */
 block|}
 block|{
 specifier|const
@@ -25121,6 +25125,44 @@ name|fromLatin1
 argument_list|(
 literal|"Test Text "
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|html_emptyInlineInsideBlock
+name|void
+name|tst_QTextDocumentFragment
+operator|::
+name|html_emptyInlineInsideBlock
+parameter_list|()
+block|{
+name|doc
+operator|->
+name|setHtml
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"<!--StartFragment--><blockquote><span/>Foobar</blockquote><!--EndFragment-->"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|doc
+operator|->
+name|firstBlock
+argument_list|()
+operator|.
+name|blockFormat
+argument_list|()
+operator|.
+name|leftMargin
+argument_list|()
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

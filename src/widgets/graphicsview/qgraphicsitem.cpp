@@ -30643,6 +30643,9 @@ operator|->
 name|inputMethodQuery
 argument_list|(
 name|query
+argument_list|,
+name|QVariant
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

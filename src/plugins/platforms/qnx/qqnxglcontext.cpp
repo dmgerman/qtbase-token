@@ -430,7 +430,9 @@ argument_list|,
 name|shareContext
 argument_list|,
 name|contextAttrs
-argument_list|()
+argument_list|(
+name|format
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -802,7 +804,7 @@ argument_list|(
 literal|"eglMakeCurrent"
 argument_list|)
 expr_stmt|;
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQNX: failed to set current EGL context, err=%d"
 argument_list|,
@@ -810,6 +812,9 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 return|return
 operator|(
@@ -1008,7 +1013,12 @@ modifier|*
 name|QQnxGLContext
 operator|::
 name|contextAttrs
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|format
+parameter_list|)
 block|{
 name|qGLContextDebug
 argument_list|()
@@ -1030,7 +1040,12 @@ init|=
 block|{
 name|EGL_CONTEXT_CLIENT_VERSION
 block|,
-literal|2
+name|format
+operator|.
+name|version
+argument_list|()
+operator|.
+name|first
 block|,
 name|EGL_NONE
 block|}

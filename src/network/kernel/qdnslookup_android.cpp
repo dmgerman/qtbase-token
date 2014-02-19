@@ -24,6 +24,11 @@ name|QByteArray
 modifier|&
 name|requestName
 parameter_list|,
+specifier|const
+name|QHostAddress
+modifier|&
+name|nameserver
+parameter_list|,
 name|QDnsLookupReply
 modifier|*
 name|reply
@@ -37,6 +42,11 @@ expr_stmt|;
 name|Q_UNUSED
 argument_list|(
 name|requestName
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|nameserver
 argument_list|)
 expr_stmt|;
 name|Q_UNUSED

@@ -664,7 +664,7 @@ name|QByteArray
 argument_list|>
 argument_list|()
 operator|<<
-literal|"QDialogButtonBox::Cancel"
+literal|"QPlatformTheme::Cancel"
 operator|)
 expr_stmt|;
 name|QTest
@@ -686,7 +686,7 @@ name|QByteArray
 argument_list|>
 argument_list|()
 operator|<<
-literal|"QDialogButtonBox::Cancel"
+literal|"QPlatformTheme::Cancel"
 operator|<<
 literal|"QColorDialog::&Sat:"
 operator|<<
@@ -792,9 +792,9 @@ endif|#
 directive|endif
 comment|//<< "QFileSystemModel::%1 KB"
 operator|<<
-literal|"QDialogButtonBox::Cancel"
+literal|"QPlatformTheme::Cancel"
 operator|<<
-literal|"QDialogButtonBox::Open"
+literal|"QPlatformTheme::Open"
 operator|<<
 literal|"QFileDialog::File&name:"
 operator|)

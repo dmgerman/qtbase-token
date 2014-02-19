@@ -600,6 +600,11 @@ name|pid
 argument_list|()
 specifier|const
 block|;
+name|qint64
+name|processId
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|waitForStarted
 argument_list|(
