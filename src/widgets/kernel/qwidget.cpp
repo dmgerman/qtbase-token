@@ -8971,6 +8971,12 @@ name|proxy
 condition|)
 block|{
 comment|// style sheet update
+if|if
+condition|(
+name|d
+operator|->
+name|polished
+condition|)
 name|proxy
 operator|->
 name|repolish
