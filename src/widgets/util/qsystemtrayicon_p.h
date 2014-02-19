@@ -203,6 +203,45 @@ name|qpa_sys
 block|;
 name|bool
 name|visible
+block|;
+name|private
+operator|:
+name|void
+name|install_sys_qpa
+argument_list|()
+block|;
+name|void
+name|remove_sys_qpa
+argument_list|()
+block|;
+name|void
+name|updateIcon_sys_qpa
+argument_list|()
+block|;
+name|void
+name|updateToolTip_sys_qpa
+argument_list|()
+block|;
+name|void
+name|updateMenu_sys_qpa
+argument_list|()
+block|;
+name|QRect
+name|geometry_sys_qpa
+argument_list|()
+specifier|const
+block|;
+name|void
+name|showMessage_sys_qpa
+argument_list|(
+argument|const QString&msg
+argument_list|,
+argument|const QString&title
+argument_list|,
+argument|QSystemTrayIcon::MessageIcon icon
+argument_list|,
+argument|int secs
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
