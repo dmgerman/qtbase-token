@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformclipboard.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QMimeData>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -60,6 +65,11 @@ argument_list|(
 argument|QClipboard::Mode mode
 argument_list|)
 specifier|const
+block|;
+name|private
+operator|:
+name|QMimeData
+name|m_mimeData
 block|; }
 decl_stmt|;
 end_decl_stmt
