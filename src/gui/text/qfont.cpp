@@ -1555,10 +1555,10 @@ begin_comment
 comment|/*!     \fn QFont&QFont::operator=(QFont&&other)      Move-assigns \a other to this QFont instance.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     \fn QString QFont::rawName() const      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
+comment|/*!     \fn QString QFont::rawName() const     \deprecated      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFont::setRawName(const QString&name)      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setRawMode(), setFamily() */
+comment|/*!     \fn void QFont::setRawName(const QString&name)     \deprecated      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setRawMode(), setFamily() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QFont::lastResortFamily() const      Returns the "last resort" font family name.      The current implementation tries a wide variety of common fonts,     returning the first one it finds. Is is possible that no family is     found in which case an empty string is returned.      \sa lastResortFont() */
