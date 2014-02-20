@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<QtCore/qstring.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QPalette>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QQnxIntegration
@@ -97,6 +102,15 @@ argument|Font type = SystemFont
 argument_list|)
 specifier|const
 block|;
+specifier|const
+name|QPalette
+operator|*
+name|palette
+argument_list|(
+argument|Palette type = SystemPalette
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|mutable
@@ -115,6 +129,9 @@ specifier|const
 name|QQnxIntegration
 operator|*
 name|m_integration
+block|;
+name|QPalette
+name|m_defaultPalette
 block|; }
 decl_stmt|;
 end_decl_stmt
