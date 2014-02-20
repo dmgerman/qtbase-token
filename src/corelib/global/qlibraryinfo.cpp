@@ -969,7 +969,7 @@ literal|"Qt "
 name|QT_VERSION_STR
 literal|" ("
 name|__DATE__
-literal|"), "
+literal|", "
 name|COMPILER_STRING
 literal|", "
 if|#
