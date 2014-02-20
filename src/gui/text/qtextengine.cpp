@@ -15213,7 +15213,7 @@ operator|::
 name|setFormats
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -17611,7 +17611,7 @@ name|FormatRangeComparatorByStart
 block|{
 DECL|member|list
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -17625,7 +17625,7 @@ DECL|function|FormatRangeComparatorByStart
 name|FormatRangeComparatorByStart
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -17680,7 +17680,7 @@ name|FormatRangeComparatorByEnd
 block|{
 DECL|member|list
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -17694,7 +17694,7 @@ DECL|function|FormatRangeComparatorByEnd
 name|FormatRangeComparatorByEnd
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::

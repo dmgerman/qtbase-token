@@ -2949,7 +2949,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QList
+name|QVector
 operator|<
 name|QTextLayout
 operator|::
@@ -2966,7 +2966,7 @@ name|specialData
 operator|->
 name|formats
 operator|:
-name|QList
+name|QVector
 operator|<
 name|QTextLayout
 operator|::
@@ -2982,7 +2982,7 @@ name|void
 name|setFormats
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QTextLayout
 operator|::
@@ -3018,7 +3018,7 @@ decl_stmt|;
 name|QString
 name|preeditText
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QTextLayout
 operator|::
