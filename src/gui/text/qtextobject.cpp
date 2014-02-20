@@ -3176,7 +3176,7 @@ comment|/*!     \since 5.3      Returns the block's text format options as a lis
 end_comment
 begin_function
 DECL|function|textFormats
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -3188,7 +3188,7 @@ name|textFormats
 parameter_list|()
 specifier|const
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
