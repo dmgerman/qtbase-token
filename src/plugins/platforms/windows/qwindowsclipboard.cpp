@@ -419,6 +419,43 @@ argument_list|)
 return|;
 block|}
 end_extern
+begin_comment
+comment|// QTBUG-36958, ensure the clipboard is flushed before
+end_comment
+begin_comment
+comment|// QGuiApplication is destroyed since OleFlushClipboard()
+end_comment
+begin_comment
+comment|// might query the data again which causes problems
+end_comment
+begin_comment
+comment|// for QMimeData-derived classes using QPixmap/QImage.
+end_comment
+begin_function
+DECL|function|cleanClipboardPostRoutine
+specifier|static
+name|void
+name|cleanClipboardPostRoutine
+parameter_list|()
+block|{
+if|if
+condition|(
+name|QWindowsClipboard
+modifier|*
+name|cl
+init|=
+name|QWindowsClipboard
+operator|::
+name|instance
+argument_list|()
+condition|)
+name|cl
+operator|->
+name|cleanup
+argument_list|()
+expr_stmt|;
+block|}
+end_function
 begin_decl_stmt
 DECL|member|m_instance
 name|QWindowsClipboard
@@ -458,6 +495,11 @@ name|m_instance
 operator|=
 name|this
 expr_stmt|;
+name|qAddPostRoutine
+argument_list|(
+name|cleanClipboardPostRoutine
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -468,11 +510,7 @@ name|~
 name|QWindowsClipboard
 parameter_list|()
 block|{
-name|unregisterViewer
-argument_list|()
-expr_stmt|;
-comment|// Should release data if owner.
-name|releaseIData
+name|cleanup
 argument_list|()
 expr_stmt|;
 name|QWindowsClipboard
@@ -483,6 +521,23 @@ literal|0
 expr_stmt|;
 block|}
 end_destructor
+begin_function
+DECL|function|cleanup
+name|void
+name|QWindowsClipboard
+operator|::
+name|cleanup
+parameter_list|()
+block|{
+name|unregisterViewer
+argument_list|()
+expr_stmt|;
+comment|// Should release data if owner.
+name|releaseIData
+argument_list|()
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|releaseIData
 name|void
