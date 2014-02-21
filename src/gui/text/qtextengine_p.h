@@ -2523,7 +2523,7 @@ decl_stmt|;
 specifier|inline
 name|QTextFormatCollection
 operator|*
-name|formats
+name|formatCollection
 argument_list|()
 specifier|const
 block|{
@@ -2548,7 +2548,7 @@ name|specialData
 condition|?
 name|specialData
 operator|->
-name|formats
+name|formatCollection
 operator|.
 name|data
 argument_list|()
@@ -2945,7 +2945,7 @@ operator|&&
 operator|!
 name|specialData
 operator|->
-name|addFormats
+name|formats
 operator|.
 name|isEmpty
 argument_list|()
@@ -2961,7 +2961,7 @@ name|QTextLayout
 operator|::
 name|FormatRange
 operator|>
-name|additionalFormats
+name|formats
 argument_list|()
 specifier|const
 block|{
@@ -2970,7 +2970,7 @@ name|specialData
 operator|?
 name|specialData
 operator|->
-name|addFormats
+name|formats
 operator|:
 name|QList
 operator|<
@@ -2985,7 +2985,7 @@ block|}
 end_expr_stmt
 begin_decl_stmt
 name|void
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 specifier|const
 name|QList
@@ -2995,7 +2995,7 @@ operator|::
 name|FormatRange
 operator|>
 operator|&
-name|formatList
+name|formats
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -3030,7 +3030,7 @@ name|QTextLayout
 operator|::
 name|FormatRange
 operator|>
-name|addFormats
+name|formats
 expr_stmt|;
 name|QVector
 operator|<
@@ -3043,7 +3043,7 @@ name|QScopedPointer
 operator|<
 name|QTextFormatCollection
 operator|>
-name|formats
+name|formatCollection
 expr_stmt|;
 block|}
 struct|;
@@ -3056,13 +3056,13 @@ decl_stmt|;
 end_decl_stmt
 begin_function_decl
 name|void
-name|indexAdditionalFormats
+name|indexFormats
 parameter_list|()
 function_decl|;
 end_function_decl
 begin_expr_stmt
 name|void
-name|resolveAdditionalFormats
+name|resolveFormats
 argument_list|()
 specifier|const
 expr_stmt|;

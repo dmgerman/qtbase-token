@@ -1052,7 +1052,7 @@ parameter_list|)
 block|{
 name|d
 operator|->
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|formatList
 argument_list|)
@@ -1112,7 +1112,7 @@ block|{
 return|return
 name|d
 operator|->
-name|additionalFormats
+name|formats
 argument_list|()
 return|;
 block|}
