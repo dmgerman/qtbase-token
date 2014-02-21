@@ -55,7 +55,7 @@ end_include
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QList<QTextLayout::FormatRange>
+argument|QVector<QTextLayout::FormatRange>
 argument_list|)
 end_macro
 begin_class
@@ -1377,7 +1377,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -1402,7 +1402,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -1453,7 +1453,7 @@ name|ranges
 expr_stmt|;
 block|}
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -1573,7 +1573,7 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -1591,7 +1591,7 @@ argument_list|)
 decl_stmt|;
 name|layout
 operator|.
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|ranges
 argument_list|)
@@ -1612,7 +1612,7 @@ argument_list|)
 decl_stmt|;
 name|layout
 operator|.
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|ranges
 argument_list|)

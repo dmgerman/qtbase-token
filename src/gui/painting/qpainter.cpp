@@ -27702,7 +27702,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -28189,7 +28189,7 @@ argument_list|)
 expr_stmt|;
 name|textLayout
 operator|.
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|underlineFormats
 argument_list|)

@@ -11210,7 +11210,7 @@ name|preeditString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -11386,7 +11386,7 @@ block|}
 block|}
 name|layout
 operator|->
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|overrides
 argument_list|)
@@ -16251,7 +16251,7 @@ argument_list|)
 expr_stmt|;
 name|layout
 operator|->
-name|clearAdditionalFormats
+name|clearFormats
 argument_list|()
 expr_stmt|;
 name|cursor

@@ -32482,7 +32482,7 @@ operator|->
 name|pen
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -32499,7 +32499,7 @@ argument_list|)
 expr_stmt|;
 name|layout
 operator|.
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|formats
 argument_list|)

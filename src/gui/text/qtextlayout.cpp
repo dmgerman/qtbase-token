@@ -119,7 +119,7 @@ define|#
 directive|define
 name|SuppressBackground
 value|0x513
-comment|/*!     \class QTextLayout::FormatRange     \reentrant      \brief The QTextLayout::FormatRange structure is used to apply extra formatting information     for a specified area in the text layout's content.     \inmodule QtGui      \sa QTextLayout::setAdditionalFormats(), QTextLayout::draw() */
+comment|/*!     \class QTextLayout::FormatRange     \reentrant      \brief The QTextLayout::FormatRange structure is used to apply extra formatting information     for a specified area in the text layout's content.     \inmodule QtGui      \sa QTextLayout::setFormats(), QTextLayout::draw() */
 comment|/*!     \variable QTextLayout::FormatRange::start     Specifies the beginning of the format range within the text layout's text. */
 comment|/*!     \variable QTextLayout::FormatRange::length     Specifies the numer of characters the format range spans. */
 comment|/*!     \variable QTextLayout::FormatRange::format     Specifies the format to apply. */
@@ -1183,14 +1183,8 @@ operator|::
 name|clearAdditionalFormats
 parameter_list|()
 block|{
-name|setAdditionalFormats
-argument_list|(
-name|QList
-argument_list|<
-name|FormatRange
-argument_list|>
+name|clearFormats
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 end_function

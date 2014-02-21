@@ -6493,14 +6493,14 @@ operator|.
 name|layout
 argument_list|()
 operator|->
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|srcBlock
 operator|.
 name|layout
 argument_list|()
 operator|->
-name|additionalFormats
+name|formats
 argument_list|()
 argument_list|)
 expr_stmt|;

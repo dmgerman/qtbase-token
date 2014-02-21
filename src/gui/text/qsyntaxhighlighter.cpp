@@ -265,7 +265,7 @@ operator|.
 name|layout
 argument_list|()
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -275,7 +275,7 @@ name|ranges
 init|=
 name|layout
 operator|->
-name|additionalFormats
+name|formats
 argument_list|()
 decl_stmt|;
 specifier|const
@@ -306,7 +306,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTextLayout
 operator|::
@@ -564,7 +564,7 @@ condition|)
 block|{
 name|layout
 operator|->
-name|setAdditionalFormats
+name|setFormats
 argument_list|(
 name|ranges
 argument_list|)
@@ -1065,7 +1065,7 @@ operator|.
 name|layout
 argument_list|()
 operator|->
-name|clearAdditionalFormats
+name|clearFormats
 argument_list|()
 expr_stmt|;
 name|cursor
