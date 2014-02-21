@@ -1451,31 +1451,21 @@ argument_list|(
 name|glyphIndices
 argument_list|)
 decl_stmt|;
-for|for
-control|(
-name|int
-name|i
+comment|// On Windows and QNX, freetype engine returns advance of 9 for some of the glyphs
+comment|// when full hinting is used (default on Windows).
+name|bool
+name|mayFail
 init|=
-literal|0
-init|;
-name|i
-operator|<
-name|glyphIndices
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-ifdef|#
-directive|ifdef
+literal|false
+decl_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
-comment|// In Windows, freetype engine returns advance of 9 when full hinting is used (default) for
-comment|// some of the glyphs.
-if|if
-condition|(
+argument_list|)
+name|mayFail
+operator|=
 name|font_d
 operator|->
 name|fontEngine
@@ -1500,6 +1490,55 @@ name|QFont
 operator|::
 name|PreferDefaultHinting
 operator|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+name|mayFail
+operator|=
+name|font_d
+operator|->
+name|fontEngine
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QFontEngine
+operator|::
+name|Freetype
+operator|&&
+name|hintingPreference
+operator|==
+name|QFont
+operator|::
+name|PreferFullHinting
+expr_stmt|;
+endif|#
+directive|endif
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|glyphIndices
+operator|.
+name|size
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+if|if
+condition|(
+name|mayFail
 operator|&&
 operator|(
 name|i
@@ -1516,14 +1555,13 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"Advance for some glyphs is not the expected with Windows Freetype engine (9 instead of 8)"
+literal|"FreeType engine reports unexpected advance "
+literal|"for some glyphs (9 instead of 8)"
 argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|qFuzzyCompare
@@ -1676,37 +1714,9 @@ operator|++
 name|i
 control|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-comment|// In Windows, freetype engine returns advance of 9 when full hinting is used (default) for
-comment|// some of the glyphs.
 if|if
 condition|(
-name|font_d
-operator|->
-name|fontEngine
-operator|->
-name|type
-argument_list|()
-operator|==
-name|QFontEngine
-operator|::
-name|Freetype
-operator|&&
-operator|(
-name|hintingPreference
-operator|==
-name|QFont
-operator|::
-name|PreferFullHinting
-operator|||
-name|hintingPreference
-operator|==
-name|QFont
-operator|::
-name|PreferDefaultHinting
-operator|)
+name|mayFail
 operator|&&
 operator|(
 name|i
@@ -1723,14 +1733,13 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"Advance for some glyphs is not the expected with Windows Freetype engine (9 instead of 8)"
+literal|"FreeType engine reports unexpected advance "
+literal|"for some glyphs (9 instead of 8)"
 argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|qFuzzyCompare
