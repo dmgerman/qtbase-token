@@ -82,6 +82,7 @@ end_decl_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QLoggingRule
 block|{
 name|public
@@ -142,7 +143,10 @@ argument_list|,
 argument|PatternFlag
 argument_list|)
 name|QString
-name|pattern
+name|category
+decl_stmt|;
+name|int
+name|messageType
 decl_stmt|;
 name|PatternFlags
 name|flags
@@ -154,7 +158,12 @@ name|private
 label|:
 name|void
 name|parse
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|pattern
+parameter_list|)
 function_decl|;
 block|}
 end_decl_stmt
