@@ -129,6 +129,11 @@ return|return
 name|m_windowFormat
 return|;
 block|}
+name|bool
+name|isSharing
+argument_list|()
+specifier|const
+block|;
 specifier|static
 name|EGLDisplay
 name|getEglDisplay
@@ -171,6 +176,9 @@ name|m_eglConfig
 block|;
 name|EGLContext
 name|m_eglContext
+block|;
+name|EGLContext
+name|m_eglShareContext
 block|;
 name|EGLSurface
 name|m_currentEglSurface
