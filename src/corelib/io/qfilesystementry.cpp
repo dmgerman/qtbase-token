@@ -791,16 +791,11 @@ literal|':'
 argument_list|)
 condition|)
 return|return
-name|QFSFileEngine
-operator|::
-name|currentPath
-argument_list|(
 name|m_filePath
 operator|.
 name|left
 argument_list|(
 literal|2
-argument_list|)
 argument_list|)
 return|;
 endif|#

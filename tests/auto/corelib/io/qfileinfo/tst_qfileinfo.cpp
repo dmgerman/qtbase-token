@@ -4179,6 +4179,11 @@ name|QDir
 operator|::
 name|currentPath
 argument_list|()
+operator|.
+name|left
+argument_list|(
+literal|2
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
