@@ -302,6 +302,13 @@ name|boolean
 name|paste
 parameter_list|()
 function_decl|;
+DECL|method|updateCursorPosition
+specifier|static
+specifier|native
+name|boolean
+name|updateCursorPosition
+parameter_list|()
+function_decl|;
 block|}
 end_class
 begin_class
