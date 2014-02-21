@@ -149,6 +149,9 @@ name|d_ptr
 expr_stmt|;
 block|}
 end_destructor
+begin_comment
+comment|/*! \internal  */
+end_comment
 begin_function
 DECL|function|initializeOpenGLFunctions
 name|bool

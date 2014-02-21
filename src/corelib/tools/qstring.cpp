@@ -4333,6 +4333,9 @@ begin_comment
 comment|/*! \fn QString::QString(const Null&)     \internal */
 end_comment
 begin_comment
+comment|/*! \fn QString::QString(QStringDataPtr)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn QString&QString::operator=(const Null&)     \internal */
 end_comment
 begin_comment
@@ -25805,6 +25808,9 @@ comment|/*!     \fn QStringRef&QStringRef::operator=(const QStringRef&other)    
 end_comment
 begin_comment
 comment|/*!     \fn QStringRef&QStringRef::operator=(const QString *string)      Constructs a string reference to the given \a string and assigns it to     this string reference, returning the result. */
+end_comment
+begin_comment
+comment|/*!     \typedef QString::Data     \internal */
 end_comment
 begin_comment
 comment|/*!     \typedef QString::DataPtr     \internal */

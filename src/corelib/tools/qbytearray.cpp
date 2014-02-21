@@ -9708,9 +9708,6 @@ end_comment
 begin_comment
 comment|/*!     \fn QByteArray&QByteArray::setNum(ushort n, int base)     \overload      \sa toUShort() */
 end_comment
-begin_comment
-comment|/*!     \overload      \sa toLongLong() */
-end_comment
 begin_function
 DECL|function|qulltoa2
 specifier|static
@@ -9809,6 +9806,9 @@ name|p
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \overload      \sa toLongLong() */
+end_comment
 begin_function
 DECL|function|setNum
 name|QByteArray
