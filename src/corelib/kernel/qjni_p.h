@@ -651,11 +651,9 @@ name|QSharedPointer
 operator|<
 name|QJNIObjectData
 operator|>
-operator|(
-name|new
-name|QJNIObjectData
+operator|::
+name|create
 argument_list|()
-operator|)
 expr_stmt|;
 if|if
 condition|(
