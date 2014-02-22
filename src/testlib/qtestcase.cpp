@@ -6384,6 +6384,16 @@ operator|::
 name|CallgrindParentProcess
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|qApp
+condition|)
+name|qFatal
+argument_list|(
+literal|"QtTest: -callgrind option is not available with QTEST_APPLESS_MAIN"
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QStringList
 name|origAppArgs
