@@ -624,7 +624,7 @@ argument_list|,
 comment|/*parent=*/
 literal|0
 argument_list|,
-argument|networkSession
+argument|qMove(networkSession)
 argument_list|)
 endif|#
 directive|endif

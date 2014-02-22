@@ -5854,7 +5854,10 @@ name|d
 operator|->
 name|networkSession
 operator|=
+name|qMove
+argument_list|(
 name|networkSession
+argument_list|)
 expr_stmt|;
 name|d
 operator|->
@@ -5923,7 +5926,10 @@ name|d
 operator|->
 name|networkSession
 operator|=
+name|qMove
+argument_list|(
 name|networkSession
+argument_list|)
 expr_stmt|;
 name|d
 operator|->
@@ -6486,7 +6492,10 @@ name|d
 operator|->
 name|sslContext
 operator|=
+name|qMove
+argument_list|(
 name|context
+argument_list|)
 expr_stmt|;
 block|}
 end_function
