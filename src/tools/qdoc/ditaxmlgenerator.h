@@ -694,6 +694,19 @@ name|marker
 argument_list|)
 block|;
 name|virtual
+name|void
+name|generateCollectionNode
+argument_list|(
+name|CollectionNode
+operator|*
+name|cn
+argument_list|,
+name|CodeMarker
+operator|*
+name|marker
+argument_list|)
+block|;
+name|virtual
 name|QString
 name|fileExtension
 argument_list|()
@@ -973,7 +986,7 @@ name|void
 name|writeRelatedLinks
 argument_list|(
 specifier|const
-name|DocNode
+name|Node
 operator|*
 name|dn
 argument_list|)
@@ -1077,11 +1090,15 @@ block|;
 name|void
 name|generateHeader
 argument_list|(
-argument|const Node* node
+specifier|const
+name|Node
+operator|*
+name|node
 argument_list|,
-argument|const QString& name
-argument_list|,
-argument|bool subpage = false
+specifier|const
+name|QString
+operator|&
+name|name
 argument_list|)
 block|;
 name|void
