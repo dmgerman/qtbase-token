@@ -63,6 +63,11 @@ include|#
 directive|include
 file|<qopenglfunctions.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qopenglbuffer.h>
+end_include
 begin_comment
 comment|// #define QT_GL_TEXTURE_GLYPH_CACHE_DEBUG
 end_comment
@@ -539,6 +544,9 @@ index|]
 block|;
 name|int
 name|m_serialNumber
+block|;
+name|QOpenGLBuffer
+name|m_buffer
 block|; }
 decl_stmt|;
 end_decl_stmt
