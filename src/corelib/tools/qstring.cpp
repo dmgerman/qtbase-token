@@ -20476,7 +20476,7 @@ begin_comment
 comment|/*! \fn QString&QString::setNum(ushort n, int base)      \overload */
 end_comment
 begin_comment
-comment|/*!     \fn QString&QString::setNum(double n, char format, int precision)     \overload      Sets the string to the printed value of \a n, formatted according     to the given \a format and \a precision, and returns a reference     to the string.      The \a format can be 'f', 'F', 'e', 'E', 'g' or 'G' (see the     arg() function documentation for an explanation of the formats).      The formatting always uses QLocale::C, i.e., English/UnitedStates.     To get a localized string representation of a number, use     QLocale::toString() with the appropriate locale. */
+comment|/*!     \fn QString&QString::setNum(double n, char format, int precision)     \overload      Sets the string to the printed value of \a n, formatted according     to the given \a format and \a precision, and returns a reference     to the string.      The \a format can be 'e', 'E', 'f', 'g' or 'G' (see     \l{Argument Formats} for an explanation of the formats).      The formatting always uses QLocale::C, i.e., English/UnitedStates.     To get a localized string representation of a number, use     QLocale::toString() with the appropriate locale. */
 end_comment
 begin_function
 DECL|function|setNum
