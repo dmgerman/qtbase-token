@@ -50,11 +50,6 @@ include|#
 directive|include
 file|"common/angleutils.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"windows.h"
-end_include
 begin_decl_stmt
 name|namespace
 name|gl

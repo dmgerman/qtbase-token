@@ -37,11 +37,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"common/system.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<set>
 end_include
 begin_include
@@ -287,8 +282,6 @@ expr_stmt|;
 name|Display
 argument_list|(
 argument|EGLNativeDisplayType displayId
-argument_list|,
-argument|HDC deviceContext
 argument_list|)
 empty_stmt|;
 name|bool
@@ -297,10 +290,6 @@ parameter_list|()
 function_decl|;
 name|EGLNativeDisplayType
 name|mDisplayId
-decl_stmt|;
-specifier|const
-name|HDC
-name|mDc
 decl_stmt|;
 name|bool
 name|mSoftwareDevice

@@ -66,7 +66,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/Uniform.h"
+file|"compiler/translator/Uniform.h"
 end_include
 begin_include
 include|#
@@ -445,6 +445,9 @@ name|mUsesDepthRange
 decl_stmt|;
 name|bool
 name|mUsesFragDepth
+decl_stmt|;
+name|bool
+name|mUsesDiscardRewriting
 decl_stmt|;
 specifier|static
 name|void

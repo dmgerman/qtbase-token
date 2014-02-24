@@ -1104,7 +1104,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|MACRO_UNTERMINATED_INVOCATION
+name|PP_MACRO_UNTERMINATED_INVOCATION
 argument_list|,
 name|identifier
 operator|.
@@ -1310,11 +1310,11 @@ argument_list|()
 condition|?
 name|Diagnostics
 operator|::
-name|MACRO_TOO_FEW_ARGS
+name|PP_MACRO_TOO_FEW_ARGS
 else|:
 name|Diagnostics
 operator|::
-name|MACRO_TOO_MANY_ARGS
+name|PP_MACRO_TOO_MANY_ARGS
 decl_stmt|;
 name|mDiagnostics
 operator|->

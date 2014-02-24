@@ -32,6 +32,12 @@ name|defined
 argument_list|(
 name|COMPONENT_BUILD
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_TRANSLATOR_STATIC
+argument_list|)
 end_if
 begin_if
 if|#
@@ -51,7 +57,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|COMPILER_IMPLEMENTATION
+name|ANGLE_TRANSLATOR_IMPLEMENTATION
 argument_list|)
 end_if
 begin_define
@@ -77,14 +83,14 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(COMPILER_IMPLEMENTATION)
+comment|// defined(ANGLE_TRANSLATOR_IMPLEMENTATION)
 end_comment
 begin_else
 else|#
 directive|else
 end_else
 begin_comment
-comment|// defined(WIN32)
+comment|// defined(_WIN32) || defined(_WIN64)
 end_comment
 begin_define
 DECL|macro|COMPILER_EXPORT
@@ -102,7 +108,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// defined(COMPONENT_BUILD)
+comment|// defined(COMPONENT_BUILD)&& !defined(ANGLE_TRANSLATOR_STATIC)
 end_comment
 begin_define
 DECL|macro|COMPILER_EXPORT
@@ -563,14 +569,33 @@ name|SH_LIMIT_CALL_STACK_DEPTH
 init|=
 literal|0x4000
 block|,
-comment|// This flag initializes gl_Position to vec4(0.0, 0.0, 0.0, 1.0) at
-comment|// the beginning of the vertex shader, and has no effect in the
+comment|// This flag initializes gl_Position to vec4(0,0,0,0) at the
+comment|// beginning of the vertex shader's main(), and has no effect in the
 comment|// fragment shader. It is intended as a workaround for drivers which
 comment|// incorrectly fail to link programs if gl_Position is not written.
 DECL|enumerator|SH_INIT_GL_POSITION
 name|SH_INIT_GL_POSITION
 init|=
 literal|0x8000
+block|,
+comment|// This flag replaces
+comment|//   "a&& b" with "a ? b : false",
+comment|//   "a || b" with "a ? true : b".
+comment|// This is to work around a MacOSX driver bug that |b| is executed
+comment|// independent of |a|'s value.
+DECL|enumerator|SH_UNFOLD_SHORT_CIRCUIT
+name|SH_UNFOLD_SHORT_CIRCUIT
+init|=
+literal|0x10000
+block|,
+comment|// This flag initializes varyings without static use in vertex shader
+comment|// at the beginning of main(), and has no effects in the fragment shader.
+comment|// It is intended as a workaround for drivers which incorrectly optimize
+comment|// out such varyings and cause a link failure.
+DECL|enumerator|SH_INIT_VARYINGS_WITHOUT_STATIC_USE
+name|SH_INIT_VARYINGS_WITHOUT_STATIC_USE
+init|=
+literal|0x20000
 block|, }
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions

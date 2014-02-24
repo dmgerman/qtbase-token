@@ -146,8 +146,48 @@ name|NULL
 expr_stmt|;
 block|}
 end_expr_stmt
+begin_expr_stmt
+unit|}  template
+operator|<
+name|typename
+name|T
+operator|>
+DECL|function|SafeDelete
+name|void
+name|SafeDelete
+argument_list|(
+argument|T*& resource
+argument_list|)
+block|{
+name|delete
+name|resource
+block|;
+name|resource
+operator|=
+name|NULL
+block|; }
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+DECL|function|SafeDeleteArray
+name|void
+name|SafeDeleteArray
+argument_list|(
+argument|T*& resource
+argument_list|)
+block|{
+name|delete
+index|[]
+name|resource
+block|;
+name|resource
+operator|=
+name|NULL
+block|; }
+end_expr_stmt
 begin_if
-unit|}
 if|#
 directive|if
 name|defined

@@ -126,12 +126,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_TRACE
+name|ANGLE_ENABLE_TRACE
 argument_list|)
-operator|&&
+operator|||
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_PERF
+name|ANGLE_ENABLE_PERF
 argument_list|)
 end_if
 begin_define
@@ -144,7 +144,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|(void(0))
+value|gl::trace(true, "trace: %s(%d): " message "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__)
 end_define
 begin_else
 else|#
@@ -160,7 +160,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|gl::trace(true, "trace: %s(%d): " message "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__)
+value|(void(0))
 end_define
 begin_endif
 endif|#
@@ -174,12 +174,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_TRACE
+name|ANGLE_ENABLE_TRACE
 argument_list|)
-operator|&&
+operator|||
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_PERF
+name|ANGLE_ENABLE_PERF
 argument_list|)
 end_if
 begin_define
@@ -192,7 +192,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|(void(0))
+value|gl::trace(false, "fixme: %s(%d): " message "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__)
 end_define
 begin_else
 else|#
@@ -208,7 +208,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|gl::trace(false, "fixme: %s(%d): " message "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__)
+value|(void(0))
 end_define
 begin_endif
 endif|#
@@ -222,12 +222,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_TRACE
+name|ANGLE_ENABLE_TRACE
 argument_list|)
-operator|&&
+operator|||
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_PERF
+name|ANGLE_ENABLE_PERF
 argument_list|)
 end_if
 begin_define
@@ -240,7 +240,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|(void(0))
+value|gl::trace(false, "err: %s(%d): " message "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__)
 end_define
 begin_else
 else|#
@@ -256,7 +256,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|gl::trace(false, "err: %s(%d): " message "\n", __FUNCTION__, __LINE__, ##__VA_ARGS__)
+value|(void(0))
 end_define
 begin_endif
 endif|#
@@ -270,34 +270,22 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_TRACE
+name|ANGLE_ENABLE_TRACE
 argument_list|)
-operator|&&
+operator|||
 name|defined
 argument_list|(
-name|ANGLE_DISABLE_PERF
+name|ANGLE_ENABLE_PERF
 argument_list|)
 end_if
-begin_define
-DECL|macro|EVENT
-define|#
-directive|define
-name|EVENT
-parameter_list|(
-name|message
-parameter_list|,
-modifier|...
-parameter_list|)
-value|(void(0))
-end_define
-begin_elif
-elif|#
-directive|elif
+begin_if
+if|#
+directive|if
 name|defined
 argument_list|(
 name|_MSC_VER
 argument_list|)
-end_elif
+end_if
 begin_define
 DECL|macro|EVENT
 define|#
@@ -325,6 +313,29 @@ parameter_list|,
 modifier|...
 parameter_list|)
 value|gl::ScopedPerfEventHelper scopedPerfEventHelper(message "\n", ##__VA_ARGS__);
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// _MSC_VER
+end_comment
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|EVENT
+define|#
+directive|define
+name|EVENT
+parameter_list|(
+name|message
+parameter_list|,
+modifier|...
+parameter_list|)
+value|(void(0))
 end_define
 begin_endif
 endif|#
@@ -443,7 +454,13 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// A macro that determines whether an object has a given runtime type.
+comment|// A macro that determines whether an object has a given runtime type. MSVC uses _CPPRTTI.
+end_comment
+begin_comment
+comment|// GCC uses __GXX_RTTI, but the macro was introduced in version 4.3, so we assume that all older
+end_comment
+begin_comment
+comment|// versions support RTTI.
 end_comment
 begin_if
 if|#
@@ -464,6 +481,33 @@ operator|||
 name|defined
 argument_list|(
 name|_CPPRTTI
+argument_list|)
+operator|)
+operator|&&
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|__GNUC__
+argument_list|)
+operator|||
+name|__GNUC__
+operator|<
+literal|4
+operator|||
+operator|(
+name|__GNUC__
+operator|==
+literal|4
+operator|&&
+name|__GNUC_MINOR__
+operator|<
+literal|3
+operator|)
+operator|||
+name|defined
+argument_list|(
+name|__GXX_RTTI
 argument_list|)
 operator|)
 end_if

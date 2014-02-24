@@ -37,7 +37,7 @@ literal|"C"
 block|{
 DECL|function|SetTraceFunctionPointers
 name|void
-name|__stdcall
+name|TRACE_ENTRY
 name|SetTraceFunctionPointers
 parameter_list|(
 name|GetCategoryEnabledFlagFunc

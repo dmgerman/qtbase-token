@@ -810,7 +810,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -887,7 +887,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -1068,7 +1068,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_UNTERMINATED
+name|PP_CONDITIONAL_UNTERMINATED
 argument_list|,
 name|block
 operator|.
@@ -1187,7 +1187,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|DIRECTIVE_INVALID_NAME
+name|PP_DIRECTIVE_INVALID_NAME
 argument_list|,
 name|token
 operator|->
@@ -1355,7 +1355,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|EOF_IN_DIRECTIVE
+name|PP_EOF_IN_DIRECTIVE
 argument_list|,
 name|token
 operator|->
@@ -1413,7 +1413,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -1445,7 +1445,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|MACRO_PREDEFINED_REDEFINED
+name|PP_MACRO_PREDEFINED_REDEFINED
 argument_list|,
 name|token
 operator|->
@@ -1474,7 +1474,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|MACRO_NAME_RESERVED
+name|PP_MACRO_NAME_RESERVED
 argument_list|,
 name|token
 operator|->
@@ -1601,7 +1601,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -1739,7 +1739,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|MACRO_REDEFINED
+name|PP_MACRO_REDEFINED
 argument_list|,
 name|token
 operator|->
@@ -1814,7 +1814,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -1866,7 +1866,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|MACRO_PREDEFINED_UNDEFINED
+name|PP_MACRO_PREDEFINED_UNDEFINED
 argument_list|,
 name|token
 operator|->
@@ -2013,7 +2013,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_ELSE_WITHOUT_IF
+name|PP_CONDITIONAL_ELSE_WITHOUT_IF
 argument_list|,
 name|token
 operator|->
@@ -2072,7 +2072,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_ELSE_AFTER_ELSE
+name|PP_CONDITIONAL_ELSE_AFTER_ELSE
 argument_list|,
 name|token
 operator|->
@@ -2135,7 +2135,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_UNEXPECTED_TOKEN
+name|PP_CONDITIONAL_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -2190,7 +2190,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_ELIF_WITHOUT_IF
+name|PP_CONDITIONAL_ELIF_WITHOUT_IF
 argument_list|,
 name|token
 operator|->
@@ -2249,7 +2249,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_ELIF_AFTER_ELSE
+name|PP_CONDITIONAL_ELIF_AFTER_ELSE
 argument_list|,
 name|token
 operator|->
@@ -2353,7 +2353,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_ENDIF_WITHOUT_IF
+name|PP_CONDITIONAL_ENDIF_WITHOUT_IF
 argument_list|,
 name|token
 operator|->
@@ -2401,7 +2401,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_UNEXPECTED_TOKEN
+name|PP_CONDITIONAL_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -2724,7 +2724,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNRECOGNIZED_PRAGMA
+name|PP_UNRECOGNIZED_PRAGMA
 argument_list|,
 name|token
 operator|->
@@ -2864,7 +2864,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_EXTENSION_NAME
+name|PP_INVALID_EXTENSION_NAME
 argument_list|,
 name|token
 operator|->
@@ -2913,7 +2913,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -2954,7 +2954,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_EXTENSION_BEHAVIOR
+name|PP_INVALID_EXTENSION_BEHAVIOR
 argument_list|,
 name|token
 operator|->
@@ -2993,7 +2993,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -3038,7 +3038,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_EXTENSION_DIRECTIVE
+name|PP_INVALID_EXTENSION_DIRECTIVE
 argument_list|,
 name|token
 operator|->
@@ -3104,7 +3104,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|VERSION_NOT_FIRST_STATEMENT
+name|PP_VERSION_NOT_FIRST_STATEMENT
 argument_list|,
 name|token
 operator|->
@@ -3203,7 +3203,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_VERSION_NUMBER
+name|PP_INVALID_VERSION_NUMBER
 argument_list|,
 name|token
 operator|->
@@ -3239,7 +3239,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INTEGER_OVERFLOW
+name|PP_INTEGER_OVERFLOW
 argument_list|,
 name|token
 operator|->
@@ -3268,7 +3268,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -3313,7 +3313,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_VERSION_DIRECTIVE
+name|PP_INVALID_VERSION_DIRECTIVE
 argument_list|,
 name|token
 operator|->
@@ -3461,7 +3461,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_LINE_NUMBER
+name|PP_INVALID_LINE_NUMBER
 argument_list|,
 name|token
 operator|->
@@ -3497,7 +3497,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INTEGER_OVERFLOW
+name|PP_INTEGER_OVERFLOW
 argument_list|,
 name|token
 operator|->
@@ -3538,7 +3538,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_FILE_NUMBER
+name|PP_INVALID_FILE_NUMBER
 argument_list|,
 name|token
 operator|->
@@ -3574,7 +3574,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INTEGER_OVERFLOW
+name|PP_INTEGER_OVERFLOW
 argument_list|,
 name|token
 operator|->
@@ -3603,7 +3603,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -3654,7 +3654,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_LINE_DIRECTIVE
+name|PP_INVALID_LINE_DIRECTIVE
 argument_list|,
 name|token
 operator|->
@@ -3983,7 +3983,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_UNEXPECTED_TOKEN
+name|PP_CONDITIONAL_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -4062,7 +4062,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|UNEXPECTED_TOKEN
+name|PP_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
@@ -4135,7 +4135,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|CONDITIONAL_UNEXPECTED_TOKEN
+name|PP_CONDITIONAL_UNEXPECTED_TOKEN
 argument_list|,
 name|token
 operator|->
