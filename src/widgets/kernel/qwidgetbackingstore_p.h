@@ -71,6 +71,12 @@ name|QPlatformTextureList
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformTextureListWatcher
+name|class
+name|QPlatformTextureListWatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QWidgetBackingStore
 name|class
 name|QWidgetBackingStore
@@ -122,6 +128,11 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_decl_stmt
 name|class
 name|QPlatformTextureListWatcher
@@ -176,6 +187,10 @@ name|m_backingStore
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|class
 name|Q_AUTOTEST_EXPORT

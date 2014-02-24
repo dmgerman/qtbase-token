@@ -156,13 +156,17 @@ argument_list|(
 name|widgetTextures
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|Q_ASSERT
 argument_list|(
-name|widget
+operator|!
+name|region
+operator|.
+name|isEmpty
+argument_list|()
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
 name|Q_ASSERT
 argument_list|(
 operator|!
@@ -179,6 +183,13 @@ operator|->
 name|count
 argument_list|()
 operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+name|Q_ASSERT
+argument_list|(
+name|widget
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT
@@ -3843,9 +3854,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 operator|delete
 name|dirtyOnScreenWidgets
 expr_stmt|;
+endif|#
+directive|endif
 name|dirtyOnScreenWidgets
 operator|=
 literal|0
@@ -5087,10 +5103,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_constructor
 DECL|function|QPlatformTextureListWatcher
 name|QPlatformTextureListWatcher
@@ -5182,6 +5194,13 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_OPENGL
+end_comment
 begin_comment
 comment|/*!     Synchronizes the backing store, i.e. dirty areas are repainted and flushed. */
 end_comment
@@ -5277,6 +5296,9 @@ expr_stmt|;
 block|}
 return|return;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 if|if
 condition|(
 name|textureListWatcher
@@ -5339,6 +5361,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+endif|#
+directive|endif
 name|doSync
 argument_list|()
 expr_stmt|;
