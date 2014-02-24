@@ -13084,7 +13084,7 @@ begin_comment
 comment|/*!     \fn const DataPtr&QVariant::data_ptr() const     \internal */
 end_comment
 begin_comment
-comment|/*!     \class QSequentialIterable      \inmodule QtCore     \brief The QSequentialIterable class is an iterable interface for a container in a QVariant.      This class allows several methods of accessing the elements of a container held within     a QVariant. An instance of QSequentialIterable can be extracted from a QVariant if it can     be converted to a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      The container itself is not copied before iterating over it.      \sa QVariant */
+comment|/*!     \class QSequentialIterable     \since 5.2     \inmodule QtCore     \brief The QSequentialIterable class is an iterable interface for a container in a QVariant.      This class allows several methods of accessing the elements of a container held within     a QVariant. An instance of QSequentialIterable can be extracted from a QVariant if it can     be converted to a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      The container itself is not copied before iterating over it.      \sa QVariant */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -13405,7 +13405,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QSequentialIterable::const_iterator      \inmodule QtCore     \brief The QSequentialIterable::const_iterator allows iteration over a container in a QVariant.      A QSequentialIterable::const_iterator can only be created by a QSequentialIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa QSequentialIterable */
+comment|/*!     \class QSequentialIterable::const_iterator     \since 5.2     \inmodule QtCore     \brief The QSequentialIterable::const_iterator allows iteration over a container in a QVariant.      A QSequentialIterable::const_iterator can only be created by a QSequentialIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa QSequentialIterable */
 end_comment
 begin_comment
 comment|/*!     Destroys the QSequentialIterable::const_iterator. */
@@ -14012,7 +14012,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAssociativeIterable      \inmodule QtCore     \brief The QAssociativeIterable class is an iterable interface for an associative container in a QVariant.      This class allows several methods of accessing the elements of an associative container held within     a QVariant. An instance of QAssociativeIterable can be extracted from a QVariant if it can     be converted to a QVariantHash or QVariantMap.      \snippet code/src_corelib_kernel_qvariant.cpp 10      The container itself is not copied before iterating over it.      \sa QVariant */
+comment|/*!     \class QAssociativeIterable     \since 5.2     \inmodule QtCore     \brief The QAssociativeIterable class is an iterable interface for an associative container in a QVariant.      This class allows several methods of accessing the elements of an associative container held within     a QVariant. An instance of QAssociativeIterable can be extracted from a QVariant if it can     be converted to a QVariantHash or QVariantMap.      \snippet code/src_corelib_kernel_qvariant.cpp 10      The container itself is not copied before iterating over it.      \sa QVariant */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -14409,7 +14409,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAssociativeIterable::const_iterator      \inmodule QtCore     \brief The QAssociativeIterable::const_iterator allows iteration over a container in a QVariant.      A QAssociativeIterable::const_iterator can only be created by a QAssociativeIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa QAssociativeIterable */
+comment|/*!     \class QAssociativeIterable::const_iterator     \since 5.2     \inmodule QtCore     \brief The QAssociativeIterable::const_iterator allows iteration over a container in a QVariant.      A QAssociativeIterable::const_iterator can only be created by a QAssociativeIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa QAssociativeIterable */
 end_comment
 begin_comment
 comment|/*!     Destroys the QAssociativeIterable::const_iterator. */
