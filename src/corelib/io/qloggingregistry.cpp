@@ -581,7 +581,7 @@ name|_section
 operator|==
 name|QLatin1String
 argument_list|(
-literal|"rules"
+literal|"Rules"
 argument_list|)
 condition|)
 block|{
@@ -992,7 +992,7 @@ name|setSection
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"rules"
+literal|"Rules"
 argument_list|)
 argument_list|)
 expr_stmt|;
