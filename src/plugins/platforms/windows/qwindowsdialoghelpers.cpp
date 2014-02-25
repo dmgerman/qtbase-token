@@ -4653,6 +4653,11 @@ name|mode
 parameter_list|,
 name|QFileDialogOptions
 operator|::
+name|AcceptMode
+name|acceptMode
+parameter_list|,
+name|QFileDialogOptions
+operator|::
 name|FileDialogOptions
 name|options
 parameter_list|)
@@ -5607,6 +5612,11 @@ name|mode
 parameter_list|,
 name|QFileDialogOptions
 operator|::
+name|AcceptMode
+name|acceptMode
+parameter_list|,
+name|QFileDialogOptions
+operator|::
 name|FileDialogOptions
 name|options
 parameter_list|)
@@ -5640,6 +5650,14 @@ name|QFileDialogOptions
 operator|::
 name|AnyFile
 case|:
+if|if
+condition|(
+name|acceptMode
+operator|==
+name|QFileDialogOptions
+operator|::
+name|AcceptSave
+condition|)
 name|flags
 operator||=
 name|FOS_NOREADONLYRETURN
@@ -5707,15 +5725,23 @@ argument_list|)
 operator|<<
 name|__FUNCTION__
 operator|<<
-literal|" mode="
+literal|"mode="
 operator|<<
 name|mode
 operator|<<
-literal|" options"
+literal|"acceptMode="
+operator|<<
+name|acceptMode
+operator|<<
+literal|"options="
 operator|<<
 name|options
 operator|<<
-literal|" results in 0x"
+literal|"results in"
+operator|<<
+name|showbase
+operator|<<
+name|hex
 operator|<<
 name|flags
 expr_stmt|;
@@ -8708,6 +8734,11 @@ operator|->
 name|setMode
 argument_list|(
 name|mode
+argument_list|,
+name|opts
+operator|->
+name|acceptMode
+argument_list|()
 argument_list|,
 name|opts
 operator|->
