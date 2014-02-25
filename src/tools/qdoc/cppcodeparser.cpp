@@ -878,14 +878,6 @@ operator|->
 name|primaryTreeRoot
 argument_list|()
 operator|->
-name|clearCurrentChildPointers
-argument_list|()
-expr_stmt|;
-name|qdb_
-operator|->
-name|primaryTreeRoot
-argument_list|()
-operator|->
 name|normalizeOverloads
 argument_list|()
 expr_stmt|;

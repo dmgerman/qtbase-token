@@ -31768,11 +31768,6 @@ operator|<=
 literal|1
 condition|)
 continue|continue;
-name|ncn
-operator|->
-name|clearCurrentChild
-argument_list|()
-expr_stmt|;
 name|beginSubPage
 argument_list|(
 name|ncn

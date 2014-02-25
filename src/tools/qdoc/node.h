@@ -1569,11 +1569,6 @@ modifier|*
 parameter_list|)
 block|{ }
 name|virtual
-name|void
-name|clearCurrentChild
-parameter_list|()
-block|{ }
-name|virtual
 specifier|const
 name|Node
 modifier|*
@@ -1914,10 +1909,6 @@ name|makeUndocumentedChildrenInternal
 argument_list|()
 block|;
 name|void
-name|clearCurrentChildPointers
-argument_list|()
-block|;
-name|void
 name|deleteChildren
 argument_list|()
 block|;
@@ -2043,18 +2034,6 @@ name|pageKeywds
 operator|<<
 name|t
 block|; }
-name|virtual
-name|void
-name|setCurrentChild
-argument_list|()
-block|{ }
-name|virtual
-name|void
-name|setCurrentChild
-argument_list|(
-argument|InnerNode*
-argument_list|)
-block|{ }
 name|virtual
 name|void
 name|setOutputFileName
@@ -2949,37 +2928,6 @@ operator|~
 name|NameCollisionNode
 argument_list|()
 block|;
-specifier|const
-name|InnerNode
-operator|*
-name|currentChild
-argument_list|()
-specifier|const
-block|{
-return|return
-name|current
-return|;
-block|}
-name|virtual
-name|void
-name|setCurrentChild
-argument_list|(
-argument|InnerNode* child
-argument_list|)
-block|{
-name|current
-operator|=
-name|child
-block|; }
-name|virtual
-name|void
-name|clearCurrentChild
-argument_list|()
-block|{
-name|current
-operator|=
-literal|0
-block|; }
 name|virtual
 name|bool
 name|isQmlNode
@@ -3068,10 +3016,6 @@ argument_list|)
 block|; }
 name|private
 operator|:
-name|InnerNode
-operator|*
-name|current
-block|;
 name|QMap
 operator|<
 name|QString
@@ -3358,16 +3302,6 @@ name|cnode_
 operator|=
 name|cn
 block|; }
-name|virtual
-name|void
-name|setCurrentChild
-argument_list|()
-block|;
-name|virtual
-name|void
-name|clearCurrentChild
-argument_list|()
-block|;
 name|virtual
 name|bool
 name|isAbstract
