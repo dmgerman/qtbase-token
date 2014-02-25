@@ -947,7 +947,11 @@ expr_stmt|;
 name|QLoggingRule
 name|rule
 argument_list|(
+name|QStringRef
+argument_list|(
+operator|&
 name|pattern
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)

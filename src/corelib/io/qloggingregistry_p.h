@@ -92,7 +92,7 @@ argument_list|()
 expr_stmt|;
 name|QLoggingRule
 argument_list|(
-argument|const QString&pattern
+argument|const QStringRef&pattern
 argument_list|,
 argument|bool enabled
 argument_list|)
@@ -160,7 +160,7 @@ name|void
 name|parse
 parameter_list|(
 specifier|const
-name|QString
+name|QStringRef
 modifier|&
 name|pattern
 parameter_list|)
