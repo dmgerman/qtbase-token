@@ -459,6 +459,10 @@ name|p
 operator|.
 name|d
 expr_stmt|;
+if|if
+condition|(
+name|d
+condition|)
 name|d
 operator|->
 name|ref
@@ -468,6 +472,9 @@ parameter_list|()
 constructor_decl|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     \fn QPen::QPen(QPen&&pen)     \since 5.4      Constructs a pen that is moved from the given \a pen.      The moved-from pen can only be assigned to, copied, or     destroyed. Any other operation (prior to assignment) leads to     undefined behavior. */
+end_comment
 begin_comment
 comment|/*!     Destroys the pen. */
 end_comment
@@ -481,6 +488,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|d
+operator|&&
 operator|!
 name|d
 operator|->
@@ -581,13 +590,15 @@ modifier|&
 name|p
 parameter_list|)
 block|{
-name|qAtomicAssign
+name|QPen
 argument_list|(
-name|d
-argument_list|,
 name|p
+argument_list|)
 operator|.
-name|d
+name|swap
+argument_list|(
+operator|*
+name|this
 argument_list|)
 expr_stmt|;
 return|return
