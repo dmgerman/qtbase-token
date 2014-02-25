@@ -4163,7 +4163,7 @@ begin_comment
 comment|/*!     \fn void *QModelIndex::internalPointer() const      Returns a \c{void} \c{*} pointer used by the model to associate     the index with the internal data structure.      \sa QAbstractItemModel::createIndex() */
 end_comment
 begin_comment
-comment|/*!     \fn void *QModelIndex::internalId() const      Returns a \c{qint64} used by the model to associate     the index with the internal data structure.      \sa QAbstractItemModel::createIndex() */
+comment|/*!     \fn quintptr QModelIndex::internalId() const      Returns a \c{quintptr} used by the model to associate     the index with the internal data structure.      \sa QAbstractItemModel::createIndex() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QModelIndex::isValid() const      Returns \c{true} if this model index is valid; otherwise returns \c{false}.      A valid index belongs to a model, and has non-negative row and column     numbers.      \sa model(), row(), column() */
