@@ -784,6 +784,8 @@ operator|==
 name|Qt
 operator|::
 name|LastCursor
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 for|for
@@ -887,8 +889,6 @@ operator|::
 name|LastCursor
 operator|+
 name|cursorsPerRow
-operator|-
-literal|1
 operator|)
 operator|/
 name|cursorsPerRow
