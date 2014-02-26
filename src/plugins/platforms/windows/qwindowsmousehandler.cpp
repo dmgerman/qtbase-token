@@ -596,12 +596,6 @@ operator|::
 name|DontPassOsMouseEventsSynthesizedFromTouch
 operator|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|passSynthesizedMouseEvents
-condition|)
-block|{
 comment|// Check for events synthesized from touch. Lower 7 bits are touch/pen index, bit 8 indicates touch.
 comment|// However, when tablet support is active, extraInfo is a packet serial number. This is not a problem
 comment|// since we do not want to ignore mouse events coming from a tablet.
@@ -612,10 +606,8 @@ init|=
 name|GetMessageExtraInfo
 argument_list|()
 decl_stmt|;
-specifier|const
-name|bool
-name|fromTouch
-init|=
+if|if
+condition|(
 operator|(
 name|extraInfo
 operator|&
@@ -623,26 +615,33 @@ name|signatureMask
 operator|)
 operator|==
 name|miWpSignature
-operator|&&
-operator|(
-name|extraInfo
-operator|&
-literal|0x80
-operator|)
-decl_stmt|;
-if|if
-condition|(
-name|fromTouch
 condition|)
-return|return
-literal|false
-return|;
+block|{
 name|source
 operator|=
 name|Qt
 operator|::
 name|MouseEventSynthesizedBySystem
 expr_stmt|;
+specifier|const
+name|bool
+name|fromTouch
+init|=
+name|extraInfo
+operator|&
+literal|0x80
+decl_stmt|;
+comment|// (else: Tablet PC)
+if|if
+condition|(
+name|fromTouch
+operator|&&
+operator|!
+name|passSynthesizedMouseEvents
+condition|)
+return|return
+literal|false
+return|;
 block|}
 endif|#
 directive|endif
