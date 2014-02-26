@@ -10531,6 +10531,10 @@ name|m_lastWindowStateEvent
 operator|=
 name|newState
 expr_stmt|;
+name|m_windowState
+operator|=
+name|newState
+expr_stmt|;
 block|}
 return|return;
 block|}
