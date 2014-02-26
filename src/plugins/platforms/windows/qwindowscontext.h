@@ -698,6 +698,13 @@ operator|&
 name|ctx
 argument_list|)
 decl_stmt|;
+name|void
+name|setTabletAbsoluteRange
+parameter_list|(
+name|int
+name|a
+parameter_list|)
+function_decl|;
 comment|// Returns a combination of SystemInfoFlags
 name|unsigned
 name|systemInfo

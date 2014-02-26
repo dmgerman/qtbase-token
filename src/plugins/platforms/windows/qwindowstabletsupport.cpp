@@ -641,6 +641,11 @@ argument_list|(
 name|context
 argument_list|)
 member_init_list|,
+name|m_absoluteRange
+argument_list|(
+literal|20
+argument_list|)
+member_init_list|,
 name|m_tiltSupport
 argument_list|(
 literal|false
@@ -2165,13 +2170,6 @@ comment|//    manhattanLength difference for detecting if a tablet input device 
 comment|//    in which case we snap the position to the mouse position.
 comment|// It seems there is no way to find out the mode programmatically, the LOGCONTEXT orgX/Y/Ext
 comment|// area is always the virtual desktop.
-enum|enum
-block|{
-name|absoluteRange
-init|=
-literal|20
-block|}
-enum|;
 specifier|const
 name|QRect
 name|virtualDesktopArea
@@ -2324,7 +2322,7 @@ operator|.
 name|manhattanLength
 argument_list|()
 operator|>
-name|absoluteRange
+name|m_absoluteRange
 condition|)
 block|{
 name|globalPos
