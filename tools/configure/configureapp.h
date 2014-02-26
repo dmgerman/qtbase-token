@@ -366,14 +366,6 @@ decl_stmt|;
 name|QString
 name|sybaseLibs
 decl_stmt|;
-name|QMap
-operator|<
-name|QString
-operator|,
-name|QString
-operator|>
-name|licenseInfo
-expr_stmt|;
 name|QString
 name|outputLine
 decl_stmt|;
