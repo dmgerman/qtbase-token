@@ -55,12 +55,12 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
 directive|include
-file|<windows.h>
+file|<QtCore/QString>
 end_include
 begin_endif
 endif|#
@@ -69,13 +69,32 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WINCE
+name|min
 end_ifdef
-begin_include
-include|#
-directive|include
-file|<QtCore/QString>
-end_include
+begin_comment
+comment|// windows.h without NOMINMAX is included by the benchmark headers.
+end_comment
+begin_undef
+DECL|macro|min
+undef|#
+directive|undef
+name|min
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|max
+end_ifdef
+begin_undef
+DECL|macro|max
+undef|#
+directive|undef
+name|max
+end_undef
 begin_endif
 endif|#
 directive|endif
@@ -90,6 +109,11 @@ include|#
 directive|include
 file|<QtCore/qmath.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QLibraryInfo>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -99,6 +123,20 @@ begin_include
 include|#
 directive|include
 file|<android/log.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
 end_include
 begin_endif
 endif|#
@@ -1585,14 +1623,16 @@ argument_list|,
 literal|"********* Start testing of %s *********\n"
 literal|"Config: Using QtTest library "
 name|QTEST_VERSION_STR
-literal|", Qt %s\n"
+literal|", %s\n"
 argument_list|,
 name|QTestResult
 operator|::
 name|currentTestObjectName
 argument_list|()
 argument_list|,
-name|qVersion
+name|QLibraryInfo
+operator|::
+name|build
 argument_list|()
 argument_list|)
 expr_stmt|;

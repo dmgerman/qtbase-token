@@ -3560,6 +3560,44 @@ literal|" : failure location"
 argument_list|)
 condition|)
 continue|continue;
+if|if
+condition|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"Config: Using QtTest library"
+argument_list|)
+comment|// Text build string
+operator|||
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"<QtBuild"
+argument_list|)
+comment|// XML, Light XML build string
+operator|||
+operator|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"<property value="
+argument_list|)
+operator|&&
+name|line
+operator|.
+name|endsWith
+argument_list|(
+literal|"name=\"QtBuild\"/>"
+argument_list|)
+operator|)
+condition|)
+block|{
+comment|// XUNIT-XML build string
+continue|continue;
+block|}
 specifier|const
 name|QString
 name|output
