@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmacmime.h"
+file|<QtPlatformSupport/private/qmacmime_p.h>
 end_include
 begin_undef
 DECL|macro|slots
