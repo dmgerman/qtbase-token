@@ -1739,12 +1739,7 @@ name|this
 argument_list|)
 return|;
 return|return
-name|QPlatformIntegration
-operator|::
-name|createPlatformTheme
-argument_list|(
-name|name
-argument_list|)
+literal|0
 return|;
 block|}
 end_function
