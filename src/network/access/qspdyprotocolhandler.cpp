@@ -6986,11 +6986,6 @@ argument_list|)
 operator|.
 name|second
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|httpReply
-argument_list|)
-expr_stmt|;
 name|qint32
 name|statusCodeInt
 init|=
@@ -7201,6 +7196,10 @@ operator|=
 literal|"got SPDY RST_STREAM message with unknown error code"
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|httpReply
+condition|)
 name|replyFinishedWithError
 argument_list|(
 name|httpReply
@@ -8388,6 +8387,11 @@ modifier|*
 name|errorMessage
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|httpReply
+argument_list|)
+expr_stmt|;
 name|httpReply
 operator|->
 name|d_func
