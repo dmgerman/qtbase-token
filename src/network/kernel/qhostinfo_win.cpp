@@ -539,9 +539,7 @@ name|QHOSTINFO_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QHostInfoAgent::fromName(%p): looking up \"%s\" (IPv6 support is %s)"
-argument_list|,
-name|this
+literal|"QHostInfoAgent::fromName(): looking up \"%s\" (IPv6 support is %s)"
 argument_list|,
 name|hostName
 operator|.
@@ -1283,9 +1281,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"QHostInfoAgent::run(%p): error (%s)"
-argument_list|,
-name|this
+literal|"QHostInfoAgent::run(): error (%s)"
 argument_list|,
 name|results
 operator|.
@@ -1359,9 +1355,7 @@ expr_stmt|;
 block|}
 name|qDebug
 argument_list|(
-literal|"QHostInfoAgent::run(%p): found %i entries: {%s}"
-argument_list|,
-name|this
+literal|"QHostInfoAgent::run(): found %i entries: {%s}"
 argument_list|,
 name|addresses
 operator|.
