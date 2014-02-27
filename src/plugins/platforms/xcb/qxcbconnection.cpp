@@ -3236,6 +3236,10 @@ DECL|member|any
 block|}
 name|any
 struct|;
+DECL|member|new_keyboard_notify
+name|xcb_xkb_new_keyboard_notify_event_t
+name|new_keyboard_notify
+decl_stmt|;
 DECL|member|map_notify
 name|xcb_xkb_map_notify_event_t
 name|map_notify
@@ -3393,9 +3397,6 @@ expr_stmt|;
 case|case
 name|XCB_BUTTON_PRESS
 case|:
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -3411,8 +3412,6 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|handleButtonPress
 argument_list|(
 name|event
@@ -3430,9 +3429,6 @@ expr_stmt|;
 case|case
 name|XCB_BUTTON_RELEASE
 case|:
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -3448,8 +3444,6 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|handleButtonRelease
 argument_list|(
 name|event
@@ -3508,9 +3502,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -3526,8 +3517,6 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|HANDLE_PLATFORM_WINDOW_EVENT
 argument_list|(
 name|xcb_motion_notify_event_t
@@ -3613,9 +3602,6 @@ expr_stmt|;
 case|case
 name|XCB_LEAVE_NOTIFY
 case|:
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -3631,8 +3617,6 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|HANDLE_PLATFORM_WINDOW_EVENT
 argument_list|(
 name|xcb_leave_notify_event_t
@@ -3669,9 +3653,6 @@ expr_stmt|;
 case|case
 name|XCB_KEY_PRESS
 case|:
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -3687,8 +3668,6 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|HANDLE_KEYBOARD_EVENT
 argument_list|(
 name|xcb_key_press_event_t
@@ -3699,9 +3678,6 @@ expr_stmt|;
 case|case
 name|XCB_KEY_RELEASE
 case|:
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -3717,8 +3693,6 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|HANDLE_KEYBOARD_EVENT
 argument_list|(
 name|xcb_key_release_event_t
@@ -3726,9 +3700,6 @@ argument_list|,
 name|handleKeyReleaseEvent
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
 case|case
 name|XCB_MAPPING_NOTIFY
 case|:
@@ -3744,8 +3715,6 @@ name|event
 argument_list|)
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
 case|case
 name|XCB_SELECTION_REQUEST
 case|:
@@ -4087,6 +4056,8 @@ operator|.
 name|xkbType
 condition|)
 block|{
+comment|// XkbNewKkdNotify and XkbMapNotify together capture all sorts of keymap
+comment|// updates (e.g. xmodmap, xkbcomp, setxkbmap), with minimal redundent recompilations.
 case|case
 name|XCB_XKB_STATE_NOTIFY
 case|:
@@ -4123,6 +4094,34 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
+case|case
+name|XCB_XKB_NEW_KEYBOARD_NOTIFY
+case|:
+block|{
+name|xcb_xkb_new_keyboard_notify_event_t
+modifier|*
+name|ev
+init|=
+operator|&
+name|xkb_event
+operator|->
+name|new_keyboard_notify
+decl_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|changed
+operator|&
+name|XCB_XKB_NKN_DETAIL_KEYCODES
+condition|)
+name|m_keyboard
+operator|->
+name|updateKeymap
+argument_list|()
+expr_stmt|;
+break|break;
+block|}
 default|default:
 break|break;
 block|}
@@ -7125,6 +7124,11 @@ operator|->
 name|present
 condition|)
 block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Qt: XKEYBOARD extension not present on the X server."
+expr_stmt|;
 name|xkb_first_event
 operator|=
 literal|0
@@ -7160,9 +7164,9 @@ name|xcb_xkb_use_extension
 argument_list|(
 name|c
 argument_list|,
-name|XCB_XKB_MAJOR_VERSION
+name|XKB_X11_MIN_MAJOR_XKB_VERSION
 argument_list|,
-name|XCB_XKB_MINOR_VERSION
+name|XKB_X11_MIN_MINOR_XKB_VERSION
 argument_list|)
 expr_stmt|;
 name|xkb_query
@@ -7200,7 +7204,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Qt: Unsupported XKB version (want %d %d, has %d %d)"
+literal|"Qt: Unsupported XKB version (We want %d %d, but X server has %d %d)"
 argument_list|,
 name|XCB_XKB_MAJOR_VERSION
 argument_list|,
@@ -7231,15 +7235,11 @@ argument_list|(
 name|xkb_query
 argument_list|)
 expr_stmt|;
-name|uint
-name|affectMap
-decl_stmt|,
-name|map
-decl_stmt|;
-name|affectMap
-operator|=
-name|map
-operator|=
+specifier|const
+name|uint16_t
+name|required_map_parts
+init|=
+operator|(
 name|XCB_XKB_MAP_PART_KEY_TYPES
 operator||
 name|XCB_XKB_MAP_PART_KEY_SYMS
@@ -7255,8 +7255,21 @@ operator||
 name|XCB_XKB_MAP_PART_VIRTUAL_MODS
 operator||
 name|XCB_XKB_MAP_PART_VIRTUAL_MOD_MAP
-expr_stmt|;
-comment|// Xkb events are reported to all interested clients without regard
+operator|)
+decl_stmt|;
+specifier|const
+name|uint16_t
+name|required_events
+init|=
+operator|(
+name|XCB_XKB_EVENT_TYPE_NEW_KEYBOARD_NOTIFY
+operator||
+name|XCB_XKB_EVENT_TYPE_MAP_NOTIFY
+operator||
+name|XCB_XKB_EVENT_TYPE_STATE_NOTIFY
+operator|)
+decl_stmt|;
+comment|// XKB events are reported to all interested clients without regard
 comment|// to the current keyboard input focus or grab state
 name|xcb_void_cookie_t
 name|select
@@ -7267,19 +7280,15 @@ name|c
 argument_list|,
 name|XCB_XKB_ID_USE_CORE_KBD
 argument_list|,
-name|XCB_XKB_EVENT_TYPE_STATE_NOTIFY
-operator||
-name|XCB_XKB_EVENT_TYPE_MAP_NOTIFY
+name|required_events
 argument_list|,
 literal|0
 argument_list|,
-name|XCB_XKB_EVENT_TYPE_STATE_NOTIFY
-operator||
-name|XCB_XKB_EVENT_TYPE_MAP_NOTIFY
+name|required_events
 argument_list|,
-name|affectMap
+name|required_map_parts
 argument_list|,
-name|map
+name|required_map_parts
 argument_list|,
 literal|0
 argument_list|)

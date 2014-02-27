@@ -62,7 +62,7 @@ begin_comment
 comment|// This is needed to make Qt compile together with XKB. xkb.h is using a variable
 end_comment
 begin_comment
-comment|// which is called 'explicit', this is a reserved keyword in c++ */
+comment|// which is called 'explicit', this is a reserved keyword in c++
 end_comment
 begin_ifndef
 ifndef|#
