@@ -4020,7 +4020,7 @@ DECL|macro|Q_NULLPTR
 define|#
 directive|define
 name|Q_NULLPTR
-value|0
+value|NULL
 end_define
 begin_endif
 endif|#
