@@ -226,6 +226,13 @@ name|void
 name|_q_uploadDataReadyRead
 argument_list|()
 decl_stmt|;
+name|void
+name|_q_replyDestroyed
+parameter_list|(
+name|QObject
+modifier|*
+parameter_list|)
+function_decl|;
 name|private
 label|:
 enum|enum
