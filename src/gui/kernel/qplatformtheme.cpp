@@ -3913,6 +3913,15 @@ argument_list|(
 literal|800
 argument_list|)
 return|;
+case|case
+name|MouseDoubleClickDistance
+case|:
+return|return
+name|QVariant
+argument_list|(
+literal|5
+argument_list|)
+return|;
 block|}
 return|return
 name|QVariant
