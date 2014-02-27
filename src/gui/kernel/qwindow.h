@@ -230,6 +230,8 @@ name|READ
 name|title
 name|WRITE
 name|setTitle
+name|NOTIFY
+name|windowTitleChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -1257,6 +1259,15 @@ name|WindowState
 name|windowState
 argument_list|)
 decl_stmt|;
+name|void
+name|windowTitleChanged
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|title
+parameter_list|)
+function_decl|;
 name|void
 name|xChanged
 parameter_list|(
