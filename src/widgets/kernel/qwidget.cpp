@@ -2301,6 +2301,7 @@ directive|ifndef
 name|Q_WS_MAC
 if|if
 condition|(
+operator|(
 name|flags
 operator|&
 operator|(
@@ -2316,6 +2317,19 @@ name|Qt
 operator|::
 name|WindowContextHelpButtonHint
 operator|)
+operator|)
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+operator|&&
+name|type
+operator|!=
+name|Qt
+operator|::
+name|Dialog
+comment|// QTBUG-2027, allow for menu-less dialogs.
+endif|#
+directive|endif
 condition|)
 block|{
 name|flags
