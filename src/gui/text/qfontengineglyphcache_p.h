@@ -63,6 +63,11 @@ include|#
 directive|include
 file|"private/qfont_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"private/qfontengine_p.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -73,47 +78,46 @@ name|QSharedData
 block|{
 name|public
 operator|:
-expr|enum
-name|Type
-block|{
-name|Raster_RGBMask
-block|,
-name|Raster_A8
-block|,
-name|Raster_Mono
-block|,
-name|Raster_ARGB
-block|}
-block|;
 name|QFontEngineGlyphCache
 argument_list|(
-argument|const QTransform&matrix
+argument|QFontEngine::GlyphFormat format
 argument_list|,
-argument|Type type
+argument|const QTransform&matrix
 argument_list|)
 operator|:
-name|m_transform
+name|m_format
 argument_list|(
-name|matrix
+name|format
 argument_list|)
 block|,
-name|m_type
+name|m_transform
 argument_list|(
-argument|type
+argument|matrix
 argument_list|)
-block|{ }
+block|{
+name|Q_ASSERT
+argument_list|(
+name|m_format
+operator|!=
+name|QFontEngine
+operator|::
+name|Format_None
+argument_list|)
+block|;     }
 name|virtual
 operator|~
 name|QFontEngineGlyphCache
 argument_list|()
 block|{ }
-name|Type
-name|cacheType
+name|QFontEngine
+operator|::
+name|GlyphFormat
+name|glyphFormat
 argument_list|()
 specifier|const
 block|{
 return|return
-name|m_type
+name|m_format
 return|;
 block|}
 specifier|const
@@ -127,13 +131,13 @@ return|return
 name|m_transform
 return|;
 block|}
+name|QFontEngine
+operator|::
+name|GlyphFormat
+name|m_format
+block|;
 name|QTransform
 name|m_transform
-block|;
-name|QFontEngineGlyphCache
-operator|::
-name|Type
-name|m_type
 block|; }
 decl_stmt|;
 end_decl_stmt

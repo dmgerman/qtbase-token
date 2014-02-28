@@ -198,6 +198,14 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+expr|enum
+name|ConnectionType
+block|{
+name|ConnectionTypeHTTP
+block|,
+name|ConnectionTypeSPDY
+block|}
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
@@ -211,10 +219,12 @@ literal|80
 argument_list|,
 argument|bool encrypt = false
 argument_list|,
+argument|ConnectionType connectionType = ConnectionTypeHTTP
+argument_list|,
 argument|QObject *parent =
 literal|0
 argument_list|,
-argument|QSharedPointer<QNetworkSession> networkSession = QSharedPointer<QNetworkSession>()
+argument|QSharedPointer<QNetworkSession> networkSession                                     = QSharedPointer<QNetworkSession>()
 argument_list|)
 block|;
 name|QHttpNetworkConnection
@@ -232,6 +242,8 @@ argument|QObject *parent =
 literal|0
 argument_list|,
 argument|QSharedPointer<QNetworkSession> networkSession = QSharedPointer<QNetworkSession>()
+argument_list|,
+argument|ConnectionType connectionType = ConnectionTypeHTTP
 argument_list|)
 block|;
 else|#
@@ -248,6 +260,8 @@ argument|bool encrypt = false
 argument_list|,
 argument|QObject *parent =
 literal|0
+argument_list|,
+argument|ConnectionType connectionType = ConnectionTypeHTTP
 argument_list|)
 block|;
 name|QHttpNetworkConnection
@@ -263,6 +277,8 @@ argument|bool encrypt = false
 argument_list|,
 argument|QObject *parent =
 literal|0
+argument_list|,
+argument|ConnectionType connectionType = ConnectionTypeHTTP
 argument_list|)
 block|;
 endif|#
@@ -338,6 +354,16 @@ operator|*
 name|channels
 argument_list|()
 specifier|const
+block|;
+name|ConnectionType
+name|connectionType
+argument_list|()
+block|;
+name|void
+name|setConnectionType
+argument_list|(
+argument|ConnectionType type
+argument_list|)
 block|;
 ifndef|#
 directive|ifndef
@@ -416,6 +442,10 @@ name|friend
 name|class
 name|QHttpProtocolHandler
 block|;
+name|friend
+name|class
+name|QSpdyProtocolHandler
+block|;
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
@@ -470,7 +500,7 @@ operator|:
 specifier|static
 specifier|const
 name|int
-name|defaultChannelCount
+name|defaultHttpChannelCount
 block|;
 specifier|static
 specifier|const
@@ -513,6 +543,8 @@ argument_list|,
 argument|quint16 port
 argument_list|,
 argument|bool encrypt
+argument_list|,
+argument|QHttpNetworkConnection::ConnectionType type
 argument_list|)
 block|;
 name|QHttpNetworkConnectionPrivate
@@ -524,6 +556,8 @@ argument_list|,
 argument|quint16 port
 argument_list|,
 argument|bool encrypt
+argument_list|,
+argument|QHttpNetworkConnection::ConnectionType type
 argument_list|)
 block|;
 operator|~
@@ -812,6 +846,11 @@ name|lowPriorityQueue
 block|;
 name|int
 name|preConnectRequests
+block|;
+name|QHttpNetworkConnection
+operator|::
+name|ConnectionType
+name|connectionType
 block|;
 ifndef|#
 directive|ifndef

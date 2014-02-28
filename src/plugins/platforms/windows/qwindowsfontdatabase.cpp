@@ -9007,9 +9007,9 @@ name|few
 operator|->
 name|glyphFormat
 operator|=
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Raster_RGBMask
+name|Format_A32
 expr_stmt|;
 name|few
 operator|->

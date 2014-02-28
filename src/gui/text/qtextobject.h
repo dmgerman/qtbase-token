@@ -934,7 +934,7 @@ name|text
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QTextLayout
 operator|::

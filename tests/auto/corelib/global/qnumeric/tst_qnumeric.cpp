@@ -926,6 +926,20 @@ argument_list|,
 name|expectedDistance
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+name|QEXPECT_FAIL
+argument_list|(
+literal|"denormal"
+argument_list|,
+literal|"See QTBUG-37094"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|qFloatDistance
@@ -1330,6 +1344,20 @@ argument_list|,
 name|expectedDistance
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+name|QEXPECT_FAIL
+argument_list|(
+literal|"denormal"
+argument_list|,
+literal|"See QTBUG-37094"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|qFloatDistance

@@ -1342,10 +1342,10 @@ block|;
 name|QSpanData
 name|solid_color_filler
 block|;
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Type
-name|glyphCacheType
+name|GlyphFormat
+name|glyphCacheFormat
 block|;
 name|QScopedPointer
 operator|<

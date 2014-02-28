@@ -79,6 +79,10 @@ name|registerViewer
 argument_list|()
 block|;
 comment|// Call in initialization, when context is up.
+name|void
+name|cleanup
+argument_list|()
+block|;
 name|virtual
 name|QMimeData
 operator|*

@@ -675,7 +675,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Creates a QJsonDocument from the QVariant \a variant.   If the \a variant contains any other type than a QVariant::Map,  QVariant::List or QVariant::StringList, the returned document  document is invalid.   \sa toVariant()  */
+comment|/*!  Creates a QJsonDocument from the QVariant \a variant.   If the \a variant contains any other type than a QVariantMap,  QVariantList or QStringList, the returned document  document is invalid.   \sa toVariant()  */
 end_comment
 begin_function
 DECL|function|fromVariant

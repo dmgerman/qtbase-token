@@ -2017,12 +2017,6 @@ begin_decl_stmt
 name|namespace
 name|gl
 block|{
-specifier|extern
-name|long
-modifier|*
-modifier|*
-name|traceSamplingState
-decl_stmt|;
 name|namespace
 name|TraceEvent
 block|{
@@ -2924,121 +2918,15 @@ empty_stmt|;
 comment|// TraceEventSamplingStateScope records the current sampling state
 comment|// and sets a new sampling state. When the scope exists, it restores
 comment|// the sampling state having recorded.
-name|template
-operator|<
-name|size_t
-name|BucketNumber
-operator|>
-name|class
-name|SamplingStateScope
-block|{
-name|public
-operator|:
-name|SamplingStateScope
-argument_list|(
-argument|const char* categoryAndName
-argument_list|)
-block|{
-name|m_previousState
-operator|=
-name|SamplingStateScope
-operator|<
-name|BucketNumber
-operator|>
-operator|::
-name|current
-argument_list|()
-block|;
-name|SamplingStateScope
-operator|<
-name|BucketNumber
-operator|>
-operator|::
-name|set
-argument_list|(
-name|categoryAndName
-argument_list|)
-block|;     }
-operator|~
-name|SamplingStateScope
-argument_list|()
-block|{
-name|SamplingStateScope
-operator|<
-name|BucketNumber
-operator|>
-operator|::
-name|set
-argument_list|(
-name|m_previousState
-argument_list|)
-block|;     }
+if|#
+directive|if
+literal|0
+comment|// This is not used by ANGLE and causes a compilation error on MinGW
+block|template<size_t BucketNumber> class SamplingStateScope { public:     SamplingStateScope(const char* categoryAndName)     {         m_previousState = SamplingStateScope<BucketNumber>::current();         SamplingStateScope<BucketNumber>::set(categoryAndName);     }      ~SamplingStateScope()     {         SamplingStateScope<BucketNumber>::set(m_previousState);     }
 comment|// FIXME: Make load/store to traceSamplingState[] thread-safe and atomic.
-specifier|static
-specifier|inline
-specifier|const
-name|char
-operator|*
-name|current
-argument_list|()
-block|{
-return|return
-name|reinterpret_cast
-operator|<
-specifier|const
-name|char
-operator|*
-operator|>
-operator|(
-operator|*
-name|gl
-operator|::
-name|traceSamplingState
-index|[
-name|BucketNumber
-index|]
-operator|)
-return|;
-block|}
-specifier|static
-specifier|inline
-name|void
-name|set
-argument_list|(
-argument|const char* categoryAndName
-argument_list|)
-block|{
-operator|*
-name|gl
-operator|::
-name|traceSamplingState
-index|[
-name|BucketNumber
-index|]
-operator|=
-name|reinterpret_cast
-operator|<
-name|long
-operator|>
-operator|(
-name|const_cast
-operator|<
-name|char
-operator|*
-operator|>
-operator|(
-name|categoryAndName
-operator|)
-operator|)
-block|;     }
-name|private
-operator|:
-specifier|const
-name|char
-operator|*
-name|m_previousState
-block|; }
-expr_stmt|;
+block|static inline const char* current()     {         return reinterpret_cast<const char*>(*gl::traceSamplingState[BucketNumber]);     }     static inline void set(const char* categoryAndName)     {         *gl::traceSamplingState[BucketNumber] = reinterpret_cast<long>(const_cast<char*>(categoryAndName));     }  private:     const char* m_previousState; };
+endif|#
+directive|endif
 block|}
 comment|// namespace TraceEvent
 block|}

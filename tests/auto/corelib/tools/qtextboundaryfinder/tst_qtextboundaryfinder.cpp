@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<qlist.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_class
 DECL|class|tst_QTextBoundaryFinder
 class|class
@@ -947,7 +952,9 @@ name|expectedBreakPositionsRev
 init|=
 name|expectedBreakPositions
 decl_stmt|;
-name|qSort
+name|std
+operator|::
+name|sort
 argument_list|(
 name|expectedBreakPositionsRev
 operator|.

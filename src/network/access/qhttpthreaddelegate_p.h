@@ -249,6 +249,9 @@ block|;
 name|bool
 name|isPipeliningUsed
 block|;
+name|bool
+name|isSpdyUsed
+block|;
 name|qint64
 name|incomingContentLength
 block|;
@@ -388,6 +391,8 @@ name|char
 operator|>
 argument_list|,
 name|qint64
+argument_list|,
+name|bool
 argument_list|)
 block|;
 name|void

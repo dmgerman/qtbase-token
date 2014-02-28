@@ -6563,9 +6563,9 @@ name|margin
 operator|=
 name|glyphMargin
 argument_list|(
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Raster_RGBMask
+name|Format_A32
 argument_list|)
 expr_stmt|;
 name|glyph_metrics_t
@@ -7062,9 +7062,9 @@ name|margin
 init|=
 name|glyphMargin
 argument_list|(
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Raster_RGBMask
+name|Format_A32
 argument_list|)
 decl_stmt|;
 name|QWindowsNativeImage

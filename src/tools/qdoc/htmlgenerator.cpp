@@ -8191,6 +8191,16 @@ name|QString
 argument_list|(
 literal|"index.html"
 argument_list|)
+operator|&&
+name|dn
+operator|->
+name|name
+argument_list|()
+operator|!=
+name|QString
+argument_list|(
+literal|"qtexamplesandtutorials.html"
+argument_list|)
 condition|)
 name|generateTableOfContents
 argument_list|(

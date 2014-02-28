@@ -218,6 +218,8 @@ operator|=
 name|src
 operator|+
 name|n
+operator|+
+literal|1
 expr_stmt|;
 return|return
 literal|false
@@ -358,6 +360,8 @@ operator|=
 name|src
 operator|+
 name|n
+operator|+
+literal|1
 expr_stmt|;
 return|return
 literal|false

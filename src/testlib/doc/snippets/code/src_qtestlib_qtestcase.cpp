@@ -785,6 +785,47 @@ expr_stmt|;
 block|}
 block|}
 comment|//! [27]
+comment|//! [28]
+name|QTest
+operator|::
+name|keyClick
+argument_list|(
+name|myWindow
+argument_list|,
+literal|'a'
+argument_list|)
+expr_stmt|;
+comment|//! [28]
+comment|//! [29]
+name|QTest
+operator|::
+name|keyClick
+argument_list|(
+name|myWindow
+argument_list|,
+name|Qt
+operator|::
+name|Key_Escape
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|keyClick
+argument_list|(
+name|myWindow
+argument_list|,
+name|Qt
+operator|::
+name|Key_Escape
+argument_list|,
+name|Qt
+operator|::
+name|ShiftModifier
+argument_list|,
+literal|200
+argument_list|)
+expr_stmt|;
+comment|//! [29]
 block|}
 end_function
 end_unit

@@ -1634,6 +1634,18 @@ name|painter
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+specifier|const
+name|int
+name|elapsed
+init|=
+name|time
+operator|.
+name|elapsed
+argument_list|()
+condition|)
+block|{
 name|QString
 name|framesPerSecond
 decl_stmt|;
@@ -1644,10 +1656,7 @@ argument_list|(
 name|frames
 operator|/
 operator|(
-name|time
-operator|.
 name|elapsed
-argument_list|()
 operator|/
 literal|1000.0
 operator|)
@@ -1679,6 +1688,7 @@ operator|+
 literal|" fps"
 argument_list|)
 expr_stmt|;
+block|}
 name|painter
 operator|.
 name|end

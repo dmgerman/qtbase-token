@@ -950,7 +950,6 @@ begin_comment
 comment|/*!   Returns a string describing how this version of Qt was built.    \internal    \since 5.3 */
 end_comment
 begin_function
-DECL|function|build
 specifier|const
 name|char
 modifier|*
@@ -958,6 +957,7 @@ name|QLibraryInfo
 operator|::
 name|build
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 specifier|static
 specifier|const
@@ -969,7 +969,7 @@ literal|"Qt "
 name|QT_VERSION_STR
 literal|" ("
 name|__DATE__
-literal|"), "
+literal|", "
 name|COMPILER_STRING
 literal|", "
 if|#

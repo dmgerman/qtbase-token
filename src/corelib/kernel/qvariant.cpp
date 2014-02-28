@@ -5685,7 +5685,7 @@ begin_comment
 comment|/*!     \fn QVariant::QVariant()      Constructs an invalid variant. */
 end_comment
 begin_comment
-comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, and \c QMetaType::QObjectStar.      \sa QVariant::fromValue(), Type */
+comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, and \c QMetaType::QObjectStar.      \sa QVariant::fromValue(), QMetaType::Type */
 end_comment
 begin_comment
 comment|/*!     \fn QVariant::QVariant(Type type)      Constructs a null variant of type \a type. */
@@ -7689,7 +7689,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convert this variant to type Invalid and free up any resources     used. */
+comment|/*!     Convert this variant to type QMetaType::UnknownType and free up any resources     used. */
 end_comment
 begin_function
 DECL|function|clear
@@ -7766,7 +7766,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the int representation of the storage type, \a typeId, to     its string representation.      Returns a null pointer if the type is QVariant::Invalid or doesn't exist. */
+comment|/*!     Converts the int representation of the storage type, \a typeId, to     its string representation.      Returns a null pointer if the type is QMetaType::UnknownType or doesn't exist. */
 end_comment
 begin_function
 DECL|function|typeToName
@@ -8777,7 +8777,7 @@ begin_comment
 comment|//QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \fn bool QVariant::isValid() const      Returns \c true if the storage type of this variant is not     QVariant::Invalid; otherwise returns \c false. */
+comment|/*!     \fn bool QVariant::isValid() const      Returns \c true if the storage type of this variant is not     QMetaType::UnknownType; otherwise returns \c false. */
 end_comment
 begin_function
 template|template
@@ -13084,7 +13084,7 @@ begin_comment
 comment|/*!     \fn const DataPtr&QVariant::data_ptr() const     \internal */
 end_comment
 begin_comment
-comment|/*!     \class QSequentialIterable      \inmodule QtCore     \brief The QSequentialIterable class is an iterable interface for a container in a QVariant.      This class allows several methods of accessing the elements of a container held within     a QVariant. An instance of QSequentialIterable can be extracted from a QVariant if it can     be converted to a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      The container itself is not copied before iterating over it.      \sa QVariant */
+comment|/*!     \class QSequentialIterable     \since 5.2     \inmodule QtCore     \brief The QSequentialIterable class is an iterable interface for a container in a QVariant.      This class allows several methods of accessing the elements of a container held within     a QVariant. An instance of QSequentialIterable can be extracted from a QVariant if it can     be converted to a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      The container itself is not copied before iterating over it.      \sa QVariant */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -13405,7 +13405,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QSequentialIterable::const_iterator      \inmodule QtCore     \brief The QSequentialIterable::const_iterator allows iteration over a container in a QVariant.      A QSequentialIterable::const_iterator can only be created by a QSequentialIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa QSequentialIterable */
+comment|/*!     \class QSequentialIterable::const_iterator     \since 5.2     \inmodule QtCore     \brief The QSequentialIterable::const_iterator allows iteration over a container in a QVariant.      A QSequentialIterable::const_iterator can only be created by a QSequentialIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa QSequentialIterable */
 end_comment
 begin_comment
 comment|/*!     Destroys the QSequentialIterable::const_iterator. */
@@ -14012,7 +14012,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAssociativeIterable      \inmodule QtCore     \brief The QAssociativeIterable class is an iterable interface for an associative container in a QVariant.      This class allows several methods of accessing the elements of an associative container held within     a QVariant. An instance of QAssociativeIterable can be extracted from a QVariant if it can     be converted to a QVariantHash or QVariantMap.      \snippet code/src_corelib_kernel_qvariant.cpp 10      The container itself is not copied before iterating over it.      \sa QVariant */
+comment|/*!     \class QAssociativeIterable     \since 5.2     \inmodule QtCore     \brief The QAssociativeIterable class is an iterable interface for an associative container in a QVariant.      This class allows several methods of accessing the elements of an associative container held within     a QVariant. An instance of QAssociativeIterable can be extracted from a QVariant if it can     be converted to a QVariantHash or QVariantMap.      \snippet code/src_corelib_kernel_qvariant.cpp 10      The container itself is not copied before iterating over it.      \sa QVariant */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -14409,7 +14409,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAssociativeIterable::const_iterator      \inmodule QtCore     \brief The QAssociativeIterable::const_iterator allows iteration over a container in a QVariant.      A QAssociativeIterable::const_iterator can only be created by a QAssociativeIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa QAssociativeIterable */
+comment|/*!     \class QAssociativeIterable::const_iterator     \since 5.2     \inmodule QtCore     \brief The QAssociativeIterable::const_iterator allows iteration over a container in a QVariant.      A QAssociativeIterable::const_iterator can only be created by a QAssociativeIterable instance,     and can be used in a way similar to other stl-style iterators.      \snippet code/src_corelib_kernel_qvariant.cpp 10      \sa QAssociativeIterable */
 end_comment
 begin_comment
 comment|/*!     Destroys the QAssociativeIterable::const_iterator. */

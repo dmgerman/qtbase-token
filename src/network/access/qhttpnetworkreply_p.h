@@ -409,6 +409,18 @@ name|isPipeliningUsed
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|isSpdyUsed
+argument_list|()
+specifier|const
+expr_stmt|;
+name|void
+name|setSpdyWasUsed
+parameter_list|(
+name|bool
+name|spdy
+parameter_list|)
+function_decl|;
 name|QHttpNetworkConnection
 modifier|*
 name|connection
@@ -587,6 +599,10 @@ decl_stmt|;
 name|friend
 name|class
 name|QHttpProtocolHandler
+decl_stmt|;
+name|friend
+name|class
+name|QSpdyProtocolHandler
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -804,6 +820,14 @@ block|,
 name|ReadingDataState
 block|,
 name|AllDoneState
+block|,
+name|SPDYSYNSent
+block|,
+name|SPDYUploading
+block|,
+name|SPDYHalfClosed
+block|,
+name|SPDYClosed
 block|}
 name|state
 enum|;
@@ -862,6 +886,26 @@ decl_stmt|;
 name|qint64
 name|readBufferMaxSize
 decl_stmt|;
+name|qint32
+name|windowSizeDownload
+decl_stmt|;
+comment|// only for SPDY
+name|qint32
+name|windowSizeUpload
+decl_stmt|;
+comment|// only for SPDY
+name|qint32
+name|currentlyReceivedDataInWindow
+decl_stmt|;
+comment|// only for SPDY
+name|qint32
+name|currentlyUploadedDataInWindow
+decl_stmt|;
+comment|// only for SPDY
+name|qint64
+name|totallyUploadedData
+decl_stmt|;
+comment|// only for SPDY
 name|QPointer
 operator|<
 name|QHttpNetworkConnection
@@ -892,6 +936,9 @@ name|bool
 name|pipeliningUsed
 decl_stmt|;
 name|bool
+name|spdyUsed
+decl_stmt|;
+name|bool
 name|downstreamLimited
 decl_stmt|;
 name|char
@@ -905,6 +952,10 @@ name|z_stream_s
 modifier|*
 name|inflateStrm
 decl_stmt|;
+name|int
+name|initializeInflateStream
+parameter_list|()
+function_decl|;
 name|qint64
 name|uncompressBodyData
 parameter_list|(

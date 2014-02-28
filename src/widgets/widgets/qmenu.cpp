@@ -17726,9 +17726,6 @@ modifier|*
 name|noReplayFor
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
 name|d_func
 argument_list|()
 operator|->
@@ -17736,15 +17733,6 @@ name|noReplayFor
 operator|=
 name|noReplayFor
 expr_stmt|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|noReplayFor
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

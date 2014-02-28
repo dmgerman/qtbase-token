@@ -692,6 +692,10 @@ operator||=
 name|QOpenGLFunctions
 operator|::
 name|NPOTTextures
+operator||
+name|QOpenGLFunctions
+operator|::
+name|NPOTTextureRepeat
 expr_stmt|;
 comment|// assume version 2.0 or higher
 name|features
@@ -739,6 +743,10 @@ operator||
 name|QOpenGLFunctions
 operator|::
 name|NPOTTextures
+operator||
+name|QOpenGLFunctions
+operator|::
+name|NPOTTextureRepeat
 expr_stmt|;
 if|if
 condition|(

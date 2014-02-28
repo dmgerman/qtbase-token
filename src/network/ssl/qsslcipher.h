@@ -48,14 +48,15 @@ label|:
 name|QSslCipher
 argument_list|()
 expr_stmt|;
+name|explicit
 name|QSslCipher
-argument_list|(
+parameter_list|(
 specifier|const
 name|QString
-operator|&
+modifier|&
 name|name
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
 name|QSslCipher
 argument_list|(
 argument|const QString&name

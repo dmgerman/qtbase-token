@@ -36,7 +36,7 @@ name|qreal_to_fixed_26_6
 parameter_list|(
 name|f
 parameter_list|)
-value|(int(f * 64))
+value|(qRound(f * 64))
 DECL|function|boundingRect
 specifier|static
 specifier|const

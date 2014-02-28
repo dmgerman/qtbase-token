@@ -84,6 +84,8 @@ name|Qt
 operator|::
 name|WindowStaysOnTopHint
 argument_list|)
+argument_list|,
+literal|32
 argument_list|)
 expr_stmt|;
 name|m_surfaceWaitCondition

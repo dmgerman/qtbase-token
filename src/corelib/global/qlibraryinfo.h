@@ -61,10 +61,11 @@ comment|//QT_NO_DATESTRING
 specifier|static
 specifier|const
 name|char
-modifier|*
+operator|*
 name|build
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 specifier|static
 name|bool
 name|isDebugBuild

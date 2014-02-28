@@ -239,9 +239,20 @@ operator|==
 name|Qt
 operator|::
 name|CoverWindow
+operator|||
+name|window
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
 condition|)
 block|{
 comment|// Cover windows have to be top level to be accessible to window delegate (i.e. navigator)
+comment|// Desktop windows also need to be toplevel because they are not
+comment|// supposed to be part of the window hierarchy tree
 name|m_isTopLevel
 operator|=
 literal|true
@@ -321,6 +332,15 @@ operator|!=
 name|Qt
 operator|::
 name|CoverWindow
+operator|&&
+name|window
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
 condition|)
 block|{
 if|if

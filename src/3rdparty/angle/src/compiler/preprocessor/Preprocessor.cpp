@@ -417,7 +417,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_NUMBER
+name|PP_INVALID_NUMBER
 argument_list|,
 name|token
 operator|->
@@ -442,7 +442,7 @@ name|report
 argument_list|(
 name|Diagnostics
 operator|::
-name|INVALID_CHARACTER
+name|PP_INVALID_CHARACTER
 argument_list|,
 name|token
 operator|->

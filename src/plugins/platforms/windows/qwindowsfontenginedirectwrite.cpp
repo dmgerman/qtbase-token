@@ -2980,9 +2980,9 @@ name|subPixelPosition
 argument_list|,
 name|glyphMargin
 argument_list|(
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Raster_RGBMask
+name|Format_A32
 argument_list|)
 argument_list|,
 name|xform

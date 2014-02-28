@@ -722,7 +722,7 @@ block|;
 name|void
 name|drawCachedGlyphs
 argument_list|(
-argument|QFontEngineGlyphCache::Type glyphType
+argument|QFontEngine::GlyphFormat glyphFormat
 argument_list|,
 argument|QStaticTextItem *staticTextItem
 argument_list|)
@@ -1014,10 +1014,10 @@ block|;
 name|EngineMode
 name|mode
 block|;
-name|QFontEngineGlyphCache
+name|QFontEngine
 operator|::
-name|Type
-name|glyphCacheType
+name|GlyphFormat
+name|glyphCacheFormat
 block|;
 name|QOpenGLExtensions
 name|funcs

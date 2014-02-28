@@ -102,8 +102,6 @@ argument_list|,
 argument|GLsizeiptr size
 argument_list|,
 argument|GLenum usage
-argument_list|,
-argument|GLenum target
 argument_list|)
 block|;
 name|void
@@ -114,8 +112,6 @@ argument_list|,
 argument|GLsizeiptr size
 argument_list|,
 argument|GLintptr offset
-argument_list|,
-argument|GLenum target
 argument_list|)
 block|;
 name|GLenum

@@ -116,16 +116,16 @@ name|public
 operator|:
 name|QTextureGlyphCache
 argument_list|(
-argument|QFontEngineGlyphCache::Type type
+argument|QFontEngine::GlyphFormat format
 argument_list|,
 argument|const QTransform&matrix
 argument_list|)
 operator|:
 name|QFontEngineGlyphCache
 argument_list|(
-name|matrix
+name|format
 argument_list|,
-name|type
+name|matrix
 argument_list|)
 block|,
 name|m_current_fontengine
@@ -497,14 +497,14 @@ name|public
 operator|:
 name|QImageTextureGlyphCache
 argument_list|(
-argument|QFontEngineGlyphCache::Type type
+argument|QFontEngine::GlyphFormat format
 argument_list|,
 argument|const QTransform&matrix
 argument_list|)
 operator|:
 name|QTextureGlyphCache
 argument_list|(
-argument|type
+argument|format
 argument_list|,
 argument|matrix
 argument_list|)

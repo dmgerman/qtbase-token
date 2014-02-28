@@ -214,7 +214,9 @@ operator|=
 name|false
 expr_stmt|;
 comment|// This is a workaround for http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58800
-comment|// Avoid using std::nth_element for stdlibc++<= 4.7.3 || (>= 4.8.0&&<= 4.8.2)
+comment|// Avoid using std::nth_element for the affected stdlibc++ releases 4.7.3 and 4.8.2.
+comment|// Note that the official __GLIBCXX__ value of the releases is not used since that
+comment|// one might be patched on some GNU/Linux distributions.
 if|#
 directive|if
 name|defined
@@ -222,21 +224,9 @@ argument_list|(
 name|__GLIBCXX__
 argument_list|)
 operator|&&
-operator|(
 name|__GLIBCXX__
 operator|<=
-literal|20130411
-operator|||
-operator|(
-name|__GLIBCXX__
-operator|>=
-literal|20130322
-operator|&&
-name|__GLIBCXX__
-operator|<=
-literal|20131016
-operator|)
-operator|)
+literal|20140107
 name|QVector
 operator|<
 name|T

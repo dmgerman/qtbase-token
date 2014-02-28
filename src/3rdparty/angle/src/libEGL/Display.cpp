@@ -1,4 +1,9 @@
 begin_unit
+begin_include
+include|#
+directive|include
+file|"../libGLESv2/precompiled.h"
+end_include
 begin_comment
 comment|//
 end_comment
@@ -151,11 +156,6 @@ operator|::
 name|Display
 argument_list|(
 name|displayId
-argument_list|,
-operator|(
-name|HDC
-operator|)
-name|displayId
 argument_list|)
 decl_stmt|;
 name|displays
@@ -176,15 +176,7 @@ name|Display
 parameter_list|(
 name|EGLNativeDisplayType
 name|displayId
-parameter_list|,
-name|HDC
-name|deviceContext
 parameter_list|)
-member_init_list|:
-name|mDc
-argument_list|(
-name|deviceContext
-argument_list|)
 block|{
 name|mDisplayId
 operator|=
@@ -258,8 +250,6 @@ operator|=
 name|glCreateRenderer
 argument_list|(
 name|this
-argument_list|,
-name|mDc
 argument_list|,
 name|mDisplayId
 argument_list|)
@@ -2208,10 +2198,9 @@ literal|"EGL_ANGLE_query_surface_pointer "
 expr_stmt|;
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
-name|ANGLE_OS_WINRT
+name|ANGLE_ENABLE_D3D9
 argument_list|)
 name|HMODULE
 name|swiftShader
@@ -2358,7 +2347,7 @@ argument_list|(
 name|adapterLuidString
 argument_list|)
 argument_list|,
-literal|" (adapter LUID: %08l%08l)"
+literal|" (adapter LUID: %08x%08x)"
 argument_list|,
 name|adapterLuid
 operator|.

@@ -1423,6 +1423,27 @@ begin_comment
 comment|/*!     \fn bool operator!=(const QRect&r1, const QRect&r2)     \relates QRect      Returns \c true if the rectangles \a r1 and \a r2 are different, otherwise     returns \c false. */
 end_comment
 begin_comment
+comment|/*!     \fn QRect operator+(const QRect&rectangle, const QMargins&margins)     \relates QRect      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect operator+(const QMargins&margins, const QRect&rectangle)     \relates QRect     \overload      Returns the \a rectangle grown by the \a margins.      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect operator-(const QRect&lhs, const QMargins&rhs)     \relates QRect      Returns the \a lhs rectangle shrunken by the \a rhs margins.      \since 5.3 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::marginsAdded(const QMargins&margins) const      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=()      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::operator+=(const QMargins&margins) const      Adds the \a margins to the rectangle, growing it.      \sa marginsAdded(), marginsRemoved(), operator-=()      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::marginsRemoved(const QMargins&margins) const      Removes the \a margins from the rectangle, shrinking it.      \sa marginsAdded(), operator+=(), operator-=()      \since 5.1 */
+end_comment
+begin_comment
+comment|/*!     \fn QRect QRect::operator -=(const QMargins&margins) const      Returns a rectangle shrunk by the \a margins.      \sa marginsRemoved(), operator+=(), marginsAdded()      \since 5.1 */
+end_comment
+begin_comment
 comment|/*****************************************************************************   QRect stream functions  *****************************************************************************/
 end_comment
 begin_ifndef
@@ -3130,6 +3151,27 @@ comment|/*!     \fn bool operator==(const QRectF&r1, const QRectF&r2)     \relat
 end_comment
 begin_comment
 comment|/*!     \fn bool operator!=(const QRectF&r1, const QRectF&r2)     \relates QRectF      Returns \c true if the rectangles \a r1 and \a r2 are different, otherwise     returns \c false. */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF operator+(const QRectF&lhs, const QMarginsF&rhs)     \relates QRectF     \since 5.3      Returns the \a lhs rectangle grown by the \a rhs margins. */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF operator-(const QRectF&lhs, const QMarginsF&rhs)     \relates QRectF     \since 5.3      Returns the \a lhs rectangle grown by the \a rhs margins. */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF operator+(const QMarginsF&lhs, const QRectF&rhs)     \relates QRectF     \overload     \since 5.3      Returns the \a lhs rectangle grown by the \a rhs margins. */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF QRectF::marginsAdded(const QMarginsF&margins) const     \relates QRectF     \since 5.3      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=() */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF QRectF::marginsRemoved(const QMarginsF&margins) const     \relates QRectF     \since 5.3      Removes the \a margins from the rectangle, shrinking it.      \sa marginsAdded(), operator+=(), operator-=() */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF QRectF::operator+=(const QMarginsF&margins)     \relates QRectF     \since 5.3      Adds the \a margins to the rectangle, growing it.      \sa marginsAdded(), marginsRemoved(), operator-=() */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF QRectF::operator-=(const QMarginsF&margins)     \relates QRectF     \since 5.3      Returns a rectangle shrunk by the \a margins.      \sa marginsRemoved(), operator+=(), marginsAdded() */
 end_comment
 begin_comment
 comment|/*****************************************************************************   QRectF stream functions  *****************************************************************************/

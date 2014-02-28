@@ -44,7 +44,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"constants.h"
+file|"Constants.h"
 end_include
 begin_decl_stmt
 name|namespace

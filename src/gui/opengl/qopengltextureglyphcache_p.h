@@ -63,6 +63,16 @@ include|#
 directive|include
 file|<qopenglfunctions.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qopenglbuffer.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qopenglvertexarrayobject.h>
+end_include
 begin_comment
 comment|// #define QT_GL_TEXTURE_GLYPH_CACHE_DEBUG
 end_comment
@@ -270,7 +280,7 @@ name|public
 operator|:
 name|QOpenGLTextureGlyphCache
 argument_list|(
-argument|QFontEngineGlyphCache::Type type
+argument|QFontEngine::GlyphFormat glyphFormat
 argument_list|,
 argument|const QTransform&matrix
 argument_list|)
@@ -510,6 +520,10 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|void
+name|setupVertexAttribs
+argument_list|()
+block|;
 name|QOpenGLGlyphTexture
 operator|*
 name|m_textureResource
@@ -539,6 +553,12 @@ index|]
 block|;
 name|int
 name|m_serialNumber
+block|;
+name|QOpenGLBuffer
+name|m_buffer
+block|;
+name|QOpenGLVertexArrayObject
+name|m_vao
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/InfoSink.h"
+file|"compiler/translator/InfoSink.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"compiler/intermediate.h"
+file|"compiler/translator/intermediate.h"
 end_include
 begin_decl_stmt
 name|class

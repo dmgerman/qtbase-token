@@ -4594,10 +4594,13 @@ name|metaData
 operator|.
 name|containsKey
 argument_list|(
-literal|"android.app.splash_screen"
+literal|"android.app.splash_screen_drawable"
 argument_list|)
 condition|)
-name|setContentView
+name|getWindow
+argument_list|()
+operator|.
+name|setBackgroundDrawableResource
 argument_list|(
 name|m_activityInfo
 operator|.
@@ -4605,7 +4608,7 @@ name|metaData
 operator|.
 name|getInt
 argument_list|(
-literal|"android.app.splash_screen"
+literal|"android.app.splash_screen_drawable"
 argument_list|)
 argument_list|)
 expr_stmt|;

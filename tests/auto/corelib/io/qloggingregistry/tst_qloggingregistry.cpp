@@ -58,7 +58,7 @@ parameter_list|()
 block|{
 comment|//
 comment|// Logging configuration can be described
-comment|// in an .ini file. [rules] is the
+comment|// in an .ini file. [Rules] is the
 comment|// default category, and optional ...
 comment|//
 name|QLoggingSettingsParser
@@ -68,7 +68,7 @@ name|parser
 operator|.
 name|setContent
 argument_list|(
-literal|"[rules]\n"
+literal|"[Rules]\n"
 literal|"default=false\n"
 literal|"default=true"
 argument_list|)
@@ -90,7 +90,7 @@ name|parser
 operator|.
 name|setContent
 argument_list|(
-literal|"[rules]\n"
+literal|"[Rules]\n"
 literal|"default=false"
 argument_list|)
 expr_stmt|;
@@ -301,7 +301,7 @@ argument_list|)
 decl_stmt|;
 name|out
 operator|<<
-literal|"[rules]\n"
+literal|"[Rules]\n"
 expr_stmt|;
 name|out
 operator|<<
@@ -421,7 +421,7 @@ name|parser
 operator|.
 name|setContent
 argument_list|(
-literal|"[rules]\nDigia.*=false"
+literal|"[Rules]\nDigia.*=false"
 argument_list|)
 expr_stmt|;
 name|registry

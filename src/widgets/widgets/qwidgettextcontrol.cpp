@@ -355,6 +355,9 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+ifndef|#
+directive|ifndef
+name|Q_OS_ANDROID
 name|interactionFlags
 argument_list|(
 name|Qt
@@ -362,6 +365,17 @@ operator|::
 name|TextEditorInteraction
 argument_list|)
 member_init_list|,
+else|#
+directive|else
+name|interactionFlags
+argument_list|(
+name|Qt
+operator|::
+name|TextEditable
+argument_list|)
+member_init_list|,
+endif|#
+directive|endif
 name|dragEnabled
 argument_list|(
 literal|true

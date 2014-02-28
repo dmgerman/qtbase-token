@@ -2740,8 +2740,6 @@ argument_list|,
 name|size
 argument_list|,
 name|usage
-argument_list|,
-name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -2935,8 +2933,6 @@ argument_list|,
 name|size
 argument_list|,
 name|offset
-argument_list|,
-name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -14665,7 +14661,7 @@ name|GLubyte
 operator|*
 operator|)
 literal|"OpenGL ES 2.0 (ANGLE "
-name|VERSION_STRING
+name|ANGLE_VERSION_STRING
 literal|")"
 return|;
 case|case
@@ -14677,7 +14673,7 @@ name|GLubyte
 operator|*
 operator|)
 literal|"OpenGL ES GLSL ES 1.00 (ANGLE "
-name|VERSION_STRING
+name|ANGLE_VERSION_STRING
 literal|")"
 return|;
 case|case
@@ -18766,13 +18762,13 @@ case|case
 name|GL_RGBA8_OES
 case|:
 case|case
-name|GL_BGRA8_EXT
-case|:
-case|case
 name|GL_STENCIL_INDEX8
 case|:
 case|case
 name|GL_DEPTH24_STENCIL8_OES
+case|:
+case|case
+name|GL_BGRA8_EXT
 case|:
 name|context
 operator|->

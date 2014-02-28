@@ -33,11 +33,6 @@ include|#
 directive|include
 file|"common/debug.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"common/system.h"
-end_include
 begin_decl_stmt
 name|namespace
 name|egl
@@ -217,8 +212,6 @@ operator|*
 name|glCreateRenderer
 argument_list|(
 argument|egl::Display *display
-argument_list|,
-argument|HDC hDc
 argument_list|,
 argument|EGLNativeDisplayType displayId
 argument_list|)
