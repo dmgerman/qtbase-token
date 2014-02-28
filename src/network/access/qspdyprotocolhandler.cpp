@@ -3260,6 +3260,12 @@ operator|==
 name|Z_OK
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|zlibRet
+argument_list|)
+expr_stmt|;
+comment|// silence -Wunused-variable
 block|}
 end_constructor
 begin_destructor
@@ -5204,6 +5210,12 @@ operator|==
 name|length
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|written
+argument_list|)
+expr_stmt|;
+comment|// silence -Wunused-variable
 block|}
 end_function
 begin_function
