@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qqnxtheme.h"
+file|"qblackberrytheme.h"
 end_include
 begin_include
 include|#
@@ -26,10 +26,10 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_constructor
-DECL|function|QQnxTheme
-name|QQnxTheme
+DECL|function|QBlackberryTheme
+name|QBlackberryTheme
 operator|::
-name|QQnxTheme
+name|QBlackberryTheme
 parameter_list|(
 specifier|const
 name|QQnxIntegration
@@ -233,11 +233,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QQnxTheme
-name|QQnxTheme
+DECL|function|~QBlackberryTheme
+name|QBlackberryTheme
 operator|::
 name|~
-name|QQnxTheme
+name|QBlackberryTheme
 parameter_list|()
 block|{
 name|qDeleteAll
@@ -250,7 +250,7 @@ end_destructor
 begin_function
 DECL|function|usePlatformNativeDialog
 name|bool
-name|QQnxTheme
+name|QBlackberryTheme
 operator|::
 name|usePlatformNativeDialog
 parameter_list|(
@@ -319,7 +319,7 @@ begin_function
 DECL|function|createPlatformDialogHelper
 name|QPlatformDialogHelper
 modifier|*
-name|QQnxTheme
+name|QBlackberryTheme
 operator|::
 name|createPlatformDialogHelper
 parameter_list|(
@@ -385,7 +385,7 @@ DECL|function|font
 specifier|const
 name|QFont
 modifier|*
-name|QQnxTheme
+name|QBlackberryTheme
 operator|::
 name|font
 parameter_list|(
@@ -436,7 +436,7 @@ DECL|function|palette
 specifier|const
 name|QPalette
 modifier|*
-name|QQnxTheme
+name|QBlackberryTheme
 operator|::
 name|palette
 parameter_list|(

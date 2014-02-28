@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QQNXTHEME_H
+name|QBLACKBERRYTHEME_H
 end_ifndef
 begin_define
-DECL|macro|QQNXTHEME_H
+DECL|macro|QBLACKBERRYTHEME_H
 define|#
 directive|define
-name|QQNXTHEME_H
+name|QBLACKBERRYTHEME_H
 end_define
 begin_include
 include|#
@@ -47,7 +47,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QQnxTheme
+name|QBlackberryTheme
 range|:
 name|public
 name|QPlatformTheme
@@ -55,7 +55,7 @@ block|{
 name|public
 operator|:
 name|explicit
-name|QQnxTheme
+name|QBlackberryTheme
 argument_list|(
 specifier|const
 name|QQnxIntegration
@@ -63,7 +63,7 @@ operator|*
 argument_list|)
 block|;
 operator|~
-name|QQnxTheme
+name|QBlackberryTheme
 argument_list|()
 block|;
 specifier|static
@@ -143,6 +143,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QQNXTHEME_H
+comment|// QBLACKBERRYTHEME_H
 end_comment
 end_unit

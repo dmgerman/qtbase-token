@@ -118,7 +118,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qqnxtheme.h"
+file|"qblackberrytheme.h"
 end_include
 begin_include
 include|#
@@ -1690,7 +1690,7 @@ block|{
 return|return
 name|QStringList
 argument_list|(
-name|QQnxTheme
+name|QBlackberryTheme
 operator|::
 name|name
 argument_list|()
@@ -1726,14 +1726,14 @@ if|if
 condition|(
 name|name
 operator|==
-name|QQnxTheme
+name|QBlackberryTheme
 operator|::
 name|name
 argument_list|()
 condition|)
 return|return
 operator|new
-name|QQnxTheme
+name|QBlackberryTheme
 argument_list|(
 name|this
 argument_list|)
