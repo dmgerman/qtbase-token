@@ -35128,7 +35128,9 @@ name|rect
 argument_list|,
 name|this
 argument_list|,
-literal|true
+name|QWidgetBackingStore
+operator|::
+name|UpdateNow
 argument_list|)
 expr_stmt|;
 name|tlwExtra
@@ -35250,7 +35252,9 @@ name|rgn
 argument_list|,
 name|this
 argument_list|,
-literal|true
+name|QWidgetBackingStore
+operator|::
+name|UpdateNow
 argument_list|)
 expr_stmt|;
 name|tlwExtra
