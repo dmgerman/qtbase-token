@@ -3511,7 +3511,7 @@ argument_list|(
 name|platformThemeName
 argument_list|)
 expr_stmt|;
-comment|// 2) Ask the platform integration for a list of names and try loading them.
+comment|// 2) Ask the platform integration for a list of theme names
 name|themeNames
 operator|+=
 name|QGuiApplicationPrivate
@@ -3521,6 +3521,7 @@ operator|->
 name|themeNames
 argument_list|()
 expr_stmt|;
+comment|// 3) Look for a theme plugin.
 foreach|foreach
 control|(
 specifier|const
@@ -3552,8 +3553,8 @@ name|platform_theme
 condition|)
 break|break;
 block|}
-comment|// 3) If none found, look for a theme plugin. Theme plugins are located in the
-comment|// same directory as platform plugins.
+comment|// 4) If no theme plugin was found ask the platform integration to
+comment|// create a theme
 if|if
 condition|(
 operator|!
@@ -3595,7 +3596,7 @@ break|break;
 block|}
 comment|// No error message; not having a theme plugin is allowed.
 block|}
-comment|// 4) Fall back on the built-in "null" platform theme.
+comment|// 5) Fall back on the built-in "null" platform theme.
 if|if
 condition|(
 operator|!
