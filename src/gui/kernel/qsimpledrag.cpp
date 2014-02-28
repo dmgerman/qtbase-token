@@ -1158,7 +1158,10 @@ if|if
 condition|(
 name|drag
 argument_list|()
+operator|&&
+name|m_current_window
 condition|)
+block|{
 name|QWindowSystemInterface
 operator|::
 name|handleDrag
@@ -1179,6 +1182,7 @@ name|m_current_window
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
