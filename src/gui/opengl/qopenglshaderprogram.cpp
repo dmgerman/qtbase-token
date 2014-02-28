@@ -159,8 +159,8 @@ name|QT_OPENGL_ES_2
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -1354,8 +1354,11 @@ name|ctx_d
 operator|->
 name|workaround_missingPrecisionQualifiers
 operator|&&
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2131,8 +2134,8 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 operator|&&
@@ -10530,8 +10533,8 @@ decl_stmt|;
 return|return
 operator|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 operator|)
@@ -10586,8 +10589,8 @@ argument_list|)
 return|return
 operator|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 operator|)

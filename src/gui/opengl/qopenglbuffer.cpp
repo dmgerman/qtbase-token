@@ -649,12 +649,12 @@ name|QT_OPENGL_ES
 argument_list|)
 if|if
 condition|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|platformGLType
+name|openGLModuleType
 argument_list|()
 operator|!=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
 name|GLES1
 condition|)

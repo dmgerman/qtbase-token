@@ -1989,8 +1989,8 @@ name|QImage
 operator|::
 name|Format_ARGB32_Premultiplied
 operator|&&
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 operator|)
@@ -2141,8 +2141,8 @@ operator|!=
 name|Q_BIG_ENDIAN
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2197,8 +2197,8 @@ directive|else
 name|GLenum
 name|fmt
 init|=
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|?

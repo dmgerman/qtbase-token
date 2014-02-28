@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QOpenGLFunctions>
+file|<QOpenGLContext>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
@@ -64,13 +64,19 @@ name|QSurfaceFormat
 operator|::
 name|DefaultRenderableType
 case|:
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 if|if
 condition|(
-operator|!
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|isES
+name|openGLModuleType
 argument_list|()
+operator|==
+name|QOpenGLContext
+operator|::
+name|DesktopGL
 condition|)
 name|eglBindAPI
 argument_list|(
@@ -78,6 +84,9 @@ name|EGL_OPENGL_API
 argument_list|)
 expr_stmt|;
 else|else
+endif|#
+directive|endif
+comment|// QT_NO_OPENGL
 name|eglBindAPI
 argument_list|(
 name|EGL_OPENGL_ES_API

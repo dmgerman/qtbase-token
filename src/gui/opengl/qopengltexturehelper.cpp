@@ -12,11 +12,6 @@ include|#
 directive|include
 file|<QOpenGLContext>
 end_include
-begin_include
-include|#
-directive|include
-file|<QOpenGLFunctions>
-end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|QOpenGLTextureHelper
@@ -33,8 +28,8 @@ comment|// Resolve EXT_direct_state_access entry points if present
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 operator|&&
@@ -1201,8 +1196,8 @@ comment|// Some DSA functions are part of NV_texture_multisample instead
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 operator|&&
@@ -1345,9 +1340,9 @@ argument_list|<
 name|HMODULE
 argument_list|>
 argument_list|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|platformGLHandle
+name|openGLModuleHandle
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2557,8 +2552,8 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 operator|&&

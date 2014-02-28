@@ -1949,8 +1949,11 @@ else|#
 directive|else
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2100,8 +2103,11 @@ else|#
 directive|else
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2283,8 +2289,11 @@ directive|else
 name|GLenum
 name|storage
 init|=
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -2702,7 +2711,7 @@ argument_list|,
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
-argument|QOpenGLFunctions::isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::currentContext()->isES() ? GL_RGBA : GL_RGBA8
 else|#
 directive|else
 argument|GL_RGBA
@@ -2757,7 +2766,7 @@ argument_list|,
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
-argument|QOpenGLFunctions::isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::currentContext()->isES() ? GL_RGBA : GL_RGBA8
 else|#
 directive|else
 argument|GL_RGBA
@@ -2959,8 +2968,11 @@ else|#
 directive|else
 name|internal_format
 operator|=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -3043,8 +3055,11 @@ else|#
 directive|else
 name|internal_format
 operator|=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?

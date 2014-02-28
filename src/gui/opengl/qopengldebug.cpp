@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qopenglfunctions.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"qopengldebug.h"
 end_include
 begin_macro
@@ -3697,9 +3692,9 @@ argument_list|<
 name|HMODULE
 argument_list|>
 argument_list|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|platformGLHandle
+name|openGLModuleHandle
 argument_list|()
 argument_list|)
 decl_stmt|;

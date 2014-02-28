@@ -4750,8 +4750,11 @@ else|#
 directive|else
 if|if
 condition|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -10260,10 +10263,14 @@ name|GL_RGBA
 decl_stmt|;
 else|#
 directive|else
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|isES
+name|openGLModuleType
 argument_list|()
+operator|!=
+name|QOpenGLContext
+operator|::
+name|DesktopGL
 condition|?
 name|GL_RGBA
 else|:
@@ -10816,7 +10823,7 @@ name|QT_OPENGL_ES_2
 argument|GL_RGBA
 else|#
 directive|else
-argument|QOpenGLFunctions::isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::openGLModuleType() != QOpenGLContext::DesktopGL ? GL_RGBA : GL_RGBA8
 endif|#
 directive|endif
 argument_list|)
@@ -10869,7 +10876,7 @@ name|QT_OPENGL_ES_2
 argument|GL_RGBA
 else|#
 directive|else
-argument|QOpenGLFunctions::isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::openGLModuleType() != QOpenGLContext::DesktopGL ? GL_RGBA : GL_RGBA8
 endif|#
 directive|endif
 argument_list|)

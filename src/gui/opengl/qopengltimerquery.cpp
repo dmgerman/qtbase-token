@@ -327,23 +327,6 @@ operator|::
 name|create
 parameter_list|()
 block|{
-if|if
-condition|(
-name|QOpenGLFunctions
-operator|::
-name|isES
-argument_list|()
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QOpenGLTimerQuery: Not supported on dynamic GL ES"
-argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
 name|QOpenGLContext
 modifier|*
 name|ctx
@@ -377,6 +360,23 @@ block|{
 name|qWarning
 argument_list|(
 literal|"A current OpenGL context is required to create timer query objects"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|context
+operator|->
+name|isES
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QOpenGLTimerQuery: Not supported on OpenGL ES"
 argument_list|)
 expr_stmt|;
 return|return

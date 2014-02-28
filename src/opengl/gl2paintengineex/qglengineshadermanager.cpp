@@ -591,8 +591,11 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)

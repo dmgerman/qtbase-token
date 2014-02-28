@@ -2257,9 +2257,9 @@ name|fromLatin1
 argument_list|(
 name|gltype
 index|[
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|platformGLType
+name|openGLModuleType
 argument_list|()
 index|]
 argument_list|)
@@ -2283,9 +2283,9 @@ name|number
 argument_list|(
 name|qintptr
 argument_list|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|platformGLHandle
+name|openGLModuleHandle
 argument_list|()
 argument_list|)
 argument_list|,

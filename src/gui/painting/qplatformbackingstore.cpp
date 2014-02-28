@@ -907,8 +907,11 @@ name|QT_OPENGL_ES_2
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
