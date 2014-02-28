@@ -27,6 +27,31 @@ include|#
 directive|include
 file|<QtCore/qtextstream.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qdir.h>
+end_include
+begin_comment
+comment|// We can't use the default macros because this would lead to recursion.
+end_comment
+begin_comment
+comment|// Instead let's define our own one that unconditionally logs...
+end_comment
+begin_define
+DECL|macro|debugMsg
+define|#
+directive|define
+name|debugMsg
+value|QMessageLogger(__FILE__, __LINE__, __FUNCTION__, "qt.core.logging").debug
+end_define
+begin_define
+DECL|macro|warnMsg
+define|#
+directive|define
+name|warnMsg
+value|QMessageLogger(__FILE__, __LINE__, __FUNCTION__, "qt.core.logging").warning
+end_define
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|Q_GLOBAL_STATIC
@@ -852,6 +877,28 @@ name|defaultCategoryFilter
 argument_list|)
 block|{ }
 end_constructor
+begin_function
+DECL|function|qtLoggingDebug
+specifier|static
+name|bool
+name|qtLoggingDebug
+parameter_list|()
+block|{
+specifier|static
+specifier|const
+name|bool
+name|debugEnv
+init|=
+name|qEnvironmentVariableIsSet
+argument_list|(
+literal|"QT_LOGGING_DEBUG"
+argument_list|)
+decl_stmt|;
+return|return
+name|debugEnv
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \internal     Initializes the rules database by loading     .config/QtProject/qtlogging.ini and $QT_LOGGING_CONF.  */
 end_comment
@@ -924,6 +971,32 @@ operator|.
 name|setContent
 argument_list|(
 name|stream
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|qtLoggingDebug
+argument_list|()
+condition|)
+name|debugMsg
+argument_list|(
+literal|"Loading \"%s\" ..."
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|file
+operator|.
+name|fileName
+argument_list|()
+argument_list|)
+operator|.
+name|toUtf8
+argument_list|()
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|envRules
@@ -999,6 +1072,29 @@ operator|.
 name|setContent
 argument_list|(
 name|stream
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|qtLoggingDebug
+argument_list|()
+condition|)
+name|debugMsg
+argument_list|(
+literal|"Loading \"%s\" ..."
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|envPath
+argument_list|)
+operator|.
+name|toUtf8
+argument_list|()
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configRules
@@ -1163,6 +1259,16 @@ operator|&
 name|registryMutex
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|qtLoggingDebug
+argument_list|()
+condition|)
+name|debugMsg
+argument_list|(
+literal|"Loading logging rules set by Qt API ..."
+argument_list|)
+expr_stmt|;
 name|apiRules
 operator|=
 name|parser
