@@ -130,6 +130,17 @@ name|getDC
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+name|QImage
+name|toImage
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|QScopedPointer
