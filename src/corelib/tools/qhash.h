@@ -85,6 +85,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qHashBits
 argument_list|(
@@ -105,6 +106,8 @@ name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -130,6 +133,8 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -155,6 +160,8 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -181,6 +188,8 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -206,6 +215,8 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -231,6 +242,8 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -253,6 +266,8 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
@@ -278,6 +293,7 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
 specifier|inline
 name|uint
 name|qHash
@@ -355,6 +371,7 @@ block|}
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
 specifier|inline
 name|uint
 name|qHash
@@ -383,6 +400,7 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
 specifier|inline
 name|uint
 name|qHash
@@ -460,6 +478,7 @@ block|}
 block|}
 end_function
 begin_function
+name|Q_DECL_CONST_FUNCTION
 specifier|inline
 name|uint
 name|qHash
@@ -489,6 +508,7 @@ block|}
 end_function
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_CONST_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -505,6 +525,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_CONST_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -526,6 +547,7 @@ name|Q_OS_DARWIN
 end_ifndef
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_CONST_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -546,6 +568,7 @@ endif|#
 directive|endif
 end_endif
 begin_function
+name|Q_DECL_CONST_FUNCTION
 specifier|inline
 name|uint
 name|qHash
@@ -575,6 +598,7 @@ block|}
 end_function
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -593,6 +617,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -611,6 +636,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -629,6 +655,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -647,6 +674,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qHash
 argument_list|(
@@ -663,6 +691,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qt_hash
 argument_list|(
@@ -676,6 +705,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|Q_CORE_EXPORT
+name|Q_DECL_PURE_FUNCTION
 name|uint
 name|qt_hash
 argument_list|(
