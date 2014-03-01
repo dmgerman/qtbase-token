@@ -2430,10 +2430,6 @@ argument_list|,
 operator|&
 name|length
 argument_list|)
-operator|||
-name|length
-operator|==
-literal|0
 argument_list|)
 condition|)
 return|return
