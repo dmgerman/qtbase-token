@@ -3063,7 +3063,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*! \fn uint qHash(QChar key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */
+comment|/*! \fn uint qHash(const QChar key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */
 end_comment
 begin_comment
 comment|/*! \fn uint qHash(const QByteArray&key, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to seed the calculation. */

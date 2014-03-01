@@ -541,10 +541,12 @@ directive|endif
 end_endif
 begin_function
 name|Q_DECL_CONST_FUNCTION
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|qHash
 parameter_list|(
+specifier|const
 name|QChar
 name|key
 parameter_list|,
