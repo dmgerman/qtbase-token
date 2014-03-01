@@ -1148,6 +1148,7 @@ name|toLatin1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|ushort
 name|unicode
