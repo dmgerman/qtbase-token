@@ -4154,7 +4154,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// Overriden methods to lock the graphics memory
+comment|// Overridden methods to lock the graphics memory
 end_comment
 begin_function
 DECL|function|drawPolygon

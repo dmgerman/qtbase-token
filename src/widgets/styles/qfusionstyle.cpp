@@ -7241,7 +7241,7 @@ case|case
 name|CE_Splitter
 case|:
 block|{
-comment|// Dont draw handle for single pixel splitters
+comment|// Don't draw handle for single pixel splitters
 if|if
 condition|(
 name|option

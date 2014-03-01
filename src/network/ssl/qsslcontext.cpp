@@ -1767,7 +1767,7 @@ modifier|*
 name|ssl
 parameter_list|)
 block|{
-comment|// dont cache the same session again
+comment|// don't cache the same session again
 if|if
 condition|(
 name|session

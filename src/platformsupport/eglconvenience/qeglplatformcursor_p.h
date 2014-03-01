@@ -326,7 +326,7 @@ name|width
 block|,
 name|height
 block|;
-comment|// width and height of the the atlas
+comment|// width and height of the atlas
 name|int
 name|cursorWidth
 block|,

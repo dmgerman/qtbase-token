@@ -245,7 +245,7 @@ literal|0
 argument_list|,
 literal|"What you should see"
 argument_list|,
-literal|"The red rectangle should toggle visiblity, so you should see it flash on and off"
+literal|"The red rectangle should toggle visibility, so you should see it flash on and off"
 argument_list|)
 expr_stmt|;
 return|return
