@@ -2638,7 +2638,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value DesktopGL Desktop OpenGL   \value GLES2 OpenGL ES 2.0 or higher   \value GLES1 OpenGL ES 1.x    \since 5.3 */
+comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value DesktopGL Desktop OpenGL   \value GLES2 OpenGL ES 2.0 or higher    \since 5.3 */
 end_comment
 begin_comment
 comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or using the   the convenience function isES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
@@ -2684,15 +2684,6 @@ name|QT_OPENGL_ES_2
 argument_list|)
 return|return
 name|GLES2
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|QT_OPENGL_ES
-argument_list|)
-return|return
-name|GLES1
 return|;
 else|#
 directive|else
