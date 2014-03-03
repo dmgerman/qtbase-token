@@ -1283,6 +1283,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|redirectDocumentationToDevNull_
+operator|&&
 name|outFile
 operator|->
 name|exists
