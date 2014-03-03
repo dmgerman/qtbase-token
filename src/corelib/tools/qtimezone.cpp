@@ -517,6 +517,9 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!     \fn QTimeZone::swap(QTimeZone&other)      Swaps this time zone instance with \a other. This function is very     fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Assignment operator, assign \a other to this. */
 end_comment
 begin_function
