@@ -768,15 +768,10 @@ end_function
 begin_struct
 DECL|struct|TypeInStruct
 DECL|member|type
-template|template
-parameter_list|<
-name|typename
-name|T
-parameter_list|>
 struct|struct
 name|TypeInStruct
 block|{
-name|T
+name|TEST_TYPE
 name|type
 decl_stmt|;
 block|}
@@ -819,9 +814,6 @@ operator|==
 name|Q_ALIGNOF
 argument_list|(
 name|TypeInStruct
-argument_list|<
-name|T
-argument_list|>
 argument_list|)
 argument_list|)
 expr_stmt|;
