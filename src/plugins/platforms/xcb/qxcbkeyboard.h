@@ -225,6 +225,13 @@ argument_list|)
 specifier|const
 block|;
 name|void
+name|printKeymapError
+argument_list|(
+argument|const QString&error
+argument_list|)
+specifier|const
+block|;
+name|void
 name|readXKBConfig
 argument_list|()
 block|;
