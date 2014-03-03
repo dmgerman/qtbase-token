@@ -322,6 +322,14 @@ argument|uint *length
 argument_list|)
 specifier|const
 block|;
+name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|stringToCMap
 argument_list|(

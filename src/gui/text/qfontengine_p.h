@@ -446,6 +446,17 @@ return|;
 block|}
 comment|/* returns 0 as glyph index for non existent glyphs */
 name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+name|uint
+name|ucs4
+argument_list|)
+decl|const
+init|=
+literal|0
+decl_stmt|;
+name|virtual
 name|bool
 name|stringToCMap
 argument_list|(
@@ -1564,6 +1575,14 @@ name|QFontEngineBox
 argument_list|()
 block|;
 name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|bool
 name|stringToCMap
 argument_list|(
@@ -1756,6 +1775,14 @@ block|;
 operator|~
 name|QFontEngineMulti
 argument_list|()
+block|;
+name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
 block|;
 name|virtual
 name|bool
