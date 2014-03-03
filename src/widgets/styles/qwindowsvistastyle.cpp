@@ -8129,6 +8129,12 @@ name|Qt
 operator|::
 name|TextHideMnemonic
 expr_stmt|;
+if|if
+condition|(
+name|widget
+condition|)
+block|{
+comment|// Not needed for QtQuick Controls
 comment|//The rect adjustment is a workaround for the menu not really filling its background.
 name|XPThemeData
 name|theme
@@ -8169,6 +8175,7 @@ argument_list|(
 name|theme
 argument_list|)
 expr_stmt|;
+block|}
 name|int
 name|stateId
 init|=
