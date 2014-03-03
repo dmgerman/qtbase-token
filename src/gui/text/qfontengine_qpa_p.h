@@ -434,14 +434,6 @@ name|type
 argument_list|()
 specifier|const
 block|;
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
-block|;
 specifier|inline
 specifier|const
 name|char

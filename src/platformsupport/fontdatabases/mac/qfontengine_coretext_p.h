@@ -207,6 +207,7 @@ argument|const QChar *string
 argument_list|,
 argument|int len
 argument_list|)
+specifier|const
 block|;
 name|virtual
 name|int

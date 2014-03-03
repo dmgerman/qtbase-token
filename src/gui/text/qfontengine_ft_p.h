@@ -799,15 +799,6 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
-block|;
-name|virtual
 name|void
 name|addGlyphsToPath
 argument_list|(

@@ -248,14 +248,6 @@ argument|qreal pixelSize
 argument_list|)
 specifier|const
 block|;
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
-block|;
 name|Type
 name|type
 argument_list|()
