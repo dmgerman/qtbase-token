@@ -8653,6 +8653,16 @@ name|flags
 parameter_list|)
 specifier|const
 block|{
+name|Q_ASSERT
+argument_list|(
+name|glyphs
+operator|->
+name|numGlyphs
+operator|>=
+operator|*
+name|nglyphs
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|*
