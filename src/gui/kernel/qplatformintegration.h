@@ -217,6 +217,8 @@ block|,
 name|SyncState
 block|,
 name|RasterGLSurface
+block|,
+name|AllGLFunctionsQueryable
 block|}
 enum|;
 name|virtual

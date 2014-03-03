@@ -729,6 +729,12 @@ argument|platformIntegration
 argument_list|,
 argument|ForeignWindows
 argument_list|)
+name|DUMP_CAPABILITY
+argument_list|(
+argument|platformIntegration
+argument_list|,
+argument|AllGLFunctionsQueryable
+argument_list|)
 name|std
 operator|::
 name|cout
