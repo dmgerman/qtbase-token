@@ -137,6 +137,32 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// hint not valid II
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"MaxUser+1"
+argument_list|)
+operator|<<
+name|int
+argument_list|(
+name|QEvent
+operator|::
+name|MaxUser
+operator|+
+literal|1
+argument_list|)
+operator|<<
+name|int
+argument_list|(
+name|QEvent
+operator|::
+name|MaxUser
+operator|-
+literal|2
+argument_list|)
+expr_stmt|;
 comment|// hint valid, but already taken
 name|QTest
 operator|::
@@ -160,7 +186,7 @@ name|QEvent
 operator|::
 name|MaxUser
 operator|-
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 comment|// hint valid, but not taken
