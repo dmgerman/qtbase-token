@@ -8764,7 +8764,16 @@ argument_list|()
 argument_list|,
 name|checkcol
 operator|-
-literal|6
+operator|(
+literal|3
+operator|+
+name|menuitem
+operator|->
+name|rect
+operator|.
+name|x
+argument_list|()
+operator|)
 argument_list|,
 name|menuitem
 operator|->
