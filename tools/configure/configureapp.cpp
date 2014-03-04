@@ -28012,7 +28012,7 @@ name|exists
 argument_list|(
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.GPL3"
+literal|"/LICENSE.GPL"
 argument_list|)
 expr_stmt|;
 name|theLicense
@@ -28220,7 +28220,7 @@ name|licenseFile
 operator|=
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.GPL3"
+literal|"/LICENSE.GPL"
 expr_stmt|;
 else|else
 name|licenseFile
@@ -28412,7 +28412,7 @@ index|[
 literal|"LICENSE FILE"
 index|]
 operator|+
-literal|"/LICENSE.GPL3"
+literal|"/LICENSE.GPL"
 argument_list|)
 operator|||
 name|QFile
