@@ -5117,6 +5117,25 @@ argument_list|,
 name|slider
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|qApp
+operator|->
+name|style
+argument_list|()
+operator|->
+name|styleHint
+argument_list|(
+name|QStyle
+operator|::
+name|SH_ScrollBar_LeftClickAbsolutePosition
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"The result depends on system setting on mac"
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|mousePress
@@ -5153,20 +5172,6 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"scrollbar on the groove"
-argument_list|,
-literal|"QTBUG-23679"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|spy1
@@ -5195,20 +5200,6 @@ name|center
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"scrollbar on the groove"
-argument_list|,
-literal|"QTBUG-23679"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|spy2
