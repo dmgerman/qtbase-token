@@ -793,7 +793,7 @@ begin_comment
 comment|/*!     \fn bool QJsonValue::isUndefined() const      Returns \c true if the value is undefined. This can happen in certain     error cases as e.g. accessing a non existing key in a QJsonObject.  */
 end_comment
 begin_comment
-comment|/*!     Converts \a variant to a QJsonValue and returns it.      The conversion will convert QVariant types as follows:      \table     \header         \li Source type         \li Destination type     \row         \li             \list                 \li QMetaType::Bool             \endlist         \li QJsonValue::Bool     \row         \li             \list                 \li QMetaType::Int                 \li QMetaType::UInt                 \li QMetaType::LongLong                 \li QMetaType::ULongLong                 \li QMetaType::Double             \endlist         \li QJsonValue::Double     \row         \li             \list                 \li QMetaType::QString             \endlist         \li QJsonValue::String     \row         \li             \list                 \li QMetaType::QStringList                 \li QMetaType::QVariantList             \endlist         \li QJsonValue::Array     \row         \li             \list                 \li QMetaType::QVariantMap             \endlist         \li QJsonValue::Object     \endtable      For all other QVariant types a conversion to a QString will be attempted. If the returned string     is empty, a Null QJsonValue will be stored, otherwise a String value using the returned QString.      \sa toVariant()  */
+comment|/*!     Converts \a variant to a QJsonValue and returns it.      The conversion will convert QVariant types as follows:      \table     \header         \li Source type         \li Destination type     \row         \li             \list                 \li QMetaType::Bool             \endlist         \li QJsonValue::Bool     \row         \li             \list                 \li QMetaType::Int                 \li QMetaType::UInt                 \li QMetaType::LongLong                 \li QMetaType::ULongLong                 \li QMetaType::Float                 \li QMetaType::Double             \endlist         \li QJsonValue::Double     \row         \li             \list                 \li QMetaType::QString             \endlist         \li QJsonValue::String     \row         \li             \list                 \li QMetaType::QStringList                 \li QMetaType::QVariantList             \endlist         \li QJsonValue::Array     \row         \li             \list                 \li QMetaType::QVariantMap             \endlist         \li QJsonValue::Object     \endtable      For all other QVariant types a conversion to a QString will be attempted. If the returned string     is empty, a Null QJsonValue will be stored, otherwise a String value using the returned QString.      \sa toVariant()  */
 end_comment
 begin_function
 DECL|function|fromVariant
@@ -812,7 +812,7 @@ switch|switch
 condition|(
 name|variant
 operator|.
-name|type
+name|userType
 argument_list|()
 condition|)
 block|{
@@ -834,6 +834,11 @@ case|case
 name|QVariant
 operator|::
 name|Int
+case|:
+case|case
+name|QMetaType
+operator|::
+name|Float
 case|:
 case|case
 name|QVariant
