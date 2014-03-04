@@ -1019,6 +1019,18 @@ block|}
 block|}
 end_function
 begin_comment
+comment|/*!     This function is called whenever the font database is invalidated.      Reimplement this function to clear any internal data structures that     will need to be rebuilt at the next call to populateFontDatabase(). */
+end_comment
+begin_function
+DECL|function|invalidate
+name|void
+name|QPlatformFontDatabase
+operator|::
+name|invalidate
+parameter_list|()
+block|{ }
+end_function
+begin_comment
 comment|/*!     Returns a multi font engine in the specified \a script to encapsulate \a fontEngine with the     option to fall back to the fonts given by \a fallbacks if \a fontEngine does not support     a certain character. */
 end_comment
 begin_function

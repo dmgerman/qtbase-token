@@ -2150,6 +2150,17 @@ expr_stmt|;
 name|free
 argument_list|()
 expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|fontDatabase
+argument_list|()
+operator|->
+name|invalidate
+argument_list|()
+expr_stmt|;
 emit|emit
 cast|static_cast
 argument_list|<

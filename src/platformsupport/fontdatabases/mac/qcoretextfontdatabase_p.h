@@ -137,6 +137,11 @@ name|void
 name|populateFontDatabase
 argument_list|()
 block|;
+name|void
+name|invalidate
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 name|QFontEngine
 operator|*
 name|fontEngine

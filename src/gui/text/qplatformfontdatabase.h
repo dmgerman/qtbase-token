@@ -241,6 +241,11 @@ name|populateFontDatabase
 parameter_list|()
 function_decl|;
 name|virtual
+name|void
+name|invalidate
+parameter_list|()
+function_decl|;
+name|virtual
 name|QFontEngineMulti
 modifier|*
 name|fontEngineMulti
