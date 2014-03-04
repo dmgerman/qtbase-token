@@ -284,7 +284,7 @@ argument|userEventRegistrationHelper
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     \since 4.4     \threadsafe      Registers and returns a custom event type. The \a hint provided     will be used if it is available, otherwise it will return a value     between QEvent::User and QEvent::MaxUser that has not yet been     registered. The \a hint is ignored if its value is not between     QEvent::User and QEvent::MaxUser. */
+comment|/*!     \since 4.4     \threadsafe      Registers and returns a custom event type. The \a hint provided     will be used if it is available, otherwise it will return a value     between QEvent::User and QEvent::MaxUser that has not yet been     registered. The \a hint is ignored if its value is not between     QEvent::User and QEvent::MaxUser.      Returns -1 if all available values are already taken or the     program is shutting down. */
 end_comment
 begin_function
 DECL|function|registerEventType
