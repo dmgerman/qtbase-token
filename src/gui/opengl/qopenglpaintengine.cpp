@@ -256,6 +256,8 @@ condition|(
 name|smoothPixmapTransform
 condition|)
 block|{
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -265,6 +267,8 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -277,6 +281,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -286,6 +292,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -296,6 +304,8 @@ name|GL_NEAREST
 argument_list|)
 expr_stmt|;
 block|}
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -305,6 +315,8 @@ argument_list|,
 name|wrapMode
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -698,6 +710,8 @@ operator|+
 name|QT_BRUSH_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -2395,6 +2409,8 @@ name|QPainter
 operator|::
 name|CompositionMode_SourceOver
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE
@@ -2408,6 +2424,8 @@ name|QPainter
 operator|::
 name|CompositionMode_DestinationOver
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE_MINUS_DST_ALPHA
@@ -2421,6 +2439,8 @@ name|QPainter
 operator|::
 name|CompositionMode_Clear
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ZERO
@@ -2434,6 +2454,8 @@ name|QPainter
 operator|::
 name|CompositionMode_Source
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE
@@ -2447,6 +2469,8 @@ name|QPainter
 operator|::
 name|CompositionMode_Destination
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ZERO
@@ -2460,6 +2484,8 @@ name|QPainter
 operator|::
 name|CompositionMode_SourceIn
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_DST_ALPHA
@@ -2473,6 +2499,8 @@ name|QPainter
 operator|::
 name|CompositionMode_DestinationIn
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ZERO
@@ -2486,6 +2514,8 @@ name|QPainter
 operator|::
 name|CompositionMode_SourceOut
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE_MINUS_DST_ALPHA
@@ -2499,6 +2529,8 @@ name|QPainter
 operator|::
 name|CompositionMode_DestinationOut
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ZERO
@@ -2512,6 +2544,8 @@ name|QPainter
 operator|::
 name|CompositionMode_SourceAtop
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_DST_ALPHA
@@ -2525,6 +2559,8 @@ name|QPainter
 operator|::
 name|CompositionMode_DestinationAtop
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE_MINUS_DST_ALPHA
@@ -2538,6 +2574,8 @@ name|QPainter
 operator|::
 name|CompositionMode_Xor
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE_MINUS_DST_ALPHA
@@ -2551,6 +2589,8 @@ name|QPainter
 operator|::
 name|CompositionMode_Plus
 case|:
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE
@@ -2862,6 +2902,8 @@ argument_list|,
 name|srcTextureRect
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLE_FAN
@@ -2935,21 +2977,19 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_OPENGL_ES_2
-if|if
-condition|(
+if|#
+directive|if
 operator|!
-name|QOpenGLContext
-operator|::
-name|currentContext
-argument_list|()
-operator|->
-name|isES
-argument_list|()
-condition|)
-block|{
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_DYNAMIC
+argument_list|)
 name|Q_ASSERT
 argument_list|(
 name|QOpenGLContext
@@ -3211,7 +3251,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 endif|#
 directive|endif
 comment|// QT_OPENGL_ES_2
@@ -3272,6 +3311,8 @@ operator|::
 name|resetGLState
 parameter_list|()
 block|{
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_BLEND
@@ -3284,26 +3325,36 @@ argument_list|(
 name|GL_TEXTURE0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_DEPTH_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_SCISSOR_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDepthMask
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDepthFunc
 argument_list|(
 name|GL_LESS
@@ -3316,11 +3367,15 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0xff
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -3330,6 +3385,8 @@ argument_list|,
 name|GL_KEEP
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_ALWAYS
@@ -4150,6 +4207,8 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
+name|funcs
+operator|.
 name|glGenBuffers
 argument_list|(
 literal|1
@@ -4160,6 +4219,8 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -4169,6 +4230,8 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBufferData
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -4238,6 +4301,8 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -4267,6 +4332,8 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|cache
@@ -4625,6 +4692,8 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
+name|funcs
+operator|.
 name|glGenBuffers
 argument_list|(
 literal|1
@@ -4635,6 +4704,8 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glGenBuffers
 argument_list|(
 literal|1
@@ -4645,6 +4716,8 @@ operator|->
 name|ibo
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -4654,6 +4727,8 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -5004,6 +5079,8 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -5013,6 +5090,8 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -5039,6 +5118,8 @@ name|QVertexIndexVector
 operator|::
 name|UnsignedInt
 condition|)
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|cache
@@ -5055,6 +5136,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|cache
@@ -5070,6 +5153,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -5077,6 +5162,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -5105,6 +5192,8 @@ name|QVertexIndexVector
 operator|::
 name|UnsignedInt
 condition|)
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|cache
@@ -5127,6 +5216,8 @@ name|indices
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|cache
@@ -5343,6 +5434,8 @@ operator|::
 name|ElementIndexUint
 argument_list|)
 condition|)
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|GL_TRIANGLES
@@ -5365,6 +5458,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|GL_TRIANGLES
@@ -5425,11 +5520,15 @@ name|hasWindingFill
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0xff
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -5450,6 +5549,8 @@ name|clipTestEnabled
 condition|)
 block|{
 comment|// Pass when high bit is set, replace stencil value with current clip
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -5475,6 +5576,8 @@ argument_list|()
 condition|)
 block|{
 comment|// Pass when any bit is set, replace stencil value with 0
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -5488,6 +5591,8 @@ block|}
 else|else
 block|{
 comment|// Pass when high bit is set, replace stencil value with 0
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -5515,6 +5620,8 @@ name|boundingRect
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0
@@ -5566,6 +5673,8 @@ name|stops
 argument_list|)
 expr_stmt|;
 comment|//     qDebug("QOpenGL2PaintEngineExPrivate::fillStencilWithVertexArray()");
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0xff
@@ -5598,6 +5707,8 @@ operator|.
 name|rects
 argument_list|()
 decl_stmt|;
+name|funcs
+operator|.
 name|glClearStencil
 argument_list|(
 literal|0
@@ -5637,6 +5748,8 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|.
 name|glClear
 argument_list|(
 name|GL_STENCIL_BUFFER_BIT
@@ -5656,6 +5769,8 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+name|funcs
+operator|.
 name|glColorMask
 argument_list|(
 name|GL_FALSE
@@ -5671,6 +5786,8 @@ comment|// Disable color writes
 name|useSimpleShader
 argument_list|()
 expr_stmt|;
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_STENCIL_TEST
@@ -5703,6 +5820,8 @@ name|clipTestEnabled
 condition|)
 block|{
 comment|// Flatten clip values higher than current clip, and set high bit to match current clip
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -5720,6 +5839,8 @@ operator|~
 name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -5734,6 +5855,8 @@ argument_list|(
 name|bounds
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_EQUAL
@@ -5752,6 +5875,8 @@ name|stencilClean
 condition|)
 block|{
 comment|// Clear stencil buffer within bounding rect
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_ALWAYS
@@ -5761,6 +5886,8 @@ argument_list|,
 literal|0xff
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_ZERO
@@ -5804,6 +5931,8 @@ argument_list|,
 name|GL_DECR_WRAP
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 operator|~
@@ -5832,6 +5961,8 @@ name|clipTestEnabled
 condition|)
 block|{
 comment|// Clear high bit of stencil outside of path
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_EQUAL
@@ -5847,6 +5978,8 @@ operator|~
 name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -5856,6 +5989,8 @@ argument_list|,
 name|GL_REPLACE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 name|GL_STENCIL_HIGH_BIT
@@ -5876,11 +6011,15 @@ operator|==
 name|OddEvenFillMode
 condition|)
 block|{
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -5915,6 +6054,8 @@ name|stops
 argument_list|)
 expr_stmt|;
 comment|// tristrips generated directly, so no vertexArray or stops
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 name|GL_STENCIL_HIGH_BIT
@@ -5923,11 +6064,13 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block|glStencilOp(GL_KEEP, GL_KEEP, GL_INVERT);
+block|funcs.glStencilOp(GL_KEEP, GL_KEEP, GL_INVERT);
 comment|// Simply invert the stencil bit
-block|setVertexAttributePointer(QT_VERTEX_COORDS_ATTR, data);         glDrawArrays(GL_TRIANGLE_STRIP, 0, count);
+block|setVertexAttributePointer(QT_VERTEX_COORDS_ATTR, data);         funcs.glDrawArrays(GL_TRIANGLE_STRIP, 0, count);
 else|#
 directive|else
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -5947,6 +6090,8 @@ operator|->
 name|clipTestEnabled
 condition|)
 block|{
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -5967,6 +6112,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_ALWAYS
@@ -5984,6 +6131,8 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLE_STRIP
@@ -5997,6 +6146,8 @@ endif|#
 directive|endif
 block|}
 comment|// Enable color writes& disable stencil writes
+name|funcs
+operator|.
 name|glColorMask
 argument_list|(
 name|GL_TRUE
@@ -6040,11 +6191,15 @@ expr_stmt|;
 name|useSimpleShader
 argument_list|()
 expr_stmt|;
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glColorMask
 argument_list|(
 name|GL_FALSE
@@ -6108,6 +6263,8 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Set high bit on clip region
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -6122,6 +6279,8 @@ argument_list|,
 literal|0xff
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -6131,6 +6290,8 @@ argument_list|,
 name|GL_INVERT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 name|GL_STENCIL_HIGH_BIT
@@ -6142,6 +6303,8 @@ name|rect
 argument_list|)
 expr_stmt|;
 comment|// Reset clipping to 1 and everything else to zero
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -6151,6 +6314,8 @@ argument_list|,
 name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_ZERO
@@ -6160,6 +6325,8 @@ argument_list|,
 name|GL_REPLACE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0xff
@@ -6192,11 +6359,15 @@ name|maxClip
 operator|=
 literal|1
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0x0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glColorMask
 argument_list|(
 name|GL_TRUE
@@ -6400,6 +6571,8 @@ name|stateHasOpacity
 operator|)
 condition|)
 block|{
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_BLEND
@@ -6408,6 +6581,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_BLEND
@@ -6669,6 +6844,8 @@ argument_list|,
 name|staticVertexCoordinateArray
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLE_FAN
@@ -6747,6 +6924,8 @@ name|i
 index|]
 decl_stmt|;
 comment|/*         qDebug("Drawing triangle fan for vertecies %d -> %d:", previousStop, stop-1);         for (int i=previousStop; i<stop; ++i)             qDebug("   %02d: [%.2f, %.2f]", i, vertexArray.data()[i].x, vertexArray.data()[i].y); */
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|primitive
@@ -7229,6 +7408,8 @@ name|vertices
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLE_STRIP
@@ -7362,6 +7543,8 @@ operator|::
 name|TriStripStrokeFillMode
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -7372,6 +7555,8 @@ name|GL_REPLACE
 argument_list|)
 expr_stmt|;
 comment|// Pass when any bit is set, replace stencil value with 0
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -7392,6 +7577,8 @@ argument_list|(
 name|bounds
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0
@@ -7531,6 +7718,11 @@ name|isES
 argument_list|()
 condition|)
 block|{
+name|Q_D
+argument_list|(
+name|QOpenGL2PaintEngineEx
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -7555,12 +7747,20 @@ operator|::
 name|HighQualityAntialiasing
 operator|)
 condition|)
+name|d
+operator|->
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_MULTISAMPLE
 argument_list|)
 expr_stmt|;
 else|else
+name|d
+operator|->
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_MULTISAMPLE
@@ -8362,6 +8562,10 @@ operator|+
 name|QT_IMAGE_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -9850,6 +10054,8 @@ name|elementIndicesVBOId
 operator|==
 literal|0
 condition|)
+name|funcs
+operator|.
 name|glGenBuffers
 argument_list|(
 literal|1
@@ -9858,6 +10064,8 @@ operator|&
 name|elementIndicesVBOId
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -9865,6 +10073,8 @@ argument_list|,
 name|elementIndicesVBOId
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBufferData
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -9898,6 +10108,8 @@ name|defined
 argument_list|(
 name|QT_OPENGL_DRAWCACHEDGLYPHS_INDEX_ARRAY_VBO
 argument_list|)
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -10130,11 +10342,15 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_CONSTANT_COLOR
@@ -10226,11 +10442,15 @@ operator|*
 name|cache
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ZERO
@@ -10247,6 +10467,8 @@ operator|+
 name|QT_MASK_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10272,6 +10494,8 @@ name|defined
 argument_list|(
 name|QT_OPENGL_DRAWCACHEDGLYPHS_INDEX_ARRAY_VBO
 argument_list|)
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|GL_TRIANGLE_STRIP
@@ -10287,6 +10511,8 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|GL_TRIANGLE_STRIP
@@ -10364,11 +10590,15 @@ operator|*
 name|cache
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBlendFunc
 argument_list|(
 name|GL_ONE
@@ -10530,6 +10760,8 @@ name|texture
 argument_list|()
 condition|)
 block|{
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10567,6 +10799,8 @@ operator|::
 name|Linear
 condition|)
 block|{
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10576,6 +10810,8 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10588,6 +10824,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10597,6 +10835,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10622,6 +10862,8 @@ name|defined
 argument_list|(
 name|QT_OPENGL_DRAWCACHEDGLYPHS_INDEX_ARRAY_VBO
 argument_list|)
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|GL_TRIANGLE_STRIP
@@ -10635,6 +10877,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ELEMENT_ARRAY_BUFFER
@@ -10644,6 +10888,8 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+name|funcs
+operator|.
 name|glDrawElements
 argument_list|(
 name|GL_TRIANGLE_STRIP
@@ -11564,6 +11810,8 @@ name|col
 argument_list|)
 expr_stmt|;
 block|}
+name|funcs
+operator|.
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLES
@@ -11835,16 +12083,28 @@ operator|->
 name|ctx
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_DEPTH_TEST
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_SCISSOR_TEST
@@ -11873,6 +12133,10 @@ name|isES
 argument_list|()
 condition|)
 block|{
+name|d
+operator|->
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_MULTISAMPLE
@@ -12149,6 +12413,10 @@ argument_list|(
 name|BrushDrawingMode
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glViewport
 argument_list|(
 literal|0
@@ -12249,11 +12517,15 @@ operator|->
 name|clipTestEnabled
 condition|)
 block|{
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -12272,11 +12544,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_ALWAYS
@@ -12410,6 +12686,8 @@ name|height
 argument_list|)
 condition|)
 block|{
+name|funcs
+operator|.
 name|glDisable
 argument_list|(
 name|GL_SCISSOR_TEST
@@ -12418,6 +12696,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_SCISSOR_TEST
@@ -12506,6 +12786,8 @@ operator|.
 name|height
 argument_list|()
 decl_stmt|;
+name|funcs
+operator|.
 name|glScissor
 argument_list|(
 name|left
@@ -12575,21 +12857,29 @@ name|dirtyStencilRegion
 operator|-=
 name|currentScissorBounds
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0xff
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glClearStencil
 argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glClear
 argument_list|(
 name|GL_STENCIL_BUFFER_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0x0
@@ -12735,11 +13025,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -12761,6 +13055,8 @@ argument_list|()
 operator|->
 name|clipTestEnabled
 condition|)
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -12777,6 +13073,8 @@ name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_ALWAYS
@@ -12817,6 +13115,8 @@ name|hasWindingFill
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glColorMask
 argument_list|(
 literal|false
@@ -12828,6 +13128,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glEnable
 argument_list|(
 name|GL_STENCIL_TEST
@@ -12843,6 +13145,8 @@ condition|)
 block|{
 comment|// Under these conditions we can set the new stencil value in a single
 comment|// pass, by using the current value and the "new value" as the toggles
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -12853,6 +13157,8 @@ operator|~
 name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -12862,6 +13168,8 @@ argument_list|,
 name|GL_INVERT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 name|value
@@ -12879,6 +13187,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|.
 name|glStencilOp
 argument_list|(
 name|GL_KEEP
@@ -12888,6 +13198,8 @@ argument_list|,
 name|GL_REPLACE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0xff
@@ -12910,6 +13222,8 @@ argument_list|()
 condition|)
 block|{
 comment|// Pass when any clip bit is set, set high bit
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -12930,6 +13244,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Pass when high bit is set, replace stencil value with new clip value
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_NOTEQUAL
@@ -12948,6 +13264,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|funcs
+operator|.
 name|glStencilFunc
 argument_list|(
 name|GL_LEQUAL
@@ -12958,11 +13276,15 @@ operator|~
 name|GL_STENCIL_HIGH_BIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glStencilMask
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glColorMask
 argument_list|(
 literal|true
@@ -13770,6 +14092,10 @@ operator|->
 name|updateClipScissorTest
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glDepthFunc
 argument_list|(
 name|GL_LEQUAL

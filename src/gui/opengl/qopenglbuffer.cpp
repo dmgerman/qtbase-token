@@ -691,6 +691,10 @@ literal|false
 return|;
 while|while
 condition|(
+name|d
+operator|->
+name|funcs
+operator|->
 name|glGetError
 argument_list|()
 operator|!=
@@ -716,6 +720,10 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
+name|d
+operator|->
+name|funcs
+operator|->
 name|glGetError
 argument_list|()
 operator|==

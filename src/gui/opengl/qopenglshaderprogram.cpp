@@ -9832,6 +9832,16 @@ name|defined
 argument_list|(
 name|QT_OPENGL_3_2
 argument_list|)
+name|Q_D
+argument_list|(
+specifier|const
+name|QOpenGLShaderProgram
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|glfuncs
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|GL_MAX_GEOMETRY_OUTPUT_VERTICES

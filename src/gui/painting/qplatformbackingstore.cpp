@@ -528,6 +528,17 @@ argument_list|(
 name|window
 argument_list|)
 expr_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|context
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
+name|funcs
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -615,6 +626,8 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -669,11 +682,15 @@ operator|!
 name|textureId
 condition|)
 return|return;
+name|funcs
+operator|->
 name|glEnable
 argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBlendFunc
 argument_list|(
 name|GL_SRC_ALPHA
@@ -726,6 +743,8 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_BLEND
@@ -861,6 +880,18 @@ operator|::
 name|Format_RGBA8888
 argument_list|)
 expr_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|resized
@@ -872,6 +903,8 @@ name|d_ptr
 operator|->
 name|textureId
 condition|)
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -882,6 +915,8 @@ operator|->
 name|textureId
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glGenTextures
 argument_list|(
 literal|1
@@ -892,6 +927,8 @@ operator|->
 name|textureId
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -916,6 +953,8 @@ name|isES
 argument_list|()
 condition|)
 block|{
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -925,6 +964,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -937,6 +978,8 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+name|funcs
+operator|->
 name|glTexParameterf
 argument_list|(
 name|GL_TEXTURE_2D
@@ -946,6 +989,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameterf
 argument_list|(
 name|GL_TEXTURE_2D
@@ -955,6 +1000,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameterf
 argument_list|(
 name|GL_TEXTURE_2D
@@ -964,6 +1011,8 @@ argument_list|,
 name|GL_REPEAT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameterf
 argument_list|(
 name|GL_TEXTURE_2D
@@ -973,6 +1022,8 @@ argument_list|,
 name|GL_REPEAT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1019,6 +1070,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1096,6 +1149,8 @@ name|width
 argument_list|()
 condition|)
 block|{
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1137,6 +1192,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D

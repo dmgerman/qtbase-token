@@ -98,6 +98,9 @@ argument_list|(
 name|Q_OS_MAC
 argument_list|)
 end_if
+begin_comment
+comment|// iOS
+end_comment
 begin_include
 include|#
 directive|include
@@ -124,7 +127,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// "uncontrolled" platforms
+comment|// "uncontrolled" ES2 platforms
 end_comment
 begin_include
 include|#
@@ -146,6 +149,13 @@ include|#
 directive|include
 file|<QtGui/qopengles2ext.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_MAC
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -178,17 +188,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_MAC
-end_comment
 begin_else
 else|#
 directive|else
 end_else
+begin_comment
+comment|// non-ES2 platforms
+end_comment
 begin_if
 if|#
 directive|if
@@ -264,6 +270,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_OPENGL_ES_2
+end_comment
 begin_comment
 comment|// Desktops, apart from Mac OS X prior to 10.7 can support OpenGL 3
 end_comment

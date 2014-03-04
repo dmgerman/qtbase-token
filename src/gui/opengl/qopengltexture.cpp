@@ -5722,6 +5722,11 @@ name|textureId
 init|=
 literal|0
 decl_stmt|;
+name|ctx
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|target
@@ -5801,6 +5806,8 @@ name|oldTextureUnit
 init|=
 literal|0
 decl_stmt|;
+name|funcs
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|GL_ACTIVE_TEXTURE
@@ -5821,6 +5828,8 @@ name|textureId
 init|=
 literal|0
 decl_stmt|;
+name|funcs
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|target
