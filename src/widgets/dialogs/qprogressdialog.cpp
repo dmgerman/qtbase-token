@@ -2931,7 +2931,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     \overload      Opens the dialog and connects its accepted() signal to the slot specified     by \a receiver and \a member.      The signal will be disconnected from the slot when the dialog is closed. */
+comment|/*!     \since 4.5     \overload      Opens the dialog and connects its canceled() signal to the slot specified     by \a receiver and \a member.      The signal will be disconnected from the slot when the dialog is closed. */
 end_comment
 begin_function
 DECL|function|open
