@@ -744,27 +744,25 @@ expr_stmt|;
 operator|++
 name|screenNumber
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|primaryScreen
-operator|&&
-name|primary
-condition|)
-block|{
+comment|// There can be multiple outputs per screen, use either
+comment|// the first or an exact match.  An exact match isn't
+comment|// always available if primary->output is XCB_NONE
+comment|// or currently disconnected output.
 if|if
 condition|(
 name|m_primaryScreen
 operator|==
 name|xcbScreenNumber
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|primaryScreen
+operator|||
 operator|(
 name|primary
-operator|->
-name|output
-operator|==
-name|XCB_NONE
-operator|||
+operator|&&
 name|outputs
 index|[
 name|i
