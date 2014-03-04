@@ -637,7 +637,7 @@ name|ASSERT
 label|:
 end_label
 begin_expr_stmt
-literal|"b == 0"
+literal|"b != 0"
 name|in
 name|file
 name|div
