@@ -8429,11 +8429,6 @@ operator|::
 name|maxTextureSize
 parameter_list|()
 block|{
-name|Q_Q
-argument_list|(
-name|QGLContext
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|max_texture_size
@@ -8455,6 +8450,11 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES
+name|Q_Q
+argument_list|(
+name|QGLContext
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
