@@ -8457,7 +8457,7 @@ expr_stmt|;
 name|FC_DEBUG
 argument_list|(
 literal|"QFontCache: found font engine\n"
-literal|"  %p: timestamp %4u hits %3u ref %2d/%2d, type '%s'"
+literal|"  %p: timestamp %4u hits %3u ref %2d/%2d, type %d"
 argument_list|,
 name|value
 operator|.
@@ -8493,7 +8493,7 @@ name|value
 operator|.
 name|data
 operator|->
-name|name
+name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9465,7 +9465,7 @@ condition|)
 block|{
 name|FC_DEBUG
 argument_list|(
-literal|"    %p: timestamp %4u hits %2u ref %2d/%2d, type '%s'"
+literal|"    %p: timestamp %4u hits %2u ref %2d/%2d, type %d"
 argument_list|,
 name|it
 operator|.
@@ -9519,7 +9519,7 @@ argument_list|()
 operator|.
 name|data
 operator|->
-name|name
+name|type
 argument_list|()
 argument_list|)
 expr_stmt|;

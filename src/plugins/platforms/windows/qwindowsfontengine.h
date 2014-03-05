@@ -336,14 +336,6 @@ name|minRightBearing
 argument_list|()
 specifier|const
 block|;
-name|virtual
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|;
 name|Type
 name|type
 argument_list|()

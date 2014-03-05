@@ -4165,20 +4165,6 @@ endif|#
 directive|endif
 comment|// Q_OS_WINCE
 block|}
-DECL|function|name
-specifier|const
-name|char
-modifier|*
-name|QWindowsFontEngine
-operator|::
-name|name
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|function|type
 name|QFontEngine
 operator|::

@@ -210,13 +210,6 @@ name|maxCharWidth
 argument_list|()
 specifier|const
 block|;
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|;
 name|bool
 name|supportsSubPixelPositions
 argument_list|()
