@@ -2789,7 +2789,7 @@ name|GLX_PRESERVED_CONTENTS
 block|,
 name|False
 block|,
-name|GLX_NONE
+name|None
 block|}
 decl_stmt|;
 name|m_pbuffer
