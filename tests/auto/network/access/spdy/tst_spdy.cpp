@@ -37,11 +37,20 @@ include|#
 directive|include
 file|<QtNetwork/QAuthenticator>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_BUILD_INTERNAL
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_OPENSSL
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -52,7 +61,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_BUILD_INTERNAL
+comment|// QT_BUILD_INTERNAL&& !QT_NO_OPENSSL
 end_comment
 begin_include
 include|#
