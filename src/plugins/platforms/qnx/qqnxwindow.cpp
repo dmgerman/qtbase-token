@@ -130,6 +130,9 @@ end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     \class QQnxWindow     \brief The QQnxWindow is the base class of the various classes used as instances of     QPlatformWindow in the QNX QPA plugin.      The standard properties and methods available in Qt are not a perfect match for the     features provided by the QNX screen service. While for the majority of applications     the default behavior suffices, some circumstances require greater control over the     interaction with screen.      \section1 Window types      The QNX QPA plugin can operate in two modes, with or without a root window. The     selection of mode is made via the \e rootwindow and \e no-rootwindow options to the     plugin. The default mode is rootwindow for BlackBerry builds and no-rootwindow for     non-BlackBerry builds.      Windows with parents are always created as child windows, the difference in the modes     is in the treatment of parentless windows. In no-rootwindow mode, these windows are     created as application windows while in rootwindow mode, the first window on a screen     is created as an application window while subsequent windows are created as child     windows. The only exception to this is any window of type Qt::Desktop or Qt::CoverWindow;     these are created as application windows, but will never become the root window,     even if they are the first window created.      It is also possible to create a parentless child window. These may be useful to     create windows that are parented by windows from other processes. To do this, you     attach a dynamic property \e qnxInitialWindowGroup to the QWindow though this must be done     prior to the platform window class (this class) being created which typically happens     when the window is made visible. When the window is created in QML, it is acceptable     to have the \e visible property hardcoded to true so long as the qnxInitialWindowGroup     is also set.      \section1 Joining Window Groups      Window groups may be joined in a number of ways, some are automatic based on     predefined rules though an application is also able to provide explicit control.      A QWindow that has a parent will join its parent's window group. When rootwindow mode     is in effect, all but the first parentless window on a screen will be child windows     and join the window group of the first parentless window, the root window.      If a QWindow has a valid dynamic property called \e qnxInitialWindowGroup at the time the     QQnxWindow is created, the window will be created as a child window and, if the     qnxInitialWindowGroup property is a non-empty string, an attempt will be made to join that     window group. This has an effect only when the QQnxWindow is created, subsequent     changes to this property are ignored. Setting the property to an empty string     provides a means to create 'top level' child windows without automatically joining     any group. Typically when this property is used \e qnxWindowId should be used as well     so that the process that owns the window group being joined has some means to     identify the window.      At any point following the creation of the QQnxWindow object, an application can     change the window group it has joined. This is done by using the \e     setWindowProperty function of the native interface to set the \e qnxWindowGroup property     to the desired value, for example:      \code     QQuickView *view = new QQuickView(parent);     view->create();     QGuiApplication::platformNativeInterface()->setWindowProperty(view->handle(), "qnxWindowGroup",                                                                   group);     \endcode      To leave the current window group, one passes a null value for the property value,     for example:      \code     QQuickView *view = new QQuickView(parent);     view->create();     QGuiApplication::platformNativeInterface()->setWindowProperty(view->handle(), "qnxWindowGroup",                                                                   QVariant());     \endcode      \section1 Window Id      The screen window id string property can be set on a window by assigning the desired     value to a dynamic property \e qnxWindowId on the QWindow prior to the QQnxWindow having     been created. This is often wanted when one joins a window group belonging to a     different process.  */
+end_comment
 begin_constructor
 DECL|function|QQnxWindow
 name|QQnxWindow
@@ -229,6 +232,19 @@ name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// If a qnxInitialWindowGroup property is set on the window we'll take this as an
+comment|// indication that we want to create a child window and join that window group.
+specifier|const
+name|QVariant
+name|windowGroup
+init|=
+name|window
+operator|->
+name|property
+argument_list|(
+literal|"qnxInitialWindowGroup"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|window
@@ -264,20 +280,10 @@ condition|(
 name|parent
 argument_list|()
 operator|||
-operator|(
-name|window
-operator|->
-name|type
+name|windowGroup
+operator|.
+name|isValid
 argument_list|()
-operator|&
-name|Qt
-operator|::
-name|Dialog
-operator|)
-operator|==
-name|Qt
-operator|::
-name|Dialog
 condition|)
 block|{
 comment|// If we have a parent we are a child window.  Sometimes we have to be a child even if we
@@ -376,6 +382,89 @@ expr_stmt|;
 block|}
 name|createWindowGroup
 argument_list|()
+expr_stmt|;
+comment|// If the window has a qnxWindowId property, set this as the string id property. This generally
+comment|// needs to be done prior to joining any group as it might be used by the owner of the
+comment|// group to identify the window.
+specifier|const
+name|QVariant
+name|windowId
+init|=
+name|window
+operator|->
+name|property
+argument_list|(
+literal|"qnxWindowId"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|windowId
+operator|.
+name|isValid
+argument_list|()
+operator|&&
+name|windowId
+operator|.
+name|canConvert
+argument_list|<
+name|QByteArray
+argument_list|>
+argument_list|()
+condition|)
+block|{
+name|QByteArray
+name|id
+init|=
+name|windowId
+operator|.
+name|toByteArray
+argument_list|()
+decl_stmt|;
+name|Q_SCREEN_CHECKERROR
+argument_list|(
+name|screen_set_window_property_cv
+argument_list|(
+name|m_window
+argument_list|,
+name|SCREEN_PROPERTY_ID_STRING
+argument_list|,
+name|id
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|id
+argument_list|)
+argument_list|,
+literal|"Failed to set id"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// If a window group has been provided join it now. If it's an empty string that's OK too,
+comment|// it'll cause us not to join a group (the app will presumably join at some future time).
+if|if
+condition|(
+name|windowGroup
+operator|.
+name|isValid
+argument_list|()
+operator|&&
+name|windowGroup
+operator|.
+name|canConvert
+argument_list|<
+name|QByteArray
+argument_list|>
+argument_list|()
+condition|)
+name|joinWindowGroup
+argument_list|(
+name|windowGroup
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor

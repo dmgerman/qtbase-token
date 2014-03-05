@@ -387,7 +387,7 @@ name|name
 operator|==
 name|QStringLiteral
 argument_list|(
-literal|"windowGroup"
+literal|"qnxWindowGroup"
 argument_list|)
 condition|)
 block|{
@@ -485,6 +485,12 @@ operator|::
 name|checkSpelling
 argument_list|)
 return|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|resource
+argument_list|)
 endif|#
 directive|endif
 return|return
