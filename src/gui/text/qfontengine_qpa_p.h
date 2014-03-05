@@ -429,11 +429,6 @@ name|lineThickness
 argument_list|()
 specifier|const
 block|;
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|int
 name|glyphCount

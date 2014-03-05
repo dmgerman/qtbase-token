@@ -255,14 +255,21 @@ argument|ShaperFlags
 argument_list|,
 argument|ShaperFlag
 argument_list|)
-name|QFontEngine
-argument_list|()
-expr_stmt|;
 name|virtual
 operator|~
 name|QFontEngine
 argument_list|()
 expr_stmt|;
+specifier|inline
+name|Type
+name|type
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_type
+return|;
+block|}
 comment|// all of these are in unscaled metrics if the engine supports uncsaled metrics,
 comment|// otherwise in design metrics
 struct|struct
@@ -947,14 +954,6 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|virtual
-name|Type
-name|type
-argument_list|()
-specifier|const
-operator|=
-literal|0
-expr_stmt|;
-name|virtual
 name|int
 name|glyphCount
 argument_list|()
@@ -1146,6 +1145,14 @@ parameter_list|(
 name|HintStyle
 parameter_list|)
 block|{ }
+name|private
+label|:
+specifier|const
+name|Type
+name|m_type
+decl_stmt|;
+name|public
+label|:
 name|QAtomicInt
 name|ref
 decl_stmt|;
@@ -1261,6 +1268,13 @@ return|;
 block|}
 name|protected
 label|:
+name|explicit
+name|QFontEngine
+parameter_list|(
+name|Type
+name|type
+parameter_list|)
+function_decl|;
 name|QFixed
 name|lastRightBearing
 parameter_list|(
@@ -1650,12 +1664,6 @@ argument|int len
 argument_list|)
 specifier|const
 block|;
-name|virtual
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|;
 specifier|inline
 name|int
 name|size
@@ -1666,6 +1674,16 @@ return|return
 name|_size
 return|;
 block|}
+name|protected
+operator|:
+name|explicit
+name|QFontEngineBox
+argument_list|(
+argument|Type type
+argument_list|,
+argument|int size
+argument_list|)
+block|;
 name|private
 operator|:
 name|friend
@@ -1897,19 +1915,6 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-specifier|inline
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|{
-return|return
-name|QFontEngine
-operator|::
-name|Multi
-return|;
-block|}
-name|virtual
 name|bool
 name|canRender
 argument_list|(
@@ -2032,17 +2037,20 @@ name|QFontEngineBox
 block|{
 name|public
 operator|:
+specifier|inline
 name|QTestFontEngine
 argument_list|(
 argument|int size
 argument_list|)
-block|;
-name|virtual
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|; }
+operator|:
+name|QFontEngineBox
+argument_list|(
+argument|TestFontEngine
+argument_list|,
+argument|size
+argument_list|)
+block|{}
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

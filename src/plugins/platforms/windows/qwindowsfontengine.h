@@ -336,11 +336,6 @@ name|minRightBearing
 argument_list|()
 specifier|const
 block|;
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|QImage
 name|alphaMapForGlyph

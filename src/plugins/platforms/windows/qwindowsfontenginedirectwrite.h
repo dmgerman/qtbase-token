@@ -241,11 +241,6 @@ argument|qreal pixelSize
 argument_list|)
 specifier|const
 block|;
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|;
 specifier|const
 name|QSharedPointer
 operator|<

@@ -1244,6 +1244,11 @@ modifier|&
 name|fontEngineData
 parameter_list|)
 member_init_list|:
+name|QFontEngine
+argument_list|(
+name|Win
+argument_list|)
+member_init_list|,
 name|m_fontEngineData
 argument_list|(
 name|fontEngineData
@@ -4164,22 +4169,6 @@ return|;
 endif|#
 directive|endif
 comment|// Q_OS_WINCE
-block|}
-DECL|function|type
-name|QFontEngine
-operator|::
-name|Type
-name|QWindowsFontEngine
-operator|::
-name|type
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QFontEngine
-operator|::
-name|Win
-return|;
 block|}
 DECL|function|qt_fixed_to_double
 specifier|static

@@ -3957,6 +3957,11 @@ name|QFontDef
 modifier|&
 name|fd
 parameter_list|)
+member_init_list|:
+name|QFontEngine
+argument_list|(
+name|Freetype
+argument_list|)
 block|{
 name|fontDef
 operator|=
