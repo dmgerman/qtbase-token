@@ -1629,6 +1629,8 @@ name|int
 argument_list|(
 name|timeMS
 argument_list|)
+operator|*
+literal|2
 argument_list|)
 return|;
 break|break;
