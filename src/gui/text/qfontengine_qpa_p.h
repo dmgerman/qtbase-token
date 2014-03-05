@@ -484,7 +484,7 @@ block|;
 specifier|const
 name|uchar
 operator|*
-name|externalCMap
+name|cmap
 block|;
 name|quint32
 name|cmapOffset
