@@ -10069,7 +10069,7 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(bool) \         F(int) \         F(uint) \         F(qlonglong) \         F(qulonglong) \         F(double) \         F(long) \         F(short) \         F(char) \         F(ulong) \         F(ushort) \         F(uchar) \         F(float) \         F(QObject*) \         F(QString) \         F(CustomMovable)
+value|F(bool) \         F(int) \         F(qulonglong) \         F(double) \         F(short) \         F(char) \         F(ulong) \         F(uchar) \         F(float) \         F(QObject*) \         F(QString) \         F(CustomMovable)
 DECL|macro|FOR_EACH_STATIC_PRIMITIVE_TYPE2
 define|#
 directive|define
@@ -10080,7 +10080,7 @@ parameter_list|,
 name|SecondaryRealName
 parameter_list|)
 define|\
-value|F(bool, SecondaryRealName) \         F(int, SecondaryRealName) \         F(uint, SecondaryRealName) \         F(qlonglong, SecondaryRealName) \         F(qulonglong, SecondaryRealName) \         F(long, SecondaryRealName) \         F(short, SecondaryRealName) \         F(char, SecondaryRealName) \         F(ulong, SecondaryRealName) \         F(ushort, SecondaryRealName) \         F(uchar, SecondaryRealName) \         F(QObject*, SecondaryRealName) \         F(QString, SecondaryRealName)
+value|F(uint, SecondaryRealName) \         F(qlonglong, SecondaryRealName) \         F(char, SecondaryRealName) \         F(uchar, SecondaryRealName) \         F(QObject*, SecondaryRealName)
 DECL|macro|CREATE_AND_VERIFY_CONTAINER
 define|#
 directive|define
