@@ -464,6 +464,11 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|QString
+name|osKernelVersion
+parameter_list|()
+function_decl|;
+specifier|static
+name|QString
 name|osVersion
 parameter_list|()
 function_decl|;
