@@ -1135,7 +1135,7 @@ name|qCritical
 argument_list|(
 literal|"File '%s' does not exist!"
 argument_list|,
-name|qPrintable
+name|qUtf8Printable
 argument_list|(
 name|fileName
 argument_list|)
@@ -1560,12 +1560,12 @@ name|qWarning
 argument_list|(
 literal|"%s: %s"
 argument_list|,
-name|qPrintable
+name|qUtf8Printable
 argument_list|(
 name|key
 argument_list|)
 argument_list|,
-name|qPrintable
+name|qUtf8Printable
 argument_list|(
 name|value
 argument_list|)
