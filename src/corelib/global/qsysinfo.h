@@ -447,6 +447,16 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
+specifier|static
+name|QString
+name|cpuArchitecture
+parameter_list|()
+function_decl|;
+specifier|static
+name|QString
+name|fullCpuArchitecture
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
