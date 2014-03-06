@@ -8774,6 +8774,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|const void*
+argument_list|)
+end_macro
 begin_function
 DECL|function|automaticTemplateRegistration
 name|void
@@ -10245,6 +10251,48 @@ argument_list|,
 argument|QHash<char
 argument_list|,
 argument|QVariantList>>>
+argument_list|)
+name|CREATE_AND_VERIFY_CONTAINER
+argument_list|(
+argument|QVector
+argument_list|,
+argument|void*
+argument_list|)
+name|CREATE_AND_VERIFY_CONTAINER
+argument_list|(
+argument|QVector
+argument_list|,
+argument|const void*
+argument_list|)
+name|CREATE_AND_VERIFY_CONTAINER
+argument_list|(
+argument|QList
+argument_list|,
+argument|void*
+argument_list|)
+name|CREATE_AND_VERIFY_CONTAINER
+argument_list|(
+argument|QPair
+argument_list|,
+argument|void*
+argument_list|,
+argument|void*
+argument_list|)
+name|CREATE_AND_VERIFY_CONTAINER
+argument_list|(
+argument|QHash
+argument_list|,
+argument|void*
+argument_list|,
+argument|void*
+argument_list|)
+name|CREATE_AND_VERIFY_CONTAINER
+argument_list|(
+argument|QHash
+argument_list|,
+argument|const void*
+argument_list|,
+argument|const void*
 argument_list|)
 endif|#
 directive|endif

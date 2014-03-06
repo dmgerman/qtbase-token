@@ -3825,13 +3825,50 @@ name|value_type
 operator|*
 operator|>
 block|{
+name|private
+operator|:
+comment|// We need to disable typed overloads of assign() and getData() if the value_type
+comment|// is void* to avoid overloads conflicts. We do it by injecting unaccessible Dummy
+comment|// type as part of the overload signature.
+expr|struct
+name|Dummy
+block|{}
+block|;
+typedef|typedef
+name|typename
+name|QtPrivate
+operator|::
+name|if_
+operator|<
+name|QtPrivate
+operator|::
+name|is_same
+operator|<
+name|value_type
+operator|,
+name|void
+operator|*
+operator|>
+operator|::
+name|value
+operator|,
+name|Dummy
+operator|,
+name|value_type
+operator|>
+operator|::
+name|type
+name|value_type_OR_Dummy
+expr_stmt|;
+name|public
+operator|:
 specifier|static
 name|void
 name|assign
 argument_list|(
 argument|void **ptr
 argument_list|,
-argument|const value_type *iterator
+argument|const value_type_OR_Dummy *iterator
 argument_list|)
 block|{
 operator|*
@@ -3926,20 +3963,25 @@ operator|*
 name|iterator
 return|;
 block|}
+end_expr_stmt
+begin_function
 specifier|static
 specifier|const
 name|void
-operator|*
+modifier|*
 name|getData
-argument_list|(
-argument|const value_type *it
-argument_list|)
+parameter_list|(
+specifier|const
+name|value_type_OR_Dummy
+modifier|*
+name|it
+parameter_list|)
 block|{
 return|return
 name|it
 return|;
 block|}
-end_expr_stmt
+end_function
 begin_function
 specifier|static
 name|bool
