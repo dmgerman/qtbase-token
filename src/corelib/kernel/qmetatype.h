@@ -4592,35 +4592,6 @@ name|T
 operator|>
 specifier|static
 name|void
-name|advanceImpl
-argument_list|(
-argument|void **p
-argument_list|,
-argument|int step
-argument_list|)
-block|{
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|advance
-argument_list|(
-name|p
-argument_list|,
-name|step
-argument_list|)
-block|; }
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
-name|void
 name|moveToBeginImpl
 argument_list|(
 argument|const void *container
@@ -4700,62 +4671,6 @@ name|class
 name|T
 operator|>
 specifier|static
-name|void
-name|destroyIterImpl
-argument_list|(
-argument|void **iterator
-argument_list|)
-block|{
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|destroy
-argument_list|(
-name|iterator
-argument_list|)
-block|; }
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
-name|bool
-name|equalIterImpl
-argument_list|(
-argument|void * const *iterator
-argument_list|,
-argument|void * const *other
-argument_list|)
-block|{
-return|return
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|equal
-argument_list|(
-name|iterator
-argument_list|,
-name|other
-argument_list|)
-return|;
-block|}
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
 name|VariantData
 name|getImpl
 argument_list|(
@@ -4777,37 +4692,8 @@ argument|flags
 argument_list|)
 return|;
 block|}
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
-name|void
-name|copyIterImpl
-argument_list|(
-argument|void **dest
-argument_list|,
-argument|void * const * src
-argument_list|)
-block|{
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|assign
-argument_list|(
-name|dest
-argument_list|,
-name|src
-argument_list|)
-block|; }
 name|public
-operator|:
+label|:
 name|template
 operator|<
 name|class
@@ -4885,10 +4771,7 @@ argument_list|)
 operator|,
 name|_advance
 argument_list|(
-name|advanceImpl
-operator|<
-name|T
-operator|>
+argument|IteratorOwner<typename T::const_iterator>::advance
 argument_list|)
 operator|,
 name|_get
@@ -4901,23 +4784,17 @@ argument_list|)
 operator|,
 name|_destroyIter
 argument_list|(
-name|destroyIterImpl
-operator|<
-name|T
-operator|>
+argument|IteratorOwner<typename T::const_iterator>::destroy
 argument_list|)
 operator|,
 name|_equalIter
 argument_list|(
-name|equalIterImpl
-operator|<
-name|T
-operator|>
+argument|IteratorOwner<typename T::const_iterator>::equal
 argument_list|)
 operator|,
 name|_copyIter
 argument_list|(
-argument|copyIterImpl<T>
+argument|IteratorOwner<typename T::const_iterator>::assign
 argument_list|)
 block|{     }
 name|QSequentialIterableImpl
@@ -5874,93 +5751,8 @@ name|flags
 argument_list|)
 return|;
 block|}
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
-name|void
-name|destroyIterImpl
-argument_list|(
-argument|void **iterator
-argument_list|)
-block|{
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|destroy
-argument_list|(
-name|iterator
-argument_list|)
-block|; }
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
-name|bool
-name|equalIterImpl
-argument_list|(
-argument|void * const *iterator
-argument_list|,
-argument|void * const *other
-argument_list|)
-block|{
-return|return
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|equal
-argument_list|(
-name|iterator
-argument_list|,
-name|other
-argument_list|)
-return|;
-block|}
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|static
-name|void
-name|copyIterImpl
-argument_list|(
-argument|void **dest
-argument_list|,
-argument|void * const * src
-argument_list|)
-block|{
-name|IteratorOwner
-operator|<
-name|typename
-name|T
-operator|::
-name|const_iterator
-operator|>
-operator|::
-name|assign
-argument_list|(
-name|dest
-argument_list|,
-name|src
-argument_list|)
-block|; }
 name|public
-operator|:
+label|:
 name|template
 operator|<
 name|class
@@ -6057,23 +5849,17 @@ argument_list|)
 operator|,
 name|_destroyIter
 argument_list|(
-name|destroyIterImpl
-operator|<
-name|T
-operator|>
+argument|IteratorOwner<typename T::const_iterator>::destroy
 argument_list|)
 operator|,
 name|_equalIter
 argument_list|(
-name|equalIterImpl
-operator|<
-name|T
-operator|>
+argument|IteratorOwner<typename T::const_iterator>::equal
 argument_list|)
 operator|,
 name|_copyIter
 argument_list|(
-argument|copyIterImpl<T>
+argument|IteratorOwner<typename T::const_iterator>::assign
 argument_list|)
 block|{     }
 name|QAssociativeIterableImpl
