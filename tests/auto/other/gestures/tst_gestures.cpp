@@ -9667,7 +9667,7 @@ name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*       An event is send to both the child and the parent, when the child gets it a gesture is triggered       and send to the child.       When the parent gets the event a new gesture is triggered and delivered to the parent. When the       parent gets it he accepts it and that causes the cancel policy to activate.       The cause of that is the gesture for the child is cancelled and send to the child as such.     */
+comment|/*       An event is sent to both the child and the parent, when the child gets it a gesture is triggered       and send to the child.       When the parent gets the event a new gesture is triggered and delivered to the parent. When the       parent gets it he accepts it and that causes the cancel policy to activate.       The cause of that is the gesture for the child is cancelled and send to the child as such.     */
 name|CustomEvent
 name|event
 decl_stmt|;
