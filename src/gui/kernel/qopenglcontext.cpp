@@ -1425,7 +1425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Get the QOpenGLFunctions instance for this context.      QOpenGLContext offers this as a convenient way to access QOpenGLFunctions     without having to manage it manually.      The context or a sharing context must be current. */
+comment|/*!     Get the QOpenGLFunctions instance for this context.      QOpenGLContext offers this as a convenient way to access QOpenGLFunctions     without having to manage it manually.      The context or a sharing context must be current.      The returned QOpenGLFunctions instance is ready to be used and it     does not need initializeOpenGLFunctions() to be called. */
 end_comment
 begin_function
 DECL|function|functions
