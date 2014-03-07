@@ -4363,6 +4363,18 @@ condition|(
 name|engine
 condition|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|engine
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|QFontEngine
+operator|::
+name|Multi
+argument_list|)
+expr_stmt|;
 comment|// Also check for OpenType tables when using complex scripts
 if|if
 condition|(
@@ -4473,11 +4485,11 @@ argument_list|,
 name|size
 argument_list|)
 decl_stmt|;
-comment|//make sure that the db has all fallback families
-if|if
-condition|(
+name|Q_ASSERT
+argument_list|(
+operator|!
 name|engine
-operator|&&
+operator|||
 name|engine
 operator|->
 name|type
@@ -4486,6 +4498,11 @@ operator|!=
 name|QFontEngine
 operator|::
 name|Multi
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|engine
 operator|&&
 operator|!
 operator|(
@@ -4504,6 +4521,7 @@ operator|->
 name|symbol
 condition|)
 block|{
+comment|// make sure that the db has all fallback families
 if|if
 condition|(
 name|family

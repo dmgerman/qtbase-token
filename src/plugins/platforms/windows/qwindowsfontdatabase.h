@@ -130,6 +130,16 @@ name|populateFontDatabase
 argument_list|()
 block|;
 name|virtual
+name|QFontEngineMulti
+operator|*
+name|fontEngineMulti
+argument_list|(
+argument|QFontEngine *fontEngine
+argument_list|,
+argument|QChar::Script script
+argument_list|)
+block|;
+name|virtual
 name|QFontEngine
 operator|*
 name|fontEngine
@@ -245,8 +255,6 @@ name|QFontEngine
 operator|*
 name|createEngine
 argument_list|(
-argument|int script
-argument_list|,
 argument|const QFontDef&request
 argument_list|,
 argument|HDC fontHdc
@@ -254,8 +262,6 @@ argument_list|,
 argument|int dpi
 argument_list|,
 argument|bool rawMode
-argument_list|,
-argument|const QStringList&family_list
 argument_list|,
 argument|const QSharedPointer<QWindowsFontEngineData>&data
 argument_list|)

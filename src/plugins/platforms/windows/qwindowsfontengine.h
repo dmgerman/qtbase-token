@@ -628,10 +628,14 @@ operator|&
 name|fallbacks
 argument_list|)
 block|;
-name|virtual
-operator|~
-name|QWindowsMultiFontEngine
-argument_list|()
+name|void
+name|setFallbackFamiliesList
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|fallbacks
+argument_list|)
 block|;
 name|void
 name|loadEngine
@@ -640,7 +644,7 @@ argument|int at
 argument_list|)
 block|;
 name|QStringList
-name|fallbacks
+name|fallbackFamilies
 block|; }
 decl_stmt|;
 end_decl_stmt
