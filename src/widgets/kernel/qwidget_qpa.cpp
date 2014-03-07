@@ -5236,6 +5236,32 @@ operator|->
 name|topextra
 condition|)
 block|{
+comment|//the qplatformbackingstore may hold a reference to the window, so the backingstore
+comment|//needs to be deleted first
+name|extra
+operator|->
+name|topextra
+operator|->
+name|backingStoreTracker
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+operator|delete
+name|extra
+operator|->
+name|topextra
+operator|->
+name|backingStore
+expr_stmt|;
+name|extra
+operator|->
+name|topextra
+operator|->
+name|backingStore
+operator|=
+literal|0
+expr_stmt|;
 comment|//the toplevel might have a context with a "qglcontext associated with it. We need to
 comment|//delete the qglcontext before we delete the qplatformopenglcontext.
 comment|//One unfortunate thing about this is that we potentially create a glContext just to
@@ -5276,30 +5302,6 @@ operator|->
 name|topextra
 operator|->
 name|window
-operator|=
-literal|0
-expr_stmt|;
-name|extra
-operator|->
-name|topextra
-operator|->
-name|backingStoreTracker
-operator|.
-name|destroy
-argument_list|()
-expr_stmt|;
-operator|delete
-name|extra
-operator|->
-name|topextra
-operator|->
-name|backingStore
-expr_stmt|;
-name|extra
-operator|->
-name|topextra
-operator|->
-name|backingStore
 operator|=
 literal|0
 expr_stmt|;
