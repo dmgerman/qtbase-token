@@ -437,6 +437,20 @@ end_comment
 begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_GUI_LIB
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_STATIC
+argument_list|)
+end_if
 begin_function
 DECL|function|dotProduct
 name|float
@@ -482,9 +496,27 @@ name|zp
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns the cross-product of vectors \a v1 and \a v2, which corresponds     to the normal vector of a plane defined by \a v1 and \a v2.      \sa normal() */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_GUI_LIB
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_STATIC
+argument_list|)
+end_if
 begin_function
 DECL|function|crossProduct
 name|QVector3D
@@ -557,6 +589,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns the normal vector of a plane defined by vectors \a v1 and \a v2,     normalized to be a unit vector.      Use crossProduct() to compute the cross-product of \a v1 and \a v2 if you     do not need the result to be normalized to a unit vector.      \sa crossProduct(), distanceToPlane() */
 end_comment

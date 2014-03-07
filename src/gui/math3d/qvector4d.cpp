@@ -640,6 +640,20 @@ end_comment
 begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_GUI_LIB
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_STATIC
+argument_list|)
+end_if
 begin_function
 DECL|function|dotProduct
 name|float
@@ -693,6 +707,10 @@ name|wp
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \fn bool operator==(const QVector4D&v1, const QVector4D&v2)     \relates QVector4D      Returns \c true if \a v1 is equal to \a v2; otherwise returns \c false.     This operator uses an exact floating-point comparison. */
 end_comment
