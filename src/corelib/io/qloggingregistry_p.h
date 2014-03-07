@@ -113,10 +113,6 @@ decl_stmt|;
 enum|enum
 name|PatternFlag
 block|{
-name|Invalid
-init|=
-literal|0x0
-block|,
 name|FullText
 init|=
 literal|0x1

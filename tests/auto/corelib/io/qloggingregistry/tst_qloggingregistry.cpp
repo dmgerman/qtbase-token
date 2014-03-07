@@ -972,9 +972,7 @@ name|rule
 operator|.
 name|flags
 operator|!=
-name|QLoggingRule
-operator|::
-name|Invalid
+literal|0
 condition|)
 block|{
 switch|switch

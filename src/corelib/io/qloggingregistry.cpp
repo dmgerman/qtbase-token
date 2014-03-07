@@ -67,40 +67,30 @@ operator|::
 name|QLoggingRule
 argument_list|()
 range|:
-name|flags
-argument_list|(
-name|Invalid
-argument_list|)
-decl_stmt|,
 name|enabled
 argument_list|(
 literal|false
 argument_list|)
-argument_list|{ }
+block|{ }
 comment|/*!     \internal     Constructs a logging rule. */
 DECL|function|QLoggingRule
 name|QLoggingRule
 operator|::
 name|QLoggingRule
-argument_list|(
+operator|(
 specifier|const
 name|QStringRef
 operator|&
 name|pattern
-argument_list|,
+expr|,
 name|bool
 name|enabled
-argument_list|)
-range|:
+operator|)
+operator|:
 name|messageType
 argument_list|(
 operator|-
 literal|1
-argument_list|)
-decl_stmt|,
-name|flags
-argument_list|(
-name|Invalid
 argument_list|)
 decl_stmt|,
 name|enabled
@@ -461,12 +451,6 @@ name|pattern
 expr_stmt|;
 block|}
 end_else
-begin_expr_stmt
-name|flags
-operator|=
-name|Invalid
-expr_stmt|;
-end_expr_stmt
 begin_if
 if|if
 condition|(
@@ -586,7 +570,7 @@ condition|)
 comment|// '*' only supported at start/end
 name|flags
 operator|=
-name|Invalid
+literal|0
 expr_stmt|;
 block|}
 end_if
@@ -859,9 +843,7 @@ name|rule
 operator|.
 name|flags
 operator|!=
-name|QLoggingRule
-operator|::
-name|Invalid
+literal|0
 condition|)
 name|_rules
 operator|.
