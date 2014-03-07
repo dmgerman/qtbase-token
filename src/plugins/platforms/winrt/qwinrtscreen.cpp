@@ -5049,6 +5049,13 @@ operator|::
 name|ApplicationHidden
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|visible
+condition|)
+name|handleExpose
+argument_list|()
+expr_stmt|;
 return|return
 name|S_OK
 return|;
