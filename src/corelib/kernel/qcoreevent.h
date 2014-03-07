@@ -469,6 +469,11 @@ name|WindowStateChange
 operator|=
 literal|105
 block|,
+name|ReadOnlyChange
+operator|=
+literal|106
+block|,
+comment|// readonly state has changed
 name|ToolTip
 operator|=
 literal|110

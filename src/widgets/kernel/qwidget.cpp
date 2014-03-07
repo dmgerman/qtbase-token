@@ -30559,6 +30559,11 @@ name|QEvent
 operator|::
 name|ThemeChange
 case|:
+case|case
+name|QEvent
+operator|::
+name|ReadOnlyChange
+case|:
 name|changeEvent
 argument_list|(
 name|event
@@ -31474,7 +31479,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!   This event handler can be reimplemented to handle state changes.    The state being changed in this event can be retrieved through the \a event   supplied.    Change events include: QEvent::ToolBarChange,   QEvent::ActivationChange, QEvent::EnabledChange, QEvent::FontChange,   QEvent::StyleChange, QEvent::PaletteChange,   QEvent::WindowTitleChange, QEvent::IconTextChange,   QEvent::ModifiedChange, QEvent::MouseTrackingChange,   QEvent::ParentChange, QEvent::WindowStateChange,   QEvent::LanguageChange, QEvent::LocaleChange,   QEvent::LayoutDirectionChange.  */
+comment|/*!   This event handler can be reimplemented to handle state changes.    The state being changed in this event can be retrieved through the \a event   supplied.    Change events include: QEvent::ToolBarChange,   QEvent::ActivationChange, QEvent::EnabledChange, QEvent::FontChange,   QEvent::StyleChange, QEvent::PaletteChange,   QEvent::WindowTitleChange, QEvent::IconTextChange,   QEvent::ModifiedChange, QEvent::MouseTrackingChange,   QEvent::ParentChange, QEvent::WindowStateChange,   QEvent::LanguageChange, QEvent::LocaleChange,   QEvent::LayoutDirectionChange, QEvent::ReadOnlyChange.  */
 DECL|function|changeEvent
 name|void
 name|QWidget
