@@ -115,6 +115,10 @@ expr_stmt|;
 name|int
 name|m_blockSize
 decl_stmt|;
+name|Q_DISABLE_COPY
+argument_list|(
+argument|BlockSizeManager
+argument_list|)
 block|}
 empty_stmt|;
 name|template

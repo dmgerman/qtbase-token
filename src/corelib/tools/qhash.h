@@ -52,6 +52,52 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+end_if
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|push
+name|)
+end_pragma
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4311
+name|)
+end_pragma
+begin_comment
+comment|// disable pointer truncation warning
+end_comment
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4127
+name|)
+end_pragma
+begin_comment
+comment|// conditional expression is constant
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QBitArray
@@ -666,39 +712,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-end_if
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|push
-name|)
-end_pragma
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4311
-name|)
-end_pragma
-begin_comment
-comment|// disable pointer truncation warning
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|template
 operator|<
@@ -732,26 +745,6 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-end_if
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|pop
-name|)
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|template
 operator|<
@@ -1348,11 +1341,17 @@ operator|==
 name|key
 return|;
 block|}
+DECL|member|private
+name|private
+operator|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QHashNode
+argument_list|)
 end_expr_stmt
 begin_expr_stmt
-DECL|function|same_key
 unit|};
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -1414,6 +1413,13 @@ argument_list|(
 argument|key0
 argument_list|)
 block|{}
+DECL|member|private
+name|private
+operator|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QHashDummyNode
+argument_list|)
 block|}
 expr_stmt|;
 end_expr_stmt
@@ -1505,7 +1511,7 @@ begin_comment
 comment|// #if 0
 end_comment
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -3827,7 +3833,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|};
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -3836,7 +3842,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|deleteNode
 name|Q_INLINE_TEMPLATE
 name|void
@@ -3873,7 +3879,7 @@ argument_list|(
 name|node
 argument_list|)
 block|; }
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -3882,7 +3888,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|deleteNode2
 name|Q_INLINE_TEMPLATE
 name|void
@@ -3930,7 +3936,7 @@ block|;
 endif|#
 directive|endif
 block|}
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -3939,7 +3945,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|duplicateNode
 name|Q_INLINE_TEMPLATE
 name|void
@@ -4029,7 +4035,7 @@ block|}
 end_else
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4037,7 +4043,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QHash
@@ -4049,7 +4055,7 @@ operator|>
 operator|::
 name|Node
 operator|*
-DECL|variable|Key
+DECL|member|Key
 DECL|function|createNode
 name|QHash
 operator|<
@@ -4152,7 +4158,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4160,8 +4166,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|unite
 name|Q_INLINE_TEMPLATE
 name|QHash
@@ -4240,7 +4246,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4248,7 +4254,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|freeData
 name|Q_OUTOFLINE_TEMPLATE
 name|void
@@ -4271,7 +4277,7 @@ argument_list|(
 name|deleteNode2
 argument_list|)
 block|; }
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -4280,7 +4286,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|clear
 name|Q_INLINE_TEMPLATE
 name|void
@@ -4306,7 +4312,7 @@ operator|>
 operator|(
 operator|)
 block|; }
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -4315,7 +4321,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|detach_helper
 name|Q_OUTOFLINE_TEMPLATE
 name|void
@@ -4394,7 +4400,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4402,8 +4408,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|member|operator
 name|Q_INLINE_TEMPLATE
 name|QHash
@@ -4504,7 +4510,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|value
 name|Q_INLINE_TEMPLATE
 specifier|const
@@ -4565,7 +4571,7 @@ block|}
 end_else
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4573,7 +4579,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|value
 name|Q_INLINE_TEMPLATE
 specifier|const
@@ -4635,7 +4641,7 @@ block|}
 end_else
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4643,7 +4649,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|uniqueKeys
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
@@ -4752,7 +4758,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4760,7 +4766,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|keys
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
@@ -4828,7 +4834,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4836,7 +4842,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|keys
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
@@ -4907,7 +4913,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -4915,7 +4921,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|key
 name|Q_OUTOFLINE_TEMPLATE
 specifier|const
@@ -4945,7 +4951,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -4954,7 +4960,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|key
 name|Q_OUTOFLINE_TEMPLATE
 specifier|const
@@ -5015,7 +5021,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5023,7 +5029,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|values
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
@@ -5091,7 +5097,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5099,7 +5105,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|values
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
@@ -5183,7 +5189,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5191,7 +5197,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|count
 name|Q_OUTOFLINE_TEMPLATE
 name|int
@@ -5265,7 +5271,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5273,7 +5279,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|operator
 name|Q_INLINE_TEMPLATE
 specifier|const
@@ -5304,7 +5310,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -5313,7 +5319,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|operator
 name|Q_INLINE_TEMPLATE
 name|T
@@ -5407,7 +5413,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5415,8 +5421,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|insert
 name|Q_INLINE_TEMPLATE
 name|typename
@@ -5535,7 +5541,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5543,8 +5549,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|insertMulti
 name|Q_INLINE_TEMPLATE
 name|typename
@@ -5612,7 +5618,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -5621,7 +5627,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|remove
 name|Q_OUTOFLINE_TEMPLATE
 name|int
@@ -5757,7 +5763,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5765,7 +5771,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|take
 name|Q_OUTOFLINE_TEMPLATE
 name|T
@@ -5871,7 +5877,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -5879,8 +5885,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|erase
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
@@ -6123,7 +6129,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -6131,7 +6137,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|reserve
 name|Q_INLINE_TEMPLATE
 name|void
@@ -6163,7 +6169,7 @@ literal|1
 argument_list|)
 argument_list|)
 block|; }
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -6172,8 +6178,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|find
 name|Q_INLINE_TEMPLATE
 name|typename
@@ -6211,7 +6217,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -6220,8 +6226,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|constFind
 name|Q_INLINE_TEMPLATE
 name|typename
@@ -6259,7 +6265,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -6268,8 +6274,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|find
 name|Q_INLINE_TEMPLATE
 name|typename
@@ -6309,7 +6315,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -6318,7 +6324,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|contains
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -6347,7 +6353,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -6356,8 +6362,8 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
+DECL|member|Key
+DECL|member|Key
 DECL|function|findNode
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
@@ -6537,7 +6543,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -6545,7 +6551,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|operator
 name|Q_OUTOFLINE_TEMPLATE
 name|bool
@@ -6716,7 +6722,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -6724,7 +6730,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|QMultiHash
 name|class
 name|QMultiHash
 operator|:
@@ -7551,7 +7557,7 @@ decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 unit|};
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -7560,7 +7566,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|contains
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -7600,7 +7606,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
+DECL|member|Key
 name|template
 operator|<
 name|class
@@ -7609,7 +7615,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|remove
 name|Q_INLINE_TEMPLATE
 name|int
@@ -7724,7 +7730,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
+DECL|member|Key
 operator|<
 name|class
 name|Key
@@ -7732,7 +7738,7 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
+DECL|member|Key
 DECL|function|count
 name|Q_INLINE_TEMPLATE
 name|int
@@ -7842,6 +7848,26 @@ argument|Hash
 argument_list|)
 name|QT_END_NAMESPACE
 end_expr_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+end_if
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|pop
+name|)
+end_pragma
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
