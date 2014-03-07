@@ -180,6 +180,9 @@ block|;
 name|QSurfaceFormat
 name|m_format
 block|;
+name|EGLenum
+name|m_api
+block|;
 name|int
 name|m_swapInterval
 block|;
