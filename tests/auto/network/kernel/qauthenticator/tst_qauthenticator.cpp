@@ -639,7 +639,7 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-literal|"NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA="
+literal|"NTLM TlRMTVNTUAABAAAABYIIAAAAAAAAAAAAAAAAAAAAAAA="
 argument_list|)
 expr_stmt|;
 comment|// NTLM phase 2: challenge
