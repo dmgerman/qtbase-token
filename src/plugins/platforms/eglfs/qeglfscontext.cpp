@@ -67,9 +67,6 @@ name|share
 parameter_list|,
 name|EGLDisplay
 name|display
-parameter_list|,
-name|EGLenum
-name|eglApi
 parameter_list|)
 member_init_list|:
 name|QEGLPlatformContext
@@ -104,8 +101,6 @@ argument_list|(
 name|format
 argument_list|)
 argument_list|)
-argument_list|,
-name|eglApi
 argument_list|)
 block|{ }
 end_constructor

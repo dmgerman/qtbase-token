@@ -259,8 +259,6 @@ name|staticContext
 operator|->
 name|display
 argument_list|()
-argument_list|,
-name|EGL_OPENGL_ES_API
 argument_list|)
 member_init_list|,
 name|m_staticContext

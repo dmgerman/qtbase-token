@@ -196,19 +196,6 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
-if|if
-condition|(
-operator|!
-name|eglBindAPI
-argument_list|(
-name|EGL_OPENGL_ES_API
-argument_list|)
-condition|)
-name|qFatal
-argument_list|(
-literal|"Could not bind GL_ES API"
-argument_list|)
-expr_stmt|;
 name|m_display
 operator|=
 name|eglGetDisplay

@@ -138,9 +138,6 @@ name|share
 parameter_list|,
 name|EGLDisplay
 name|display
-parameter_list|,
-name|EGLenum
-name|eglApi
 parameter_list|)
 member_init_list|:
 name|m_eglDisplay
@@ -182,11 +179,6 @@ argument_list|,
 name|share
 argument_list|)
 expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|eglApi
-argument_list|)
-expr_stmt|;
 block|}
 end_constructor
 begin_constructor
@@ -209,9 +201,6 @@ name|display
 parameter_list|,
 name|EGLConfig
 name|config
-parameter_list|,
-name|EGLenum
-name|eglApi
 parameter_list|)
 member_init_list|:
 name|m_eglDisplay
@@ -246,11 +235,6 @@ argument_list|(
 name|format
 argument_list|,
 name|share
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|eglApi
 argument_list|)
 expr_stmt|;
 block|}
