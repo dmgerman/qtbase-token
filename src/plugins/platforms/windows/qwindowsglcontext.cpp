@@ -5791,12 +5791,8 @@ operator|->
 name|surface
 argument_list|()
 operator|->
-name|surfaceType
+name|supportsOpenGL
 argument_list|()
-operator|==
-name|QSurface
-operator|::
-name|OpenGLSurface
 argument_list|)
 expr_stmt|;
 comment|// Do we already have a DC entry for that window?
