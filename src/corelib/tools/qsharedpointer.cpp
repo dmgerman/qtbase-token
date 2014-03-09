@@ -139,6 +139,9 @@ begin_comment
 comment|/*!     \fn QSharedPointer<T> QWeakPointer::toStrongRef() const      Promotes this weak reference to a strong one and returns a     QSharedPointer object holding that reference. When promoting to     QSharedPointer, this function verifies if the object has been deleted     already or not. If it hasn't, this function increases the reference     count to the shared object, thus ensuring that it will not get     deleted.      Since this function can fail to obtain a valid strong reference to the     shared object, you should always verify if the conversion succeeded,     by calling QSharedPointer::isNull() on the returned object.      For example, the following code promotes a QWeakPointer that was held     to a strong reference and, if it succeeded, it prints the value of the     integer that was held:      \code         QWeakPointer<int> weakref;          // ...          QSharedPointer<int> strong = weakref.toStrongRef();         if (strong)             qDebug()<< "The value is:"<< *strong;         else             qDebug()<< "The value has already been deleted";     \endcode      \sa QSharedPointer::QSharedPointer() */
 end_comment
 begin_comment
+comment|/*!     \fn QSharedPointer<T> QWeakPointer::lock() const     \since 5.4      Same as toStrongRef().      This function is provided for API compatibility with std::weak_ptr. */
+end_comment
+begin_comment
 comment|/*!     \fn void QWeakPointer::clear()      Clears this QWeakPointer object, dropping the reference that it     may have had to the pointer. */
 end_comment
 begin_comment

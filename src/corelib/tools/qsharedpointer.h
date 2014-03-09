@@ -470,6 +470,14 @@ operator|>
 name|toStrongRef
 argument_list|()
 specifier|const
+block|;
+name|QSharedPointer
+operator|<
+name|T
+operator|>
+name|lock
+argument_list|()
+specifier|const
 block|; }
 expr_stmt|;
 end_expr_stmt

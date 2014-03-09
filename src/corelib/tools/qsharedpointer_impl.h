@@ -3530,6 +3530,25 @@ operator|)
 return|;
 block|}
 end_expr_stmt
+begin_comment
+comment|// std::weak_ptr compatibility:
+end_comment
+begin_expr_stmt
+specifier|inline
+name|QSharedPointer
+operator|<
+name|T
+operator|>
+name|lock
+argument_list|()
+specifier|const
+block|{
+return|return
+name|toStrongRef
+argument_list|()
+return|;
+block|}
+end_expr_stmt
 begin_if
 if|#
 directive|if
