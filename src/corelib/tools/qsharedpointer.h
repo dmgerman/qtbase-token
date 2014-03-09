@@ -453,6 +453,17 @@ operator|*
 name|other
 operator|)
 block|;
+name|void
+name|swap
+argument_list|(
+name|QWeakPointer
+operator|<
+name|T
+operator|>
+operator|&
+name|other
+argument_list|)
+block|;
 name|T
 operator|*
 name|data

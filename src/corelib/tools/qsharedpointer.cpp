@@ -124,6 +124,9 @@ begin_comment
 comment|/*!     \fn QWeakPointer&QWeakPointer::operator=(const QSharedPointer<T>&other)      Makes this object share \a other's pointer. The current pointer     reference is discarded but is not deleted.      If \tt T is a derived type of the template parameter of this     class, QWeakPointer will perform an automatic cast. Otherwise,     you will get a compiler error. */
 end_comment
 begin_comment
+comment|/*!     \fn void QWeakPointer::swap(QWeakPointer<T>&other)     \since 5.4      Swaps this weak pointer instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QWeakPointer::isNull() const      Returns \c true if this object is holding a reference to a null     pointer.      Note that, due to the nature of weak references, the pointer that     QWeakPointer references can become null at any moment, so     the value returned from this function can change from false to     true from one call to the next. */
 end_comment
 begin_comment
