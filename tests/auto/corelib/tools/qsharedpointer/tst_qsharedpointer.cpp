@@ -1956,6 +1956,68 @@ name|ForwardDeclared
 argument_list|>
 name|sp
 decl_stmt|;
+comment|// copying should work, too:
+name|QSharedPointer
+argument_list|<
+name|ForwardDeclared
+argument_list|>
+name|sp2
+init|=
+name|sp
+decl_stmt|;
+comment|// and assignment:
+name|QSharedPointer
+argument_list|<
+name|ForwardDeclared
+argument_list|>
+name|sp3
+decl_stmt|;
+name|sp3
+operator|=
+name|sp
+expr_stmt|;
+comment|// move assignment:
+name|QSharedPointer
+argument_list|<
+name|ForwardDeclared
+argument_list|>
+name|sp4
+decl_stmt|;
+name|sp4
+operator|=
+name|qMove
+argument_list|(
+name|sp
+argument_list|)
+expr_stmt|;
+comment|// and move constuction:
+name|QSharedPointer
+argument_list|<
+name|ForwardDeclared
+argument_list|>
+name|sp5
+init|=
+name|qMove
+argument_list|(
+name|sp2
+argument_list|)
+decl_stmt|;
+comment|// swapping:
+name|sp4
+operator|.
+name|swap
+argument_list|(
+name|sp3
+argument_list|)
+expr_stmt|;
+name|qSwap
+argument_list|(
+name|sp4
+argument_list|,
+name|sp3
+argument_list|)
+expr_stmt|;
+comment|// and, of course, destruction
 block|}
 end_function
 begin_function
