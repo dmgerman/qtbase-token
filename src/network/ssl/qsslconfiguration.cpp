@@ -1058,7 +1058,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 5.2    If QSsl::SslOptionDisableSessionPersistence was turned off, this   function returns the session ticket used in the SSL handshake in ASN.1   format, suitable to e.g. be persisted to disk. If no session ticket was   used or QSsl::SslOptionDisableSessionPersistence was not turned off,   this function returns an empty QByteArray.    \b{Note:} When persisting the session ticket to disk or similar, be   careful not to expose the session to a potential attacker, as   knowledge of the session allows for eavesdropping on data   encrypted with the session parameters.    \sa setSessionTicket(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
+comment|/*!   \since 5.2    If QSsl::SslOptionDisableSessionPersistence was turned off, this   function returns the session ticket used in the SSL handshake in ASN.1   format, suitable to e.g. be persisted to disk. If no session ticket was   used or QSsl::SslOptionDisableSessionPersistence was not turned off,   this function returns an empty QByteArray.    \note When persisting the session ticket to disk or similar, be   careful not to expose the session to a potential attacker, as   knowledge of the session allows for eavesdropping on data   encrypted with the session parameters.    \sa setSessionTicket(), QSsl::SslOptionDisableSessionPersistence, setSslOption()  */
 end_comment
 begin_function
 DECL|function|sessionTicket

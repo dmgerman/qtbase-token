@@ -988,7 +988,7 @@ begin_comment
 comment|/*!     \fn QString QHostInfo::localHostName()      Returns the host name of this machine.      \sa hostName() */
 end_comment
 begin_comment
-comment|/*!     \fn QString QHostInfo::localDomainName()      Returns the DNS domain of this machine.      Note: DNS domains are not related to domain names found in     Windows networks.      \sa hostName() */
+comment|/*!     \fn QString QHostInfo::localDomainName()      Returns the DNS domain of this machine.      \note DNS domains are not related to domain names found in     Windows networks.      \sa hostName() */
 end_comment
 begin_constructor
 DECL|function|QHostInfoRunnable

@@ -4303,7 +4303,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the socket is valid and ready for use; otherwise     returns \c false.      \b{Note:} The socket's state must be ConnectedState before reading and     writing can occur.      \sa state() */
+comment|/*!     Returns \c true if the socket is valid and ready for use; otherwise     returns \c false.      \note The socket's state must be ConnectedState before reading and     writing can occur.      \sa state() */
 end_comment
 begin_function
 DECL|function|isValid

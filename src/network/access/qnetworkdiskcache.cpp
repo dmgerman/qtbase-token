@@ -2113,7 +2113,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Cleans the cache so that its size is under the maximum cache size.     Returns the current size of the cache.      When the current size of the cache is greater than the maximumCacheSize()     older cache files are removed until the total size is less then 90% of     maximumCacheSize() starting with the oldest ones first using the file     creation date to determine how old a cache file is.      Subclasses can reimplement this function to change the order that cache     files are removed taking into account information in the application     knows about that QNetworkDiskCache does not, for example the number of times     a cache is accessed.      Note: cacheSize() calls expire if the current cache size is unknown.      \sa maximumCacheSize(), fileMetaData()  */
+comment|/*!     Cleans the cache so that its size is under the maximum cache size.     Returns the current size of the cache.      When the current size of the cache is greater than the maximumCacheSize()     older cache files are removed until the total size is less then 90% of     maximumCacheSize() starting with the oldest ones first using the file     creation date to determine how old a cache file is.      Subclasses can reimplement this function to change the order that cache     files are removed taking into account information in the application     knows about that QNetworkDiskCache does not, for example the number of times     a cache is accessed.      \note cacheSize() calls expire if the current cache size is unknown.      \sa maximumCacheSize(), fileMetaData()  */
 end_comment
 begin_function
 DECL|function|expire

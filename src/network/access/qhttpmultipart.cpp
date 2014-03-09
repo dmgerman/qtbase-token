@@ -197,7 +197,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      Note: setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      \sa QNetworkRequest::KnownHeaders, setHeader(), QNetworkRequest::setRawHeader() */
+comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      \note Setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      \sa QNetworkRequest::KnownHeaders, setHeader(), QNetworkRequest::setRawHeader() */
 end_comment
 begin_function
 DECL|function|setRawHeader
