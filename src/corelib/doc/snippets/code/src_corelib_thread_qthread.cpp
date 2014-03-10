@@ -196,6 +196,7 @@ argument_list|)
 expr_stmt|;
 name|connect
 argument_list|(
+operator|&
 name|workerThread
 argument_list|,
 operator|&
