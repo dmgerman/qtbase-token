@@ -751,6 +751,16 @@ operator|=
 literal|0
 block|;
 name|virtual
+name|QSsl
+operator|::
+name|SslProtocol
+name|sessionProtocol
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
 name|void
 name|continueHandshake
 argument_list|()

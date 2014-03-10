@@ -1928,6 +1928,17 @@ directive|endif
 end_endif
 begin_function_decl
 name|int
+name|q_SSL_version
+parameter_list|(
+specifier|const
+name|SSL
+modifier|*
+name|a
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|int
 name|q_SSL_get_error
 parameter_list|(
 name|SSL

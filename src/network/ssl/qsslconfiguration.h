@@ -260,6 +260,13 @@ name|sessionCipher
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QSsl
+operator|::
+name|SslProtocol
+name|sessionProtocol
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// Private keys, for server sockets
 name|QSslKey
 name|privateKey

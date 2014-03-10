@@ -2029,6 +2029,23 @@ endif|#
 directive|endif
 end_endif
 begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|SSL_version
+argument_list|,
+argument|const SSL *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
 argument|int
@@ -5601,6 +5618,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|SSL_get_current_cipher
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_version
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(

@@ -84,6 +84,13 @@ operator|:
 name|QSslConfigurationPrivate
 argument_list|()
 operator|:
+name|sessionProtocol
+argument_list|(
+name|QSsl
+operator|::
+name|UnknownProtocol
+argument_list|)
+block|,
 name|protocol
 argument_list|(
 name|QSsl
@@ -151,6 +158,11 @@ name|privateKey
 block|;
 name|QSslCipher
 name|sessionCipher
+block|;
+name|QSsl
+operator|::
+name|SslProtocol
+name|sessionProtocol
 block|;
 name|QList
 operator|<

@@ -317,6 +317,13 @@ name|sessionCipher
 argument_list|()
 specifier|const
 block|;
+name|QSsl
+operator|::
+name|SslProtocol
+name|sessionProtocol
+argument_list|()
+specifier|const
+block|;
 name|void
 name|continueHandshake
 argument_list|()
