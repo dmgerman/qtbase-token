@@ -9109,6 +9109,11 @@ operator|::
 name|abort
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"This test takes too long."
+argument_list|)
+expr_stmt|;
 comment|// In case you wonder where the abort() actually happens, look into
 comment|// tst_QFtp::dataTransferProgress
 comment|//
