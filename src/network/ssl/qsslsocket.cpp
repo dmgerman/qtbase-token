@@ -3569,6 +3569,44 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.4     Returns the version number of the SSL library in use at compile     time. If no SSL support is available then this will return an     undefined value.      \sa sslLibraryVersionNumber() */
+end_comment
+begin_function
+DECL|function|sslLibraryBuildVersionNumber
+name|long
+name|QSslSocket
+operator|::
+name|sslLibraryBuildVersionNumber
+parameter_list|()
+block|{
+return|return
+name|QSslSocketPrivate
+operator|::
+name|sslLibraryBuildVersionNumber
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.4     Returns the version string of the SSL library in use at compile     time. If no SSL support is available then this will return an     empty value.      \sa sslLibraryVersionString() */
+end_comment
+begin_function
+DECL|function|sslLibraryBuildVersionString
+name|QString
+name|QSslSocket
+operator|::
+name|sslLibraryBuildVersionString
+parameter_list|()
+block|{
+return|return
+name|QSslSocketPrivate
+operator|::
+name|sslLibraryBuildVersionString
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Starts a delayed SSL handshake for a client connection. This     function can be called when the socket is in the \l ConnectedState     but still in the \l UnencryptedMode. If it is not yet connected,     or if it is already encrypted, this function has no effect.      Clients that implement STARTTLS functionality often make use of     delayed SSL handshakes. Most other clients can avoid calling this     function directly by using connectToHostEncrypted() instead, which     automatically performs the handshake.      \sa connectToHostEncrypted(), startServerEncryption() */
 end_comment
 begin_function

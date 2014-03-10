@@ -655,6 +655,16 @@ name|QString
 name|sslLibraryVersionString
 argument_list|()
 block|;
+specifier|static
+name|long
+name|sslLibraryBuildVersionNumber
+argument_list|()
+block|;
+specifier|static
+name|QString
+name|sslLibraryBuildVersionString
+argument_list|()
+block|;
 name|void
 name|ignoreSslErrors
 argument_list|(

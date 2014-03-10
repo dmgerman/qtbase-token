@@ -400,6 +400,16 @@ name|sslLibraryVersionString
 argument_list|()
 block|;
 specifier|static
+name|long
+name|sslLibraryBuildVersionNumber
+argument_list|()
+block|;
+specifier|static
+name|QString
+name|sslLibraryBuildVersionString
+argument_list|()
+block|;
+specifier|static
 name|void
 name|ensureInitialized
 argument_list|()
