@@ -10732,7 +10732,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QApplication::startDragDistance      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qapplication.cpp 6      Qt uses this value internally, e.g. in QFileDialog.      The default value is 4 pixels.      \sa startDragTime(), QPoint::manhattanLength(), {Drag and Drop} */
+comment|/*!     \property QApplication::startDragDistance      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qapplication.cpp 6      Qt uses this value internally, e.g. in QFileDialog.      The default value (if the platform doesn't provide a different default)     is 10 pixels.      \sa startDragTime(), QPoint::manhattanLength(), {Drag and Drop} */
 end_comment
 begin_function
 DECL|function|startDragDistance
