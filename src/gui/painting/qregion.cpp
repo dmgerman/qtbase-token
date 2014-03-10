@@ -6295,7 +6295,7 @@ DECL|struct|_POINTBLOCK
 name|_POINTBLOCK
 argument_list|{
 DECL|member|data
-name|int
+name|char
 name|data
 index|[
 name|NUMPTSTOBUFFER
