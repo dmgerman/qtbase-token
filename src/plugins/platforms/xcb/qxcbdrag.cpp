@@ -4515,13 +4515,6 @@ operator|::
 name|IgnoreAction
 argument_list|)
 expr_stmt|;
-name|updateAction
-argument_list|(
-name|Qt
-operator|::
-name|IgnoreAction
-argument_list|)
-expr_stmt|;
 name|xdnd_dragsource
 operator|=
 literal|0
