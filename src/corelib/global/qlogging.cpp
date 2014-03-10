@@ -5477,7 +5477,7 @@ literal|"%s"
 argument_list|,
 name|logMessage
 operator|.
-name|toUtf8
+name|toLocal8Bit
 argument_list|()
 operator|.
 name|constData
