@@ -213,6 +213,14 @@ name|theEvent
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|clearWindow
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 unit|@
 name|end
 expr|@
