@@ -6465,6 +6465,22 @@ operator|::
 name|QFontDatabase
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|qApp
+operator|||
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"QFontDatabase: Must construct a QGuiApplication before accessing QFontDatabase"
+argument_list|)
+expr_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
