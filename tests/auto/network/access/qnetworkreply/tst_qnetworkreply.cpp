@@ -9409,7 +9409,7 @@ argument_list|(
 literal|"file-host"
 argument_list|)
 operator|<<
-literal|"file://this-host-doesnt-exist.troll.no/foo.txt"
+literal|"file://invalid.test.qt-project.org/foo.txt"
 if|#
 directive|if
 operator|!
@@ -9599,7 +9599,7 @@ argument_list|(
 literal|"ftp-host"
 argument_list|)
 operator|<<
-literal|"ftp://this-host-doesnt-exist.troll.no/foo.txt"
+literal|"ftp://invalid.test.qt-project.org/foo.txt"
 operator|<<
 name|int
 argument_list|(
@@ -9753,7 +9753,7 @@ argument_list|(
 literal|"http-host"
 argument_list|)
 operator|<<
-literal|"http://this-host-will-never-exist.troll.no/"
+literal|"http://invalid.test.qt-project.org/"
 operator|<<
 name|int
 argument_list|(
