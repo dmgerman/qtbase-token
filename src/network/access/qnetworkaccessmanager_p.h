@@ -220,7 +220,7 @@ argument_list|)
 block|,
 name|authenticationManager
 argument_list|(
-argument|new QNetworkAccessAuthenticationManager
+argument|QSharedPointer<QNetworkAccessAuthenticationManager>::create()
 argument_list|)
 block|{ }
 operator|~
