@@ -2815,7 +2815,6 @@ name|TcpSocket
 condition|)
 name|bytesWritten
 operator|=
-operator|::
 name|nativeWrite
 argument_list|(
 name|d
@@ -2840,7 +2839,6 @@ name|UdpSocket
 condition|)
 name|bytesWritten
 operator|=
-operator|::
 name|nativeWrite
 argument_list|(
 name|d
