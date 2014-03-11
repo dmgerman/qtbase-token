@@ -1198,6 +1198,7 @@ operator|::
 name|platformTheme
 argument_list|()
 condition|)
+block|{
 name|m_keyboardScheme
 operator|=
 name|theme
@@ -1212,6 +1213,21 @@ operator|.
 name|toInt
 argument_list|()
 expr_stmt|;
+name|m_passwordMaskDelay
+operator|=
+name|theme
+operator|->
+name|themeHint
+argument_list|(
+name|QPlatformTheme
+operator|::
+name|PasswordMaskDelay
+argument_list|)
+operator|.
+name|toInt
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Generalize for X11
 if|if
 condition|(
@@ -3180,13 +3196,7 @@ expr_stmt|;
 name|int
 name|delay
 init|=
-name|qGuiApp
-operator|->
-name|styleHints
-argument_list|()
-operator|->
-name|passwordMaskDelay
-argument_list|()
+name|m_passwordMaskDelay
 decl_stmt|;
 ifdef|#
 directive|ifdef

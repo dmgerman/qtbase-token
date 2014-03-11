@@ -3699,6 +3699,8 @@ literal|"leftarrow-icon"
 block|,
 literal|"lineedit-password-character"
 block|,
+literal|"lineedit-password-mask-delay"
+block|,
 literal|"mdi-fill-space-on-maximize"
 block|,
 literal|"menu-scrollable"
@@ -34791,6 +34793,17 @@ operator|=
 name|QLatin1String
 argument_list|(
 literal|"lineedit-password-character"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|SH_LineEdit_PasswordMaskDelay
+case|:
+name|s
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"lineedit-password-mask-delay"
 argument_list|)
 expr_stmt|;
 break|break;
