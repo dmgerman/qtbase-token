@@ -5771,7 +5771,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the program the process was last started with.      \sa start() */
+comment|/*!     \since 5.0      Returns the program the process was last started with.      \sa start() */
 end_comment
 begin_function
 DECL|function|program
@@ -5841,7 +5841,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the command line arguments the process was last started with.      \sa start() */
+comment|/*!     \since 5.0      Returns the command line arguments the process was last started with.      \sa start() */
 end_comment
 begin_function
 DECL|function|arguments
