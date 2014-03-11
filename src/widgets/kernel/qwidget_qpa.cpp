@@ -5279,7 +5279,39 @@ name|topextra
 condition|)
 block|{
 comment|//the qplatformbackingstore may hold a reference to the window, so the backingstore
-comment|//needs to be deleted first
+comment|//needs to be deleted first. If the backingstore holds GL resources, we need to
+comment|// make the context current here, since the platform bs does not have a reference
+comment|// to the widget.
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+if|if
+condition|(
+name|textureChildSeen
+operator|&&
+name|extra
+operator|->
+name|topextra
+operator|->
+name|shareContext
+condition|)
+name|extra
+operator|->
+name|topextra
+operator|->
+name|shareContext
+operator|->
+name|makeCurrent
+argument_list|(
+name|extra
+operator|->
+name|topextra
+operator|->
+name|window
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|extra
 operator|->
 name|topextra
@@ -5304,6 +5336,30 @@ name|backingStore
 operator|=
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+if|if
+condition|(
+name|textureChildSeen
+operator|&&
+name|extra
+operator|->
+name|topextra
+operator|->
+name|shareContext
+condition|)
+name|extra
+operator|->
+name|topextra
+operator|->
+name|shareContext
+operator|->
+name|doneCurrent
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 comment|//the toplevel might have a context with a "qglcontext associated with it. We need to
 comment|//delete the qglcontext before we delete the qplatformopenglcontext.
 comment|//One unfortunate thing about this is that we potentially create a glContext just to
