@@ -8430,7 +8430,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|member|Q_DECL_OVERRIDE
