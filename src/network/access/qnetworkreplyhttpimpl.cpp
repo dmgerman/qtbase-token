@@ -718,11 +718,9 @@ name|QSharedPointer
 argument_list|<
 name|QRingBuffer
 argument_list|>
-argument_list|(
-operator|new
-name|QRingBuffer
+operator|::
+name|create
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|qint64
 name|previousDataSize
@@ -8107,11 +8105,9 @@ name|QSharedPointer
 argument_list|<
 name|QRingBuffer
 argument_list|>
-argument_list|(
-operator|new
-name|QRingBuffer
+operator|::
+name|create
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|QObject
 operator|::
