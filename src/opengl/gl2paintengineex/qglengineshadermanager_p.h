@@ -641,6 +641,8 @@ name|BrushTexture
 block|,
 name|Matrix
 block|,
+name|TranslateZ
+block|,
 name|NumUniforms
 block|}
 block|;      enum

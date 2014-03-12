@@ -531,6 +531,12 @@ argument|const QTransform&
 argument_list|)
 specifier|const
 block|;
+name|void
+name|setTranslateZ
+argument_list|(
+argument|GLfloat z
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
@@ -626,6 +632,11 @@ literal|1
 argument_list|)
 block|,
 name|lastMaskTextureUsed
+argument_list|(
+literal|0
+argument_list|)
+block|,
+name|translateZ
 argument_list|(
 literal|0
 argument_list|)
@@ -1043,6 +1054,9 @@ name|bool
 name|matrixUniformDirty
 block|;
 name|bool
+name|translateZUniformDirty
+block|;
+name|bool
 name|stencilClean
 block|;
 comment|// Has the stencil not been used for clipping so far?
@@ -1175,6 +1189,9 @@ name|vertexAttribPointers
 index|[
 literal|3
 index|]
+block|;
+name|GLfloat
+name|translateZ
 block|; }
 decl_stmt|;
 end_decl_stmt
