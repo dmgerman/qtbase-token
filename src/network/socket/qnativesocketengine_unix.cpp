@@ -1348,7 +1348,7 @@ directive|ifdef
 name|QNATIVESOCKETENGINE_DEBUG
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeConnect() : %d "
+literal|"QNativeSocketEnginePrivate::nativeConnect() : %lli"
 argument_list|,
 name|socketDescriptor
 argument_list|)
@@ -3891,7 +3891,7 @@ name|QNATIVESOCKETENGINE_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativePendingDatagramSize() == %i"
+literal|"QNativeSocketEnginePrivate::nativePendingDatagramSize() == %zd"
 argument_list|,
 name|recvResult
 argument_list|)
@@ -4869,7 +4869,10 @@ argument_list|)
 name|QString
 name|socketProtocolStr
 init|=
+name|QStringLiteral
+argument_list|(
 literal|"UnknownProtocol"
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -4881,7 +4884,10 @@ name|IPv4Protocol
 condition|)
 name|socketProtocolStr
 operator|=
+name|QStringLiteral
+argument_list|(
 literal|"IPv4Protocol"
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
@@ -4894,12 +4900,18 @@ name|IPv6Protocol
 condition|)
 name|socketProtocolStr
 operator|=
+name|QStringLiteral
+argument_list|(
 literal|"IPv6Protocol"
+argument_list|)
 expr_stmt|;
 name|QString
 name|socketTypeStr
 init|=
+name|QStringLiteral
+argument_list|(
 literal|"UnknownSocketType"
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -4911,7 +4923,10 @@ name|TcpSocket
 condition|)
 name|socketTypeStr
 operator|=
+name|QStringLiteral
+argument_list|(
 literal|"TcpSocket"
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
@@ -4924,7 +4939,10 @@ name|UdpSocket
 condition|)
 name|socketTypeStr
 operator|=
+name|QStringLiteral
+argument_list|(
 literal|"UdpSocket"
+argument_list|)
 expr_stmt|;
 name|qDebug
 argument_list|(
@@ -5301,7 +5319,7 @@ name|QNATIVESOCKETENGINE_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeRead(%p \"%s\", %llu) == %i"
+literal|"QNativeSocketEnginePrivate::nativeRead(%p \"%s\", %llu) == %zd"
 argument_list|,
 name|data
 argument_list|,
