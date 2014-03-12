@@ -612,7 +612,6 @@ name|virtual
 name|void
 name|generateQmlInherits
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn

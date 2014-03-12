@@ -687,7 +687,7 @@ name|Section
 operator|>
 name|qmlSections
 argument_list|(
-argument|const QmlClassNode* qmlClassNode
+argument|QmlClassNode* qmlClassNode
 argument_list|,
 argument|SynopsisStyle style
 argument_list|)

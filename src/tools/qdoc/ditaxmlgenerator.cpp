@@ -20930,9 +20930,7 @@ operator|!
 name|qpn
 operator|->
 name|isWritable
-argument_list|(
-name|qdb_
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -21726,7 +21724,6 @@ name|DitaXmlGenerator
 operator|::
 name|generateQmlInherits
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -21742,7 +21739,6 @@ operator|!
 name|qcn
 condition|)
 return|return;
-specifier|const
 name|QmlClassNode
 modifier|*
 name|base

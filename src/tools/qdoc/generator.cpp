@@ -1510,13 +1510,13 @@ if|if
 condition|(
 name|node
 operator|->
-name|hasBaseName
+name|hasFileNameBase
 argument_list|()
 condition|)
 return|return
 name|node
 operator|->
-name|baseName
+name|fileNameBase
 argument_list|()
 return|;
 name|QString
@@ -2035,7 +2035,7 @@ argument_list|)
 decl_stmt|;
 name|n
 operator|->
-name|setBaseName
+name|setFileNameBase
 argument_list|(
 name|res
 argument_list|)
@@ -6107,7 +6107,6 @@ name|Generator
 operator|::
 name|generateQmlInherits
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 parameter_list|,

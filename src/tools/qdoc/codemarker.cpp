@@ -3281,7 +3281,6 @@ name|CodeMarker
 operator|::
 name|qmlSections
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 parameter_list|,

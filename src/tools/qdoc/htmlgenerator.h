@@ -519,7 +519,6 @@ block|;
 name|QString
 name|generateAllQmlMembersFile
 argument_list|(
-specifier|const
 name|QmlClassNode
 operator|*
 name|qml_cn
@@ -704,7 +703,6 @@ block|;
 name|void
 name|generateQmlInherits
 argument_list|(
-specifier|const
 name|QmlClassNode
 operator|*
 name|qcn

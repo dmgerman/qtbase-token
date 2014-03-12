@@ -1399,6 +1399,16 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
+name|name
+parameter_list|)
+function_decl|;
+name|QmlClassNode
+modifier|*
+name|findQmlType
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
 name|qmid
 parameter_list|,
 specifier|const

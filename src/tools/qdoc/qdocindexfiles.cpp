@@ -877,6 +877,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|qcn
 operator|->
 name|setQmlBaseName
@@ -884,6 +885,7 @@ argument_list|(
 name|qmlFullBaseName
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|element
@@ -3688,6 +3690,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// No longer needed.
+name|basesList_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|relatedList_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -6237,9 +6250,7 @@ argument_list|,
 name|qpn
 operator|->
 name|isWritable
-argument_list|(
-name|qdb_
-argument_list|)
+argument_list|()
 condition|?
 literal|"true"
 else|:

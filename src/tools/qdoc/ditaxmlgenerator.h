@@ -1312,7 +1312,6 @@ block|;
 name|void
 name|generateQmlInherits
 argument_list|(
-specifier|const
 name|QmlClassNode
 operator|*
 name|qcn

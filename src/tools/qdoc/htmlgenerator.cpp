@@ -12083,7 +12083,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//add the inherits to the map
-specifier|const
 name|QmlClassNode
 modifier|*
 name|base
@@ -13335,7 +13334,6 @@ name|HtmlGenerator
 operator|::
 name|generateAllQmlMembersFile
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qml_cn
@@ -22775,9 +22773,7 @@ operator|!
 name|qpn
 operator|->
 name|isWritable
-argument_list|(
-name|qdb_
-argument_list|)
+argument_list|()
 condition|)
 name|out
 argument_list|()
@@ -22908,9 +22904,7 @@ operator|!
 name|qpn
 operator|->
 name|isWritable
-argument_list|(
-name|qdb_
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -23307,7 +23301,6 @@ name|HtmlGenerator
 operator|::
 name|generateQmlInherits
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -23323,7 +23316,6 @@ operator|!
 name|qcn
 condition|)
 return|return;
-specifier|const
 name|QmlClassNode
 modifier|*
 name|base

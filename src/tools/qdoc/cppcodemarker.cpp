@@ -6140,7 +6140,6 @@ name|CppCodeMarker
 operator|::
 name|qmlSections
 parameter_list|(
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qmlClassNode
@@ -6272,7 +6271,6 @@ argument_list|,
 literal|"methods"
 argument_list|)
 decl_stmt|;
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -6604,7 +6602,6 @@ name|qcn
 operator|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|QmlClassNode
 operator|*
 argument_list|>
@@ -6790,7 +6787,6 @@ argument_list|,
 literal|"members"
 argument_list|)
 decl_stmt|;
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -7120,7 +7116,6 @@ name|qcn
 operator|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|QmlClassNode
 operator|*
 argument_list|>
@@ -7225,7 +7220,6 @@ argument_list|,
 literal|"members"
 argument_list|)
 decl_stmt|;
-specifier|const
 name|QmlClassNode
 modifier|*
 name|current
