@@ -10341,7 +10341,15 @@ name|acceptMouseEvent
 argument_list|(
 literal|false
 argument_list|)
-block|{ }
+block|{
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_TouchPadAcceptSingleTouchEvents
+argument_list|)
+expr_stmt|;
+block|}
 DECL|function|reset
 name|void
 name|reset
