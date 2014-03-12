@@ -1474,6 +1474,16 @@ operator|&
 name|QGraphicsItem
 operator|::
 name|ItemClipsChildrenToShape
+operator|||
+name|item
+operator|->
+name|d_ptr
+operator|->
+name|flags
+operator|&
+name|QGraphicsItem
+operator|::
+name|ItemContainsChildrenInShape
 operator|)
 decl_stmt|;
 name|bool

@@ -704,6 +704,10 @@ block|,
 name|AncestorFiltersChildEvents
 init|=
 literal|0x8
+block|,
+name|AncestorContainsChildren
+init|=
+literal|0x10
 block|}
 enum|;
 specifier|inline
@@ -902,11 +906,6 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
-name|dirtyChildrenBoundingRect
-argument_list|(
-literal|1
-argument_list|)
-operator|,
 name|flags
 argument_list|(
 literal|0
@@ -1030,6 +1029,11 @@ operator|,
 name|sendParentChangeNotification
 argument_list|(
 literal|0
+argument_list|)
+operator|,
+name|dirtyChildrenBoundingRect
+argument_list|(
+literal|1
 argument_list|)
 operator|,
 name|globalStackingOrder
@@ -2757,7 +2761,7 @@ begin_decl_stmt
 name|quint32
 name|ancestorFlags
 range|:
-literal|4
+literal|5
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2830,13 +2834,6 @@ range|:
 literal|1
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|quint32
-name|dirtyChildrenBoundingRect
-range|:
-literal|1
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|// Packed 32 bits
 end_comment
@@ -2844,7 +2841,7 @@ begin_decl_stmt
 name|quint32
 name|flags
 range|:
-literal|19
+literal|20
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2931,6 +2928,9 @@ range|:
 literal|1
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// New 32 bits
+end_comment
 begin_decl_stmt
 name|quint32
 name|notifyInvalidated
@@ -2938,9 +2938,6 @@ range|:
 literal|1
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// New 32 bits
-end_comment
 begin_decl_stmt
 name|quint32
 name|mouseSetsFocus
@@ -3020,9 +3017,16 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|quint32
+name|dirtyChildrenBoundingRect
+range|:
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|quint32
 name|padding
 range|:
-literal|21
+literal|19
 decl_stmt|;
 end_decl_stmt
 begin_comment

@@ -298,6 +298,10 @@ block|,
 name|ItemStopsFocusHandling
 init|=
 literal|0x40000
+block|,
+name|ItemContainsChildrenInShape
+init|=
+literal|0x80000
 comment|// NB! Don't forget to increase the d_ptr->flags bit field by 1 when adding a new flag.
 block|}
 enum|;

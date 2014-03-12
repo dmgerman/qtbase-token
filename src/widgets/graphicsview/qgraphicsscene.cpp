@@ -18393,6 +18393,16 @@ operator|&
 name|QGraphicsItem
 operator|::
 name|ItemClipsChildrenToShape
+operator|||
+name|item
+operator|->
+name|d_ptr
+operator|->
+name|flags
+operator|&
+name|QGraphicsItem
+operator|::
+name|ItemContainsChildrenInShape
 operator|)
 decl_stmt|;
 name|bool
@@ -21347,6 +21357,16 @@ operator|&
 name|QGraphicsItem
 operator|::
 name|ItemClipsChildrenToShape
+operator|||
+name|item
+operator|->
+name|d_ptr
+operator|->
+name|flags
+operator|&
+name|QGraphicsItem
+operator|::
+name|ItemContainsChildrenInShape
 decl_stmt|;
 comment|// Items with no content are threated as 'dummy' items which means they are never drawn and
 comment|// 'processed', so the painted view bounding rect is never up-to-date. This means that whenever
