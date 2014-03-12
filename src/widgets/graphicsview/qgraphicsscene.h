@@ -339,6 +339,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool stickyFocus READ stickyFocus WRITE setStickyFocus
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal minimumRenderSize READ minimumRenderSize WRITE setMinimumRenderSize
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -1459,6 +1463,17 @@ argument_list|,
 name|QEvent
 operator|*
 name|event
+argument_list|)
+block|;
+name|qreal
+name|minimumRenderSize
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setMinimumRenderSize
+argument_list|(
+argument|qreal minSize
 argument_list|)
 block|;
 name|public

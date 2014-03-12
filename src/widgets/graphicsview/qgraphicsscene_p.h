@@ -287,6 +287,9 @@ name|padding
 operator|:
 literal|15
 block|;
+name|qreal
+name|minimumRenderSize
+block|;
 name|QRectF
 name|growingItemsBoundingRect
 block|;

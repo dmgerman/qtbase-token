@@ -3327,7 +3327,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     \since 4.6      Returns the level of detail from the \a worldTransform.      Its value represents the maximum value of the height and     width of a unity rectangle, mapped using the \a worldTransform     of the painter used to draw the item. By default, if no     transformations are applied, its value is 1. If zoomed out 1:2, the level     of detail will be 0.5, and if zoomed in 2:1, its value is 2. */
+comment|/*!     \since 4.6      Returns the level of detail from the \a worldTransform.      Its value represents the maximum value of the height and     width of a unity rectangle, mapped using the \a worldTransform     of the painter used to draw the item. By default, if no     transformations are applied, its value is 1. If zoomed out 1:2, the level     of detail will be 0.5, and if zoomed in 2:1, its value is 2.      \sa QGraphicsScene::minimumRenderSize() */
 end_comment
 begin_function
 DECL|function|levelOfDetailFromTransform
