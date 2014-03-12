@@ -17,11 +17,6 @@ include|#
 directive|include
 file|<math.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<locale.h>
-end_include
 begin_constructor
 DECL|function|MainWidget
 name|MainWidget
@@ -297,14 +292,6 @@ operator|::
 name|initShaders
 parameter_list|()
 block|{
-comment|// Override system locale until shaders are compiled
-name|setlocale
-argument_list|(
-name|LC_NUMERIC
-argument_list|,
-literal|"C"
-argument_list|)
-expr_stmt|;
 comment|// Compile vertex shader
 if|if
 condition|(
@@ -364,14 +351,6 @@ argument_list|()
 condition|)
 name|close
 argument_list|()
-expr_stmt|;
-comment|// Restore system locale
-name|setlocale
-argument_list|(
-name|LC_ALL
-argument_list|,
-literal|""
-argument_list|)
 expr_stmt|;
 block|}
 end_function
