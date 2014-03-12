@@ -5293,6 +5293,12 @@ name|XdndDropTransactionTimeout
 condition|)
 block|{
 comment|/* delete transactions which are older than XdndDropTransactionTimeout. It could mean                  one of these:                  - client has crashed and as a result we have never received XdndFinished                  - showing dialog box on drop event where user's response takes more time than XdndDropTransactionTimeout (QTBUG-14493)                  - dnd takes unusually long time to process data                  */
+if|if
+condition|(
+name|t
+operator|.
+name|drag
+condition|)
 name|t
 operator|.
 name|drag

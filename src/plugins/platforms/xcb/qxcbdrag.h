@@ -460,10 +460,12 @@ modifier|*
 name|targetWindow
 decl_stmt|;
 comment|//        QWidget *embedding_widget;
+name|QPointer
+operator|<
 name|QDrag
-modifier|*
+operator|>
 name|drag
-decl_stmt|;
+expr_stmt|;
 name|QTime
 name|time
 decl_stmt|;
