@@ -83,6 +83,11 @@ name|QString
 argument_list|()
 argument_list|)
 block|;
+name|int
+name|msvcVersion
+argument_list|()
+specifier|const
+block|;
 name|void
 name|init
 argument_list|()
