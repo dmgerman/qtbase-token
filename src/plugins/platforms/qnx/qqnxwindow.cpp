@@ -572,6 +572,11 @@ argument_list|,
 name|newGeometry
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isExposed
+argument_list|()
+condition|)
 name|QWindowSystemInterface
 operator|::
 name|handleExposeEvent
