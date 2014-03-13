@@ -184,6 +184,14 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|bool
 name|stringToCMap
 argument_list|(
@@ -325,27 +333,6 @@ block|;
 name|virtual
 name|qreal
 name|minRightBearing
-argument_list|()
-specifier|const
-block|;
-name|virtual
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
-block|;
-name|Type
-name|type
 argument_list|()
 specifier|const
 block|;
@@ -641,10 +628,14 @@ operator|&
 name|fallbacks
 argument_list|)
 block|;
-name|virtual
-operator|~
-name|QWindowsMultiFontEngine
-argument_list|()
+name|void
+name|setFallbackFamiliesList
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|fallbacks
+argument_list|)
 block|;
 name|void
 name|loadEngine
@@ -653,7 +644,7 @@ argument|int at
 argument_list|)
 block|;
 name|QStringList
-name|fallbacks
+name|fallbackFamilies
 block|; }
 decl_stmt|;
 end_decl_stmt

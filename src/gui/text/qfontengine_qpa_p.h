@@ -322,6 +322,14 @@ argument|uint *length
 argument_list|)
 specifier|const
 block|;
+name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|stringToCMap
 argument_list|(
@@ -421,31 +429,6 @@ name|lineThickness
 argument_list|()
 specifier|const
 block|;
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
-block|;
-specifier|inline
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|{
-return|return
-literal|"QPF2"
-return|;
-block|}
 name|virtual
 name|int
 name|glyphCount
@@ -501,7 +484,7 @@ block|;
 specifier|const
 name|uchar
 operator|*
-name|externalCMap
+name|cmap
 block|;
 name|quint32
 name|cmapOffset

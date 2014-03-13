@@ -124,6 +124,14 @@ name|emSquareSize
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|stringToCMap
 argument_list|(
@@ -202,13 +210,6 @@ name|maxCharWidth
 argument_list|()
 specifier|const
 block|;
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|;
 name|bool
 name|supportsSubPixelPositions
 argument_list|()
@@ -238,19 +239,6 @@ name|cloneWithSize
 argument_list|(
 argument|qreal pixelSize
 argument_list|)
-specifier|const
-block|;
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
-block|;
-name|Type
-name|type
-argument_list|()
 specifier|const
 block|;
 specifier|const

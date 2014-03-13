@@ -56,8 +56,6 @@ argument_list|,
 name|share
 argument_list|,
 name|display
-argument_list|,
-name|EGL_OPENGL_ES_API
 argument_list|)
 block|{ }
 end_constructor

@@ -237,7 +237,7 @@ begin_comment
 comment|/*!     \fn QPlatformBackingStore *QPlatformIntegration::createPlatformBackingStore(QWindow *window) const      Factory function for QPlatformBackingStore. The QWindow parameter is a pointer to the     top level widget(tlw) the window surface is created for. A QPlatformWindow is always created     before the QPlatformBackingStore for tlw where the widget also requires a backing store.      \sa QBackingStore     \sa createPlatformWindow() */
 end_comment
 begin_comment
-comment|/*!     \enum QPlatformIntegration::Capability      Capabilities are used to determing specific features of a platform integration      \value ThreadedPixmaps The platform uses a pixmap implementation that is reentrant     and can be used from multiple threads, like the raster paint engine and QImage based     pixmaps.      \value OpenGL The platform supports OpenGL      \value ThreadedOpenGL The platform supports using OpenGL outside the GUI thread.      \value SharedGraphicsCache The platform supports a shared graphics cache      \value BufferQueueingOpenGL The OpenGL implementation on the platform will queue     up buffers when swapBuffers() is called and block only when its buffer pipeline     is full, rather than block immediately.      \value MultipleWindows The platform supports multiple QWindows, i.e. does some kind     of compositing either client or server side. Some platforms might only support a     single fullscreen window.      \value ApplicationState The platform handles the application state explicitly.     This means that QEvent::ApplicationActivate and QEvent::ApplicationDeativate     will not be posted automatically. Instead, the platform must handle application     state explicitly by using QWindowSystemInterface::handleApplicationStateChanged().     If not set, application state will follow window activation, which is the normal     behavior for desktop platforms.      \value ForeignWindows The platform allows creating QWindows which represent     native windows created by other processes or anyway created by using native     libraries.      \value NonFullScreenWindows The platform supports top-level windows which do not     fill the screen. The default implementation returns \c true. Returning false for     this will cause all windows, including dialogs and popups, to be resized to fill the     screen.      \value WindowManagement The platform is based on a system that performs window     management.  This includes the typical desktop platforms. Can be set to false on     platforms where no window management is available, meaning for example that windows     are never repositioned by the window manager. The default implementation returns \c true.  */
+comment|/*!     \enum QPlatformIntegration::Capability      Capabilities are used to determing specific features of a platform integration      \value ThreadedPixmaps The platform uses a pixmap implementation that is reentrant     and can be used from multiple threads, like the raster paint engine and QImage based     pixmaps.      \value OpenGL The platform supports OpenGL      \value ThreadedOpenGL The platform supports using OpenGL outside the GUI thread.      \value SharedGraphicsCache The platform supports a shared graphics cache      \value BufferQueueingOpenGL The OpenGL implementation on the platform will queue     up buffers when swapBuffers() is called and block only when its buffer pipeline     is full, rather than block immediately.      \value MultipleWindows The platform supports multiple QWindows, i.e. does some kind     of compositing either client or server side. Some platforms might only support a     single fullscreen window.      \value ApplicationState The platform handles the application state explicitly.     This means that QEvent::ApplicationActivate and QEvent::ApplicationDeativate     will not be posted automatically. Instead, the platform must handle application     state explicitly by using QWindowSystemInterface::handleApplicationStateChanged().     If not set, application state will follow window activation, which is the normal     behavior for desktop platforms.      \value ForeignWindows The platform allows creating QWindows which represent     native windows created by other processes or anyway created by using native     libraries.      \value NonFullScreenWindows The platform supports top-level windows which do not     fill the screen. The default implementation returns \c true. Returning false for     this will cause all windows, including dialogs and popups, to be resized to fill the     screen.      \value WindowManagement The platform is based on a system that performs window     management.  This includes the typical desktop platforms. Can be set to false on     platforms where no window management is available, meaning for example that windows     are never repositioned by the window manager. The default implementation returns \c true.      \value AllGLFunctionsQueryable The QOpenGLContext backend provided by the platform is     able to return function pointers from getProcAddress() even for standard OpenGL     functions, for example OpenGL 1 functions like glClear() or glDrawArrays(). This is     important because the OpenGL specifications do not require this ability from the     getProcAddress implementations of the windowing system interfaces (EGL, WGL, GLX). The     platform plugins may however choose to enhance the behavior in the backend     implementation for QOpenGLContext::getProcAddress() and support returning a function     pointer also for the standard, non-extension functions. This capability is a     prerequisite for dynamic OpenGL loading.  */
 end_comment
 begin_comment
 comment|/*!      \fn QAbstractEventDispatcher *QPlatformIntegration::createEventDispatcher() const = 0      Factory function for the GUI event dispatcher. The platform plugin should create     and return a QAbstractEventDispatcher subclass when this function is called.      If the platform plugin for some reason creates the event dispatcher outside of     this function (for example in the constructor), it needs to handle the case     where this function is never called, ensuring that the event dispatcher is     still deleted at some point (typically in the destructor).      Note that the platform plugin should never explicitly set the event dispatcher     itself, using QCoreApplication::setEventDispatcher(), but let QCoreApplication     decide when and which event dispatcher to create.      \since 5.2 */
@@ -936,8 +936,42 @@ name|QPlatformIntegration
 operator|::
 name|sync
 parameter_list|()
-block|{  }
+block|{ }
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
+begin_comment
+comment|/*!   Platform integration function for querying the OpenGL implementation type.    Used only when dynamic OpenGL implementation loading is enabled.    Subclasses should reimplement this function and return a value based on   the OpenGL implementation they have chosen to load.    \note The return value does not indicate or limit the types of   contexts that can be created by a given implementation. For example   a desktop OpenGL implementation may be capable of creating OpenGL   ES-compatible contexts too.    \sa QOpenGLContext::openGLModuleType(), QOpenGLContext::isES()    \since 5.3  */
+end_comment
+begin_function
+DECL|function|openGLModuleType
+name|QOpenGLContext
+operator|::
+name|OpenGLModuleType
+name|QPlatformIntegration
+operator|::
+name|openGLModuleType
+parameter_list|()
+block|{
+name|qWarning
+argument_list|(
+literal|"This plugin does not support dynamic OpenGL loading!"
+argument_list|)
+expr_stmt|;
+return|return
+name|QOpenGLContext
+operator|::
+name|DesktopGL
+return|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

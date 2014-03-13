@@ -3131,7 +3131,7 @@ operator|::
 name|Socks5Proxy
 argument_list|)
 operator|<<
-literal|"this-host-will-never-exist.troll.no"
+literal|"invalid.test.qt-project.org"
 operator|<<
 literal|1080
 operator|<<

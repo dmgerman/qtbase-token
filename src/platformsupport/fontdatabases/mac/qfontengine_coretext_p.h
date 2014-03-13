@@ -86,6 +86,14 @@ name|QCoreTextFontEngine
 argument_list|()
 block|;
 name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|bool
 name|stringToCMap
 argument_list|(
@@ -180,18 +188,6 @@ argument|QTextItem::RenderFlags
 argument_list|)
 block|;
 name|virtual
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|{
-return|return
-literal|"QCoreTextFontEngine"
-return|;
-block|}
-name|virtual
 name|bool
 name|canRender
 argument_list|(
@@ -199,6 +195,7 @@ argument|const QChar *string
 argument_list|,
 argument|int len
 argument_list|)
+specifier|const
 block|;
 name|virtual
 name|int
@@ -218,18 +215,6 @@ specifier|const
 block|{
 return|return
 name|true
-return|;
-block|}
-name|virtual
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|{
-return|return
-name|QFontEngine
-operator|::
-name|Mac
 return|;
 block|}
 name|void

@@ -736,6 +736,14 @@ name|underlinePosition
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|glyph_t
+name|glyphIndex
+argument_list|(
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
 name|void
 name|doKerning
 argument_list|(
@@ -745,32 +753,6 @@ argument|ShaperFlags
 argument_list|)
 specifier|const
 block|;
-specifier|inline
-name|virtual
-name|Type
-name|type
-argument_list|()
-specifier|const
-block|{
-return|return
-name|QFontEngine
-operator|::
-name|Freetype
-return|;
-block|}
-specifier|inline
-name|virtual
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|()
-specifier|const
-block|{
-return|return
-literal|"freetype"
-return|;
-block|}
 name|virtual
 name|void
 name|getUnscaledGlyph
@@ -789,15 +771,6 @@ argument_list|(
 argument|const QTransform&transform
 argument_list|)
 specifier|const
-block|;
-name|virtual
-name|bool
-name|canRender
-argument_list|(
-argument|const QChar *string
-argument_list|,
-argument|int len
-argument_list|)
 block|;
 name|virtual
 name|void

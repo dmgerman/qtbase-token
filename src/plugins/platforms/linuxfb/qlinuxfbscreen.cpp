@@ -694,7 +694,7 @@ specifier|const
 name|int
 name|dpi
 init|=
-literal|72
+literal|100
 decl_stmt|;
 name|mmWidth
 operator|=

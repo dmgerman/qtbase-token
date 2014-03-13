@@ -559,7 +559,8 @@ name|QGuiApplicationPrivate
 operator|::
 name|mouse_double_click_distance
 init|=
-literal|5
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -3098,7 +3099,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the top level window at the given position, if any. */
+comment|/*!     Returns the top level window at the given position \a pos, if any. */
 end_comment
 begin_function
 DECL|function|topLevelAt
@@ -3511,7 +3512,7 @@ argument_list|(
 name|platformThemeName
 argument_list|)
 expr_stmt|;
-comment|// 2) Ask the platform integration for a list of names and try loading them.
+comment|// 2) Ask the platform integration for a list of theme names
 name|themeNames
 operator|+=
 name|QGuiApplicationPrivate
@@ -3521,6 +3522,7 @@ operator|->
 name|themeNames
 argument_list|()
 expr_stmt|;
+comment|// 3) Look for a theme plugin.
 foreach|foreach
 control|(
 specifier|const
@@ -3552,8 +3554,8 @@ name|platform_theme
 condition|)
 break|break;
 block|}
-comment|// 3) If none found, look for a theme plugin. Theme plugins are located in the
-comment|// same directory as platform plugins.
+comment|// 4) If no theme plugin was found ask the platform integration to
+comment|// create a theme
 if|if
 condition|(
 operator|!
@@ -3595,7 +3597,7 @@ break|break;
 block|}
 comment|// No error message; not having a theme plugin is allowed.
 block|}
-comment|// 4) Fall back on the built-in "null" platform theme.
+comment|// 5) Fall back on the built-in "null" platform theme.
 if|if
 condition|(
 operator|!
@@ -4876,6 +4878,21 @@ expr_stmt|;
 name|QFont
 operator|::
 name|initialize
+argument_list|()
+expr_stmt|;
+name|mouse_double_click_distance
+operator|=
+name|platformTheme
+argument_list|()
+operator|->
+name|themeHint
+argument_list|(
+name|QPlatformTheme
+operator|::
+name|MouseDoubleClickDistance
+argument_list|)
+operator|.
+name|toInt
 argument_list|()
 expr_stmt|;
 ifndef|#
@@ -12599,7 +12616,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGuiApplication::quitOnLastWindowClosed      \brief whether the application implicitly quits when the last window is     closed.      The default is true.      If this property is \c true, the applications quits when the last visible     primary window (i.e. window with no parent) is closed.      \sa quit(), QWindow::close()  */
+comment|/*!     \property QGuiApplication::quitOnLastWindowClosed      \brief whether the application implicitly quits when the last window is     closed.      The default is \c true.      If this property is \c true, the applications quits when the last visible     primary window (i.e. window with no parent) is closed.      \sa quit(), QWindow::close()  */
 end_comment
 begin_function
 DECL|function|setQuitOnLastWindowClosed
@@ -12638,7 +12655,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGuiApplication::lastWindowClosed()      This signal is emitted from exec() when the last visible     primary window (i.e. window with no parent) is closed.      By default, QGuiApplication quits after this signal is emitted. This feature     can be turned off by setting \l quitOnLastWindowClosed to false.      \sa QWindow::close(), QWindow::isTopLevel() */
+comment|/*!     \fn void QGuiApplication::lastWindowClosed()      This signal is emitted from exec() when the last visible     primary window (i.e. window with no parent) is closed.      By default, QGuiApplication quits after this signal is emitted. This feature     can be turned off by setting \l quitOnLastWindowClosed to \c false.      \sa QWindow::close(), QWindow::isTopLevel() */
 end_comment
 begin_function
 DECL|function|emitLastWindowClosed
@@ -13033,7 +13050,7 @@ begin_comment
 comment|/*!     \fn bool QGuiApplication::isSessionRestored() const      Returns \c true if the application has been restored from an earlier     \l{Session Management}{session}; otherwise returns \c false.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0     \fn bool QGuiApplication::isSavingSession() const      Returns \c true if the application is currently saving the     \l{Session Management}{session}; otherwise returns \c false.      This is true when commitDataRequest() and saveStateRequest() are emitted,     but also when the windows are closed afterwards by session management.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
+comment|/*!     \since 5.0     \fn bool QGuiApplication::isSavingSession() const      Returns \c true if the application is currently saving the     \l{Session Management}{session}; otherwise returns \c false.      This is \c true when commitDataRequest() and saveStateRequest() are emitted,     but also when the windows are closed afterwards by session management.      \sa sessionId(), commitDataRequest(), saveStateRequest() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QGuiApplication::sessionId() const      Returns the current \l{Session Management}{session's} identifier.      If the application has been restored from an earlier session, this     identifier is the same as it was in that previous session. The session     identifier is guaranteed to be unique both for different applications     and for different instances of the same application.      \sa isSessionRestored(), sessionKey(), commitDataRequest(), saveStateRequest() */
@@ -13883,7 +13900,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether Qt should use the system's standard colors, fonts, etc., to     \a on. By default, this is true.      This function must be called before creating the QGuiApplication object, like     this:      \snippet code/src_gui_kernel_qguiapplication.cpp 0      \sa desktopSettingsAware() */
+comment|/*!     Sets whether Qt should use the system's standard colors, fonts, etc., to     \a on. By default, this is \c true.      This function must be called before creating the QGuiApplication object, like     this:      \snippet code/src_gui_kernel_qguiapplication.cpp 0      \sa desktopSettingsAware() */
 end_comment
 begin_function
 DECL|function|setDesktopSettingsAware
@@ -13905,7 +13922,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if Qt is set to use the system's standard colors, fonts, etc.;     otherwise returns \c false. The default is true.      \sa setDesktopSettingsAware() */
+comment|/*!     Returns \c true if Qt is set to use the system's standard colors, fonts, etc.;     otherwise returns \c false. The default is \c true.      \sa setDesktopSettingsAware() */
 end_comment
 begin_function
 DECL|function|desktopSettingsAware

@@ -4974,10 +4974,24 @@ operator|->
 name|isActive
 argument_list|()
 condition|)
+block|{
 comment|// bogus message from windows
+operator|*
+name|result
+operator|=
+name|sessionManager
+operator|->
+name|wasCanceled
+argument_list|()
+condition|?
+literal|0
+else|:
+literal|1
+expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
 name|sessionManager
 operator|->
 name|setActive

@@ -323,13 +323,6 @@ name|qreal
 name|level
 parameter_list|)
 function_decl|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SHAPE
-argument_list|)
 name|void
 name|setMask
 parameter_list|(
@@ -339,9 +332,6 @@ modifier|&
 name|region
 parameter_list|)
 function_decl|;
-endif|#
-directive|endif
-comment|// !QT_NO_SHAPE
 name|void
 name|setAlertState
 parameter_list|(

@@ -215,6 +215,11 @@ name|data
 parameter_list|)
 function_decl|;
 name|QString
+name|filePickerType
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QString
 name|modeToString
 argument_list|(
 name|Mode

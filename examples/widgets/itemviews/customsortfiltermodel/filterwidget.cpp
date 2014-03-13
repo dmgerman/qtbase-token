@@ -329,6 +329,9 @@ init|=
 operator|new
 name|QToolButton
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|optionsButton
 operator|->
 name|setCursor
@@ -338,6 +341,8 @@ operator|::
 name|ArrowCursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|optionsButton
 operator|->
 name|setFocusPolicy

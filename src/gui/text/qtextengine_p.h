@@ -180,154 +180,6 @@ name|quint32
 name|glyph_t
 typedef|;
 end_typedef
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__xlC__
-end_ifdef
-begin_typedef
-DECL|typedef|q_hb_bitfield
-typedef|typedef
-name|unsigned
-name|q_hb_bitfield
-typedef|;
-end_typedef
-begin_else
-else|#
-directive|else
-end_else
-begin_typedef
-DECL|typedef|q_hb_bitfield
-typedef|typedef
-name|quint8
-name|q_hb_bitfield
-typedef|;
-end_typedef
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_typedef
-typedef|typedef
-struct|struct
-block|{
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|NoJustification
-name|NoJustification
-init|=
-literal|0
-block|,
-comment|/* Justification can't be applied after this glyph */
-DECL|enumerator|Arabic_Space
-name|Arabic_Space
-init|=
-literal|1
-block|,
-comment|/* This glyph represents a space inside arabic text */
-DECL|enumerator|Character
-name|Character
-init|=
-literal|2
-block|,
-comment|/* Inter-character justification point follows this glyph */
-DECL|enumerator|Space
-name|Space
-init|=
-literal|4
-block|,
-comment|/* This glyph represents a blank outside an Arabic run */
-DECL|enumerator|Arabic_Normal
-name|Arabic_Normal
-init|=
-literal|7
-block|,
-comment|/* Normal Middle-Of-Word glyph that connects to the right (begin) */
-DECL|enumerator|Arabic_Waw
-name|Arabic_Waw
-init|=
-literal|8
-block|,
-comment|/* Next character is final form of Waw/Ain/Qaf/Fa */
-DECL|enumerator|Arabic_BaRa
-name|Arabic_BaRa
-init|=
-literal|9
-block|,
-comment|/* Next two chars are Ba + Ra/Ya/AlefMaksura */
-DECL|enumerator|Arabic_Alef
-name|Arabic_Alef
-init|=
-literal|10
-block|,
-comment|/* Next character is final form of Alef/Tah/Lam/Kaf/Gaf */
-DECL|enumerator|Arabic_HaaDal
-name|Arabic_HaaDal
-init|=
-literal|11
-block|,
-comment|/* Next character is final form of Haa/Dal/Taa Marbutah */
-DECL|enumerator|Arabic_Seen
-name|Arabic_Seen
-init|=
-literal|12
-block|,
-comment|/* Initial or Medial form Of Seen/Sad */
-DECL|enumerator|Arabic_Kashida
-name|Arabic_Kashida
-init|=
-literal|13
-comment|/* Kashida(U+640) in middle of word */
-block|}
-DECL|typedef|JustificationClass
-name|JustificationClass
-typedef|;
-DECL|member|justification
-name|q_hb_bitfield
-name|justification
-range|:
-literal|4
-decl_stmt|;
-comment|/* Justification class */
-DECL|member|clusterStart
-name|q_hb_bitfield
-name|clusterStart
-range|:
-literal|1
-decl_stmt|;
-comment|/* First glyph of representation of cluster */
-DECL|member|mark
-name|q_hb_bitfield
-name|mark
-range|:
-literal|1
-decl_stmt|;
-comment|/* needs to be positioned around base char */
-DECL|member|zeroWidth
-name|q_hb_bitfield
-name|zeroWidth
-range|:
-literal|1
-decl_stmt|;
-comment|/* ZWJ, ZWNJ etc, with no width */
-DECL|member|dontPrint
-name|q_hb_bitfield
-name|dontPrint
-range|:
-literal|1
-decl_stmt|;
-DECL|member|combiningClass
-name|q_hb_bitfield
-name|combiningClass
-range|:
-literal|8
-decl_stmt|;
-block|}
-DECL|typedef|QGlyphAttributes
-name|QGlyphAttributes
-typedef|;
-end_typedef
 begin_comment
 comment|// this uses the same coordinate system as Qt, but a different one to freetype.
 end_comment
@@ -673,6 +525,50 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_struct
+DECL|struct|QGlyphAttributes
+struct|struct
+name|QGlyphAttributes
+block|{
+DECL|member|clusterStart
+name|uchar
+name|clusterStart
+range|:
+literal|1
+decl_stmt|;
+DECL|member|dontPrint
+name|uchar
+name|dontPrint
+range|:
+literal|1
+decl_stmt|;
+DECL|member|justification
+name|uchar
+name|justification
+range|:
+literal|4
+decl_stmt|;
+DECL|member|reserved
+name|uchar
+name|reserved
+range|:
+literal|2
+decl_stmt|;
+block|}
+struct|;
+end_struct
+begin_expr_stmt
+name|Q_STATIC_ASSERT
+argument_list|(
+sizeof|sizeof
+argument_list|(
+name|QGlyphAttributes
+argument_list|)
+operator|==
+literal|1
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_struct
 DECL|struct|QGlyphLayout
 struct|struct
 name|QGlyphLayout
@@ -738,7 +634,7 @@ name|QGlyphAttributes
 modifier|*
 name|attributes
 decl_stmt|;
-comment|// 2 bytes per element
+comment|// 1 byte per element
 DECL|member|numGlyphs
 name|int
 name|numGlyphs

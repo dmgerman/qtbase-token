@@ -411,6 +411,17 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
+name|funcs
+operator|->
 name|glGenTextures
 argument_list|(
 literal|1
@@ -421,6 +432,8 @@ operator|->
 name|m_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -494,6 +507,8 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -602,6 +617,8 @@ name|GL_ALPHA
 decl_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -628,6 +645,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -637,6 +656,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -646,6 +667,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -655,6 +678,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -883,9 +908,20 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 name|GLint
 name|oldFbo
 decl_stmt|;
+name|funcs
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|GL_FRAMEBUFFER_BINDING
@@ -973,6 +1009,8 @@ operator|==
 literal|8
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -998,6 +1036,8 @@ name|constBits
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1010,14 +1050,8 @@ return|return;
 block|}
 comment|// ### the QTextureGlyphCache API needs to be reworked to allow
 comment|// ### resizeTextureData to fail
-name|QOpenGLFunctions
 name|funcs
-argument_list|(
-name|ctx
-argument_list|)
-decl_stmt|;
-name|funcs
-operator|.
+operator|->
 name|glBindFramebuffer
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -1030,6 +1064,8 @@ expr_stmt|;
 name|GLuint
 name|tmp_texture
 decl_stmt|;
+name|funcs
+operator|->
 name|glGenTextures
 argument_list|(
 literal|1
@@ -1038,6 +1074,8 @@ operator|&
 name|tmp_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1045,6 +1083,8 @@ argument_list|,
 name|tmp_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1066,6 +1106,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1075,6 +1117,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1084,6 +1128,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1093,6 +1139,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1106,6 +1154,8 @@ name|m_filterMode
 operator|=
 name|Nearest
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1114,7 +1164,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 name|funcs
-operator|.
+operator|->
 name|glFramebufferTexture2D
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -1129,7 +1179,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 name|funcs
-operator|.
+operator|->
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -1137,6 +1187,8 @@ operator|+
 name|QT_IMAGE_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1157,26 +1209,36 @@ argument_list|(
 name|BrushDrawingMode
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_DEPTH_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_SCISSOR_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -1216,6 +1278,22 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+specifier|const
+name|bool
+name|isCoreProfile
+init|=
+name|ctx
+operator|->
+name|format
+argument_list|()
+operator|.
+name|profile
+argument_list|()
+operator|==
+name|QSurfaceFormat
+operator|::
+name|CoreProfile
+decl_stmt|;
 block|{
 name|QString
 name|source
@@ -1226,6 +1304,10 @@ name|append
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|isCoreProfile
+condition|?
+name|qopenglslMainWithTexCoordsVertexShader_core
+else|:
 name|qopenglslMainWithTexCoordsVertexShader
 argument_list|)
 argument_list|)
@@ -1236,6 +1318,10 @@ name|append
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|isCoreProfile
+condition|?
+name|qopenglslUntransformedPositionVertexShader_core
+else|:
 name|qopenglslUntransformedPositionVertexShader
 argument_list|)
 argument_list|)
@@ -1279,6 +1365,10 @@ name|append
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|isCoreProfile
+condition|?
+name|qopenglslMainFragmentShader_core
+else|:
 name|qopenglslMainFragmentShader
 argument_list|)
 argument_list|)
@@ -1289,6 +1379,10 @@ name|append
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|isCoreProfile
+condition|?
+name|qopenglslImageSrcFragmentShader_core
+else|:
 name|qopenglslImageSrcFragmentShader
 argument_list|)
 argument_list|)
@@ -1435,6 +1529,8 @@ argument_list|,
 name|QT_IMAGE_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLE_FAN
@@ -1444,6 +1540,8 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1453,6 +1551,8 @@ operator|->
 name|m_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glCopyTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1473,7 +1573,7 @@ name|oldHeight
 argument_list|)
 expr_stmt|;
 name|funcs
-operator|.
+operator|->
 name|glFramebufferRenderbuffer
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -1485,6 +1585,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1493,6 +1595,8 @@ operator|&
 name|tmp_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1502,7 +1606,7 @@ name|oldTexture
 argument_list|)
 expr_stmt|;
 name|funcs
-operator|.
+operator|->
 name|glBindFramebuffer
 argument_list|(
 name|GL_FRAMEBUFFER
@@ -1520,6 +1624,8 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|funcs
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -1625,6 +1731,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|ctx
@@ -1646,6 +1761,8 @@ argument_list|,
 name|subPixelPosition
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1705,6 +1822,8 @@ operator|++
 name|i
 control|)
 block|{
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1957,8 +2076,8 @@ name|QImage
 operator|::
 name|Format_ARGB32_Premultiplied
 operator|&&
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 operator|)
@@ -2109,8 +2228,8 @@ operator|!=
 name|Q_BIG_ENDIAN
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2133,6 +2252,8 @@ block|}
 block|}
 block|}
 block|}
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -2165,8 +2286,8 @@ directive|else
 name|GLenum
 name|fmt
 init|=
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -2188,6 +2309,8 @@ name|GL_RGBA
 expr_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -2238,7 +2361,7 @@ directive|endif
 if|#
 directive|if
 literal|0
-block|if (ctx->d_func()->workaround_brokenAlphaTexSubImage) {             for (int i = 0; i< maskHeight; ++i)                 glTexSubImage2D(GL_TEXTURE_2D, 0, c.x, c.y + i, maskWidth, 1, GL_ALPHA, GL_UNSIGNED_BYTE, mask.scanLine(i));         } else {
+block|if (ctx->d_func()->workaround_brokenAlphaTexSubImage) {             for (int i = 0; i< maskHeight; ++i)                 funcs->glTexSubImage2D(GL_TEXTURE_2D, 0, c.x, c.y + i, maskWidth, 1, GL_ALPHA, GL_UNSIGNED_BYTE, mask.scanLine(i));         } else {
 endif|#
 directive|endif
 if|#
@@ -2269,6 +2392,8 @@ name|GL_ALPHA
 decl_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D

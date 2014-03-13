@@ -192,11 +192,11 @@ argument_list|()
 operator|->
 name|workaround_brokenFBOReadBack
 condition|)
-name|QOpenGLFunctions
-argument_list|(
 name|ctx
-argument_list|)
-operator|.
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDeleteFramebuffers
 argument_list|(
 literal|1
@@ -213,6 +213,11 @@ name|m_width
 operator|||
 name|m_height
 condition|)
+name|ctx
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1

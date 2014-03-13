@@ -1617,11 +1617,14 @@ name|QT_OPENGL_ES
 argument_list|)
 if|if
 condition|(
-operator|!
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|isES
+name|openGLModuleType
 argument_list|()
+operator|==
+name|QOpenGLContext
+operator|::
+name|DesktopGL
 condition|)
 block|{
 comment|// On desktop, request latest released version

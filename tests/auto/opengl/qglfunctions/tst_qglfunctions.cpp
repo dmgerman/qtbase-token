@@ -341,8 +341,11 @@ expr_stmt|;
 comment|// Validate the features against what we expect for this platform.
 if|if
 condition|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)

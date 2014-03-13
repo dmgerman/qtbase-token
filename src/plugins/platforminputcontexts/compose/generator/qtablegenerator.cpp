@@ -133,7 +133,11 @@ operator|::
 name|initPossibleLocations
 parameter_list|()
 block|{
-comment|// To add an extra system path use the QTCOMPOSE environment variable
+comment|// Compose files come as a part of Xlib library. Xlib doesn't provide
+comment|// a mechanism how to retrieve the location of these files reliably, since it was
+comment|// never meant for external software to parse compose tables directly. Best we
+comment|// can do is to hardcode search paths. To add an extra system path use
+comment|// the QTCOMPOSE environment variable
 if|if
 condition|(
 name|qEnvironmentVariableIsSet
@@ -141,12 +145,13 @@ argument_list|(
 literal|"QTCOMPOSE"
 argument_list|)
 condition|)
-block|{
 name|m_possibleLocations
 operator|.
 name|append
 argument_list|(
 name|QString
+operator|::
+name|fromLocal8Bit
 argument_list|(
 name|qgetenv
 argument_list|(
@@ -155,14 +160,53 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|m_possibleLocations
 operator|.
 name|append
 argument_list|(
 name|QStringLiteral
 argument_list|(
-name|COMPOSE_X11_PREFIX
+literal|"/usr/share/X11/locale"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|m_possibleLocations
+operator|.
+name|append
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"/usr/local/share/X11/locale"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|m_possibleLocations
+operator|.
+name|append
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"/usr/lib/X11/locale"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|m_possibleLocations
+operator|.
+name|append
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"/usr/local/lib/X11/locale"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|m_possibleLocations
+operator|.
+name|append
+argument_list|(
+name|QStringLiteral
+argument_list|(
+name|X11_PREFIX
 literal|"/share/X11/locale"
 argument_list|)
 argument_list|)
@@ -173,7 +217,7 @@ name|append
 argument_list|(
 name|QStringLiteral
 argument_list|(
-name|COMPOSE_X11_PREFIX
+name|X11_PREFIX
 literal|"/lib/X11/locale"
 argument_list|)
 argument_list|)

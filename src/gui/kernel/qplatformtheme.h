@@ -218,6 +218,8 @@ block|,
 name|ContextMenuOnMouseRelease
 block|,
 name|MousePressAndHoldInterval
+block|,
+name|MouseDoubleClickDistance
 block|}
 enum|;
 enum|enum

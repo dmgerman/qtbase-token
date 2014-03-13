@@ -19161,21 +19161,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"QT_EDITION"
-index|]
-operator|!=
-literal|"QT_EDITION_OPENSOURCE"
-condition|)
-name|moduleStream
-operator|<<
-literal|"DEFINES        *= QT_EDITION=QT_EDITION_DESKTOP"
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"QT_XKBCOMMON"
 index|]
 operator|==
@@ -21237,41 +21222,6 @@ literal|"}"
 operator|<<
 name|endl
 expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"QT_EDITION"
-index|]
-operator|.
-name|contains
-argument_list|(
-literal|"OPENSOURCE"
-argument_list|)
-condition|)
-name|configStream
-operator|<<
-literal|"QT_EDITION = "
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|"OpenSource"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-else|else
-name|configStream
-operator|<<
-literal|"QT_EDITION = "
-operator|<<
-name|dictionary
-index|[
-literal|"EDITION"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
 name|configStream
 operator|<<
 literal|"QT_CONFIG += "
@@ -21795,39 +21745,6 @@ literal|"EDITION"
 index|]
 operator|<<
 literal|"\""
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"// Qt Edition"
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"#ifndef QT_EDITION"
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"#  define QT_EDITION "
-operator|<<
-name|dictionary
-index|[
-literal|"QT_EDITION"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"#endif"
 operator|<<
 name|endl
 expr_stmt|;
@@ -26970,31 +26887,6 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"EDITION"
-index|]
-operator|==
-literal|"OpenSource"
-operator|||
-name|dictionary
-index|[
-literal|"QT_EDITION"
-index|]
-operator|.
-name|contains
-argument_list|(
-literal|"OPENSOURCE"
-argument_list|)
-condition|)
-name|stream
-operator|<<
-literal|"EXTRA_CPPFLAGS = -DQMAKE_OPENSOURCE_EDITION"
-operator|<<
-name|endl
-expr_stmt|;
 name|stream
 operator|<<
 literal|"\n\n"
@@ -28012,7 +27904,7 @@ name|exists
 argument_list|(
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.GPL3"
+literal|"/LICENSE.GPL"
 argument_list|)
 expr_stmt|;
 name|theLicense
@@ -28220,7 +28112,7 @@ name|licenseFile
 operator|=
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.GPL3"
+literal|"/LICENSE.GPL"
 expr_stmt|;
 else|else
 name|licenseFile
@@ -28412,7 +28304,7 @@ index|[
 literal|"LICENSE FILE"
 index|]
 operator|+
-literal|"/LICENSE.GPL3"
+literal|"/LICENSE.GPL"
 argument_list|)
 operator|||
 name|QFile
@@ -28565,13 +28457,6 @@ literal|"EDITION"
 index|]
 operator|=
 literal|"OpenSource"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"QT_EDITION"
-index|]
-operator|=
-literal|"QT_EDITION_OPENSOURCE"
 expr_stmt|;
 name|cout
 operator|<<

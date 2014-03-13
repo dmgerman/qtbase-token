@@ -66,8 +66,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -669,8 +669,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|)

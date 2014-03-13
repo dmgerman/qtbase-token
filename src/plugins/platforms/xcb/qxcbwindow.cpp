@@ -103,23 +103,11 @@ include|#
 directive|include
 file|<xcb/xfixes.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_SHAPE
-end_ifndef
 begin_include
 include|#
 directive|include
 file|<xcb/shape.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_SHAPE
-end_comment
 begin_comment
 comment|// xcb-icccm 3.8 support
 end_comment
@@ -11780,15 +11768,6 @@ break|break;
 block|}
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_SHAPE
-argument_list|)
-end_if
 begin_function
 DECL|function|qRectToXCBRectangle
 specifier|static
@@ -12067,13 +12046,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !QT_NO_SHAPE
-end_comment
 begin_function
 DECL|function|setAlertState
 name|void

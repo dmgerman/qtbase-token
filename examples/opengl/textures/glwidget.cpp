@@ -174,6 +174,9 @@ operator|::
 name|initializeGL
 parameter_list|()
 block|{
+name|initializeOpenGLFunctions
+argument_list|()
+expr_stmt|;
 name|makeObject
 argument_list|()
 expr_stmt|;

@@ -13064,6 +13064,30 @@ name|bool
 name|winphoneBuild
 parameter_list|)
 block|{
+comment|// The PlatformToolset string corresponds to the name of a directory in
+comment|// $(VCTargetsPath)\Platforms\{Win32,x64,...}\PlatformToolsets
+comment|// e.g. v90, v100, v110, v110_xp, v120_CTP_Nov, v120, or WindowsSDK7.1
+comment|// This environment variable may be set by a commandline build
+comment|// environment such as the Windows SDK command prompt
+name|QByteArray
+name|envVar
+init|=
+name|qgetenv
+argument_list|(
+literal|"PlatformToolset"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|envVar
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|envVar
+return|;
 switch|switch
 condition|(
 name|version

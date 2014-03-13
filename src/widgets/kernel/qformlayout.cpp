@@ -7590,6 +7590,8 @@ name|row
 decl_stmt|;
 name|ItemRole
 name|role
+init|=
+name|LabelRole
 decl_stmt|;
 name|getWidgetPosition
 argument_list|(

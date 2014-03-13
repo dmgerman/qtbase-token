@@ -49,6 +49,17 @@ name|handle
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|window
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|RasterSurface
+condition|)
 operator|(
 cast|static_cast
 argument_list|<
@@ -66,6 +77,12 @@ operator|->
 name|setBackingStore
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+else|else
+name|qWarning
+argument_list|(
+literal|"QAndroidPlatformBackingStore does not support GL windows."
 argument_list|)
 expr_stmt|;
 block|}

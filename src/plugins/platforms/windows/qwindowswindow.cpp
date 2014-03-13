@@ -4885,10 +4885,14 @@ name|QT_OPENGL_DYNAMIC
 argument_list|)
 if|if
 condition|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
-name|isES
+name|openGLModuleType
 argument_list|()
+operator|!=
+name|QOpenGLContext
+operator|::
+name|DesktopGL
 condition|)
 name|setFlag
 argument_list|(

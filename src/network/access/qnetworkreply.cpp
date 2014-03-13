@@ -781,7 +781,7 @@ comment|// you can't write
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the associated operation for this object to be \a     operation. This value will be returned by operation().      Note: the operation should be set when this object is created and     not changed again.      \sa operation(), setRequest() */
+comment|/*!     Sets the associated operation for this object to be \a     operation. This value will be returned by operation().      \note The operation should be set when this object is created and     not changed again.      \sa operation(), setRequest() */
 end_comment
 begin_function
 DECL|function|setOperation
@@ -810,7 +810,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the associated request for this object to be \a request. This     value will be returned by request().      Note: the request should be set when this object is created and     not changed again.      \sa request(), setOperation() */
+comment|/*!     Sets the associated request for this object to be \a request. This     value will be returned by request().      \note The request should be set when this object is created and     not changed again.      \sa request(), setOperation() */
 end_comment
 begin_function
 DECL|function|setRequest

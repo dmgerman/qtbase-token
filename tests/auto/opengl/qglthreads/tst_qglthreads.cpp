@@ -627,6 +627,12 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+DECL|function|moveContextToThread
+name|void
+name|moveContextToThread
+parameter_list|()
+block|{
 name|m_gl
 operator|->
 name|context
@@ -1105,6 +1111,11 @@ argument_list|)
 expr_stmt|;
 name|thread
 operator|.
+name|moveContextToThread
+argument_list|()
+expr_stmt|;
+name|thread
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
@@ -1166,8 +1177,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2753,6 +2767,36 @@ argument_list|(
 name|count
 argument_list|)
 block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|numThreads
+condition|;
+operator|++
+name|i
+control|)
+name|devices
+operator|.
+name|append
+argument_list|(
+operator|new
+name|T
+argument_list|)
+expr_stmt|;
+comment|// Wait until resize events are processed on the internal
+comment|// QGLWidgets of the buffers to suppress errors
+comment|// about makeCurrent() from the wrong thread.
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int

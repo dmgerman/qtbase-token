@@ -2809,7 +2809,7 @@ name|keys
 argument_list|()
 control|)
 block|{
-comment|// be sure cache *still* contains the row since overriden selectRow() could have called select()
+comment|// be sure cache *still* contains the row since overridden selectRow() could have called select()
 name|QSqlTableModelPrivate
 operator|::
 name|CacheMap

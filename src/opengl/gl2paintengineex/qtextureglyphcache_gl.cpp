@@ -1728,8 +1728,11 @@ decl_stmt|;
 comment|// "+1" for rounding.
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -1836,8 +1839,11 @@ argument_list|)
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|)

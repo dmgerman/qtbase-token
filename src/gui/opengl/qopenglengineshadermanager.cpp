@@ -584,8 +584,8 @@ name|qopenglslSolidBrushSrcFragmentShader
 expr_stmt|;
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|context
+operator|->
 name|isES
 argument_list|()
 condition|)

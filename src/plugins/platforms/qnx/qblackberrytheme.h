@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QQNXTHEME_H
+name|QBLACKBERRYTHEME_H
 end_ifndef
 begin_define
-DECL|macro|QQNXTHEME_H
+DECL|macro|QBLACKBERRYTHEME_H
 define|#
 directive|define
-name|QQNXTHEME_H
+name|QBLACKBERRYTHEME_H
 end_define
 begin_include
 include|#
@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<QtCore/qstring.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QPalette>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QQnxIntegration
@@ -42,7 +47,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QQnxTheme
+name|QBlackberryTheme
 range|:
 name|public
 name|QPlatformTheme
@@ -50,7 +55,7 @@ block|{
 name|public
 operator|:
 name|explicit
-name|QQnxTheme
+name|QBlackberryTheme
 argument_list|(
 specifier|const
 name|QQnxIntegration
@@ -58,7 +63,7 @@ operator|*
 argument_list|)
 block|;
 operator|~
-name|QQnxTheme
+name|QBlackberryTheme
 argument_list|()
 block|;
 specifier|static
@@ -97,6 +102,15 @@ argument|Font type = SystemFont
 argument_list|)
 specifier|const
 block|;
+specifier|const
+name|QPalette
+operator|*
+name|palette
+argument_list|(
+argument|Palette type = SystemPalette
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|mutable
@@ -115,6 +129,9 @@ specifier|const
 name|QQnxIntegration
 operator|*
 name|m_integration
+block|;
+name|QPalette
+name|m_defaultPalette
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -126,6 +143,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QQNXTHEME_H
+comment|// QBLACKBERRYTHEME_H
 end_comment
 end_unit

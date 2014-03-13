@@ -73,11 +73,6 @@ name|share
 parameter_list|,
 name|EGLDisplay
 name|display
-parameter_list|,
-name|EGLenum
-name|eglApi
-init|=
-name|EGL_OPENGL_ES_API
 parameter_list|)
 member_init_list|:
 name|QEGLPlatformContext
@@ -87,8 +82,6 @@ argument_list|,
 name|share
 argument_list|,
 name|display
-argument_list|,
-name|eglApi
 argument_list|)
 block|{     }
 DECL|function|eglSurfaceForPlatformSurface

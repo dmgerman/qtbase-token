@@ -45,8 +45,6 @@ argument_list|,
 argument|QPlatformOpenGLContext *share
 argument_list|,
 argument|EGLDisplay display
-argument_list|,
-argument|EGLenum eglApi = EGL_OPENGL_ES_API
 argument_list|)
 block|;
 name|QEGLPlatformContext
@@ -58,8 +56,6 @@ argument_list|,
 argument|EGLDisplay display
 argument_list|,
 argument|EGLConfig config
-argument_list|,
-argument|EGLenum eglApi = EGL_OPENGL_ES_API
 argument_list|)
 block|;
 operator|~
@@ -183,6 +179,9 @@ name|m_eglConfig
 block|;
 name|QSurfaceFormat
 name|m_format
+block|;
+name|EGLenum
+name|m_api
 block|;
 name|int
 name|m_swapInterval

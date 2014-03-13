@@ -608,7 +608,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      For example:     \snippet code/src_network_access_qnetworkrequest.cpp 0      will also set the known header LastModifiedHeader to be the     QDateTime object of the parsed date.      Note: setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      \sa KnownHeaders, setHeader(), hasRawHeader(), rawHeader() */
+comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      For example:     \snippet code/src_network_access_qnetworkrequest.cpp 0      will also set the known header LastModifiedHeader to be the     QDateTime object of the parsed date.      \note Setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      \sa KnownHeaders, setHeader(), hasRawHeader(), rawHeader() */
 end_comment
 begin_function
 DECL|function|setRawHeader
@@ -640,7 +640,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the attribute associated with the code \a code. If the     attribute has not been set, it returns \a defaultValue.      Note: this function does not apply the defaults listed in     QNetworkRequest::Attribute.      \sa setAttribute(), QNetworkRequest::Attribute */
+comment|/*!     Returns the attribute associated with the code \a code. If the     attribute has not been set, it returns \a defaultValue.      \note This function does not apply the defaults listed in     QNetworkRequest::Attribute.      \sa setAttribute(), QNetworkRequest::Attribute */
 end_comment
 begin_function
 DECL|function|attribute

@@ -1479,7 +1479,7 @@ argument_list|)
 operator|<<
 literal|"http://"
 operator|<<
-literal|"fluke-nosuchhost.troll.no"
+literal|"invalid.test.qt-project.org"
 operator|<<
 literal|"/dav2/file1.txt"
 operator|<<

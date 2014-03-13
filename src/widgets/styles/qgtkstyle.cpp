@@ -6113,7 +6113,7 @@ name|widget
 argument_list|)
 condition|)
 block|{
-comment|// Dont draw anything
+comment|// Don't draw anything
 block|}
 elseif|else
 if|if

@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformnativeinterface.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qopenglextensions_p.h>
 end_include
 begin_include
@@ -351,7 +356,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the OpenGL profile. Only make sense if profiles are supported by this version.      \sa setProfile(), supportsProfiles() */
+comment|/*!     Returns the OpenGL profile. Only makes sense if profiles are supported by this version.      \sa setProfile(), supportsProfiles() */
 end_comment
 begin_function
 DECL|function|profile
@@ -372,7 +377,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the profile.  Only make sense if profiles are supported by this version.      \sa profile(), supportsProfiles() */
+comment|/*!     Sets the OpenGL profile \a profile. Only makes sense if profiles are supported by     this version.      \sa profile(), supportsProfiles() */
 end_comment
 begin_function
 DECL|function|setProfile
@@ -470,7 +475,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the version number is valid. Note that for a default constructed     QOpenGLVersionProfile object this function will return false.      \sa setVersion(), version() */
+comment|/*!     Returns \c true if the version number is valid. Note that for a default constructed     QOpenGLVersionProfile object this function will return \c false.      \sa setVersion(), version() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -577,7 +582,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \class QOpenGLContext     \inmodule QtGui     \since 5.0     \brief The QOpenGLContext class represents a native OpenGL context, enabling            OpenGL rendering on a QSurface.      QOpenGLContext represents the OpenGL state of an underlying OpenGL context.     To set up a context, set its screen and format such that they match those     of the surface or surfaces with which the context is meant to be used, if     necessary make it share resources with other contexts with     setShareContext(), and finally call create(). Use isValid() to check if the     context was successfully initialized.      A context can be made current against a given surface by calling     makeCurrent(). When OpenGL rendering is done, call swapBuffers() to swap     the front and back buffers of the surface, so that the newly rendered     content becomes visible. To be able to support certain platforms,     QOpenGLContext requires that you call makeCurrent() again before starting     rendering a new frame, after calling swapBuffers().      If the context is temporarily not needed, such as when the application is     not rendering, it can be useful to call destroy() to free resources.     However, if you do so you will need to call create() again before the     context can be used, and you might need to recreate any OpenGL resources     and reinitialize the OpenGL state. You can connect to the     aboutToBeDestroyed() signal to clean up any resources that have been     allocated with different ownership from the QOpenGLContext itself.      Once a QOpenGLContext has been made current, you can render to it in a     platform independent way by using Qt's OpenGL enablers such as     QOpenGLFunctions, QOpenGLBuffer, QOpenGLShaderProgram, and     QOpenGLFramebufferObject. It is also possible to use the platform's OpenGL     API directly, without using the Qt enablers, although potentially at the     cost of portability. The latter is necessary when wanting to use OpenGL 1.x     or OpenGL ES 1.x.      For more information about the OpenGL API, refer to the official     \l{http://www.opengl.org}{OpenGL documentation}.      For an example of how to use QOpenGLContext see the     \l{OpenGL Window Example}{OpenGL Window} example.      \section1 Thread affinity      QOpenGLContext can be moved to a different thread with moveToThread(). Do     not call makeCurrent() from a different thread than the one to which the     QOpenGLContext object belongs. A context can only be current in one thread     and against one surface at a time, and a thread only has one context     current at a time.      \section1 Context resource sharing      Resources, such as framebuffer objects, textures, and vertex buffer objects     can be shared between contexts.  Use setShareContext() before calling     create() to specify that the contexts should share these resources.     QOpenGLContext internally keeps track of a QOpenGLContextGroup object which     can be accessed with shareGroup(), and which can be used to find all the     contexts in a given share group. A share group consists of all contexts that     have been successfully initialized and are sharing with an existing context in     the share group. A non-sharing context has a share group consisting of a     single context.      \section1 Default framebuffer      On certain platforms, a framebuffer other than 0 might be the default frame     buffer depending on the current surface. Instead of calling     glBindFramebuffer(0), it is recommended that you use     glBindFramebuffer(ctx->defaultFramebufferObject()), to ensure that your     application is portable between different platforms. However, if you use     QOpenGLFunctions::glBindFramebuffer(), this is done automatically for you.      \sa QOpenGLFunctions, QOpenGLBuffer, QOpenGLShaderProgram, QOpenGLFramebufferObject */
+comment|/*!     \class QOpenGLContext     \inmodule QtGui     \since 5.0     \brief The QOpenGLContext class represents a native OpenGL context, enabling            OpenGL rendering on a QSurface.      QOpenGLContext represents the OpenGL state of an underlying OpenGL context.     To set up a context, set its screen and format such that they match those     of the surface or surfaces with which the context is meant to be used, if     necessary make it share resources with other contexts with     setShareContext(), and finally call create(). Use isValid() to check if the     context was successfully initialized.      A context can be made current against a given surface by calling     makeCurrent(). When OpenGL rendering is done, call swapBuffers() to swap     the front and back buffers of the surface, so that the newly rendered     content becomes visible. To be able to support certain platforms,     QOpenGLContext requires that you call makeCurrent() again before starting     rendering a new frame, after calling swapBuffers().      If the context is temporarily not needed, such as when the application is     not rendering, it can be useful to delete it in order to free resources.     You can connect to the aboutToBeDestroyed() signal to clean up any     resources that have been allocated with different ownership from the     QOpenGLContext itself.      Once a QOpenGLContext has been made current, you can render to it in a     platform independent way by using Qt's OpenGL enablers such as     QOpenGLFunctions, QOpenGLBuffer, QOpenGLShaderProgram, and     QOpenGLFramebufferObject. It is also possible to use the platform's OpenGL     API directly, without using the Qt enablers, although potentially at the     cost of portability. The latter is necessary when wanting to use OpenGL 1.x     or OpenGL ES 1.x.      For more information about the OpenGL API, refer to the official     \l{http://www.opengl.org}{OpenGL documentation}.      For an example of how to use QOpenGLContext see the     \l{OpenGL Window Example}{OpenGL Window} example.      \section1 Thread affinity      QOpenGLContext can be moved to a different thread with moveToThread(). Do     not call makeCurrent() from a different thread than the one to which the     QOpenGLContext object belongs. A context can only be current in one thread     and against one surface at a time, and a thread only has one context     current at a time.      \section1 Context resource sharing      Resources, such as framebuffer objects, textures, and vertex buffer objects     can be shared between contexts.  Use setShareContext() before calling     create() to specify that the contexts should share these resources.     QOpenGLContext internally keeps track of a QOpenGLContextGroup object which     can be accessed with shareGroup(), and which can be used to find all the     contexts in a given share group. A share group consists of all contexts that     have been successfully initialized and are sharing with an existing context in     the share group. A non-sharing context has a share group consisting of a     single context.      \section1 Default framebuffer      On certain platforms, a framebuffer other than 0 might be the default frame     buffer depending on the current surface. Instead of calling     glBindFramebuffer(0), it is recommended that you use     glBindFramebuffer(ctx->defaultFramebufferObject()), to ensure that your     application is portable between different platforms. However, if you use     QOpenGLFunctions::glBindFramebuffer(), this is done automatically for you.      \sa QOpenGLFunctions, QOpenGLBuffer, QOpenGLShaderProgram, QOpenGLFramebufferObject */
 end_comment
 begin_comment
 comment|/*!     \internal      Set the current context. Returns the previously current context. */
@@ -678,6 +683,22 @@ condition|)
 return|return
 name|max_texture_size
 return|;
+name|Q_Q
+argument_list|(
+name|QOpenGLContext
+argument_list|)
+expr_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|q
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
+name|funcs
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|GL_MAX_TEXTURE_SIZE
@@ -692,8 +713,8 @@ name|QT_OPENGL_ES
 if|if
 condition|(
 operator|!
-name|QOpenGLFunctions
-operator|::
+name|q
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -711,6 +732,8 @@ name|next
 init|=
 literal|64
 decl_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|proxy
@@ -732,6 +755,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glGetTexLevelParameteriv
 argument_list|(
 name|proxy
@@ -774,6 +799,8 @@ operator|>
 name|max_texture_size
 condition|)
 break|break;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|proxy
@@ -795,6 +822,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glGetTexLevelParameteriv
 argument_list|(
 name|proxy
@@ -1453,7 +1482,7 @@ begin_comment
 comment|/*!     \fn T *QOpenGLContext::versionFunctions() const      \overload versionFunctions()      Returns a pointer to an object that provides access to all functions for     the version and profile of this context. Before using any of the functions     they must be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type.      \code         QOpenGLFunctions_3_3_Core* funcs = 0;         funcs = context->versionFunctions<QOpenGLFunctions_3_3_Core>();         if (!funcs) {             qWarning()<< "Could not obtain required OpenGL context version";             exit(1);         }         funcs->initializeOpenGLFunctions(context);     \endcode      It is possible to request a functions object for a different version and profile     than that for which the context was created. To do this either use the template     version of this function specifying the desired functions object type as the     template parameter or by passing in a QOpenGLVersionProfile object as an argument     to the non-template function.      Note that requests for function objects of other versions or profiles can fail and     in doing so will return a null pointer. Situations in which creation of the functions     object can fail are if the request cannot be satisfied due to asking for functions     that are not in the version or profile of this context. For example:      \list         \li Requesting a 3.3 core profile functions object would succeed.         \li Requesting a 3.3 compatibility profile functions object would fail. We would fail             to resolve the deprecated functions.         \li Requesting a 4.3 core profile functions object would fail. We would fail to resolve             the new core functions introduced in versions 4.0-4.3.         \li Requesting a 3.1 functions object would succeed. There is nothing in 3.1 that is not             also in 3.3 core.     \endlist      Note that if creating a functions object via this method that the QOpenGLContext     retains ownership of the object. This is to allow the object to be cached and shared. */
 end_comment
 begin_comment
-comment|/*!     Returns a pointer to an object that provides access to all functions for     the version of the current context. Before using any of the functions     they must be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type. */
+comment|/*!     Returns a pointer to an object that provides access to all functions for the     \a versionProfile of the current context. Before using any of the functions they must     be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type. */
 end_comment
 begin_function
 DECL|function|versionFunctions
@@ -1475,15 +1504,13 @@ directive|ifndef
 name|QT_OPENGL_ES_2
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
 name|isES
 argument_list|()
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"versionFunctions: Not supported on dynamic GL ES"
+literal|"versionFunctions: Not supported on OpenGL ES"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1726,7 +1753,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if this OpenGL context supports the specified OpenGL     \a extension, false otherwise.      The context or a sharing context must be current.      \sa extensions() */
+comment|/*!     Returns \c true if this OpenGL context supports the specified OpenGL     \a extension, \c false otherwise.      The context or a sharing context must be current.      \sa extensions() */
 end_comment
 begin_function
 DECL|function|hasExtension
@@ -2213,6 +2240,9 @@ name|QSurfaceFormat
 operator|::
 name|SingleBuffer
 condition|)
+name|functions
+argument_list|()
+operator|->
 name|glFlush
 argument_list|()
 expr_stmt|;
@@ -2273,7 +2303,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the format of the underlying platform context, if create() has been called.      Otherwise, returns the requested format. */
+comment|/*!     Returns the format of the underlying platform context, if create() has been called.      Otherwise, returns the requested format.      The requested and the actual format may differ. Requesting a given OpenGL version does     not mean the resulting context will target exactly the requested version. It is only     guaranteed that the version/profile/options combination for the created context is     compatible with the request, as long as the driver is able to provide such a context.      For example, requesting an OpenGL version 3.x core profile context may result in an     OpenGL 4.x core profile context. Similarly, a request for OpenGL 2.1 may result in an     OpenGL 3.0 context with deprecated functions enabled. Finally, depending on the     driver, unsupported versions may result in either a context creation failure or in a     context for the highest supported version.      Similar differences are possible in the buffer sizes, for example, the resulting     context may have a larger depth buffer than requested. This is perfectly normal. */
 end_comment
 begin_function
 DECL|function|format
@@ -2509,6 +2539,146 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_comment
+comment|/*!   Returns the platform-specific handle for the OpenGL implementation that   is currently in use. (for example, a HMODULE on Windows)    On platforms that do not use dynamic GL switch the return value is null.    The library might be GL-only, meaning that windowing system interface   functions (for example EGL) may live in another, separate library.    \note This function requires that the QGuiApplication instance is already created.    \sa openGLModuleType()    \since 5.3  */
+end_comment
+begin_function
+DECL|function|openGLModuleHandle
+name|void
+modifier|*
+name|QOpenGLContext
+operator|::
+name|openGLModuleHandle
+parameter_list|()
+block|{
+ifdef|#
+directive|ifdef
+name|QT_OPENGL_DYNAMIC
+name|QGuiApplication
+modifier|*
+name|app
+init|=
+name|qGuiApp
+decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|app
+argument_list|)
+expr_stmt|;
+return|return
+name|app
+operator|->
+name|platformNativeInterface
+argument_list|()
+operator|->
+name|nativeResourceForIntegration
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"glhandle"
+argument_list|)
+argument_list|)
+return|;
+else|#
+directive|else
+return|return
+literal|0
+return|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_comment
+comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value DesktopGL Desktop OpenGL   \value GLES2 OpenGL ES 2.0 or higher   \value GLES1 OpenGL ES 1.x    \since 5.3 */
+end_comment
+begin_comment
+comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or using the   the convenience function isES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
+end_comment
+begin_function
+DECL|function|openGLModuleType
+name|QOpenGLContext
+operator|::
+name|OpenGLModuleType
+name|QOpenGLContext
+operator|::
+name|openGLModuleType
+parameter_list|()
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_OPENGL_DYNAMIC
+argument_list|)
+name|Q_ASSERT
+argument_list|(
+name|qGuiApp
+argument_list|)
+expr_stmt|;
+return|return
+name|QGuiApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|platformIntegration
+argument_list|()
+operator|->
+name|openGLModuleType
+argument_list|()
+return|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
+return|return
+name|GLES2
+return|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|QT_OPENGL_ES
+argument_list|)
+return|return
+name|GLES1
+return|;
+else|#
+directive|else
+return|return
+name|DesktopGL
+return|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_comment
+comment|/*!   Returns true if the context is an OpenGL ES context.    If the context has not yet been created, the result is based on the   requested format set via setFormat().    \sa create(), format(), setFormat()    \since 5.3   */
+end_comment
+begin_function
+DECL|function|isES
+name|bool
+name|QOpenGLContext
+operator|::
+name|isES
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|format
+argument_list|()
+operator|.
+name|renderableType
+argument_list|()
+operator|==
+name|QSurfaceFormat
+operator|::
+name|OpenGLES
+return|;
 block|}
 end_function
 begin_comment

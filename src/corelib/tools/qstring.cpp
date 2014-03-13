@@ -4546,7 +4546,7 @@ begin_comment
 comment|/*! \fn int QString::capacity() const      Returns the maximum number of characters that can be stored in     the string without forcing a reallocation.      The sole purpose of this function is to provide a means of fine     tuning QString's memory usage. In general, you will rarely ever     need to call this function. If you want to know how many     characters are in the string, call size().      \sa reserve(), squeeze() */
 end_comment
 begin_comment
-comment|/*!     \fn void QString::reserve(int size)      Attempts to allocate memory for at least \a size characters. If     you know in advance how large the string will be, you can call     this function, and if you resize the string often you are likely     to get better performance. If \a size is an underestimate, the     worst that will happen is that the QString will be a bit slower.      The sole purpose of this function is to provide a means of fine     tuning QString's memory usage. In general, you will rarely ever     need to call this function. If you want to change the size of the     string, call resize().      This function is useful for code that needs to build up a long     string and wants to avoid repeated reallocation. In this example,     we want to add to the string until some condition is true, and     we're fairly sure that size is large enough to make a call to     reserve() worthwhile:      \snippet qstring/main.cpp 44      \sa squeeze(), capacity() */
+comment|/*!     \fn void QString::reserve(int size)      Attempts to allocate memory for at least \a size characters. If     you know in advance how large the string will be, you can call     this function, and if you resize the string often you are likely     to get better performance. If \a size is an underestimate, the     worst that will happen is that the QString will be a bit slower.      The sole purpose of this function is to provide a means of fine     tuning QString's memory usage. In general, you will rarely ever     need to call this function. If you want to change the size of the     string, call resize().      This function is useful for code that needs to build up a long     string and wants to avoid repeated reallocation. In this example,     we want to add to the string until some condition is \c true, and     we're fairly sure that size is large enough to make a call to     reserve() worthwhile:      \snippet qstring/main.cpp 44      \sa squeeze(), capacity() */
 end_comment
 begin_comment
 comment|/*!     \fn void QString::squeeze()      Releases any memory not required to store the character data.      The sole purpose of this function is to provide a means of fine     tuning QString's memory usage. In general, you will rarely ever     need to call this function.      \sa reserve(), capacity() */
@@ -8147,7 +8147,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QString::operator==(const QByteArray&other) const      \overload operator==()      The \a other byte array is converted to a QString using the     fromUtf8() function. This function stops conversion at the     first NUL character found, or the end of the byte array.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+comment|/*! \fn bool QString::operator==(const QByteArray&other) const      \overload operator==()      The \a other byte array is converted to a QString using the     fromUtf8() function. This function stops conversion at the     first NUL character found, or the end of the byte array.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is lexically equal to the parameter     string \a other. Otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator==(const char *other) const      \overload operator==()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
@@ -8201,7 +8201,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload operator<() */
+comment|/*!    \overload operator<()    \relates QString     Returns \c true if this string is lexically less than the parameter     string called \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -8267,13 +8267,13 @@ begin_comment
 comment|/*! \fn bool QString::operator<(const QByteArray&other) const      \overload operator<()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded     in the byte array, they will be included in the transformation.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator<(const char *other) const      \overload operator<()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+comment|/*! \fn bool QString::operator<(const char *other) const      Returns \c true if this string is lexically less than string \a other.     Otherwise returns \c false.      \overload operator<()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator<=(const QString&s1, const QString&s2)      Returns \c true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator<=(QLatin1String other) const      \overload operator<=() */
+comment|/*! \fn bool QString::operator<=(QLatin1String other) const      Returns \c true if this string is lexically less than or equal to     parameter string \a other. Otherwise returns \c false.      \overload operator<=() */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator<=(const QByteArray&other) const      \overload operator<=()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded     in the byte array, they will be included in the transformation.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
@@ -8285,7 +8285,7 @@ begin_comment
 comment|/*! \fn bool QString::operator>(const QString&s1, const QString&s2)      Returns \c true if string \a s1 is lexically greater than string \a     s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*!     \overload operator>() */
+comment|/*!    \overload operator>()    \relates QString     Returns \c true if this string is lexically greater than the parameter     string \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator >
@@ -8359,7 +8359,7 @@ begin_comment
 comment|/*! \fn bool operator>=(const QString&s1, const QString&s2)     \relates QString      Returns \c true if string \a s1 is lexically greater than or equal to     string \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator>=(QLatin1String other) const      \overload operator>=() */
+comment|/*! \fn bool QString::operator>=(QLatin1String other) const      Returns \c true if this string is lexically greater than or equal to parameter     string \a other. Otherwise returns \c false.      \overload operator>=() */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator>=(const QByteArray&other) const      \overload operator>=()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded in     the byte array, they will be included in the transformation.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
@@ -8371,7 +8371,7 @@ begin_comment
 comment|/*! \fn bool operator!=(const QString&s1, const QString&s2)     \relates QString      Returns \c true if string \a s1 is not equal to string \a s2;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator!=(QLatin1String other) const      \overload operator!=() */
+comment|/*! \fn bool QString::operator!=(QLatin1String other) const      Returns \c true if this string is not equal to parameter string \a other.     Otherwise returns \c false.      \overload operator!=() */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator!=(const QByteArray&other) const      \overload operator!=()      The \a other byte array is converted to a QString using the     fromUtf8() function. If any NUL characters ('\\0') are embedded     in the byte array, they will be included in the transformation.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
@@ -13509,7 +13509,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the string starts with \a s; otherwise returns     false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 65      \sa endsWith() */
+comment|/*!     Returns \c true if the string starts with \a s; otherwise returns     \c false.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 65      \sa endsWith() */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -13608,7 +13608,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload startsWith()    Returns \c true if the string starts with \a c; otherwise returns   false. */
+comment|/*!   \overload startsWith()    Returns \c true if the string starts with \a c; otherwise returns   \c false. */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -13730,7 +13730,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the string ends with \a s; otherwise returns     false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 20      \sa startsWith() */
+comment|/*!     Returns \c true if the string ends with \a s; otherwise returns     \c false.      If \a cs is Qt::CaseSensitive (default), the search is case     sensitive; otherwise the search is case insensitive.      \snippet qstring/main.cpp 20      \sa startsWith() */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -13887,7 +13887,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns \c true if the string ends with \a c; otherwise returns   false.    \overload endsWith()  */
+comment|/*!   Returns \c true if the string ends with \a c; otherwise returns   \c false.    \overload endsWith()  */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -14945,7 +14945,7 @@ begin_comment
 comment|/*!     \fn QString&QString::setUtf16(const ushort *unicode, int size)      Resizes the string to \a size characters and copies \a unicode     into the string.      If \a unicode is 0, nothing is copied, but the string is still     resized to \a size.      Note that unlike fromUtf16(), this function does not consider BOMs and     possibly differing byte ordering.      \sa utf16(), setUnicode() */
 end_comment
 begin_comment
-comment|/*!     Returns a string that has whitespace removed from the start     and the end, and that has each sequence of internal whitespace     replaced with a single space.      Whitespace means any character for which QChar::isSpace() returns     true. This includes the ASCII characters '\\t', '\\n', '\\v',     '\\f', '\\r', and ' '.      Example:      \snippet qstring/main.cpp 57      \sa trimmed() */
+comment|/*!     Returns a string that has whitespace removed from the start     and the end, and that has each sequence of internal whitespace     replaced with a single space.      Whitespace means any character for which QChar::isSpace() returns     \c true. This includes the ASCII characters '\\t', '\\n', '\\v',     '\\f', '\\r', and ' '.      Example:      \snippet qstring/main.cpp 57      \sa trimmed() */
 end_comment
 begin_function
 DECL|function|simplified
@@ -15325,7 +15325,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string that has whitespace removed from the start and     the end.      Whitespace means any character for which QChar::isSpace() returns     true. This includes the ASCII characters '\\t', '\\n', '\\v',     '\\f', '\\r', and ' '.      Example:      \snippet qstring/main.cpp 82      Unlike simplified(), trimmed() leaves internal whitespace alone.      \sa simplified() */
+comment|/*!     Returns a string that has whitespace removed from the start and     the end.      Whitespace means any character for which QChar::isSpace() returns     \c true. This includes the ASCII characters '\\t', '\\n', '\\v',     '\\f', '\\r', and ' '.      Example:      \snippet qstring/main.cpp 82      Unlike simplified(), trimmed() leaves internal whitespace alone.      \sa simplified() */
 end_comment
 begin_function
 DECL|function|trimmed
@@ -15664,7 +15664,7 @@ begin_comment
 comment|/*! \fn bool QString::isNull() const      Returns \c true if this string is null; otherwise returns \c false.      Example:      \snippet qstring/main.cpp 28      Qt makes a distinction between null strings and empty strings for     historical reasons. For most applications, what matters is     whether or not a string contains any data, and this can be     determined using the isEmpty() function.      \sa isEmpty() */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::isEmpty() const      Returns \c true if the string has no characters; otherwise returns     false.      Example:      \snippet qstring/main.cpp 27      \sa size() */
+comment|/*! \fn bool QString::isEmpty() const      Returns \c true if the string has no characters; otherwise returns     \c false.      Example:      \snippet qstring/main.cpp 27      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn QString&QString::operator+=(const QString&other)      Appends the string \a other onto the end of this string and     returns a reference to this string.      Example:      \snippet qstring/main.cpp 84      This operation is typically very fast (\l{constant time}),     because QString preallocates extra space at the end of the string     data so it can grow without reallocating the entire string each     time.      \sa append(), prepend() */
@@ -15694,7 +15694,7 @@ begin_comment
 comment|/*!     \fn bool operator==(const char *s1, const QString&s2)      \overload  operator==()     \relates QString      Returns \c true if \a s1 is equal to \a s2; otherwise returns \c false.     Note that no string is equal to \a s1 being 0.      Equivalent to \c {s1 != 0&& compare(s1, s2) == 0}.      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator!=(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is not equal to \a s2; otherwise returns     false.      For \a s1 != 0, this is equivalent to \c {compare(} \a s1, \a s2     \c {) != 0}. Note that no string is equal to \a s1 being 0.      \sa QString::compare() */
+comment|/*!     \fn bool operator!=(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is not equal to \a s2; otherwise returns     \c false.      For \a s1 != 0, this is equivalent to \c {compare(} \a s1, \a s2     \c {) != 0}. Note that no string is equal to \a s1 being 0.      \sa QString::compare() */
 end_comment
 begin_comment
 comment|/*!     \fn bool operator<(const char *s1, const QString&s2)     \relates QString      Returns \c true if \a s1 is lexically less than \a s2; otherwise     returns \c false.  For \a s1 != 0, this is equivalent to \c     {compare(s1, s2)< 0}.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function.      \sa QString::compare() */
@@ -16637,7 +16637,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string of size \a width that contains this string     padded by the \a fill character.      If \a truncate is false and the size() of the string is more than     \a width, then the returned string is a copy of the string.      \snippet qstring/main.cpp 32      If \a truncate is true and the size() of the string is more than     \a width, then any characters in a copy of the string after     position \a width are removed, and the copy is returned.      \snippet qstring/main.cpp 33      \sa rightJustified() */
+comment|/*!     Returns a string of size \a width that contains this string     padded by the \a fill character.      If \a truncate is \c false and the size() of the string is more than     \a width, then the returned string is a copy of the string.      \snippet qstring/main.cpp 32      If \a truncate is \c true and the size() of the string is more than     \a width, then any characters in a copy of the string after     position \a width are removed, and the copy is returned.      \snippet qstring/main.cpp 33      \sa rightJustified() */
 end_comment
 begin_function
 DECL|function|leftJustified
@@ -16770,7 +16770,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string of size() \a width that contains the \a fill     character followed by the string. For example:      \snippet qstring/main.cpp 49      If \a truncate is false and the size() of the string is more than     \a width, then the returned string is a copy of the string.      If \a truncate is true and the size() of the string is more than     \a width, then the resulting string is truncated at position \a     width.      \snippet qstring/main.cpp 50      \sa leftJustified() */
+comment|/*!     Returns a string of size() \a width that contains the \a fill     character followed by the string. For example:      \snippet qstring/main.cpp 49      If \a truncate is \c false and the size() of the string is more than     \a width, then the returned string is a copy of the string.      If \a truncate is true and the size() of the string is more than     \a width, then the resulting string is truncated at position \a     width.      \snippet qstring/main.cpp 50      \sa leftJustified() */
 end_comment
 begin_function
 DECL|function|rightJustified
@@ -19772,7 +19772,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c{long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLongLong()      Example:      \snippet qstring/main.cpp 74      \sa number(), toULongLong(), toInt(), QLocale::toLongLong() */
+comment|/*!     Returns the string converted to a \c{long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLongLong()      Example:      \snippet qstring/main.cpp 74      \sa number(), toULongLong(), toInt(), QLocale::toLongLong() */
 end_comment
 begin_function
 DECL|function|toLongLong
@@ -19893,7 +19893,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULongLong()      Example:      \snippet qstring/main.cpp 79      \sa number(), toLongLong(), QLocale::toULongLong() */
+comment|/*!     Returns the string converted to an \c{unsigned long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULongLong()      Example:      \snippet qstring/main.cpp 79      \sa number(), toLongLong(), QLocale::toULongLong() */
 end_comment
 begin_function
 DECL|function|toULongLong
@@ -20014,7 +20014,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toLong() */
+comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toLong() */
 end_comment
 begin_function
 DECL|function|toLong
@@ -20052,7 +20052,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet qstring/main.cpp 78      \sa number(), QLocale::toULong() */
+comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet qstring/main.cpp 78      \sa number(), QLocale::toULong() */
 end_comment
 begin_function
 DECL|function|toULong
@@ -20090,7 +20090,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toInt()      Example:      \snippet qstring/main.cpp 72      \sa number(), toUInt(), toDouble(), QLocale::toInt() */
+comment|/*!     Returns the string converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toInt()      Example:      \snippet qstring/main.cpp 72      \sa number(), toUInt(), toDouble(), QLocale::toInt() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -20128,7 +20128,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned int} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUInt()      Example:      \snippet qstring/main.cpp 77      \sa number(), toInt(), QLocale::toUInt() */
+comment|/*!     Returns the string converted to an \c{unsigned int} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUInt()      Example:      \snippet qstring/main.cpp 77      \sa number(), toInt(), QLocale::toUInt() */
 end_comment
 begin_function
 DECL|function|toUInt
@@ -20166,7 +20166,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c short using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toShort()      Example:      \snippet qstring/main.cpp 76      \sa number(), toUShort(), toInt(), QLocale::toShort() */
+comment|/*!     Returns the string converted to a \c short using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toShort()      Example:      \snippet qstring/main.cpp 76      \sa number(), toUShort(), toInt(), QLocale::toShort() */
 end_comment
 begin_function
 DECL|function|toShort
@@ -20204,7 +20204,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned short} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUShort()      Example:      \snippet qstring/main.cpp 80      \sa number(), toShort(), QLocale::toUShort() */
+comment|/*!     Returns the string converted to an \c{unsigned short} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUShort()      Example:      \snippet qstring/main.cpp 80      \sa number(), toShort(), QLocale::toUShort() */
 end_comment
 begin_function
 DECL|function|toUShort
@@ -20242,7 +20242,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c double value.      Returns 0.0 if the conversion fails.      If a conversion error occurs, \c{*}\a{ok} is set to false;     otherwise \c{*}\a{ok} is set to true.      \snippet qstring/main.cpp 66      Various string formats for floating point numbers can be converted     to double values:      \snippet qstring/main.cpp 67      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toDouble()      \snippet qstring/main.cpp 68      For historic reasons, this function does not handle     thousands group separators. If you need to convert such numbers,     use QLocale::toDouble().      \snippet qstring/main.cpp 69      \sa number(), QLocale::setDefault(), QLocale::toDouble(), trimmed() */
+comment|/*!     Returns the string converted to a \c double value.      Returns 0.0 if the conversion fails.      If a conversion error occurs, \c{*}\a{ok} is set to \c false;     otherwise \c{*}\a{ok} is set to \c true.      \snippet qstring/main.cpp 66      Various string formats for floating point numbers can be converted     to double values:      \snippet qstring/main.cpp 67      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toDouble()      \snippet qstring/main.cpp 68      For historic reasons, this function does not handle     thousands group separators. If you need to convert such numbers,     use QLocale::toDouble().      \snippet qstring/main.cpp 69      \sa number(), QLocale::setDefault(), QLocale::toDouble(), trimmed() */
 end_comment
 begin_function
 DECL|function|toDouble
@@ -20281,7 +20281,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c float value.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true. Returns 0.0 if the conversion fails.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toFloat()      Example:      \snippet qstring/main.cpp 71      \sa number(), toDouble(), toInt(), QLocale::toFloat() */
+comment|/*!     Returns the string converted to a \c float value.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true. Returns 0.0 if the conversion fails.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toFloat()      Example:      \snippet qstring/main.cpp 71      \sa number(), toDouble(), toInt(), QLocale::toFloat() */
 end_comment
 begin_function
 DECL|function|toFloat
@@ -25460,7 +25460,7 @@ begin_comment
 comment|/*!     \fn int QStringRef::length() const     Returns the number of characters referred to by the string reference.     Equivalent to size() and count().      \sa position(), string() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QStringRef::isEmpty() const      Returns \c true if the string reference has no characters; otherwise returns     false.      A string reference is empty if its size is zero.      \sa size() */
+comment|/*!     \fn bool QStringRef::isEmpty() const      Returns \c true if the string reference has no characters; otherwise returns     \c false.      A string reference is empty if its size is zero.      \sa size() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QStringRef::isNull() const      Returns \c true if string() returns a null pointer or a pointer to a     null string; otherwise returns \c true.      \sa size() */
@@ -29179,7 +29179,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string that has whitespace removed from the start and     the end.      Whitespace means any character for which QChar::isSpace() returns     true. This includes the ASCII characters '\\t', '\\n', '\\v',     '\\f', '\\r', and ' '.      Unlike QString::simplified(), trimmed() leaves internal whitespace alone.      \since 5.1      \sa QString::trimmed() */
+comment|/*!     Returns a string that has whitespace removed from the start and     the end.      Whitespace means any character for which QChar::isSpace() returns     \c true. This includes the ASCII characters '\\t', '\\n', '\\v',     '\\f', '\\r', and ' '.      Unlike QString::simplified(), trimmed() leaves internal whitespace alone.      \since 5.1      \sa QString::trimmed() */
 end_comment
 begin_function
 DECL|function|trimmed
@@ -29302,7 +29302,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c{long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLongLong()      \sa QString::toLongLong()      \since 5.1 */
+comment|/*!     Returns the string converted to a \c{long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLongLong()      \sa QString::toLongLong()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toLongLong
@@ -29342,7 +29342,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULongLong()      \sa QString::toULongLong()      \since 5.1 */
+comment|/*!     Returns the string converted to an \c{unsigned long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULongLong()      \sa QString::toULongLong()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toULongLong
@@ -29382,7 +29382,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn long QStringRef::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      \sa QString::toLong()      \since 5.1 */
+comment|/*!     \fn long QStringRef::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      \sa QString::toLong()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toLong
@@ -29422,7 +29422,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn ulong QStringRef::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      \sa QString::toULong()      \since 5.1 */
+comment|/*!     \fn ulong QStringRef::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      \sa QString::toULong()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toULong
@@ -29462,7 +29462,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toInt()      \sa QString::toInt()      \since 5.1 */
+comment|/*!     Returns the string converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toInt()      \sa QString::toInt()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toInt
@@ -29502,7 +29502,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned int} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUInt()      \sa QString::toUInt()      \since 5.1 */
+comment|/*!     Returns the string converted to an \c{unsigned int} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUInt()      \sa QString::toUInt()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toUInt
@@ -29542,7 +29542,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c short using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toShort()      \sa QString::toShort()      \since 5.1 */
+comment|/*!     Returns the string converted to a \c short using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toShort()      \sa QString::toShort()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toShort
@@ -29582,7 +29582,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned short} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUShort()      \sa QString::toUShort()      \since 5.1 */
+comment|/*!     Returns the string converted to an \c{unsigned short} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUShort()      \sa QString::toUShort()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toUShort
@@ -29622,7 +29622,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c double value.      Returns 0.0 if the conversion fails.      If a conversion error occurs, \c{*}\a{ok} is set to false;     otherwise \c{*}\a{ok} is set to true.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toDouble()      For historic reasons, this function does not handle     thousands group separators. If you need to convert such numbers,     use QLocale::toDouble().      \sa QString::toDouble()      \since 5.1 */
+comment|/*!     Returns the string converted to a \c double value.      Returns 0.0 if the conversion fails.      If a conversion error occurs, \c{*}\a{ok} is set to \c false;     otherwise \c{*}\a{ok} is set to \c true.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toDouble()      For historic reasons, this function does not handle     thousands group separators. If you need to convert such numbers,     use QLocale::toDouble().      \sa QString::toDouble()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toDouble
@@ -29661,7 +29661,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c float value.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true. Returns 0.0 if the conversion fails.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toFloat()      \sa QString::toFloat()      \since 5.1 */
+comment|/*!     Returns the string converted to a \c float value.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true. Returns 0.0 if the conversion fails.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toFloat()      \sa QString::toFloat()      \since 5.1 */
 end_comment
 begin_function
 DECL|function|toFloat

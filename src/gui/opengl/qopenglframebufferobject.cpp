@@ -63,14 +63,14 @@ directive|define
 name|QT_RESET_GLERROR
 parameter_list|()
 define|\
-value|{                                                         \     while (glGetError() != GL_NO_ERROR) {}                \ }
+value|{                                                         \     while (QOpenGLContext::currentContext()->functions()->glGetError() != GL_NO_ERROR) {} \ }
 DECL|macro|QT_CHECK_GLERROR
 define|#
 directive|define
 name|QT_CHECK_GLERROR
 parameter_list|()
 define|\
-value|{                                                         \     GLenum err = glGetError();                            \     if (err != GL_NO_ERROR) {                             \         qDebug("[%s line %d] OpenGL Error: %d",           \                __FILE__, __LINE__, (int)err);             \     }                                                     \ }
+value|{                                                         \     GLenum err = QOpenGLContext::currentContext()->functions()->glGetError(); \     if (err != GL_NO_ERROR) {                             \         qDebug("[%s line %d] OpenGL Error: %d",           \                __FILE__, __LINE__, (int)err);             \     }                                                     \ }
 else|#
 directive|else
 define|#
@@ -856,11 +856,14 @@ name|freeTextureFunc
 parameter_list|(
 name|QOpenGLFunctions
 modifier|*
+name|funcs
 parameter_list|,
 name|GLuint
 name|id
 parameter_list|)
 block|{
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -967,6 +970,8 @@ name|QT_OPENGL_ES_2
 name|GLint
 name|maxSamples
 decl_stmt|;
+name|funcs
+operator|.
 name|glGetIntegerv
 argument_list|(
 name|GL_MAX_SAMPLES
@@ -1314,6 +1319,8 @@ name|texture
 init|=
 literal|0
 decl_stmt|;
+name|funcs
+operator|.
 name|glGenTextures
 argument_list|(
 literal|1
@@ -1322,6 +1329,8 @@ operator|&
 name|texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|target
@@ -1329,6 +1338,8 @@ argument_list|,
 name|texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1338,6 +1349,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1347,6 +1360,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1356,6 +1371,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1365,6 +1382,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexImage2D
 argument_list|(
 name|target
@@ -1454,6 +1473,8 @@ expr_stmt|;
 operator|++
 name|level
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexImage2D
 argument_list|(
 name|target
@@ -1495,6 +1516,8 @@ expr_stmt|;
 name|QT_CHECK_GLERROR
 argument_list|()
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|target
@@ -1526,6 +1549,8 @@ name|freeTextureFunc
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1872,8 +1897,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -1962,8 +1987,8 @@ else|else
 block|{
 if|if
 condition|(
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|)
@@ -2145,8 +2170,8 @@ directive|else
 name|GLenum
 name|storage
 init|=
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -2446,7 +2471,7 @@ argument_list|,
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
-argument|QOpenGLFunctions::isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::currentContext()->isES() ? GL_RGBA : GL_RGBA8
 else|#
 directive|else
 argument|GL_RGBA
@@ -2501,7 +2526,7 @@ argument_list|,
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
-argument|QOpenGLFunctions::isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::currentContext()->isES() ? GL_RGBA : GL_RGBA8
 else|#
 directive|else
 argument|GL_RGBA
@@ -2703,8 +2728,11 @@ else|#
 directive|else
 name|internal_format
 operator|=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -2787,8 +2815,11 @@ else|#
 directive|else
 name|internal_format
 operator|=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -3429,8 +3460,22 @@ operator|.
 name|height
 argument_list|()
 decl_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
+name|funcs
+operator|->
 name|glGetError
 argument_list|()
 condition|)
@@ -3477,6 +3522,8 @@ name|GL_BGRA
 decl_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|->
 name|glReadPixels
 argument_list|(
 literal|0
@@ -3500,6 +3547,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+name|funcs
+operator|->
 name|glGetError
 argument_list|()
 condition|)
@@ -3531,6 +3580,8 @@ operator|::
 name|Format_RGBX8888
 argument_list|)
 decl_stmt|;
+name|funcs
+operator|->
 name|glReadPixels
 argument_list|(
 literal|0

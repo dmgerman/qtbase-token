@@ -618,6 +618,59 @@ end_decl_stmt
 begin_comment
 comment|/*     Left to implement:         RgbMaskFragmentShader,         RgbMaskWithGammaFragmentShader,          MultiplyCompositionModeFragmentShader,         ScreenCompositionModeFragmentShader,         OverlayCompositionModeFragmentShader,         DarkenCompositionModeFragmentShader,         LightenCompositionModeFragmentShader,         ColorDodgeCompositionModeFragmentShader,         ColorBurnCompositionModeFragmentShader,         HardLightCompositionModeFragmentShader,         SoftLightCompositionModeFragmentShader,         DifferenceCompositionModeFragmentShader,         ExclusionCompositionModeFragmentShader, */
 end_comment
+begin_comment
+comment|// OpenGL 3.2 core profile versions of shaders that are used by QOpenGLTextureGlyphCache
+end_comment
+begin_decl_stmt
+DECL|variable|qopenglslMainWithTexCoordsVertexShader_core
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|qopenglslMainWithTexCoordsVertexShader_core
+init|=
+literal|"#version 150 core \n\         in vec2 textureCoordArray; \n\         out vec2 textureCoords; \n\         void setPosition(); \n\         void main(void) \n\         { \n\             setPosition(); \n\             textureCoords = textureCoordArray; \n\         }\n"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|qopenglslUntransformedPositionVertexShader_core
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|qopenglslUntransformedPositionVertexShader_core
+init|=
+literal|"\n\         in vec4 vertexCoordsArray; \n\         void setPosition(void) \n\         { \n\             gl_Position = vertexCoordsArray; \n\         }\n"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|qopenglslMainFragmentShader_core
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|qopenglslMainFragmentShader_core
+init|=
+literal|"#version 150 core \n\         vec4 srcPixel(); \n\         out vec4 fragColor; \n\         void main() \n\         { \n\             fragColor = srcPixel(); \n\         }\n"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|qopenglslImageSrcFragmentShader_core
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|qopenglslImageSrcFragmentShader_core
+init|=
+literal|"\n\         in vec2 textureCoords; \n\         uniform sampler2D imageTexture; \n\         vec4 srcPixel() \n\         { \n"
+literal|"return texture(imageTexture, textureCoords); \n"
+literal|"}\n"
+decl_stmt|;
+end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

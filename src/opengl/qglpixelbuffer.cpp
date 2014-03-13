@@ -762,8 +762,8 @@ name|QT_OPENGL_ES
 name|GLenum
 name|format
 init|=
-name|QOpenGLFunctions
-operator|::
+name|ctx
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -1263,8 +1263,11 @@ name|QT_OPENGL_ES
 name|GLenum
 name|format
 init|=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?
@@ -1339,8 +1342,11 @@ name|QT_OPENGL_ES
 name|GLenum
 name|format
 init|=
-name|QOpenGLFunctions
+name|QOpenGLContext
 operator|::
+name|currentContext
+argument_list|()
+operator|->
 name|isES
 argument_list|()
 condition|?
