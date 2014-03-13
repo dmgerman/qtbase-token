@@ -10017,21 +10017,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
+begin_ifndef
+ifndef|#
+directive|ifndef
 name|QT_OPENGL_ES_2
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_DYNAMIC
-argument_list|)
-end_if
+end_ifndef
 begin_comment
 comment|// Desktop only
 end_comment
@@ -10074,6 +10064,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_OPENGL_DYNAMIC
+end_ifndef
 begin_comment
 comment|// Special translation functions for ES-specific calls on desktop GL
 end_comment
@@ -10125,7 +10120,14 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !ES2&& !DYNAMIC
+comment|// QT_OPENGL_DYNAMIC
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_OPENGL_ES2
 end_comment
 begin_constructor
 DECL|function|QOpenGLFunctionsPrivate
