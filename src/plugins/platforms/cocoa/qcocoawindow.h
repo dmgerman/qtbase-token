@@ -637,6 +637,12 @@ argument|Qt::WindowFlags flags
 argument_list|)
 block|;
 name|void
+name|setWindowZoomButton
+argument_list|(
+argument|Qt::WindowFlags flags
+argument_list|)
+block|;
+name|void
 name|setCurrentContext
 argument_list|(
 name|QCocoaGLContext
