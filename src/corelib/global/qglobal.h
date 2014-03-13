@@ -2734,7 +2734,7 @@ parameter_list|,
 name|ios
 parameter_list|)
 define|\
-value|((defined(__MAC_OS_X_VERSION_MAX_ALLOWED)&& __MAC_OS_X_VERSION_MAX_ALLOWED>= osx) || \      (defined(__IPHONE_OS_VERSION_MAX_ALLOWED)&& __IPHONE_OS_VERSION_MAX_ALLOWED>= ios))
+value|((defined(__MAC_OS_X_VERSION_MAX_ALLOWED)&& osx != __MAC_NA&& __MAC_OS_X_VERSION_MAX_ALLOWED>= osx) || \      (defined(__IPHONE_OS_VERSION_MAX_ALLOWED)&& ios != __IPHONE_NA&& __IPHONE_OS_VERSION_MAX_ALLOWED>= ios))
 end_define
 begin_define
 DECL|macro|QT_MAC_DEPLOYMENT_TARGET_BELOW
