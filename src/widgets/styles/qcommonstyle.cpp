@@ -37490,6 +37490,14 @@ literal|256
 expr_stmt|;
 break|break;
 case|case
+name|SH_Menu_SloppySubMenus
+case|:
+name|ret
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+case|case
 name|SH_ProgressDialog_TextLabelAlignment
 case|:
 name|ret
