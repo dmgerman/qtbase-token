@@ -25,6 +25,11 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
+end_ifndef
 begin_constructor
 DECL|function|QPlatformPrintDevice
 name|QPlatformPrintDevice
@@ -1397,6 +1402,13 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

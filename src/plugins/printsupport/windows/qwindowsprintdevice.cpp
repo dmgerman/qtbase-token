@@ -14,6 +14,9 @@ file|<qdebug.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 specifier|extern
 name|qreal
 name|qt_pointMultiplier
@@ -3062,6 +3065,13 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

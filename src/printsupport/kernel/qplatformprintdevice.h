@@ -46,11 +46,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformprintdevice.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qprint_p.h>
 end_include
 begin_include
@@ -70,6 +65,9 @@ file|<QtGui/qpagelayout.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 name|class
 name|Q_PRINTSUPPORT_EXPORT
 name|QPlatformPrintDevice
@@ -573,6 +571,13 @@ end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 begin_endif
 endif|#
 directive|endif

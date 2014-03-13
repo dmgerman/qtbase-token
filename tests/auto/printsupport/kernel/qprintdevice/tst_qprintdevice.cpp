@@ -49,6 +49,9 @@ operator|::
 name|basics
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 name|QPlatformPrinterSupport
 modifier|*
 name|ps
@@ -294,6 +297,9 @@ name|supportedMimeTypes
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_PRINTER
 block|}
 end_function
 begin_macro

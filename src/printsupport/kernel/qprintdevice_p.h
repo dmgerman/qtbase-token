@@ -60,6 +60,9 @@ file|<QtGui/qpagelayout.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 DECL|variable|QPlatformPrintDevice
 name|class
 name|QPlatformPrintDevice
@@ -468,6 +471,13 @@ end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 begin_endif
 endif|#
 directive|endif
