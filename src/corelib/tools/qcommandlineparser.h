@@ -240,6 +240,11 @@ specifier|const
 expr_stmt|;
 name|Q_NORETURN
 name|void
+name|showVersion
+parameter_list|()
+function_decl|;
+name|Q_NORETURN
+name|void
 name|showHelp
 parameter_list|(
 name|int
