@@ -32,7 +32,7 @@ block|{
 name|QString
 name|result
 decl_stmt|;
-comment|/* expensive or blocking operation  */
+comment|/* ... here is the expensive or blocking operation ... */
 emit|emit
 name|resultReady
 argument_list|(
@@ -140,7 +140,10 @@ modifier|&
 name|parameter
 parameter_list|)
 block|{
-comment|// ...
+name|QString
+name|result
+decl_stmt|;
+comment|/* ... here is the expensive or blocking operation ... */
 emit|emit
 name|resultReady
 argument_list|(
