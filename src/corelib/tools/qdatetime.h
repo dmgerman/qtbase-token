@@ -323,6 +323,7 @@ name|qint64
 name|days
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDate
 name|addMonths
@@ -331,6 +332,7 @@ name|int
 name|months
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDate
 name|addYears
@@ -339,6 +341,7 @@ name|int
 name|years
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|qint64
 name|daysTo
@@ -810,6 +813,7 @@ name|int
 name|secs
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|int
 name|secsTo
@@ -827,6 +831,7 @@ name|int
 name|ms
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|int
 name|msecsTo
@@ -1438,6 +1443,7 @@ name|qint64
 name|days
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDateTime
 name|addMonths
@@ -1446,6 +1452,7 @@ name|int
 name|months
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDateTime
 name|addYears
@@ -1454,6 +1461,7 @@ name|int
 name|years
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDateTime
 name|addSecs
@@ -1462,6 +1470,7 @@ name|qint64
 name|secs
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDateTime
 name|addMSecs
@@ -1470,6 +1479,7 @@ name|qint64
 name|msecs
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QDateTime
 name|toTimeSpec

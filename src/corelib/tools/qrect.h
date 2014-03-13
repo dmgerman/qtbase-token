@@ -173,6 +173,7 @@ name|QRect
 name|normalized
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -426,6 +427,7 @@ name|int
 name|dy
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -438,6 +440,7 @@ operator|&
 name|p
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|void
@@ -573,6 +576,7 @@ name|int
 name|y2
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -734,6 +738,7 @@ operator|&
 name|other
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|QRect
@@ -745,6 +750,7 @@ operator|&
 name|other
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|bool
 name|intersects
@@ -822,6 +828,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|united
@@ -840,6 +847,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|intersected
@@ -3225,6 +3233,7 @@ name|QRectF
 name|normalized
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -3582,6 +3591,7 @@ name|qreal
 name|dy
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -3594,6 +3604,7 @@ operator|&
 name|p
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|void
@@ -3729,6 +3740,7 @@ name|qreal
 name|y2
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -3865,6 +3877,7 @@ operator|&
 name|other
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|QRectF
@@ -3876,6 +3889,7 @@ operator|&
 name|other
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|bool
 name|intersects
@@ -3953,6 +3967,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|united
@@ -3971,6 +3986,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|intersected
@@ -4019,11 +4035,13 @@ name|QRect
 name|toRect
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|QRect
 name|toAlignedRect
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|private
 label|:

@@ -159,6 +159,7 @@ operator|&
 name|p
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -172,6 +173,7 @@ name|int
 name|dy
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|void
@@ -890,6 +892,7 @@ argument|qreal length
 argument_list|,
 argument|qreal angle
 argument_list|)
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -991,6 +994,7 @@ name|QLineF
 name|unitVector
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -998,6 +1002,7 @@ name|QLineF
 name|normalVector
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 comment|// ### Qt 6: rename intersects() or intersection() and rename IntersectType IntersectionType
 name|IntersectType
@@ -1066,6 +1071,7 @@ operator|&
 name|p
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1079,6 +1085,7 @@ name|qreal
 name|dy
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|void
