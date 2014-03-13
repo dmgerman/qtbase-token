@@ -14376,6 +14376,14 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+else|else
+name|QWidget
+operator|::
+name|keyReleaseEvent
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
