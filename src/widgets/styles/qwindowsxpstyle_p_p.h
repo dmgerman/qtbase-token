@@ -1494,6 +1494,16 @@ name|theme
 index|]
 return|;
 block|}
+specifier|static
+name|bool
+name|isItemViewDelegateLineEdit
+argument_list|(
+specifier|const
+name|QWidget
+operator|*
+name|widget
+argument_list|)
+block|;
 name|QIcon
 name|dockFloat
 block|,
