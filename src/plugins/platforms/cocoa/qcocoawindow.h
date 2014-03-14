@@ -392,6 +392,11 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|QRect
+name|geometry
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setCocoaGeometry
 argument_list|(
