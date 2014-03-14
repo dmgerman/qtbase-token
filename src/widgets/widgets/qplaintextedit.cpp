@@ -8139,7 +8139,9 @@ block|}
 block|}
 else|#
 directive|else
-name|Q_UNUSED
+name|QWidget
+operator|::
+name|keyReleaseEvent
 argument_list|(
 name|e
 argument_list|)
