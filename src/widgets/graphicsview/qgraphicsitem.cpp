@@ -32300,12 +32300,6 @@ operator|&
 name|engine
 argument_list|)
 decl_stmt|;
-name|setupTextLayout
-argument_list|(
-operator|&
-name|layout
-argument_list|)
-expr_stmt|;
 name|QPen
 name|p
 decl_stmt|;
@@ -32419,6 +32413,12 @@ name|formats
 argument_list|)
 expr_stmt|;
 block|}
+name|setupTextLayout
+argument_list|(
+operator|&
+name|layout
+argument_list|)
+expr_stmt|;
 name|layout
 operator|.
 name|draw
