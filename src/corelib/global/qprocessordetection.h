@@ -1126,24 +1126,63 @@ end_comment
 begin_comment
 comment|/*     SPARC family, optional revision: V9      SPARC is big-endian only prior to V9, while V9 is bi-endian with big-endian     as the default byte order. Assume all SPARC systems are big-endian. */
 end_comment
-begin_comment
-comment|// #elif defined(__sparc__)
-end_comment
-begin_comment
-comment|// #  define Q_PROCESSOR_SPARC
-end_comment
-begin_comment
-comment|// #  if defined(__sparc_v9__)
-end_comment
-begin_comment
-comment|// #    define Q_PROCESSOR_SPARC_V9
-end_comment
-begin_comment
-comment|// #  endif
-end_comment
-begin_comment
-comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
-end_comment
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__sparc__
+argument_list|)
+end_elif
+begin_define
+DECL|macro|Q_PROCESSOR_SPARC
+define|#
+directive|define
+name|Q_PROCESSOR_SPARC
+end_define
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__sparc_v9__
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_PROCESSOR_SPARC_V9
+define|#
+directive|define
+name|Q_PROCESSOR_SPARC_V9
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__sparc64__
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_PROCESSOR_SPARC_64
+define|#
+directive|define
+name|Q_PROCESSOR_SPARC_64
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_BIG_ENDIAN
+end_define
 begin_endif
 endif|#
 directive|endif
