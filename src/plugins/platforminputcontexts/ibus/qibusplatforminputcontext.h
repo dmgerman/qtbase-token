@@ -124,6 +124,18 @@ name|void
 name|cursorRectChanged
 argument_list|()
 block|;
+name|void
+name|deleteSurroundingText
+argument_list|(
+argument|int offset
+argument_list|,
+argument|uint n_chars
+argument_list|)
+block|;
+name|void
+name|surroundingTextRequired
+argument_list|()
+block|;
 name|private
 operator|:
 name|QIBusPlatformInputContextPrivate
