@@ -5405,6 +5405,23 @@ condition|(
 operator|!
 name|paperNameFound
 condition|)
+block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"supportedPageSizes() = "
+operator|<<
+name|sizes
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Paper Name mismatch: please report this failure at bugreports.qt-project.org"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|sizes
@@ -5423,6 +5440,7 @@ name|paperName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Check setting a custom size after setting a standard one works
 name|QSizeF
