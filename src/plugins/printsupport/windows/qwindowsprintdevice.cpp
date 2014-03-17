@@ -2519,6 +2519,15 @@ name|append
 argument_list|(
 name|QPrint
 operator|::
+name|DuplexAuto
+argument_list|)
+expr_stmt|;
+name|m_duplexModes
+operator|.
+name|append
+argument_list|(
+name|QPrint
+operator|::
 name|DuplexLongSide
 argument_list|)
 expr_stmt|;
