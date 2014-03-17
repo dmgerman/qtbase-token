@@ -11566,7 +11566,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an image of the frame buffer. If \a withAlpha is true the     alpha channel is included.      Depending on your hardware, you can explicitly select which color     buffer to grab with a glReadBuffer() call before calling this     function. */
+comment|/*!     Returns an image of the frame buffer. If \a withAlpha is true the     alpha channel is included.      Depending on your hardware, you can explicitly select which color     buffer to grab with a glReadBuffer() call before calling this     function.      On QNX the back buffer is not preserved when swapBuffers() is called. The back buffer     where this function reads from, might thus not contain the same content as the front buffer.     In order to retrieve what is currently visible on the screen, swapBuffers()     has to be executed prior to this function call. */
 end_comment
 begin_function
 DECL|function|grabFrameBuffer

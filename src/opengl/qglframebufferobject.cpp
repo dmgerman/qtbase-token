@@ -3544,7 +3544,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QImage QGLFramebufferObject::toImage() const      Returns the contents of this framebuffer object as a QImage. */
+comment|/*!     \fn QImage QGLFramebufferObject::toImage() const      Returns the contents of this framebuffer object as a QImage.      On QNX the back buffer is not preserved when a buffer swap occures. So this function     might return old content. */
 end_comment
 begin_function
 DECL|function|toImage
