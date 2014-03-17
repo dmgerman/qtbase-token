@@ -346,6 +346,28 @@ name|m_tag
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_define
+DECL|macro|COCOA_MENU_ANCESTOR
+define|#
+directive|define
+name|COCOA_MENU_ANCESTOR
+parameter_list|(
+name|m
+parameter_list|)
+value|((m)->property("_qCocoaMenuAncestor").value<QObject *>())
+end_define
+begin_define
+DECL|macro|SET_COCOA_MENU_ANCESTOR
+define|#
+directive|define
+name|SET_COCOA_MENU_ANCESTOR
+parameter_list|(
+name|m
+parameter_list|,
+name|ancestor
+parameter_list|)
+value|(m)->setProperty("_qCocoaMenuAncestor", QVariant::fromValue<QObject *>(ancestor))
+end_define
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

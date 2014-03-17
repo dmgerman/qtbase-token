@@ -1614,7 +1614,7 @@ specifier|const
 name|int
 name|NumPseudos
 init|=
-literal|46
+literal|45
 decl_stmt|;
 struct|struct
 name|Pseudo
