@@ -269,6 +269,7 @@ name|int
 name|dy
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|QRegion
@@ -280,6 +281,7 @@ operator|&
 name|p
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|translated
@@ -305,6 +307,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QRegion
 name|united
@@ -315,6 +318,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QRegion
 name|intersected
@@ -325,6 +329,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QRegion
 name|intersected
@@ -335,6 +340,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QRegion
 name|subtracted
@@ -345,6 +351,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QRegion
 name|xored
@@ -355,6 +362,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 if|#
 directive|if
@@ -375,6 +383,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|united
@@ -394,6 +403,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|united
@@ -413,6 +423,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|intersected
@@ -432,6 +443,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|intersected
@@ -451,6 +463,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|subtracted
@@ -470,6 +483,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 block|{
 return|return
 name|xored

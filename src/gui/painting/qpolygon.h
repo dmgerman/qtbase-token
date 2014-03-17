@@ -182,6 +182,7 @@ argument_list|,
 argument|int dy
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 specifier|inline
 name|QPolygon
@@ -190,6 +191,7 @@ argument_list|(
 argument|const QPoint&offset
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QRect
 name|boundingRect
@@ -304,6 +306,7 @@ argument_list|(
 argument|const QPolygon&r
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QPolygon
 name|intersected
@@ -311,6 +314,7 @@ argument_list|(
 argument|const QPolygon&r
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QPolygon
 name|subtracted
@@ -318,6 +322,7 @@ argument_list|(
 argument|const QPolygon&r
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|; }
 decl_stmt|;
 end_decl_stmt

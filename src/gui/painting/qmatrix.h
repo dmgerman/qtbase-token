@@ -416,6 +416,7 @@ operator|=
 literal|0
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|bool
 name|operator

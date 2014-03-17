@@ -849,6 +849,7 @@ name|Spec
 name|colorSpec
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|static
 name|QColor
@@ -1033,6 +1034,7 @@ operator|=
 literal|150
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QColor
 name|lighter
@@ -1043,6 +1045,7 @@ operator|=
 literal|150
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QColor
 name|dark
@@ -1053,6 +1056,7 @@ operator|=
 literal|200
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QColor
 name|darker
@@ -1063,6 +1067,7 @@ operator|=
 literal|200
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QColor
 modifier|&
