@@ -319,6 +319,28 @@ argument_list|(
 argument|bool preConnect
 argument_list|)
 block|;
+name|bool
+name|isFollowRedirects
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setFollowRedirects
+argument_list|(
+argument|bool followRedirect
+argument_list|)
+block|;
+name|int
+name|redirectCount
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setRedirectCount
+argument_list|(
+argument|int count
+argument_list|)
+block|;
 name|void
 name|setUploadByteDevice
 argument_list|(
@@ -460,6 +482,12 @@ name|ssl
 block|;
 name|bool
 name|preConnect
+block|;
+name|bool
+name|followRedirect
+block|;
+name|int
+name|redirectCount
 block|; }
 decl_stmt|;
 end_decl_stmt

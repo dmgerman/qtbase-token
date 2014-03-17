@@ -124,6 +124,8 @@ name|SpdyWasUsedAttribute
 block|,
 name|EmitAllUploadProgressSignalsAttribute
 block|,
+name|FollowRedirectsAttribute
+block|,
 name|User
 init|=
 literal|1000
@@ -407,6 +409,19 @@ name|setPriority
 parameter_list|(
 name|Priority
 name|priority
+parameter_list|)
+function_decl|;
+comment|// HTTP redirect related
+name|int
+name|maximumRedirectsAllowed
+argument_list|()
+specifier|const
+expr_stmt|;
+name|void
+name|setMaximumRedirectsAllowed
+parameter_list|(
+name|int
+name|maximumRedirectsAllowed
 parameter_list|)
 function_decl|;
 name|private

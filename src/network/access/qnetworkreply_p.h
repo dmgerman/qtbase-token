@@ -118,6 +118,9 @@ expr_stmt|;
 name|QNetworkRequest
 name|request
 decl_stmt|;
+name|QNetworkRequest
+name|originalRequest
+decl_stmt|;
 name|QUrl
 name|url
 decl_stmt|;

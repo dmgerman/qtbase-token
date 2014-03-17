@@ -234,6 +234,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|bool start(const QNetworkRequest&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_cacheLoadReadyRead()
 argument_list|)
 name|Q_PRIVATE_SLOT
@@ -402,6 +408,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_metaDataChanged()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void onRedirected(const QUrl&, int, int)
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -507,7 +519,12 @@ argument_list|()
 block|;
 name|bool
 name|start
-argument_list|()
+argument_list|(
+specifier|const
+name|QNetworkRequest
+operator|&
+name|newHttpRequest
+argument_list|)
 block|;
 name|void
 name|_q_startOperation
@@ -645,6 +662,16 @@ argument|qint64 bytesTotal
 argument_list|)
 block|;
 comment|// dup?
+name|void
+name|onRedirected
+argument_list|(
+argument|const QUrl&redirectUrl
+argument_list|,
+argument|int httpStatus
+argument_list|,
+argument|int maxRedirectsRemainig
+argument_list|)
+block|;
 name|qint64
 name|bytesUploaded
 block|;
@@ -813,7 +840,37 @@ specifier|const
 block|;
 name|void
 name|postRequest
+argument_list|(
+specifier|const
+name|QNetworkRequest
+operator|&
+name|newHttpRequest
+argument_list|)
+block|;
+name|QNetworkAccessManager
+operator|::
+name|Operation
+name|getRedirectOperation
+argument_list|(
+argument|QNetworkAccessManager::Operation currentOp
+argument_list|,
+argument|int httpStatus
+argument_list|)
+block|;
+name|QNetworkRequest
+name|createRedirectRequest
+argument_list|(
+argument|const QNetworkRequest&originalRequests
+argument_list|,
+argument|const QUrl&url
+argument_list|,
+argument|int maxRedirectsRemainig
+argument_list|)
+block|;
+name|bool
+name|isHttpRedirectResponse
 argument_list|()
+specifier|const
 block|;
 name|public
 operator|:

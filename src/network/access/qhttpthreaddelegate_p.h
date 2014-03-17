@@ -431,6 +431,16 @@ name|void
 name|downloadFinished
 argument_list|()
 block|;
+name|void
+name|redirected
+argument_list|(
+argument|const QUrl&url
+argument_list|,
+argument|int httpStatus
+argument_list|,
+argument|int maxRedirectsRemainig
+argument_list|)
+block|;
 name|public
 name|slots
 operator|:
