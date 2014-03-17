@@ -8837,6 +8837,16 @@ name|Q_DECLARE_METATYPE
 parameter_list|(
 name|TYPE
 parameter_list|)
+value|Q_DECLARE_METATYPE_IMPL(TYPE)
+end_define
+begin_define
+DECL|macro|Q_DECLARE_METATYPE_IMPL
+define|#
+directive|define
+name|Q_DECLARE_METATYPE_IMPL
+parameter_list|(
+name|TYPE
+parameter_list|)
 define|\
 value|QT_BEGIN_NAMESPACE                                                  \     template<>                                                         \     struct QMetaTypeId< TYPE>                                          \     {                                                                   \         enum { Defined = 1 };                                           \         static int qt_metatype_id()                                     \             {                                                           \                 static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \                 if (const int id = metatype_id.loadAcquire())           \                     return id;                                          \                 const int newId = qRegisterMetaType< TYPE>(#TYPE,      \                               reinterpret_cast< TYPE *>(quintptr(-1))); \                 metatype_id.storeRelease(newId);                        \                 return newId;                                           \             }                                                           \     };                                                                  \     QT_END_NAMESPACE
 end_define
