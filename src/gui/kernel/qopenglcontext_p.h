@@ -758,6 +758,9 @@ name|QPaintEngineEx
 operator|*
 name|active_engine
 block|;
+name|QVariant
+name|nativeHandle
+block|;
 specifier|static
 name|QOpenGLContext
 operator|*

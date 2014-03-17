@@ -714,10 +714,6 @@ name|display
 argument_list|()
 argument_list|,
 name|config
-argument_list|,
-name|d
-operator|->
-name|context
 argument_list|)
 expr_stmt|;
 comment|// Create a temporary window so that we can make the new context current

@@ -94,6 +94,11 @@ include|#
 directive|include
 file|<QtCore/qpair.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qvariant.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QOpenGLContextPrivate
@@ -491,6 +496,15 @@ operator|*
 name|screen
 argument_list|)
 block|;
+name|void
+name|setNativeHandle
+argument_list|(
+specifier|const
+name|QVariant
+operator|&
+name|handle
+argument_list|)
+block|;
 name|bool
 name|create
 argument_list|()
@@ -520,6 +534,11 @@ block|;
 name|QScreen
 operator|*
 name|screen
+argument_list|()
+specifier|const
+block|;
+name|QVariant
+name|nativeHandle
 argument_list|()
 specifier|const
 block|;
@@ -838,6 +857,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGUIGLCONTEXT_H
+comment|// QOPENGLCONTEXT_H
 end_comment
 end_unit

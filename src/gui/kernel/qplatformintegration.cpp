@@ -298,6 +298,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
 end_ifndef
+begin_comment
+comment|/*!     Factory function for QPlatformOpenGLContext. The \a context parameter is a pointer to     the context for which a platform-specific context backend needs to be     created. Configuration settings like the format, share context and screen have to be     taken from this QOpenGLContext and the resulting platform context is expected to be     backed by a native context that fulfills these criteria.      If the context has native handles set, no new native context is expected to be created.     Instead, the provided handles have to be used. In this case the ownership of the handle     must not be taken and the platform implementation is not allowed to destroy the native     context. Configuration parameters like the format are also to be ignored. Instead, the     platform implementation is responsible for querying the configuriation from the provided     native context.      Returns a pointer to a QPlatformOpenGLContext instance or \c NULL if the context could     not be created.      \sa QOpenGLContext */
+end_comment
 begin_function
 DECL|function|createPlatformOpenGLContext
 name|QPlatformOpenGLContext
@@ -331,6 +334,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_OPENGL
+end_comment
 begin_comment
 comment|/*!    Factory function for QPlatformSharedGraphicsCache. This function will return 0 if the platform    integration does not support any shared graphics cache mechanism for the given \a cacheId. */
 end_comment
