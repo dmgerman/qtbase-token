@@ -77,6 +77,12 @@ operator|&
 name|offset
 argument_list|)
 block|;
+name|QImage
+name|toImage
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|void
 name|resize
 argument_list|(
