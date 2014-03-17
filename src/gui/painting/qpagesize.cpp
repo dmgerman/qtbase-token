@@ -8398,6 +8398,42 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_function
+DECL|function|msgImperialPageSizeInch
+specifier|static
+name|QString
+name|msgImperialPageSizeInch
+parameter_list|(
+name|int
+name|width
+parameter_list|,
+name|int
+name|height
+parameter_list|)
+block|{
+comment|//: Page size in 'Inch'.
+return|return
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"QPageSize"
+argument_list|,
+literal|"%1 x %2 in"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|width
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|height
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     Returns the localized name of the standard \a pageSizeId.      If the QPageSize is invalid then the name will be empty. */
 end_comment
@@ -9262,7 +9298,7 @@ name|translate
 argument_list|(
 literal|"QPageSize"
 argument_list|,
-literal|"Tabliod Extra"
+literal|"Tabloid Extra"
 argument_list|)
 return|;
 case|case
@@ -9346,13 +9382,11 @@ operator|::
 name|Imperial7x9
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|7
 argument_list|,
-literal|"7 x 9 in"
+literal|9
 argument_list|)
 return|;
 case|case
@@ -9361,13 +9395,11 @@ operator|::
 name|Imperial8x10
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|8
 argument_list|,
-literal|"8 x 10 in"
+literal|10
 argument_list|)
 return|;
 case|case
@@ -9376,13 +9408,11 @@ operator|::
 name|Imperial9x11
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|9
 argument_list|,
-literal|"9 x 11 in"
+literal|11
 argument_list|)
 return|;
 case|case
@@ -9391,13 +9421,11 @@ operator|::
 name|Imperial9x12
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|9
 argument_list|,
-literal|"9 x 12 in"
+literal|12
 argument_list|)
 return|;
 case|case
@@ -9406,13 +9434,11 @@ operator|::
 name|Imperial10x11
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|10
 argument_list|,
-literal|"10 x 11 in"
+literal|11
 argument_list|)
 return|;
 case|case
@@ -9421,13 +9447,11 @@ operator|::
 name|Imperial10x13
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|10
 argument_list|,
-literal|"10 x 13 in"
+literal|13
 argument_list|)
 return|;
 case|case
@@ -9436,13 +9460,11 @@ operator|::
 name|Imperial10x14
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|10
 argument_list|,
-literal|"10 x 14 in"
+literal|14
 argument_list|)
 return|;
 case|case
@@ -9451,13 +9473,11 @@ operator|::
 name|Imperial12x11
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|12
 argument_list|,
-literal|"12 x 11 in"
+literal|11
 argument_list|)
 return|;
 case|case
@@ -9466,13 +9486,11 @@ operator|::
 name|Imperial15x11
 case|:
 return|return
-name|QCoreApplication
-operator|::
-name|translate
+name|msgImperialPageSizeInch
 argument_list|(
-literal|"QPageSize"
+literal|15
 argument_list|,
-literal|"15 x 11 in"
+literal|11
 argument_list|)
 return|;
 case|case

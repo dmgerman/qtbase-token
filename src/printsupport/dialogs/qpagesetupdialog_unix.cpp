@@ -2452,6 +2452,7 @@ name|QPageLayout
 operator|::
 name|Millimeter
 case|:
+comment|//: Unit 'Millimeter'
 name|suffix
 operator|=
 name|tr
@@ -2465,6 +2466,7 @@ name|QPageLayout
 operator|::
 name|Point
 case|:
+comment|//: Unit 'Points'
 name|suffix
 operator|=
 name|tr
@@ -2478,6 +2480,7 @@ name|QPageLayout
 operator|::
 name|Inch
 case|:
+comment|//: Unit 'Inch'
 name|suffix
 operator|=
 name|tr
@@ -2491,6 +2494,7 @@ name|QPageLayout
 operator|::
 name|Pica
 case|:
+comment|//: Unit 'Pica'
 name|suffix
 operator|=
 name|tr
@@ -2504,6 +2508,7 @@ name|QPageLayout
 operator|::
 name|Didot
 case|:
+comment|//: Unit 'Didot'
 name|suffix
 operator|=
 name|tr
@@ -2517,6 +2522,7 @@ name|QPageLayout
 operator|::
 name|Cicero
 case|:
+comment|//: Unit 'Cicero'
 name|suffix
 operator|=
 name|tr
