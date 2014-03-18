@@ -15941,6 +15941,13 @@ name|d
 operator|->
 name|hasHadMouse
 operator|&&
+name|d
+operator|->
+name|sloppyDelayTimer
+operator|==
+literal|0
+comment|// Keep things as they are while we're moving to the submenu
+operator|&&
 operator|(
 operator|!
 name|d
