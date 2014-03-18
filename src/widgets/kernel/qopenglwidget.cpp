@@ -557,6 +557,9 @@ name|QOpenGLFramebufferObject
 argument_list|(
 name|size
 argument_list|()
+operator|*
+name|devicePixelRatio
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|d
