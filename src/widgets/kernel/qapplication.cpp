@@ -12738,6 +12738,15 @@ name|e
 operator|->
 name|spontaneous
 argument_list|()
+operator|&&
+name|wheel
+operator|->
+name|phase
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|ScrollUpdate
 condition|)
 name|QApplicationPrivate
 operator|::
@@ -12793,6 +12802,11 @@ argument_list|,
 name|wheel
 operator|->
 name|modifiers
+argument_list|()
+argument_list|,
+name|wheel
+operator|->
+name|phase
 argument_list|()
 argument_list|)
 decl_stmt|;
