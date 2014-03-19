@@ -568,7 +568,10 @@ condition|)
 return|return
 literal|false
 return|;
-comment|// fall through
+else|else
+return|return
+literal|true
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
