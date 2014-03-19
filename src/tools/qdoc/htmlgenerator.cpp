@@ -1391,6 +1391,12 @@ operator|&
 name|node
 argument_list|)
 decl_stmt|;
+name|QDocDatabase
+operator|::
+name|debug
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -18051,7 +18057,7 @@ name|n
 init|=
 name|qdb_
 operator|->
-name|resolveTarget
+name|resolveFunctionTarget
 argument_list|(
 name|par1
 operator|.
@@ -18331,6 +18337,30 @@ operator|=
 name|QStringRef
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|arg
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+name|QChar
+argument_list|(
+literal|'&'
+argument_list|)
+condition|)
+name|html
+operator|+=
+name|arg
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+else|else
+block|{
+comment|// zzz resolveClassTarget()
 specifier|const
 name|Node
 modifier|*
@@ -18348,6 +18378,10 @@ argument_list|,
 name|relative
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|n
+condition|)
 name|addLink
 argument_list|(
 name|linkForNode
@@ -18363,19 +18397,20 @@ operator|&
 name|html
 argument_list|)
 expr_stmt|;
+else|else
+name|html
+operator|+=
+name|arg
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
 name|handled
 operator|=
 literal|true
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-comment|// Apparently, this clause was never used.
-comment|//<@func> is taken out above.
-block|else if (parseArg(src, funcTag,&i, srcSize,&arg,&par1)) {                 par1 = QStringRef();                 const Node* n = qdb_->resolveTarget(arg.toString(), relative);                 addLink(linkForNode(n,relative), arg,&html);                 handled = true;             }
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -21251,6 +21286,7 @@ operator|->
 name|string
 argument_list|()
 expr_stmt|;
+comment|// It's some kind of protocol.
 block|}
 else|else
 block|{
@@ -21269,7 +21305,6 @@ argument_list|(
 literal|'#'
 argument_list|)
 condition|)
-block|{
 name|path
 operator|=
 name|atom
@@ -21282,9 +21317,8 @@ argument_list|(
 literal|'#'
 argument_list|)
 expr_stmt|;
-block|}
+comment|// The target is in the html file.
 else|else
-block|{
 name|path
 operator|.
 name|append
@@ -21295,7 +21329,7 @@ name|string
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
+comment|// It's a general case target.
 name|QString
 name|ref
 decl_stmt|;
@@ -21317,13 +21351,11 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 operator|*
 name|node
 operator|=
 name|relative
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -21334,8 +21366,7 @@ argument_list|(
 literal|".html"
 argument_list|)
 condition|)
-block|{
-comment|/*               This is not a recursive search. That's ok in               this case, because we are searching for a page               node, which must be a direct child of the tree               root.             */
+comment|// The target is an html file.
 operator|*
 name|node
 operator|=
@@ -21357,17 +21388,33 @@ operator|::
 name|NoSubType
 argument_list|)
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|first
+operator|.
+name|endsWith
+argument_list|(
+literal|"()"
+argument_list|)
+condition|)
+block|{
+comment|// The target is a C++ function or QML method.
+operator|*
+name|node
+operator|=
+name|qdb_
+operator|->
+name|resolveFunctionTarget
+argument_list|(
+name|first
+argument_list|,
+name|relative
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
-operator|*
-name|node
-operator|)
-condition|)
 operator|*
 name|node
 operator|=
@@ -21396,8 +21443,6 @@ operator|->
 name|findDocNodeByTitle
 argument_list|(
 name|first
-argument_list|,
-name|relative
 argument_list|)
 expr_stmt|;
 if|if
@@ -21419,8 +21464,6 @@ argument_list|(
 name|first
 argument_list|,
 name|ref
-argument_list|,
-name|relative
 argument_list|)
 expr_stmt|;
 if|if
