@@ -759,6 +759,8 @@ name|TextForceRightToLeft
 operator|=
 literal|0x40000
 block|,
+comment|// Ensures that the longest variant is always used when computing the
+comment|// size of a multi-variant string.
 name|TextLongestVariant
 operator|=
 literal|0x80000
