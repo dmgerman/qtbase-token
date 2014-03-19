@@ -665,11 +665,9 @@ argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|tempValue
 block|;
-specifier|register
 name|int
 name|result
 block|;
@@ -1558,11 +1556,9 @@ argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|tempValue
 block|;
-specifier|register
 name|T
 name|result
 block|;
@@ -2118,11 +2114,9 @@ argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|tempValue
 block|;
-specifier|register
 name|T
 name|result
 block|;
@@ -2703,11 +2697,9 @@ argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|register
 name|T
 name|tempValue
 block|;
-specifier|register
 name|T
 name|result
 block|;
