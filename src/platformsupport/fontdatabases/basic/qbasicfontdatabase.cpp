@@ -616,6 +616,12 @@ name|pixelSize
 operator|=
 name|pixelSize
 expr_stmt|;
+name|fontDef
+operator|.
+name|hintingPreference
+operator|=
+name|hintingPreference
+expr_stmt|;
 name|QFontEngineFTRawData
 modifier|*
 name|fe
