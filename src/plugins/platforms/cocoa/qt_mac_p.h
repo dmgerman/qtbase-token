@@ -641,15 +641,6 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|QColor
-name|qcolorForTheme
-parameter_list|(
-name|ThemeBrush
-name|brush
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|QColor
 name|qcolorForThemeTextColor
 parameter_list|(
 name|ThemeTextColor
