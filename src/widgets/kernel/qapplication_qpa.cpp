@@ -1152,7 +1152,7 @@ name|palette
 argument_list|(
 name|QPlatformTheme
 operator|::
-name|MessageBoxLabelPelette
+name|MessageBoxLabelPalette
 argument_list|)
 argument_list|,
 literal|"QMessageBoxLabel"

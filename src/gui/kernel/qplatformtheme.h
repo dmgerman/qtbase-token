@@ -257,6 +257,10 @@ name|ItemViewPalette
 block|,
 name|MessageBoxLabelPelette
 block|,
+name|MessageBoxLabelPalette
+init|=
+name|MessageBoxLabelPelette
+block|,
 name|TabBarPalette
 block|,
 name|LabelPalette
