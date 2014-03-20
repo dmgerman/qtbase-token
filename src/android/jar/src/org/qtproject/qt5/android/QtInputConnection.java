@@ -566,12 +566,6 @@ if|if
 condition|(
 name|closing
 operator|&&
-name|m_inputState
-operator|==
-name|InputStates
-operator|.
-name|FinishComposing
-operator|&&
 name|m_view
 operator|.
 name|getActivityDelegate
