@@ -935,13 +935,6 @@ name|m_hasTriedPrepopulatingCache
 operator|=
 literal|true
 expr_stmt|;
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|m_assetsCacheMutext
-argument_list|)
-decl_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|m_assetsCache
