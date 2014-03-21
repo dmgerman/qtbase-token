@@ -8024,7 +8024,10 @@ operator|->
 name|isES
 argument_list|()
 condition|)
+name|q
+operator|->
 name|functions
+argument_list|()
 operator|->
 name|glGenerateMipmap
 argument_list|(
