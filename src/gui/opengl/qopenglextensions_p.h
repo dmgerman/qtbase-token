@@ -221,10 +221,6 @@ argument|QOpenGLExtensions::OpenGLExtension extension
 argument_list|)
 specifier|const
 block|;
-name|void
-name|initializeGLExtensions
-argument_list|()
-block|;
 name|GLvoid
 operator|*
 name|glMapBuffer
