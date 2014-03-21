@@ -893,6 +893,9 @@ operator|::
 name|WindowFlags
 name|m_windowFlags
 block|;
+name|bool
+name|m_effectivelyMaximized
+block|;
 name|Qt
 operator|::
 name|WindowState
