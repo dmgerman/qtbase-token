@@ -31,6 +31,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qpixelformat.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qbytearray.h>
 end_include
 begin_include
@@ -1507,6 +1512,30 @@ name|QString
 operator|&
 name|value
 argument_list|)
+block|;
+name|QPixelFormat
+name|pixelFormat
+argument_list|()
+specifier|const
+name|Q_DECL_NOTHROW
+block|;
+specifier|static
+name|QPixelFormat
+name|toPixelFormat
+argument_list|(
+argument|QImage::Format format
+argument_list|)
+name|Q_DECL_NOTHROW
+block|;
+specifier|static
+name|QImage
+operator|::
+name|Format
+name|toImageFormat
+argument_list|(
+argument|const QPixelFormat&format
+argument_list|)
+name|Q_DECL_NOTHROW
 block|;
 if|#
 directive|if
