@@ -1399,9 +1399,6 @@ name|QWidget
 operator|::
 name|RenderFlags
 name|renderFlags
-argument_list|,
-name|bool
-name|readyToRender
 argument_list|)
 decl_stmt|;
 end_decl_stmt
