@@ -192,6 +192,10 @@ modifier|*
 name|w
 parameter_list|)
 function_decl|;
+name|int
+name|rasterSurfaces
+parameter_list|()
+function_decl|;
 name|public
 name|slots
 range|:
@@ -307,6 +311,11 @@ name|m_id
 init|=
 operator|-
 literal|1
+decl_stmt|;
+name|QAtomicInt
+name|m_rasterSurfaces
+init|=
+literal|0
 decl_stmt|;
 name|ANativeWindow
 modifier|*
