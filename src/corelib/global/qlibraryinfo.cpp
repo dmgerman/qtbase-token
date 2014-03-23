@@ -801,9 +801,31 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_CC_CLANG
+name|Q_CC_INTEL
 argument_list|)
 end_if
+begin_comment
+comment|// must be before GNU, Clang and MSVC because ICC/ICL claim to be them
+end_comment
+begin_define
+DECL|macro|COMPILER_STRING
+define|#
+directive|define
+name|COMPILER_STRING
+value|__VERSION__
+end_define
+begin_comment
+DECL|macro|COMPILER_STRING
+comment|/* __VERSION__ starts with "Intel(R) C++" */
+end_comment
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+end_elif
 begin_comment
 comment|// must be before GNU, because clang claims to be GNU too
 end_comment
