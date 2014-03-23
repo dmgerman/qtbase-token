@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2014 Intel Corporation ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -130,6 +130,11 @@ begin_include
 include|#
 directive|include
 file|"qconfig.cpp"
+end_include
+begin_include
+include|#
+directive|include
+file|"archdetect.cpp"
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
@@ -968,6 +973,40 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_DEBUG
+end_ifdef
+begin_define
+DECL|macro|DEBUG_STRING
+define|#
+directive|define
+name|DEBUG_STRING
+value|" release"
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|DEBUG_STRING
+define|#
+directive|define
+name|DEBUG_STRING
+value|" debug"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_define
+DECL|macro|QT_BUILD_STR
+define|#
+directive|define
+name|QT_BUILD_STR
+value|"Qt " QT_VERSION_STR " (" __DATE__ "; " ARCH_FULL DEBUG_STRING " build; by " COMPILER_STRING ")"
+end_define
 begin_comment
 comment|/*!   Returns a string describing how this version of Qt was built.    \internal    \since 5.3 */
 end_comment
@@ -981,44 +1020,8 @@ name|build
 parameter_list|()
 name|Q_DECL_NOTHROW
 block|{
-specifier|static
-specifier|const
-name|char
-name|data
-index|[]
-init|=
-literal|"Qt "
-name|QT_VERSION_STR
-literal|" ("
-name|__DATE__
-literal|", "
-name|COMPILER_STRING
-literal|", "
-if|#
-directive|if
-name|QT_POINTER_SIZE
-operator|==
-literal|4
-literal|"32"
-else|#
-directive|else
-literal|"64"
-endif|#
-directive|endif
-literal|" bit, "
-ifdef|#
-directive|ifdef
-name|QT_NO_DEBUG
-literal|"release"
-else|#
-directive|else
-literal|"debug"
-endif|#
-directive|endif
-literal|" build)"
-decl_stmt|;
 return|return
-name|data
+name|QT_BUILD_STR
 return|;
 block|}
 end_function
@@ -2260,7 +2263,7 @@ block|{
 name|printf
 argument_list|(
 literal|"This is the QtCore library version "
-name|QT_VERSION_STR
+name|QT_BUILD_STR
 literal|"\n"
 literal|"Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).\n"
 literal|"Contact: http://www.qt-project.org/legal\n"
