@@ -1000,12 +1000,39 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_SHARED
+end_ifdef
+begin_define
+DECL|macro|SHARED_STRING
+define|#
+directive|define
+name|SHARED_STRING
+value|" shared (dynamic)"
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|SHARED_STRING
+define|#
+directive|define
+name|SHARED_STRING
+value|" static"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|QT_BUILD_STR
 define|#
 directive|define
 name|QT_BUILD_STR
-value|"Qt " QT_VERSION_STR " (" ARCH_FULL DEBUG_STRING " build; by " COMPILER_STRING ")"
+value|"Qt " QT_VERSION_STR " (" ARCH_FULL SHARED_STRING DEBUG_STRING " build; by " COMPILER_STRING ")"
 end_define
 begin_comment
 comment|/*!   Returns a string describing how this version of Qt was built.    \internal    \since 5.3 */
