@@ -69,6 +69,8 @@ argument|int x
 argument_list|,
 argument|int y
 argument_list|,
+argument|bool abs
+argument_list|,
 argument|Qt::MouseButtons buttons
 argument_list|)
 block|;
@@ -95,6 +97,8 @@ argument|const QString&device
 argument_list|,
 argument|int fd
 argument_list|,
+argument|bool abs
+argument_list|,
 argument|bool compression
 argument_list|,
 argument|int jitterLimit
@@ -102,6 +106,10 @@ argument_list|)
 block|;
 name|void
 name|sendMouseEvent
+argument_list|()
+block|;
+name|bool
+name|getHardwareMaximum
 argument_list|()
 block|;
 name|QString
@@ -125,6 +133,9 @@ block|,
 name|m_prevy
 block|;
 name|bool
+name|m_abs
+block|;
+name|bool
 name|m_compression
 block|;
 name|Qt
@@ -137,6 +148,18 @@ name|m_jitterLimitSquared
 block|;
 name|bool
 name|m_prevInvalid
+block|;
+name|int
+name|m_hardwareWidth
+block|;
+name|int
+name|m_hardwareHeight
+block|;
+name|qreal
+name|m_hardwareScalerY
+block|;
+name|qreal
+name|m_hardwareScalerX
 block|; }
 decl_stmt|;
 end_decl_stmt

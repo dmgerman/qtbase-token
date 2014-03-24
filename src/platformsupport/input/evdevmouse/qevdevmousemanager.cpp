@@ -408,6 +408,9 @@ parameter_list|,
 name|int
 name|y
 parameter_list|,
+name|bool
+name|abs
+parameter_list|,
 name|Qt
 operator|::
 name|MouseButtons
@@ -415,6 +418,12 @@ name|buttons
 parameter_list|)
 block|{
 comment|// update current absolute coordinates
+if|if
+condition|(
+operator|!
+name|abs
+condition|)
+block|{
 name|m_x
 operator|+=
 name|x
@@ -423,6 +432,18 @@ name|m_y
 operator|+=
 name|y
 expr_stmt|;
+block|}
+else|else
+block|{
+name|m_x
+operator|=
+name|x
+expr_stmt|;
+name|m_y
+operator|=
+name|y
+expr_stmt|;
+block|}
 comment|// clamp to screen geometry
 name|QRect
 name|g
@@ -698,6 +719,8 @@ name|int
 argument_list|,
 name|int
 argument_list|,
+name|bool
+argument_list|,
 name|Qt
 operator|::
 name|MouseButtons
@@ -713,6 +736,8 @@ argument_list|(
 name|int
 argument_list|,
 name|int
+argument_list|,
+name|bool
 argument_list|,
 name|Qt
 operator|::

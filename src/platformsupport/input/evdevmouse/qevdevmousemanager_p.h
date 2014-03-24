@@ -91,6 +91,8 @@ argument|int x
 argument_list|,
 argument|int y
 argument_list|,
+argument|bool abs
+argument_list|,
 argument|Qt::MouseButtons buttons
 argument_list|)
 block|;
