@@ -2189,20 +2189,6 @@ name|theMainThread
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_DEBUG
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_MAC_FRAMEWORK_BUILD
-argument_list|)
-end_if
 begin_function
 DECL|function|checkReceiverThread
 name|void
@@ -2323,10 +2309,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
@@ -7810,7 +7792,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QCoreApplication::organizationName     \brief the name of the organization that wrote this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      On Mac, QSettings uses organizationDomain() as the organization     if it's not an empty string; otherwise it uses     organizationName(). On all other platforms, QSettings uses     organizationName() as the organization.      \sa organizationDomain, applicationName */
+comment|/*!     \property QCoreApplication::organizationName     \brief the name of the organization that wrote this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      On Mac, QSettings uses organizationDomain() as the organization     if it's not an empty string; otherwise it uses     organizationName(). On all other platforms, QSettings uses     organizationName() as the organization.      On BlackBerry this property is read-only. It is obtained from the     BAR application descriptor file.      \sa organizationDomain, applicationName */
 end_comment
 begin_comment
 comment|/*!   \fn void QCoreApplication::organizationNameChanged()   \internal    While not useful from C++ due to how organizationName is normally set once on   startup, this is still needed for QML so that bindings are reevaluated after   that initial change. */
@@ -7967,7 +7949,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QCoreApplication::applicationName     \brief the name of this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      If not set, the application name defaults to the executable name (since 5.0).      \sa organizationName, organizationDomain, applicationVersion, applicationFilePath() */
+comment|/*!     \property QCoreApplication::applicationName     \brief the name of this application      The value is used by the QSettings class when it is constructed     using the empty constructor. This saves having to repeat this     information each time a QSettings object is created.      If not set, the application name defaults to the executable name (since 5.0).      On BlackBerry this property is read-only. It is obtained from the     BAR application descriptor file.      \sa organizationName, organizationDomain, applicationVersion, applicationFilePath() */
 end_comment
 begin_comment
 comment|/*!   \fn void QCoreApplication::applicationNameChanged()   \internal    Primarily for QML, see organizationNameChanged. */
@@ -8103,7 +8085,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QCoreApplication::applicationVersion     \since 4.4     \brief the version of this application      \sa applicationName, organizationName, organizationDomain */
+comment|/*!     \property QCoreApplication::applicationVersion     \since 4.4     \brief the version of this application      On BlackBerry this property is read-only. It is obtained from the     BAR application descriptor file.      \sa applicationName, organizationName, organizationDomain */
 end_comment
 begin_comment
 comment|/*!   \fn void QCoreApplication::applicationVersionChanged()   \internal    Primarily for QML, see organizationNameChanged. */

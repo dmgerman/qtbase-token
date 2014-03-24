@@ -194,11 +194,6 @@ name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QLocalServer
-argument_list|)
-expr_stmt|;
 return|return
 name|tcpServer
 operator|.

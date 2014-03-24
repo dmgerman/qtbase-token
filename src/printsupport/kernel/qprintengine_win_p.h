@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qpagelayout.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtPrintSupport/QPrintEngine>
 end_include
 begin_include
@@ -71,12 +76,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPrintSupport/QPrinterInfo>
+file|<private/qpaintengine_alpha_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<private/qpaintengine_alpha_p.h>
+file|<private/qprintdevice_p.h>
 end_include
 begin_include
 include|#
@@ -313,39 +318,6 @@ name|HDC
 argument_list|)
 decl|const
 decl_stmt|;
-specifier|static
-name|QList
-operator|<
-name|QPrinter
-operator|::
-name|PaperSize
-operator|>
-name|supportedPaperSizes
-argument_list|(
-specifier|const
-name|QPrinterInfo
-operator|&
-name|printerInfo
-argument_list|)
-expr_stmt|;
-specifier|static
-name|QList
-operator|<
-name|QPair
-operator|<
-name|QString
-operator|,
-name|QSizeF
-operator|>
-expr|>
-name|supportedSizesWithNames
-argument_list|(
-specifier|const
-name|QPrinterInfo
-operator|&
-name|printerInfo
-argument_list|)
-expr_stmt|;
 comment|/* Used by print/page setup dialogs */
 name|void
 name|setGlobalDevMode
@@ -365,15 +337,6 @@ function_decl|;
 name|HGLOBAL
 name|globalDevMode
 parameter_list|()
-function_decl|;
-specifier|static
-name|void
-name|queryDefaultPrinter
-parameter_list|(
-name|QString
-modifier|&
-name|name
-parameter_list|)
 function_decl|;
 name|private
 label|:
@@ -450,9 +413,32 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|pageMarginsSet
+name|m_pageLayout
 argument_list|(
-name|false
+name|QPageLayout
+argument_list|(
+name|QPageSize
+argument_list|(
+name|QPageSize
+operator|::
+name|A4
+argument_list|)
+argument_list|,
+name|QPageLayout
+operator|::
+name|Portrait
+argument_list|,
+name|QMarginsF
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
 argument_list|)
 block|,
 name|num_copies
@@ -465,28 +451,13 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|fullPage
-argument_list|(
-name|false
-argument_list|)
-block|,
 name|reinit
-argument_list|(
-name|false
-argument_list|)
-block|,
-name|has_custom_paper_size
 argument_list|(
 argument|false
 argument_list|)
 block|{     }
 operator|~
 name|QWin32PrintEnginePrivate
-argument_list|()
-block|;
-comment|/* Reads the default printer name and its driver (printerProgram) into        the engines private data. */
-name|void
-name|queryDefault
 argument_list|()
 block|;
 comment|/* Initializes the printer data based on the current printer name. This        function creates a DEVMODE struct, HDC and a printer handle. If these        structures are already in use, they are freed using release     */
@@ -503,15 +474,6 @@ comment|/* Releases all the handles the printer currently holds, HDC, DEVMODE,  
 name|void
 name|release
 argument_list|()
-block|;
-comment|/* Queries the resolutions for the current printer, and returns them        in a list. */
-name|QList
-operator|<
-name|QVariant
-operator|>
-name|queryResolutions
-argument_list|()
-specifier|const
 block|;
 comment|/* Resets the DC with changes in devmode. If the printer is active        this function only sets the reinit variable to true so it        is handled in the next begin or newpage. */
 name|void
@@ -600,33 +562,26 @@ argument|qreal width
 argument_list|)
 block|;
 name|void
-name|updateOrigin
-argument_list|()
-block|;
-name|void
-name|initDevRects
-argument_list|()
-block|;
-name|void
-name|setPageMargins
+name|setPageSize
 argument_list|(
-argument|int margin_left
-argument_list|,
-argument|int margin_top
-argument_list|,
-argument|int margin_right
-argument_list|,
-argument|int margin_bottom
+specifier|const
+name|QPageSize
+operator|&
+name|pageSize
 argument_list|)
 block|;
-name|QRect
-name|getPageMargins
+name|void
+name|updatePageLayout
 argument_list|()
-specifier|const
 block|;
 name|void
-name|updateCustomPaperSize
+name|updateMetrics
 argument_list|()
+block|;
+name|void
+name|debugMetrics
+argument_list|()
+specifier|const
 block|;
 comment|// Windows GDI printer references.
 name|HANDLE
@@ -654,9 +609,9 @@ operator|::
 name|PrinterMode
 name|mode
 block|;
-comment|// Printer info
-name|QString
-name|name
+comment|// Print Device
+name|QPrintDevice
+name|m_printDevice
 block|;
 comment|// Document info
 name|QString
@@ -676,28 +631,18 @@ block|;
 name|int
 name|resolution
 block|;
-comment|// This QRect is used to store the exact values
-comment|// entered into the PageSetup Dialog because those are
-comment|// entered in mm but are since converted to device coordinates.
-comment|// If they were to be converted back when displaying the dialog
-comment|// again, there would be inaccuracies so when the user entered 10
-comment|// it may show up as 9.99 the next time the dialog is opened.
-comment|// We don't want that confusion.
+comment|// Page Layout
+name|QPageLayout
+name|m_pageLayout
+block|;
+comment|// Page metrics cache
 name|QRect
-name|previousDialogMargins
+name|m_paintRectPixels
 block|;
-name|bool
-name|pageMarginsSet
+name|QSize
+name|m_paintSizeMM
 block|;
-name|QRect
-name|devPageRect
-block|;
-name|QRect
-name|devPhysicalPageRect
-block|;
-name|QRect
-name|devPaperRect
-block|;
+comment|// Windows painting
 name|qreal
 name|stretch_x
 block|;
@@ -724,11 +669,6 @@ name|num_copies
 block|;
 name|uint
 name|printToFile
-operator|:
-literal|1
-block|;
-name|uint
-name|fullPage
 operator|:
 literal|1
 block|;
@@ -772,6 +712,7 @@ block|;
 name|QSizeF
 name|paper_size
 block|;
+comment|// In points
 name|QTransform
 name|painterMatrix
 block|;

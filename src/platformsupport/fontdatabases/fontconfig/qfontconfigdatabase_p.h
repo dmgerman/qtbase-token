@@ -60,6 +60,17 @@ operator|*
 name|handle
 argument_list|)
 block|;
+name|QFontEngine
+operator|*
+name|fontEngine
+argument_list|(
+argument|const QByteArray&fontData
+argument_list|,
+argument|qreal pixelSize
+argument_list|,
+argument|QFont::HintingPreference hintingPreference
+argument_list|)
+block|;
 name|QStringList
 name|fallbacksForFamily
 argument_list|(

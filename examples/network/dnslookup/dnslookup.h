@@ -5,17 +5,51 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QObject>
+file|<QDnsLookup>
 end_include
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-DECL|variable|QDnsLookup
-name|class
+begin_include
+include|#
+directive|include
+file|<QHostAddress>
+end_include
+begin_comment
+comment|//! [0]
+end_comment
+begin_struct
+DECL|struct|DnsQuery
+struct|struct
+name|DnsQuery
+block|{
+DECL|function|DnsQuery
+name|DnsQuery
+argument_list|()
+operator|:
+name|type
+argument_list|(
+argument|QDnsLookup::A
+argument_list|)
+block|{}
+DECL|member|type
 name|QDnsLookup
+operator|::
+name|Type
+name|type
+expr_stmt|;
+DECL|member|nameServer
+name|QHostAddress
+name|nameServer
 decl_stmt|;
-end_decl_stmt
+DECL|member|name
+name|QString
+name|name
+decl_stmt|;
+block|}
+struct|;
+end_struct
+begin_comment
+comment|//! [0]
+end_comment
 begin_decl_stmt
-name|QT_END_NAMESPACE
 name|class
 name|DnsManager
 range|:
@@ -28,6 +62,16 @@ operator|:
 name|DnsManager
 argument_list|()
 block|;
+name|void
+name|setQuery
+argument_list|(
+argument|const DnsQuery&q
+argument_list|)
+block|{
+name|query
+operator|=
+name|q
+block|; }
 name|public
 name|slots
 operator|:
@@ -44,6 +88,9 @@ operator|:
 name|QDnsLookup
 operator|*
 name|dns
+block|;
+name|DnsQuery
+name|query
 block|; }
 decl_stmt|;
 end_decl_stmt

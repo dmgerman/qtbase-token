@@ -108,6 +108,13 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|bool
+name|initialize
+argument_list|()
+block|;
+name|bool
+name|m_initialized
+block|;
 name|QSize
 name|m_size
 block|;

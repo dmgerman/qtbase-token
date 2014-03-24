@@ -820,7 +820,7 @@ DECL|macro|COMPILER_STRING
 define|#
 directive|define
 name|COMPILER_STRING
-value|__clang_version__ " (Apple)"
+value|"Clang " __clang_version__ " (Apple)"
 end_define
 begin_else
 else|#
@@ -831,7 +831,7 @@ DECL|macro|COMPILER_STRING
 define|#
 directive|define
 name|COMPILER_STRING
-value|__clang_version__
+value|"Clang " __clang_version__
 end_define
 begin_endif
 endif|#

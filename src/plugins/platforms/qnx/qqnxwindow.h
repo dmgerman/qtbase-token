@@ -304,6 +304,11 @@ operator|&
 name|groupName
 argument_list|)
 block|;
+name|bool
+name|shouldMakeFullScreen
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|virtual

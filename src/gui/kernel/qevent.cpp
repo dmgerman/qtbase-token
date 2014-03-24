@@ -6841,7 +6841,7 @@ begin_comment
 comment|/*!     \fn void QTouchEvent::TouchPoint::swap(TouchPoint&other);     \internal */
 end_comment
 begin_comment
-comment|/*!     \class QScrollPrepareEvent     \since 4.8     \ingroup events     \inmodule QtGui      \brief The QScrollPrepareEvent class is send in preparation of a scrolling.      The scroll prepare event is send before scrolling (usually by QScroller) is started.     The object receiving this event should set viewportSize, maxContentPos and contentPos.     It also should accept this event to indicate that scrolling should be started.      It is not guaranteed that a QScrollEvent will be send after an acceepted     QScrollPrepareEvent, e.g. in a case where the maximum content position is (0,0).      \sa QScrollEvent, QScroller */
+comment|/*!     \class QScrollPrepareEvent     \since 4.8     \ingroup events     \inmodule QtGui      \brief The QScrollPrepareEvent class is sent in preparation of scrolling.      The scroll prepare event is sent before scrolling (usually by QScroller) is started.     The object receiving this event should set viewportSize, maxContentPos and contentPos.     It also should accept this event to indicate that scrolling should be started.      It is not guaranteed that a QScrollEvent will be sent after an acceepted     QScrollPrepareEvent, e.g. in a case where the maximum content position is (0,0).      \sa QScrollEvent, QScroller */
 end_comment
 begin_comment
 comment|/*!     Creates new QScrollPrepareEvent     The \a startPos is the position of a touch or mouse event that started the scrolling. */
@@ -7029,7 +7029,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QScrollEvent     \since 4.8     \ingroup events     \inmodule QtGui      \brief The QScrollEvent class is send when scrolling.      The scroll event is send to indicate that the receiver should be scrolled.     Usually the receiver should be something visual like QWidget or QGraphicsObject.      Some care should be taken that no conflicting QScrollEvents are sent from two     sources. Using QScroller::scrollTo is save however.      \sa QScrollPrepareEvent, QScroller */
+comment|/*!     \class QScrollEvent     \since 4.8     \ingroup events     \inmodule QtGui      \brief The QScrollEvent class is sent when scrolling.      The scroll event is sent to indicate that the receiver should be scrolled.     Usually the receiver should be something visual like QWidget or QGraphicsObject.      Some care should be taken that no conflicting QScrollEvents are sent from two     sources. Using QScroller::scrollTo is save however.      \sa QScrollPrepareEvent, QScroller */
 end_comment
 begin_comment
 comment|/*!     \enum QScrollEvent::ScrollState      This enum describes the states a scroll event can have.      \value ScrollStarted Set for the first scroll event of a scroll activity.      \value ScrollUpdated Set for all but the first and the last scroll event of a scroll activity.      \value ScrollFinished Set for the last scroll event of a scroll activity.      \sa QScrollEvent::scrollState() */

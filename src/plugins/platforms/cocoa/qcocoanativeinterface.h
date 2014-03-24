@@ -302,6 +302,32 @@ argument_list|,
 argument|int bottomThickness
 argument_list|)
 block|;
+comment|// Request a unified title and toolbar look for the window by registering
+comment|// an area. Multiple callers can register areas and the platform plugin
+comment|// will extend the "unified" area to cover them.
+specifier|static
+name|void
+name|registerContentBorderArea
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|quintptr identifer
+argument_list|,
+argument|int upper
+argument_list|,
+argument|int lower
+argument_list|)
+block|;
+comment|// Enable the unified title and toolbar area.
+specifier|static
+name|void
+name|enableContentBorderArea
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|bool enable
+argument_list|)
+block|;
 comment|// Sets a NSToolbar instance for the given QWindow. The
 comment|// toolbar will be attached to the native NSWindow when
 comment|// that is created;
@@ -317,7 +343,7 @@ name|void
 operator|*
 name|nsToolbar
 argument_list|)
-block|; }
+block|;  }
 decl_stmt|;
 end_decl_stmt
 begin_macro

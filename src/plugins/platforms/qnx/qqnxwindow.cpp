@@ -546,15 +546,9 @@ name|rect
 decl_stmt|;
 if|if
 condition|(
-name|screen
+name|shouldMakeFullScreen
 argument_list|()
-operator|->
-name|rootWindow
-argument_list|()
-operator|==
-name|this
 condition|)
-comment|//If this is the root window, it has to be shown fullscreen
 name|newGeometry
 operator|=
 name|screen
@@ -568,16 +562,6 @@ argument_list|(
 name|newGeometry
 argument_list|)
 expr_stmt|;
-comment|// Send a geometry change event to Qt (triggers resizeEvent() in QWindow/QWidget).
-comment|// Calling flushWindowSystemEvents() here would flush input events which
-comment|// could result in re-entering QQnxWindow::setGeometry() again.
-name|QWindowSystemInterface
-operator|::
-name|setSynchronousWindowsSystemEvents
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange
@@ -588,6 +572,11 @@ argument_list|,
 name|newGeometry
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isExposed
+argument_list|()
+condition|)
 name|QWindowSystemInterface
 operator|::
 name|handleExposeEvent
@@ -596,13 +585,6 @@ name|window
 argument_list|()
 argument_list|,
 name|newGeometry
-argument_list|)
-expr_stmt|;
-name|QWindowSystemInterface
-operator|::
-name|setSynchronousWindowsSystemEvents
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2725,13 +2707,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|screen
+name|shouldMakeFullScreen
 argument_list|()
-operator|->
-name|rootWindow
-argument_list|()
-operator|==
-name|this
 condition|)
 block|{
 name|setGeometryHelper
@@ -3124,6 +3101,41 @@ name|m_cover
 argument_list|)
 expr_stmt|;
 comment|// for performance measurements
+block|}
+end_function
+begin_function
+DECL|function|shouldMakeFullScreen
+name|bool
+name|QQnxWindow
+operator|::
+name|shouldMakeFullScreen
+parameter_list|()
+specifier|const
+block|{
+return|return
+operator|(
+operator|(
+name|screen
+argument_list|()
+operator|->
+name|rootWindow
+argument_list|()
+operator|==
+name|this
+operator|)
+operator|&&
+operator|(
+name|QQnxIntegration
+operator|::
+name|options
+argument_list|()
+operator|&
+name|QQnxIntegration
+operator|::
+name|FullScreenApplication
+operator|)
+operator|)
+return|;
 block|}
 end_function
 begin_macro

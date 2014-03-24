@@ -302,6 +302,13 @@ name|boolean
 name|paste
 parameter_list|()
 function_decl|;
+DECL|method|updateCursorPosition
+specifier|static
+specifier|native
+name|boolean
+name|updateCursorPosition
+parameter_list|()
+function_decl|;
 block|}
 end_class
 begin_class
@@ -558,12 +565,6 @@ return|return;
 if|if
 condition|(
 name|closing
-operator|&&
-name|m_inputState
-operator|==
-name|InputStates
-operator|.
-name|FinishComposing
 operator|&&
 name|m_view
 operator|.

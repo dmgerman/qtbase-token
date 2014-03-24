@@ -2133,7 +2133,7 @@ name|testMouseEnter
 parameter_list|()
 block|{
 comment|// When a mouse enters a widget, both a mouse enter events and a
-comment|// mouse move event should be sendt. Lets test this:
+comment|// mouse move event should be sent. Let's test this:
 name|QWidget
 name|w
 decl_stmt|;

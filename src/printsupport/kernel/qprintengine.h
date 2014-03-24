@@ -23,6 +23,13 @@ include|#
 directive|include
 file|<QtPrintSupport/qprinter.h>
 end_include
+begin_macro
+DECL|function|Q_DECLARE_METATYPE
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|QMarginsF
+argument_list|)
+end_macro
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -95,6 +102,12 @@ block|,
 name|PPK_SupportsMultipleCopies
 block|,
 name|PPK_PaperName
+block|,
+name|PPK_QPageSize
+block|,
+name|PPK_QPageMargins
+block|,
+name|PPK_QPageLayout
 block|,
 name|PPK_PaperSize
 operator|=

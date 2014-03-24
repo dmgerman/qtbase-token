@@ -883,7 +883,7 @@ name|drawPixmap
 argument_list|(
 name|target
 argument_list|,
-name|image
+name|pixmap
 argument_list|,
 name|source
 argument_list|)

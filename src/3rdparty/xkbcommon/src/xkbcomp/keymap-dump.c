@@ -475,6 +475,39 @@ argument_list|,
 literal|"xkb_keycodes {\n"
 argument_list|)
 expr_stmt|;
+comment|/* xkbcomp and X11 really want to see keymaps with a minimum of 8, and      * a maximum of at least 255, else XWayland really starts hating life.      * If this is a problem and people really need strictly bounded keymaps,      * we should probably control this with a flag. */
+name|write_buf
+argument_list|(
+name|buf
+argument_list|,
+literal|"\tminimum = %u;\n"
+argument_list|,
+name|min
+argument_list|(
+name|keymap
+operator|->
+name|min_key_code
+argument_list|,
+literal|8
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|write_buf
+argument_list|(
+name|buf
+argument_list|,
+literal|"\tmaximum = %u;\n"
+argument_list|,
+name|max
+argument_list|(
+name|keymap
+operator|->
+name|max_key_code
+argument_list|,
+literal|255
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|xkb_foreach_key
 argument_list|(
 argument|key
@@ -495,7 +528,7 @@ name|write_buf
 argument_list|(
 name|buf
 argument_list|,
-literal|"\t%-20s = %d;\n"
+literal|"\t%-20s = %u;\n"
 argument_list|,
 name|KeyNameText
 argument_list|(
@@ -534,7 +567,7 @@ name|write_buf
 argument_list|(
 name|buf
 argument_list|,
-literal|"\tindicator %d = \"%s\";\n"
+literal|"\tindicator %u = \"%s\";\n"
 argument_list|,
 name|idx
 operator|+
@@ -806,7 +839,7 @@ name|write_buf
 argument_list|(
 name|buf
 argument_list|,
-literal|"\t\tmap[%s]= Level%d;\n"
+literal|"\t\tmap[%s]= Level%u;\n"
 argument_list|,
 name|str
 argument_list|,
@@ -875,7 +908,7 @@ name|write_buf
 argument_list|(
 name|buf
 argument_list|,
-literal|"\t\tlevel_name[Level%d]= \"%s\";\n"
+literal|"\t\tlevel_name[Level%u]= \"%s\";\n"
 argument_list|,
 name|n
 operator|+
@@ -1927,12 +1960,6 @@ parameter_list|)
 block|{
 specifier|const
 name|struct
-name|xkb_sym_interpret
-modifier|*
-name|si
-decl_stmt|;
-specifier|const
-name|struct
 name|xkb_led
 modifier|*
 name|led
@@ -1983,13 +2010,37 @@ argument_list|,
 literal|"\tinterpret.repeat= False;\n"
 argument_list|)
 expr_stmt|;
-name|darray_foreach
-argument_list|(
-argument|si
-argument_list|,
-argument|keymap->sym_interprets
-argument_list|)
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|keymap
+operator|->
+name|num_sym_interprets
+condition|;
+name|i
+operator|++
+control|)
 block|{
+specifier|const
+name|struct
+name|xkb_sym_interpret
+modifier|*
+name|si
+init|=
+operator|&
+name|keymap
+operator|->
+name|sym_interprets
+index|[
+name|i
+index|]
+decl_stmt|;
 name|write_buf
 argument_list|(
 name|buf
@@ -3006,7 +3057,7 @@ name|write_buf
 argument_list|(
 name|buf
 argument_list|,
-literal|"\tname[group%d]=\"%s\";\n"
+literal|"\tname[group%u]=\"%s\";\n"
 argument_list|,
 name|group
 operator|+

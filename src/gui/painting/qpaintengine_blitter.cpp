@@ -2617,6 +2617,11 @@ modifier|*
 name|pdev
 parameter_list|)
 block|{
+name|Q_D
+argument_list|(
+name|QBlitterPaintEngine
+argument_list|)
+expr_stmt|;
 name|bool
 name|ok
 init|=
@@ -2630,11 +2635,6 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_BLITTER_RASTEROVERLAY
-name|Q_D
-argument_list|(
-name|QBlitterPaintEngine
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|pmData
@@ -2644,6 +2644,12 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+name|d
+operator|->
+name|pdev
+operator|=
+name|pdev
+expr_stmt|;
 return|return
 name|ok
 return|;

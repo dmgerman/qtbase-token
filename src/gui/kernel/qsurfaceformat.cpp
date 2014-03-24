@@ -1182,7 +1182,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired \a size in bits of the red channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the red channel of the color buffer.      \note On Mac OSX, be sure to set the buffer size of all color channels,     otherwise this setting will have no effect. If one of the buffer sizes is not set,     the current bit-depth of the screen is used. */
 end_comment
 begin_function
 DECL|function|setRedBufferSize
@@ -1217,7 +1217,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired \a size in bits of the green channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the green channel of the color buffer.      \note On Mac OSX, be sure to set the buffer size of all color channels,     otherwise this setting will have no effect. If one of the buffer sizes is not set,     the current bit-depth of the screen is used. */
 end_comment
 begin_function
 DECL|function|setGreenBufferSize
@@ -1252,7 +1252,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Set the desired \a size in bits of the blue channel of the color buffer. */
+comment|/*!     Set the desired \a size in bits of the blue channel of the color buffer.      \note On Mac OSX, be sure to set the buffer size of all color channels,     otherwise this setting will have no effect. If one of the buffer sizes is not set,     the current bit-depth of the screen is used. */
 end_comment
 begin_function
 DECL|function|setBlueBufferSize

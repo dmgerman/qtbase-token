@@ -673,6 +673,16 @@ name|mouseReleaseEvent
 argument_list|)
 expr_stmt|;
 comment|// Check that the action was triggered once.
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"The result depends on system setting and is not relevant on Mac"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|scrollArea

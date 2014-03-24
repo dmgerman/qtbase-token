@@ -46,6 +46,9 @@ begin_comment
 comment|/*!     \fn QSharedPointer&QSharedPointer::operator=(const QWeakPointer<T>&other)      Promotes \a other to a strong reference and makes this object     share a reference to the pointer referenced by it. The current pointer     reference is discarded and, if it was the last, the pointer will     be deleted.      If \tt T is a derived type of the template parameter of this     class, QSharedPointer will perform an automatic cast. Otherwise,     you will get a compiler error. */
 end_comment
 begin_comment
+comment|/*!     \fn void QSharedPointer::swap(QSharedPointer<T>&other);     \since 5.3      Swaps this shared pointer instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn T *QSharedPointer::data() const      Returns the value of the pointer referenced by this object.      Note: do not delete the pointer returned by this function or pass     it to another function that could delete it, including creating     QSharedPointer or QWeakPointer objects. */
 end_comment
 begin_comment

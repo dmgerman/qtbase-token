@@ -58,6 +58,9 @@ file|<private/qcups_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 DECL|variable|QString
 name|class
 name|QString
@@ -227,6 +230,13 @@ argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_PRINTER
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

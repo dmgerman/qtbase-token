@@ -6545,7 +6545,7 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Split filter specification as 'Texts (*.txt[;] *.doc)'
+comment|// Split filter specification as 'Texts (*.txt[;] *.doc)', '*.txt[;] *.doc'
 comment|// into description and filters specification as '*.txt;*.doc'
 foreach|foreach
 control|(
@@ -6609,13 +6609,7 @@ operator|==
 operator|-
 literal|1
 condition|?
-name|QString
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'*'
-argument_list|)
-argument_list|)
+name|filterString
 else|:
 name|filterString
 operator|.
@@ -6634,6 +6628,24 @@ argument_list|)
 operator|.
 name|trimmed
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|filterSpec
+operator|.
+name|filter
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|filterSpec
+operator|.
+name|filter
+operator|+=
+name|QLatin1Char
+argument_list|(
+literal|'*'
+argument_list|)
 expr_stmt|;
 name|filterSpec
 operator|.
@@ -8430,7 +8442,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|member|Q_DECL_OVERRIDE

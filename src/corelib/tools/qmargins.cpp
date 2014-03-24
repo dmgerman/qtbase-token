@@ -47,12 +47,12 @@ comment|/*!     \fn const QMargins operator/(const QMargins&margins, int divisor
 comment|/*!     \fn const QMargins operator/(const QMargins&, qreal)     \relates QMargins     \overload      Returns a QMargins object that is formed by dividing the components of     the given \a margins by the given \a divisor.      \sa QMargins::operator*=(), QMargins::operator/=()      \since 5.1 */
 comment|/*!     \fn QMargins operator+(const QMargins&margins)     \relates QMargins      Returns a QMargin object that is formed from all components of \a margins.      \since 5.3 */
 comment|/*!     \fn QMargins operator-(const QMargins&margins)     \relates QMargins      Returns a QMargin object that is formed by negating all components of \a margins.      \since 5.1 */
-comment|/*!     \fn QMargins&operator+=(const QMargins&margins)      Add each component of \a margins to the respective component of this object     and returns a reference to it.      \sa operator-=()      \since 5.1 */
-comment|/*!     \fn QMargins&operator-=(const QMargins&margins)      Subtract each component of \a margins from the respective component of this object     and returns a reference to it.      \sa operator+=()      \since 5.1 */
-comment|/*!     \fn QMargins&operator*=(int factor)      Multiplies each component of this object by \a factor     and returns a reference to it.      \sa operator/=()      \since 5.1 */
-comment|/*!     \fn QMargins&operator*=(qreal factor)     \overload      Multiplies each component of this object by \a factor     and returns a reference to it.      \sa operator/=()      \since 5.1 */
-comment|/*!     \fn QMargins&operator/=(int divisor)      Divides each component of this object by \a divisor     and returns a reference to it.      \sa operator*=()      \since 5.1 */
-comment|/*!     \fn QMargins&operator/=(qreal divisor)      \overload      \sa operator*=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator+=(const QMargins&margins)      Add each component of \a margins to the respective component of this object     and returns a reference to it.      \sa operator-=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator-=(const QMargins&margins)      Subtract each component of \a margins from the respective component of this object     and returns a reference to it.      \sa operator+=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator*=(int factor)      Multiplies each component of this object by \a factor     and returns a reference to it.      \sa operator/=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator*=(qreal factor)     \overload      Multiplies each component of this object by \a factor     and returns a reference to it.      \sa operator/=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator/=(int divisor)      Divides each component of this object by \a divisor     and returns a reference to it.      \sa operator*=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator/=(qreal divisor)      \overload      \sa operator*=()      \since 5.1 */
 comment|/*****************************************************************************   QMargins stream functions  *****************************************************************************/
 ifndef|#
 directive|ifndef

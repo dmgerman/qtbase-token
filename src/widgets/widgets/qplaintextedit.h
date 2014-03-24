@@ -627,6 +627,16 @@ argument|Qt::InputMethodQuery property
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
+name|QVariant
+name|inputMethodQuery
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|,
+argument|QVariant argument
+argument_list|)
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:

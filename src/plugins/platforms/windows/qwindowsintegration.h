@@ -143,6 +143,11 @@ name|createEventDispatcher
 argument_list|()
 specifier|const
 block|;
+name|void
+name|initialize
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD

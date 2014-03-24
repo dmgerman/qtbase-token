@@ -83,6 +83,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|qt_registerFontFamily
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|familyName
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|qt_registerAliasToFontFamily
 parameter_list|(
 specifier|const
@@ -434,7 +445,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Registers a font with the given set of attributes describing the font's     foundry, family name, style and stretch information, pixel size, and     supported writing systems. Additional information about whether the font     can be scaled and antialiased can also be provided.      The foundry name and font family are described by \a foundryName and     \a familyName. The font weight (light, normal, bold, etc.), style (normal,     oblique, italic) and stretch information (condensed, expanded, unstretched,     etc.) are specified by \a weight, \a style and \a stretch.      Some fonts can be antialiased and scaled; \a scalable and \a antialiased     can be set to true for fonts with these attributes. The intended pixel     size of non-scalable fonts is specified by \a pixelSize; this value will be     ignored for scalable fonts.      The writing systems supported by the font are specified by the     \a writingSystems argument.      \sa registerQPF2Font() */
+comment|/*!     Registers a font with the given set of attributes describing the font's     foundry, family name, style and stretch information, pixel size, and     supported writing systems. Additional information about whether the font     can be scaled and antialiased can also be provided.      The foundry name and font family are described by \a foundryName and     \a familyName. The font weight (light, normal, bold, etc.), style (normal,     oblique, italic) and stretch information (condensed, expanded, unstretched,     etc.) are specified by \a weight, \a style and \a stretch.      Some fonts can be antialiased and scaled; \a scalable and \a antialiased     can be set to true for fonts with these attributes. The intended pixel     size of non-scalable fonts is specified by \a pixelSize; this value will be     ignored for scalable fonts.      The writing systems supported by the font are specified by the     \a writingSystems argument.      \sa registerQPF2Font(), registerFontFamily() */
 end_comment
 begin_function
 DECL|function|registerFont
@@ -528,6 +539,29 @@ argument_list|,
 name|writingSystems
 argument_list|,
 name|usrPtr
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Registers a font family with the font database. The font will be     lazily populated by a callback to populateFamily() when the font     database determines that the family needs population.      \sa populateFamily(), registerFont() */
+end_comment
+begin_function
+DECL|function|registerFontFamily
+name|void
+name|QPlatformFontDatabase
+operator|::
+name|registerFontFamily
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|familyName
+parameter_list|)
+block|{
+name|qt_registerFontFamily
+argument_list|(
+name|familyName
 argument_list|)
 expr_stmt|;
 block|}
@@ -857,7 +891,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!   This function is called once at startup by Qt's internal font database.   Reimplement this function in a subclass for a convenient place to initialize   the internal font database.    The default implementation looks in the fontDir() location and registers all   QPF2 fonts. */
+comment|/*!   This function is called once at startup by Qt's internal font database.   Reimplement this function in a subclass for a convenient place to initialize   the internal font database.    You may lazily populate the database by calling registerFontFamily() instead   of registerFont(), in which case you'll get a callback to populateFamily()   when the required family needs population. You then call registerFont() to   finish population of the family.    The default implementation looks in the fontDir() location and registers all   QPF2 fonts. */
 end_comment
 begin_function
 DECL|function|populateFontDatabase
@@ -1016,6 +1050,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+end_function
+begin_comment
+comment|/*!     This function is called whenever a lazily populated family, populated     through registerFontFamily(), needs full population.      You are expected to fully populate the family by calling registerFont()     for each font that matches the family name. */
+end_comment
+begin_function
+DECL|function|populateFamily
+name|void
+name|QPlatformFontDatabase
+operator|::
+name|populateFamily
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|familyName
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|familyName
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

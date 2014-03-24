@@ -1866,6 +1866,12 @@ name|InputMethodManager
 operator|.
 name|RESULT_SHOWN
 case|:
+name|QtNativeInputConnection
+operator|.
+name|updateCursorPosition
+argument_list|()
+expr_stmt|;
+comment|//FALLTHROUGH
 case|case
 name|InputMethodManager
 operator|.

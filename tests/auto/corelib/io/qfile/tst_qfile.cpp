@@ -520,6 +520,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|void
 name|largeUncFileSupport
 argument_list|()
@@ -2038,6 +2044,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QFile
 name|unc
 argument_list|(
@@ -2932,6 +2944,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 comment|// Only test UNC on Windows./
 name|QTest
@@ -9020,6 +9038,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 end_if
 begin_function
 DECL|function|largeUncFileSupport
@@ -12907,6 +12931,12 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_NETWORK
 argument_list|)
 comment|// Some semi-randomness to avoid collisions.
@@ -15118,6 +15148,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 name|QString
 name|current
