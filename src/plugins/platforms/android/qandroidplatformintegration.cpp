@@ -303,19 +303,6 @@ operator|new
 name|QAndroidPlatformNativeInterface
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|eglBindAPI
-argument_list|(
-name|EGL_OPENGL_ES_API
-argument_list|)
-condition|)
-name|qFatal
-argument_list|(
-literal|"Could not bind GL_ES API"
-argument_list|)
-expr_stmt|;
 name|m_eglDisplay
 operator|=
 name|eglGetDisplay
@@ -356,6 +343,19 @@ condition|)
 name|qFatal
 argument_list|(
 literal|"Could not initialize egl display"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|eglBindAPI
+argument_list|(
+name|EGL_OPENGL_ES_API
+argument_list|)
+condition|)
+name|qFatal
+argument_list|(
+literal|"Could not bind GL_ES API"
 argument_list|)
 expr_stmt|;
 name|m_primaryScreen
