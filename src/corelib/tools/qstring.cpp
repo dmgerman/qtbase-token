@@ -20014,7 +20014,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toLong() */
+comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toInt() */
 end_comment
 begin_function
 DECL|function|toLong
@@ -20052,7 +20052,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet qstring/main.cpp 78      \sa number(), QLocale::toULong() */
+comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet qstring/main.cpp 78      \sa number(), QLocale::toUInt() */
 end_comment
 begin_function
 DECL|function|toULong

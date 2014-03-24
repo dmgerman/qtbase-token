@@ -2382,7 +2382,7 @@ begin_comment
 comment|/*!     \fn QSignalBlocker::QSignalBlocker(QSignalBlocker&&other)      Move-constructs a signal blocker from \a other. \a other will have     a no-op destructor, while repsonsibility for restoring the     QObject::signalsBlocked() state is transferred to the new object. */
 end_comment
 begin_comment
-comment|/*!     \fn QSignalBlocker&QSignalBlocker::operator=(QSignalBlocker&&other)      Move-assigns this signal blocker from \a other. \a other will have     a no-op destructor, while repsonsibility for restoring the     QObject::signalsBlocked() state is transferred to this object.      The object's signals this signal blocker was blocking prior to     being moved to, if any, are unblocked \em except in the case where     both instances block the same object's signals and \c *this is     unblocked while \a other is not, at the time of the move. */
+comment|/*!     \fn QSignalBlocker&QSignalBlocker::operator=(QSignalBlocker&&other)      Move-assigns this signal blocker from \a other. \a other will have     a no-op destructor, while repsonsibility for restoring the     QObject::signalsBlocked() state is transferred to this object.      The object's signals this signal blocker was blocking prior to     being moved to, if any, are unblocked \e except in the case where     both instances block the same object's signals and \c *this is     unblocked while \a other is not, at the time of the move. */
 end_comment
 begin_comment
 comment|/*!     \fn QSignalBlocker::~QSignalBlocker()      Destructor. Restores the QObject::signalsBlocked() state to what it     was before the constructor ran, unless unblock() has been called     without a following reblock(), in which case it does nothing. */
@@ -8570,7 +8570,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Creates a connection of the given \a type from the \a signal in     the \a sender object to the \a method in the \a receiver object.     Returns a handle to the connection that can be used to disconnect     it later.      The Connection handle will be invalid  if it cannot create the     connection, for example, the parameters were invalid.     You can check if the QMetaObject::Connection is valid by casting it to a bool.      This function works in the same way as     connect(const QObject *sender, const char *signal,             const QObject *receiver, const char *method,             Qt::ConnectionType type)     but it uses QMetaMethod to specify signal and method.      \sa connect(const QObject *sender, const char *signal,                 const QObject *receiver, const char *method,                 Qt::ConnectionType type)  */
+comment|/*!     \since 4.8      Creates a connection of the given \a type from the \a signal in     the \a sender object to the \a method in the \a receiver object.     Returns a handle to the connection that can be used to disconnect     it later.      The Connection handle will be invalid  if it cannot create the     connection, for example, the parameters were invalid.     You can check if the QMetaObject::Connection is valid by casting it to a bool.      This function works in the same way as     connect(const QObject *sender, const char *signal,             const QObject *receiver, const char *method,             Qt::ConnectionType type)     but it uses QMetaMethod to specify signal and method.      \sa connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type)  */
 end_comment
 begin_function
 DECL|function|connect

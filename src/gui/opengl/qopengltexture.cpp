@@ -9255,7 +9255,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Generates mipmaps for this texture object from mipmap level \baseLevel. If you are     using a texture target and filtering option that requires mipmaps and you     have disabled automatic mipmap generation then you need to call this function     or the overload to create the mipmap chain.      The generation of mipmaps to above \baseLevel is achieved by setting the mipmap     base level to \a baseLevel and then generating the mipmap chain. If \a resetBaseLevel     is \c true, then the baseLevel of the texture will be reset to its previous value.      \sa setAutoMipMapGenerationEnabled(), setMipLevels(), mipLevels() */
+comment|/*!     Generates mipmaps for this texture object from mipmap level \a baseLevel. If you are     using a texture target and filtering option that requires mipmaps and you     have disabled automatic mipmap generation then you need to call this function     or the overload to create the mipmap chain.      The generation of mipmaps to above \a baseLevel is achieved by setting the mipmap     base level to \a baseLevel and then generating the mipmap chain. If \a resetBaseLevel     is \c true, then the baseLevel of the texture will be reset to its previous value.      \sa setAutoMipMapGenerationEnabled(), setMipLevels(), mipLevels() */
 end_comment
 begin_function
 DECL|function|generateMipMaps
@@ -10670,7 +10670,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \{b}, and \a {a} to the     alpha value.     \overload */
+comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and \a {a} to the     alpha value.     \overload */
 end_comment
 begin_function
 DECL|function|setBorderColor
@@ -10862,7 +10862,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and \a the alpha     value to {a}.     \overload */
+comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and the alpha     value to \a {a}.     \overload */
 end_comment
 begin_function
 DECL|function|setBorderColor
@@ -11055,7 +11055,7 @@ comment|// TODO Handle case of using glTextureParameterIiv() based on format
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and \a the alpha     value to {a}.     \overload */
+comment|/*!     Sets the color red to \a {r}, green to \a {g}, blue to \a {b}, and the alpha     value to \a {a}.     \overload */
 end_comment
 begin_function
 DECL|function|setBorderColor
