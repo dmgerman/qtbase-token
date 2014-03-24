@@ -2131,9 +2131,9 @@ name|value
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|qDebug
 argument_list|(
-literal|"\t%s: %d\n"
+literal|"\t%s: %d"
 argument_list|,
 name|attrs
 index|[
@@ -2150,11 +2150,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|qWarning
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_ifdef
