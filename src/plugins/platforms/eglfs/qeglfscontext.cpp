@@ -71,15 +71,7 @@ parameter_list|)
 member_init_list|:
 name|QEGLPlatformContext
 argument_list|(
-name|QEglFSHooks
-operator|::
-name|hooks
-argument_list|()
-operator|->
-name|surfaceFormatFor
-argument_list|(
 name|format
-argument_list|)
 argument_list|,
 name|share
 argument_list|,
@@ -91,15 +83,7 @@ name|chooseConfig
 argument_list|(
 name|display
 argument_list|,
-name|QEglFSHooks
-operator|::
-name|hooks
-argument_list|()
-operator|->
-name|surfaceFormatFor
-argument_list|(
 name|format
-argument_list|)
 argument_list|)
 argument_list|)
 block|{ }
