@@ -1427,21 +1427,6 @@ argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|/*!     \headerfile<QtMath>     \title Generic Math Declarations     \ingroup funclists      \brief The<QtMath> header file includes generic math declarations.      These functions are partly convenience definitions for basic     operations, for instance not available in the Standard Template Library et     al. */
-end_comment
-begin_comment
-comment|/*!     \fn float qDegreesToRadians(float degrees)     \relates<QtMath>     \since 5.1      \brief The function converts the \a degrees in float to radians.      The purpose of the function is to aid the conversion as such a convenient     function is not part of the Standard Template Library, i.e. in<cmath> or     elsewhere.      Example:      \snippet code/src_corelib_kernel_qmath.cpp 0      \sa qRadiansToDegrees() */
-end_comment
-begin_comment
-comment|/*!     \fn double qDegreesToRadians(double degrees)     \relates<QtMath>     \since 5.1      \brief The function converts the \a degrees in double to radians.      The purpose of the function is to aid the conversion as such a convenient     function is not part of the Standard Template Library, i.e. in<cmath> or     elsewhere.      Example:      \snippet code/src_corelib_kernel_qmath.cpp 1      \sa qRadiansToDegrees() */
-end_comment
-begin_comment
-comment|/*!     \fn float qRadiansToDegrees(float radians)     \relates<QtMath>     \since 5.1      \brief The function converts the \a radians in float to degrees.      The purpose of the function is to aid the conversion as such a convenient     function is not part of the Standard Template Library, i.e. in<cmath> or     elsewhere.      Example:      \snippet code/src_corelib_kernel_qmath.cpp 2      \sa qDegreesToRadians() */
-end_comment
-begin_comment
-comment|/*!     \fn double qRadiansToDegrees(double radians)     \relates<QtMath>     \since 5.1      \brief The function converts the \a radians in double to degrees.      The purpose of the function is to aid the conversion as such a convenient     function is not part of the Standard Template Library, i.e. in<cmath> or     elsewhere.      Example:      \snippet code/src_corelib_kernel_qmath.cpp 3      \sa qDegreesToRadians() */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
