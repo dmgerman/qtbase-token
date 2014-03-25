@@ -6940,7 +6940,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns the style name of the matched window system font on     system that supports it.      \sa QFont::styleName() */
+comment|/*!     \since 4.8      Returns the style name of the matched window system font on     systems that support it.      \sa QFont::styleName() */
 end_comment
 begin_function
 DECL|function|styleName
