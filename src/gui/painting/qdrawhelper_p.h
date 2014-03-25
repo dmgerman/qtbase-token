@@ -500,6 +500,9 @@ parameter_list|,
 name|int
 name|spbl
 parameter_list|,
+name|int
+name|srch
+parameter_list|,
 specifier|const
 name|QRectF
 modifier|&
