@@ -191,10 +191,26 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+comment|//The variable was introduced because on some embedded platforms there are custom accessibility
+comment|//clients which don't set Status.ScreenReaderEnabled to true. The variable is also useful for
+comment|//debugging.
+specifier|static
+specifier|const
+name|bool
+name|a11yAlwaysOn
+init|=
+operator|!
+name|qEnvironmentVariableIsSet
+argument_list|(
+literal|"QT_LINUX_ACCESSIBILITY_ALWAYS_ON"
+argument_list|)
+decl_stmt|;
 comment|// a11yStatus->isEnabled() returns always true (since Gnome 3.6)
 name|bool
 name|enabled
 init|=
+name|a11yAlwaysOn
+operator|||
 name|a11yStatus
 operator|->
 name|screenReaderEnabled
