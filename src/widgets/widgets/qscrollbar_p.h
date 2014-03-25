@@ -144,6 +144,9 @@ block|;
 name|bool
 name|flashed
 block|;
+name|int
+name|flashTimer
+block|;
 name|void
 name|flash
 argument_list|()
