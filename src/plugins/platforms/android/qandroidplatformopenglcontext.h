@@ -63,6 +63,11 @@ name|QPlatformSurface
 operator|*
 name|surface
 argument_list|)
+block|;
+specifier|static
+name|bool
+name|needsFBOReadBackWorkaroud
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
