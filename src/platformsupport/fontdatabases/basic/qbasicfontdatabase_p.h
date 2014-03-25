@@ -133,6 +133,12 @@ specifier|const
 name|QByteArray
 operator|&
 name|file
+argument_list|,
+name|QSupportedWritingSystems
+operator|*
+name|supportedWritingSystems
+operator|=
+literal|0
 argument_list|)
 block|;
 specifier|static
