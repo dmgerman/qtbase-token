@@ -608,6 +608,10 @@ name|void
 name|windowDidResize
 argument_list|()
 block|;
+name|void
+name|windowDidEndLiveResize
+argument_list|()
+block|;
 name|bool
 name|windowShouldClose
 argument_list|()
