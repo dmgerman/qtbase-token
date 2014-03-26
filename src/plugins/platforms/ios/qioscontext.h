@@ -153,6 +153,9 @@ decl_stmt|;
 name|GLint
 name|renderbufferHeight
 decl_stmt|;
+name|bool
+name|isComplete
+decl_stmt|;
 block|}
 struct|;
 specifier|static
@@ -165,6 +168,15 @@ modifier|&
 name|framebufferObject
 parameter_list|)
 function_decl|;
+name|FramebufferObject
+modifier|&
+name|backingFramebufferObjectFor
+argument_list|(
+name|QPlatformSurface
+operator|*
+argument_list|)
+decl|const
+decl_stmt|;
 name|mutable
 name|QHash
 operator|<
