@@ -24390,16 +24390,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QString QString::fromCFString(CFStringRef string)     \since 5.2      Constructs a new QString containing a copy of the \a string CFString. */
+comment|/*! \fn QString QString::fromCFString(CFStringRef string)     \since 5.2      Constructs a new QString containing a copy of the \a string CFString.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn CFStringRef QString::toCFString() const     \since 5.2      Creates a CFString from a QString. The caller owns the CFString and is     responsible for releasing it. */
+comment|/*! \fn CFStringRef QString::toCFString() const     \since 5.2      Creates a CFString from a QString. The caller owns the CFString and is     responsible for releasing it.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::fromNSString(const NSString *string)     \since 5.2      Constructs a new QString containing a copy of the \a string NSString. */
+comment|/*! \fn QString QString::fromNSString(const NSString *string)     \since 5.2      Constructs a new QString containing a copy of the \a string NSString.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn NSString QString::toNSString() const     \since 5.2      Creates a NSString from a QString.g. The NSString is autoreleased. */
+comment|/*! \fn NSString QString::toNSString() const     \since 5.2      Creates a NSString from a QString. The NSString is autoreleased.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::isSimpleText() const      \internal */
