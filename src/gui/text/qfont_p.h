@@ -229,7 +229,7 @@ name|stretch
 range|:
 literal|12
 decl_stmt|;
-comment|// 0-400
+comment|// 0-4000
 DECL|member|hintingPreference
 name|uint
 name|hintingPreference

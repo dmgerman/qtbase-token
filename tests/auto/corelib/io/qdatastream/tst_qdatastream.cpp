@@ -967,8 +967,22 @@ operator|+
 literal|1
 block|,
 comment|// Qt_5_2
+name|QPalette
+operator|::
+name|ToolTipText
+operator|+
+literal|1
+block|,
+comment|// Qt_5_3
+name|QPalette
+operator|::
+name|ToolTipText
+operator|+
+literal|1
+block|,
+comment|// Qt_5_4
 literal|0
-comment|// add the correct value for Qt_5_3 here later
+comment|// add the correct value for Qt_5_5 here later
 block|}
 decl_stmt|;
 end_decl_stmt
