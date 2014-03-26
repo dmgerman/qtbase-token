@@ -108,23 +108,6 @@ specifier|inline
 name|QStringList
 argument_list|(
 specifier|const
-name|QStringList
-operator|&
-name|l
-argument_list|)
-operator|:
-name|QList
-operator|<
-name|QString
-operator|>
-operator|(
-name|l
-operator|)
-block|{ }
-specifier|inline
-name|QStringList
-argument_list|(
-specifier|const
 name|QList
 operator|<
 name|QString
