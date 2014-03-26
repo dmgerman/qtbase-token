@@ -553,6 +553,10 @@ block|,
 name|WithinMaximize
 operator|=
 literal|0x40000
+block|,
+name|MaximizeToFullScreen
+operator|=
+literal|0x80000
 block|}
 decl_stmt|;
 end_decl_stmt
