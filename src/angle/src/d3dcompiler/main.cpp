@@ -57,6 +57,28 @@ include|#
 directive|include
 file|<d3dcommon.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|D3DCOMPILER_LINKED
+end_ifdef
+begin_namespace
+DECL|namespace|D3D
+namespace|namespace
+name|D3D
+block|{
+include|#
+directive|include
+file|<d3dcompiler.h>
+block|}
+end_namespace
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// D3DCOMPILER_LINKED
+end_comment
 begin_macro
 name|Q_LOGGING_CATEGORY
 argument_list|(
@@ -337,6 +359,9 @@ name|bool
 name|loadCompiler
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|D3DCOMPILER_LINKED
 specifier|static
 name|HMODULE
 name|d3dcompiler
@@ -503,6 +528,19 @@ operator|<<
 literal|"Unable to load D3D shader compiler."
 expr_stmt|;
 block|}
+else|#
+directive|else
+comment|// !D3DCOMPILER_LINKED
+name|compile
+operator|=
+operator|&
+name|D3D
+operator|::
+name|D3DCompile
+expr_stmt|;
+endif|#
+directive|endif
+comment|// D3DCOMPILER_LINKED
 return|return
 name|bool
 argument_list|(
