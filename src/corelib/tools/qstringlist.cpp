@@ -844,6 +844,9 @@ end_comment
 begin_comment
 comment|/*!     \fn QStringList&QStringList::operator<<(const QStringList&other)      \overload      Appends the \a other string list to the string list and returns a reference to     the latter string list. */
 end_comment
+begin_comment
+comment|/*!     \fn QStringList&QStringList::operator<<(const QList<QString>&other)     \since 5.4      \overload      Appends the \a other string list to the string list and returns a reference to     the latter string list. */
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
