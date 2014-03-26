@@ -44,6 +44,12 @@ begin_comment
 comment|/*!     \fn QStringList::QStringList(const QList<QString>&other)      Constructs a copy of \a other.      This operation takes \l{constant time}, because QStringList is     \l{implicitly shared}. This makes returning a QStringList from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and that takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
+comment|/*!     \fn QStringList&QStringList::operator=(const QList<QString>&other)     \since 5.4      Copy assignment operator from QList<QString>. Assigns the \a other     list of strings to this string list.      After the operation, \a other and \c *this will be equal. */
+end_comment
+begin_comment
+comment|/*!     \fn QStringList&QStringList::operator=(QList<QString>&&other)     \overload     \since 5.4      Move assignment operator from QList<QString>. Moves the \a other     list of strings to this string list.      After the operation, \a other will be empty. */
+end_comment
+begin_comment
 comment|/*!     \fn void QStringList::sort(Qt::CaseSensitivity cs)      Sorts the list of strings in ascending order.     If \a cs is \l Qt::CaseSensitive (the default), the string comparison     is case sensitive; otherwise the comparison is case insensitive.      Sorting is performed using the STL's std::sort() algorithm,     which averages \l{linear-logarithmic time}, i.e. O(\e{n} log \e{n}).      If you want to sort your strings in an arbitrary order, consider     using the QMap class. For example, you could use a QMap<QString,     QString> to create a case-insensitive ordering (e.g. with the keys     being lower-case versions of the strings, and the values being the     strings), or a QMap<int, QString> to sort the strings by some     integer index. */
 end_comment
 begin_namespace
