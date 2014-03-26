@@ -31,6 +31,11 @@ struct_decl|struct
 name|IDWriteFontFile
 struct_decl|;
 end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|IDWriteFontFamily
+struct_decl|;
+end_struct_decl
 begin_struct
 DECL|struct|FontDescription
 struct|struct
@@ -83,6 +88,13 @@ name|populateFontDatabase
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|populateFamily
+argument_list|(
+argument|const QString&familyName
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QFontEngine
 operator|*
 name|fontEngine
@@ -110,6 +122,15 @@ block|,
 name|FontDescription
 operator|>
 name|m_fonts
+block|;
+name|QHash
+operator|<
+name|QString
+block|,
+name|IDWriteFontFamily
+operator|*
+operator|>
+name|m_fontFamilies
 block|;
 endif|#
 directive|endif
