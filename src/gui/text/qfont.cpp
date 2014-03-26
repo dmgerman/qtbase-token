@@ -2776,7 +2776,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 is     ultralight, whilst 99 will be an extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
+comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 is     ultralight, whilst 99 will be extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
 end_comment
 begin_comment
 comment|/*!     Sets the weight the font to \a weight, which should be a value     from the \l QFont::Weight enumeration.      \sa weight(), QFontInfo */
@@ -3165,7 +3165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Enables kerning for this font if \a enable is true; otherwise     disables it. By default, kerning is enabled.      When kerning is enabled, glyph metrics do not add up anymore,     even for Latin text. In other words, the assumption that     width('a') + width('b') is equal to width("ab") is not     neccesairly true.      \sa kerning(), QFontMetrics */
+comment|/*!     Enables kerning for this font if \a enable is true; otherwise     disables it. By default, kerning is enabled.      When kerning is enabled, glyph metrics do not add up anymore,     even for Latin text. In other words, the assumption that     width('a') + width('b') is equal to width("ab") is not     necessarily true.      \sa kerning(), QFontMetrics */
 end_comment
 begin_function
 DECL|function|setKerning
