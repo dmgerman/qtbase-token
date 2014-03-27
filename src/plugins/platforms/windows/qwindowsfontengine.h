@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qfontengine_p.h>
+file|<QtGui/private/qfontengine_qpa_p.h>
 end_include
 begin_include
 include|#
@@ -612,29 +612,16 @@ name|class
 name|QWindowsMultiFontEngine
 range|:
 name|public
-name|QFontEngineMulti
+name|QFontEngineMultiQPA
 block|{
 name|public
 operator|:
+name|explicit
 name|QWindowsMultiFontEngine
 argument_list|(
-name|QFontEngine
-operator|*
-name|first
+argument|QFontEngine *fe
 argument_list|,
-specifier|const
-name|QStringList
-operator|&
-name|fallbacks
-argument_list|)
-block|;
-name|void
-name|setFallbackFamiliesList
-argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|fallbacks
+argument|int script
 argument_list|)
 block|;
 name|void
@@ -642,9 +629,6 @@ name|loadEngine
 argument_list|(
 argument|int at
 argument_list|)
-block|;
-name|QStringList
-name|fallbackFamilies
 block|; }
 decl_stmt|;
 end_decl_stmt
