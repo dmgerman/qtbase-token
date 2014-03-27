@@ -1137,8 +1137,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|filters
-argument_list|()
+name|m_filters
 operator|.
 name|count
 argument_list|()
@@ -1157,8 +1156,7 @@ name|mimeDb
 operator|.
 name|mimeTypesForFileName
 argument_list|(
-name|filters
-argument_list|()
+name|m_filters
 operator|.
 name|at
 argument_list|(
