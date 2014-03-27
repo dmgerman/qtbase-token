@@ -798,10 +798,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|that
-operator|->
 name|size
-argument_list|()
 condition|;
 operator|++
 name|i
