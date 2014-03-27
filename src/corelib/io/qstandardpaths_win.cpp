@@ -182,7 +182,9 @@ modifier|*
 name|GetKnownFolderPath
 function_decl|)
 parameter_list|(
-name|REFKNOWNFOLDERID
+specifier|const
+name|GUID
+modifier|&
 parameter_list|,
 name|DWORD
 parameter_list|,
