@@ -450,9 +450,6 @@ parameter_list|(
 name|QDataStream
 modifier|&
 name|stream
-parameter_list|,
-name|bool
-name|pre43
 parameter_list|)
 function_decl|;
 name|bool
