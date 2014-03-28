@@ -831,6 +831,11 @@ name|region
 argument_list|,
 name|window
 argument_list|)
+argument_list|,
+operator|&
+name|d_ptr
+operator|->
+name|textureSize
 argument_list|)
 decl_stmt|;
 if|if
@@ -862,7 +867,15 @@ name|QOpenGLTextureBlitter
 operator|::
 name|targetTransform
 argument_list|(
-name|windowRect
+name|QRect
+argument_list|(
+name|QPoint
+argument_list|()
+argument_list|,
+name|d_ptr
+operator|->
+name|textureSize
+argument_list|)
 argument_list|,
 name|windowRect
 argument_list|)
@@ -942,7 +955,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   May be reimplemented in subclasses to return the content of the   backingstore as an OpenGL texture. \a dirtyRegion is the part of the   backingstore which may have changed since the last call to this function. The   caller of this function must ensure that there is a current context.    The ownership of the texture is not transferred. The caller must not store   the return value between calls, but instead call this function before each use.    The default implementation returns a cached texture if \a dirtyRegion is   empty and the window has not been resized, otherwise it retrieves the   content using toImage() and performs a texture upload.  */
+comment|/*!   May be reimplemented in subclasses to return the content of the   backingstore as an OpenGL texture. \a dirtyRegion is the part of the   backingstore which may have changed since the last call to this function. The   caller of this function must ensure that there is a current context.   The size of the texture is returned in \a textureSize.    The ownership of the texture is not transferred. The caller must not store   the return value between calls, but instead call this function before each use.    The default implementation returns a cached texture if \a dirtyRegion is   empty and the window has not been resized, otherwise it retrieves the   content using toImage() and performs a texture upload.  */
 end_comment
 begin_function
 DECL|function|toTexture
@@ -955,6 +968,10 @@ specifier|const
 name|QRegion
 modifier|&
 name|dirtyRegion
+parameter_list|,
+name|QSize
+modifier|*
+name|textureSize
 parameter_list|)
 specifier|const
 block|{
@@ -1218,8 +1235,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|d_ptr
-operator|->
+if|if
+condition|(
+name|textureSize
+condition|)
+operator|*
 name|textureSize
 operator|=
 name|imageSize
