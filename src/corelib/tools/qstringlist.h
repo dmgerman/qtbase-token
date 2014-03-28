@@ -126,6 +126,35 @@ operator|)
 block|{ }
 ifdef|#
 directive|ifdef
+name|Q_COMPILER_RVALUE_REFS
+specifier|inline
+name|QStringList
+argument_list|(
+name|QList
+operator|<
+name|QString
+operator|>
+operator|&&
+name|l
+argument_list|)
+operator|:
+name|QList
+operator|<
+name|QString
+operator|>
+operator|(
+name|std
+operator|::
+name|move
+argument_list|(
+name|l
+argument_list|)
+operator|)
+block|{ }
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|Q_COMPILER_INITIALIZER_LISTS
 specifier|inline
 name|QStringList
