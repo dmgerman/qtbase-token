@@ -560,6 +560,10 @@ argument_list|()
 operator|*
 name|devicePixelRatio
 argument_list|()
+argument_list|,
+name|QOpenGLFramebufferObject
+operator|::
+name|CombinedDepthStencil
 argument_list|)
 expr_stmt|;
 name|d
