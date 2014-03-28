@@ -815,7 +815,7 @@ block|{
 comment|/* Line 2068 of yacc.c  */
 line|#
 directive|line
-number|167
+number|161
 file|"parser.y"
 DECL|member|ival
 name|int

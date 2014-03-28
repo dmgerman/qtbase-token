@@ -23,36 +23,32 @@ include|#
 directive|include
 file|<xkbcommon/xkbcommon.h>
 end_include
-begin_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__cplusplus
+end_ifdef
+begin_extern
+extern|extern
+literal|"C"
+block|{
+endif|#
+directive|endif
 comment|/**  * @file  * libxkbcommon-x11 API - Additional X11 support for xkbcommon.  */
-end_comment
-begin_comment
 comment|/**  * @defgroup x11 X11 support  * Additional X11 support for xkbcommon.  *  * @{  */
-end_comment
-begin_comment
 comment|/**  * The minimal compatible major version of the XKB X11 extension which  * this library can use.  */
-end_comment
-begin_define
 DECL|macro|XKB_X11_MIN_MAJOR_XKB_VERSION
 define|#
 directive|define
 name|XKB_X11_MIN_MAJOR_XKB_VERSION
 value|1
-end_define
-begin_comment
 comment|/**  * The minimal compatible minor version of the XKB X11 extension which  * this library can use (for the minimal major version).  */
-end_comment
-begin_define
 DECL|macro|XKB_X11_MIN_MINOR_XKB_VERSION
 define|#
 directive|define
 name|XKB_X11_MIN_MINOR_XKB_VERSION
 value|0
-end_define
-begin_comment
 comment|/** Flags for the xkb_x11_setup_xkb_extension() function. */
-end_comment
-begin_enum
 DECL|enum|xkb_x11_setup_xkb_extension_flags
 enum|enum
 name|xkb_x11_setup_xkb_extension_flags
@@ -64,11 +60,7 @@ init|=
 literal|0
 block|}
 enum|;
-end_enum
-begin_comment
 comment|/**  * Setup the XKB X11 extension for this X client.  *  * The xkbcommon-x11 library uses various XKB requests.  Before doing so,  * an X client must notify the server that it will be using the extension.  * This function (or an XCB equivalent) must be called before any other  * function in this library is used.  *  * Some X servers may not support or disable the XKB extension.  If you  * want to support such servers, you need to use a different fallback.  *  * You may call this function several times; it is idempotent.  *  * @param connection  *     An XCB connection to the X server.  * @param major_xkb_version, minor_xkb_version  *     The XKB extension version to request.  To operate correctly, you  *     must have (major_xkb_version, minor_xkb_version)>=  *     (XKB_X11_MIN_MAJOR_XKB_VERSION, XKB_X11_MIN_MINOR_XKB_VERSION),  *     though this is not enforced.  * @param flags  *     Optional flags, or 0.  * @param[out] major_xkb_version_out, minor_xkb_version_out  *     Backfilled with the compatible XKB extension version numbers picked  *     by the server.  Can be NULL.  * @param[out] base_event_out  *     Backfilled with the XKB base (also known as first) event code, needed  *     to distinguish XKB events.  Can be NULL.  * @param[out] base_error_out  *     Backfilled with the XKB base (also known as first) error code, needed  *     to distinguish XKB errors.  Can be NULL.  *  * @returns 1 on success, or 0 on failure.  */
-end_comment
-begin_function_decl
 name|int
 name|xkb_x11_setup_xkb_extension
 parameter_list|(
@@ -103,11 +95,7 @@ modifier|*
 name|base_error_out
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_comment
 comment|/**  * Get the keyboard device ID of the core X11 keyboard.  *  * @param connection An XCB connection to the X server.  *  * @returns A device ID which may be used with other xkb_x11_* functions,  *          or -1 on failure.  */
-end_comment
-begin_function_decl
 name|int32_t
 name|xkb_x11_get_core_keyboard_device_id
 parameter_list|(
@@ -116,11 +104,7 @@ modifier|*
 name|connection
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_comment
 comment|/**  * Create a keymap from an X11 keyboard device.  *  * This function queries the X server with various requests, fetches the  * details of the active keymap on a keyboard device, and creates an  * xkb_keymap from these details.  *  * @param context  *     The context in which to create the keymap.  * @param connection  *     An XCB connection to the X server.  * @param device_id  *     An XInput 1 device ID (in the range 0-255) with input class KEY.  *     Passing values outside of this range is an error.  * @param flags  *     Optional flags for the keymap, or 0.  *  * @returns A keymap retrieved from the X server, or NULL on failure.  *  * @memberof xkb_keymap  */
-end_comment
-begin_function_decl
 name|struct
 name|xkb_keymap
 modifier|*
@@ -143,11 +127,7 @@ name|xkb_keymap_compile_flags
 name|flags
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_comment
 comment|/**  * Create a new keyboard state object from an X11 keyboard device.  *  * This function is the same as xkb_state_new(), only pre-initialized  * with the state of the device at the time this function is called.  *  * @param keymap  *     The keymap for which to create the state.  * @param connection  *     An XCB connection to the X server.  * @param device_id  *     An XInput 1 device ID (in the range 0-255) with input class KEY.  *     Passing values outside of this range is an error.  *  * @returns A new keyboard state object, or NULL on failure.  *  * @memberof xkb_state  */
-end_comment
-begin_function_decl
 name|struct
 name|xkb_state
 modifier|*
@@ -166,12 +146,24 @@ name|int32_t
 name|device_id
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_comment
 comment|/** @} */
+ifdef|#
+directive|ifdef
+name|__cplusplus
+block|}
+end_extern
+begin_comment
+comment|/* extern "C" */
 end_comment
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* _XKBCOMMON_X11_H */
+end_comment
 end_unit

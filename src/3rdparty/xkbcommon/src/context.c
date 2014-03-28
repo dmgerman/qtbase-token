@@ -232,7 +232,7 @@ argument_list|)
 expr_stmt|;
 name|home
 operator|=
-name|getenv
+name|secure_getenv
 argument_list|(
 literal|"HOME"
 argument_list|)
@@ -895,7 +895,7 @@ expr_stmt|;
 comment|/* Environment overwrites defaults. */
 name|env
 operator|=
-name|getenv
+name|secure_getenv
 argument_list|(
 literal|"XKB_LOG_LEVEL"
 argument_list|)
@@ -916,7 +916,7 @@ argument_list|)
 expr_stmt|;
 name|env
 operator|=
-name|getenv
+name|secure_getenv
 argument_list|(
 literal|"XKB_LOG_VERBOSITY"
 argument_list|)

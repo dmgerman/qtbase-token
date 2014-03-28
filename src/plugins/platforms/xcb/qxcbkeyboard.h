@@ -33,18 +33,11 @@ ifndef|#
 directive|ifndef
 name|QT_NO_XKB
 end_ifndef
-begin_comment
-comment|// note: extern won't be needed from libxkbcommon 0.4.1 and above
-end_comment
-begin_extern
-extern|extern
-literal|"C"
-block|{
+begin_include
 include|#
 directive|include
 file|<xkbcommon/xkbcommon-x11.h>
-block|}
-end_extern
+end_include
 begin_endif
 endif|#
 directive|endif

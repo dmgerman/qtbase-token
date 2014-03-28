@@ -26,9 +26,6 @@ directive|include
 file|"scanner-utils.h"
 end_include
 begin_comment
-comment|/*  * The rules file  * ==============  * The purpose of this file is to map between configuration values that  * are easy for a user to specify and understand, and the configuration  * values xkbcomp uses and understands.  * xkbcomp uses the xkb_component_names struct, which maps directly to  * include statements of the appropriate sections, called for short  * KcCGST (see keycodes.c, types.c, compat.c, symbols.c; geometry.c was  * removed). These are not really intuitive or straight-forward for  * the uninitiated.  * Instead, the user passes in a xkb_rule_names struct, which consists  * of the name of a rules file (in Linux this is usually "evdev"), a  * keyboard model (e.g. "pc105"), a set of layouts (which will end up  * in different groups, e.g. "us,fr"), variants (used to alter/augment  * the respective layout, e.g. "intl,dvorak"), and a set of options  * (used to tweak some general behavior of the keyboard, e.g.  * "ctrl:nocaps,compose:menu" to make the Caps Lock key act like Ctrl  * and the Menu key like Compose). We call these RMLVO.  *  * Format of the file  * ------------------  * The file consists of rule sets, each consisting of rules (one per  * line), which match the MLVO values on the left hand side, and, if  * the values match to the values the user passed in, results in the  * values on the right hand side being added to the resulting KcCGST.  * Since some values are related and repeated often, it is possible  * to group them together and refer to them by a group name in the  * rules.  * Along with matching values by simple string equality, and for  * membership in a group defined previously, rules may also contain  * "wildcard" values - "*" - which always match. These usually appear  * near the end.  *  * Grammer  * -------  * (It might be helpful to look at a file like rules/evdev along with  * this grammer. Comments, whitespace, etc. are not shown.)  *  * File         ::= { "!" (Group | RuleSet) }  *  * Group        ::= GroupName "=" { GroupElement } "\n"  * GroupName    ::= "$"<ident>  * GroupElement ::=<ident>  *  * RuleSet      ::= Mapping { Rule }  *  * Mapping      ::= { Mlvo } "=" { Kccgst } "\n"  * Mlvo         ::= "model" | "option" | ("layout" | "variant") [ Index ]  * Index        ::= "[" 1..XKB_NUM_GROUPS "]"  * Kccgst       ::= "keycodes" | "symbols" | "types" | "compat" | "geometry"  *  * Rule         ::= { MlvoValue } "=" { KccgstValue } "\n"  * MlvoValue    ::= "*" | GroupName |<ident>  * KccgstValue  ::=<ident>  *  * Notes:  * - The order of values in a Rule must be the same as the Mapping it  *   follows. The mapping line determines the meaning of the values in  *   the rules which follow in the RuleSet.  * - If a Rule is matched, %-expansion is performed on the KccgstValue,  *   as follows:  *   %m, %l, %v:  *      The model, layout or variant, if only one was given (e.g.  *      %l for "us,il" is invalid).  *   %l[1], %v[1]:  *      Layout or variant for the specified group Index, if more than  *      one was given (e.g. %l[1] for "us" is invalid).  *   %+m, %+l, %+v, %+l[1], %+v[1]  *      As above, but prefixed with '+'. Similarly, '|', '-', '_' may be  *      used instead of '+'.  *   %(m), %(l), %(l[1]), %(v), %(v[1]):  *      As above, but prefixed by '(' and suffixed by ')'.  *   In case the expansion is invalid, as described above, it is  *   skipped (the rest of the string is still processed); this includes  *   the prefix and suffix (that's why you shouldn't use e.g. "(%v[1])").  */
-end_comment
-begin_comment
 comment|/* Scanner / Lexer */
 end_comment
 begin_comment
@@ -47,24 +44,6 @@ decl_stmt|;
 block|}
 union|;
 end_union
-begin_comment
-comment|/*  * Holds the location in the file of the last processed token,  * like yylloc.  */
-end_comment
-begin_struct
-DECL|struct|location
-struct|struct
-name|location
-block|{
-DECL|member|line
-DECL|member|column
-name|int
-name|line
-decl_stmt|,
-name|column
-decl_stmt|;
-block|}
-struct|;
-end_struct
 begin_enum
 DECL|enum|rules_token
 enum|enum
@@ -98,41 +77,6 @@ name|TOK_ERROR
 block|}
 enum|;
 end_enum
-begin_comment
-comment|/* C99 is stupid. Just use the 1 variant when there are no args. */
-end_comment
-begin_define
-DECL|macro|scanner_error1
-define|#
-directive|define
-name|scanner_error1
-parameter_list|(
-name|scanner
-parameter_list|,
-name|loc
-parameter_list|,
-name|msg
-parameter_list|)
-define|\
-value|log_warn((scanner)->ctx, "rules/%s:%d:%d: %s\n", \              (scanner)->file_name, (loc)->line, (loc)->column, msg)
-end_define
-begin_define
-DECL|macro|scanner_error
-define|#
-directive|define
-name|scanner_error
-parameter_list|(
-name|scanner
-parameter_list|,
-name|loc
-parameter_list|,
-name|fmt
-parameter_list|,
-modifier|...
-parameter_list|)
-define|\
-value|log_warn((scanner)->ctx, "rules/%s:%d:%d: " fmt "\n", \              (scanner)->file_name, (loc)->line, (loc)->column, __VA_ARGS__)
-end_define
 begin_function
 specifier|static
 specifier|inline
@@ -172,11 +116,6 @@ name|union
 name|lvalue
 modifier|*
 name|val
-parameter_list|,
-name|struct
-name|location
-modifier|*
-name|loc
 parameter_list|)
 block|{
 name|skip_more_whitespace_and_comments
@@ -275,11 +214,9 @@ name|s
 argument_list|)
 condition|)
 block|{
-name|scanner_error1
+name|scanner_err
 argument_list|(
 name|s
-argument_list|,
-name|loc
 argument_list|,
 literal|"illegal new line escape; must appear at end of line"
 argument_list|)
@@ -309,17 +246,17 @@ return|return
 name|TOK_END_OF_FILE
 return|;
 comment|/* New token. */
-name|loc
+name|s
 operator|->
-name|line
+name|token_line
 operator|=
 name|s
 operator|->
 name|line
 expr_stmt|;
-name|loc
+name|s
 operator|->
-name|column
+name|token_column
 operator|=
 name|s
 operator|->
@@ -430,11 +367,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|scanner_error1
+name|scanner_err
 argument_list|(
 name|s
-argument_list|,
-name|loc
 argument_list|,
 literal|"unexpected character after \'$\'; expected name"
 argument_list|)
@@ -509,11 +444,9 @@ return|return
 name|TOK_IDENTIFIER
 return|;
 block|}
-name|scanner_error1
+name|scanner_err
 argument_list|(
 name|s
-argument_list|,
-name|loc
 argument_list|,
 literal|"unrecognized token"
 argument_list|)
@@ -873,11 +806,6 @@ DECL|member|rmlvo
 name|struct
 name|rule_names
 name|rmlvo
-decl_stmt|;
-DECL|member|loc
-name|struct
-name|location
-name|loc
 decl_stmt|;
 DECL|member|val
 name|union
@@ -1309,23 +1237,10 @@ expr_stmt|;
 block|}
 end_function
 begin_define
-DECL|macro|matcher_error1
+DECL|macro|matcher_err
 define|#
 directive|define
-name|matcher_error1
-parameter_list|(
-name|matcher
-parameter_list|,
-name|msg
-parameter_list|)
-define|\
-value|scanner_error1(&(matcher)->scanner,&(matcher)->loc, msg)
-end_define
-begin_define
-DECL|macro|matcher_error
-define|#
-directive|define
-name|matcher_error
+name|matcher_err
 parameter_list|(
 name|matcher
 parameter_list|,
@@ -1334,7 +1249,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|scanner_error(&(matcher)->scanner,&(matcher)->loc, fmt, __VA_ARGS__)
+value|scanner_err(&(matcher)->scanner, fmt, ## __VA_ARGS__)
 end_define
 begin_function
 specifier|static
@@ -1709,12 +1624,11 @@ operator|>=
 name|_MLVO_NUM_ENTRIES
 condition|)
 block|{
-name|matcher_error
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: %.*s is not a valid value here; "
-literal|"ignoring rule set"
+literal|"invalid mapping: %.*s is not a valid value here; ignoring rule set"
 argument_list|,
 name|ident
 operator|.
@@ -1744,18 +1658,17 @@ operator|.
 name|defined_mlvo_mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|mlvo
 operator|)
 condition|)
 block|{
-name|matcher_error
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: %.*s appears twice on the same line; "
-literal|"ignoring rule set"
+literal|"invalid mapping: %.*s appears twice on the same line; ignoring rule set"
 argument_list|,
 name|mlvo_sval
 operator|.
@@ -1834,12 +1747,11 @@ operator|!=
 name|consumed
 condition|)
 block|{
-name|matcher_error
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping:\" %.*s\" may only be followed by a valid group index; "
-literal|"ignoring rule set"
+literal|"invalid mapping: \"%.*s\" may only be followed by a valid group index; ignoring rule set"
 argument_list|,
 name|mlvo_sval
 operator|.
@@ -1895,12 +1807,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|matcher_error
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: \"%.*s\" cannot be followed by a group index; "
-literal|"ignoring rule set"
+literal|"invalid mapping: \"%.*s\" cannot be followed by a group index; ignoring rule set"
 argument_list|,
 name|mlvo_sval
 operator|.
@@ -1943,7 +1854,7 @@ name|mapping
 operator|.
 name|defined_mlvo_mask
 operator||=
-literal|1
+literal|1u
 operator|<<
 name|mlvo
 expr_stmt|;
@@ -2023,12 +1934,11 @@ operator|>=
 name|_KCCGST_NUM_ENTRIES
 condition|)
 block|{
-name|matcher_error
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: %.*s is not a valid value here; "
-literal|"ignoring rule set"
+literal|"invalid mapping: %.*s is not a valid value here; ignoring rule set"
 argument_list|,
 name|ident
 operator|.
@@ -2058,18 +1968,17 @@ operator|.
 name|defined_kccgst_mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|kccgst
 operator|)
 condition|)
 block|{
-name|matcher_error
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: %.*s appears twice on the same line; "
-literal|"ignoring rule set"
+literal|"invalid mapping: %.*s appears twice on the same line; ignoring rule set"
 argument_list|,
 name|kccgst_sval
 operator|.
@@ -2111,7 +2020,7 @@ name|mapping
 operator|.
 name|defined_kccgst_mask
 operator||=
-literal|1
+literal|1u
 operator|<<
 name|kccgst
 expr_stmt|;
@@ -2147,12 +2056,11 @@ operator|==
 literal|0
 condition|)
 block|{
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: must have at least one value on the left hand side; "
-literal|"ignoring rule set"
+literal|"invalid mapping: must have at least one value on the left hand side; ignoring rule set"
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -2170,12 +2078,11 @@ operator|==
 literal|0
 condition|)
 block|{
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid mapping: must have at least one value on the right hand side; "
-literal|"ignoring rule set"
+literal|"invalid mapping: must have at least one value on the right hand side; ignoring rule set"
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -2192,7 +2099,7 @@ operator|.
 name|defined_mlvo_mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|MLVO_LAYOUT
 operator|)
@@ -2270,7 +2177,7 @@ operator|.
 name|defined_mlvo_mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|MLVO_VARIANT
 operator|)
@@ -2432,12 +2339,11 @@ operator|.
 name|num_mlvo
 condition|)
 block|{
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid rule: has more values than the mapping line; "
-literal|"ignoring rule"
+literal|"invalid rule: has more values than the mapping line; ignoring rule"
 argument_list|)
 expr_stmt|;
 name|m
@@ -2609,12 +2515,11 @@ operator|.
 name|num_kccgst
 condition|)
 block|{
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid rule: has more values than the mapping line; "
-literal|"ignoring rule"
+literal|"invalid rule: has more values than the mapping line; ignoring rule"
 argument_list|)
 expr_stmt|;
 name|m
@@ -2830,16 +2735,6 @@ name|value
 parameter_list|)
 block|{
 specifier|const
-name|size_t
-name|original_size
-init|=
-name|darray_size
-argument_list|(
-operator|*
-name|to
-argument_list|)
-decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|s
@@ -2848,71 +2743,20 @@ name|value
 operator|.
 name|start
 decl_stmt|;
-comment|/*      * Appending  bar to  foo ->  foo (not an error if this happens)      * Appending +bar to  foo ->  foo+bar      * Appending  bar to +foo ->  bar+foo      * Appending +bar to +foo -> +foo+bar      */
-if|if
-condition|(
-operator|!
-name|darray_empty
-argument_list|(
-operator|*
-name|to
-argument_list|)
-operator|&&
-name|s
-index|[
-literal|0
-index|]
-operator|!=
-literal|'+'
-operator|&&
-name|s
-index|[
-literal|0
-index|]
-operator|!=
-literal|'|'
-condition|)
-block|{
-if|if
-condition|(
-name|darray_item
-argument_list|(
-operator|*
-name|to
-argument_list|,
-literal|0
-argument_list|)
-operator|==
-literal|'+'
-operator|||
-name|darray_item
-argument_list|(
-operator|*
-name|to
-argument_list|,
-literal|0
-argument_list|)
-operator|==
-literal|'|'
-condition|)
-name|darray_prepend_items_nullterminate
-argument_list|(
-operator|*
-name|to
-argument_list|,
-name|value
-operator|.
-name|start
-argument_list|,
-name|value
-operator|.
-name|len
-argument_list|)
-expr_stmt|;
-return|return
-name|true
-return|;
-block|}
+name|darray_char
+name|expanded
+init|=
+name|darray_new
+argument_list|()
+decl_stmt|;
+name|char
+name|ch
+decl_stmt|;
+name|bool
+name|expanded_plus
+decl_stmt|,
+name|to_plus
+decl_stmt|;
 comment|/*      * Some ugly hand-lexing here, but going through the scanner is more      * trouble than it's worth, and the format is ugly on its own merit.      */
 for|for
 control|(
@@ -2943,7 +2787,7 @@ name|sfx
 decl_stmt|;
 name|struct
 name|sval
-name|expanded
+name|expanded_value
 decl_stmt|;
 comment|/* Check if that's a start of an expansion. */
 if|if
@@ -2957,10 +2801,9 @@ literal|'%'
 condition|)
 block|{
 comment|/* Just a normal character. */
-name|darray_append_items_nullterminate
+name|darray_appends_nullterminate
 argument_list|(
-operator|*
-name|to
+name|expanded
 argument_list|,
 operator|&
 name|s
@@ -3138,12 +2981,11 @@ operator|!=
 name|MLVO_VARIANT
 condition|)
 block|{
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid index in %%-expansion; "
-literal|"may only index layout or variant"
+literal|"invalid index in %%-expansion; may only index layout or variant"
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -3217,7 +3059,7 @@ name|error
 goto|;
 block|}
 comment|/* Get the expanded value. */
-name|expanded
+name|expanded_value
 operator|.
 name|len
 operator|=
@@ -3258,7 +3100,7 @@ argument_list|)
 operator|>
 literal|1
 condition|)
-name|expanded
+name|expanded_value
 operator|=
 name|darray_item
 argument_list|(
@@ -3289,7 +3131,7 @@ argument_list|)
 operator|==
 literal|1
 condition|)
-name|expanded
+name|expanded_value
 operator|=
 name|darray_item
 argument_list|(
@@ -3339,7 +3181,7 @@ argument_list|)
 operator|>
 literal|1
 condition|)
-name|expanded
+name|expanded_value
 operator|=
 name|darray_item
 argument_list|(
@@ -3370,7 +3212,7 @@ argument_list|)
 operator|==
 literal|1
 condition|)
-name|expanded
+name|expanded_value
 operator|=
 name|darray_item
 argument_list|(
@@ -3392,7 +3234,7 @@ operator|==
 name|MLVO_MODEL
 condition|)
 block|{
-name|expanded
+name|expanded_value
 operator|=
 name|m
 operator|->
@@ -3404,7 +3246,7 @@ block|}
 comment|/* If we didn't get one, skip silently. */
 if|if
 condition|(
-name|expanded
+name|expanded_value
 operator|.
 name|len
 operator|<=
@@ -3417,10 +3259,9 @@ name|pfx
 operator|!=
 literal|0
 condition|)
-name|darray_append_items_nullterminate
+name|darray_appends_nullterminate
 argument_list|(
-operator|*
-name|to
+name|expanded
 argument_list|,
 operator|&
 name|pfx
@@ -3428,16 +3269,15 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|darray_append_items_nullterminate
+name|darray_appends_nullterminate
 argument_list|(
-operator|*
-name|to
-argument_list|,
 name|expanded
+argument_list|,
+name|expanded_value
 operator|.
 name|start
 argument_list|,
-name|expanded
+name|expanded_value
 operator|.
 name|len
 argument_list|)
@@ -3448,10 +3288,9 @@ name|sfx
 operator|!=
 literal|0
 condition|)
-name|darray_append_items_nullterminate
+name|darray_appends_nullterminate
 argument_list|(
-operator|*
-name|to
+name|expanded
 argument_list|,
 operator|&
 name|sfx
@@ -3460,24 +3299,132 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|/*      * Appending  bar to  foo ->  foo (not an error if this happens)      * Appending +bar to  foo ->  foo+bar      * Appending  bar to +foo ->  bar+foo      * Appending +bar to +foo -> +foo+bar      */
+name|ch
+operator|=
+operator|(
+name|darray_empty
+argument_list|(
+name|expanded
+argument_list|)
+condition|?
+literal|'\0'
+else|:
+name|darray_item
+argument_list|(
+name|expanded
+argument_list|,
+literal|0
+argument_list|)
+operator|)
+expr_stmt|;
+name|expanded_plus
+operator|=
+operator|(
+name|ch
+operator|==
+literal|'+'
+operator|||
+name|ch
+operator|==
+literal|'|'
+operator|)
+expr_stmt|;
+name|ch
+operator|=
+operator|(
+name|darray_empty
+argument_list|(
+operator|*
+name|to
+argument_list|)
+condition|?
+literal|'\0'
+else|:
+name|darray_item
+argument_list|(
+operator|*
+name|to
+argument_list|,
+literal|0
+argument_list|)
+operator|)
+expr_stmt|;
+name|to_plus
+operator|=
+operator|(
+name|ch
+operator|==
+literal|'+'
+operator|||
+name|ch
+operator|==
+literal|'|'
+operator|)
+expr_stmt|;
+if|if
+condition|(
+name|expanded_plus
+operator|||
+name|darray_empty
+argument_list|(
+operator|*
+name|to
+argument_list|)
+condition|)
+name|darray_appends_nullterminate
+argument_list|(
+operator|*
+name|to
+argument_list|,
+name|expanded
+operator|.
+name|item
+argument_list|,
+name|expanded
+operator|.
+name|size
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|to_plus
+condition|)
+name|darray_prepends_nullterminate
+argument_list|(
+operator|*
+name|to
+argument_list|,
+name|expanded
+operator|.
+name|item
+argument_list|,
+name|expanded
+operator|.
+name|size
+argument_list|)
+expr_stmt|;
+name|darray_free
+argument_list|(
+name|expanded
+argument_list|)
+expr_stmt|;
 return|return
 name|true
 return|;
 name|error
 label|:
-name|matcher_error1
+name|darray_free
+argument_list|(
+name|expanded
+argument_list|)
+expr_stmt|;
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
 literal|"invalid %%-expansion in value; not used"
-argument_list|)
-expr_stmt|;
-name|darray_resize
-argument_list|(
-operator|*
-name|to
-argument_list|,
-name|original_size
 argument_list|)
 expr_stmt|;
 return|return
@@ -3524,12 +3471,11 @@ operator|.
 name|num_kccgst
 condition|)
 block|{
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
-literal|"invalid rule: must have same number of values as mapping line;"
-literal|"ignoring rule"
+literal|"invalid rule: must have same number of values as mapping line; ignoring rule"
 argument_list|)
 expr_stmt|;
 name|m
@@ -3909,11 +3855,6 @@ operator|&
 name|m
 operator|->
 name|val
-argument_list|,
-operator|&
-name|m
-operator|->
-name|loc
 argument_list|)
 return|;
 block|}
@@ -4606,7 +4547,7 @@ name|true
 return|;
 name|state_error
 label|:
-name|matcher_error1
+name|matcher_err
 argument_list|(
 name|m
 argument_list|,
@@ -4715,7 +4656,9 @@ name|log_err
 argument_list|(
 name|ctx
 argument_list|,
-literal|"Couldn't read rules file: %s\n"
+literal|"Couldn't read rules file \"%s\": %s\n"
+argument_list|,
+name|path
 argument_list|,
 name|strerror
 argument_list|(
@@ -4746,9 +4689,7 @@ name|string
 argument_list|,
 name|size
 argument_list|,
-name|rmlvo
-operator|->
-name|rules
+name|path
 argument_list|,
 name|out
 argument_list|)

@@ -325,7 +325,7 @@ name|GroupCompatDef
 modifier|*
 name|GroupCompatCreate
 parameter_list|(
-name|int
+name|unsigned
 name|group
 parameter_list|,
 name|ExprDef
@@ -339,7 +339,7 @@ name|ModMapDef
 modifier|*
 name|ModMapCreate
 parameter_list|(
-name|uint32_t
+name|xkb_atom_t
 name|modifier
 parameter_list|,
 name|ExprDef
@@ -367,7 +367,7 @@ name|LedNameDef
 modifier|*
 name|LedNameCreate
 parameter_list|(
-name|int
+name|unsigned
 name|ndx
 parameter_list|,
 name|ExprDef
@@ -404,11 +404,6 @@ name|XkbFile
 modifier|*
 name|XkbFileCreate
 parameter_list|(
-name|struct
-name|xkb_context
-modifier|*
-name|ctx
-parameter_list|,
 name|enum
 name|xkb_file_type
 name|type

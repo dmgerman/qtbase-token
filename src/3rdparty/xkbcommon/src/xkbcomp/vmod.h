@@ -25,6 +25,10 @@ parameter_list|,
 name|VModDef
 modifier|*
 name|stmt
+parameter_list|,
+name|enum
+name|merge_mode
+name|merge
 parameter_list|)
 function_decl|;
 end_function_decl
