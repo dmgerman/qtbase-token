@@ -2239,13 +2239,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|setStatus
-argument_list|(
-name|QSettings
-operator|::
-name|AccessError
-argument_list|)
-expr_stmt|;
 name|domainName
 operator|=
 name|QLatin1String
@@ -3129,6 +3122,18 @@ block|{
 if|#
 directive|if
 literal|1
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|macVersion
+argument_list|()
+operator|<
+name|QSysInfo
+operator|::
+name|MV_10_7
+condition|)
+block|{
 comment|// work around what seems to be a bug in CFPreferences:
 comment|// don't report an error if there are no preferences for the application
 name|QCFType
@@ -3235,8 +3240,11 @@ break|break;
 block|}
 block|}
 block|}
-else|#
-directive|else
+block|}
+else|else
+endif|#
+directive|endif
+block|{
 name|setStatus
 argument_list|(
 name|QSettings
@@ -3244,8 +3252,7 @@ operator|::
 name|AccessError
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 block|}
 block|}
 block|}
