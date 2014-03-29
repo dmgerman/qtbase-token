@@ -71,6 +71,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qversionnumber.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qpoint.h>
 end_include
 begin_include
@@ -897,6 +902,29 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
+operator|<
+operator|>
+specifier|inline
+name|char
+operator|*
+name|toString
+argument_list|(
+argument|const QVersionNumber&version
+argument_list|)
+block|{
+return|return
+name|toString
+argument_list|(
+name|version
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
 operator|<
 operator|>
 specifier|inline
