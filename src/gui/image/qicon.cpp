@@ -4662,11 +4662,12 @@ name|name
 argument_list|)
 decl_stmt|;
 return|return
-operator|!
 name|icon
 operator|.
-name|isNull
+name|name
 argument_list|()
+operator|==
+name|name
 return|;
 block|}
 end_function
