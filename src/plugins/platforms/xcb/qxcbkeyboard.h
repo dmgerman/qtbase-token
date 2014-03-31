@@ -193,9 +193,11 @@ name|resolveMaskConflicts
 argument_list|()
 block|;
 name|QString
-name|keysymToUnicode
+name|lookupString
 argument_list|(
-argument|xcb_keysym_t sym
+argument|struct xkb_state *state
+argument_list|,
+argument|xcb_keycode_t code
 argument_list|)
 specifier|const
 block|;
