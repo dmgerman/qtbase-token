@@ -227,7 +227,7 @@ block|;
 name|void
 name|printKeymapError
 argument_list|(
-argument|const QString&error
+argument|const char *error
 argument_list|)
 specifier|const
 block|;
