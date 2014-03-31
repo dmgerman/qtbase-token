@@ -734,7 +734,15 @@ argument|int lower
 argument_list|)
 block|;
 name|void
-name|enableContentBorderArea
+name|setContentBorderAreaEnabled
+argument_list|(
+argument|quintptr identifier
+argument_list|,
+argument|bool enable
+argument_list|)
+block|;
+name|void
+name|setContentBorderEnabled
 argument_list|(
 argument|bool enable
 argument_list|)
@@ -1003,11 +1011,18 @@ name|BorderRange
 block|{
 name|BorderRange
 argument_list|(
+argument|quintptr i
+argument_list|,
 argument|int u
 argument_list|,
 argument|int l
 argument_list|)
 operator|:
+name|identifier
+argument_list|(
+name|i
+argument_list|)
+block|,
 name|upper
 argument_list|(
 name|u
@@ -1018,6 +1033,9 @@ argument_list|(
 argument|l
 argument_list|)
 block|{ }
+name|quintptr
+name|identifier
+block|;
 name|int
 name|upper
 block|;
@@ -1054,6 +1072,15 @@ operator|>
 name|m_contentBorderAreas
 block|;
 comment|// identifer -> uppper/lower
+name|QHash
+operator|<
+name|quintptr
+block|,
+name|bool
+operator|>
+name|m_enabledContentBorderAreas
+block|;
+comment|// identifer -> enabled state (true/false)
 block|}
 block|;
 name|QT_END_NAMESPACE
