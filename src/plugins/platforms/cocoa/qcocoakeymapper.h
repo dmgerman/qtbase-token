@@ -77,6 +77,13 @@ operator|~
 name|QCocoaKeyMapper
 argument_list|()
 expr_stmt|;
+specifier|static
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+expr_stmt|;
 name|QList
 operator|<
 name|int

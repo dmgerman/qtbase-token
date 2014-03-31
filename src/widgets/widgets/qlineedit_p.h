@@ -186,6 +186,13 @@ name|event
 argument_list|)
 block|;
 name|private
+name|slots
+operator|:
+name|void
+name|updateCursor
+argument_list|()
+block|;
+name|private
 operator|:
 name|void
 name|startOpacityAnimation

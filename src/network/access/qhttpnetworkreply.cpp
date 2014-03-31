@@ -1437,7 +1437,7 @@ name|removeAutoDecompressHeader
 parameter_list|()
 block|{
 comment|// The header "Content-Encoding  = gzip" is retained.
-comment|// Content-Length is removed since the actual one send by the server is for compressed data
+comment|// Content-Length is removed since the actual one sent by the server is for compressed data
 name|QByteArray
 name|name
 argument_list|(
@@ -4289,7 +4289,7 @@ name|shouldEmitSignals
 parameter_list|()
 block|{
 comment|// for 401& 407 don't emit the data signals. Content along with these
-comment|// responses are send only if the authentication fails.
+comment|// responses are sent only if the authentication fails.
 return|return
 operator|(
 name|statusCode

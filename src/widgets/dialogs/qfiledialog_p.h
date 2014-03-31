@@ -1331,11 +1331,6 @@ argument_list|(
 name|parent
 argument_list|)
 block|,
-name|hideOnEsc
-argument_list|(
-name|false
-argument_list|)
-block|,
 name|d_ptr
 argument_list|(
 literal|0

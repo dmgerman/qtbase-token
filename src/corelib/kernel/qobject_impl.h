@@ -1141,6 +1141,12 @@ operator|~
 name|QSlotObjectBase
 argument_list|()
 block|{}
+name|private
+operator|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QSlotObjectBase
+argument_list|)
 expr|}
 block|;
 comment|// implementation of QSlotObjectBase for which the slot is a pointer to member function of a QObject

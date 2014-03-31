@@ -73,6 +73,7 @@ operator|:
 name|void
 name|prepopulateCache
 argument_list|()
+specifier|const
 block|;
 name|AAssetManager
 operator|*
@@ -93,8 +94,13 @@ name|mutable
 name|QMutex
 name|m_assetsCacheMutext
 block|;
+name|mutable
 name|bool
 name|m_hasPrepopulatedCache
+block|;
+name|mutable
+name|bool
+name|m_hasTriedPrepopulatingCache
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -288,6 +288,13 @@ name|jboolean
 name|paste
 argument_list|()
 block|;
+name|public
+name|slots
+operator|:
+name|void
+name|updateCursorPosition
+argument_list|()
+block|;
 name|private
 operator|:
 name|QSharedPointer
@@ -305,6 +312,23 @@ argument_list|(
 name|QInputMethodEvent
 operator|*
 name|event
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|QVariant
+name|queryFocusObjectUnsafe
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|,
+argument|QVariant argument
+argument_list|)
+block|;
+name|QVariant
+name|queryFocusObjectThreadSafe
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|,
+argument|QVariant argument
 argument_list|)
 block|;
 name|private
@@ -335,10 +359,6 @@ name|QInputMethodQueryEvent
 operator|*
 name|event
 argument_list|)
-block|;
-name|void
-name|updateCursorPosition
-argument_list|()
 block|;
 name|private
 operator|:

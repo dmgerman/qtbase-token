@@ -90,10 +90,23 @@ return|return
 name|m_image
 return|;
 block|}
+name|void
+name|setBackingStore
+argument_list|(
+name|QWindow
+operator|*
+name|window
+argument_list|)
+block|;
 name|protected
 operator|:
 name|QImage
 name|m_image
+block|;
+name|bool
+name|m_backingStoreSet
+operator|=
+name|false
 block|; }
 decl_stmt|;
 end_decl_stmt

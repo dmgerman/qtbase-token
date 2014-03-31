@@ -261,6 +261,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|sloppyDelayTimer
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|sloppyAction
 argument_list|(
 literal|0
@@ -1005,7 +1010,6 @@ begin_comment
 comment|//sloppy selection
 end_comment
 begin_decl_stmt
-specifier|static
 name|int
 name|sloppyDelayTimer
 decl_stmt|;

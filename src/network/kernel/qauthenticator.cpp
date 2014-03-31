@@ -3594,6 +3594,10 @@ operator||
 name|NTLMSSP_NEGOTIATE_NTLM
 operator||
 name|NTLMSSP_REQUEST_TARGET
+operator||
+name|NTLMSSP_NEGOTIATE_ALWAYS_SIGN
+operator||
+name|NTLMSSP_NEGOTIATE_NTLM2
 expr_stmt|;
 block|}
 comment|// extracted
@@ -5994,6 +5998,36 @@ expr_stmt|;
 name|QNtlmPhase3Block
 name|pb
 decl_stmt|;
+comment|// set NTLMv2
+if|if
+condition|(
+name|ch
+operator|.
+name|flags
+operator|&
+name|NTLMSSP_NEGOTIATE_NTLM2
+condition|)
+name|pb
+operator|.
+name|flags
+operator||=
+name|NTLMSSP_NEGOTIATE_NTLM2
+expr_stmt|;
+comment|// set Always Sign
+if|if
+condition|(
+name|ch
+operator|.
+name|flags
+operator|&
+name|NTLMSSP_NEGOTIATE_ALWAYS_SIGN
+condition|)
+name|pb
+operator|.
+name|flags
+operator||=
+name|NTLMSSP_NEGOTIATE_ALWAYS_SIGN
+expr_stmt|;
 name|bool
 name|unicode
 init|=
@@ -6003,12 +6037,6 @@ name|flags
 operator|&
 name|NTLMSSP_NEGOTIATE_UNICODE
 decl_stmt|;
-name|pb
-operator|.
-name|flags
-operator|=
-name|NTLMSSP_NEGOTIATE_NTLM
-expr_stmt|;
 if|if
 condition|(
 name|unicode

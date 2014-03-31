@@ -466,6 +466,11 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|QSKIP
+argument_list|(
+literal|"QTBUG-35169"
+argument_list|)
+expr_stmt|;
 comment|// Find the "OK" button and schedule a press.
 name|QAccessibleInterface
 modifier|*

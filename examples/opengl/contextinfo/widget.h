@@ -37,6 +37,18 @@ argument_list|(
 argument|QVBoxLayout
 argument_list|)
 end_macro
+begin_macro
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
+argument|QSurfaceFormat
+argument_list|)
+end_macro
+begin_macro
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
+argument|QSurface
+argument_list|)
+end_macro
 begin_decl_stmt
 name|class
 name|Widget
@@ -115,6 +127,15 @@ name|void
 name|addRenderWindow
 argument_list|()
 block|;
+name|void
+name|printFormat
+argument_list|(
+specifier|const
+name|QSurfaceFormat
+operator|&
+name|format
+argument_list|)
+block|;
 name|QComboBox
 operator|*
 name|m_version
@@ -146,6 +167,10 @@ block|;
 name|QWidget
 operator|*
 name|m_renderWindowContainer
+block|;
+name|QSurface
+operator|*
+name|m_surface
 block|; }
 decl_stmt|;
 end_decl_stmt

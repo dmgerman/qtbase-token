@@ -86,7 +86,11 @@ block|{
 public|public:
 DECL|function|OpenGLWidgetPrivate
 name|OpenGLWidgetPrivate
-parameter_list|()
+parameter_list|(
+name|QWidget
+modifier|*
+name|q
+parameter_list|)
 member_init_list|:
 name|m_program
 argument_list|(
@@ -96,6 +100,11 @@ member_init_list|,
 name|m_frame
 argument_list|(
 literal|0
+argument_list|)
+member_init_list|,
+name|q
+argument_list|(
+name|q
 argument_list|)
 block|{      }
 name|void
@@ -152,6 +161,11 @@ name|w
 decl_stmt|,
 name|h
 decl_stmt|;
+DECL|member|q
+name|QWidget
+modifier|*
+name|q
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -175,6 +189,9 @@ name|d
 operator|=
 operator|new
 name|OpenGLWidgetPrivate
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|QTimer
 modifier|*
@@ -397,9 +414,11 @@ specifier|const
 name|qreal
 name|retinaScale
 init|=
-literal|1.0
+name|q
+operator|->
+name|devicePixelRatio
+argument_list|()
 decl_stmt|;
-comment|//devicePixelRatio();
 name|glViewport
 argument_list|(
 literal|0

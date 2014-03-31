@@ -45,6 +45,13 @@ name|XKB_MOD_NAME_ALT
 value|"Mod1"
 end_define
 begin_define
+DECL|macro|XKB_MOD_NAME_NUM
+define|#
+directive|define
+name|XKB_MOD_NAME_NUM
+value|"Mod2"
+end_define
+begin_define
 DECL|macro|XKB_MOD_NAME_LOGO
 define|#
 directive|define

@@ -2011,7 +2011,7 @@ operator|::
 name|Scrolling
 argument_list|)
 expr_stmt|;
-comment|// wait until finished, check that no further first scroll is send
+comment|// wait until finished, check that no further first scroll is sent
 name|sw
 operator|->
 name|receivedFirst

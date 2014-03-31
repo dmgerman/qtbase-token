@@ -28346,7 +28346,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|qFuzzyCompare
 argument_list|(
 name|rect
 operator|->

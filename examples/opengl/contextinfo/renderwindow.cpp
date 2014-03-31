@@ -626,11 +626,15 @@ name|this
 argument_list|)
 condition|)
 block|{
-name|qWarning
+emit|emit
+name|error
+argument_list|(
+name|tr
 argument_list|(
 literal|"makeCurrent() failed"
 argument_list|)
-expr_stmt|;
+argument_list|)
+emit|;
 return|return;
 block|}
 name|QOpenGLFunctions
@@ -833,11 +837,20 @@ name|m_angle
 operator|+=
 literal|1.0f
 expr_stmt|;
+comment|// Instead of 0 wait a few more milliseconds before rendering again. This is
+comment|// only here to make the UI widgets more responsive on slower machines. We
+comment|// can afford it since our rendering is so lightweight.
+specifier|const
+name|int
+name|interval
+init|=
+literal|5
+decl_stmt|;
 name|QTimer
 operator|::
 name|singleShot
 argument_list|(
-literal|0
+name|interval
 argument_list|,
 name|this
 argument_list|,

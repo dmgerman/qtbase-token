@@ -2493,6 +2493,14 @@ name|version
 operator|+
 literal|".pdb"
 decl_stmt|;
+name|QString
+name|escapedPdbFile
+init|=
+name|escapeFilePath
+argument_list|(
+name|pdbfile
+argument_list|)
+decl_stmt|;
 name|project
 operator|->
 name|values
@@ -2504,7 +2512,7 @@ name|append
 argument_list|(
 literal|"/Fd"
 operator|+
-name|pdbfile
+name|escapedPdbFile
 argument_list|)
 expr_stmt|;
 name|project
@@ -2518,7 +2526,7 @@ name|append
 argument_list|(
 literal|"/Fd"
 operator|+
-name|pdbfile
+name|escapedPdbFile
 argument_list|)
 expr_stmt|;
 name|project

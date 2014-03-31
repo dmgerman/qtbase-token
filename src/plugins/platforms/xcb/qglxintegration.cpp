@@ -514,7 +514,7 @@ argument_list|)
 expr_stmt|;
 name|format
 operator|.
-name|setOption
+name|setOptions
 argument_list|(
 name|QSurfaceFormat
 operator|::
@@ -1023,7 +1023,7 @@ expr_stmt|;
 comment|// ES does not support any format option
 name|m_format
 operator|.
-name|setOption
+name|setOptions
 argument_list|(
 name|QSurfaceFormat
 operator|::

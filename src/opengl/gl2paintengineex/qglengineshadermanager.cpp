@@ -2633,6 +2633,8 @@ block|,
 literal|"brushTexture"
 block|,
 literal|"matrix"
+block|,
+literal|"translateZ"
 block|}
 decl_stmt|;
 if|if

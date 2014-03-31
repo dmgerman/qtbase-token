@@ -273,6 +273,10 @@ name|hasExpandFlag
 argument_list|()
 specifier|const
 block|;
+name|void
+name|updateMacBorderMetrics
+argument_list|()
+block|;
 name|public
 name|Q_SLOTS
 operator|:

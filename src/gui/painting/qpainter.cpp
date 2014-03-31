@@ -13243,7 +13243,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the painter's pen to have style Qt::SolidLine, width 0 and the     specified \a color. */
+comment|/*!     \overload      Sets the painter's pen to have style Qt::SolidLine, width 1 and the     specified \a color. */
 end_comment
 begin_function
 DECL|function|setPen

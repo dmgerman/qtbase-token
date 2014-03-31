@@ -420,7 +420,7 @@ operator|::
 name|FullyEncoded
 argument_list|)
 decl_stmt|;
-comment|// for POST, query data is send as content
+comment|// for POST, query data is sent as content
 if|if
 condition|(
 name|d

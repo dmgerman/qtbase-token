@@ -14073,6 +14073,13 @@ name|haveCharAttributes
 operator|=
 literal|false
 expr_stmt|;
+name|layoutData
+operator|->
+name|items
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 for|for
 control|(
@@ -14795,7 +14802,10 @@ name|indexAdditionalFormats
 argument_list|()
 expr_stmt|;
 block|}
-name|resetFontEngineCache
+name|invalidate
+argument_list|()
+expr_stmt|;
+name|clearLineData
 argument_list|()
 expr_stmt|;
 block|}

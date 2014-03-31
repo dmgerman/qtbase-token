@@ -274,6 +274,10 @@ name|void
 name|updateObjectName
 argument_list|()
 block|;
+name|void
+name|repaintWindow
+argument_list|()
+block|;
 name|private
 operator|:
 name|void

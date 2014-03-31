@@ -18,6 +18,107 @@ include|#
 directive|include
 file|"atom.h"
 end_include
+begin_struct
+DECL|struct|xkb_context
+struct|struct
+name|xkb_context
+block|{
+DECL|member|refcnt
+name|int
+name|refcnt
+decl_stmt|;
+DECL|member|log_fn
+name|ATTR_PRINTF
+argument_list|(
+literal|3
+argument_list|,
+literal|0
+argument_list|)
+name|void
+function_decl|(
+modifier|*
+name|log_fn
+function_decl|)
+parameter_list|(
+name|struct
+name|xkb_context
+modifier|*
+name|ctx
+parameter_list|,
+name|enum
+name|xkb_log_level
+name|level
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|fmt
+parameter_list|,
+name|va_list
+name|args
+parameter_list|)
+function_decl|;
+DECL|member|log_level
+name|enum
+name|xkb_log_level
+name|log_level
+decl_stmt|;
+DECL|member|log_verbosity
+name|int
+name|log_verbosity
+decl_stmt|;
+DECL|member|user_data
+name|void
+modifier|*
+name|user_data
+decl_stmt|;
+DECL|member|names_dflt
+name|struct
+name|xkb_rule_names
+name|names_dflt
+decl_stmt|;
+DECL|member|includes
+name|darray
+argument_list|(
+argument|char *
+argument_list|)
+name|includes
+expr_stmt|;
+DECL|member|failed_includes
+name|darray
+argument_list|(
+argument|char *
+argument_list|)
+name|failed_includes
+expr_stmt|;
+DECL|member|atom_table
+name|struct
+name|atom_table
+modifier|*
+name|atom_table
+decl_stmt|;
+comment|/* Buffer for the *Text() functions. */
+DECL|member|text_buffer
+name|char
+name|text_buffer
+index|[
+literal|2048
+index|]
+decl_stmt|;
+DECL|member|text_next
+name|size_t
+name|text_next
+decl_stmt|;
+DECL|member|use_environment_names
+name|unsigned
+name|int
+name|use_environment_names
+range|:
+literal|1
+decl_stmt|;
+block|}
+struct|;
+end_struct
 begin_function_decl
 name|unsigned
 name|int
@@ -79,11 +180,27 @@ specifier|const
 name|char
 modifier|*
 name|string
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_define
+DECL|macro|xkb_atom_intern_literal
+define|#
+directive|define
+name|xkb_atom_intern_literal
+parameter_list|(
+name|ctx
+parameter_list|,
+name|literal
+parameter_list|)
+define|\
+value|xkb_atom_intern((ctx), (literal), sizeof(literal) - 1)
+end_define
 begin_comment
-comment|/**  * If @string is dynamically allocated, free'd immediately after  * being interned, and not used afterwards, use this function  * instead of xkb_atom_intern to avoid some unnecessary allocations.  * The caller should not use or free the passed in string afterwards.  */
+comment|/**  * If @string is dynamically allocated, NUL-terminated, free'd immediately  * after being interned, and not used afterwards, use this function  * instead of xkb_atom_intern to avoid some unnecessary allocations.  * The caller should not use or free the passed in string afterwards.  */
 end_comment
 begin_function_decl
 name|xkb_atom_t
@@ -97,21 +214,6 @@ parameter_list|,
 name|char
 modifier|*
 name|string
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|char
-modifier|*
-name|xkb_atom_strdup
-parameter_list|(
-name|struct
-name|xkb_context
-modifier|*
-name|ctx
-parameter_list|,
-name|xkb_atom_t
-name|atom
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -149,9 +251,9 @@ end_function_decl
 begin_macro
 name|ATTR_PRINTF
 argument_list|(
-literal|3
-argument_list|,
 literal|4
+argument_list|,
+literal|5
 argument_list|)
 end_macro
 begin_function_decl
@@ -167,6 +269,9 @@ name|enum
 name|xkb_log_level
 name|level
 parameter_list|,
+name|int
+name|verbosity
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -176,36 +281,6 @@ modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_define
-DECL|macro|xkb_log_cond_level
-define|#
-directive|define
-name|xkb_log_cond_level
-parameter_list|(
-name|ctx
-parameter_list|,
-name|level
-parameter_list|,
-modifier|...
-parameter_list|)
-value|do { \     if (xkb_context_get_log_level(ctx)>= (level)) \     xkb_log((ctx), (level), __VA_ARGS__); \ } while (0)
-end_define
-begin_define
-DECL|macro|xkb_log_cond_verbosity
-define|#
-directive|define
-name|xkb_log_cond_verbosity
-parameter_list|(
-name|ctx
-parameter_list|,
-name|level
-parameter_list|,
-name|vrb
-parameter_list|,
-modifier|...
-parameter_list|)
-value|do { \     if (xkb_context_get_log_verbosity(ctx)>= (vrb)) \     xkb_log_cond_level((ctx), (level), __VA_ARGS__); \ } while (0)
-end_define
 begin_function_decl
 specifier|const
 name|char
@@ -285,7 +360,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|xkb_log_cond_level((ctx), XKB_LOG_LEVEL_DEBUG, __VA_ARGS__)
+value|xkb_log((ctx), XKB_LOG_LEVEL_DEBUG, 0, __VA_ARGS__)
 end_define
 begin_define
 DECL|macro|log_info
@@ -298,7 +373,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|xkb_log_cond_level((ctx), XKB_LOG_LEVEL_INFO, __VA_ARGS__)
+value|xkb_log((ctx), XKB_LOG_LEVEL_INFO, 0, __VA_ARGS__)
 end_define
 begin_define
 DECL|macro|log_warn
@@ -311,7 +386,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|xkb_log_cond_level((ctx), XKB_LOG_LEVEL_WARNING, __VA_ARGS__)
+value|xkb_log((ctx), XKB_LOG_LEVEL_WARNING, 0,  __VA_ARGS__)
 end_define
 begin_define
 DECL|macro|log_err
@@ -324,7 +399,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|xkb_log_cond_level((ctx), XKB_LOG_LEVEL_ERROR, __VA_ARGS__)
+value|xkb_log((ctx), XKB_LOG_LEVEL_ERROR, 0,  __VA_ARGS__)
 end_define
 begin_define
 DECL|macro|log_wsgo
@@ -337,7 +412,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|xkb_log_cond_level((ctx), XKB_LOG_LEVEL_CRITICAL, __VA_ARGS__)
+value|xkb_log((ctx), XKB_LOG_LEVEL_CRITICAL, 0, __VA_ARGS__)
 end_define
 begin_define
 DECL|macro|log_vrb
@@ -352,7 +427,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|xkb_log_cond_verbosity((ctx), XKB_LOG_LEVEL_WARNING, (vrb), __VA_ARGS__)
+value|xkb_log((ctx), XKB_LOG_LEVEL_WARNING, (vrb), __VA_ARGS__)
 end_define
 begin_comment
 comment|/*  * Variants which are prefixed by the name of the function they're  * called from.  * Here we must have the silly 1 variant.  */

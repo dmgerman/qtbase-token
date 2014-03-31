@@ -157,6 +157,10 @@ name|ConfigLocation
 case|:
 comment|// same as DataLocation, on Windows
 case|case
+name|GenericConfigLocation
+case|:
+comment|// same as GenericDataLocation, on Windows
+case|case
 name|DataLocation
 case|:
 case|case

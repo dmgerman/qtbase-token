@@ -288,7 +288,7 @@ expr_stmt|;
 comment|// block until screen event is available
 specifier|const
 name|int
-name|result
+name|error
 init|=
 name|screen_get_event
 argument_list|(
@@ -302,7 +302,7 @@ argument_list|)
 decl_stmt|;
 name|Q_SCREEN_CRITICALERROR
 argument_list|(
-name|result
+name|error
 argument_list|,
 literal|"Failed to get screen event"
 argument_list|)
@@ -310,8 +310,7 @@ expr_stmt|;
 comment|// Only allow 50 consecutive errors before we exit the thread
 if|if
 condition|(
-operator|!
-name|result
+name|error
 condition|)
 block|{
 name|errorCounter

@@ -19,14 +19,14 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-name|cups_dest_t
-modifier|*
-name|d
-decl_stmt|;
-name|cupsGetDests
+comment|// CUPS 1.4 test
+name|cupsGetNamedDest
 argument_list|(
-operator|&
-name|d
+name|CUPS_HTTP_DEFAULT
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 return|return
