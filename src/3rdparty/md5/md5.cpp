@@ -776,7 +776,6 @@ literal|16
 index|]
 parameter_list|)
 block|{
-specifier|register
 name|UWORD32
 name|a
 decl_stmt|,
