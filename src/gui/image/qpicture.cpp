@@ -161,7 +161,9 @@ specifier|const
 name|quint16
 name|mfhdr_maj
 init|=
-literal|11
+name|QDataStream
+operator|::
+name|Qt_DefaultCompiledVersion
 decl_stmt|;
 end_decl_stmt
 begin_comment
