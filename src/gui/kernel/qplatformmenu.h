@@ -243,6 +243,18 @@ argument_list|)
 operator|=
 literal|0
 block|;
+name|virtual
+name|void
+name|setNativeContents
+argument_list|(
+argument|WId item
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|item
+argument_list|)
+block|; }
 name|Q_SIGNALS
 operator|:
 name|void
@@ -426,6 +438,12 @@ argument_list|(
 name|true
 argument_list|)
 block|;     }
+name|virtual
+name|void
+name|dismiss
+argument_list|()
+block|{ }
+comment|// Closes this and all its related menu popups
 name|virtual
 name|QPlatformMenuItem
 operator|*
