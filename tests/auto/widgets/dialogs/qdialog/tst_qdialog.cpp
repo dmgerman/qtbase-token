@@ -1214,8 +1214,10 @@ argument_list|)
 expr_stmt|;
 name|dialog
 operator|.
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -1380,8 +1382,10 @@ argument_list|)
 expr_stmt|;
 name|dialog
 operator|.
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
