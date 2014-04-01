@@ -5082,6 +5082,16 @@ argument_list|)
 decl_stmt|;
 else|#
 directive|else
+name|offset
+operator|=
+operator|(
+name|offsetHi
+operator|<<
+literal|32
+operator|)
+operator|+
+name|offsetLo
+expr_stmt|;
 name|LPVOID
 name|mapAddress
 init|=
