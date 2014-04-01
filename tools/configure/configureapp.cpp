@@ -22261,11 +22261,6 @@ name|qconfigList
 operator|+=
 literal|"QT_NO_STYLE_WINDOWSVISTA"
 expr_stmt|;
-comment|// ### We still need the QT_NO_STYLE_S60 define for compiling Qt. Remove later!
-name|qconfigList
-operator|+=
-literal|"QT_NO_STYLE_S60"
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
