@@ -2996,6 +2996,13 @@ decl_stmt|;
 name|QStringList
 name|lst
 decl_stmt|;
+name|lst
+operator|.
+name|reserve
+argument_list|(
+name|rgbTblSize
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|i
