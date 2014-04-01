@@ -142,6 +142,13 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|NativeResourceForIntegrationFunction
+name|nativeResourceFunctionForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|NativeResourceForContextFunction
 name|nativeResourceFunctionForContext
 argument_list|(
@@ -250,6 +257,15 @@ name|void
 operator|*
 name|rootWindow
 argument_list|()
+block|;
+specifier|static
+name|void
+name|setStartupId
+argument_list|(
+specifier|const
+name|char
+operator|*
+argument_list|)
 block|;
 specifier|static
 name|void
