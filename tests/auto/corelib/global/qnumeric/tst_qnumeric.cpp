@@ -928,7 +928,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 name|QEXPECT_FAIL
 argument_list|(
 literal|"denormal"
@@ -1346,7 +1346,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 name|QEXPECT_FAIL
 argument_list|(
 literal|"denormal"

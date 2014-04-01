@@ -2716,6 +2716,7 @@ expr_stmt|;
 end_expr_stmt
 begin_function
 DECL|function|qt_script_for_writing_system
+name|Q_GUI_EXPORT
 name|int
 name|qt_script_for_writing_system
 parameter_list|(

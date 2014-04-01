@@ -874,7 +874,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.3      Returns true if the format option \a option is set; otherwise returns false.      \sa options(), testOption() */
+comment|/*!     \since 5.3      Returns true if the format option \a option is set; otherwise returns false.      \sa options() */
 end_comment
 begin_function
 DECL|function|testOption

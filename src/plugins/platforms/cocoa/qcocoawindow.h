@@ -608,6 +608,10 @@ name|void
 name|windowDidResize
 argument_list|()
 block|;
+name|void
+name|windowDidEndLiveResize
+argument_list|()
+block|;
 name|bool
 name|windowShouldClose
 argument_list|()
@@ -892,6 +896,9 @@ name|Qt
 operator|::
 name|WindowFlags
 name|m_windowFlags
+block|;
+name|bool
+name|m_effectivelyMaximized
 block|;
 name|Qt
 operator|::

@@ -215,7 +215,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Asks the session manager for permission to interact with the user. Returns     true if interaction is permitted; otherwise returns \c false.      The rationale behind this mechanism is to make it possible to synchronize     user interaction during a shutdown. Advanced session managers may ask all     applications simultaneously to commit their data, resulting in a much     faster shutdown.      When the interaction is completed we strongly recommend releasing the user     interaction semaphore with a call to release(). This way, other     applications may get the chance to interact with the user while your     application is still busy saving data. (The semaphore is implicitly     released when the application exits.)      If the user decides to cancel the shutdown process during the interaction     phase, you must tell the session manager that this has happened by calling     cancel().      Here's an example of how an application's QGuiApplication::commitDataRequest()     might be implemented:      \snippet code/src_gui_kernel_qguiapplication.cpp 8      If an error occurred within the application while saving its data, you may     want to try allowsErrorInteraction() instead.      \sa QGuiApplication::commitDataRequest(), release(), cancel() */
+comment|/*!     Asks the session manager for permission to interact with the user. Returns     true if interaction is permitted; otherwise returns \c false.      The rationale behind this mechanism is to make it possible to synchronize     user interaction during a shutdown. Advanced session managers may ask all     applications simultaneously to commit their data, resulting in a much     faster shutdown.      When the interaction is completed we strongly recommend releasing the user     interaction semaphore with a call to release(). This way, other     applications may get the chance to interact with the user while your     application is still busy saving data. (The semaphore is implicitly     released when the application exits.)      If the user decides to cancel the shutdown process during the interaction     phase, you must tell the session manager that this has happened by calling     cancel().      Here's an example of how an application's QGuiApplication::commitDataRequest()     might be implemented:      \snippet code/src_gui_kernel_qguiapplication.cpp 1      If an error occurred within the application while saving its data, you may     want to try allowsErrorInteraction() instead.      \sa QGuiApplication::commitDataRequest(), release(), cancel() */
 end_comment
 begin_function
 DECL|function|allowsInteraction
@@ -379,7 +379,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If the session manager is capable of restoring sessions it will execute     \a command in order to restore the application. The command defaults to      \snippet code/src_gui_kernel_qguiapplication.cpp 9      The \c -session option is mandatory; otherwise QGuiApplication cannot     tell whether it has been restored or what the current session identifier     is.     See QGuiApplication::isSessionRestored() and     QGuiApplication::sessionId() for details.      If your application is very simple, it may be possible to store the entire     application state in additional command line options. This is usually a     very bad idea because command lines are often limited to a few hundred     bytes. Instead, use QSettings, temporary files, or a database for this     purpose. By marking the data with the unique sessionId(), you will be able     to restore the application in a future  session.      \sa restartCommand(), setDiscardCommand(), setRestartHint() */
+comment|/*!     If the session manager is capable of restoring sessions it will execute     \a command in order to restore the application. The command defaults to      \snippet code/src_gui_kernel_qguiapplication.cpp 2      The \c -session option is mandatory; otherwise QGuiApplication cannot     tell whether it has been restored or what the current session identifier     is.     See QGuiApplication::isSessionRestored() and     QGuiApplication::sessionId() for details.      If your application is very simple, it may be possible to store the entire     application state in additional command line options. This is usually a     very bad idea because command lines are often limited to a few hundred     bytes. Instead, use QSettings, temporary files, or a database for this     purpose. By marking the data with the unique sessionId(), you will be able     to restore the application in a future  session.      \sa restartCommand(), setDiscardCommand(), setRestartHint() */
 end_comment
 begin_function
 DECL|function|setRestartCommand
@@ -411,7 +411,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the currently set restart command.      To iterate over the list, you can use the \l foreach pseudo-keyword:      \snippet code/src_gui_kernel_qguiapplication.cpp 10      \sa setRestartCommand(), restartHint() */
+comment|/*!     Returns the currently set restart command.      To iterate over the list, you can use the \l foreach pseudo-keyword:      \snippet code/src_gui_kernel_qguiapplication.cpp 3      \sa setRestartCommand(), restartHint() */
 end_comment
 begin_function
 DECL|function|restartCommand
@@ -471,7 +471,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the currently set discard command.      To iterate over the list, you can use the \l foreach pseudo-keyword:      \snippet code/src_gui_kernel_qguiapplication.cpp 11      \sa setDiscardCommand(), restartCommand(), setRestartCommand() */
+comment|/*!     Returns the currently set discard command.      To iterate over the list, you can use the \l foreach pseudo-keyword:      \snippet code/src_gui_kernel_qguiapplication.cpp 4      \sa setDiscardCommand(), restartCommand(), setRestartCommand() */
 end_comment
 begin_function
 DECL|function|discardCommand

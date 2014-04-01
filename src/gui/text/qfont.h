@@ -777,7 +777,16 @@ return|;
 block|}
 endif|#
 directive|endif
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 comment|// needed for X11
+name|QT_DEPRECATED
 name|void
 name|setRawName
 parameter_list|(
@@ -786,11 +795,14 @@ name|QString
 modifier|&
 parameter_list|)
 function_decl|;
+name|QT_DEPRECATED
 name|QString
 name|rawName
 argument_list|()
 specifier|const
 expr_stmt|;
+endif|#
+directive|endif
 name|QString
 name|key
 argument_list|()

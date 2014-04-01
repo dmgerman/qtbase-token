@@ -170,6 +170,11 @@ include|#
 directive|include
 file|"qstringiterator_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qthreadstorage.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -16254,6 +16259,26 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_USE_ICU
+argument_list|)
+end_if
+begin_macro
+name|Q_GLOBAL_STATIC
+argument_list|(
+argument|QThreadStorage<QCollator>
+argument_list|,
+argument|defaultCollator
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \internal     \since 4.5 */
 end_comment
@@ -16490,11 +16515,30 @@ name|defined
 argument_list|(
 name|QT_USE_ICU
 argument_list|)
+if|if
+condition|(
+operator|!
+name|defaultCollator
+argument_list|()
+operator|->
+name|hasLocalData
+argument_list|()
+condition|)
+name|defaultCollator
+argument_list|()
+operator|->
+name|setLocalData
+argument_list|(
 name|QCollator
-name|collator
-decl_stmt|;
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
-name|collator
+name|defaultCollator
+argument_list|()
+operator|->
+name|localData
+argument_list|()
 operator|.
 name|compare
 argument_list|(
@@ -20014,7 +20058,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toLong() */
+comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toInt() */
 end_comment
 begin_function
 DECL|function|toLong
@@ -20052,7 +20096,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet qstring/main.cpp 78      \sa number(), QLocale::toULong() */
+comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to \c false; otherwise     *\a{ok} is set to \c true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet qstring/main.cpp 78      \sa number(), QLocale::toUInt() */
 end_comment
 begin_function
 DECL|function|toULong
@@ -24346,16 +24390,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QString QString::fromCFString(CFStringRef string)     \since 5.2      Constructs a new QString containing a copy of the \a string CFString. */
+comment|/*! \fn QString QString::fromCFString(CFStringRef string)     \since 5.2      Constructs a new QString containing a copy of the \a string CFString.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn CFStringRef QString::toCFString() const     \since 5.2      Creates a CFString from a QString. The caller owns the CFString and is     responsible for releasing it. */
+comment|/*! \fn CFStringRef QString::toCFString() const     \since 5.2      Creates a CFString from a QString. The caller owns the CFString and is     responsible for releasing it.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::fromNSString(const NSString *string)     \since 5.2      Constructs a new QString containing a copy of the \a string NSString. */
+comment|/*! \fn QString QString::fromNSString(const NSString *string)     \since 5.2      Constructs a new QString containing a copy of the \a string NSString.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn NSString QString::toNSString() const     \since 5.2      Creates a NSString from a QString.g. The NSString is autoreleased. */
+comment|/*! \fn NSString QString::toNSString() const     \since 5.2      Creates a NSString from a QString. The NSString is autoreleased.      \note this function is only available on Mac OS X and iOS. */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::isSimpleText() const      \internal */

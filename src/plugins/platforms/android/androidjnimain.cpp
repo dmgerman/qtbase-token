@@ -2704,6 +2704,13 @@ name|screen
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|screen
+operator|->
+name|rasterSurfaces
+argument_list|()
+condition|)
 name|QMetaObject
 operator|::
 name|invokeMethod

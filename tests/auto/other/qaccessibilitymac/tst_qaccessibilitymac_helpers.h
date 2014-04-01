@@ -46,6 +46,16 @@ end_function_decl
 begin_function_decl
 name|bool
 name|testHierarchy
+parameter_list|(
+name|QWidget
+modifier|*
+name|w
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|bool
+name|singleWidget
 parameter_list|()
 function_decl|;
 end_function_decl

@@ -132,7 +132,7 @@ name|m_testFont
 argument_list|(
 name|QFINDTESTDATA
 argument_list|(
-literal|"FreeMono.ttf"
+literal|"LED_REAL.TTF"
 argument_list|)
 argument_list|)
 block|{ }

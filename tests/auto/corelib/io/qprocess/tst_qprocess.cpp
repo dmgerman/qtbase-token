@@ -5782,11 +5782,13 @@ argument_list|(
 name|appName
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|proc
 operator|.
 name|waitedForFinished
+argument_list|,
+literal|10000
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

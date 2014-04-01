@@ -1231,7 +1231,7 @@ begin_comment
 comment|/*!     \fn QImage::QImage(QImage&&other)      Move-constructs a QImage instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     \fn QImage&operator=(QImage&&other)      Move-assigns \a other to this QImage instance.      \since 5.2 */
+comment|/*!     \fn QImage&QImage::operator=(QImage&&other)      Move-assigns \a other to this QImage instance.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*!     \typedef QImageCleanupFunction     \relates QImage     \since 5.0      A function with the following signature that can be used to     implement basic image memory management:      \code     void myImageCleanupHandler(void *info);     \endcode */

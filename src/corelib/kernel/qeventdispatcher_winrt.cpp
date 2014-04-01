@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qcoreapplication_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<wrl.h>
 end_include
 begin_include
@@ -326,6 +331,19 @@ argument_list|(
 name|QEventDispatcherWinRT
 argument_list|)
 expr_stmt|;
+comment|// Only look up the event dispatcher in the main thread
+if|if
+condition|(
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+operator|!=
+name|QCoreApplicationPrivate
+operator|::
+name|theMainThread
+condition|)
+return|return;
 name|ComPtr
 argument_list|<
 name|ICoreApplication

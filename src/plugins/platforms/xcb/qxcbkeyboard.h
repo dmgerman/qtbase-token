@@ -18,25 +18,37 @@ include|#
 directive|include
 file|"qxcbobject.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
-end_ifdef
 begin_include
 include|#
 directive|include
 file|<xcb/xcb_keysyms.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
 file|<xkbcommon/xkbcommon.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_XKB
+end_ifndef
+begin_comment
+comment|// note: extern won't be needed from libxkbcommon 0.4.1 and above
+end_comment
+begin_extern
+extern|extern
+literal|"C"
+block|{
+include|#
+directive|include
+file|<xkbcommon/xkbcommon-x11.h>
+block|}
+end_extern
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -127,15 +139,7 @@ argument|const QKeyEvent *e
 argument_list|)
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
-name|void
-name|updateXKBStateFromCore
-argument_list|(
-argument|quint16 state
-argument_list|)
-block|;
+comment|// when XKEYBOARD not present on the X server
 name|void
 name|updateXKBMods
 argument_list|()
@@ -146,16 +150,25 @@ argument_list|(
 argument|quint16 state
 argument_list|)
 block|;
-else|#
-directive|else
+name|void
+name|updateXKBStateFromCore
+argument_list|(
+argument|quint16 state
+argument_list|)
+block|;
+comment|// when XKEYBOARD is present on the X server
 name|int
 name|coreDeviceId
 argument_list|()
+specifier|const
 block|{
 return|return
 name|core_device_id
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_XKB
 name|void
 name|updateXKBState
 argument_list|(
@@ -212,6 +225,13 @@ argument_list|)
 specifier|const
 block|;
 name|void
+name|printKeymapError
+argument_list|(
+argument|const QString&error
+argument_list|)
+specifier|const
+block|;
+name|void
 name|readXKBConfig
 argument_list|()
 block|;
@@ -219,15 +239,12 @@ name|void
 name|clearXKBConfig
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
+comment|// when XKEYBOARD not present on the X server
 name|void
 name|updateModifiers
 argument_list|()
 block|;
-else|#
-directive|else
+comment|// when XKEYBOARD is present on the X server
 name|void
 name|updateVModMapping
 argument_list|()
@@ -236,8 +253,6 @@ name|void
 name|updateVModToRModMapping
 argument_list|()
 block|;
-endif|#
-directive|endif
 name|private
 operator|:
 name|bool
@@ -282,13 +297,11 @@ block|;
 name|_mod_masks
 name|rmod_masks
 block|;
-ifdef|#
-directive|ifdef
-name|QT_NO_XKB
+comment|// when XKEYBOARD not present on the X server
 name|xcb_key_symbols_t
 operator|*
 name|m_key_symbols
-block|;      struct
+block|;     struct
 name|_xkb_mods
 block|{
 name|xkb_mod_index_t
@@ -319,17 +332,13 @@ block|;
 name|_xkb_mods
 name|xkb_mods
 block|;
-else|#
-directive|else
+comment|// when XKEYBOARD is present on the X server
 name|_mod_masks
 name|vmod_masks
 block|;
 name|int
 name|core_device_id
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

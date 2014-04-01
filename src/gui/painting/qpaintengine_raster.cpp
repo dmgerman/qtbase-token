@@ -14007,6 +14007,11 @@ operator|.
 name|bytesPerLine
 argument_list|()
 argument_list|,
+name|img
+operator|.
+name|height
+argument_list|()
+argument_list|,
 name|qt_mapRect_non_normalizing
 argument_list|(
 name|r

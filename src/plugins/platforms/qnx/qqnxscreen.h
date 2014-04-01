@@ -161,6 +161,15 @@ return|return
 name|m_currentRotation
 return|;
 block|}
+name|QString
+name|name
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_name
+return|;
+block|}
 name|int
 name|nativeFormat
 argument_list|()
@@ -470,6 +479,9 @@ name|m_currentRotation
 decl_stmt|;
 name|int
 name|m_keyboardHeight
+decl_stmt|;
+name|QString
+name|m_name
 decl_stmt|;
 name|QSize
 name|m_initialPhysicalSize

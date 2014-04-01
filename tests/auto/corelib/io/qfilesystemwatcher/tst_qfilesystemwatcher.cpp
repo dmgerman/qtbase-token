@@ -1438,6 +1438,19 @@ name|absolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// flush pending signals (like the one from the rmdir above)
+name|timer
+operator|.
+name|start
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+name|eventLoop
+operator|.
+name|exec
+argument_list|()
+expr_stmt|;
 name|changedSpy
 operator|.
 name|clear

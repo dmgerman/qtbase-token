@@ -1399,9 +1399,6 @@ name|QWidget
 operator|::
 name|RenderFlags
 name|renderFlags
-argument_list|,
-name|bool
-name|readyToRender
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -3044,9 +3041,8 @@ name|renderToTexture
 operator|=
 name|true
 expr_stmt|;
-name|textureChildSeen
-operator|=
-name|true
+name|setTextureChildSeen
+argument_list|()
 expr_stmt|;
 block|}
 end_function

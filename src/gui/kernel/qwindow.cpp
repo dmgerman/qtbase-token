@@ -159,15 +159,6 @@ operator|::
 name|primaryScreen
 argument_list|()
 expr_stmt|;
-comment|//if your applications aborts here, then chances are your creating a QWindow before the
-comment|//screen list is populated.
-name|Q_ASSERT
-argument_list|(
-name|d
-operator|->
-name|screen
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|init
@@ -412,6 +403,25 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
+comment|// If your application aborts here, you are probably creating a QWindow
+comment|// before the screen list is populated.
+if|if
+condition|(
+operator|!
+name|screen
+condition|)
+block|{
+name|qFatal
+argument_list|(
+literal|"Cannot create window: no screens available"
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|QObject
 operator|::
 name|connect

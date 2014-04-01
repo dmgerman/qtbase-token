@@ -167,6 +167,15 @@ name|instance
 argument_list|()
 block|;
 comment|// declared in qapplication.cpp
+specifier|static
+name|bool
+name|gesturePending
+argument_list|(
+name|QObject
+operator|*
+name|o
+argument_list|)
+block|;
 name|void
 name|cleanupCachedGestures
 argument_list|(

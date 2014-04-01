@@ -85,6 +85,24 @@ name|size
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|populateCombo
+parameter_list|(
+name|QComboBox
+modifier|*
+name|combo
+parameter_list|,
+specifier|const
+name|FlagData
+modifier|*
+name|d
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|template
 operator|<
@@ -145,6 +163,13 @@ name|QGroupBox
 block|{
 name|public
 operator|:
+name|OptionsControl
+argument_list|(
+name|QWidget
+operator|*
+name|parent
+argument_list|)
+block|;
 name|explicit
 name|OptionsControl
 argument_list|(
@@ -155,6 +180,14 @@ argument_list|,
 argument|size_t count
 argument_list|,
 argument|QWidget *parent
+argument_list|)
+block|;
+name|void
+name|populateOptions
+argument_list|(
+argument|const FlagData *data
+argument_list|,
+argument|size_t count
 argument_list|)
 block|;
 name|void

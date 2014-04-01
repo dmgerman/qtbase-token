@@ -8555,7 +8555,7 @@ argument_list|(
 name|menuFadeDelay
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|file
 operator|->
@@ -8599,7 +8599,7 @@ argument_list|(
 name|menuFadeDelay
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|file
@@ -8643,7 +8643,7 @@ argument_list|(
 name|menuFadeDelay
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|file
@@ -8687,7 +8687,7 @@ argument_list|(
 name|menuFadeDelay
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|file
@@ -9230,7 +9230,7 @@ name|showMenuAction
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|file
 operator|->
@@ -9238,7 +9238,7 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|fileNew
 operator|->

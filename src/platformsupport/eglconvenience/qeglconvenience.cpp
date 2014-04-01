@@ -144,15 +144,7 @@ comment|// "AtLeast" for EGL_BUFFER_SIZE, it's sort order is "smaller" meaning 1
 comment|// put in the list before 32-bit configs. So, to make sure 16-bit is preffered over 32-bit,
 comment|// we must set the red/green/blue sizes to zero. This has an unfortunate consequence that
 comment|// if the application sets the red/green/blue size to 5/6/5 on the QSurfaceFormat,
-comment|// they will probably get a 32-bit config, even when there's an RGB565 config available.
-comment|//    // Now normalize the values so -1 becomes 0
-comment|//    redSize   = redSize> 0 ? redSize   : 0;
-comment|//    greenSize = greenSize> 0 ? greenSize : 0;
-comment|//    blueSize  = blueSize> 0 ? blueSize  : 0;
-comment|//    alphaSize = alphaSize> 0 ? alphaSize : 0;
-comment|//    depthSize = depthSize> 0 ? depthSize : 0;
-comment|//    stencilSize = stencilSize> 0 ? stencilSize : 0;
-comment|//    sampleCount = sampleCount> 0 ? sampleCount : 0;
+comment|// they might still get a 32-bit config, even when there's an RGB565 config available.
 name|QVector
 argument_list|<
 name|EGLint
@@ -2131,9 +2123,9 @@ name|value
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|qDebug
 argument_list|(
-literal|"\t%s: %d\n"
+literal|"\t%s: %d"
 argument_list|,
 name|attrs
 index|[
@@ -2150,11 +2142,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|qWarning
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_ifdef

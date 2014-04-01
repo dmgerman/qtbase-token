@@ -1555,10 +1555,10 @@ begin_comment
 comment|/*!     \fn QFont&QFont::operator=(QFont&&other)      Move-assigns \a other to this QFont instance.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     \fn QString QFont::rawName() const      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
+comment|/*!     \fn QString QFont::rawName() const     \deprecated      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFont::setRawName(const QString&name)      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setRawMode(), setFamily() */
+comment|/*!     \fn void QFont::setRawName(const QString&name)     \deprecated      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setRawMode(), setFamily() */
 end_comment
 begin_comment
 comment|/*!     \fn QString QFont::lastResortFamily() const      Returns the "last resort" font family name.      The current implementation tries a wide variety of common fonts,     returning the first one it finds. Is is possible that no family is     found in which case an empty string is returned.      \sa lastResortFont() */
@@ -2776,7 +2776,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 is     ultralight, whilst 99 will be an extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
+comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 is     ultralight, whilst 99 will be extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
 end_comment
 begin_comment
 comment|/*!     Sets the weight the font to \a weight, which should be a value     from the \l QFont::Weight enumeration.      \sa weight(), QFontInfo */
@@ -3165,7 +3165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Enables kerning for this font if \a enable is true; otherwise     disables it. By default, kerning is enabled.      When kerning is enabled, glyph metrics do not add up anymore,     even for Latin text. In other words, the assumption that     width('a') + width('b') is equal to width("ab") is not     neccesairly true.      \sa kerning(), QFontMetrics */
+comment|/*!     Enables kerning for this font if \a enable is true; otherwise     disables it. By default, kerning is enabled.      When kerning is enabled, glyph metrics do not add up anymore,     even for Latin text. In other words, the assumption that     width('a') + width('b') is equal to width("ab") is not     necessarily true.      \sa kerning(), QFontMetrics */
 end_comment
 begin_function
 DECL|function|setKerning
@@ -7100,7 +7100,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns the style name of the matched window system font on     system that supports it.      \sa QFont::styleName() */
+comment|/*!     \since 4.8      Returns the style name of the matched window system font on     systems that support it.      \sa QFont::styleName() */
 end_comment
 begin_function
 DECL|function|styleName

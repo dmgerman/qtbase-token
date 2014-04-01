@@ -2284,18 +2284,15 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qWarning
+name|qErrnoWarning
 argument_list|(
-literal|"Failed to open framebuffer %s : %s"
+name|errno
+argument_list|,
+literal|"Failed to open framebuffer %s"
 argument_list|,
 name|qPrintable
 argument_list|(
 name|fbDevice
-argument_list|)
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2351,14 +2348,11 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"Error reading fixed information: %s"
-argument_list|,
-name|strerror
+name|qErrnoWarning
 argument_list|(
 name|errno
-argument_list|)
+argument_list|,
+literal|"Error reading fixed information"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2378,14 +2372,11 @@ name|vinfo
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"Error reading variable information: %s"
-argument_list|,
-name|strerror
+name|qErrnoWarning
 argument_list|(
 name|errno
-argument_list|)
+argument_list|,
+literal|"Error reading variable information"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2503,14 +2494,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"Failed to mmap framebuffer: %s"
-argument_list|,
-name|strerror
+name|qErrnoWarning
 argument_list|(
 name|errno
-argument_list|)
+argument_list|,
+literal|"Failed to mmap framebuffer"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2706,21 +2694,17 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|qWarning
-argument_list|()
-operator|<<
-literal|"Failed to open tty"
-operator|<<
-name|strerror
+name|qErrnoWarning
 argument_list|(
 name|errno
+argument_list|,
+literal|"Failed to open tty"
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|doSwitchToGraphicsMode
-operator|&&
-operator|!
+condition|)
 name|switchToGraphicsMode
 argument_list|(
 name|mTtyFd
@@ -2728,17 +2712,9 @@ argument_list|,
 operator|&
 name|mOldTtyMode
 argument_list|)
-condition|)
-name|qWarning
-argument_list|()
-operator|<<
-literal|"Failed to set graphics mode"
-operator|<<
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 expr_stmt|;
+comment|// Do not warn if the switch fails: the ioctl fails when launching from
+comment|// a remote console and there is nothing we can do about it.
 name|blankScreen
 argument_list|(
 name|mFbFd
