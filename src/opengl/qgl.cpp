@@ -9997,14 +9997,9 @@ argument_list|(
 name|QGLContext
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isValid
-argument_list|()
-condition|)
-name|reset
-argument_list|()
-expr_stmt|;
+comment|// Do not touch the valid flag here. The context is either a new one and
+comment|// valid is not yet set or it is adapted from a valid QOpenGLContext in which
+comment|// case it must remain valid.
 name|d
 operator|->
 name|paintDevice
