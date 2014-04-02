@@ -24121,6 +24121,13 @@ operator|==
 name|which
 condition|)
 continue|continue;
+name|multi
+operator|->
+name|ensureEngineAt
+argument_list|(
+name|which
+argument_list|)
+expr_stmt|;
 name|QTextItemInt
 name|ti2
 init|=
@@ -24284,6 +24291,13 @@ operator|=
 name|e
 expr_stmt|;
 block|}
+name|multi
+operator|->
+name|ensureEngineAt
+argument_list|(
+name|which
+argument_list|)
+expr_stmt|;
 name|QTextItemInt
 name|ti2
 init|=
