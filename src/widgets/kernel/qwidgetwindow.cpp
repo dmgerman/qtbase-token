@@ -2350,15 +2350,6 @@ operator|==
 name|QEvent
 operator|::
 name|MouseButtonPress
-operator|||
-name|event
-operator|->
-name|type
-argument_list|()
-operator|==
-name|QEvent
-operator|::
-name|MouseButtonDblClick
 condition|)
 name|qt_button_down
 operator|=
