@@ -2982,7 +2982,7 @@ argument_list|)
 expr_stmt|;
 name|dialog
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|tabWidget
