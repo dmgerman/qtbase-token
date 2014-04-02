@@ -179,6 +179,10 @@ argument_list|,
 argument|bool removed
 argument_list|)
 block|;
+name|void
+name|scheduleStreamRestart
+argument_list|()
+block|;
 name|private
 name|slots
 operator|:
@@ -197,6 +201,10 @@ argument|const QString path
 argument_list|,
 argument|bool removed
 argument_list|)
+block|;
+name|void
+name|restartStream
+argument_list|()
 block|;
 name|private
 operator|:
@@ -362,7 +370,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|void
+name|bool
 name|derefPath
 parameter_list|(
 specifier|const
@@ -373,7 +381,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
-name|void
+name|bool
 name|checkDir
 argument_list|(
 name|DirsByName
@@ -385,7 +393,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
-name|void
+name|bool
 name|rescanDirs
 parameter_list|(
 specifier|const
@@ -396,7 +404,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|void
+name|bool
 name|rescanFiles
 parameter_list|(
 name|InfoByName
@@ -406,7 +414,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|void
+name|bool
 name|rescanFiles
 parameter_list|(
 specifier|const
@@ -444,6 +452,11 @@ end_decl_stmt
 begin_decl_stmt
 name|PathRefCounts
 name|watchedPaths
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|FSEventStreamEventId
+name|lastReceivedEvent
 decl_stmt|;
 end_decl_stmt
 begin_macro

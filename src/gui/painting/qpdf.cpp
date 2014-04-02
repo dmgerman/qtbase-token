@@ -5894,6 +5894,12 @@ condition|(
 name|d
 operator|->
 name|simplePen
+operator|&&
+name|d
+operator|->
+name|opacity
+operator|==
+literal|1.0
 condition|)
 block|{
 comment|// draw strokes natively in this case for better output

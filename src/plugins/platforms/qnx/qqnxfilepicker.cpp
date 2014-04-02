@@ -441,7 +441,10 @@ name|m_defaultSaveFileNames
 operator|.
 name|join
 argument_list|(
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -464,7 +467,10 @@ name|m_filters
 operator|.
 name|join
 argument_list|(
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QByteArray
@@ -1137,8 +1143,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|filters
-argument_list|()
+name|m_filters
 operator|.
 name|count
 argument_list|()
@@ -1157,8 +1162,7 @@ name|mimeDb
 operator|.
 name|mimeTypesForFileName
 argument_list|(
-name|filters
-argument_list|()
+name|m_filters
 operator|.
 name|at
 argument_list|(

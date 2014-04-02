@@ -44805,6 +44805,9 @@ argument_list|,
 name|int
 name|sbpl
 argument_list|,
+name|int
+name|srch
+argument_list|,
 specifier|const
 name|QRectF
 operator|&

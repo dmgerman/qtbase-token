@@ -6687,12 +6687,6 @@ name|defined
 argument_list|(
 name|QT_NO_CAST_FROM_ASCII
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_NO_DECLARED_NOT_DEFINED
-argument_list|)
 name|QString
 operator|&
 name|operator

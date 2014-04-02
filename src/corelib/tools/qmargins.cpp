@@ -49,6 +49,8 @@ comment|/*!     \fn QMargins operator+(const QMargins&margins)     \relates QMar
 comment|/*!     \fn QMargins operator-(const QMargins&margins)     \relates QMargins      Returns a QMargin object that is formed by negating all components of \a margins.      \since 5.1 */
 comment|/*!     \fn QMargins&QMargins::operator+=(const QMargins&margins)      Add each component of \a margins to the respective component of this object     and returns a reference to it.      \sa operator-=()      \since 5.1 */
 comment|/*!     \fn QMargins&QMargins::operator-=(const QMargins&margins)      Subtract each component of \a margins from the respective component of this object     and returns a reference to it.      \sa operator+=()      \since 5.1 */
+comment|/*!     \fn QMargins&QMargins::operator+=(int addend)     \overload      Adds the \a addend to each component of this object     and returns a reference to it.      \sa operator-=() */
+comment|/*!     \fn QMargins&QMargins::operator-=(int subtrahend)     \overload      Subtracts the \a subtrahend from each component of this object     and returns a reference to it.      \sa operator+=() */
 comment|/*!     \fn QMargins&QMargins::operator*=(int factor)      Multiplies each component of this object by \a factor     and returns a reference to it.      \sa operator/=()      \since 5.1 */
 comment|/*!     \fn QMargins&QMargins::operator*=(qreal factor)     \overload      Multiplies each component of this object by \a factor     and returns a reference to it.      \sa operator/=()      \since 5.1 */
 comment|/*!     \fn QMargins&QMargins::operator/=(int divisor)      Divides each component of this object by \a divisor     and returns a reference to it.      \sa operator*=()      \since 5.1 */

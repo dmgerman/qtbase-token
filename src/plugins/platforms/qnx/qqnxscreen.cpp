@@ -694,6 +694,37 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+name|char
+name|name
+index|[
+literal|100
+index|]
+decl_stmt|;
+name|Q_SCREEN_CHECKERROR
+argument_list|(
+name|screen_get_display_property_cv
+argument_list|(
+name|m_display
+argument_list|,
+name|SCREEN_PROPERTY_ID_STRING
+argument_list|,
+literal|100
+argument_list|,
+name|name
+argument_list|)
+argument_list|,
+literal|"Failed to query display name"
+argument_list|)
+expr_stmt|;
+name|m_name
+operator|=
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 comment|// Cache size of this display in millimeters. We have to take care of the orientation.
 comment|// libscreen always reports the physical size dimensions as width and height in the
 comment|// native orientation. Contrary to this, QPlatformScreen::physicalSize() expects the

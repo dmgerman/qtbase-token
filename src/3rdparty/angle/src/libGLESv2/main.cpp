@@ -253,6 +253,11 @@ directive|endif
 block|}
 block|}
 end_namespace
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_OPENGL_ES_2_ANGLE_STATIC
+end_ifndef
 begin_extern
 DECL|function|DllMain
 extern|extern
@@ -362,6 +367,13 @@ name|TRUE
 return|;
 block|}
 end_extern
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_OPENGL_ES_2_ANGLE_STATIC
+end_comment
 begin_namespace
 DECL|namespace|gl
 namespace|namespace

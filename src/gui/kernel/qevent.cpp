@@ -597,7 +597,7 @@ begin_comment
 comment|/*!     \fn Qt::Orientation QWheelEvent::orientation() const     \obsolete      Returns the wheel's orientation.      Use angleDelta() instead. */
 end_comment
 begin_comment
-comment|/*!     \obsolete     Constructs a wheel event object.      Use the constructor taking \e angleDelta and \e pixelDelta QPoints instead.      The position, \a pos, is the location of the mouse cursor within     the widget. The globalPos() is initialized to QCursor::pos()     which is usually, but not always, correct.     Use the other constructor if you need to specify the global     position explicitly.      The \a buttons describe the state of the mouse buttons at the time     of the event, \a delta contains the rotation distance,     \a modifiers holds the keyboard modifier flags at the time of the     event, and \a orient holds the wheel's orientation.      \sa pos(), pixelDelta(), angleDelta(), state() */
+comment|/*!     \obsolete     Constructs a wheel event object.      Use the constructor taking \e angleDelta and \e pixelDelta QPoints instead.      The position, \a pos, is the location of the mouse cursor within     the widget. The globalPos() is initialized to QCursor::pos()     which is usually, but not always, correct.     Use the other constructor if you need to specify the global     position explicitly.      The \a buttons describe the state of the mouse buttons at the time     of the event, \a delta contains the rotation distance,     \a modifiers holds the keyboard modifier flags at the time of the     event, and \a orient holds the wheel's orientation.      \sa pos(), pixelDelta(), angleDelta() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -683,7 +683,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \obsolete     Constructs a wheel event object.      Use the constructor taking \e angleDelta and \e pixelDelta QPoints instead.      The \a pos provides the location of the mouse cursor     within the widget. The position in global coordinates is specified     by \a globalPos. \a delta contains the rotation distance, \a modifiers     holds the keyboard modifier flags at the time of the event, and     \a orient holds the wheel's orientation.       \sa pos(), pixelDelta(), angleDelta(), state() */
+comment|/*!     \obsolete     Constructs a wheel event object.      Use the constructor taking \e angleDelta and \e pixelDelta QPoints instead.      The \a pos provides the location of the mouse cursor     within the widget. The position in global coordinates is specified     by \a globalPos. \a delta contains the rotation distance, \a modifiers     holds the keyboard modifier flags at the time of the event, and     \a orient holds the wheel's orientation.       \sa pos(), pixelDelta(), angleDelta() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent

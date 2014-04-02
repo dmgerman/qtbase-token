@@ -98,6 +98,17 @@ name|context
 argument_list|)
 decl|const
 decl_stmt|;
+name|QPlatformOffscreenSurface
+modifier|*
+name|createPlatformOffscreenSurface
+argument_list|(
+name|QOffscreenSurface
+operator|*
+name|surface
+argument_list|)
+decl|const
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase

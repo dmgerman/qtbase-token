@@ -356,7 +356,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the OpenGL profile. Only makes sense if profiles are supported by this version.      \sa setProfile(), supportsProfiles() */
+comment|/*!     Returns the OpenGL profile. Only makes sense if profiles are supported by this version.      \sa setProfile() */
 end_comment
 begin_function
 DECL|function|profile
@@ -377,7 +377,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the OpenGL profile \a profile. Only makes sense if profiles are supported by     this version.      \sa profile(), supportsProfiles() */
+comment|/*!     Sets the OpenGL profile \a profile. Only makes sense if profiles are supported by     this version.      \sa profile() */
 end_comment
 begin_function
 DECL|function|setProfile

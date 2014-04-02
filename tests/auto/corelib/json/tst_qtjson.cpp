@@ -1795,7 +1795,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 if|if
 condition|(
 name|power
@@ -9323,7 +9323,7 @@ literal|"}\n"
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -9361,7 +9361,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -12419,7 +12419,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 if|if
 condition|(
 literal|0

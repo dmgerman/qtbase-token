@@ -348,16 +348,16 @@ name|m_touchDevice
 operator|=
 name|touchDevice
 block|; }
-specifier|static
-name|bool
-name|needsWorkaround
-argument_list|()
-block|;
 name|EGLDisplay
 name|m_eglDisplay
 block|;
 name|private
 operator|:
+specifier|static
+name|bool
+name|needsBasicRenderloopWorkaround
+argument_list|()
+block|;
 name|QTouchDevice
 operator|*
 name|m_touchDevice

@@ -3115,6 +3115,9 @@ parameter_list|,
 name|int
 name|sbpl
 parameter_list|,
+name|int
+name|srch
+parameter_list|,
 specifier|const
 name|QRectF
 modifier|&
@@ -3154,6 +3157,8 @@ name|srcPixels
 argument_list|,
 name|sbpl
 argument_list|,
+name|srch
+argument_list|,
 name|targetRect
 argument_list|,
 name|sourceRect
@@ -3191,6 +3196,9 @@ name|srcPixels
 parameter_list|,
 name|int
 name|sbpl
+parameter_list|,
+name|int
+name|srch
 parameter_list|,
 specifier|const
 name|QRectF
@@ -3231,6 +3239,9 @@ name|srcPixels
 parameter_list|,
 name|int
 name|sbpl
+parameter_list|,
+name|int
+name|srch
 parameter_list|,
 specifier|const
 name|QRectF
@@ -3275,6 +3286,8 @@ name|srcPixels
 argument_list|,
 name|sbpl
 argument_list|,
+name|srch
+argument_list|,
 name|targetRect
 argument_list|,
 name|sourceRect
@@ -3298,6 +3311,8 @@ argument_list|,
 name|srcPixels
 argument_list|,
 name|sbpl
+argument_list|,
+name|srch
 argument_list|,
 name|targetRect
 argument_list|,

@@ -10337,7 +10337,7 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|_NET_WM_STATE
+name|WM_STATE
 argument_list|)
 condition|)
 block|{
@@ -10359,7 +10359,7 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|_NET_WM_STATE
+name|WM_STATE
 argument_list|)
 argument_list|,
 name|XCB_ATOM_ANY
@@ -10401,7 +10401,7 @@ name|atom
 argument_list|(
 name|QXcbAtom
 operator|::
-name|_NET_WM_STATE
+name|WM_STATE
 argument_list|)
 condition|)
 block|{
@@ -10448,7 +10448,6 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-comment|// WM_STATE: Quick check for 'Minimize'.
 if|if
 condition|(
 name|newState

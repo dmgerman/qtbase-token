@@ -10608,15 +10608,6 @@ begin_comment
 comment|/*!     \fn bool QGLContext::chooseContext(const QGLContext* shareContext = 0)      This semi-internal function is called by create(). It creates a     system-dependent OpenGL handle that matches the format() of \a     shareContext as closely as possible, returning true if successful     or false if a suitable handle could not be found.      On Windows, it calls the virtual function choosePixelFormat(),     which finds a matching pixel format identifier. On X11, it calls     the virtual function chooseVisual() which finds an appropriate X     visual. On other platforms it may work differently. */
 end_comment
 begin_comment
-comment|/*! \fn int QGLContext::choosePixelFormat(void* dummyPfd, HDC pdc)      \b{Win32 only:} This virtual function chooses a pixel format     that matches the OpenGL \l{setFormat()}{format}.     Reimplement this function in a subclass if you need a custom     context.      \warning The \a dummyPfd pointer and \a pdc are used as a \c     PIXELFORMATDESCRIPTOR*. We use \c void to avoid using     Windows-specific types in our header files.      \sa chooseContext() */
-end_comment
-begin_comment
-comment|/*! \fn void *QGLContext::chooseVisual()    \b{X11 only:} This virtual function tries to find a visual that   matches the format, reducing the demands if the original request   cannot be met.    The algorithm for reducing the demands of the format is quite   simple-minded, so override this method in your subclass if your   application has spcific requirements on visual selection.    \sa chooseContext() */
-end_comment
-begin_comment
-comment|/*! \fn void *QGLContext::tryVisual(const QGLFormat& f, int bufDepth)   \internal    \b{X11 only:} This virtual function chooses a visual that matches   the OpenGL \l{format()}{format}. Reimplement this function   in a subclass if you need a custom visual.    \sa chooseContext() */
-end_comment
-begin_comment
 comment|/*!     \fn void QGLContext::reset()      Resets the context and makes it invalid.      \sa create(), isValid() */
 end_comment
 begin_comment
@@ -11027,7 +11018,7 @@ begin_comment
 comment|/*!     \fn bool QGLWidget::autoBufferSwap() const      Returns \c true if the widget is doing automatic GL buffer swapping;     otherwise returns \c false.      \sa setAutoBufferSwap() */
 end_comment
 begin_comment
-comment|/*!     \fn QFunctionPointer QGLContext::getProcAddress() const      Returns a function pointer to the GL extension function passed in     \a proc. 0 is returned if a pointer to the function could not be     obtained. */
+comment|/*!     \fn QFunctionPointer QGLContext::getProcAddress(const QString&proc) const      Returns a function pointer to the GL extension function passed in     \a proc. 0 is returned if a pointer to the function could not be     obtained. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QGLWidget::isValid() const      Returns \c true if the widget has a valid GL rendering context;     otherwise returns \c false. A widget will be invalid if the system     has no \l{QGLFormat::hasOpenGL()}{OpenGL support}. */
@@ -11380,9 +11371,6 @@ block|}
 end_function
 begin_comment
 comment|/*!     \fn void QGLWidget::resizeEvent(QResizeEvent *event)      Handles resize events that are passed in the \a event parameter.     Calls the virtual function resizeGL(). */
-end_comment
-begin_comment
-comment|/*!     \fn void QGLWidget::setMouseTracking(bool enable)      If \a enable is true then mouse tracking is enabled; otherwise it     is disabled. */
 end_comment
 begin_comment
 comment|/*!     Renders the current scene on a pixmap and returns the pixmap.      You can use this method on both visible and invisible QGLWidget objects.      Internally the function renders into a framebuffer object and performs pixel     readback. This has a performance penalty, meaning that this function is not     suitable to be called at a high frequency.      After creating and binding the framebuffer object, the function will call     initializeGL(), resizeGL(), and paintGL(). On the next normal update     initializeGL() and resizeGL() will be triggered again since the size of the     destination pixmap and the QGLWidget's size may differ.      The size of the pixmap will be \a w pixels wide and \a h pixels high unless     one of these parameters is 0 (the default), in which case the pixmap will     have the same size as the widget.      Care must be taken when using framebuffer objects in paintGL() in     combination with this function. To switch back to the default framebuffer,     use QGLFramebufferObject::bindDefault(). Binding FBO 0 is wrong since     renderPixmap() uses a custom framebuffer instead of the one provided by the     windowing system.      \a useContext is ignored. Historically this parameter enabled the usage of     the existing GL context. This is not supported anymore since additional     contexts are never created.      Overlays are not rendered onto the pixmap.      If the GL rendering context and the desktop have different bit     depths, the result will most likely look surprising.      Note that the creation of display lists, modifications of the view     frustum etc. should be done from within initializeGL(). If this is     not done, the temporary QGLContext will not be initialized     properly, and the rendered pixmap may be incomplete/corrupted. */

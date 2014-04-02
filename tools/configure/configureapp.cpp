@@ -21726,7 +21726,7 @@ name|tmpStream
 operator|<<
 literal|"#define QT_PRODUCT_LICENSEE \""
 operator|<<
-name|licenseInfo
+name|dictionary
 index|[
 literal|"LICENSEE"
 index|]
@@ -22690,64 +22690,6 @@ operator|=
 literal|"error"
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"EDITION"
-index|]
-operator|==
-literal|"Evaluation"
-operator|||
-name|qmakeDefines
-operator|.
-name|contains
-argument_list|(
-literal|"QT_EVAL"
-argument_list|)
-condition|)
-block|{
-name|FileWriter
-name|tmpStream
-argument_list|(
-name|buildPath
-operator|+
-literal|"/src/corelib/global/qconfig_eval.cpp"
-argument_list|)
-decl_stmt|;
-name|tmpStream
-operator|<<
-literal|"/* Evaluation license key */"
-operator|<<
-name|endl
-operator|<<
-literal|"static const volatile char qt_eval_key_data              [512 + 12] = \"qt_qevalkey="
-operator|<<
-name|licenseInfo
-index|[
-literal|"LICENSEKEYEXT"
-index|]
-operator|<<
-literal|"\";"
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|tmpStream
-operator|.
-name|flush
-argument_list|()
-condition|)
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|=
-literal|"error"
-expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -22941,7 +22883,7 @@ block|{
 name|QString
 name|l1
 init|=
-name|licenseInfo
+name|dictionary
 index|[
 literal|"LICENSEE"
 index|]
@@ -22949,7 +22891,7 @@ decl_stmt|;
 name|QString
 name|l2
 init|=
-name|licenseInfo
+name|dictionary
 index|[
 literal|"LICENSEID"
 index|]
@@ -22969,7 +22911,7 @@ decl_stmt|;
 name|QString
 name|l4
 init|=
-name|licenseInfo
+name|dictionary
 index|[
 literal|"EXPIRYDATE"
 index|]
@@ -25864,7 +25806,7 @@ name|endl
 operator|<<
 literal|"static const char qt_configure_licensee_str          [512 + 12] = \"qt_lcnsuser="
 operator|<<
-name|licenseInfo
+name|dictionary
 index|[
 literal|"LICENSEE"
 index|]
@@ -28444,7 +28386,7 @@ literal|" Open Source Edition."
 operator|<<
 name|endl
 expr_stmt|;
-name|licenseInfo
+name|dictionary
 index|[
 literal|"LICENSEE"
 index|]
@@ -28521,75 +28463,11 @@ name|checkLicense
 argument_list|(
 name|dictionary
 argument_list|,
-name|licenseInfo
-argument_list|,
-name|firstLicensePath
-argument_list|()
-argument_list|,
 name|sourcePath
+argument_list|,
+name|buildPath
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|!=
-literal|"error"
-condition|)
-block|{
-comment|// give the user some feedback, and prompt for license acceptance
-name|cout
-operator|<<
-name|endl
-operator|<<
-literal|"This is the "
-operator|<<
-name|dictionary
-index|[
-literal|"PLATFORM NAME"
-index|]
-operator|<<
-literal|" "
-operator|<<
-name|dictionary
-index|[
-literal|"EDITION"
-index|]
-operator|<<
-literal|" Edition."
-operator|<<
-name|endl
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|showLicense
-argument_list|(
-name|dictionary
-index|[
-literal|"LICENSE FILE"
-index|]
-argument_list|)
-condition|)
-block|{
-name|cout
-operator|<<
-literal|"Configuration aborted since license was not accepted"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|=
-literal|"error"
-expr_stmt|;
-return|return;
-block|}
-block|}
 block|}
 else|#
 directive|else
@@ -28600,7 +28478,21 @@ name|cout
 operator|<<
 name|endl
 operator|<<
-literal|"Cannot build commercial edition from the open source version of the library."
+literal|"Error: This is the Open Source version of Qt."
+operator|<<
+name|endl
+operator|<<
+literal|"If you want to use Enterprise features of Qt,"
+operator|<<
+name|endl
+operator|<<
+literal|"use the contact form at http://qt.digia.com/contact-us"
+operator|<<
+name|endl
+operator|<<
+literal|"to purchase a license."
+operator|<<
+name|endl
 operator|<<
 name|endl
 expr_stmt|;

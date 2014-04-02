@@ -86,6 +86,11 @@ name|defined
 argument_list|(
 name|QT_LINUXBASE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
 end_if
 begin_comment
 comment|/// this is an evil hack - the posix_memalign declaration in LSB

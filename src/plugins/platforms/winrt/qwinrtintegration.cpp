@@ -398,6 +398,12 @@ case|:
 return|return
 literal|true
 return|;
+case|case
+name|NonFullScreenWindows
+case|:
+return|return
+literal|false
+return|;
 default|default:
 return|return
 name|QPlatformIntegration

@@ -964,10 +964,10 @@ begin_comment
 comment|/*!     \fn void QGLFunctions::glBlendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha)      Convenience function that calls glBlendFuncSeparate(\a srcRGB, \a dstRGB, \a srcAlpha, \a dstAlpha).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBlendFuncSeparate.xml}{glBlendFuncSeparate()}. */
 end_comment
 begin_comment
-comment|/*!     \fn void QGLFunctions::glBufferData(GLenum target, qgl_GLsizeiptr size, const void* data, GLenum usage)      Convenience function that calls glBufferData(\a target, \a size, \a data, \a usage).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml}{glBufferData()}. */
+comment|/*!     \fn void QGLFunctions::glBufferData(GLenum target, qopengl_GLsizeiptr size, const void* data, GLenum usage)      Convenience function that calls glBufferData(\a target, \a size, \a data, \a usage).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml}{glBufferData()}. */
 end_comment
 begin_comment
-comment|/*!     \fn void QGLFunctions::glBufferSubData(GLenum target, qgl_GLintptr offset, qgl_GLsizeiptr size, const void* data)      Convenience function that calls glBufferSubData(\a target, \a offset, \a size, \a data).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBufferSubData.xml}{glBufferSubData()}. */
+comment|/*!     \fn void QGLFunctions::glBufferSubData(GLenum target, qopengl_GLintptr offset, qopengl_GLsizeiptr size, const void* data)      Convenience function that calls glBufferSubData(\a target, \a offset, \a size, \a data).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBufferSubData.xml}{glBufferSubData()}. */
 end_comment
 begin_comment
 comment|/*!     \fn GLenum QGLFunctions::glCheckFramebufferStatus(GLenum target)      Convenience function that calls glCheckFramebufferStatus(\a target).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glCheckFramebufferStatus.xml}{glCheckFramebufferStatus()}. */

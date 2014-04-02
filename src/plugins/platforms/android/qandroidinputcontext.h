@@ -185,6 +185,14 @@ argument_list|()
 block|;
 comment|//---------------//
 name|jboolean
+name|beginBatchEdit
+argument_list|()
+block|;
+name|jboolean
+name|endBatchEdit
+argument_list|()
+block|;
+name|jboolean
 name|commitText
 argument_list|(
 argument|const QString&text
@@ -375,6 +383,9 @@ name|m_updateCursorPosConnection
 block|;
 name|bool
 name|m_blockUpdateSelection
+block|;
+name|int
+name|m_batchEditNestingLevel
 block|; }
 decl_stmt|;
 end_decl_stmt
