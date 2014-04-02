@@ -1541,24 +1541,8 @@ name|str
 operator|<<
 literal|"Event "
 operator|<<
+operator|*
 name|needle
-operator|->
-name|object
-argument_list|()
-operator|<<
-literal|", type: "
-operator|<<
-name|needle
-operator|->
-name|type
-argument_list|()
-operator|<<
-literal|", child: "
-operator|<<
-name|needle
-operator|->
-name|child
-argument_list|()
 operator|<<
 literal|" not found at head of event list of size "
 operator|<<
@@ -1579,24 +1563,8 @@ name|str
 operator|<<
 literal|' '
 operator|<<
+operator|*
 name|e
-operator|->
-name|object
-argument_list|()
-operator|<<
-literal|", type: "
-operator|<<
-name|e
-operator|->
-name|type
-argument_list|()
-operator|<<
-literal|", child: "
-operator|<<
-name|e
-operator|->
-name|child
-argument_list|()
 expr_stmt|;
 return|return
 name|rc
