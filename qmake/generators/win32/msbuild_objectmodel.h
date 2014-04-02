@@ -918,15 +918,6 @@ operator|&
 name|config
 argument_list|)
 block|;
-specifier|static
-name|QString
-name|platformToolSetVersion
-argument_list|(
-argument|const DotNET version
-argument_list|,
-argument|bool winphoneBuild
-argument_list|)
-block|;
 name|friend
 name|class
 name|XTreeNode
