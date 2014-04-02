@@ -254,6 +254,16 @@ name|someCursor
 argument_list|)
 block|;
 name|void
+name|_q_contentsChanged
+argument_list|(
+argument|int from
+argument_list|,
+argument|int charsRemoved
+argument_list|,
+argument|int charsAdded
+argument_list|)
+block|;
+name|void
 name|setBlinkingCursorEnabled
 argument_list|(
 argument|bool enable
