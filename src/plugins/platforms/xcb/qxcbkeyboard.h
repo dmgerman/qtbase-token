@@ -149,6 +149,9 @@ argument_list|(
 argument|quint16 state
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_XKB
 comment|// when XKEYBOARD is present on the X server
 name|int
 name|coreDeviceId
@@ -159,9 +162,6 @@ return|return
 name|core_device_id
 return|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_XKB
 name|void
 name|updateXKBState
 argument_list|(
@@ -327,13 +327,19 @@ block|;
 name|_xkb_mods
 name|xkb_mods
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_XKB
 comment|// when XKEYBOARD is present on the X server
 name|_mod_masks
 name|vmod_masks
 block|;
 name|int
 name|core_device_id
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

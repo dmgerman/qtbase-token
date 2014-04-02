@@ -5277,11 +5277,6 @@ name|xkb_state
 argument_list|(
 literal|0
 argument_list|)
-member_init_list|,
-name|core_device_id
-argument_list|(
-literal|0
-argument_list|)
 block|{
 name|memset
 argument_list|(
@@ -5299,6 +5294,10 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_XKB
+name|core_device_id
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|connection
