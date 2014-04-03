@@ -6308,16 +6308,14 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|&&
-operator|!
 name|project
 operator|->
 name|first
 argument_list|(
-literal|"TARGET_VERSION_EXT"
+literal|"TEMPLATE"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
+operator|==
+literal|"vclib"
 operator|&&
 name|project
 operator|->
@@ -6326,6 +6324,7 @@ argument_list|(
 literal|"shared"
 argument_list|)
 condition|)
+block|{
 name|conf
 operator|.
 name|PrimaryOutput
@@ -6343,6 +6342,7 @@ name|toQString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
