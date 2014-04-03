@@ -2776,6 +2776,8 @@ name|expected
 operator|<<
 name|ctrlC
 operator|<<
+name|ctrlInsert
+operator|<<
 name|QKeySequence
 argument_list|(
 name|QStringLiteral
@@ -2783,8 +2785,6 @@ argument_list|(
 literal|"F16"
 argument_list|)
 argument_list|)
-operator|<<
-name|ctrlInsert
 expr_stmt|;
 break|break;
 block|}
