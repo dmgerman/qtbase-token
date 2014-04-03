@@ -2802,13 +2802,6 @@ argument_list|(
 argument|&container
 argument_list|)
 block|{
-name|c
-operator|->
-name|setSharable
-argument_list|(
-name|false
-argument_list|)
-block|;
 name|i
 operator|=
 name|c
@@ -2822,18 +2815,6 @@ name|c
 operator|->
 name|end
 argument_list|()
-block|; }
-specifier|inline
-operator|~
-name|QMutableSetIterator
-argument_list|()
-block|{
-name|c
-operator|->
-name|setSharable
-argument_list|(
-name|true
-argument_list|)
 block|; }
 specifier|inline
 name|QMutableSetIterator
@@ -2850,23 +2831,9 @@ name|container
 operator|)
 block|{
 name|c
-operator|->
-name|setSharable
-argument_list|(
-name|true
-argument_list|)
-block|;
-name|c
 operator|=
 operator|&
 name|container
-block|;
-name|c
-operator|->
-name|setSharable
-argument_list|(
-name|false
-argument_list|)
 block|;
 name|i
 operator|=
