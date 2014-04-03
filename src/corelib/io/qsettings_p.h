@@ -103,6 +103,18 @@ directive|define
 name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+DECL|macro|QT_QTSETTINGS_FORGET_ORIGINAL_KEY_ORDER
+define|#
+directive|define
+name|QT_QTSETTINGS_FORGET_ORIGINAL_KEY_ORDER
+endif|#
+directive|endif
 comment|// used in testing framework
 DECL|macro|QSETTINGS_P_H_VERSION
 define|#
