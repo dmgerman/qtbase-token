@@ -15196,7 +15196,7 @@ name|exampleFiles
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_EXAMPLES
 argument_list|)
@@ -15207,7 +15207,7 @@ name|exampleDirs
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_EXAMPLEDIRS
 argument_list|)
@@ -15218,7 +15218,7 @@ name|sourceFiles
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_SOURCES
 argument_list|)
@@ -15229,7 +15229,7 @@ name|sourceDirs
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_SOURCEDIRS
 argument_list|)

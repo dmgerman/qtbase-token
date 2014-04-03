@@ -1747,7 +1747,7 @@ name|excludedFilesList
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_EXCLUDEFILES
 argument_list|)

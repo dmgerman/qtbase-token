@@ -8610,7 +8610,7 @@ name|imageFiles
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_IMAGES
 argument_list|)
@@ -8619,7 +8619,7 @@ name|imageDirs
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_IMAGEDIRS
 argument_list|)
@@ -8628,7 +8628,7 @@ name|scriptFiles
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_SCRIPTS
 argument_list|)
@@ -8637,7 +8637,7 @@ name|scriptDirs
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_SCRIPTDIRS
 argument_list|)
@@ -8646,7 +8646,7 @@ name|styleFiles
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_STYLES
 argument_list|)
@@ -8655,7 +8655,7 @@ name|styleDirs
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_STYLEDIRS
 argument_list|)
@@ -8664,7 +8664,7 @@ name|exampleDirs
 operator|=
 name|config
 operator|.
-name|getCleanPathList
+name|getCanonicalPathList
 argument_list|(
 name|CONFIG_EXAMPLEDIRS
 argument_list|)
@@ -8817,7 +8817,7 @@ name|extraImages
 init|=
 name|config
 operator|.
-name|getPathList
+name|getCanonicalPathList
 argument_list|(
 operator|(
 operator|*
@@ -8832,6 +8832,8 @@ operator|::
 name|dot
 operator|+
 name|CONFIG_EXTRAIMAGES
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|QStringList
@@ -8902,7 +8904,7 @@ name|scripts
 init|=
 name|config
 operator|.
-name|getPathList
+name|getCanonicalPathList
 argument_list|(
 operator|(
 operator|*
@@ -8917,6 +8919,8 @@ operator|::
 name|dot
 operator|+
 name|CONFIG_SCRIPTS
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|e
@@ -8983,7 +8987,7 @@ name|styles
 init|=
 name|config
 operator|.
-name|getPathList
+name|getCanonicalPathList
 argument_list|(
 operator|(
 operator|*
@@ -8998,6 +9002,8 @@ operator|::
 name|dot
 operator|+
 name|CONFIG_STYLESHEETS
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|e
