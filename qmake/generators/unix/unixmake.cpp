@@ -1518,8 +1518,6 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_INPUT}"
 argument_list|,
-name|fileFixify
-argument_list|(
 name|project
 operator|->
 name|first
@@ -1529,7 +1527,6 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|pchFlags
