@@ -1715,6 +1715,15 @@ name|void
 name|updateViewContainerPaletteAndOpacity
 argument_list|()
 block|;
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+name|bool
+name|showNativePopup
+argument_list|()
+block|;
+endif|#
+directive|endif
 name|QAbstractItemModel
 operator|*
 name|model
