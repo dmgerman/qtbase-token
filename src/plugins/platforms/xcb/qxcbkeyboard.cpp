@@ -3514,6 +3514,14 @@ name|qWarning
 argument_list|()
 operator|<<
 name|error
+expr_stmt|;
+if|if
+condition|(
+name|xkb_context
+condition|)
+block|{
+name|qWarning
+argument_list|()
 operator|<<
 literal|"Current XKB configuration data search paths are: "
 expr_stmt|;
@@ -3545,6 +3553,7 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 name|qWarning
 argument_list|()
 operator|<<
