@@ -5602,6 +5602,19 @@ name|w
 operator|=
 name|parent
 expr_stmt|;
+if|if
+condition|(
+specifier|const
+name|QPlatformWindow
+modifier|*
+name|handle
+init|=
+name|w
+operator|->
+name|handle
+argument_list|()
+condition|)
+block|{
 specifier|const
 name|QWindowsWindow
 modifier|*
@@ -5614,13 +5627,9 @@ name|QWindowsWindow
 operator|*
 argument_list|>
 argument_list|(
-name|w
-operator|->
 name|handle
-argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// In case the topmost parent is embedded, find next ancestor using native methods
 if|if
 condition|(
 name|ww
@@ -5701,6 +5710,7 @@ argument_list|,
 name|GA_PARENT
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
