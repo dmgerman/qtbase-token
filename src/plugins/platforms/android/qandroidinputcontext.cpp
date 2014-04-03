@@ -3447,7 +3447,7 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|left
+name|right
 argument_list|(
 name|length
 argument_list|)
