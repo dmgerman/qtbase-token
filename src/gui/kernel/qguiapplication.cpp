@@ -13258,6 +13258,11 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function
