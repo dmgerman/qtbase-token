@@ -1427,8 +1427,6 @@ name|QPageSize
 modifier|&
 name|pageSize
 parameter_list|,
-name|QPageLayout
-operator|::
 name|Orientation
 name|orientation
 parameter_list|,
@@ -1437,8 +1435,6 @@ name|QMarginsF
 modifier|&
 name|margins
 parameter_list|,
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 parameter_list|,
@@ -1651,8 +1647,6 @@ name|QPageLayout
 operator|::
 name|setMode
 parameter_list|(
-name|QPageLayout
-operator|::
 name|Mode
 name|mode
 parameter_list|)
@@ -1773,8 +1767,6 @@ name|QPageLayout
 operator|::
 name|setOrientation
 parameter_list|(
-name|QPageLayout
-operator|::
 name|Orientation
 name|orientation
 parameter_list|)
@@ -1924,8 +1916,6 @@ name|QPageLayout
 operator|::
 name|setUnits
 parameter_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -2055,8 +2045,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 condition|)
 block|{
@@ -2205,8 +2193,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 operator|||
 operator|(
@@ -2268,8 +2254,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 operator|||
 operator|(
@@ -2331,8 +2315,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 operator|||
 operator|(
@@ -2394,8 +2376,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 operator|||
 operator|(
@@ -2466,8 +2446,6 @@ name|QPageLayout
 operator|::
 name|margins
 parameter_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -2627,8 +2605,6 @@ name|QPageLayout
 operator|::
 name|fullRect
 parameter_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -2743,8 +2719,6 @@ name|QPageLayout
 operator|::
 name|paintRect
 parameter_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -2779,8 +2753,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 condition|?
 name|d
@@ -2833,8 +2805,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 condition|?
 name|d
@@ -2884,8 +2854,6 @@ name|d
 operator|->
 name|m_mode
 operator|==
-name|QPageLayout
-operator|::
 name|FullPageMode
 condition|?
 name|d

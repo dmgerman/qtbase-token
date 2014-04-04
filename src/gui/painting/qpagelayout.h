@@ -96,11 +96,11 @@ name|QPageLayout
 argument_list|(
 argument|const QPageSize&pageSize
 argument_list|,
-argument|QPageLayout::Orientation orientation
+argument|Orientation orientation
 argument_list|,
 argument|const QMarginsF&margins
 argument_list|,
-argument|QPageLayout::Unit units = QPageLayout::Point
+argument|Unit units = Point
 argument_list|,
 argument|const QMarginsF&minMargins = QMarginsF(
 literal|0
@@ -207,15 +207,11 @@ specifier|const
 expr_stmt|;
 name|void
 name|setMode
-argument_list|(
-name|QPageLayout
-operator|::
+parameter_list|(
 name|Mode
 name|mode
-argument_list|)
-decl_stmt|;
-name|QPageLayout
-operator|::
+parameter_list|)
+function_decl|;
 name|Mode
 name|mode
 argument_list|()
@@ -253,15 +249,11 @@ specifier|const
 expr_stmt|;
 name|void
 name|setOrientation
-argument_list|(
-name|QPageLayout
-operator|::
+parameter_list|(
 name|Orientation
 name|orientation
-argument_list|)
-decl_stmt|;
-name|QPageLayout
-operator|::
+parameter_list|)
+function_decl|;
 name|Orientation
 name|orientation
 argument_list|()
@@ -269,15 +261,11 @@ specifier|const
 expr_stmt|;
 name|void
 name|setUnits
-argument_list|(
-name|QPageLayout
-operator|::
+parameter_list|(
 name|Unit
 name|units
-argument_list|)
-decl_stmt|;
-name|QPageLayout
-operator|::
+parameter_list|)
+function_decl|;
 name|Unit
 name|units
 argument_list|()
@@ -328,8 +316,6 @@ expr_stmt|;
 name|QMarginsF
 name|margins
 argument_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 argument_list|)
@@ -375,8 +361,6 @@ expr_stmt|;
 name|QRectF
 name|fullRect
 argument_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 argument_list|)
@@ -403,8 +387,6 @@ expr_stmt|;
 name|QRectF
 name|paintRect
 argument_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 argument_list|)
