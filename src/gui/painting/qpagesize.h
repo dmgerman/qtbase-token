@@ -387,26 +387,63 @@ name|PageSizeId
 name|pageSizeId
 argument_list|)
 decl_stmt|;
+name|explicit
 name|QPageSize
 argument_list|(
-argument|const QSize&pointSize
+specifier|const
+name|QSize
+operator|&
+name|pointSize
 argument_list|,
-argument|const QString&name = QString()
+specifier|const
+name|QString
+operator|&
+name|name
+operator|=
+name|QString
+argument_list|()
 argument_list|,
-argument|QPageSize::SizeMatchPolicy matchPolicy = QPageSize::FuzzyMatch
+name|QPageSize
+operator|::
+name|SizeMatchPolicy
+name|matchPolicy
+operator|=
+name|QPageSize
+operator|::
+name|FuzzyMatch
 argument_list|)
-empty_stmt|;
+decl_stmt|;
+name|explicit
 name|QPageSize
 argument_list|(
-argument|const QSizeF&size
+specifier|const
+name|QSizeF
+operator|&
+name|size
 argument_list|,
-argument|QPageSize::Unit units
+name|QPageSize
+operator|::
+name|Unit
+name|units
 argument_list|,
-argument|const QString&name = QString()
+specifier|const
+name|QString
+operator|&
+name|name
+operator|=
+name|QString
+argument_list|()
 argument_list|,
-argument|QPageSize::SizeMatchPolicy matchPolicy = QPageSize::FuzzyMatch
+name|QPageSize
+operator|::
+name|SizeMatchPolicy
+name|matchPolicy
+operator|=
+name|QPageSize
+operator|::
+name|FuzzyMatch
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|QPageSize
 argument_list|(
 specifier|const
