@@ -6236,7 +6236,6 @@ operator|::
 name|Type
 name|type
 decl_stmt|;
-comment|// move first
 name|Qt
 operator|::
 name|MouseButtons
@@ -6247,18 +6246,6 @@ operator|->
 name|buttons
 operator|^
 name|buttons
-decl_stmt|;
-specifier|const
-name|bool
-name|frameStrut
-init|=
-name|e
-operator|->
-name|type
-operator|==
-name|QWindowSystemInterfacePrivate
-operator|::
-name|FrameStrutMouse
 decl_stmt|;
 if|if
 condition|(
@@ -6279,16 +6266,14 @@ name|NoButton
 operator|)
 condition|)
 block|{
+comment|// A mouse event should not change both position and buttons at the same time. Instead we
+comment|// should first send a move event followed by a button changed event. Since this is not the case
+comment|// with the current event, we fake a move-only event that we recurse and process first. This
+comment|// will update the global mouse position and cause the second event to be a button only event.
 name|QWindowSystemInterfacePrivate
 operator|::
 name|MouseEvent
-modifier|*
-name|newMouseEvent
-init|=
-operator|new
-name|QWindowSystemInterfacePrivate
-operator|::
-name|MouseEvent
+name|moveEvent
 argument_list|(
 name|e
 operator|->
@@ -6313,8 +6298,6 @@ name|e
 operator|->
 name|globalPos
 argument_list|,
-name|e
-operator|->
 name|buttons
 argument_list|,
 name|e
@@ -6322,22 +6305,24 @@ operator|->
 name|modifiers
 argument_list|)
 decl_stmt|;
-name|QWindowSystemInterfacePrivate
-operator|::
-name|windowSystemEventQueue
-operator|.
-name|prepend
+name|processMouseEvent
 argument_list|(
-name|newMouseEvent
+operator|&
+name|moveEvent
 argument_list|)
 expr_stmt|;
-comment|// just in case the move triggers a new event loop
-name|stateChange
-operator|=
-name|Qt
+name|Q_ASSERT
+argument_list|(
+name|e
+operator|->
+name|globalPos
+operator|==
+name|QGuiApplicationPrivate
 operator|::
-name|NoButton
+name|lastCursorPosition
+argument_list|)
 expr_stmt|;
+comment|// continue with processing mouse button change event
 block|}
 name|QWindow
 modifier|*
@@ -6433,6 +6418,18 @@ name|bool
 name|doubleClick
 init|=
 literal|false
+decl_stmt|;
+specifier|const
+name|bool
+name|frameStrut
+init|=
+name|e
+operator|->
+name|type
+operator|==
+name|QWindowSystemInterfacePrivate
+operator|::
+name|FrameStrutMouse
 decl_stmt|;
 if|if
 condition|(
