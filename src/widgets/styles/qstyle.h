@@ -1526,6 +1526,8 @@ name|SH_Widget_Animate
 block|,
 name|SH_Splitter_OpaqueResize
 block|,
+name|SH_ComboBox_UseNativePopup
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=
