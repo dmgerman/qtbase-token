@@ -4832,9 +4832,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+name|Q_OS_QNX
+comment|// On QNX this window will be activated anyway from libscreen
+comment|// activating it here before libscreen activates it causes problems
 name|requestActivate
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

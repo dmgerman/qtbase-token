@@ -10116,9 +10116,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+name|Q_OS_QNX
+comment|// On QNX this window will be activated anyway from libscreen
+comment|// activating it here before libscreen activates it causes problems
 name|activateWindow
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 comment|/*!     Shows the widget maximized.      Calling this function only affects \l{isWindow()}{windows}.      On X11, this function may not work properly with certain window     managers. See the \l{Window Geometry} documentation for an explanation.      \sa setWindowState(), showNormal(), showMinimized(), show(), hide(), isVisible() */
 DECL|function|showMaximized
