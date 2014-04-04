@@ -7384,6 +7384,19 @@ argument_list|(
 literal|"\\ "
 argument_list|)
 argument_list|)
+operator|.
+name|replace
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\t'
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"\\\t"
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|debug_msg
 argument_list|(

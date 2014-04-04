@@ -6991,7 +6991,14 @@ name|ret
 operator|.
 name|contains
 argument_list|(
-literal|" "
+literal|' '
+argument_list|)
+operator|||
+name|ret
+operator|.
+name|contains
+argument_list|(
+literal|'\t'
 argument_list|)
 condition|)
 name|ret
