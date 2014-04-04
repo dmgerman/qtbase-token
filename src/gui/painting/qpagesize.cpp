@@ -7757,28 +7757,32 @@ begin_comment
 comment|/*!     \fn QPageSize&QPageSize::operator=(QPageSize&&other)      Move-assigns \a other to this QPageSize instance, transferring the     ownership of the managed pointer to this instance. */
 end_comment
 begin_comment
-comment|/*!     Returns \c true if this page is equal to the \a other page, i.e. if the     page has the same attributes. Current attributes are size and name. */
+comment|/*!     \relates QPageSize      Returns \c true if page size \a lhs is equal to page size \a rhs,     i.e. if the page sizes have the same attributes. Current     attributes are size and name. */
 end_comment
 begin_function
 DECL|function|operator ==
 name|bool
-name|QPageSize
-operator|::
 name|operator
 name|==
 parameter_list|(
 specifier|const
 name|QPageSize
 modifier|&
-name|other
-parameter_list|)
+name|lhs
+parameter_list|,
 specifier|const
+name|QPageSize
+modifier|&
+name|rhs
+parameter_list|)
 block|{
 if|if
 condition|(
+name|lhs
+operator|.
 name|d
 operator|==
-name|other
+name|rhs
 operator|.
 name|d
 condition|)
@@ -7786,17 +7790,21 @@ return|return
 literal|true
 return|;
 return|return
+name|lhs
+operator|.
 name|d
 operator|&&
-name|other
+name|rhs
 operator|.
 name|d
 operator|&&
 operator|*
+name|lhs
+operator|.
 name|d
 operator|==
 operator|*
-name|other
+name|rhs
 operator|.
 name|d
 return|;
