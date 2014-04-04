@@ -7811,6 +7811,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn bool operator!=(const QPageSize&lhs, const QPageSize&rhs)     \relates QPageSize      Returns \c true if page size \a lhs is unequal to page size \a     rhs, i.e. if the page size has different attributes. Current     attributes are size and name. */
+end_comment
+begin_comment
 comment|/*!     Returns \c true if this page is equivalent to the \a other page, i.e. if the     page has the same size regardless of other attributes like name. */
 end_comment
 begin_function
