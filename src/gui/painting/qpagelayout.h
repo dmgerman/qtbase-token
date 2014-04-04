@@ -411,7 +411,7 @@ name|friend
 name|class
 name|QPageLayoutPrivate
 decl_stmt|;
-name|QSharedDataPointer
+name|QExplicitlySharedDataPointer
 operator|<
 name|QPageLayoutPrivate
 operator|>
