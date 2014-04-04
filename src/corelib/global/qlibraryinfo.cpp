@@ -1005,7 +1005,7 @@ DECL|macro|QT_BUILD_STR
 define|#
 directive|define
 name|QT_BUILD_STR
-value|"Qt " QT_VERSION_STR " (" __DATE__ "; " ARCH_FULL DEBUG_STRING " build; by " COMPILER_STRING ")"
+value|"Qt " QT_VERSION_STR " (" ARCH_FULL DEBUG_STRING " build; by " COMPILER_STRING ")"
 end_define
 begin_comment
 comment|/*!   Returns a string describing how this version of Qt was built.    \internal    \since 5.3 */
