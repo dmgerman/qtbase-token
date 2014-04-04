@@ -19176,6 +19176,17 @@ argument_list|,
 name|lineNum
 argument_list|)
 decl_stmt|;
+name|insertionPoints
+operator|.
+name|reserve
+argument_list|(
+name|iterator
+operator|.
+name|line
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 name|bool
 name|lastLine
 init|=
