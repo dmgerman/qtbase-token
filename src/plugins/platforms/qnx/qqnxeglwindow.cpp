@@ -185,19 +185,10 @@ operator|::
 name|createEGLSurface
 parameter_list|()
 block|{
-comment|// Fetch the surface size from the window and update
-comment|// the window's buffers before we create the EGL surface
-specifier|const
-name|QSize
-name|surfaceSize
-init|=
-name|requestedBufferSize
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 operator|!
-name|surfaceSize
+name|m_requestedBufferSize
 operator|.
 name|isValid
 argument_list|()
@@ -211,9 +202,10 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// update the window's buffers before we create the EGL surface
 name|setBufferSize
 argument_list|(
-name|surfaceSize
+name|m_requestedBufferSize
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -557,20 +549,6 @@ argument_list|(
 name|newGeometry
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|requestedBufferSize
-name|QSize
-name|QQnxEglWindow
-operator|::
-name|requestedBufferSize
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|m_requestedBufferSize
-return|;
 block|}
 end_function
 begin_function
