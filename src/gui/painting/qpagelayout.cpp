@@ -1590,6 +1590,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn bool operator!=(const QPageLayout&lhs, const QPageLayout&rhs)     \relates QPageLayout      Returns \c true if page layout \a lhs is not equal to page layout \a rhs,     i.e. if any of the attributes differ.      Note that this is a strict equality, especially for page size where the     QPageSize ID, name and size must exactly match, and the margins where the     units must match.      \sa QPageLayout::isEquivalentTo() */
+end_comment
+begin_comment
 comment|/*!     Returns \c true if this page layout is equivalent to the \a other page layout,     i.e. if the page has the same size, margins and orientation. */
 end_comment
 begin_function
