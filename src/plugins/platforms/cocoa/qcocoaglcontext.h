@@ -64,6 +64,11 @@ argument_list|,
 name|QPlatformOpenGLContext
 operator|*
 name|share
+argument_list|,
+specifier|const
+name|QVariant
+operator|&
+name|nativeHandle
 argument_list|)
 block|;
 operator|~
@@ -142,6 +147,11 @@ block|;
 name|void
 name|windowWasHidden
 argument_list|()
+block|;
+name|QVariant
+name|nativeHandle
+argument_list|()
+specifier|const
 block|;
 name|private
 operator|:
