@@ -2588,6 +2588,15 @@ operator|::
 name|sslLibraryVersionNumber
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|supportsSsl
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|q_SSLeay
 argument_list|()
