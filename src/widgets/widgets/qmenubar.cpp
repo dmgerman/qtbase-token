@@ -2185,6 +2185,11 @@ expr_stmt|;
 if|if
 condition|(
 name|action
+operator|&&
+name|action
+operator|->
+name|isEnabled
+argument_list|()
 condition|)
 block|{
 name|activateAction
@@ -4736,6 +4741,12 @@ name|isVisible
 argument_list|(
 name|action
 argument_list|)
+operator|||
+operator|!
+name|action
+operator|->
+name|isEnabled
+argument_list|()
 condition|)
 block|{
 name|d
