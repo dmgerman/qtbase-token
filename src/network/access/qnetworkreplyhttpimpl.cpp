@@ -2305,8 +2305,6 @@ decl_stmt|;
 name|expirationDate
 operator|=
 name|lastModified
-expr_stmt|;
-name|expirationDate
 operator|.
 name|addSecs
 argument_list|(
