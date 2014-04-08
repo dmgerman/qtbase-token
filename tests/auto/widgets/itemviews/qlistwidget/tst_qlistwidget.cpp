@@ -10532,6 +10532,10 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ScrollBar_Transient
+argument_list|,
+literal|0
+argument_list|,
+name|vbar
 argument_list|)
 operator|||
 name|vbar
