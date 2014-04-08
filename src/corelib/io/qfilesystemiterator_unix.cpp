@@ -163,6 +163,11 @@ name|defined
 argument_list|(
 name|Q_OS_CYGWIN
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_EXT_QNX_READDIR_R
+argument_list|)
 comment|// ### Race condition; we should use fpathconf and dirfd().
 name|size_t
 name|maxPathName
@@ -234,20 +239,29 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_QNX
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|__EXT_QNX__READDIR_R
+name|QT_EXT_QNX_READDIR_R
 argument_list|)
 name|direntSize
 operator|=
 name|maxPathName
 expr_stmt|;
-comment|// Include extra stat information in the readdir() call (d_stat member of dirent_extra_stat).
-comment|// This is used in QFileSystemMetaData::fillFromDirEnt() to avoid extra stat() calls when iterating
-comment|// over directories
+comment|// Include extra stat information in the readdir() call (d_stat member of
+comment|// dirent_extra_stat). This is used in QFileSystemMetaData::fillFromDirEnt() to
+comment|// avoid extra stat() calls when iterating over directories
+name|int
+name|flags
+init|=
+name|dircntl
+argument_list|(
+name|dir
+argument_list|,
+name|D_GETFLAG
+argument_list|)
+operator||
+name|D_FLAG_STAT
+operator||
+name|D_FLAG_FILTER
+decl_stmt|;
 if|if
 condition|(
 name|dircntl
@@ -256,7 +270,7 @@ name|dir
 argument_list|,
 name|D_SETFLAG
 argument_list|,
-name|D_FLAG_STAT
+name|flags
 argument_list|)
 operator|==
 operator|-
@@ -318,11 +332,6 @@ literal|false
 return|;
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_QNX
-argument_list|)
-operator|&&
 name|defined
 argument_list|(
 name|QT_EXT_QNX_READDIR_R

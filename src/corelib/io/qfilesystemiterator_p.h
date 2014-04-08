@@ -187,6 +187,11 @@ name|defined
 argument_list|(
 name|Q_OS_CYGWIN
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_EXT_QNX_READDIR_R
+argument_list|)
 comment|// for readdir_r
 name|QScopedPointer
 operator|<
@@ -200,12 +205,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_QNX
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|__EXT_QNX__READDIR_R
+name|QT_EXT_QNX_READDIR_R
 argument_list|)
 comment|// for _readdir_r
 name|size_t

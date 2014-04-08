@@ -156,6 +156,11 @@ end_define
 begin_if
 if|#
 directive|if
+name|defined
+argument_list|(
+name|__EXT_QNX__READDIR_R
+argument_list|)
+operator|&&
 operator|!
 name|defined
 argument_list|(
