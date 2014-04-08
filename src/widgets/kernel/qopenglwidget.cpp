@@ -478,6 +478,13 @@ argument_list|(
 name|QOpenGLWidget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|uninitialized
+condition|)
+return|return;
 name|makeCurrent
 argument_list|()
 expr_stmt|;
