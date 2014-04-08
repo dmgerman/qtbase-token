@@ -4219,6 +4219,15 @@ name|toInt
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|result
+operator|.
+name|version
+operator|=
+literal|0x0200
+expr_stmt|;
+block|}
 name|result
 operator|.
 name|profile
