@@ -236,11 +236,6 @@ name|block_event
 init|=
 literal|false
 decl_stmt|;
-name|bool
-name|paint_event
-init|=
-literal|false
-decl_stmt|;
 switch|switch
 condition|(
 name|type
@@ -289,11 +284,9 @@ break|break;
 block|}
 if|if
 condition|(
-operator|(
 name|block_event
-operator|||
-name|paint_event
-operator|)
+operator|&&
+name|top
 operator|&&
 name|top
 operator|->
