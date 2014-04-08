@@ -2869,6 +2869,12 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
+operator|||
+name|reply
+operator|->
+name|parent
+operator|==
+name|XCB_WINDOW_NONE
 condition|)
 block|{
 name|foundRoot
