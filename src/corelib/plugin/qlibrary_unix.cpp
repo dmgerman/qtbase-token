@@ -1238,6 +1238,59 @@ condition|)
 block|{
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// Workaround until fixed in QNX; fixes crash in
+name|char
+modifier|*
+name|error
+init|=
+name|dlerror
+argument_list|()
+decl_stmt|;
+comment|// QtDeclarative auto test "qqmlenginecleanup" for instance
+if|if
+condition|(
+operator|!
+name|qstrcmp
+argument_list|(
+name|error
+argument_list|,
+literal|"Shared objects still referenced"
+argument_list|)
+condition|)
+comment|// On QNX that's only "informative"
+return|return
+literal|true
+return|;
+name|errorString
+operator|=
+name|QLibrary
+operator|::
+name|tr
+argument_list|(
+literal|"Cannot unload library %1: %2"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|fileName
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|QLatin1String
+argument_list|(
+name|error
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|errorString
 operator|=
 name|QLibrary
@@ -1258,6 +1311,8 @@ name|qdlerror
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|false
 return|;
