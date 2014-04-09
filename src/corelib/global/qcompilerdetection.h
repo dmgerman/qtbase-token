@@ -3861,12 +3861,12 @@ define|#
 directive|define
 name|Q_COMPILER_NONSTATIC_MEMBER_INIT
 end_define
-begin_define
-DECL|macro|Q_COMPILER_INITIALIZER_LISTS
-define|#
-directive|define
-name|Q_COMPILER_INITIALIZER_LISTS
-end_define
+begin_comment
+comment|// implemented, but nested initialization fails (eg tst_qvector): http://connect.microsoft.com/VisualStudio/feedback/details/800364/initializer-list-calls-object-destructor-twice
+end_comment
+begin_comment
+comment|//      #define Q_COMPILER_INITIALIZER_LISTS
+end_comment
 begin_comment
 comment|// implemented in principle, but has a bug that makes it unusable: http://connect.microsoft.com/VisualStudio/feedback/details/802058/c-11-unified-initialization-fails-with-c-style-arrays
 end_comment
@@ -3897,6 +3897,29 @@ directive|endif
 end_endif
 begin_comment
 comment|/* VC 12 */
+end_comment
+begin_if
+if|#
+directive|if
+name|_MSC_FULL_VER
+operator|>=
+literal|180030324
+end_if
+begin_comment
+comment|// VC 12 SP 2 RC
+end_comment
+begin_define
+DECL|macro|Q_COMPILER_INITIALIZER_LISTS
+define|#
+directive|define
+name|Q_COMPILER_INITIALIZER_LISTS
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* VC 12 SP 2 RC */
 end_comment
 begin_endif
 endif|#
