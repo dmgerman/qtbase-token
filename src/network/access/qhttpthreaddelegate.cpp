@@ -770,14 +770,10 @@ literal|0
 argument_list|)
 member_init_list|,
 name|pendingDownloadData
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 member_init_list|,
 name|pendingDownloadProgress
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 member_init_list|,
 name|synchronous
 argument_list|(
@@ -813,9 +809,7 @@ name|NoError
 argument_list|)
 member_init_list|,
 name|downloadBuffer
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 member_init_list|,
 name|httpConnection
 argument_list|(
