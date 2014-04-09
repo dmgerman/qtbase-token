@@ -102,6 +102,20 @@ name|bool
 name|allowRootCertOnDemandLoading
 argument_list|)
 decl_stmt|;
+specifier|static
+name|QSharedPointer
+operator|<
+name|QSslContext
+operator|>
+name|sharedFromConfiguration
+argument_list|(
+argument|QSslSocket::SslMode mode
+argument_list|,
+argument|const QSslConfiguration&configuration
+argument_list|,
+argument|bool allowRootCertOnDemandLoading
+argument_list|)
+expr_stmt|;
 name|QSslError
 operator|::
 name|SslError
@@ -207,6 +221,13 @@ name|protected
 label|:
 name|QSslContext
 argument_list|()
+expr_stmt|;
+name|friend
+name|class
+name|QSharedPointer
+operator|<
+name|QSslContext
+operator|>
 expr_stmt|;
 name|private
 label|:

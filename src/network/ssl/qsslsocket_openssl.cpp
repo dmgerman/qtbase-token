@@ -1668,21 +1668,15 @@ expr_stmt|;
 comment|// the QSslConfiguration constructor refs up
 name|sslContextPointer
 operator|=
-name|QSharedPointer
-argument_list|<
-name|QSslContext
-argument_list|>
-argument_list|(
 name|QSslContext
 operator|::
-name|fromConfiguration
+name|sharedFromConfiguration
 argument_list|(
 name|mode
 argument_list|,
 name|configurationCopy
 argument_list|,
 name|allowRootCertOnDemandLoading
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
