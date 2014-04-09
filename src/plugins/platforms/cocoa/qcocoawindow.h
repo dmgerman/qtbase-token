@@ -970,6 +970,9 @@ block|;
 name|QRect
 name|m_exposedGeometry
 block|;
+name|qreal
+name|m_exposedDevicePixelRatio
+block|;
 name|int
 name|m_registerTouchCount
 block|;
