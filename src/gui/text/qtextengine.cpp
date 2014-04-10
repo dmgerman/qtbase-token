@@ -8999,6 +8999,7 @@ condition|(
 name|useHarfbuzzNG
 condition|)
 block|{
+comment|// ### pretend HB-old behavior for now
 for|for
 control|(
 name|int
@@ -9024,6 +9025,11 @@ operator|.
 name|script
 condition|)
 block|{
+case|case
+name|QChar
+operator|::
+name|Script_Latin
+case|:
 case|case
 name|QChar
 operator|::

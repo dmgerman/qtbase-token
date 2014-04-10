@@ -7020,6 +7020,16 @@ operator|::
 name|controlInSyllable_qtbug14204
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Result differs for HarfBuzz-NG, skip test."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFontDatabase
 name|db
 decl_stmt|;
@@ -7317,6 +7327,16 @@ argument_list|(
 literal|"string"
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Result differs for HarfBuzz-NG, skip test."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|bool
 name|hasTests
 init|=
@@ -8421,6 +8441,10 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+comment|// ### Result differs for HarfBuzz-NG
 name|QCOMPARE
 argument_list|(
 name|logClusters
@@ -8434,6 +8458,8 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// A thai implementation could either remove the ZWJ and ZWNJ characters, or hide them.
 comment|// The current implementation hides them, so we test for that.
 comment|// The only characters that we should be hiding are the ZWJ and ZWNJ characters in position 1 and 3.
@@ -8462,6 +8488,34 @@ name|i
 operator|++
 control|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// ### Result differs for HarfBuzz-NG
+if|if
+condition|(
+name|i
+operator|==
+literal|17
+condition|)
+name|QCOMPARE
+argument_list|(
+name|glyphLayout
+operator|.
+name|advances
+index|[
+name|i
+index|]
+operator|.
+name|toInt
+argument_list|()
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+elseif|else
+endif|#
+directive|endif
 if|if
 condition|(
 name|i
