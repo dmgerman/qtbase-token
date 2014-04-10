@@ -6541,10 +6541,14 @@ operator|::
 name|Key_Right
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|Q_OS_WIN
-comment|//Mac has a specialcase to handle jumping to the end of a selection
+operator|||
+name|defined
+name|Q_OS_QNX
+comment|//Windows and QNX do not jump to the beginning of the selection
 name|keys
 operator|.
 name|addKeyClick
@@ -18310,9 +18314,13 @@ operator|::
 name|Key_Left
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|Q_OS_WIN
+operator|||
+name|defined
+name|Q_OS_QNX
 name|QCOMPARE
 argument_list|(
 name|testWidget
