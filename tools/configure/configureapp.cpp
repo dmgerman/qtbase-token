@@ -1213,7 +1213,7 @@ index|[
 literal|"ICU"
 index|]
 operator|=
-literal|"auto"
+literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
