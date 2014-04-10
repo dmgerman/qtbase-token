@@ -626,7 +626,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a QTemporaryFile with a template name of \a templateName.      If \a templateName is a relative path, the path will be relative to the     current working directory. You can use QDir::tempPath() to construct \a     templateName if you want use the system's temporary directory.      If the \a templateName ends with XXXXXX it will be used as the dynamic portion     of the directory name, otherwise it will be appended.     Unlike QTemporaryFile, XXXXXX in the middle of the template string is not supported.      \sa QDir::tempPath() */
+comment|/*!     Constructs a QTemporaryDir with a template of \a templatePath.      If \a templatePath is a relative path, the path will be relative to the     current working directory. You can use QDir::tempPath() to construct \a     templatePath if you want use the system's temporary directory.      If the \a templatePath ends with XXXXXX it will be used as the dynamic portion     of the directory name, otherwise it will be appended.     Unlike QTemporaryFile, XXXXXX in the middle of the template string is not supported.      \sa QDir::tempPath() */
 end_comment
 begin_constructor
 DECL|function|QTemporaryDir
@@ -637,7 +637,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|templateName
+name|templatePath
 parameter_list|)
 member_init_list|:
 name|d_ptr
@@ -648,7 +648,7 @@ argument_list|)
 block|{
 if|if
 condition|(
-name|templateName
+name|templatePath
 operator|.
 name|isEmpty
 argument_list|()
@@ -666,7 +666,7 @@ name|d_ptr
 operator|->
 name|create
 argument_list|(
-name|templateName
+name|templatePath
 argument_list|)
 expr_stmt|;
 block|}
