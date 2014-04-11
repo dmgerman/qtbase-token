@@ -183,6 +183,14 @@ name|void
 name|clear
 argument_list|()
 block|;
+name|void
+name|setFocusObject
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|;
 comment|//---------------//
 name|jboolean
 name|beginBatchEdit
@@ -386,6 +394,10 @@ name|m_blockUpdateSelection
 block|;
 name|int
 name|m_batchEditNestingLevel
+block|;
+name|QObject
+operator|*
+name|m_focusObject
 block|; }
 decl_stmt|;
 end_decl_stmt
