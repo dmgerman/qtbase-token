@@ -6251,6 +6251,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|connection
+argument_list|()
+operator|->
+name|hasXFixes
+argument_list|()
+operator|||
 name|transparent
 operator|==
 name|m_transparent

@@ -95,12 +95,6 @@ operator|&
 name|rect
 argument_list|)
 block|;
-comment|// Called by QQnxGLContext::createSurface()
-name|QSize
-name|requestedBufferSize
-argument_list|()
-specifier|const
-block|;
 name|protected
 operator|:
 name|int

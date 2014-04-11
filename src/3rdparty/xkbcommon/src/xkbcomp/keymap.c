@@ -59,7 +59,7 @@ operator|->
 name|mods
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)
@@ -262,7 +262,7 @@ return|;
 comment|/*      * There may be multiple matchings interprets; we should always return      * the most specific. Here we rely on compat.c to set up the      * sym_interprets array from the most specific to the least specific,      * such that when we find a match we return immediately.      */
 for|for
 control|(
-name|int
+name|unsigned
 name|i
 init|=
 literal|0
@@ -610,7 +610,7 @@ condition|)
 name|vmodmap
 operator||=
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|interp
 operator|->
@@ -747,7 +747,7 @@ operator|->
 name|vmodmap
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)

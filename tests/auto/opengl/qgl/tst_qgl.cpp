@@ -6747,6 +6747,22 @@ operator|::
 name|OpenGL2
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// glReadPixels reads from the back buffer. On QNX the buffer is not preserved
+comment|// after a buffer swap. This is why we have to swap the buffer explicitly before calling
+comment|// grabFrameBuffer to retrieve the content of the front buffer.
+name|w
+operator|.
+name|swapBuffers
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|QImage
 name|fb
 init|=
@@ -6914,6 +6930,19 @@ operator|::
 name|glFBORendering
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Reading the QGLFramebufferObject is unsupported on this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -8272,7 +8301,7 @@ argument_list|()
 operator|+
 literal|2
 argument_list|,
-name|width
+name|height
 argument_list|()
 operator|+
 literal|2
@@ -8352,6 +8381,22 @@ operator|.
 name|fboPainterBeginOk
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// glReadPixels reads from the back buffer. On QNX the buffer is not preserved
+comment|// after a buffer swap. This is why we have to swap the buffer explicitly before calling
+comment|// grabFrameBuffer to retrieve the content of the front buffer
+name|w
+operator|.
+name|swapBuffers
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|QImage
 name|widgetFB
 init|=
@@ -11181,6 +11226,22 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// glReadPixels reads from the back buffer. On QNX the buffer is not preserved
+comment|// after a buffer swap. This is why we have to swap the buffer explicitly before calling
+comment|// grabFrameBuffer to retrieve the content of the front buffer
+name|glw
+operator|.
+name|swapBuffers
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 specifier|const
 name|QImage
 name|widgetFB
@@ -11912,6 +11973,22 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// glReadPixels reads from the back buffer. On QNX the buffer is not preserved
+comment|// after a buffer swap. This is why we have to swap the buffer explicitly before calling
+comment|// grabFrameBuffer to retrieve the content of the front buffer
+name|glw
+operator|.
+name|swapBuffers
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 specifier|const
 name|QImage
 name|widgetFB

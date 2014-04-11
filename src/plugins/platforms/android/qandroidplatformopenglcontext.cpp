@@ -172,6 +172,15 @@ literal|"Adreno (TM) 200"
 argument_list|)
 operator|==
 literal|0
+operator|||
+name|qstrcmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"GC1000 core"
+argument_list|)
+operator|==
+literal|0
 expr_stmt|;
 name|set
 operator|=

@@ -2102,7 +2102,7 @@ operator|->
 name|windowHandle
 argument_list|()
 operator|,
-name|this
+name|tb
 operator|,
 name|upper
 operator|.
@@ -2136,7 +2136,7 @@ operator|->
 name|windowHandle
 argument_list|()
 operator|,
-name|this
+name|tb
 operator|,
 literal|0
 operator|,

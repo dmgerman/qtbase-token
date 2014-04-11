@@ -1168,7 +1168,7 @@ name|clear
 parameter_list|()
 function_decl|;
 name|QToolBarAreaLayoutItem
-modifier|&
+modifier|*
 name|item
 argument_list|(
 specifier|const

@@ -1324,7 +1324,7 @@ operator|(
 name|mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)
@@ -1469,7 +1469,7 @@ operator|(
 name|mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)
@@ -1480,7 +1480,7 @@ name|mask
 operator|&=
 operator|~
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)
@@ -1514,7 +1514,7 @@ name|LookupValue
 argument_list|(
 name|modComponentMaskNames
 argument_list|,
-literal|1
+literal|1u
 operator|<<
 name|i
 argument_list|)
@@ -1628,7 +1628,7 @@ operator|(
 name|mask
 operator|&
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)
@@ -1639,7 +1639,7 @@ name|mask
 operator|&=
 operator|~
 operator|(
-literal|1
+literal|1u
 operator|<<
 name|i
 operator|)
@@ -1673,7 +1673,7 @@ name|LookupValue
 argument_list|(
 name|ctrlMaskNames
 argument_list|,
-literal|1
+literal|1u
 operator|<<
 name|i
 argument_list|)

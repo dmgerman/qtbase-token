@@ -1,15 +1,31 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
 directive|include
 file|"qaccessiblecache_p.h"
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QAccessibleCache     \internal     \brief Maintains a cache of accessible interfaces. */
+name|Q_GLOBAL_STATIC
+argument_list|(
+name|QAccessibleCache
+argument_list|,
+name|qAccessibleCache
+argument_list|)
+DECL|function|instance
+name|QAccessibleCache
+modifier|*
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
+argument_list|{     return
+name|qAccessibleCache
+argument_list|; }
 comment|/*   The ID is always in the range [INT_MAX+1, UINT_MAX].   This makes it easy on windows to reserve the positive integer range   for the index of a child and not clash with the unique ids. */
 DECL|function|acquireId
 name|QAccessible
@@ -18,16 +34,16 @@ name|Id
 name|QAccessibleCache
 operator|::
 name|acquireId
-parameter_list|()
-specifier|const
-block|{
+argument_list|()
+decl|const
+argument_list|{
 specifier|static
 specifier|const
 name|QAccessible
 operator|::
 name|Id
 name|FirstId
-init|=
+operator|=
 name|QAccessible
 operator|::
 name|Id
@@ -36,24 +52,23 @@ name|INT_MAX
 argument_list|)
 operator|+
 literal|1
-decl_stmt|;
+argument_list|;
 specifier|static
 name|QAccessible
 operator|::
 name|Id
 name|lastUsedId
-init|=
+operator|=
 name|FirstId
-decl_stmt|;
-while|while
-condition|(
+argument_list|;      while
+operator|(
 name|idToInterface
 operator|.
 name|contains
 argument_list|(
 name|lastUsedId
 argument_list|)
-condition|)
+operator|)
 block|{
 comment|// (wrap back when when we reach UINT_MAX - 1)
 comment|// -1 because on Android -1 is taken for the "View" so just avoid it completely for consistency
@@ -77,21 +92,20 @@ block|}
 return|return
 name|lastUsedId
 return|;
-block|}
-end_function
-begin_function
+end_decl_stmt
+begin_expr_stmt
+unit|}  QAccessibleInterface
 DECL|function|interfaceForId
-name|QAccessibleInterface
-modifier|*
+operator|*
 name|QAccessibleCache
 operator|::
 name|interfaceForId
-parameter_list|(
+operator|(
 name|QAccessible
 operator|::
 name|Id
 name|id
-parameter_list|)
+operator|)
 specifier|const
 block|{
 return|return
@@ -103,7 +117,7 @@ name|id
 argument_list|)
 return|;
 block|}
-end_function
+end_expr_stmt
 begin_function
 DECL|function|insert
 name|QAccessible
@@ -339,6 +353,16 @@ expr_stmt|;
 operator|delete
 name|iface
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MACX
+name|removeCocoaElement
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro

@@ -96,11 +96,11 @@ name|QPageLayout
 argument_list|(
 argument|const QPageSize&pageSize
 argument_list|,
-argument|QPageLayout::Orientation orientation
+argument|Orientation orientation
 argument_list|,
 argument|const QMarginsF&margins
 argument_list|,
-argument|QPageLayout::Unit units = QPageLayout::Point
+argument|Unit units = Point
 argument_list|,
 argument|const QMarginsF&minMargins = QMarginsF(
 literal|0
@@ -179,6 +179,8 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
+name|friend
+name|Q_GUI_EXPORT
 name|bool
 name|operator
 operator|==
@@ -186,9 +188,13 @@ operator|(
 specifier|const
 name|QPageLayout
 operator|&
-name|other
-operator|)
+name|lhs
+operator|,
 specifier|const
+name|QPageLayout
+operator|&
+name|rhs
+operator|)
 expr_stmt|;
 name|bool
 name|isEquivalentTo
@@ -207,15 +213,11 @@ specifier|const
 expr_stmt|;
 name|void
 name|setMode
-argument_list|(
-name|QPageLayout
-operator|::
+parameter_list|(
 name|Mode
 name|mode
-argument_list|)
-decl_stmt|;
-name|QPageLayout
-operator|::
+parameter_list|)
+function_decl|;
 name|Mode
 name|mode
 argument_list|()
@@ -253,15 +255,11 @@ specifier|const
 expr_stmt|;
 name|void
 name|setOrientation
-argument_list|(
-name|QPageLayout
-operator|::
+parameter_list|(
 name|Orientation
 name|orientation
-argument_list|)
-decl_stmt|;
-name|QPageLayout
-operator|::
+parameter_list|)
+function_decl|;
 name|Orientation
 name|orientation
 argument_list|()
@@ -269,15 +267,11 @@ specifier|const
 expr_stmt|;
 name|void
 name|setUnits
-argument_list|(
-name|QPageLayout
-operator|::
+parameter_list|(
 name|Unit
 name|units
-argument_list|)
-decl_stmt|;
-name|QPageLayout
-operator|::
+parameter_list|)
+function_decl|;
 name|Unit
 name|units
 argument_list|()
@@ -328,8 +322,6 @@ expr_stmt|;
 name|QMarginsF
 name|margins
 argument_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 argument_list|)
@@ -375,8 +367,6 @@ expr_stmt|;
 name|QRectF
 name|fullRect
 argument_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 argument_list|)
@@ -403,8 +393,6 @@ expr_stmt|;
 name|QRectF
 name|paintRect
 argument_list|(
-name|QPageLayout
-operator|::
 name|Unit
 name|units
 argument_list|)
@@ -429,7 +417,7 @@ name|friend
 name|class
 name|QPageLayoutPrivate
 decl_stmt|;
-name|QSharedDataPointer
+name|QExplicitlySharedDataPointer
 operator|<
 name|QPageLayoutPrivate
 operator|>
@@ -446,6 +434,54 @@ argument_list|(
 argument|QPageLayout
 argument_list|)
 end_macro
+begin_expr_stmt
+name|Q_GUI_EXPORT
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|QPageLayout
+operator|&
+name|lhs
+operator|,
+specifier|const
+name|QPageLayout
+operator|&
+name|rhs
+operator|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|function|operator
+specifier|inline
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|QPageLayout
+operator|&
+name|lhs
+operator|,
+specifier|const
+name|QPageLayout
+operator|&
+name|rhs
+operator|)
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|lhs
+operator|,
+name|rhs
+operator|)
+return|;
+block|}
+end_expr_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef

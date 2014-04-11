@@ -2911,7 +2911,17 @@ index|]
 return|;
 block|}
 block|}
-comment|// we'll read uc[offset..offset+7] (16 bytes) and c[offset-8..offset+7] (16 bytes)
+ifdef|#
+directive|ifdef
+name|Q_PROCESSOR_X86_64
+enum|enum
+block|{
+name|MaxTailLength
+init|=
+literal|7
+block|}
+enum|;
+comment|// we'll read uc[offset..offset+7] (16 bytes) and c[offset..offset+7] (8 bytes)
 if|if
 condition|(
 name|uc
@@ -2923,29 +2933,29 @@ operator|<
 name|e
 condition|)
 block|{
-comment|// same, but we'll throw away half the data
+comment|// same, but we're using an 8-byte load
 name|__m128i
 name|chunk
 init|=
-name|_mm_loadu_si128
+name|_mm_cvtsi64_si128
 argument_list|(
+operator|*
 operator|(
-name|__m128i
+name|long
+name|long
 operator|*
 operator|)
 operator|(
 name|c
 operator|+
 name|offset
-operator|-
-literal|8
 operator|)
 argument_list|)
 decl_stmt|;
 name|__m128i
 name|secondHalf
 init|=
-name|_mm_unpackhi_epi8
+name|_mm_unpacklo_epi8
 argument_list|(
 name|chunk
 argument_list|,
@@ -3033,6 +3043,18 @@ operator|+=
 literal|8
 expr_stmt|;
 block|}
+else|#
+directive|else
+comment|// 32-bit, we can't do MOVQ to load 8 bytes
+enum|enum
+block|{
+name|MaxTailLength
+init|=
+literal|15
+block|}
+enum|;
+endif|#
+directive|endif
 comment|// reset uc and c
 name|uc
 operator|+=
@@ -3077,7 +3099,7 @@ decl_stmt|;
 return|return
 name|UnrollTailLoop
 argument_list|<
-literal|7
+name|MaxTailLength
 argument_list|>
 operator|::
 name|exec
@@ -16265,6 +16287,24 @@ directive|if
 name|defined
 argument_list|(
 name|QT_USE_ICU
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN32
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_macro

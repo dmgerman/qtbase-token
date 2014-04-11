@@ -96,9 +96,6 @@ name|NSArray
 modifier|*
 name|unignoredChildren
 parameter_list|(
-name|id
-name|parentObject
-parameter_list|,
 name|QAccessibleInterface
 modifier|*
 name|interface

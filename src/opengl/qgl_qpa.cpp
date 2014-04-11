@@ -528,6 +528,29 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// QGLFormat has no way to set DeprecatedFunctions, that is, to tell that forward
+comment|// compatibility should not be requested. Some drivers fail to ignore the fwdcompat
+comment|// bit with compatibility profiles so make sure it is not set.
+if|if
+condition|(
+name|format
+operator|.
+name|profile
+argument_list|()
+operator|==
+name|QGLFormat
+operator|::
+name|CompatibilityProfile
+condition|)
+name|retFormat
+operator|.
+name|setOption
+argument_list|(
+name|QSurfaceFormat
+operator|::
+name|DeprecatedFunctions
+argument_list|)
+expr_stmt|;
 return|return
 name|retFormat
 return|;

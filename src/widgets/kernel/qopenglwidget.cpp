@@ -82,11 +82,7 @@ name|uninitialized
 argument_list|(
 literal|true
 argument_list|)
-block|{
-name|setRenderToTexture
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|function|textureId
 name|GLuint
 name|textureId
@@ -265,7 +261,18 @@ name|parent
 argument_list|,
 name|f
 argument_list|)
-block|{ }
+block|{
+name|Q_D
+argument_list|(
+name|QOpenGLWidget
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|setRenderToTexture
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QOpenGLWidget
@@ -471,6 +478,13 @@ argument_list|(
 name|QOpenGLWidget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|uninitialized
+condition|)
+return|return;
 name|makeCurrent
 argument_list|()
 expr_stmt|;
@@ -560,6 +574,10 @@ argument_list|()
 operator|*
 name|devicePixelRatio
 argument_list|()
+argument_list|,
+name|QOpenGLFramebufferObject
+operator|::
+name|CombinedDepthStencil
 argument_list|)
 expr_stmt|;
 name|d

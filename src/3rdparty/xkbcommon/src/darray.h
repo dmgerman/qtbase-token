@@ -13,6 +13,9 @@ define|#
 directive|define
 name|CCAN_DARRAY_H
 end_define
+begin_comment
+comment|/* Originally taken from: http://ccodearchive.net/info/darray.html  * But modified for libxkbcommon. */
+end_comment
 begin_include
 include|#
 directive|include
@@ -23,12 +26,16 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_comment
-comment|/*  * SYNOPSIS  *  * Life cycle of a darray (dynamically-allocated array):  *  *     darray(int) a = darray_new();  *     darray_free(a);  *  *     struct {darray(int) a;} foo;  *     darray_init(foo.a);  *     darray_free(foo.a);  *  * Typedefs for darrays of common types:  *  *     darray_char, darray_schar, darray_uchar  *     darray_short, darray_int, darray_long  *     darray_ushort, darray_uint, darray_ulong  *  * Access:  *  *     T      darray_item(darray(T) arr, size_t index);  *     size_t darray_size(darray(T) arr);  *     size_t darray_alloc(darray(T) arr);  *     bool   darray_empty(darray(T) arr);  *  *     // Access raw memory, starting from the item in offset.  *     // Not safe, be careful, etc.  *     T*     darray_mem(darray(T) arr, size_t offset);  *  * Insertion (single item):  *  *     void   darray_append(darray(T) arr, T item);  *     void   darray_prepend(darray(T) arr, T item);  *     void   darray_push(darray(T) arr, T item); // same as darray_append  *  * Insertion (multiple items):  *  *     void   darray_append_items(darray(T) arr, T *items, size_t count);  *     void   darray_prepend_items(darray(T) arr, T *items, size_t count);  *  *     void   darray_appends(darray(T) arr, [T item, [...]]);  *     void   darray_prepends(darray(T) arr, [T item, [...]]);  *  * Removal:  *  *     T      darray_pop(darray(T) arr | darray_size(arr) != 0);  *     T*     darray_pop_check(darray(T*) arr);  *  * Replacement:  *  *     void   darray_from_items(darray(T) arr, T *items, size_t count);  *     void   darray_from_c(darray(T) arr, T c_array[N]);  *  * String buffer:  *  *     void   darray_append_string(darray(char) arr, const char *str);  *     void   darray_append_lit(darray(char) arr, char stringLiteral[N+1]);  *  *     void   darray_prepend_string(darray(char) arr, const char *str);  *     void   darray_prepend_lit(darray(char) arr, char stringLiteral[N+1]);  *  *     void   darray_from_string(darray(T) arr, const char *str);  *     void   darray_from_lit(darray(char) arr, char stringLiteral[N+1]);  *  * Size management:  *  *     void   darray_resize(darray(T) arr, size_t newSize);  *     void   darray_resize0(darray(T) arr, size_t newSize);  *  *     void   darray_realloc(darray(T) arr, size_t newAlloc);  *     void   darray_growalloc(darray(T) arr, size_t newAlloc);  *  * Traversal:  *  *     darray_foreach(T *&i, darray(T) arr) {...}  *     darray_foreach_reverse(T *&i, darray(T) arr) {...}  *  * Except for darray_foreach and darray_foreach_reverse,  * all macros evaluate their non-darray arguments only once.  */
-end_comment
-begin_comment
-comment|/*** Life cycle ***/
-end_comment
+begin_include
+include|#
+directive|include
+file|<assert.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<limits.h>
+end_include
 begin_define
 DECL|macro|darray
 define|#
@@ -37,7 +44,7 @@ name|darray
 parameter_list|(
 name|type
 parameter_list|)
-value|struct { type *item; size_t size; size_t alloc; }
+value|struct { type *item; unsigned size; unsigned alloc; }
 end_define
 begin_define
 DECL|macro|darray_new
@@ -65,7 +72,7 @@ name|darray_free
 parameter_list|(
 name|arr
 parameter_list|)
-value|do { \     free((arr).item); darray_init(arr); \ } while (0)
+value|do { \     free((arr).item); \     darray_init(arr); \ } while (0)
 end_define
 begin_comment
 comment|/*  * Typedefs for darrays of common types.  These are useful  * when you want to pass a pointer to an darray(T) around.  *  * The following will produce an incompatible pointer warning:  *  *     void foo(darray(int) *arr);  *     darray(int) arr = darray_new();  *     foo(&arr);  *  * The workaround:  *  *     void foo(darray_int *arr);  *     darray_int arr = darray_new();  *     foo(&arr);  */
@@ -186,16 +193,6 @@ parameter_list|)
 value|((arr).size)
 end_define
 begin_define
-DECL|macro|darray_alloc
-define|#
-directive|define
-name|darray_alloc
-parameter_list|(
-name|arr
-parameter_list|)
-value|((arr).alloc)
-end_define
-begin_define
 DECL|macro|darray_empty
 define|#
 directive|define
@@ -217,18 +214,6 @@ name|offset
 parameter_list|)
 value|((arr).item + (offset))
 end_define
-begin_define
-DECL|macro|darray_same
-define|#
-directive|define
-name|darray_same
-parameter_list|(
-name|arr1
-parameter_list|,
-name|arr2
-parameter_list|)
-value|((arr1).item == (arr2).item)
-end_define
 begin_comment
 comment|/*** Insertion (single item) ***/
 end_comment
@@ -243,30 +228,6 @@ parameter_list|,
 modifier|...
 parameter_list|)
 value|do { \     darray_resize(arr, (arr).size + 1); \     (arr).item[(arr).size - 1] = (__VA_ARGS__); \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_prepend
-define|#
-directive|define
-name|darray_prepend
-parameter_list|(
-name|arr
-parameter_list|,
-modifier|...
-parameter_list|)
-value|do { \     darray_resize(arr, (arr).size + 1); \     memmove((arr).item + 1, (arr).item, \             ((arr).size - 1) * sizeof(*(arr).item)); \     (arr).item[0] = (__VA_ARGS__); \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_push
-define|#
-directive|define
-name|darray_push
-parameter_list|(
-name|arr
-parameter_list|,
-modifier|...
-parameter_list|)
-value|darray_append(arr, __VA_ARGS__)
 end_define
 begin_comment
 comment|/*** Insertion (multiple items) ***/
@@ -283,107 +244,8 @@ name|items
 parameter_list|,
 name|count
 parameter_list|)
-value|do { \     size_t __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __oldSize + __count); \     memcpy((arr).item + __oldSize, items, __count * sizeof(*(arr).item)); \ } while (0)
+value|do { \     unsigned __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __oldSize + __count); \     memcpy((arr).item + __oldSize, items, __count * sizeof(*(arr).item)); \ } while (0)
 end_define
-begin_define
-DECL|macro|darray_prepend_items
-define|#
-directive|define
-name|darray_prepend_items
-parameter_list|(
-name|arr
-parameter_list|,
-name|items
-parameter_list|,
-name|count
-parameter_list|)
-value|do { \     size_t __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __count + __oldSize); \     memmove((arr).item + __count, (arr).item, \             __oldSize * sizeof(*(arr).item)); \     memcpy((arr).item, items, __count * sizeof(*(arr).item)); \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_append_items_nullterminate
-define|#
-directive|define
-name|darray_append_items_nullterminate
-parameter_list|(
-name|arr
-parameter_list|,
-name|items
-parameter_list|,
-name|count
-parameter_list|)
-value|do { \     size_t __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __oldSize + __count + 1); \     memcpy((arr).item + __oldSize, items, __count * sizeof(*(arr).item)); \     (arr).item[--(arr).size] = 0; \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_prepend_items_nullterminate
-define|#
-directive|define
-name|darray_prepend_items_nullterminate
-parameter_list|(
-name|arr
-parameter_list|,
-name|items
-parameter_list|,
-name|count
-parameter_list|)
-value|do { \     size_t __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __count + __oldSize + 1); \     memmove((arr).item + __count, (arr).item, \             __oldSize * sizeof(*(arr).item)); \     memcpy((arr).item, items, __count * sizeof(*(arr).item)); \     (arr).item[--(arr).size] = 0; \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_appends_t
-define|#
-directive|define
-name|darray_appends_t
-parameter_list|(
-name|arr
-parameter_list|,
-name|type
-parameter_list|,
-modifier|...
-parameter_list|)
-value|do { \     type __src[] = { __VA_ARGS__ }; \     darray_append_items(arr, __src, sizeof(__src) / sizeof(*__src)); \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_prepends_t
-define|#
-directive|define
-name|darray_prepends_t
-parameter_list|(
-name|arr
-parameter_list|,
-name|type
-parameter_list|,
-modifier|...
-parameter_list|)
-value|do { \     type __src[] = { __VA_ARGS__ }; \     darray_prepend_items(arr, __src, sizeof(__src) / sizeof(*__src)); \ } while (0)
-end_define
-begin_comment
-comment|/*** Removal ***/
-end_comment
-begin_comment
-comment|/* Warning: Do not call darray_pop on an empty darray. */
-end_comment
-begin_define
-DECL|macro|darray_pop
-define|#
-directive|define
-name|darray_pop
-parameter_list|(
-name|arr
-parameter_list|)
-value|((arr).item[--(arr).size])
-end_define
-begin_define
-DECL|macro|darray_pop_check
-define|#
-directive|define
-name|darray_pop_check
-parameter_list|(
-name|arr
-parameter_list|)
-value|((arr).size ? darray_pop(arr) : NULL)
-end_define
-begin_comment
-comment|/*** Replacement ***/
-end_comment
 begin_define
 DECL|macro|darray_from_items
 define|#
@@ -396,20 +258,7 @@ name|items
 parameter_list|,
 name|count
 parameter_list|)
-value|do { \     size_t __count = (count); \     darray_resize(arr, __count); \     memcpy((arr).item, items, __count * sizeof(*(arr).item)); \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_from_c
-define|#
-directive|define
-name|darray_from_c
-parameter_list|(
-name|arr
-parameter_list|,
-name|c_array
-parameter_list|)
-define|\
-value|darray_from_items(arr, c_array, sizeof(c_array) / sizeof(*(c_array)))
+value|do { \     unsigned __count = (count); \     darray_resize(arr, __count); \     memcpy((arr).item, items, __count * sizeof(*(arr).item)); \ } while (0)
 end_define
 begin_define
 DECL|macro|darray_copy
@@ -452,53 +301,32 @@ parameter_list|)
 value|do { \     darray_append_items(arr, stringLiteral, sizeof(stringLiteral)); \     (arr).size--; \ } while (0)
 end_define
 begin_define
-DECL|macro|darray_prepend_string
+DECL|macro|darray_appends_nullterminate
 define|#
 directive|define
-name|darray_prepend_string
+name|darray_appends_nullterminate
 parameter_list|(
 name|arr
 parameter_list|,
-name|str
+name|items
+parameter_list|,
+name|count
 parameter_list|)
-value|do { \     const char *__str = (str); \     darray_prepend_items_nullterminate(arr, __str, strlen(__str)); \ } while (0)
+value|do { \     unsigned __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __oldSize + __count + 1); \     memcpy((arr).item + __oldSize, items, __count * sizeof(*(arr).item)); \     (arr).item[--(arr).size] = 0; \ } while (0)
 end_define
 begin_define
-DECL|macro|darray_prepend_lit
+DECL|macro|darray_prepends_nullterminate
 define|#
 directive|define
-name|darray_prepend_lit
+name|darray_prepends_nullterminate
 parameter_list|(
 name|arr
 parameter_list|,
-name|stringLiteral
-parameter_list|)
-define|\
-value|darray_prepend_items_nullterminate(arr, stringLiteral, \                                        sizeof(stringLiteral) - 1)
-end_define
-begin_define
-DECL|macro|darray_from_string
-define|#
-directive|define
-name|darray_from_string
-parameter_list|(
-name|arr
+name|items
 parameter_list|,
-name|str
+name|count
 parameter_list|)
-value|do { \     const char *__str = (str); \     darray_from_items(arr, __str, strlen(__str) + 1); \     (arr).size--; \ } while (0)
-end_define
-begin_define
-DECL|macro|darray_from_lit
-define|#
-directive|define
-name|darray_from_lit
-parameter_list|(
-name|arr
-parameter_list|,
-name|stringLiteral
-parameter_list|)
-value|do { \     darray_from_items(arr, stringLiteral, sizeof(stringLiteral)); \     (arr).size--; \ } while (0)
+value|do { \     unsigned __count = (count), __oldSize = (arr).size; \     darray_resize(arr, __count + __oldSize + 1); \     memmove((arr).item + __count, (arr).item, \             __oldSize * sizeof(*(arr).item)); \     memcpy((arr).item, items, __count * sizeof(*(arr).item)); \     (arr).item[--(arr).size] = 0; \ } while (0)
 end_define
 begin_comment
 comment|/*** Size management ***/
@@ -526,7 +354,7 @@ name|arr
 parameter_list|,
 name|newSize
 parameter_list|)
-value|do { \     size_t __oldSize = (arr).size, __newSize = (newSize); \     (arr).size = __newSize; \     if (__newSize> __oldSize) { \         darray_growalloc(arr, __newSize); \         memset(&(arr).item[__oldSize], 0, \                (__newSize - __oldSize) * sizeof(*(arr).item)); \     } \ } while (0)
+value|do { \     unsigned __oldSize = (arr).size, __newSize = (newSize); \     (arr).size = __newSize; \     if (__newSize> __oldSize) { \         darray_growalloc(arr, __newSize); \         memset(&(arr).item[__oldSize], 0, \                (__newSize - __oldSize) * sizeof(*(arr).item)); \     } \ } while (0)
 end_define
 begin_define
 DECL|macro|darray_realloc
@@ -550,22 +378,37 @@ name|arr
 parameter_list|,
 name|need
 parameter_list|)
-value|do { \     size_t __need = (need); \     if (__need> (arr).alloc) \     darray_realloc(arr, darray_next_alloc((arr).alloc, __need)); \ } while (0)
+value|do { \     unsigned __need = (need); \     if (__need> (arr).alloc) \         darray_realloc(arr, darray_next_alloc((arr).alloc, __need, \                                               sizeof(*(arr).item))); \ } while (0)
 end_define
 begin_function
 specifier|static
 specifier|inline
-name|size_t
+name|unsigned
 DECL|function|darray_next_alloc
 name|darray_next_alloc
 parameter_list|(
-name|size_t
+name|unsigned
 name|alloc
 parameter_list|,
-name|size_t
+name|unsigned
 name|need
+parameter_list|,
+name|unsigned
+name|itemSize
 parameter_list|)
 block|{
+name|assert
+argument_list|(
+name|need
+operator|<
+name|UINT_MAX
+operator|/
+name|itemSize
+operator|/
+literal|2
+argument_list|)
+expr_stmt|;
+comment|/* Overflow. */
 if|if
 condition|(
 name|alloc
@@ -593,9 +436,6 @@ block|}
 end_function
 begin_comment
 comment|/*** Traversal ***/
-end_comment
-begin_comment
-comment|/*  * darray_foreach(T *&i, darray(T) arr) {...}  *  * Traverse a darray.  `i` must be declared in advance as a pointer to an item.  */
 end_comment
 begin_define
 DECL|macro|darray_foreach
@@ -660,9 +500,6 @@ parameter_list|)
 define|\
 value|for ((idx) = (from), (val) =&(arr).item[0]; \          (idx)< (arr).size; \          (idx)++, (val)++)
 end_define
-begin_comment
-comment|/*  * darray_foreach_reverse(T *&i, darray(T) arr) {...}  *  * Like darray_foreach, but traverse in reverse order.  */
-end_comment
 begin_define
 DECL|macro|darray_foreach_reverse
 define|#
@@ -682,8 +519,5 @@ directive|endif
 end_endif
 begin_comment
 comment|/* CCAN_DARRAY_H */
-end_comment
-begin_comment
-comment|/*  *  * darray_growalloc(arr, newAlloc) sees if the darray can currently hold newAlloc items;  *      if not, it increases the alloc to satisfy this requirement, allocating slack  *      space to avoid having to reallocate for every size increment.  *  * darray_from_string(arr, str) copies a string to an darray_char.  *  * darray_push(arr, item) pushes an item to the end of the darray.  * darray_pop(arr) pops it back out.  Be sure there is at least one item in the darray before calling.  * darray_pop_check(arr) does the same as darray_pop, but returns NULL if there are no more items left in the darray.  *  * darray_make_room(arr, room) ensures there's 'room' elements of space after the end of the darray, and it returns a pointer to this space.  * Currently requires HAVE_STATEMENT_EXPR, but I plan to remove this dependency by creating an inline function.  *  * The following require HAVE_TYPEOF==1 :  *  * darray_appends(arr, item0, item1...) appends a collection of comma-delimited items to the darray.  * darray_prepends(arr, item0, item1...) prepends a collection of comma-delimited items to the darray.\  *  *  * Examples:  *  *      darray(int)  arr;  *      int        *i;  *  *      darray_appends(arr, 0,1,2,3,4);  *      darray_appends(arr, -5,-4,-3,-2,-1);  *      darray_foreach(i, arr)  *              printf("%d ", *i);  *      printf("\n");  *  *      darray_free(arr);  *  *  *      typedef struct {int n,d;} Fraction;  *      darray(Fraction) fractions;  *      Fraction        *i;  *  *      darray_appends(fractions, {3,4}, {3,5}, {2,1});  *      darray_foreach(i, fractions)  *              printf("%d/%d\n", i->n, i->d);  *  *      darray_free(fractions);  */
 end_comment
 end_unit

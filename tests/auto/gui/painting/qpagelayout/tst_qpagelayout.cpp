@@ -449,6 +449,19 @@ literal|842
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QPageLayout
+name|a4portrait
+init|=
+name|simple
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|a4portrait
+operator|==
+name|simple
+argument_list|)
+expr_stmt|;
 comment|// Change orientation
 name|simple
 operator|.
@@ -457,6 +470,13 @@ argument_list|(
 name|QPageLayout
 operator|::
 name|Landscape
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|simple
+operator|!=
+name|a4portrait
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

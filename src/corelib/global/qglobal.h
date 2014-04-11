@@ -5278,11 +5278,20 @@ end_define
 begin_comment
 comment|/*    When RTTI is not available, define this macro to force any uses of    dynamic_cast to cause a compile failure. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_NO_DYNAMIC_CAST
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|dynamic_cast
+argument_list|)
+end_if
 begin_define
 DECL|macro|dynamic_cast
 define|#

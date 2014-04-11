@@ -665,8 +665,6 @@ block|{
 name|DesktopGL
 block|,
 name|GLES2
-block|,
-name|GLES1
 block|}
 block|;
 specifier|static

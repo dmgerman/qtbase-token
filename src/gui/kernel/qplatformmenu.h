@@ -99,6 +99,18 @@ block|,
 name|PreferencesRole
 block|,
 name|QuitRole
+block|,
+comment|// However these roles are private, perhaps temporarily.
+comment|// They could be added as public QAction roles if necessary.
+name|CutRole
+block|,
+name|CopyRole
+block|,
+name|PasteRole
+block|,
+name|SelectAllRole
+block|,
+name|RoleCount
 block|}
 block|;
 name|virtual

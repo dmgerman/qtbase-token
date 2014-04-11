@@ -8410,6 +8410,11 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE_WM
 argument_list|)
+name|Q_UNUSED
+argument_list|(
+name|isChildOfQMdiSubWindow
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -8447,6 +8452,11 @@ name|defined
 argument_list|(
 name|QT_NO_MAINWINDOW
 argument_list|)
+name|Q_UNUSED
+argument_list|(
+name|isChildOfQMdiSubWindow
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;

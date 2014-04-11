@@ -446,7 +446,7 @@ index|[
 literal|1
 index|]
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 end_expr_stmt
 begin_comment
@@ -528,7 +528,7 @@ index|[
 literal|1
 index|]
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 end_expr_stmt
 begin_comment
@@ -610,7 +610,7 @@ index|[
 literal|1
 index|]
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 end_expr_stmt
 begin_comment
@@ -758,7 +758,7 @@ index|[
 literal|1
 index|]
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 end_expr_stmt
 begin_comment
@@ -848,7 +848,7 @@ index|[
 literal|1
 index|]
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 end_expr_stmt
 begin_comment
@@ -938,7 +938,7 @@ index|[
 literal|1
 index|]
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 end_expr_stmt
 begin_comment

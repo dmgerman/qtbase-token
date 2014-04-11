@@ -22622,6 +22622,24 @@ block|{
 name|QWidget
 name|topLevel
 decl_stmt|;
+comment|// Explicitly set the font size because it is dpi dependent on some platforms
+name|QFont
+name|font
+decl_stmt|;
+name|font
+operator|.
+name|setPixelSize
+argument_list|(
+literal|40
+argument_list|)
+expr_stmt|;
+name|topLevel
+operator|.
+name|setFont
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
 name|QTreeWidget
 name|treeWidget
 argument_list|(
@@ -22641,6 +22659,13 @@ argument_list|(
 literal|200
 argument_list|,
 literal|200
+argument_list|)
+expr_stmt|;
+name|treeWidget
+operator|.
+name|setHeaderHidden
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|treeWidget
@@ -22746,15 +22771,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 comment|//there should be enough room for 2x2 items.  If there is a scrollbar, it means the items are duplicated
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|treeWidget

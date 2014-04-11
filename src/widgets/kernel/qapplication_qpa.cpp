@@ -236,11 +236,6 @@ name|block_event
 init|=
 literal|false
 decl_stmt|;
-name|bool
-name|paint_event
-init|=
-literal|false
-decl_stmt|;
 switch|switch
 condition|(
 name|type
@@ -289,11 +284,9 @@ break|break;
 block|}
 if|if
 condition|(
-operator|(
 name|block_event
-operator|||
-name|paint_event
-operator|)
+operator|&&
+name|top
 operator|&&
 name|top
 operator|->
@@ -343,6 +336,7 @@ modifier|*
 name|wnd
 parameter_list|)
 block|{
+comment|// QTBUG-32177, wnd might be a QQuickView embedded via window container.
 while|while
 condition|(
 name|wnd
@@ -353,7 +347,30 @@ operator|->
 name|isTopLevel
 argument_list|()
 condition|)
-comment|// QTBUG-32177, wnd might be a QQuickView embedded via window container.
+block|{
+name|QWindow
+modifier|*
+name|parent
+init|=
+name|wnd
+operator|->
+name|parent
+argument_list|()
+decl_stmt|;
+comment|// Don't end up in windows not belonging to this application
+if|if
+condition|(
+name|parent
+operator|&&
+name|parent
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|ForeignWindow
+condition|)
 name|wnd
 operator|=
 name|wnd
@@ -361,6 +378,9 @@ operator|->
 name|parent
 argument_list|()
 expr_stmt|;
+else|else
+break|break;
+block|}
 if|if
 condition|(
 name|wnd

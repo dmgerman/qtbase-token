@@ -2131,6 +2131,9 @@ index|]
 operator|=
 name|XKB_KEY_dead_doublegrave
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|DEBUG_GENERATOR
 else|else
 name|qWarning
 argument_list|()
@@ -2145,6 +2148,8 @@ argument_list|(
 name|sym
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 else|else

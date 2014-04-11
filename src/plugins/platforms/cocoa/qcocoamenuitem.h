@@ -290,6 +290,11 @@ return|return
 name|m_menu
 return|;
 block|}
+name|MenuRole
+name|effectiveRole
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QString
@@ -331,6 +336,9 @@ name|m_font
 block|;
 name|MenuRole
 name|m_role
+block|;
+name|MenuRole
+name|m_detectedRole
 block|;
 name|QKeySequence
 name|m_shortcut

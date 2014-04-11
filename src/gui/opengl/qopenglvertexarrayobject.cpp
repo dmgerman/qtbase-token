@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qoffscreensurface.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qopenglfunctions_3_0.h>
 end_include
 begin_include
@@ -1263,6 +1268,12 @@ name|oldContext
 init|=
 literal|0
 decl_stmt|;
+name|QScopedPointer
+argument_list|<
+name|QOffscreenSurface
+argument_list|>
+name|offscreenSurface
+decl_stmt|;
 if|if
 condition|(
 name|d
@@ -1282,6 +1293,35 @@ name|oldContext
 operator|=
 name|ctx
 expr_stmt|;
+comment|// Cannot just make the current surface current again with another context.
+comment|// The format may be incompatible and some platforms (iOS) may impose
+comment|// restrictions on using a window with different contexts. Create an
+comment|// offscreen surface (a pbuffer or a hidden window) instead to be safe.
+name|offscreenSurface
+operator|.
+name|reset
+argument_list|(
+operator|new
+name|QOffscreenSurface
+argument_list|)
+expr_stmt|;
+name|offscreenSurface
+operator|->
+name|setFormat
+argument_list|(
+name|d
+operator|->
+name|context
+operator|->
+name|format
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|offscreenSurface
+operator|->
+name|create
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|d
@@ -1290,9 +1330,9 @@ name|context
 operator|->
 name|makeCurrent
 argument_list|(
-name|oldContext
-operator|->
-name|surface
+name|offscreenSurface
+operator|.
+name|data
 argument_list|()
 argument_list|)
 condition|)

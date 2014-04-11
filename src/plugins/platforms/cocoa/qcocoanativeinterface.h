@@ -290,7 +290,17 @@ argument_list|,
 argument|bool enable
 argument_list|)
 block|;
-comment|// Request a unified title and toolbar look for the window.
+comment|// Enable the unified title and toolbar area for a window.
+specifier|static
+name|void
+name|setContentBorderEnabled
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|bool enable
+argument_list|)
+block|;
+comment|// Set the size of the unified title and toolbar area.
 specifier|static
 name|void
 name|setContentBorderThickness
@@ -302,8 +312,8 @@ argument_list|,
 argument|int bottomThickness
 argument_list|)
 block|;
-comment|// Request a unified title and toolbar look for the window by registering
-comment|// an area. Multiple callers can register areas and the platform plugin
+comment|// Set the size for a unified toolbar content border area.
+comment|// Multiple callers can register areas and the platform plugin
 comment|// will extend the "unified" area to cover them.
 specifier|static
 name|void
@@ -318,14 +328,27 @@ argument_list|,
 argument|int lower
 argument_list|)
 block|;
-comment|// Enable the unified title and toolbar area.
+comment|// Enables or disiables a content border area.
 specifier|static
 name|void
-name|enableContentBorderArea
+name|setContentBorderAreaEnabled
 argument_list|(
 argument|QWindow *window
 argument_list|,
+argument|quintptr identifier
+argument_list|,
 argument|bool enable
+argument_list|)
+block|;
+comment|// Returns true if the given coordinate is inside the current
+comment|// content border.
+specifier|static
+name|bool
+name|testContentBorderPosition
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|int position
 argument_list|)
 block|;
 comment|// Sets a NSToolbar instance for the given QWindow. The

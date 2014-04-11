@@ -195,6 +195,10 @@ name|showPageSetupDialog
 argument_list|()
 block|;
 name|void
+name|directPrint
+argument_list|()
+block|;
+name|void
 name|unitsChanged
 argument_list|()
 block|;

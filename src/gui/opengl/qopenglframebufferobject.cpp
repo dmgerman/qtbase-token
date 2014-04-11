@@ -2864,6 +2864,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|isBound
+argument_list|()
+condition|)
+name|release
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
 name|d
 operator|->
 name|texture_guard

@@ -501,6 +501,11 @@ operator|&
 name|id
 argument_list|)
 block|;
+name|QString
+name|retrievePlatformToolSet
+argument_list|()
+specifier|const
+block|;
 name|friend
 name|class
 name|VCFilter

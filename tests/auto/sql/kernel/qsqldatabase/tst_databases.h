@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|/* possible connection parameters */
@@ -45,6 +45,11 @@ begin_include
 include|#
 directive|include
 file|<QDir>
+end_include
+begin_include
+include|#
+directive|include
+file|<QScopedPointer>
 end_include
 begin_include
 include|#
@@ -1267,7 +1272,7 @@ name|cName
 argument_list|)
 expr_stmt|;
 block|}
-name|void
+name|bool
 name|addDbs
 parameter_list|()
 block|{
@@ -1313,20 +1318,41 @@ comment|//         addDb( "QIBASE", "/opt/firebird/databases/testdb.fdb", "testu
 comment|//         addDb( "QIBASE", "/opt/firebird/databases/testdb.fdb", "testuser", "Ee4Gabf6_", "bq-firebird2.qt-project.org" ); // Firebird 2.1.1
 comment|//      use in-memory database to prevent local files
 comment|//         addDb("QSQLITE", ":memory:");
+name|QTemporaryDir
+modifier|*
+name|sqLiteDir
+init|=
+name|dbDir
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|sqLiteDir
+condition|)
+return|return
+name|false
+return|;
 name|addDb
 argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|"QSQLITE"
+argument_list|)
 argument_list|,
 name|QDir
 operator|::
 name|toNativeSeparators
 argument_list|(
-name|dbDir
-operator|.
+name|sqLiteDir
+operator|->
 name|path
 argument_list|()
 operator|+
+name|QStringLiteral
+argument_list|(
 literal|"/foo.db"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1345,14 +1371,24 @@ comment|//         addDb( "QODBC3", "DRIVER={SQL SERVER};SERVER=bq-winserv2003-x
 comment|//         addDb( "QODBC3", "DRIVER={SQL SERVER};SERVER=bq-winserv2008-x86-01.qt-project.org;DATABASE=testdb;PORT=1433", "testuser", "Ee4Gabf6_", "" );
 comment|//         addDb( "QODBC", "DRIVER={Microsoft Access Driver (*.mdb)};DBQ=c:\\dbs\\access\\testdb.mdb", "", "", "" );
 comment|//         addDb( "QODBC", "DRIVER={Postgresql};SERVER=bq-pgsql84.qt-project.org;DATABASE=testdb", "testuser", "Ee4Gabf6_", "" );
+return|return
+name|true
+return|;
 block|}
-name|void
+comment|// 'false' return indicates a system error, for example failure to create a temporary directory.
+name|bool
 name|open
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
 name|addDbs
 argument_list|()
-expr_stmt|;
+condition|)
+return|return
+name|false
+return|;
 name|QStringList
 operator|::
 name|Iterator
@@ -1470,6 +1506,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+return|return
+name|true
+return|;
 block|}
 name|void
 name|close
@@ -2787,9 +2826,74 @@ decl_stmt|;
 name|int
 name|counter
 decl_stmt|;
+name|private
+label|:
 name|QTemporaryDir
+modifier|*
 name|dbDir
-decl_stmt|;
+parameter_list|()
+block|{
+if|if
+condition|(
+name|m_dbDir
+operator|.
+name|isNull
+argument_list|()
+condition|)
+block|{
+name|m_dbDir
+operator|.
+name|reset
+argument_list|(
+argument|new QTemporaryDir
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_dbDir
+operator|->
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"Unable to create a temporary directory: "
+operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|m_dbDir
+operator|->
+name|path
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|m_dbDir
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+return|return
+name|m_dbDir
+operator|.
+name|data
+argument_list|()
+return|;
+block|}
+name|QScopedPointer
+operator|<
+name|QTemporaryDir
+operator|>
+name|m_dbDir
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
