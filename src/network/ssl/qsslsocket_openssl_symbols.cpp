@@ -3860,6 +3860,97 @@ end_endif
 begin_comment
 comment|// OPENSSL_VERSION_NUMBER>= 0x1000100fL ...
 end_comment
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|DH *
+argument_list|,
+argument|DH_new
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|DH_free
+argument_list|,
+argument|DH *dh
+argument_list|,
+argument|dh
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|BIGNUM *
+argument_list|,
+argument|BN_bin2bn
+argument_list|,
+argument|const unsigned char *s
+argument_list|,
+argument|s
+argument_list|,
+argument|int len
+argument_list|,
+argument|len
+argument_list|,
+argument|BIGNUM *ret
+argument_list|,
+argument|ret
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|EC_KEY *
+argument_list|,
+argument|EC_KEY_new_by_curve_name
+argument_list|,
+argument|int nid
+argument_list|,
+argument|nid
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|EC_KEY_free
+argument_list|,
+argument|EC_KEY *ecdh
+argument_list|,
+argument|ecdh
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
 begin_define
 DECL|macro|RESOLVEFUNC
 define|#
@@ -6010,6 +6101,26 @@ argument_list|)
 endif|#
 directive|endif
 comment|// OPENSSL_VERSION_NUMBER>= 0x1000100fL ...
+name|RESOLVEFUNC
+argument_list|(
+argument|DH_new
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|DH_free
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|BN_bin2bn
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|EC_KEY_new_by_curve_name
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|EC_KEY_free
+argument_list|)
 name|symbolsResolved
 operator|=
 literal|true

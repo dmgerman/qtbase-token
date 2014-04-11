@@ -2905,6 +2905,9 @@ decl_stmt|;
 name|QString
 name|ProgramDatabase
 decl_stmt|;
+name|QString
+name|PlatformToolSet
+decl_stmt|;
 name|triState
 name|RegisterOutput
 decl_stmt|;

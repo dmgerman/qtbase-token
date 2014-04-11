@@ -216,11 +216,48 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
 name|XCB_USE_XLIB
+DECL|variable|xcbConnectionErrors
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|xcbConnectionErrors
+index|[]
+init|=
+block|{
+literal|"No error"
+block|,
+comment|/* Error 0 */
+literal|"I/O error"
+block|,
+comment|/* XCB_CONN_ERROR */
+literal|"Unsupported extension used"
+block|,
+comment|/* XCB_CONN_CLOSED_EXT_NOTSUPPORTED */
+literal|"Out of memory"
+block|,
+comment|/* XCB_CONN_CLOSED_MEM_INSUFFICIENT */
+literal|"Maximum allowed requested length exceeded"
+block|,
+comment|/* XCB_CONN_CLOSED_REQ_LEN_EXCEED */
+literal|"Failed to parse display string"
+block|,
+comment|/* XCB_CONN_CLOSED_PARSE_ERR */
+literal|"No such screen on display"
+block|,
+comment|/* XCB_CONN_CLOSED_INVALID_SCREEN */
+literal|"Error during FD passing"
+comment|/* XCB_CONN_CLOSED_FDPASSING_FAILED */
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_function
 DECL|function|nullErrorHandler
 specifier|static
 name|int
@@ -235,6 +272,100 @@ parameter_list|)
 block|{
 return|return
 literal|0
+return|;
+block|}
+end_function
+begin_function
+DECL|function|ioErrorHandler
+specifier|static
+name|int
+name|ioErrorHandler
+parameter_list|(
+name|Display
+modifier|*
+name|dpy
+parameter_list|)
+block|{
+name|xcb_connection_t
+modifier|*
+name|conn
+init|=
+name|XGetXCBConnection
+argument_list|(
+name|dpy
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|conn
+operator|!=
+name|NULL
+condition|)
+block|{
+comment|/* Print a message with a textual description of the error */
+name|int
+name|code
+init|=
+name|xcb_connection_has_error
+argument_list|(
+name|conn
+argument_list|)
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|str
+init|=
+literal|"Unknown error"
+decl_stmt|;
+name|int
+name|arrayLength
+init|=
+sizeof|sizeof
+argument_list|(
+name|xcbConnectionErrors
+argument_list|)
+operator|/
+sizeof|sizeof
+argument_list|(
+name|xcbConnectionErrors
+index|[
+literal|0
+index|]
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|code
+operator|>=
+literal|0
+operator|&&
+name|code
+operator|<
+name|arrayLength
+condition|)
+name|str
+operator|=
+name|xcbConnectionErrors
+index|[
+name|code
+index|]
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"The X11 connection broke: %s (code %d)"
+argument_list|,
+name|str
+argument_list|,
+name|code
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|_XDefaultIOError
+argument_list|(
+name|dpy
+argument_list|)
 return|;
 block|}
 end_function
@@ -1229,6 +1360,11 @@ expr_stmt|;
 name|XSetErrorHandler
 argument_list|(
 name|nullErrorHandler
+argument_list|)
+expr_stmt|;
+name|XSetIOErrorHandler
+argument_list|(
+name|ioErrorHandler
 argument_list|)
 expr_stmt|;
 name|m_xlib_display

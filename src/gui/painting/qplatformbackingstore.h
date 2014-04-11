@@ -320,6 +320,10 @@ specifier|const
 name|QRegion
 operator|&
 name|dirtyRegion
+argument_list|,
+name|QSize
+operator|*
+name|textureSize
 argument_list|)
 decl|const
 decl_stmt|;

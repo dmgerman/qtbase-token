@@ -203,6 +203,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qopenglcontext_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qgraphicseffect_p.h>
 end_include
 begin_include
@@ -10125,9 +10130,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+name|Q_OS_QNX
+comment|// On QNX this window will be activated anyway from libscreen
+comment|// activating it here before libscreen activates it causes problems
 name|activateWindow
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 comment|/*!     Shows the widget maximized.      Calling this function only affects \l{isWindow()}{windows}.      On X11, this function may not work properly with certain window     managers. See the \l{Window Geometry} documentation for an explanation.      \sa setWindowState(), showNormal(), showMinimized(), show(), hide(), isVisible() */
 DECL|function|showMaximized
@@ -31386,6 +31400,34 @@ name|fnt
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|windowHandle
+argument_list|()
+operator|&&
+operator|!
+name|qstrncmp
+argument_list|(
+name|propName
+argument_list|,
+literal|"_q_platform_"
+argument_list|,
+literal|12
+argument_list|)
+condition|)
+name|windowHandle
+argument_list|()
+operator|->
+name|setProperty
+argument_list|(
+name|propName
+argument_list|,
+name|property
+argument_list|(
+name|propName
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// fall through
 block|}
 endif|#
@@ -40080,6 +40122,16 @@ operator|new
 name|QOpenGLContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|->
+name|setShareContext
+argument_list|(
+name|QOpenGLContextPrivate
+operator|::
+name|globalShareContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|->
 name|setFormat

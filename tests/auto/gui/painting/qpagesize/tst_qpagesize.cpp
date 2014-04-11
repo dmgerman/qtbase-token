@@ -899,6 +899,17 @@ name|QCOMPARE
 argument_list|(
 operator|(
 name|a4
+operator|!=
+name|folio
+operator|)
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+operator|(
+name|a4
 operator|.
 name|isEquivalentTo
 argument_list|(
@@ -918,6 +929,17 @@ name|a4b
 operator|)
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+operator|(
+name|a4
+operator|!=
+name|a4b
+operator|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -943,6 +965,18 @@ name|folio2
 operator|)
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+comment|// Name different
+name|QCOMPARE
+argument_list|(
+operator|(
+name|folio
+operator|!=
+name|folio2
+operator|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Name different

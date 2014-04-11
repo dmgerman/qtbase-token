@@ -254,8 +254,8 @@ operator|<<
 literal|7
 operator|)
 block|,
-DECL|enumerator|ACTION_NO_ACCEL
-name|ACTION_NO_ACCEL
+DECL|enumerator|ACTION_ACCEL
+name|ACTION_ACCEL
 init|=
 operator|(
 literal|1
@@ -608,7 +608,7 @@ name|uint8_t
 name|count
 decl_stmt|;
 DECL|member|button
-name|int8_t
+name|uint8_t
 name|button
 decl_stmt|;
 block|}
@@ -765,10 +765,6 @@ name|enum
 name|xkb_match_operation
 name|match
 decl_stmt|;
-DECL|member|level_one_only
-name|bool
-name|level_one_only
-decl_stmt|;
 DECL|member|mods
 name|xkb_mod_mask_t
 name|mods
@@ -781,6 +777,10 @@ DECL|member|action
 name|union
 name|xkb_action
 name|action
+decl_stmt|;
+DECL|member|level_one_only
+name|bool
+name|level_one_only
 decl_stmt|;
 DECL|member|repeat
 name|bool

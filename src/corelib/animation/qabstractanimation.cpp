@@ -384,18 +384,26 @@ name|totalElapsed
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|//we make sure we only call update time if the time has actually changed
+comment|//we make sure we only call update time if the time has actually advanced
 end_comment
 begin_comment
-comment|//it might happen in some cases that the time doesn't change because events are delayed
+comment|//* it might happen in some cases that the time doesn't change because events are delayed
 end_comment
 begin_comment
-comment|//when the CPU load is high
+comment|//  when the CPU load is high
+end_comment
+begin_comment
+comment|//* it might happen in some cases that the delta is negative because the animation driver
+end_comment
+begin_comment
+comment|//  advances faster than time.elapsed()
 end_comment
 begin_if
 if|if
 condition|(
 name|delta
+operator|>
+literal|0
 condition|)
 block|{
 name|insideTick

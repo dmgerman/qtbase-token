@@ -56,6 +56,11 @@ name|bool
 name|create
 parameter_list|()
 function_decl|;
+name|bool
+name|isCreated
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|destroy
 parameter_list|()

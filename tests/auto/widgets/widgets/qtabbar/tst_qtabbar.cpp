@@ -1680,8 +1680,11 @@ name|ElideRight
 argument_list|)
 expr_stmt|;
 comment|//    qDebug()<< tabBar.minimumSizeHint()<< tabBar.sizeHint();
-name|QVERIFY
-argument_list|(
+comment|// The sizeHint is very much dependent on the screen DPI value
+comment|// so we can not really predict it.
+name|int
+name|tabBarMinSizeHintWidth
+init|=
 name|tabBar
 operator|.
 name|minimumSizeHint
@@ -1689,12 +1692,10 @@ argument_list|()
 operator|.
 name|width
 argument_list|()
-operator|<
-literal|500
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
+decl_stmt|;
+name|int
+name|tabBarSizeHintWidth
+init|=
 name|tabBar
 operator|.
 name|sizeHint
@@ -1702,6 +1703,17 @@ argument_list|()
 operator|.
 name|width
 argument_list|()
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|tabBarMinSizeHintWidth
+operator|<
+name|tabBarSizeHintWidth
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|tabBarSizeHintWidth
 operator|>
 literal|700
 argument_list|)
@@ -1723,8 +1735,8 @@ argument_list|()
 operator|.
 name|width
 argument_list|()
-operator|<
-literal|600
+operator|>
+name|tabBarMinSizeHintWidth
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1737,10 +1749,9 @@ operator|.
 name|width
 argument_list|()
 operator|>
-literal|700
+name|tabBarSizeHintWidth
 argument_list|)
 expr_stmt|;
-comment|// unchanged
 block|}
 end_function
 begin_function

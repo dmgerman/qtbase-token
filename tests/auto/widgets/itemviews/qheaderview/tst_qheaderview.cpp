@@ -2869,6 +2869,17 @@ operator|::
 name|sectionSize
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+name|Q_OS_QNX
+name|QSKIP
+argument_list|(
+literal|"The section size is dpi dependent on QNX"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|QList
@@ -3610,6 +3621,17 @@ operator|::
 name|visualIndexAt
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+name|Q_OS_QNX
+name|QSKIP
+argument_list|(
+literal|"The section size is dpi dependent on QNX"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|QList

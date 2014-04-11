@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -424,14 +424,6 @@ name|old
 return|;
 block|}
 end_function
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QAccessibleCache
-argument_list|,
-argument|qAccessibleCache
-argument_list|)
-end_macro
 begin_comment
 comment|/*!     If a QAccessibleInterface implementation exists for the given \a object,     this function returns a pointer to the implementation; otherwise it     returns 0.      The function calls all installed factory functions (from most     recently installed to least recently installed) until one is found     that provides an interface for the class of \a object. If no     factory can provide an accessibility implementation for the class     the function loads installed accessibility plugins, and tests if     any of the plugins can provide the implementation.      If no implementation for the object's class is available, the     function tries to find an implementation for the object's parent     class, using the above strategy.      All interfaces are managed by an internal cache and should not be deleted. */
 end_comment
@@ -461,7 +453,10 @@ condition|(
 name|Id
 name|id
 init|=
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|objectToId
 operator|.
@@ -471,7 +466,10 @@ name|object
 argument_list|)
 condition|)
 return|return
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|interfaceForId
 argument_list|(
@@ -554,7 +552,10 @@ name|object
 argument_list|)
 condition|)
 block|{
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|insert
 argument_list|(
@@ -565,7 +566,10 @@ argument_list|)
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|objectToId
 operator|.
@@ -702,7 +706,10 @@ name|result
 condition|)
 block|{
 comment|// Need this condition because of QDesktopScreenWidget
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|insert
 argument_list|(
@@ -713,7 +720,10 @@ argument_list|)
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|objectToId
 operator|.
@@ -757,7 +767,10 @@ init|=
 operator|new
 name|QAccessibleApplication
 decl_stmt|;
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|insert
 argument_list|(
@@ -768,7 +781,10 @@ argument_list|)
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|objectToId
 operator|.
@@ -812,7 +828,10 @@ name|iface
 argument_list|)
 expr_stmt|;
 return|return
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|insert
 argument_list|(
@@ -840,7 +859,10 @@ name|Id
 name|id
 parameter_list|)
 block|{
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|deleteInterface
 argument_list|(
@@ -869,7 +891,10 @@ block|{
 name|Id
 name|id
 init|=
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|idToInterface
 operator|.
@@ -911,7 +936,10 @@ name|id
 parameter_list|)
 block|{
 return|return
-name|qAccessibleCache
+name|QAccessibleCache
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|idToInterface
 operator|.

@@ -8112,11 +8112,32 @@ argument_list|()
 operator|-
 name|requested
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+specifier|const
+name|qint64
+name|factor
+init|=
+literal|2
+decl_stmt|;
+comment|// more than 50% longer
+else|#
+directive|else
+specifier|const
+name|qint64
+name|factor
+init|=
+literal|1
+decl_stmt|;
+comment|// Windows: 50% is quite common, warn about 100%
+endif|#
+directive|endif
 if|if
 condition|(
 name|diff
 operator|*
-literal|2
+name|factor
 operator|>
 name|requested
 operator|||

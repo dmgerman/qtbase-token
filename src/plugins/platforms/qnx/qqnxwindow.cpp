@@ -1117,7 +1117,6 @@ literal|"size ="
 operator|<<
 name|size
 expr_stmt|;
-comment|// Set window buffer size
 comment|// libscreen fails when creating empty buffers
 specifier|const
 name|QSize
@@ -1137,6 +1136,59 @@ argument_list|)
 else|:
 name|size
 decl_stmt|;
+name|int
+name|format
+init|=
+name|pixelFormat
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|nonEmptySize
+operator|==
+name|m_bufferSize
+operator|||
+name|format
+operator|==
+operator|-
+literal|1
+condition|)
+return|return;
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
+name|screen_set_window_property_iv
+argument_list|(
+name|m_window
+argument_list|,
+name|SCREEN_PROPERTY_FORMAT
+argument_list|,
+operator|&
+name|format
+argument_list|)
+argument_list|,
+literal|"Failed to set window format"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m_bufferSize
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+comment|// destroy buffers first, if resized
+name|Q_SCREEN_CRITICALERROR
+argument_list|(
+name|screen_destroy_window_buffers
+argument_list|(
+name|m_window
+argument_list|)
+argument_list|,
+literal|"Failed to destroy window buffers"
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|val
 index|[
@@ -1167,49 +1219,6 @@ name|val
 argument_list|)
 argument_list|,
 literal|"Failed to set window buffer size"
-argument_list|)
-expr_stmt|;
-comment|// Create window buffers if they do not exist
-if|if
-condition|(
-name|m_bufferSize
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|val
-index|[
-literal|0
-index|]
-operator|=
-name|pixelFormat
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|val
-index|[
-literal|0
-index|]
-operator|==
-operator|-
-literal|1
-condition|)
-comment|// The platform GL context was not set yet on the window, so we can't procede
-return|return;
-name|Q_SCREEN_CRITICALERROR
-argument_list|(
-name|screen_set_window_property_iv
-argument_list|(
-name|m_window
-argument_list|,
-name|SCREEN_PROPERTY_FORMAT
-argument_list|,
-name|val
-argument_list|)
-argument_list|,
-literal|"Failed to set window format"
 argument_list|)
 expr_stmt|;
 name|Q_SCREEN_CRITICALERROR
@@ -1254,14 +1263,13 @@ condition|)
 block|{
 name|qFatal
 argument_list|(
-literal|"QQnxWindow: invalid buffer count. Expected = %d, got = %d. You might experience problems."
+literal|"QQnxWindow: invalid buffer count. Expected = %d, got = %d."
 argument_list|,
 name|MAX_BUFFER_COUNT
 argument_list|,
 name|bufferCount
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Set the transparency. According to QNX technical support, setting the window
 comment|// transparency property should always be done *after* creating the window

@@ -184,12 +184,21 @@ name|command
 init|=
 name|QString
 argument_list|(
-literal|"%1 %2 %3 %4 %5"
+literal|"%1 %2 %3 %4 %5 %6"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
 name|licenseChecker
+argument_list|,
+name|dictionary
+operator|.
+name|value
+argument_list|(
+literal|"LICENSE_CONFIRMED"
+argument_list|,
+literal|"no"
+argument_list|)
 argument_list|,
 name|QDir
 operator|::

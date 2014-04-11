@@ -3537,9 +3537,15 @@ argument_list|(
 name|Q_CC_MSVC
 argument_list|)
 operator|&&
+operator|(
 name|_MSC_VER
 operator|<
 literal|1700
+operator|||
+name|WINVER
+operator|<=
+literal|0x0601
+operator|)
 operator|)
 end_if
 begin_comment
@@ -3618,7 +3624,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// if defined (Q_CC_MINGW) || (defined(Q_CC_MSVC)&& _MSC_VER< 1700))
+comment|// if defined (Q_CC_MINGW) || (defined(Q_CC_MSVC)&& (_MSC_VER< 1700 || WINVER<= 0x0601))
 end_comment
 begin_comment
 comment|// File ID for Windows up to version 7.

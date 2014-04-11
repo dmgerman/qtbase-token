@@ -46,10 +46,6 @@ name|NSString
 operator|*
 name|role
 block|;
-name|NSObject
-operator|*
-name|parent
-block|;
 name|QAccessible
 operator|::
 name|Id
@@ -67,12 +63,6 @@ operator|::
 name|Id
 operator|)
 name|anId
-name|parent
-operator|:
-operator|(
-name|id
-operator|)
-name|aParent
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
@@ -81,7 +71,7 @@ operator|(
 name|QCocoaAccessibleElement
 operator|*
 operator|)
-name|createElementWithId
+name|elementWithId
 operator|:
 operator|(
 name|QAccessible
@@ -89,12 +79,6 @@ operator|::
 name|Id
 operator|)
 name|anId
-name|parent
-operator|:
-operator|(
-name|id
-operator|)
-name|aParent
 expr_stmt|;
 end_expr_stmt
 begin_macro

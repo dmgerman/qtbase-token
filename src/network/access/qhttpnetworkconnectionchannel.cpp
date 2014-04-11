@@ -3770,6 +3770,9 @@ name|socket
 argument_list|)
 condition|)
 return|return;
+comment|// emit error for all waiting replies
+do|do
+block|{
 comment|// Need to dequeu the request so that we can emit the error.
 if|if
 condition|(
@@ -3826,10 +3829,35 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+do|while
+condition|(
+operator|!
+name|connection
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|highPriorityQueue
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+operator|!
+name|connection
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|lowPriorityQueue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+do|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-elseif|else
 if|if
 condition|(
 name|connection

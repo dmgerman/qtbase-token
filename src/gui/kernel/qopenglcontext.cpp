@@ -550,6 +550,16 @@ argument_list|>
 name|qwindow_context_storage
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|global_share_context
+specifier|static
+name|QOpenGLContext
+modifier|*
+name|global_share_context
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -662,6 +672,44 @@ name|context
 expr_stmt|;
 return|return
 name|previous
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \internal      This function is used by the Qt WebEngine to set up context sharing     across multiple windows. Do not use it for any other purpose. */
+end_comment
+begin_function
+DECL|function|setGlobalShareContext
+name|void
+name|QOpenGLContextPrivate
+operator|::
+name|setGlobalShareContext
+parameter_list|(
+name|QOpenGLContext
+modifier|*
+name|context
+parameter_list|)
+block|{
+name|global_share_context
+operator|=
+name|context
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_function
+DECL|function|globalShareContext
+name|QOpenGLContext
+modifier|*
+name|QOpenGLContextPrivate
+operator|::
+name|globalShareContext
+parameter_list|()
+block|{
+return|return
+name|global_share_context
 return|;
 block|}
 end_function
@@ -1478,10 +1526,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn T *QOpenGLContext::versionFunctions() const      \overload versionFunctions()      Returns a pointer to an object that provides access to all functions for     the version and profile of this context. Before using any of the functions     they must be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type.      \code         QOpenGLFunctions_3_3_Core* funcs = 0;         funcs = context->versionFunctions<QOpenGLFunctions_3_3_Core>();         if (!funcs) {             qWarning()<< "Could not obtain required OpenGL context version";             exit(1);         }         funcs->initializeOpenGLFunctions(context);     \endcode      It is possible to request a functions object for a different version and profile     than that for which the context was created. To do this either use the template     version of this function specifying the desired functions object type as the     template parameter or by passing in a QOpenGLVersionProfile object as an argument     to the non-template function.      Note that requests for function objects of other versions or profiles can fail and     in doing so will return a null pointer. Situations in which creation of the functions     object can fail are if the request cannot be satisfied due to asking for functions     that are not in the version or profile of this context. For example:      \list         \li Requesting a 3.3 core profile functions object would succeed.         \li Requesting a 3.3 compatibility profile functions object would fail. We would fail             to resolve the deprecated functions.         \li Requesting a 4.3 core profile functions object would fail. We would fail to resolve             the new core functions introduced in versions 4.0-4.3.         \li Requesting a 3.1 functions object would succeed. There is nothing in 3.1 that is not             also in 3.3 core.     \endlist      Note that if creating a functions object via this method that the QOpenGLContext     retains ownership of the object. This is to allow the object to be cached and shared. */
+comment|/*!     \fn T *QOpenGLContext::versionFunctions() const      \overload versionFunctions()      Returns a pointer to an object that provides access to all functions for     the version and profile of this context. Before using any of the functions     they must be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions()     with this context being the current context.      Usually one would use the template version of this function to automatically     have the result cast to the correct type.      \code         QOpenGLFunctions_3_3_Core* funcs = 0;         funcs = context->versionFunctions<QOpenGLFunctions_3_3_Core>();         if (!funcs) {             qWarning()<< "Could not obtain required OpenGL context version";             exit(1);         }         funcs->initializeOpenGLFunctions();     \endcode      It is possible to request a functions object for a different version and profile     than that for which the context was created. To do this either use the template     version of this function specifying the desired functions object type as the     template parameter or by passing in a QOpenGLVersionProfile object as an argument     to the non-template function.      Note that requests for function objects of other versions or profiles can fail and     in doing so will return a null pointer. Situations in which creation of the functions     object can fail are if the request cannot be satisfied due to asking for functions     that are not in the version or profile of this context. For example:      \list         \li Requesting a 3.3 core profile functions object would succeed.         \li Requesting a 3.3 compatibility profile functions object would fail. We would fail             to resolve the deprecated functions.         \li Requesting a 4.3 core profile functions object would fail. We would fail to resolve             the new core functions introduced in versions 4.0-4.3.         \li Requesting a 3.1 functions object would succeed. There is nothing in 3.1 that is not             also in 3.3 core.     \endlist      Note that if creating a functions object via this method that the QOpenGLContext     retains ownership of the object. This is to allow the object to be cached and shared. */
 end_comment
 begin_comment
-comment|/*!     Returns a pointer to an object that provides access to all functions for the     \a versionProfile of the current context. Before using any of the functions they must     be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions().      Usually one would use the template version of this function to automatically     have the result cast to the correct type. */
+comment|/*!     Returns a pointer to an object that provides access to all functions for the     \a versionProfile of this context. Before using any of the functions they must     be initialized by calling QAbstractOpenGLFunctions::initializeOpenGLFunctions()     with this context being the current context.      Usually one would use the template version of this function to automatically     have the result cast to the correct type. */
 end_comment
 begin_function
 DECL|function|versionFunctions
@@ -2590,7 +2638,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value DesktopGL Desktop OpenGL   \value GLES2 OpenGL ES 2.0 or higher   \value GLES1 OpenGL ES 1.x    \since 5.3 */
+comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value DesktopGL Desktop OpenGL   \value GLES2 OpenGL ES 2.0 or higher    \since 5.3 */
 end_comment
 begin_comment
 comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or using the   the convenience function isES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
@@ -2636,15 +2684,6 @@ name|QT_OPENGL_ES_2
 argument_list|)
 return|return
 name|GLES2
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|QT_OPENGL_ES
-argument_list|)
-return|return
-name|GLES1
 return|;
 else|#
 directive|else

@@ -2076,14 +2076,9 @@ comment|// QTBUG 28513, QTBUG-29097, QTBUG-29435: QS_TOUCH, QS_POINTER became pa
 comment|// QS_INPUT in Windows Kit 8. They should not be used when running on pre-Windows 8.
 if|#
 directive|if
-name|defined
-argument_list|(
-name|_MSC_VER
-argument_list|)
-operator|&&
-name|_MSC_VER
-operator|>=
-literal|1700
+name|WINVER
+operator|>
+literal|0x0602
 if|if
 condition|(
 name|QSysInfo
@@ -2105,7 +2100,7 @@ operator|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|//  _MSC_VER>= 1700
+comment|//  WINVER> 0x0602
 return|return
 name|result
 return|;

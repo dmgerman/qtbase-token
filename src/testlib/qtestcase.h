@@ -191,7 +191,7 @@ parameter_list|,
 name|__step
 parameter_list|)
 define|\
-value|if (!(__expr)) { \         QTRY_LOOP_IMPL(__expr, (2 * __timeoutValue), __step);\         if (__expr) { \             QString msg = QString::fromUtf8("QTestLib: This test case check (\"%1\") failed because the requested timeout (%2 ms) was too short, %3 ms would have been sufficient this time."); \             msg = msg.arg(QString::fromUtf8(#__expr)).arg(__timeoutValue).arg(__timeoutValue + __i); \             QFAIL(qPrintable(msg)); \         } \     }
+value|if (!(__expr)) { \         QTRY_LOOP_IMPL((__expr), (2 * __timeoutValue), __step);\         if (__expr) { \             QString msg = QString::fromUtf8("QTestLib: This test case check (\"%1\") failed because the requested timeout (%2 ms) was too short, %3 ms would have been sufficient this time."); \             msg = msg.arg(QString::fromUtf8(#__expr)).arg(__timeoutValue).arg(__timeoutValue + __i); \             QFAIL(qPrintable(msg)); \         } \     }
 end_define
 begin_define
 DECL|macro|QTRY_IMPL
@@ -204,7 +204,7 @@ parameter_list|,
 name|__timeout
 parameter_list|)
 define|\
-value|const int __step = 50; \     const int __timeoutValue = __timeout; \     QTRY_LOOP_IMPL(__expr, __timeoutValue, __step); \     QTRY_TIMEOUT_DEBUG_IMPL(__expr, __timeoutValue, __step)
+value|const int __step = 50; \     const int __timeoutValue = __timeout; \     QTRY_LOOP_IMPL((__expr), __timeoutValue, __step); \     QTRY_TIMEOUT_DEBUG_IMPL((__expr), __timeoutValue, __step)
 end_define
 begin_comment
 unit|\
@@ -221,7 +221,7 @@ parameter_list|,
 name|__timeout
 parameter_list|)
 define|\
-value|do { \     QTRY_IMPL(__expr, __timeout);\     QVERIFY(__expr); \ } while (0)
+value|do { \     QTRY_IMPL((__expr), __timeout);\     QVERIFY(__expr); \ } while (0)
 end_define
 begin_define
 DECL|macro|QTRY_VERIFY
@@ -231,7 +231,7 @@ name|QTRY_VERIFY
 parameter_list|(
 name|__expr
 parameter_list|)
-value|QTRY_VERIFY_WITH_TIMEOUT(__expr, 5000)
+value|QTRY_VERIFY_WITH_TIMEOUT((__expr), 5000)
 end_define
 begin_comment
 comment|// Will try to wait for the comparison to become successful while allowing event processing
@@ -249,7 +249,7 @@ parameter_list|,
 name|__timeout
 parameter_list|)
 define|\
-value|do { \     QTRY_IMPL(((__expr) == (__expected)), __timeout);\     QCOMPARE(__expr, __expected); \ } while (0)
+value|do { \     QTRY_IMPL(((__expr) == (__expected)), __timeout);\     QCOMPARE((__expr), __expected); \ } while (0)
 end_define
 begin_define
 DECL|macro|QTRY_COMPARE
@@ -261,7 +261,7 @@ name|__expr
 parameter_list|,
 name|__expected
 parameter_list|)
-value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
+value|QTRY_COMPARE_WITH_TIMEOUT((__expr), __expected, 5000)
 end_define
 begin_define
 DECL|macro|QSKIP_INTERNAL

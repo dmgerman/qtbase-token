@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"xkbcommon/xkbcommon-x11.h"
+file|"keymap.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"keymap.h"
+file|"xkbcommon/xkbcommon-x11.h"
 end_include
 begin_comment
 comment|/* Get a strdup'd name of an X atom. */

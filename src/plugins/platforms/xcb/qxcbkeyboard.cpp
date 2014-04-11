@@ -3504,8 +3504,8 @@ operator|::
 name|printKeymapError
 parameter_list|(
 specifier|const
-name|QString
-modifier|&
+name|char
+modifier|*
 name|error
 parameter_list|)
 specifier|const
@@ -3513,99 +3513,53 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Qt: "
-operator|<<
 name|error
 expr_stmt|;
-comment|// check if XKB config root is a valid path
-specifier|const
-name|QDir
-name|xkbRoot
-init|=
-name|qEnvironmentVariableIsSet
-argument_list|(
-literal|"QT_XKB_CONFIG_ROOT"
-argument_list|)
-condition|?
-name|QString
-operator|::
-name|fromLocal8Bit
-argument_list|(
-name|qgetenv
-argument_list|(
-literal|"QT_XKB_CONFIG_ROOT"
-argument_list|)
-argument_list|)
-else|:
-name|DFLT_XKB_CONFIG_ROOT
-decl_stmt|;
 if|if
 condition|(
-operator|!
-name|xkbRoot
-operator|.
-name|exists
-argument_list|()
-operator|||
-name|xkbRoot
-operator|.
-name|dirName
-argument_list|()
-operator|!=
-literal|"xkb"
+name|xkb_context
 condition|)
 block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Set QT_XKB_CONFIG_ROOT to provide a valid XKB configuration data path, current search paths: "
-operator|<<
-name|xkbRoot
-operator|.
-name|path
+literal|"Current XKB configuration data search paths are: "
+expr_stmt|;
+for|for
+control|(
+name|unsigned
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|xkb_context_num_include_paths
+argument_list|(
+name|xkb_context
+argument_list|)
+condition|;
+operator|++
+name|i
+control|)
+name|qWarning
 argument_list|()
 operator|<<
-literal|". Use ':' as separator to provide several search paths."
+name|xkb_context_include_path_get
+argument_list|(
+name|xkb_context
+argument_list|,
+name|i
+argument_list|)
 expr_stmt|;
-return|return;
 block|}
 name|qWarning
 argument_list|()
 operator|<<
-literal|"_XKB_RULES_NAMES property contains:"
-operator|<<
-literal|"\nrules : "
-operator|<<
-name|xkb_names
-operator|.
-name|rules
-operator|<<
-literal|"\nmodel : "
-operator|<<
-name|xkb_names
-operator|.
-name|model
-operator|<<
-literal|"\nlayout : "
-operator|<<
-name|xkb_names
-operator|.
-name|layout
-operator|<<
-literal|"\nvariant : "
-operator|<<
-name|xkb_names
-operator|.
-name|variant
-operator|<<
-literal|"\noptions : "
-operator|<<
-name|xkb_names
-operator|.
-name|options
-operator|<<
-literal|"\nIf this looks like a valid keyboard layout information then you might need to "
-literal|"update XKB configuration data on the system (http://cgit.freedesktop.org/xkeyboard-config/)."
+literal|"Use QT_XKB_CONFIG_ROOT environmental variable to provide an additional search path, "
+literal|"add ':' as separator to provide several search paths and/or make sure that XKB configuration data "
+literal|"directory contains recent enough contents, to update please see http://cgit.freedesktop.org/xkeyboard-config/ ."
 expr_stmt|;
 block|}
 end_function
@@ -3704,7 +3658,7 @@ condition|)
 block|{
 name|printKeymapError
 argument_list|(
-literal|"Failed to create XKB context!"
+literal|"Qt: Failed to create XKB context!"
 argument_list|)
 expr_stmt|;
 name|m_config
@@ -3865,10 +3819,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// failed to compile from RMLVO, give a verbose error message
 name|printKeymapError
 argument_list|(
-literal|"Qt: Failed to compile a keymap!"
+literal|"Failed to compile a keymap!"
 argument_list|)
 expr_stmt|;
 name|m_config
@@ -4646,9 +4599,14 @@ name|sym
 argument_list|,
 name|modifiers
 argument_list|,
-name|keysymToUnicode
+name|lookupString
 argument_list|(
-name|sym
+name|kb_state
+argument_list|,
+name|event
+operator|->
+name|nativeScanCode
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4940,9 +4898,14 @@ name|sym
 argument_list|,
 name|mods
 argument_list|,
-name|keysymToUnicode
+name|lookupString
 argument_list|(
-name|sym
+name|kb_state
+argument_list|,
+name|event
+operator|->
+name|nativeScanCode
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5323,11 +5286,6 @@ name|xkb_state
 argument_list|(
 literal|0
 argument_list|)
-member_init_list|,
-name|core_device_id
-argument_list|(
-literal|0
-argument_list|)
 block|{
 name|memset
 argument_list|(
@@ -5345,6 +5303,10 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_XKB
+name|core_device_id
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|connection
@@ -6925,9 +6887,11 @@ decl_stmt|;
 name|QString
 name|string
 init|=
-name|keysymToUnicode
+name|lookupString
 argument_list|(
-name|sym
+name|xkb_state
+argument_list|,
+name|code
 argument_list|)
 decl_stmt|;
 name|int
@@ -7348,35 +7312,49 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|keysymToUnicode
+DECL|function|lookupString
 name|QString
 name|QXcbKeyboard
 operator|::
-name|keysymToUnicode
+name|lookupString
 parameter_list|(
-name|xcb_keysym_t
-name|sym
+name|struct
+name|xkb_state
+modifier|*
+name|state
+parameter_list|,
+name|xcb_keycode_t
+name|code
 parameter_list|)
 specifier|const
 block|{
 name|QByteArray
 name|chars
 decl_stmt|;
-name|int
-name|bytes
-decl_stmt|;
 name|chars
 operator|.
 name|resize
 argument_list|(
-literal|7
+literal|1
+operator|+
+name|xkb_state_key_get_utf8
+argument_list|(
+name|state
+argument_list|,
+name|code
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
-name|bytes
-operator|=
-name|xkb_keysym_to_utf8
+comment|// equivalent of XLookupString
+name|xkb_state_key_get_utf8
 argument_list|(
-name|sym
+name|state
+argument_list|,
+name|code
 argument_list|,
 name|chars
 operator|.
@@ -7387,27 +7365,6 @@ name|chars
 operator|.
 name|size
 argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|bytes
-operator|==
-operator|-
-literal|1
-condition|)
-name|qWarning
-argument_list|(
-literal|"QXcbKeyboard::handleKeyEvent - buffer too small"
-argument_list|)
-expr_stmt|;
-name|chars
-operator|.
-name|resize
-argument_list|(
-name|bytes
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 return|return

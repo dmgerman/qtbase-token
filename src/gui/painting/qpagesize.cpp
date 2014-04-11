@@ -4151,6 +4151,19 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_STATIC_ASSERT
+argument_list|(
+name|pageSizesCount
+operator|==
+name|QPageSize
+operator|::
+name|LastPageSize
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// Return key name for PageSize
 end_comment
@@ -4166,17 +4179,6 @@ name|PageSizeId
 name|id
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 return|return
 name|QString
 operator|::
@@ -4215,17 +4217,6 @@ init|=
 literal|0
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ppdKey
@@ -4380,17 +4371,6 @@ init|=
 literal|0
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 comment|// If outside known values then is Custom
 if|if
 condition|(
@@ -4931,17 +4911,6 @@ name|PageSizeId
 name|pageSizeId
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 name|QPageSize
 operator|::
 name|Unit
@@ -5373,17 +5342,6 @@ name|Unit
 name|units
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 switch|switch
 condition|(
 name|units
@@ -5543,17 +5501,6 @@ operator|::
 name|Custom
 return|;
 comment|// Try exact match in portrait layout
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -6037,17 +5984,6 @@ operator|::
 name|Custom
 return|;
 comment|// Try exact match if units are the same
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|units
@@ -7092,17 +7028,6 @@ modifier|&
 name|name
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 name|m_id
 operator|=
 name|id
@@ -7566,8 +7491,6 @@ name|QPageSize
 operator|::
 name|QPageSize
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSize
 parameter_list|)
@@ -7633,8 +7556,6 @@ name|QSizeF
 modifier|&
 name|size
 parameter_list|,
-name|QPageSize
-operator|::
 name|Unit
 name|units
 parameter_list|,
@@ -7832,51 +7753,49 @@ begin_comment
 comment|/*!     \fn QPageSize&QPageSize::operator=(QPageSize&&other)      Move-assigns \a other to this QPageSize instance, transferring the     ownership of the managed pointer to this instance. */
 end_comment
 begin_comment
-comment|/*!     Returns \c true if this page is equal to the \a other page, i.e. if the     page has the same attributes. Current attributes are size and name. */
+comment|/*!     \relates QPageSize      Returns \c true if page size \a lhs is equal to page size \a rhs,     i.e. if the page sizes have the same attributes. Current     attributes are size and name. */
 end_comment
 begin_function
 DECL|function|operator ==
 name|bool
-name|QPageSize
-operator|::
 name|operator
 name|==
 parameter_list|(
 specifier|const
 name|QPageSize
 modifier|&
-name|other
-parameter_list|)
+name|lhs
+parameter_list|,
 specifier|const
+name|QPageSize
+modifier|&
+name|rhs
+parameter_list|)
 block|{
-if|if
-condition|(
+return|return
+name|lhs
+operator|.
 name|d
 operator|==
-name|other
+name|rhs
 operator|.
 name|d
-condition|)
-return|return
-literal|true
-return|;
-return|return
-name|d
-operator|&&
-name|other
-operator|.
-name|d
-operator|&&
+operator|||
 operator|*
+name|lhs
+operator|.
 name|d
 operator|==
 operator|*
-name|other
+name|rhs
 operator|.
 name|d
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn bool operator!=(const QPageSize&lhs, const QPageSize&rhs)     \relates QPageSize      Returns \c true if page size \a lhs is unequal to page size \a     rhs, i.e. if the page size has different attributes. Current     attributes are size and name. */
+end_comment
 begin_comment
 comment|/*!     Returns \c true if this page is equivalent to the \a other page, i.e. if the     page has the same size regardless of other attributes like name. */
 end_comment
@@ -8018,8 +7937,6 @@ name|d
 operator|->
 name|m_id
 else|:
-name|QPageSize
-operator|::
 name|Custom
 return|;
 block|}
@@ -8056,8 +7973,6 @@ name|d
 operator|->
 name|m_windowsId
 else|:
-name|QPageSize
-operator|::
 name|windowsId
 argument_list|(
 name|d
@@ -8114,8 +8029,6 @@ name|d
 operator|->
 name|m_units
 else|:
-name|QPageSize
-operator|::
 name|Unit
 argument_list|(
 operator|-
@@ -8134,8 +8047,6 @@ name|QPageSize
 operator|::
 name|size
 parameter_list|(
-name|QPageSize
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -8223,8 +8134,6 @@ name|QPageSize
 operator|::
 name|rect
 parameter_list|(
-name|QPageSize
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -8345,8 +8254,6 @@ name|QPageSize
 operator|::
 name|key
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|)
@@ -8355,8 +8262,6 @@ if|if
 condition|(
 name|pageSizeId
 argument_list|<
-name|QPageSize
-operator|::
 name|PageSizeId
 operator|(
 literal|0
@@ -8364,25 +8269,12 @@ operator|)
 operator|||
 name|pageSizeId
 argument_list|>
-name|QPageSize
-operator|::
 name|LastPageSize
 condition|)
 return|return
 name|QString
 argument_list|()
 return|;
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 return|return
 name|QString
 operator|::
@@ -8444,8 +8336,6 @@ name|QPageSize
 operator|::
 name|name
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|)
@@ -8454,8 +8344,6 @@ if|if
 condition|(
 name|pageSizeId
 argument_list|<
-name|QPageSize
-operator|::
 name|PageSizeId
 operator|(
 literal|0
@@ -8463,8 +8351,6 @@ operator|)
 operator|||
 name|pageSizeId
 argument_list|>
-name|QPageSize
-operator|::
 name|LastPageSize
 condition|)
 return|return
@@ -8477,8 +8363,6 @@ name|pageSizeId
 condition|)
 block|{
 case|case
-name|QPageSize
-operator|::
 name|A0
 case|:
 return|return
@@ -8492,8 +8376,6 @@ literal|"A0"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A1
 case|:
 return|return
@@ -8507,8 +8389,6 @@ literal|"A1"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A2
 case|:
 return|return
@@ -8522,8 +8402,6 @@ literal|"A2"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A3
 case|:
 return|return
@@ -8537,8 +8415,6 @@ literal|"A3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A4
 case|:
 return|return
@@ -8552,8 +8428,6 @@ literal|"A4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A5
 case|:
 return|return
@@ -8567,8 +8441,6 @@ literal|"A5"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A6
 case|:
 return|return
@@ -8582,8 +8454,6 @@ literal|"A6"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A7
 case|:
 return|return
@@ -8597,8 +8467,6 @@ literal|"A7"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A8
 case|:
 return|return
@@ -8612,8 +8480,6 @@ literal|"A8"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A9
 case|:
 return|return
@@ -8627,8 +8493,6 @@ literal|"A9"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A10
 case|:
 return|return
@@ -8642,8 +8506,6 @@ literal|"A10"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B0
 case|:
 return|return
@@ -8657,8 +8519,6 @@ literal|"B0"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B1
 case|:
 return|return
@@ -8672,8 +8532,6 @@ literal|"B1"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B2
 case|:
 return|return
@@ -8687,8 +8545,6 @@ literal|"B2"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B3
 case|:
 return|return
@@ -8702,8 +8558,6 @@ literal|"B3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B4
 case|:
 return|return
@@ -8717,8 +8571,6 @@ literal|"B4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B5
 case|:
 return|return
@@ -8732,8 +8584,6 @@ literal|"B5"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B6
 case|:
 return|return
@@ -8747,8 +8597,6 @@ literal|"B6"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B7
 case|:
 return|return
@@ -8762,8 +8610,6 @@ literal|"B7"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B8
 case|:
 return|return
@@ -8777,8 +8623,6 @@ literal|"B8"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B9
 case|:
 return|return
@@ -8792,8 +8636,6 @@ literal|"B9"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B10
 case|:
 return|return
@@ -8807,8 +8649,6 @@ literal|"B10"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Executive
 case|:
 return|return
@@ -8822,8 +8662,6 @@ literal|"Executive (7.5 x 10 in)"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|ExecutiveStandard
 case|:
 return|return
@@ -8837,8 +8675,6 @@ literal|"Executive (7.25 x 10.5 in)"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Folio
 case|:
 return|return
@@ -8852,8 +8688,6 @@ literal|"Folio (8.27 x 13 in)"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Legal
 case|:
 return|return
@@ -8867,8 +8701,6 @@ literal|"Legal"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Letter
 case|:
 return|return
@@ -8882,8 +8714,6 @@ literal|"Letter / ANSI A"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Tabloid
 case|:
 return|return
@@ -8897,8 +8727,6 @@ literal|"Tabloid / ANSI B"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Ledger
 case|:
 return|return
@@ -8912,8 +8740,6 @@ literal|"Ledger / ANSI B"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Custom
 case|:
 return|return
@@ -8927,8 +8753,6 @@ literal|"Custom"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A3Extra
 case|:
 return|return
@@ -8942,8 +8766,6 @@ literal|"A3 Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A4Extra
 case|:
 return|return
@@ -8957,8 +8779,6 @@ literal|"A4 Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A4Plus
 case|:
 return|return
@@ -8972,8 +8792,6 @@ literal|"A4 Plus"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A4Small
 case|:
 return|return
@@ -8987,8 +8805,6 @@ literal|"A4 Small"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|A5Extra
 case|:
 return|return
@@ -9002,8 +8818,6 @@ literal|"A5 Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|B5Extra
 case|:
 return|return
@@ -9017,8 +8831,6 @@ literal|"B5 Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB0
 case|:
 return|return
@@ -9032,8 +8844,6 @@ literal|"JIS B0"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB1
 case|:
 return|return
@@ -9047,8 +8857,6 @@ literal|"JIS B1"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB2
 case|:
 return|return
@@ -9062,8 +8870,6 @@ literal|"JIS B2"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB3
 case|:
 return|return
@@ -9077,8 +8883,6 @@ literal|"JIS B3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB4
 case|:
 return|return
@@ -9092,8 +8896,6 @@ literal|"JIS B4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB5
 case|:
 return|return
@@ -9107,8 +8909,6 @@ literal|"JIS B5"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB6
 case|:
 return|return
@@ -9122,8 +8922,6 @@ literal|"JIS B6"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB7
 case|:
 return|return
@@ -9137,8 +8935,6 @@ literal|"JIS B7"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB8
 case|:
 return|return
@@ -9152,8 +8948,6 @@ literal|"JIS B8"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB9
 case|:
 return|return
@@ -9167,8 +8961,6 @@ literal|"JIS B9"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|JisB10
 case|:
 return|return
@@ -9182,8 +8974,6 @@ literal|"JIS B10"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|AnsiC
 case|:
 return|return
@@ -9197,8 +8987,6 @@ literal|"ANSI C"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|AnsiD
 case|:
 return|return
@@ -9212,8 +9000,6 @@ literal|"ANSI D"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|AnsiE
 case|:
 return|return
@@ -9227,8 +9013,6 @@ literal|"ANSI E"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|LegalExtra
 case|:
 return|return
@@ -9242,8 +9026,6 @@ literal|"Legal Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|LetterExtra
 case|:
 return|return
@@ -9257,8 +9039,6 @@ literal|"Letter Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|LetterPlus
 case|:
 return|return
@@ -9272,8 +9052,6 @@ literal|"Letter Plus"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|LetterSmall
 case|:
 return|return
@@ -9287,8 +9065,6 @@ literal|"Letter Small"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|TabloidExtra
 case|:
 return|return
@@ -9302,8 +9078,6 @@ literal|"Tabloid Extra"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|ArchA
 case|:
 return|return
@@ -9317,8 +9091,6 @@ literal|"Architect A"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|ArchB
 case|:
 return|return
@@ -9332,8 +9104,6 @@ literal|"Architect B"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|ArchC
 case|:
 return|return
@@ -9347,8 +9117,6 @@ literal|"Architect C"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|ArchD
 case|:
 return|return
@@ -9362,8 +9130,6 @@ literal|"Architect D"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|ArchE
 case|:
 return|return
@@ -9377,8 +9143,6 @@ literal|"Architect E"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial7x9
 case|:
 return|return
@@ -9390,8 +9154,6 @@ literal|9
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial8x10
 case|:
 return|return
@@ -9403,8 +9165,6 @@ literal|10
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial9x11
 case|:
 return|return
@@ -9416,8 +9176,6 @@ literal|11
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial9x12
 case|:
 return|return
@@ -9429,8 +9187,6 @@ literal|12
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial10x11
 case|:
 return|return
@@ -9442,8 +9198,6 @@ literal|11
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial10x13
 case|:
 return|return
@@ -9455,8 +9209,6 @@ literal|13
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial10x14
 case|:
 return|return
@@ -9468,8 +9220,6 @@ literal|14
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial12x11
 case|:
 return|return
@@ -9481,8 +9231,6 @@ literal|11
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Imperial15x11
 case|:
 return|return
@@ -9494,8 +9242,6 @@ literal|11
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Note
 case|:
 return|return
@@ -9509,8 +9255,6 @@ literal|"Note"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Quarto
 case|:
 return|return
@@ -9524,8 +9268,6 @@ literal|"Quarto"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Statement
 case|:
 return|return
@@ -9539,8 +9281,6 @@ literal|"Statement"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|SuperA
 case|:
 return|return
@@ -9554,8 +9294,6 @@ literal|"Super A"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|SuperB
 case|:
 return|return
@@ -9569,8 +9307,6 @@ literal|"Super B"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Postcard
 case|:
 return|return
@@ -9584,8 +9320,6 @@ literal|"Postcard"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|DoublePostcard
 case|:
 return|return
@@ -9599,8 +9333,6 @@ literal|"Double Postcard"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Prc16K
 case|:
 return|return
@@ -9614,8 +9346,6 @@ literal|"PRC 16K"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Prc32K
 case|:
 return|return
@@ -9629,8 +9359,6 @@ literal|"PRC 32K"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Prc32KBig
 case|:
 return|return
@@ -9644,8 +9372,6 @@ literal|"PRC 32K Big"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|FanFoldUS
 case|:
 return|return
@@ -9659,8 +9385,6 @@ literal|"Fan-fold US (14.875 x 11 in)"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|FanFoldGerman
 case|:
 return|return
@@ -9674,8 +9398,6 @@ literal|"Fan-fold German (8.5 x 12 in)"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|FanFoldGermanLegal
 case|:
 return|return
@@ -9689,8 +9411,6 @@ literal|"Fan-fold German Legal (8.5 x 13 in)"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeB4
 case|:
 return|return
@@ -9704,8 +9424,6 @@ literal|"Envelope B4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeB5
 case|:
 return|return
@@ -9719,8 +9437,6 @@ literal|"Envelope B5"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeB6
 case|:
 return|return
@@ -9734,8 +9450,6 @@ literal|"Envelope B6"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC0
 case|:
 return|return
@@ -9749,8 +9463,6 @@ literal|"Envelope C0"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC1
 case|:
 return|return
@@ -9764,8 +9476,6 @@ literal|"Envelope C1"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC2
 case|:
 return|return
@@ -9779,8 +9489,6 @@ literal|"Envelope C2"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC3
 case|:
 return|return
@@ -9794,8 +9502,6 @@ literal|"Envelope C3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC4
 case|:
 return|return
@@ -9809,8 +9515,6 @@ literal|"Envelope C4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC5
 case|:
 comment|// C5E
@@ -9825,8 +9529,6 @@ literal|"Envelope C5"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC6
 case|:
 return|return
@@ -9840,8 +9542,6 @@ literal|"Envelope C6"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC65
 case|:
 return|return
@@ -9855,8 +9555,6 @@ literal|"Envelope C65"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeC7
 case|:
 return|return
@@ -9870,8 +9568,6 @@ literal|"Envelope C7"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeDL
 case|:
 comment|// DLE:
@@ -9886,8 +9582,6 @@ literal|"Envelope DL"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Envelope9
 case|:
 return|return
@@ -9901,8 +9595,6 @@ literal|"Envelope US 9"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Envelope10
 case|:
 comment|// Comm10E
@@ -9917,8 +9609,6 @@ literal|"Envelope US 10"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Envelope11
 case|:
 return|return
@@ -9932,8 +9622,6 @@ literal|"Envelope US 11"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Envelope12
 case|:
 return|return
@@ -9947,8 +9635,6 @@ literal|"Envelope US 12"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|Envelope14
 case|:
 return|return
@@ -9962,8 +9648,6 @@ literal|"Envelope US 14"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeMonarch
 case|:
 return|return
@@ -9977,8 +9661,6 @@ literal|"Envelope Monarch"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePersonal
 case|:
 return|return
@@ -9992,8 +9674,6 @@ literal|"Envelope Personal"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeChou3
 case|:
 return|return
@@ -10007,8 +9687,6 @@ literal|"Envelope Chou 3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeChou4
 case|:
 return|return
@@ -10022,8 +9700,6 @@ literal|"Envelope Chou 4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeInvite
 case|:
 return|return
@@ -10037,8 +9713,6 @@ literal|"Envelope Invite"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeItalian
 case|:
 return|return
@@ -10052,8 +9726,6 @@ literal|"Envelope Italian"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeKaku2
 case|:
 return|return
@@ -10067,8 +9739,6 @@ literal|"Envelope Kaku 2"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeKaku3
 case|:
 return|return
@@ -10082,8 +9752,6 @@ literal|"Envelope Kaku 3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc1
 case|:
 return|return
@@ -10097,8 +9765,6 @@ literal|"Envelope PRC 1"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc2
 case|:
 return|return
@@ -10112,8 +9778,6 @@ literal|"Envelope PRC 2"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc3
 case|:
 return|return
@@ -10127,8 +9791,6 @@ literal|"Envelope PRC 3"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc4
 case|:
 return|return
@@ -10142,8 +9804,6 @@ literal|"Envelope PRC 4"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc5
 case|:
 return|return
@@ -10157,8 +9817,6 @@ literal|"Envelope PRC 5"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc6
 case|:
 return|return
@@ -10172,8 +9830,6 @@ literal|"Envelope PRC 6"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc7
 case|:
 return|return
@@ -10187,8 +9843,6 @@ literal|"Envelope PRC 7"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc8
 case|:
 return|return
@@ -10202,8 +9856,6 @@ literal|"Envelope PRC 8"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc9
 case|:
 return|return
@@ -10217,8 +9869,6 @@ literal|"Envelope PRC 9"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopePrc10
 case|:
 return|return
@@ -10232,8 +9882,6 @@ literal|"Envelope PRC 10"
 argument_list|)
 return|;
 case|case
-name|QPageSize
-operator|::
 name|EnvelopeYou4
 case|:
 return|return
@@ -10270,8 +9918,6 @@ name|QSize
 modifier|&
 name|pointSize
 parameter_list|,
-name|QPageSize
-operator|::
 name|SizeMatchPolicy
 name|matchPolicy
 parameter_list|)
@@ -10305,13 +9951,9 @@ name|QSizeF
 modifier|&
 name|size
 parameter_list|,
-name|QPageSize
-operator|::
 name|Unit
 name|units
 parameter_list|,
-name|QPageSize
-operator|::
 name|SizeMatchPolicy
 name|matchPolicy
 parameter_list|)
@@ -10364,23 +10006,10 @@ name|QPageSize
 operator|::
 name|windowsId
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 return|return
 name|qt_pageSizes
 index|[
@@ -10401,8 +10030,6 @@ name|QPageSize
 operator|::
 name|definitionSize
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|)
@@ -10411,8 +10038,6 @@ if|if
 condition|(
 name|pageSizeId
 operator|==
-name|QPageSize
-operator|::
 name|Custom
 condition|)
 return|return
@@ -10439,8 +10064,6 @@ name|QPageSize
 operator|::
 name|definitionUnits
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|)
@@ -10449,30 +10072,15 @@ if|if
 condition|(
 name|pageSizeId
 operator|==
-name|QPageSize
-operator|::
 name|Custom
 condition|)
 return|return
-name|QPageSize
-operator|::
 name|Unit
 argument_list|(
 operator|-
 literal|1
 argument_list|)
 return|;
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 return|return
 name|qt_pageSizes
 index|[
@@ -10493,13 +10101,9 @@ name|QPageSize
 operator|::
 name|size
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|,
-name|QPageSize
-operator|::
 name|Unit
 name|units
 parameter_list|)
@@ -10508,8 +10112,6 @@ if|if
 condition|(
 name|pageSizeId
 operator|==
-name|QPageSize
-operator|::
 name|Custom
 condition|)
 return|return
@@ -10536,8 +10138,6 @@ name|QPageSize
 operator|::
 name|sizePoints
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|)
@@ -10546,25 +10146,12 @@ if|if
 condition|(
 name|pageSizeId
 operator|==
-name|QPageSize
-operator|::
 name|Custom
 condition|)
 return|return
 name|QSize
 argument_list|()
 return|;
-name|Q_ASSERT
-argument_list|(
-name|pageSizesCount
-operator|==
-name|QPageSize
-operator|::
-name|LastPageSize
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
 return|return
 name|QSize
 argument_list|(
@@ -10595,8 +10182,6 @@ name|QPageSize
 operator|::
 name|sizePixels
 parameter_list|(
-name|QPageSize
-operator|::
 name|PageSizeId
 name|pageSizeId
 parameter_list|,
@@ -10608,8 +10193,6 @@ if|if
 condition|(
 name|pageSizeId
 operator|==
-name|QPageSize
-operator|::
 name|Custom
 condition|)
 return|return
@@ -10619,8 +10202,6 @@ return|;
 return|return
 name|qt_convertPointsToPixels
 argument_list|(
-name|QPageSize
-operator|::
 name|sizePoints
 argument_list|(
 name|pageSizeId

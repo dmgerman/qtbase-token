@@ -115,6 +115,16 @@ return|;
 block|}
 specifier|static
 name|void
+name|redirectKnownMenuItemsToFirstResponder
+argument_list|()
+block|;
+specifier|static
+name|void
+name|resetKnownMenuItemsToQt
+argument_list|()
+block|;
+specifier|static
+name|void
 name|updateMenuBarImmediately
 argument_list|()
 block|;
@@ -126,6 +136,13 @@ operator|>
 name|merged
 argument_list|()
 specifier|const
+block|;
+name|NSMenuItem
+operator|*
+name|itemForRole
+argument_list|(
+argument|QPlatformMenuItem::MenuRole r
+argument_list|)
 block|;
 name|private
 operator|:

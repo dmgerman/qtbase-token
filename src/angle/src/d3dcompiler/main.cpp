@@ -811,7 +811,7 @@ name|precompiledPath
 operator|=
 name|QStringLiteral
 argument_list|(
-literal|":/qt.d3dcompiler"
+literal|":/qt.d3dcompiler/"
 argument_list|)
 expr_stmt|;
 comment|// Default QRC path

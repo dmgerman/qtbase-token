@@ -10,9 +10,15 @@ name|request
 operator|.
 name|setRawHeader
 argument_list|(
+name|QByteArray
+argument_list|(
 literal|"Last-Modified"
+argument_list|)
 argument_list|,
+name|QByteArray
+argument_list|(
 literal|"Sun, 06 Nov 1994 08:49:37 GMT"
+argument_list|)
 argument_list|)
 expr_stmt|;
 end_expr_stmt

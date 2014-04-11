@@ -1063,24 +1063,45 @@ end_comment
 begin_comment
 comment|/*     S390 family, known variant: S390X (64-bit)      S390 is big-endian. */
 end_comment
-begin_comment
-comment|// #elif defined(__s390__)
-end_comment
-begin_comment
-comment|// #  define Q_PROCESSOR_S390
-end_comment
-begin_comment
-comment|// #  if defined(__s390x__)
-end_comment
-begin_comment
-comment|// #    define Q_PROCESSOR_S390_X
-end_comment
-begin_comment
-comment|// #  endif
-end_comment
-begin_comment
-comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
-end_comment
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__s390__
+argument_list|)
+end_elif
+begin_define
+DECL|macro|Q_PROCESSOR_S390
+define|#
+directive|define
+name|Q_PROCESSOR_S390
+end_define
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__s390x__
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_PROCESSOR_S390_X
+define|#
+directive|define
+name|Q_PROCESSOR_S390_X
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_BIG_ENDIAN
+end_define
 begin_comment
 comment|/*     SuperH family, optional revision: SH-4A      SuperH is bi-endian, use endianness auto-detection implemented below. */
 end_comment

@@ -5092,7 +5092,16 @@ name|mapHandle
 argument_list|,
 name|access
 argument_list|,
-name|offset
+operator|(
+name|ULONG64
+argument_list|(
+name|offsetHi
+argument_list|)
+operator|<<
+literal|32
+operator|)
+operator|+
+name|offsetLo
 argument_list|,
 name|size
 argument_list|)

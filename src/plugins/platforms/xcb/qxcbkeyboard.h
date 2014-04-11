@@ -33,18 +33,11 @@ ifndef|#
 directive|ifndef
 name|QT_NO_XKB
 end_ifndef
-begin_comment
-comment|// note: extern won't be needed from libxkbcommon 0.4.1 and above
-end_comment
-begin_extern
-extern|extern
-literal|"C"
-block|{
+begin_include
 include|#
 directive|include
 file|<xkbcommon/xkbcommon-x11.h>
-block|}
-end_extern
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -156,6 +149,9 @@ argument_list|(
 argument|quint16 state
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_XKB
 comment|// when XKEYBOARD is present on the X server
 name|int
 name|coreDeviceId
@@ -166,9 +162,6 @@ return|return
 name|core_device_id
 return|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_XKB
 name|void
 name|updateXKBState
 argument_list|(
@@ -200,9 +193,11 @@ name|resolveMaskConflicts
 argument_list|()
 block|;
 name|QString
-name|keysymToUnicode
+name|lookupString
 argument_list|(
-argument|xcb_keysym_t sym
+argument|struct xkb_state *state
+argument_list|,
+argument|xcb_keycode_t code
 argument_list|)
 specifier|const
 block|;
@@ -227,7 +222,7 @@ block|;
 name|void
 name|printKeymapError
 argument_list|(
-argument|const QString&error
+argument|const char *error
 argument_list|)
 specifier|const
 block|;
@@ -332,13 +327,19 @@ block|;
 name|_xkb_mods
 name|xkb_mods
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_XKB
 comment|// when XKEYBOARD is present on the X server
 name|_mod_masks
 name|vmod_masks
 block|;
 name|int
 name|core_device_id
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

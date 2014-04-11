@@ -32,20 +32,11 @@ include|#
 directive|include
 file|<QPointer>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_DEBUG_ANDROID_IM_PROTOCOL
-end_ifdef
 begin_include
 include|#
 directive|include
 file|<QDebug>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_using
 using|using
 namespace|namespace
@@ -1196,30 +1187,84 @@ name|key
 operator|-
 literal|0x0000001d
 return|;
+comment|// F1--F12     0x00000083 -- 0x0000008e
+if|if
+condition|(
+name|key
+operator|>=
+literal|0x00000083
+operator|&&
+name|key
+operator|<=
+literal|0x0000008e
+condition|)
+return|return
+name|Qt
+operator|::
+name|Key_F1
+operator|+
+name|key
+operator|-
+literal|0x00000083
+return|;
+comment|// NUMPAD_0--NUMPAD_9     0x00000090 -- 0x00000099
+if|if
+condition|(
+name|key
+operator|>=
+literal|0x00000090
+operator|&&
+name|key
+operator|<=
+literal|0x00000099
+condition|)
+return|return
+name|Qt
+operator|::
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_0
+operator|+
+name|key
+operator|-
+literal|0x00000090
+return|;
+comment|// BUTTON_1--KEYCODE_BUTTON_16 0x000000bc -- 0x000000cb
 switch|switch
 condition|(
 name|key
 condition|)
 block|{
 case|case
-literal|0x00000039
+literal|0x00000000
 case|:
-case|case
-literal|0x0000003a
-case|:
+comment|// KEYCODE_UNKNOWN
 return|return
 name|Qt
 operator|::
-name|Key_Alt
+name|Key_unknown
 return|;
 case|case
-literal|0x0000004b
+literal|0x00000001
 case|:
+comment|// KEYCODE_SOFT_LEFT
 return|return
 name|Qt
 operator|::
-name|Key_Apostrophe
+name|Key_Left
 return|;
+case|case
+literal|0x00000002
+case|:
+comment|// KEYCODE_SOFT_RIGHT
+return|return
+name|Qt
+operator|::
+name|Key_Right
+return|;
+comment|// 0x00000003: // KEYCODE_HOME is never delivered to applications.
 case|case
 literal|0x00000004
 case|:
@@ -1230,63 +1275,50 @@ operator|::
 name|Key_Back
 return|;
 case|case
-literal|0x00000049
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Backslash
-return|;
-case|case
 literal|0x00000005
 case|:
+comment|// KEYCODE_CALL
 return|return
 name|Qt
 operator|::
 name|Key_Call
 return|;
 case|case
-literal|0x0000001b
+literal|0x00000006
 case|:
-comment|// KEYCODE_CAMERA
+comment|// KEYCODE_ENDCALL
 return|return
 name|Qt
 operator|::
-name|Key_Camera
+name|Key_Hangup
+return|;
+comment|// 0--9        0x00000007 -- 0x00000010
+case|case
+literal|0x00000011
+case|:
+comment|// KEYCODE_STAR
+return|return
+name|Qt
+operator|::
+name|Key_Asterisk
 return|;
 case|case
-literal|0x0000001c
+literal|0x00000012
 case|:
+comment|// KEYCODE_POUND
 return|return
 name|Qt
 operator|::
-name|Key_Clear
+name|Key_NumberSign
 return|;
 case|case
-literal|0x00000037
+literal|0x00000013
 case|:
+comment|//KEYCODE_DPAD_UP
 return|return
 name|Qt
 operator|::
-name|Key_Comma
-return|;
-case|case
-literal|0x00000043
-case|:
-comment|// KEYCODE_DEL
-return|return
-name|Qt
-operator|::
-name|Key_Backspace
-return|;
-case|case
-literal|0x00000017
-case|:
-comment|// KEYCODE_DPAD_CENTER
-return|return
-name|Qt
-operator|::
-name|Key_Enter
+name|Key_Up
 return|;
 case|case
 literal|0x00000014
@@ -1316,171 +1348,31 @@ operator|::
 name|Key_Right
 return|;
 case|case
-literal|0x00000013
+literal|0x00000017
 case|:
-comment|//KEYCODE_DPAD_UP
+comment|// KEYCODE_DPAD_CENTER
 return|return
 name|Qt
 operator|::
-name|Key_Up
+name|Key_Enter
 return|;
 case|case
-literal|0x00000006
+literal|0x00000018
 case|:
-comment|//KEYCODE_ENDCALL
+comment|// KEYCODE_VOLUME_UP
 return|return
 name|Qt
 operator|::
-name|Key_Hangup
+name|Key_VolumeUp
 return|;
 case|case
-literal|0x00000042
+literal|0x00000019
 case|:
+comment|// KEYCODE_VOLUME_DOWN
 return|return
 name|Qt
 operator|::
-name|Key_Return
-return|;
-case|case
-literal|0x00000041
-case|:
-comment|//KEYCODE_ENVELOPE
-return|return
-name|Qt
-operator|::
-name|Key_LaunchMail
-return|;
-case|case
-literal|0x00000046
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Equal
-return|;
-case|case
-literal|0x00000040
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Explorer
-return|;
-case|case
-literal|0x00000003
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Home
-return|;
-case|case
-literal|0x00000047
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_BracketLeft
-return|;
-case|case
-literal|0x0000005a
-case|:
-comment|// KEYCODE_MEDIA_FAST_FORWARD
-return|return
-name|Qt
-operator|::
-name|Key_AudioForward
-return|;
-case|case
-literal|0x00000057
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_MediaNext
-return|;
-case|case
-literal|0x00000055
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_MediaPlay
-return|;
-case|case
-literal|0x00000058
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_MediaPrevious
-return|;
-case|case
-literal|0x00000059
-case|:
-comment|// KEYCODE_MEDIA_REWIND
-return|return
-name|Qt
-operator|::
-name|Key_AudioRewind
-return|;
-case|case
-literal|0x00000056
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_MediaStop
-return|;
-case|case
-literal|0x00000052
-case|:
-comment|//KEYCODE_MENU
-return|return
-name|Qt
-operator|::
-name|Key_Menu
-return|;
-case|case
-literal|0x00000045
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Minus
-return|;
-case|case
-literal|0x0000005b
-case|:
-comment|// KEYCODE_MUTE
-return|return
-name|Qt
-operator|::
-name|Key_MicMute
-return|;
-case|case
-literal|0x0000004e
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_NumLock
-return|;
-case|case
-literal|0x00000038
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Period
-return|;
-case|case
-literal|0x00000051
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Plus
+name|Key_VolumeDown
 return|;
 case|case
 literal|0x0000001a
@@ -1491,67 +1383,81 @@ operator|::
 name|Key_PowerOff
 return|;
 case|case
-literal|0x00000048
+literal|0x0000001b
 case|:
+comment|// KEYCODE_CAMERA
 return|return
 name|Qt
 operator|::
-name|Key_BracketRight
+name|Key_Camera
 return|;
 case|case
-literal|0x00000054
+literal|0x0000001c
 case|:
+comment|// KEYCODE_CLEAR
 return|return
 name|Qt
 operator|::
-name|Key_Search
+name|Key_Clear
+return|;
+comment|// A--Z        0x0000001d -- 0x00000036
+case|case
+literal|0x00000037
+case|:
+comment|// KEYCODE_COMMA
+return|return
+name|Qt
+operator|::
+name|Key_Comma
 return|;
 case|case
-literal|0x0000004a
+literal|0x00000038
 case|:
+comment|// KEYCODE_PERIOD
 return|return
 name|Qt
 operator|::
-name|Key_Semicolon
+name|Key_Period
+return|;
+case|case
+literal|0x00000039
+case|:
+comment|// KEYCODE_ALT_LEFT
+case|case
+literal|0x0000003a
+case|:
+comment|// KEYCODE_ALT_RIGHT
+return|return
+name|Qt
+operator|::
+name|Key_Alt
 return|;
 case|case
 literal|0x0000003b
 case|:
+comment|// KEYCODE_SHIFT_LEFT
 case|case
 literal|0x0000003c
 case|:
+comment|// KEYCODE_SHIFT_RIGHT
 return|return
 name|Qt
 operator|::
 name|Key_Shift
 return|;
 case|case
-literal|0x0000004c
+literal|0x0000003d
 case|:
+comment|// KEYCODE_TAB
 return|return
 name|Qt
 operator|::
-name|Key_Slash
-return|;
-case|case
-literal|0x00000001
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Left
-return|;
-case|case
-literal|0x00000002
-case|:
-return|return
-name|Qt
-operator|::
-name|Key_Right
+name|Key_Tab
 return|;
 case|case
 literal|0x0000003e
 case|:
+comment|// KEYCODE_SPACE
 return|return
 name|Qt
 operator|::
@@ -1567,55 +1473,146 @@ operator|::
 name|Key_Meta
 return|;
 case|case
-literal|0x0000003d
+literal|0x00000040
 case|:
+comment|// KEYCODE_EXPLORER
 return|return
 name|Qt
 operator|::
-name|Key_Tab
+name|Key_Explorer
 return|;
 case|case
-literal|0x00000019
+literal|0x00000041
 case|:
+comment|//KEYCODE_ENVELOPE
 return|return
 name|Qt
 operator|::
-name|Key_VolumeDown
+name|Key_LaunchMail
 return|;
 case|case
-literal|0x000000a4
+literal|0x00000042
 case|:
-comment|// KEYCODE_VOLUME_MUTE
+comment|// KEYCODE_ENTER
 return|return
 name|Qt
 operator|::
-name|Key_VolumeMute
+name|Key_Return
 return|;
 case|case
-literal|0x00000018
+literal|0x00000043
 case|:
+comment|// KEYCODE_DEL
 return|return
 name|Qt
 operator|::
-name|Key_VolumeUp
+name|Key_Backspace
 return|;
 case|case
-literal|0x00000011
+literal|0x00000044
 case|:
-comment|// KEYCODE_STAR
+comment|// KEYCODE_GRAVE
 return|return
 name|Qt
 operator|::
-name|Key_Asterisk
+name|Key_QuoteLeft
 return|;
 case|case
-literal|0x00000012
+literal|0x00000045
 case|:
-comment|// KEYCODE_POUND
+comment|// KEYCODE_MINUS
 return|return
 name|Qt
 operator|::
-name|Key_NumberSign
+name|Key_Minus
+return|;
+case|case
+literal|0x00000046
+case|:
+comment|// KEYCODE_EQUALS
+return|return
+name|Qt
+operator|::
+name|Key_Equal
+return|;
+case|case
+literal|0x00000047
+case|:
+comment|// KEYCODE_LEFT_BRACKET
+return|return
+name|Qt
+operator|::
+name|Key_BracketLeft
+return|;
+case|case
+literal|0x00000048
+case|:
+comment|// KEYCODE_RIGHT_BRACKET
+return|return
+name|Qt
+operator|::
+name|Key_BracketRight
+return|;
+case|case
+literal|0x00000049
+case|:
+comment|// KEYCODE_BACKSLASH
+return|return
+name|Qt
+operator|::
+name|Key_Backslash
+return|;
+case|case
+literal|0x0000004a
+case|:
+comment|// KEYCODE_SEMICOLON
+return|return
+name|Qt
+operator|::
+name|Key_Semicolon
+return|;
+case|case
+literal|0x0000004b
+case|:
+comment|// KEYCODE_APOSTROPHE
+return|return
+name|Qt
+operator|::
+name|Key_Apostrophe
+return|;
+case|case
+literal|0x0000004c
+case|:
+comment|// KEYCODE_SLASH
+return|return
+name|Qt
+operator|::
+name|Key_Slash
+return|;
+case|case
+literal|0x0000004d
+case|:
+comment|// KEYCODE_AT
+return|return
+name|Qt
+operator|::
+name|Key_At
+return|;
+case|case
+literal|0x0000004e
+case|:
+comment|// KEYCODE_NUM
+return|return
+name|Qt
+operator|::
+name|Key_Alt
+return|;
+case|case
+literal|0x0000004f
+case|:
+comment|// KEYCODE_HEADSETHOOK
+return|return
+literal|0
 return|;
 case|case
 literal|0x00000050
@@ -1627,6 +1624,200 @@ operator|::
 name|Key_CameraFocus
 return|;
 case|case
+literal|0x00000051
+case|:
+comment|// KEYCODE_PLUS
+return|return
+name|Qt
+operator|::
+name|Key_Plus
+return|;
+case|case
+literal|0x00000052
+case|:
+comment|// KEYCODE_MENU
+return|return
+name|Qt
+operator|::
+name|Key_Menu
+return|;
+case|case
+literal|0x00000053
+case|:
+comment|// KEYCODE_NOTIFICATION
+return|return
+literal|0
+return|;
+case|case
+literal|0x00000054
+case|:
+comment|// KEYCODE_SEARCH
+return|return
+name|Qt
+operator|::
+name|Key_Search
+return|;
+case|case
+literal|0x00000055
+case|:
+comment|// KEYCODE_MEDIA_PLAY_PAUSE
+return|return
+name|Qt
+operator|::
+name|Key_MediaPlay
+return|;
+case|case
+literal|0x00000056
+case|:
+comment|// KEYCODE_MEDIA_STOP
+return|return
+name|Qt
+operator|::
+name|Key_MediaStop
+return|;
+case|case
+literal|0x00000057
+case|:
+comment|// KEYCODE_MEDIA_NEXT
+return|return
+name|Qt
+operator|::
+name|Key_MediaNext
+return|;
+case|case
+literal|0x00000058
+case|:
+comment|// KEYCODE_MEDIA_PREVIOUS
+return|return
+name|Qt
+operator|::
+name|Key_MediaPrevious
+return|;
+case|case
+literal|0x00000059
+case|:
+comment|// KEYCODE_MEDIA_REWIND
+return|return
+name|Qt
+operator|::
+name|Key_AudioRewind
+return|;
+case|case
+literal|0x0000005a
+case|:
+comment|// KEYCODE_MEDIA_FAST_FORWARD
+return|return
+name|Qt
+operator|::
+name|Key_AudioForward
+return|;
+case|case
+literal|0x0000005b
+case|:
+comment|// KEYCODE_MUTE
+return|return
+name|Qt
+operator|::
+name|Key_MicMute
+return|;
+case|case
+literal|0x0000005c
+case|:
+comment|// KEYCODE_PAGE_UP
+return|return
+name|Qt
+operator|::
+name|Key_PageUp
+return|;
+case|case
+literal|0x0000005d
+case|:
+comment|// KEYCODE_PAGE_DOWN
+return|return
+name|Qt
+operator|::
+name|Key_PageDown
+return|;
+case|case
+literal|0x0000005e
+case|:
+comment|// KEYCODE_PICTSYMBOLS
+return|return
+literal|0
+return|;
+case|case
+literal|0x00000060
+case|:
+comment|// KEYCODE_BUTTON_A
+case|case
+literal|0x00000061
+case|:
+comment|// KEYCODE_BUTTON_B
+case|case
+literal|0x00000062
+case|:
+comment|// KEYCODE_BUTTON_B
+case|case
+literal|0x00000063
+case|:
+comment|// KEYCODE_BUTTON_X
+case|case
+literal|0x00000064
+case|:
+comment|// KEYCODE_BUTTON_Y
+case|case
+literal|0x00000065
+case|:
+comment|// KEYCODE_BUTTON_Z
+case|case
+literal|0x00000066
+case|:
+comment|// KEYCODE_BUTTON_L1
+case|case
+literal|0x00000067
+case|:
+comment|// KEYCODE_BUTTON_R1
+case|case
+literal|0x00000068
+case|:
+comment|// KEYCODE_BUTTON_L2
+case|case
+literal|0x00000069
+case|:
+comment|// KEYCODE_BUTTON_R2
+case|case
+literal|0x0000006a
+case|:
+comment|// KEYCODE_BUTTON_THUMBL
+case|case
+literal|0x0000006b
+case|:
+comment|// KEYCODE_BUTTON_THUMBR
+case|case
+literal|0x0000006c
+case|:
+comment|// KEYCODE_BUTTON_START
+case|case
+literal|0x0000006d
+case|:
+comment|// KEYCODE_BUTTON_SELECT
+case|case
+literal|0x0000006e
+case|:
+comment|// KEYCODE_BUTTON_MODE
+return|return
+literal|0
+return|;
+case|case
+literal|0x0000006f
+case|:
+comment|// KEYCODE_ESCAPE
+return|return
+name|Qt
+operator|::
+name|Key_Escape
+return|;
+case|case
 literal|0x00000070
 case|:
 comment|// KEYCODE_FORWARD_DEL
@@ -1636,14 +1827,132 @@ operator|::
 name|Key_Delete
 return|;
 case|case
-literal|0x00000080
+literal|0x00000071
 case|:
-comment|// KEYCODE_MEDIA_CLOSE
+comment|// KEYCODE_CTRL_LEFT
+case|case
+literal|0x00000072
+case|:
+comment|// KEYCODE_CTRL_RIGHT
 return|return
 name|Qt
 operator|::
-name|Key_Close
+name|Key_Control
 return|;
+case|case
+literal|0x00000073
+case|:
+comment|// KEYCODE_CAPS_LOCK
+return|return
+name|Qt
+operator|::
+name|Key_CapsLock
+return|;
+case|case
+literal|0x00000074
+case|:
+comment|// KEYCODE_SCROLL_LOCK
+return|return
+name|Qt
+operator|::
+name|Key_ScrollLock
+return|;
+case|case
+literal|0x00000075
+case|:
+comment|// KEYCODE_META_LEFT
+case|case
+literal|0x00000076
+case|:
+comment|// KEYCODE_META_RIGHT
+return|return
+name|Qt
+operator|::
+name|Key_Meta
+return|;
+case|case
+literal|0x00000077
+case|:
+comment|// KEYCODE_FUNCTION
+return|return
+literal|0
+return|;
+case|case
+literal|0x00000078
+case|:
+comment|// KEYCODE_SYSRQ
+return|return
+name|Qt
+operator|::
+name|Key_Print
+return|;
+case|case
+literal|0x00000079
+case|:
+comment|// KEYCODE_BREAK
+return|return
+name|Qt
+operator|::
+name|Key_Pause
+return|;
+case|case
+literal|0x0000007a
+case|:
+comment|// KEYCODE_MOVE_HOME
+return|return
+name|Qt
+operator|::
+name|Key_Home
+return|;
+case|case
+literal|0x0000007b
+case|:
+comment|// KEYCODE_MOVE_END
+return|return
+name|Qt
+operator|::
+name|Key_End
+return|;
+case|case
+literal|0x0000007c
+case|:
+comment|// KEYCODE_MOVE_INSERT
+return|return
+name|Qt
+operator|::
+name|Key_Insert
+return|;
+case|case
+literal|0x0000007d
+case|:
+comment|// KEYCODE_FORWARD
+return|return
+name|Qt
+operator|::
+name|Key_Forward
+return|;
+case|case
+literal|0x0000007e
+case|:
+comment|// KEYCODE_MEDIA_PLAY
+return|return
+name|Qt
+operator|::
+name|Key_MediaPlay
+return|;
+case|case
+literal|0x0000007f
+case|:
+comment|// KEYCODE_MEDIA_PAUSE
+return|return
+name|Qt
+operator|::
+name|Key_MediaPause
+return|;
+case|case
+literal|0x00000080
+case|:
+comment|// KEYCODE_MEDIA_CLOSE
 case|case
 literal|0x00000081
 case|:
@@ -1662,41 +1971,143 @@ name|Qt
 operator|::
 name|Key_MediaRecord
 return|;
+comment|// F1--F12     0x00000083 -- 0x0000008e
 case|case
-literal|0x000000b7
+literal|0x0000008f
 case|:
-comment|// KEYCODE_PROG_RED
+comment|// KEYCODE_NUM_LOCK
 return|return
 name|Qt
 operator|::
-name|Key_Red
+name|Key_NumLock
+return|;
+comment|// NUMPAD_0--NUMPAD_9     0x00000090 -- 0x00000099
+case|case
+literal|0x0000009a
+case|:
+comment|// KEYCODE_NUMPAD_DIVIDE
+return|return
+name|Qt
+operator|::
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Slash
 return|;
 case|case
-literal|0x000000b8
+literal|0x0000009b
 case|:
-comment|// KEYCODE_PROG_GREEN
+comment|// KEYCODE_NUMPAD_MULTIPLY
 return|return
 name|Qt
 operator|::
-name|Key_Green
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Asterisk
 return|;
 case|case
-literal|0x000000b9
+literal|0x0000009c
 case|:
-comment|// KEYCODE_PROG_YELLOW
+comment|// KEYCODE_NUMPAD_SUBTRACT
 return|return
 name|Qt
 operator|::
-name|Key_Yellow
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Minus
 return|;
 case|case
-literal|0x000000ba
+literal|0x0000009d
 case|:
-comment|// KEYCODE_PROG_BLUE
+comment|// KEYCODE_NUMPAD_ADD
 return|return
 name|Qt
 operator|::
-name|Key_Blue
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Plus
+return|;
+case|case
+literal|0x0000009e
+case|:
+comment|// KEYCODE_NUMPAD_DOT
+return|return
+name|Qt
+operator|::
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Period
+return|;
+case|case
+literal|0x0000009f
+case|:
+comment|// KEYCODE_NUMPAD_COMMA
+return|return
+name|Qt
+operator|::
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Comma
+return|;
+case|case
+literal|0x000000a0
+case|:
+comment|// KEYCODE_NUMPAD_ENTER
+return|return
+name|Qt
+operator|::
+name|Key_Enter
+return|;
+case|case
+literal|0x000000a1
+case|:
+comment|// KEYCODE_NUMPAD_EQUALS
+return|return
+name|Qt
+operator|::
+name|KeypadModifier
+operator|+
+name|Qt
+operator|::
+name|Key_Equal
+return|;
+case|case
+literal|0x000000a2
+case|:
+comment|// KEYCODE_NUMPAD_LEFT_PAREN
+return|return
+name|Qt
+operator|::
+name|Key_ParenLeft
+return|;
+case|case
+literal|0x000000a3
+case|:
+comment|// KEYCODE_NUMPAD_RIGHT_PAREN
+return|return
+name|Qt
+operator|::
+name|Key_ParenRight
+return|;
+case|case
+literal|0x000000a4
+case|:
+comment|// KEYCODE_VOLUME_MUTE
+return|return
+name|Qt
+operator|::
+name|Key_VolumeMute
 return|;
 case|case
 literal|0x000000a5
@@ -1744,6 +2155,17 @@ operator|::
 name|Key_ZoomOut
 return|;
 case|case
+literal|0x000000aa
+case|:
+comment|// KEYCODE_TV
+case|case
+literal|0x000000ab
+case|:
+comment|// KEYCODE_WINDOW
+return|return
+literal|0
+return|;
+case|case
 literal|0x000000ac
 case|:
 comment|// KEYCODE_GUIDE
@@ -1751,6 +2173,22 @@ return|return
 name|Qt
 operator|::
 name|Key_Guide
+return|;
+case|case
+literal|0x000000ad
+case|:
+comment|// KEYCODE_DVR
+return|return
+literal|0
+return|;
+case|case
+literal|0x000000ae
+case|:
+comment|// KEYCODE_BOOKMARK
+return|return
+name|Qt
+operator|::
+name|Key_AddFavorite
 return|;
 case|case
 literal|0x000000af
@@ -1769,6 +2207,90 @@ return|return
 name|Qt
 operator|::
 name|Key_Settings
+return|;
+case|case
+literal|0x000000b1
+case|:
+comment|// KEYCODE_TV_POWER
+case|case
+literal|0x000000b2
+case|:
+comment|// KEYCODE_TV_INPUT
+case|case
+literal|0x000000b3
+case|:
+comment|// KEYCODE_STB_POWER
+case|case
+literal|0x000000b4
+case|:
+comment|// KEYCODE_STB_INPUT
+case|case
+literal|0x000000b5
+case|:
+comment|// KEYCODE_AVR_POWER
+case|case
+literal|0x000000b6
+case|:
+comment|// KEYCODE_AVR_INPUT
+return|return
+literal|0
+return|;
+case|case
+literal|0x000000b7
+case|:
+comment|// KEYCODE_PROG_RED
+return|return
+name|Qt
+operator|::
+name|Key_Red
+return|;
+case|case
+literal|0x000000b8
+case|:
+comment|// KEYCODE_PROG_GREEN
+return|return
+name|Qt
+operator|::
+name|Key_Green
+return|;
+case|case
+literal|0x000000b9
+case|:
+comment|// KEYCODE_PROG_YELLOW
+return|return
+name|Qt
+operator|::
+name|Key_Yellow
+return|;
+case|case
+literal|0x000000ba
+case|:
+comment|// KEYCODE_PROG_BLUE
+return|return
+name|Qt
+operator|::
+name|Key_Blue
+return|;
+comment|// 0x000000bb: // KEYCODE_APP_SWITCH is not sent by the Android O.S.
+comment|// BUTTON_1--KEYCODE_BUTTON_16 0x000000bc -- 0x000000cb
+case|case
+literal|0x000000cc
+case|:
+comment|// KEYCODE_LANGUAGE_SWITCH
+case|case
+literal|0x000000cd
+case|:
+comment|// KEYCODE_MANNER_MODE do we need such a thing?
+case|case
+literal|0x000000ce
+case|:
+comment|// KEYCODE_3D_MODE
+case|case
+literal|0x000000cf
+case|:
+comment|// KEYCODE_CONTACTS
+return|return
+literal|0
 return|;
 case|case
 literal|0x000000d0
@@ -1797,33 +2319,45 @@ name|Qt
 operator|::
 name|Key_Calculator
 return|;
+comment|// 0x000000d3 -- 0x000000da some japanese specific keys, someone who understand what is about should check !
+comment|// 0x000000db: // KEYCODE_ASSIST  not delivered to applications.
 case|case
-literal|0x00000000
+literal|0x000000dc
 case|:
-comment|// KEYCODE_UNKNOWN
+comment|// KEYCODE_BRIGHTNESS_DOWN
 return|return
 name|Qt
 operator|::
-name|Key_unknown
+name|Key_KeyboardBrightnessDown
 return|;
 case|case
-literal|0x00000053
+literal|0x000000dd
 case|:
-comment|// KEYCODE_NOTIFICATION ?!?!?
-case|case
-literal|0x0000004f
-case|:
-comment|// KEYCODE_HEADSETHOOK ?!?!?
-case|case
-literal|0x00000044
-case|:
-comment|// KEYCODE_GRAVE ?!?!?
+comment|// KEYCODE_BRIGHTNESS_UP
 return|return
 name|Qt
 operator|::
-name|Key_Any
+name|Key_KeyboardBrightnessUp
+return|;
+case|case
+literal|0x000000de
+case|:
+comment|// KEYCODE_MEDIA_AUDIO_TRACK
+return|return
+name|Qt
+operator|::
+name|Key_AudioCycleTrack
 return|;
 default|default:
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Unhandled key code "
+operator|<<
+name|key
+operator|<<
+literal|"!"
+expr_stmt|;
 return|return
 literal|0
 return|;

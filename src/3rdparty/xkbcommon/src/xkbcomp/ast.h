@@ -284,14 +284,10 @@ name|type
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/* This struct contains fields common to all other AST nodes. It is only  * ever embedded in other structs, so save some memory by packing it. */
-end_comment
 begin_typedef
 DECL|struct|_ParseCommon
 typedef|typedef
 struct|struct
-name|ATTR_PACKED
 name|_ParseCommon
 block|{
 DECL|member|next
@@ -599,7 +595,7 @@ expr_stmt|;
 DECL|member|symsMapIndex
 name|darray
 argument_list|(
-argument|int
+argument|unsigned int
 argument_list|)
 name|symsMapIndex
 expr_stmt|;
@@ -878,7 +874,7 @@ name|merge_mode
 name|merge
 decl_stmt|;
 DECL|member|group
-name|int
+name|unsigned
 name|group
 decl_stmt|;
 DECL|member|def
@@ -937,7 +933,7 @@ name|merge_mode
 name|merge
 decl_stmt|;
 DECL|member|ndx
-name|int
+name|unsigned
 name|ndx
 decl_stmt|;
 DECL|member|name

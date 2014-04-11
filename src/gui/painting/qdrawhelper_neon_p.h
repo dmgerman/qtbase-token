@@ -280,6 +280,9 @@ parameter_list|,
 name|int
 name|sbpl
 parameter_list|,
+name|int
+name|srch
+parameter_list|,
 specifier|const
 name|QRectF
 modifier|&
@@ -318,6 +321,9 @@ name|srcPixels
 parameter_list|,
 name|int
 name|sbpl
+parameter_list|,
+name|int
+name|srch
 parameter_list|,
 specifier|const
 name|QRectF

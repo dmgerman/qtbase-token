@@ -1025,6 +1025,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_documentLayoutChanged()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_contentsChanged(int, int, int)
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt

@@ -1377,6 +1377,16 @@ name|harfbuzzFont
 parameter_list|()
 specifier|const
 block|{
+name|Q_ASSERT
+argument_list|(
+name|type
+argument_list|()
+operator|!=
+name|QFontEngine
+operator|::
+name|Multi
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_ENABLE_HARFBUZZ_NG
@@ -1608,6 +1618,16 @@ name|harfbuzzFace
 parameter_list|()
 specifier|const
 block|{
+name|Q_ASSERT
+argument_list|(
+name|type
+argument_list|()
+operator|!=
+name|QFontEngine
+operator|::
+name|Multi
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_ENABLE_HARFBUZZ_NG
@@ -1696,6 +1716,18 @@ name|script
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+name|type
+argument_list|()
+operator|<=
+name|QFontEngine
+operator|::
+name|Multi
+condition|)
+return|return
+literal|true
+return|;
 comment|// ### TODO: This only works for scripts that require OpenType. More generally
 comment|// for scripts that do not require OpenType we should just look at the list of
 comment|// supported writing systems in the font's OS/2 table.

@@ -1528,27 +1528,31 @@ block|{
 name|QLoggingSettingsParser
 name|parser
 decl_stmt|;
-name|QString
-name|warnMsg
-init|=
-name|QString
-argument_list|(
-literal|"Ignoring malformed logging rule: '***=false'"
-argument_list|)
-decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-name|warnMsg
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+literal|"Ignoring malformed logging rule: '***=false'"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"Ignoring malformed logging rule: '*=0'"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"Ignoring malformed logging rule: '*=TRUE'"
 argument_list|)
 expr_stmt|;
 name|parser
@@ -1557,6 +1561,8 @@ name|setContent
 argument_list|(
 literal|"[Rules]\n"
 literal|"***=false\n"
+literal|"*=0\n"
+literal|"*=TRUE\n"
 argument_list|)
 expr_stmt|;
 name|QVERIFY

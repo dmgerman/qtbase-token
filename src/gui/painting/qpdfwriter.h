@@ -131,6 +131,9 @@ name|resolution
 argument_list|()
 specifier|const
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_QDOC
 name|bool
 name|setPageLayout
 parameter_list|(
@@ -186,6 +189,15 @@ name|pageLayout
 argument_list|()
 specifier|const
 expr_stmt|;
+else|#
+directive|else
+name|using
+name|QPagedPaintDevice
+operator|::
+name|setPageSize
+expr_stmt|;
+endif|#
+directive|endif
 name|void
 name|setPageSize
 parameter_list|(

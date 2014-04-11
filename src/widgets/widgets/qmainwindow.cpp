@@ -4731,7 +4731,7 @@ name|nativeInterface
 operator|->
 name|nativeResourceFunctionForIntegration
 argument_list|(
-literal|"enableContentBorderArea"
+literal|"setContentBorderEnabled"
 argument_list|)
 decl_stmt|;
 if|if
@@ -4745,7 +4745,7 @@ typedef|typedef
 name|void
 function_decl|(
 modifier|*
-name|EnableContentBorderAreaFunction
+name|SetContentBorderEnabledFunction
 function_decl|)
 parameter_list|(
 name|QWindow
@@ -4759,7 +4759,7 @@ function_decl|;
 operator|(
 cast|reinterpret_cast
 argument_list|<
-name|EnableContentBorderAreaFunction
+name|SetContentBorderEnabledFunction
 argument_list|>
 argument_list|(
 name|function

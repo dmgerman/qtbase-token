@@ -384,6 +384,23 @@ name|state
 parameter_list|)
 value|xkb_state_get_keymap(state)
 end_define
+begin_comment
+comment|/* Not needed anymore, since there's NO_FLAGS. */
+end_comment
+begin_define
+DECL|macro|XKB_MAP_COMPILE_PLACEHOLDER
+define|#
+directive|define
+name|XKB_MAP_COMPILE_PLACEHOLDER
+value|XKB_KEYMAP_COMPILE_NO_FLAGS
+end_define
+begin_define
+DECL|macro|XKB_MAP_COMPILE_NO_FLAGS
+define|#
+directive|define
+name|XKB_MAP_COMPILE_NO_FLAGS
+value|XKB_KEYMAP_COMPILE_NO_FLAGS
+end_define
 begin_endif
 endif|#
 directive|endif
