@@ -3974,11 +3974,23 @@ undef|#
 directive|undef
 name|Q_COMPILER_INITIALIZER_LISTS
 end_undef
+begin_comment
+comment|// That libcpp doesn't have std::move either, so disable everything
+end_comment
+begin_comment
+comment|// related to rvalue refs.
+end_comment
 begin_undef
 DECL|macro|Q_COMPILER_RVALUE_REFS
 undef|#
 directive|undef
 name|Q_COMPILER_RVALUE_REFS
+end_undef
+begin_undef
+DECL|macro|Q_COMPILER_REF_QUALIFIERS
+undef|#
+directive|undef
+name|Q_COMPILER_REF_QUALIFIERS
 end_undef
 begin_endif
 endif|#
