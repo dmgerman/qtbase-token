@@ -3165,6 +3165,27 @@ endif|#
 directive|endif
 end_endif
 begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|X509_check_issued
+argument_list|,
+argument|X509 *a
+argument_list|,
+argument|a
+argument_list|,
+argument|X509 *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
 argument|X509_NAME *
@@ -5999,6 +6020,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|ASN1_STRING_print
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_check_issued
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(

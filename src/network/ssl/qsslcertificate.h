@@ -309,6 +309,11 @@ name|isBlacklisted
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|isSelfSigned
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|clear
 parameter_list|()
