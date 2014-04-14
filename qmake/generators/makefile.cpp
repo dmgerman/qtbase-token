@@ -24757,9 +24757,6 @@ operator|<<
 literal|"Libs: "
 expr_stmt|;
 name|QString
-name|pkgConfiglibDir
-decl_stmt|;
-name|QString
 name|pkgConfiglibName
 decl_stmt|;
 if|if
@@ -24776,10 +24773,28 @@ literal|"lib_bundle"
 argument_list|)
 condition|)
 block|{
-name|pkgConfiglibDir
-operator|=
-literal|"-F${libdir}"
+if|if
+condition|(
+name|libDir
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"/System/Library/Frameworks"
+argument_list|)
+operator|&&
+name|libDir
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"/Library/Frameworks"
+argument_list|)
+condition|)
+block|{
+name|t
+operator|<<
+literal|"-F${libdir} "
 expr_stmt|;
+block|}
 name|ProString
 name|bundle
 decl_stmt|;
@@ -24855,9 +24870,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|pkgConfiglibDir
-operator|=
-literal|"-L${libdir}"
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_DEFAULT_LIBDIRS"
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|libDir
+argument_list|)
+condition|)
+name|t
+operator|<<
+literal|"-L${libdir} "
 expr_stmt|;
 name|pkgConfiglibName
 operator|=
@@ -24896,10 +24926,6 @@ argument_list|()
 expr_stmt|;
 block|}
 name|t
-operator|<<
-name|pkgConfiglibDir
-operator|<<
-literal|" "
 operator|<<
 name|pkgConfiglibName
 operator|<<
@@ -25040,8 +25066,29 @@ argument_list|,
 literal|" "
 argument_list|)
 comment|//<< varGlue("DEFINES","-D"," -D"," ")
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"QMAKE_DEFAULT_INCDIRS"
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|includeDir
+argument_list|)
+condition|)
+name|t
 operator|<<
-literal|"-I${includedir}\n"
+literal|"-I${includedir}"
+expr_stmt|;
+name|t
+operator|<<
+name|endl
 expr_stmt|;
 comment|// requires
 specifier|const
