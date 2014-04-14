@@ -24223,15 +24223,7 @@ name|libDir
 operator|=
 name|prefix
 operator|+
-name|Option
-operator|::
-name|dir_sep
-operator|+
-literal|"lib"
-operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|"/lib"
 expr_stmt|;
 name|QString
 name|includeDir
