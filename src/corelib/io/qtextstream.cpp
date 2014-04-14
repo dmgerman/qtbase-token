@@ -1434,9 +1434,15 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// convert from unicode to raw data
+comment|// codec might be null if we're already inside global destructors (QTestCodec::codecForLocale returned null)
 name|QByteArray
 name|data
 init|=
+name|Q_LIKELY
+argument_list|(
+name|codec
+argument_list|)
+condition|?
 name|codec
 operator|->
 name|fromUnicode
@@ -1454,6 +1460,11 @@ argument_list|,
 operator|&
 name|writeConverterState
 argument_list|)
+else|:
+name|writeBuffer
+operator|.
+name|toLatin1
+argument_list|()
 decl_stmt|;
 else|#
 directive|else
