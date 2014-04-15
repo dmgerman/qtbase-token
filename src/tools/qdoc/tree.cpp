@@ -3644,15 +3644,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|node
-operator|->
-name|isQmlPropertyGroup
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|node
 operator|->
 name|isCollisionNode
@@ -3670,7 +3661,6 @@ expr_stmt|;
 return|return
 name|node
 return|;
-block|}
 block|}
 name|current
 operator|=

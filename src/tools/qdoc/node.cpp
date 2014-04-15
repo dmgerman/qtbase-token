@@ -2508,12 +2508,6 @@ name|node
 operator|->
 name|isQmlNode
 argument_list|()
-operator|&&
-operator|!
-name|node
-operator|->
-name|isQmlPropertyGroup
-argument_list|()
 condition|)
 return|return
 name|node
