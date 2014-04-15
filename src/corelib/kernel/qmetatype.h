@@ -6577,6 +6577,24 @@ operator|>
 expr|struct
 name|IsPointerToTypeDerivedFromQObject
 operator|<
+specifier|const
+name|void
+operator|*
+operator|>
+block|{         enum
+block|{
+name|Value
+operator|=
+name|false
+block|}
+block|;     }
+expr_stmt|;
+name|template
+operator|<
+operator|>
+expr|struct
+name|IsPointerToTypeDerivedFromQObject
+operator|<
 name|QObject
 operator|*
 operator|>
