@@ -618,6 +618,15 @@ parameter_list|()
 block|{
 if|if
 condition|(
+operator|!
+name|context
+condition|)
+block|{
+comment|// not created or already destroyed
+return|return;
+block|}
+if|if
+condition|(
 name|QOpenGLContext
 operator|::
 name|currentContext
