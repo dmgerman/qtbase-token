@@ -21691,7 +21691,6 @@ index|]
 operator|==
 literal|"no"
 condition|)
-block|{
 name|configStream
 operator|<<
 literal|"QT_DEFAULT_QPA_PLUGIN = q"
@@ -21700,15 +21699,7 @@ name|qpaPlatformName
 argument_list|()
 operator|<<
 name|endl
-operator|<<
-literal|"QT_DEFAULT_PRINTSUPPORTPLUGIN = "
-operator|<<
-name|qpaPrintSupportPluginName
-argument_list|()
-operator|<<
-name|endl
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -22944,15 +22935,6 @@ operator|<<
 literal|"#define QT_QPA_DEFAULT_PLATFORM_NAME \""
 operator|<<
 name|qpaPlatformName
-argument_list|()
-operator|<<
-literal|"\""
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_QPA_DEFAULT_PRINTSUPPORTPLUGIN_NAME \""
-operator|<<
-name|qpaPrintSupportPluginName
 argument_list|()
 operator|<<
 literal|"\""
@@ -29205,31 +29187,6 @@ literal|"android"
 argument_list|)
 return|;
 block|}
-block|}
-end_function
-begin_function
-DECL|function|qpaPrintSupportPluginName
-name|QString
-name|Configure
-operator|::
-name|qpaPrintSupportPluginName
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|platform
-argument_list|()
-operator|==
-name|WINDOWS
-condition|?
-name|QStringLiteral
-argument_list|(
-literal|"windowsprintersupport"
-argument_list|)
-else|:
-name|QString
-argument_list|()
-return|;
 block|}
 end_function
 begin_function
