@@ -611,6 +611,12 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|qt_init_tooltip_palette
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|qt_cleanup
 parameter_list|()
 function_decl|;
@@ -17265,6 +17271,9 @@ name|clearSystemPalette
 argument_list|()
 expr_stmt|;
 name|initSystemPalette
+argument_list|()
+expr_stmt|;
+name|qt_init_tooltip_palette
 argument_list|()
 expr_stmt|;
 block|}
