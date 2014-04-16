@@ -255,15 +255,6 @@ operator|==
 name|Qt
 operator|::
 name|CoverWindow
-operator|||
-name|window
-operator|->
-name|type
-argument_list|()
-operator|==
-name|Qt
-operator|::
-name|Desktop
 condition|)
 block|{
 comment|// Cover windows have to be top level to be accessible to window delegate (i.e. navigator)
@@ -311,6 +302,19 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|window
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
+condition|)
+comment|// A desktop widget does not need a libscreen window
+return|return;
+if|if
+condition|(
 name|m_isTopLevel
 condition|)
 block|{
@@ -338,15 +342,6 @@ operator|!=
 name|Qt
 operator|::
 name|CoverWindow
-operator|&&
-name|window
-operator|->
-name|type
-argument_list|()
-operator|!=
-name|Qt
-operator|::
-name|Desktop
 condition|)
 block|{
 if|if
@@ -557,6 +552,18 @@ operator|->
 name|geometry
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
+condition|)
 name|setGeometryHelper
 argument_list|(
 name|newGeometry
@@ -779,6 +786,16 @@ condition|(
 name|m_visible
 operator|==
 name|visible
+operator|||
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
 condition|)
 return|return;
 comment|// The first time through we join a window group if appropriate.
@@ -2477,6 +2494,19 @@ operator|::
 name|initWindow
 parameter_list|()
 block|{
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
+condition|)
+return|return;
 comment|// Alpha channel is always pre-multiplied if present
 name|int
 name|val

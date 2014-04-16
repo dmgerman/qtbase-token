@@ -102,6 +102,18 @@ name|initWindow
 argument_list|()
 expr_stmt|;
 comment|// Set window usage
+if|if
+condition|(
+name|window
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
+condition|)
+return|return;
 specifier|const
 name|int
 name|val
@@ -135,7 +147,7 @@ literal|0
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQnxEglWindow: failed to set window alpha usage, errno=%d"
+literal|"QQnxRasterWindow: failed to set window alpha usage, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
