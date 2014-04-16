@@ -926,7 +926,7 @@ name|int
 name|from
 parameter_list|,
 name|int
-comment|/*charsRemoved*/
+name|charsRemoved
 parameter_list|,
 name|int
 name|charsAdded
@@ -952,6 +952,16 @@ operator|->
 name|blockCount
 argument_list|()
 decl_stmt|;
+name|int
+name|charsChanged
+init|=
+name|qMax
+argument_list|(
+name|charsRemoved
+argument_list|,
+name|charsAdded
+argument_list|)
+decl_stmt|;
 name|QTextBlock
 name|changeStartBlock
 init|=
@@ -975,7 +985,7 @@ literal|0
 argument_list|,
 name|from
 operator|+
-name|charsAdded
+name|charsChanged
 operator|-
 literal|1
 argument_list|)
