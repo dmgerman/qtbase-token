@@ -391,6 +391,14 @@ return|return
 literal|0
 return|;
 block|}
+name|virtual
+name|QFontEngine
+operator|::
+name|Properties
+name|properties
+argument_list|()
+specifier|const
+block|;
 specifier|static
 name|bool
 name|supportsColorGlyphs
