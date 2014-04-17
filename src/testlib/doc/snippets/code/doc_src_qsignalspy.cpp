@@ -308,4 +308,23 @@ end_expr_stmt
 begin_comment
 comment|//! [5]
 end_comment
+begin_comment
+comment|//! [6]
+end_comment
+begin_decl_stmt
+name|QSignalSpy
+name|spy
+argument_list|(
+name|myPushButton
+argument_list|,
+operator|&
+name|QPushButton
+operator|::
+name|clicked
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|//! [6]
+end_comment
 end_unit
