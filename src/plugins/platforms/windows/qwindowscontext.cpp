@@ -957,7 +957,7 @@ name|unregisterTouchWindow
 operator|&&
 name|getTouchInputInfo
 operator|&&
-name|getTouchInputInfo
+name|closeTouchInputHandle
 return|;
 block|}
 end_function
