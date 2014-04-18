@@ -1306,7 +1306,13 @@ name|enableJit
 condition|)
 name|studyOptions
 operator||=
+operator|(
 name|PCRE_STUDY_JIT_COMPILE
+operator||
+name|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE
+operator||
+name|PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE
+operator|)
 expr_stmt|;
 specifier|const
 name|char
