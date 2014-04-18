@@ -26,7 +26,7 @@ operator|&&
 operator|(
 name|PCRE_MINOR
 operator|<
-literal|30
+literal|31
 operator|)
 operator|)
 end_if
