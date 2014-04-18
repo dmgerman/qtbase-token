@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *      Perl-Compatible Regular Expressions       * *************************************************/
 end_comment
 begin_comment
-comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2014 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
 comment|/* This module contains pcre_exec(), the externally visible function that does pattern matching using an NFA algorithm, trying to mimic Perl as closely as possible. There are also some static supporting functions. */
@@ -384,7 +384,7 @@ name|isprint
 argument_list|(
 name|c
 operator|=
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|p
 argument_list|)
@@ -718,14 +718,14 @@ return|;
 comment|/* Partial match */
 name|cc
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
 expr_stmt|;
 name|cp
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|p
 argument_list|)
@@ -793,12 +793,12 @@ return|;
 comment|/* Partial match */
 if|if
 condition|(
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|p
 argument_list|)
 operator|!=
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -7520,7 +7520,7 @@ name|nllen
 operator|==
 literal|2
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -7692,7 +7692,7 @@ name|nllen
 operator|==
 literal|2
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -8254,7 +8254,7 @@ name|nllen
 operator|==
 literal|2
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -8840,7 +8840,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -9747,6 +9747,24 @@ literal|2
 operator|*
 name|IMM2_SIZE
 expr_stmt|;
+comment|/* Setting the default length first and initializing 'offset' avoids       compiler warnings in the REF_REPEAT code. */
+name|length
+operator|=
+operator|(
+name|md
+operator|->
+name|jscript_compat
+operator|)
+condition|?
+literal|0
+else|:
+operator|-
+literal|1
+expr_stmt|;
+name|offset
+operator|=
+literal|0
+expr_stmt|;
 while|while
 condition|(
 name|count
@@ -9781,34 +9799,7 @@ index|]
 operator|>=
 literal|0
 condition|)
-break|break;
-name|slot
-operator|+=
-name|md
-operator|->
-name|name_entry_size
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|count
-operator|<
-literal|0
-condition|)
-name|length
-operator|=
-operator|(
-name|md
-operator|->
-name|jscript_compat
-operator|)
-condition|?
-literal|0
-else|:
-operator|-
-literal|1
-expr_stmt|;
-else|else
+block|{
 name|length
 operator|=
 name|md
@@ -9827,6 +9818,15 @@ index|[
 name|offset
 index|]
 expr_stmt|;
+break|break;
+block|}
+name|slot
+operator|+=
+name|md
+operator|->
+name|name_entry_size
+expr_stmt|;
+block|}
 block|}
 goto|goto
 name|REF_REPEAT
@@ -11996,7 +11996,7 @@ operator|*
 name|ecode
 operator|++
 operator|!=
-name|RAWUCHARINC
+name|UCHAR21INC
 argument_list|(
 name|eptr
 argument_list|)
@@ -12112,7 +12112,7 @@ block|{
 name|pcre_uint32
 name|cc
 init|=
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -13134,7 +13134,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -13242,7 +13242,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -13309,7 +13309,7 @@ break|break;
 block|}
 name|cc
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -13422,7 +13422,7 @@ if|if
 condition|(
 name|fc
 operator|!=
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -13515,7 +13515,7 @@ if|if
 condition|(
 name|fc
 operator|!=
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -13567,7 +13567,7 @@ if|if
 condition|(
 name|fc
 operator|!=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|eptr
 argument_list|)
@@ -16606,7 +16606,7 @@ name|nllen
 operator|==
 literal|2
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -16801,7 +16801,7 @@ name|md
 operator|->
 name|end_subject
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -17198,7 +17198,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -17273,7 +17273,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -17362,7 +17362,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -17437,7 +17437,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -17526,7 +17526,7 @@ expr_stmt|;
 block|}
 name|cc
 operator|=
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -20030,7 +20030,7 @@ name|md
 operator|->
 name|end_subject
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -22162,7 +22162,7 @@ name|nllen
 operator|==
 literal|2
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -22283,7 +22283,7 @@ name|nllen
 operator|==
 literal|2
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -22516,7 +22516,7 @@ condition|)
 break|break;
 if|if
 condition|(
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
@@ -23249,14 +23249,14 @@ name|eptr
 operator|>
 name|pp
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 argument_list|)
 operator|==
 name|CHAR_NL
 operator|&&
-name|RAWUCHAR
+name|UCHAR21
 argument_list|(
 name|eptr
 operator|-
@@ -26952,7 +26952,7 @@ operator|&&
 operator|(
 name|smc
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|start_match
 argument_list|)
@@ -26974,7 +26974,7 @@ name|start_match
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|start_match
 argument_list|)
@@ -27089,7 +27089,7 @@ name|start_match
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|start_match
 argument_list|)
@@ -27121,7 +27121,7 @@ specifier|register
 name|pcre_uint32
 name|c
 init|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|start_match
 argument_list|)
@@ -27161,43 +27161,13 @@ literal|7
 operator|)
 operator|)
 operator|)
-operator|==
+operator|!=
 literal|0
 condition|)
-block|{
-name|start_match
-operator|++
-expr_stmt|;
-if|#
-directive|if
-name|defined
-name|SUPPORT_UTF
-operator|&&
-name|defined
-name|COMPILE_PCRE8
-comment|/* In non 8-bit mode, the iteration will stop for           characters> 255 at the beginning or not stop at all. */
-if|if
-condition|(
-name|utf
-condition|)
-name|ACROSSCHAR
-argument_list|(
-name|start_match
-operator|<
-name|end_subject
-argument_list|,
-operator|*
-name|start_match
-argument_list|,
-name|start_match
-operator|++
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
-else|else
 break|break;
+name|start_match
+operator|++
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -27319,7 +27289,7 @@ specifier|register
 name|pcre_uint32
 name|pp
 init|=
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|p
 argument_list|)
@@ -27353,7 +27323,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|p
 argument_list|)

@@ -53,6 +53,9 @@ begin_comment
 comment|/* #define SLJIT_CONFIG_ARM_THUMB2 1 */
 end_comment
 begin_comment
+comment|/* #define SLJIT_CONFIG_ARM_64 1 */
+end_comment
+begin_comment
 comment|/* #define SLJIT_CONFIG_PPC_32 1 */
 end_comment
 begin_comment
@@ -60,6 +63,9 @@ comment|/* #define SLJIT_CONFIG_PPC_64 1 */
 end_comment
 begin_comment
 comment|/* #define SLJIT_CONFIG_MIPS_32 1 */
+end_comment
+begin_comment
+comment|/* #define SLJIT_CONFIG_MIPS_64 1 */
 end_comment
 begin_comment
 comment|/* #define SLJIT_CONFIG_SPARC_32 1 */
@@ -246,7 +252,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* See the beginning of sljitConfigInternal.h */
+comment|/*   SLJIT_IS_FPU_AVAILABLE     The availability of the FPU can be controlled by SLJIT_IS_FPU_AVAILABLE.       zero value - FPU is NOT present.       nonzero value - FPU is present. */
+end_comment
+begin_comment
+comment|/* For further configurations, see the beginning of sljitConfigInternal.h */
 end_comment
 begin_endif
 endif|#

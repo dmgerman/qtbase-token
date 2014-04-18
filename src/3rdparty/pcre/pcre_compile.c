@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *      Perl-Compatible Regular Expressions       * *************************************************/
 end_comment
 begin_comment
-comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2014 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
 comment|/* This module contains the external function pcre_compile(), along with supporting internal functions that are not used by other modules. */
@@ -2112,6 +2112,8 @@ literal|"missing opening brace after \\o\0"
 literal|"parentheses are too deeply nested\0"
 literal|"invalid range in character class\0"
 literal|"group name must start with a non-digit\0"
+comment|/* 85 */
+literal|"parentheses are too deeply nested (stack check)\0"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -13299,13 +13301,28 @@ name|pcre_uchar
 modifier|*
 name|next_code
 decl_stmt|;
+if|#
+directive|if
+name|defined
+name|SUPPORT_UTF
+operator|||
+operator|!
+name|defined
+name|COMPILE_PCRE8
+specifier|const
+name|pcre_uchar
+modifier|*
+name|xclass_flags
+decl_stmt|;
+endif|#
+directive|endif
 specifier|const
 name|pcre_uint8
 modifier|*
 name|class_bitset
 decl_stmt|;
 specifier|const
-name|pcre_uint32
+name|pcre_uint8
 modifier|*
 name|set1
 decl_stmt|,
@@ -13801,7 +13818,7 @@ block|{
 name|set1
 operator|=
 operator|(
-name|pcre_uint32
+name|pcre_uint8
 operator|*
 operator|)
 operator|(
@@ -13823,7 +13840,7 @@ block|{
 name|set1
 operator|=
 operator|(
-name|pcre_uint32
+name|pcre_uint8
 operator|*
 operator|)
 operator|(
@@ -13861,7 +13878,7 @@ case|:
 name|set2
 operator|=
 operator|(
-name|pcre_uint32
+name|pcre_uint8
 operator|*
 operator|)
 operator|(
@@ -13882,7 +13899,93 @@ index|]
 operator|)
 expr_stmt|;
 break|break;
-comment|/* OP_XCLASS cannot be supported here, because its bitset       is not necessarily complete. E.g: [a-\0x{200}] is stored       as a character range, and the appropriate bits are not set. */
+if|#
+directive|if
+name|defined
+name|SUPPORT_UTF
+operator|||
+operator|!
+name|defined
+name|COMPILE_PCRE8
+case|case
+name|OP_XCLASS
+case|:
+name|xclass_flags
+operator|=
+operator|(
+name|list_ptr
+operator|==
+name|list
+condition|?
+name|code
+else|:
+name|base_end
+operator|)
+operator|-
+name|list_ptr
+index|[
+literal|2
+index|]
+operator|+
+name|LINK_SIZE
+expr_stmt|;
+if|if
+condition|(
+operator|(
+operator|*
+name|xclass_flags
+operator|&
+name|XCL_HASPROP
+operator|)
+operator|!=
+literal|0
+condition|)
+return|return
+name|FALSE
+return|;
+if|if
+condition|(
+operator|(
+operator|*
+name|xclass_flags
+operator|&
+name|XCL_MAP
+operator|)
+operator|==
+literal|0
+condition|)
+block|{
+comment|/* No bits are set for characters< 256. */
+if|if
+condition|(
+name|list
+index|[
+literal|1
+index|]
+operator|==
+literal|0
+condition|)
+return|return
+name|TRUE
+return|;
+comment|/* Might be an empty repeat. */
+continue|continue;
+block|}
+name|set2
+operator|=
+operator|(
+name|pcre_uint8
+operator|*
+operator|)
+operator|(
+name|xclass_flags
+operator|+
+literal|1
+operator|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
 case|case
 name|OP_NOT_DIGIT
 case|:
@@ -13897,7 +14000,7 @@ case|:
 name|set2
 operator|=
 operator|(
-name|pcre_uint32
+name|pcre_uint8
 operator|*
 operator|)
 operator|(
@@ -13923,7 +14026,7 @@ case|:
 name|set2
 operator|=
 operator|(
-name|pcre_uint32
+name|pcre_uint8
 operator|*
 operator|)
 operator|(
@@ -13949,7 +14052,7 @@ case|:
 name|set2
 operator|=
 operator|(
-name|pcre_uint32
+name|pcre_uint8
 operator|*
 operator|)
 operator|(
@@ -13966,16 +14069,12 @@ return|return
 name|FALSE
 return|;
 block|}
-comment|/* Compare 4 bytes to improve speed. */
+comment|/* Because the sets are unaligned, we need     to perform byte comparison here. */
 name|set_end
 operator|=
 name|set1
 operator|+
-operator|(
 literal|32
-operator|/
-literal|4
-operator|)
 expr_stmt|;
 if|if
 condition|(
@@ -15166,9 +15265,7 @@ return|return
 name|TRUE
 return|;
 block|}
-return|return
-name|FALSE
-return|;
+comment|/* Control never reaches here. There used to be a fail-save return FALSE; here, but some compilers complain about an unreachable statement. */
 block|}
 end_function
 begin_comment
@@ -15398,9 +15495,9 @@ case|:
 operator|*
 name|code
 operator|+=
-name|OP_MINUPTO
+name|OP_POSUPTO
 operator|-
-name|OP_UPTO
+name|OP_MINUPTO
 expr_stmt|;
 break|break;
 block|}
@@ -16640,6 +16737,7 @@ operator|-
 literal|1
 return|;
 comment|/* Reached end of range */
+comment|/* Found a character that has a single other case. Search for the end of the range, which is either the end of the input range, or a character that has zero or more than one other cases. */
 operator|*
 name|ocptr
 operator|=
@@ -16666,6 +16764,17 @@ control|)
 block|{
 if|if
 condition|(
+operator|(
+name|co
+operator|=
+name|UCD_CASESET
+argument_list|(
+name|c
+argument_list|)
+operator|)
+operator|!=
+literal|0
+operator|||
 name|UCD_OTHERCASE
 argument_list|(
 name|c
@@ -16741,6 +16850,19 @@ parameter_list|)
 block|{
 name|pcre_uint32
 name|c
+decl_stmt|;
+name|pcre_uint32
+name|classbits_end
+init|=
+operator|(
+name|end
+operator|<=
+literal|0xff
+condition|?
+name|end
+else|:
+literal|0xff
+operator|)
 decl_stmt|;
 name|int
 name|n8
@@ -16926,11 +17048,7 @@ name|start
 init|;
 name|c
 operator|<=
-name|end
-operator|&&
-name|c
-operator|<
-literal|256
+name|classbits_end
 condition|;
 name|c
 operator|++
@@ -17015,14 +17133,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|/* COMPILE_PCRE[8|16] */
-comment|/* If all characters are less than 256, use the bit map. Otherwise use extra data. */
-if|if
-condition|(
-name|end
-operator|<
-literal|0x100
-condition|)
-block|{
+comment|/* Use the bitmap for characters< 256. Otherwise use extra data.*/
 for|for
 control|(
 name|c
@@ -17031,15 +17142,13 @@ name|start
 init|;
 name|c
 operator|<=
-name|end
+name|classbits_end
 condition|;
 name|c
 operator|++
 control|)
 block|{
-name|n8
-operator|++
-expr_stmt|;
+comment|/* Regardless of start, c will always be<= 255. */
 name|SETBIT
 argument_list|(
 name|classbits
@@ -17047,9 +17156,36 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
+name|n8
+operator|++
+expr_stmt|;
 block|}
-block|}
-else|else
+if|#
+directive|if
+name|defined
+name|SUPPORT_UTF
+operator|||
+operator|!
+name|defined
+name|COMPILE_PCRE8
+if|if
+condition|(
+name|start
+operator|<=
+literal|0xff
+condition|)
+name|start
+operator|=
+literal|0xff
+operator|+
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|end
+operator|>=
+name|start
+condition|)
 block|{
 name|pcre_uchar
 modifier|*
@@ -17206,6 +17342,9 @@ name|uchardata
 expr_stmt|;
 comment|/* Updata extra data pointer */
 block|}
+endif|#
+directive|endif
+comment|/* SUPPORT_UTF || !COMPILE_PCRE8 */
 return|return
 name|n8
 return|;
@@ -17881,6 +18020,19 @@ decl_stmt|;
 name|int
 name|class_one_char
 decl_stmt|;
+if|#
+directive|if
+name|defined
+name|SUPPORT_UTF
+operator|||
+operator|!
+name|defined
+name|COMPILE_PCRE8
+name|BOOL
+name|xclass_has_prop
+decl_stmt|;
+endif|#
+directive|endif
 name|int
 name|newoptions
 decl_stmt|;
@@ -18972,30 +19124,7 @@ name|should_flip_negation
 operator|=
 name|FALSE
 expr_stmt|;
-comment|/* For optimization purposes, we track some properties of the class:     class_has_8bitchar will be non-zero if the class contains at least one<     256 character; class_one_char will be 1 if the class contains just one     character. */
-name|class_has_8bitchar
-operator|=
-literal|0
-expr_stmt|;
-name|class_one_char
-operator|=
-literal|0
-expr_stmt|;
-comment|/* Initialize the 32-char bit map to all zeros. We build the map in a     temporary bit of memory, in case the class contains fewer than two     8-bit characters because in that case the compiled code doesn't use the bit     map. */
-name|memset
-argument_list|(
-name|classbits
-argument_list|,
-literal|0
-argument_list|,
-literal|32
-operator|*
-sizeof|sizeof
-argument_list|(
-name|pcre_uint8
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|/* Extended class (xclass) will be used when characters> 255     might match. */
 if|#
 directive|if
 name|defined
@@ -19024,6 +19153,44 @@ expr_stmt|;
 comment|/* Save the start */
 endif|#
 directive|endif
+comment|/* For optimization purposes, we track some properties of the class:     class_has_8bitchar will be non-zero if the class contains at least one<     256 character; class_one_char will be 1 if the class contains just one     character; xclass_has_prop will be TRUE if unicode property checks     are present in the class. */
+name|class_has_8bitchar
+operator|=
+literal|0
+expr_stmt|;
+name|class_one_char
+operator|=
+literal|0
+expr_stmt|;
+if|#
+directive|if
+name|defined
+name|SUPPORT_UTF
+operator|||
+operator|!
+name|defined
+name|COMPILE_PCRE8
+name|xclass_has_prop
+operator|=
+name|FALSE
+expr_stmt|;
+endif|#
+directive|endif
+comment|/* Initialize the 32-char bit map to all zeros. We build the map in a     temporary bit of memory, in case the class contains fewer than two     8-bit characters because in that case the compiled code doesn't use the bit     map. */
+name|memset
+argument_list|(
+name|classbits
+argument_list|,
+literal|0
+argument_list|,
+literal|32
+operator|*
+sizeof|sizeof
+argument_list|(
+name|pcre_uint8
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|/* Process characters until ] is reached. By writing this as a "do" it     means that an initial ] is taken as a data character. At the start of the     loop, c contains the first byte of the character. */
 if|if
 condition|(
@@ -19432,6 +19599,10 @@ name|class_uchardata
 operator|++
 operator|=
 literal|0
+expr_stmt|;
+name|xclass_has_prop
+operator|=
+name|TRUE
 expr_stmt|;
 name|ptr
 operator|=
@@ -20237,6 +20408,10 @@ name|class_uchardata
 operator|++
 operator|=
 name|pdata
+expr_stmt|;
+name|xclass_has_prop
+operator|=
+name|TRUE
 expr_stmt|;
 name|class_has_8bitchar
 operator|--
@@ -21124,6 +21299,15 @@ name|XCL_NOT
 else|:
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|xclass_has_prop
+condition|)
+operator|*
+name|code
+operator||=
+name|XCL_HASPROP
+expr_stmt|;
 comment|/* If the map is required, move up the extra data to make room for it;       otherwise just move the code pointer to the end of the extra data. */
 if|if
 condition|(
@@ -21160,6 +21344,37 @@ operator|-
 name|code
 argument_list|)
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|negate_class
+operator|&&
+operator|!
+name|xclass_has_prop
+condition|)
+for|for
+control|(
+name|c
+operator|=
+literal|0
+init|;
+name|c
+operator|<
+literal|32
+condition|;
+name|c
+operator|++
+control|)
+name|classbits
+index|[
+name|c
+index|]
+operator|=
+operator|~
+name|classbits
+index|[
+name|c
+index|]
 expr_stmt|;
 name|memcpy
 argument_list|(
@@ -25347,6 +25562,23 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+comment|/* => not a number */
+name|namelen
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|/* => not a name; must set to avoid warning */
+name|name
+operator|=
+name|NULL
+expr_stmt|;
+comment|/* Always set to avoid warning */
+name|recno
+operator|=
+literal|0
+expr_stmt|;
+comment|/* Always set to avoid warning */
 comment|/* Check for a test for recursion in a named group. */
 name|ptr
 operator|++
@@ -25467,10 +25699,6 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|recno
-operator|=
-literal|0
-expr_stmt|;
 while|while
 condition|(
 name|IS_DIGIT
@@ -30030,6 +30258,33 @@ decl_stmt|;
 name|branch_chain
 name|bc
 decl_stmt|;
+comment|/* If set, call the external function that checks for stack availability. */
+if|if
+condition|(
+name|PUBL
+argument_list|(
+name|stack_guard
+argument_list|)
+operator|!=
+name|NULL
+operator|&&
+name|PUBL
+argument_list|(
+name|stack_guard
+argument_list|)
+argument_list|()
+condition|)
+block|{
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR85
+expr_stmt|;
+return|return
+name|FALSE
+return|;
+block|}
+comment|/* Miscellaneous initialization */
 name|bc
 operator|.
 name|outer

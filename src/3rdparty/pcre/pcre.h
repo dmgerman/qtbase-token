@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *       Perl-Compatible Regular Expressions      * *************************************************/
 end_comment
 begin_comment
-comment|/* This is the public header file for the PCRE library, to be #included by applications that call the PCRE functions.             Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* This is the public header file for the PCRE library, to be #included by applications that call the PCRE functions.             Copyright (c) 1997-2014 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_ifndef
 ifndef|#
@@ -31,7 +31,7 @@ DECL|macro|PCRE_MINOR
 define|#
 directive|define
 name|PCRE_MINOR
-value|34
+value|35
 end_define
 begin_define
 DECL|macro|PCRE_PRERELEASE
@@ -44,7 +44,7 @@ DECL|macro|PCRE_DATE
 define|#
 directive|define
 name|PCRE_DATE
-value|2013-12-15
+value|2014-04-04
 end_define
 begin_comment
 comment|/* When an application links to a PCRE DLL in Windows, the symbols that are imported have to be identified as such. When building PCRE, the appropriate export setting is defined in pcre_internal.h, which includes this file. So we don't change existing definitions of PCRE_EXP_DECL and PCRECPP_EXP_DECL. */
@@ -1720,6 +1720,17 @@ name|pcre_callout_block
 modifier|*
 parameter_list|)
 function_decl|;
+DECL|variable|pcre_stack_guard
+name|PCRE_EXP_DECL
+name|int
+function_decl|(
+modifier|*
+name|pcre_stack_guard
+function_decl|)
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
 DECL|variable|pcre16_malloc
 name|PCRE_EXP_DECL
 name|void
@@ -1778,6 +1789,17 @@ function_decl|)
 parameter_list|(
 name|pcre16_callout_block
 modifier|*
+parameter_list|)
+function_decl|;
+DECL|variable|pcre16_stack_guard
+name|PCRE_EXP_DECL
+name|int
+function_decl|(
+modifier|*
+name|pcre16_stack_guard
+function_decl|)
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 DECL|variable|pcre32_malloc
@@ -1840,6 +1862,17 @@ name|pcre32_callout_block
 modifier|*
 parameter_list|)
 function_decl|;
+DECL|variable|pcre32_stack_guard
+name|PCRE_EXP_DECL
+name|int
+function_decl|(
+modifier|*
+name|pcre32_stack_guard
+function_decl|)
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
 else|#
 directive|else
 comment|/* VPCOMPAT */
@@ -1884,6 +1917,13 @@ modifier|*
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|int
+name|pcre_stack_guard
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|void
 modifier|*
 name|pcre16_malloc
@@ -1924,6 +1964,13 @@ modifier|*
 parameter_list|)
 function_decl|;
 name|PCRE_EXP_DECL
+name|int
+name|pcre16_stack_guard
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
 name|void
 modifier|*
 name|pcre32_malloc
@@ -1961,6 +2008,13 @@ name|pcre32_callout
 parameter_list|(
 name|pcre32_callout_block
 modifier|*
+parameter_list|)
+function_decl|;
+name|PCRE_EXP_DECL
+name|int
+name|pcre32_stack_guard
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 endif|#

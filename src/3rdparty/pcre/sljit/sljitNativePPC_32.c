@@ -75,7 +75,7 @@ name|ORI
 operator||
 name|S
 argument_list|(
-name|ZERO_REG
+name|TMP_ZERO
 argument_list|)
 operator||
 name|A

@@ -669,6 +669,28 @@ if|#
 directive|if
 operator|(
 name|defined
+name|SLJIT_CONFIG_ARM_64
+operator|&&
+name|SLJIT_CONFIG_ARM_64
+operator|)
+DECL|member|locals_offset
+name|sljit_si
+name|locals_offset
+decl_stmt|;
+DECL|member|cache_arg
+name|sljit_si
+name|cache_arg
+decl_stmt|;
+DECL|member|cache_argw
+name|sljit_sw
+name|cache_argw
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|defined
 name|SLJIT_CONFIG_PPC_32
 operator|&&
 name|SLJIT_CONFIG_PPC_32
@@ -701,6 +723,13 @@ name|defined
 name|SLJIT_CONFIG_MIPS_32
 operator|&&
 name|SLJIT_CONFIG_MIPS_32
+operator|)
+operator|||
+operator|(
+name|defined
+name|SLJIT_CONFIG_MIPS_64
+operator|&&
+name|SLJIT_CONFIG_MIPS_64
 operator|)
 DECL|member|delay_slot
 name|sljit_si
@@ -1120,7 +1149,7 @@ DECL|macro|SLJIT_MEM
 define|#
 directive|define
 name|SLJIT_MEM
-value|0x100
+value|0x80
 end_define
 begin_define
 DECL|macro|SLJIT_MEM0
@@ -1150,17 +1179,17 @@ name|r1
 parameter_list|,
 name|r2
 parameter_list|)
-value|(SLJIT_MEM | (r1) | ((r2)<< 4))
+value|(SLJIT_MEM | (r1) | ((r2)<< 8))
 end_define
 begin_define
 DECL|macro|SLJIT_IMM
 define|#
 directive|define
 name|SLJIT_IMM
-value|0x200
+value|0x40
 end_define
 begin_comment
-comment|/* Set 32 bit operation mode (I) on 64 bit CPUs. The flag is totally ignored on    32 bit CPUs. If this flag is set for an arithmetic operation, it uses only the    lower 32 bit of the input register(s), and set the CPU status flags according    to the 32 bit result. The higher 32 bits are undefined for both the input and    output. However, the CPU might not ignore those higher 32 bits, like MIPS, which    expects it to be the sign extension of the lower 32 bit. All 32 bit operations    are undefined, if this condition is not fulfilled. Therefore, when SLJIT_INT_OP    is specified, all register arguments must be the result of other operations with    the same SLJIT_INT_OP flag. In other words, although a register can hold either    a 64 or 32 bit value, these values cannot be mixed. The only exceptions are    SLJIT_IMOV and SLJIT_IMOVU (SLJIT_MOV_SI/SLJIT_MOV_UI/SLJIT_MOVU_SI/SLJIT_MOV_UI    with SLJIT_INT_OP flag) which can convert any source argument to SLJIT_INT_OP    compatible result. This conversion might be unnecessary on some CPUs like x86-64,    since the upper 32 bit is always ignored. In this case SLJIT is clever enough    to not generate any instructions if the source and destination operands are the    same registers. Affects sljit_emit_op0, sljit_emit_op1 and sljit_emit_op2. */
+comment|/* Set 32 bit operation mode (I) on 64 bit CPUs. The flag is totally ignored on    32 bit CPUs. If this flag is set for an arithmetic operation, it uses only the    lower 32 bit of the input register(s), and set the CPU status flags according    to the 32 bit result. The higher 32 bits are undefined for both the input and    output. However, the CPU might not ignore those higher 32 bits, like MIPS, which    expects it to be the sign extension of the lower 32 bit. All 32 bit operations    are undefined, if this condition is not fulfilled. Therefore, when SLJIT_INT_OP    is specified, all register arguments must be the result of other operations with    the same SLJIT_INT_OP flag. In other words, although a register can hold either    a 64 or 32 bit value, these values cannot be mixed. The only exceptions are    SLJIT_IMOV and SLJIT_IMOVU (SLJIT_MOV_SI/SLJIT_MOVU_SI with SLJIT_INT_OP flag)    which can convert any source argument to SLJIT_INT_OP compatible result. This    conversion might be unnecessary on some CPUs like x86-64, since the upper 32    bit is always ignored. In this case SLJIT is clever enough to not generate any    instructions if the source and destination operands are the same registers.    Affects sljit_emit_op0, sljit_emit_op1 and sljit_emit_op2. */
 end_comment
 begin_define
 DECL|macro|SLJIT_INT_OP
@@ -1199,6 +1228,16 @@ name|SLJIT_SET_E
 value|0x0200
 end_define
 begin_comment
+comment|/* Set unsigned status flag (U). */
+end_comment
+begin_define
+DECL|macro|SLJIT_SET_U
+define|#
+directive|define
+name|SLJIT_SET_U
+value|0x0400
+end_define
+begin_comment
 comment|/* Set signed status flag (S). */
 end_comment
 begin_define
@@ -1206,16 +1245,6 @@ DECL|macro|SLJIT_SET_S
 define|#
 directive|define
 name|SLJIT_SET_S
-value|0x0400
-end_define
-begin_comment
-comment|/* Set unsgined status flag (U). */
-end_comment
-begin_define
-DECL|macro|SLJIT_SET_U
-define|#
-directive|define
-name|SLJIT_SET_U
 value|0x0800
 end_define
 begin_comment
@@ -1341,7 +1370,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Notes for MOV instructions:    U = Mov with update (post form). If source or destination defined as SLJIT_MEM1(r1)        or SLJIT_MEM2(r1, r2), r1 is increased by the sum of r2 and the constant argument    UB = unsigned byte (8 bit)    SB = signed byte (8 bit)    UH = unsigned half (16 bit)    SH = signed half (16 bit)    UI = unsigned int (32 bit)    SI = signed int (32 bit)    P  = pointer (sljit_p) size */
+comment|/* Notes for MOV instructions:    U = Mov with update (pre form). If source or destination defined as SLJIT_MEM1(r1)        or SLJIT_MEM2(r1, r2), r1 is increased by the sum of r2 and the constant argument    UB = unsigned byte (8 bit)    SB = signed byte (8 bit)    UH = unsigned half (16 bit)    SH = signed half (16 bit)    UI = unsigned int (32 bit)    SI = signed int (32 bit)    P  = pointer (sljit_p) size */
 end_comment
 begin_comment
 comment|/* Flags: - (never set any flags) */
@@ -1432,7 +1461,7 @@ name|SLJIT_MOV_UI
 value|11
 end_define
 begin_comment
-comment|/* No SLJIT_INT_OP form, since it the same as SLJIT_IMOVU. */
+comment|/* No SLJIT_INT_OP form, since it is the same as SLJIT_IMOV. */
 end_comment
 begin_comment
 comment|/* Flags: I - (never set any flags)    Note: see SLJIT_INT_OP for further details. */
@@ -1550,7 +1579,7 @@ name|SLJIT_MOVU_UI
 value|19
 end_define
 begin_comment
-comment|/* No SLJIT_INT_OP form, since it the same as SLJIT_IMOVU. */
+comment|/* No SLJIT_INT_OP form, since it is the same as SLJIT_IMOVU. */
 end_comment
 begin_comment
 comment|/* Flags: I - (never set any flags)    Note: see SLJIT_INT_OP for further details. */
@@ -1692,7 +1721,7 @@ name|SLJIT_IADDC
 value|(SLJIT_ADDC | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Flags: I | E | S | U | O | C | K */
+comment|/* Flags: I | E | U | S | O | C | K */
 end_comment
 begin_define
 DECL|macro|SLJIT_SUB
@@ -2481,7 +2510,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Only for jumps defined with SLJIT_REWRITABLE_JUMP flag.    Note: use sljit_emit_ijump for fixed jumps. */
+comment|/* Set the destination address of the jump to this label. */
 end_comment
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE

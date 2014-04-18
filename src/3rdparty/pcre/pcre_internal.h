@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *      Perl-Compatible Regular Expressions       * *************************************************/
 end_comment
 begin_comment
-comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language.                         Written by Philip Hazel            Copyright (c) 1997-2014 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
 comment|/* This header contains definitions that are shared between the different modules, but which are not relevant to the exported API. This includes some functions whose names all begin with "_pcre_", "_pcre16_" or "_pcre32_" depending on the PRIV macro. */
@@ -897,7 +897,7 @@ parameter_list|(
 name|p
 parameter_list|)
 define|\
-value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)< NLBLOCK->PSEND&& \      PRIV(is_newline)((p), NLBLOCK->nltype, NLBLOCK->PSEND, \&(NLBLOCK->nllen), utf)) \     : \     ((p)<= NLBLOCK->PSEND - NLBLOCK->nllen&& \      RAWUCHARTEST(p) == NLBLOCK->nl[0]&& \      (NLBLOCK->nllen == 1 || RAWUCHARTEST(p+1) == NLBLOCK->nl[1])       \     ) \   )
+value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)< NLBLOCK->PSEND&& \      PRIV(is_newline)((p), NLBLOCK->nltype, NLBLOCK->PSEND, \&(NLBLOCK->nllen), utf)) \     : \     ((p)<= NLBLOCK->PSEND - NLBLOCK->nllen&& \      UCHAR21TEST(p) == NLBLOCK->nl[0]&& \      (NLBLOCK->nllen == 1 || UCHAR21TEST(p+1) == NLBLOCK->nl[1])       \     ) \   )
 end_define
 begin_comment
 comment|/* This macro checks for a newline immediately preceding the given position */
@@ -911,7 +911,7 @@ parameter_list|(
 name|p
 parameter_list|)
 define|\
-value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)> NLBLOCK->PSSTART&& \      PRIV(was_newline)((p), NLBLOCK->nltype, NLBLOCK->PSSTART, \&(NLBLOCK->nllen), utf)) \     : \     ((p)>= NLBLOCK->PSSTART + NLBLOCK->nllen&& \      RAWUCHARTEST(p - NLBLOCK->nllen) == NLBLOCK->nl[0]&&              \      (NLBLOCK->nllen == 1 || RAWUCHARTEST(p - NLBLOCK->nllen + 1) == NLBLOCK->nl[1]) \     ) \   )
+value|((NLBLOCK->nltype != NLTYPE_FIXED)? \     ((p)> NLBLOCK->PSSTART&& \      PRIV(was_newline)((p), NLBLOCK->nltype, NLBLOCK->PSSTART, \&(NLBLOCK->nllen), utf)) \     : \     ((p)>= NLBLOCK->PSSTART + NLBLOCK->nllen&& \      UCHAR21TEST(p - NLBLOCK->nllen) == NLBLOCK->nl[0]&&              \      (NLBLOCK->nllen == 1 || UCHAR21TEST(p - NLBLOCK->nllen + 1) == NLBLOCK->nl[1]) \     ) \   )
 end_define
 begin_comment
 comment|/* When PCRE is compiled as a C++ library, the subject pointer can be replaced with a custom type. This makes it possible, for example, to allow pcre_exec() to process subject strings that are discontinuous by using a smart pointer class. It must always be possible to inspect all of the subject string in pcre_exec() because of the way it backtracks. Two macros are required in the normal case, for sign-unspecified and unsigned char pointers. The former is used for the external interface and appears in pcre.h, which is why its name must begin with PCRE_. */
@@ -1879,7 +1879,50 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* When UTF encoding is being used, a character is no longer just a single byte. The macros for character handling generate simple sequences when used in character-mode, and more complicated ones for UTF characters. GETCHARLENTEST and other macros are not used when UTF is not supported, so they are not defined. To make sure they can never even appear when UTF support is omitted, we don't even define them. */
+comment|/* There is a proposed future special "UTF-21" mode, in which only the lowest 21 bits of a 32-bit character are interpreted as UTF, with the remaining 11 high-order bits available to the application for other uses. In preparation for the future implementation of this mode, there are macros that load a data item and, if in this special mode, mask it to 21 bits. These macros all have names starting with UCHAR21. In all other modes, including the normal 32-bit library, the macros all have the same simple definitions. When the new mode is implemented, it is expected that these definitions will be varied appropriately using #ifdef when compiling the library that supports the special mode. */
+end_comment
+begin_define
+DECL|macro|UCHAR21
+define|#
+directive|define
+name|UCHAR21
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr))
+end_define
+begin_define
+DECL|macro|UCHAR21TEST
+define|#
+directive|define
+name|UCHAR21TEST
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr))
+end_define
+begin_define
+DECL|macro|UCHAR21INC
+define|#
+directive|define
+name|UCHAR21INC
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr)++)
+end_define
+begin_define
+DECL|macro|UCHAR21INCTEST
+define|#
+directive|define
+name|UCHAR21INCTEST
+parameter_list|(
+name|eptr
+parameter_list|)
+value|(*(eptr)++)
+end_define
+begin_comment
+comment|/* When UTF encoding is being used, a character is no longer just a single byte in 8-bit mode or a single short in 16-bit mode. The macros for character handling generate simple sequences when used in the basic mode, and more complicated ones for UTF characters. GETCHARLENTEST and other macros are not used when UTF is not supported. To make sure they can never even appear when UTF support is omitted, we don't even define them. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -1959,46 +2002,6 @@ parameter_list|,
 name|len
 parameter_list|)
 value|c = *eptr;
-end_define
-begin_define
-DECL|macro|RAWUCHAR
-define|#
-directive|define
-name|RAWUCHAR
-parameter_list|(
-name|eptr
-parameter_list|)
-value|(*(eptr))
-end_define
-begin_define
-DECL|macro|RAWUCHARINC
-define|#
-directive|define
-name|RAWUCHARINC
-parameter_list|(
-name|eptr
-parameter_list|)
-value|(*(eptr)++)
-end_define
-begin_define
-DECL|macro|RAWUCHARTEST
-define|#
-directive|define
-name|RAWUCHARTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-value|(*(eptr))
-end_define
-begin_define
-DECL|macro|RAWUCHARINCTEST
-define|#
-directive|define
-name|RAWUCHARINCTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-value|(*(eptr)++)
 end_define
 begin_comment
 comment|/* #define GETCHARLENTEST(c, eptr, len) */
@@ -2239,62 +2242,6 @@ name|len
 parameter_list|)
 define|\
 value|c = *eptr; \   if (utf&& c>= 0xc0) GETUTF8LEN(c, eptr, len);
-end_define
-begin_comment
-comment|/* Returns the next uchar, not advancing the pointer. This is called when we know we are in UTF mode. */
-end_comment
-begin_define
-DECL|macro|RAWUCHAR
-define|#
-directive|define
-name|RAWUCHAR
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*(eptr))
-end_define
-begin_comment
-comment|/* Returns the next uchar, advancing the pointer. This is called when we know we are in UTF mode. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARINC
-define|#
-directive|define
-name|RAWUCHARINC
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*((eptr)++))
-end_define
-begin_comment
-comment|/* Returns the next uchar, testing for UTF mode, and not advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARTEST
-define|#
-directive|define
-name|RAWUCHARTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*(eptr))
-end_define
-begin_comment
-comment|/* Returns the next uchar, testing for UTF mode, advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARINCTEST
-define|#
-directive|define
-name|RAWUCHARINCTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*((eptr)++))
 end_define
 begin_comment
 comment|/* If the pointer is not at the start of a character, move it back until it is. This is called only in UTF-8 mode - we don't put a test within the macro because almost all calls are already within a block of UTF-8 only code. */
@@ -2546,62 +2493,6 @@ define|\
 value|c = *eptr; \   if (utf&& (c& 0xfc00) == 0xd800) GETUTF16LEN(c, eptr, len);
 end_define
 begin_comment
-comment|/* Returns the next uchar, not advancing the pointer. This is called when we know we are in UTF mode. */
-end_comment
-begin_define
-DECL|macro|RAWUCHAR
-define|#
-directive|define
-name|RAWUCHAR
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*(eptr))
-end_define
-begin_comment
-comment|/* Returns the next uchar, advancing the pointer. This is called when we know we are in UTF mode. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARINC
-define|#
-directive|define
-name|RAWUCHARINC
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*((eptr)++))
-end_define
-begin_comment
-comment|/* Returns the next uchar, testing for UTF mode, and not advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARTEST
-define|#
-directive|define
-name|RAWUCHARTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*(eptr))
-end_define
-begin_comment
-comment|/* Returns the next uchar, testing for UTF mode, advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARINCTEST
-define|#
-directive|define
-name|RAWUCHARINCTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*((eptr)++))
-end_define
-begin_comment
 comment|/* If the pointer is not at the start of a character, move it back until it is. This is called only in UTF-16 mode - we don't put a test within the macro because almost all calls are already within a block of UTF-16 only code. */
 end_comment
 begin_define
@@ -2790,62 +2681,6 @@ name|len
 parameter_list|)
 define|\
 value|GETCHARTEST(c, eptr)
-end_define
-begin_comment
-comment|/* Returns the next uchar, not advancing the pointer. This is called when we know we are in UTF mode. */
-end_comment
-begin_define
-DECL|macro|RAWUCHAR
-define|#
-directive|define
-name|RAWUCHAR
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*(eptr))
-end_define
-begin_comment
-comment|/* Returns the next uchar, advancing the pointer. This is called when we know we are in UTF mode. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARINC
-define|#
-directive|define
-name|RAWUCHARINC
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*((eptr)++))
-end_define
-begin_comment
-comment|/* Returns the next uchar, testing for UTF mode, and not advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARTEST
-define|#
-directive|define
-name|RAWUCHARTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*(eptr))
-end_define
-begin_comment
-comment|/* Returns the next uchar, testing for UTF mode, advancing the pointer. */
-end_comment
-begin_define
-DECL|macro|RAWUCHARINCTEST
-define|#
-directive|define
-name|RAWUCHARINCTEST
-parameter_list|(
-name|eptr
-parameter_list|)
-define|\
-value|(*((eptr)++))
 end_define
 begin_comment
 comment|/* If the pointer is not at the start of a character, move it back until it is. This is called only in UTF-32 mode - we don't put a test within the macro because almost all calls are already within a block of UTF-32 only code. These are all no-ops since all UTF-32 characters fit into one pcre_uchar. */
@@ -7465,6 +7300,17 @@ DECL|macro|XCL_MAP
 comment|/* Flag: a 32-byte map is present */
 end_comment
 begin_define
+DECL|macro|XCL_HASPROP
+define|#
+directive|define
+name|XCL_HASPROP
+value|0x04
+end_define
+begin_comment
+DECL|macro|XCL_HASPROP
+comment|/* Flag: property checks are present. */
+end_comment
+begin_define
 DECL|macro|XCL_END
 define|#
 directive|define
@@ -8782,6 +8628,7 @@ DECL|enumerator|ERR81
 DECL|enumerator|ERR82
 DECL|enumerator|ERR83
 DECL|enumerator|ERR84
+DECL|enumerator|ERR85
 DECL|enumerator|ERRCOUNT
 name|ERR80
 block|,
@@ -8792,6 +8639,8 @@ block|,
 name|ERR83
 block|,
 name|ERR84
+block|,
+name|ERR85
 block|,
 name|ERRCOUNT
 block|}

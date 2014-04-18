@@ -39,10 +39,10 @@ begin_comment
 comment|/* Last register + 1. */
 end_comment
 begin_define
-DECL|macro|TMP_REGISTER
+DECL|macro|TMP_REG1
 define|#
 directive|define
-name|TMP_REGISTER
+name|TMP_REG1
 value|(SLJIT_NO_REGISTERS + 1)
 end_define
 begin_decl_stmt
@@ -109,10 +109,10 @@ begin_comment
 comment|/* Last register + 1. */
 end_comment
 begin_define
-DECL|macro|TMP_REGISTER
+DECL|macro|TMP_REG1
 define|#
 directive|define
-name|TMP_REGISTER
+name|TMP_REG1
 value|(SLJIT_NO_REGISTERS + 1)
 end_define
 begin_define
@@ -372,6 +372,47 @@ directive|define
 name|REX
 value|0x40
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_WIN64
+end_ifndef
+begin_define
+DECL|macro|HALFWORD_MAX
+define|#
+directive|define
+name|HALFWORD_MAX
+value|0x7fffffffl
+end_define
+begin_define
+DECL|macro|HALFWORD_MIN
+define|#
+directive|define
+name|HALFWORD_MIN
+value|-0x80000000l
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|HALFWORD_MAX
+define|#
+directive|define
+name|HALFWORD_MAX
+value|0x7fffffffll
+end_define
+begin_define
+DECL|macro|HALFWORD_MIN
+define|#
+directive|define
+name|HALFWORD_MIN
+value|-0x80000000ll
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|IS_HALFWORD
 define|#
@@ -380,7 +421,7 @@ name|IS_HALFWORD
 parameter_list|(
 name|x
 parameter_list|)
-value|((x)<= 0x7fffffffll&& (x)>= -0x80000000ll)
+value|((x)<= HALFWORD_MAX&& (x)>= HALFWORD_MIN)
 end_define
 begin_define
 DECL|macro|NOT_HALFWORD
@@ -390,7 +431,7 @@ name|NOT_HALFWORD
 parameter_list|(
 name|x
 parameter_list|)
-value|((x)> 0x7fffffffll || (x)< -0x80000000ll)
+value|((x)> HALFWORD_MAX || (x)< HALFWORD_MIN)
 end_define
 begin_define
 DECL|macro|CHECK_EXTRA_REGS
@@ -1887,7 +1928,7 @@ literal|1
 operator|)
 argument_list|)
 operator|>
-literal|0x7fffffffll
+name|HALFWORD_MAX
 operator|||
 call|(
 name|sljit_sw
@@ -1904,8 +1945,7 @@ literal|1
 operator|)
 argument_list|)
 operator|<
-operator|-
-literal|0x80000000ll
+name|HALFWORD_MIN
 condition|)
 return|return
 name|generate_far_jump_code
@@ -2724,8 +2764,7 @@ argument_list|)
 operator|)
 argument_list|)
 operator|>=
-operator|-
-literal|0x80000000ll
+name|HALFWORD_MIN
 operator|&&
 call|(
 name|sljit_sw
@@ -2751,7 +2790,7 @@ argument_list|)
 operator|)
 argument_list|)
 operator|<=
-literal|0x7fffffffll
+name|HALFWORD_MAX
 argument_list|)
 expr_stmt|;
 operator|*
@@ -2857,8 +2896,7 @@ argument_list|)
 operator|)
 argument_list|)
 operator|>=
-operator|-
-literal|0x80000000ll
+name|HALFWORD_MIN
 operator|&&
 call|(
 name|sljit_sw
@@ -2882,7 +2920,7 @@ argument_list|)
 operator|)
 argument_list|)
 operator|<=
-literal|0x7fffffffll
+name|HALFWORD_MAX
 argument_list|)
 expr_stmt|;
 operator|*
@@ -3422,6 +3460,7 @@ block|{
 comment|/* Workaround for calling the internal _chkstk() function on Windows. 	This function touches all 4k pages belongs to the requested stack space, 	which size is passed in local_size. This is necessary on Windows where 	the stack can only grow in 4k steps. However, this function just burn 	CPU cycles if the stack is large enough. However, you don't know it in 	advance, so it must always be called. I think this is a bad design in 	general even if it has some reasons. */
 operator|*
 operator|(
+specifier|volatile
 name|sljit_si
 operator|*
 operator|)
@@ -3517,7 +3556,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -3544,9 +3583,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -3590,9 +3630,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|#
@@ -3779,9 +3820,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -3825,7 +3867,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -3853,7 +3895,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -4064,7 +4106,7 @@ literal|2
 operator|&&
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 operator|>
 literal|7
@@ -4092,7 +4134,7 @@ literal|7
 operator|&&
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 operator|==
 literal|2
@@ -4143,7 +4185,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -4179,11 +4221,11 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -4226,7 +4268,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -4414,7 +4456,7 @@ operator|)
 condition|?
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 else|:
 name|reg_map
@@ -4549,7 +4591,7 @@ operator|)
 condition|?
 name|reg_lmap
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 else|:
 name|reg_lmap
@@ -4657,7 +4699,7 @@ name|SLJIT_SCRATCH_REG2
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -4771,9 +4813,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|#
@@ -4873,15 +4916,14 @@ return|;
 block|}
 name|dst_r
 operator|=
-operator|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|?
 name|dst
 else|:
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 if|if
 condition|(
@@ -4891,9 +4933,10 @@ operator|&
 name|SLJIT_MEM
 operator|)
 operator|&&
+name|FAST_IS_REG
+argument_list|(
 name|src
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|#
@@ -4918,14 +4961,14 @@ name|SLJIT_ASSERT
 argument_list|(
 name|dst_r
 operator|==
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|)
 expr_stmt|;
 name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -4960,9 +5003,10 @@ operator|)
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 name|reg_map
 index|[
@@ -4975,13 +5019,10 @@ block|{
 comment|/* src, dst are registers. */
 name|SLJIT_ASSERT
 argument_list|(
+name|SLOW_IS_REG
+argument_list|(
 name|dst
-operator|>=
-name|SLJIT_SCRATCH_REG1
-operator|&&
-name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -5246,7 +5287,7 @@ if|if
 condition|(
 name|dst_r
 operator|==
-name|TMP_REGISTER
+name|TMP_REG1
 condition|)
 block|{
 comment|/* Find a non-used register, whose reg_map[src]< 4. */
@@ -5255,7 +5296,7 @@ condition|(
 operator|(
 name|dst
 operator|&
-literal|0xf
+name|REG_MASK
 operator|)
 operator|==
 name|SLJIT_SCRATCH_REG1
@@ -5266,14 +5307,13 @@ condition|(
 operator|(
 name|dst
 operator|&
-literal|0xf0
+name|OFFS_REG_MASK
 operator|)
 operator|==
-operator|(
+name|TO_OFFS_REG
+argument_list|(
 name|SLJIT_SCRATCH_REG2
-operator|<<
-literal|4
-operator|)
+argument_list|)
 condition|)
 name|work_r
 operator|=
@@ -5292,14 +5332,13 @@ condition|(
 operator|(
 name|dst
 operator|&
-literal|0xf0
+name|OFFS_REG_MASK
 operator|)
 operator|!=
-operator|(
+name|TO_OFFS_REG
+argument_list|(
 name|SLJIT_SCRATCH_REG1
-operator|<<
-literal|4
-operator|)
+argument_list|)
 condition|)
 name|work_r
 operator|=
@@ -5311,7 +5350,7 @@ condition|(
 operator|(
 name|dst
 operator|&
-literal|0xf
+name|REG_MASK
 operator|)
 operator|==
 name|SLJIT_SCRATCH_REG2
@@ -5339,7 +5378,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 argument_list|)
 expr_stmt|;
@@ -5416,7 +5455,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 argument_list|)
 expr_stmt|;
@@ -5602,9 +5641,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|#
@@ -5706,15 +5746,14 @@ return|;
 block|}
 name|dst_r
 operator|=
-operator|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|?
 name|dst
 else|:
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 if|if
 condition|(
@@ -5724,9 +5763,10 @@ operator|&
 name|SLJIT_MEM
 operator|)
 operator|&&
+name|FAST_IS_REG
+argument_list|(
 name|src
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 name|dst_r
 operator|=
@@ -5860,7 +5900,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -5881,7 +5921,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -5959,9 +5999,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|EMIT_MOV
@@ -6019,7 +6060,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -6040,7 +6081,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6070,7 +6111,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6119,7 +6160,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -6140,7 +6181,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6170,11 +6211,11 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6196,9 +6237,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|EMIT_MOV
@@ -6284,7 +6326,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -6305,7 +6347,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6335,11 +6377,11 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6363,7 +6405,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6427,7 +6469,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -6448,7 +6490,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6492,7 +6534,7 @@ name|SLJIT_IMM
 argument_list|,
 literal|31
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6522,7 +6564,7 @@ literal|63
 else|:
 literal|31
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6558,7 +6600,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -6569,7 +6611,7 @@ argument_list|)
 expr_stmt|;
 name|src
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 name|srcw
 operator|=
@@ -6584,7 +6626,7 @@ name|compiler
 argument_list|,
 literal|2
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -6620,9 +6662,10 @@ name|SLJIT_CONFIG_X86_32
 operator|)
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 name|dst_r
 operator|=
@@ -6636,7 +6679,7 @@ condition|(
 operator|(
 name|dst
 operator|&
-literal|0xf
+name|REG_MASK
 operator|)
 operator|!=
 name|SLJIT_SCRATCH_REG1
@@ -6644,14 +6687,13 @@ operator|&&
 operator|(
 name|dst
 operator|&
-literal|0xf0
+name|OFFS_REG_MASK
 operator|)
 operator|!=
-operator|(
+name|TO_OFFS_REG
+argument_list|(
 name|SLJIT_SCRATCH_REG1
-operator|<<
-literal|4
-operator|)
+argument_list|)
 condition|)
 name|dst_r
 operator|=
@@ -6663,7 +6705,7 @@ condition|(
 operator|(
 name|dst
 operator|&
-literal|0xf
+name|REG_MASK
 operator|)
 operator|!=
 name|SLJIT_SCRATCH_REG2
@@ -6671,14 +6713,13 @@ operator|&&
 operator|(
 name|dst
 operator|&
-literal|0xf0
+name|OFFS_REG_MASK
 operator|)
 operator|!=
-operator|(
+name|TO_OFFS_REG
+argument_list|(
 name|SLJIT_SCRATCH_REG2
-operator|<<
-literal|4
-operator|)
+argument_list|)
 condition|)
 name|dst_r
 operator|=
@@ -6722,11 +6763,10 @@ else|#
 directive|else
 name|dst_r
 operator|=
-operator|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|?
 name|dst
 else|:
@@ -6801,7 +6841,7 @@ name|dst_r
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -6895,7 +6935,7 @@ operator|)
 operator||
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 else|#
@@ -6960,7 +7000,7 @@ operator||
 operator|(
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 operator|>=
 literal|8
@@ -6993,7 +7033,7 @@ operator|)
 operator||
 name|reg_lmap
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 endif|#
@@ -7330,9 +7370,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 name|src
 operator|==
@@ -7593,7 +7634,7 @@ operator|&&
 operator|(
 name|src
 operator|&
-literal|0xf
+name|REG_MASK
 operator|)
 operator|&&
 operator|(
@@ -7604,7 +7645,7 @@ operator|||
 operator|(
 name|src
 operator|&
-literal|0xf0
+name|OFFS_REG_MASK
 operator|)
 operator|!=
 literal|0
@@ -7621,7 +7662,7 @@ literal|1
 argument_list|,
 name|src
 operator|&
-literal|0xf
+name|REG_MASK
 argument_list|,
 literal|0
 argument_list|,
@@ -7707,7 +7748,7 @@ argument_list|)
 expr_stmt|;
 name|dst
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 block|}
 endif|#
@@ -7916,7 +7957,7 @@ argument_list|)
 operator|&&
 name|dst
 operator|==
-name|TMP_REGISTER
+name|TMP_REG1
 condition|)
 return|return
 name|emit_mov
@@ -7930,7 +7971,7 @@ argument_list|)
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -7953,7 +7994,7 @@ operator|&&
 operator|(
 name|dst
 operator|&
-literal|0xf
+name|REG_MASK
 operator|)
 operator|&&
 operator|(
@@ -7964,7 +8005,7 @@ operator|||
 operator|(
 name|dst
 operator|&
-literal|0xf0
+name|OFFS_REG_MASK
 operator|)
 operator|!=
 literal|0
@@ -7981,7 +8022,7 @@ literal|1
 argument_list|,
 name|dst
 operator|&
-literal|0xf
+name|REG_MASK
 argument_list|,
 literal|0
 argument_list|,
@@ -8310,7 +8351,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8334,7 +8375,7 @@ name|op_mr
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -8350,7 +8391,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8484,9 +8525,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -8521,9 +8563,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src2
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 comment|/* Special exception for sljit_emit_op_flags. */
@@ -8562,7 +8605,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8579,7 +8622,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8714,9 +8757,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -8751,9 +8795,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src1
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -8791,7 +8836,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8808,7 +8853,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8836,9 +8881,10 @@ block|}
 comment|/* General version. */
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|EMIT_MOV
@@ -8914,7 +8960,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8938,7 +8984,7 @@ name|op_mr
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -8954,7 +9000,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -8983,7 +9029,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -9049,7 +9095,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -9073,7 +9119,7 @@ name|op_mr
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -9089,7 +9135,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -9223,9 +9269,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -9260,9 +9307,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src2
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -9300,7 +9348,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -9317,7 +9365,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -9345,9 +9393,10 @@ block|}
 comment|/* General version. */
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 name|dst
 operator|!=
@@ -9427,7 +9476,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -9451,7 +9500,7 @@ name|op_mr
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -9467,7 +9516,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -9496,7 +9545,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -9544,15 +9593,14 @@ name|dst_r
 decl_stmt|;
 name|dst_r
 operator|=
-operator|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|?
 name|dst
 else|:
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 comment|/* Register destination. */
 if|if
@@ -10312,7 +10360,7 @@ argument_list|)
 condition|)
 name|dst_r
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 name|EMIT_MOV
 argument_list|(
@@ -10366,7 +10414,7 @@ if|if
 condition|(
 name|dst_r
 operator|==
-name|TMP_REGISTER
+name|TMP_REG1
 condition|)
 name|EMIT_MOV
 argument_list|(
@@ -10376,7 +10424,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -10464,32 +10512,29 @@ return|;
 block|}
 name|dst_r
 operator|=
-operator|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|?
 name|dst
 else|:
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src1
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src2
-operator|<=
-name|TMP_REGISTER
-operator|||
-name|src2
-operator|==
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|inst
@@ -10632,9 +10677,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src2
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|#
@@ -10745,7 +10791,7 @@ if|if
 condition|(
 name|dst_r
 operator|==
-name|TMP_REGISTER
+name|TMP_REG1
 condition|)
 return|return
 name|emit_mov
@@ -10756,7 +10802,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -10880,9 +10926,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src1
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|if
@@ -10943,9 +10990,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src2
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 operator|!
 operator|(
@@ -11005,7 +11053,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11016,7 +11064,7 @@ argument_list|)
 expr_stmt|;
 name|src1
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 name|src1w
 operator|=
@@ -11043,7 +11091,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11060,7 +11108,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11278,9 +11326,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src1
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|if
@@ -11452,9 +11501,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src2
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|if
@@ -11628,7 +11678,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11676,7 +11726,7 @@ name|SLJIT_IMM
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -11719,7 +11769,7 @@ name|TMP_REG2
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -11750,7 +11800,7 @@ name|SLJIT_IMM
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -11779,7 +11829,7 @@ name|compiler
 argument_list|,
 literal|1
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11911,7 +11961,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11934,7 +11984,7 @@ name|src2
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -11969,7 +12019,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -11992,7 +12042,7 @@ name|SLJIT_PREF_SHIFT_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12016,7 +12066,7 @@ name|SLJIT_PREF_SHIFT_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12027,9 +12077,10 @@ return|;
 block|}
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 name|EMIT_MOV
@@ -12083,7 +12134,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -12106,7 +12157,7 @@ name|src2
 argument_list|,
 name|src2w
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12130,7 +12181,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12150,7 +12201,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -12186,7 +12237,7 @@ name|SLJIT_PREF_SHIFT_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12210,7 +12261,7 @@ name|SLJIT_PREF_SHIFT_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12219,9 +12270,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 name|dst
 operator|!=
@@ -12259,7 +12311,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -12319,7 +12371,7 @@ name|SLJIT_PREF_SHIFT_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12332,7 +12384,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -12413,7 +12465,7 @@ name|SLJIT_PREF_SHIFT_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12481,7 +12533,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -12695,11 +12747,10 @@ return|;
 if|if
 condition|(
 operator|!
-operator|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|)
 name|FAIL_IF
 argument_list|(
@@ -12741,9 +12792,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 return|return
 name|emit_cmp_binary
@@ -13828,8 +13880,14 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-if|#
-directive|if
+ifdef|#
+directive|ifdef
+name|SLJIT_IS_FPU_AVAILABLE
+return|return
+name|SLJIT_IS_FPU_AVAILABLE
+return|;
+elif|#
+directive|elif
 operator|(
 name|defined
 name|SLJIT_SSE2
@@ -14202,9 +14260,10 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|SLJIT_FLOAT_REG6
+argument_list|)
 condition|)
 name|dst_r
 operator|=
@@ -14266,9 +14325,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|SLJIT_FLOAT_REG6
+argument_list|)
 condition|)
 return|return
 name|emit_sse2_load
@@ -14288,9 +14348,10 @@ argument_list|)
 return|;
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|src
-operator|<=
-name|SLJIT_FLOAT_REG6
+argument_list|)
 condition|)
 return|return
 name|emit_sse2_store
@@ -14345,13 +14406,10 @@ return|;
 block|}
 if|if
 condition|(
+name|SLOW_IS_REG
+argument_list|(
 name|dst
-operator|>=
-name|SLJIT_FLOAT_REG1
-operator|&&
-name|dst
-operator|<=
-name|SLJIT_FLOAT_REG6
+argument_list|)
 condition|)
 block|{
 name|dst_r
@@ -14592,9 +14650,10 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|SLJIT_FLOAT_REG6
+argument_list|)
 condition|)
 block|{
 name|dst_r
@@ -15450,7 +15509,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -15461,7 +15520,7 @@ argument_list|)
 expr_stmt|;
 name|src
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 block|}
 if|if
@@ -15512,7 +15571,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -15523,7 +15582,7 @@ argument_list|)
 expr_stmt|;
 name|src
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 block|}
 endif|#
@@ -15878,9 +15937,10 @@ argument_list|(
 name|op
 argument_list|)
 operator|&&
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 name|dst
 operator|==
@@ -15925,7 +15985,7 @@ operator|=
 operator|(
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 operator|<=
 literal|7
@@ -15955,7 +16015,7 @@ name|MOD_REG
 operator||
 name|reg_lmap
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 operator|*
@@ -15967,7 +16027,7 @@ operator||
 operator|(
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 operator|<=
 literal|7
@@ -16005,7 +16065,7 @@ operator||
 operator|(
 name|reg_lmap
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 operator|<<
 literal|3
@@ -16027,14 +16087,15 @@ name|op
 operator|==
 name|SLJIT_MOV
 operator|&&
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|)
 condition|?
 name|dst
 else|:
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 name|inst
 operator|=
@@ -16165,7 +16226,7 @@ if|if
 condition|(
 name|reg
 operator|!=
-name|TMP_REGISTER
+name|TMP_REG1
 condition|)
 return|return
 name|SLJIT_SUCCESS
@@ -16200,7 +16261,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -16244,7 +16305,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -16261,9 +16322,10 @@ argument_list|)
 operator|<
 name|SLJIT_ADD
 operator|&&
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 condition|)
 block|{
 if|if
@@ -16386,7 +16448,7 @@ name|EMIT_MOV
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|,
@@ -16467,7 +16529,7 @@ operator|)
 operator||
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 return|return
@@ -16520,7 +16582,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 comment|/* Set al to conditional flag. */
@@ -16583,7 +16645,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 return|return
@@ -16605,9 +16667,10 @@ argument_list|(
 name|op
 argument_list|)
 operator|&&
+name|FAST_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
+argument_list|)
 operator|&&
 name|dst
 operator|==
@@ -16687,7 +16750,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 operator|*
@@ -16743,7 +16806,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 block|}
@@ -16809,7 +16872,7 @@ operator|)
 operator||
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 operator|*
@@ -16876,7 +16939,7 @@ operator|)
 operator||
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 block|}
@@ -16884,7 +16947,7 @@ return|return
 name|SLJIT_SUCCESS
 return|;
 block|}
-comment|/* Set TMP_REGISTER to the bit. */
+comment|/* Set TMP_REG1 to the bit. */
 name|inst
 operator|=
 operator|(
@@ -16931,7 +16994,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 comment|/* Set al to conditional flag. */
@@ -16992,7 +17055,7 @@ name|XCHG_EAX_r
 operator|+
 name|reg_map
 index|[
-name|TMP_REGISTER
+name|TMP_REG1
 index|]
 expr_stmt|;
 if|if
@@ -17013,7 +17076,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -17056,7 +17119,7 @@ name|dst_save
 argument_list|,
 name|dstw_save
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -17166,7 +17229,7 @@ name|emit_load_imm64
 argument_list|(
 name|compiler
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 name|offset
 argument_list|)
@@ -17196,7 +17259,7 @@ name|SLJIT_LOCALS_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -17226,7 +17289,7 @@ name|SLJIT_LOCALS_REG
 argument_list|,
 literal|0
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)
@@ -17401,15 +17464,14 @@ literal|0
 expr_stmt|;
 name|reg
 operator|=
-operator|(
+name|SLOW_IS_REG
+argument_list|(
 name|dst
-operator|<=
-name|TMP_REGISTER
-operator|)
+argument_list|)
 condition|?
 name|dst
 else|:
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 if|if
 condition|(
@@ -17435,7 +17497,7 @@ name|SLJIT_UNUSED
 condition|)
 name|dst
 operator|=
-name|TMP_REGISTER
+name|TMP_REG1
 expr_stmt|;
 if|if
 condition|(
@@ -17498,13 +17560,9 @@ name|SLJIT_CONFIG_X86_64
 operator|)
 if|if
 condition|(
-name|reg
-operator|==
-name|TMP_REGISTER
-operator|&&
 name|dst
-operator|!=
-name|SLJIT_UNUSED
+operator|&
+name|SLJIT_MEM
 condition|)
 if|if
 condition|(
@@ -17516,7 +17574,7 @@ name|dst
 argument_list|,
 name|dstw
 argument_list|,
-name|TMP_REGISTER
+name|TMP_REG1
 argument_list|,
 literal|0
 argument_list|)

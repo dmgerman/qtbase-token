@@ -3,7 +3,7 @@ begin_comment
 comment|/************************************************* *      Perl-Compatible Regular Expressions       * *************************************************/
 end_comment
 begin_comment
-comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language (but see below for why this module is different).                         Written by Philip Hazel            Copyright (c) 1997-2013 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
+comment|/* PCRE is a library of functions to support regular expressions whose syntax and semantics are as close as possible to those of the Perl 5 language (but see below for why this module is different).                         Written by Philip Hazel            Copyright (c) 1997-2014 University of Cambridge  ----------------------------------------------------------------------------- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:      * Redistributions of source code must retain the above copyright notice,       this list of conditions and the following disclaimer.      * Redistributions in binary form must reproduce the above copyright       notice, this list of conditions and the following disclaimer in the       documentation and/or other materials provided with the distribution.      * Neither the name of the University of Cambridge nor the names of its       contributors may be used to endorse or promote products derived from       this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ----------------------------------------------------------------------------- */
 end_comment
 begin_comment
 comment|/* This module contains the external function pcre_dfa_exec(), which is an alternative matching function that uses a sort of DFA algorithm (not a true FSM). This is NOT Perl-compatible, but it has advantages in certain applications. */
@@ -6173,7 +6173,7 @@ literal|1
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|ptr
 operator|+
@@ -7202,7 +7202,7 @@ literal|1
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|ptr
 operator|+
@@ -8356,7 +8356,7 @@ literal|1
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|ptr
 operator|+
@@ -9176,7 +9176,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|ptr
 operator|+
@@ -14448,7 +14448,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* Advance to a known first char. */
+comment|/* Advance to a known first pcre_uchar (i.e. data item) */
 if|if
 condition|(
 name|has_first_char
@@ -14473,7 +14473,7 @@ operator|&&
 operator|(
 name|csc
 operator|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 argument_list|)
@@ -14496,7 +14496,7 @@ name|current_subject
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 argument_list|)
@@ -14585,7 +14585,7 @@ expr_stmt|;
 comment|/* If we have just passed a CR and the newline option is ANY or           ANYCRLF, and we are now at a LF, advance the match position by one           more character. */
 if|if
 condition|(
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 operator|-
@@ -14612,7 +14612,7 @@ name|current_subject
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 argument_list|)
@@ -14624,7 +14624,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|/* Or to a non-unique first char after study */
+comment|/* Advance to a non-unique first pcre_uchar after study */
 elseif|else
 if|if
 condition|(
@@ -14644,7 +14644,7 @@ specifier|register
 name|pcre_uint32
 name|c
 init|=
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 argument_list|)
@@ -14684,43 +14684,13 @@ literal|7
 operator|)
 operator|)
 operator|)
-operator|==
+operator|!=
 literal|0
 condition|)
-block|{
-name|current_subject
-operator|++
-expr_stmt|;
-if|#
-directive|if
-name|defined
-name|SUPPORT_UTF
-operator|&&
-name|defined
-name|COMPILE_PCRE8
-comment|/* In non 8-bit mode, the iteration will stop for             characters> 255 at the beginning or not stop at all. */
-if|if
-condition|(
-name|utf
-condition|)
-name|ACROSSCHAR
-argument_list|(
-name|current_subject
-operator|<
-name|end_subject
-argument_list|,
-operator|*
-name|current_subject
-argument_list|,
-name|current_subject
-operator|++
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
-else|else
 break|break;
+name|current_subject
+operator|++
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -14759,7 +14729,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* If the pattern was studied, a minimum subject length may be set. This       is a lower bound; no actual string of that length may actually match the       pattern. Although the value is, strictly, in characters, we treat it as       bytes to avoid spending too much time in this optimization. */
+comment|/* If the pattern was studied, a minimum subject length may be set. This       is a lower bound; no actual string of that length may actually match the       pattern. Although the value is, strictly, in characters, we treat it as       in pcre_uchar units to avoid spending too much time in this optimization.       */
 if|if
 condition|(
 name|study
@@ -14792,7 +14762,7 @@ condition|)
 return|return
 name|PCRE_ERROR_NOMATCH
 return|;
-comment|/* If req_char is set, we know that that character must appear in the       subject for the match to succeed. If the first character is set, req_char       must be later in the subject; otherwise the test starts at the match       point. This optimization can save a huge amount of work in patterns with       nested unlimited repeats that aren't going to match. Writing separate       code for cased/caseless versions makes it go faster, as does using an       autoincrement and backing off on a match.        HOWEVER: when the subject string is very, very long, searching to its end       can take a long time, and give bad performance on quite ordinary       patterns. This showed up when somebody was matching /^C/ on a 32-megabyte       string... so we don't do this when the string is sufficiently long. */
+comment|/* If req_char is set, we know that that pcre_uchar must appear in the       subject for the match to succeed. If the first pcre_uchar is set,       req_char must be later in the subject; otherwise the test starts at the       match point. This optimization can save a huge amount of work in patterns       with nested unlimited repeats that aren't going to match. Writing       separate code for cased/caseless versions makes it go faster, as does       using an autoincrement and backing off on a match.        HOWEVER: when the subject string is very, very long, searching to its end       can take a long time, and give bad performance on quite ordinary       patterns. This showed up when somebody was matching /^C/ on a 32-megabyte       string... so we don't do this when the string is sufficiently long. */
 if|if
 condition|(
 name|has_req_char
@@ -14844,7 +14814,7 @@ specifier|register
 name|pcre_uint32
 name|pp
 init|=
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|p
 argument_list|)
@@ -14878,7 +14848,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|RAWUCHARINCTEST
+name|UCHAR21INCTEST
 argument_list|(
 name|p
 argument_list|)
@@ -14893,7 +14863,7 @@ break|break;
 block|}
 block|}
 block|}
-comment|/* If we can't find the required character, break the matching loop,           which will cause a return or PCRE_ERROR_NOMATCH. */
+comment|/* If we can't find the required pcre_uchar, break the matching loop,           which will cause a return or PCRE_ERROR_NOMATCH. */
 if|if
 condition|(
 name|p
@@ -14901,7 +14871,7 @@ operator|>=
 name|end_subject
 condition|)
 break|break;
-comment|/* If we have found the required character, save the point where we           found it, so that we don't search again next time round the loop if           the start hasn't passed this character yet. */
+comment|/* If we have found the required pcre_uchar, save the point where we           found it, so that we don't search again next time round the loop if           the start hasn't passed this point yet. */
 name|req_char_ptr
 operator|=
 name|p
@@ -15091,7 +15061,7 @@ break|break;
 comment|/* If we have just passed a CR and we are now at a LF, and the pattern does   not contain any explicit matches for \r or \n, and the newline option is CRLF   or ANY or ANYCRLF, advance the match position by one more character. */
 if|if
 condition|(
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 operator|-
@@ -15104,7 +15074,7 @@ name|current_subject
 operator|<
 name|end_subject
 operator|&&
-name|RAWUCHARTEST
+name|UCHAR21TEST
 argument_list|(
 name|current_subject
 argument_list|)
