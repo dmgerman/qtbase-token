@@ -102,6 +102,10 @@ block|,
 name|UseUnicodePropertiesOption
 init|=
 literal|0x0040
+block|,
+name|OptimizeOnFirstUsageOption
+init|=
+literal|0x0080
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
@@ -331,6 +335,10 @@ name|NoMatchOption
 argument_list|)
 decl|const
 decl_stmt|;
+name|void
+name|optimize
+parameter_list|()
+function_decl|;
 specifier|static
 name|QString
 name|escape
