@@ -218,6 +218,9 @@ name|dialog
 operator|=
 operator|new
 name|FindDialog
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 comment|//! [instantiating FindDialog]
 name|connect
