@@ -1401,6 +1401,11 @@ name|Qt
 operator|::
 name|ApplicationState
 name|state
+argument_list|,
+name|bool
+name|forcePropagate
+operator|=
+name|false
 argument_list|)
 decl_stmt|;
 end_decl_stmt

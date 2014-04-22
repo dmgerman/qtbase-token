@@ -422,6 +422,9 @@ name|Qt
 operator|::
 name|ApplicationState
 name|newState
+parameter_list|,
+name|bool
+name|forcePropagate
 parameter_list|)
 block|{
 name|Q_ASSERT
@@ -451,6 +454,8 @@ operator|::
 name|ApplicationStateChangedEvent
 argument_list|(
 name|newState
+argument_list|,
+name|forcePropagate
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate

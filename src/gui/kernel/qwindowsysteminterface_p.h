@@ -619,6 +619,8 @@ operator|:
 name|ApplicationStateChangedEvent
 argument_list|(
 argument|Qt::ApplicationState newState
+argument_list|,
+argument|bool forcePropagate = false
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -628,13 +630,21 @@ argument_list|)
 block|,
 name|newState
 argument_list|(
-argument|newState
+name|newState
+argument_list|)
+block|,
+name|forcePropagate
+argument_list|(
+argument|forcePropagate
 argument_list|)
 block|{ }
 name|Qt
 operator|::
 name|ApplicationState
 name|newState
+block|;
+name|bool
+name|forcePropagate
 block|;     }
 decl_stmt|;
 name|class
