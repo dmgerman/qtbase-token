@@ -7142,7 +7142,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context     to a 2x3 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context     to a 2x3 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat2x3, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec3.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7189,7 +7189,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 2x3 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 2x3 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat2x3, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec3.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7222,7 +7222,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context     to a 2x4 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context     to a 2x4 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat2x4, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec4.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7269,7 +7269,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 2x4 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 2x4 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat2x4, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec4.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7302,7 +7302,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context     to a 3x2 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context     to a 3x2 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat3x2, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec2.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7349,7 +7349,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 3x2 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 3x2 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat3x2, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec2.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7464,7 +7464,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context     to a 3x4 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context     to a 3x4 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat3x4, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec4.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7511,7 +7511,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 3x4 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 3x4 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat3x4, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec4.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7544,7 +7544,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context     to a 4x2 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context     to a 4x2 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat4x2, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec2.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7591,7 +7591,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 4x2 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 4x2 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat4x2, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec2.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7624,7 +7624,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context     to a 4x3 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context     to a 4x3 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat4x3, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec3.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7671,7 +7671,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 4x3 matrix \a value.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 4x3 matrix \a value.      \note This function is not aware of non square matrix support,     that is, GLSL types like mat4x3, that is present in modern OpenGL     versions. Instead, it treats the uniform as an array of vec3.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
