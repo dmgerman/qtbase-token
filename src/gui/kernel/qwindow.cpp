@@ -1043,9 +1043,16 @@ if|if
 condition|(
 name|visible
 operator|&&
+operator|(
 name|d
 operator|->
 name|hasCursor
+operator|||
+name|QGuiApplication
+operator|::
+name|overrideCursor
+argument_list|()
+operator|)
 condition|)
 name|d
 operator|->
