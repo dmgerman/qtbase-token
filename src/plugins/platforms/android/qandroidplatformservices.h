@@ -23,11 +23,6 @@ include|#
 directive|include
 file|"androidjnimain.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<jni.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -63,12 +58,7 @@ name|QByteArray
 name|desktopEnvironment
 argument_list|()
 specifier|const
-block|;
-name|private
-operator|:
-name|jmethodID
-name|m_openURIMethodID
-block|;  }
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
