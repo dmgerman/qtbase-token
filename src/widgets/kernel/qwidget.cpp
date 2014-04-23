@@ -21678,9 +21678,6 @@ condition|)
 comment|//setFocusWidget will already post a focus event for us (that the AT client receives) on Windows
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 comment|// menus update the focus manually and this would create bogus events
 if|if
 condition|(
@@ -21708,8 +21705,6 @@ literal|"QMenuItem"
 argument_list|)
 operator|)
 condition|)
-endif|#
-directive|endif
 block|{
 name|QAccessibleEvent
 name|event
