@@ -236,6 +236,20 @@ name|QPen
 operator|&
 name|pen
 argument_list|)
+block|;
+name|void
+name|rasterFill
+argument_list|(
+specifier|const
+name|QVectorPath
+operator|&
+name|path
+argument_list|,
+specifier|const
+name|QBrush
+operator|&
+name|brush
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

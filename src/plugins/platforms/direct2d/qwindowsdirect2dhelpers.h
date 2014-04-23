@@ -292,14 +292,6 @@ modifier|&
 name|transform
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|transform
-operator|.
-name|isAffine
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|D2D1
 operator|::
