@@ -585,6 +585,9 @@ begin_comment
 comment|/*!     \enum QApplication::ColorSpec      \value NormalColor the default color allocation policy     \value CustomColor the same as NormalColor for X11; allocates colors     to a palette on demand under Windows     \value ManyColor the right choice for applications that use thousands of     colors      See setColorSpec() for full details. */
 end_comment
 begin_comment
+comment|/*!     \fn QApplication::setGraphicsSystem(const QString&)     \obsolete      This call has no effect.      Use the QPA framework instead. */
+end_comment
+begin_comment
 comment|/*!     \fn QWidget *QApplication::topLevelAt(const QPoint&point)      Returns the top-level widget at the given \a point; returns 0 if     there is no such widget. */
 end_comment
 begin_comment

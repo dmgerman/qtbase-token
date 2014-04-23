@@ -6076,7 +6076,7 @@ block|}
 block|}
 comment|// ----------------------------------------------------------------------------
 comment|//
-comment|// The Unicode script property. See http://www.unicode.org/reports/tr24/ (some very old version)
+comment|// The Unicode script property. See http://www.unicode.org/reports/tr24/tr24-21.html
 comment|//
 comment|// ----------------------------------------------------------------------------
 DECL|function|initScripts
@@ -6221,7 +6221,7 @@ operator|||
 name|prop
 operator|->
 name|script
-operator|==
+operator|<=
 name|QChar
 operator|::
 name|Script_Inherited
@@ -6273,7 +6273,99 @@ operator|&
 name|test
 argument_list|)
 condition|)
+block|{
+comment|// In cases where the base character itself has the Common script property value,
+comment|// and it is followed by one or more combining marks with a specific script property value,
+comment|// it may be even better for processing to let the base acquire the script property value
+comment|// from the first mark. This approach can be generalized by treating all the characters
+comment|// of a combining character sequence as having the script property value
+comment|// of the first non-Inherited, non-Common character in the sequence if there is one,
+comment|// and otherwise treating all the characters as having the Common script property value.
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|script
+operator|>
+name|QChar
+operator|::
+name|Script_Common
+operator|||
+name|prop
+operator|->
+name|script
+operator|<=
+name|QChar
+operator|::
+name|Script_Common
+argument_list|)
+condition|)
 continue|continue;
+name|script
+operator|=
+name|QChar
+operator|::
+name|Script
+argument_list|(
+name|prop
+operator|->
+name|script
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|script
+operator|!=
+name|QChar
+operator|::
+name|Script_Common
+argument_list|)
+condition|)
+block|{
+comment|// override preceding Common-s
+while|while
+condition|(
+name|sor
+operator|>
+literal|0
+operator|&&
+name|scripts
+index|[
+name|sor
+operator|-
+literal|1
+index|]
+operator|==
+name|QChar
+operator|::
+name|Script_Common
+condition|)
+operator|--
+name|sor
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// see if we are inheriting preceding run
+if|if
+condition|(
+name|sor
+operator|>
+literal|0
+condition|)
+name|script
+operator|=
+name|scripts
+index|[
+name|sor
+operator|-
+literal|1
+index|]
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|sor
@@ -6299,6 +6391,59 @@ name|eor
 operator|=
 name|length
 expr_stmt|;
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|script
+operator|!=
+name|QChar
+operator|::
+name|Script_Common
+argument_list|)
+condition|)
+block|{
+comment|// override preceding Common-s
+while|while
+condition|(
+name|sor
+operator|>
+literal|0
+operator|&&
+name|scripts
+index|[
+name|sor
+operator|-
+literal|1
+index|]
+operator|==
+name|QChar
+operator|::
+name|Script_Common
+condition|)
+operator|--
+name|sor
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// see if we are inheriting preceding run
+if|if
+condition|(
+name|sor
+operator|>
+literal|0
+condition|)
+name|script
+operator|=
+name|scripts
+index|[
+name|sor
+operator|-
+literal|1
+index|]
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|sor

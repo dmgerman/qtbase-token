@@ -2335,13 +2335,67 @@ block|{
 literal|"Chromium"
 block|,
 comment|// QTBUG-32225 (initialization fails)
-literal|"Mesa DRI Intel(R) Sandybridge Mobile"
-block|,
-comment|// QTBUG-34492 (flickering in fullscreen)
 literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// This disables threaded rendering on anything using mesa, e.g.
+end_comment
+begin_comment
+comment|// - nvidia/nouveau
+end_comment
+begin_comment
+comment|// - amd/gallium
+end_comment
+begin_comment
+comment|// - intel
+end_comment
+begin_comment
+comment|// - some software opengl implementations
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// The client glx vendor string is used to identify those setups as that seems to show the least
+end_comment
+begin_comment
+comment|// variance between the bad configurations. It's always "Mesa Project and SGI". There are some
+end_comment
+begin_comment
+comment|// configurations which don't use mesa and which can do threaded rendering (amd and nvidia chips
+end_comment
+begin_comment
+comment|// with their own proprietary drivers).
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This, of course, is very broad and disables threaded rendering on a lot of devices which would
+end_comment
+begin_comment
+comment|// be able to use it. However, the bugs listed below don't follow any easily recognizable pattern
+end_comment
+begin_comment
+comment|// and we should rather be safe.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// http://cgit.freedesktop.org/xcb/libxcb/commit/?id=be0fe56c3bcad5124dcc6c47a2fad01acd16f71a will
+end_comment
+begin_comment
+comment|// fix some of the issues. Basically, the proprietary drivers seem to have a way of working around
+end_comment
+begin_comment
+comment|// a fundamental flaw with multithreaded access to xcb, but mesa doesn't. The blacklist should be
+end_comment
+begin_comment
+comment|// reevaluated once that patch is released in some version of xcb.
+end_comment
 begin_decl_stmt
 DECL|variable|qglx_threadedgl_blacklist_vendor
 specifier|static
@@ -2352,9 +2406,11 @@ name|qglx_threadedgl_blacklist_vendor
 index|[]
 init|=
 block|{
-literal|"nouveau"
+literal|"Mesa Project and SGI"
 block|,
 comment|// QTCREATORBUG-10875 (crash in creator)
+comment|// QTBUG-34492 (flickering in fullscreen)
+comment|// QTBUG-38221
 literal|0
 block|}
 decl_stmt|;
@@ -2589,20 +2645,7 @@ block|}
 block|}
 if|if
 condition|(
-specifier|const
-name|char
-modifier|*
-name|vendor
-init|=
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
-name|glGetString
-argument_list|(
-name|GL_VENDOR
-argument_list|)
+name|glxvendor
 condition|)
 block|{
 for|for
@@ -2625,7 +2668,7 @@ if|if
 condition|(
 name|strstr
 argument_list|(
-name|vendor
+name|glxvendor
 argument_list|,
 name|qglx_threadedgl_blacklist_vendor
 index|[
