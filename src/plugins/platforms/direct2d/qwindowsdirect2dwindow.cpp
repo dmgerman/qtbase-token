@@ -72,6 +72,19 @@ argument_list|(
 literal|true
 argument_list|)
 block|{
+if|if
+condition|(
+name|window
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|Desktop
+condition|)
+return|return;
+comment|// No further handling for Qt::Desktop
 name|DXGI_SWAP_CHAIN_DESC1
 name|desc
 init|=
