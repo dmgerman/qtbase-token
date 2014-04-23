@@ -347,10 +347,10 @@ operator|<=
 literal|0
 condition|)
 block|{
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQnxScreen: The value of QQNX_PHYSICAL_SCREEN_SIZE must be in the format "
-literal|"\"width,height\" in mm, with width, height> 0. "
+literal|"\"width,height\" in mm, with width, height> 0. Defaulting to 150x90. "
 literal|"Example: QQNX_PHYSICAL_SCREEN_SIZE=150,90"
 argument_list|)
 expr_stmt|;
@@ -412,10 +412,10 @@ if|if
 condition|(
 name|primaryScreen
 condition|)
-name|qFatal
+name|qWarning
 argument_list|(
 literal|"QQnxScreen: QQNX_PHYSICAL_SCREEN_SIZE variable not set. "
-literal|"Could not determine physical screen size."
+literal|"Could not determine physical screen size. Defaulting to 150x90."
 argument_list|)
 expr_stmt|;
 return|return
