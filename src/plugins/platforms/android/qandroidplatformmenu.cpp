@@ -17,7 +17,8 @@ include|#
 directive|include
 file|"androidjnimenu.h"
 end_include
-begin_constructor
+begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QAndroidPlatformMenu
 name|QAndroidPlatformMenu
 operator|::
@@ -44,7 +45,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_destructor
 DECL|function|~QAndroidPlatformMenu
 name|QAndroidPlatformMenu
@@ -589,4 +590,7 @@ name|m_menuItemsMutex
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

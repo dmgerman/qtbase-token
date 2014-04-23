@@ -19,6 +19,7 @@ directive|include
 file|<QtPlatformSupport/private/qbasicfontdatabase_p.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QAndroidPlatformFontDatabase
 range|:
@@ -63,6 +64,9 @@ name|m_fallbacks
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

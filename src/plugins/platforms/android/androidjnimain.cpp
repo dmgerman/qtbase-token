@@ -149,6 +149,7 @@ argument|QAndroidPlatformIntegrationPlugin
 argument_list|)
 end_macro
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|m_javaVM
 specifier|static
 name|JavaVM
@@ -3665,6 +3666,7 @@ return|;
 block|}
 end_function
 begin_function
+name|QT_END_NAMESPACE
 DECL|function|JNI_OnLoad
 name|Q_DECL_EXPORT
 name|jint
@@ -3680,6 +3682,7 @@ modifier|*
 comment|/*reserved*/
 parameter_list|)
 block|{
+name|QT_USE_NAMESPACE
 typedef|typedef
 union|union
 block|{

@@ -38,6 +38,9 @@ include|#
 directive|include
 file|<android/asset_manager.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_struct_decl
 struct_decl|struct
 name|AndroidAssetDir
@@ -104,6 +107,9 @@ name|m_hasTriedPrepopulatingCache
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

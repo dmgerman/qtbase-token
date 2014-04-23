@@ -34,6 +34,7 @@ directive|include
 file|<private/qjni_p.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QtAndroidDialogHelpers
 block|{
@@ -101,6 +102,9 @@ parameter_list|)
 function_decl|;
 block|}
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

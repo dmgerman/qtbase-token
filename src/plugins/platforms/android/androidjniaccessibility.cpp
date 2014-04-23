@@ -85,6 +85,9 @@ init|=
 literal|"Can't find method \"%s%s\""
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_namespace
 DECL|namespace|QtAndroidAccessibility
 namespace|namespace
@@ -1607,4 +1610,7 @@ return|;
 block|}
 block|}
 end_namespace
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

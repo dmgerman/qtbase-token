@@ -382,6 +382,7 @@ return|;
 block|}
 end_function
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|fetchSslCertificateData
 name|QList
 argument_list|<
@@ -552,4 +553,7 @@ name|certificateData
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

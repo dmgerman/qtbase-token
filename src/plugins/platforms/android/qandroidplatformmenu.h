@@ -29,6 +29,7 @@ directive|include
 file|<qmutex.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QAndroidPlatformMenuItem
 name|class
 name|QAndroidPlatformMenuItem
@@ -284,8 +285,11 @@ name|QMutex
 name|m_menuItemsMutex
 decl_stmt|;
 end_decl_stmt
-begin_endif
+begin_macro
 unit|};
+name|QT_END_NAMESPACE
+end_macro
+begin_endif
 endif|#
 directive|endif
 end_endif
