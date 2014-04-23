@@ -12286,6 +12286,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|iface
 operator|->
 name|state
@@ -12567,6 +12568,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|iface
 operator|->
 name|state
