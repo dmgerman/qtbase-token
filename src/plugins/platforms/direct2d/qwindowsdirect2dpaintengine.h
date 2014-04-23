@@ -85,6 +85,13 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|void
+name|setState
+argument_list|(
+argument|QPainterState *s
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
 name|fill
 argument_list|(
 argument|const QVectorPath&path
@@ -202,6 +209,32 @@ argument_list|,
 argument|const DWRITE_GLYPH_OFFSET *glyphOffsets
 argument_list|,
 argument|bool rtl
+argument_list|)
+block|;
+name|void
+name|ensureBrush
+argument_list|()
+block|;
+name|void
+name|ensureBrush
+argument_list|(
+specifier|const
+name|QBrush
+operator|&
+name|brush
+argument_list|)
+block|;
+name|void
+name|ensurePen
+argument_list|()
+block|;
+name|void
+name|ensurePen
+argument_list|(
+specifier|const
+name|QPen
+operator|&
+name|pen
 argument_list|)
 block|; }
 decl_stmt|;
