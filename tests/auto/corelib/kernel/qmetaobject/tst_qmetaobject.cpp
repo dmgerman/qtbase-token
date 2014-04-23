@@ -6422,13 +6422,10 @@ argument_list|(
 operator|&
 name|obj
 argument_list|,
-name|SIGNAL
-argument_list|(
+operator|&
+name|QtTestCustomObject
+operator|::
 name|sig_custom
-argument_list|(
-name|CustomString
-argument_list|)
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|QVERIFY
