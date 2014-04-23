@@ -129,11 +129,81 @@ end_else
 begin_comment
 comment|// "uncontrolled" ES2 platforms
 end_comment
+begin_comment
+comment|// In "es2" builds (QT_OPENGL_ES_2) additional defines indicate if ES
+end_comment
+begin_comment
+comment|// 3.0 or higher is available. In this case include the corresponding
+end_comment
+begin_comment
+comment|// header. These are backwards compatible and it should be safe to
+end_comment
+begin_comment
+comment|// include headers on top of each other, meaning that applications can
+end_comment
+begin_comment
+comment|// include gl2.h even if gl31.h gets included here.
+end_comment
+begin_comment
+comment|// This compile time differentation is important inside Qt because,
+end_comment
+begin_comment
+comment|// unlike desktop GL, GLES is different when it comes to versioning
+end_comment
+begin_comment
+comment|// and extensions: Standard functions that are new in a given version
+end_comment
+begin_comment
+comment|// are always available in a version-specific header and are not
+end_comment
+begin_comment
+comment|// guaranteed to be dynamically resolvable via eglGetProcAddress (and
+end_comment
+begin_comment
+comment|// are typically not available as extensions even if they were part of
+end_comment
+begin_comment
+comment|// an extension for a previous version).
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_3_1
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<GLES3/gl31.h>
+end_include
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_3
+argument_list|)
+end_elif
+begin_include
+include|#
+directive|include
+file|<GLES3/gl3.h>
+end_include
+begin_else
+else|#
+directive|else
+end_else
 begin_include
 include|#
 directive|include
 file|<GLES2/gl2.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*    Some GLES2 implementations (like the one on Harmattan) are missing the    typedef for GLchar. Work around it here by adding it. The Kkronos headers    specify GLChar as a typedef to char, so if an implementation already    provides it, then this doesn't do any harm. */
 end_comment
