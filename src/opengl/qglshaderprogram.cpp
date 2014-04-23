@@ -9988,6 +9988,12 @@ name|defined
 argument_list|(
 name|QT_OPENGL_ES_2
 argument_list|)
+name|Q_D
+argument_list|(
+specifier|const
+name|QGLShaderProgram
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -9999,6 +10005,10 @@ operator|->
 name|isES
 argument_list|()
 condition|)
+name|d
+operator|->
+name|glfuncs
+operator|->
 name|glGetIntegerv
 argument_list|(
 name|GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT
@@ -10411,6 +10421,8 @@ specifier|const
 name|char
 operator|*
 operator|)
+name|functions
+operator|.
 name|glGetString
 argument_list|(
 name|GL_EXTENSIONS

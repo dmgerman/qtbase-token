@@ -1246,6 +1246,14 @@ name|GLuint
 name|id
 parameter_list|)
 block|{
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1

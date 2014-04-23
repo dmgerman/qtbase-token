@@ -87,6 +87,14 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glGetString
 argument_list|(
 name|GL_EXTENSIONS
@@ -1129,7 +1137,7 @@ operator|::
 name|multitexture
 parameter_list|()
 block|{
-name|QGLFunctions
+name|QOpenGLFunctions
 name|funcs
 decl_stmt|;
 name|QGLWidget
@@ -1155,7 +1163,7 @@ argument_list|()
 expr_stmt|;
 name|funcs
 operator|.
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
 if|if
@@ -1165,7 +1173,7 @@ name|funcs
 operator|.
 name|hasOpenGLFeature
 argument_list|(
-name|QGLFunctions
+name|QOpenGLFunctions
 operator|::
 name|Multitexture
 argument_list|)
@@ -1187,6 +1195,8 @@ name|active
 init|=
 literal|0
 decl_stmt|;
+name|funcs
+operator|.
 name|glGetIntegerv
 argument_list|(
 name|GL_ACTIVE_TEXTURE
@@ -1213,6 +1223,8 @@ name|active
 operator|=
 literal|0
 expr_stmt|;
+name|funcs
+operator|.
 name|glGetIntegerv
 argument_list|(
 name|GL_ACTIVE_TEXTURE
@@ -1241,7 +1253,7 @@ operator|::
 name|blendColor
 parameter_list|()
 block|{
-name|QGLFunctions
+name|QOpenGLFunctions
 name|funcs
 decl_stmt|;
 name|QGLWidget
@@ -1267,7 +1279,7 @@ argument_list|()
 expr_stmt|;
 name|funcs
 operator|.
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
 if|if
@@ -1277,7 +1289,7 @@ name|funcs
 operator|.
 name|hasOpenGLFeature
 argument_list|(
-name|QGLFunctions
+name|QOpenGLFunctions
 operator|::
 name|BlendColor
 argument_list|)
@@ -1316,6 +1328,8 @@ block|,
 literal|0.5f
 block|}
 decl_stmt|;
+name|funcs
+operator|.
 name|glGetFloatv
 argument_list|(
 name|GL_BLEND_COLOR

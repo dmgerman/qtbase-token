@@ -301,6 +301,18 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 comment|// create in QImageTextureGlyphCache baseclass is meant to be called
 comment|// only to create the initial image and does not preserve the content,
 comment|// so we don't call when this function is called from resize.
@@ -387,6 +399,8 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glGenTextures
 argument_list|(
 literal|1
@@ -397,6 +411,8 @@ operator|->
 name|m_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -464,6 +480,8 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -527,6 +545,8 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -553,6 +573,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -562,6 +584,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -571,6 +595,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -580,6 +606,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -639,6 +667,18 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 name|int
 name|oldWidth
 init|=
@@ -723,6 +763,8 @@ operator|==
 literal|8
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -748,6 +790,8 @@ name|constBits
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -758,18 +802,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|QOpenGLFunctions
-modifier|*
-name|funcs
-init|=
-name|ctx
-operator|->
-name|contextHandle
-argument_list|()
-operator|->
-name|functions
-argument_list|()
-decl_stmt|;
 comment|// ### the QTextureGlyphCache API needs to be reworked to allow
 comment|// ### resizeTextureData to fail
 name|funcs
@@ -786,6 +818,8 @@ expr_stmt|;
 name|GLuint
 name|tmp_texture
 decl_stmt|;
+name|funcs
+operator|->
 name|glGenTextures
 argument_list|(
 literal|1
@@ -794,6 +828,8 @@ operator|&
 name|tmp_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -801,6 +837,8 @@ argument_list|,
 name|tmp_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -822,6 +860,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -831,6 +871,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -840,6 +882,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -849,6 +893,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
@@ -862,6 +908,8 @@ name|m_filterMode
 operator|=
 name|Nearest
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -893,6 +941,8 @@ operator|+
 name|QT_IMAGE_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -913,26 +963,36 @@ argument_list|(
 name|BrushDrawingMode
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_DEPTH_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_SCISSOR_TEST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDisable
 argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -1222,6 +1282,8 @@ argument_list|,
 name|QT_IMAGE_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLE_FAN
@@ -1231,6 +1293,8 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1240,6 +1304,8 @@ operator|->
 name|m_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glCopyTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1272,6 +1338,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1280,6 +1348,8 @@ operator|&
 name|tmp_texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1308,6 +1378,8 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|funcs
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -1380,6 +1452,18 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1406,6 +1490,8 @@ argument_list|,
 name|subPixelPosition
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1465,6 +1551,8 @@ operator|++
 name|i
 control|)
 block|{
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1803,6 +1891,8 @@ block|}
 block|}
 block|}
 block|}
+name|funcs
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1853,6 +1943,8 @@ name|GL_BGRA
 expr_stmt|;
 endif|#
 directive|endif
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -1914,6 +2006,8 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
+name|funcs
+operator|->
 name|glGetString
 argument_list|(
 name|GL_VENDOR
@@ -1968,6 +2062,8 @@ condition|;
 operator|++
 name|i
 control|)
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D
@@ -2003,6 +2099,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|funcs
+operator|->
 name|glTexSubImage2D
 argument_list|(
 name|GL_TEXTURE_2D

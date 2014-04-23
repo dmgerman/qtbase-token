@@ -96,6 +96,20 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_OPENGL_ES_2
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<qopenglfunctions_1_1.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 name|Q_GUI_EXPORT
@@ -179,8 +193,6 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|funcs
-operator|.
 name|glDeleteBuffers
 argument_list|(
 literal|1
@@ -607,8 +619,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -700,8 +710,6 @@ argument_list|,
 literal|1.0
 argument_list|)
 decl_stmt|;
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -863,8 +871,6 @@ operator|::
 name|KeepAspectRatio
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -2327,8 +2333,6 @@ literal|true
 expr_stmt|;
 comment|// Set the PMV matrix attribute. As we use an attributes rather than uniforms, we only
 comment|// need to do this once for every matrix change and persists across all shader programs.
-name|funcs
-operator|.
 name|glVertexAttrib3fv
 argument_list|(
 name|QT_PMV_MATRIX_1_ATTR
@@ -2339,8 +2343,6 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glVertexAttrib3fv
 argument_list|(
 name|QT_PMV_MATRIX_2_ATTR
@@ -2351,8 +2353,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glVertexAttrib3fv
 argument_list|(
 name|QT_PMV_MATRIX_3_ATTR
@@ -2914,8 +2914,6 @@ literal|true
 expr_stmt|;
 name|d
 operator|->
-name|funcs
-operator|.
 name|glUseProgram
 argument_list|(
 literal|0
@@ -2938,8 +2936,6 @@ name|i
 control|)
 name|d
 operator|->
-name|funcs
-operator|.
 name|glDisableVertexAttribArray
 argument_list|(
 name|i
@@ -3167,14 +3163,40 @@ operator|->
 name|size
 argument_list|()
 decl_stmt|;
+name|QOpenGLFunctions_1_1
+modifier|*
+name|gl1funcs
+init|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|versionFunctions
+argument_list|<
+name|QOpenGLFunctions_1_1
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|gl1funcs
+operator|->
+name|initializeOpenGLFunctions
+argument_list|()
+expr_stmt|;
+name|gl1funcs
+operator|->
 name|glMatrixMode
 argument_list|(
 name|GL_PROJECTION
 argument_list|)
 expr_stmt|;
+name|gl1funcs
+operator|->
 name|glLoadIdentity
 argument_list|()
 expr_stmt|;
+name|gl1funcs
+operator|->
 name|glOrtho
 argument_list|(
 literal|0
@@ -3197,11 +3219,15 @@ argument_list|,
 literal|999999
 argument_list|)
 expr_stmt|;
+name|gl1funcs
+operator|->
 name|glMatrixMode
 argument_list|(
 name|GL_MODELVIEW
 argument_list|)
 expr_stmt|;
+name|gl1funcs
+operator|->
 name|glLoadMatrixf
 argument_list|(
 operator|&
@@ -3280,8 +3306,6 @@ argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -3312,8 +3336,6 @@ argument_list|(
 name|GL_LESS
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glClearDepthf
 argument_list|(
 literal|1
@@ -3408,8 +3430,6 @@ block|,
 literal|1.0f
 block|}
 decl_stmt|;
-name|funcs
-operator|.
 name|glVertexAttrib4fv
 argument_list|(
 literal|3
@@ -4117,8 +4137,6 @@ block|{
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
-name|funcs
-operator|.
 name|glDeleteBuffers
 argument_list|(
 literal|1
@@ -4272,8 +4290,6 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
-name|funcs
-operator|.
 name|glGenBuffers
 argument_list|(
 literal|1
@@ -4284,8 +4300,6 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -4295,8 +4309,6 @@ operator|->
 name|vbo
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glBufferData
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -4366,8 +4378,6 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_OPENGL_CACHE_AS_VBOS
-name|funcs
-operator|.
 name|glBindBuffer
 argument_list|(
 name|GL_ARRAY_BUFFER
@@ -5899,8 +5909,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Inc. for front-facing triangle
-name|funcs
-operator|.
 name|glStencilOpSeparate
 argument_list|(
 name|GL_FRONT
@@ -5913,8 +5921,6 @@ name|GL_INCR_WRAP
 argument_list|)
 expr_stmt|;
 comment|// Dec. for back-facing "holes"
-name|funcs
-operator|.
 name|glStencilOpSeparate
 argument_list|(
 name|GL_BACK
@@ -7708,12 +7714,16 @@ operator|::
 name|HighQualityAntialiasing
 operator|)
 condition|)
+name|d
+operator|->
 name|glEnable
 argument_list|(
 name|GL_MULTISAMPLE
 argument_list|)
 expr_stmt|;
 else|else
+name|d
+operator|->
 name|glDisable
 argument_list|(
 name|GL_MULTISAMPLE
@@ -7990,8 +8000,6 @@ endif|#
 directive|endif
 name|d
 operator|->
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -8331,8 +8339,6 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -8664,8 +8670,6 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -8673,6 +8677,8 @@ operator|+
 name|QT_IMAGE_TEXTURE_UNIT
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|glBindTexture
 argument_list|(
 name|GL_TEXTURE_2D
@@ -10338,8 +10344,6 @@ argument_list|,
 name|GL_ONE_MINUS_SRC_COLOR
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glBlendColor
 argument_list|(
 name|c
@@ -10434,8 +10438,6 @@ argument_list|,
 name|GL_ONE_MINUS_SRC_COLOR
 argument_list|)
 expr_stmt|;
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -10640,8 +10642,6 @@ operator|!=
 name|filterMode
 condition|)
 block|{
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -11517,8 +11517,6 @@ literal|0.99f
 operator|)
 expr_stmt|;
 block|}
-name|funcs
-operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -11994,8 +11992,6 @@ argument_list|()
 expr_stmt|;
 name|d
 operator|->
-name|funcs
-operator|.
 name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
@@ -12011,16 +12007,22 @@ operator|->
 name|ctx
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|glDisable
 argument_list|(
 name|GL_STENCIL_TEST
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|glDisable
 argument_list|(
 name|GL_DEPTH_TEST
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|glDisable
 argument_list|(
 name|GL_SCISSOR_TEST
@@ -12046,6 +12048,8 @@ operator|->
 name|isES
 argument_list|()
 condition|)
+name|d
+operator|->
 name|glDisable
 argument_list|(
 name|GL_MULTISAMPLE
@@ -12162,8 +12166,6 @@ name|ctx
 decl_stmt|;
 name|d
 operator|->
-name|funcs
-operator|.
 name|glUseProgram
 argument_list|(
 literal|0
@@ -12228,6 +12230,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|d
+operator|->
 name|glDeleteBuffers
 argument_list|(
 name|d
@@ -12264,6 +12268,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|d
+operator|->
 name|glDeleteBuffers
 argument_list|(
 name|d
@@ -12367,6 +12373,8 @@ argument_list|(
 name|BrushDrawingMode
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -14058,6 +14066,8 @@ operator|->
 name|updateClipScissorTest
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
 name|glDepthFunc
 argument_list|(
 name|GL_LEQUAL

@@ -483,6 +483,18 @@ operator|::
 name|beginPaint
 argument_list|()
 expr_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|funcs
+init|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -510,6 +522,8 @@ operator|::
 name|WA_TranslucentBackground
 argument_list|)
 condition|)
+name|funcs
+operator|->
 name|glClearColor
 argument_list|(
 literal|0.0
@@ -552,6 +566,8 @@ operator|.
 name|alphaF
 argument_list|()
 decl_stmt|;
+name|funcs
+operator|->
 name|glClearColor
 argument_list|(
 name|c
@@ -589,6 +605,8 @@ argument_list|()
 operator|->
 name|workaround_needsFullClearOnEveryFrame
 condition|)
+name|funcs
+operator|->
 name|glClear
 argument_list|(
 name|GL_COLOR_BUFFER_BIT
@@ -599,6 +617,8 @@ name|GL_STENCIL_BUFFER_BIT
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|->
 name|glClear
 argument_list|(
 name|GL_COLOR_BUFFER_BIT

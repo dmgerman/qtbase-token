@@ -89,7 +89,7 @@ directive|define
 name|QT_RESET_GLERROR
 parameter_list|()
 define|\
-value|{                                                         \     while (glGetError() != GL_NO_ERROR) {}                \ }
+value|{                                                         \     while (QOpenGLContext::currentContext()->functions()->glGetError() != GL_NO_ERROR) {} \ }
 end_define
 begin_define
 DECL|macro|QT_CHECK_GLERROR
@@ -98,7 +98,7 @@ directive|define
 name|QT_CHECK_GLERROR
 parameter_list|()
 define|\
-value|{                                                         \     GLenum err = glGetError();                            \     if (err != GL_NO_ERROR) {                             \         qDebug("[%s line %d] GL Error: %d",               \                __FILE__, __LINE__, (int)err);             \     }                                                     \ }
+value|{                                                         \     GLenum err = QOpenGLContext::currentContext()->functions()->glGetError(); \     if (err != GL_NO_ERROR) {                             \         qDebug("[%s line %d] GL Error: %d",               \                __FILE__, __LINE__, (int)err);             \     }                                                     \ }
 end_define
 begin_else
 else|#
@@ -1150,6 +1150,14 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1
@@ -1297,6 +1305,8 @@ operator|==
 literal|0
 condition|)
 block|{
+name|funcs
+operator|.
 name|glGenTextures
 argument_list|(
 literal|1
@@ -1305,6 +1315,8 @@ operator|&
 name|texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|target
@@ -1312,6 +1324,8 @@ argument_list|,
 name|texture
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexImage2D
 argument_list|(
 name|target
@@ -1401,6 +1415,8 @@ expr_stmt|;
 operator|++
 name|level
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexImage2D
 argument_list|(
 name|target
@@ -1424,6 +1440,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1433,6 +1451,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1442,6 +1462,8 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1451,6 +1473,8 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glTexParameteri
 argument_list|(
 name|target
@@ -1483,6 +1507,8 @@ operator|=
 name|checkFramebufferStatus
 argument_list|()
 expr_stmt|;
+name|funcs
+operator|.
 name|glBindTexture
 argument_list|(
 name|target
@@ -1504,6 +1530,8 @@ expr_stmt|;
 name|GLint
 name|maxSamples
 decl_stmt|;
+name|funcs
+operator|.
 name|glGetIntegerv
 argument_list|(
 name|GL_MAX_SAMPLES
@@ -2558,6 +2586,8 @@ name|color_buffer
 argument_list|)
 expr_stmt|;
 else|else
+name|funcs
+operator|.
 name|glDeleteTextures
 argument_list|(
 literal|1

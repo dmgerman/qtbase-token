@@ -238,6 +238,14 @@ name|m_width
 operator|||
 name|m_height
 condition|)
+name|ctx
+operator|->
+name|contextHandle
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDeleteTextures
 argument_list|(
 literal|1

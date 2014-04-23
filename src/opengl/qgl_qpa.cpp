@@ -1186,6 +1186,13 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
+name|d
+operator|->
+name|guiGlContext
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glGetString
 argument_list|(
 name|GL_RENDERER
