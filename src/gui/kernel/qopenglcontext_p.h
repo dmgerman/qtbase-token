@@ -299,9 +299,8 @@ name|QObjectPrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
-name|QOpenGLContextGroup
+argument|QOpenGLContextGroup
 argument_list|)
-block|;
 name|public
 operator|:
 name|QOpenGLContextGroupPrivate

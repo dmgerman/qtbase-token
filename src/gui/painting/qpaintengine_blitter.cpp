@@ -1029,8 +1029,8 @@ name|Q_DECLARE_PUBLIC
 parameter_list|(
 name|QBlitterPaintEngine
 parameter_list|)
-constructor_decl|;
-public|public:
+specifier|public
+private|:
 DECL|function|QBlitterPaintEnginePrivate
 name|QBlitterPaintEnginePrivate
 parameter_list|(
