@@ -897,7 +897,12 @@ return|;
 case|case
 name|QStandardPaths
 operator|::
-name|DataLocation
+name|AppDataLocation
+case|:
+case|case
+name|QStandardPaths
+operator|::
+name|AppLocalDataLocation
 case|:
 return|return
 name|getFilesDir
@@ -1152,7 +1157,11 @@ if|if
 condition|(
 name|type
 operator|==
-name|DataLocation
+name|AppDataLocation
+operator|||
+name|type
+operator|==
+name|AppLocalDataLocation
 condition|)
 block|{
 return|return

@@ -96,7 +96,10 @@ name|type
 condition|)
 block|{
 case|case
-name|DataLocation
+name|AppDataLocation
+case|:
+case|case
+name|AppLocalDataLocation
 case|:
 return|return
 name|QDir
@@ -297,7 +300,11 @@ if|if
 condition|(
 name|type
 operator|==
-name|DataLocation
+name|AppDataLocation
+operator|||
+name|type
+operator|==
+name|AppLocalDataLocation
 condition|)
 name|dirs
 operator|.

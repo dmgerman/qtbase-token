@@ -66,6 +66,12 @@ block|,
 name|GenericCacheLocation
 block|,
 name|GenericConfigLocation
+block|,
+name|AppDataLocation
+block|,
+name|AppLocalDataLocation
+init|=
+name|DataLocation
 block|}
 enum|;
 specifier|static

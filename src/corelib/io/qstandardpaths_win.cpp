@@ -227,6 +227,48 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|clsidForAppDataLocation
+specifier|static
+specifier|inline
+name|int
+name|clsidForAppDataLocation
+parameter_list|(
+name|QStandardPaths
+operator|::
+name|StandardLocation
+name|type
+parameter_list|)
+block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+return|return
+name|type
+operator|==
+name|QStandardPaths
+operator|::
+name|AppDataLocation
+condition|?
+name|CSIDL_APPDATA
+else|:
+comment|// "Roaming" path
+name|CSIDL_LOCAL_APPDATA
+return|;
+comment|// Local path
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|type
+argument_list|)
+return|return
+name|CSIDL_APPDATA
+return|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_function
 DECL|function|writableLocation
 name|QString
 name|QStandardPaths
@@ -282,21 +324,20 @@ block|{
 case|case
 name|ConfigLocation
 case|:
-comment|// same as DataLocation, on Windows (oversight, but too late to fix it)
+comment|// same as AppLocalDataLocation, on Windows
 case|case
 name|GenericConfigLocation
 case|:
-comment|// same as GenericDataLocation, on Windows
+comment|// same as GenericDataLocation on Windows
 case|case
-name|DataLocation
+name|AppDataLocation
+case|:
+case|case
+name|AppLocalDataLocation
 case|:
 case|case
 name|GenericDataLocation
 case|:
-if|#
-directive|if
-name|defined
-name|Q_OS_WINCE
 if|if
 condition|(
 name|SHGetSpecialFolderPath
@@ -305,28 +346,14 @@ literal|0
 argument_list|,
 name|path
 argument_list|,
-name|CSIDL_APPDATA
-argument_list|,
-name|FALSE
-argument_list|)
-condition|)
-else|#
-directive|else
-if|if
-condition|(
-name|SHGetSpecialFolderPath
+name|clsidForAppDataLocation
 argument_list|(
-literal|0
-argument_list|,
-name|path
-argument_list|,
-name|CSIDL_LOCAL_APPDATA
+name|type
+argument_list|)
 argument_list|,
 name|FALSE
 argument_list|)
 condition|)
-endif|#
-directive|endif
 name|result
 operator|=
 name|convertCharArray
@@ -640,7 +667,7 @@ comment|// cache directory located in their AppData directory
 return|return
 name|writableLocation
 argument_list|(
-name|DataLocation
+name|AppLocalDataLocation
 argument_list|)
 operator|+
 name|QLatin1String
@@ -726,13 +753,16 @@ block|{
 case|case
 name|ConfigLocation
 case|:
-comment|// same as DataLocation, on Windows (oversight, but too late to fix it)
+comment|// same as AppLocalDataLocation, on Windows (oversight, but too late to fix it)
 case|case
 name|GenericConfigLocation
 case|:
 comment|// same as GenericDataLocation, on Windows
 case|case
-name|DataLocation
+name|AppDataLocation
+case|:
+case|case
+name|AppLocalDataLocation
 case|:
 case|case
 name|GenericDataLocation
@@ -745,7 +775,10 @@ literal|0
 argument_list|,
 name|path
 argument_list|,
-name|CSIDL_COMMON_APPDATA
+name|clsidForAppDataLocation
+argument_list|(
+name|type
+argument_list|)
 argument_list|,
 name|FALSE
 argument_list|)

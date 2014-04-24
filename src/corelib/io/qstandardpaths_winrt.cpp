@@ -155,13 +155,16 @@ block|{
 case|case
 name|ConfigLocation
 case|:
-comment|// same as DataLocation, on Windows
+comment|// same as AppLocalDataLocation, on Windows
 case|case
 name|GenericConfigLocation
 case|:
 comment|// same as GenericDataLocation, on Windows
 case|case
-name|DataLocation
+name|AppDataLocation
+case|:
+case|case
+name|AppLocalDataLocation
 case|:
 case|case
 name|GenericDataLocation
@@ -304,7 +307,7 @@ case|:
 return|return
 name|writableLocation
 argument_list|(
-name|DataLocation
+name|AppLocalDataLocation
 argument_list|)
 operator|+
 name|QLatin1String

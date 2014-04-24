@@ -574,7 +574,7 @@ name|type
 operator|==
 name|QStandardPaths
 operator|::
-name|DataLocation
+name|AppLocalDataLocation
 condition|)
 block|{
 comment|// Preserve Qt 4 compatibility:
