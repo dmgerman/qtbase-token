@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QVariant>
+end_include
+begin_include
+include|#
+directive|include
 file|<EGL/egl.h>
 end_include
 begin_decl_stmt
@@ -45,17 +50,11 @@ argument_list|,
 argument|QPlatformOpenGLContext *share
 argument_list|,
 argument|EGLDisplay display
-argument_list|)
-block|;
-name|QEGLPlatformContext
-argument_list|(
-argument|const QSurfaceFormat&format
 argument_list|,
-argument|QPlatformOpenGLContext *share
+argument|EGLConfig *config =
+literal|0
 argument_list|,
-argument|EGLDisplay display
-argument_list|,
-argument|EGLConfig config
+argument|const QVariant&nativeHandle = QVariant()
 argument_list|)
 block|;
 operator|~
@@ -165,6 +164,23 @@ operator|*
 name|share
 argument_list|)
 block|;
+name|void
+name|adopt
+argument_list|(
+specifier|const
+name|QVariant
+operator|&
+name|nativeHandle
+argument_list|,
+name|QPlatformOpenGLContext
+operator|*
+name|share
+argument_list|)
+block|;
+name|void
+name|updateFormatFromGL
+argument_list|()
+block|;
 name|EGLContext
 name|m_eglContext
 block|;
@@ -191,6 +207,9 @@ name|m_swapIntervalEnvChecked
 block|;
 name|int
 name|m_swapIntervalFromEnv
+block|;
+name|bool
+name|m_ownsContext
 block|; }
 decl_stmt|;
 end_decl_stmt

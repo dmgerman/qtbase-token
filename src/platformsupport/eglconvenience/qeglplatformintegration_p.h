@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QVariant>
+end_include
+begin_include
+include|#
+directive|include
 file|<EGL/egl.h>
 end_include
 begin_decl_stmt
@@ -298,6 +303,10 @@ name|shareContext
 argument_list|,
 name|EGLDisplay
 name|display
+argument_list|,
+name|QVariant
+operator|*
+name|nativeHandle
 argument_list|)
 decl|const
 init|=

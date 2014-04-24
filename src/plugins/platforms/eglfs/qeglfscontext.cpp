@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qeglfsintegration.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtPlatformSupport/private/qeglconvenience_p.h>
 end_include
 begin_include
@@ -67,6 +62,15 @@ name|share
 parameter_list|,
 name|EGLDisplay
 name|display
+parameter_list|,
+name|EGLConfig
+modifier|*
+name|config
+parameter_list|,
+specifier|const
+name|QVariant
+modifier|&
+name|nativeHandle
 parameter_list|)
 member_init_list|:
 name|QEGLPlatformContext
@@ -77,14 +81,9 @@ name|share
 argument_list|,
 name|display
 argument_list|,
-name|QEglFSIntegration
-operator|::
-name|chooseConfig
-argument_list|(
-name|display
+name|config
 argument_list|,
-name|format
-argument_list|)
+name|nativeHandle
 argument_list|)
 block|{ }
 end_constructor

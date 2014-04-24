@@ -102,6 +102,8 @@ argument_list|,
 argument|QPlatformOpenGLContext *shareContext
 argument_list|,
 argument|EGLDisplay display
+argument_list|,
+argument|QVariant *nativeHandle
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE

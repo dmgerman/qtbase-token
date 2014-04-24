@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtPlatformSupport/private/qeglplatformcontext_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QVariant>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -35,6 +40,10 @@ argument_list|,
 argument|QPlatformOpenGLContext *share
 argument_list|,
 argument|EGLDisplay display
+argument_list|,
+argument|EGLConfig *config
+argument_list|,
+argument|const QVariant&nativeHandle
 argument_list|)
 block|;
 name|EGLSurface
