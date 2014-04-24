@@ -504,7 +504,7 @@ name|m_swapChain
 operator|->
 name|Present
 argument_list|(
-literal|1
+literal|0
 argument_list|,
 literal|0
 argument_list|)
