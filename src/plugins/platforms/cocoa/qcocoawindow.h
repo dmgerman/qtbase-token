@@ -853,6 +853,10 @@ argument_list|(
 argument|QPoint windowPoint
 argument_list|)
 block|;
+name|bool
+name|shouldRefuseKeyWindowAndFirstResponder
+argument_list|()
+block|;
 name|protected
 operator|:
 name|void
