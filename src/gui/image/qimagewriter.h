@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qcoreapplication.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qlist.h>
 end_include
 begin_include
@@ -52,6 +57,10 @@ name|class
 name|Q_GUI_EXPORT
 name|QImageWriter
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QImageWriter
+argument_list|)
 name|public
 label|:
 enum|enum

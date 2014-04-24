@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qcoreapplication.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qimage.h>
 end_include
 begin_include
@@ -70,6 +75,10 @@ name|class
 name|Q_GUI_EXPORT
 name|QImageReader
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QImageReader
+argument_list|)
 name|public
 label|:
 enum|enum

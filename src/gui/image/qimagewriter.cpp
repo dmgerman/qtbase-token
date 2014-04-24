@@ -915,14 +915,11 @@ name|UnknownError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageWriter
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Unknown error"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|q
@@ -953,14 +950,11 @@ name|DeviceError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageWriter
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Device is not set"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1001,14 +995,11 @@ name|DeviceError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageWriter
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Device not writable"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1042,14 +1033,11 @@ name|UnsupportedFormatError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageWriter
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Unsupported image format"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1994,14 +1982,11 @@ name|d
 operator|->
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageWriter
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Unsupported image format"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

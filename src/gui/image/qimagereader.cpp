@@ -2083,14 +2083,11 @@ name|DeviceError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageReader
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Invalid device"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2270,14 +2267,11 @@ name|FileNotFoundError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageReader
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"File not found"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|file
@@ -2325,14 +2319,11 @@ name|UnsupportedFormatError
 expr_stmt|;
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageReader
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Unsupported image format"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -3783,14 +3774,11 @@ name|d
 operator|->
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageReader
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Unable to read image data"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -4482,14 +4470,11 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
-argument_list|(
 name|QImageReader
-argument_list|,
+operator|::
+name|tr
+argument_list|(
 literal|"Unknown error"
-argument_list|)
 argument_list|)
 return|;
 return|return
