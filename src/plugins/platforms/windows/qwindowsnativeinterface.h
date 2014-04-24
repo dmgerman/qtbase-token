@@ -39,40 +39,38 @@ argument|bool asyncExpose READ asyncExpose WRITE setAsyncExpose
 argument_list|)
 name|public
 operator|:
+name|void
+operator|*
+name|nativeResourceForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
-name|virtual
 name|void
 operator|*
 name|nativeResourceForContext
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|resource
+argument|const QByteArray&resource
 argument_list|,
-name|QOpenGLContext
-operator|*
-name|context
+argument|QOpenGLContext *context
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
-name|virtual
 name|void
 operator|*
 name|nativeResourceForWindow
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|resource
+argument|const QByteArray&resource
 argument_list|,
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_INVOKABLE
 name|void
@@ -125,6 +123,7 @@ argument_list|(
 argument|QPlatformWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|windowProperty
@@ -134,6 +133,7 @@ argument_list|,
 argument|const QString&name
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|windowProperty
@@ -145,24 +145,18 @@ argument_list|,
 argument|const QVariant&defaultValue
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setWindowProperty
 argument_list|(
-name|QPlatformWindow
-operator|*
-name|window
+argument|QPlatformWindow *window
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|name
+argument|const QString&name
 argument_list|,
-specifier|const
-name|QVariant
-operator|&
-name|value
+argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

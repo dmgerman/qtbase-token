@@ -48,6 +48,12 @@ name|QWindowsWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindowsStaticOpenGLContext
+name|class
+name|QWindowsStaticOpenGLContext
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWindowsIntegration
 range|:
@@ -133,6 +139,18 @@ argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
 specifier|const
+block|;
+name|QOpenGLContext
+operator|::
+name|OpenGLModuleType
+name|openGLModuleType
+argument_list|()
+block|;
+specifier|static
+name|QWindowsStaticOpenGLContext
+operator|*
+name|staticOpenGLContext
+argument_list|()
 block|;
 endif|#
 directive|endif

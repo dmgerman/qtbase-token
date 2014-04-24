@@ -1617,6 +1617,10 @@ name|AA_UseOpenGLES
 init|=
 literal|16
 block|,
+name|AA_UseSoftwareOpenGL
+init|=
+literal|17
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}
