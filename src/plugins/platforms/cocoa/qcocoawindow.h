@@ -1006,6 +1006,9 @@ block|;
 name|bool
 name|m_inConstructor
 block|;
+name|bool
+name|m_inSetVisible
+block|;
 name|QCocoaGLContext
 operator|*
 name|m_glContext
