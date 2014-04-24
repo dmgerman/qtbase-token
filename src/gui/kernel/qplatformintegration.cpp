@@ -944,7 +944,7 @@ directive|ifndef
 name|QT_NO_OPENGL
 end_ifndef
 begin_comment
-comment|/*!   Platform integration function for querying the OpenGL implementation type.    Used only when dynamic OpenGL implementation loading is enabled.    Subclasses should reimplement this function and return a value based on   the OpenGL implementation they have chosen to load.    \note The return value does not indicate or limit the types of   contexts that can be created by a given implementation. For example   a desktop OpenGL implementation may be capable of creating OpenGL   ES-compatible contexts too.    \sa QOpenGLContext::openGLModuleType(), QOpenGLContext::isES()    \since 5.3  */
+comment|/*!   Platform integration function for querying the OpenGL implementation type.    Used only when dynamic OpenGL implementation loading is enabled.    Subclasses should reimplement this function and return a value based on   the OpenGL implementation they have chosen to load.    \note The return value does not indicate or limit the types of   contexts that can be created by a given implementation. For example   a desktop OpenGL implementation may be capable of creating OpenGL   ES-compatible contexts too.    \sa QOpenGLContext::openGLModuleType(), QOpenGLContext::isOpenGLES()    \since 5.3  */
 end_comment
 begin_function
 DECL|function|openGLModuleType
@@ -964,7 +964,7 @@ expr_stmt|;
 return|return
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 return|;
 block|}
 end_function

@@ -161,7 +161,7 @@ condition|(
 operator|!
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -1359,7 +1359,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -2136,7 +2136,7 @@ condition|(
 operator|!
 name|context
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 operator|&&
 name|format
@@ -10545,7 +10545,7 @@ operator|(
 operator|!
 name|context
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 operator|)
 operator|&&
@@ -10601,7 +10601,7 @@ operator|(
 operator|!
 name|context
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 operator|)
 operator|&&

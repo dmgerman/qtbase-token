@@ -940,7 +940,7 @@ argument_list|()
 operator|==
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 name|configureAttributes
 operator|.
@@ -1705,7 +1705,7 @@ argument_list|()
 operator|==
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 endif|#
 directive|endif
 operator|&&
