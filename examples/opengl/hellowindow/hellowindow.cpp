@@ -740,6 +740,11 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|m_context
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glDrawArrays
 argument_list|(
 name|GL_TRIANGLES
