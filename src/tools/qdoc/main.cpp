@@ -2431,7 +2431,6 @@ block|{
 operator|++
 name|parsed
 expr_stmt|;
-comment|//Generator::setDebugFlag(true);
 name|Generator
 operator|::
 name|debug
@@ -2484,7 +2483,6 @@ literal|"Parsing done."
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//Generator::setDebugFlag(false);
 foreach|foreach
 control|(
 name|CodeParser
@@ -3095,9 +3093,12 @@ condition|)
 block|{
 name|Generator
 operator|::
-name|setDebugFlag
+name|startDebugging
 argument_list|(
-literal|true
+name|QString
+argument_list|(
+literal|"command line"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

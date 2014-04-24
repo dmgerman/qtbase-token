@@ -1297,12 +1297,6 @@ name|in_para
 init|=
 literal|false
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|if (Generator::debugging()) {         atom->dump();     }
-endif|#
-directive|endif
 switch|switch
 condition|(
 name|atom
@@ -1391,12 +1385,6 @@ operator|&
 name|node
 argument_list|)
 decl_stmt|;
-name|QDocDatabase
-operator|::
-name|debug
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 operator|!
