@@ -262,6 +262,8 @@ block|,
 name|Deselect
 block|,
 name|DeleteCompleteLine
+block|,
+name|Backspace
 block|}
 decl_stmt|;
 enum|enum
