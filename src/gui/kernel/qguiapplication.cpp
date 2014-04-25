@@ -4011,6 +4011,14 @@ index|]
 expr_stmt|;
 continue|continue;
 block|}
+specifier|const
+name|bool
+name|isXcb
+init|=
+name|platformName
+operator|==
+literal|"xcb"
+decl_stmt|;
 name|QByteArray
 name|arg
 init|=
@@ -4121,9 +4129,7 @@ operator|==
 literal|"-qwindowgeometry"
 operator|||
 operator|(
-name|platformName
-operator|==
-literal|"xcb"
+name|isXcb
 operator|&&
 name|arg
 operator|==
@@ -4159,9 +4165,7 @@ operator|==
 literal|"-qwindowtitle"
 operator|||
 operator|(
-name|platformName
-operator|==
-literal|"xcb"
+name|isXcb
 operator|&&
 name|arg
 operator|==
@@ -4197,9 +4201,7 @@ operator|==
 literal|"-qwindowicon"
 operator|||
 operator|(
-name|platformName
-operator|==
-literal|"xcb"
+name|isXcb
 operator|&&
 name|arg
 operator|==
