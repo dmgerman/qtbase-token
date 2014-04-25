@@ -1561,11 +1561,13 @@ argument_list|(
 name|f
 argument_list|)
 condition|)
+block|{
 name|needsAddingToCache
 operator|=
 literal|true
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 block|}
