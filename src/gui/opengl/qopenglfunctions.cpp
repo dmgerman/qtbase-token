@@ -1952,9 +1952,6 @@ begin_comment
 comment|/*!     \fn void QOpenGLFunctions::glVertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void* ptr)      Convenience function that calls glVertexAttribPointer(\a indx, \a size, \a type, \a normalized, \a stride, \a ptr).      For more information, see the OpenGL ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glVertexAttribPointer.xml}{glVertexAttribPointer()}.      This convenience function will do nothing on OpenGL ES 1.x systems. */
 end_comment
 begin_comment
-comment|/*!     \fn void QOpenGLFunctions::glGetTexLevelParameteriv(GLenum target, GLint level, GLenum pname, GLint *params)      \internal */
-end_comment
-begin_comment
 comment|/*!     \fn bool QOpenGLFunctions::isInitialized(const QOpenGLFunctionsPrivate *d)     \internal */
 end_comment
 begin_namespace
@@ -10138,58 +10135,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_OPENGL_ES_2
-end_ifndef
-begin_comment
-comment|// Desktop only
-end_comment
-begin_function
-DECL|function|qopenglfResolveGetTexLevelParameteriv
-specifier|static
-name|void
-name|QOPENGLF_APIENTRY
-name|qopenglfResolveGetTexLevelParameteriv
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|pname
-parameter_list|,
-name|GLint
-modifier|*
-name|params
-parameter_list|)
-block|{
-name|RESOLVE_FUNC_VOID
-argument_list|(
-literal|0
-argument_list|,
-name|GetTexLevelParameteriv
 argument_list|)
+operator|&&
+operator|!
+name|defined
 argument_list|(
-name|target
-argument_list|,
-name|level
-argument_list|,
-name|pname
-argument_list|,
-name|params
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
 name|QT_OPENGL_DYNAMIC
-end_ifndef
+argument_list|)
+end_if
 begin_comment
 comment|// Special translation functions for ES-specific calls on desktop GL
 end_comment
@@ -10241,14 +10201,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_OPENGL_DYNAMIC
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_OPENGL_ES2
+comment|// !ES&& !DYNAMIC
 end_comment
 begin_constructor
 DECL|function|QOpenGLFunctionsPrivate
@@ -10468,10 +10421,6 @@ expr_stmt|;
 name|Viewport
 operator|=
 name|qopenglfResolveViewport
-expr_stmt|;
-name|GetTexLevelParameteriv
-operator|=
-name|qopenglfResolveGetTexLevelParameteriv
 expr_stmt|;
 block|}
 else|else
@@ -10712,11 +10661,6 @@ name|Viewport
 operator|=
 operator|::
 name|glViewport
-expr_stmt|;
-name|GetTexLevelParameteriv
-operator|=
-operator|::
-name|glGetTexLevelParameteriv
 expr_stmt|;
 else|#
 directive|else

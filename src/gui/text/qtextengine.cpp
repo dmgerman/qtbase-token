@@ -417,17 +417,6 @@ operator|++
 name|i
 control|)
 block|{
-comment|// According to the unicode spec we should be treating characters in the Common script
-comment|// (punctuation, spaces, etc) as being the same script as the surrounding text for the
-comment|// purpose of splitting up text. This is important because, for example, a fullstop
-comment|// (0x2E) can be used to indicate an abbreviation and so must be treated as part of a
-comment|// word.  Thus it must be passed along with the word in languages that have to calculate
-comment|// word breaks.  For example the thai word "à¸à¸£à¸¡." has no word breaks but the word "à¸à¸£à¸¡"
-comment|// does.
-comment|// Unfortuntely because we split up the strings for both wordwrapping and for setting
-comment|// the font and because Japanese and Chinese are also aliases of the script "Common",
-comment|// doing this would break too many things.  So instead we only pass the full stop
-comment|// along, and nothing else.
 if|if
 condition|(
 name|m_analysis
@@ -458,7 +447,6 @@ index|]
 operator|.
 name|flags
 operator|&&
-operator|(
 name|m_analysis
 index|[
 name|i
@@ -472,17 +460,6 @@ name|start
 index|]
 operator|.
 name|script
-operator|||
-name|m_string
-index|[
-name|i
-index|]
-operator|==
-name|QLatin1Char
-argument_list|(
-literal|'.'
-argument_list|)
-operator|)
 operator|&&
 name|m_analysis
 index|[
@@ -8766,14 +8743,6 @@ name|ObjectReplacementCharacter
 case|:
 name|analysis
 operator|->
-name|script
-operator|=
-name|QChar
-operator|::
-name|Script_Common
-expr_stmt|;
-name|analysis
-operator|->
 name|flags
 operator|=
 name|QScriptAnalysis
@@ -8798,14 +8767,6 @@ operator|--
 name|analysis
 operator|->
 name|bidiLevel
-expr_stmt|;
-name|analysis
-operator|->
-name|script
-operator|=
-name|QChar
-operator|::
-name|Script_Common
 expr_stmt|;
 name|analysis
 operator|->
@@ -8847,14 +8808,6 @@ name|Tabulation
 case|:
 name|analysis
 operator|->
-name|script
-operator|=
-name|QChar
-operator|::
-name|Script_Common
-expr_stmt|;
-name|analysis
-operator|->
 name|flags
 operator|=
 name|QScriptAnalysis
@@ -8893,14 +8846,6 @@ operator|::
 name|ShowTabsAndSpaces
 condition|)
 block|{
-name|analysis
-operator|->
-name|script
-operator|=
-name|QChar
-operator|::
-name|Script_Common
-expr_stmt|;
 name|analysis
 operator|->
 name|flags
@@ -8999,6 +8944,7 @@ condition|(
 name|useHarfbuzzNG
 condition|)
 block|{
+comment|// ### pretend HB-old behavior for now
 for|for
 control|(
 name|int
@@ -9024,6 +8970,11 @@ operator|.
 name|script
 condition|)
 block|{
+case|case
+name|QChar
+operator|::
+name|Script_Latin
+case|:
 case|case
 name|QChar
 operator|::

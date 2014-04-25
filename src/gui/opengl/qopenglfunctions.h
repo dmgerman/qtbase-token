@@ -2978,24 +2978,6 @@ modifier|*
 name|ptr
 parameter_list|)
 function_decl|;
-comment|// OpenGL1, not GLES2
-name|void
-name|glGetTexLevelParameteriv
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|pname
-parameter_list|,
-name|GLint
-modifier|*
-name|params
-parameter_list|)
-function_decl|;
 name|protected
 label|:
 name|QOpenGLFunctionsPrivate
@@ -5338,27 +5320,6 @@ specifier|const
 name|void
 modifier|*
 name|ptr
-parameter_list|)
-function_decl|;
-comment|// OpenGL1 only, not GLES2
-name|void
-function_decl|(
-name|QOPENGLF_APIENTRYP
-name|GetTexLevelParameteriv
-function_decl|)
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|pname
-parameter_list|,
-name|GLint
-modifier|*
-name|params
 parameter_list|)
 function_decl|;
 comment|// Special non-ES OpenGL variants, not to be called directly
@@ -13067,81 +13028,6 @@ argument_list|,
 name|stride
 argument_list|,
 name|ptr
-argument_list|)
-block|;
-endif|#
-directive|endif
-name|Q_OPENGL_FUNCTIONS_DEBUG
-block|}
-comment|// OpenGL1, not GLES2
-DECL|function|glGetTexLevelParameteriv
-specifier|inline
-name|void
-name|QOpenGLFunctions
-operator|::
-name|glGetTexLevelParameteriv
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLenum pname
-argument_list|,
-argument|GLint *params
-argument_list|)
-block|{
-ifdef|#
-directive|ifdef
-name|QT_OPENGL_ES_2
-name|Q_UNUSED
-argument_list|(
-name|target
-argument_list|)
-block|;
-name|Q_UNUSED
-argument_list|(
-name|level
-argument_list|)
-block|;
-name|Q_UNUSED
-argument_list|(
-name|pname
-argument_list|)
-block|;
-name|Q_UNUSED
-argument_list|(
-name|params
-argument_list|)
-block|;
-comment|// Cannot get here.
-name|qFatal
-argument_list|(
-literal|"QOpenGLFunctions: glGetTexLevelParameteriv not available with OpenGL ES"
-argument_list|)
-block|;
-else|#
-directive|else
-name|Q_ASSERT
-argument_list|(
-name|QOpenGLFunctions
-operator|::
-name|isInitialized
-argument_list|(
-name|d_ptr
-argument_list|)
-argument_list|)
-block|;
-name|d_ptr
-operator|->
-name|GetTexLevelParameteriv
-argument_list|(
-name|target
-argument_list|,
-name|level
-argument_list|,
-name|pname
-argument_list|,
-name|params
 argument_list|)
 block|;
 endif|#

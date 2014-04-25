@@ -2785,6 +2785,15 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|project
+operator|->
+name|buildRoot
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|Option
 operator|::
 name|output_dir
