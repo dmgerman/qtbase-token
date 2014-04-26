@@ -1282,13 +1282,6 @@ argument_list|(
 name|compiledPattern
 argument_list|)
 expr_stmt|;
-name|QMutexLocker
-name|lock
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|studyData
@@ -1298,6 +1291,13 @@ argument_list|()
 condition|)
 comment|// already optimized
 return|return;
+name|QMutexLocker
+name|lock
+argument_list|(
+operator|&
+name|mutex
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|(
