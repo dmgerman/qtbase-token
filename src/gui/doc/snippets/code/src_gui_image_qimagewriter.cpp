@@ -106,4 +106,47 @@ end_if
 begin_comment
 comment|//! [2]
 end_comment
+begin_comment
+comment|//! [3]
+end_comment
+begin_decl_stmt
+name|QImageWriter
+name|writer
+argument_list|(
+literal|"some/image.dds"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_if
+if|if
+condition|(
+name|writer
+operator|.
+name|supportsOption
+argument_list|(
+name|QImageIOHandler
+operator|::
+name|SubType
+argument_list|)
+condition|)
+name|writer
+operator|.
+name|setSubType
+argument_list|(
+literal|"A8R8G8B8"
+argument_list|)
+expr_stmt|;
+end_if
+begin_expr_stmt
+name|writer
+operator|.
+name|write
+argument_list|(
+name|image
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [3]
+end_comment
 end_unit

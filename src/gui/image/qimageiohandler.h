@@ -183,6 +183,8 @@ block|,
 name|BackgroundColor
 block|,
 name|ImageFormat
+block|,
+name|SupportedSubTypes
 block|}
 enum|;
 name|virtual
