@@ -130,20 +130,6 @@ file|<sys/stat.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|// Well, Windows doesn't have this, so here's the macro
-ifndef|#
-directive|ifndef
-name|S_ISDIR
-DECL|macro|S_ISDIR
-define|#
-directive|define
-name|S_ISDIR
-parameter_list|(
-name|m
-parameter_list|)
-value|(((m)& S_IFMT) == S_IFDIR)
-endif|#
-directive|endif
 DECL|function|canExecute
 name|bool
 name|MakefileGenerator
