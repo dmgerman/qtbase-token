@@ -11318,6 +11318,9 @@ argument_list|(
 name|QMenu
 argument_list|)
 expr_stmt|;
+name|ensurePolished
+argument_list|()
+expr_stmt|;
 name|createWinId
 argument_list|()
 expr_stmt|;
