@@ -3962,6 +3962,11 @@ argument_list|(
 name|D2DDebugDrawInitialStateTag
 argument_list|)
 expr_stmt|;
+name|setActive
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
