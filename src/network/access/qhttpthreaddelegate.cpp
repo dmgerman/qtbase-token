@@ -1399,6 +1399,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|connect
 argument_list|(
 name|httpReply
@@ -1428,6 +1431,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// Don't care about ignored SSL errors for now in the synchronous HTTP case.
 block|}
 elseif|else
@@ -1637,6 +1642,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|connect
 argument_list|(
 name|httpReply
@@ -1666,6 +1674,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|connect
 argument_list|(
@@ -3202,6 +3212,9 @@ name|password
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 comment|// Disconnect this connection now since we only want to ask the authentication cache once.
 name|QObject
 operator|::
@@ -3234,6 +3247,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif
