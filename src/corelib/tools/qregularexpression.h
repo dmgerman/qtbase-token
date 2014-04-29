@@ -106,6 +106,10 @@ block|,
 name|OptimizeOnFirstUsageOption
 init|=
 literal|0x0080
+block|,
+name|DontAutomaticallyOptimizeOption
+init|=
+literal|0x0100
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
