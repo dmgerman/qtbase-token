@@ -42,34 +42,90 @@ include|#
 directive|include
 file|<private/qtextstream_p.h>
 end_include
-begin_macro
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
-begin_comment
 comment|// This file is needed to force compilation of QDebug into the kernel library.
-end_comment
-begin_comment
 comment|/*!     \class QDebug     \inmodule QtCore     \ingroup shared      \brief The QDebug class provides an output stream for debugging information.      QDebug is used whenever the developer needs to write out debugging or tracing     information to a device, file, string or console.      \section1 Basic Use      In the common case, it is useful to call the qDebug() function to obtain a     default QDebug object to use for writing debugging information.      \snippet qdebug/qdebugsnippet.cpp 1      This constructs a QDebug object using the constructor that accepts a QtMsgType     value of QtDebugMsg. Similarly, the qWarning(), qCritical() and qFatal()     functions also return QDebug objects for the corresponding message types.      The class also provides several constructors for other situations, including     a constructor that accepts a QFile or any other QIODevice subclass that is     used to write debugging information to files and other devices. The constructor     that accepts a QString is used to write to a string for display or serialization.      \section1 Writing Custom Types to a Stream      Many standard types can be written to QDebug objects, and Qt provides support for     most Qt value types. To add support for custom types, you need to implement a     streaming operator, as in the following example:      \snippet qdebug/qdebugsnippet.cpp 0      This is described in the \l{Debugging Techniques} and     \l{Creating Custom Qt Types#Making the Type Printable}{Creating Custom Qt Types}     documents. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug::QDebug(QIODevice *device)      Constructs a debug stream that writes to the given \a device. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug::QDebug(QString *string)      Constructs a debug stream that writes to the given \a string. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug::QDebug(QtMsgType type)      Constructs a debug stream that writes to the handler for the message type specified by \a type. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug::QDebug(const QDebug&other)      Constructs a copy of the \a other debug stream. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug&QDebug::operator=(const QDebug&other)      Assigns the \a other debug stream to this stream and returns a reference to     this stream. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug::~QDebug()      Flushes any pending data to be written and destroys the debug stream. */
-end_comment
+comment|// Has been defined in the header / inlined before Qt 5.4
+DECL|function|~QDebug
+name|QDebug
+operator|::
+name|~
+name|QDebug
+operator|(
+operator|)
+block|{
+if|if
+condition|(
+operator|!
+operator|--
+name|stream
+operator|->
+name|ref
+condition|)
+block|{
+if|if
+condition|(
+name|stream
+operator|->
+name|space
+operator|&&
+name|stream
+operator|->
+name|buffer
+operator|.
+name|endsWith
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+argument_list|)
+condition|)
+name|stream
+operator|->
+name|buffer
+operator|.
+name|chop
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|stream
+operator|->
+name|message_output
+condition|)
+block|{
+name|qt_message_output
+argument_list|(
+name|stream
+operator|->
+name|type
+argument_list|,
+name|stream
+operator|->
+name|context
+argument_list|,
+name|stream
+operator|->
+name|buffer
+argument_list|)
+expr_stmt|;
+block|}
+operator|delete
+name|stream
+expr_stmt|;
+end_expr_stmt
 begin_comment
+unit|} }
 comment|/*!     \fn QDebug::swap(QDebug&other)     \since 5.0      Swaps this debug stream instance with \a other. This function is     very fast and never fails. */
 end_comment
 begin_comment
