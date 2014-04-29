@@ -1803,6 +1803,13 @@ condition|(
 name|d
 operator|->
 name|platformWindow
+operator|&&
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
 condition|)
 name|d
 operator|->
