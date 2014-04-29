@@ -156,6 +156,25 @@ name|LayerClip
 block|}
 enum|;
 end_enum
+begin_comment
+comment|// Since d2d is a float-based system we need to be able to snap our drawing to whole pixels.
+end_comment
+begin_comment
+comment|// Applying the magical aliasing offset to coordinates will do so, just make sure that
+end_comment
+begin_comment
+comment|// aliased painting is turned on on the d2d device context.
+end_comment
+begin_decl_stmt
+DECL|variable|MAGICAL_ALIASING_OFFSET
+specifier|static
+specifier|const
+name|qreal
+name|MAGICAL_ALIASING_OFFSET
+init|=
+literal|0.5
+decl_stmt|;
+end_decl_stmt
 begin_define
 DECL|macro|D2D_TAG
 define|#
@@ -496,6 +515,16 @@ modifier|&
 name|point
 parameter_list|)
 block|{
+specifier|static
+specifier|const
+name|QPointF
+name|adjustment
+argument_list|(
+name|MAGICAL_ALIASING_OFFSET
+argument_list|,
+name|MAGICAL_ALIASING_OFFSET
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|m_roundCoordinates
@@ -504,9 +533,8 @@ return|return
 name|to_d2d_point_2f
 argument_list|(
 name|point
-operator|.
-name|toPoint
-argument_list|()
+operator|+
+name|adjustment
 argument_list|)
 return|;
 else|else
