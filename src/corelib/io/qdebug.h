@@ -326,8 +326,6 @@ operator|->
 name|message_output
 condition|)
 block|{
-name|QT_TRY
-block|{
 name|qt_message_output
 argument_list|(
 name|stream
@@ -344,29 +342,17 @@ name|buffer
 argument_list|)
 expr_stmt|;
 block|}
-name|QT_CATCH
-argument_list|(
-argument|std::bad_alloc&
-argument_list|)
-block|{
-comment|/* We're out of memory - give up. */
-block|}
-block|}
 name|delete
 name|stream
 decl_stmt|;
 block|}
 block|}
-end_decl_stmt
-begin_function
 specifier|inline
 name|void
 name|swap
-parameter_list|(
-name|QDebug
-modifier|&
-name|other
-parameter_list|)
+argument_list|(
+argument|QDebug&other
+argument_list|)
 block|{
 name|qSwap
 argument_list|(
@@ -376,35 +362,30 @@ name|other
 operator|.
 name|stream
 argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
+block|; }
 specifier|inline
 name|QDebug
-modifier|&
+operator|&
 name|space
-parameter_list|()
+argument_list|()
 block|{
 name|stream
 operator|->
 name|space
 operator|=
 name|true
-expr_stmt|;
+block|;
 name|stream
 operator|->
 name|ts
 operator|<<
 literal|' '
-expr_stmt|;
+block|;
 return|return
 operator|*
 name|this
 return|;
 block|}
-end_function
-begin_function
 specifier|inline
 name|QDebug
 modifier|&
@@ -422,8 +403,6 @@ operator|*
 name|this
 return|;
 block|}
-end_function
-begin_function
 specifier|inline
 name|QDebug
 modifier|&
@@ -447,8 +426,6 @@ operator|*
 name|this
 return|;
 block|}
-end_function
-begin_expr_stmt
 name|bool
 name|autoInsertSpaces
 argument_list|()
@@ -460,8 +437,6 @@ operator|->
 name|space
 return|;
 block|}
-end_expr_stmt
-begin_function
 name|void
 name|setAutoInsertSpaces
 parameter_list|(
@@ -476,8 +451,6 @@ operator|=
 name|b
 expr_stmt|;
 block|}
-end_function
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -503,8 +476,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -532,8 +503,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -555,8 +524,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -579,8 +546,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -603,8 +568,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -627,8 +590,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -651,8 +612,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -675,8 +634,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -699,8 +656,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -722,8 +677,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -745,8 +698,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -768,8 +719,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -791,8 +740,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -821,8 +768,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -850,8 +795,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -875,8 +818,6 @@ argument_list|()
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -902,8 +843,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -931,8 +870,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -956,8 +893,6 @@ name|maybeSpace
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -979,8 +914,6 @@ operator|*
 name|this
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QDebug
 operator|&
@@ -1002,9 +935,12 @@ operator|*
 name|this
 return|;
 block|}
-end_expr_stmt
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_macro
-unit|};
 name|Q_DECLARE_SHARED
 argument_list|(
 argument|QDebug
