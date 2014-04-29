@@ -3619,7 +3619,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QImage QOpenGLFramebufferObject::toImage() const      Returns the contents of this framebuffer object as a QImage. */
+comment|/*!     \fn QImage QOpenGLFramebufferObject::toImage() const      Returns the contents of this framebuffer object as a QImage.      Will try to return a premultiplied ARBG32 or RGB32 image. Since 5.2 it will fall back to     a premultiplied RGBA8888 or RGBx8888 image when reading to ARGB32 is not supported. */
 end_comment
 begin_function
 DECL|function|toImage
