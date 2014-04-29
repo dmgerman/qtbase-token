@@ -150,6 +150,65 @@ argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
 name|void
+name|fillRect
+argument_list|(
+argument|const QRectF&rect
+argument_list|,
+argument|const QBrush&brush
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawRects
+argument_list|(
+argument|const QRect *rects
+argument_list|,
+argument|int rectCount
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawRects
+argument_list|(
+argument|const QRectF *rects
+argument_list|,
+argument|int rectCount
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawLines
+argument_list|(
+argument|const QLine *lines
+argument_list|,
+argument|int lineCount
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawLines
+argument_list|(
+argument|const QLineF *lines
+argument_list|,
+argument|int lineCount
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawEllipse
+argument_list|(
+argument|const QRectF&r
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawEllipse
+argument_list|(
+argument|const QRect&r
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
 name|drawImage
 argument_list|(
 argument|const QRectF&rectangle
@@ -249,6 +308,41 @@ specifier|const
 name|QBrush
 operator|&
 name|brush
+argument_list|)
+block|;      enum
+name|EmulationType
+block|{
+name|PenEmulation
+block|,
+name|BrushEmulation
+block|}
+block|;
+name|bool
+name|emulationRequired
+argument_list|(
+argument|EmulationType type
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|antiAliasingEnabled
+argument_list|()
+specifier|const
+block|;
+name|void
+name|adjustForAliasing
+argument_list|(
+name|QRectF
+operator|*
+name|rect
+argument_list|)
+block|;
+name|void
+name|adjustForAliasing
+argument_list|(
+name|QPointF
+operator|*
+name|point
 argument_list|)
 block|; }
 decl_stmt|;
