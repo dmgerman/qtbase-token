@@ -6616,7 +6616,7 @@ name|resize
 argument_list|(
 literal|160
 argument_list|,
-literal|300
+literal|350
 argument_list|)
 expr_stmt|;
 comment|// Minimum width for windows with frame on Windows 8
