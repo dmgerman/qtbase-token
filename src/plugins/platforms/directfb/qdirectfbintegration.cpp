@@ -96,11 +96,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|initialize
+DECL|function|connectToDirectFb
 name|void
 name|QDirectFbIntegration
 operator|::
-name|initialize
+name|connectToDirectFb
 parameter_list|()
 block|{
 name|initializeDirectFB

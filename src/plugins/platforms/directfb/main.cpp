@@ -176,7 +176,7 @@ literal|0
 return|;
 name|integration
 operator|->
-name|initialize
+name|connectToDirectFb
 argument_list|()
 expr_stmt|;
 return|return
