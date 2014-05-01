@@ -120,7 +120,7 @@ name|ctx
 condition|?
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 else|:
 name|QOpenGLContext
@@ -130,7 +130,7 @@ argument_list|()
 operator|!=
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 block|;
 name|internal_format
 operator|=

@@ -1556,6 +1556,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Check if the previous attempt to create the image failed. If it
+comment|// did then the image is broken and we should give up.
+if|if
+condition|(
+name|image
+operator|->
+name|isNull
+argument_list|()
+condition|)
+block|{
+name|state
+operator|=
+name|Error
+expr_stmt|;
+return|return
+operator|-
+literal|1
+return|;
+block|}
 name|disposePrevious
 argument_list|(
 name|image

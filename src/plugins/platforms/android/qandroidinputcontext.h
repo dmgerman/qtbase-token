@@ -384,6 +384,12 @@ block|;
 name|QString
 name|m_composingText
 block|;
+name|int
+name|m_composingTextStart
+block|;
+name|int
+name|m_composingCursor
+block|;
 name|QMetaObject
 operator|::
 name|Connection

@@ -370,7 +370,7 @@ if|if
 condition|(
 name|context
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{

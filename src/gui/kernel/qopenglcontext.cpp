@@ -777,7 +777,7 @@ condition|(
 operator|!
 name|q
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -1582,7 +1582,7 @@ directive|ifndef
 name|QT_OPENGL_ES_2
 if|if
 condition|(
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -2669,10 +2669,10 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value DesktopGL Desktop OpenGL   \value GLES2 OpenGL ES 2.0 or higher    \since 5.3 */
+comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value LibGL   OpenGL   \value LibGLES OpenGL ES 2.0 or higher    \since 5.3 */
 end_comment
 begin_comment
-comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or using the   the convenience function isES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
+comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or using the   the convenience function isOpenGLES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
 end_comment
 begin_function
 DECL|function|openGLModuleType
@@ -2714,12 +2714,12 @@ argument_list|(
 name|QT_OPENGL_ES_2
 argument_list|)
 return|return
-name|GLES2
+name|LibGLES
 return|;
 else|#
 directive|else
 return|return
-name|DesktopGL
+name|LibGL
 return|;
 endif|#
 directive|endif
@@ -2729,11 +2729,11 @@ begin_comment
 comment|/*!   Returns true if the context is an OpenGL ES context.    If the context has not yet been created, the result is based on the   requested format set via setFormat().    \sa create(), format(), setFormat()    \since 5.3   */
 end_comment
 begin_function
-DECL|function|isES
+DECL|function|isOpenGLES
 name|bool
 name|QOpenGLContext
 operator|::
-name|isES
+name|isOpenGLES
 parameter_list|()
 specifier|const
 block|{

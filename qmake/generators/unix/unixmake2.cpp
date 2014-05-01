@@ -1446,6 +1446,31 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
+condition|)
+block|{
+name|t
+operator|<<
+literal|"TARGET0       = "
+operator|<<
+name|escapeFilePath
+argument_list|(
+name|var
+argument_list|(
+literal|"TARGET_"
+argument_list|)
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
 name|project
 operator|->
 name|isEmpty
@@ -1463,20 +1488,6 @@ argument_list|(
 name|var
 argument_list|(
 literal|"TARGET_x.y.z"
-argument_list|)
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"TARGET0       = "
-operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
-argument_list|(
-literal|"TARGET_"
 argument_list|)
 argument_list|)
 operator|<<
@@ -1527,20 +1538,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-name|t
-operator|<<
-literal|"TARGET0       = "
-operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
-argument_list|(
-literal|"TARGET_"
-argument_list|)
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
+block|}
 block|}
 block|}
 name|writeExtraCompilerVariables
@@ -4375,17 +4373,49 @@ block|{
 name|t
 operator|<<
 literal|"\n\t"
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
+condition|)
+name|t
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET) $(TARGET0) $(TARGET1) $(TARGET2)\n\t"
+literal|"-$(DEL_FILE) $(TARGET) $(TARGET0) $(TARGET1) $(TARGET2)"
+expr_stmt|;
+else|else
+name|t
+operator|<<
+literal|"-$(DEL_FILE) $(TARGET)"
+expr_stmt|;
+name|t
+operator|<<
+literal|"\n\t"
 operator|<<
 name|var
 argument_list|(
 literal|"QMAKE_LINK_SHLIB_CMD"
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
+condition|)
+block|{
+name|t
 operator|<<
 literal|"\n\t"
-expr_stmt|;
-name|t
 operator|<<
 name|varGlue
 argument_list|(
@@ -4424,6 +4454,7 @@ argument_list|,
 literal|" $(TARGET) $(TARGET2)"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -4432,6 +4463,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|t
 operator|<<
 literal|"\n\t"
@@ -4441,6 +4473,27 @@ operator|<<
 name|destdir
 operator|<<
 literal|"$(TARGET)\n\t"
+operator|<<
+literal|"-$(MOVE) $(TARGET)  "
+operator|<<
+name|destdir
+operator|<<
+literal|" "
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
+condition|)
+block|{
+name|t
+operator|<<
+literal|"\n\t"
 operator|<<
 literal|"-$(DEL_FILE) "
 operator|<<
@@ -4460,12 +4513,6 @@ name|destdir
 operator|<<
 literal|"$(TARGET2)\n\t"
 operator|<<
-literal|"-$(MOVE) $(TARGET)  "
-operator|<<
-name|destdir
-operator|<<
-literal|" \n\t"
-operator|<<
 literal|"-$(MOVE) $(TARGET0) "
 operator|<<
 name|destdir
@@ -4482,8 +4529,10 @@ literal|"-$(MOVE) $(TARGET2) "
 operator|<<
 name|destdir
 operator|<<
-literal|" \n\t"
+literal|" "
 expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 operator|!
@@ -7306,6 +7355,17 @@ name|destdir
 operator|<<
 literal|"$(TARGET) \n"
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
+condition|)
+block|{
 name|t
 operator|<<
 literal|"\t-$(DEL_FILE) "
@@ -7322,6 +7382,14 @@ name|destdir
 operator|<<
 literal|"$(TARGET2) $(TARGETA)\n"
 expr_stmt|;
+block|}
+else|else
+block|{
+name|t
+operator|<<
+literal|"\t-$(DEL_FILE) $(TARGETA)\n"
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -9540,6 +9608,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
+condition|)
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"TARGET"
+argument_list|)
+operator|=
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"TARGET_"
+argument_list|)
+expr_stmt|;
+else|else
 name|project
 operator|->
 name|values

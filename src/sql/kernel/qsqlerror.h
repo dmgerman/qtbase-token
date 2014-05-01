@@ -59,29 +59,37 @@ literal|5
 operator|,
 literal|3
 argument_list|)
+name|QT_DEPRECATED
 name|QSqlError
-argument_list|(
-argument|const QString& driverText = QString()
-argument_list|,
-argument|const QString& databaseText = QString()
-argument_list|,
-argument|ErrorType type = NoError
-argument_list|,
-argument|int number = -
-literal|1
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|driverText
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|databaseText
+parameter_list|,
+name|ErrorType
+name|type
+parameter_list|,
+name|int
+name|number
+parameter_list|)
+function_decl|;
 endif|#
 directive|endif
 name|QSqlError
 argument_list|(
-argument|const QString&driverText
+argument|const QString&driverText = QString()
 argument_list|,
-argument|const QString&databaseText
+argument|const QString&databaseText = QString()
 argument_list|,
-argument|ErrorType type
+argument|ErrorType type = NoError
 argument_list|,
-argument|const QString&errorCode
+argument|const QString&errorCode = QString()
 argument_list|)
 empty_stmt|;
 name|QSqlError
@@ -152,6 +160,7 @@ literal|5
 operator|,
 literal|3
 argument_list|)
+name|QT_DEPRECATED
 name|int
 name|number
 argument_list|()

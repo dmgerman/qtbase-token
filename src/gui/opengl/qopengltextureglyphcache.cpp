@@ -2024,7 +2024,7 @@ name|Format_ARGB32_Premultiplied
 operator|&&
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 operator|)
 endif|#
@@ -2176,7 +2176,7 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 endif|#
@@ -2234,7 +2234,7 @@ name|fmt
 init|=
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_RGBA

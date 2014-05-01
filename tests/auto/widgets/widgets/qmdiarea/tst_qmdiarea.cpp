@@ -16579,7 +16579,7 @@ argument_list|()
 operator|!=
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 name|QSKIP
 argument_list|(
