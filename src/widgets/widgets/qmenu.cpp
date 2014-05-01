@@ -945,6 +945,10 @@ argument_list|(
 name|trigger
 argument_list|()
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -966,6 +970,10 @@ argument_list|(
 name|hovered
 argument_list|()
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|copyActionToPlatformItem
