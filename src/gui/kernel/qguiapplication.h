@@ -471,6 +471,16 @@ name|platformNativeInterface
 argument_list|()
 block|;
 specifier|static
+name|QFunctionPointer
+name|platformFunction
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|function
+argument_list|)
+block|;
+specifier|static
 name|void
 name|setQuitOnLastWindowClosed
 argument_list|(
