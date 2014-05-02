@@ -444,6 +444,10 @@ name|priv
 operator|->
 name|isInEditBlock
 argument_list|()
+operator|||
+name|priv
+operator|->
+name|inContentsChange
 condition|)
 block|{
 name|x
