@@ -61,6 +61,12 @@ name|isShared
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|Q_ASSERT
 argument_list|(
 name|QArrayData
@@ -76,6 +82,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 struct|;
@@ -300,6 +308,12 @@ name|isStatic
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QVERIFY
 argument_list|(
 name|array
@@ -310,6 +324,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|array
@@ -433,6 +449,12 @@ argument_list|)
 expr_stmt|;
 comment|// Now would be a good time to free/release allocated data
 block|}
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 block|{
 comment|// Reference counting initialized to 0 (non-sharable)
 name|QArrayData
@@ -544,6 +566,8 @@ argument_list|)
 expr_stmt|;
 comment|// Free/release data
 block|}
+endif|#
+directive|endif
 block|{
 comment|// Reference counting initialized to -1 (static read-only data)
 name|QArrayData
@@ -586,6 +610,12 @@ name|isStatic
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QVERIFY
 argument_list|(
 name|array
@@ -596,6 +626,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|array
@@ -706,16 +738,6 @@ name|null
 operator|->
 name|ref
 operator|.
-name|isSharable
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|null
-operator|->
-name|ref
-operator|.
 name|isShared
 argument_list|()
 argument_list|)
@@ -736,16 +758,6 @@ name|empty
 operator|->
 name|ref
 operator|.
-name|isSharable
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|empty
-operator|->
-name|ref
-operator|.
 name|isShared
 argument_list|()
 argument_list|)
@@ -780,6 +792,34 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
+name|QVERIFY
+argument_list|(
+name|null
+operator|->
+name|ref
+operator|.
+name|isSharable
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|empty
+operator|->
+name|ref
+operator|.
+name|isSharable
+argument_list|()
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|null
@@ -1889,6 +1929,12 @@ name|isShared
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QVERIFY
 argument_list|(
 name|v1
@@ -1953,6 +1999,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|v1
@@ -3360,6 +3408,12 @@ literal|10
 index|]
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 block|{
 name|v7
 operator|.
@@ -3738,6 +3792,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro
@@ -4355,6 +4411,7 @@ argument_list|(
 literal|"isSharable"
 argument_list|)
 expr_stmt|;
+comment|// ### Qt6: remove
 name|QTest
 operator|::
 name|addColumn
@@ -4447,6 +4504,17 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|shared_empty
+argument_list|)
+expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QArrayData
 modifier|*
 name|unsharable_empty
@@ -4471,14 +4539,11 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
-name|shared_empty
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
 name|unsharable_empty
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 struct|struct
 block|{
 name|char
@@ -4535,6 +4600,12 @@ block|,
 name|shared_empty
 block|}
 block|,
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 block|{
 literal|"Reserved | Unsharable"
 block|,
@@ -4567,6 +4638,8 @@ block|,
 name|unsharable_empty
 block|}
 block|,
+endif|#
+directive|endif
 block|{
 literal|"Grow"
 block|,
@@ -4749,13 +4822,6 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|bool
-argument_list|,
-name|isSharable
-argument_list|)
-expr_stmt|;
-name|QFETCH
-argument_list|(
 specifier|const
 name|QArrayData
 operator|*
@@ -4920,6 +4986,19 @@ name|isCapacityReserved
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
+name|QFETCH
+argument_list|(
+name|bool
+argument_list|,
+name|isSharable
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|data
@@ -4932,6 +5011,8 @@ argument_list|,
 name|isSharable
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// Check that the allocated array can be used. Best tested with a
 comment|// memory checker, such as valgrind, running.
 operator|::
@@ -8645,6 +8726,12 @@ operator|::
 name|setSharable_data
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QTest
 operator|::
 name|addColumn
@@ -9094,6 +9181,8 @@ literal|false
 operator|<<
 literal|3
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -9104,6 +9193,12 @@ operator|::
 name|setSharable
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QFETCH
 argument_list|(
 name|QArrayDataPointer
@@ -9643,6 +9738,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_struct
@@ -9917,6 +10014,12 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 block|{
 comment|// Immutable, unsharable
 name|SimpleVector
@@ -10203,6 +10306,8 @@ name|array
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -10484,6 +10589,12 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QVERIFY
 argument_list|(
 name|v
@@ -10492,6 +10603,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 operator|(
@@ -10913,6 +11026,12 @@ name|isStatic
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
 name|QVERIFY
 argument_list|(
 name|v
@@ -10921,6 +11040,8 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 operator|(

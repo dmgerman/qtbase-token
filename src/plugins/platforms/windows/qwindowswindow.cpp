@@ -4864,7 +4864,7 @@ argument_list|()
 operator|!=
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 name|setFlag
 argument_list|(

@@ -5962,6 +5962,14 @@ name|isActiveConfig
 argument_list|(
 literal|"plugin"
 argument_list|)
+operator|&&
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"unversioned_libname"
+argument_list|)
 condition|)
 block|{
 if|if
