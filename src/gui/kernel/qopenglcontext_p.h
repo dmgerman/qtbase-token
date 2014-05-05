@@ -471,15 +471,12 @@ operator|->
 name|shareGroup
 argument_list|()
 block|;
+comment|// Have to use our own mutex here, not the group's, since
+comment|// m_groups has to be protected too against any concurrent access.
 name|QMutexLocker
 name|locker
 argument_list|(
 operator|&
-name|group
-operator|->
-name|d_func
-argument_list|()
-operator|->
 name|m_mutex
 argument_list|)
 block|;
@@ -546,6 +543,9 @@ operator|*
 operator|>
 name|m_groups
 expr_stmt|;
+name|QMutex
+name|m_mutex
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

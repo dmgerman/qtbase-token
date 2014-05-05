@@ -3587,6 +3587,13 @@ name|active
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_mutex
+argument_list|(
+name|QMutex
+operator|::
+name|Recursive
+argument_list|)
 block|{
 ifdef|#
 directive|ifdef
