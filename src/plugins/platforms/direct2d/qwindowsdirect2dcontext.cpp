@@ -231,13 +231,10 @@ name|hr
 operator|=
 name|dxgiDevice
 operator|->
-name|GetParent
-argument_list|(
-name|IID_PPV_ARGS
+name|GetAdapter
 argument_list|(
 operator|&
 name|dxgiAdapter
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
