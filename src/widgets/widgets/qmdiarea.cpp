@@ -11934,6 +11934,25 @@ name|event
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|subWindow
+operator|->
+name|mdiArea
+argument_list|()
+operator|!=
+name|this
+condition|)
+return|return
+name|QAbstractScrollArea
+operator|::
+name|eventFilter
+argument_list|(
+name|object
+argument_list|,
+name|event
+argument_list|)
+return|;
 comment|// QMdiSubWindow events:
 switch|switch
 condition|(
