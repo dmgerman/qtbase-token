@@ -424,7 +424,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if this certificate is self signed; otherwise     returns \c false.      A certificate is considered self-signed its issuer and subject     are identical. */
+comment|/*!     \since 5.4     Returns \c true if this certificate is self signed; otherwise     returns \c false.      A certificate is considered self-signed its issuer and subject     are identical. */
 end_comment
 begin_function
 DECL|function|isSelfSigned
