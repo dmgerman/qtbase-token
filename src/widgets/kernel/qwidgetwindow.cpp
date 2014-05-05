@@ -2070,6 +2070,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// Use postEvent() to ensure the local QEventLoop terminates when called from QMenu::exec()
 specifier|const
 name|QPoint
 name|localPos
@@ -2085,7 +2086,11 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|QMouseEvent
+modifier|*
 name|e
+init|=
+operator|new
+name|QMouseEvent
 argument_list|(
 name|QEvent
 operator|::
@@ -2116,11 +2121,16 @@ name|modifiers
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|e
+operator|->
+name|spont
+operator|=
+literal|1
+expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
 name|setMouseEventSource
 argument_list|(
-operator|&
 name|e
 argument_list|,
 name|QGuiApplicationPrivate
@@ -2132,7 +2142,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|e
-operator|.
+operator|->
 name|setTimestamp
 argument_list|(
 name|event
@@ -2141,13 +2151,12 @@ name|timestamp
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
-name|sendSpontaneousEvent
+name|postEvent
 argument_list|(
 name|win
 argument_list|,
-operator|&
 name|e
 argument_list|)
 expr_stmt|;
