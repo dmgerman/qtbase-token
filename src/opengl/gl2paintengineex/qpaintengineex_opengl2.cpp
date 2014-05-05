@@ -875,7 +875,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
