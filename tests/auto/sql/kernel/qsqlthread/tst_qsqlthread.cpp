@@ -35,7 +35,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<pthread.h>
+file|<sched.h>
 end_include
 begin_endif
 endif|#
@@ -568,7 +568,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_LINUX
-name|pthread_yield
+name|sched_yield
 argument_list|()
 expr_stmt|;
 endif|#
@@ -780,7 +780,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_LINUX
-name|pthread_yield
+name|sched_yield
 argument_list|()
 expr_stmt|;
 endif|#
