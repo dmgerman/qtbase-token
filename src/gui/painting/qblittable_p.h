@@ -88,11 +88,10 @@ block|}
 enum|;
 name|Q_DECLARE_FLAGS
 argument_list|(
-name|Capabilities
+argument|Capabilities
 argument_list|,
-name|Capability
+argument|Capability
 argument_list|)
-expr_stmt|;
 name|QBlittable
 argument_list|(
 argument|const QSize&size

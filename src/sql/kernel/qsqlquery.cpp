@@ -996,7 +996,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Retrieves the record at position \a index, if available, and   positions the query on the retrieved record. The first record is at   position 0. Note that the query must be in an \l{isActive()}   {active} state and isSelect() must return true before calling this   function.    If \a relative is false (the default), the following rules apply:    \list    \li If \a index is negative, the result is positioned before the   first record and false is returned.    \li Otherwise, an attempt is made to move to the record at position   \a index. If the record at position \a index could not be retrieved,   the result is positioned after the last record and false is   returned. If the record is successfully retrieved, true is returned.    \endlist    If \a relative is true, the following rules apply:    \list    \li If the result is currently positioned before the first record or   on the first record, and \a index is negative, there is no change,   and false is returned.    \li If the result is currently located after the last record, and \a   index is positive, there is no change, and false is returned.    \li If the result is currently located somewhere in the middle, and   the relative offset \a index moves the result below zero, the result   is positioned before the first record and false is returned.    \li Otherwise, an attempt is made to move to the record \a index   records ahead of the current record (or \a index records behind the   current record if \a index is negative). If the record at offset \a   index could not be retrieved, the result is positioned after the   last record if \a index>= 0, (or before the first record if \a   index is negative), and false is returned. If the record is   successfully retrieved, true is returned.    \endlist    \sa next(), previous(), first(), last(), at(), isActive(), isValid() */
+comment|/*!   Retrieves the record at position \a index, if available, and   positions the query on the retrieved record. The first record is at   position 0. Note that the query must be in an \l{isActive()}   {active} state and isSelect() must return true before calling this   function.    If \a relative is false (the default), the following rules apply:    \list    \li If \a index is negative, the result is positioned before the   first record and false is returned.    \li Otherwise, an attempt is made to move to the record at position   \a index. If the record at position \a index could not be retrieved,   the result is positioned after the last record and false is   returned. If the record is successfully retrieved, true is returned.    \endlist    If \a relative is true, the following rules apply:    \list    \li If the result is currently positioned before the first record and:   \list   \li \a index is negative or zero, there is no change, and false is   returned.   \li \a index is positive, an attempt is made to position the result   at absolute position \a index - 1, following the sames rule for non   relative seek, above.   \endlist    \li If the result is currently positioned after the last record and:   \list   \li \a index is positive or zero, there is no change, and false is   returned.   \li \a index is negative, an attempt is made to position the result   at \a index + 1 relative position from last record, following the   rule below.   \endlist    \li If the result is currently located somewhere in the middle, and   the relative offset \a index moves the result below zero, the result   is positioned before the first record and false is returned.    \li Otherwise, an attempt is made to move to the record \a index   records ahead of the current record (or \a index records behind the   current record if \a index is negative). If the record at offset \a   index could not be retrieved, the result is positioned after the   last record if \a index>= 0, (or before the first record if \a   index is negative), and false is returned. If the record is   successfully retrieved, true is returned.    \endlist    \sa next(), previous(), first(), last(), at(), isActive(), isValid() */
 end_comment
 begin_function
 DECL|function|seek
@@ -1085,6 +1085,8 @@ condition|)
 name|actualIdx
 operator|=
 name|index
+operator|-
+literal|1
 expr_stmt|;
 else|else
 block|{
@@ -1118,6 +1120,8 @@ name|at
 argument_list|()
 operator|+
 name|index
+operator|+
+literal|1
 expr_stmt|;
 block|}
 else|else

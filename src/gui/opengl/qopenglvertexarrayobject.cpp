@@ -73,7 +73,7 @@ if|if
 condition|(
 name|context
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -651,7 +651,7 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{

@@ -261,7 +261,7 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{

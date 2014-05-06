@@ -5967,6 +5967,13 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
 literal|"        }\n"
 argument_list|)
 expr_stmt|;
@@ -6379,6 +6386,13 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
 literal|"        }\n"
 argument_list|)
 expr_stmt|;
@@ -6524,6 +6538,13 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
 literal|"        }\n"
 argument_list|)
 expr_stmt|;
@@ -6640,6 +6661,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|out
@@ -6764,6 +6792,13 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
 literal|"        }\n"
 argument_list|)
 expr_stmt|;
@@ -6880,6 +6915,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|out
@@ -7004,6 +7046,13 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
 literal|"        }\n"
 argument_list|)
 expr_stmt|;
@@ -7120,6 +7169,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|out
@@ -7711,6 +7767,13 @@ literal|"            if (_a[0]) *reinterpret_cast<QObject**>(_a[0]) = _r; } brea
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        default: break;\n"
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|out

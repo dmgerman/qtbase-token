@@ -813,6 +813,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_overrideMenuActionDestroyed()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_platformMenuAboutToShow()
+argument_list|)
 name|protected
 operator|:
 name|QMenu

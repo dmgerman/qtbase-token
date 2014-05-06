@@ -1654,7 +1654,7 @@ argument_list|()
 operator|==
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 block|{
 comment|// On desktop, request latest released version

@@ -490,6 +490,14 @@ argument_list|()
 return|;
 block|}
 end_expr_stmt
+begin_if
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
+end_if
 begin_function
 specifier|inline
 name|void
@@ -524,6 +532,10 @@ name|sharable
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 specifier|inline
 name|bool

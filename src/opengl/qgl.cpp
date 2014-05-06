@@ -4669,7 +4669,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -7320,7 +7320,7 @@ init|=
 operator|!
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 decl_stmt|;
 if|if
@@ -8052,7 +8052,7 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -8130,7 +8130,7 @@ name|genMipmap
 operator|&&
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 name|q
@@ -8458,12 +8458,72 @@ condition|)
 block|{
 name|QImage
 name|image
+decl_stmt|;
+name|QPaintEngine
+modifier|*
+name|paintEngine
 init|=
+name|pixmap
+operator|.
+name|paintEngine
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|paintEngine
+operator|||
+name|paintEngine
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|QPaintEngine
+operator|::
+name|Raster
+condition|)
+name|image
+operator|=
 name|pixmap
 operator|.
 name|toImage
 argument_list|()
+expr_stmt|;
+else|else
+block|{
+comment|// QRasterPixmapData::toImage() will deep-copy the backing QImage if there's an active QPainter on it.
+comment|// For performance reasons, we don't want that here, so we temporarily redirect the paint engine.
+name|QPaintDevice
+modifier|*
+name|currentPaintDevice
+init|=
+name|paintEngine
+operator|->
+name|paintDevice
+argument_list|()
 decl_stmt|;
+name|paintEngine
+operator|->
+name|setPaintDevice
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|image
+operator|=
+name|pixmap
+operator|.
+name|toImage
+argument_list|()
+expr_stmt|;
+name|paintEngine
+operator|->
+name|setPaintDevice
+argument_list|(
+name|currentPaintDevice
+argument_list|)
+expr_stmt|;
+block|}
 comment|// If the system depth is 16 and the pixmap doesn't have an alpha channel
 comment|// then we convert it to RGB16 in the hope that it gets uploaded as a 16
 comment|// bit texture which is much faster to access than a 32-bit one.
@@ -8589,7 +8649,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -9355,7 +9415,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -9691,7 +9751,7 @@ operator|!
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -9880,7 +9940,7 @@ operator|!
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -11962,7 +12022,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 name|qgl1_functions
@@ -12210,7 +12270,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -12411,7 +12471,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -12994,7 +13054,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -13379,7 +13439,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{

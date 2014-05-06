@@ -183,6 +183,14 @@ name|void
 name|clear
 argument_list|()
 block|;
+name|void
+name|setFocusObject
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|;
 comment|//---------------//
 name|jboolean
 name|beginBatchEdit
@@ -376,6 +384,12 @@ block|;
 name|QString
 name|m_composingText
 block|;
+name|int
+name|m_composingTextStart
+block|;
+name|int
+name|m_composingCursor
+block|;
 name|QMetaObject
 operator|::
 name|Connection
@@ -386,6 +400,10 @@ name|m_blockUpdateSelection
 block|;
 name|int
 name|m_batchEditNestingLevel
+block|;
+name|QObject
+operator|*
+name|m_focusObject
 block|; }
 decl_stmt|;
 end_decl_stmt

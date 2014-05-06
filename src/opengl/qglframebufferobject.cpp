@@ -1982,7 +1982,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -2136,7 +2136,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -2322,7 +2322,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_STENCIL_INDEX8
@@ -2741,7 +2741,7 @@ argument_list|,
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
-argument|QOpenGLContext::currentContext()->isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::currentContext()->isOpenGLES() ? GL_RGBA : GL_RGBA8
 else|#
 directive|else
 argument|GL_RGBA
@@ -2796,7 +2796,7 @@ argument_list|,
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
-argument|QOpenGLContext::currentContext()->isES() ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::currentContext()->isOpenGLES() ? GL_RGBA : GL_RGBA8
 else|#
 directive|else
 argument|GL_RGBA
@@ -3003,7 +3003,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_RGBA
@@ -3090,7 +3090,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_RGBA

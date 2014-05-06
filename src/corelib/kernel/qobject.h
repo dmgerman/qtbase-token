@@ -3397,7 +3397,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_CORE_EXPORT
 name|QSignalBlocker
 block|{
 name|public

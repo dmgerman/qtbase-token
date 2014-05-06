@@ -1269,7 +1269,15 @@ return|;
 block|}
 if|if
 condition|(
+operator|(
 name|isBuffered
+operator|||
+name|socketType
+operator|!=
+name|QAbstractSocket
+operator|::
+name|TcpSocket
+operator|)
 operator|&&
 name|socketEngine
 condition|)

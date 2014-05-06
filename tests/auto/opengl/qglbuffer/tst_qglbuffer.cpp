@@ -982,6 +982,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Crashes on QNX when destroying the second QGLWidget (see QTBUG-38275)"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QGLWidget
 modifier|*
 name|w1

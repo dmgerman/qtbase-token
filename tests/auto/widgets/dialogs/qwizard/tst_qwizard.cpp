@@ -18516,6 +18516,16 @@ operator|::
 name|task177022_setFixedSize
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+name|QSKIP
+argument_list|(
+literal|"Window is forced fullscreen"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|int
 name|width
 init|=
@@ -18644,7 +18654,7 @@ argument_list|)
 expr_stmt|;
 name|wiz
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY

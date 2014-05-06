@@ -22751,6 +22751,11 @@ name|QAccessibleActionInterface
 operator|::
 name|showMenuAction
 argument_list|()
+operator|<<
+name|QAccessibleActionInterface
+operator|::
+name|pressAction
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|iface

@@ -359,7 +359,7 @@ operator|.
 name|width
 argument_list|()
 operator|||
-name|t2
+name|t1
 operator|.
 name|height
 argument_list|()
@@ -663,7 +663,7 @@ operator|.
 name|width
 argument_list|()
 operator|||
-name|t2
+name|t1
 operator|.
 name|height
 argument_list|()

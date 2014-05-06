@@ -354,7 +354,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{

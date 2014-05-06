@@ -14734,9 +14734,9 @@ argument_list|,
 name|capacity
 argument_list|)
 expr_stmt|;
-name|copy
-operator|=
 name|qba
+operator|=
+name|copy
 expr_stmt|;
 name|qba
 operator|.

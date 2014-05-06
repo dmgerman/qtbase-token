@@ -17892,7 +17892,7 @@ name|QPoint
 argument_list|(
 literal|10
 argument_list|,
-literal|150
+literal|300
 argument_list|)
 operator|<<
 literal|0
@@ -17952,7 +17952,7 @@ argument_list|()
 operator|*
 literal|2
 argument_list|,
-literal|200
+literal|300
 argument_list|)
 argument_list|,
 name|qMax
@@ -17964,7 +17964,7 @@ argument_list|()
 operator|*
 literal|2
 argument_list|,
-literal|200
+literal|350
 argument_list|)
 argument_list|)
 expr_stmt|;

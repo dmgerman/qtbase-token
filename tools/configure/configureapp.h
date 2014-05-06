@@ -232,11 +232,6 @@ name|qpaPlatformName
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QString
-name|qpaPrintSupportPluginName
-argument_list|()
-specifier|const
-expr_stmt|;
 name|private
 label|:
 name|bool

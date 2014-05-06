@@ -785,7 +785,7 @@ name|format
 init|=
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_RGBA
@@ -1299,7 +1299,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_RGBA
@@ -1378,7 +1378,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|?
 name|GL_RGBA
