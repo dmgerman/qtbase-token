@@ -240,6 +240,17 @@ operator|-
 literal|1
 condition|)
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QQNXBUTTON_DEBUG
+argument_list|)
 name|qWarning
 argument_list|(
 literal|"QQNX: failed to open buttons pps, errno=%d"
@@ -247,6 +258,8 @@ argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return;
 block|}
 name|m_readNotifier
