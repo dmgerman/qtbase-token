@@ -101,6 +101,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool documentMode READ documentMode WRITE setDocumentMode
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool autoHide READ autoHide WRITE setAutoHide
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -491,6 +495,17 @@ name|void
 name|setDocumentMode
 argument_list|(
 argument|bool set
+argument_list|)
+block|;
+name|bool
+name|autoHide
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setAutoHide
+argument_list|(
+argument|bool hide
 argument_list|)
 block|;
 name|public

@@ -98,6 +98,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool movable READ isMovable WRITE setMovable
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool tabBarAutoHide READ tabBarAutoHide WRITE setTabBarAutoHide
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -437,6 +441,17 @@ name|void
 name|setDocumentMode
 argument_list|(
 argument|bool set
+argument_list|)
+block|;
+name|bool
+name|tabBarAutoHide
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setTabBarAutoHide
+argument_list|(
+argument|bool enabled
 argument_list|)
 block|;
 name|void

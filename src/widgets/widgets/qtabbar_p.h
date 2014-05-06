@@ -188,6 +188,11 @@ argument_list|(
 name|false
 argument_list|)
 block|,
+name|autoHide
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|movingTab
 argument_list|(
 literal|0
@@ -810,6 +815,12 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|autoHideTabs
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|makeVisible
 parameter_list|(
 name|int
@@ -884,6 +895,11 @@ end_decl_stmt
 begin_decl_stmt
 name|bool
 name|documentMode
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|autoHide
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
