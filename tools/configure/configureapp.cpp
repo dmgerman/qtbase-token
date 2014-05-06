@@ -27179,6 +27179,10 @@ literal|"EXTRA_CXXFLAGS = -DUNICODE -ffunction-sections"
 operator|<<
 name|endl
 operator|<<
+literal|"EXTRA_LFLAGS = -Wl,--gc-sections"
+operator|<<
+name|endl
+operator|<<
 literal|"QTOBJS = qfilesystemengine_win.o \\"
 operator|<<
 name|endl
