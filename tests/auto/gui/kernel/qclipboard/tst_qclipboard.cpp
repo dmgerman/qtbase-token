@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -408,6 +408,95 @@ block|}
 block|}
 end_function
 begin_comment
+comment|// A predicate to be used with a QSignalSpy / QTRY_VERIFY to ensure all delayed
+end_comment
+begin_comment
+comment|// notifications are eaten. It waits at least one cycle and returns true when
+end_comment
+begin_comment
+comment|// no new signals arrive.
+end_comment
+begin_class
+DECL|class|EatSignalSpyNotificationsPredicate
+class|class
+name|EatSignalSpyNotificationsPredicate
+block|{
+public|public:
+DECL|function|EatSignalSpyNotificationsPredicate
+specifier|explicit
+name|EatSignalSpyNotificationsPredicate
+parameter_list|(
+name|QSignalSpy
+modifier|&
+name|spy
+parameter_list|)
+member_init_list|:
+name|m_spy
+argument_list|(
+name|spy
+argument_list|)
+block|{
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+DECL|function|operator bool
+name|operator
+name|bool
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+name|m_timer
+operator|.
+name|elapsed
+argument_list|()
+operator|&&
+operator|!
+name|m_spy
+operator|.
+name|count
+argument_list|()
+condition|)
+return|return
+literal|true
+return|;
+name|m_spy
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+DECL|function|reset
+specifier|inline
+name|void
+name|reset
+parameter_list|()
+block|{
+name|m_timer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+private|private:
+DECL|member|m_spy
+name|QSignalSpy
+modifier|&
+name|m_spy
+decl_stmt|;
+DECL|member|m_timer
+name|QElapsedTimer
+name|m_timer
+decl_stmt|;
+block|}
+class|;
+end_class
+begin_comment
 comment|/*     Test that the appropriate signals are emitted when the clipboard     contents is changed by calling the qt functions. */
 end_comment
 begin_function
@@ -479,6 +568,28 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// Clipboard notifications are asynchronous with the new AddClipboardFormatListener
+comment|// in Windows Vista (5.4). Eat away all signals to ensure they don't interfere
+comment|// with the QTRY_COMPARE below.
+name|EatSignalSpyNotificationsPredicate
+name|noLeftOverDataChanges
+argument_list|(
+name|dataChangedSpy
+argument_list|)
+decl_stmt|;
+name|EatSignalSpyNotificationsPredicate
+name|noLeftOverChanges
+argument_list|(
+name|changedSpy
+argument_list|)
+decl_stmt|;
+name|QTRY_VERIFY
+argument_list|(
+name|noLeftOverChanges
+operator|&&
+name|noLeftOverDataChanges
+argument_list|)
+expr_stmt|;
 name|QSignalSpy
 name|searchChangedSpy
 argument_list|(
@@ -517,7 +628,7 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|dataChangedSpy
 operator|.
@@ -1489,6 +1600,20 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// Clipboard notifications are asynchronous with the new AddClipboardFormatListener
+comment|// in Windows Vista (5.4). Eat away all signals to ensure they don't interfere
+comment|// with the QTRY_COMPARE below.
+name|EatSignalSpyNotificationsPredicate
+name|noLeftOverDataChanges
+argument_list|(
+name|spyData
+argument_list|)
+decl_stmt|;
+name|QTRY_VERIFY
+argument_list|(
+name|noLeftOverDataChanges
+argument_list|)
+expr_stmt|;
 name|QSignalSpy
 name|spyFindBuffer
 argument_list|(
@@ -1603,7 +1728,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|spyData
 operator|.
@@ -1687,10 +1812,15 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|spyData
+name|noLeftOverDataChanges
 operator|.
-name|clear
+name|reset
 argument_list|()
+expr_stmt|;
+name|QTRY_VERIFY
+argument_list|(
+name|noLeftOverDataChanges
+argument_list|)
 expr_stmt|;
 name|spyFindBuffer
 operator|.
@@ -1802,7 +1932,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|spyData
 operator|.

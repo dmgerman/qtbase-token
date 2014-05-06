@@ -317,6 +317,30 @@ name|SetProcessDPIAware
 function_decl|)
 parameter_list|()
 function_decl|;
+DECL|typedef|AddClipboardFormatListener
+typedef|typedef
+name|BOOL
+function_decl|(
+name|WINAPI
+modifier|*
+name|AddClipboardFormatListener
+function_decl|)
+parameter_list|(
+name|HWND
+parameter_list|)
+function_decl|;
+DECL|typedef|RemoveClipboardFormatListener
+typedef|typedef
+name|BOOL
+function_decl|(
+name|WINAPI
+modifier|*
+name|RemoveClipboardFormatListener
+function_decl|)
+parameter_list|(
+name|HWND
+parameter_list|)
+function_decl|;
 comment|// Functions missing in Q_CC_GNU stub libraries.
 DECL|member|setLayeredWindowAttributes
 name|SetLayeredWindowAttributes
@@ -356,6 +380,15 @@ comment|// Windows Vista onwards
 DECL|member|setProcessDPIAware
 name|SetProcessDPIAware
 name|setProcessDPIAware
+decl_stmt|;
+comment|// Clipboard listeners, Windows Vista onwards
+DECL|member|addClipboardFormatListener
+name|AddClipboardFormatListener
+name|addClipboardFormatListener
+decl_stmt|;
+DECL|member|removeClipboardFormatListener
+name|RemoveClipboardFormatListener
+name|removeClipboardFormatListener
 decl_stmt|;
 block|}
 struct|;

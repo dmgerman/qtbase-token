@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -488,6 +488,11 @@ name|m_nextClipboardViewer
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_formatListenerRegistered
+argument_list|(
+literal|false
+argument_list|)
 block|{
 name|QWindowsClipboard
 operator|::
@@ -603,6 +608,49 @@ argument_list|,
 name|WS_OVERLAPPED
 argument_list|)
 expr_stmt|;
+comment|// Try format listener API (Vista onwards) first.
+if|if
+condition|(
+name|QWindowsContext
+operator|::
+name|user32dll
+operator|.
+name|addClipboardFormatListener
+operator|&&
+name|QWindowsContext
+operator|::
+name|user32dll
+operator|.
+name|removeClipboardFormatListener
+condition|)
+block|{
+name|m_formatListenerRegistered
+operator|=
+name|QWindowsContext
+operator|::
+name|user32dll
+operator|.
+name|addClipboardFormatListener
+argument_list|(
+name|m_clipboardViewer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_formatListenerRegistered
+condition|)
+name|qErrnoWarning
+argument_list|(
+literal|"AddClipboardFormatListener() failed."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|m_formatListenerRegistered
+condition|)
 name|m_nextClipboardViewer
 operator|=
 name|SetClipboardViewer
@@ -617,11 +665,15 @@ argument_list|)
 operator|<<
 name|__FUNCTION__
 operator|<<
-literal|"m_clipboardViewer: "
+literal|"m_clipboardViewer:"
 operator|<<
 name|m_clipboardViewer
 operator|<<
-literal|"next: "
+literal|"format listener:"
+operator|<<
+name|m_formatListenerRegistered
+operator|<<
+literal|"next:"
 operator|<<
 name|m_nextClipboardViewer
 expr_stmt|;
@@ -640,6 +692,27 @@ condition|(
 name|m_clipboardViewer
 condition|)
 block|{
+if|if
+condition|(
+name|m_formatListenerRegistered
+condition|)
+block|{
+name|QWindowsContext
+operator|::
+name|user32dll
+operator|.
+name|removeClipboardFormatListener
+argument_list|(
+name|m_clipboardViewer
+argument_list|)
+expr_stmt|;
+name|m_formatListenerRegistered
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ChangeClipboardChain
 argument_list|(
 name|m_clipboardViewer
@@ -647,6 +720,11 @@ argument_list|,
 name|m_nextClipboardViewer
 argument_list|)
 expr_stmt|;
+name|m_nextClipboardViewer
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|DestroyWindow
 argument_list|(
 name|m_clipboardViewer
@@ -654,13 +732,17 @@ argument_list|)
 expr_stmt|;
 name|m_clipboardViewer
 operator|=
-name|m_nextClipboardViewer
-operator|=
 literal|0
 expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// ### FIXME: Qt 6: Remove the clipboard chain handling code and make the
+end_comment
+begin_comment
+comment|// format listener the default.
+end_comment
 begin_function
 DECL|function|isProcessBeingDebugged
 specifier|static
@@ -853,6 +935,13 @@ modifier|*
 name|result
 parameter_list|)
 block|{
+enum|enum
+block|{
+name|wMClipboardUpdate
+init|=
+literal|0x031D
+block|}
+enum|;
 operator|*
 name|result
 operator|=
@@ -932,9 +1021,14 @@ return|return
 literal|true
 return|;
 case|case
+name|wMClipboardUpdate
+case|:
+comment|// Clipboard Format listener (Vista onwards)
+case|case
 name|WM_DRAWCLIPBOARD
 case|:
 block|{
+comment|// Clipboard Viewer Chain handling (up to XP)
 specifier|const
 name|bool
 name|owned
@@ -969,6 +1063,11 @@ condition|)
 name|releaseIData
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_formatListenerRegistered
+condition|)
 name|propagateClipboardMessage
 argument_list|(
 name|message
