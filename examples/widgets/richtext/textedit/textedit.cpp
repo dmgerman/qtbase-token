@@ -188,6 +188,16 @@ argument_list|(
 name|parent
 argument_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+name|setUnifiedTitleAndToolBarOnMac
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|setToolButtonStyle
 argument_list|(
 name|Qt

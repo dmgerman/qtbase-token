@@ -1049,6 +1049,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+name|setUnifiedTitleAndToolBarOnMac
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Set up connections
 name|connect
 argument_list|(
