@@ -2466,6 +2466,10 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|TcpSocket
+operator|&&
+name|d
+operator|->
+name|tcp
 condition|)
 name|d
 operator|->
@@ -2490,6 +2494,10 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|UdpSocket
+operator|&&
+name|d
+operator|->
+name|udp
 condition|)
 name|d
 operator|->
