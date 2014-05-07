@@ -724,7 +724,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|{ \     jclass clazz = env->GetObjectClass(OBJECT); \     jmethodID method = env->GetMethodID(clazz, METHOD_NAME, METHOD_SIGNATURE); \     if (!method) { \         __android_log_print(ANDROID_LOG_WARN, m_qtTag, m_methodErrorMsg, METHOD_NAME, METHOD_SIGNATURE); \         return; \     } \     env->CallVoidMethod(OBJECT, method, __VA_ARGS__); \ }
+value|{ \     jclass clazz = env->GetObjectClass(OBJECT); \     jmethodID method = env->GetMethodID(clazz, METHOD_NAME, METHOD_SIGNATURE); \     if (!method) { \         __android_log_print(ANDROID_LOG_WARN, m_qtTag, m_methodErrorMsg, METHOD_NAME, METHOD_SIGNATURE); \         return false; \     } \     env->CallVoidMethod(OBJECT, method, __VA_ARGS__); \ }
 DECL|function|descriptionForAccessibleObject
 specifier|static
 name|jstring
@@ -824,7 +824,7 @@ return|;
 block|}
 DECL|function|populateNode
 specifier|static
-name|void
+name|bool
 name|populateNode
 parameter_list|(
 name|JNIEnv
@@ -871,7 +871,9 @@ argument_list|,
 literal|"Accessibility: populateNode for Invalid ID"
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|QAccessible
 operator|::
@@ -1150,6 +1152,9 @@ literal|"(Ljava/lang/CharSequence;)V"
 argument_list|,
 argument|jdesc
 argument_list|)
+return|return
+literal|true
+return|;
 block|}
 DECL|member|methods
 specifier|static
@@ -1230,7 +1235,7 @@ block|,
 block|{
 literal|"populateNode"
 block|,
-literal|"(ILandroid/view/accessibility/AccessibilityNodeInfo;)V"
+literal|"(ILandroid/view/accessibility/AccessibilityNodeInfo;)Z"
 block|,
 operator|(
 name|void
