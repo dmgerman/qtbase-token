@@ -8242,6 +8242,23 @@ name|f
 return|;
 block|}
 end_function
+begin_comment
+comment|/**  * Some font engines like the windows font engine  * can not reliable create outline paths  */
+end_comment
+begin_function
+DECL|function|hasUnreliableGlyphOutline
+name|bool
+name|QFontEngine
+operator|::
+name|hasUnreliableGlyphOutline
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
 begin_function
 DECL|function|lastRightBearing
 name|QFixed

@@ -8882,6 +8882,8 @@ block|{
 name|QString
 name|fn
 init|=
+name|fileFixify
+argument_list|(
 name|files
 index|[
 name|file
@@ -8889,6 +8891,13 @@ index|]
 operator|.
 name|toQString
 argument_list|()
+argument_list|,
+name|Option
+operator|::
+name|output_dir
+argument_list|,
+name|input_dir
+argument_list|)
 decl_stmt|;
 name|QString
 name|file_ref_key

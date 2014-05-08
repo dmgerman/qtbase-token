@@ -224,6 +224,15 @@ empty_stmt|;
 name|private
 label|:
 name|void
+name|applicationStateChanged
+argument_list|(
+name|Qt
+operator|::
+name|ApplicationState
+name|state
+argument_list|)
+decl_stmt|;
+name|void
 name|applyGeometry
 parameter_list|(
 specifier|const

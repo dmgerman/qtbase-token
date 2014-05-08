@@ -77,6 +77,11 @@ name|m_alpha
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|m_devicePixelRatio
+argument_list|(
+literal|1.0
+argument_list|)
 ifdef|#
 directive|ifdef
 name|QT_BLITTER_RASTEROVERLAY
@@ -400,7 +405,8 @@ operator|::
 name|PdmDevicePixelRatio
 case|:
 return|return
-literal|1
+name|devicePixelRatio
+argument_list|()
 return|;
 default|default:
 name|qWarning
@@ -709,6 +715,13 @@ operator|=
 name|image
 operator|.
 name|hasAlphaChannel
+argument_list|()
+expr_stmt|;
+name|m_devicePixelRatio
+operator|=
+name|image
+operator|.
+name|devicePixelRatio
 argument_list|()
 expr_stmt|;
 name|resize

@@ -12164,8 +12164,9 @@ name|line_length
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|line_length
+operator|<=
+literal|0
 condition|)
 return|return;
 name|int

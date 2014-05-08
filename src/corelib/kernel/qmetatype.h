@@ -3608,6 +3608,7 @@ name|flags
 decl_stmt|;
 name|private
 label|:
+comment|// copy constructor allowed to be implicit to silence level 4 warning from MSVC
 name|VariantData
 modifier|&
 name|operator

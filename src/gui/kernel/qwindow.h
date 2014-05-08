@@ -1259,6 +1259,10 @@ name|WindowState
 name|windowState
 argument_list|)
 decl_stmt|;
+name|Q_REVISION
+argument_list|(
+literal|2
+argument_list|)
 name|void
 name|windowTitleChanged
 parameter_list|(

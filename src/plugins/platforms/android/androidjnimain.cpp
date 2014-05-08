@@ -3732,14 +3732,6 @@ name|env
 argument_list|)
 operator|||
 operator|!
-name|QtAndroidAccessibility
-operator|::
-name|registerNatives
-argument_list|(
-name|env
-argument_list|)
-operator|||
-operator|!
 name|QtAndroidDialogHelpers
 operator|::
 name|registerNatives

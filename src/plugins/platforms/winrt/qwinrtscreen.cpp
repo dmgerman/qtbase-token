@@ -2469,6 +2469,11 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|setOrientationUpdateMask
+argument_list|(
+name|m_nativeOrientation
+argument_list|)
+expr_stmt|;
 name|m_displayProperties
 operator|->
 name|add_OrientationChanged

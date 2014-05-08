@@ -97,9 +97,19 @@ name|public
 operator|:
 name|QKmsScreen
 argument_list|(
-argument|QKmsDevice *device
+name|QKmsDevice
+operator|*
+name|device
 argument_list|,
-argument|int connectorId
+specifier|const
+name|drmModeRes
+operator|*
+name|resources
+argument_list|,
+specifier|const
+name|drmModeConnector
+operator|*
+name|connector
 argument_list|)
 block|;
 operator|~
@@ -198,7 +208,17 @@ argument_list|()
 block|;
 name|void
 name|initializeScreenMode
-argument_list|()
+argument_list|(
+specifier|const
+name|drmModeRes
+operator|*
+name|resources
+argument_list|,
+specifier|const
+name|drmModeConnector
+operator|*
+name|connector
+argument_list|)
 block|;
 name|QKmsDevice
 operator|*
