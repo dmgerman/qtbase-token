@@ -5128,7 +5128,7 @@ index|[
 literal|0
 index|]
 operator|=
-literal|0x80
+literal|0x80u
 expr_stmt|;
 comment|// leftmost bit == 1 -> is a control frame
 name|header
@@ -5503,7 +5503,7 @@ index|[
 literal|0
 index|]
 operator|=
-literal|0x80
+literal|0x80u
 expr_stmt|;
 comment|// == prio 4
 break|break;
@@ -5517,7 +5517,7 @@ index|[
 literal|0
 index|]
 operator|=
-literal|0xe0
+literal|0xe0u
 expr_stmt|;
 comment|// == prio 7 (lowest)
 break|break;
