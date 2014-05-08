@@ -186,7 +186,7 @@ return|;
 block|}
 name|ComPtr
 argument_list|<
-name|IDXGIDevice
+name|IDXGIDevice1
 argument_list|>
 name|dxgiDevice
 decl_stmt|;
@@ -227,6 +227,14 @@ return|return
 literal|false
 return|;
 block|}
+comment|// Ensure that DXGI doesn't queue more than one frame at a time.
+name|dxgiDevice
+operator|->
+name|SetMaximumFrameLatency
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|hr
 operator|=
 name|dxgiDevice
