@@ -999,7 +999,6 @@ literal|"(Z)V"
 argument_list|,
 argument|!state.disabled
 argument_list|)
-comment|//CALL_METHOD(node, "setFocusable", "(Z)V", state.focusable)
 name|CALL_METHOD
 argument_list|(
 argument|node
@@ -1008,9 +1007,18 @@ literal|"setFocusable"
 argument_list|,
 literal|"(Z)V"
 argument_list|,
-literal|true
+argument|(bool)state.focusable
 argument_list|)
-comment|//CALL_METHOD(node, "setFocused", "(Z)V", state.focused)
+name|CALL_METHOD
+argument_list|(
+argument|node
+argument_list|,
+literal|"setFocused"
+argument_list|,
+literal|"(Z)V"
+argument_list|,
+argument|(bool)state.focused
+argument_list|)
 name|CALL_METHOD
 argument_list|(
 argument|node
@@ -1019,7 +1027,7 @@ literal|"setCheckable"
 argument_list|,
 literal|"(Z)V"
 argument_list|,
-argument|state.checkable
+argument|(bool)state.checkable
 argument_list|)
 name|CALL_METHOD
 argument_list|(
@@ -1029,7 +1037,7 @@ literal|"setChecked"
 argument_list|,
 literal|"(Z)V"
 argument_list|,
-argument|state.checked
+argument|(bool)state.checked
 argument_list|)
 name|CALL_METHOD
 argument_list|(
@@ -1101,7 +1109,7 @@ literal|"setClickable"
 argument_list|,
 literal|"(Z)V"
 argument_list|,
-argument|clickable
+argument|(bool)clickable
 argument_list|)
 name|CALL_METHOD
 argument_list|(
