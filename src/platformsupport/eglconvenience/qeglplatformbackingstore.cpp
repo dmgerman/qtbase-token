@@ -169,14 +169,13 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-comment|// QOpenGLTextureBlitter requires GL_REPEAT for the time being
 name|glTexParameterf
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
-name|GL_REPEAT
+name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
 name|glTexParameterf
@@ -185,7 +184,7 @@ name|GL_TEXTURE_2D
 argument_list|,
 name|GL_TEXTURE_WRAP_T
 argument_list|,
-name|GL_REPEAT
+name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
 name|glTexImage2D
