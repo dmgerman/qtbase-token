@@ -459,12 +459,6 @@ operator|*
 name|before
 argument_list|)
 block|;
-name|void
-name|setUnifiedTitleAndToolBarOnMac
-argument_list|(
-argument|bool set
-argument_list|)
-block|;
 name|bool
 name|unifiedTitleAndToolBarOnMac
 argument_list|()
@@ -598,12 +592,12 @@ argument_list|()
 block|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_DOCKWIDGET
 name|public
 name|Q_SLOTS
 operator|:
+ifndef|#
+directive|ifndef
+name|QT_NO_DOCKWIDGET
 name|void
 name|setAnimated
 argument_list|(
@@ -614,6 +608,17 @@ name|void
 name|setDockNestingEnabled
 argument_list|(
 argument|bool enabled
+argument_list|)
+block|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_TOOLBAR
+name|void
+name|setUnifiedTitleAndToolBarOnMac
+argument_list|(
+argument|bool set
 argument_list|)
 block|;
 endif|#
