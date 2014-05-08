@@ -137,7 +137,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
 name|directories
 operator|->
 name|contains
@@ -145,6 +144,7 @@ argument_list|(
 name|path
 argument_list|)
 condition|)
+continue|continue;
 name|directories
 operator|->
 name|append
@@ -193,7 +193,6 @@ else|else
 block|{
 if|if
 condition|(
-operator|!
 name|files
 operator|->
 name|contains
@@ -201,6 +200,7 @@ argument_list|(
 name|path
 argument_list|)
 condition|)
+continue|continue;
 name|files
 operator|->
 name|append

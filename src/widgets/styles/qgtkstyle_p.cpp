@@ -5471,6 +5471,9 @@ name|icon
 decl_stmt|;
 if|if
 condition|(
+name|isThemeAvailable
+argument_list|()
+operator|&&
 name|gnome_vfs_init
 operator|&&
 name|gnome_icon_lookup_sync

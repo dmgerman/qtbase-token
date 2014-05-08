@@ -196,11 +196,10 @@ block|}
 block|;
 name|Q_DECLARE_FLAGS
 argument_list|(
-name|Flags
+argument|Flags
 argument_list|,
-name|Flag
+argument|Flag
 argument_list|)
-block|;
 name|Flags
 name|m_flags
 block|; }

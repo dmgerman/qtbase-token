@@ -336,7 +336,7 @@ begin_comment
 comment|/*!     \fn Qt::CaseSensitivity QCollator::caseSensitivity() const      Returns case sensitivity of the collator.      \sa setCaseSensitivity()  */
 end_comment
 begin_comment
-comment|/*!     \fn void QCollator::setNumericMode(bool on)      Enables numeric sorting mode when \a on is set to true.      This will enable proper sorting of numeric digits, so that e.g. 100 sorts after 99.      By default this mode is off.      \sa numericMode()  */
+comment|/*!     \fn void QCollator::setNumericMode(bool on)      Enables numeric sorting mode when \a on is set to true.      This will enable proper sorting of numeric digits, so that e.g. 100 sorts after 99.      By default this mode is off.      \note On Windows, this functionality makes use of the \l{ICU} library. If Qt was     compiled without ICU support, it falls back to code using native Windows API,     which only works from Windows 7 onwards. On older versions of Windows, it will not work     and a warning will be emitted at runtime.      \sa numericMode()  */
 end_comment
 begin_comment
 comment|/*!     \fn bool QCollator::numericMode() const      Returns \c true if numeric sorting is enabled, false otherwise.      \sa setNumericMode()  */

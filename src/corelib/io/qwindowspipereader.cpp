@@ -1049,6 +1049,11 @@ argument_list|()
 expr_stmt|;
 forever|forever
 block|{
+name|waitForReadyRead
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|checkPipeState
 argument_list|()
 expr_stmt|;

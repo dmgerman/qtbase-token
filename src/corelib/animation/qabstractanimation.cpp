@@ -273,12 +273,17 @@ name|QUnifiedTimer
 operator|::
 name|maybeUpdateAnimationsToCurrentTime
 argument_list|()
-argument_list|{     if
-operator|(
-name|time
-operator|.
+argument_list|{
+name|qint64
+name|elapsed
+operator|=
+name|driver
+operator|->
 name|elapsed
 argument_list|()
+argument_list|;     if
+operator|(
+name|elapsed
 operator|-
 name|lastTick
 operator|>
@@ -286,10 +291,7 @@ literal|50
 operator|)
 name|updateAnimationTimers
 argument_list|(
-name|driver
-operator|->
 name|elapsed
-argument_list|()
 argument_list|)
 argument_list|; }
 DECL|function|updateAnimationTimers
@@ -319,8 +321,8 @@ literal|0
 condition|?
 name|currentTick
 else|:
-name|time
-operator|.
+name|driver
+operator|->
 name|elapsed
 argument_list|()
 decl_stmt|;

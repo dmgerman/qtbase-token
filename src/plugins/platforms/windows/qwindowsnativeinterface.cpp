@@ -523,7 +523,7 @@ argument_list|()
 operator|!=
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 block|{
 name|QWindowsEGLContext
@@ -607,7 +607,7 @@ argument_list|()
 operator|==
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 block|{
 name|QWindowsGLContext

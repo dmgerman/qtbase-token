@@ -7423,7 +7423,7 @@ name|name
 operator|==
 name|QLatin1String
 argument_list|(
-literal|"http://trolltech.com/xml/features/report-start-end-entity"
+literal|"http://qt-project.org/xml/features/report-start-end-entity"
 argument_list|)
 condition|)
 block|{

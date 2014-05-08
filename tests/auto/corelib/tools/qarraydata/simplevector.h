@@ -318,6 +318,14 @@ name|d
 return|;
 block|}
 end_decl_stmt
+begin_if
+if|#
+directive|if
+name|QT_SUPPORTS
+argument_list|(
+name|UNSHARABLE_CONTAINERS
+argument_list|)
+end_if
 begin_expr_stmt
 DECL|function|isSharable
 name|bool
@@ -353,6 +361,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 DECL|function|size
 name|size_t

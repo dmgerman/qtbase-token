@@ -4764,7 +4764,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 name|QVERIFY
@@ -10358,7 +10358,7 @@ argument_list|()
 operator|!=
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|?
 name|GL_RGBA
 else|:
@@ -10911,7 +10911,7 @@ name|QT_OPENGL_ES_2
 argument|GL_RGBA
 else|#
 directive|else
-argument|QOpenGLContext::openGLModuleType() != QOpenGLContext::DesktopGL ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::openGLModuleType() != QOpenGLContext::LibGL ? GL_RGBA : GL_RGBA8
 endif|#
 directive|endif
 argument_list|)
@@ -10964,7 +10964,7 @@ name|QT_OPENGL_ES_2
 argument|GL_RGBA
 else|#
 directive|else
-argument|QOpenGLContext::openGLModuleType() != QOpenGLContext::DesktopGL ? GL_RGBA : GL_RGBA8
+argument|QOpenGLContext::openGLModuleType() != QOpenGLContext::LibGL ? GL_RGBA : GL_RGBA8
 endif|#
 directive|endif
 argument_list|)
@@ -15448,7 +15448,7 @@ argument_list|(
 operator|!
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 operator|||
 name|allFeatures
@@ -15486,7 +15486,7 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{

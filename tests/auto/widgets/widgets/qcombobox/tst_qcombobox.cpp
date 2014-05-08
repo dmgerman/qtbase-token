@@ -13682,7 +13682,7 @@ expr_stmt|;
 comment|//puts the combo to the top-right corner
 name|topLevel
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 comment|//wait because the window manager can move the window if there is a right panel
@@ -14805,7 +14805,7 @@ argument_list|)
 expr_stmt|;
 name|box
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 comment|//wait needed in order to get the combo initial size
@@ -14855,7 +14855,7 @@ argument_list|)
 expr_stmt|;
 name|correctBox
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -14999,7 +14999,7 @@ argument_list|)
 expr_stmt|;
 name|comboBox
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -15055,9 +15055,14 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
 name|QT_BUILD_INTERNAL
+operator|&&
+operator|!
+name|defined
+name|Q_OS_BLACKBERRY
 name|QFrame
 modifier|*
 name|container
@@ -17297,7 +17302,7 @@ argument_list|)
 expr_stmt|;
 name|combo
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|centerCursor
@@ -17431,9 +17436,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// When calling cursor function, Windows CE responds with: This function is not supported on this system.
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
 name|Q_OS_WINCE
+operator|&&
+operator|!
+name|defined
+name|Q_OS_QNX
 comment|// Force cursor movement to prevent QCursor::setPos() from returning prematurely on QPA:
 name|centerCursor
 argument_list|(

@@ -216,7 +216,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|// returns 0 (matched as position 0)
+comment|// returns 0 (matched at position 0)
 end_comment
 begin_comment
 comment|//! [4]

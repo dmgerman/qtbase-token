@@ -7061,6 +7061,17 @@ argument_list|(
 name|readBufferMaxSize
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x0090806fL
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_TLSEXT
+argument_list|)
 if|if
 condition|(
 name|q_SSL_ctrl
@@ -7082,6 +7093,8 @@ name|peerSessionShared
 operator|=
 literal|true
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|QT_DECRYPT_SSL_TRAFFIC

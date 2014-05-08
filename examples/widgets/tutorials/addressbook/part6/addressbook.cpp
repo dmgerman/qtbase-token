@@ -268,6 +268,9 @@ name|dialog
 operator|=
 operator|new
 name|FindDialog
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|connect
 argument_list|(

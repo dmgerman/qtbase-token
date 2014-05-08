@@ -581,7 +581,7 @@ name|ApFlags
 argument_list|,
 name|ApFlag
 argument_list|)
-block|;      enum
+expr|enum
 name|ApSecurityFlag
 block|{
 name|ApSecurityNone
@@ -631,11 +631,10 @@ block|}
 block|;
 name|Q_DECLARE_FLAGS
 argument_list|(
-name|ApSecurityFlags
+argument|ApSecurityFlags
 argument_list|,
-name|ApSecurityFlag
+argument|ApSecurityFlag
 argument_list|)
-block|;
 name|explicit
 name|QNetworkManagerInterfaceAccessPoint
 argument_list|(

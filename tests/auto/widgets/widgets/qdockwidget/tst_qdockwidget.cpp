@@ -5849,6 +5849,17 @@ operator|::
 name|task248604_infiniteResize
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+name|Q_OS_BLACKBERRY
+name|QSKIP
+argument_list|(
+literal|"Top level window is stretched to fullscreen"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QDockWidget
 name|d
 decl_stmt|;
@@ -5900,7 +5911,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTest

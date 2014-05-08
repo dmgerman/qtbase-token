@@ -125,6 +125,10 @@ argument|const QPlatformMenuItem *item
 argument_list|)
 block|;
 name|void
+name|dismiss
+argument_list|()
+block|;
+name|void
 name|syncSeparatorsCollapsible
 argument_list|(
 argument|bool enable

@@ -83,6 +83,14 @@ name|NSObject
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+DECL|variable|NSView
+name|QT_FORWARD_DECLARE_OBJC_CLASS
+argument_list|(
+name|NSView
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QCocoaMenu
@@ -215,6 +223,12 @@ argument_list|(
 argument|bool isEnabled
 argument_list|)
 block|;
+name|void
+name|setNativeContents
+argument_list|(
+argument|WId item
+argument_list|)
+block|;
 specifier|inline
 name|QString
 name|text
@@ -308,6 +322,10 @@ block|;
 name|NSMenuItem
 operator|*
 name|m_native
+block|;
+name|NSView
+operator|*
+name|m_itemView
 block|;
 name|QString
 name|m_text

@@ -128,29 +128,33 @@ operator|.
 name|samples
 argument_list|()
 decl_stmt|;
-comment|// We want to make sure 16-bit configs are chosen over 32-bit configs as they will provide
-comment|// the best performance. The EGL config selection algorithm is a bit stange in this regard:
-comment|// The selection criteria for EGL_BUFFER_SIZE is "AtLeast", so we can't use it to discard
-comment|// 32-bit configs completely from the selection. So it then comes to the sorting algorithm.
-comment|// The red/green/blue sizes have a sort priority of 3, so they are sorted by first. The sort
-comment|// order is special and described as "by larger _total_ number of color bits.". So EGL will
-comment|// put 32-bit configs in the list before the 16-bit configs. However, the spec also goes on
-comment|// to say "If the requested number of bits in attrib_list for a particular component is 0,
-comment|// then the number of bits for that component is not considered". This part of the spec also
-comment|// seems to imply that setting the red/green/blue bits to zero means none of the components
-comment|// are considered and EGL disregards the entire sorting rule. It then looks to the next
-comment|// highest priority rule, which is EGL_BUFFER_SIZE. Despite the selection criteria being
-comment|// "AtLeast" for EGL_BUFFER_SIZE, it's sort order is "smaller" meaning 16-bit configs are
-comment|// put in the list before 32-bit configs. So, to make sure 16-bit is preffered over 32-bit,
-comment|// we must set the red/green/blue sizes to zero. This has an unfortunate consequence that
-comment|// if the application sets the red/green/blue size to 5/6/5 on the QSurfaceFormat,
-comment|// they might still get a 32-bit config, even when there's an RGB565 config available.
 name|QVector
 argument_list|<
 name|EGLint
 argument_list|>
 name|configAttributes
 decl_stmt|;
+comment|// Map default, unspecified values (-1) to 0. This is important due to sorting rule #3
+comment|// in section 3.4.1 of the spec and allows picking a potentially faster 16-bit config
+comment|// over 32-bit ones when there is no explicit request for the color channel sizes:
+comment|//
+comment|// The red/green/blue sizes have a sort priority of 3, so they are sorted by
+comment|// first. (unless a caveat like SLOW or NON_CONFORMANT is present) The sort order is
+comment|// Special and described as "by larger _total_ number of color bits.". So EGL will put
+comment|// 32-bit configs in the list before the 16-bit configs. However, the spec also goes
+comment|// on to say "If the requested number of bits in attrib_list for a particular
+comment|// component is 0, then the number of bits for that component is not considered". This
+comment|// part of the spec also seems to imply that setting the red/green/blue bits to zero
+comment|// means none of the components are considered and EGL disregards the entire sorting
+comment|// rule. It then looks to the next highest priority rule, which is
+comment|// EGL_BUFFER_SIZE. Despite the selection criteria being "AtLeast" for
+comment|// EGL_BUFFER_SIZE, it's sort order is "smaller" meaning 16-bit configs are put in the
+comment|// list before 32-bit configs.
+comment|//
+comment|// This also means that explicitly specifying a size like 565 will still result in
+comment|// having larger (888) configs first in the returned list. We need to handle this
+comment|// ourselves later by manually filtering the list, instead of just blindly taking the
+comment|// first config from it.
 name|configAttributes
 operator|.
 name|append
@@ -940,7 +944,7 @@ argument_list|()
 operator|==
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 condition|)
 name|configureAttributes
 operator|.
@@ -1227,6 +1231,13 @@ operator|.
 name|first
 argument_list|()
 expr_stmt|;
+comment|// Filter the list. Due to the EGL sorting rules configs with higher depth are
+comment|// placed first when the minimum color channel sizes have been specified (i.e. the
+comment|// QSurfaceFormat contains color sizes> 0). To prevent returning a 888 config
+comment|// when the QSurfaceFormat explicitly asked for 565, go through the returned
+comment|// configs and look for one that exactly matches the requested sizes. When no
+comment|// sizes have been given, take the first, which will be a config with the smaller
+comment|// (e.g. 16-bit) depth.
 for|for
 control|(
 name|int
@@ -1301,6 +1312,8 @@ name|config
 parameter_list|)
 specifier|const
 block|{
+comment|// If we are fine with the highest depth (e.g. RGB888 configs) even when something
+comment|// smaller (565) was explicitly requested, do nothing.
 if|if
 condition|(
 name|m_ignore
@@ -1328,6 +1341,7 @@ name|alpha
 init|=
 literal|0
 decl_stmt|;
+comment|// Compare only if a size was given. Otherwise just accept.
 if|if
 condition|(
 name|m_confAttrRed
@@ -1705,7 +1719,7 @@ argument_list|()
 operator|==
 name|QOpenGLContext
 operator|::
-name|DesktopGL
+name|LibGL
 endif|#
 directive|endif
 operator|&&

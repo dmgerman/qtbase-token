@@ -1716,6 +1716,13 @@ name|combinedTransform
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|m_picengine
+operator|->
+name|syncState
+argument_list|()
+expr_stmt|;
 operator|*
 name|d
 operator|->
@@ -1734,13 +1741,6 @@ name|d_func
 argument_list|()
 operator|->
 name|state
-expr_stmt|;
-name|d
-operator|->
-name|m_picengine
-operator|->
-name|syncState
-argument_list|()
 expr_stmt|;
 block|}
 block|}

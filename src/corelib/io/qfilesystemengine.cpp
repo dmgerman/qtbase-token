@@ -910,7 +910,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_QNX
+name|QT_EXT_QNX_READDIR_R
 argument_list|)
 end_if
 begin_function
@@ -1279,7 +1279,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_QNX
+name|QT_EXT_QNX_READDIR_R
 argument_list|)
 name|knownFlagsMask
 operator|=

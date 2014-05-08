@@ -520,7 +520,7 @@ operator|->
 name|contextHandle
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 name|shader
@@ -1291,7 +1291,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -1336,7 +1336,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -1823,7 +1823,7 @@ condition|(
 operator|!
 name|context
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 block|{
@@ -3164,7 +3164,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 operator|&&
 name|d
@@ -10002,7 +10002,7 @@ operator|::
 name|currentContext
 argument_list|()
 operator|->
-name|isES
+name|isOpenGLES
 argument_list|()
 condition|)
 name|d
