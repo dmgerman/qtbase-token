@@ -196,11 +196,7 @@ name|cleanUp
 parameter_list|()
 function_decl|;
 name|void
-name|platformCleanUp
-parameter_list|()
-function_decl|;
-name|void
-name|platformLoadFromData
+name|loadFromData
 argument_list|(
 specifier|const
 name|QByteArray
