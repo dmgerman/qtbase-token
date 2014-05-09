@@ -1347,11 +1347,11 @@ ifdef|#
 directive|ifdef
 name|QNATIVESOCKETENGINE_DEBUG
 name|qDebug
-argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeConnect() : %lli"
-argument_list|,
+argument_list|()
+operator|<<
+literal|"QNativeSocketEnginePrivate::nativeConnect() "
+operator|<<
 name|socketDescriptor
-argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
