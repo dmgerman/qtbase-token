@@ -109,6 +109,14 @@ argument_list|(
 argument|bool deep = true
 argument_list|)
 expr_stmt|;
+name|bool
+name|fromEVP_PKEY
+parameter_list|(
+name|EVP_PKEY
+modifier|*
+name|pkey
+parameter_list|)
+function_decl|;
 name|void
 name|decodePem
 parameter_list|(

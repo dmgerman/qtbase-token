@@ -485,6 +485,23 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
+argument|DSA *
+argument_list|,
+argument|DSA_new
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
 argument|void
 argument_list|,
 argument|DSA_free
@@ -1272,6 +1289,23 @@ argument|DUMMYARG
 argument_list|,
 argument|return -
 literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|RSA *
+argument_list|,
+argument|RSA_new
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
 argument_list|,
 argument|return
 argument_list|)
@@ -3972,6 +4006,82 @@ argument_list|,
 argument|DUMMYARG
 argument_list|)
 end_macro
+begin_macro
+name|DEFINEFUNC5
+argument_list|(
+argument|int
+argument_list|,
+argument|PKCS12_parse
+argument_list|,
+argument|PKCS12 *p12
+argument_list|,
+argument|p12
+argument_list|,
+argument|const char *pass
+argument_list|,
+argument|pass
+argument_list|,
+argument|EVP_PKEY **pkey
+argument_list|,
+argument|pkey
+argument_list|, \
+argument|X509 **cert
+argument_list|,
+argument|cert
+argument_list|,
+argument|STACK_OF(X509) **ca
+argument_list|,
+argument|ca
+argument_list|,
+argument|return
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|PKCS12 *
+argument_list|,
+argument|d2i_PKCS12_bio
+argument_list|,
+argument|BIO *bio
+argument_list|,
+argument|bio
+argument_list|,
+argument|PKCS12 **pkcs12
+argument_list|,
+argument|pkcs12
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|PKCS12_free
+argument_list|,
+argument|PKCS12 *pkcs12
+argument_list|,
+argument|pkcs12
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
 begin_define
 DECL|macro|RESOLVEFUNC
 define|#
@@ -3996,6 +4106,7 @@ directive|ifdef
 name|QT_NO_LIBRARY
 end_ifdef
 begin_function
+DECL|function|q_resolveOpenSslSymbols
 name|bool
 name|q_resolveOpenSslSymbols
 parameter_list|()
@@ -5501,6 +5612,10 @@ argument|CRYPTO_set_locking_callback
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
+argument|DSA_new
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
 argument|DSA_free
 argument_list|)
 name|RESOLVEFUNC
@@ -5622,6 +5737,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|RAND_status
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|RSA_new
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
@@ -6146,6 +6265,18 @@ name|RESOLVEFUNC
 argument_list|(
 argument|EC_KEY_free
 argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|PKCS12_parse
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|d2i_PKCS12_bio
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|PKCS12_free
+argument_list|)
 name|symbolsResolved
 operator|=
 literal|true
@@ -6217,6 +6348,7 @@ begin_comment
 comment|//==============================================================================
 end_comment
 begin_function
+DECL|function|q_getTimeFromASN1
 name|QDateTime
 name|q_getTimeFromASN1
 parameter_list|(

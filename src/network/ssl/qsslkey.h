@@ -264,6 +264,10 @@ name|friend
 name|class
 name|QSslCertificate
 decl_stmt|;
+name|friend
+name|class
+name|QSslSocketBackendPrivate
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
