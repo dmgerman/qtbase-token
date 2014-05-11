@@ -281,6 +281,10 @@ block|,
 name|AnchoredMatchOption
 init|=
 literal|0x0001
+block|,
+name|DontCheckSubjectStringMatchOption
+init|=
+literal|0x0002
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
