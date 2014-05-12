@@ -3101,6 +3101,15 @@ name|hintingPreference
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|==
+literal|0
+condition|)
+return|return
+literal|0
+return|;
 name|QFontDef
 name|fontDef
 init|=
