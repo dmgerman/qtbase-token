@@ -3596,7 +3596,7 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// see qwidget_qpa.cpp ::paintEngine()
+comment|// see qwidget.cpp ::paintEngine()
 end_comment
 begin_endif
 endif|#
