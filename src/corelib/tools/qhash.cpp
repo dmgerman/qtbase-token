@@ -322,6 +322,8 @@ operator|*
 argument_list|>
 argument_list|(
 name|p
+operator|-
+literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
