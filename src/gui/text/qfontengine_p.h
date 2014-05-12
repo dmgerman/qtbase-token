@@ -2036,6 +2036,114 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
+name|QFontEngineMultiBasicImpl
+range|:
+name|public
+name|QFontEngineMulti
+block|{
+name|public
+operator|:
+name|QFontEngineMultiBasicImpl
+argument_list|(
+argument|QFontEngine *fe
+argument_list|,
+argument|int script
+argument_list|,
+argument|const QStringList&fallbacks
+argument_list|)
+block|;
+name|QFontEngineMultiBasicImpl
+argument_list|(
+argument|QFontEngine *fe
+argument_list|,
+argument|int script
+argument_list|)
+block|;
+name|void
+name|loadEngine
+argument_list|(
+argument|int at
+argument_list|)
+block|;
+specifier|static
+name|QFontEngine
+operator|*
+name|createMultiFontEngine
+argument_list|(
+argument|QFontEngine *fe
+argument_list|,
+argument|int script
+argument_list|)
+block|;
+name|int
+name|fallbackFamilyCount
+argument_list|()
+specifier|const
+block|{
+return|return
+name|fallbackFamilies
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+name|QString
+name|fallbackFamilyAt
+argument_list|(
+argument|int at
+argument_list|)
+specifier|const
+block|{
+return|return
+name|fallbackFamilies
+operator|.
+name|at
+argument_list|(
+name|at
+argument_list|)
+return|;
+block|}
+name|virtual
+name|void
+name|ensureFallbackFamiliesQueried
+argument_list|()
+block|;
+name|virtual
+name|void
+name|setFallbackFamiliesList
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|fallbacks
+argument_list|)
+block|;
+name|private
+operator|:
+name|void
+name|init
+argument_list|(
+name|QFontEngine
+operator|*
+name|fe
+argument_list|)
+block|;
+name|mutable
+name|QStringList
+name|fallbackFamilies
+block|;
+name|int
+name|script
+block|;
+name|mutable
+name|bool
+name|fallbacksQueried
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
 name|QTestFontEngine
 range|:
 name|public

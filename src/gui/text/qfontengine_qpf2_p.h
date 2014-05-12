@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QFONTENGINE_QPA_P_H
+name|QFONTENGINE_QPF2_P_H
 end_ifndef
 begin_define
-DECL|macro|QFONTENGINE_QPA_P_H
+DECL|macro|QFONTENGINE_QPF2_P_H
 define|#
 directive|define
-name|QFONTENGINE_QPA_P_H
+name|QFONTENGINE_QPF2_P_H
 end_define
 begin_comment
 comment|//
@@ -95,7 +95,7 @@ end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
-name|QFontEngineQPA
+name|QFontEngineQPF2
 range|:
 name|public
 name|QFontEngine
@@ -285,7 +285,7 @@ name|qint8
 name|advance
 block|;     }
 block|;
-name|QFontEngineQPA
+name|QFontEngineQPF2
 argument_list|(
 specifier|const
 name|QFontDef
@@ -299,7 +299,7 @@ name|data
 argument_list|)
 block|;
 operator|~
-name|QFontEngineQPA
+name|QFontEngineQPF2
 argument_list|()
 block|;
 name|FaceId
@@ -526,12 +526,12 @@ block|; }
 decl_stmt|;
 end_decl_stmt
 begin_struct
-DECL|struct|QPAGenerator
+DECL|struct|QPF2Generator
 struct|struct
-name|QPAGenerator
+name|QPF2Generator
 block|{
-DECL|function|QPAGenerator
-name|QPAGenerator
+DECL|function|QPF2Generator
+name|QPF2Generator
 argument_list|(
 name|QBuffer
 operator|*
@@ -567,7 +567,7 @@ function_decl|;
 name|void
 name|writeBlock
 argument_list|(
-name|QFontEngineQPA
+name|QFontEngineQPF2
 operator|::
 name|BlockTag
 name|tag
@@ -581,7 +581,7 @@ decl_stmt|;
 name|void
 name|writeTaggedString
 argument_list|(
-name|QFontEngineQPA
+name|QFontEngineQPF2
 operator|::
 name|HeaderTag
 name|tag
@@ -595,7 +595,7 @@ decl_stmt|;
 name|void
 name|writeTaggedUInt32
 argument_list|(
-name|QFontEngineQPA
+name|QFontEngineQPF2
 operator|::
 name|HeaderTag
 name|tag
@@ -607,7 +607,7 @@ decl_stmt|;
 name|void
 name|writeTaggedUInt8
 argument_list|(
-name|QFontEngineQPA
+name|QFontEngineQPF2
 operator|::
 name|HeaderTag
 name|tag
@@ -619,7 +619,7 @@ decl_stmt|;
 name|void
 name|writeTaggedQFixed
 argument_list|(
-name|QFontEngineQPA
+name|QFontEngineQPF2
 operator|::
 name|HeaderTag
 name|tag
@@ -787,114 +787,6 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
-begin_decl_stmt
-name|class
-name|Q_GUI_EXPORT
-name|QFontEngineMultiQPA
-range|:
-name|public
-name|QFontEngineMulti
-block|{
-name|public
-operator|:
-name|QFontEngineMultiQPA
-argument_list|(
-argument|QFontEngine *fe
-argument_list|,
-argument|int script
-argument_list|,
-argument|const QStringList&fallbacks
-argument_list|)
-block|;
-name|QFontEngineMultiQPA
-argument_list|(
-argument|QFontEngine *fe
-argument_list|,
-argument|int script
-argument_list|)
-block|;
-name|void
-name|loadEngine
-argument_list|(
-argument|int at
-argument_list|)
-block|;
-specifier|static
-name|QFontEngine
-operator|*
-name|createMultiFontEngine
-argument_list|(
-argument|QFontEngine *fe
-argument_list|,
-argument|int script
-argument_list|)
-block|;
-name|int
-name|fallbackFamilyCount
-argument_list|()
-specifier|const
-block|{
-return|return
-name|fallbackFamilies
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
-name|QString
-name|fallbackFamilyAt
-argument_list|(
-argument|int at
-argument_list|)
-specifier|const
-block|{
-return|return
-name|fallbackFamilies
-operator|.
-name|at
-argument_list|(
-name|at
-argument_list|)
-return|;
-block|}
-name|virtual
-name|void
-name|ensureFallbackFamiliesQueried
-argument_list|()
-block|;
-name|virtual
-name|void
-name|setFallbackFamiliesList
-argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|fallbacks
-argument_list|)
-block|;
-name|private
-operator|:
-name|void
-name|init
-argument_list|(
-name|QFontEngine
-operator|*
-name|fe
-argument_list|)
-block|;
-name|mutable
-name|QStringList
-name|fallbackFamilies
-block|;
-name|int
-name|script
-block|;
-name|mutable
-name|bool
-name|fallbacksQueried
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
@@ -903,6 +795,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QFONTENGINE_QPA_P_H
+comment|// QFONTENGINE_QPF2_P_H
 end_comment
 end_unit

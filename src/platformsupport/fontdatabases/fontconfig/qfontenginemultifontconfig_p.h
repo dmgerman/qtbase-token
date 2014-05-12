@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qfontengine_qpa_p.h>
+file|<QtGui/private/qfontengine_p.h>
 end_include
 begin_include
 include|#
@@ -29,7 +29,7 @@ name|class
 name|QFontEngineMultiFontConfig
 range|:
 name|public
-name|QFontEngineMultiQPA
+name|QFontEngineMultiBasicImpl
 block|{
 name|public
 operator|:

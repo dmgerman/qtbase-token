@@ -5073,7 +5073,7 @@ name|script
 argument_list|)
 return|;
 comment|// ### as long as fallbacksForFamily() does not take script parameter into account,
-comment|// prefer QFontEngineMultiQPA's loadEngine() implementation for complex scripts
+comment|// prefer QFontEngineMultiBasicImpl's loadEngine() implementation for complex scripts
 return|return
 name|QPlatformFontDatabase
 operator|::

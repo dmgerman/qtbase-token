@@ -7527,7 +7527,7 @@ name|int
 name|script
 parameter_list|)
 member_init_list|:
-name|QFontEngineMultiQPA
+name|QFontEngineMultiBasicImpl
 argument_list|(
 name|fe
 argument_list|,

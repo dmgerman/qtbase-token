@@ -952,7 +952,7 @@ name|QMacPrintEnginePrivate
 decl_stmt|;
 name|friend
 name|class
-name|QFontEngineQPA
+name|QFontEngineQPF2
 decl_stmt|;
 name|friend
 name|class

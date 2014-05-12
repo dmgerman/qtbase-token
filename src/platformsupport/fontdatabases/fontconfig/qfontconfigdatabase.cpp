@@ -50,11 +50,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qfontengine_qpa_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include
