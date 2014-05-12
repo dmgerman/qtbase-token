@@ -235,7 +235,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/* Test if the maximum/minimum size constraints  * are propagated from the wid  src/widgets/kernel/qwidgetwindow_qpa_p.h get to the QWidgetWindow  * independently of whether they were set before or after  * window creation (QTBUG-26745). */
+comment|/* Test if the maximum/minimum size constraints  * are propagated from the widget to the QWidgetWindow  * independently of whether they were set before or after  * window creation (QTBUG-26745). */
 end_comment
 begin_function
 DECL|function|tst_min_max_size_data

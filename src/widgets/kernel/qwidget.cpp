@@ -153,7 +153,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qwidgetwindow_qpa_p.h"
+file|"private/qwidgetwindow_p.h"
 end_include
 begin_include
 include|#
