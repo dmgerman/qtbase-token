@@ -35,13 +35,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QDESKTOPWIDGET_QPA_P_H
+name|QDESKTOPWIDGET_P_H
 end_ifndef
 begin_define
-DECL|macro|QDESKTOPWIDGET_QPA_P_H
+DECL|macro|QDESKTOPWIDGET_P_H
 define|#
 directive|define
-name|QDESKTOPWIDGET_QPA_P_H
+name|QDESKTOPWIDGET_P_H
 end_define
 begin_include
 include|#
