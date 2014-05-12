@@ -27171,11 +27171,11 @@ literal|"QMAKESPEC = $(SOURCE_PATH)\\mkspecs\\win32-g++"
 operator|<<
 name|endl
 operator|<<
-literal|"EXTRA_CFLAGS = -DUNICODE"
+literal|"EXTRA_CFLAGS = -DUNICODE -ffunction-sections"
 operator|<<
 name|endl
 operator|<<
-literal|"EXTRA_CXXFLAGS = -DUNICODE"
+literal|"EXTRA_CXXFLAGS = -DUNICODE -ffunction-sections"
 operator|<<
 name|endl
 operator|<<
