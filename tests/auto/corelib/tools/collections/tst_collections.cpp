@@ -8478,9 +8478,6 @@ operator|==
 name|helloWorld
 argument_list|)
 expr_stmt|;
-name|QByteArray
-name|l
-decl_stmt|;
 name|QVERIFY
 argument_list|(
 literal|'h'
@@ -13805,9 +13802,6 @@ operator|==
 name|helloWorld
 argument_list|)
 expr_stmt|;
-name|QString
-name|l
-decl_stmt|;
 name|QVERIFY
 argument_list|(
 literal|'h'
