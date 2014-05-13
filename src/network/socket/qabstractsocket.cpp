@@ -237,7 +237,12 @@ literal|0
 init|;
 name|i
 operator|<
+name|qMin
+argument_list|(
 name|len
+argument_list|,
+name|maxLength
+argument_list|)
 condition|;
 operator|++
 name|i

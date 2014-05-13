@@ -684,15 +684,6 @@ block|{
 name|LibGL
 block|,
 name|LibGLES
-block|,
-comment|// ###
-name|DesktopGL
-operator|=
-name|LibGL
-block|,
-name|GLES2
-operator|=
-name|LibGLES
 block|}
 block|;
 specifier|static
@@ -705,17 +696,6 @@ name|isOpenGLES
 argument_list|()
 specifier|const
 block|;
-name|bool
-name|isES
-argument_list|()
-specifier|const
-block|{
-return|return
-name|isOpenGLES
-argument_list|()
-return|;
-block|}
-comment|// ###
 name|Q_SIGNALS
 operator|:
 name|void

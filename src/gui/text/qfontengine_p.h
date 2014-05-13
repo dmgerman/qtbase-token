@@ -1126,6 +1126,12 @@ modifier|&
 name|fontFamily
 parameter_list|)
 function_decl|;
+name|virtual
+name|bool
+name|hasUnreliableGlyphOutline
+argument_list|()
+specifier|const
+expr_stmt|;
 enum|enum
 name|HintStyle
 block|{

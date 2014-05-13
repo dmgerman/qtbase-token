@@ -483,6 +483,12 @@ condition|(
 name|d
 operator|->
 name|uninitialized
+operator|||
+operator|!
+name|d
+operator|->
+name|surface
+argument_list|()
 condition|)
 return|return;
 name|makeCurrent

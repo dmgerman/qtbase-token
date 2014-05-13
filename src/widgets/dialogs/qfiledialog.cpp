@@ -8395,6 +8395,37 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_function
+DECL|function|dialogResultToUrl
+specifier|static
+specifier|inline
+name|QUrl
+name|dialogResultToUrl
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|file
+parameter_list|)
+block|{
+return|return
+name|file
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|QUrl
+argument_list|()
+else|:
+name|QUrl
+operator|::
+name|fromLocalFile
+argument_list|(
+name|file
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     This is a convenience static function that returns an existing file     selected by the user. If the user presses Cancel, it returns an     empty url.      The function is used similarly to QFileDialog::getOpenFileName(). In     particular \a parent, \a caption, \a dir, \a filter, \a selectedFilter     and \a options are used in the exact same way.      The main difference with QFileDialog::getOpenFileName() comes from     the ability offered to the user to select a remote file. That's why     the return type and the type of \a dir is QUrl.      The \a supportedSchemes argument allows to restrict the type of URLs the     user will be able to select. It is a way for the application to declare     the protocols it will support to fetch the file content. An empty list     means that no restriction is applied (the default).     Supported for local files ("file" scheme) is implicit and always enabled.     it is not necessary to include in the restriction.      When possible, this static function will use the native file dialog and     not a QFileDialog. On platforms which don't support selecting remote     files, Qt will allow to select only local files.      \sa getOpenFileName(), getOpenFileUrls(), getSaveFileUrl(), getExistingDirectoryUrl()     \since 5.2 */
 end_comment
@@ -8444,9 +8475,7 @@ argument_list|)
 expr_stmt|;
 comment|// Falls back to local file
 return|return
-name|QUrl
-operator|::
-name|fromLocalFile
+name|dialogResultToUrl
 argument_list|(
 name|getOpenFileName
 argument_list|(
@@ -9028,9 +9057,7 @@ argument_list|)
 expr_stmt|;
 comment|// Falls back to local file
 return|return
-name|QUrl
-operator|::
-name|fromLocalFile
+name|dialogResultToUrl
 argument_list|(
 name|getSaveFileName
 argument_list|(
@@ -9255,9 +9282,7 @@ argument_list|)
 expr_stmt|;
 comment|// Falls back to local file
 return|return
-name|QUrl
-operator|::
-name|fromLocalFile
+name|dialogResultToUrl
 argument_list|(
 name|getExistingDirectory
 argument_list|(

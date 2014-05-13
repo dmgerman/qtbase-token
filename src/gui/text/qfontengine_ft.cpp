@@ -2384,6 +2384,17 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_define
+DECL|macro|GLYPH2PATH_DEBUG
+define|#
+directive|define
+name|GLYPH2PATH_DEBUG
+value|QT_NO_QDEBUG_MACRO
+end_define
+begin_comment
+DECL|macro|GLYPH2PATH_DEBUG
+comment|// qDebug
+end_comment
 begin_function
 DECL|function|addGlyphToPath
 name|void
@@ -2477,11 +2488,20 @@ index|[
 name|j
 index|]
 decl_stmt|;
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"contour:"
+operator|<<
+name|i
+operator|<<
+literal|"to"
+operator|<<
+name|last_point
+expr_stmt|;
 name|QPointF
 name|start
 init|=
-name|cp
-operator|+
 name|QPointF
 argument_list|(
 name|g
@@ -2529,10 +2549,78 @@ literal|1
 operator|)
 condition|)
 block|{
+comment|// start point is not on curve:
+if|if
+condition|(
+operator|!
+operator|(
+name|g
+operator|->
+name|outline
+operator|.
+name|tags
+index|[
+name|last_point
+index|]
+operator|&
+literal|1
+operator|)
+condition|)
+block|{
+comment|// end point is not on curve:
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  start and end point are not on curve"
+expr_stmt|;
 name|start
-operator|+=
-name|cp
+operator|=
+operator|(
+name|QPointF
+argument_list|(
+name|g
+operator|->
+name|outline
+operator|.
+name|points
+index|[
+name|last_point
+index|]
+operator|.
+name|x
+operator|*
+name|factor
+argument_list|,
+operator|-
+name|g
+operator|->
+name|outline
+operator|.
+name|points
+index|[
+name|last_point
+index|]
+operator|.
+name|y
+operator|*
+name|factor
+argument_list|)
 operator|+
+name|start
+operator|)
+operator|/
+literal|2.0
+expr_stmt|;
+block|}
+else|else
+block|{
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  end point is on curve, start is not"
+expr_stmt|;
+name|start
+operator|=
 name|QPointF
 argument_list|(
 name|g
@@ -2563,13 +2651,23 @@ operator|*
 name|factor
 argument_list|)
 expr_stmt|;
-name|start
-operator|/=
-literal|2
-expr_stmt|;
 block|}
-comment|//         qDebug("contour: %d -- %d", i, g->outline.contours[j]);
-comment|//         qDebug("first point at %f %f", start.x(), start.y());
+operator|--
+name|i
+expr_stmt|;
+comment|// to use original start point as control point below
+block|}
+name|start
+operator|+=
+name|cp
+expr_stmt|;
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  start at"
+operator|<<
+name|start
+expr_stmt|;
 name|path
 operator|->
 name|moveTo
@@ -2642,7 +2740,50 @@ operator|*
 name|factor
 argument_list|)
 expr_stmt|;
-comment|//             qDebug()<< "    i="<< i<< " flag="<< (int)g->outline.tags[i]<< "point="<< c[n];
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"    "
+operator|<<
+name|i
+operator|<<
+name|c
+index|[
+name|n
+index|]
+operator|<<
+literal|"tag ="
+operator|<<
+operator|(
+name|int
+operator|)
+name|g
+operator|->
+name|outline
+operator|.
+name|tags
+index|[
+name|i
+index|]
+operator|<<
+literal|": on curve ="
+operator|<<
+call|(
+name|bool
+call|)
+argument_list|(
+name|g
+operator|->
+name|outline
+operator|.
+name|tags
+index|[
+name|i
+index|]
+operator|&
+literal|1
+argument_list|)
+expr_stmt|;
 operator|++
 name|n
 expr_stmt|;
@@ -2783,7 +2924,16 @@ operator|==
 literal|2
 condition|)
 block|{
-comment|//                     qDebug()<< "lineTo"<< c[1];
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  lineTo"
+operator|<<
+name|c
+index|[
+literal|1
+index|]
+expr_stmt|;
 name|path
 operator|->
 name|lineTo
@@ -2873,7 +3023,26 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-comment|//             qDebug()<< "cubicTo"<< c[1]<< c[2]<< c[3];
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  cubicTo"
+operator|<<
+name|c
+index|[
+literal|1
+index|]
+operator|<<
+name|c
+index|[
+literal|2
+index|]
+operator|<<
+name|c
+index|[
+literal|3
+index|]
+expr_stmt|;
 name|path
 operator|->
 name|cubicTo
@@ -2916,7 +3085,11 @@ operator|==
 literal|1
 condition|)
 block|{
-comment|//             qDebug()<< "closeSubpath";
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  closeSubpath"
+expr_stmt|;
 name|path
 operator|->
 name|closeSubpath
@@ -2982,7 +3155,26 @@ operator|/
 literal|3
 expr_stmt|;
 block|}
-comment|//             qDebug()<< "cubicTo"<< c[1]<< c[2]<< c[3];
+name|GLYPH2PATH_DEBUG
+argument_list|()
+operator|<<
+literal|"  close cubicTo"
+operator|<<
+name|c
+index|[
+literal|1
+index|]
+operator|<<
+name|c
+index|[
+literal|2
+index|]
+operator|<<
+name|c
+index|[
+literal|3
+index|]
+expr_stmt|;
 name|path
 operator|->
 name|cubicTo

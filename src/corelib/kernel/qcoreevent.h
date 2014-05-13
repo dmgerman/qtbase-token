@@ -1059,6 +1059,10 @@ name|friend
 name|class
 name|QGraphicsScenePrivate
 decl_stmt|;
+name|friend
+name|class
+name|QWidgetWindow
+decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
