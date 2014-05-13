@@ -2288,28 +2288,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// glTexSubImage2D() might cause some garbage to appear in the texture if the mask width is
-comment|// not a multiple of four bytes. The bug appeared on a computer with 32-bit Windows Vista
-comment|// and nVidia GeForce 8500GT. GL_UNPACK_ALIGNMENT is set to four bytes, 'mask' has a
-comment|// multiple of four bytes per line, and most of the glyph shows up correctly in the
-comment|// texture, which makes me think that this is a driver bug.
-comment|// One workaround is to make sure the mask width is a multiple of four bytes, for instance
-comment|// by converting it to a format with four bytes per pixel. Another is to copy one line at a
-comment|// time.
-if|#
-directive|if
-literal|0
-block|if (!ctx->d_func()->workaround_brokenAlphaTexSubImage_init) {
-comment|// don't know which driver versions exhibit this bug, so be conservative for now
-block|const QByteArray versionString(reinterpret_cast<const char*>(glGetString(GL_VERSION)));             glctx->d_func()->workaround_brokenAlphaTexSubImage = versionString.indexOf("NVIDIA")>= 0;             glctx->d_func()->workaround_brokenAlphaTexSubImage_init = true;         }
-endif|#
-directive|endif
-if|#
-directive|if
-literal|0
-block|if (ctx->d_func()->workaround_brokenAlphaTexSubImage) {             for (int i = 0; i< maskHeight; ++i)                 funcs->glTexSubImage2D(GL_TEXTURE_2D, 0, c.x, c.y + i, maskWidth, 1, GL_ALPHA, GL_UNSIGNED_BYTE, mask.scanLine(i));         } else {
-endif|#
-directive|endif
+comment|// The scanlines in mask are 32-bit aligned, even for mono or 8-bit formats. This
+comment|// is good because it matches the default of 4 bytes for GL_UNPACK_ALIGNMENT.
 if|#
 directive|if
 operator|!
@@ -2368,12 +2348,6 @@ name|bits
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|}
-endif|#
-directive|endif
 block|}
 block|}
 end_function

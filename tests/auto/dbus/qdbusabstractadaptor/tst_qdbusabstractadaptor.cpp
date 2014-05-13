@@ -1110,9 +1110,7 @@ block|}
 end_function
 begin_function
 DECL|function|slotSpyPeer
-specifier|const
-name|char
-modifier|*
+name|QString
 name|slotSpyPeer
 parameter_list|()
 block|{
@@ -1157,12 +1155,6 @@ literal|0
 argument_list|)
 operator|.
 name|toString
-argument_list|()
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|data
 argument_list|()
 return|;
 block|}
@@ -6206,7 +6198,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface2::method()"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6369,7 +6364,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface3::methodVoid()"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6400,7 +6398,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface3::methodInt(int)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6434,7 +6435,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface3::methodString(QString)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6471,7 +6475,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface4::method()"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// method overloading: different parameters
@@ -6503,7 +6510,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface4::method(int)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6535,7 +6545,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface4::method(QString)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -6611,7 +6624,10 @@ argument_list|(
 name|slotSpyPeer
 argument_list|()
 argument_list|,
+name|QStringLiteral
+argument_list|(
 literal|"void Interface2::scriptableMethod()"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

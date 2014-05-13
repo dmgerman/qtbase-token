@@ -1447,7 +1447,6 @@ specifier|const
 name|QWindowsDirect2DPaintEngine
 argument_list|)
 expr_stmt|;
-comment|// XXX are we choosing the right d2d interpolation modes?
 return|return
 operator|(
 name|q
@@ -1462,7 +1461,7 @@ operator|::
 name|SmoothPixmapTransform
 operator|)
 condition|?
-name|D2D1_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC
+name|D2D1_INTERPOLATION_MODE_LINEAR
 else|:
 name|D2D1_INTERPOLATION_MODE_NEAREST_NEIGHBOR
 return|;

@@ -223,10 +223,15 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qWarning
+name|qNavigatorEventNotifierDebug
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|": failed to open navigator pps:"
+operator|<<
+name|strerror
 argument_list|(
-literal|"QQNX: failed to open navigator pps, errno=%d"
-argument_list|,
 name|errno
 argument_list|)
 expr_stmt|;

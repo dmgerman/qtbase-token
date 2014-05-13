@@ -13892,7 +13892,6 @@ name|edge
 operator|=
 name|pos
 expr_stmt|;
-break|break;
 block|}
 name|pos
 operator|-=

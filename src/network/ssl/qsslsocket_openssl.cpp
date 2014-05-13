@@ -8009,14 +8009,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_if
-begin_decl_stmt
-name|QList
-argument_list|<
-name|QSslCertificate
-argument_list|>
-name|expiredCerts
-decl_stmt|;
-end_decl_stmt
 begin_foreach
 foreach|foreach
 control|(
@@ -8031,31 +8023,30 @@ name|defaultCaCertificates
 argument_list|()
 control|)
 block|{
-comment|// add expired certs later, so that the
-comment|// valid ones are used before the expired ones
+comment|// From https://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html:
+comment|//
+comment|// If several CA certificates matching the name, key identifier, and
+comment|// serial number condition are available, only the first one will be
+comment|// examined. This may lead to unexpected results if the same CA
+comment|// certificate is available with different expiration dates. If a
+comment|// ``certificate expired'' verification error occurs, no other
+comment|// certificate will be searched. Make sure to not have expired
+comment|// certificates mixed with valid ones.
+comment|//
+comment|// See also: QSslContext::fromConfiguration()
 if|if
 condition|(
 name|caCertificate
 operator|.
 name|expiryDate
 argument_list|()
-operator|<
+operator|>=
 name|QDateTime
 operator|::
 name|currentDateTime
 argument_list|()
 condition|)
 block|{
-name|expiredCerts
-operator|.
-name|append
-argument_list|(
-name|caCertificate
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|q_X509_STORE_add_cert
 argument_list|(
 name|certStore
@@ -8074,39 +8065,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_foreach
-begin_comment
-comment|// now add the expired certs
-end_comment
-begin_foreach
-foreach|foreach
-control|(
-specifier|const
-name|QSslCertificate
-modifier|&
-name|caCertificate
-decl|,
-name|expiredCerts
-control|)
-block|{
-name|q_X509_STORE_add_cert
-argument_list|(
-name|certStore
-argument_list|,
-cast|reinterpret_cast
-argument_list|<
-name|X509
-operator|*
-argument_list|>
-argument_list|(
-name|caCertificate
-operator|.
-name|handle
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 end_foreach
 begin_decl_stmt
