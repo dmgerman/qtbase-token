@@ -1644,7 +1644,7 @@ operator|==
 name|WM_MOUSEHWHEEL
 operator|||
 operator|(
-name|buttons
+name|mods
 operator|&
 name|Qt
 operator|::
