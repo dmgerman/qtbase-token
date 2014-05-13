@@ -23728,6 +23728,11 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// Win and Mac uses SecondOccurrence here
 name|QEXPECT_FAIL
 argument_list|(
@@ -23924,6 +23929,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
 argument_list|)
 comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
@@ -24430,9 +24441,19 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
@@ -24846,9 +24867,19 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
@@ -25262,9 +25293,19 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// Linux mktime bug uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
@@ -25866,9 +25907,17 @@ literal|28
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// Mac uses FirstOccurrence, Windows uses SecondOccurrence, Linux uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
@@ -25899,9 +25948,17 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 comment|// Mac uses FirstOccurrence, Windows uses SecondOccurrence, Linux uses last calculation
 name|QEXPECT_FAIL
 argument_list|(
