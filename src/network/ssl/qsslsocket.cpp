@@ -3705,7 +3705,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.6      This method tells QSslSocket to ignore only the errors given in \a     errors.      Note that you can set the expected certificate in the SSL error:     If, for instance, you want to connect to a server that uses     a self-signed certificate, consider the following snippet:      \snippet code/src_network_ssl_qsslsocket.cpp 6      Multiple calls to this function will replace the list of errors that     were passed in previous calls.     You can clear the list of errors you want to ignore by calling this     function with an empty list.      \sa sslErrors() */
+comment|/*!     \overload     \since 4.6      This method tells QSslSocket to ignore only the errors given in \a     errors.      \note Because most SSL errors are associated with a certificate, for most     of them you must set the expected certificate this SSL error is related to.     If, for instance, you want to connect to a server that uses     a self-signed certificate, consider the following snippet:      \snippet code/src_network_ssl_qsslsocket.cpp 6      Multiple calls to this function will replace the list of errors that     were passed in previous calls.     You can clear the list of errors you want to ignore by calling this     function with an empty list.      \sa sslErrors() */
 end_comment
 begin_function
 DECL|function|ignoreSslErrors
