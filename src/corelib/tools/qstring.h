@@ -3763,6 +3763,23 @@ decl|const
 name|Q_REQUIRED_RESULT
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QVector
+operator|<
+name|QStringRef
+operator|>
+name|splitRef
+argument_list|(
+argument|const QString&sep
+argument_list|,
+argument|SplitBehavior behavior = KeepEmptyParts
+argument_list|,
+argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+argument_list|)
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|QStringList
 name|split
@@ -3788,6 +3805,23 @@ decl|const
 name|Q_REQUIRED_RESULT
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QVector
+operator|<
+name|QStringRef
+operator|>
+name|splitRef
+argument_list|(
+argument|QChar sep
+argument_list|,
+argument|SplitBehavior behavior = KeepEmptyParts
+argument_list|,
+argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+argument_list|)
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
+end_expr_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3811,6 +3845,21 @@ decl|const
 name|Q_REQUIRED_RESULT
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QVector
+operator|<
+name|QStringRef
+operator|>
+name|splitRef
+argument_list|(
+argument|const QRegExp&sep
+argument_list|,
+argument|SplitBehavior behavior = KeepEmptyParts
+argument_list|)
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
@@ -3838,6 +3887,21 @@ decl|const
 name|Q_REQUIRED_RESULT
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QVector
+operator|<
+name|QStringRef
+operator|>
+name|splitRef
+argument_list|(
+argument|const QRegularExpression&sep
+argument_list|,
+argument|SplitBehavior behavior = KeepEmptyParts
+argument_list|)
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
