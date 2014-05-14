@@ -144,7 +144,7 @@ name|four
 argument_list|)
 block|{}
 public|public:
-comment|// 6.2.9200.16765 corresponds to Direct2D 1.1 on Windows 7 SP1 with Platform Update
+comment|// 6.2.9200.16492 corresponds to Direct2D 1.1 on Windows 7 SP1 with Platform Update
 enum|enum
 block|{
 DECL|enumerator|D2DMinVersionPart1
@@ -165,7 +165,7 @@ block|,
 DECL|enumerator|D2DMinVersionPart4
 name|D2DMinVersionPart4
 init|=
-literal|16765
+literal|16492
 block|}
 enum|;
 DECL|function|systemVersion
