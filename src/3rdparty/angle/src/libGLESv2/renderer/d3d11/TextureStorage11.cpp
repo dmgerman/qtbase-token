@@ -1165,6 +1165,14 @@ name|desc
 operator|.
 name|MipLevels
 operator|=
+name|mRenderer
+operator|->
+name|getFeatureLevel
+argument_list|()
+operator|>=
+name|D3D_FEATURE_LEVEL_10_0
+condition|?
+operator|(
 operator|(
 name|levels
 operator|>
@@ -1176,6 +1184,9 @@ operator|+
 name|mLodOffset
 else|:
 literal|0
+operator|)
+else|:
+literal|1
 expr_stmt|;
 name|desc
 operator|.

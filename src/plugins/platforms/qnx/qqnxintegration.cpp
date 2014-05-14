@@ -141,6 +141,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qqnxnavigatoreventnotifier.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxvirtualkeyboardpps.h"
 end_include
 begin_endif
@@ -159,11 +164,6 @@ begin_include
 include|#
 directive|include
 file|"qqnxbuttoneventnotifier.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qqnxnavigatoreventnotifier.h"
 end_include
 begin_include
 include|#
@@ -1031,6 +1031,12 @@ directive|endif
 comment|// Stop/destroy navigator event notifier
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|QQNX_PPS
