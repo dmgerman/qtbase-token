@@ -14115,6 +14115,36 @@ name|CaseSensitive
 argument_list|)
 decl|const
 decl_stmt|;
+name|QVector
+operator|<
+name|QStringRef
+operator|>
+name|split
+argument_list|(
+argument|const QString&sep
+argument_list|,
+argument|QString::SplitBehavior behavior = QString::KeepEmptyParts
+argument_list|,
+argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+argument_list|)
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
+name|QVector
+operator|<
+name|QStringRef
+operator|>
+name|split
+argument_list|(
+argument|QChar sep
+argument_list|,
+argument|QString::SplitBehavior behavior = QString::KeepEmptyParts
+argument_list|,
+argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+argument_list|)
+specifier|const
+name|Q_REQUIRED_RESULT
+expr_stmt|;
 name|QStringRef
 name|left
 argument_list|(
