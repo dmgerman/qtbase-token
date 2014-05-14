@@ -3583,7 +3583,7 @@ name|hs
 operator|<<
 literal|"        callWithArgumentList(QDBus::NoBlock, "
 operator|<<
-literal|"QLatin1String(\""
+literal|"QStringLiteral(\""
 operator|<<
 name|method
 operator|.
@@ -3596,7 +3596,7 @@ expr_stmt|;
 else|else
 name|hs
 operator|<<
-literal|"        return asyncCallWithArgumentList(QLatin1String(\""
+literal|"        return asyncCallWithArgumentList(QStringLiteral(\""
 operator|<<
 name|method
 operator|.
@@ -3782,7 +3782,7 @@ name|hs
 operator|<<
 literal|"        QDBusMessage reply = callWithArgumentList(QDBus::Block, "
 operator|<<
-literal|"QLatin1String(\""
+literal|"QStringLiteral(\""
 operator|<<
 name|method
 operator|.
