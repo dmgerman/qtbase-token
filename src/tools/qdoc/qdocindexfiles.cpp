@@ -3177,14 +3177,7 @@ expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
-literal|"DID NOT FIND GROUP:"
-operator|<<
-name|dn
-operator|->
-name|name
-argument_list|()
-operator|<<
-literal|"for:"
+literal|"DID NOT FIND GROUP for:"
 operator|<<
 name|node
 operator|->
