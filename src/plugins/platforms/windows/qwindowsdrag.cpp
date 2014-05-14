@@ -1913,14 +1913,6 @@ argument_list|(
 name|newPixmap
 argument_list|,
 name|newHotSpot
-operator|.
-name|x
-argument_list|()
-argument_list|,
-name|newHotSpot
-operator|.
-name|y
-argument_list|()
 argument_list|)
 condition|)
 block|{
