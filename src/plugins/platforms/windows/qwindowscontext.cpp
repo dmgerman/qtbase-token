@@ -3917,6 +3917,8 @@ name|DestroyEvent
 case|:
 if|if
 condition|(
+name|platformWindow
+operator|&&
 operator|!
 name|platformWindow
 operator|->
