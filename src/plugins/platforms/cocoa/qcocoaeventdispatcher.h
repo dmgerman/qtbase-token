@@ -252,13 +252,6 @@ name|void
 name|flush
 argument_list|()
 block|;
-name|bool
-name|event
-argument_list|(
-name|QEvent
-operator|*
-argument_list|)
-block|;
 name|friend
 name|void
 name|qt_mac_maybeCancelWaitForMoreEventsForwarder
@@ -343,6 +336,9 @@ name|cocoaModalSessionStack
 block|;
 name|bool
 name|currentExecIsNSAppRun
+block|;
+name|bool
+name|modalSessionOnNSAppRun
 block|;
 name|bool
 name|nsAppRunCalledByQt
