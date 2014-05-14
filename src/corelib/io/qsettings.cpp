@@ -9637,6 +9637,7 @@ name|dataLen
 operator|&&
 operator|(
 operator|(
+operator|(
 name|ch
 operator|=
 name|data
@@ -9645,6 +9646,7 @@ name|at
 argument_list|(
 name|i
 argument_list|)
+operator|)
 operator|!=
 literal|'\n'
 operator|)
