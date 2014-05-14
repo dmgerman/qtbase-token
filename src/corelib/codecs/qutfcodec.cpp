@@ -1118,19 +1118,28 @@ name|int
 name|len
 parameter_list|)
 block|{
+comment|// UTF-8 to UTF-16 always needs the exact same number of words or less:
+comment|//    UTF-8     UTF-16
+comment|//   1 byte     1 word
+comment|//   2 bytes    1 word
+comment|//   3 bytes    1 word
+comment|//   4 bytes    2 words (one surrogate pair)
+comment|// That is, we'll use the full buffer if the input is US-ASCII (1-byte UTF-8),
+comment|// half the buffer for U+0080-U+07FF text (e.g., Greek, Cyrillic, Arabic) or
+comment|// non-BMP text, and one third of the buffer for U+0800-U+FFFF text (e.g, CJK).
+comment|//
+comment|// The table holds for invalid sequences too: we'll insert one replacement char
+comment|// per invalid byte.
 name|QString
 name|result
 argument_list|(
 name|len
-operator|+
-literal|1
 argument_list|,
 name|Qt
 operator|::
 name|Uninitialized
 argument_list|)
 decl_stmt|;
-comment|// worst case
 name|ushort
 modifier|*
 name|dst
@@ -1422,6 +1431,16 @@ name|ch
 init|=
 literal|0
 decl_stmt|;
+comment|// See above for buffer requirements for stateless decoding. However, that
+comment|// fails if the state is not empty. The following situations can add to the
+comment|// requirements:
+comment|//  state contains      chars starts with           requirement
+comment|//   1 of 2 bytes       valid continuation          0
+comment|//   2 of 3 bytes       same                        0
+comment|//   3 bytes of 4       same                        +1 (need to insert surrogate pair)
+comment|//   1 of 2 bytes       invalid continuation        +1 (need to insert replacement and restart)
+comment|//   2 of 3 bytes       same                        +1 (same)
+comment|//   3 of 4 bytes       same                        +1 (same)
 name|QString
 name|result
 argument_list|(
@@ -1436,7 +1455,6 @@ operator|::
 name|Uninitialized
 argument_list|)
 decl_stmt|;
-comment|// worst case
 name|ushort
 modifier|*
 name|dst
@@ -1649,6 +1667,40 @@ name|res
 operator|==
 name|QUtf8BaseTraits
 operator|::
+name|Error
+operator|||
+operator|(
+name|res
+operator|==
+name|QUtf8BaseTraits
+operator|::
+name|EndOfString
+operator|&&
+name|len
+operator|==
+literal|0
+operator|)
+condition|)
+block|{
+comment|// special case for len == 0:
+comment|// if we were supplied an empty string, terminate the previous, unfinished sequence with error
+operator|++
+name|invalid
+expr_stmt|;
+operator|*
+name|dst
+operator|++
+operator|=
+name|replacement
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|res
+operator|==
+name|QUtf8BaseTraits
+operator|::
 name|EndOfString
 condition|)
 block|{
@@ -1687,26 +1739,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|res
-operator|==
-name|QUtf8BaseTraits
-operator|::
-name|Error
-condition|)
-block|{
-operator|++
-name|invalid
-expr_stmt|;
-operator|*
-name|dst
-operator|++
-operator|=
-name|replacement
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 operator|!
 name|headerdone
 operator|&&
@@ -1735,13 +1767,27 @@ name|dst
 expr_stmt|;
 block|}
 comment|// adjust src now that we have maybe consumed a few chars
-comment|//Q_ASSERT(res> remainingCharsCount)
+if|if
+condition|(
+name|res
+operator|>=
+literal|0
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|res
+operator|>
+name|remainingCharsCount
+argument_list|)
+expr_stmt|;
 name|src
 operator|+=
 name|res
 operator|-
 name|remainingCharsCount
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// main body, stateless decoding
