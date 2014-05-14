@@ -338,9 +338,6 @@ name|bool
 name|currentExecIsNSAppRun
 block|;
 name|bool
-name|modalSessionOnNSAppRun
-block|;
-name|bool
 name|nsAppRunCalledByQt
 block|;
 name|bool
