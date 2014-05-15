@@ -1937,14 +1937,6 @@ return|;
 block|}
 name|protected
 operator|:
-name|friend
-name|class
-name|QApplication
-block|;
-name|friend
-name|class
-name|QCoreApplication
-block|;
 name|QRect
 name|m_rect
 block|;
@@ -2017,10 +2009,6 @@ block|;
 name|friend
 name|class
 name|QApplication
-block|;
-name|friend
-name|class
-name|QCoreApplication
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2127,10 +2115,6 @@ block|;
 name|friend
 name|class
 name|QApplication
-block|;
-name|friend
-name|class
-name|QCoreApplication
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2956,10 +2940,6 @@ name|r
 block|; }
 name|protected
 operator|:
-name|friend
-name|class
-name|QApplication
-block|;
 name|QRect
 name|rect
 block|; }
