@@ -1041,10 +1041,6 @@ name|QShortcutMap
 decl_stmt|;
 name|friend
 name|class
-name|QETWidget
-decl_stmt|;
-name|friend
-name|class
 name|QGraphicsView
 decl_stmt|;
 name|friend

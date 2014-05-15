@@ -972,10 +972,6 @@ name|QWidgetWindow
 block|;
 name|friend
 name|class
-name|QETWidget
-block|;
-name|friend
-name|class
 name|QTranslator
 block|;
 name|friend

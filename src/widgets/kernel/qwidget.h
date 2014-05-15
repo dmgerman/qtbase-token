@@ -3598,10 +3598,6 @@ name|QFontInfo
 decl_stmt|;
 name|friend
 name|class
-name|QETWidget
-decl_stmt|;
-name|friend
-name|class
 name|QLayout
 decl_stmt|;
 name|friend

@@ -787,10 +787,6 @@ name|QGuiApplicationPrivate
 block|;
 name|friend
 name|class
-name|QETWidget
-block|;
-name|friend
-name|class
 name|QWidget
 block|;
 name|friend
