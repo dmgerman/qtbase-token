@@ -484,7 +484,7 @@ name|parentItem
 init|=
 name|childItem
 operator|->
-name|parent
+name|parentItem
 argument_list|()
 decl_stmt|;
 if|if

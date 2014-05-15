@@ -37,11 +37,11 @@ modifier|*
 name|parent
 parameter_list|)
 block|{
-name|parentItem
+name|m_parentItem
 operator|=
 name|parent
 expr_stmt|;
-name|itemData
+name|m_itemData
 operator|=
 name|data
 expr_stmt|;
@@ -63,7 +63,7 @@ parameter_list|()
 block|{
 name|qDeleteAll
 argument_list|(
-name|childItems
+name|m_childItems
 argument_list|)
 expr_stmt|;
 block|}
@@ -86,7 +86,7 @@ modifier|*
 name|item
 parameter_list|)
 block|{
-name|childItems
+name|m_childItems
 operator|.
 name|append
 argument_list|(
@@ -114,7 +114,7 @@ name|row
 parameter_list|)
 block|{
 return|return
-name|childItems
+name|m_childItems
 operator|.
 name|value
 argument_list|(
@@ -139,7 +139,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|childItems
+name|m_childItems
 operator|.
 name|count
 argument_list|()
@@ -162,7 +162,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|itemData
+name|m_itemData
 operator|.
 name|count
 argument_list|()
@@ -188,7 +188,7 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|itemData
+name|m_itemData
 operator|.
 name|value
 argument_list|(
@@ -204,16 +204,16 @@ begin_comment
 comment|//! [7]
 end_comment
 begin_function
-DECL|function|parent
+DECL|function|parentItem
 name|TreeItem
 modifier|*
 name|TreeItem
 operator|::
-name|parent
+name|parentItem
 parameter_list|()
 block|{
 return|return
-name|parentItem
+name|m_parentItem
 return|;
 block|}
 end_function
@@ -234,12 +234,12 @@ specifier|const
 block|{
 if|if
 condition|(
-name|parentItem
+name|m_parentItem
 condition|)
 return|return
-name|parentItem
+name|m_parentItem
 operator|->
-name|childItems
+name|m_childItems
 operator|.
 name|indexOf
 argument_list|(
