@@ -42,11 +42,6 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<wchar.h>
-end_include
 begin_decl_stmt
 DECL|variable|currentAppName
 specifier|static
@@ -1032,10 +1027,16 @@ argument_list|(
 name|actual
 argument_list|)
 expr_stmt|;
+specifier|const
+name|size_t
+name|maxMsgLen
+init|=
+literal|1024
+decl_stmt|;
 name|char
 name|msg
 index|[
-literal|1024
+name|maxMsgLen
 index|]
 decl_stmt|;
 if|if
@@ -1052,7 +1053,7 @@ name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|1024
+name|maxMsgLen
 argument_list|,
 literal|"QCOMPARE(%s, %s)"
 argument_list|,
@@ -1095,7 +1096,7 @@ name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|1024
+name|maxMsgLen
 argument_list|,
 literal|"QCOMPARE(%s, %s) returned TRUE unexpectedly."
 argument_list|,
@@ -1122,9 +1123,10 @@ name|NULL
 argument_list|,
 name|actual
 argument_list|,
-literal|0
+name|maxMsgLen
 argument_list|)
 decl_stmt|;
+comment|// Last parameter is not ignored on QNX
 name|size_t
 name|len2
 init|=
@@ -1134,14 +1136,15 @@ name|NULL
 argument_list|,
 name|expected
 argument_list|,
-literal|0
+name|maxMsgLen
 argument_list|)
 decl_stmt|;
+comment|// (result is never larger than this).
 name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|1024
+name|maxMsgLen
 argument_list|,
 literal|"%s\n   Actual   (%s)%*s %s\n   Expected (%s)%*s %s"
 argument_list|,
@@ -1196,7 +1199,7 @@ name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|1024
+name|maxMsgLen
 argument_list|,
 literal|"%s"
 argument_list|,
