@@ -15369,11 +15369,14 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
+name|QCoreApplicationPrivate
+operator|::
+name|setEventSpontaneous
+argument_list|(
 name|e
-operator|->
-name|spont
-operator|=
+argument_list|,
 literal|false
+argument_list|)
 expr_stmt|;
 return|return
 name|consumed

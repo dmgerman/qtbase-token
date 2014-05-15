@@ -195,6 +195,22 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+specifier|static
+specifier|inline
+name|void
+name|setEventSpontaneous
+argument_list|(
+argument|QEvent *e
+argument_list|,
+argument|bool spontaneous
+argument_list|)
+block|{
+name|e
+operator|->
+name|spont
+operator|=
+name|spontaneous
+block|; }
 name|virtual
 name|void
 name|createEventDispatcher
