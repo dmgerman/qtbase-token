@@ -5502,10 +5502,8 @@ argument_list|()
 condition|)
 name|ianaId
 operator|=
-name|QByteArrayLiteral
-argument_list|(
-literal|"UTC"
-argument_list|)
+name|utcQByteArray
+argument_list|()
 expr_stmt|;
 return|return
 name|ianaId

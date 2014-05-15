@@ -1179,10 +1179,10 @@ return|;
 block|}
 comment|// If we can't determine the current ID use UTC
 return|return
-name|QByteArrayLiteral
-argument_list|(
-literal|"UTC"
-argument_list|)
+name|QTimeZonePrivate
+operator|::
+name|utcQByteArray
+argument_list|()
 return|;
 block|}
 end_function
@@ -3222,10 +3222,8 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-name|QByteArrayLiteral
-argument_list|(
-literal|"UTC"
-argument_list|)
+name|utcQByteArray
+argument_list|()
 return|;
 block|}
 return|return
