@@ -35,9 +35,19 @@ name|type
 parameter_list|)
 specifier|const
 block|{
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|Q_OS_WINPHONE
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<=
+literal|1700
+operator|)
 if|if
 condition|(
 name|type
@@ -51,7 +61,7 @@ literal|true
 return|;
 endif|#
 directive|endif
-comment|// Q_OS_WINPHONE
+comment|// !(Q_OS_WINPHONE&& _MSC_VER<=1700)
 return|return
 literal|false
 return|;
@@ -72,9 +82,19 @@ name|type
 parameter_list|)
 specifier|const
 block|{
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+operator|(
+name|defined
+argument_list|(
 name|Q_OS_WINPHONE
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<=
+literal|1700
+operator|)
 switch|switch
 condition|(
 name|type
@@ -102,6 +122,7 @@ return|;
 block|}
 else|#
 directive|else
+comment|// !(Q_OS_WINPHONE&& _MSC_VER<=1700)
 return|return
 name|QPlatformTheme
 operator|::
@@ -112,7 +133,7 @@ argument_list|)
 return|;
 endif|#
 directive|endif
-comment|// Q_OS_WINPHONE
+comment|// Q_OS_WINPHONE&& _MSC_VER<=1700
 block|}
 end_function
 begin_macro
