@@ -1205,10 +1205,6 @@ operator|==
 name|Qt
 operator|::
 name|VisualMoveStyle
-condition|?
-literal|true
-else|:
-literal|false
 expr_stmt|;
 block|}
 end_function

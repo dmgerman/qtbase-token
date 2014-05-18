@@ -2852,7 +2852,6 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|visualMovement
 operator|||
 operator|(
@@ -2860,7 +2859,7 @@ name|block
 operator|.
 name|docHandle
 argument_list|()
-operator|?
+operator|&&
 name|block
 operator|.
 name|docHandle
@@ -2871,9 +2870,6 @@ operator|==
 name|Qt
 operator|::
 name|VisualMoveStyle
-operator|:
-name|false
-operator|)
 operator|)
 return|;
 block|}
