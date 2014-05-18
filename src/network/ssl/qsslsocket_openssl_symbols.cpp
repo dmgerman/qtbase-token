@@ -1552,6 +1552,27 @@ argument|return
 argument_list|)
 end_macro
 begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|SSL_CIPHER_get_bits
+argument_list|,
+argument|SSL_CIPHER *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
 argument|int
@@ -5616,6 +5637,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|SSL_CIPHER_description
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_CIPHER_get_bits
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
