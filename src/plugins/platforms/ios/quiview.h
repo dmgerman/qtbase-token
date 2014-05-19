@@ -62,6 +62,10 @@ name|m_markedText
 block|;
 name|BOOL
 name|m_inSendEventToFocusObject
+block|;
+name|NSMutableArray
+operator|*
+name|m_accessibleElements
 block|; }
 expr|@
 name|property

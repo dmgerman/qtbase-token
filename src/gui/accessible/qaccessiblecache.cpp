@@ -355,7 +355,7 @@ name|iface
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_MAC
 name|removeCocoaElement
 argument_list|(
 name|id

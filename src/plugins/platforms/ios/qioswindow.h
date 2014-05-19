@@ -221,6 +221,10 @@ argument_list|)
 return|;
 block|}
 empty_stmt|;
+name|void
+name|clearAccessibleCache
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|void

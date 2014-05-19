@@ -189,6 +189,13 @@ modifier|*
 name|touchDevice
 parameter_list|()
 function_decl|;
+name|QPlatformAccessibility
+operator|*
+name|accessibility
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|private
 label|:
 name|QPlatformFontDatabase
@@ -217,6 +224,11 @@ decl_stmt|;
 name|QIOSServices
 modifier|*
 name|m_platformServices
+decl_stmt|;
+name|mutable
+name|QPlatformAccessibility
+modifier|*
+name|m_accessibility
 decl_stmt|;
 block|}
 end_decl_stmt
