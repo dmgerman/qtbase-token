@@ -205,7 +205,7 @@ literal|0
 operator|&&
 name|i
 operator|<
-name|MAX_PATH
+name|bufSize
 condition|)
 block|{
 if|if
@@ -214,7 +214,7 @@ name|_tcscat_s
 argument_list|(
 name|filename
 argument_list|,
-name|MAX_PATH
+name|bufSize
 argument_list|,
 name|__TEXT
 argument_list|(
