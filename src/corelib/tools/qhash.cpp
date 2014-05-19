@@ -838,6 +838,14 @@ name|uint
 name|qt_create_qhash_seed
 parameter_list|()
 block|{
+name|uint
+name|seed
+init|=
+literal|0
+decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 name|QByteArray
 name|envSeed
 init|=
@@ -860,11 +868,6 @@ operator|.
 name|toUInt
 argument_list|()
 return|;
-name|uint
-name|seed
-init|=
-literal|0
-decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
@@ -1007,9 +1010,6 @@ operator|>>
 literal|32
 operator|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
 name|quint64
 name|pid
 init|=
@@ -1030,9 +1030,6 @@ operator|>>
 literal|32
 operator|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_BOOTSTRAPPED
 name|quintptr
 name|seedPtr
 init|=
@@ -1064,6 +1061,9 @@ operator|)
 expr_stmt|;
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 return|return
 name|seed
 return|;
