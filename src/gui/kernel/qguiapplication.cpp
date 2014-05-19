@@ -8401,7 +8401,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|setScreen
+name|setTopLevelScreen
 argument_list|(
 name|screen
 argument_list|,
