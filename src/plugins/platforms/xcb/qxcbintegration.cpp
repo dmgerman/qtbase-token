@@ -406,6 +406,13 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+name|qRegisterMetaType
+argument_list|<
+name|QXcbWindow
+operator|*
+argument_list|>
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|XCB_USE_XLIB
