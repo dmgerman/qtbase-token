@@ -270,6 +270,9 @@ block|;
 name|QRegion
 name|m_cliprgn
 block|;
+name|QRegion
+name|m_dirtyrgn
+block|;
 name|bool
 name|m_hasalpha
 block|;
@@ -311,6 +314,28 @@ name|QRectF
 operator|&
 name|rect
 argument_list|)
+block|;
+name|void
+name|addDirtyRect
+argument_list|(
+argument|const QRectF&rect
+argument_list|)
+block|{
+name|m_dirtyrgn
+operator||=
+name|rect
+operator|.
+name|toAlignedRect
+argument_list|()
+block|; }
+name|bool
+name|canSeeTroughBackground
+argument_list|(
+argument|bool somethingInRectHasAlpha
+argument_list|,
+argument|const QRectF&rect
+argument_list|)
+specifier|const
 block|;
 name|QRectF
 name|addPenWidth
