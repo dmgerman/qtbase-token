@@ -6482,6 +6482,13 @@ operator|.
 name|from
 argument_list|)
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|newItem
+operator|>=
+literal|0
+argument_list|)
+expr_stmt|;
 name|LB_DEBUG
 argument_list|(
 literal|"from: %d: item=%d, total %d, width available %f"
