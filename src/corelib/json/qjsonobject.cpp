@@ -85,6 +85,9 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!     \fn QJsonObject::QJsonObject(std::initializer_list<QPair<QString, QJsonValue>> args)     \since 5.4     Constructs a QJsonObject instance initialized from \a args initialization list.     For example:     \code     QJsonObject object     {         {"property1", 1},         {"property2", 2}     };     \endcode */
+end_comment
+begin_comment
 comment|/*!     \internal  */
 end_comment
 begin_constructor
@@ -135,6 +138,27 @@ parameter_list|()
 constructor_decl|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     This method replaces part of the QJsonObject(std::initializer_list<QPair<QString, QJsonValue>> args) body.     The constructor needs to be inline, but we do not want to leak implementation details     of this class.     \note this method is called for an uninitialized object     \internal  */
+end_comment
+begin_function
+DECL|function|initialize
+name|void
+name|QJsonObject
+operator|::
+name|initialize
+parameter_list|()
+block|{
+name|d
+operator|=
+literal|0
+expr_stmt|;
+name|o
+operator|=
+literal|0
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*!     Destroys the object.  */
 end_comment
