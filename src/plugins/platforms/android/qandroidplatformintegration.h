@@ -181,6 +181,14 @@ return|return
 name|m_primaryScreen
 return|;
 block|}
+name|QPlatformOffscreenSurface
+operator|*
+name|createPlatformOffscreenSurface
+argument_list|(
+argument|QOffscreenSurface *surface
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|void
 name|setDesktopSize
