@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the qmake application of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the qmake application of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -754,23 +754,43 @@ return|return
 literal|false
 return|;
 block|}
+name|QString
+name|windowsPath
+decl_stmt|;
+if|if
+condition|(
+name|isPhone
+condition|)
+block|{
+if|if
+condition|(
+name|targetVer
+operator|==
+literal|"WP80"
+condition|)
+comment|// ### Windows Phone 8.0, remove in Qt 5.4
+name|windowsPath
+operator|=
+literal|"Microsoft\\Microsoft SDKs\\WindowsPhone\\v"
+expr_stmt|;
+else|else
+name|windowsPath
+operator|=
+literal|"Microsoft\\Microsoft SDKs\\WindowsPhoneApp\\v"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|windowsPath
+operator|=
+literal|"Microsoft\\Microsoft SDKs\\Windows\\v"
+expr_stmt|;
+block|}
 name|regKey
 operator|=
 name|regKeyPrefix
 operator|+
-operator|(
-name|isPhone
-condition|?
-name|QStringLiteral
-argument_list|(
-literal|"Microsoft\\Microsoft SDKs\\WindowsPhone\\v"
-argument_list|)
-else|:
-name|QStringLiteral
-argument_list|(
-literal|"Microsoft\\Microsoft SDKs\\Windows\\v"
-argument_list|)
-operator|)
+name|windowsPath
 operator|+
 name|winsdkVer
 operator|+
@@ -844,14 +864,22 @@ name|QString
 name|sdkDir
 init|=
 name|vcInstallDir
-operator|+
+decl_stmt|;
+if|if
+condition|(
+name|targetVer
+operator|==
+literal|"WP80"
+condition|)
+name|sdkDir
+operator|+=
 name|QStringLiteral
 argument_list|(
 literal|"/WPSDK/"
 argument_list|)
 operator|+
 name|targetVer
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -896,6 +924,15 @@ literal|"/include"
 argument_list|)
 expr_stmt|;
 name|libDirs
+operator|<<
+name|sdkDir
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"/lib/store/"
+argument_list|)
+operator|+
+name|compilerArch
 operator|<<
 name|sdkDir
 operator|+
