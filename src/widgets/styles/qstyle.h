@@ -1544,6 +1544,18 @@ name|SH_LineEdit_PasswordMaskDelay
 block|,
 name|SH_TabBar_ChangeCurrentDelay
 block|,
+name|SH_Menu_SubMenuUniDirection
+block|,
+name|SH_Menu_SubMenuUniDirectionFailCount
+block|,
+name|SH_Menu_SubMenuSloppySelectOtherActions
+block|,
+name|SH_Menu_SubMenuSloppyCloseTimeout
+block|,
+name|SH_Menu_SubMenuResetWhenReenteringParent
+block|,
+name|SH_Menu_SubMenuDontStartSloppyOnLeave
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=

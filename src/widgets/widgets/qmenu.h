@@ -786,10 +786,6 @@ name|private
 name|Q_SLOTS
 operator|:
 name|void
-name|internalSetSloppyAction
-argument_list|()
-block|;
-name|void
 name|internalDelayedPopup
 argument_list|()
 block|;
