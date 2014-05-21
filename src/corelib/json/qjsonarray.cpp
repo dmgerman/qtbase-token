@@ -97,6 +97,9 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!     \fn QJsonArray::QJsonArray(std::initializer_list<QJsonValue> args)     \since 5.4     Creates an array initialized from \a args initialization list.      QJsonArray can be constructed in a way similar to JSON notation,     for example:     \code     QJsonArray array = { 1, 2.2, QString() };     \endcode  */
+end_comment
+begin_comment
 comment|/*!     \internal  */
 end_comment
 begin_constructor
@@ -147,6 +150,27 @@ parameter_list|()
 constructor_decl|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     This method replaces part of QJsonArray(std::initializer_list<QJsonValue> args) .     The constructor needs to be inline, but we do not want to leak implementation details     of this class.     \note this method is called for an uninitialized object     \internal  */
+end_comment
+begin_function
+DECL|function|initialize
+name|void
+name|QJsonArray
+operator|::
+name|initialize
+parameter_list|()
+block|{
+name|d
+operator|=
+literal|0
+expr_stmt|;
+name|a
+operator|=
+literal|0
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*!     Deletes the array.  */
 end_comment
