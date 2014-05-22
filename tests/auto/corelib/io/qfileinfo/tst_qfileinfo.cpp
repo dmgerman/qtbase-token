@@ -6477,31 +6477,13 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 argument_list|)
 name|QEXPECT_FAIL
 argument_list|(
-literal|"simple"
+literal|""
 argument_list|,
-literal|"Blackberry OS uses the noatime filesystem option"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"longfile"
-argument_list|,
-literal|"Blackberry OS uses the noatime filesystem option"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"longfile absolutepath"
-argument_list|,
-literal|"Blackberry OS uses the noatime filesystem option"
+literal|"QNX uses the noatime filesystem option"
 argument_list|,
 name|Continue
 argument_list|)
@@ -9419,9 +9401,9 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
+name|Q_OS_QNX
 argument_list|)
-comment|// The Blackberry filesystem is read-only
+comment|// On QNX /etc is usually on a read-only filesystem
 name|QVERIFY
 argument_list|(
 operator|!

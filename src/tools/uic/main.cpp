@@ -52,8 +52,15 @@ include|#
 directive|include
 file|<qcommandlineparser.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+specifier|extern
+name|Q_CORE_EXPORT
+name|QBasicAtomicInt
+name|qt_qhash_seed
+decl_stmt|;
+end_decl_stmt
+begin_function
 DECL|function|runUic
 name|int
 name|runUic
@@ -67,6 +74,17 @@ name|argv
 index|[]
 parameter_list|)
 block|{
+name|qt_qhash_seed
+operator|.
+name|testAndSetRelaxed
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// set the hash seed to 0 if it wasn't set yet
 name|QCoreApplication
 name|app
 argument_list|(

@@ -172,7 +172,7 @@ argument_list|()
 block|;
 specifier|static
 name|void
-name|addPostRoutine
+name|addPreAndPostRoutine
 argument_list|()
 block|;
 name|Q_SIGNALS

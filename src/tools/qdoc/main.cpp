@@ -2687,6 +2687,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_decl_stmt
+specifier|extern
+name|Q_CORE_EXPORT
+name|QBasicAtomicInt
+name|qt_qhash_seed
+decl_stmt|;
+end_decl_stmt
 begin_function
 name|QT_END_NAMESPACE
 DECL|function|main
@@ -2706,6 +2713,17 @@ name|QT_USE_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+name|qt_qhash_seed
+operator|.
+name|testAndSetRelaxed
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
+comment|// set the hash seed to 0 if it wasn't set yet
 name|QCoreApplication
 name|app
 argument_list|(

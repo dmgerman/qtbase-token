@@ -97,6 +97,13 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
+name|draw
+argument_list|(
+argument|const QVectorPath&path
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
 name|fill
 argument_list|(
 argument|const QVectorPath&path
@@ -104,6 +111,41 @@ argument_list|,
 argument|const QBrush&brush
 argument_list|)
 name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|fill
+argument_list|(
+name|ID2D1Geometry
+operator|*
+name|geometry
+argument_list|,
+specifier|const
+name|QBrush
+operator|&
+name|brush
+argument_list|)
+block|;
+name|void
+name|stroke
+argument_list|(
+argument|const QVectorPath&path
+argument_list|,
+argument|const QPen&pen
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|stroke
+argument_list|(
+name|ID2D1Geometry
+operator|*
+name|geometry
+argument_list|,
+specifier|const
+name|QPen
+operator|&
+name|pen
+argument_list|)
 block|;
 name|void
 name|clip

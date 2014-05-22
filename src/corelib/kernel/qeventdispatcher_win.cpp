@@ -2078,7 +2078,7 @@ if|#
 directive|if
 name|WINVER
 operator|>
-literal|0x0602
+literal|0x0601
 if|if
 condition|(
 name|QSysInfo
@@ -2100,7 +2100,7 @@ operator|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|//  WINVER> 0x0602
+comment|//  WINVER> 0x0601
 return|return
 name|result
 return|;

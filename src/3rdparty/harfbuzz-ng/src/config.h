@@ -23,12 +23,6 @@ directive|define
 name|HAVE_ATEXIT
 end_define
 begin_define
-DECL|macro|HB_NO_MT
-define|#
-directive|define
-name|HB_NO_MT
-end_define
-begin_define
 DECL|macro|HB_NO_UNICODE_FUNCS
 define|#
 directive|define

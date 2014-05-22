@@ -1222,6 +1222,19 @@ operator|::
 name|platformIntegration
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|pfIntegration
+operator|->
+name|accessibility
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"This platform does not support accessibility"
+argument_list|)
+expr_stmt|;
 name|pfIntegration
 operator|->
 name|accessibility

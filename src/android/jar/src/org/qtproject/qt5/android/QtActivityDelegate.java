@@ -975,6 +975,28 @@ name|requestLayout
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|updateFullScreen
+specifier|public
+name|void
+name|updateFullScreen
+parameter_list|()
+block|{
+if|if
+condition|(
+name|m_fullScreen
+condition|)
+block|{
+name|m_fullScreen
+operator|=
+literal|false
+expr_stmt|;
+name|setFullScreen
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// input method hints - must be kept in sync with QTDIR/src/corelib/global/qnamespace.h
 DECL|field|ImhHiddenText
 specifier|private
@@ -1206,6 +1228,16 @@ argument_list|(
 name|m_keyboardIsVisible
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|visibility
+operator|==
+literal|false
+condition|)
+name|updateFullScreen
+argument_list|()
+expr_stmt|;
+comment|// Hiding the keyboard clears the immersive mode, so we need to set it again.
 return|return
 literal|true
 return|;
@@ -4178,23 +4210,10 @@ operator|.
 name|updateWindow
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|m_fullScreen
-condition|)
-block|{
+name|updateFullScreen
+argument_list|()
+expr_stmt|;
 comment|// Suspending the app clears the immersive mode, so we need to set it again.
-name|m_fullScreen
-operator|=
-literal|false
-expr_stmt|;
-comment|// Force the setFullScreen() call below to actually do something
-name|setFullScreen
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}

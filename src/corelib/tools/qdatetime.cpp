@@ -7098,6 +7098,11 @@ name|defined
 argument_list|(
 name|_POSIX_THREAD_SAFE_FUNCTIONS
 argument_list|)
+comment|// localtime() is required to work as if tzset() was called before it.
+comment|// localtime_r() does not have this requirement, so make an explicit call.
+name|qt_tzset
+argument_list|()
+expr_stmt|;
 comment|// Use the reentrant version of localtime() where available
 comment|// as is thread-safe and doesn't use a shared static data area
 name|tm
