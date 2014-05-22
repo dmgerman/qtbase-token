@@ -1909,12 +1909,45 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|// QT_WINRT_USE_DWRITE
+end_comment
+begin_function
+DECL|function|defaultFont
+name|QFont
+name|QWinRTFontDatabase
+operator|::
+name|defaultFont
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QFont
+argument_list|(
+name|QFontDatabase
+argument_list|()
+operator|.
+name|families
+argument_list|()
+operator|.
+name|value
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_WINRT_USE_DWRITE
+comment|// !QT_WINRT_USE_DWRITE
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
