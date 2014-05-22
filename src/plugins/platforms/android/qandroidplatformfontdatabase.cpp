@@ -259,6 +259,12 @@ operator|==
 name|QFont
 operator|::
 name|Monospace
+operator|||
+name|styleHint
+operator|==
+name|QFont
+operator|::
+name|Courier
 condition|)
 return|return
 name|QString

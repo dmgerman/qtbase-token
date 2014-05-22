@@ -4775,6 +4775,9 @@ operator|,
 name|set
 operator|)
 expr_stmt|;
+name|update
+argument_list|()
+expr_stmt|;
 block|}
 endif|#
 directive|endif

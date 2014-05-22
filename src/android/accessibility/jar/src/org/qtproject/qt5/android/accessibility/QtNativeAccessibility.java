@@ -118,7 +118,7 @@ function_decl|;
 DECL|method|populateNode
 specifier|static
 specifier|native
-name|void
+name|boolean
 name|populateNode
 parameter_list|(
 name|int

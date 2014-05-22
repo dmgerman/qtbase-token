@@ -7410,11 +7410,6 @@ operator|->
 name|fullTitle
 argument_list|()
 decl_stmt|;
-name|QString
-name|htmlTitle
-init|=
-name|fullTitle
-decl_stmt|;
 name|CodeMarker
 modifier|*
 name|marker
@@ -7463,7 +7458,7 @@ expr_stmt|;
 block|}
 name|generateHeader
 argument_list|(
-name|htmlTitle
+name|fullTitle
 argument_list|,
 name|ncn
 argument_list|,
@@ -8010,11 +8005,6 @@ operator|->
 name|fullTitle
 argument_list|()
 decl_stmt|;
-name|QString
-name|htmlTitle
-init|=
-name|fullTitle
-decl_stmt|;
 if|if
 condition|(
 name|dn
@@ -8033,10 +8023,6 @@ literal|"QML Basic Type: "
 operator|+
 name|fullTitle
 expr_stmt|;
-name|htmlTitle
-operator|=
-name|fullTitle
-expr_stmt|;
 comment|// Replace the marker with a QML code marker.
 name|marker
 operator|=
@@ -8051,9 +8037,29 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|dn
+operator|->
+name|subType
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|QmlClass
+condition|)
+block|{
+name|fullTitle
+operator|=
+name|fullTitle
+operator|+
+literal|" QML Type"
+expr_stmt|;
+block|}
 name|generateHeader
 argument_list|(
-name|htmlTitle
+name|fullTitle
 argument_list|,
 name|dn
 argument_list|,

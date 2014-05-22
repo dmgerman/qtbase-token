@@ -515,7 +515,7 @@ name|m_textureEntry
 operator|=
 name|m_program
 operator|->
-name|attributeLocation
+name|uniformLocation
 argument_list|(
 literal|"texture"
 argument_list|)

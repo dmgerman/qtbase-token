@@ -702,6 +702,9 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     \fn QDnsLookup::QDnsLookup(Type type, const QString&name, const QHostAddress&nameserver, QObject *parent)     \internal */
+end_comment
+begin_comment
 comment|/*!     Destroys the QDnsLookup object.      It is safe to delete a QDnsLookup object even if it is not finished, you     will simply never receive its results. */
 end_comment
 begin_destructor

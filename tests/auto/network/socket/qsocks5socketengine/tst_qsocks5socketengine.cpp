@@ -2381,18 +2381,6 @@ name|UnconnectedState
 argument_list|)
 expr_stmt|;
 comment|// Bind #1
-if|#
-directive|if
-name|defined
-argument_list|(
-name|UBUNTU_ONEIRIC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|__x86_64__
-argument_list|)
-block|{
 name|bool
 name|bindSuccessful
 init|=
@@ -2417,7 +2405,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"QTBUG-23380: Fails on some Ubuntu 11.10 x64 configurations"
+literal|"QTBUG-23380 / QTBUG-35490: Fails on some Ubuntu 11.10 x64 configurations and on new network test server"
 argument_list|,
 name|Abort
 argument_list|)
@@ -2427,26 +2415,6 @@ argument_list|(
 name|bindSuccessful
 argument_list|)
 expr_stmt|;
-block|}
-else|#
-directive|else
-name|QVERIFY
-argument_list|(
-name|udpSocket
-operator|.
-name|bind
-argument_list|(
-name|QHostAddress
-argument_list|(
-literal|"0.0.0.0"
-argument_list|)
-argument_list|,
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|udpSocket
