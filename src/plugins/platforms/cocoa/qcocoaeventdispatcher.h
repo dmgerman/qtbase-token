@@ -393,6 +393,12 @@ name|void
 name|ensureNSAppInitialized
 argument_list|()
 block|;
+name|void
+name|removeQueuedUserInputEvents
+argument_list|(
+argument|int nsWinNumber
+argument_list|)
+block|;
 name|QCFSocketNotifier
 name|cfSocketNotifier
 block|;
