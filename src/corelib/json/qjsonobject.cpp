@@ -572,7 +572,11 @@ name|d
 condition|)
 return|return
 name|QJsonValue
-argument_list|()
+argument_list|(
+name|QJsonValue
+operator|::
+name|Undefined
+argument_list|)
 return|;
 name|bool
 name|keyExists
