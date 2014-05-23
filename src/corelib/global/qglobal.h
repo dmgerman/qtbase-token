@@ -81,6 +81,35 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<=
+literal|1500
+end_if
+begin_comment
+comment|/* VS2008 */
+end_comment
+begin_define
+DECL|macro|QT_SUPPORTS
+define|#
+directive|define
+name|QT_SUPPORTS
+parameter_list|(
+name|FEATURE
+parameter_list|)
+value|(!defined QT_NO_##FEATURE)
+end_define
+begin_else
+else|#
+directive|else
+end_else
 begin_define
 DECL|macro|QT_SUPPORTS
 define|#
@@ -91,6 +120,10 @@ name|FEATURE
 parameter_list|)
 value|(!defined(QT_NO_##FEATURE))
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
