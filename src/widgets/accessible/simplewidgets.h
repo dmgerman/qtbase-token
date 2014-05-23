@@ -93,6 +93,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QRect
+name|rect
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QStringList
 name|actionNames
 argument_list|()

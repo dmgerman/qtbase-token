@@ -129,7 +129,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QRadioButton
 argument_list|)
-block|}
+name|friend
+name|class
+name|QAccessibleButton
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
