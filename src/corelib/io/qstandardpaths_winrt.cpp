@@ -255,7 +255,7 @@ argument_list|)
 argument_list|)
 condition|)
 break|break;
-name|HSTRING
+name|HString
 name|path
 decl_stmt|;
 if|if
@@ -266,8 +266,10 @@ name|settingsFolderItem
 operator|->
 name|get_Path
 argument_list|(
-operator|&
 name|path
+operator|.
+name|GetAddressOf
+argument_list|()
 argument_list|)
 argument_list|)
 condition|)
@@ -276,10 +278,10 @@ name|result
 operator|=
 name|convertCharArray
 argument_list|(
-name|WindowsGetStringRawBuffer
-argument_list|(
 name|path
-argument_list|,
+operator|.
+name|GetRawBuffer
+argument_list|(
 literal|nullptr
 argument_list|)
 argument_list|)

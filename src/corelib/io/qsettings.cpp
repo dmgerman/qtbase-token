@@ -5547,7 +5547,7 @@ condition|)
 return|return
 name|result
 return|;
-name|HSTRING
+name|HString
 name|path
 decl_stmt|;
 if|if
@@ -5558,8 +5558,10 @@ name|localFolderItem
 operator|->
 name|get_Path
 argument_list|(
-operator|&
 name|path
+operator|.
+name|GetAddressOf
+argument_list|()
 argument_list|)
 argument_list|)
 condition|)
@@ -5572,10 +5574,10 @@ name|QString
 operator|::
 name|fromWCharArray
 argument_list|(
-name|WindowsGetStringRawBuffer
-argument_list|(
 name|path
-argument_list|,
+operator|.
+name|GetRawBuffer
+argument_list|(
 literal|nullptr
 argument_list|)
 argument_list|)
