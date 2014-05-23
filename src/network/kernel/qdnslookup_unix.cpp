@@ -747,6 +747,9 @@ operator|=
 name|ns
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|__UCLIBC__
 comment|// Set nsmap[] to indicate that nsaddrs[0] is an IPv6 address
 comment|// See: https://sourceware.org/ml/libc-hacker/2002-05/msg00035.html
 name|state
@@ -764,6 +767,8 @@ name|MAXNS
 operator|+
 literal|1
 expr_stmt|;
+endif|#
+directive|endif
 name|state
 operator|.
 name|_u
