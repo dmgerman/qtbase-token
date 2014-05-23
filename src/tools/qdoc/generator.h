@@ -531,6 +531,28 @@ parameter_list|)
 function_decl|;
 name|virtual
 name|void
+name|generateQmlTypePage
+parameter_list|(
+name|QmlClassNode
+modifier|*
+parameter_list|,
+name|CodeMarker
+modifier|*
+parameter_list|)
+block|{ }
+name|virtual
+name|void
+name|generateQmlBasicTypePage
+parameter_list|(
+name|QmlBasicTypeNode
+modifier|*
+parameter_list|,
+name|CodeMarker
+modifier|*
+parameter_list|)
+block|{ }
+name|virtual
+name|void
 name|generateDocNode
 parameter_list|(
 name|DocNode
@@ -924,15 +946,7 @@ modifier|*
 name|marker
 parameter_list|)
 function_decl|;
-name|QString
-name|getCollisionLink
-parameter_list|(
-specifier|const
-name|Atom
-modifier|*
-name|atom
-parameter_list|)
-function_decl|;
+comment|//QString getCollisionLink(const Atom* atom);
 name|QString
 name|getMetadataElement
 parameter_list|(

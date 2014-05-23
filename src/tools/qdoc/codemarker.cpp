@@ -1153,21 +1153,9 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Document
+name|QmlType
 case|:
 comment|/*           Remove the "QML:" prefix, if present.           There shouldn't be any of these "QML:"           prefixes in the documentation sources           after the switch to using QML module           qualifiers, but this code is kept to           be backward compatible.         */
-if|if
-condition|(
-name|node
-operator|->
-name|subType
-argument_list|()
-operator|==
-name|Node
-operator|::
-name|QmlClass
-condition|)
-block|{
 if|if
 condition|(
 name|node
@@ -1192,7 +1180,19 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-block|}
+name|tag
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"@property"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|Node
+operator|::
+name|Document
+case|:
 name|tag
 operator|=
 name|QLatin1String
@@ -1882,17 +1882,13 @@ operator|.
 name|parent_
 condition|)
 block|{
-comment|//&& !node->parent()->isAbstract()) {
 if|if
 condition|(
+operator|!
 name|p
 operator|->
-name|subType
+name|isQmlType
 argument_list|()
-operator|!=
-name|Node
-operator|::
-name|QmlClass
 operator|||
 operator|!
 name|p
@@ -1901,7 +1897,6 @@ name|isAbstract
 argument_list|()
 condition|)
 block|{
-comment|//if (node->type() != Node::QmlProperty) {
 name|inheritedMember
 operator|=
 literal|true
@@ -3160,6 +3155,11 @@ case|case
 name|Node
 operator|::
 name|Document
+case|:
+case|case
+name|Node
+operator|::
+name|QmlType
 case|:
 default|default:
 return|return

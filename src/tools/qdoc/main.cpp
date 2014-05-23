@@ -1307,7 +1307,20 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "\nSTART PROJECT:"<< config.getString(CONFIG_PROJECT).toLower();
+name|QString
+name|project
+init|=
+name|config
+operator|.
+name|getString
+argument_list|(
+name|CONFIG_PROJECT
+argument_list|)
+operator|.
+name|toLower
+argument_list|()
+decl_stmt|;
+comment|//qDebug()<< "\nSTART PROJECT:"<< project;
 comment|/*       Add the defines to the configuration variables.      */
 name|QStringList
 name|defs
@@ -1633,6 +1646,13 @@ name|lastLocation
 argument_list|()
 decl_stmt|;
 comment|//if (!Generator::runPrepareOnly())
+name|Generator
+operator|::
+name|debug
+argument_list|(
+literal|"  loading index files"
+argument_list|)
+expr_stmt|;
 name|loadIndexFiles
 argument_list|(
 name|config
@@ -1654,6 +1674,13 @@ name|qdb
 operator|->
 name|setSearchOrder
 argument_list|()
+expr_stmt|;
+name|Generator
+operator|::
+name|debug
+argument_list|(
+literal|"  done loading index files"
+argument_list|)
 expr_stmt|;
 name|QSet
 argument_list|<
@@ -2262,7 +2289,6 @@ modifier|*
 argument_list|>
 name|usedParsers
 decl_stmt|;
-comment|//Config::debug_ = true;
 name|Generator
 operator|::
 name|debug
@@ -2593,6 +2619,20 @@ operator|::
 name|debug
 argument_list|(
 literal|"Shutting down qdoc"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|Generator
+operator|::
+name|debugging
+argument_list|()
+condition|)
+name|Generator
+operator|::
+name|stopDebugging
+argument_list|(
+name|project
 argument_list|)
 expr_stmt|;
 name|QDocDatabase
