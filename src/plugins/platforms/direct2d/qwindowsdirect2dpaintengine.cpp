@@ -1776,6 +1776,7 @@ name|dashCap
 operator|=
 name|D2D1_CAP_STYLE_ROUND
 expr_stmt|;
+break|break;
 case|case
 name|Qt
 operator|::
