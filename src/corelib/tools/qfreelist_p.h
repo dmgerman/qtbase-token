@@ -115,7 +115,7 @@ block|}
 end_function
 begin_comment
 unit|};
-comment|/*! \internal      Element in a QFreeList without a paylout. ConstReferenceType and     ReferenceType are void, the t() functions return void and are empty. */
+comment|/*! \internal      Element in a QFreeList without a payload. ConstReferenceType and     ReferenceType are void, the t() functions return void and are empty. */
 end_comment
 begin_expr_stmt
 name|template
