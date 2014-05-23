@@ -310,14 +310,7 @@ argument_list|,
 name|currentMessage
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|testWidget
 operator|->
@@ -1412,11 +1405,11 @@ name|QTest
 operator|::
 name|qWait
 argument_list|(
-literal|3000
+literal|1500
 argument_list|)
 expr_stmt|;
 comment|// Message disappears after 2 seconds
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|testWidget
 operator|->
