@@ -5393,6 +5393,33 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!     Returns the binding target of this texture.      \since 5.4 */
+end_comment
+begin_function
+DECL|function|target
+name|QOpenGLTexture
+operator|::
+name|Target
+name|QOpenGLTexture
+operator|::
+name|target
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QOpenGLTexture
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|target
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Creates the underlying OpenGL texture object. This requires a current valid     OpenGL context. If the texture object already exists, this function does     nothing.      Once the texture object is created you can obtain the object     name from the textureId() function. This may be useful if you wish to make     some raw OpenGL calls related to this texture.      Normally it should not be necessary to call this function directly as all     functions that set properties of the texture object implicitly call create()     on your behalf.      Returns \c true if the creation succeeded, otherwise returns \c false.      \sa destroy(), isCreated(), textureId() */
 end_comment
 begin_function

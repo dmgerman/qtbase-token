@@ -217,6 +217,11 @@ operator|~
 name|QOpenGLTexture
 argument_list|()
 expr_stmt|;
+name|Target
+name|target
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// Creation and destruction
 name|bool
 name|create
