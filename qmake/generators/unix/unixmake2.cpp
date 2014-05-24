@@ -624,6 +624,11 @@ name|t
 operator|<<
 name|endl
 expr_stmt|;
+name|writeDefaultVariables
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -700,17 +705,6 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"QMAKE         = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_QMAKE"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
 literal|"TAR           = "
 operator|<<
 name|var
@@ -753,17 +747,6 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"COPY          = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_COPY"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
 literal|"SED           = "
 operator|<<
 name|var
@@ -775,132 +758,11 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"COPY_FILE     = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_COPY_FILE"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"COPY_DIR      = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_COPY_DIR"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
 literal|"STRIP         = "
 operator|<<
 name|var
 argument_list|(
 literal|"QMAKE_STRIP"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"INSTALL_FILE  = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_INSTALL_FILE"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"INSTALL_DIR   = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_INSTALL_DIR"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"INSTALL_PROGRAM = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_INSTALL_PROGRAM"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"DEL_FILE      = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_DEL_FILE"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"SYMLINK       = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_SYMBOLIC_LINK"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"DEL_DIR       = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_DEL_DIR"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"MOVE          = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_MOVE"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"CHK_DIR_EXISTS= "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_CHK_DIR_EXISTS"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
-literal|"MKDIR         = "
-operator|<<
-name|var
-argument_list|(
-literal|"QMAKE_MKDIR"
 argument_list|)
 operator|<<
 name|endl

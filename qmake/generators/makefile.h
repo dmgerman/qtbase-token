@@ -398,6 +398,14 @@ operator|&
 name|t
 argument_list|)
 block|;
+name|void
+name|writeDefaultVariables
+argument_list|(
+name|QTextStream
+operator|&
+name|t
+argument_list|)
+block|;
 name|QString
 name|pkgConfigPrefix
 argument_list|()
