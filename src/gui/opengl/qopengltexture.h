@@ -625,6 +625,11 @@ init|=
 literal|0x8CAD
 block|,
 comment|// GL_DEPTH32F_STENCIL8
+name|S8
+init|=
+literal|0x8D48
+block|,
+comment|// GL_STENCIL_INDEX8
 comment|// Compressed formats
 name|RGB_DXT1
 init|=
@@ -1038,6 +1043,11 @@ init|=
 literal|0x8D9B
 block|,
 comment|// GL_BGRA_INTEGER
+name|Stencil
+init|=
+literal|0x1901
+block|,
+comment|// GL_STENCIL_INDEX
 name|Depth
 init|=
 literal|0x1902
@@ -1175,7 +1185,17 @@ comment|// GL_UNSIGNED_INT_10_10_10_2
 name|UInt32_RGB10A2_Rev
 init|=
 literal|0x8368
+block|,
 comment|// GL_UNSIGNED_INT_2_10_10_10_REV
+name|UInt32_D24S8
+init|=
+literal|0x84FA
+block|,
+comment|// GL_UNSIGNED_INT_24_8
+name|Float32_D32_UInt32_S8_X24
+init|=
+literal|0x8DAD
+comment|// GL_FLOAT_32_UNSIGNED_INT_24_8_REV
 block|}
 enum|;
 comment|// Pixel transfer
