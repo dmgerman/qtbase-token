@@ -1294,6 +1294,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|encryptedBytesToWrite
+argument_list|()
+condition|)
+name|flush
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
 name|d
 operator|->
 name|plainSocket
