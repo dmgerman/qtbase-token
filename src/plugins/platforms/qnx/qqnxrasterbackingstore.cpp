@@ -585,7 +585,7 @@ argument_list|()
 operator|.
 name|alphaBufferSize
 argument_list|()
-operator|!=
+operator|>
 literal|0
 condition|)
 block|{
