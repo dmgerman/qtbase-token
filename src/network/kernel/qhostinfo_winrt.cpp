@@ -235,9 +235,11 @@ name|hostnameFactory
 argument_list|)
 argument_list|)
 condition|)
-name|Q_ASSERT
+name|Q_ASSERT_X
 argument_list|(
 literal|false
+argument_list|,
+literal|"QHostInfoAgent"
 argument_list|,
 literal|"Could not obtain hostname factory."
 argument_list|)

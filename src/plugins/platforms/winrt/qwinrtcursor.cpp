@@ -397,6 +397,13 @@ argument_list|(
 name|cursor
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// Q_OS_WINPHONE
+name|Q_UNUSED
+argument_list|(
+argument|windowCursor
+argument_list|)
 endif|#
 directive|endif
 comment|// Q_OS_WINPHONE

@@ -4990,6 +4990,12 @@ argument_list|(
 name|m_inputContext
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|args
+argument_list|)
 endif|#
 directive|endif
 return|return

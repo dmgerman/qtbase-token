@@ -717,6 +717,15 @@ name|bool
 name|unclipped
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|Q_UNUSED
+argument_list|(
+argument|msec
+argument_list|)
+endif|#
+directive|endif
 name|QRegion
 name|paintRegion
 init|=

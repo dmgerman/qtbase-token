@@ -59,6 +59,12 @@ condition|)
 return|return
 literal|true
 return|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|type
+argument_list|)
 endif|#
 directive|endif
 comment|// !(Q_OS_WINPHONE&& _MSC_VER<=1700)
