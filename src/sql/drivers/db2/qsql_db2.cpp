@@ -2551,6 +2551,8 @@ return|;
 block|}
 name|SQLSMALLINT
 name|count
+init|=
+literal|0
 decl_stmt|;
 name|r
 operator|=
@@ -4005,6 +4007,8 @@ return|;
 block|}
 name|SQLSMALLINT
 name|count
+init|=
+literal|0
 decl_stmt|;
 name|r
 operator|=
@@ -5800,6 +5804,8 @@ return|;
 block|}
 name|SQLSMALLINT
 name|fieldCount
+init|=
+literal|0
 decl_stmt|;
 name|r
 operator|=
