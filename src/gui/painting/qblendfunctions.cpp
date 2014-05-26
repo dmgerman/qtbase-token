@@ -2358,6 +2358,1401 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_function
+template|template
+parameter_list|<
+name|QtPixelOrder
+name|PixelOrder
+parameter_list|>
+DECL|function|qt_blend_argb32pm_on_a2rgb30pm
+specifier|static
+name|void
+name|qt_blend_argb32pm_on_a2rgb30pm
+parameter_list|(
+name|uchar
+modifier|*
+name|destPixels
+parameter_list|,
+name|int
+name|dbpl
+parameter_list|,
+specifier|const
+name|uchar
+modifier|*
+name|srcPixels
+parameter_list|,
+name|int
+name|sbpl
+parameter_list|,
+name|int
+name|w
+parameter_list|,
+name|int
+name|h
+parameter_list|,
+name|int
+name|const_alpha
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_DEBUG_DRAW
+name|fprintf
+argument_list|(
+name|stdout
+argument_list|,
+literal|"qt_blend_argb32pm_on_a2rgb30pm: dst=(%p, %d), src=(%p, %d), dim=(%d, %d) alpha=%d\n"
+argument_list|,
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+specifier|const
+name|uint
+modifier|*
+name|src
+init|=
+operator|(
+specifier|const
+name|uint
+operator|*
+operator|)
+name|srcPixels
+decl_stmt|;
+name|uint
+modifier|*
+name|dst
+init|=
+operator|(
+name|uint
+operator|*
+operator|)
+name|destPixels
+decl_stmt|;
+if|if
+condition|(
+name|const_alpha
+operator|==
+literal|256
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|uint
+name|s
+init|=
+name|src
+index|[
+name|x
+index|]
+decl_stmt|;
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|qConvertArgb32ToA2rgb30
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|s
+argument_list|)
+operator|+
+name|BYTE_MUL_RGB30
+argument_list|(
+name|dst
+index|[
+name|x
+index|]
+argument_list|,
+literal|255
+operator|-
+name|qAlpha
+argument_list|(
+name|s
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|const_alpha
+operator|!=
+literal|0
+condition|)
+block|{
+name|const_alpha
+operator|=
+operator|(
+name|const_alpha
+operator|*
+literal|255
+operator|)
+operator|>>
+literal|8
+expr_stmt|;
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|uint
+name|s
+init|=
+name|BYTE_MUL
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|,
+name|const_alpha
+argument_list|)
+decl_stmt|;
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|qConvertArgb32ToA2rgb30
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|s
+argument_list|)
+operator|+
+name|BYTE_MUL_RGB30
+argument_list|(
+name|dst
+index|[
+name|x
+index|]
+argument_list|,
+literal|255
+operator|-
+name|qAlpha
+argument_list|(
+name|s
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+block|}
+end_function
+begin_function
+template|template
+parameter_list|<
+name|QtPixelOrder
+name|PixelOrder
+parameter_list|>
+DECL|function|qt_blend_rgb32_on_rgb30
+name|void
+name|qt_blend_rgb32_on_rgb30
+parameter_list|(
+name|uchar
+modifier|*
+name|destPixels
+parameter_list|,
+name|int
+name|dbpl
+parameter_list|,
+specifier|const
+name|uchar
+modifier|*
+name|srcPixels
+parameter_list|,
+name|int
+name|sbpl
+parameter_list|,
+name|int
+name|w
+parameter_list|,
+name|int
+name|h
+parameter_list|,
+name|int
+name|const_alpha
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_DEBUG_DRAW
+name|fprintf
+argument_list|(
+name|stdout
+argument_list|,
+literal|"qt_blend_rgb32_on_rgb30: dst=(%p, %d), src=(%p, %d), dim=(%d, %d) alpha=%d\n"
+argument_list|,
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|const_alpha
+operator|!=
+literal|256
+condition|)
+block|{
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+specifier|const
+name|uint
+modifier|*
+name|src
+init|=
+operator|(
+specifier|const
+name|uint
+operator|*
+operator|)
+name|srcPixels
+decl_stmt|;
+name|uint
+modifier|*
+name|dst
+init|=
+operator|(
+name|uint
+operator|*
+operator|)
+name|destPixels
+decl_stmt|;
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|qConvertRgb32ToRgb30
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|qt_blend_a2rgb30pm_on_a2rgb30pm
+specifier|static
+name|void
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+parameter_list|(
+name|uchar
+modifier|*
+name|destPixels
+parameter_list|,
+name|int
+name|dbpl
+parameter_list|,
+specifier|const
+name|uchar
+modifier|*
+name|srcPixels
+parameter_list|,
+name|int
+name|sbpl
+parameter_list|,
+name|int
+name|w
+parameter_list|,
+name|int
+name|h
+parameter_list|,
+name|int
+name|const_alpha
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_DEBUG_DRAW
+name|fprintf
+argument_list|(
+name|stdout
+argument_list|,
+literal|"qt_blend_a2rgb30pm_on_a2rgb30pm: dst=(%p, %d), src=(%p, %d), dim=(%d, %d) alpha=%d\n"
+argument_list|,
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+specifier|const
+name|uint
+modifier|*
+name|src
+init|=
+operator|(
+specifier|const
+name|uint
+operator|*
+operator|)
+name|srcPixels
+decl_stmt|;
+name|uint
+modifier|*
+name|dst
+init|=
+operator|(
+name|uint
+operator|*
+operator|)
+name|destPixels
+decl_stmt|;
+if|if
+condition|(
+name|const_alpha
+operator|==
+literal|256
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|uint
+name|s
+init|=
+name|src
+index|[
+name|x
+index|]
+decl_stmt|;
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|s
+operator|+
+name|BYTE_MUL_RGB30
+argument_list|(
+name|dst
+index|[
+name|x
+index|]
+argument_list|,
+literal|255
+operator|-
+name|qAlphaRgb30
+argument_list|(
+name|s
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|const_alpha
+operator|!=
+literal|0
+condition|)
+block|{
+specifier|const
+name|uint
+name|const_alpha255
+init|=
+operator|(
+name|const_alpha
+operator|*
+literal|255
+operator|)
+operator|>>
+literal|8
+decl_stmt|;
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|uint
+name|a
+init|=
+operator|(
+name|qAlphaRgb30
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|)
+operator|*
+name|const_alpha
+operator|)
+operator|>>
+literal|8
+decl_stmt|;
+name|uint
+name|s
+init|=
+name|BYTE_MUL_RGB30
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|,
+name|const_alpha255
+argument_list|)
+decl_stmt|;
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|s
+operator|+
+name|BYTE_MUL_RGB30
+argument_list|(
+name|dst
+index|[
+name|x
+index|]
+argument_list|,
+literal|255
+operator|-
+name|a
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+block|}
+end_function
+begin_function
+DECL|function|qt_blend_rgb30_on_rgb30
+name|void
+name|qt_blend_rgb30_on_rgb30
+parameter_list|(
+name|uchar
+modifier|*
+name|destPixels
+parameter_list|,
+name|int
+name|dbpl
+parameter_list|,
+specifier|const
+name|uchar
+modifier|*
+name|srcPixels
+parameter_list|,
+name|int
+name|sbpl
+parameter_list|,
+name|int
+name|w
+parameter_list|,
+name|int
+name|h
+parameter_list|,
+name|int
+name|const_alpha
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_DEBUG_DRAW
+name|fprintf
+argument_list|(
+name|stdout
+argument_list|,
+literal|"qt_blend_rgb30_on_rgb30: dst=(%p, %d), src=(%p, %d), dim=(%d, %d) alpha=%d\n"
+argument_list|,
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|const_alpha
+operator|!=
+literal|256
+condition|)
+block|{
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+argument_list|(
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+specifier|const
+name|uint
+modifier|*
+name|src
+init|=
+operator|(
+specifier|const
+name|uint
+operator|*
+operator|)
+name|srcPixels
+decl_stmt|;
+name|uint
+modifier|*
+name|dst
+init|=
+operator|(
+name|uint
+operator|*
+operator|)
+name|destPixels
+decl_stmt|;
+name|int
+name|len
+init|=
+name|w
+operator|*
+literal|4
+decl_stmt|;
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+name|memcpy
+argument_list|(
+name|dst
+argument_list|,
+name|src
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|qt_blend_a2bgr30pm_on_a2rgb30pm
+specifier|static
+name|void
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+parameter_list|(
+name|uchar
+modifier|*
+name|destPixels
+parameter_list|,
+name|int
+name|dbpl
+parameter_list|,
+specifier|const
+name|uchar
+modifier|*
+name|srcPixels
+parameter_list|,
+name|int
+name|sbpl
+parameter_list|,
+name|int
+name|w
+parameter_list|,
+name|int
+name|h
+parameter_list|,
+name|int
+name|const_alpha
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_DEBUG_DRAW
+name|fprintf
+argument_list|(
+name|stdout
+argument_list|,
+literal|"qt_blend_a2bgr30pm_on_a2rgb32pm: dst=(%p, %d), src=(%p, %d), dim=(%d, %d) alpha=%d\n"
+argument_list|,
+name|destPixels
+argument_list|,
+name|dbpl
+argument_list|,
+name|srcPixels
+argument_list|,
+name|sbpl
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|,
+name|const_alpha
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+specifier|const
+name|uint
+modifier|*
+name|src
+init|=
+operator|(
+specifier|const
+name|uint
+operator|*
+operator|)
+name|srcPixels
+decl_stmt|;
+name|uint
+modifier|*
+name|dst
+init|=
+operator|(
+name|uint
+operator|*
+operator|)
+name|destPixels
+decl_stmt|;
+if|if
+condition|(
+name|const_alpha
+operator|==
+literal|256
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|uint
+name|s
+init|=
+name|qRgbSwapRgb30
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|)
+decl_stmt|;
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|s
+operator|+
+name|BYTE_MUL_RGB30
+argument_list|(
+name|dst
+index|[
+name|x
+index|]
+argument_list|,
+literal|255
+operator|-
+name|qAlphaRgb30
+argument_list|(
+name|s
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|const_alpha
+operator|!=
+literal|0
+condition|)
+block|{
+specifier|const
+name|uint
+name|const_alpha255
+init|=
+operator|(
+name|const_alpha
+operator|*
+literal|255
+operator|)
+operator|>>
+literal|8
+decl_stmt|;
+for|for
+control|(
+name|int
+name|y
+init|=
+literal|0
+init|;
+name|y
+operator|<
+name|h
+condition|;
+operator|++
+name|y
+control|)
+block|{
+for|for
+control|(
+name|int
+name|x
+init|=
+literal|0
+init|;
+name|x
+operator|<
+name|w
+condition|;
+operator|++
+name|x
+control|)
+block|{
+name|uint
+name|a
+init|=
+operator|(
+name|qAlphaRgb30
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|)
+operator|*
+name|const_alpha
+operator|)
+operator|>>
+literal|8
+decl_stmt|;
+name|uint
+name|s
+init|=
+name|BYTE_MUL_RGB30
+argument_list|(
+name|src
+index|[
+name|x
+index|]
+argument_list|,
+name|const_alpha255
+argument_list|)
+decl_stmt|;
+name|dst
+index|[
+name|x
+index|]
+operator|=
+name|qRgbSwapRgb30
+argument_list|(
+name|s
+argument_list|)
+operator|+
+name|BYTE_MUL_RGB30
+argument_list|(
+name|dst
+index|[
+name|x
+index|]
+argument_list|,
+literal|255
+operator|-
+name|a
+argument_list|)
+expr_stmt|;
+block|}
+name|dst
+operator|=
+operator|(
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+name|uchar
+operator|*
+operator|)
+name|dst
+operator|)
+operator|+
+name|dbpl
+operator|)
+expr_stmt|;
+name|src
+operator|=
+operator|(
+specifier|const
+name|quint32
+operator|*
+operator|)
+operator|(
+operator|(
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|src
+operator|)
+operator|+
+name|sbpl
+operator|)
+expr_stmt|;
+block|}
+block|}
+block|}
+end_function
 begin_struct
 DECL|struct|Blend_RGB32_on_RGB32_NoAlpha
 struct|struct
@@ -3571,7 +4966,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGRs30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3631,7 +5038,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3691,7 +5110,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3751,7 +5182,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3811,7 +5254,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3871,7 +5326,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3931,7 +5398,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -3991,7 +5470,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4051,7 +5542,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4111,7 +5614,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4171,7 +5686,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4231,7 +5758,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4291,7 +5830,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4351,7 +5902,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4411,7 +5974,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4471,7 +6046,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4547,9 +6134,21 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
 endif|#
 directive|endif
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4609,7 +6208,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4685,11 +6296,311 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
 endif|#
 directive|endif
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
+block|,
+block|{
+comment|// Format_BGR30
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
+block|,
+block|{
+comment|// Format_A2BGR30_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGB30
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_A2RGB30_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|, }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -4765,7 +6676,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4825,7 +6748,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4885,7 +6820,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -4945,7 +6892,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5005,7 +6964,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5065,7 +7036,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5125,7 +7108,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5185,7 +7180,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5245,7 +7252,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5305,7 +7324,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5365,7 +7396,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5425,7 +7468,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5485,7 +7540,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5545,7 +7612,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5605,7 +7684,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5665,7 +7756,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5741,9 +7844,21 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
 endif|#
 directive|endif
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5803,7 +7918,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -5879,11 +8006,339 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
 endif|#
 directive|endif
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+block|,
+comment|// Format_A2RGB30_Premultiplied,
 block|}
+block|,
+block|{
+comment|// Format_BGR30
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+name|qt_blend_rgb30_on_rgb30
+block|,
+comment|// Format_RGB30,
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2RGB30_Premultiplied,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_RGB30,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2RGB30_Premultiplied,
 block|}
+block|,
+block|{
+comment|// Format_A2BGR30_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+name|qt_blend_rgb30_on_rgb30
+block|,
+comment|// Format_BGR30,
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_RGB30,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGB30
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_BGR30,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+name|qt_blend_rgb30_on_rgb30
+block|,
+comment|// Format_RGB30,
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_A2RGB30_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_BGR30,
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+name|qt_blend_rgb30_on_rgb30
+block|,
+comment|// Format_RGB30,
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|, }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -5959,7 +8414,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6019,7 +8486,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6079,7 +8558,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6139,7 +8630,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6199,7 +8702,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6259,7 +8774,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6319,7 +8846,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6379,7 +8918,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6439,7 +8990,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6499,7 +9062,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6559,7 +9134,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6619,7 +9206,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6679,7 +9278,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6739,7 +9350,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6799,7 +9422,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6859,7 +9494,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6935,9 +9582,21 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
 endif|#
 directive|endif
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -6997,7 +9656,19 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
 block|,
 block|{
@@ -7073,11 +9744,311 @@ literal|0
 block|,
 comment|// Format_RGBA8888,
 literal|0
+block|,
 comment|// Format_RGBA8888_Premultiplied,
 endif|#
 directive|endif
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
+block|,
+block|{
+comment|// Format_BGR30
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
 block|}
+block|,
+block|{
+comment|// Format_A2BGR30_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_RGB30
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|,
+block|{
+comment|// Format_A2RGB30_Premultiplied
+literal|0
+block|,
+comment|// Format_Invalid,
+literal|0
+block|,
+comment|// Format_Mono,
+literal|0
+block|,
+comment|// Format_MonoLSB,
+literal|0
+block|,
+comment|// Format_Indexed8,
+literal|0
+block|,
+comment|// Format_RGB32,
+literal|0
+block|,
+comment|// Format_ARGB32,
+literal|0
+block|,
+comment|// Format_ARGB32_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB16,
+literal|0
+block|,
+comment|// Format_ARGB8565_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB666,
+literal|0
+block|,
+comment|// Format_ARGB6666_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB555,
+literal|0
+block|,
+comment|// Format_ARGB8555_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB888,
+literal|0
+block|,
+comment|// Format_RGB444,
+literal|0
+block|,
+comment|// Format_ARGB4444_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGBX8888,
+literal|0
+block|,
+comment|// Format_RGBA8888,
+literal|0
+block|,
+comment|// Format_RGBA8888_Premultiplied,
+literal|0
+block|,
+comment|// Format_BGR30,
+literal|0
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+literal|0
+block|,
+comment|// Format_RGB30,
+literal|0
+comment|// Format_A2RGB30_Premultiplied,
+block|}
+block|, }
 decl_stmt|;
 end_decl_stmt
 begin_macro

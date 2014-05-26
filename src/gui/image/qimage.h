@@ -364,6 +364,14 @@ comment|// reserved for future use
 block|Format_RGB15,         Format_Grayscale16,         Format_Grayscale8,         Format_Grayscale4,         Format_Grayscale4LSB,         Format_Grayscale2,         Format_Grayscale2LSB
 endif|#
 directive|endif
+name|Format_BGR30
+block|,
+name|Format_A2BGR30_Premultiplied
+block|,
+name|Format_RGB30
+block|,
+name|Format_A2RGB30_Premultiplied
+block|,
 ifndef|#
 directive|ifndef
 name|Q_QDOC

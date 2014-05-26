@@ -5538,6 +5538,289 @@ name|buffer
 return|;
 block|}
 end_function
+begin_function
+template|template
+parameter_list|<
+name|QtPixelOrder
+name|PixelOrder
+parameter_list|>
+DECL|function|convertA2RGB30PMToARGB32PM
+specifier|static
+specifier|const
+name|uint
+modifier|*
+name|QT_FASTCALL
+name|convertA2RGB30PMToARGB32PM
+parameter_list|(
+name|uint
+modifier|*
+name|buffer
+parameter_list|,
+specifier|const
+name|uint
+modifier|*
+name|src
+parameter_list|,
+name|int
+name|count
+parameter_list|,
+specifier|const
+name|QPixelLayout
+modifier|*
+parameter_list|,
+specifier|const
+name|QRgb
+modifier|*
+parameter_list|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+operator|++
+name|i
+control|)
+name|buffer
+index|[
+name|i
+index|]
+operator|=
+name|qConvertA2rgb30ToArgb32
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|src
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
+return|;
+block|}
+end_function
+begin_function
+template|template
+parameter_list|<
+name|QtPixelOrder
+name|PixelOrder
+parameter_list|>
+DECL|function|convertA2RGB30PMFromARGB32PM
+specifier|static
+specifier|const
+name|uint
+modifier|*
+name|QT_FASTCALL
+name|convertA2RGB30PMFromARGB32PM
+parameter_list|(
+name|uint
+modifier|*
+name|buffer
+parameter_list|,
+specifier|const
+name|uint
+modifier|*
+name|src
+parameter_list|,
+name|int
+name|count
+parameter_list|,
+specifier|const
+name|QPixelLayout
+modifier|*
+parameter_list|,
+specifier|const
+name|QRgb
+modifier|*
+parameter_list|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+operator|++
+name|i
+control|)
+name|buffer
+index|[
+name|i
+index|]
+operator|=
+name|qConvertArgb32ToA2rgb30
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|src
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
+return|;
+block|}
+end_function
+begin_function
+template|template
+parameter_list|<
+name|QtPixelOrder
+name|PixelOrder
+parameter_list|>
+DECL|function|convertRGB30FromRGB32
+specifier|static
+specifier|const
+name|uint
+modifier|*
+name|QT_FASTCALL
+name|convertRGB30FromRGB32
+parameter_list|(
+name|uint
+modifier|*
+name|buffer
+parameter_list|,
+specifier|const
+name|uint
+modifier|*
+name|src
+parameter_list|,
+name|int
+name|count
+parameter_list|,
+specifier|const
+name|QPixelLayout
+modifier|*
+parameter_list|,
+specifier|const
+name|QRgb
+modifier|*
+parameter_list|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+operator|++
+name|i
+control|)
+name|buffer
+index|[
+name|i
+index|]
+operator|=
+name|qConvertRgb32ToRgb30
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|src
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
+return|;
+block|}
+end_function
+begin_function
+template|template
+parameter_list|<
+name|QtPixelOrder
+name|PixelOrder
+parameter_list|>
+DECL|function|convertRGB30FromARGB32PM
+specifier|static
+specifier|const
+name|uint
+modifier|*
+name|QT_FASTCALL
+name|convertRGB30FromARGB32PM
+parameter_list|(
+name|uint
+modifier|*
+name|buffer
+parameter_list|,
+specifier|const
+name|uint
+modifier|*
+name|src
+parameter_list|,
+name|int
+name|count
+parameter_list|,
+specifier|const
+name|QPixelLayout
+modifier|*
+parameter_list|,
+specifier|const
+name|QRgb
+modifier|*
+parameter_list|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+operator|++
+name|i
+control|)
+name|buffer
+index|[
+name|i
+index|]
+operator|=
+name|qConvertRgb32ToRgb30
+argument_list|<
+name|PixelOrder
+argument_list|>
+argument_list|(
+name|qUnpremultiply
+argument_list|(
+name|src
+index|[
+name|i
+index|]
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
+return|;
+block|}
+end_function
 begin_function_decl
 template|template
 parameter_list|<
@@ -7100,9 +7383,164 @@ name|convertRGBA8888PMFromARGB32PM
 block|,
 literal|0
 block|}
+block|,
 comment|// Format_RGBA8888_Premultiplied
 endif|#
 directive|endif
+block|{
+literal|10
+block|,
+literal|20
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|30
+block|,
+literal|false
+block|,
+name|QPixelLayout
+operator|::
+name|BPP32
+block|,
+name|convertA2RGB30PMToARGB32PM
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+name|convertRGB30FromARGB32PM
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+name|convertRGB30FromRGB32
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|}
+block|,
+comment|// Format_BGR30
+block|{
+literal|10
+block|,
+literal|20
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|0
+block|,
+literal|2
+block|,
+literal|30
+block|,
+literal|true
+block|,
+name|QPixelLayout
+operator|::
+name|BPP32
+block|,
+name|convertA2RGB30PMToARGB32PM
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+name|convertA2RGB30PMFromARGB32PM
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+block|,
+literal|0
+block|}
+block|,
+comment|// Format_A2BGR30_Premultiplied
+block|{
+literal|10
+block|,
+literal|0
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|20
+block|,
+literal|0
+block|,
+literal|30
+block|,
+literal|false
+block|,
+name|QPixelLayout
+operator|::
+name|BPP32
+block|,
+name|convertA2RGB30PMToARGB32PM
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+name|convertRGB30FromARGB32PM
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+name|convertRGB30FromRGB32
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|}
+block|,
+comment|// Format_RGB30
+block|{
+literal|10
+block|,
+literal|0
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|10
+block|,
+literal|20
+block|,
+literal|2
+block|,
+literal|30
+block|,
+literal|true
+block|,
+name|QPixelLayout
+operator|::
+name|BPP32
+block|,
+name|convertA2RGB30PMToARGB32PM
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+name|convertA2RGB30PMFromARGB32PM
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+block|,
+literal|0
+block|}
+block|,
+comment|// Format_A2RGB30_Premultiplied
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -7806,6 +8244,18 @@ comment|// Format_RGBA8888
 name|destFetch
 block|,
 comment|// Format_RGBA8888_Premultiplied
+name|destFetch
+block|,
+comment|// Format_BGR30
+name|destFetch
+block|,
+comment|// Format_A2BGR30_Premultiplied
+name|destFetch
+block|,
+comment|// Format_RGB30
+name|destFetch
+block|,
+comment|// Format_A2RGB30_Premultiplied
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -8832,7 +9282,20 @@ name|destStore
 block|,
 comment|// Format_RGBA8888
 name|destStore
+block|,
 comment|// Format_RGBA8888_Premultiplied
+name|destStore
+block|,
+comment|// Format_BGR30
+name|destStore
+block|,
+comment|// Format_A2BGR30_Premultiplied
+name|destStore
+block|,
+comment|// Format_RGB30
+name|destStore
+block|,
+comment|// Format_A2RGB30_Premultiplied
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -17951,7 +18414,20 @@ name|fetchUntransformed
 block|,
 comment|// RGBA8888
 name|fetchUntransformed
+block|,
 comment|// RGBA8888_Premultiplied
+name|fetchUntransformed
+block|,
+comment|// Format_BGR30
+name|fetchUntransformed
+block|,
+comment|// Format_A2BGR30_Premultiplied
+name|fetchUntransformed
+block|,
+comment|// Format_RGB30
+name|fetchUntransformed
+block|,
+comment|// Format_A2RGB30_Premultiplied
 block|}
 block|,
 comment|// Tiled
@@ -18011,7 +18487,19 @@ name|fetchUntransformed
 block|,
 comment|// RGBA8888
 name|fetchUntransformed
+block|,
 comment|// RGBA8888_Premultiplied
+name|fetchUntransformed
+block|,
+comment|// BGR30
+name|fetchUntransformed
+block|,
+comment|// A2BGR30_Premultiplied
+name|fetchUntransformed
+block|,
+comment|// RGB30
+name|fetchUntransformed
+comment|// A2RGB30_Premultiplied
 block|}
 block|,
 comment|// Transformed
@@ -18127,6 +18615,30 @@ name|BlendTransformed
 argument_list|>
 block|,
 comment|// RGBA8888_Premultiplied
+name|fetchTransformed
+argument_list|<
+name|BlendTransformed
+argument_list|>
+block|,
+comment|// BGR30
+name|fetchTransformed
+argument_list|<
+name|BlendTransformed
+argument_list|>
+block|,
+comment|// A2BGR30_Premultiplied
+name|fetchTransformed
+argument_list|<
+name|BlendTransformed
+argument_list|>
+block|,
+comment|// RGB30
+name|fetchTransformed
+argument_list|<
+name|BlendTransformed
+argument_list|>
+block|,
+comment|// A2RGB30_Premultiplied
 block|}
 block|,
 block|{
@@ -18241,6 +18753,30 @@ name|BlendTransformedTiled
 argument_list|>
 block|,
 comment|// RGBA8888_Premultiplied
+name|fetchTransformed
+argument_list|<
+name|BlendTransformedTiled
+argument_list|>
+block|,
+comment|// BGR30
+name|fetchTransformed
+argument_list|<
+name|BlendTransformedTiled
+argument_list|>
+block|,
+comment|// A2BGR30_Premultiplied
+name|fetchTransformed
+argument_list|<
+name|BlendTransformedTiled
+argument_list|>
+block|,
+comment|// RGB30
+name|fetchTransformed
+argument_list|<
+name|BlendTransformedTiled
+argument_list|>
+block|,
+comment|// A2RGB30_Premultiplied
 block|}
 block|,
 block|{
@@ -18353,7 +18889,32 @@ name|fetchTransformedBilinear
 argument_list|<
 name|BlendTransformedBilinear
 argument_list|>
+block|,
 comment|// RGBA8888_Premultiplied
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinear
+argument_list|>
+block|,
+comment|// BGR30
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinear
+argument_list|>
+block|,
+comment|// A2BGR30_Premultiplied
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinear
+argument_list|>
+block|,
+comment|// RGB30
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinear
+argument_list|>
+block|,
+comment|// A2RGB30_Premultiplied
 block|}
 block|,
 block|{
@@ -18466,7 +19027,31 @@ name|fetchTransformedBilinear
 argument_list|<
 name|BlendTransformedBilinearTiled
 argument_list|>
+block|,
 comment|// RGBA8888_Premultiplied
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinearTiled
+argument_list|>
+block|,
+comment|// BGR30
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinearTiled
+argument_list|>
+block|,
+comment|// A2BGR30_Premultiplied
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinearTiled
+argument_list|>
+block|,
+comment|// RGB30
+name|fetchTransformedBilinear
+argument_list|<
+name|BlendTransformedBilinearTiled
+argument_list|>
+comment|// A2RGB30_Premultiplied
 block|}
 block|, }
 decl_stmt|;
@@ -40897,6 +41482,14 @@ block|,
 name|blend_untransformed_generic
 block|,
 name|blend_untransformed_generic
+block|,
+name|blend_untransformed_generic
+block|,
+name|blend_untransformed_generic
+block|,
+name|blend_untransformed_generic
+block|,
+name|blend_untransformed_generic
 block|,     }
 block|,
 comment|// Tiled
@@ -40923,6 +41516,14 @@ name|blend_tiled_argb
 block|,
 comment|// ARGB32_Premultiplied
 name|blend_tiled_rgb565
+block|,
+name|blend_tiled_generic
+block|,
+name|blend_tiled_generic
+block|,
+name|blend_tiled_generic
+block|,
+name|blend_tiled_generic
 block|,
 name|blend_tiled_generic
 block|,
@@ -40993,6 +41594,14 @@ block|,
 name|blend_src_generic
 block|,
 name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
 block|,     }
 block|,
 comment|// TransformedTiled
@@ -41040,6 +41649,14 @@ block|,
 name|blend_src_generic
 block|,
 name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
 block|}
 block|,
 comment|// Bilinear
@@ -41065,6 +41682,14 @@ name|blend_src_generic
 block|,
 comment|// ARGB32_Premultiplied
 name|blend_transformed_bilinear_rgb565
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
+block|,
+name|blend_src_generic
 block|,
 name|blend_src_generic
 block|,
@@ -41147,6 +41772,18 @@ comment|// RGBA8888
 name|blend_src_generic
 block|,
 comment|// RGBA8888_Premultiplied
+name|blend_src_generic
+block|,
+comment|// BGR30
+name|blend_src_generic
+block|,
+comment|// A2BGR30_Premultiplied
+name|blend_src_generic
+block|,
+comment|// RGB30
+name|blend_src_generic
+block|,
+comment|// A2RGB30_Premultiplied
 block|}
 block|}
 decl_stmt|;
@@ -44825,7 +45462,67 @@ literal|0
 block|,
 name|qt_rectfill_rgba
 block|}
+block|,
+comment|// Format_BGR30
+block|{
+name|blend_color_generic
+block|,
+name|blend_src_generic
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
 block|}
+block|,
+comment|// Format_A2BGR30_Premultiplied
+block|{
+name|blend_color_generic
+block|,
+name|blend_src_generic
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|,
+comment|// Format_RGB30
+block|{
+name|blend_color_generic
+block|,
+name|blend_src_generic
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|,
+comment|// Format_A2RGB30_Premultiplied
+block|{
+name|blend_color_generic
+block|,
+name|blend_src_generic
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|, }
 decl_stmt|;
 end_decl_stmt
 begin_if
