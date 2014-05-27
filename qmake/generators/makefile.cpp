@@ -13679,7 +13679,7 @@ argument_list|(
 operator|*
 name|it
 operator|+
-literal|"depend_command"
+literal|".depend_command"
 argument_list|)
 argument_list|)
 operator|.
