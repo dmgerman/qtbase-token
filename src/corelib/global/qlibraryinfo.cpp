@@ -2122,9 +2122,19 @@ modifier|&
 name|platformName
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_BOOTSTRAPPED
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_SETTINGS
+argument_list|)
 if|if
 condition|(
 specifier|const
@@ -2178,7 +2188,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|// !QT_BOOTSTRAPPED
+comment|// !QT_BOOTSTRAPPED&& !QT_NO_SETTINGS
 return|return
 name|QStringList
 argument_list|()
