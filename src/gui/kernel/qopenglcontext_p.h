@@ -626,11 +626,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|current_fbo
-argument_list|(
-literal|0
-argument_list|)
-block|,
 name|max_texture_size
 argument_list|(
 operator|-
@@ -737,9 +732,6 @@ block|;
 name|QOpenGLTextureHelper
 operator|*
 name|textureFunctions
-block|;
-name|GLuint
-name|current_fbo
 block|;
 name|GLint
 name|max_texture_size
