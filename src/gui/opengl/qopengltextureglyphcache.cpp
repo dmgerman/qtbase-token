@@ -260,6 +260,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_destructor
 begin_function
@@ -2494,6 +2497,10 @@ operator|::
 name|clear
 parameter_list|()
 block|{
+if|if
+condition|(
+name|m_textureResource
+condition|)
 name|m_textureResource
 operator|->
 name|free
