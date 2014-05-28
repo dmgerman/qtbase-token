@@ -82,6 +82,10 @@ block|;
 name|QString
 name|fileName
 block|;
+name|QString
+name|finalFileName
+block|;
+comment|// fileName with symbolic links resolved
 name|QFileDevice
 operator|::
 name|FileError
