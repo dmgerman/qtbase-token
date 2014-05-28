@@ -259,6 +259,12 @@ name|colormap
 operator|=
 name|cmap
 expr_stmt|;
+name|a
+operator|.
+name|override_redirect
+operator|=
+literal|true
+expr_stmt|;
 name|Window
 name|window
 init|=
@@ -293,6 +299,8 @@ operator||
 name|CWBorderPixel
 operator||
 name|CWColormap
+operator||
+name|CWOverrideRedirect
 argument_list|,
 operator|&
 name|a
