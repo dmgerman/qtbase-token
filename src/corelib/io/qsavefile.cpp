@@ -457,6 +457,42 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|existingFile
+operator|.
+name|isDir
+argument_list|()
+condition|)
+block|{
+name|d
+operator|->
+name|setError
+argument_list|(
+name|QFileDevice
+operator|::
+name|WriteError
+argument_list|,
+name|QSaveFile
+operator|::
+name|tr
+argument_list|(
+literal|"Filename refers to a directory"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|writeError
+operator|=
+name|QFileDevice
+operator|::
+name|WriteError
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 comment|// Resolve symlinks. Don't use QFileInfo::canonicalFilePath so it still give the expected
 comment|// target even if the file does not exist
 name|d
