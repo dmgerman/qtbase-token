@@ -3082,6 +3082,9 @@ name|value
 return|;
 block|}
 end_expr_stmt
+begin_macro
+name|Q_DECL_CONSTEXPR
+end_macro
 begin_expr_stmt
 specifier|inline
 name|QWeakPointer
