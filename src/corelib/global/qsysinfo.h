@@ -323,6 +323,10 @@ name|MV_10_9
 init|=
 literal|0x000B
 block|,
+name|MV_10_10
+init|=
+literal|0x000C
+block|,
 comment|/* codenames */
 name|MV_CHEETAH
 init|=
@@ -363,6 +367,10 @@ block|,
 name|MV_MAVERICKS
 init|=
 name|MV_10_9
+block|,
+name|MV_YOSEMITE
+init|=
+name|MV_10_10
 block|,
 comment|/* iOS */
 name|MV_IOS
@@ -432,6 +440,15 @@ argument_list|(
 literal|7
 argument_list|,
 literal|1
+argument_list|)
+block|,
+name|MV_IOS_8_0
+init|=
+name|Q_MV_IOS
+argument_list|(
+literal|8
+argument_list|,
+literal|0
 argument_list|)
 block|}
 enum|;
