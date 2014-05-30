@@ -3291,6 +3291,12 @@ argument_list|()
 decl_stmt|;
 name|s
 operator|.
+name|selectableText
+operator|=
+literal|true
+expr_stmt|;
+name|s
+operator|.
 name|multiLine
 operator|=
 literal|true
