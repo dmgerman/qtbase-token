@@ -1019,7 +1019,7 @@ if|if
 condition|(
 name|Gestalt
 argument_list|(
-name|gestaltSystemVersion
+name|gestaltSystemVersionMinor
 argument_list|,
 operator|&
 name|gestalt_version
@@ -1028,20 +1028,13 @@ operator|==
 name|noErr
 condition|)
 block|{
+comment|// add 2 because OS X 10.0 is 0x02 in the enum
 return|return
 name|QSysInfo
 operator|::
 name|MacVersion
 argument_list|(
-operator|(
-operator|(
 name|gestalt_version
-operator|&
-literal|0x00F0
-operator|)
-operator|>>
-literal|4
-operator|)
 operator|+
 literal|2
 argument_list|)
