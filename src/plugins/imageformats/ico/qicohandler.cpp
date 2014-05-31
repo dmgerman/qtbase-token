@@ -117,7 +117,7 @@ DECL|member|idType
 name|quint16
 name|idType
 decl_stmt|;
-comment|// resource type (1 for icons)
+comment|// resource type (1 for icons, 2 for cursors)
 DECL|member|idCount
 name|quint16
 name|idCount
@@ -1513,11 +1513,19 @@ name|idReserved
 operator|==
 literal|0
 operator|&&
+operator|(
 name|ikonDir
 operator|.
 name|idType
 operator|==
 literal|1
+operator|||
+name|ikonDir
+operator|.
+name|idType
+operator|==
+literal|2
+operator|)
 operator|&&
 name|ikonDir
 operator|.
@@ -1530,6 +1538,7 @@ name|bReserved
 operator|==
 literal|0
 operator|&&
+operator|(
 name|ikonDir
 operator|.
 name|idEntries
@@ -1540,7 +1549,15 @@ operator|.
 name|wPlanes
 operator|<=
 literal|1
+operator|||
+name|ikonDir
+operator|.
+name|idType
+operator|==
+literal|2
+operator|)
 operator|&&
+operator|(
 name|ikonDir
 operator|.
 name|idEntries
@@ -1551,6 +1568,13 @@ operator|.
 name|wBitCount
 operator|<=
 literal|32
+operator|||
+name|ikonDir
+operator|.
+name|idType
+operator|==
+literal|2
+operator|)
 comment|// Bits per pixel
 operator|&&
 name|ikonDir
@@ -1981,12 +2005,20 @@ operator|.
 name|idReserved
 operator|==
 literal|0
-operator|||
+operator|&&
+operator|(
 name|iconDir
 operator|.
 name|idType
 operator|==
 literal|1
+operator|||
+name|iconDir
+operator|.
+name|idType
+operator|==
+literal|2
+operator|)
 condition|)
 name|headerRead
 operator|=

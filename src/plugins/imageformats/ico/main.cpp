@@ -38,6 +38,10 @@ condition|(
 name|format
 operator|==
 literal|"ico"
+operator|||
+name|format
+operator|==
+literal|"cur"
 condition|)
 return|return
 name|Capabilities
