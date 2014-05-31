@@ -1511,26 +1511,27 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+comment|//: %1 is a file name suffix, for example txt
 return|return
-name|info
-operator|.
-name|suffix
-argument_list|()
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
-operator|+
 name|QApplication
 operator|::
 name|translate
 argument_list|(
 literal|"QFileDialog"
 argument_list|,
-literal|"File"
+literal|"%1 File"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|info
+operator|.
+name|suffix
+argument_list|()
 argument_list|)
 return|;
+block|}
 return|return
 name|QApplication
 operator|::
