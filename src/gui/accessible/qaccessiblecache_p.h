@@ -64,10 +64,12 @@ directive|include
 file|"qaccessible.h"
 end_include
 begin_expr_stmt
-DECL|variable|QCocoaAccessibleElement
 name|Q_FORWARD_DECLARE_OBJC_CLASS
 argument_list|(
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|QCocoaAccessibleElement
+argument_list|)
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -120,7 +122,10 @@ block|;
 ifdef|#
 directive|ifdef
 name|Q_OS_OSX
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|QCocoaAccessibleElement
+argument_list|)
 operator|*
 name|elementForId
 argument_list|(
@@ -133,7 +138,7 @@ name|insertElement
 argument_list|(
 argument|QAccessible::Id axid
 argument_list|,
-argument|QCocoaAccessibleElement *element
+argument|QT_MANGLE_NAMESPACE(QCocoaAccessibleElement) *element
 argument_list|)
 specifier|const
 block|;
@@ -199,7 +204,10 @@ name|QAccessible
 operator|::
 name|Id
 block|,
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|QCocoaAccessibleElement
+argument_list|)
 operator|*
 operator|>
 name|cocoaElements
