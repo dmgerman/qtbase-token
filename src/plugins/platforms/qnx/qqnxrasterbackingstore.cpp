@@ -686,7 +686,7 @@ operator|->
 name|nativeContext
 argument_list|()
 argument_list|,
-literal|0
+name|SCREEN_WAIT_IDLE
 argument_list|)
 argument_list|,
 literal|"failed to flush blits"
