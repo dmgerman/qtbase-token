@@ -8568,6 +8568,15 @@ operator|->
 name|detailsButton
 condition|)
 block|{
+specifier|const
+name|bool
+name|autoAddOkButton
+init|=
+name|d
+operator|->
+name|autoAddOkButton
+decl_stmt|;
+comment|// QTBUG-39334, addButton() clears the flag.
 name|d
 operator|->
 name|detailsButton
@@ -8588,6 +8597,12 @@ name|QMessageBox
 operator|::
 name|ActionRole
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|autoAddOkButton
+operator|=
+name|autoAddOkButton
 expr_stmt|;
 block|}
 name|d
