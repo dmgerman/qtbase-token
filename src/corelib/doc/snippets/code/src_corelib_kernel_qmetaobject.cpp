@@ -325,7 +325,10 @@ decl_stmt|;
 name|QMetaMethod
 name|method
 init|=
+name|obj
+operator|->
 name|metaObject
+argument_list|()
 operator|->
 name|method
 argument_list|(
