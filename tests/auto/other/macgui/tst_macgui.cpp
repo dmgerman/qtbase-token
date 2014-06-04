@@ -785,6 +785,15 @@ operator|.
 name|exec
 argument_list|()
 expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Non-modal child windows show behind the modal dialig"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|primary
