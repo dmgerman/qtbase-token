@@ -2556,6 +2556,8 @@ operator|new
 name|QConnmanServiceInterface
 argument_list|(
 name|servicePath
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
 name|connmanServiceInterfaces
