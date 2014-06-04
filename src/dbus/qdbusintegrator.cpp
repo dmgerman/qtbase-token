@@ -12623,7 +12623,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|_q_serviceOwnerChanged
+name|serviceOwnerChangedNoLock
 argument_list|(
 name|QString
 argument_list|,
