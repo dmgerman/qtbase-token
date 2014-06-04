@@ -81,10 +81,10 @@ operator|&
 name|staticContents
 argument_list|)
 block|;
-specifier|const
 name|QImage
-name|image
+name|toImage
 argument_list|()
+specifier|const
 block|{
 return|return
 name|m_image

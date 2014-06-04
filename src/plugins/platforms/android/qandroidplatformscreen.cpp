@@ -1329,7 +1329,7 @@ argument_list|()
 argument_list|,
 name|backingStore
 operator|->
-name|image
+name|toImage
 argument_list|()
 argument_list|,
 name|windowRect
