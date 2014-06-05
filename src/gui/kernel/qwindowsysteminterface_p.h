@@ -1583,8 +1583,6 @@ name|handleTabletEvent
 argument_list|(
 argument|QWindow *w
 argument_list|,
-argument|bool down
-argument_list|,
 argument|const QPointF&local
 argument_list|,
 argument|const QPointF&global
@@ -1592,6 +1590,8 @@ argument_list|,
 argument|int device
 argument_list|,
 argument|int pointerType
+argument_list|,
+argument|Qt::MouseButtons buttons
 argument_list|,
 argument|qreal pressure
 argument_list|,
@@ -1616,8 +1616,6 @@ argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
-argument|bool down
-argument_list|,
 argument|const QPointF&local
 argument_list|,
 argument|const QPointF&global
@@ -1625,6 +1623,8 @@ argument_list|,
 argument|int device
 argument_list|,
 argument|int pointerType
+argument_list|,
+argument|Qt::MouseButtons b
 argument_list|,
 argument|qreal pressure
 argument_list|,
@@ -1654,9 +1654,9 @@ argument_list|,
 name|mods
 argument_list|)
 block|,
-name|down
+name|buttons
 argument_list|(
-name|down
+name|b
 argument_list|)
 block|,
 name|local
@@ -1714,8 +1714,10 @@ argument_list|(
 argument|uid
 argument_list|)
 block|{ }
-name|bool
-name|down
+name|Qt
+operator|::
+name|MouseButtons
+name|buttons
 block|;
 name|QPointF
 name|local

@@ -1113,6 +1113,40 @@ argument_list|,
 argument|qint64 uniqueID
 argument_list|)
 block|;
+comment|// ### remove in Qt 6
+name|QTabletEvent
+argument_list|(
+argument|Type t
+argument_list|,
+argument|const QPointF&pos
+argument_list|,
+argument|const QPointF&globalPos
+argument_list|,
+argument|int device
+argument_list|,
+argument|int pointerType
+argument_list|,
+argument|qreal pressure
+argument_list|,
+argument|int xTilt
+argument_list|,
+argument|int yTilt
+argument_list|,
+argument|qreal tangentialPressure
+argument_list|,
+argument|qreal rotation
+argument_list|,
+argument|int z
+argument_list|,
+argument|Qt::KeyboardModifiers keyState
+argument_list|,
+argument|qint64 uniqueID
+argument_list|,
+argument|Qt::MouseButton button
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|)
+block|;
 operator|~
 name|QTabletEvent
 argument_list|()
@@ -1376,6 +1410,20 @@ return|return
 name|mYT
 return|;
 block|}
+name|Qt
+operator|::
+name|MouseButton
+name|button
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|MouseButtons
+name|buttons
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|QPointF
@@ -1404,9 +1452,8 @@ block|;
 name|qint64
 name|mUnique
 block|;
-comment|// I don't know what the future holds for tablets but there could be some
-comment|// new devices coming along, and there seem to be "holes" in the
-comment|// OS-specific events for this.
+comment|// QTabletEventPrivate for extra storage.
+comment|// ### Qt 6: QPointingEvent will have Buttons, QTabletEvent will inherit
 name|void
 operator|*
 name|mExtra

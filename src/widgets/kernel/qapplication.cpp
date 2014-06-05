@@ -14944,6 +14944,16 @@ name|tablet
 operator|->
 name|uniqueId
 argument_list|()
+argument_list|,
+name|tablet
+operator|->
+name|button
+argument_list|()
+argument_list|,
+name|tablet
+operator|->
+name|buttons
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|te

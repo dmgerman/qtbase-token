@@ -4415,6 +4415,16 @@ name|event
 operator|->
 name|uniqueId
 argument_list|()
+argument_list|,
+name|event
+operator|->
+name|button
+argument_list|()
+argument_list|,
+name|event
+operator|->
+name|buttons
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ev

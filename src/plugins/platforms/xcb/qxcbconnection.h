@@ -1830,9 +1830,9 @@ operator|::
 name|Stylus
 argument_list|)
 operator|,
-name|down
+name|buttons
 argument_list|(
-name|false
+literal|0
 argument_list|)
 operator|,
 name|serialId
@@ -1858,9 +1858,11 @@ operator|::
 name|TabletDevice
 name|tool
 expr_stmt|;
-name|bool
-name|down
-decl_stmt|;
+name|Qt
+operator|::
+name|MouseButtons
+name|buttons
+expr_stmt|;
 name|qint64
 name|serialId
 decl_stmt|;
