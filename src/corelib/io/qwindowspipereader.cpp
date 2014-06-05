@@ -413,8 +413,7 @@ operator|==
 literal|0
 condition|)
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 comment|// signal EOF
 name|qint64
@@ -554,6 +553,17 @@ condition|)
 name|startAsyncRead
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|readSoFar
+operator|==
+literal|0
+condition|)
+return|return
+operator|-
+literal|2
+return|;
+comment|// signal EWOULDBLOCK
 block|}
 return|return
 name|readSoFar

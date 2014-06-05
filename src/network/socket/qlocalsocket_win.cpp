@@ -837,7 +837,9 @@ condition|)
 return|return
 literal|0
 return|;
-return|return
+name|qint64
+name|ret
+init|=
 name|d
 operator|->
 name|pipeReader
@@ -848,7 +850,34 @@ name|data
 argument_list|,
 name|maxSize
 argument_list|)
+decl_stmt|;
+comment|// QWindowsPipeReader::read() returns error codes that don't match what we need
+switch|switch
+condition|(
+name|ret
+condition|)
+block|{
+case|case
+literal|0
+case|:
+comment|// EOF -> transform to error
+return|return
+operator|-
+literal|1
 return|;
+case|case
+operator|-
+literal|2
+case|:
+comment|// EWOULDBLOCK -> no error, just no bytes
+return|return
+literal|0
+return|;
+default|default:
+return|return
+name|ret
+return|;
+block|}
 block|}
 end_function
 begin_function
