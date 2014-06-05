@@ -9323,12 +9323,6 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-name|mousePressed
-condition|)
-return|return;
 specifier|const
 name|qreal
 name|mouseX
