@@ -1249,6 +1249,19 @@ operator|::
 name|output_dir
 argument_list|)
 condition|)
+block|{
+name|Option
+operator|::
+name|output
+operator|.
+name|setFileName
+argument_list|(
+name|fi
+operator|.
+name|fileName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Option
 operator|::
 name|output_dir
@@ -1263,6 +1276,7 @@ literal|'/'
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|Option
 operator|::
 name|output_dir
