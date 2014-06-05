@@ -255,6 +255,14 @@ name|Mode
 name|mode
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|is_app_closing
+condition|)
+comment|// QTBUG-39317, prevent emission when closing down.
 name|QGuiApplication
 operator|::
 name|clipboard
