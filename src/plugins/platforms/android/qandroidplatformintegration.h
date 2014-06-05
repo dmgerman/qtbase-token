@@ -207,6 +207,14 @@ argument_list|,
 argument|int height
 argument_list|)
 block|;
+name|void
+name|setScreenSize
+argument_list|(
+argument|int width
+argument_list|,
+argument|int height
+argument_list|)
+block|;
 name|bool
 name|isVirtualDesktop
 argument_list|()
@@ -302,6 +310,10 @@ argument_list|,
 argument|int sw
 argument_list|,
 argument|int sh
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
 argument_list|)
 block|;
 specifier|static
@@ -393,6 +405,14 @@ block|;
 specifier|static
 name|int
 name|m_defaultPhysicalSizeHeight
+block|;
+specifier|static
+name|int
+name|m_defaultScreenWidth
+block|;
+specifier|static
+name|int
+name|m_defaultScreenHeight
 block|;
 specifier|static
 name|Qt
