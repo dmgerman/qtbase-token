@@ -81,11 +81,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|destroyChannel
+DECL|function|closeChannel
 name|void
 name|QProcessPrivate
 operator|::
-name|destroyChannel
+name|closeChannel
 parameter_list|(
 name|Channel
 modifier|*
