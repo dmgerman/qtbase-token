@@ -209,10 +209,21 @@ argument_list|(
 argument|s
 argument_list|)
 block|{}
+name|QPixmapIconEngineEntry
+argument_list|(
+argument|const QString&file
+argument_list|,
+argument|const QImage&image
+argument_list|,
+argument|QIcon::Mode m = QIcon::Normal
+argument_list|,
+argument|QIcon::State s = QIcon::Off
+argument_list|)
+expr_stmt|;
 DECL|member|pixmap
 name|QPixmap
 name|pixmap
-expr_stmt|;
+decl_stmt|;
 DECL|member|fileName
 name|QString
 name|fileName
@@ -256,10 +267,64 @@ block|}
 block|}
 struct|;
 end_struct
-begin_decl_stmt
+begin_expr_stmt
+DECL|function|QPixmapIconEngineEntry
+specifier|inline
+name|QPixmapIconEngineEntry
+operator|::
+name|QPixmapIconEngineEntry
+argument_list|(
+argument|const QString&file
+argument_list|,
+argument|const QImage&image
+argument_list|,
+argument|QIcon::Mode m
+argument_list|,
+argument|QIcon::State s
+argument_list|)
+operator|:
+name|fileName
+argument_list|(
+name|file
+argument_list|)
+operator|,
+name|size
+argument_list|(
+name|image
+operator|.
+name|size
+argument_list|()
+argument_list|)
+operator|,
+name|mode
+argument_list|(
+name|m
+argument_list|)
+operator|,
+name|state
+argument_list|(
+argument|s
+argument_list|)
+block|{
+name|pixmap
+operator|.
+name|convertFromImage
+argument_list|(
+name|image
+argument_list|)
+block|;
+comment|// Reset the devicePixelRatio. The pixmap may be loaded from a @2x file,
+comment|// but be used as a 1x pixmap by QIcon.
+name|pixmap
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+literal|1.0
+argument_list|)
+block|; }
 name|class
 name|QPixmapIconEngine
-range|:
+operator|:
 name|public
 name|QIconEngine
 block|{
@@ -408,7 +473,7 @@ operator|(
 name|QDataStream
 operator|&
 name|s
-expr|,
+operator|,
 specifier|const
 name|QIcon
 operator|&
@@ -419,8 +484,8 @@ name|friend
 name|class
 name|QIconThemeEngine
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
