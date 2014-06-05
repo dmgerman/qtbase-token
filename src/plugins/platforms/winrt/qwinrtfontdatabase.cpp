@@ -17,11 +17,11 @@ include|#
 directive|include
 file|<QtCore/QFile>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
-end_ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WINRT_USE_DWRITE
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -55,7 +55,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !Q_OS_WINPHONE
+comment|// QT_WINRT_USE_DWRITE
 end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
@@ -116,9 +116,9 @@ name|fontDirectory
 argument_list|)
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
+ifdef|#
+directive|ifdef
+name|QT_WINRT_USE_DWRITE
 if|if
 condition|(
 name|m_fontFamilies
@@ -144,11 +144,11 @@ name|fontDirectory
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
-end_ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WINRT_USE_DWRITE
+end_ifdef
 begin_destructor
 DECL|function|~QWinRTFontDatabase
 name|QWinRTFontDatabase
@@ -1909,12 +1909,45 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_else
+else|#
+directive|else
+end_else
+begin_comment
+comment|// QT_WINRT_USE_DWRITE
+end_comment
+begin_function
+DECL|function|defaultFont
+name|QFont
+name|QWinRTFontDatabase
+operator|::
+name|defaultFont
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QFont
+argument_list|(
+name|QFontDatabase
+argument_list|()
+operator|.
+name|families
+argument_list|()
+operator|.
+name|value
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !Q_OS_WINPHONE
+comment|// !QT_WINRT_USE_DWRITE
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

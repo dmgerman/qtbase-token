@@ -106,6 +106,16 @@ operator|&
 name|staticContents
 argument_list|)
 block|;
+name|QImage
+name|toImage
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|m_paintDevice
+return|;
+block|}
 name|private
 operator|:
 name|bool
@@ -117,12 +127,6 @@ name|m_initialized
 block|;
 name|QSize
 name|m_size
-block|;
-name|QScopedPointer
-operator|<
-name|QPaintDevice
-operator|>
-name|m_paintDevice
 block|;
 name|QScopedPointer
 operator|<
@@ -145,6 +149,9 @@ block|;
 name|QWinRTScreen
 operator|*
 name|m_screen
+block|;
+name|QImage
+name|m_paintDevice
 block|; }
 decl_stmt|;
 end_decl_stmt

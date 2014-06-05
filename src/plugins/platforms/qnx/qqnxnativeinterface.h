@@ -79,6 +79,13 @@ operator|&
 name|resource
 argument_list|)
 block|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_OPENGL
+argument_list|)
 name|void
 operator|*
 name|nativeResourceForContext
@@ -93,6 +100,8 @@ operator|*
 name|context
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|setWindowProperty
 argument_list|(

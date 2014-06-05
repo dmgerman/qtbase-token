@@ -83,6 +83,11 @@ name|EGLConfig
 name|config
 parameter_list|)
 function_decl|;
+name|QSurfaceFormat
+name|format
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|checkNativeSurface
 parameter_list|(
@@ -147,6 +152,9 @@ name|m_androidSurfaceObject
 decl_stmt|;
 name|QWaitCondition
 name|m_surfaceWaitCondition
+decl_stmt|;
+name|QSurfaceFormat
+name|m_format
 decl_stmt|;
 block|}
 end_decl_stmt

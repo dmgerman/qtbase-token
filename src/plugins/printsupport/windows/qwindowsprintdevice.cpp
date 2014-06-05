@@ -213,6 +213,12 @@ index|]
 operator|.
 name|id
 expr_stmt|;
+name|slot
+operator|.
+name|windowsId
+operator|=
+name|windowsId
+expr_stmt|;
 return|return
 name|slot
 return|;

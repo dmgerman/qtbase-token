@@ -227,13 +227,13 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|HSTRING
+comment|// ### TODO: Replace with HStringReference when WP8.0 support is removed
+name|HString
 name|uriString
 decl_stmt|;
-name|HSTRING_HEADER
-name|header
-decl_stmt|;
-name|WindowsCreateStringReference
+name|uriString
+operator|.
+name|Set
 argument_list|(
 operator|(
 specifier|const
@@ -249,12 +249,6 @@ name|urlString
 operator|.
 name|length
 argument_list|()
-argument_list|,
-operator|&
-name|header
-argument_list|,
-operator|&
-name|uriString
 argument_list|)
 expr_stmt|;
 name|m_uriFactory
@@ -262,6 +256,9 @@ operator|->
 name|CreateUri
 argument_list|(
 name|uriString
+operator|.
+name|Get
+argument_list|()
 argument_list|,
 operator|&
 name|uri
@@ -381,13 +378,13 @@ name|toLocalFile
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|HSTRING_HEADER
-name|header
-decl_stmt|;
-name|HSTRING
+comment|// ### TODO: Replace with HStringReference when WP8.0 support is removed
+name|HString
 name|path
 decl_stmt|;
-name|WindowsCreateStringReference
+name|path
+operator|.
+name|Set
 argument_list|(
 operator|(
 specifier|const
@@ -403,12 +400,6 @@ name|pathString
 operator|.
 name|length
 argument_list|()
-argument_list|,
-operator|&
-name|header
-argument_list|,
-operator|&
-name|path
 argument_list|)
 expr_stmt|;
 name|IAsyncOperation
@@ -424,6 +415,9 @@ operator|->
 name|GetFileFromPathAsync
 argument_list|(
 name|path
+operator|.
+name|Get
+argument_list|()
 argument_list|,
 operator|&
 name|fileOp

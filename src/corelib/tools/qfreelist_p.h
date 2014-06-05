@@ -84,7 +84,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|member|next
-name|int
+name|QAtomicInt
 name|next
 decl_stmt|;
 end_decl_stmt
@@ -115,7 +115,7 @@ block|}
 end_function
 begin_comment
 unit|};
-comment|/*! \internal      Element in a QFreeList without a paylout. ConstReferenceType and     ReferenceType are void, the t() functions return void and are empty. */
+comment|/*! \internal      Element in a QFreeList without a payload. ConstReferenceType and     ReferenceType are void, the t() functions return void and are empty. */
 end_comment
 begin_expr_stmt
 name|template
@@ -139,7 +139,7 @@ name|ReferenceType
 typedef|;
 end_typedef
 begin_decl_stmt
-name|int
+name|QAtomicInt
 name|next
 decl_stmt|;
 end_decl_stmt
@@ -383,12 +383,15 @@ name|i
 index|]
 operator|.
 name|next
-operator|=
+operator|.
+name|store
+argument_list|(
 name|offset
 operator|+
 name|i
 operator|+
 literal|1
+argument_list|)
 expr_stmt|;
 return|return
 name|v
@@ -888,6 +891,9 @@ name|at
 index|]
 operator|.
 name|next
+operator|.
+name|load
+argument_list|()
 operator||
 operator|(
 name|id
@@ -1011,12 +1017,15 @@ name|at
 index|]
 operator|.
 name|next
-operator|=
+operator|.
+name|store
+argument_list|(
 name|x
 operator|&
 name|ConstantsType
 operator|::
 name|IndexMask
+argument_list|)
 expr_stmt|;
 name|newid
 operator|=

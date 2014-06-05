@@ -1980,6 +1980,9 @@ name|d
 operator|->
 name|velocityValue
 operator|+
+operator|(
+name|qreal
+operator|)
 name|distance
 operator|/
 name|elapsedTime

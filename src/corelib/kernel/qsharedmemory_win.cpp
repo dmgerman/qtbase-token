@@ -563,6 +563,10 @@ argument_list|)
 name|Q_UNIMPLEMENTED
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|size
+argument_list|)
 name|hand
 operator|=
 literal|0
@@ -685,6 +689,10 @@ argument_list|)
 name|Q_UNIMPLEMENTED
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|mode
+argument_list|)
 name|memory
 operator|=
 literal|0

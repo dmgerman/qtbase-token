@@ -228,7 +228,7 @@ name|process
 operator|.
 name|start
 argument_list|(
-literal|"dir \"\"\"My Documents\"\"\""
+literal|"dir \"Epic 12\"\"\" Singles\""
 argument_list|)
 expr_stmt|;
 comment|//! [7]

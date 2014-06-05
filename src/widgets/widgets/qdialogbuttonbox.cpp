@@ -482,16 +482,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// ### move to a real init() function
-name|q
-operator|->
-name|setFocusPolicy
-argument_list|(
-name|Qt
-operator|::
-name|TabFocus
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function

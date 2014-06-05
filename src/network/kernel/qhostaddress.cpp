@@ -1772,6 +1772,12 @@ operator|.
 name|qt_s6_addr
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|sockaddr
+argument_list|)
 endif|#
 directive|endif
 block|}
@@ -2211,6 +2217,12 @@ operator|.
 name|qt_s6_addr
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|sockaddr
+argument_list|)
 endif|#
 directive|endif
 block|}

@@ -574,6 +574,10 @@ decl_stmt|;
 name|Q_UNIMPLEMENTED
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|string
+argument_list|)
 else|#
 directive|else
 comment|// Q_OS_WINPHONE

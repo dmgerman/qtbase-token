@@ -252,13 +252,6 @@ name|void
 name|flush
 argument_list|()
 block|;
-name|bool
-name|event
-argument_list|(
-name|QEvent
-operator|*
-argument_list|)
-block|;
 name|friend
 name|void
 name|qt_mac_maybeCancelWaitForMoreEventsForwarder
@@ -399,6 +392,12 @@ block|;
 name|void
 name|ensureNSAppInitialized
 argument_list|()
+block|;
+name|void
+name|removeQueuedUserInputEvents
+argument_list|(
+argument|int nsWinNumber
+argument_list|)
 block|;
 name|QCFSocketNotifier
 name|cfSocketNotifier

@@ -245,13 +245,6 @@ name|QString
 name|prevCurrentDir
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|documentationPath
-specifier|static
-name|QString
-name|documentationPath
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|/*!   Print the help message to \c stdout.  */
 end_comment
@@ -433,25 +426,6 @@ operator|=
 literal|"html"
 expr_stmt|;
 block|}
-comment|// Allow modules and third-party application/libraries to link
-comment|// to the Qt docs without having to explicitly pass --indexdir.
-if|if
-condition|(
-operator|!
-name|indexDirs
-operator|.
-name|contains
-argument_list|(
-name|documentationPath
-argument_list|)
-condition|)
-name|indexDirs
-operator|.
-name|append
-argument_list|(
-name|documentationPath
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|dependModules
@@ -990,9 +964,7 @@ block|{
 name|qDebug
 argument_list|()
 operator|<<
-literal|"Dependant modules specified, but no index directories or "
-operator|<<
-literal|"install directory were set."
+literal|"Dependent modules specified, but no index directories were set."
 operator|<<
 literal|"There will probably be errors for missing links."
 expr_stmt|;
@@ -3041,13 +3013,6 @@ name|Config
 operator|::
 name|installDir
 operator|=
-name|argv
-index|[
-name|i
-index|]
-expr_stmt|;
-name|indexDirs
-operator|+=
 name|argv
 index|[
 name|i

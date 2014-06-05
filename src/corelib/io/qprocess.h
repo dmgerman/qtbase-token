@@ -705,7 +705,7 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-name|program
+name|command
 argument_list|)
 block|;
 specifier|static
@@ -726,6 +726,17 @@ specifier|const
 name|QString
 operator|&
 name|workingDirectory
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+operator|=
+name|QString
+argument_list|()
+endif|#
+directive|endif
 argument_list|,
 name|qint64
 operator|*
@@ -734,6 +745,13 @@ operator|=
 literal|0
 argument_list|)
 block|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
 specifier|static
 name|bool
 name|startDetached
@@ -749,6 +767,9 @@ operator|&
 name|arguments
 argument_list|)
 block|;
+comment|// ### Qt6: merge overloads
+endif|#
+directive|endif
 specifier|static
 name|bool
 name|startDetached
@@ -756,7 +777,7 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-name|program
+name|command
 argument_list|)
 block|;
 specifier|static
