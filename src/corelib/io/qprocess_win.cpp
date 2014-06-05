@@ -3506,7 +3506,9 @@ block|{
 if|if
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -3687,7 +3689,9 @@ condition|(
 operator|!
 name|pendingDataInPipe
 operator|&&
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -3877,7 +3881,9 @@ block|{
 if|if
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -4243,7 +4249,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()

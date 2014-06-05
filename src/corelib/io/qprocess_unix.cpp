@@ -5737,7 +5737,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -6123,7 +6125,9 @@ directive|endif
 while|while
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -6244,7 +6248,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -6703,7 +6709,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|writeBuffer
+name|stdinChannel
+operator|.
+name|buffer
 operator|.
 name|isEmpty
 argument_list|()

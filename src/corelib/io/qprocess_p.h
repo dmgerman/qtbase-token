@@ -1234,6 +1234,9 @@ name|QSocketNotifier
 modifier|*
 name|notifier
 decl_stmt|;
+name|QRingBuffer
+name|buffer
+decl_stmt|;
 name|Q_PIPE
 name|pipe
 index|[
@@ -1373,15 +1376,6 @@ endif|#
 directive|endif
 name|QProcessEnvironment
 name|environment
-decl_stmt|;
-name|QRingBuffer
-name|outputReadBuffer
-decl_stmt|;
-name|QRingBuffer
-name|errorReadBuffer
-decl_stmt|;
-name|QRingBuffer
-name|writeBuffer
 decl_stmt|;
 name|Q_PIPE
 name|childStartedPipe
