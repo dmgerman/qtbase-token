@@ -4995,10 +4995,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|field|m_opionsMenuIsVisible
+DECL|field|m_optionsMenuIsVisible
 specifier|private
 name|boolean
-name|m_opionsMenuIsVisible
+name|m_optionsMenuIsVisible
 init|=
 literal|false
 decl_stmt|;
@@ -5029,7 +5029,7 @@ name|Menu
 name|menu
 parameter_list|)
 block|{
-name|m_opionsMenuIsVisible
+name|m_optionsMenuIsVisible
 operator|=
 literal|true
 expr_stmt|;
@@ -5094,7 +5094,7 @@ name|Menu
 name|menu
 parameter_list|)
 block|{
-name|m_opionsMenuIsVisible
+name|m_optionsMenuIsVisible
 operator|=
 literal|false
 expr_stmt|;
@@ -5156,7 +5156,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|m_opionsMenuIsVisible
+name|m_optionsMenuIsVisible
 condition|)
 name|m_activity
 operator|.
