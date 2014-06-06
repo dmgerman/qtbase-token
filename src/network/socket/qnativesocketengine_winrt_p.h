@@ -551,8 +551,12 @@ argument_list|()
 block|;
 name|private
 operator|:
-expr|union
-block|{
+name|Microsoft
+operator|::
+name|WRL
+operator|::
+name|ComPtr
+operator|<
 name|ABI
 operator|::
 name|Windows
@@ -562,9 +566,15 @@ operator|::
 name|Sockets
 operator|::
 name|IStreamSocket
-operator|*
+operator|>
 name|tcp
 block|;
+name|Microsoft
+operator|::
+name|WRL
+operator|::
+name|ComPtr
+operator|<
 name|ABI
 operator|::
 name|Windows
@@ -574,9 +584,8 @@ operator|::
 name|Sockets
 operator|::
 name|IDatagramSocket
-operator|*
+operator|>
 name|udp
-block|;     }
 block|;
 name|Microsoft
 operator|::
