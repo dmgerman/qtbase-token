@@ -45,6 +45,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qjnihelpers_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qdebug.h"
 end_include
 begin_decl_stmt
@@ -1003,6 +1008,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|m_setTextSelectionMethodID
+operator|&&
 name|textIface
 operator|->
 name|selectionCount
@@ -1386,6 +1393,19 @@ modifier|*
 name|env
 parameter_list|)
 block|{
+if|if
+condition|(
+name|QtAndroidPrivate
+operator|::
+name|androidSdkVersion
+argument_list|()
+operator|<
+literal|16
+condition|)
+return|return
+literal|true
+return|;
+comment|// We need API level 16 or higher
 name|jclass
 name|clazz
 decl_stmt|;
@@ -1441,7 +1461,7 @@ name|__android_log_print
 argument_list|(
 name|ANDROID_LOG_FATAL
 argument_list|,
-literal|"Qt"
+literal|"Qt A11y"
 argument_list|,
 literal|"RegisterNatives failed"
 argument_list|)
@@ -1550,17 +1570,6 @@ argument_list|)
 expr_stmt|;
 name|GET_AND_CHECK_STATIC_METHOD
 argument_list|(
-name|m_setTextSelectionMethodID
-argument_list|,
-name|nodeInfoClass
-argument_list|,
-literal|"setTextSelection"
-argument_list|,
-literal|"(II)V"
-argument_list|)
-expr_stmt|;
-name|GET_AND_CHECK_STATIC_METHOD
-argument_list|(
 name|m_setVisibleToUserMethodID
 argument_list|,
 name|nodeInfoClass
@@ -1570,6 +1579,28 @@ argument_list|,
 literal|"(Z)V"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|QtAndroidPrivate
+operator|::
+name|androidSdkVersion
+argument_list|()
+operator|>=
+literal|18
+condition|)
+block|{
+name|GET_AND_CHECK_STATIC_METHOD
+argument_list|(
+name|m_setTextSelectionMethodID
+argument_list|,
+name|nodeInfoClass
+argument_list|,
+literal|"setTextSelection"
+argument_list|,
+literal|"(II)V"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
