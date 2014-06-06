@@ -36,7 +36,9 @@ block|{
 name|public
 operator|:
 name|TabletWidget
-argument_list|()
+argument_list|(
+argument|bool mouseToo
+argument_list|)
 block|;
 name|protected
 operator|:
@@ -66,6 +68,20 @@ argument_list|(
 name|QPaintEvent
 operator|*
 name|event
+argument_list|)
+block|;
+specifier|const
+name|char
+operator|*
+name|buttonToString
+argument_list|(
+argument|Qt::MouseButton b
+argument_list|)
+block|;
+name|QString
+name|buttonsToString
+argument_list|(
+argument|Qt::MouseButtons bs
 argument_list|)
 block|;
 name|private
@@ -134,6 +150,16 @@ name|mYT
 block|,
 name|mZ
 block|;
+name|Qt
+operator|::
+name|MouseButton
+name|mButton
+block|;
+name|Qt
+operator|::
+name|MouseButtons
+name|mButtons
+block|;
 name|qreal
 name|mPress
 block|,
@@ -143,6 +169,9 @@ name|mRot
 block|;
 name|qint64
 name|mUnique
+block|;
+name|bool
+name|mMouseToo
 block|; }
 decl_stmt|;
 end_decl_stmt
