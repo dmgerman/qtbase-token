@@ -161,9 +161,6 @@ name|QXcbShmImage
 modifier|*
 name|m_image
 decl_stmt|;
-name|bool
-name|m_syncingResize
-decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

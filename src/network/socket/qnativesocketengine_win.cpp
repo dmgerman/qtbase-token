@@ -839,6 +839,12 @@ argument_list|(
 name|tmp
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sa6
+operator|->
+name|sin6_scope_id
+condition|)
 name|a
 operator|.
 name|setScopeId

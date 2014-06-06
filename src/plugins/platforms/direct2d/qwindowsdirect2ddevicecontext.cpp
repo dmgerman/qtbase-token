@@ -105,6 +105,13 @@ argument_list|(
 name|deviceContext
 argument_list|)
 expr_stmt|;
+name|deviceContext
+operator|->
+name|SetUnitMode
+argument_list|(
+name|D2D1_UNIT_MODE_PIXELS
+argument_list|)
+expr_stmt|;
 block|}
 DECL|function|begin
 name|void

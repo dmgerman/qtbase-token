@@ -88,6 +88,12 @@ name|void
 name|lower
 argument_list|()
 block|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|QWinRTScreen

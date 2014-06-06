@@ -21,11 +21,11 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
-end_ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WINRT_USE_DWRITE
+end_ifdef
 begin_struct_decl
 struct_decl|struct
 name|IDWriteFontFile
@@ -70,18 +70,18 @@ name|fontDir
 argument_list|()
 specifier|const
 block|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
-operator|~
-name|QWinRTFontDatabase
-argument_list|()
-block|;
 name|QFont
 name|defaultFont
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
+block|;
+ifdef|#
+directive|ifdef
+name|QT_WINRT_USE_DWRITE
+operator|~
+name|QWinRTFontDatabase
+argument_list|()
 block|;
 name|void
 name|populateFontDatabase
@@ -134,7 +134,7 @@ name|m_fontFamilies
 block|;
 endif|#
 directive|endif
-comment|// !Q_OS_WINPHONE
+comment|// QT_WINRT_USE_DWRITE
 block|}
 decl_stmt|;
 end_decl_stmt

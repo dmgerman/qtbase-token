@@ -259,6 +259,19 @@ argument_list|(
 literal|".txt"
 argument_list|)
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|||
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_INOTIFY
+argument_list|)
 name|QTest
 operator|::
 name|newRow
@@ -274,23 +287,25 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"poller backend-testfile"
-argument_list|)
-operator|<<
-literal|"poller"
-operator|<<
-name|testFile
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
 literal|"native backend-specialchars"
 argument_list|)
 operator|<<
 literal|"native"
 operator|<<
 name|specialCharacterFile
+expr_stmt|;
+endif|#
+directive|endif
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"poller backend-testfile"
+argument_list|)
+operator|<<
+literal|"poller"
+operator|<<
+name|testFile
 expr_stmt|;
 block|}
 end_function

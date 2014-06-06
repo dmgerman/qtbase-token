@@ -2494,7 +2494,7 @@ name|pkOrientation
 operator|.
 name|orAzimuth
 operator|/
-literal|10
+literal|10.0
 operator|)
 operator|*
 operator|(
@@ -2518,7 +2518,7 @@ name|pkOrientation
 operator|.
 name|orAltitude
 operator|/
-literal|10
+literal|10.0
 argument_list|)
 operator|)
 operator|*

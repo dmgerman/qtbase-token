@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"qsurface.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qopenglcontext.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QSurface     \inmodule QtGui     \since 5.0     \brief The QSurface class is an abstraction of renderable surfaces in Qt.      The size of the surface is accessible with the size() function. The rendering     specific attributes of the surface are accessible through the format() function.  */
@@ -82,7 +87,38 @@ operator|::
 name|~
 name|QSurface
 parameter_list|()
-block|{ }
+block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+name|QOpenGLContext
+modifier|*
+name|context
+init|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|&&
+name|context
+operator|->
+name|surface
+argument_list|()
+operator|==
+name|this
+condition|)
+name|context
+operator|->
+name|doneCurrent
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 end_destructor
 begin_comment
 comment|/*!    Returns the surface class of this surface.  */

@@ -3724,7 +3724,7 @@ operator|++
 name|i
 control|)
 block|{
-name|HSTRING
+name|HString
 name|language
 decl_stmt|;
 name|languageList
@@ -3733,8 +3733,10 @@ name|GetAt
 argument_list|(
 name|i
 argument_list|,
-operator|&
 name|language
+operator|.
+name|GetAddressOf
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|UINT32
@@ -3743,10 +3745,10 @@ decl_stmt|;
 name|PCWSTR
 name|rawString
 init|=
-name|WindowsGetStringRawBuffer
-argument_list|(
 name|language
-argument_list|,
+operator|.
+name|GetRawBuffer
+argument_list|(
 operator|&
 name|length
 argument_list|)

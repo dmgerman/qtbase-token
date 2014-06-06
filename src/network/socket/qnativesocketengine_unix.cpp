@@ -326,6 +326,15 @@ name|addr
 operator|=
 name|tmpAddress
 expr_stmt|;
+if|if
+condition|(
+name|s
+operator|->
+name|a6
+operator|.
+name|sin6_scope_id
+condition|)
+block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_IPV6IFNAME
@@ -380,6 +389,7 @@ name|sin6_scope_id
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

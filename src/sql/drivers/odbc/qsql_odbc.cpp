@@ -5161,6 +5161,8 @@ argument_list|)
 expr_stmt|;
 name|SQLSMALLINT
 name|count
+init|=
+literal|0
 decl_stmt|;
 name|SQLNumResultCols
 argument_list|(
@@ -8771,6 +8773,8 @@ argument_list|)
 expr_stmt|;
 name|SQLSMALLINT
 name|count
+init|=
+literal|0
 decl_stmt|;
 name|SQLNumResultCols
 argument_list|(
@@ -9570,6 +9574,8 @@ block|}
 block|}
 name|SQLSMALLINT
 name|count
+init|=
+literal|0
 decl_stmt|;
 name|SQLNumResultCols
 argument_list|(

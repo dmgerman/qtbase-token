@@ -177,7 +177,7 @@ name|wakeUp
 argument_list|()
 name|Q_DECL_NOTHROW
 block|;
-comment|// Conrol the lifetime of the privates
+comment|// Control the lifetime of the privates
 name|QAtomicInt
 name|refCount
 block|;
