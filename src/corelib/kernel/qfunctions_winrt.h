@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -352,6 +352,73 @@ argument_list|,
 argument|void
 argument_list|)
 end_macro
+begin_comment
+comment|// Convenience macros for handling HRESULT values
+end_comment
+begin_define
+DECL|macro|RETURN_IF_FAILED
+define|#
+directive|define
+name|RETURN_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|,
+name|ret
+parameter_list|)
+define|\
+value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
+end_define
+begin_define
+DECL|macro|RETURN_HR_IF_FAILED
+define|#
+directive|define
+name|RETURN_HR_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return hr)
+end_define
+begin_define
+DECL|macro|RETURN_OK_IF_FAILED
+define|#
+directive|define
+name|RETURN_OK_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return S_OK)
+end_define
+begin_define
+DECL|macro|RETURN_FALSE_IF_FAILED
+define|#
+directive|define
+name|RETURN_FALSE_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return false)
+end_define
+begin_define
+DECL|macro|RETURN_VOID_IF_FAILED
+define|#
+directive|define
+name|RETURN_VOID_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return)
+end_define
+begin_define
+DECL|macro|Q_ASSERT_SUCCEEDED
+define|#
+directive|define
+name|Q_ASSERT_SUCCEEDED
+parameter_list|(
+name|hr
+parameter_list|)
+define|\
+value|Q_ASSERT_X(SUCCEEDED(hr), Q_FUNC_INFO, qPrintable(qt_error_string(hr)));
+end_define
 begin_endif
 endif|#
 directive|endif
