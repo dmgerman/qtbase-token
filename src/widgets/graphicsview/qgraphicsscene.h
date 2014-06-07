@@ -1843,6 +1843,10 @@ name|QGraphicsSceneIndexPrivate
 block|;
 name|friend
 name|class
+name|QGraphicsSceneLinearIndex
+block|;
+name|friend
+name|class
 name|QGraphicsSceneBspTreeIndex
 block|;
 name|friend
