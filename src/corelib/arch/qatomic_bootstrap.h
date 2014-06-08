@@ -94,9 +94,23 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue =
+literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
+if|if
+condition|(
+name|currentValue
+condition|)
+operator|*
+name|currentValue
+operator|=
+name|_q_value
+expr_stmt|;
+end_expr_stmt
+begin_if
 if|if
 condition|(
 name|_q_value
@@ -112,7 +126,7 @@ return|return
 name|true
 return|;
 block|}
-end_expr_stmt
+end_if
 begin_return
 return|return
 name|false
