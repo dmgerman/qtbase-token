@@ -1292,7 +1292,7 @@ operator|.
 name|toLower
 argument_list|()
 decl_stmt|;
-comment|//qDebug()<< "\nSTART PROJECT:"<< project;
+comment|//qDebug()<< "\nStart project:"<< project;
 comment|/*       Add the defines to the configuration variables.      */
 name|QStringList
 name|defs

@@ -137,9 +137,9 @@ name|QDomElement
 modifier|&
 name|element
 parameter_list|,
-name|InnerNode
+name|Node
 modifier|*
-name|parent
+name|current
 parameter_list|,
 specifier|const
 name|QString

@@ -1313,7 +1313,7 @@ parameter_list|)
 function_decl|;
 name|public
 label|:
-comment|// special collection access functions
+comment|/*******************************************************************      special collection access functions     ********************************************************************/
 name|NodeMap
 modifier|&
 name|getCppClasses
@@ -1407,7 +1407,7 @@ modifier|&
 name|key
 parameter_list|)
 function_decl|;
-comment|/* convenience functions        Many of these will be either eliminated or replaced.     */
+comment|/*******************************************************************       Many of these will be either eliminated or replaced.     ********************************************************************/
 name|void
 name|resolveInheritance
 parameter_list|()
@@ -1600,6 +1600,49 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/*******************************************************************/
+comment|/*******************************************************************       The functions declared below handle the parameters in '[' ']'.     ********************************************************************/
+name|Node
+modifier|*
+name|findNode
+parameter_list|(
+specifier|const
+name|Atom
+modifier|*
+name|atom
+parameter_list|)
+function_decl|;
+specifier|const
+name|Node
+modifier|*
+name|findNode
+parameter_list|(
+specifier|const
+name|Atom
+modifier|*
+name|atom
+parameter_list|,
+specifier|const
+name|Node
+modifier|*
+name|relative
+parameter_list|,
+name|QString
+modifier|&
+name|ref
+parameter_list|)
+function_decl|;
+specifier|const
+name|DocNode
+modifier|*
+name|findDocNodeByTitle
+parameter_list|(
+specifier|const
+name|Atom
+modifier|*
+name|atom
+parameter_list|)
+function_decl|;
 comment|/*******************************************************************/
 comment|/*******************************************************************       The functions declared below are called for all trees.     ********************************************************************/
 name|ClassNode

@@ -120,6 +120,17 @@ name|operator
 operator|<<
 operator|(
 specifier|const
+name|LinkAtom
+operator|&
+name|atom
+operator|)
+expr_stmt|;
+name|Text
+operator|&
+name|operator
+operator|<<
+operator|(
+specifier|const
 name|Text
 operator|&
 name|text

@@ -2487,6 +2487,35 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   Returns a pointer to the Tree this node is in.  */
+end_comment
+begin_function
+DECL|function|tree
+name|Tree
+modifier|*
+name|Node
+operator|::
+name|tree
+parameter_list|()
+specifier|const
+block|{
+return|return
+operator|(
+name|parent
+argument_list|()
+condition|?
+name|parent
+argument_list|()
+operator|->
+name|tree
+argument_list|()
+else|:
+literal|0
+operator|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   Returns a pointer to the root of the Tree this node is in.  */
 end_comment
 begin_function

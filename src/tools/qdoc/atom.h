@@ -23,11 +23,22 @@ include|#
 directive|include
 file|"node.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<qdebug.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|Tree
 name|class
 name|Tree
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|LinkAtom
+name|class
+name|LinkAtom
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -61,6 +72,7 @@ name|CaptionLeft
 block|,
 name|CaptionRight
 block|,
+comment|// 10
 name|Code
 block|,
 name|CodeBad
@@ -81,6 +93,7 @@ name|EndQmlText
 block|,
 name|FootnoteLeft
 block|,
+comment|// 20
 name|FootnoteRight
 block|,
 name|FormatElse
@@ -101,6 +114,7 @@ name|HR
 block|,
 name|Image
 block|,
+comment|// 30
 name|ImageText
 block|,
 name|ImportantLeft
@@ -121,6 +135,7 @@ name|LineBreak
 block|,
 name|Link
 block|,
+comment|// 40
 name|LinkNode
 block|,
 name|ListLeft
@@ -141,6 +156,7 @@ name|Nop
 block|,
 name|NoteLeft
 block|,
+comment|// 50
 name|NoteRight
 block|,
 name|ParaLeft
@@ -161,6 +177,7 @@ name|SectionLeft
 block|,
 name|SectionRight
 block|,
+comment|// 60
 name|SectionHeadingLeft
 block|,
 name|SectionHeadingRight
@@ -181,6 +198,7 @@ name|String
 block|,
 name|TableLeft
 block|,
+comment|// 70
 name|TableRight
 block|,
 name|TableHeaderLeft
@@ -201,6 +219,7 @@ name|Target
 block|,
 name|UnhandledFormat
 block|,
+comment|// 80
 name|UnknownCommand
 block|,
 name|Last
@@ -208,6 +227,42 @@ init|=
 name|UnknownCommand
 block|}
 enum|;
+enum|enum
+name|NodeGenus
+block|{
+name|DontCare
+block|,
+name|CPP
+block|,
+name|QML
+block|}
+enum|;
+name|friend
+name|class
+name|LinkAtom
+decl_stmt|;
+name|Atom
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|string
+argument_list|)
+operator|:
+name|next_
+argument_list|(
+literal|0
+argument_list|)
+operator|,
+name|type_
+argument_list|(
+argument|Link
+argument_list|)
+block|{
+name|strs
+operator|<<
+name|string
+block|;     }
 name|Atom
 argument_list|(
 argument|Type type
@@ -215,7 +270,7 @@ argument_list|,
 argument|const QString& string =
 literal|""
 argument_list|)
-block|:
+operator|:
 name|next_
 argument_list|(
 literal|0
@@ -546,14 +601,39 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+specifier|const
+name|QStringList
+operator|&
+name|strings
+argument_list|()
+specifier|const
+block|{
+return|return
+name|strs
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
 name|virtual
 name|bool
-name|qml
+name|isLinkAtom
 argument_list|()
 specifier|const
 block|{
 return|return
 name|false
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|virtual
+name|NodeGenus
+name|genus
+argument_list|()
+specifier|const
+block|{
+return|return
+name|DontCare
 return|;
 block|}
 end_expr_stmt
@@ -641,6 +721,26 @@ operator|&
 name|p2
 argument_list|)
 block|;
+name|LinkAtom
+argument_list|(
+specifier|const
+name|LinkAtom
+operator|&
+name|t
+argument_list|)
+block|;
+name|LinkAtom
+argument_list|(
+name|Atom
+operator|*
+name|previous
+argument_list|,
+specifier|const
+name|LinkAtom
+operator|&
+name|t
+argument_list|)
+block|;
 name|virtual
 operator|~
 name|LinkAtom
@@ -648,12 +748,22 @@ argument_list|()
 block|{ }
 name|virtual
 name|bool
-name|qml
+name|isLinkAtom
 argument_list|()
 specifier|const
 block|{
 return|return
-name|qml_
+name|true
+return|;
+block|}
+name|virtual
+name|NodeGenus
+name|genus
+argument_list|()
+specifier|const
+block|{
+return|return
+name|genus_
 return|;
 block|}
 name|virtual
@@ -695,8 +805,8 @@ return|;
 block|}
 name|protected
 operator|:
-name|bool
-name|qml_
+name|NodeGenus
+name|genus_
 block|;
 name|Node
 operator|::
