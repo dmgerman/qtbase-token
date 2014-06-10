@@ -9424,6 +9424,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|mousePressed
+operator|&&
 name|wordSelectionEnabled
 operator|&&
 operator|!
@@ -9477,6 +9479,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+name|mousePressed
+operator|&&
 operator|!
 name|isPreediting
 argument_list|()
