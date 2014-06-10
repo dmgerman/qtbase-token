@@ -469,24 +469,6 @@ end_namespace
 begin_comment
 comment|// unnamed namespace
 end_comment
-begin_decl_stmt
-DECL|variable|UserEventRegistrationBitFieldSize
-specifier|static
-specifier|const
-name|int
-name|UserEventRegistrationBitFieldSize
-init|=
-name|QEvent
-operator|::
-name|MaxUser
-operator|-
-name|QEvent
-operator|::
-name|User
-operator|+
-literal|1
-decl_stmt|;
-end_decl_stmt
 begin_typedef
 DECL|typedef|UserEventTypeRegistry
 typedef|typedef
