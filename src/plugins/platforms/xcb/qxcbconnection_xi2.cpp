@@ -1928,7 +1928,7 @@ name|mode
 condition|)
 block|{
 case|case
-name|XIModeRelative
+name|XIDependentTouch
 case|:
 name|type
 operator|=
@@ -1938,7 +1938,7 @@ name|TouchPad
 expr_stmt|;
 break|break;
 case|case
-name|XIModeAbsolute
+name|XIDirectTouch
 case|:
 name|type
 operator|=
