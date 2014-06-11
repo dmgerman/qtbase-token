@@ -98,6 +98,20 @@ name|propagateSizeHints
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|{ }
+name|void
+name|setOpacity
+argument_list|(
+argument|qreal
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|{ }
+name|void
+name|setMask
+argument_list|(
+argument|const QRegion&
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|{ }
 name|bool
 name|setKeyboardGrabEnabled
 argument_list|(

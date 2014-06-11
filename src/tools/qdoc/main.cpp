@@ -955,9 +955,7 @@ block|{
 name|qDebug
 argument_list|()
 operator|<<
-literal|"Dependant modules specified, but no index directories or "
-operator|<<
-literal|"install directory were set."
+literal|"Dependent modules specified, but no index directories were set."
 operator|<<
 literal|"There will probably be errors for missing links."
 expr_stmt|;
@@ -2901,13 +2899,6 @@ name|Config
 operator|::
 name|installDir
 operator|=
-name|argv
-index|[
-name|i
-index|]
-expr_stmt|;
-name|indexDirs
-operator|+=
 name|argv
 index|[
 name|i

@@ -2278,6 +2278,11 @@ name|QByteArray
 modifier|&
 name|requestName
 parameter_list|,
+specifier|const
+name|QHostAddress
+modifier|&
+name|nameserver
+parameter_list|,
 name|QDnsLookupReply
 modifier|*
 name|reply
@@ -2290,6 +2295,10 @@ argument_list|)
 name|Q_UNUSED
 argument_list|(
 argument|requestName
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|nameserver
 argument_list|)
 name|reply
 operator|->
