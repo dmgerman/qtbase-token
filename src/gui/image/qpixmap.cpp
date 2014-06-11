@@ -2906,6 +2906,9 @@ name|ImageConversionFlags
 name|flags
 parameter_list|)
 block|{
+name|detach
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|image
