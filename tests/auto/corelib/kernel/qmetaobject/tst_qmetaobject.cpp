@@ -3807,7 +3807,8 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl3(QString)"
+literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl3(QString)\n"
+literal|"Candidates are:\n    sl3(QString,QString,QString)"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3837,7 +3838,8 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl1(QString,QString,QString)"
+literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl1(QString,QString,QString)\n"
+literal|"Candidates are:\n    sl1(QString)"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5777,7 +5779,8 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl3(QString)"
+literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl3(QString)\n"
+literal|"Candidates are:\n    sl3(QString,QString,QString)"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5811,7 +5814,8 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl1(QString,QString,QString)"
+literal|"QMetaObject::invokeMethod: No such method QtTestObject::sl1(QString,QString,QString)\n"
+literal|"Candidates are:\n    sl1(QString)"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
