@@ -1005,6 +1005,14 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|w
+operator|->
+name|handle
+argument_list|()
+condition|)
+block|{
 name|QRect
 name|geometry
 init|=
@@ -1044,6 +1052,7 @@ name|geometry
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
