@@ -13178,7 +13178,7 @@ literal|"Network timeout"
 argument_list|)
 expr_stmt|;
 comment|// set the read buffer size to less than what was written,
-comment|// and increase it from the slot, first to 384 then to 1024.
+comment|// and increase it from the slot, first to 384 then to 512.
 name|active
 operator|->
 name|setReadBufferSize
