@@ -2300,6 +2300,11 @@ condition|(
 name|lview
 condition|)
 block|{
+name|lview
+operator|->
+name|window
+argument_list|()
+operator|->
 name|setFixedWidth
 argument_list|(
 name|qMin
