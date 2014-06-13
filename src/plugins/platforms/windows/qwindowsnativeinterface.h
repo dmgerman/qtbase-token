@@ -106,6 +106,34 @@ name|MB_OK
 argument_list|)
 block|; }
 comment|// For QApplication
+name|Q_INVOKABLE
+name|void
+name|registerWindowsMime
+argument_list|(
+name|void
+operator|*
+name|mimeIn
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|void
+name|unregisterWindowsMime
+argument_list|(
+name|void
+operator|*
+name|mime
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|int
+name|registerMimeType
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|mimeType
+argument_list|)
+block|;
 name|bool
 name|asyncExpose
 argument_list|()
