@@ -261,6 +261,16 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+DECL|macro|Q_MV_OSX
+define|#
+directive|define
+name|Q_MV_OSX
+parameter_list|(
+name|major
+parameter_list|,
+name|minor
+parameter_list|)
+value|(major == 10 ? minor + 2 : (major == 9 ? 1 : 0))
 DECL|macro|Q_MV_IOS
 define|#
 directive|define
