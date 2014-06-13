@@ -309,6 +309,36 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// qreal type, if not double (includes the dash)
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_COORD_TYPE_STRING
+end_ifdef
+begin_define
+DECL|macro|ARCH_COORD_TYPE
+define|#
+directive|define
+name|ARCH_COORD_TYPE
+value|"-qreal_" QT_COORD_TYPE_STRING
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|ARCH_COORD_TYPE
+define|#
+directive|define
+name|ARCH_COORD_TYPE
+value|""
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|// secondary: ABI string (includes the dash)
 end_comment
 begin_if
@@ -461,6 +491,6 @@ DECL|macro|ARCH_FULL
 define|#
 directive|define
 name|ARCH_FULL
-value|ARCH_PROCESSOR "-" ARCH_ENDIANNESS "-" ARCH_POINTER ARCH_ABI
+value|ARCH_PROCESSOR "-" ARCH_ENDIANNESS "-" ARCH_POINTER ARCH_COORD_TYPE ARCH_ABI
 end_define
 end_unit
