@@ -174,6 +174,46 @@ literal|0x88BA
 comment|// GL_READ_WRITE
 block|}
 enum|;
+enum|enum
+name|RangeAccessFlag
+block|{
+name|RangeRead
+init|=
+literal|0x0001
+block|,
+comment|// GL_MAP_READ_BIT
+name|RangeWrite
+init|=
+literal|0x0002
+block|,
+comment|// GL_MAP_WRITE_BIT
+name|RangeInvalidate
+init|=
+literal|0x0004
+block|,
+comment|// GL_MAP_INVALIDATE_RANGE_BIT
+name|RangeInvalidateBuffer
+init|=
+literal|0x0008
+block|,
+comment|// GL_MAP_INVALIDATE_BUFFER_BIT
+name|RangeFlushExplicit
+init|=
+literal|0x0010
+block|,
+comment|// GL_MAP_FLUSH_EXPLICIT_BIT
+name|RangeUnsynchronized
+init|=
+literal|0x0020
+comment|// GL_MAP_UNSYNCHRONIZED_BIT
+block|}
+enum|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|RangeAccessFlags
+argument_list|,
+argument|RangeAccessFlag
+argument_list|)
 name|QOpenGLBuffer
 operator|::
 name|Type
@@ -305,6 +345,22 @@ name|Access
 name|access
 argument_list|)
 decl_stmt|;
+name|void
+modifier|*
+name|mapRange
+argument_list|(
+name|int
+name|offset
+argument_list|,
+name|int
+name|count
+argument_list|,
+name|QOpenGLBuffer
+operator|::
+name|RangeAccessFlags
+name|access
+argument_list|)
+decl_stmt|;
 name|bool
 name|unmap
 parameter_list|()
@@ -324,6 +380,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QOpenGLBuffer::RangeAccessFlags
+argument_list|)
+end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

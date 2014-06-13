@@ -202,6 +202,10 @@ block|,
 name|GeometryShaders
 operator|=
 literal|0x00080000
+block|,
+name|MapBufferRange
+operator|=
+literal|0x00100000
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -228,6 +232,19 @@ argument_list|(
 argument|GLenum target
 argument_list|,
 argument|GLenum access
+argument_list|)
+block|;
+name|GLvoid
+operator|*
+name|glMapBufferRange
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|qopengl_GLintptr offset
+argument_list|,
+argument|qopengl_GLsizeiptr length
+argument_list|,
+argument|GLbitfield access
 argument_list|)
 block|;
 name|GLboolean
@@ -334,6 +351,26 @@ name|GLenum
 name|target
 expr|,
 name|GLenum
+name|access
+operator|)
+block|;
+name|GLvoid
+operator|*
+operator|(
+name|QOPENGLF_APIENTRYP
+name|MapBufferRange
+operator|)
+operator|(
+name|GLenum
+name|target
+expr|,
+name|qopengl_GLintptr
+name|offset
+expr|,
+name|qopengl_GLsizeiptr
+name|length
+expr|,
+name|GLbitfield
 name|access
 operator|)
 block|;
@@ -460,6 +497,60 @@ operator|->
 name|MapBuffer
 argument_list|(
 name|target
+argument_list|,
+name|access
+argument_list|)
+block|;
+name|Q_OPENGL_FUNCTIONS_DEBUG
+return|return
+name|result
+return|;
+block|}
+DECL|function|glMapBufferRange
+specifier|inline
+name|GLvoid
+operator|*
+name|QOpenGLExtensions
+operator|::
+name|glMapBufferRange
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|qopengl_GLintptr offset
+argument_list|,
+argument|qopengl_GLsizeiptr length
+argument_list|,
+argument|GLbitfield access
+argument_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QOpenGLExtensions
+argument_list|)
+block|;
+name|Q_ASSERT
+argument_list|(
+name|QOpenGLExtensions
+operator|::
+name|isInitialized
+argument_list|(
+name|d
+argument_list|)
+argument_list|)
+block|;
+name|GLvoid
+operator|*
+name|result
+operator|=
+name|d
+operator|->
+name|MapBufferRange
+argument_list|(
+name|target
+argument_list|,
+name|offset
+argument_list|,
+name|length
 argument_list|,
 name|access
 argument_list|)
