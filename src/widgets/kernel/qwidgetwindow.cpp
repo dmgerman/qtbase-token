@@ -3061,32 +3061,9 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-comment|// If the widget's position already matches that of the event, this is a
-comment|// result of call to QWidget::move(), which already sends an event.
-specifier|const
-name|bool
-name|spontaneous
-init|=
-name|m_widget
-operator|->
-name|geometry
-argument_list|()
-operator|.
-name|topLeft
-argument_list|()
-operator|!=
-name|event
-operator|->
-name|pos
-argument_list|()
-decl_stmt|;
 name|updateGeometry
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|spontaneous
-condition|)
 name|QGuiApplication
 operator|::
 name|sendSpontaneousEvent
@@ -3122,26 +3099,9 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|// If the widget's size already matches that of the event, this is a
-comment|// result of call to QWidget::resize(), which already sends an event.
-specifier|const
-name|bool
-name|spontaneous
-init|=
-name|oldSize
-operator|!=
-name|event
-operator|->
-name|size
-argument_list|()
-decl_stmt|;
 name|updateGeometry
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|spontaneous
-condition|)
 name|QGuiApplication
 operator|::
 name|sendSpontaneousEvent
