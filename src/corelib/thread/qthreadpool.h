@@ -152,6 +152,14 @@ block|;
 name|void
 name|clear
 argument_list|()
+block|;
+name|void
+name|cancel
+argument_list|(
+name|QRunnable
+operator|*
+name|runnable
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

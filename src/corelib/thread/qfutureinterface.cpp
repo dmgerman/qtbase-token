@@ -1297,7 +1297,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|stealRunnable
+name|stealAndRunRunnable
 argument_list|(
 name|d
 operator|->
@@ -1425,7 +1425,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|stealRunnable
+name|stealAndRunRunnable
 argument_list|(
 name|d
 operator|->
