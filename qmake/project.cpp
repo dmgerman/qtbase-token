@@ -97,7 +97,6 @@ argument_list|)
 block|{
 name|initFrom
 argument_list|(
-operator|*
 name|p
 argument_list|)
 expr_stmt|;
