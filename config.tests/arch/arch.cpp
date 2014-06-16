@@ -41,25 +41,6 @@ begin_decl_stmt
 specifier|extern
 specifier|const
 name|char
-name|msgfull
-index|[]
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|msgfull
-specifier|const
-name|char
-name|msgfull
-index|[]
-init|=
-literal|"==Qt=magic=Qt== Full Architecture:"
-name|ARCH_FULL
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-specifier|extern
-specifier|const
-name|char
 name|msg2
 index|[]
 decl_stmt|;
@@ -432,11 +413,6 @@ block|{
 name|puts
 argument_list|(
 name|msg
-argument_list|)
-expr_stmt|;
-name|puts
-argument_list|(
-name|msgfull
 argument_list|)
 expr_stmt|;
 name|puts
