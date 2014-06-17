@@ -725,6 +725,13 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|void
+name|qRegisterGuiGetInterpolator
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
 name|qInitDrawhelperAsm
 parameter_list|()
 function_decl|;
@@ -4907,6 +4914,10 @@ endif|#
 directive|endif
 comment|// trigger registering of QVariant's GUI types
 name|qRegisterGuiVariant
+argument_list|()
+expr_stmt|;
+comment|// trigger registering of animation interpolators
+name|qRegisterGuiGetInterpolator
 argument_list|()
 expr_stmt|;
 name|QWindowSystemInterfacePrivate

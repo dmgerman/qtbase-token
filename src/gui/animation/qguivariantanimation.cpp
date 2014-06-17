@@ -197,7 +197,6 @@ block|}
 end_function
 begin_function
 DECL|function|qRegisterGuiGetInterpolator
-specifier|static
 name|void
 name|qRegisterGuiGetInterpolator
 parameter_list|()
