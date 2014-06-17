@@ -1438,7 +1438,7 @@ name|winver
 operator|=
 name|QSysInfo
 operator|::
-name|WV_WINDOWS8
+name|WV_WINDOWS8_1
 expr_stmt|;
 else|#
 directive|else
