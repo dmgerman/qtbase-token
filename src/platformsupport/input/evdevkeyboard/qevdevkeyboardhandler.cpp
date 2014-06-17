@@ -282,6 +282,11 @@ specifier|const
 name|QString
 modifier|&
 name|specification
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|defaultKeymapFile
 parameter_list|)
 block|{
 ifdef|#
@@ -300,6 +305,8 @@ endif|#
 directive|endif
 name|QString
 name|keymapFile
+init|=
+name|defaultKeymapFile
 decl_stmt|;
 name|int
 name|repeatDelay

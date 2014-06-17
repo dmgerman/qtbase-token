@@ -72,6 +72,15 @@ operator|~
 name|QEvdevKeyboardManager
 argument_list|()
 block|;
+name|void
+name|loadKeymap
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|file
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
@@ -113,6 +122,9 @@ block|;
 name|QDeviceDiscovery
 operator|*
 name|m_deviceDiscovery
+block|;
+name|QString
+name|m_defaultKeymapFile
 block|; }
 decl_stmt|;
 end_decl_stmt
