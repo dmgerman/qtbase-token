@@ -17661,6 +17661,15 @@ argument_list|(
 name|w
 argument_list|)
 expr_stmt|;
+name|styleSheetCaches
+operator|->
+name|styleSheetCache
+operator|.
+name|remove
+argument_list|(
+name|w
+argument_list|)
+expr_stmt|;
 block|}
 name|setGeometry
 argument_list|(
