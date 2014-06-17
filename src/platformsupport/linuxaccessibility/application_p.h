@@ -146,6 +146,9 @@ name|keyEvents
 block|;
 name|QDBusConnection
 name|dbusConnection
+block|;
+name|bool
+name|inCapsLock
 block|; }
 decl_stmt|;
 end_decl_stmt
