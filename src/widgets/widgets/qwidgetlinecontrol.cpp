@@ -624,6 +624,9 @@ operator|::
 name|commitPreedit
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_IM
 if|if
 condition|(
 operator|!
@@ -670,6 +673,8 @@ comment|/*force*/
 literal|true
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

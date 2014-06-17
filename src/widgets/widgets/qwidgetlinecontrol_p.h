@@ -1242,6 +1242,9 @@ modifier|&
 name|txt
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_IM
 if|if
 condition|(
 name|composeMode
@@ -1255,6 +1258,8 @@ operator|->
 name|reset
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 name|internalSetText
 argument_list|(
 name|txt
