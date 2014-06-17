@@ -547,7 +547,10 @@ argument|const QString&attributeName
 argument_list|)
 specifier|const
 block|;
-name|QRect
+name|QList
+operator|<
+name|QVariant
+operator|>
 name|getCharacterExtents
 argument_list|(
 argument|QAccessibleInterface *
@@ -558,7 +561,10 @@ argument|uint coordType
 argument_list|)
 specifier|const
 block|;
-name|QRect
+name|QList
+operator|<
+name|QVariant
+operator|>
 name|getRangeExtents
 argument_list|(
 argument|QAccessibleInterface *
