@@ -432,6 +432,11 @@ name|m_object
 operator|=
 literal|0
 expr_stmt|;
+name|o
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
 return|return
 name|result
 return|;

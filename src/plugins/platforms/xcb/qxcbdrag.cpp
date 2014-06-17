@@ -5164,19 +5164,6 @@ comment|//                (void) checkEmbedded(currentWindow, xe);
 comment|//            current_embedding_widget = 0;
 comment|//            current_target = 0;
 comment|//            current_proxy_target = 0;
-if|if
-condition|(
-name|t
-operator|.
-name|drag
-condition|)
-name|t
-operator|.
-name|drag
-operator|->
-name|deleteLater
-argument_list|()
-expr_stmt|;
 comment|//            current_target = target;
 comment|//            current_proxy_target = proxy_target;
 comment|//            current_embedding_widget = embedding_widget;
