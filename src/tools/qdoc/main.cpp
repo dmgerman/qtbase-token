@@ -2320,6 +2320,21 @@ block|{
 operator|++
 name|parsed
 expr_stmt|;
+name|Generator
+operator|::
+name|debug
+argument_list|(
+name|QString
+argument_list|(
+literal|"Parsing "
+operator|+
+name|h
+operator|.
+name|key
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|codeParser
 operator|->
 name|parseHeaderFile
