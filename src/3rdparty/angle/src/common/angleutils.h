@@ -194,6 +194,10 @@ name|defined
 argument_list|(
 name|_MSC_VER
 argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<
+literal|1900
 end_if
 begin_define
 DECL|macro|snprintf
