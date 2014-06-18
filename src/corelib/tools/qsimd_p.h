@@ -473,14 +473,23 @@ define|#
 directive|define
 name|QT_COMPILER_SUPPORTS_X86INTRIN
 end_define
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|Q_CC_INTEL
-end_ifndef
+end_ifdef
 begin_comment
 comment|// The Intel compiler has no<x86intrin.h> -- all intrinsics are in<immintrin.h>;
 end_comment
+begin_include
+include|#
+directive|include
+file|<immintrin.h>
+end_include
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
 comment|// GCC 4.4 and Clang 2.8 added a few more intrinsics there
 end_comment
