@@ -5532,7 +5532,7 @@ operator|>=
 literal|0
 operator|&&
 name|cshape
-operator|<
+operator|<=
 name|Qt
 operator|::
 name|LastCursor
