@@ -842,8 +842,12 @@ name|void
 name|setFocusWidget
 parameter_list|()
 function_decl|;
-name|void
+name|bool
 name|restoreFocus
+parameter_list|()
+function_decl|;
+name|void
+name|storeFocusWidget
 parameter_list|()
 function_decl|;
 name|void
