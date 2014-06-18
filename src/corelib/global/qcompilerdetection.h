@@ -1916,7 +1916,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*  * C++11 support  *  *  Paper           Macro                               SD-6 macro  *  N2341           Q_COMPILER_ALIGNAS  *  N2341           Q_COMPILER_ALIGNOF  *  N2427           Q_COMPILER_ATOMICS  *  N2761           Q_COMPILER_ATTRIBUTES               __cpp_attributes = 200809  *  N2541           Q_COMPILER_AUTO_FUNCTION  *  N1984 N2546     Q_COMPILER_AUTO_TYPE  *  N2437           Q_COMPILER_CLASS_ENUM  *  N2235           Q_COMPILER_CONSTEXPR                __cpp_constexpr = 200704  *  N2343 N3276     Q_COMPILER_DECLTYPE                 __cpp_decltype = 200707  *  N2346           Q_COMPILER_DEFAULT_MEMBERS  *  N2346           Q_COMPILER_DELETE_MEMBERS  *  N1986           Q_COMPILER_DELEGATING_CONSTRUCTORS  *  N2437           Q_COMPILER_EXPLICIT_CONVERSIONS  *  N3206 N3272     Q_COMPILER_EXPLICIT_OVERRIDES  *  N1987           Q_COMPILER_EXTERN_TEMPLATES  *  N2540           Q_COMPILER_INHERITING_CONSTRUCTORS  *  N2672           Q_COMPILER_INITIALIZER_LISTS  *  N2658 N2927     Q_COMPILER_LAMBDA                   __cpp_lambdas = 200907  *  N2756           Q_COMPILER_NONSTATIC_MEMBER_INIT  *  N2855 N3050     Q_COMPILER_NOEXCEPT  *  N2431           Q_COMPILER_NULLPTR  *  N2930           Q_COMPILER_RANGE_FOR  *  N2442           Q_COMPILER_RAW_STRINGS              __cpp_raw_strings = 200710  *  N2439           Q_COMPILER_REF_QUALIFIERS  *  N2118 N2844 N3053 Q_COMPILER_RVALUE_REFS            __cpp_rvalue_references = 200610  *  N1720           Q_COMPILER_STATIC_ASSERT            __cpp_static_assert = 200410  *  N2258           Q_COMPILER_TEMPLATE_ALIAS  *  N2659           Q_COMPILER_THREAD_LOCAL  *  N2765           Q_COMPILER_UDL                      __cpp_user_defined_literals = 200809  *  N2442           Q_COMPILER_UNICODE_STRINGS          __cpp_unicode_literals = 200710  *  N2640           Q_COMPILER_UNIFORM_INIT  *  N2544           Q_COMPILER_UNRESTRICTED_UNIONS  *  N1653           Q_COMPILER_VARIADIC_MACROS  *  N2242 N2555     Q_COMPILER_VARIADIC_TEMPLATES       __cpp_variadic_templates = 200704  *  * For any future version of the C++ standard, we use only the SD-6 macro.  * For full listing, see  *  http://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations  *  * C++ extensions:  *  Q_COMPILER_RESTRICTED_VLA       variable-length arrays, prior to __cpp_runtime_arrays  */
+comment|/*  * C++11 support  *  *  Paper           Macro                               SD-6 macro  *  N2341           Q_COMPILER_ALIGNAS  *  N2341           Q_COMPILER_ALIGNOF  *  N2427           Q_COMPILER_ATOMICS  *  N2761           Q_COMPILER_ATTRIBUTES               __cpp_attributes = 200809  *  N2541           Q_COMPILER_AUTO_FUNCTION  *  N1984 N2546     Q_COMPILER_AUTO_TYPE  *  N2437           Q_COMPILER_CLASS_ENUM  *  N2235           Q_COMPILER_CONSTEXPR                __cpp_constexpr = 200704  *  N2343 N3276     Q_COMPILER_DECLTYPE                 __cpp_decltype = 200707  *  N2346           Q_COMPILER_DEFAULT_MEMBERS  *  N2346           Q_COMPILER_DELETE_MEMBERS  *  N1986           Q_COMPILER_DELEGATING_CONSTRUCTORS  *  N2437           Q_COMPILER_EXPLICIT_CONVERSIONS  *  N3206 N3272     Q_COMPILER_EXPLICIT_OVERRIDES  *  N1987           Q_COMPILER_EXTERN_TEMPLATES  *  N2540           Q_COMPILER_INHERITING_CONSTRUCTORS  *  N2672           Q_COMPILER_INITIALIZER_LISTS  *  N2658 N2927     Q_COMPILER_LAMBDA                   __cpp_lambdas = 200907  *  N2756           Q_COMPILER_NONSTATIC_MEMBER_INIT  *  N2855 N3050     Q_COMPILER_NOEXCEPT  *  N2431           Q_COMPILER_NULLPTR  *  N2930           Q_COMPILER_RANGE_FOR  *  N2442           Q_COMPILER_RAW_STRINGS              __cpp_raw_strings = 200710  *  N2439           Q_COMPILER_REF_QUALIFIERS  *  N2118 N2844 N3053 Q_COMPILER_RVALUE_REFS            __cpp_rvalue_references = 200610  *  N1720           Q_COMPILER_STATIC_ASSERT            __cpp_static_assert = 200410  *  N2258           Q_COMPILER_TEMPLATE_ALIAS  *  N2659           Q_COMPILER_THREAD_LOCAL  *  N2660           Q_COMPILER_THREADSAFE_STATICS  *  N2765           Q_COMPILER_UDL                      __cpp_user_defined_literals = 200809  *  N2442           Q_COMPILER_UNICODE_STRINGS          __cpp_unicode_literals = 200710  *  N2640           Q_COMPILER_UNIFORM_INIT  *  N2544           Q_COMPILER_UNRESTRICTED_UNIONS  *  N1653           Q_COMPILER_VARIADIC_MACROS  *  N2242 N2555     Q_COMPILER_VARIADIC_TEMPLATES       __cpp_variadic_templates = 200704  *  * For any future version of the C++ standard, we use only the SD-6 macro.  * For full listing, see  *  http://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations  *  * C++ extensions:  *  Q_COMPILER_RESTRICTED_VLA       variable-length arrays, prior to __cpp_runtime_arrays  */
 end_comment
 begin_ifdef
 ifdef|#
@@ -1939,6 +1939,12 @@ begin_comment
 DECL|macro|Q_COMPILER_VARIADIC_MACROS
 comment|// C++11 feature supported as an extension in other modes, too
 end_comment
+begin_define
+DECL|macro|Q_COMPILER_THREADSAFE_STATICS
+define|#
+directive|define
+name|Q_COMPILER_THREADSAFE_STATICS
+end_define
 begin_if
 if|#
 directive|if
@@ -2287,6 +2293,12 @@ DECL|macro|Q_COMPILER_RESTRICTED_VLA
 define|#
 directive|define
 name|Q_COMPILER_RESTRICTED_VLA
+end_define
+begin_define
+DECL|macro|Q_COMPILER_THREADSAFE_STATICS
+define|#
+directive|define
+name|Q_COMPILER_THREADSAFE_STATICS
 end_define
 begin_if
 if|#
@@ -3222,6 +3234,12 @@ DECL|macro|Q_COMPILER_RESTRICTED_VLA
 define|#
 directive|define
 name|Q_COMPILER_RESTRICTED_VLA
+end_define
+begin_define
+DECL|macro|Q_COMPILER_THREADSAFE_STATICS
+define|#
+directive|define
+name|Q_COMPILER_THREADSAFE_STATICS
 end_define
 begin_if
 if|#
@@ -4167,6 +4185,41 @@ DECL|macro|Q_COMPILER_REF_QUALIFIERS
 undef|#
 directive|undef
 name|Q_COMPILER_REF_QUALIFIERS
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_THREADSAFE_STATICS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+end_if
+begin_comment
+comment|// Mac OS X: Apple's low-level implementation of the C++ support library
+end_comment
+begin_comment
+comment|// (libc++abi.dylib, shared between libstdc++ and libc++) has deadlocks. The
+end_comment
+begin_comment
+comment|// C++11 standard requires the deadlocks to be removed, so this will eventually
+end_comment
+begin_comment
+comment|// be fixed; for now, let's disable this.
+end_comment
+begin_undef
+DECL|macro|Q_COMPILER_THREADSAFE_STATICS
+undef|#
+directive|undef
+name|Q_COMPILER_THREADSAFE_STATICS
 end_undef
 begin_endif
 endif|#

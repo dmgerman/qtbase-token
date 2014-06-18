@@ -60,18 +60,10 @@ argument_list|(
 name|QT_NO_THREAD
 argument_list|)
 operator|||
-operator|(
 name|defined
 argument_list|(
-name|Q_CC_GNU
+name|Q_COMPILER_THREADSAFE_STATICS
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|)
 end_if
 begin_comment
 comment|// some compilers support thread-safe statics
