@@ -77,10 +77,6 @@ block|;
 name|void
 name|handleKeyPressEvent
 argument_list|(
-name|QXcbWindowEventListener
-operator|*
-name|eventListener
-argument_list|,
 specifier|const
 name|xcb_key_press_event_t
 operator|*
@@ -90,10 +86,6 @@ block|;
 name|void
 name|handleKeyReleaseEvent
 argument_list|(
-name|QXcbWindowEventListener
-operator|*
-name|eventListener
-argument_list|,
 specifier|const
 name|xcb_key_release_event_t
 operator|*
@@ -177,7 +169,7 @@ operator|:
 name|void
 name|handleKeyEvent
 argument_list|(
-argument|QWindow *window
+argument|xcb_window_t sourceWindow
 argument_list|,
 argument|QEvent::Type type
 argument_list|,

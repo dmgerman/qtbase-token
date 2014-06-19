@@ -1919,7 +1919,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindowEventListener *eventListener = windowEventListenerFromId(e->event)) { \         handled = eventListener->handleGenericEvent(event,&result); \         if (!handled) \             m_keyboard->handler(m_focusWindow ? m_focusWindow : eventListener, e); \     } \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindowEventListener *eventListener = windowEventListenerFromId(e->event)) { \         handled = eventListener->handleGenericEvent(event,&result); \         if (!handled) \             m_keyboard->handler(e); \     } \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG
