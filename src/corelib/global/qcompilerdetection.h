@@ -3721,6 +3721,14 @@ end_if
 begin_if
 if|#
 directive|if
+name|defined
+argument_list|(
+name|__cplusplus
+argument_list|)
+end_if
+begin_if
+if|#
+directive|if
 name|_MSC_VER
 operator|>=
 literal|1400
@@ -3987,6 +3995,13 @@ directive|endif
 end_endif
 begin_comment
 comment|/* VC 12 SP 2 RC */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* __cplusplus */
 end_comment
 begin_endif
 endif|#
