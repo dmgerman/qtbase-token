@@ -39,12 +39,6 @@ file|<qdir.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|MakeItem
-name|class
-name|MakeItem
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Configure
 block|{
@@ -131,18 +125,6 @@ function_decl|;
 name|void
 name|generateMakefiles
 parameter_list|()
-function_decl|;
-name|void
-name|appendMakeItem
-parameter_list|(
-name|int
-name|inList
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|item
-parameter_list|)
 function_decl|;
 name|void
 name|generateConfigfiles
@@ -312,19 +294,6 @@ decl_stmt|;
 name|QStringList
 name|qmakeDefines
 decl_stmt|;
-comment|//  makeList[0] for qt and qtmain
-comment|//  makeList[1] for subdirs and libs
-comment|//  makeList[2] for the rest
-name|QList
-operator|<
-name|MakeItem
-operator|*
-operator|>
-name|makeList
-index|[
-literal|3
-index|]
-expr_stmt|;
 name|QStringList
 name|qmakeIncludes
 decl_stmt|;
@@ -569,62 +538,6 @@ name|void
 name|applySpecSpecifics
 parameter_list|()
 function_decl|;
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_decl_stmt
-name|class
-name|MakeItem
-block|{
-name|public
-label|:
-name|MakeItem
-argument_list|(
-argument|const QString&d
-argument_list|,
-argument|const QString&p
-argument_list|,
-argument|const QString&t
-argument_list|,
-argument|Configure::ProjectType qt
-argument_list|)
-block|:
-name|directory
-argument_list|(
-name|d
-argument_list|)
-operator|,
-name|proFile
-argument_list|(
-name|p
-argument_list|)
-operator|,
-name|target
-argument_list|(
-name|t
-argument_list|)
-operator|,
-name|qmakeTemplate
-argument_list|(
-argument|qt
-argument_list|)
-block|{ }
-name|QString
-name|directory
-expr_stmt|;
-name|QString
-name|proFile
-decl_stmt|;
-name|QString
-name|target
-decl_stmt|;
-name|Configure
-operator|::
-name|ProjectType
-name|qmakeTemplate
-expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
