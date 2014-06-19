@@ -456,17 +456,6 @@ begin_comment
 comment|/*    Specialize a shared type with:       Q_DECLARE_SHARED(type)     where 'type' is the name of the type to specialize.  NOTE: shared    types must define a member-swap, and be defined in the same    namespace as Qt for this to work. */
 end_comment
 begin_define
-DECL|macro|Q_DECLARE_SHARED_STL
-define|#
-directive|define
-name|Q_DECLARE_SHARED_STL
-parameter_list|(
-name|TYPE
-parameter_list|)
-define|\
-value|QT_END_NAMESPACE \ namespace std { \     template<> inline void swap< QT_PREPEND_NAMESPACE(TYPE)>(QT_PREPEND_NAMESPACE(TYPE)&value1, QT_PREPEND_NAMESPACE(TYPE)&value2) \     { value1.swap(value2); } \ } \ QT_BEGIN_NAMESPACE
-end_define
-begin_define
 DECL|macro|Q_DECLARE_SHARED
 define|#
 directive|define
@@ -475,7 +464,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|Q_DECLARE_TYPEINFO(TYPE, Q_MOVABLE_TYPE); \ template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { value1.swap(value2); } \ Q_DECLARE_SHARED_STL(TYPE)
+value|Q_DECLARE_TYPEINFO(TYPE, Q_MOVABLE_TYPE); \ template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { value1.swap(value2); } \ inline void swap(TYPE&value1, TYPE&value2) \     Q_DECL_NOEXCEPT_EXPR(noexcept(value1.swap(value2))) \ { value1.swap(value2); }
 end_define
 begin_comment
 comment|/*    QTypeInfo primitive specializations */
