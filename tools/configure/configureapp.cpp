@@ -9088,6 +9088,16 @@ name|endsWith
 argument_list|(
 literal|"-msvc2013"
 argument_list|)
+operator|||
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|.
+name|endsWith
+argument_list|(
+literal|"-msvc2015"
+argument_list|)
 condition|)
 block|{
 if|if

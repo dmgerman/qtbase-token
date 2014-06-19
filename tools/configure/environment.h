@@ -57,6 +57,11 @@ DECL|enumerator|CC_MSVC2013
 name|CC_MSVC2013
 operator|=
 literal|0xC0
+operator|,
+DECL|enumerator|CC_MSVC2015
+name|CC_MSVC2015
+operator|=
+literal|0xD0
 block|}
 end_decl_stmt
 begin_empty_stmt

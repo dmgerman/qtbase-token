@@ -269,6 +269,29 @@ literal|"cl.exe"
 block|}
 block|,
 comment|// link.exe, lib.exe
+comment|// Microsoft skipped version 13
+block|{
+name|CC_MSVC2015
+block|,
+literal|"Microsoft (R) Visual Studio 2015 C/C++ Compiler (14.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VS7\\14.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
+name|CC_MSVC2015
+block|,
+literal|"Microsoft (R) Visual Studio 2015 C/C++ Compiler (14.0)"
+block|,
+literal|"Software\\Microsoft\\VisualStudio\\SxS\\VS7\\14.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
 block|{
 name|CC_UNKNOWN
 block|,
@@ -369,6 +392,14 @@ argument_list|()
 condition|)
 block|{
 case|case
+name|CC_MSVC2015
+case|:
+name|spec
+operator|=
+literal|"win32-msvc2015"
+expr_stmt|;
+break|break;
+case|case
 name|CC_MSVC2013
 case|:
 name|spec
@@ -453,6 +484,18 @@ modifier|&
 name|qmakeSpec
 parameter_list|)
 block|{
+if|if
+condition|(
+name|qmakeSpec
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"win32-msvc2015"
+argument_list|)
+condition|)
+return|return
+name|CC_MSVC2015
+return|;
 if|if
 condition|(
 name|qmakeSpec
