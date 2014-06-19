@@ -144,6 +144,15 @@ begin_comment
 comment|/*!     \fn void QDebug::setAutoInsertSpaces(bool b)      Enables automatic insertion of spaces between writes if \a b is true; otherwise     automatic insertion of spaces is disabled.      \since 5.0      \sa QDebugStateSaver */
 end_comment
 begin_comment
+comment|/*!     \fn QDebug&QDebug::quote()     \since 5.4      Enables automatic insertion of quotation characters around QChar, QString and QByteArray     contents and returns a reference to the stream.      Quoting is enabled by default.      \sa noquote(), maybeQuote() */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug&QDebug::noquote()     \since 5.4      Disables automatic insertion of quotation characters around QChar, QString and QByteArray     contents and returns a reference to the stream.      \sa quote(), maybeQuote() */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug&QDebug::maybeQuote(char c)     \since 5.4      Writes a character \a c to the debug stream, depending on the     current setting for automatic insertion of quotes, and returns a reference to the stream.      The default character is a double quote \c{"}.      \sa quote(), noquote() */
+end_comment
+begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(QChar t)      Writes the character, \a t, to the stream and returns a reference to the     stream. */
 end_comment
 begin_comment
@@ -236,6 +245,11 @@ name|autoInsertSpaces
 argument_list|()
 argument_list|)
 member_init_list|,
+name|m_flags
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|m_streamParams
 argument_list|(
 name|dbg
@@ -248,7 +262,28 @@ name|d_ptr
 operator|->
 name|params
 argument_list|)
-block|{     }
+block|{
+if|if
+condition|(
+name|m_dbg
+operator|.
+name|stream
+operator|->
+name|context
+operator|.
+name|version
+operator|>
+literal|1
+condition|)
+name|m_flags
+operator|=
+name|m_dbg
+operator|.
+name|stream
+operator|->
+name|flags
+expr_stmt|;
+block|}
 DECL|function|restoreState
 name|void
 name|restoreState
@@ -273,6 +308,26 @@ name|params
 operator|=
 name|m_streamParams
 expr_stmt|;
+if|if
+condition|(
+name|m_dbg
+operator|.
+name|stream
+operator|->
+name|context
+operator|.
+name|version
+operator|>
+literal|1
+condition|)
+name|m_dbg
+operator|.
+name|stream
+operator|->
+name|flags
+operator|=
+name|m_flags
+expr_stmt|;
 block|}
 DECL|member|m_dbg
 name|QDebug
@@ -284,6 +339,10 @@ DECL|member|m_spaces
 specifier|const
 name|bool
 name|m_spaces
+decl_stmt|;
+DECL|member|m_flags
+name|int
+name|m_flags
 decl_stmt|;
 comment|// QTextStream state
 DECL|member|m_streamParams

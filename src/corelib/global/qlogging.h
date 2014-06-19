@@ -89,7 +89,7 @@ argument_list|()
 operator|:
 name|version
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 operator|,
 name|line
@@ -126,7 +126,7 @@ argument_list|)
 operator|:
 name|version
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 operator|,
 name|line
