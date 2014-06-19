@@ -293,7 +293,8 @@ argument_list|()
 argument_list|)
 decl|const
 decl_stmt|;
-name|QT_STATIC_CONST
+specifier|static
+specifier|const
 name|Location
 name|null
 decl_stmt|;

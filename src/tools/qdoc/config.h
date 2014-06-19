@@ -667,7 +667,8 @@ name|QString
 name|popWorkingDir
 parameter_list|()
 function_decl|;
-name|QT_STATIC_CONST
+specifier|static
+specifier|const
 name|QString
 name|dot
 decl_stmt|;

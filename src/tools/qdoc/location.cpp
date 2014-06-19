@@ -50,7 +50,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|null
-name|QT_STATIC_CONST_IMPL
+specifier|const
 name|Location
 name|Location
 operator|::

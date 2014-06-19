@@ -1399,7 +1399,7 @@ block|}
 end_function
 begin_decl_stmt
 DECL|member|dot
-name|QT_STATIC_CONST_IMPL
+specifier|const
 name|QString
 name|Config
 operator|::
