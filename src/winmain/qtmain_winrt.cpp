@@ -99,6 +99,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qthread.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<wrl.h>
 end_include
 begin_include
@@ -1211,6 +1216,12 @@ condition|)
 return|return
 literal|1
 return|;
+comment|// Mark the main thread
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+expr_stmt|;
 name|Core
 operator|::
 name|ICoreApplication
