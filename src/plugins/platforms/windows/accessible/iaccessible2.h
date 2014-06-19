@@ -1845,6 +1845,7 @@ argument_list|(
 argument|QAccessible::Relation relation
 argument_list|)
 block|{
+specifier|const
 name|wchar_t
 operator|*
 name|constRelationString
