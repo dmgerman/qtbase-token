@@ -11525,6 +11525,12 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*! \fn QByteArray QByteArray::fromStdString(const std::string&str)     \since 5.4      Returns a copy of the \a str string as a QByteArray.      \sa toStdString(), QString::fromStdString() */
+end_comment
+begin_comment
+comment|/*!     \fn std::string QByteArray::toStdString() const     \since 5.4      Returns a std::string object with the data contained in this     QByteArray.      This operator is mostly useful to pass a QByteArray to a function     that accepts a std::string object.      \sa fromStdString(), QString::toStdString() */
+end_comment
+begin_comment
 comment|/*! \fn QByteArray QByteArray::fromCFData(CFDataRef data)     \since 5.3      Constructs a new QByteArray containing a copy of the CFData \a data.      \sa fromRawCFData(), fromRawData(), toRawCFData(), toCFData() */
 end_comment
 begin_comment
