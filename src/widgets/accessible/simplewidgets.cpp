@@ -133,11 +133,6 @@ specifier|const
 name|QWidget
 modifier|*
 name|widget
-parameter_list|,
-name|bool
-name|includeTopLevel
-init|=
-literal|false
 parameter_list|)
 function_decl|;
 end_function_decl

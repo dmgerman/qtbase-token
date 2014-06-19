@@ -172,9 +172,6 @@ specifier|const
 name|QWidget
 modifier|*
 name|widget
-parameter_list|,
-name|bool
-name|includeTopLevel
 parameter_list|)
 block|{
 if|if
@@ -262,15 +259,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|(
-name|includeTopLevel
-operator|||
 operator|!
 name|w
 operator|->
 name|isWindow
 argument_list|()
-operator|)
 operator|&&
 operator|!
 name|qobject_cast
@@ -5269,8 +5262,6 @@ name|childWidgets
 argument_list|(
 name|mainWindow
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -5326,8 +5317,6 @@ name|childWidgets
 argument_list|(
 name|mainWindow
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 return|return
@@ -5363,8 +5352,6 @@ name|childWidgets
 argument_list|(
 name|mainWindow
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 return|return
@@ -5479,8 +5466,6 @@ name|childWidgets
 argument_list|(
 name|mainWindow
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|QPoint
