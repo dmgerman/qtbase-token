@@ -364,7 +364,22 @@ name|driver
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QT_STATIC_CONST
+specifier|static
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|||
+name|_MSC_VER
+operator|>=
+literal|1900
+comment|// ### Qt6: remove the #ifdef
+specifier|const
+endif|#
+directive|endif
 name|char
 modifier|*
 name|defaultConnection
