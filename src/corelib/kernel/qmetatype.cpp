@@ -9111,6 +9111,7 @@ namespace|namespace
 name|QtMetaTypePrivate
 block|{
 DECL|member|true_element
+specifier|const
 name|bool
 name|VectorBoolElements
 operator|::
@@ -9119,6 +9120,7 @@ init|=
 literal|true
 decl_stmt|;
 DECL|member|false_element
+specifier|const
 name|bool
 name|VectorBoolElements
 operator|::

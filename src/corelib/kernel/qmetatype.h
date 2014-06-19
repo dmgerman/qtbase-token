@@ -3824,10 +3824,12 @@ name|Q_CORE_EXPORT
 name|VectorBoolElements
 block|{
 specifier|static
+specifier|const
 name|bool
 name|true_element
 decl_stmt|;
 specifier|static
+specifier|const
 name|bool
 name|false_element
 decl_stmt|;
