@@ -42010,7 +42010,7 @@ comment|// QT_NO_WHATSTHIS
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-comment|/*!   \property QWidget::accessibleName    \brief the widget's name as seen by assistive technologies    This property is used by accessible clients to identify, find, or announce   the widget for accessible clients.    By default, this property contains an empty string.    \sa QAccessibleInterface::text() */
+comment|/*!   \property QWidget::accessibleName    \brief the widget's name as seen by assistive technologies    This is the primary name by which assistive technology such as screen readers   announce this widget. For most widgets setting this property is not required.   For example for QPushButton the button's text will be used.    It is important to set this property when the widget does not provide any   text. For example a button that only contains an icon needs to set this   property to work with screen readers.   The name should be short and equivalent to the visual information conveyed   by the widget.    This property has to be \l{Internationalization with Qt}{localized}.    By default, this property contains an empty string.    \sa QWidget::accessibleDescription, QAccessibleInterface::text() */
 DECL|function|setAccessibleName
 name|void
 name|QWidget
@@ -42073,7 +42073,7 @@ operator|->
 name|accessibleName
 return|;
 block|}
-comment|/*!   \property QWidget::accessibleDescription    \brief the widget's description as seen by assistive technologies    By default, this property contains an empty string.    \sa QAccessibleInterface::text() */
+comment|/*!   \property QWidget::accessibleDescription    \brief the widget's description as seen by assistive technologies    The accessible description of a widget should convey what a widget does.   While the \l accessibleName should be a short and consise string (e.g. \gui{Save}),   the description should give more context, such as \gui{Saves the current document}.    This property has to be \l{Internationalization with Qt}{localized}.    By default, this property contains an empty string and Qt falls back   to using the tool tip to provide this information.    \sa QWidget::accessibleName, QAccessibleInterface::text() */
 DECL|function|setAccessibleDescription
 name|void
 name|QWidget
