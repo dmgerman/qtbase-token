@@ -155,7 +155,7 @@ argument|QString applicationDisplayName READ applicationDisplayName WRITE setApp
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|Qt::LayoutDirection layoutDirection READ layoutDirection WRITE setLayoutDirection
+argument|Qt::LayoutDirection layoutDirection READ layoutDirection WRITE setLayoutDirection NOTIFY layoutDirectionChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -583,6 +583,12 @@ name|void
 name|applicationStateChanged
 argument_list|(
 argument|Qt::ApplicationState state
+argument_list|)
+block|;
+name|void
+name|layoutDirectionChanged
+argument_list|(
+argument|Qt::LayoutDirection direction
 argument_list|)
 block|;
 ifndef|#

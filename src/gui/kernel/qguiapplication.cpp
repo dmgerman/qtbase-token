@@ -13590,7 +13590,7 @@ begin_comment
 comment|//QT_NO_SESSIONMANAGER
 end_comment
 begin_comment
-comment|/*!     \property QGuiApplication::layoutDirection     \brief the default layout direction for this application      On system start-up, the default layout direction depends on the     application's language.      \sa QWidget::layoutDirection, isLeftToRight(), isRightToLeft()  */
+comment|/*!     \property QGuiApplication::layoutDirection     \brief the default layout direction for this application      On system start-up, the default layout direction depends on the     application's language.      The notifier signal was introduced in Qt 5.4.      \sa QWidget::layoutDirection, isLeftToRight(), isRightToLeft()  */
 end_comment
 begin_function
 DECL|function|setLayoutDirection
@@ -13622,6 +13622,19 @@ name|layout_direction
 operator|=
 name|direction
 expr_stmt|;
+if|if
+condition|(
+name|qGuiApp
+condition|)
+block|{
+emit|emit
+name|qGuiApp
+operator|->
+name|layoutDirectionChanged
+argument_list|(
+name|direction
+argument_list|)
+emit|;
 name|QGuiApplicationPrivate
 operator|::
 name|self
@@ -13629,6 +13642,7 @@ operator|->
 name|notifyLayoutDirectionChange
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
