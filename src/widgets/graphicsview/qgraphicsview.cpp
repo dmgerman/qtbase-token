@@ -10165,6 +10165,13 @@ name|inherits
 argument_list|(
 literal|"QGLWidget"
 argument_list|)
+operator|||
+name|widget
+operator|->
+name|inherits
+argument_list|(
+literal|"QOpenGLWidget"
+argument_list|)
 decl_stmt|;
 name|d
 operator|->

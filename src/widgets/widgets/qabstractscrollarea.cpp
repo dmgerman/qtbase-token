@@ -5513,6 +5513,30 @@ name|DragLeave
 case|:
 endif|#
 directive|endif
+comment|// QOpenGLWidget needs special support because it has to know
+comment|// its size has changed, so that it can resize its fbo.
+if|if
+condition|(
+name|e
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QEvent
+operator|::
+name|Resize
+condition|)
+name|QWidgetPrivate
+operator|::
+name|get
+argument_list|(
+name|viewport
+argument_list|()
+argument_list|)
+operator|->
+name|resizeViewportFramebuffer
+argument_list|()
+expr_stmt|;
 return|return
 name|QFrame
 operator|::

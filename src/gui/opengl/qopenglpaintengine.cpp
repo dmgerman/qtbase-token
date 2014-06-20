@@ -11877,6 +11877,13 @@ condition|)
 return|return
 literal|false
 return|;
+name|d
+operator|->
+name|device
+operator|->
+name|ensureActiveTarget
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|d

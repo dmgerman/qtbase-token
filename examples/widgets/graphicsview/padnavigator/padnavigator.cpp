@@ -1813,15 +1813,7 @@ name|QT_NO_OPENGL
 name|setViewport
 argument_list|(
 operator|new
-name|QGLWidget
-argument_list|(
-name|QGLFormat
-argument_list|(
-name|QGL
-operator|::
-name|SampleBuffers
-argument_list|)
-argument_list|)
+name|QOpenGLWidget
 argument_list|)
 expr_stmt|;
 endif|#

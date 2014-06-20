@@ -182,6 +182,13 @@ argument|int index
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|stacksOnTop
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
 name|void
 name|lock
 argument_list|(
@@ -199,6 +206,8 @@ argument_list|(
 argument|GLuint textureId
 argument_list|,
 argument|const QRect&geometry
+argument_list|,
+argument|bool stacksOnTop = false
 argument_list|)
 block|;
 name|void

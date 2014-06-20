@@ -86,6 +86,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtGui/qsurfaceformat.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtWidgets/qsizepolicy.h"
 end_include
 begin_include
@@ -1434,6 +1439,17 @@ modifier|*
 name|backingStore
 init|=
 literal|0
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|sendPaintEvent
+parameter_list|(
+specifier|const
+name|QRegion
+modifier|&
+name|toBePainted
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -3019,19 +3035,46 @@ literal|0
 return|;
 block|}
 end_expr_stmt
-begin_expr_stmt
+begin_function
 name|virtual
 name|QImage
 name|grabFramebuffer
-argument_list|()
-specifier|const
+parameter_list|()
 block|{
 return|return
 name|QImage
 argument_list|()
 return|;
 block|}
-end_expr_stmt
+end_function
+begin_function
+name|virtual
+name|void
+name|beginBackingStorePainting
+parameter_list|()
+block|{ }
+end_function
+begin_function
+name|virtual
+name|void
+name|endBackingStorePainting
+parameter_list|()
+block|{ }
+end_function
+begin_function
+name|virtual
+name|void
+name|beginCompose
+parameter_list|()
+block|{ }
+end_function
+begin_function
+name|virtual
+name|void
+name|endCompose
+parameter_list|()
+block|{ }
+end_function
 begin_function
 name|void
 name|setRenderToTexture
@@ -3097,6 +3140,36 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function_decl
+specifier|static
+name|void
+name|sendComposeStatus
+parameter_list|(
+name|QWidget
+modifier|*
+name|w
+parameter_list|,
+name|bool
+name|end
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|// When using a QOpenGLWidget as viewport with QAbstractScrollArea, resize events are
+end_comment
+begin_comment
+comment|// filtered away from the widget. This is fine for QGLWidget but bad for QOpenGLWidget
+end_comment
+begin_comment
+comment|// since the fbo must be resized. We need an alternative way to notify.
+end_comment
+begin_function
+name|virtual
+name|void
+name|resizeViewportFramebuffer
+parameter_list|()
+block|{ }
 end_function
 begin_endif
 endif|#

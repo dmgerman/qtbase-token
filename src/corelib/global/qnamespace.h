@@ -1545,6 +1545,10 @@ name|WA_MacNoShadow
 operator|=
 literal|127
 block|,
+name|WA_AlwaysStackOnTop
+operator|=
+literal|128
+block|,
 comment|// Add new attributes before this line
 name|WA_AttributeCount
 block|}
