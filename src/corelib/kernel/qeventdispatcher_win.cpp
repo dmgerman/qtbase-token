@@ -3210,9 +3210,25 @@ operator|->
 name|getMessageHook
 condition|)
 block|{
+name|int
+name|errorCode
+init|=
+name|GetLastError
+argument_list|()
+decl_stmt|;
 name|qFatal
 argument_list|(
-literal|"Qt: INTERNALL ERROR: failed to install GetMessage hook"
+literal|"Qt: INTERNAL ERROR: failed to install GetMessage hook: %d, %s"
+argument_list|,
+name|errorCode
+argument_list|,
+name|qPrintable
+argument_list|(
+name|qt_error_string
+argument_list|(
+name|errorCode
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
