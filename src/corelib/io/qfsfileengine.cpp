@@ -2936,6 +2936,19 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// reset the cached size, if any
+name|metaData
+operator|.
+name|clearFlags
+argument_list|(
+name|QFileSystemMetaData
+operator|::
+name|SizeAttribute
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|writtenBytes
 return|;
