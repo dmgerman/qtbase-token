@@ -8406,6 +8406,16 @@ name|QFont
 operator|::
 name|Helvetica
 case|:
+name|result
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Arial"
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|QFont
 operator|::
@@ -8418,9 +8428,10 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Arial"
+literal|"MS Sans Serif"
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 name|result
 operator|.
