@@ -527,7 +527,7 @@ comment|// action helper functions
 name|QSpiActionArray
 name|getActions
 argument_list|(
-argument|QAccessibleActionInterface* interface
+argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
