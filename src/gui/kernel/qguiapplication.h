@@ -612,6 +612,15 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+name|void
+name|paletteChanged
+argument_list|(
+specifier|const
+name|QPalette
+operator|&
+name|pal
+argument_list|)
+block|;
 name|protected
 operator|:
 name|bool

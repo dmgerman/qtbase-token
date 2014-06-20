@@ -12490,6 +12490,9 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|/*!     \since 5.4     \fn void QGuiApplication::paletteChanged(const QPalette&palette)      This signal is emitted when the \a palette of the application changes.      \sa palette() */
+end_comment
+begin_comment
 comment|/*!     Returns the default application palette.      \sa setPalette() */
 end_comment
 begin_function
@@ -12573,6 +12576,17 @@ name|applicationResourceFlags
 operator||=
 name|ApplicationPaletteExplicitlySet
 expr_stmt|;
+emit|emit
+name|qGuiApp
+operator|->
+name|paletteChanged
+argument_list|(
+operator|*
+name|QGuiApplicationPrivate
+operator|::
+name|app_pal
+argument_list|)
+emit|;
 block|}
 end_function
 begin_function
