@@ -127,6 +127,16 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
+name|GL_DEPTH_COMPONENT24_OES
+DECL|macro|GL_DEPTH_COMPONENT24_OES
+define|#
+directive|define
+name|GL_DEPTH_COMPONENT24_OES
+value|0x81A6
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
 name|GL_READ_FRAMEBUFFER
 DECL|macro|GL_READ_FRAMEBUFFER
 define|#

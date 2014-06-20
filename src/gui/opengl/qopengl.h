@@ -101,6 +101,28 @@ end_if
 begin_comment
 comment|// iOS
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_3
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<OpenGLES/ES3/gl.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<OpenGLES/ES3/glext.h>
+end_include
+begin_else
+else|#
+directive|else
+end_else
 begin_include
 include|#
 directive|include
@@ -111,6 +133,10 @@ include|#
 directive|include
 file|<OpenGLES/ES2/glext.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*    OES_EGL_image_external is not included in the Apple provided    system headers yet, but we define the missing typedef so that    the qopenglextensions.cpp code will magically work once Apple    include the extension in their drivers. */
 end_comment
