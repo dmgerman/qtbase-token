@@ -39,11 +39,11 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QAbstractState* defaultState READ defaultState WRITE setDefaultState
+argument|QAbstractState* defaultState READ defaultState WRITE setDefaultState NOTIFY defaultStateChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|HistoryType historyType READ historyType WRITE setHistoryType
+argument|HistoryType historyType READ historyType WRITE setHistoryType NOTIFY historyTypeChanged
 argument_list|)
 name|Q_ENUMS
 argument_list|(
@@ -103,6 +103,38 @@ name|void
 name|setHistoryType
 argument_list|(
 argument|HistoryType type
+argument_list|)
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|defaultStateChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|historyTypeChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|protected
