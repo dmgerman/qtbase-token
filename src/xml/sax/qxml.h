@@ -1229,6 +1229,10 @@ block|;
 name|friend
 name|class
 name|QXmlSimpleReaderLocator
+block|;
+name|friend
+name|class
+name|QDomHandler
 block|; }
 decl_stmt|;
 end_decl_stmt

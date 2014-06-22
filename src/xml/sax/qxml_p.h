@@ -372,6 +372,10 @@ comment|// data was read
 name|bool
 name|contentCharDataRead
 decl_stmt|;
+comment|// Hack for letting QDom know where the skipped entity occurred
+name|bool
+name|skipped_entity_in_content
+decl_stmt|;
 comment|// helper classes
 name|QScopedPointer
 operator|<

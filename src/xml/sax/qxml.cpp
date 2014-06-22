@@ -457,18 +457,6 @@ literal|14
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// Hack for letting QDom know where the skipped entity occurred
-end_comment
-begin_comment
-comment|// ### the use of this variable means the code isn't reentrant.
-end_comment
-begin_decl_stmt
-DECL|variable|qt_xml_skipped_entity_in_content
-name|bool
-name|qt_xml_skipped_entity_in_content
-decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// character lookup table
 end_comment
 begin_decl_stmt
@@ -7146,7 +7134,9 @@ literal|false
 return|;
 block|}
 block|}
-name|qt_xml_skipped_entity_in_content
+name|d
+operator|->
+name|skipped_entity_in_content
 operator|=
 literal|false
 expr_stmt|;
@@ -30882,7 +30872,7 @@ condition|(
 name|contentHnd
 condition|)
 block|{
-name|qt_xml_skipped_entity_in_content
+name|skipped_entity_in_content
 operator|=
 name|parseReference_context
 operator|==
@@ -30899,7 +30889,7 @@ name|reference
 argument_list|)
 condition|)
 block|{
-name|qt_xml_skipped_entity_in_content
+name|skipped_entity_in_content
 operator|=
 literal|false
 expr_stmt|;
@@ -30916,7 +30906,7 @@ literal|false
 return|;
 comment|// error
 block|}
-name|qt_xml_skipped_entity_in_content
+name|skipped_entity_in_content
 operator|=
 literal|false
 expr_stmt|;
@@ -31069,7 +31059,7 @@ operator|&&
 name|contentHnd
 condition|)
 block|{
-name|qt_xml_skipped_entity_in_content
+name|skipped_entity_in_content
 operator|=
 literal|true
 expr_stmt|;
@@ -31084,7 +31074,7 @@ name|reference
 argument_list|)
 condition|)
 block|{
-name|qt_xml_skipped_entity_in_content
+name|skipped_entity_in_content
 operator|=
 literal|false
 expr_stmt|;
@@ -31101,7 +31091,7 @@ literal|false
 return|;
 comment|// error
 block|}
-name|qt_xml_skipped_entity_in_content
+name|skipped_entity_in_content
 operator|=
 literal|false
 expr_stmt|;
