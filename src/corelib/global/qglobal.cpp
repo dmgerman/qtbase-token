@@ -361,6 +361,9 @@ begin_comment
 comment|/*!     \fn QFlags::QFlags(QFlag value)      Constructs a QFlags object initialized with the given integer \a     value.      The QFlag type is a helper type. By using it here instead of \c     int, we effectively ensure that arbitrary enum values cannot be     cast to a QFlags, whereas untyped enum values (i.e., \c int     values) can. */
 end_comment
 begin_comment
+comment|/*!     \fn QFlags::QFlags(std::initializer_list<Enum> flags)     \since 5.4      Constructs a QFlags object initialized with all \a flags     combined using the bitwise OR operator.      \sa operator|=(), operator|() */
+end_comment
+begin_comment
 comment|/*!     \fn QFlags&QFlags::operator=(const QFlags&other)      Assigns \a other to this object and returns a reference to this     object. */
 end_comment
 begin_comment
