@@ -128,6 +128,20 @@ end_endif
 begin_comment
 comment|// Q_OS_WIN
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_ANDROID
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qjni_p.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -1159,6 +1173,10 @@ operator|&&
 operator|!
 name|defined
 name|Q_OS_MAC
+operator|&&
+operator|!
+name|defined
+name|Q_OS_ANDROID
 end_if
 begin_decl_stmt
 name|class
@@ -1846,6 +1864,169 @@ block|;
 endif|#
 directive|endif
 comment|// Q_OS_WIN
+ifdef|#
+directive|ifdef
+name|Q_OS_ANDROID
+name|class
+name|QAndroidTimeZonePrivate
+name|Q_DECL_FINAL
+operator|:
+name|public
+name|QTimeZonePrivate
+block|{
+name|public
+operator|:
+comment|// Create default time zone
+name|QAndroidTimeZonePrivate
+argument_list|()
+block|;
+comment|// Create named time zone
+name|QAndroidTimeZonePrivate
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|ianaId
+argument_list|)
+block|;
+name|QAndroidTimeZonePrivate
+argument_list|(
+specifier|const
+name|QAndroidTimeZonePrivate
+operator|&
+name|other
+argument_list|)
+block|;
+operator|~
+name|QAndroidTimeZonePrivate
+argument_list|()
+block|;
+name|QTimeZonePrivate
+operator|*
+name|clone
+argument_list|()
+block|;
+name|QString
+name|displayName
+argument_list|(
+argument|QTimeZone::TimeType timeType
+argument_list|,
+argument|QTimeZone::NameType nameType
+argument_list|,
+argument|const QLocale&locale
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QString
+name|abbreviation
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|int
+name|offsetFromUtc
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|int
+name|standardTimeOffset
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|int
+name|daylightTimeOffset
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|hasDaylightTime
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|isDaylightTime
+argument_list|(
+argument|qint64 atMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|Data
+name|data
+argument_list|(
+argument|qint64 forMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|hasTransitions
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|Data
+name|nextTransition
+argument_list|(
+argument|qint64 afterMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|Data
+name|previousTransition
+argument_list|(
+argument|qint64 beforeMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QByteArray
+name|systemTimeZoneId
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QSet
+operator|<
+name|QByteArray
+operator|>
+name|availableTimeZoneIds
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|private
+operator|:
+name|void
+name|init
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|zoneId
+argument_list|)
+block|;
+name|QJNIObjectPrivate
+name|androidTimeZone
+block|;  }
+block|;
+endif|#
+directive|endif
+comment|// Q_OS_ANDROID
 name|QT_END_NAMESPACE
 end_decl_stmt
 begin_endif
