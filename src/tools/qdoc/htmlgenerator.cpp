@@ -10391,6 +10391,48 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//determine the rest of the<title> element content: "title | titleSuffix version"
+name|QString
+name|titleSuffix
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|landingpage
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|//for normal pages: "title | landingpage version"
+name|titleSuffix
+operator|=
+name|landingpage
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|homepage
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|//for pages that set the homepage but not landing page: "title | homepage version"
+if|if
+condition|(
+name|title
+operator|!=
+name|homepage
+condition|)
+name|titleSuffix
+operator|=
+name|homepage
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 operator|!
@@ -10399,36 +10441,86 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|shortVersion
-operator|=
-name|QLatin1String
-argument_list|(
-literal|" | "
-argument_list|)
-operator|+
+block|{
+comment|//for projects outside of Qt or Qt 5: "title | project version"
+if|if
+condition|(
+name|title
+operator|!=
 name|project
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
-operator|+
-name|shortVersion
-expr_stmt|;
-else|else
-name|shortVersion
+condition|)
+name|titleSuffix
 operator|=
-name|QLatin1String
-argument_list|(
-literal|" | "
-argument_list|)
-operator|+
+name|project
+expr_stmt|;
+block|}
+else|else
+comment|//default: "title | Qt version"
+name|titleSuffix
+operator|=
 name|QLatin1String
 argument_list|(
 literal|"Qt "
 argument_list|)
-operator|+
+expr_stmt|;
+comment|//for pages that duplicate the title and suffix (landing pages, home pages,
+comment|// and module landing pages, clear the duplicate
+if|if
+condition|(
+name|title
+operator|==
+name|titleSuffix
+condition|)
+name|titleSuffix
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|//for pages that duplicate the version, clear the duplicate
+if|if
+condition|(
+name|title
+operator|.
+name|contains
+argument_list|(
 name|shortVersion
+argument_list|)
+operator|||
+name|titleSuffix
+operator|.
+name|contains
+argument_list|(
+name|shortVersion
+argument_list|)
+condition|)
+name|shortVersion
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|QString
+name|divider
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|titleSuffix
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+operator|!
+name|title
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|divider
+operator|=
+name|QLatin1String
+argument_list|(
+literal|" | "
+argument_list|)
 expr_stmt|;
 comment|// Generating page title
 name|out
@@ -10439,6 +10531,15 @@ operator|<<
 name|protectEnc
 argument_list|(
 name|title
+argument_list|)
+operator|<<
+name|divider
+operator|<<
+name|titleSuffix
+operator|<<
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 operator|<<
 name|shortVersion
