@@ -550,6 +550,8 @@ operator|+
 name|m_yoffset
 argument_list|)
 decl_stmt|;
+comment|// Cannot track the keyboard modifiers ourselves here. Instead, report the
+comment|// modifiers from the last key event that has been seen by QGuiApplication.
 name|QWindowSystemInterface
 operator|::
 name|handleMouseEvent
@@ -561,6 +563,11 @@ argument_list|,
 name|pos
 argument_list|,
 name|buttons
+argument_list|,
+name|QGuiApplication
+operator|::
+name|keyboardModifiers
+argument_list|()
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -631,6 +638,11 @@ argument_list|,
 name|delta
 argument_list|,
 name|orientation
+argument_list|,
+name|QGuiApplication
+operator|::
+name|keyboardModifiers
+argument_list|()
 argument_list|)
 expr_stmt|;
 ifdef|#
