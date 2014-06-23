@@ -5741,6 +5741,11 @@ name|managerPrivate
 operator|->
 name|proxyAuthenticationRequired
 argument_list|(
+name|request
+operator|.
+name|url
+argument_list|()
+argument_list|,
 name|proxy
 argument_list|,
 name|synchronous

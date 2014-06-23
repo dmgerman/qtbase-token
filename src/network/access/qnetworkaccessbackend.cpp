@@ -1333,6 +1333,9 @@ name|manager
 operator|->
 name|proxyAuthenticationRequired
 argument_list|(
+name|QUrl
+argument_list|()
+argument_list|,
 name|proxy
 argument_list|,
 name|synchronous

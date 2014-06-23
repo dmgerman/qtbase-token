@@ -314,6 +314,8 @@ name|QT_NO_NETWORKPROXY
 name|void
 name|proxyAuthenticationRequired
 argument_list|(
+argument|const QUrl&url
+argument_list|,
 argument|const QNetworkProxy&proxy
 argument_list|,
 argument|bool synchronous
