@@ -3853,6 +3853,38 @@ name|password
 argument_list|)
 condition|)
 block|{
+comment|// only cache the system credentials if they are correct (or if they have changed)
+comment|// to not run into an endless loop in case they are wrong
+name|QNetworkAuthenticationCredential
+name|cred
+init|=
+name|authenticationManager
+operator|->
+name|fetchCachedProxyCredentials
+argument_list|(
+name|proxy
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|priv
+operator|->
+name|hasFailed
+operator|||
+name|cred
+operator|.
+name|user
+operator|!=
+name|username
+operator|||
+name|cred
+operator|.
+name|password
+operator|!=
+name|password
+condition|)
+block|{
 name|authenticator
 operator|->
 name|setUser
@@ -3877,6 +3909,7 @@ name|authenticator
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 else|#
 directive|else
