@@ -56,15 +56,15 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QAbstractState* initialState READ initialState WRITE setInitialState
+argument|QAbstractState* initialState READ initialState WRITE setInitialState NOTIFY initialStateChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QAbstractState* errorState READ errorState WRITE setErrorState
+argument|QAbstractState* errorState READ errorState WRITE setErrorState NOTIFY errorStateChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|ChildMode childMode READ childMode WRITE setChildMode
+argument|ChildMode childMode READ childMode WRITE setChildMode NOTIFY childModeChanged
 argument_list|)
 name|Q_ENUMS
 argument_list|(
@@ -242,6 +242,51 @@ argument_list|)
 block|;
 name|void
 name|propertiesAssigned
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|childModeChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|initialStateChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|errorStateChanged
 argument_list|(
 if|#
 directive|if
