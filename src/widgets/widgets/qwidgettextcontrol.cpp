@@ -3283,13 +3283,25 @@ argument_list|(
 name|from
 argument_list|)
 expr_stmt|;
+comment|// when setting a new text document the length is off
+comment|// QTBUG-32583 - characterCount is off by 1 requires the -1
 name|tmp
 operator|.
 name|setPosition
 argument_list|(
+name|qMin
+argument_list|(
+name|doc
+operator|->
+name|characterCount
+argument_list|()
+operator|-
+literal|1
+argument_list|,
 name|from
 operator|+
 name|charsAdded
+argument_list|)
 argument_list|,
 name|QTextCursor
 operator|::
