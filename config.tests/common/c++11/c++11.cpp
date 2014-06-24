@@ -13,6 +13,11 @@ name|defined
 argument_list|(
 name|__GXX_EXPERIMENTAL_CXX0X__
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__INTEL_CXX11_MODE__
+argument_list|)
 end_if
 begin_comment
 comment|// Compiler claims to support C++11, trust it
@@ -24,7 +29,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"__cplusplus must be>= 201103L, or __GXX_EXPERIMENTAL_CXX0X__ must be defined"
+literal|"__cplusplus must be>= 201103L, or one of __GXX_EXPERIMENTAL_CXX0X__ or __INTEL_CXX11_MODE__ must be defined"
 end_error
 begin_endif
 endif|#
