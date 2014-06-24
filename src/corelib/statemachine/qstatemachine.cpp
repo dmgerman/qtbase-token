@@ -150,6 +150,7 @@ name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QStateMachine     \inmodule QtCore     \reentrant      \brief The QStateMachine class provides a hierarchical finite state machine.      \since 4.6     \ingroup statemachine      QStateMachine is based on the concepts and notation of     \l{http://www.wisdom.weizmann.ac.il/~dharel/SCANNED.PAPERS/Statecharts.pdf}{Statecharts}.     QStateMachine is part of \l{The State Machine Framework}.      A state machine manages a set of states (classes that inherit from     QAbstractState) and transitions (descendants of     QAbstractTransition) between those states; these states and     transitions define a state graph. Once a state graph has been     built, the state machine can execute it. QStateMachine's     execution algorithm is based on the \l{http://www.w3.org/TR/scxml/}{State Chart XML (SCXML)}     algorithm. The framework's \l{The State Machine     Framework}{overview} gives several state graphs and the code to     build them.      Use the addState() function to add a top-level state to the state machine.     States are removed with the removeState() function. Removing states while     the machine is running is discouraged.      Before the machine can be started, the \l{initialState}{initial     state} must be set. The initial state is the state that the     machine enters when started. You can then start() the state     machine. The started() signal is emitted when the initial state is     entered.      The machine is event driven and keeps its own event loop. Events     are posted to the machine through postEvent(). Note that this     means that it executes asynchronously, and that it will not     progress without a running event loop. You will normally not have     to post events to the machine directly as Qt's transitions, e.g.,     QEventTransition and its subclasses, handle this. But for custom     transitions triggered by events, postEvent() is useful.      The state machine processes events and takes transitions until a     top-level final state is entered; the state machine then emits the     finished() signal. You can also stop() the state machine     explicitly. The stopped() signal is emitted in this case.      The following snippet shows a state machine that will finish when a button     is clicked:      \snippet code/src_corelib_statemachine_qstatemachine.cpp simple state machine      This code example uses QState, which inherits QAbstractState. The     QState class provides a state that you can use to set properties     and invoke methods on \l{QObject}s when the state is entered or     exited. It also contains convenience functions for adding     transitions, e.g., \l{QSignalTransition}s as in this example. See     the QState class description for further details.      If an error is encountered, the machine will look for an     \l{errorState}{error state}, and if one is available, it will     enter this state. The types of errors possible are described by the     \l{QStateMachine::}{Error} enum. After the error state is entered,     the type of the error can be retrieved with error(). The execution     of the state graph will not stop when the error state is entered. If     no error state applies to the erroneous state, the machine will stop     executing and an error message will be printed to the console.      \sa QAbstractState, QAbstractTransition, QState, {The State Machine Framework} */
 comment|/*!     \property QStateMachine::errorString      \brief the error string of this state machine */
 comment|/*!     \property QStateMachine::globalRestorePolicy      \brief the restore policy for states of this state machine.      The default value of this property is     QState::DontRestoreProperties. */
+comment|/*!     \property QStateMachine::running     \since 5.4      \brief the running state of this state machine */
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
@@ -8175,6 +8176,14 @@ name|QPrivateSignal
 argument_list|()
 argument_list|)
 emit|;
+emit|emit
+name|q
+operator|->
+name|runningChanged
+argument_list|(
+literal|true
+argument_list|)
+emit|;
 if|if
 condition|(
 name|stopProcessingReason
@@ -8197,6 +8206,14 @@ expr_stmt|;
 name|emitFinished
 argument_list|()
 expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|runningChanged
+argument_list|(
+literal|false
+argument_list|)
+emit|;
 block|}
 else|else
 block|{
@@ -8562,6 +8579,14 @@ expr_stmt|;
 name|emitFinished
 argument_list|()
 expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|runningChanged
+argument_list|(
+literal|false
+argument_list|)
+emit|;
 break|break;
 case|case
 name|Stopped
@@ -8585,6 +8610,14 @@ name|QStateMachine
 operator|::
 name|QPrivateSignal
 argument_list|()
+argument_list|)
+emit|;
+emit|emit
+name|q
+operator|->
+name|runningChanged
+argument_list|(
+literal|false
 argument_list|)
 emit|;
 break|break;
@@ -11496,7 +11529,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Starts this state machine.  The machine will reset its configuration and   transition to the initial state.  When a final top-level state (QFinalState)   is entered, the machine will emit the finished() signal.    \note A state machine will not run without a running event loop, such as   the main application event loop started with QCoreApplication::exec() or   QApplication::exec().    \sa started(), finished(), stop(), initialState() */
+comment|/*!   Starts this state machine.  The machine will reset its configuration and   transition to the initial state.  When a final top-level state (QFinalState)   is entered, the machine will emit the finished() signal.    \note A state machine will not run without a running event loop, such as   the main application event loop started with QCoreApplication::exec() or   QApplication::exec().    \sa started(), finished(), stop(), initialState(), setRunning() */
 end_comment
 begin_function
 DECL|function|start
@@ -11592,7 +11625,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Stops this state machine. The state machine will stop processing events and   then emit the stopped() signal.    \sa stopped(), start() */
+comment|/*!   Stops this state machine. The state machine will stop processing events and   then emit the stopped() signal.    \sa stopped(), start(), setRunning() */
 end_comment
 begin_function
 DECL|function|stop
@@ -11655,6 +11688,33 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+block|}
+end_function
+begin_comment
+comment|/*!     Convenience functions to start/stop this state machine.      \sa start(), stop(), started(), finished(), stopped() */
+end_comment
+begin_function
+DECL|function|setRunning
+name|void
+name|QStateMachine
+operator|::
+name|setRunning
+parameter_list|(
+name|bool
+name|running
+parameter_list|)
+block|{
+if|if
+condition|(
+name|running
+condition|)
+name|start
+argument_list|()
+expr_stmt|;
+else|else
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13415,6 +13475,9 @@ comment|/*!   \fn QStateMachine::WrappedEvent::object() const    Returns the obj
 end_comment
 begin_comment
 comment|/*!   \fn QStateMachine::WrappedEvent::event() const    Returns a clone of the original event. */
+end_comment
+begin_comment
+comment|/*!   \fn QStateMachine::runningChanged(bool running)   \since 5.4    This signal is emitted when the running property is changed.    \sa QStateMachine::running */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

@@ -76,6 +76,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|QState::RestorePolicy globalRestorePolicy READ globalRestorePolicy WRITE setGlobalRestorePolicy
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool running READ isRunning WRITE setRunning NOTIFY runningChanged
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
@@ -410,6 +414,12 @@ name|void
 name|stop
 argument_list|()
 block|;
+name|void
+name|setRunning
+argument_list|(
+argument|bool running
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -440,6 +450,12 @@ argument_list|)
 name|QPrivateSignal
 endif|#
 directive|endif
+argument_list|)
+block|;
+name|void
+name|runningChanged
+argument_list|(
+argument|bool running
 argument_list|)
 block|;
 name|protected
