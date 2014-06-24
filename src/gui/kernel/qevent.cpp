@@ -431,7 +431,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!   \since 5.3    Returns information about the mouse event source.    The mouse event source can be used to distinguish between genuine   and artificial mouse events. The latter are events that are   synthesized from touch events by the operating system or Qt itself.    \note Many platforms provide no such information. On such platforms   \l Qt::MouseEventNotSynthesized is returned always.    \sa Qt::MouseEventSource  */
+comment|/*!   \since 5.3    Returns information about the mouse event source.    The mouse event source can be used to distinguish between genuine   and artificial mouse events. The latter are events that are   synthesized from touch events by the operating system or Qt itself.    \note Many platforms provide no such information. On such platforms   \l Qt::MouseEventNotSynthesized is returned always.    \sa Qt::MouseEventSource   \sa QGraphicsSceneMouseEvent::source()   \sa QGraphicsSceneMouseEvent::setSource()  */
 end_comment
 begin_function
 DECL|function|source
@@ -455,7 +455,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \since 5.3       Returns the mouse event flags.       The mouse event flags provide additional information about a mouse event.       \sa Qt::MouseEventFlag  */
+comment|/*!      \since 5.3       Returns the mouse event flags.       The mouse event flags provide additional information about a mouse event.       \sa Qt::MouseEventFlag      \sa QGraphicsSceneMouseEvent::flags()      \sa QGraphicsSceneMouseEvent::setFlags()  */
 end_comment
 begin_function
 DECL|function|flags

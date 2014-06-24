@@ -342,6 +342,34 @@ argument_list|(
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
 block|;
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setSource
+argument_list|(
+argument|Qt::MouseEventSource source
+argument_list|)
+block|;
+name|Qt
+operator|::
+name|MouseEventFlags
+name|flags
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setFlags
+argument_list|(
+name|Qt
+operator|::
+name|MouseEventFlags
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DECLARE_PRIVATE
