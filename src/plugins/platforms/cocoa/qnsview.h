@@ -100,6 +100,11 @@ operator|::
 name|MouseButtons
 name|m_buttons
 block|;
+name|Qt
+operator|::
+name|MouseButtons
+name|m_frameStrutButtons
+block|;
 name|QString
 name|m_composingText
 block|;
