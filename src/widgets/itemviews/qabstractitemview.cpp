@@ -12501,6 +12501,16 @@ condition|)
 return|return;
 if|if
 condition|(
+name|indexWidget
+argument_list|(
+name|index
+argument_list|)
+operator|==
+name|widget
+condition|)
+return|return;
+if|if
+condition|(
 name|QWidget
 modifier|*
 name|oldWidget
