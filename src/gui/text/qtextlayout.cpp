@@ -7359,6 +7359,56 @@ operator|.
 name|glyphs
 argument_list|)
 expr_stmt|;
+comment|// This is a hack to fix a regression caused by the introduction of the
+comment|// whitespace flag to non-breakable spaces and will cause the non-breakable
+comment|// spaces to behave as in previous Qt versions in the line breaking algorithm.
+comment|// The line breaks do not currently follow the Unicode specs, but fixing this would
+comment|// require refactoring the code and would cause behavioral regressions.
+name|bool
+name|isBreakableSpace
+init|=
+name|lbh
+operator|.
+name|currentPosition
+operator|<
+name|eng
+operator|->
+name|layoutData
+operator|->
+name|string
+operator|.
+name|length
+argument_list|()
+operator|&&
+name|attributes
+index|[
+name|lbh
+operator|.
+name|currentPosition
+index|]
+operator|.
+name|whiteSpace
+operator|&&
+name|eng
+operator|->
+name|layoutData
+operator|->
+name|string
+operator|.
+name|at
+argument_list|(
+name|lbh
+operator|.
+name|currentPosition
+argument_list|)
+operator|.
+name|decompositionTag
+argument_list|()
+operator|!=
+name|QChar
+operator|::
+name|NoBreak
+decl_stmt|;
 if|if
 condition|(
 name|lbh
@@ -7374,14 +7424,7 @@ operator|.
 name|length
 argument_list|()
 operator|||
-name|attributes
-index|[
-name|lbh
-operator|.
-name|currentPosition
-index|]
-operator|.
-name|whiteSpace
+name|isBreakableSpace
 operator|||
 name|attributes
 index|[
