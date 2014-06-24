@@ -98,6 +98,13 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|setOpacity
+argument_list|(
+argument|qreal opacity
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|virtual
 name|EGLNativeWindowType
 name|eglWindow

@@ -66,8 +66,10 @@ literal|"in vec2 uv;"
 literal|"out vec4 fragcolor;"
 literal|"uniform sampler2D textureSampler;"
 literal|"uniform bool swizzle;"
+literal|"uniform float opacity;"
 literal|"void main() {"
 literal|"   vec4 tmpFragColor = texture(textureSampler, uv);"
+literal|"   tmpFragColor.a *= opacity;"
 literal|"   fragcolor = swizzle ? tmpFragColor.bgra : tmpFragColor;"
 literal|"}"
 decl_stmt|;
@@ -102,8 +104,10 @@ init|=
 literal|"varying highp vec2 uv;"
 literal|"uniform sampler2D textureSampler;"
 literal|"uniform bool swizzle;"
+literal|"uniform highp float opacity;"
 literal|"void main() {"
 literal|"   highp vec4 tmpFragColor = texture2D(textureSampler,uv);"
+literal|"   tmpFragColor.a *= opacity;"
 literal|"   gl_FragColor = swizzle ? tmpFragColor.bgra : tmpFragColor;"
 literal|"}"
 decl_stmt|;
@@ -308,6 +312,16 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|opacity
+argument_list|(
+literal|1.0f
+argument_list|)
+member_init_list|,
+name|opacityOld
+argument_list|(
+literal|0.0f
+argument_list|)
+member_init_list|,
 name|textureMatrixUniformState
 argument_list|(
 name|User
@@ -458,6 +472,27 @@ operator|=
 name|swizzle
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|opacity
+operator|!=
+name|opacityOld
+condition|)
+block|{
+name|program
+operator|->
+name|setUniformValue
+argument_list|(
+name|opacityUniformPos
+argument_list|,
+name|opacity
+argument_list|)
+expr_stmt|;
+name|opacityOld
+operator|=
+name|opacity
+expr_stmt|;
+block|}
 block|}
 DECL|member|vertexBuffer
 name|QOpenGLBuffer
@@ -494,6 +529,10 @@ DECL|member|swizzleUniformPos
 name|GLuint
 name|swizzleUniformPos
 decl_stmt|;
+DECL|member|opacityUniformPos
+name|GLuint
+name|opacityUniformPos
+decl_stmt|;
 DECL|member|swizzle
 name|bool
 name|swizzle
@@ -501,6 +540,14 @@ decl_stmt|;
 DECL|member|swizzleOld
 name|bool
 name|swizzleOld
+decl_stmt|;
+DECL|member|opacity
+name|float
+name|opacity
+decl_stmt|;
+DECL|member|opacityOld
+name|float
+name|opacityOld
 decl_stmt|;
 DECL|member|textureMatrixUniformState
 name|TextureMatrixUniform
@@ -1062,6 +1109,19 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
+name|opacityUniformPos
+operator|=
+name|d
+operator|->
+name|program
+operator|->
+name|uniformLocation
+argument_list|(
+literal|"opacity"
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
 name|program
 operator|->
 name|setUniformValue
@@ -1317,6 +1377,30 @@ operator|->
 name|swizzle
 operator|=
 name|swizzle
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|setOpacity
+name|void
+name|QOpenGLTextureBlitter
+operator|::
+name|setOpacity
+parameter_list|(
+name|float
+name|opacity
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QOpenGLTextureBlitter
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|opacity
+operator|=
+name|opacity
 expr_stmt|;
 block|}
 end_function

@@ -81,6 +81,13 @@ name|swizzle
 parameter_list|)
 function_decl|;
 name|void
+name|setOpacity
+parameter_list|(
+name|float
+name|opacity
+parameter_list|)
+function_decl|;
+name|void
 name|blit
 parameter_list|(
 name|GLuint

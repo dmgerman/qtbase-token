@@ -264,6 +264,30 @@ name|m_winId
 return|;
 block|}
 end_function
+begin_function
+DECL|function|setOpacity
+name|void
+name|QEGLPlatformWindow
+operator|::
+name|setOpacity
+parameter_list|(
+name|qreal
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|isRaster
+argument_list|()
+condition|)
+name|qWarning
+argument_list|(
+literal|"eglfs: Cannot set opacity for non-raster windows"
+argument_list|)
+expr_stmt|;
+comment|// Nothing to do here. The opacity is stored in the QWindow.
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

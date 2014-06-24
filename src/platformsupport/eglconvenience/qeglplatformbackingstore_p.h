@@ -76,7 +76,7 @@ block|;
 name|void
 name|beginPaint
 argument_list|(
-argument|const QRegion&
+argument|const QRegion&region
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
