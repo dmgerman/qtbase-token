@@ -371,6 +371,12 @@ argument|d_func()
 argument_list|,
 argument|void emitReplyUploadProgress(qint64, qint64)
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_cacheSaveDeviceAboutToClose()
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -521,6 +527,10 @@ argument_list|()
 block|;
 name|void
 name|_q_bufferOutgoingDataFinished
+argument_list|()
+block|;
+name|void
+name|_q_cacheSaveDeviceAboutToClose
 argument_list|()
 block|;
 ifndef|#
