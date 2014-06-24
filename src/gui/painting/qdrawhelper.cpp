@@ -43587,6 +43587,13 @@ block|}
 block|}
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+end_if
 begin_function
 DECL|function|qt_alphamapblit_rgba8888
 specifier|static
@@ -43652,6 +43659,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qt_alphargbblit_argb32
 specifier|static
