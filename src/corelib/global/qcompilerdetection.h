@@ -5094,12 +5094,6 @@ name|Q_PROCESSOR_ARM
 argument_list|)
 end_if
 begin_undef
-DECL|macro|QT_COMPILER_SUPPORTS_IWMMXT
-undef|#
-directive|undef
-name|QT_COMPILER_SUPPORTS_IWMMXT
-end_undef
-begin_undef
 DECL|macro|QT_COMPILER_SUPPORTS_NEON
 undef|#
 directive|undef

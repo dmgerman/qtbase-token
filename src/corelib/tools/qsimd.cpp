@@ -92,11 +92,6 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_MIPS_32
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_IWMMXT
-argument_list|)
 operator|)
 end_elif
 begin_include
@@ -113,13 +108,6 @@ end_comment
 begin_comment
 comment|// copied from<asm/hwcap.h> (ARM)
 end_comment
-begin_define
-DECL|macro|HWCAP_IWMMXT
-define|#
-directive|define
-name|HWCAP_IWMMXT
-value|512
-end_define
 begin_define
 DECL|macro|HWCAP_CRUNCH
 define|#
@@ -219,17 +207,6 @@ name|defined
 argument_list|(
 name|ARM
 argument_list|)
-if|if
-condition|(
-name|IsProcessorFeaturePresent
-argument_list|(
-name|PF_ARM_INTEL_WMMX
-argument_list|)
-condition|)
-name|features
-operator||=
-name|IWMMXT
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|PF_ARM_NEON
@@ -287,11 +264,6 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_PROCESSOR_ARM
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_IWMMXT
 argument_list|)
 end_elif
 begin_function
@@ -420,21 +392,6 @@ operator|+
 literal|1
 index|]
 operator|&
-name|HWCAP_IWMMXT
-condition|)
-name|features
-operator||=
-name|IWMMXT
-expr_stmt|;
-if|if
-condition|(
-name|vector
-index|[
-name|i
-operator|+
-literal|1
-index|]
-operator|&
 name|HWCAP_NEON
 condition|)
 name|features
@@ -458,17 +415,6 @@ endif|#
 directive|endif
 if|#
 directive|if
-name|defined
-argument_list|(
-name|QT_COMPILER_SUPPORTS_IWMMXT
-argument_list|)
-comment|// runtime detection only available when running as a previlegied process
-name|features
-operator|=
-name|IWMMXT
-expr_stmt|;
-elif|#
-directive|elif
 name|defined
 argument_list|(
 name|__ARM_NEON__
@@ -2013,7 +1959,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*  * Use kdesdk/scripts/generate_string_table.pl to update the table below.  * Here's the data (don't forget the ONE leading space):  iwmmxt  neon  sse2  sse3  ssse3  sse4.1  sse4.2  avx  avx2  hle  rtm  dsp  dspr2   */
+comment|/*  * Use kdesdk/scripts/generate_string_table.pl to update the table below.  * Here's the data (don't forget the ONE leading space):   neon  sse2  sse3  ssse3  sse4.1  sse4.2  avx  avx2  hle  rtm  dsp  dspr2   */
 end_comment
 begin_comment
 comment|// begin generated
@@ -2026,7 +1972,7 @@ name|char
 name|features_string
 index|[]
 init|=
-literal|" iwmmxt\0"
+literal|"\0"
 literal|" neon\0"
 literal|" sse2\0"
 literal|" sse3\0"
@@ -2053,29 +1999,29 @@ init|=
 block|{
 literal|0
 block|,
-literal|8
+literal|1
 block|,
-literal|14
+literal|7
 block|,
-literal|20
+literal|13
+block|,
+literal|19
 block|,
 literal|26
 block|,
-literal|33
+literal|34
 block|,
-literal|41
+literal|42
 block|,
-literal|49
+literal|47
 block|,
-literal|54
+literal|53
 block|,
-literal|60
+literal|58
 block|,
-literal|65
+literal|63
 block|,
-literal|70
-block|,
-literal|75
+literal|68
 block|,
 operator|-
 literal|1
