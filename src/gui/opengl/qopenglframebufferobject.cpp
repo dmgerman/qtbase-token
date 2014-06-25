@@ -999,6 +999,15 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|samples
+operator|=
+name|qMax
+argument_list|(
+literal|0
+argument_list|,
+name|samples
+argument_list|)
+expr_stmt|;
 name|requestedSamples
 operator|=
 name|samples
