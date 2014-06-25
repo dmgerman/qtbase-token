@@ -900,7 +900,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \enum QJsonDocument::JsonFormat      This value defines the format of the JSON byte array produced     when converting to a QJsonDocument using toJson().      \value Indented Defines human readable output as follows:         \code         {             "Array": [                 true,                 999,                 "string"             ],             "Key": "Value",             "null": null         }         \endcode      \value Compact Defines a compact output as follows:         \code         {"Array": [true,999,"string"],"Key": "Value","null": null}         \endcode   */
+comment|/*!     \enum QJsonDocument::JsonFormat      This value defines the format of the JSON byte array produced     when converting to a QJsonDocument using toJson().      \value Indented Defines human readable output as follows:         \code         {             "Array": [                 true,                 999,                 "string"             ],             "Key": "Value",             "null": null         }         \endcode      \value Compact Defines a compact output as follows:         \code         {"Array":[true,999,"string"],"Key":"Value","null":null}         \endcode   */
 end_comment
 begin_comment
 comment|/*!     Converts the QJsonDocument to a UTF-8 encoded JSON document in the provided \a format.      \sa fromJson(), JsonFormat  */
