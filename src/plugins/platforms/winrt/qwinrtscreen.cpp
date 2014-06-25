@@ -1722,9 +1722,6 @@ name|m_cursor
 argument_list|(
 operator|new
 name|QWinRTCursor
-argument_list|(
-name|window
-argument_list|)
 argument_list|)
 member_init_list|,
 name|m_devicePixelRatio
