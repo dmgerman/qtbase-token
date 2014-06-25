@@ -560,6 +560,14 @@ name|screen
 argument_list|)
 block|;
 name|void
+name|screenRemoved
+argument_list|(
+name|QScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+name|void
 name|lastWindowClosed
 argument_list|()
 block|;

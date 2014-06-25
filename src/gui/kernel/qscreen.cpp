@@ -63,6 +63,31 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
+comment|/*!     Destroys the screen.  */
+end_comment
+begin_destructor
+DECL|function|~QScreen
+name|QScreen
+operator|::
+name|~
+name|QScreen
+parameter_list|()
+block|{
+if|if
+condition|(
+name|qApp
+condition|)
+name|Q_EMIT
+name|qApp
+operator|->
+name|screenRemoved
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+block|}
+end_destructor
+begin_comment
 comment|/*!   Get the platform screen handle. */
 end_comment
 begin_function

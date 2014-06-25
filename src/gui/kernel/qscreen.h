@@ -178,6 +178,10 @@ argument|qreal refreshRate READ refreshRate NOTIFY refreshRateChanged
 argument_list|)
 name|public
 operator|:
+operator|~
+name|QScreen
+argument_list|()
+block|;
 name|QPlatformScreen
 operator|*
 name|handle

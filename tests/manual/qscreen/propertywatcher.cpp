@@ -301,11 +301,10 @@ operator|::
 name|subjectDestroyed
 parameter_list|()
 block|{
-name|hide
-argument_list|()
-expr_stmt|;
-name|deleteLater
-argument_list|()
+name|qDebug
+argument_list|(
+literal|"screen destroyed"
+argument_list|)
 expr_stmt|;
 block|}
 end_function
