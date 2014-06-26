@@ -525,7 +525,7 @@ begin_comment
 comment|/*!     \fn void QMutexLocker::relock()      Relocks an unlocked mutex locker.      \sa unlock() */
 end_comment
 begin_comment
-comment|/*!     \fn QMutex *QMutexLocker::mutex()      Returns the mutex on which the QMutexLocker is operating.  */
+comment|/*!     \fn QMutex *QMutexLocker::mutex() const      Returns the mutex on which the QMutexLocker is operating.  */
 end_comment
 begin_ifndef
 ifndef|#
