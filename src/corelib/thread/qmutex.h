@@ -125,6 +125,7 @@ name|bool
 name|isRecursive
 parameter_list|()
 function_decl|;
+comment|//### Qt6: mark const
 name|private
 label|:
 specifier|inline
