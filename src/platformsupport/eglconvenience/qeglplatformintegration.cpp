@@ -1264,6 +1264,12 @@ argument_list|(
 name|loadKeymapStatic
 argument_list|)
 return|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|function
+argument_list|)
 endif|#
 directive|endif
 return|return
