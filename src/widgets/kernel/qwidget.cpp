@@ -20075,6 +20075,11 @@ argument_list|(
 name|q
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|backingStore
+condition|)
+block|{
 name|p
 operator|.
 name|setCompositionMode
@@ -20098,6 +20103,24 @@ operator|::
 name|transparent
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// We are not drawing to a backingstore: fall back to QImage
+name|p
+operator|.
+name|drawImage
+argument_list|(
+name|q
+operator|->
+name|rect
+argument_list|()
+argument_list|,
+name|grabFramebuffer
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
