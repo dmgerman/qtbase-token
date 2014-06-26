@@ -656,14 +656,25 @@ block|{
 name|public
 operator|:
 name|FlushEventsEvent
-argument_list|()
+argument_list|(
+argument|QEventLoop::ProcessEventsFlags f = QEventLoop::AllEvents
+argument_list|)
 operator|:
 name|WindowSystemEvent
 argument_list|(
-argument|FlushEvents
+name|FlushEvents
+argument_list|)
+block|,
+name|flags
+argument_list|(
+argument|f
 argument_list|)
 block|{ }
-block|}
+name|QEventLoop
+operator|::
+name|ProcessEventsFlags
+name|flags
+block|;     }
 decl_stmt|;
 name|class
 name|UserEvent
