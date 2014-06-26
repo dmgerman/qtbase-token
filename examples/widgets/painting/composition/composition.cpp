@@ -1071,7 +1071,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_OPENGL_SUPPORT
+name|USE_OPENGL
 argument_list|)
 operator|&&
 operator|!
@@ -1283,7 +1283,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_OPENGL_SUPPORT
+name|USE_OPENGL
 argument_list|)
 operator|&&
 operator|!
@@ -1691,7 +1691,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_OPENGL_SUPPORT
+name|USE_OPENGL
 argument_list|)
 operator|&&
 operator|!
@@ -1871,7 +1871,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_OPENGL_SUPPORT
+name|USE_OPENGL
 name|m_pbuffer
 operator|=
 literal|0
@@ -2559,7 +2559,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_OPENGL_SUPPORT
+name|USE_OPENGL
 argument_list|)
 operator|&&
 operator|!
@@ -3446,7 +3446,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_OPENGL_SUPPORT
+name|USE_OPENGL
 argument_list|)
 operator|&&
 operator|!
