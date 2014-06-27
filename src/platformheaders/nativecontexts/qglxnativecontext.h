@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/QMetaType>
+end_include
+begin_include
+include|#
+directive|include
 file|<X11/Xlib.h>
 end_include
 begin_include
