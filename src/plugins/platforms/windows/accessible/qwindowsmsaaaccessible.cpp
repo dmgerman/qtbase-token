@@ -5022,10 +5022,6 @@ condition|)
 block|{
 name|value
 operator|=
-name|QString
-operator|::
-name|number
-argument_list|(
 name|accessible
 operator|->
 name|valueInterface
@@ -5034,9 +5030,8 @@ operator|->
 name|currentValue
 argument_list|()
 operator|.
-name|toDouble
+name|toString
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 else|else
