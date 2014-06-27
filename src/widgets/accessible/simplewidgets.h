@@ -757,6 +757,10 @@ name|lineEdit
 argument_list|()
 specifier|const
 expr_stmt|;
+name|friend
+name|class
+name|QAccessibleAbstractSpinBox
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -570,7 +570,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QAbstractSpinBox
 argument_list|)
-block|}
+name|friend
+name|class
+name|QAccessibleAbstractSpinBox
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

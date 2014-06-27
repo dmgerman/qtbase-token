@@ -197,6 +197,16 @@ name|QLatin1String
 argument_list|(
 literal|"qt_rubberband"
 argument_list|)
+operator|&&
+name|w
+operator|->
+name|objectName
+argument_list|()
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"qt_spinbox_lineedit"
+argument_list|)
 condition|)
 name|widgets
 operator|.
