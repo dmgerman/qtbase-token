@@ -2133,12 +2133,12 @@ name|__INTEL_COMPILER
 operator|>=
 literal|1400
 end_if
-begin_define
-DECL|macro|Q_COMPILER_CONSTEXPR
-define|#
-directive|define
-name|Q_COMPILER_CONSTEXPR
-end_define
+begin_comment
+comment|//       causes issues with QArrayData and QtPrivate::RefCount - Intel issue ID 6000056211, bug DPD200534796
+end_comment
+begin_comment
+comment|//#      define Q_COMPILER_CONSTEXPR
+end_comment
 begin_define
 DECL|macro|Q_COMPILER_DELEGATING_CONSTRUCTORS
 define|#
