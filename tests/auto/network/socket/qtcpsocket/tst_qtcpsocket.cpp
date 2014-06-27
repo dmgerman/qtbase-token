@@ -10062,9 +10062,12 @@ argument_list|,
 literal|80
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
 name|pthread_yield_np
 argument_list|()
 expr_stmt|;
@@ -10072,6 +10075,10 @@ elif|#
 directive|elif
 name|defined
 name|Q_OS_LINUX
+operator|&&
+operator|!
+name|defined
+name|Q_OS_ANDROID
 name|pthread_yield
 argument_list|()
 expr_stmt|;
