@@ -335,6 +335,13 @@ operator|->
 name|maybeRegister
 argument_list|()
 expr_stmt|;
+emit|emit
+name|senderObjectChanged
+argument_list|(
+name|QPrivateSignal
+argument_list|()
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
@@ -408,6 +415,13 @@ operator|->
 name|maybeRegister
 argument_list|()
 expr_stmt|;
+emit|emit
+name|signalChanged
+argument_list|(
+name|QPrivateSignal
+argument_list|()
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
@@ -548,6 +562,12 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!   \fn QSignalTransition::senderObjectChanged()   \since 5.4    This signal is emitted when the senderObject property is changed.    \sa QSignalTransition::senderObject */
+end_comment
+begin_comment
+comment|/*!   \fn QSignalTransition::signalChanged()   \since 5.4    This signal is emitted when the signal property is changed.    \sa QSignalTransition::signal */
+end_comment
 begin_function
 DECL|function|callOnTransition
 name|void

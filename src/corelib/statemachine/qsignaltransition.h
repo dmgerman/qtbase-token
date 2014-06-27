@@ -39,11 +39,11 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QObject* senderObject READ senderObject WRITE setSenderObject
+argument|QObject* senderObject READ senderObject WRITE setSenderObject NOTIFY senderObjectChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QByteArray signal READ signal WRITE setSignal
+argument|QByteArray signal READ signal WRITE setSignal NOTIFY signalChanged
 argument_list|)
 name|public
 operator|:
@@ -132,6 +132,38 @@ argument_list|(
 name|QEvent
 operator|*
 name|e
+argument_list|)
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|senderObjectChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|signalChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
 argument_list|)
 block|;
 name|private
