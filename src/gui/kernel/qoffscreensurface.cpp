@@ -349,6 +349,19 @@ operator|->
 name|screen
 argument_list|)
 expr_stmt|;
+comment|// Remove this window from the global list since we do not want it to be destroyed when closing the app.
+comment|// The QOffscreenSurface has to be usable even after exiting the event loop.
+name|QGuiApplicationPrivate
+operator|::
+name|window_list
+operator|.
+name|removeOne
+argument_list|(
+name|d
+operator|->
+name|offscreenWindow
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|offscreenWindow
