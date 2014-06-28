@@ -10448,6 +10448,11 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
+name|c2
+operator|->
+name|isSlotObject
+operator|&&
 name|c2
 operator|->
 name|receiver
