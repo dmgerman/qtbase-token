@@ -375,10 +375,10 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|roundedValueA
-name|int
+name|qint64
 name|roundedValueA
 init|=
-name|qRound
+name|qRound64
 argument_list|(
 name|valueA
 argument_list|)
@@ -389,10 +389,10 @@ comment|// roundedValueA = 42949672960
 end_comment
 begin_decl_stmt
 DECL|variable|roundedValueB
-name|int
+name|qint64
 name|roundedValueB
 init|=
-name|qRound
+name|qRound64
 argument_list|(
 name|valueB
 argument_list|)
