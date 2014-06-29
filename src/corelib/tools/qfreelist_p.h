@@ -476,12 +476,13 @@ begin_label
 name|public
 label|:
 end_label
-begin_expr_stmt
+begin_function_decl
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFreeList
-argument_list|()
-expr_stmt|;
-end_expr_stmt
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 specifier|inline
 operator|~
@@ -547,6 +548,7 @@ name|ConstantsType
 operator|>
 DECL|variable|T
 DECL|function|QFreeList
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFreeList
 operator|<
