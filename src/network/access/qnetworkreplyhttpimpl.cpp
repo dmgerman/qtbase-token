@@ -1060,6 +1060,25 @@ literal|"Operation canceled"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// If state is WaitingForSession, calling finished has no effect
+if|if
+condition|(
+name|d
+operator|->
+name|state
+operator|==
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|WaitingForSession
+condition|)
+name|d
+operator|->
+name|state
+operator|=
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Working
+expr_stmt|;
 name|d
 operator|->
 name|finished
