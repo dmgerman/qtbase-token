@@ -87,11 +87,11 @@ argument|QState* sourceState READ sourceState
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QAbstractState* targetState READ targetState WRITE setTargetState
+argument|QAbstractState* targetState READ targetState WRITE setTargetState NOTIFY targetStateChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QList<QAbstractState*> targetStates READ targetStates WRITE setTargetStates
+argument|QList<QAbstractState*> targetStates READ targetStates WRITE setTargetStates NOTIFY targetStatesChanged
 argument_list|)
 name|public
 operator|:
@@ -191,6 +191,36 @@ name|Q_SIGNALS
 operator|:
 name|void
 name|triggered
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|targetStateChanged
+argument_list|(
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+name|QPrivateSignal
+endif|#
+directive|endif
+argument_list|)
+block|;
+name|void
+name|targetStatesChanged
 argument_list|(
 if|#
 directive|if
