@@ -471,6 +471,11 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|QString
+name|currentCpuArchitecture
+parameter_list|()
+function_decl|;
+specifier|static
+name|QString
 name|buildAbi
 parameter_list|()
 function_decl|;
