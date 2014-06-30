@@ -158743,6 +158743,7 @@ block|}
 block|}
 decl_stmt|;
 DECL|function|qGetProp
+name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
 specifier|const
@@ -158770,6 +158771,7 @@ name|index
 return|;
 block|}
 DECL|function|qGetProp
+name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
 specifier|const
@@ -158797,6 +158799,7 @@ name|index
 return|;
 block|}
 DECL|function|properties
+name|Q_DECL_CONST_FUNCTION
 name|Q_CORE_EXPORT
 specifier|const
 name|Properties
@@ -158816,6 +158819,7 @@ argument_list|)
 return|;
 block|}
 DECL|function|properties
+name|Q_DECL_CONST_FUNCTION
 name|Q_CORE_EXPORT
 specifier|const
 name|Properties

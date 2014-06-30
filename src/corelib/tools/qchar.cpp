@@ -1641,6 +1641,7 @@ name|typename
 name|T
 parameter_list|>
 DECL|function|toLowerCase_helper
+name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
 name|T
@@ -1712,6 +1713,7 @@ name|typename
 name|T
 parameter_list|>
 DECL|function|toUpperCase_helper
+name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
 name|T
@@ -1783,6 +1785,7 @@ name|typename
 name|T
 parameter_list|>
 DECL|function|toTitleCase_helper
+name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
 name|T
@@ -1854,6 +1857,7 @@ name|typename
 name|T
 parameter_list|>
 DECL|function|toCaseFolded_helper
+name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
 name|T
