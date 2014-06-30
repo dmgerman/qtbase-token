@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/qatomic.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qhash.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QSharedDataPointer
@@ -1611,6 +1616,64 @@ argument_list|)
 block|; }
 block|}
 name|QT_BEGIN_NAMESPACE
+name|template
+operator|<
+name|class
+name|T
+operator|>
+name|Q_INLINE_TEMPLATE
+name|uint
+name|qHash
+argument_list|(
+argument|const QSharedDataPointer<T>&ptr
+argument_list|,
+argument|uint seed =
+literal|0
+argument_list|)
+block|{
+return|return
+name|qHash
+argument_list|(
+name|ptr
+operator|.
+name|data
+argument_list|()
+argument_list|,
+name|seed
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|class
+name|T
+operator|>
+name|Q_INLINE_TEMPLATE
+name|uint
+name|qHash
+argument_list|(
+argument|const QExplicitlySharedDataPointer<T>&ptr
+argument_list|,
+argument|uint seed =
+literal|0
+argument_list|)
+block|{
+return|return
+name|qHash
+argument_list|(
+name|ptr
+operator|.
+name|data
+argument_list|()
+argument_list|,
+name|seed
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
 name|template
 operator|<
 name|typename
