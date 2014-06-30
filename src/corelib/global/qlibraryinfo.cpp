@@ -1096,7 +1096,7 @@ DECL|macro|COMPILER_STRING
 define|#
 directive|define
 name|COMPILER_STRING
-value|"MSVC<unknown version>"
+value|"MSVC _MSC_VER " QT_STRINGIFY(_MSC_VER)
 end_define
 begin_endif
 endif|#
