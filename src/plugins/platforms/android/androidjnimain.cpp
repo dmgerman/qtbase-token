@@ -2605,7 +2605,7 @@ name|qRound
 argument_list|(
 name|double
 argument_list|(
-name|desktopWidthPixels
+name|widthPixels
 argument_list|)
 operator|/
 name|xdpi
@@ -2617,7 +2617,7 @@ name|qRound
 argument_list|(
 name|double
 argument_list|(
-name|desktopHeightPixels
+name|heightPixels
 argument_list|)
 operator|/
 name|ydpi
@@ -2641,7 +2641,7 @@ name|qRound
 argument_list|(
 name|double
 argument_list|(
-name|desktopWidthPixels
+name|widthPixels
 argument_list|)
 operator|/
 name|xdpi
@@ -2653,7 +2653,7 @@ name|qRound
 argument_list|(
 name|double
 argument_list|(
-name|desktopHeightPixels
+name|heightPixels
 argument_list|)
 operator|/
 name|ydpi
