@@ -2607,6 +2607,16 @@ operator|::
 name|addressReusable
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
+name|QSKIP
+argument_list|(
+literal|"The addressReusable test is unstable on Linux. See QTBUG-39985."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
