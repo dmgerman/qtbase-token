@@ -29226,7 +29226,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the default text color that is used to for unformatted text. */
+comment|/*!     Returns the default text color that is used for unformatted text. */
 end_comment
 begin_function
 DECL|function|defaultTextColor

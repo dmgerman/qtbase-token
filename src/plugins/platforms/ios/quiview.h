@@ -233,7 +233,17 @@ operator|)
 name|commit
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+DECL|variable|inUpdateKeyboardLayout
+operator|+
+operator|(
+name|bool
+operator|)
+name|inUpdateKeyboardLayout
+expr_stmt|;
+end_expr_stmt
 begin_macro
+DECL|variable|inUpdateKeyboardLayout
 unit|@
 name|end
 end_macro

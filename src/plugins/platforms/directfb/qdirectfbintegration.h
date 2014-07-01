@@ -68,7 +68,7 @@ name|QDirectFbIntegration
 argument_list|()
 block|;
 name|void
-name|initialize
+name|connectToDirectFb
 argument_list|()
 block|;
 name|QPlatformPixmap

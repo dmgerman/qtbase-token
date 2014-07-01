@@ -2164,7 +2164,8 @@ name|fillPath
 argument_list|(
 name|path
 argument_list|,
-name|state
+name|painter
+argument_list|()
 operator|->
 name|pen
 argument_list|()

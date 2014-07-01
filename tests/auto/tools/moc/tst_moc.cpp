@@ -10489,6 +10489,31 @@ argument_list|(
 literal|":3: Warning: Macro argument mismatch.\n:4: Warning: Macro argument mismatch."
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Class declaration lacks Q_OBJECT macro."
+argument_list|)
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"class X : public QObject \n { \n public slots: \n void foo() {} \n };"
+argument_list|)
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+literal|1
+operator|<<
+name|QString
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+literal|"standard input:5: Error: Class declaration lacks Q_OBJECT macro."
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

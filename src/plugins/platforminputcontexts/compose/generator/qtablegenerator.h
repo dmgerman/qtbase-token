@@ -331,6 +331,10 @@ name|QString
 name|systemComposeDir
 parameter_list|()
 function_decl|;
+name|QString
+name|composeTableForLocale
+parameter_list|()
+function_decl|;
 name|ushort
 name|keysymToUtf8
 parameter_list|(
@@ -366,15 +370,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
-operator|(
 name|m_state
-operator|&
-name|NoErrors
-operator|)
 operator|==
 name|NoErrors
-operator|)
 return|;
 block|}
 name|QString

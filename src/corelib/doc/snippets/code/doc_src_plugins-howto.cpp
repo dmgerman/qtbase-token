@@ -19,9 +19,7 @@ argument_list|(
 name|IID
 literal|"org.qt-project.Qt.QStyleFactoryInterface"
 name|FILE
-name|mystyleplugin
-operator|.
-name|json
+literal|"mystyleplugin.json"
 argument_list|)
 decl|public
 range|:

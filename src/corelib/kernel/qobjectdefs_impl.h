@@ -6780,9 +6780,12 @@ name|Value
 operator|=
 name|Ok
 operator|?
+name|int
+argument_list|(
 sizeof|sizeof...
 argument_list|(
 name|ArgList
+argument_list|)
 argument_list|)
 operator|:
 name|int

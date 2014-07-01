@@ -389,6 +389,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|hMem
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|hdc
 argument_list|(
 literal|0

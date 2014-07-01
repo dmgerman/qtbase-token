@@ -1314,7 +1314,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an absolute path including the file name.      The absolute path name consists of the full path and the file     name. On Unix this will always begin with the root, '/',     directory. On Windows this will always begin 'D:/' where D is a     drive letter, except for network shares that are not mapped to a     drive letter, in which case the path will begin '//sharename/'.     QFileInfo will uppercase drive letters. Note that QDir does not do     this. The code snippet below shows this.      \snippet code/src_corelib_io_qfileinfo.cpp newstuff      This function returns the same as filePath(), unless isRelative()     is true. In contrast to canonicalFilePath(), symbolic links or     redundant "." or ".." elements are not necessarily removed.      If the QFileInfo is empty it returns QDir::currentPath().      \sa filePath(), canonicalFilePath(), isRelative() */
+comment|/*!     Returns an absolute path including the file name.      The absolute path name consists of the full path and the file     name. On Unix this will always begin with the root, '/',     directory. On Windows this will always begin 'D:/' where D is a     drive letter, except for network shares that are not mapped to a     drive letter, in which case the path will begin '//sharename/'.     QFileInfo will uppercase drive letters. Note that QDir does not do     this. The code snippet below shows this.      \snippet code/src_corelib_io_qfileinfo.cpp newstuff      This function returns the same as filePath(), unless isRelative()     is true. In contrast to canonicalFilePath(), symbolic links or     redundant "." or ".." elements are not necessarily removed.      \warning If filePath() is empty the behavior of this function             is undefined.      \sa filePath(), canonicalFilePath(), isRelative() */
 end_comment
 begin_function
 DECL|function|absoluteFilePath
@@ -1398,7 +1398,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a file's path absolute path. This doesn't include the     file name.      On Unix the absolute path will always begin with the root, '/',     directory. On Windows this will always begin 'D:/' where D is a     drive letter, except for network shares that are not mapped to a     drive letter, in which case the path will begin '//sharename/'.      In contrast to canonicalPath() symbolic links or redundant "." or     ".." elements are not necessarily removed.      \warning If the QFileInfo object was created with an empty QString,               the behavior of this function is undefined.      \sa absoluteFilePath(), path(), canonicalPath(), fileName(), isRelative() */
+comment|/*!     Returns a file's path absolute path. This doesn't include the     file name.      On Unix the absolute path will always begin with the root, '/',     directory. On Windows this will always begin 'D:/' where D is a     drive letter, except for network shares that are not mapped to a     drive letter, in which case the path will begin '//sharename/'.      In contrast to canonicalPath() symbolic links or redundant "." or     ".." elements are not necessarily removed.      \warning If filePath() is empty the behavior of this function              is undefined.      \sa absoluteFilePath(), path(), canonicalPath(), fileName(), isRelative() */
 end_comment
 begin_function
 DECL|function|absolutePath

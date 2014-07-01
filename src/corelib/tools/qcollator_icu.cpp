@@ -157,6 +157,13 @@ block|{
 name|detach
 argument_list|()
 expr_stmt|;
+comment|// The strength attribute in ICU is rather badly documented. Basically UCOL_PRIMARY
+comment|// ignores differences between base characters and accented characters as well as case.
+comment|// So A and A-umlaut would compare equal.
+comment|// UCOL_SECONDARY ignores case differences. UCOL_TERTIARY is the default in most languages
+comment|// and does case sensitive comparison.
+comment|// UCOL_QUATERNARY is used as default in a few languages such as Japanese to take care of some
+comment|// additional differences in those languages.
 name|UColAttributeValue
 name|val
 init|=
@@ -168,9 +175,9 @@ operator|::
 name|CaseSensitive
 operator|)
 condition|?
-name|UCOL_UPPER_FIRST
+name|UCOL_DEFAULT_STRENGTH
 else|:
-name|UCOL_OFF
+name|UCOL_SECONDARY
 decl_stmt|;
 name|UErrorCode
 name|status
@@ -183,7 +190,7 @@ name|d
 operator|->
 name|collator
 argument_list|,
-name|UCOL_CASE_FIRST
+name|UCOL_STRENGTH
 argument_list|,
 name|val
 argument_list|,

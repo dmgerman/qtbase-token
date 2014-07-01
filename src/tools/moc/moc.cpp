@@ -3983,7 +3983,7 @@ name|hasQGadget
 condition|)
 name|error
 argument_list|(
-literal|"Class declarations lacks Q_OBJECT macro."
+literal|"Class declaration lacks Q_OBJECT macro."
 argument_list|)
 expr_stmt|;
 comment|// Add meta tags to the plugin meta data:

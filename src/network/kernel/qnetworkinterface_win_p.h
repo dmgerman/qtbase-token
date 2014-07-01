@@ -46,6 +46,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtCore/qglobal.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<winsock2.h>
 end_include
 begin_include

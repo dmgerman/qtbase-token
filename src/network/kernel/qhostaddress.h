@@ -188,7 +188,7 @@ parameter_list|(
 specifier|const
 name|sockaddr
 modifier|*
-name|sockaddr
+name|address
 parameter_list|)
 function_decl|;
 name|explicit
@@ -269,7 +269,7 @@ parameter_list|(
 specifier|const
 name|sockaddr
 modifier|*
-name|sockaddr
+name|address
 parameter_list|)
 function_decl|;
 name|bool

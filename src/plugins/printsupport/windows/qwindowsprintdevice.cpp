@@ -1512,6 +1512,14 @@ name|info
 operator|->
 name|pDevMode
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|devMode
+condition|)
+return|return
+name|margins
+return|;
 name|HDC
 name|pDC
 init|=

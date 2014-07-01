@@ -1715,6 +1715,10 @@ name|void
 name|updateViewContainerPaletteAndOpacity
 argument_list|()
 block|;
+name|void
+name|updateFocusPolicy
+argument_list|()
+block|;
 ifdef|#
 directive|ifdef
 name|Q_OS_OSX

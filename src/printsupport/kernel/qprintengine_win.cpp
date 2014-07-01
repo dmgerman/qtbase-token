@@ -4758,10 +4758,6 @@ name|~
 name|QWin32PrintEnginePrivate
 parameter_list|()
 block|{
-if|if
-condition|(
-name|hdc
-condition|)
 name|release
 argument_list|()
 expr_stmt|;
@@ -4775,10 +4771,6 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
-if|if
-condition|(
-name|hdc
-condition|)
 name|release
 argument_list|()
 expr_stmt|;
@@ -4930,32 +4922,8 @@ argument_list|(
 literal|"QWin32PrintEngine::initialize: GetPrinter failed"
 argument_list|)
 expr_stmt|;
-name|GlobalUnlock
-argument_list|(
-name|pInfo
-argument_list|)
-expr_stmt|;
-name|GlobalFree
-argument_list|(
-name|hMem
-argument_list|)
-expr_stmt|;
-name|ClosePrinter
-argument_list|(
-name|hPrinter
-argument_list|)
-expr_stmt|;
-name|pInfo
-operator|=
-literal|0
-expr_stmt|;
-name|hMem
-operator|=
-literal|0
-expr_stmt|;
-name|hPrinter
-operator|=
-literal|0
+name|release
+argument_list|()
 expr_stmt|;
 return|return;
 block|}
@@ -4992,6 +4960,22 @@ argument_list|,
 name|devMode
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hdc
+condition|)
+block|{
+name|qErrnoWarning
+argument_list|(
+literal|"QWin32PrintEngine::initialize: CreateDC failed"
+argument_list|)
+expr_stmt|;
+name|release
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 name|Q_ASSERT
 argument_list|(
 name|hPrinter
@@ -5191,13 +5175,6 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|hdc
-operator|==
-literal|0
-condition|)
-return|return;
-if|if
-condition|(
 name|globalDevMode
 condition|)
 block|{
@@ -5208,7 +5185,11 @@ name|globalDevMode
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|hMem
+condition|)
 block|{
 comment|// Devmode comes from initialize...
 comment|// devMode is a part of the same memory block as pInfo so one free is enough...
@@ -5232,6 +5213,10 @@ argument_list|(
 name|hPrinter
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hdc
+condition|)
 name|DeleteDC
 argument_list|(
 name|hdc

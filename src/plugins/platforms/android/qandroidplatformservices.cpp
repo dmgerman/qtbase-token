@@ -22,7 +22,8 @@ include|#
 directive|include
 file|<QDebug>
 end_include
-begin_constructor
+begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QAndroidPlatformServices
 name|QAndroidPlatformServices
 operator|::
@@ -61,7 +62,7 @@ literal|"(Ljava/lang/String;)V"
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_function
 DECL|function|openUrl
 name|bool
@@ -192,4 +193,7 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
