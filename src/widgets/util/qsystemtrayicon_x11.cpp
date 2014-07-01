@@ -322,15 +322,6 @@ name|setAttribute
 argument_list|(
 name|Qt
 operator|::
-name|WA_TranslucentBackground
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|setAttribute
-argument_list|(
-name|Qt
-operator|::
 name|WA_QuitOnClose
 argument_list|,
 literal|false
@@ -364,6 +355,50 @@ expr_stmt|;
 name|setMinimumSize
 argument_list|(
 name|size
+argument_list|)
+expr_stmt|;
+comment|// We need two different behaviors depending on whether the X11 visual for the system tray
+comment|// (a) exists and (b) supports an alpha channel, i.e. is 32 bits.
+comment|// If we have a visual that has an alpha channel, we can paint this widget with a transparent
+comment|// background and it will work.
+comment|// However, if there's no alpha channel visual, in order for transparent tray icons to work,
+comment|// we do not have a transparent background on the widget, but call xcb_clear_region before
+comment|// painting the icon
+name|bool
+name|hasAlphaChannel
+init|=
+literal|false
+decl_stmt|;
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|QGuiApplication
+operator|::
+name|platformNativeInterface
+argument_list|()
+argument_list|,
+literal|"systrayVisualHasAlphaChannel"
+argument_list|,
+name|Qt
+operator|::
+name|DirectConnection
+argument_list|,
+name|Q_RETURN_ARG
+argument_list|(
+name|bool
+argument_list|,
+name|hasAlphaChannel
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_TranslucentBackground
+argument_list|,
+name|hasAlphaChannel
 argument_list|)
 expr_stmt|;
 name|addToTray
@@ -799,8 +834,6 @@ name|QPaintEvent
 modifier|*
 parameter_list|)
 block|{
-comment|// Note: Transparent pixels require a particular Visual which XCB
-comment|// currently does not support yet.
 specifier|const
 name|QRect
 name|rect
@@ -825,6 +858,18 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+comment|// If we have Qt::WA_TranslucentBackground set, during widget creation
+comment|// we detected the systray visual supported an alpha channel
+if|if
+condition|(
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_TranslucentBackground
+argument_list|)
+condition|)
+block|{
 name|painter
 operator|.
 name|setCompositionMode
@@ -845,6 +890,45 @@ operator|::
 name|transparent
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|QGuiApplication
+operator|::
+name|platformNativeInterface
+argument_list|()
+argument_list|,
+literal|"clearRegion"
+argument_list|,
+name|Qt
+operator|::
+name|DirectConnection
+argument_list|,
+name|Q_ARG
+argument_list|(
+specifier|const
+name|QWindow
+operator|*
+argument_list|,
+name|windowHandle
+argument_list|()
+argument_list|)
+argument_list|,
+name|Q_ARG
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+argument_list|,
+name|rect
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|painter
 operator|.
 name|setCompositionMode
