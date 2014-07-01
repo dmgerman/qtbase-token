@@ -665,6 +665,33 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   \internal */
+end_comment
+begin_function
+DECL|function|setRealm
+name|void
+name|QAuthenticator
+operator|::
+name|setRealm
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|realm
+parameter_list|)
+block|{
+name|detach
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|realm
+operator|=
+name|realm
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!     \since 4.7     Returns the value related to option \a opt if it was set by the server.     See \l{QAuthenticator#Options} for more information on incoming options.     If option \a opt isn't found, an invalid QVariant will be returned.      \sa options(), QAuthenticator#Options */
 end_comment
 begin_function

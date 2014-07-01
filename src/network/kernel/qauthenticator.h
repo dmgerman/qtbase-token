@@ -134,6 +134,15 @@ name|realm
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+name|setRealm
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|realm
+parameter_list|)
+function_decl|;
 name|QVariant
 name|option
 argument_list|(
