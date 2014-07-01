@@ -44687,9 +44687,7 @@ name|ctx
 operator|->
 name|setShareContext
 argument_list|(
-name|QOpenGLContextPrivate
-operator|::
-name|globalShareContext
+name|qt_gl_global_share_context
 argument_list|()
 argument_list|)
 expr_stmt|;
