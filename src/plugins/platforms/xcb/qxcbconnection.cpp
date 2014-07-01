@@ -4640,6 +4640,46 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|registerEventDispatcher
+name|void
+name|QXcbEventReader
+operator|::
+name|registerEventDispatcher
+parameter_list|(
+name|QAbstractEventDispatcher
+modifier|*
+name|dispatcher
+parameter_list|)
+block|{
+comment|// flush the xcb connection before the EventDispatcher is going to block
+comment|// In the non-threaded case processXcbEvents is called before going to block,
+comment|// which flushes the connection.
+if|if
+condition|(
+name|m_xcb_poll_for_queued_event
+condition|)
+name|connect
+argument_list|(
+name|dispatcher
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|aboutToBlock
+argument_list|()
+argument_list|)
+argument_list|,
+name|m_connection
+argument_list|,
+name|SLOT
+argument_list|(
+name|flush
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|run
 name|void
 name|QXcbEventReader

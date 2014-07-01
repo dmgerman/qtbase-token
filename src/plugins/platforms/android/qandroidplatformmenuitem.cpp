@@ -12,7 +12,8 @@ include|#
 directive|include
 file|"qandroidplatformmenu.h"
 end_include
-begin_constructor
+begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QAndroidPlatformMenuItem
 name|QAndroidPlatformMenuItem
 operator|::
@@ -59,7 +60,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_function
 DECL|function|setTag
 name|void
@@ -503,4 +504,7 @@ name|m_isEnabled
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

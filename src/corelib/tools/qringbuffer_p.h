@@ -195,8 +195,6 @@ decl_stmt|;
 if|if
 condition|(
 name|pos
-operator|-
-name|head
 operator|<
 name|nextDataBlockSizeValue
 condition|)

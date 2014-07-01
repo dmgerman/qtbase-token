@@ -2039,6 +2039,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|res
+operator|.
+name|variant
+operator|=
+name|QStringToBSTR
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
 operator|*
 name|locale
 operator|=

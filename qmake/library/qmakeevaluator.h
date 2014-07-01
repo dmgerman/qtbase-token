@@ -633,7 +633,7 @@ name|initFrom
 argument_list|(
 specifier|const
 name|QMakeEvaluator
-operator|&
+operator|*
 name|other
 argument_list|)
 block|;

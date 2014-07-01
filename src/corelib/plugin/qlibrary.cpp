@@ -979,6 +979,11 @@ specifier|const
 name|QString
 modifier|&
 name|version
+parameter_list|,
+name|QLibrary
+operator|::
+name|LoadHints
+name|loadHints
 parameter_list|)
 function_decl|;
 specifier|static
@@ -1325,6 +1330,11 @@ specifier|const
 name|QString
 modifier|&
 name|version
+parameter_list|,
+name|QLibrary
+operator|::
+name|LoadHints
+name|loadHints
 parameter_list|)
 block|{
 name|QMutexLocker
@@ -1355,6 +1365,7 @@ argument_list|(
 name|data
 argument_list|)
 condition|)
+block|{
 name|lib
 operator|=
 name|data
@@ -1368,6 +1379,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|lib
+condition|)
+name|lib
+operator|->
+name|mergeLoadHints
+argument_list|(
+name|loadHints
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|!
 name|lib
 condition|)
@@ -1379,6 +1402,8 @@ argument_list|(
 name|fileName
 argument_list|,
 name|version
+argument_list|,
+name|loadHints
 argument_list|)
 expr_stmt|;
 comment|// track this library
@@ -1521,6 +1546,11 @@ specifier|const
 name|QString
 modifier|&
 name|version
+parameter_list|,
+name|QLibrary
+operator|::
+name|LoadHints
+name|loadHints
 parameter_list|)
 member_init_list|:
 name|pHnd
@@ -1545,7 +1575,7 @@ argument_list|)
 member_init_list|,
 name|loadHints
 argument_list|(
-literal|0
+name|loadHints
 argument_list|)
 member_init_list|,
 name|libraryRefCount
@@ -1562,7 +1592,24 @@ name|pluginState
 argument_list|(
 name|MightBeAPlugin
 argument_list|)
-block|{ }
+block|{
+if|if
+condition|(
+name|canonicalFileName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|errorString
+operator|=
+name|QLibrary
+operator|::
+name|tr
+argument_list|(
+literal|"The shared library was not found."
+argument_list|)
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|findOrCreate
@@ -1581,6 +1628,11 @@ specifier|const
 name|QString
 modifier|&
 name|version
+parameter_list|,
+name|QLibrary
+operator|::
+name|LoadHints
+name|loadHints
 parameter_list|)
 block|{
 return|return
@@ -1591,6 +1643,8 @@ argument_list|(
 name|fileName
 argument_list|,
 name|version
+argument_list|,
+name|loadHints
 argument_list|)
 return|;
 block|}
@@ -1604,6 +1658,31 @@ name|QLibraryPrivate
 parameter_list|()
 block|{ }
 end_destructor
+begin_function
+DECL|function|mergeLoadHints
+name|void
+name|QLibraryPrivate
+operator|::
+name|mergeLoadHints
+parameter_list|(
+name|QLibrary
+operator|::
+name|LoadHints
+name|lh
+parameter_list|)
+block|{
+comment|// if the library is already loaded, we can't change the load hints
+if|if
+condition|(
+name|pHnd
+condition|)
+return|return;
+name|loadHints
+operator|=
+name|lh
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|resolve
 name|QFunctionPointer

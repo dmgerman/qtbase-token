@@ -1806,6 +1806,12 @@ operator|<=
 literal|0
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|image
+operator|.
+name|d
+condition|)
 name|image
 operator|.
 name|d
@@ -1828,6 +1834,12 @@ operator|>>
 literal|32
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|image
+operator|.
+name|d
+condition|)
 name|setDetachNumber
 argument_list|(
 name|image

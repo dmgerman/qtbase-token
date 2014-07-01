@@ -10816,8 +10816,6 @@ condition|)
 block|{
 comment|// This block fixes QTBUG-8361: Frameless windows shouldn't cover the
 comment|// taskbar when maximized
-if|if
-condition|(
 specifier|const
 name|QScreen
 modifier|*
@@ -10827,6 +10825,18 @@ name|window
 argument_list|()
 operator|->
 name|screen
+argument_list|()
+decl_stmt|;
+comment|// Documentation of MINMAXINFO states that it will only work for the primary screen
+if|if
+condition|(
+name|screen
+operator|&&
+name|screen
+operator|==
+name|QGuiApplication
+operator|::
+name|primaryScreen
 argument_list|()
 condition|)
 block|{
@@ -10889,12 +10899,17 @@ name|y
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|screen
+condition|)
 block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Invalid screen"
+literal|"effectiveScreen() returned a null screen"
 expr_stmt|;
 block|}
 block|}

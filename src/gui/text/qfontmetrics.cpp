@@ -400,7 +400,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the height of the font.      This is always equal to ascent()+descent()+1 (the 1 is for the     base line).      \sa leading(), lineSpacing() */
+comment|/*!     Returns the height of the font.      This is always equal to ascent()+descent().      \sa leading(), lineSpacing() */
 end_comment
 begin_function
 DECL|function|height
@@ -3016,7 +3016,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the height of the font.      This is always equal to ascent()+descent()+1 (the 1 is for the     base line).      \sa leading(), lineSpacing() */
+comment|/*!     Returns the height of the font.      This is always equal to ascent()+descent().      \sa leading(), lineSpacing() */
 end_comment
 begin_function
 DECL|function|height

@@ -4896,6 +4896,11 @@ case|:
 case|case
 name|Qt
 operator|::
+name|Key_Comma
+case|:
+case|case
+name|Qt
+operator|::
 name|Key_0
 case|:
 case|case

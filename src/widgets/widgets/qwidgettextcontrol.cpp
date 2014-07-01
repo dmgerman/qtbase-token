@@ -9335,12 +9335,6 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-name|mousePressed
-condition|)
-return|return;
 specifier|const
 name|qreal
 name|mouseX
@@ -9442,6 +9436,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|mousePressed
+operator|&&
 name|wordSelectionEnabled
 operator|&&
 operator|!
@@ -9495,6 +9491,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+name|mousePressed
+operator|&&
 operator|!
 name|isPreediting
 argument_list|()

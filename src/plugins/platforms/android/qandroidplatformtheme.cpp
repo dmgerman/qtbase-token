@@ -52,7 +52,8 @@ include|#
 directive|include
 file|<qandroidplatformintegration.h>
 end_include
-begin_constructor
+begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QAndroidPlatformTheme
 name|QAndroidPlatformTheme
 operator|::
@@ -416,7 +417,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_function
 DECL|function|createPlatformMenuBar
 name|QPlatformMenuBar
@@ -1124,4 +1125,7 @@ return|;
 block|}
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

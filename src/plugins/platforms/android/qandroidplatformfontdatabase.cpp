@@ -13,6 +13,7 @@ directive|include
 file|"qandroidplatformfontdatabase.h"
 end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|fontDir
 name|QString
 name|QAndroidPlatformFontDatabase
@@ -306,4 +307,7 @@ index|]
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

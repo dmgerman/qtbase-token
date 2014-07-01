@@ -1042,6 +1042,19 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|samples
+operator|=
+name|qMax
+argument_list|(
+literal|0
+argument_list|,
+name|samples
+argument_list|)
+expr_stmt|;
+name|requestedSamples
+operator|=
+name|samples
+expr_stmt|;
 name|size
 operator|=
 name|sz
@@ -1050,7 +1063,6 @@ name|target
 operator|=
 name|texture_target
 expr_stmt|;
-comment|// texture dimensions
 name|QT_RESET_GLERROR
 argument_list|()
 expr_stmt|;
@@ -1204,6 +1216,9 @@ condition|(
 name|valid
 condition|)
 block|{
+comment|// Query the actual number of samples. This can be greater than the requested
+comment|// value since the typically supported values are 0, 4, 8, ..., and the
+comment|// requests are mapped to the next supported value.
 name|funcs
 operator|.
 name|glGetRenderbufferParameteriv
@@ -1630,13 +1645,14 @@ name|Attachment
 name|attachment
 parameter_list|)
 block|{
+comment|// Use the same sample count for all attachments. format.samples() already contains
+comment|// the actual number of samples for the color attachment and is not suitable. Use
+comment|// requestedSamples instead.
+specifier|const
 name|int
 name|samples
 init|=
-name|format
-operator|.
-name|samples
-argument_list|()
+name|requestedSamples
 decl_stmt|;
 comment|// free existing attachments
 if|if

@@ -24,6 +24,7 @@ directive|include
 file|<QString>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QAndroidPlatformClipboard
 name|class
 name|QAndroidPlatformClipboard
@@ -70,6 +71,9 @@ parameter_list|)
 function_decl|;
 block|}
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

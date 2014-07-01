@@ -37,6 +37,9 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_using
 using|using
 namespace|namespace
@@ -2875,4 +2878,7 @@ return|;
 block|}
 block|}
 end_namespace
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

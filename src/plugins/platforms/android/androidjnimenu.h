@@ -18,7 +18,13 @@ include|#
 directive|include
 file|<jni.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qglobal.h>
+end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QAndroidPlatformMenuBar
 name|class
 name|QAndroidPlatformMenuBar
@@ -132,6 +138,9 @@ parameter_list|)
 function_decl|;
 block|}
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

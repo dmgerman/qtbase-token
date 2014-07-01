@@ -389,6 +389,9 @@ decl_stmt|;
 name|QOpenGLFramebufferObjectFormat
 name|format
 decl_stmt|;
+name|int
+name|requestedSamples
+decl_stmt|;
 name|uint
 name|valid
 range|:

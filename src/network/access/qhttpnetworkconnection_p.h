@@ -258,10 +258,10 @@ literal|80
 argument_list|,
 argument|bool encrypt = false
 argument_list|,
+argument|ConnectionType connectionType = ConnectionTypeHTTP
+argument_list|,
 argument|QObject *parent =
 literal|0
-argument_list|,
-argument|ConnectionType connectionType = ConnectionTypeHTTP
 argument_list|)
 block|;
 name|QHttpNetworkConnection

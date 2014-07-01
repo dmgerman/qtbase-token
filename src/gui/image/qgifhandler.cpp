@@ -3248,6 +3248,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|device
+operator|->
+name|isSequential
+argument_list|()
+operator|||
 operator|!
 name|device
 operator|->
