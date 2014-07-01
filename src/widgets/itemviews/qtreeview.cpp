@@ -21596,7 +21596,7 @@ name|this
 argument_list|,
 name|QAccessible
 operator|::
-name|Selection
+name|SelectionAdd
 argument_list|)
 decl_stmt|;
 name|event
