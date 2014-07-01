@@ -20069,6 +20069,9 @@ condition|)
 block|{
 comment|// This widget renders into a texture which is composed later. We just need to
 comment|// punch a hole in the backingstore, so the texture will be visible.
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QPainter
 name|p
 argument_list|(
@@ -20121,6 +20124,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 else|else
 block|{
