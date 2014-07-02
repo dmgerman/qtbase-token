@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"specparser.h"
+file|"legacyspecparser.h"
 end_include
 begin_include
 include|#
@@ -38,10 +38,10 @@ directive|ifdef
 name|SPECPARSER_DEBUG
 end_ifdef
 begin_define
-DECL|macro|qSpecParserDebug
+DECL|macro|qLegacySpecParserDebug
 define|#
 directive|define
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 value|qDebug
 end_define
 begin_else
@@ -49,28 +49,20 @@ else|#
 directive|else
 end_else
 begin_define
-DECL|macro|qSpecParserDebug
+DECL|macro|qLegacySpecParserDebug
 define|#
 directive|define
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 value|QT_NO_QDEBUG_MACRO
 end_define
 begin_endif
 endif|#
 directive|endif
 end_endif
-begin_constructor
-DECL|function|SpecParser
-name|SpecParser
-operator|::
-name|SpecParser
-parameter_list|()
-block|{ }
-end_constructor
 begin_function
 DECL|function|parse
-name|void
-name|SpecParser
+name|bool
+name|LegacySpecParser
 operator|::
 name|parse
 parameter_list|()
@@ -82,12 +74,15 @@ operator|!
 name|parseTypeMap
 argument_list|()
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 comment|// Open up a stream on the actual OpenGL function spec file
 name|QFile
 name|file
 argument_list|(
-name|m_specFileName
+name|specFileName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -112,11 +107,14 @@ argument_list|()
 operator|<<
 literal|"Failed to open spec file:"
 operator|<<
-name|m_specFileName
+name|specFileName
+argument_list|()
 operator|<<
 literal|"Aborting"
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|QTextStream
 name|stream
@@ -131,12 +129,15 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_function
 DECL|function|parseTypeMap
 name|bool
-name|SpecParser
+name|LegacySpecParser
 operator|::
 name|parseTypeMap
 parameter_list|()
@@ -144,7 +145,8 @@ block|{
 name|QFile
 name|file
 argument_list|(
-name|m_typeMapFileName
+name|typeMapFileName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -167,9 +169,10 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Failed to open spec file:"
+literal|"Failed to open type file:"
 operator|<<
-name|m_specFileName
+name|typeMapFileName
+argument_list|()
 operator|<<
 literal|"Aborting"
 expr_stmt|;
@@ -286,7 +289,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"Found type mapping from"
@@ -307,7 +310,7 @@ end_function
 begin_function
 DECL|function|parseEnums
 name|void
-name|SpecParser
+name|LegacySpecParser
 operator|::
 name|parseEnums
 parameter_list|()
@@ -316,7 +319,7 @@ end_function
 begin_function
 DECL|function|parseFunctions
 name|void
-name|SpecParser
+name|LegacySpecParser
 operator|::
 name|parseFunctions
 parameter_list|(
@@ -555,15 +558,34 @@ if|if
 condition|(
 name|acceptCurrentFunctionInExtension
 condition|)
+block|{
+name|FunctionProfile
+name|fp
+decl_stmt|;
+name|fp
+operator|.
+name|profile
+operator|=
+name|currentVersionProfile
+operator|.
+name|profile
+expr_stmt|;
+name|fp
+operator|.
+name|function
+operator|=
+name|currentFunction
+expr_stmt|;
 name|m_extensionFunctions
 operator|.
 name|insert
 argument_list|(
 name|currentCategory
 argument_list|,
-name|currentFunction
+name|fp
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Start a new function
 operator|++
@@ -622,7 +644,7 @@ name|name
 operator|=
 name|functionName
 expr_stmt|;
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"Found function:"
@@ -827,7 +849,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"    argument:"
@@ -911,7 +933,7 @@ argument_list|(
 name|returnTypeKey
 argument_list|)
 decl_stmt|;
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"    return type:"
@@ -954,7 +976,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"    version:"
@@ -1118,7 +1140,7 @@ operator|.
 name|simplified
 argument_list|()
 decl_stmt|;
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"    category:"
@@ -1195,7 +1217,7 @@ block|}
 else|else
 block|{
 comment|// Make a note of the extension name and tag this function as being part of an extension
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 literal|"Found category ="
@@ -1261,7 +1283,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qSpecParserDebug
+name|qLegacySpecParserDebug
 argument_list|()
 operator|<<
 name|line
@@ -1357,7 +1379,7 @@ end_function
 begin_function
 DECL|function|inDeprecationException
 name|bool
-name|SpecParser
+name|LegacySpecParser
 operator|::
 name|inDeprecationException
 parameter_list|(
