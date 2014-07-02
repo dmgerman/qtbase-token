@@ -357,6 +357,13 @@ name|c
 argument_list|)
 block|;
 specifier|static
+name|QCursor
+name|customCursor
+argument_list|(
+argument|Qt::CursorShape cursorShape
+argument_list|)
+block|;
+specifier|static
 name|QPoint
 name|mousePosition
 argument_list|()
