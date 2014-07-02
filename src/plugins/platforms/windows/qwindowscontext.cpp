@@ -4676,6 +4676,11 @@ name|QtWindows
 operator|::
 name|KeyboardLayoutChangeEvent
 case|:
+case|case
+name|QtWindows
+operator|::
+name|AppCommandEvent
+case|:
 if|#
 directive|if
 operator|!

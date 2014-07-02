@@ -1744,6 +1744,284 @@ literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|CmdTbl
+specifier|static
+specifier|const
+name|uint
+name|CmdTbl
+index|[]
+init|=
+block|{
+comment|// Multimedia keys mapping table
+comment|// Dec |  Hex | AppCommand
+name|Qt
+operator|::
+name|Key_unknown
+block|,
+comment|//   0   0x00
+name|Qt
+operator|::
+name|Key_Back
+block|,
+comment|//   1   0x01   APPCOMMAND_BROWSER_BACKWARD
+name|Qt
+operator|::
+name|Key_Forward
+block|,
+comment|//   2   0x02   APPCOMMAND_BROWSER_FORWARD
+name|Qt
+operator|::
+name|Key_Refresh
+block|,
+comment|//   3   0x03   APPCOMMAND_BROWSER_REFRESH
+name|Qt
+operator|::
+name|Key_Stop
+block|,
+comment|//   4   0x04   APPCOMMAND_BROWSER_STOP
+name|Qt
+operator|::
+name|Key_Search
+block|,
+comment|//   5   0x05   APPCOMMAND_BROWSER_SEARCH
+name|Qt
+operator|::
+name|Key_Favorites
+block|,
+comment|//   6   0x06   APPCOMMAND_BROWSER_FAVORITES
+name|Qt
+operator|::
+name|Key_Home
+block|,
+comment|//   7   0x07   APPCOMMAND_BROWSER_HOME
+name|Qt
+operator|::
+name|Key_VolumeMute
+block|,
+comment|//   8   0x08   APPCOMMAND_VOLUME_MUTE
+name|Qt
+operator|::
+name|Key_VolumeDown
+block|,
+comment|//   9   0x09   APPCOMMAND_VOLUME_DOWN
+name|Qt
+operator|::
+name|Key_VolumeUp
+block|,
+comment|//  10   0x0a   APPCOMMAND_VOLUME_UP
+name|Qt
+operator|::
+name|Key_MediaNext
+block|,
+comment|//  11   0x0b   APPCOMMAND_MEDIA_NEXTTRACK
+name|Qt
+operator|::
+name|Key_MediaPrevious
+block|,
+comment|//  12   0x0c   APPCOMMAND_MEDIA_PREVIOUSTRACK
+name|Qt
+operator|::
+name|Key_MediaStop
+block|,
+comment|//  13   0x0d   APPCOMMAND_MEDIA_STOP
+name|Qt
+operator|::
+name|Key_MediaTogglePlayPause
+block|,
+comment|//  14   0x0e   APPCOMMAND_MEDIA_PLAYPAUSE
+name|Qt
+operator|::
+name|Key_LaunchMail
+block|,
+comment|//  15   0x0f   APPCOMMAND_LAUNCH_MAIL
+name|Qt
+operator|::
+name|Key_LaunchMedia
+block|,
+comment|//  16   0x10   APPCOMMAND_LAUNCH_MEDIA_SELECT
+name|Qt
+operator|::
+name|Key_Launch0
+block|,
+comment|//  17   0x11   APPCOMMAND_LAUNCH_APP1
+name|Qt
+operator|::
+name|Key_Launch1
+block|,
+comment|//  18   0x12   APPCOMMAND_LAUNCH_APP2
+name|Qt
+operator|::
+name|Key_BassDown
+block|,
+comment|//  19   0x13   APPCOMMAND_BASS_DOWN
+name|Qt
+operator|::
+name|Key_BassBoost
+block|,
+comment|//  20   0x14   APPCOMMAND_BASS_BOOST
+name|Qt
+operator|::
+name|Key_BassUp
+block|,
+comment|//  21   0x15   APPCOMMAND_BASS_UP
+name|Qt
+operator|::
+name|Key_TrebleDown
+block|,
+comment|//  22   0x16   APPCOMMAND_TREBLE_DOWN
+name|Qt
+operator|::
+name|Key_TrebleUp
+block|,
+comment|//  23   0x17   APPCOMMAND_TREBLE_UP
+name|Qt
+operator|::
+name|Key_MicMute
+block|,
+comment|//  24   0x18   APPCOMMAND_MICROPHONE_VOLUME_MUTE
+name|Qt
+operator|::
+name|Key_MicVolumeDown
+block|,
+comment|//  25   0x19   APPCOMMAND_MICROPHONE_VOLUME_DOWN
+name|Qt
+operator|::
+name|Key_MicVolumeUp
+block|,
+comment|//  26   0x1a   APPCOMMAND_MICROPHONE_VOLUME_UP
+name|Qt
+operator|::
+name|Key_Help
+block|,
+comment|//  27   0x1b   APPCOMMAND_HELP
+name|Qt
+operator|::
+name|Key_Find
+block|,
+comment|//  28   0x1c   APPCOMMAND_FIND
+name|Qt
+operator|::
+name|Key_New
+block|,
+comment|//  29   0x1d   APPCOMMAND_NEW
+name|Qt
+operator|::
+name|Key_Open
+block|,
+comment|//  30   0x1e   APPCOMMAND_OPEN
+name|Qt
+operator|::
+name|Key_Close
+block|,
+comment|//  31   0x1f   APPCOMMAND_CLOSE
+name|Qt
+operator|::
+name|Key_Save
+block|,
+comment|//  32   0x20   APPCOMMAND_SAVE
+name|Qt
+operator|::
+name|Key_Print
+block|,
+comment|//  33   0x21   APPCOMMAND_PRINT
+name|Qt
+operator|::
+name|Key_Undo
+block|,
+comment|//  34   0x22   APPCOMMAND_UNDO
+name|Qt
+operator|::
+name|Key_Redo
+block|,
+comment|//  35   0x23   APPCOMMAND_REDO
+name|Qt
+operator|::
+name|Key_Copy
+block|,
+comment|//  36   0x24   APPCOMMAND_COPY
+name|Qt
+operator|::
+name|Key_Cut
+block|,
+comment|//  37   0x25   APPCOMMAND_CUT
+name|Qt
+operator|::
+name|Key_Paste
+block|,
+comment|//  38   0x26   APPCOMMAND_PASTE
+name|Qt
+operator|::
+name|Key_Reply
+block|,
+comment|//  39   0x27   APPCOMMAND_REPLY_TO_MAIL
+name|Qt
+operator|::
+name|Key_MailForward
+block|,
+comment|//  40   0x28   APPCOMMAND_FORWARD_MAIL
+name|Qt
+operator|::
+name|Key_Send
+block|,
+comment|//  41   0x29   APPCOMMAND_SEND_MAIL
+name|Qt
+operator|::
+name|Key_Spell
+block|,
+comment|//  42   0x2a   APPCOMMAND_SPELL_CHECK
+name|Qt
+operator|::
+name|Key_unknown
+block|,
+comment|//  43   0x2b   APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE
+name|Qt
+operator|::
+name|Key_unknown
+block|,
+comment|//  44   0x2c   APPCOMMAND_MIC_ON_OFF_TOGGLE
+name|Qt
+operator|::
+name|Key_unknown
+block|,
+comment|//  45   0x2d   APPCOMMAND_CORRECTION_LIST
+name|Qt
+operator|::
+name|Key_MediaPlay
+block|,
+comment|//  46   0x2e   APPCOMMAND_MEDIA_PLAY
+name|Qt
+operator|::
+name|Key_MediaPause
+block|,
+comment|//  47   0x2f   APPCOMMAND_MEDIA_PAUSE
+name|Qt
+operator|::
+name|Key_MediaRecord
+block|,
+comment|//  48   0x30   APPCOMMAND_MEDIA_RECORD
+name|Qt
+operator|::
+name|Key_AudioForward
+block|,
+comment|//  49   0x31   APPCOMMAND_MEDIA_FAST_FORWARD
+name|Qt
+operator|::
+name|Key_AudioRewind
+block|,
+comment|//  50   0x32   APPCOMMAND_MEDIA_REWIND
+name|Qt
+operator|::
+name|Key_ChannelDown
+block|,
+comment|//  51   0x33   APPCOMMAND_MEDIA_CHANNEL_DOWN
+name|Qt
+operator|::
+name|Key_ChannelUp
+comment|//  52   0x34   APPCOMMAND_MEDIA_CHANNEL_UP
+block|}
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// Possible modifier states.
 end_comment
@@ -3916,6 +4194,30 @@ return|return
 literal|true
 return|;
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|WM_APPCOMMAND
+argument_list|)
+if|if
+condition|(
+name|msg
+operator|.
+name|message
+operator|==
+name|WM_APPCOMMAND
+condition|)
+return|return
+name|translateMultimediaKeyEventInternal
+argument_list|(
+name|widget
+argument_list|,
+name|msg
+argument_list|)
+return|;
+endif|#
+directive|endif
 comment|// WM_(IME_)CHAR messages already contain the character in question so there is
 comment|// no need to fiddle with our key map. In any other case add this key to the
 comment|// keymap if it is not present yet.
@@ -3977,6 +4279,157 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
+block|}
+end_function
+begin_function
+DECL|function|translateMultimediaKeyEventInternal
+name|bool
+name|QWindowsKeyMapper
+operator|::
+name|translateMultimediaKeyEventInternal
+parameter_list|(
+name|QWindow
+modifier|*
+name|window
+parameter_list|,
+specifier|const
+name|MSG
+modifier|&
+name|msg
+parameter_list|)
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|WM_APPCOMMAND
+argument_list|)
+specifier|const
+name|int
+name|cmd
+init|=
+name|GET_APPCOMMAND_LPARAM
+argument_list|(
+name|msg
+operator|.
+name|lParam
+argument_list|)
+decl_stmt|;
+specifier|const
+name|int
+name|dwKeys
+init|=
+name|GET_KEYSTATE_LPARAM
+argument_list|(
+name|msg
+operator|.
+name|lParam
+argument_list|)
+decl_stmt|;
+name|int
+name|state
+init|=
+literal|0
+decl_stmt|;
+name|state
+operator||=
+operator|(
+name|dwKeys
+operator|&
+name|MK_SHIFT
+condition|?
+name|int
+argument_list|(
+name|Qt
+operator|::
+name|ShiftModifier
+argument_list|)
+else|:
+literal|0
+operator|)
+expr_stmt|;
+name|state
+operator||=
+operator|(
+name|dwKeys
+operator|&
+name|MK_CONTROL
+condition|?
+name|int
+argument_list|(
+name|Qt
+operator|::
+name|ControlModifier
+argument_list|)
+else|:
+literal|0
+operator|)
+expr_stmt|;
+name|QWindow
+modifier|*
+name|receiver
+init|=
+name|m_keyGrabber
+condition|?
+name|m_keyGrabber
+else|:
+name|window
+decl_stmt|;
+if|if
+condition|(
+name|cmd
+argument_list|<
+literal|0
+operator|||
+name|cmd
+argument_list|>
+literal|52
+condition|)
+return|return
+literal|false
+return|;
+specifier|const
+name|int
+name|qtKey
+init|=
+name|CmdTbl
+index|[
+name|cmd
+index|]
+decl_stmt|;
+name|sendExtendedPressRelease
+argument_list|(
+name|receiver
+argument_list|,
+name|qtKey
+argument_list|,
+name|Qt
+operator|::
+name|KeyboardModifier
+argument_list|(
+name|state
+argument_list|)
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+else|#
+directive|else
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
