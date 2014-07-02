@@ -95,10 +95,10 @@ comment|/*! \enum QAccessible::TextBoundaryType     This enum describes differen
 comment|/*!     \enum QAccessible::InterfaceType      \l QAccessibleInterface supports several sub interfaces.     In order to provide more information about some objects, their accessible     representation should implement one or more of these interfaces.      \note When subclassing one of these interfaces, \l QAccessibleInterface::interface_cast() needs to be implemented.      \value TextInterface            For text that supports selections or is more than one line. Simple labels do not need to implement this interface.     \omitvalue EditableTextInterface    For text that can be edited by the user.     \value ValueInterface           For objects that are used to manipulate a value, for example slider or scroll bar.     \value ActionInterface          For interactive objects that allow the user to trigger an action. Basically everything that allows for example mouse interaction.     \omitvalue ImageInterface       For objects that represent an image. This interface is generally less important.     \value TableInterface           For lists, tables and trees.     \value TableCellInterface       For cells in a TableInterface object.      \sa QAccessibleInterface::interface_cast(), QAccessibleTextInterface, QAccessibleValueInterface, QAccessibleActionInterface, QAccessibleTableInterface, QAccessibleTableCellInterface */
 comment|/*!     \fn QAccessibleInterface::~QAccessibleInterface()      Destroys the object. */
 comment|/*!     \typedef QAccessible::Id     \relates QAccessible      Synonym for unsigned, used by the QAccessibleInterface cache. */
-comment|/* accessible widgets plugin discovery stuff */
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+comment|/* accessible widgets plugin discovery stuff */
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
@@ -117,8 +117,6 @@ literal|"/accessible"
 argument_list|)
 operator|)
 argument_list|)
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// FIXME turn this into one global static struct
@@ -194,11 +192,6 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
-end_ifndef
 begin_function
 DECL|function|platformAccessibility
 specifier|static
@@ -228,10 +221,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \fn QAccessible::QAccessible()     \internal      This class is purely a collection of enums and static functions,     it is not supposed to be instantiated. */
 end_comment
@@ -246,9 +235,6 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -263,8 +249,6 @@ operator|->
 name|cleanup
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -688,9 +672,6 @@ block|}
 block|}
 ifndef|#
 directive|ifndef
-name|QT_NO_ACCESSIBILITY
-ifndef|#
-directive|ifndef
 name|QT_NO_LIBRARY
 comment|// Find a QAccessiblePlugin (factory) for the class name. If there's
 comment|// no entry in the cache try to create it using the plugin loader.
@@ -842,8 +823,6 @@ return|;
 block|}
 endif|#
 directive|endif
-endif|#
-directive|endif
 name|mo
 operator|=
 name|mo
@@ -852,9 +831,6 @@ name|superClass
 argument_list|()
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|object
@@ -900,8 +876,6 @@ return|return
 name|appInterface
 return|;
 block|}
-endif|#
-directive|endif
 return|return
 literal|0
 return|;
@@ -1063,9 +1037,6 @@ operator|::
 name|isActive
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -1081,8 +1052,6 @@ operator|->
 name|isActive
 argument_list|()
 return|;
-endif|#
-directive|endif
 return|return
 literal|false
 return|;
@@ -1162,9 +1131,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|QPlatformAccessibility
@@ -1181,8 +1147,6 @@ argument_list|(
 name|object
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
@@ -1207,9 +1171,6 @@ name|isActive
 argument_list|()
 condition|)
 return|return;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 if|if
 condition|(
 name|event
@@ -1288,8 +1249,6 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_if
@@ -3206,6 +3165,13 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DEBUGSTREAM
+end_comment
 begin_comment
 comment|/*!     \class QAccessibleTextInterface     \inmodule QtGui      \ingroup accessibility      \brief The QAccessibleTextInterface class implements support for text handling.      This interface corresponds to the IAccessibleText interface.     It should be implemented for widgets that display more text than a plain label.     Labels should be represented by only \l QAccessibleInterface     and return their text as name (\l QAccessibleInterface::text() with \l QAccessible::Name as type).     The QAccessibleTextInterface is typically for text that a screen reader     might want to read line by line, and for widgets that support text selection and input.     This interface is, for example, implemented for QLineEdit.      \l{IAccessible2 Specification} */
 end_comment
@@ -4734,6 +4700,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

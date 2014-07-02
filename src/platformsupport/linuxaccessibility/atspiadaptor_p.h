@@ -43,6 +43,11 @@ include|#
 directive|include
 file|"struct_marshallers_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAccessibleInterface
@@ -894,6 +899,13 @@ end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//QT_NO_ACCESSIBILITY
+end_comment
 begin_endif
 endif|#
 directive|endif

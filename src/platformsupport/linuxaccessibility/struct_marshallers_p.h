@@ -38,6 +38,11 @@ include|#
 directive|include
 file|<QtDBus/QDBusObjectPath>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -668,6 +673,13 @@ argument_list|(
 name|QSpiDeviceEvent
 argument_list|)
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//QT_NO_ACCESSIBILITY
+end_comment
 begin_endif
 endif|#
 directive|endif

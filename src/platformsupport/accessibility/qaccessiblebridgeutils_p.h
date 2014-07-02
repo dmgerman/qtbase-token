@@ -13,11 +13,6 @@ define|#
 directive|define
 name|QACCESSIBLEBRIDGEUTILS_H
 end_define
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -28,6 +23,11 @@ include|#
 directive|include
 file|<QtGui/qaccessible.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|namespace

@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"qaccessiblecache_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QAccessibleCache     \internal     \brief Maintains a cache of accessible interfaces. */
@@ -368,4 +373,8 @@ end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 end_unit
