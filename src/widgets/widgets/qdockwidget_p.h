@@ -170,7 +170,14 @@ argument_list|)
 block|,
 name|allowedAreas
 argument_list|(
-argument|Qt::AllDockWidgetAreas
+name|Qt
+operator|::
+name|AllDockWidgetAreas
+argument_list|)
+block|,
+name|resizer
+argument_list|(
+literal|0
 argument_list|)
 block|{ }
 name|void
@@ -206,10 +213,6 @@ name|Qt
 operator|::
 name|DockWidgetAreas
 name|allowedAreas
-block|;
-name|QWidgetResizeHandler
-operator|*
-name|resizer
 block|;
 ifndef|#
 directive|ifndef
@@ -321,10 +324,22 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|void
+name|setResizerActive
+argument_list|(
+argument|bool active
+argument_list|)
+block|;
 name|bool
 name|isAnimating
 argument_list|()
 specifier|const
+block|;
+name|private
+operator|:
+name|QWidgetResizeHandler
+operator|*
+name|resizer
 block|; }
 decl_stmt|;
 end_decl_stmt
