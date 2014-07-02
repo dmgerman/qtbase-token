@@ -76,6 +76,15 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// ### fixme: Qt 6: No longer export QWidgetResizeHandler and remove "Move"
+end_comment
+begin_comment
+comment|// functionality. Currently, only the resize functionality is used by QDockWidget.
+end_comment
+begin_comment
+comment|// Historically, the class was used in Qt 3's QWorkspace (predecessor to QMdiArea).
+end_comment
 begin_constructor
 DECL|function|QWidgetResizeHandler
 name|QWidgetResizeHandler
