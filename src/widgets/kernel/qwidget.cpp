@@ -4265,6 +4265,13 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|win
+operator|->
+name|isTopLevel
+argument_list|()
+condition|)
 name|win
 operator|->
 name|setScreen
