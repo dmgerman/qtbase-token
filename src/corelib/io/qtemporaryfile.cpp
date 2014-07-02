@@ -739,6 +739,16 @@ name|~
 name|QTemporaryFileEngine
 parameter_list|()
 block|{
+name|Q_D
+argument_list|(
+name|QFSFileEngine
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|unmapAll
+argument_list|()
+expr_stmt|;
 name|QFSFileEngine
 operator|::
 name|close
@@ -1232,6 +1242,11 @@ argument_list|)
 expr_stmt|;
 comment|// Since the QTemporaryFileEngine::close() does not really close the file,
 comment|// we must explicitly call QFSFileEngine::close() before we remove it.
+name|d
+operator|->
+name|unmapAll
+argument_list|()
+expr_stmt|;
 name|QFSFileEngine
 operator|::
 name|close

@@ -660,6 +660,10 @@ operator|*
 name|ptr
 argument_list|)
 block|;
+name|void
+name|unmapAll
+argument_list|()
+block|;
 name|mutable
 name|QFileSystemMetaData
 name|metaData
