@@ -4714,7 +4714,7 @@ begin_comment
 comment|/*!     \fn void QListWidget::itemSelectionChanged()      This signal is emitted whenever the selection changes.      \sa selectedItems(), QListWidgetItem::isSelected(), currentItemChanged() */
 end_comment
 begin_comment
-comment|/*!     \since 4.3      \fn void QListWidget::removeItemWidget(QListWidgetItem *item)      Removes the widget set on the given \a item. */
+comment|/*!     \since 4.3      \fn void QListWidget::removeItemWidget(QListWidgetItem *item)      Removes the widget set on the given \a item.      To remove an item (row) from the list entirely, either delete the item or     use takeItem().      \sa itemWidget(), setItemWidget() */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty QListWidget with the given \a parent. */
@@ -5646,7 +5646,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns the widget displayed in the given \a item. */
+comment|/*!     \since 4.1      Returns the widget displayed in the given \a item.      \sa setItemWidget(), removeItemWidget() */
 end_comment
 begin_function
 DECL|function|itemWidget
@@ -5692,7 +5692,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Sets the \a widget to be displayed in the given \a item.      This function should only be used to display static content in the place of     a list widget item. If you want to display custom dynamic content or     implement a custom editor widget, use QListView and subclass QItemDelegate     instead.      \sa {Delegate Classes} */
+comment|/*!     \since 4.1      Sets the \a widget to be displayed in the given \a item.      This function should only be used to display static content in the place of     a list widget item. If you want to display custom dynamic content or     implement a custom editor widget, use QListView and subclass QItemDelegate     instead.      \sa itemWidget(), removeItemWidget(), {Delegate Classes} */
 end_comment
 begin_function
 DECL|function|setItemWidget
