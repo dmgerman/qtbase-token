@@ -5484,7 +5484,7 @@ condition|)
 block|{
 name|writeString
 argument_list|(
-literal|"QT_MANGLE_NAMESPACE("
+literal|"QT_RCC_MANGLE_NAMESPACE("
 argument_list|)
 expr_stmt|;
 name|writeByteArray
@@ -5528,7 +5528,7 @@ condition|)
 block|{
 name|writeString
 argument_list|(
-literal|"QT_PREPEND_NAMESPACE("
+literal|"QT_RCC_PREPEND_NAMESPACE("
 argument_list|)
 expr_stmt|;
 name|writeByteArray
@@ -5632,15 +5632,15 @@ block|{
 name|writeString
 argument_list|(
 literal|"#ifdef QT_NAMESPACE\n"
-literal|"#  define QT_PREPEND_NAMESPACE(name) ::QT_NAMESPACE::name\n"
-literal|"#  define QT_MANGLE_NAMESPACE0(x) x\n"
-literal|"#  define QT_MANGLE_NAMESPACE1(a, b) a##_##b\n"
-literal|"#  define QT_MANGLE_NAMESPACE2(a, b) QT_MANGLE_NAMESPACE1(a,b)\n"
-literal|"#  define QT_MANGLE_NAMESPACE(name) QT_MANGLE_NAMESPACE2( \\\n"
-literal|"        QT_MANGLE_NAMESPACE0(name), QT_MANGLE_NAMESPACE0(QT_NAMESPACE))\n"
+literal|"#  define QT_RCC_PREPEND_NAMESPACE(name) ::QT_NAMESPACE::name\n"
+literal|"#  define QT_RCC_MANGLE_NAMESPACE0(x) x\n"
+literal|"#  define QT_RCC_MANGLE_NAMESPACE1(a, b) a##_##b\n"
+literal|"#  define QT_RCC_MANGLE_NAMESPACE2(a, b) QT_RCC_MANGLE_NAMESPACE1(a,b)\n"
+literal|"#  define QT_RCC_MANGLE_NAMESPACE(name) QT_RCC_MANGLE_NAMESPACE2( \\\n"
+literal|"        QT_RCC_MANGLE_NAMESPACE0(name), QT_RCC_MANGLE_NAMESPACE0(QT_NAMESPACE))\n"
 literal|"#else\n"
-literal|"#   define QT_PREPEND_NAMESPACE(name) name\n"
-literal|"#   define QT_MANGLE_NAMESPACE(name) name\n"
+literal|"#   define QT_RCC_PREPEND_NAMESPACE(name) name\n"
+literal|"#   define QT_RCC_MANGLE_NAMESPACE(name) name\n"
 literal|"#endif\n\n"
 argument_list|)
 expr_stmt|;
@@ -5798,12 +5798,12 @@ name|writeByteArray
 argument_list|(
 literal|"namespace {\n"
 literal|"   struct initializer {\n"
-literal|"       initializer() { QT_MANGLE_NAMESPACE("
+literal|"       initializer() { QT_RCC_MANGLE_NAMESPACE("
 operator|+
 name|initResources
 operator|+
 literal|")(); }\n"
-literal|"       ~initializer() { QT_MANGLE_NAMESPACE("
+literal|"       ~initializer() { QT_RCC_MANGLE_NAMESPACE("
 operator|+
 name|cleanResources
 operator|+
