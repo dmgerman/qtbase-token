@@ -20436,6 +20436,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|data
+operator|.
+name|isHost
+condition|)
+block|{
+if|if
+condition|(
 name|qmakespec
 operator|.
 name|startsWith
@@ -20457,6 +20465,7 @@ argument_list|(
 literal|" QMAKE_LFLAGS+=/ENTRY:main"
 argument_list|)
 expr_stmt|;
+block|}
 name|int
 name|returnValue
 init|=
