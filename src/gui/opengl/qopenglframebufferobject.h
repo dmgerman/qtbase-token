@@ -216,6 +216,14 @@ name|toImage
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QImage
+name|toImage
+argument_list|(
+name|bool
+name|flipped
+argument_list|)
+decl|const
+decl_stmt|;
 name|Attachment
 name|attachment
 argument_list|()
