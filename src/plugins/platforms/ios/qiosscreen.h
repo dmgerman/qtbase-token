@@ -47,21 +47,15 @@ name|public
 range|:
 name|QIOSScreen
 argument_list|(
-argument|unsigned int screenIndex
+name|UIScreen
+operator|*
+name|screen
 argument_list|)
 decl_stmt|;
 operator|~
 name|QIOSScreen
 argument_list|()
 expr_stmt|;
-enum|enum
-name|ScreenIndex
-block|{
-name|MainScreen
-init|=
-literal|0
-block|}
-enum|;
 name|QRect
 name|geometry
 argument_list|()
