@@ -4985,7 +4985,7 @@ expr_stmt|;
 return|return
 name|dbg
 operator|.
-name|nospace
+name|space
 argument_list|()
 return|;
 case|case
