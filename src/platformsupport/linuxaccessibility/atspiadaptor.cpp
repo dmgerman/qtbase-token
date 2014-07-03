@@ -8057,12 +8057,55 @@ literal|"GrabFocus"
 argument_list|)
 condition|)
 block|{
-comment|// FIXME: implement focus grabbing
-comment|//        if (interface->object()&& interface->object()->isWidgetType()) {
-comment|//            QWidget* w = static_cast<QWidget*>(interface->object());
-comment|//            w->setFocus(Qt::OtherFocusReason);
-comment|//            sendReply(connection, message, true);
-comment|//        }
+name|QAccessibleActionInterface
+modifier|*
+name|actionIface
+init|=
+name|interface
+operator|->
+name|actionInterface
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|actionIface
+operator|&&
+name|actionIface
+operator|->
+name|actionNames
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|QAccessibleActionInterface
+operator|::
+name|setFocusAction
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|actionIface
+operator|->
+name|doAction
+argument_list|(
+name|QAccessibleActionInterface
+operator|::
+name|setFocusAction
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|sendReply
+argument_list|(
+name|connection
+argument_list|,
+name|message
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sendReply
 argument_list|(
 name|connection
@@ -8072,6 +8115,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
