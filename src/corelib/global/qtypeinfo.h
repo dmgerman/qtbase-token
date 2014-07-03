@@ -76,6 +76,7 @@ name|isDummy
 operator|=
 name|false
 block|,
+comment|//### Qt6: remove
 name|sizeOf
 operator|=
 expr|sizeof
