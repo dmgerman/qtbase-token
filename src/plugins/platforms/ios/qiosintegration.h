@@ -196,6 +196,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+specifier|static
+name|QIOSIntegration
+modifier|*
+name|instance
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|QPlatformFontDatabase
