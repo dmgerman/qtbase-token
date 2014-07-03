@@ -1103,8 +1103,8 @@ specifier|const
 name|QBrush
 name|noBrush
 block|;
-name|QPixmap
-name|currentBrushPixmap
+name|QImage
+name|currentBrushImage
 block|;
 name|QOpenGL2PEXVertexArray
 name|vertexCoordinateArray

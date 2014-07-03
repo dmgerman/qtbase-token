@@ -79,6 +79,8 @@ name|QOpenGLCachedTexture
 argument_list|(
 argument|GLuint id
 argument_list|,
+argument|int options
+argument_list|,
 argument|QOpenGLContext *context
 argument_list|)
 empty_stmt|;
@@ -103,11 +105,23 @@ name|id
 argument_list|()
 return|;
 block|}
+name|int
+name|options
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_options
+return|;
+block|}
 name|private
 label|:
 name|QOpenGLSharedResourceGuard
 modifier|*
 name|m_resource
+decl_stmt|;
+name|int
+name|m_options
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -143,31 +157,42 @@ block|;
 operator|~
 name|QOpenGLTextureCache
 argument_list|()
+block|;      enum
+name|BindOption
+block|{
+name|NoBindOption
+operator|=
+literal|0x0000
+block|,
+name|PremultipliedAlphaBindOption
+operator|=
+literal|0x0001
+block|,     }
 block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|BindOptions
+argument_list|,
+argument|BindOption
+argument_list|)
 name|GLuint
 name|bindTexture
 argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
+argument|QOpenGLContext *context
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|const QPixmap&pixmap
+argument_list|,
+argument|QOpenGLTextureCache::BindOptions options = PremultipliedAlphaBindOption
 argument_list|)
 block|;
 name|GLuint
 name|bindTexture
 argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
+argument|QOpenGLContext *context
 argument_list|,
-specifier|const
-name|QImage
-operator|&
-name|image
+argument|const QImage&image
+argument_list|,
+argument|QOpenGLTextureCache::BindOptions options = PremultipliedAlphaBindOption
 argument_list|)
 block|;
 name|void
@@ -198,6 +223,8 @@ argument_list|,
 argument|qint64 key
 argument_list|,
 argument|const QImage&image
+argument_list|,
+argument|QOpenGLTextureCache::BindOptions options
 argument_list|)
 block|;
 name|QMutex
@@ -213,6 +240,12 @@ name|m_cache
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QOpenGLTextureCache::BindOptions
+argument_list|)
+end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
