@@ -1651,6 +1651,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// set 0, should set default handler
 name|QtMessageHandler
 name|defaultMessageHandler1
 init|=
@@ -1662,6 +1663,12 @@ operator|)
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// set 0, should set and return default handler
+name|QVERIFY
+argument_list|(
+name|defaultMessageHandler1
+argument_list|)
+expr_stmt|;
 name|QtMessageHandler
 name|defaultMessageHandler2
 init|=
@@ -1670,6 +1677,7 @@ argument_list|(
 name|myMessageHandler
 argument_list|)
 decl_stmt|;
+comment|// set myMessageHandler and return default handler
 name|bool
 name|same
 init|=
@@ -1697,6 +1705,7 @@ operator|)
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// set 0, should set default and return myMessageHandler
 name|same
 operator|=
 operator|(

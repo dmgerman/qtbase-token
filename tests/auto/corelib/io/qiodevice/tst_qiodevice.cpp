@@ -847,6 +847,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"The unget network test is unstable on Mac. See QTBUG-39983."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QBuffer
 name|buffer
 decl_stmt|;

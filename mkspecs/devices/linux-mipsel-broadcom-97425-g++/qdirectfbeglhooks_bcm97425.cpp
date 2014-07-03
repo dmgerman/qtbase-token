@@ -64,7 +64,6 @@ parameter_list|()
 block|{
 name|DBPL_UnregisterDirectFBDisplayPlatform
 argument_list|(
-operator|&
 name|dbpl_handle
 argument_list|)
 expr_stmt|;

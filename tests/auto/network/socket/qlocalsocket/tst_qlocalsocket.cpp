@@ -4666,6 +4666,16 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"The processConnection test is unstable on Mac. See QTBUG-39986."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|Q_OS_WIN
 specifier|const
 name|QString

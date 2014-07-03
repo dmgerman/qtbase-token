@@ -63,23 +63,16 @@ include|#
 directive|include
 file|"qaccessible.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-end_ifdef
 begin_expr_stmt
-DECL|variable|QMacAccessibilityElement
 name|Q_FORWARD_DECLARE_OBJC_CLASS
+argument_list|(
+name|QT_MANGLE_NAMESPACE
 argument_list|(
 name|QMacAccessibilityElement
 argument_list|)
+argument_list|)
 expr_stmt|;
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -129,7 +122,10 @@ block|;
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|QMacAccessibilityElement
+argument_list|)
 operator|*
 name|elementForId
 argument_list|(
@@ -142,7 +138,7 @@ name|insertElement
 argument_list|(
 argument|QAccessible::Id axid
 argument_list|,
-argument|QMacAccessibilityElement *element
+argument|QT_MANGLE_NAMESPACE(QMacAccessibilityElement) *element
 argument_list|)
 specifier|const
 block|;
@@ -208,7 +204,10 @@ name|QAccessible
 operator|::
 name|Id
 block|,
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|QMacAccessibilityElement
+argument_list|)
 operator|*
 operator|>
 name|cocoaElements

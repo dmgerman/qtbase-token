@@ -7183,6 +7183,12 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|xcb_flush
+argument_list|(
+name|xcb_connection
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

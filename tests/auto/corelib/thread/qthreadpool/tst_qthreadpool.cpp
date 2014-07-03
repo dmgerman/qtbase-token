@@ -1320,6 +1320,16 @@ name|expiryTimeoutRace
 parameter_list|()
 comment|// QTBUG-3786
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"This test is unstable on Windows. See QTBUG-3786."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|ExpiryTimeoutTask
 name|task
 decl_stmt|;

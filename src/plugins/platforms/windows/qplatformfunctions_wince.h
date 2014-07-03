@@ -201,6 +201,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Real Value would be 0x40000000, but if we pass this to Windows Embedded Compact
+end_comment
+begin_comment
+comment|// he blits it wrongly, so lets not do any harm and define it to 0
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -211,7 +217,7 @@ DECL|macro|CAPTUREBLT
 define|#
 directive|define
 name|CAPTUREBLT
-value|(DWORD)0x40000000
+value|(DWORD)0x0
 end_define
 begin_endif
 endif|#
