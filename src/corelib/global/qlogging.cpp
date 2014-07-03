@@ -2805,7 +2805,7 @@ name|char
 name|timeTokenC
 index|[]
 init|=
-literal|"%{time"
+literal|"%{time}"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
