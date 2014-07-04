@@ -9601,7 +9601,26 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-comment|//still no proper minimizing
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+expr|\
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY_TABLET
+argument_list|)
+operator|)
 comment|//update visibility
 if|if
 condition|(
@@ -13169,16 +13188,8 @@ argument_list|(
 literal|"X11: Many window managers do not support window state properly, which causes this test to fail."
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE_WM
 name|QPoint
 name|pos
-argument_list|(
-literal|500
-argument_list|,
-literal|500
-argument_list|)
 decl_stmt|;
 name|QSize
 name|size
@@ -13190,20 +13201,55 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|defaultWindowState
+argument_list|(
+name|Qt
+operator|::
+name|Widget
+argument_list|)
+operator|==
+name|Qt
+operator|::
+name|WindowFullScreen
+condition|)
+block|{
+name|size
+operator|=
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+operator|->
+name|size
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pos
+operator|=
+name|QPoint
+argument_list|(
+literal|10
+argument_list|,
+literal|10
+argument_list|)
+expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE_WM
+if|if
+condition|(
 name|qt_wince_is_smartphone
 argument_list|()
 condition|)
 block|{
 comment|//small screen
-name|pos
-operator|=
-name|QPoint
-argument_list|(
-literal|10
-argument_list|,
-literal|10
-argument_list|)
-expr_stmt|;
 name|size
 operator|=
 name|QSize
@@ -13213,29 +13259,9 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
-block|}
-else|#
-directive|else
-specifier|const
-name|QPoint
-name|pos
-argument_list|(
-literal|500
-argument_list|,
-literal|500
-argument_list|)
-decl_stmt|;
-specifier|const
-name|QSize
-name|size
-argument_list|(
-literal|200
-argument_list|,
-literal|200
-argument_list|)
-decl_stmt|;
 endif|#
 directive|endif
+block|}
 name|QWidget
 name|widget1
 decl_stmt|;
@@ -13384,8 +13410,10 @@ argument_list|)
 expr_stmt|;
 name|widget1
 operator|.
-name|show
-argument_list|()
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -14154,8 +14182,6 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|showMaximized
 name|void
 name|tst_QWidget
@@ -14571,8 +14597,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|showFullScreen
 name|void
 name|tst_QWidget
@@ -15040,8 +15064,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|ResizeWidget
 class|class
 name|ResizeWidget
@@ -15116,8 +15138,6 @@ name|m_resizeEventCount
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|resizeEvent
 name|void
 name|tst_QWidget
@@ -15338,8 +15358,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|showMinimized
 name|void
 name|tst_QWidget
@@ -15576,8 +15594,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|showMinimizedKeepsFocus
 name|void
 name|tst_QWidget
@@ -16396,8 +16412,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|reparent
 name|void
 name|tst_QWidget
@@ -16678,11 +16692,7 @@ name|tlwPos
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Qt/Embedded does it differently.
-end_comment
-begin_function
 DECL|function|icon
 name|void
 name|tst_QWidget
@@ -16778,8 +16788,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|hideWhenFocusWidgetIsChild
 name|void
 name|tst_QWidget
@@ -17108,8 +17116,6 @@ name|expectedFocusWidget
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|normalGeometry
 name|void
 name|tst_QWidget
@@ -17177,7 +17183,7 @@ argument_list|)
 expr_stmt|;
 name|parent
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -17897,8 +17903,6 @@ name|geom
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setGeometry
 name|void
 name|tst_QWidget
@@ -17956,7 +17960,7 @@ argument_list|)
 expr_stmt|;
 name|tlw
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTest
@@ -18055,7 +18059,7 @@ argument_list|)
 expr_stmt|;
 name|tlw
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTest
@@ -18107,16 +18111,10 @@ name|tr
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Windows CE does not support windowOpacity.
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
-end_ifndef
-begin_function
 DECL|function|windowOpacity
 name|void
 name|tst_QWidget
@@ -18295,12 +18293,8 @@ literal|1.0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_class
 DECL|class|UpdateWidget
 class|class
 name|UpdateWidget
@@ -18524,8 +18518,6 @@ name|paintedRegion
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|lostUpdatesOnHide
 name|void
 name|tst_QWidget
@@ -18589,8 +18581,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|raise
 name|void
 name|tst_QWidget
@@ -19255,16 +19245,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|// Cocoa has no Z-Order for views, we hack it, but it results in paint events.
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_OS_MAC
-end_ifndef
-begin_function
 DECL|function|lower
 name|void
 name|tst_QWidget
@@ -19658,20 +19642,12 @@ name|list2
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// Cocoa has no Z-Order for views, we hack it, but it results in paint events.
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_OS_MAC
-end_ifndef
-begin_function
 DECL|function|stackUnder
 name|void
 name|tst_QWidget
@@ -20210,12 +20186,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|drawPolygon
 name|void
 name|drawPolygon
@@ -20331,8 +20303,6 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|ContentsPropagationWidget
 class|class
 name|ContentsPropagationWidget
@@ -20503,8 +20473,6 @@ return|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|testContentsPropagation
 name|void
 name|tst_QWidget
@@ -20635,11 +20603,7 @@ name|correct
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*     Test that saving and restoring window geometry with     saveGeometry() and restoreGeometry() works. */
-end_comment
-begin_function
 DECL|function|saveRestoreGeometry
 name|void
 name|tst_QWidget
@@ -20688,7 +20652,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -20862,7 +20826,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -20947,7 +20911,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -21557,8 +21521,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|restoreVersion1Geometry_data
 name|void
 name|tst_QWidget
@@ -21714,11 +21676,7 @@ operator|<<
 name|normalGeometry
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*     Test that the current version of restoreGeometry() can restore geometry     saved width saveGeometry() version 1.0. */
-end_comment
-begin_function
 DECL|function|restoreVersion1Geometry
 name|void
 name|tst_QWidget
@@ -21885,7 +21843,7 @@ expr_stmt|;
 block|}
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -22029,8 +21987,6 @@ block|f.write(geometryToSave);         f.close();     }
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|widgetAt
 name|void
 name|tst_QWidget
@@ -22145,7 +22101,7 @@ argument_list|)
 expr_stmt|;
 name|w1
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -22201,7 +22157,7 @@ argument_list|)
 expr_stmt|;
 name|w2
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -22368,7 +22324,7 @@ argument_list|)
 expr_stmt|;
 name|w3
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -22442,6 +22398,28 @@ literal|"w2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|hasCapability
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|WindowMasks
+argument_list|)
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Platform does not support WindowMasks"
+argument_list|)
+expr_stmt|;
+block|}
 name|QRegion
 name|rgn
 init|=
@@ -22775,8 +22753,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|task110173
 name|void
 name|tst_QWidget
@@ -22885,8 +22861,6 @@ literal|200
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|Widget
 class|class
 name|Widget
@@ -23094,8 +23068,6 @@ name|deleteThis
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|testDeletionInEventHandlers
 name|void
 name|tst_QWidget
@@ -23476,13 +23448,9 @@ operator|delete
 name|w
 expr_stmt|;
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-end_ifdef
-begin_function
 DECL|function|sheetOpacity
 name|void
 name|tst_QWidget
@@ -23557,8 +23525,6 @@ literal|255
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|MaskedPainter
 class|class
 name|MaskedPainter
@@ -23623,11 +23589,7 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_comment
 comment|/*     Verifies that the entire area inside the mask is painted red. */
-end_comment
-begin_function
 DECL|function|verifyWidgetMask
 name|bool
 name|verifyWidgetMask
@@ -23707,8 +23669,6 @@ name|red
 operator|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setMask
 name|void
 name|tst_QWidget
@@ -23820,12 +23780,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_class
 DECL|class|StaticWidget
 class|class
 name|StaticWidget
@@ -23950,11 +23906,7 @@ block|}
 block|}
 block|}
 class|;
-end_class
-begin_comment
 comment|/*     Test that widget resizes and moves can be done with minimal repaints when WA_StaticContents     and WA_OpaquePaintEvent is set. Test is mac-only for now. */
-end_comment
-begin_function
 DECL|function|optimizedResizeMove
 name|void
 name|tst_QWidget
@@ -24631,8 +24583,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|optimizedResize_topLevel
 name|void
 name|tst_QWidget
@@ -24868,8 +24818,6 @@ name|expectedUpdateRegion
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|SiblingDeleter
 class|class
 name|SiblingDeleter
@@ -24922,8 +24870,6 @@ name|sibling
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|childDeletesItsSibling
 name|void
 name|tst_QWidget
@@ -24991,8 +24937,6 @@ name|siblingDeleter
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setMinimumSize
 name|void
 name|tst_QWidget
@@ -25169,7 +25113,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTest
@@ -25208,8 +25152,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|setMaximumSize
 name|void
 name|tst_QWidget
@@ -25368,8 +25310,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setFixedSize
 name|void
 name|tst_QWidget
@@ -25605,7 +25545,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTest
@@ -25647,8 +25587,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ensureCreated
 name|void
 name|tst_QWidget
@@ -25861,8 +25799,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|WinIdChangeWidget
 class|class
 name|WinIdChangeWidget
@@ -25952,8 +25888,6 @@ return|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|winIdChangeEvent
 name|void
 name|tst_QWidget
@@ -26315,8 +26249,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|persistentWinId
 name|void
 name|tst_QWidget
@@ -26617,8 +26549,6 @@ name|winId3
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|showNativeChild
 name|void
 name|tst_QWidget
@@ -26671,8 +26601,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|ShowHideEventWidget
 class|class
 name|ShowHideEventWidget
@@ -26750,8 +26678,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|showHideEvent_data
 name|void
 name|tst_QWidget
@@ -26912,8 +26838,6 @@ operator|<<
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|showHideEvent
 name|void
 name|tst_QWidget
@@ -27015,8 +26939,6 @@ name|expectedHideEvents
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|update
 name|void
 name|tst_QWidget
@@ -27931,8 +27853,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|isOpaque
 specifier|static
 specifier|inline
@@ -27961,8 +27881,6 @@ operator|->
 name|isOpaque
 return|;
 block|}
-end_function
-begin_function
 DECL|function|isOpaque
 name|void
 name|tst_QWidget
@@ -28411,16 +28329,10 @@ block|}
 endif|#
 directive|endif
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_MAC
-end_ifndef
-begin_comment
 comment|/*     Test that scrolling of a widget invalidates the correct regions */
-end_comment
-begin_function
 DECL|function|scroll
 name|void
 name|tst_QWidget
@@ -28514,7 +28426,7 @@ argument_list|)
 expr_stmt|;
 name|updateWidget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -28938,11 +28850,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|// QTBUG-38999, scrolling a widget with native child widgets should move the children.
-end_comment
-begin_function
 DECL|function|scrollNativeChildren
 name|void
 name|tst_QWidget
@@ -29107,15 +29015,9 @@ name|newLabelPos
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// Mac OS
-end_comment
-begin_class
 DECL|class|DestroyedSlotChecker
 class|class
 name|DestroyedSlotChecker
@@ -29173,11 +29075,7 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_comment
 comment|/*     Test that qobject_cast<QWidget*> returns 0 in a slot     connected to QObject::destroyed. */
-end_comment
-begin_function
 DECL|function|qobject_castInDestroyedSlot
 name|void
 name|tst_QWidget
@@ -29237,14 +29135,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Since X11 WindowManager operations are all async, and we have no way to know if the window
-end_comment
-begin_comment
 comment|// manager has finished playing with the window geometry, this test can't be reliable on X11.
-end_comment
-begin_function
 DECL|function|setWindowGeometry_data
 name|void
 name|tst_QWidget
@@ -29753,8 +29645,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_function
 DECL|function|setWindowGeometry
 name|void
 name|tst_QWidget
@@ -29915,7 +29805,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 if|if
@@ -30168,7 +30058,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 if|if
@@ -30418,8 +30308,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_if
 if|#
 directive|if
 name|defined
@@ -30438,8 +30326,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINRT
 argument_list|)
-end_if
-begin_function
 DECL|function|setGeometry_win
 name|void
 name|tst_QWidget
@@ -30562,21 +30448,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// defined (Q_OS_WIN)&& !defined(Q_OS_WINCE)&& !defined(Q_OS_WINRT)
-end_comment
-begin_comment
 comment|// Since X11 WindowManager operation are all async, and we have no way to know if the window
-end_comment
-begin_comment
 comment|// manager has finished playing with the window geometry, this test can't be reliable on X11.
-end_comment
-begin_function
 DECL|function|windowMoveResize_data
 name|void
 name|tst_QWidget
@@ -30588,8 +30464,6 @@ name|setWindowGeometry_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|windowMoveResize
 name|void
 name|tst_QWidget
@@ -30819,7 +30693,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTest
@@ -31437,7 +31311,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 if|if
@@ -31919,8 +31793,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|ColorWidget
 class|class
 name|ColorWidget
@@ -32091,8 +31963,6 @@ name|leaves
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|msgRgbMismatch
 specifier|static
 specifier|inline
@@ -32136,8 +32006,6 @@ literal|16
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|grabWindow
 specifier|static
 name|QPixmap
@@ -32194,8 +32062,6 @@ name|QPixmap
 argument_list|()
 return|;
 block|}
-end_function
-begin_define
 DECL|macro|VERIFY_COLOR
 define|#
 directive|define
@@ -32208,8 +32074,6 @@ parameter_list|,
 name|color
 parameter_list|)
 value|verifyColor(child, region, color, __LINE__)
-end_define
-begin_function
 DECL|function|verifyColor
 name|bool
 name|verifyColor
@@ -32612,8 +32476,6 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_function
 DECL|function|popupEnterLeave
 name|void
 name|tst_QWidget
@@ -32944,8 +32806,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|moveChild_data
 name|void
 name|tst_QWidget
@@ -33022,8 +32882,6 @@ literal|20
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|moveChild
 name|void
 name|tst_QWidget
@@ -33183,7 +33041,7 @@ endif|#
 directive|endif
 name|parent
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -33403,8 +33261,6 @@ name|color
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|showAndMoveChild
 name|void
 name|tst_QWidget
@@ -33666,16 +33522,10 @@ name|red
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Cocoa only has rect granularity.
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_OS_MAC
-end_ifndef
-begin_function
 DECL|function|subtractOpaqueSiblings
 name|void
 name|tst_QWidget
@@ -33909,12 +33759,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|deleteStyle
 name|void
 name|tst_QWidget
@@ -33957,8 +33803,6 @@ name|processEvents
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|TopLevelFocusCheck
 class|class
 name|TopLevelFocusCheck
@@ -34085,8 +33929,6 @@ return|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|multipleToplevelFocusCheck
 name|void
 name|tst_QWidget
@@ -34148,6 +33990,13 @@ argument_list|(
 operator|&
 name|w2
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|50
 argument_list|)
 expr_stmt|;
 name|QApplication
@@ -34471,8 +34320,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|FocusWidget
 class|class
 name|FocusWidget
@@ -34571,8 +34418,6 @@ name|widgetDuringFocusOut
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|setFocus
 name|void
 name|tst_QWidget
@@ -35683,8 +35528,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|EventSpy
 template|template
 parameter_list|<
@@ -35824,13 +35667,9 @@ name|m_count
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QTEST_NO_CURSOR
-end_ifndef
-begin_function
 DECL|function|setCursor
 name|void
 name|tst_QWidget
@@ -36611,12 +36450,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|setToolTip
 name|void
 name|tst_QWidget
@@ -37060,8 +36895,6 @@ block|}
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|testWindowIconChangeEventPropagation
 name|void
 name|tst_QWidget
@@ -37694,8 +37527,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|minAndMaxSizeWithX11BypassWindowManagerHint
 name|void
 name|tst_QWidget
@@ -37906,8 +37737,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|ShowHideShowWidget
 class|class
 name|ShowHideShowWidget
@@ -38134,8 +37963,6 @@ parameter_list|()
 function_decl|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|showHideShowX11
 name|void
 name|tst_QWidget
@@ -38233,8 +38060,6 @@ name|gotExpectedMapNotify
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|clean_qt_x11_enforce_cursor
 name|void
 name|tst_QWidget
@@ -38383,8 +38208,6 @@ argument_list|)
 expr_stmt|;
 comment|// If the test didn't crash, then it passed.
 block|}
-end_function
-begin_class
 DECL|class|EventRecorder
 class|class
 name|EventRecorder
@@ -38508,18 +38331,18 @@ block|}
 specifier|static
 name|QByteArray
 name|msgEventListMismatch
-parameter_list|(
+argument_list|(
 specifier|const
 name|EventList
-modifier|&
+operator|&
 name|expected
-parameter_list|,
+argument_list|,
 specifier|const
 name|EventList
-modifier|&
+operator|&
 name|actual
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 DECL|function|msgExpectFailQtBug26424
 specifier|static
 name|QByteArray
@@ -38555,25 +38378,23 @@ specifier|static
 specifier|inline
 name|void
 name|formatEventList
-parameter_list|(
+argument_list|(
 specifier|const
 name|EventList
-modifier|&
+operator|&
 name|l
-parameter_list|,
+argument_list|,
 name|QDebug
-modifier|&
+operator|&
 name|d
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 DECL|member|events
 name|EventList
 name|events
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|formatEventList
 name|void
 name|EventRecorder
@@ -38640,8 +38461,6 @@ literal|' '
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|msgEventListMismatch
 name|QByteArray
 name|EventRecorder
@@ -38725,8 +38544,6 @@ name|toLocal8Bit
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|childEvents
 name|void
 name|tst_QWidget
@@ -38937,7 +38754,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|expected
@@ -38954,7 +38771,7 @@ name|widget
 argument_list|,
 name|QEvent
 operator|::
-name|WinIdChange
+name|Polish
 argument_list|)
 operator|<<
 name|qMakePair
@@ -38964,7 +38781,7 @@ name|widget
 argument_list|,
 name|QEvent
 operator|::
-name|Polish
+name|WinIdChange
 argument_list|)
 operator|<<
 name|qMakePair
@@ -38996,8 +38813,6 @@ name|QEvent
 operator|::
 name|Show
 argument_list|)
-expr_stmt|;
-name|expected
 operator|<<
 name|qMakePair
 argument_list|(
@@ -39077,11 +38892,17 @@ operator|+
 literal|1
 argument_list|)
 argument_list|)
-expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|expected
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 operator|<<
 name|qMakePair
 argument_list|(
@@ -39092,10 +38913,8 @@ name|QEvent
 operator|::
 name|UpdateLater
 argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
-name|expected
 operator|<<
 name|qMakePair
 argument_list|(
@@ -39562,7 +39381,7 @@ argument_list|()
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|expected
@@ -39571,16 +39390,6 @@ name|EventRecorder
 operator|::
 name|EventList
 argument_list|()
-operator|<<
-name|qMakePair
-argument_list|(
-operator|&
-name|widget
-argument_list|,
-name|QEvent
-operator|::
-name|WinIdChange
-argument_list|)
 operator|<<
 name|qMakePair
 argument_list|(
@@ -39619,6 +39428,16 @@ name|widget
 argument_list|,
 name|QEvent
 operator|::
+name|WinIdChange
+argument_list|)
+operator|<<
+name|qMakePair
+argument_list|(
+operator|&
+name|widget
+argument_list|,
+name|QEvent
+operator|::
 name|Move
 argument_list|)
 operator|<<
@@ -39641,8 +39460,6 @@ name|QEvent
 operator|::
 name|Show
 argument_list|)
-expr_stmt|;
-name|expected
 operator|<<
 name|qMakePair
 argument_list|(
@@ -39739,11 +39556,17 @@ operator|+
 literal|2
 argument_list|)
 argument_list|)
-expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|expected
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 operator|<<
 name|qMakePair
 argument_list|(
@@ -39754,10 +39577,8 @@ name|QEvent
 operator|::
 name|UpdateLater
 argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
-name|expected
 operator|<<
 name|qMakePair
 argument_list|(
@@ -40233,7 +40054,7 @@ argument_list|()
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|expected
@@ -40242,16 +40063,6 @@ name|EventRecorder
 operator|::
 name|EventList
 argument_list|()
-operator|<<
-name|qMakePair
-argument_list|(
-operator|&
-name|widget
-argument_list|,
-name|QEvent
-operator|::
-name|WinIdChange
-argument_list|)
 operator|<<
 name|qMakePair
 argument_list|(
@@ -40271,6 +40082,16 @@ argument_list|,
 name|QEvent
 operator|::
 name|ChildPolished
+argument_list|)
+operator|<<
+name|qMakePair
+argument_list|(
+operator|&
+name|widget
+argument_list|,
+name|QEvent
+operator|::
+name|WinIdChange
 argument_list|)
 operator|<<
 name|qMakePair
@@ -40302,8 +40123,6 @@ name|QEvent
 operator|::
 name|Show
 argument_list|)
-expr_stmt|;
-name|expected
 operator|<<
 name|qMakePair
 argument_list|(
@@ -40400,11 +40219,17 @@ operator|+
 literal|2
 argument_list|)
 argument_list|)
-expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|expected
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 operator|<<
 name|qMakePair
 argument_list|(
@@ -40415,10 +40240,8 @@ name|QEvent
 operator|::
 name|UpdateLater
 argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
-name|expected
 operator|<<
 name|qMakePair
 argument_list|(
@@ -40495,8 +40318,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|RenderWidget
 class|class
 name|RenderWidget
@@ -40644,8 +40465,6 @@ name|ellipse
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|render
 name|void
 name|tst_QWidget
@@ -41394,20 +41213,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|// On Windows the active palette is used instead of the inactive palette even
-end_comment
-begin_comment
 comment|// though the widget is invisible. This is probably related to task 178507/168682,
-end_comment
-begin_comment
 comment|// but for the renderInvisible test it doesn't matter, we're mostly interested
-end_comment
-begin_comment
 comment|// in testing the geometry so just workaround the palette issue for now.
-end_comment
-begin_function
 DECL|function|workaroundPaletteIssue
 specifier|static
 name|void
@@ -41535,11 +41344,7 @@ name|palette
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|//#define RENDER_DEBUG
-end_comment
-begin_function
 DECL|function|renderInvisible
 name|void
 name|tst_QWidget
@@ -41594,7 +41399,7 @@ argument_list|)
 expr_stmt|;
 name|calendar
 operator|->
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -42609,8 +42414,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|renderWithPainter
 name|void
 name|tst_QWidget
@@ -43477,8 +43280,6 @@ name|oldRenderHints
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|render_task188133
 name|void
 name|tst_QWidget
@@ -43524,8 +43325,6 @@ argument_list|(
 argument|pixmap
 argument_list|)
 block|}
-end_function
-begin_function
 DECL|function|render_task211796
 name|void
 name|tst_QWidget
@@ -43626,8 +43425,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|render_task217815
 name|void
 name|tst_QWidget
@@ -43694,16 +43491,10 @@ name|explicitSize
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Window Opacity is not supported on Windows CE.
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
-end_ifndef
-begin_function
 DECL|function|render_windowOpacity
 name|void
 name|tst_QWidget
@@ -44135,12 +43926,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|render_systemClip
 name|void
 name|tst_QWidget
@@ -44663,8 +44450,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|render_systemClip2_data
 name|void
 name|tst_QWidget
@@ -44757,8 +44542,6 @@ name|green
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|render_systemClip2
 name|void
 name|tst_QWidget
@@ -45244,8 +45027,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_function
 DECL|function|render_systemClip3_data
 name|void
 name|tst_QWidget
@@ -45307,14 +45088,8 @@ operator|<<
 literal|true
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// This test ensures that the current engine clip (systemClip + painter clip)
-end_comment
-begin_comment
 comment|// is preserved after QPainter::setClipRegion(..., Qt::ReplaceClip);
-end_comment
-begin_function
 DECL|function|render_systemClip3
 name|void
 name|tst_QWidget
@@ -46004,8 +45779,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_function
 DECL|function|render_task252837
 name|void
 name|tst_QWidget
@@ -46051,8 +45824,6 @@ name|painter
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|render_worldTransform
 name|void
 name|tst_QWidget
@@ -46611,8 +46382,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setContentsMargins
 name|void
 name|tst_QWidget
@@ -46726,8 +46495,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|moveWindowInShowEvent_data
 name|void
 name|tst_QWidget
@@ -46810,8 +46577,6 @@ operator|<<
 name|p
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|moveWindowInShowEvent
 name|void
 name|tst_QWidget
@@ -46934,7 +46699,7 @@ expr_stmt|;
 comment|// show it
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -46967,8 +46732,6 @@ name|position
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|repaintWhenChildDeleted
 name|void
 name|tst_QWidget
@@ -47221,11 +46984,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// task 175114
-end_comment
-begin_function
 DECL|function|hideOpaqueChildWhileHidden
 name|void
 name|tst_QWidget
@@ -47504,11 +47263,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// This test doesn't make sense without support for showMinimized().
-end_comment
-begin_if
 if|#
 directive|if
 operator|!
@@ -47516,8 +47271,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-end_if
-begin_function
 DECL|function|updateWhileMinimized
 name|void
 name|tst_QWidget
@@ -47525,6 +47278,32 @@ operator|::
 name|updateWhileMinimized
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|&&
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY_TABLET
+argument_list|)
+operator|)
+name|QSKIP
+argument_list|(
+literal|"Platform does not support showMinimized()"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|UpdateWidget
 name|widget
 decl_stmt|;
@@ -47681,12 +47460,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_class
 DECL|class|PaintOnScreenWidget
 class|class
 name|PaintOnScreenWidget
@@ -47741,8 +47516,6 @@ endif|#
 directive|endif
 block|}
 class|;
-end_class
-begin_function
 DECL|function|alienWidgets
 name|void
 name|tst_QWidget
@@ -49386,8 +49159,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|ASWidget
 class|class
 name|ASWidget
@@ -49578,8 +49349,6 @@ name|mySizeHint
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|adjustSize_data
 name|void
 name|tst_QWidget
@@ -50479,8 +50248,6 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|adjustSize
 name|void
 name|tst_QWidget
@@ -50751,8 +50518,6 @@ operator|delete
 name|child
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|TestLayout
 class|class
 name|TestLayout
@@ -50798,8 +50563,6 @@ name|invalidated
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|updateGeometry_data
 name|void
 name|tst_QWidget
@@ -51100,8 +50863,6 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|updateGeometry
 name|void
 name|tst_QWidget
@@ -51344,8 +51105,6 @@ name|shouldInvalidate4
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendUpdateRequestImmediately
 name|void
 name|tst_QWidget
@@ -51406,8 +51165,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|doubleRepaint
 name|void
 name|tst_QWidget
@@ -51529,6 +51286,36 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|&&
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY_TABLET
+argument_list|)
+operator|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Platform does not support showMinimized()"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|widget
@@ -51578,8 +51365,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|resizeInPaintEvent
 name|void
 name|tst_QWidget
@@ -51699,8 +51484,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|opaqueChildren
 name|void
 name|tst_QWidget
@@ -51943,8 +51726,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|MaskSetWidget
 class|class
 name|MaskSetWidget
@@ -52095,8 +51876,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|setMaskInResizeEvent
 name|void
 name|tst_QWidget
@@ -52342,8 +52121,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|MoveInResizeWidget
 class|class
 name|MoveInResizeWidget
@@ -52442,8 +52219,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|moveInResizeEvent
 name|void
 name|tst_QWidget
@@ -52513,8 +52288,6 @@ name|expectedGeometry
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|immediateRepaintAfterShow
 name|void
 name|tst_QWidget
@@ -52600,8 +52373,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|immediateRepaintAfterInvalidateBuffer
 name|void
 name|tst_QWidget
@@ -52724,8 +52495,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|effectiveWinId
 name|void
 name|tst_QWidget
@@ -52793,8 +52562,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|effectiveWinId2
 name|void
 name|tst_QWidget
@@ -52879,8 +52646,6 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|CustomWidget
 class|class
 name|CustomWidget
@@ -52938,8 +52703,6 @@ return|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|customDpi
 name|void
 name|tst_QWidget
@@ -53029,8 +52792,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|customDpiProperty
 name|void
 name|tst_QWidget
@@ -53248,8 +53009,6 @@ name|initialDpiY
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|quitOnCloseAttribute
 name|void
 name|tst_QWidget
@@ -53534,8 +53293,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|moveRect
 name|void
 name|tst_QWidget
@@ -53608,8 +53365,6 @@ argument_list|)
 expr_stmt|;
 comment|// Don't crash.
 block|}
-end_function
-begin_if
 if|#
 directive|if
 name|defined
@@ -53622,8 +53377,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINRT
 argument_list|)
-end_if
-begin_class
 DECL|class|GDIWidget
 class|class
 name|GDIWidget
@@ -53902,8 +53655,6 @@ name|timer
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|gdiPainting
 name|void
 name|tst_QWidget
@@ -53936,8 +53687,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|paintOnScreenPossible
 name|void
 name|tst_QWidget
@@ -53995,15 +53744,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// Q_OS_WIN&& !Q_OS_WINRT
-end_comment
-begin_function
 DECL|function|reparentStaticWidget
 name|void
 name|tst_QWidget
@@ -54419,8 +54162,6 @@ literal|20
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|QTBUG6883_reparentStaticWidget2
 name|void
 name|tst_QWidget
@@ -54559,8 +54300,6 @@ argument_list|)
 expr_stmt|;
 comment|//do not crash
 block|}
-end_function
-begin_class
 DECL|class|ColorRedWidget
 class|class
 name|ColorRedWidget
@@ -54625,8 +54364,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|translucentWidget
 name|void
 name|tst_QWidget
@@ -54859,8 +54596,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|MaskResizeTestWidget
 class|class
 name|MaskResizeTestWidget
@@ -55020,8 +54755,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|setClearAndResizeMask
 name|void
 name|tst_QWidget
@@ -55865,8 +55598,6 @@ name|oldMask
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|maskedUpdate
 name|void
 name|tst_QWidget
@@ -56658,13 +56389,9 @@ argument_list|)
 expr_stmt|;
 comment|// Full update.
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QTEST_NO_CURSOR
-end_ifndef
-begin_function
 DECL|function|syntheticEnterLeave
 name|void
 name|tst_QWidget
@@ -57226,17 +56953,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QTEST_NO_CURSOR
-end_ifndef
-begin_function
 DECL|function|taskQTBUG_4055_sendSyntheticEnterLeave
 name|void
 name|tst_QWidget
@@ -57659,12 +57380,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|windowFlags
 name|void
 name|tst_QWidget
@@ -57702,8 +57419,6 @@ name|FramelessWindowHint
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|initialPosForDontShowOnScreenWidgets
 name|void
 name|tst_QWidget
@@ -57825,8 +57540,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|MyEvilObject
 class|class
 name|MyEvilObject
@@ -57913,8 +57626,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|updateOnDestroyedSignal
 name|void
 name|tst_QWidget
@@ -57999,8 +57710,6 @@ literal|200
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|toplevelLineEditFocus
 name|void
 name|tst_QWidget
@@ -58070,8 +57779,6 @@ name|w
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|focusWidget_task254563
 name|void
 name|tst_QWidget
@@ -58138,16 +57845,10 @@ argument_list|)
 expr_stmt|;
 comment|//dangling pointer
 block|}
-end_function
-begin_comment
 comment|// This test case relies on developer build (AUTOTEST_EXPORT).
-end_comment
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|destroyBackingStore
 name|void
 name|tst_QWidget
@@ -58266,18 +57967,10 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_BUILD_INTERNAL
-end_comment
-begin_comment
 comment|// Helper function
-end_comment
-begin_function
 DECL|function|backingStore
 name|QWidgetBackingStore
 modifier|*
@@ -58327,16 +58020,10 @@ return|return
 name|backingStore
 return|;
 block|}
-end_function
-begin_comment
 comment|// Tables of 5000 elements do not make sense on Windows Mobile.
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE_WM
-end_ifndef
-begin_function
 DECL|function|rectOutsideCoordinatesLimit_task144779
 name|void
 name|tst_QWidget
@@ -58527,7 +58214,7 @@ argument_list|)
 expr_stmt|;
 expr|main
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -58625,12 +58312,8 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|setGraphicsEffect
 name|void
 name|tst_QWidget
@@ -58863,8 +58546,6 @@ name|blurEffect
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|activateWindow
 name|void
 name|tst_QWidget
@@ -59038,8 +58719,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|openModal_taskQTBUG_5804
 name|void
 name|tst_QWidget
@@ -59144,8 +58823,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|focusProxyAndInputMethods
 name|void
 name|tst_QWidget
@@ -59331,13 +59008,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_class
 DECL|class|scrollWidgetWBS
 class|class
 name|scrollWidgetWBS
@@ -59445,20 +59118,12 @@ block|}
 block|}
 block|}
 class|;
-end_class
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// Test case relies on developer build (AUTOTEST_EXPORT).
-end_comment
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|scrollWithoutBackingStore
 name|void
 name|tst_QWidget
@@ -59591,12 +59256,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|taskQTBUG_7532_tabOrderWithFocusProxy
 name|void
 name|tst_QWidget
@@ -59655,8 +59316,6 @@ argument_list|)
 expr_stmt|;
 comment|// In debug mode, no assertion failure means it's alright.
 block|}
-end_function
-begin_function
 DECL|function|movedAndResizedAttributes
 name|void
 name|tst_QWidget
@@ -60001,8 +59660,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|childAt
 name|void
 name|tst_QWidget
@@ -60488,13 +60145,9 @@ name|grandChild
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-end_ifdef
-begin_function
 DECL|function|childAt_unifiedToolBar
 name|void
 name|tst_QWidget
@@ -60732,8 +60385,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|taskQTBUG_11373
 name|void
 name|tst_QWidget
@@ -60849,12 +60500,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|taskQTBUG_17333_ResizeInfiniteRecursion
 name|void
 name|tst_QWidget
@@ -60913,8 +60560,6 @@ argument_list|)
 expr_stmt|;
 comment|// No crash, it works.
 block|}
-end_function
-begin_function
 DECL|function|nativeChildFocus
 name|void
 name|tst_QWidget
@@ -61073,8 +60718,6 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|lenientCompare
 specifier|static
 name|bool
@@ -61359,8 +61002,6 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_function
 DECL|function|grab
 name|void
 name|tst_QWidget
@@ -61693,11 +61334,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|/* grabMouse() tests whether mouse grab for a widget without window handle works.  * It creates a top level widget with another nested widget inside. The inner widget grabs  * the mouse and a series of mouse presses moving over the top level's window is simulated.  * Only the inner widget should receive events. */
-end_comment
-begin_function
 DECL|function|mouseEventLogEntry
 specifier|static
 specifier|inline
@@ -61755,8 +61392,6 @@ return|return
 name|result
 return|;
 block|}
-end_function
-begin_class
 DECL|class|GrabLoggerWidget
 class|class
 name|GrabLoggerWidget
@@ -61892,8 +61527,6 @@ name|m_log
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|grabMouse
 name|void
 name|tst_QWidget
@@ -62158,8 +61791,6 @@ name|expectedLog
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|grabKeyboard
 name|void
 name|tst_QWidget
@@ -62318,8 +61949,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|TouchMouseWidget
 class|class
 name|TouchMouseWidget
@@ -62545,8 +62174,6 @@ name|m_lastMouseEventPos
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|touchEventSynthesizedMouseEvent
 name|void
 name|tst_QWidget
@@ -63403,8 +63030,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|styleSheetPropagation
 name|void
 name|tst_QWidget
@@ -63464,8 +63089,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|DestroyTester
 class|class
 name|DestroyTester
@@ -63512,8 +63135,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_decl_stmt
 DECL|member|parentDestroyed
 name|int
 name|DestroyTester
@@ -63522,8 +63143,6 @@ name|parentDestroyed
 init|=
 literal|0
 decl_stmt|;
-end_decl_stmt
-begin_function
 DECL|function|destroyedSignal
 name|void
 name|tst_QWidget
@@ -64044,13 +63663,9 @@ name|t
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QTEST_NO_CURSOR
-end_ifndef
-begin_function
 DECL|function|underMouse
 name|void
 name|tst_QWidget
@@ -65428,8 +65043,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|EnterTestModalDialog
 class|class
 name|EnterTestModalDialog
@@ -65491,8 +65104,6 @@ name|button
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_class
 DECL|class|EnterTestMainDialog
 class|class
 name|EnterTestMainDialog
@@ -65739,14 +65350,8 @@ name|enters
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_comment
 comment|// A modal dialog launched by clicking a button should not trigger excess enter events
-end_comment
-begin_comment
 comment|// when mousing over it.
-end_comment
-begin_function
 DECL|function|taskQTBUG_27643_enterEvents
 name|void
 name|tst_QWidget
@@ -65908,15 +65513,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QTEST_NO_CURSOR
-end_comment
-begin_class
 DECL|class|KeyboardWidget
 class|class
 name|KeyboardWidget
@@ -65991,8 +65590,6 @@ name|m_eventCounter
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|keyboardModifiers
 name|void
 name|tst_QWidget
@@ -66066,8 +65663,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|DClickWidget
 class|class
 name|DClickWidget
@@ -66104,8 +65699,6 @@ name|triggered
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|mouseDoubleClickBubbling_QTBUG29680
 name|void
 name|tst_QWidget
@@ -66177,8 +65770,6 @@ name|triggered
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|largerThanScreen_QTBUG30142
 name|void
 name|tst_QWidget
@@ -66269,8 +65860,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|resizeStaticContentsChildWidget_QTBUG35282
 name|void
 name|tst_QWidget
@@ -66330,7 +65919,7 @@ argument_list|)
 expr_stmt|;
 name|widget
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QVERIFY
@@ -66393,13 +65982,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_macro
 name|QTEST_MAIN
 argument_list|(
 argument|tst_QWidget
 argument_list|)
-end_macro
+end_function
 begin_include
 include|#
 directive|include
