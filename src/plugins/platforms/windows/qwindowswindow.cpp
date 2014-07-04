@@ -5265,6 +5265,9 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 if|if
 condition|(
 name|m_surface
@@ -5284,6 +5287,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -12593,6 +12598,14 @@ modifier|*
 name|nativeConfig
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_OPENGL
+return|return
+literal|0
+return|;
+else|#
+directive|else
 if|if
 condition|(
 operator|!
@@ -12616,6 +12629,8 @@ expr_stmt|;
 return|return
 name|m_surface
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro
