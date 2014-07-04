@@ -1182,7 +1182,7 @@ name|GL_TEXTURE_2D
 argument_list|,
 name|GL_TEXTURE_WRAP_S
 argument_list|,
-name|GL_REPEAT
+name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
 name|funcs
@@ -1193,7 +1193,7 @@ name|GL_TEXTURE_2D
 argument_list|,
 name|GL_TEXTURE_WRAP_T
 argument_list|,
-name|GL_REPEAT
+name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
 name|funcs
@@ -1279,6 +1279,18 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
+if|if
+condition|(
+operator|!
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|isOpenGLES
+argument_list|()
+condition|)
+block|{
 name|funcs
 operator|->
 name|glPixelStorei
@@ -1350,8 +1362,11 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
+block|}
+else|else
+endif|#
+directive|endif
+block|{
 comment|// if the rect is wide enough it's cheaper to just
 comment|// extend it instead of doing an image copy
 if|if
@@ -1489,8 +1504,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
+block|}
 block|}
 return|return
 name|d_ptr
