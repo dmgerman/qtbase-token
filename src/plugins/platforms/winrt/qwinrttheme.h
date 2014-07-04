@@ -5,30 +5,35 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWINRTPLATFORMTHEME_H
+name|QWINRTTHEME_H
 end_ifndef
 begin_define
-DECL|macro|QWINRTPLATFORMTHEME_H
+DECL|macro|QWINRTTHEME_H
 define|#
 directive|define
-name|QWINRTPLATFORMTHEME_H
+name|QWINRTTHEME_H
 end_define
 begin_include
 include|#
 directive|include
 file|<qpa/qplatformtheme.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qplatformintegration.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QWinRTPlatformTheme
+name|QWinRTTheme
 range|:
 name|public
 name|QPlatformTheme
 block|{
 name|public
 operator|:
-name|QWinRTPlatformTheme
+name|QWinRTTheme
 argument_list|()
 block|;
 name|bool
@@ -45,6 +50,13 @@ argument_list|(
 argument|DialogType type
 argument_list|)
 specifier|const
+block|;
+specifier|static
+name|QVariant
+name|styleHint
+argument_list|(
+argument|QPlatformIntegration::StyleHint hint
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -56,6 +68,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QWINRTPLATFORMTHEME_H
+comment|// QWINRTTHEME_H
 end_comment
 end_unit
