@@ -25,6 +25,12 @@ file|<qpa/qplatformintegration.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QWinRTThemePrivate
+name|class
+name|QWinRTThemePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWinRTTheme
 range|:
@@ -51,13 +57,36 @@ argument|DialogType type
 argument_list|)
 specifier|const
 block|;
+specifier|const
+name|QPalette
+operator|*
+name|palette
+argument_list|(
+argument|Palette type = SystemPalette
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 specifier|static
 name|QVariant
 name|styleHint
 argument_list|(
 argument|QPlatformIntegration::StyleHint hint
 argument_list|)
-block|; }
+block|;
+name|private
+operator|:
+name|QScopedPointer
+operator|<
+name|QWinRTThemePrivate
+operator|>
+name|d_ptr
+block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QWinRTTheme
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
