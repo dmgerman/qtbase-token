@@ -143,6 +143,10 @@ name|UIScreen
 modifier|*
 name|m_uiScreen
 decl_stmt|;
+name|UIWindow
+modifier|*
+name|m_uiWindow
+decl_stmt|;
 name|QRect
 name|m_geometry
 decl_stmt|;
