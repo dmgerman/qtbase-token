@@ -440,6 +440,14 @@ operator|&
 name|separator
 argument_list|)
 block|;
+name|QPlatformScreen
+operator|*
+name|screenForGeometry
+argument_list|(
+argument|const QRect&newGeometry
+argument_list|)
+specifier|const
+block|;
 name|QScopedPointer
 operator|<
 name|QPlatformWindowPrivate
