@@ -466,12 +466,12 @@ endif|#
 directive|endif
 specifier|static
 name|QString
-name|cpuArchitecture
+name|buildCpuArchitecture
 parameter_list|()
 function_decl|;
 specifier|static
 name|QString
-name|fullCpuArchitecture
+name|buildAbi
 parameter_list|()
 function_decl|;
 specifier|static

@@ -749,88 +749,88 @@ begin_comment
 comment|/*!     \macro Q_CC_GHS     \relates<QtGlobal>      Defined if the application is compiled using Green Hills     Optimizing C++ Compilers. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_ALPHA     \relates<QtGlobal>      Defined if the application is compiled for Alpha processors.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_ALPHA     \relates<QtGlobal>      Defined if the application is compiled for Alpha processors.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_ARM     \relates<QtGlobal>      Defined if the application is compiled for ARM processors. Qt currently     supports three optional ARM revisions: \l Q_PROCESSOR_ARM_V5, \l     Q_PROCESSOR_ARM_V6, and \l Q_PROCESSOR_ARM_V7.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_ARM     \relates<QtGlobal>      Defined if the application is compiled for ARM processors. Qt currently     supports three optional ARM revisions: \l Q_PROCESSOR_ARM_V5, \l     Q_PROCESSOR_ARM_V6, and \l Q_PROCESSOR_ARM_V7.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_ARM_V5     \relates<QtGlobal>      Defined if the application is compiled for ARMv5 processors. The \l     Q_PROCESSOR_ARM macro is also defined when Q_PROCESSOR_ARM_V5 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_ARM_V5     \relates<QtGlobal>      Defined if the application is compiled for ARMv5 processors. The \l     Q_PROCESSOR_ARM macro is also defined when Q_PROCESSOR_ARM_V5 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_ARM_V6     \relates<QtGlobal>      Defined if the application is compiled for ARMv6 processors. The \l     Q_PROCESSOR_ARM and \l Q_PROCESSOR_ARM_V5 macros are also defined when     Q_PROCESSOR_ARM_V6 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_ARM_V6     \relates<QtGlobal>      Defined if the application is compiled for ARMv6 processors. The \l     Q_PROCESSOR_ARM and \l Q_PROCESSOR_ARM_V5 macros are also defined when     Q_PROCESSOR_ARM_V6 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_ARM_V7     \relates<QtGlobal>      Defined if the application is compiled for ARMv7 processors. The \l     Q_PROCESSOR_ARM, \l Q_PROCESSOR_ARM_V5, and \l Q_PROCESSOR_ARM_V6 macros     are also defined when Q_PROCESSOR_ARM_V7 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_ARM_V7     \relates<QtGlobal>      Defined if the application is compiled for ARMv7 processors. The \l     Q_PROCESSOR_ARM, \l Q_PROCESSOR_ARM_V5, and \l Q_PROCESSOR_ARM_V6 macros     are also defined when Q_PROCESSOR_ARM_V7 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_AVR32     \relates<QtGlobal>      Defined if the application is compiled for AVR32 processors.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_AVR32     \relates<QtGlobal>      Defined if the application is compiled for AVR32 processors.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_BLACKFIN     \relates<QtGlobal>      Defined if the application is compiled for Blackfin processors.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_BLACKFIN     \relates<QtGlobal>      Defined if the application is compiled for Blackfin processors.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_IA64     \relates<QtGlobal>      Defined if the application is compiled for IA-64 processors. This includes     all Itanium and Itanium 2 processors.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_IA64     \relates<QtGlobal>      Defined if the application is compiled for IA-64 processors. This includes     all Itanium and Itanium 2 processors.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS     \relates<QtGlobal>      Defined if the application is compiled for MIPS processors. Qt currently     supports seven MIPS revisions: \l Q_PROCESSOR_MIPS_I, \l     Q_PROCESSOR_MIPS_II, \l Q_PROCESSOR_MIPS_III, \l Q_PROCESSOR_MIPS_IV, \l     Q_PROCESSOR_MIPS_V, \l Q_PROCESSOR_MIPS_32, and \l Q_PROCESSOR_MIPS_64.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS     \relates<QtGlobal>      Defined if the application is compiled for MIPS processors. Qt currently     supports seven MIPS revisions: \l Q_PROCESSOR_MIPS_I, \l     Q_PROCESSOR_MIPS_II, \l Q_PROCESSOR_MIPS_III, \l Q_PROCESSOR_MIPS_IV, \l     Q_PROCESSOR_MIPS_V, \l Q_PROCESSOR_MIPS_32, and \l Q_PROCESSOR_MIPS_64.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_I     \relates<QtGlobal>      Defined if the application is compiled for MIPS-I processors. The \l     Q_PROCESSOR_MIPS macro is also defined when Q_PROCESSOR_MIPS_I is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_I     \relates<QtGlobal>      Defined if the application is compiled for MIPS-I processors. The \l     Q_PROCESSOR_MIPS macro is also defined when Q_PROCESSOR_MIPS_I is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_II     \relates<QtGlobal>      Defined if the application is compiled for MIPS-II processors. The \l     Q_PROCESSOR_MIPS and \l Q_PROCESSOR_MIPS_I macros are also defined when     Q_PROCESSOR_MIPS_II is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_II     \relates<QtGlobal>      Defined if the application is compiled for MIPS-II processors. The \l     Q_PROCESSOR_MIPS and \l Q_PROCESSOR_MIPS_I macros are also defined when     Q_PROCESSOR_MIPS_II is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_32     \relates<QtGlobal>      Defined if the application is compiled for MIPS32 processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, and \l Q_PROCESSOR_MIPS_II macros     are also defined when Q_PROCESSOR_MIPS_32 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_32     \relates<QtGlobal>      Defined if the application is compiled for MIPS32 processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, and \l Q_PROCESSOR_MIPS_II macros     are also defined when Q_PROCESSOR_MIPS_32 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_III     \relates<QtGlobal>      Defined if the application is compiled for MIPS-III processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, and \l Q_PROCESSOR_MIPS_II macros     are also defined when Q_PROCESSOR_MIPS_III is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_III     \relates<QtGlobal>      Defined if the application is compiled for MIPS-III processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, and \l Q_PROCESSOR_MIPS_II macros     are also defined when Q_PROCESSOR_MIPS_III is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_IV     \relates<QtGlobal>      Defined if the application is compiled for MIPS-IV processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, and \l     Q_PROCESSOR_MIPS_III macros are also defined when Q_PROCESSOR_MIPS_IV is     defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_IV     \relates<QtGlobal>      Defined if the application is compiled for MIPS-IV processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, and \l     Q_PROCESSOR_MIPS_III macros are also defined when Q_PROCESSOR_MIPS_IV is     defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_V     \relates<QtGlobal>      Defined if the application is compiled for MIPS-V processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, \l     Q_PROCESSOR_MIPS_III, and \l Q_PROCESSOR_MIPS_IV macros are also defined     when Q_PROCESSOR_MIPS_V is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_V     \relates<QtGlobal>      Defined if the application is compiled for MIPS-V processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, \l     Q_PROCESSOR_MIPS_III, and \l Q_PROCESSOR_MIPS_IV macros are also defined     when Q_PROCESSOR_MIPS_V is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_MIPS_64     \relates<QtGlobal>      Defined if the application is compiled for MIPS64 processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, \l     Q_PROCESSOR_MIPS_III, \l Q_PROCESSOR_MIPS_IV, and \l Q_PROCESSOR_MIPS_V     macros are also defined when Q_PROCESSOR_MIPS_64 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_MIPS_64     \relates<QtGlobal>      Defined if the application is compiled for MIPS64 processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, \l     Q_PROCESSOR_MIPS_III, \l Q_PROCESSOR_MIPS_IV, and \l Q_PROCESSOR_MIPS_V     macros are also defined when Q_PROCESSOR_MIPS_64 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_POWER     \relates<QtGlobal>      Defined if the application is compiled for POWER processors. Qt currently     supports two Power variants: \l Q_PROCESSOR_POWER_32 and \l     Q_PROCESSOR_POWER_64.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_POWER     \relates<QtGlobal>      Defined if the application is compiled for POWER processors. Qt currently     supports two Power variants: \l Q_PROCESSOR_POWER_32 and \l     Q_PROCESSOR_POWER_64.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_POWER_32     \relates<QtGlobal>      Defined if the application is compiled for 32-bit Power processors. The \l     Q_PROCESSOR_POWER macro is also defined when Q_PROCESSOR_POWER_32 is     defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_POWER_32     \relates<QtGlobal>      Defined if the application is compiled for 32-bit Power processors. The \l     Q_PROCESSOR_POWER macro is also defined when Q_PROCESSOR_POWER_32 is     defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_POWER_64     \relates<QtGlobal>      Defined if the application is compiled for 64-bit Power processors. The \l     Q_PROCESSOR_POWER macro is also defined when Q_PROCESSOR_POWER_64 is     defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_POWER_64     \relates<QtGlobal>      Defined if the application is compiled for 64-bit Power processors. The \l     Q_PROCESSOR_POWER macro is also defined when Q_PROCESSOR_POWER_64 is     defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_S390     \relates<QtGlobal>      Defined if the application is compiled for S/390 processors. Qt supports     one optional variant of S/390: Q_PROCESSOR_S390_X.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_S390     \relates<QtGlobal>      Defined if the application is compiled for S/390 processors. Qt supports     one optional variant of S/390: Q_PROCESSOR_S390_X.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_S390_X     \relates<QtGlobal>      Defined if the application is compiled for S/390x processors. The \l     Q_PROCESSOR_S390 macro is also defined when Q_PROCESSOR_S390_X is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_S390_X     \relates<QtGlobal>      Defined if the application is compiled for S/390x processors. The \l     Q_PROCESSOR_S390 macro is also defined when Q_PROCESSOR_S390_X is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_SH     \relates<QtGlobal>      Defined if the application is compiled for SuperH processors. Qt currently     supports one SuperH revision: \l Q_PROCESSOR_SH_4A.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_SH     \relates<QtGlobal>      Defined if the application is compiled for SuperH processors. Qt currently     supports one SuperH revision: \l Q_PROCESSOR_SH_4A.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_SH_4A     \relates<QtGlobal>      Defined if the application is compiled for SuperH 4A processors. The \l     Q_PROCESSOR_SH macro is also defined when Q_PROCESSOR_SH_4A is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_SH_4A     \relates<QtGlobal>      Defined if the application is compiled for SuperH 4A processors. The \l     Q_PROCESSOR_SH macro is also defined when Q_PROCESSOR_SH_4A is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_SPARC     \relates<QtGlobal>      Defined if the application is compiled for SPARC processors. Qt currently     supports one optional SPARC revision: \l Q_PROCESSOR_SPARC_V9.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_SPARC     \relates<QtGlobal>      Defined if the application is compiled for SPARC processors. Qt currently     supports one optional SPARC revision: \l Q_PROCESSOR_SPARC_V9.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_SPARC_V9     \relates<QtGlobal>      Defined if the application is compiled for SPARC V9 processors. The \l     Q_PROCESSOR_SPARC macro is also defined when Q_PROCESSOR_SPARC_V9 is     defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_SPARC_V9     \relates<QtGlobal>      Defined if the application is compiled for SPARC V9 processors. The \l     Q_PROCESSOR_SPARC macro is also defined when Q_PROCESSOR_SPARC_V9 is     defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_X86     \relates<QtGlobal>      Defined if the application is compiled for x86 processors. Qt currently     supports two x86 variants: \l Q_PROCESSOR_X86_32 and \l Q_PROCESSOR_X86_64.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_X86     \relates<QtGlobal>      Defined if the application is compiled for x86 processors. Qt currently     supports two x86 variants: \l Q_PROCESSOR_X86_32 and \l Q_PROCESSOR_X86_64.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_X86_32     \relates<QtGlobal>      Defined if the application is compiled for 32-bit x86 processors. This     includes all i386, i486, i586, and i686 processors. The \l Q_PROCESSOR_X86     macro is also defined when Q_PROCESSOR_X86_32 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_X86_32     \relates<QtGlobal>      Defined if the application is compiled for 32-bit x86 processors. This     includes all i386, i486, i586, and i686 processors. The \l Q_PROCESSOR_X86     macro is also defined when Q_PROCESSOR_X86_32 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_X86_64     \relates<QtGlobal>      Defined if the application is compiled for 64-bit x86 processors. This     includes all AMD64, Intel 64, and other x86_64/x64 processors. The \l     Q_PROCESSOR_X86 macro is also defined when Q_PROCESSOR_X86_64 is defined.      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \macro Q_PROCESSOR_X86_64     \relates<QtGlobal>      Defined if the application is compiled for 64-bit x86 processors. This     includes all AMD64, Intel 64, and other x86_64/x64 processors. The \l     Q_PROCESSOR_X86 macro is also defined when Q_PROCESSOR_X86_64 is defined.      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_comment
 comment|/*!   \macro QT_DISABLE_DEPRECATED_BEFORE   \relates<QtGlobal>    This macro can be defined in the project file to disable functions deprecated in   a specified version of Qt or any earlier version. The default version number is 5.0,   meaning that functions deprecated in or before Qt 5.0 will not be included.    Examples:   When using a future release of Qt 5, set QT_DISABLE_DEPRECATED_BEFORE=0x050100 to   disable functions deprecated in Qt 5.1 and earlier. In any release, set   QT_DISABLE_DEPRECATED_BEFORE=0x000000 to enable any functions, including the ones   deprecated in Qt 5.0  */
@@ -2838,14 +2838,14 @@ begin_comment
 comment|// Q_OS_UNIX
 end_comment
 begin_comment
-comment|/*!     \since 5.4      Returns the architecture of the CPU that Qt was compiled for, in text     format. Note that this may not match the actual CPU that the application is     running on if there's an emulation layer or if the CPU supports multiple     architectures (like x86-64 processors supporting i386 applications).      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new CPU types may be added over time.      Typical returned values are (note: list not exhaustive):     \list         \li "arm"         \li "i386"         \li "mips"         \li "x86_64"         \li "power"         \li "sparc"     \endlist      \sa QSysInfo::fullCpuArchitecture() */
+comment|/*!     \since 5.4      Returns the architecture of the CPU that Qt was compiled for, in text     format. Note that this may not match the actual CPU that the application is     running on if there's an emulation layer or if the CPU supports multiple     architectures (like x86-64 processors supporting i386 applications).      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new CPU types may be added over time.      Typical returned values are (note: list not exhaustive):     \list         \li "arm"         \li "i386"         \li "mips"         \li "x86_64"         \li "power"         \li "sparc"     \endlist      \sa QSysInfo::buildAbi() */
 end_comment
 begin_function
-DECL|function|cpuArchitecture
+DECL|function|buildCpuArchitecture
 name|QString
 name|QSysInfo
 operator|::
-name|cpuArchitecture
+name|buildCpuArchitecture
 parameter_list|()
 block|{
 return|return
@@ -2857,14 +2857,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Returns the full architecture string that Qt was compiled for. This string     is useful for identifying different, incompatible builds. For example, it     can be used as an identifier to request an upgrade package from a server.      The values returned from this function are kept stable as follows: the     mandatory components of the result will not change in future versions of     Qt, but optional suffixes may be added.      The returned value is composed of three or more parts, separated by dashes     ("-"). They are:      \table     \header \li Component           \li Value     \row    \li CPU Architecture    \li The same as QSysInfo::cpuArchitecture(), such as "arm", "i386", "mips" or "x86_64"     \row    \li Endianness          \li "little_endian" or "big_endian"     \row    \li Word size           \li Whether it's a 32- or 64-bit application. Possible values are:                                         "llp64" (Windows 64-bit), "lp64" (Unix 64-bit), "ilp32" (32-bit)     \row    \li (Optional) ABI      \li Zero or more components identifying different ABIs possible in this architecture.                                         Currently, Qt has optional ABI components for ARM and MIPS processors: one                                         component is the main ABI (such as "eabi", "o32", "n32", "o64"); another is                                         whether the calling convention is using hardware floating point registers ("hardfloat"                                         is present).                                          Additionally, if Qt was configured with \c{-qreal float}, the ABI option tag "qreal_float"                                         will be present. If Qt was configured with another type as qreal, that type is present after                                         "qreal_", with all characters other than letters and digits escaped by an underscore, followed                                         by two hex digits. For example, \c{-qreal long double} becomes "qreal_long_20double".     \endtable      \sa QSysInfo::cpuArchitecture() */
+comment|/*!     \since 5.4      Returns the full architecture string that Qt was compiled for. This string     is useful for identifying different, incompatible builds. For example, it     can be used as an identifier to request an upgrade package from a server.      The values returned from this function are kept stable as follows: the     mandatory components of the result will not change in future versions of     Qt, but optional suffixes may be added.      The returned value is composed of three or more parts, separated by dashes     ("-"). They are:      \table     \header \li Component           \li Value     \row    \li CPU Architecture    \li The same as QSysInfo::buildCpuArchitecture(), such as "arm", "i386", "mips" or "x86_64"     \row    \li Endianness          \li "little_endian" or "big_endian"     \row    \li Word size           \li Whether it's a 32- or 64-bit application. Possible values are:                                         "llp64" (Windows 64-bit), "lp64" (Unix 64-bit), "ilp32" (32-bit)     \row    \li (Optional) ABI      \li Zero or more components identifying different ABIs possible in this architecture.                                         Currently, Qt has optional ABI components for ARM and MIPS processors: one                                         component is the main ABI (such as "eabi", "o32", "n32", "o64"); another is                                         whether the calling convention is using hardware floating point registers ("hardfloat"                                         is present).                                          Additionally, if Qt was configured with \c{-qreal float}, the ABI option tag "qreal_float"                                         will be present. If Qt was configured with another type as qreal, that type is present after                                         "qreal_", with all characters other than letters and digits escaped by an underscore, followed                                         by two hex digits. For example, \c{-qreal long double} becomes "qreal_long_20double".     \endtable      \sa QSysInfo::buildCpuArchitecture() */
 end_comment
 begin_function
-DECL|function|fullCpuArchitecture
+DECL|function|buildAbi
 name|QString
 name|QSysInfo
 operator|::
-name|fullCpuArchitecture
+name|buildAbi
 parameter_list|()
 block|{
 ifdef|#
