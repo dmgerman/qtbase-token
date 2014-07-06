@@ -6898,6 +6898,8 @@ block|}
 if|if
 condition|(
 name|msec
+operator|>
+literal|0
 operator|&&
 operator|!
 name|m_readOnly
