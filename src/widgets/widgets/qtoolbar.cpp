@@ -2476,7 +2476,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QToolBar::toolButtonStyle     \brief the style of toolbar buttons      This property defines the style of all tool buttons that are added     as \l{QAction}s. Note that if you add a QToolButton with the     addWidget() method, it will not get this button style.      The default is Qt::ToolButtonIconOnly. */
+comment|/*!     \property QToolBar::toolButtonStyle     \brief the style of toolbar buttons      This property defines the style of all tool buttons that are added     as \l{QAction}s. Note that if you add a QToolButton with the     addWidget() method, it will not get this button style.      To have the style of toolbuttons follow the system settings, set this property to Qt::ToolButtonFollowStyle.     On Unix, the user settings from the desktop environment will be used.     On other platforms, Qt::ToolButtonFollowStyle means icon only.      The default is Qt::ToolButtonIconOnly. */
 end_comment
 begin_function
 DECL|function|toolButtonStyle

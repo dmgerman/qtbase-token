@@ -1394,7 +1394,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QToolButton::toolButtonStyle     \brief whether the tool button displays an icon only, text only,     or text beside/below the icon.      The default is Qt::ToolButtonIconOnly.      To have the style of toolbuttons follow the system settings (as available     in GNOME and KDE desktop environments), set this property to Qt::ToolButtonFollowStyle.      QToolButton automatically connects this slot to the relevant     signal in the QMainWindow in which is resides. */
+comment|/*!     \property QToolButton::toolButtonStyle     \brief whether the tool button displays an icon only, text only,     or text beside/below the icon.      The default is Qt::ToolButtonIconOnly.      To have the style of toolbuttons follow the system settings, set this property to Qt::ToolButtonFollowStyle.     On Unix, the user settings from the desktop environment will be used.     On other platforms, Qt::ToolButtonFollowStyle means icon only.      QToolButton automatically connects this slot to the relevant     signal in the QMainWindow in which is resides. */
 end_comment
 begin_comment
 comment|/*!     \property QToolButton::arrowType     \brief whether the button displays an arrow instead of a normal icon      This displays an arrow as the icon for the QToolButton.      By default, this property is set to Qt::NoArrow. */
