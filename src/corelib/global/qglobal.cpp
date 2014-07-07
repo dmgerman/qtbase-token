@@ -204,6 +204,23 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_SOLARIS
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<sys/systeminfo.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -2701,18 +2718,71 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-comment|// we could use detectUnixVersion() above, but we only need a field no other function does
+name|long
+name|ret
+init|=
+operator|-
+literal|1
+decl_stmt|;
 name|struct
 name|utsname
 name|u
 decl_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_SOLARIS
+argument_list|)
+comment|// We need a special call for Solaris because uname(2) on x86 returns "i86pc" for
+comment|// both 32- and 64-bit CPUs. Reference:
+comment|// http://docs.oracle.com/cd/E18752_01/html/816-5167/sysinfo-2.html#REFMAN2sysinfo-2
+comment|// http://fxr.watson.org/fxr/source/common/syscall/systeminfo.c?v=OPENSOLARIS
+comment|// http://fxr.watson.org/fxr/source/common/conf/param.c?v=OPENSOLARIS;im=10#L530
 if|if
 condition|(
+name|ret
+operator|==
+operator|-
+literal|1
+condition|)
+name|ret
+operator|=
+name|sysinfo
+argument_list|(
+name|SI_ARCHITECTURE_64
+argument_list|,
+name|u
+operator|.
+name|machine
+argument_list|,
+sizeof|sizeof
+name|u
+operator|.
+name|machine
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|ret
+operator|==
+operator|-
+literal|1
+condition|)
+name|ret
+operator|=
 name|uname
 argument_list|(
 operator|&
 name|u
 argument_list|)
+expr_stmt|;
+comment|// we could use detectUnixVersion() above, but we only need a field no other function does
+if|if
+condition|(
+name|ret
 operator|!=
 operator|-
 literal|1
@@ -2877,7 +2947,7 @@ name|defined
 argument_list|(
 name|QT_BUILD_INTERNAL
 argument_list|)
-comment|// Solaris psrinfo -v says "sparcv9", but uname -m says "sun4u"
+comment|// Solaris sysinfo(2) (above) uses "sparcv9", but uname -m says "sun4u";
 comment|// Linux says "sparc64"
 if|if
 condition|(
@@ -2984,6 +3054,26 @@ return|return
 name|QStringLiteral
 argument_list|(
 literal|"i386"
+argument_list|)
+return|;
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|u
+operator|.
+name|machine
+argument_list|,
+literal|"amd64"
+argument_list|)
+operator|==
+literal|0
+condition|)
+comment|// Solaris
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"x86_64"
 argument_list|)
 return|;
 endif|#
