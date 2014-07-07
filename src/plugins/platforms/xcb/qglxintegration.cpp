@@ -699,6 +699,11 @@ argument_list|(
 name|screen
 argument_list|)
 member_init_list|,
+name|m_config
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|m_context
 argument_list|(
 literal|0
@@ -853,6 +858,10 @@ argument_list|,
 name|m_format
 argument_list|)
 decl_stmt|;
+name|m_config
+operator|=
+name|config
+expr_stmt|;
 name|XVisualInfo
 modifier|*
 name|visualInfo
@@ -1977,6 +1986,11 @@ name|configs
 index|[
 literal|0
 index|]
+expr_stmt|;
+comment|// Store the config.
+name|m_config
+operator|=
+name|config
 expr_stmt|;
 block|}
 name|Q_ASSERT

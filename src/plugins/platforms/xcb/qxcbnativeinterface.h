@@ -70,6 +70,8 @@ name|Screen
 block|,
 name|EglContext
 block|,
+name|GLXConfig
+block|,
 name|GLXContext
 block|,
 name|AppTime
@@ -293,6 +295,16 @@ specifier|static
 name|void
 operator|*
 name|glxContextForContext
+argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|)
+block|;
+specifier|static
+name|void
+operator|*
+name|glxConfigForContext
 argument_list|(
 name|QOpenGLContext
 operator|*

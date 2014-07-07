@@ -140,6 +140,15 @@ return|return
 name|m_context
 return|;
 block|}
+name|GLXFBConfig
+name|glxConfig
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_config
+return|;
+block|}
 name|QVariant
 name|nativeHandle
 argument_list|()
@@ -189,6 +198,9 @@ block|;
 name|QXcbScreen
 operator|*
 name|m_screen
+block|;
+name|GLXFBConfig
+name|m_config
 block|;
 name|GLXContext
 name|m_context
