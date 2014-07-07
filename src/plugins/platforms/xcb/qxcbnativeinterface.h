@@ -70,6 +70,8 @@ name|Screen
 block|,
 name|EglContext
 block|,
+name|EglConfig
+block|,
 name|GLXConfig
 block|,
 name|GLXContext
@@ -285,6 +287,16 @@ specifier|static
 name|void
 operator|*
 name|eglContextForContext
+argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|)
+block|;
+specifier|static
+name|void
+operator|*
+name|eglConfigForContext
 argument_list|(
 name|QOpenGLContext
 operator|*
