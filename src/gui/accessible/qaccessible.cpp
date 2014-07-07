@@ -4011,7 +4011,7 @@ begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::scrollToSubstring(int startIndex, int endIndex)      Ensures that the text between \a startIndex and \a endIndex is visible. */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility     \inmodule QtGui     \internal      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      \sa QAccessibleInterface      \l{IAccessible2 Specification} */
+comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      \sa QAccessibleInterface      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleEditableTextInterface::~QAccessibleEditableTextInterface()     Destroys the QAccessibleEditableTextInterface. */
