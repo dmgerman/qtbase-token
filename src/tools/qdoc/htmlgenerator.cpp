@@ -7376,17 +7376,14 @@ name|const_iterator
 name|s
 decl_stmt|;
 name|QString
-name|fullTitle
+name|htmlTitle
 init|=
 name|qcn
 operator|->
 name|fullTitle
 argument_list|()
-decl_stmt|;
-name|QString
-name|htmlTitle
-init|=
-name|fullTitle
+operator|+
+literal|" QML Type"
 decl_stmt|;
 name|generateHeader
 argument_list|(
@@ -7438,7 +7435,7 @@ argument_list|)
 expr_stmt|;
 name|generateTitle
 argument_list|(
-name|fullTitle
+name|htmlTitle
 argument_list|,
 name|Text
 argument_list|()
@@ -7815,13 +7812,8 @@ name|qbtn
 operator|->
 name|fullTitle
 argument_list|()
-decl_stmt|;
-name|QString
-name|fullTitle
-init|=
-literal|"QML Basic Type: "
 operator|+
-name|htmlTitle
+literal|" QML Basic Type"
 decl_stmt|;
 name|marker
 operator|=
@@ -7846,7 +7838,7 @@ argument_list|)
 expr_stmt|;
 name|generateTitle
 argument_list|(
-name|fullTitle
+name|htmlTitle
 argument_list|,
 name|Text
 argument_list|()
@@ -9169,14 +9161,9 @@ operator|->
 name|fullTitle
 argument_list|()
 decl_stmt|;
-name|QString
-name|htmlTitle
-init|=
-name|fullTitle
-decl_stmt|;
 name|generateHeader
 argument_list|(
-name|htmlTitle
+name|fullTitle
 argument_list|,
 name|cn
 argument_list|,
