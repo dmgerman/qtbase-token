@@ -34,7 +34,7 @@ name|BGR
 block|,
 name|Indexed
 block|,
-name|GrayScale
+name|Grayscale
 block|,
 name|CMYK
 block|,
@@ -1280,7 +1280,7 @@ name|Q_DECL_NOTHROW
 operator|:
 name|QPixelFormat
 argument_list|(
-argument|GrayScale
+argument|Grayscale
 argument_list|,
 argument|channelSize
 argument_list|,

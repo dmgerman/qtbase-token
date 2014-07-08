@@ -17544,7 +17544,7 @@ name|QPixelFormat
 argument_list|(
 name|QPixelFormat
 operator|::
-name|GrayScale
+name|Grayscale
 argument_list|,
 comment|/*RED*/
 literal|1
@@ -17595,7 +17595,7 @@ name|QPixelFormat
 argument_list|(
 name|QPixelFormat
 operator|::
-name|GrayScale
+name|Grayscale
 argument_list|,
 comment|/*RED*/
 literal|1
