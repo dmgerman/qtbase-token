@@ -286,6 +286,11 @@ name|void
 name|setPaddingLeftToSizeWidth
 argument_list|()
 block|;
+name|QPixmap
+name|img
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|ItemType
@@ -366,6 +371,11 @@ block|;
 name|virtual
 name|QSize
 name|size
+argument_list|()
+specifier|const
+block|;
+name|QPixmap
+name|img
 argument_list|()
 specifier|const
 block|;
@@ -642,6 +652,20 @@ name|virtual
 name|void
 name|setPaddingLeftToSizeWidth
 argument_list|()
+block|;
+name|QSize
+name|sizeImage
+argument_list|(
+argument|const QStyleOption *opt
+argument_list|)
+specifier|const
+block|;
+name|QPixmap
+name|img
+argument_list|(
+argument|const QStyleOption *opt
+argument_list|)
+specifier|const
 block|;
 name|private
 operator|:
@@ -931,6 +955,20 @@ name|QWidget
 operator|*
 name|w
 argument_list|)
+block|;
+name|QSize
+name|sizeCheckBox
+argument_list|(
+argument|const QStyleOption *opt
+argument_list|)
+specifier|const
+block|;
+name|QPixmap
+name|imgCheckBox
+argument_list|(
+argument|const QStyleOption *opt
+argument_list|)
+specifier|const
 block|;
 name|protected
 operator|:
@@ -1609,6 +1647,12 @@ end_decl_stmt
 begin_decl_stmt
 name|QPalette
 name|m_standardPalette
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|AndroidCompoundButtonControl
+modifier|*
+name|checkBoxControl
 decl_stmt|;
 end_decl_stmt
 begin_endif
