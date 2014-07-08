@@ -764,7 +764,7 @@ end_if
 begin_function_decl
 name|Q_CORE_EXPORT
 name|bool
-name|qWinLogToStderr
+name|qt_logging_to_console
 parameter_list|()
 function_decl|;
 end_function_decl
@@ -869,7 +869,7 @@ comment|// log to system log only if output is not redirected, and no console is
 if|if
 condition|(
 operator|!
-name|qWinLogToStderr
+name|qt_logging_to_console
 argument_list|()
 operator|&&
 name|stream
