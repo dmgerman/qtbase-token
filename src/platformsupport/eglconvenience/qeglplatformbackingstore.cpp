@@ -941,50 +941,15 @@ name|RasterGLSurface
 operator|)
 condition|)
 return|return;
-comment|// Child windows do not get real native surfaces and so share the same
-comment|// format as the parent, regardless of what has been requested. The
-comment|// exception is WA_TranslucentBackground that sets alphaBufferSize in the
-comment|// requested format, this has to be taken into account when compositing.
-specifier|const
-name|bool
-name|translucent
-init|=
-name|m_window
-operator|->
-name|window
-argument_list|()
-operator|->
-name|requestedFormat
-argument_list|()
-operator|.
-name|alphaBufferSize
-argument_list|()
-operator|>
-literal|0
-decl_stmt|;
-specifier|const
-name|QImage
-operator|::
-name|Format
-name|format
-init|=
-name|translucent
-condition|?
-name|QImage
-operator|::
-name|Format_RGBA8888
-else|:
-name|QImage
-operator|::
-name|Format_RGBX8888
-decl_stmt|;
 name|m_image
 operator|=
 name|QImage
 argument_list|(
 name|size
 argument_list|,
-name|format
+name|QImage
+operator|::
+name|Format_RGBA8888
 argument_list|)
 expr_stmt|;
 name|m_window
