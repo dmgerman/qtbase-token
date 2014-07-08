@@ -933,7 +933,7 @@ name|ret
 operator|<<
 name|QSysInfo
 operator|::
-name|osType
+name|kernelType
 argument_list|()
 expr_stmt|;
 endif|#
