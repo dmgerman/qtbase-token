@@ -908,7 +908,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|_q_nativeFileSelected
+name|_q_emitUrlSelected
 parameter_list|(
 specifier|const
 name|QUrl
@@ -919,7 +919,7 @@ function_decl|;
 end_function_decl
 begin_decl_stmt
 name|void
-name|_q_nativeFilesSelected
+name|_q_emitUrlsSelected
 argument_list|(
 specifier|const
 name|QList

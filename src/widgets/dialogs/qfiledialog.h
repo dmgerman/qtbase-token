@@ -1047,13 +1047,13 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_nativeFileSelected(const QUrl&)
+argument|void _q_emitUrlSelected(const QUrl&)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_nativeFilesSelected(const QList<QUrl>&)
+argument|void _q_emitUrlsSelected(const QList<QUrl>&)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
