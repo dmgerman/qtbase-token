@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -146,11 +146,19 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
+public|public:
+name|tst_QDir
+parameter_list|()
+constructor_decl|;
 private|private
 name|slots
 private|:
 name|void
 name|init
+parameter_list|()
+function_decl|;
+name|void
+name|initTestCase
 parameter_list|()
 function_decl|;
 name|void
@@ -469,23 +477,22 @@ parameter_list|()
 function_decl|;
 private|private:
 DECL|member|m_dataPath
+specifier|const
 name|QString
 name|m_dataPath
 decl_stmt|;
 block|}
 class|;
 end_class
-begin_function
-DECL|function|init
-name|void
+begin_constructor
+DECL|function|tst_QDir
 name|tst_QDir
 operator|::
-name|init
+name|tst_QDir
 parameter_list|()
-block|{
-comment|// Directory under which testdata can be found.
+member_init_list|:
 name|m_dataPath
-operator|=
+argument_list|(
 name|QFileInfo
 argument_list|(
 name|QFINDTESTDATA
@@ -496,18 +503,17 @@ argument_list|)
 operator|.
 name|absolutePath
 argument_list|()
-expr_stmt|;
-name|QVERIFY2
-argument_list|(
-operator|!
-name|m_dataPath
-operator|.
-name|isEmpty
-argument_list|()
-argument_list|,
-literal|"test data not found"
 argument_list|)
-expr_stmt|;
+block|{ }
+end_constructor
+begin_function
+DECL|function|init
+name|void
+name|tst_QDir
+operator|::
+name|init
+parameter_list|()
+block|{
 comment|// Some tests want to use "." as relative path to data.
 name|QVERIFY2
 argument_list|(
@@ -524,6 +530,27 @@ literal|"Could not chdir to "
 operator|+
 name|m_dataPath
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QDir
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QVERIFY2
+argument_list|(
+operator|!
+name|m_dataPath
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|,
+literal|"test data not found"
 argument_list|)
 expr_stmt|;
 block|}
