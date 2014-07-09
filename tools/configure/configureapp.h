@@ -347,6 +347,9 @@ name|QString
 name|dbusPath
 decl_stmt|;
 name|QString
+name|dbusHostPath
+decl_stmt|;
+name|QString
 name|mysqlPath
 decl_stmt|;
 name|QString
