@@ -1721,7 +1721,7 @@ return|;
 end_expr_stmt
 begin_return
 return|return
-name|QString
+name|QUrl
 argument_list|()
 return|;
 end_return
