@@ -4939,6 +4939,21 @@ block|,
 literal|"AC DG Tr\xC3\xA9sor SSL"
 block|,
 comment|// intermediate certificate linking back to ANSSI French National Security Agency
+literal|"27:83"
+block|,
+literal|"NIC Certifying Authority"
+block|,
+comment|// intermediate certificate from NIC India (2007)
+literal|"27:92"
+block|,
+literal|"NIC CA 2011"
+block|,
+comment|// intermediate certificate from NIC India (2011)
+literal|"27:b1"
+block|,
+literal|"NIC CA 2014"
+block|,
+comment|// intermediate certificate from NIC India (2014)
 literal|0
 block|}
 decl_stmt|;
