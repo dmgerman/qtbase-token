@@ -248,7 +248,7 @@ name|QString
 name|caption
 decl_stmt|;
 DECL|member|directory
-name|QString
+name|QUrl
 name|directory
 decl_stmt|;
 DECL|member|selection
@@ -332,11 +332,11 @@ name|void
 name|init
 argument_list|(
 specifier|const
-name|QString
+name|QUrl
 operator|&
 name|directory
 operator|=
-name|QString
+name|QUrl
 argument_list|()
 argument_list|,
 specifier|const
@@ -374,11 +374,11 @@ name|string
 argument_list|)
 block|;
 specifier|static
-name|QString
+name|QUrl
 name|workingDirectory
 argument_list|(
 specifier|const
-name|QString
+name|QUrl
 operator|&
 name|path
 argument_list|)
@@ -388,7 +388,7 @@ name|QString
 name|initialSelection
 argument_list|(
 specifier|const
-name|QString
+name|QUrl
 operator|&
 name|path
 argument_list|)
@@ -759,7 +759,7 @@ name|void
 name|setLastVisitedDirectory
 parameter_list|(
 specifier|const
-name|QString
+name|QUrl
 modifier|&
 name|dir
 parameter_list|)
