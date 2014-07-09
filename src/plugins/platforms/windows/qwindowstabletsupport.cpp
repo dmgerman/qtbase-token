@@ -1393,6 +1393,18 @@ name|QTabletEvent
 operator|::
 name|Stylus
 return|;
+if|if
+condition|(
+name|cursorType
+operator|==
+literal|0x4020
+condition|)
+comment|// Surface Pro 2 tablet device
+return|return
+name|QTabletEvent
+operator|::
+name|Stylus
+return|;
 switch|switch
 condition|(
 name|cursorType
