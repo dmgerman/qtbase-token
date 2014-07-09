@@ -34544,6 +34544,15 @@ literal|"[9223372036854775807]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::arg: Argument missing: \"\" , 0"
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QString
@@ -34556,6 +34565,15 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::arg: Argument missing: \"\" , 0"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -34576,6 +34594,15 @@ literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::arg: Argument missing: \" \" , 0"
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QString
@@ -34592,6 +34619,15 @@ name|QString
 argument_list|(
 literal|" "
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::arg: Argument missing: \"%\" , 0"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -34612,6 +34648,15 @@ literal|"%"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::arg: Argument missing: \"%%\" , 0"
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QString
@@ -34628,6 +34673,15 @@ name|QString
 argument_list|(
 literal|"%%"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::arg: Argument missing: \"%%%\" , 0"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
