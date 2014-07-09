@@ -10329,12 +10329,10 @@ decl_stmt|;
 name|initialBookmarks
 operator|<<
 name|QUrl
-operator|::
-name|fromLocalFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|""
+literal|"file:"
 argument_list|)
 argument_list|)
 operator|<<
@@ -16723,12 +16721,10 @@ operator|.
 name|append
 argument_list|(
 name|QUrl
-operator|::
-name|fromLocalFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|""
+literal|"file:"
 argument_list|)
 argument_list|)
 argument_list|)

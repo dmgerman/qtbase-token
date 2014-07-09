@@ -1238,6 +1238,14 @@ name|toLocalFile
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|cleanUrl
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|url
 operator|=
 name|QUrl
