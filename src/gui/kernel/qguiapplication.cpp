@@ -7075,6 +7075,10 @@ name|window
 operator|.
 name|isNull
 argument_list|()
+operator|||
+name|e
+operator|->
+name|nullWindow
 condition|)
 block|{
 comment|// QTBUG-36364, check if window closed in response to press
