@@ -8045,6 +8045,12 @@ comment|//
 comment|// specify get function, for compatibiliy we accept functions
 comment|// returning pointers, or const char * for QByteArray.
 comment|//
+name|QSet
+argument_list|<
+name|QByteArray
+argument_list|>
+name|definedProperties
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -8093,6 +8099,53 @@ name|isEmpty
 argument_list|()
 condition|)
 continue|continue;
+if|if
+condition|(
+name|definedProperties
+operator|.
+name|contains
+argument_list|(
+name|p
+operator|.
+name|name
+argument_list|)
+condition|)
+block|{
+name|QByteArray
+name|msg
+init|=
+literal|"The property '"
+operator|+
+name|p
+operator|.
+name|name
+operator|+
+literal|"' is defined multiple times in class "
+operator|+
+name|cdef
+operator|->
+name|classname
+operator|+
+literal|"."
+decl_stmt|;
+name|warning
+argument_list|(
+name|msg
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|definedProperties
+operator|.
+name|insert
+argument_list|(
+name|p
+operator|.
+name|name
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

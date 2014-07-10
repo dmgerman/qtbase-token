@@ -10314,6 +10314,34 @@ argument_list|(
 literal|"standard input:1: Warning: Property declaration x has no READ accessor function or associated MEMBER variable. The property will be invalid."
 argument_list|)
 expr_stmt|;
+comment|// This should output a warning
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Duplicate property warning"
+argument_list|)
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"class X : public QObject { Q_OBJECT Q_PROPERTY(int x READ x) Q_PROPERTY(int x READ y) };"
+argument_list|)
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+literal|0
+operator|<<
+name|QString
+argument_list|(
+literal|"IGNORE_ALL_STDOUT"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"standard input:1: Warning: The property 'x' is defined multiple times in class X."
+argument_list|)
+expr_stmt|;
 comment|// Passing "-nn" should NOT suppress the warning
 name|QTest
 operator|::
