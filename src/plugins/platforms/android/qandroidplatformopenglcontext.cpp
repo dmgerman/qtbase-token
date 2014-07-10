@@ -160,32 +160,29 @@ argument_list|)
 decl_stmt|;
 name|needsWorkaround
 operator|=
-name|qstrcmp
+name|qstrncmp
 argument_list|(
 name|rendererString
 argument_list|,
-literal|"Mali-400 MP"
+literal|"Mali-4xx"
+argument_list|,
+literal|6
 argument_list|)
 operator|==
 literal|0
+comment|// Mali-400, Mali-450
 operator|||
-name|qstrcmp
+name|qstrncmp
 argument_list|(
 name|rendererString
 argument_list|,
-literal|"Adreno (TM) 200"
-argument_list|)
-operator|==
-literal|0
-operator|||
-name|qstrcmp
-argument_list|(
-name|rendererString
+literal|"Adreno (TM) 2xx"
 argument_list|,
-literal|"Adreno (TM) 205"
+literal|13
 argument_list|)
 operator|==
 literal|0
+comment|// Adreno 200, 203, 205
 operator|||
 name|qstrcmp
 argument_list|(
