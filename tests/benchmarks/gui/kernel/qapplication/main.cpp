@@ -54,7 +54,14 @@ name|argv
 index|[]
 init|=
 block|{
+expr|const_cast
+operator|<
+name|char
+operator|*
+operator|>
+operator|(
 literal|"tst_qapplication"
+operator|)
 block|}
 decl_stmt|;
 name|QBENCHMARK
