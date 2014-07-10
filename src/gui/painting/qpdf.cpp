@@ -13122,7 +13122,7 @@ name|rawdata
 argument_list|,
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)
@@ -13284,7 +13284,7 @@ operator|*
 operator|)
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)
@@ -13427,7 +13427,7 @@ operator|*
 operator|)
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)

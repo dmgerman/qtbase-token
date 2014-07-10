@@ -132,7 +132,14 @@ literal|"f"
 operator|<<
 literal|"force"
 argument_list|,
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"main"
+argument_list|,
 literal|"Overwrite existing files."
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|parser

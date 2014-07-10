@@ -4155,8 +4155,24 @@ block|}
 block|}
 block|}
 comment|// successful read; check for "@2x" file name suffix and set device pixel ratio.
+specifier|static
+name|bool
+name|disable2xImageLoading
+init|=
+operator|!
+name|qgetenv
+argument_list|(
+literal|"QT_HIGHDPI_DISABLE_2X_IMAGE_LOADING"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|disable2xImageLoading
+operator|&&
 name|QFileInfo
 argument_list|(
 name|fileName
