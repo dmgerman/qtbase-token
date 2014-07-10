@@ -15323,10 +15323,9 @@ name|date
 operator|.
 name|toString
 argument_list|(
-name|QStringLiteral
-argument_list|(
-literal|"yyyy-MM-dd"
-argument_list|)
+name|Qt
+operator|::
+name|ISODate
 argument_list|)
 operator|<<
 literal|')'
