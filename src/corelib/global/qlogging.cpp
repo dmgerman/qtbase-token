@@ -2805,9 +2805,13 @@ name|char
 name|timeTokenC
 index|[]
 init|=
-literal|"%{time}"
+literal|"%{time"
 decl_stmt|;
 end_decl_stmt
+begin_comment
+DECL|variable|timeTokenC
+comment|//not a typo: this command has arguments
+end_comment
 begin_decl_stmt
 DECL|variable|ifCategoryTokenC
 specifier|static
