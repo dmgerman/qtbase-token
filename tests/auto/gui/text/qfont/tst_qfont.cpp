@@ -3328,6 +3328,8 @@ literal|"Times New Roman"
 operator|<<
 literal|"Times"
 operator|<<
+literal|"Droid Serif"
+operator|<<
 name|getPlatformGenericFont
 argument_list|(
 literal|"serif"
@@ -3352,6 +3354,8 @@ operator|<<
 literal|"Courier New"
 operator|<<
 literal|"Monaco"
+operator|<<
+literal|"Droid Sans Mono"
 operator|<<
 name|getPlatformGenericFont
 argument_list|(
@@ -3378,6 +3382,10 @@ literal|"Comic Sans MS"
 operator|<<
 literal|"Apple Chancery"
 operator|<<
+literal|"Roboto"
+operator|<<
+literal|"Droid Sans"
+operator|<<
 name|getPlatformGenericFont
 argument_list|(
 literal|"cursive"
@@ -3403,6 +3411,10 @@ literal|"Impact"
 operator|<<
 literal|"Zapfino"
 operator|<<
+literal|"Roboto"
+operator|<<
+literal|"Droid Sans"
+operator|<<
 name|getPlatformGenericFont
 argument_list|(
 literal|"fantasy"
@@ -3427,6 +3439,10 @@ operator|<<
 literal|"Arial"
 operator|<<
 literal|"Lucida Grande"
+operator|<<
+literal|"Roboto"
+operator|<<
+literal|"Droid Sans"
 operator|<<
 name|getPlatformGenericFont
 argument_list|(
