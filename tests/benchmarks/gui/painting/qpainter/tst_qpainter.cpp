@@ -7871,7 +7871,7 @@ literal|3
 condition|;
 name|i
 operator|+=
-literal|.1
+literal|.1f
 control|)
 name|QTest
 operator|::
@@ -9183,7 +9183,7 @@ literal|3
 condition|;
 name|i
 operator|+=
-literal|.1
+literal|.1f
 control|)
 name|QTest
 operator|::

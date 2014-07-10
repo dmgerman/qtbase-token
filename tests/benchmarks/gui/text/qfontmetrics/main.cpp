@@ -95,6 +95,10 @@ operator|.
 name|height
 argument_list|()
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|fontHeight
+argument_list|)
 block|}
 end_function
 begin_function

@@ -497,12 +497,16 @@ index|[]
 init|=
 literal|"abcd efgh ijkl mnop qrst uvwx yz!$. ABCD 1234"
 decl_stmt|;
+specifier|const
 name|int
 name|len
 init|=
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|chars
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QString
