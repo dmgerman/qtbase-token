@@ -17931,7 +17931,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QApplication::cursorFlashTime     \brief the text cursor's flash (blink) time in milliseconds      The flash time is the time required to display, invert and restore the     caret display. Usually the text cursor is displayed for half the cursor     flash time, then hidden for the same amount of time, but this may vary.      The default value on X11 is 1000 milliseconds. On Windows, the     \uicontrol{Control Panel} value is used and setting this property sets the cursor     flash time for all applications.      We recommend that widgets do not cache this value as it may change at any     time if the user changes the global desktop settings. */
+comment|/*!     \property QApplication::cursorFlashTime     \brief the text cursor's flash (blink) time in milliseconds      The flash time is the time required to display, invert and restore the     caret display. Usually the text cursor is displayed for half the cursor     flash time, then hidden for the same amount of time, but this may vary.      The default value on X11 is 1000 milliseconds. On Windows, the     \uicontrol{Control Panel} value is used and setting this property sets the cursor     flash time for all applications.      We recommend that widgets do not cache this value as it may change at any     time if the user changes the global desktop settings.      \note This property may hold a negative value, for instance if cursor     blinking is disabled. */
 end_comment
 begin_function
 DECL|function|setCursorFlashTime

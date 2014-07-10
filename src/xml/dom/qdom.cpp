@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qxml_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qvariant.h>
 end_include
 begin_include
@@ -2533,6 +2538,10 @@ name|QXmlReader
 modifier|*
 name|reader
 parameter_list|,
+name|QXmlSimpleReader
+modifier|*
+name|simpleReader
+parameter_list|,
 name|QString
 modifier|*
 name|errorMsg
@@ -2789,6 +2798,10 @@ parameter_list|(
 name|QDomDocumentPrivate
 modifier|*
 name|d
+parameter_list|,
+name|QXmlSimpleReader
+modifier|*
+name|reader
 parameter_list|,
 name|bool
 name|namespaceProcessing
@@ -3052,6 +3065,11 @@ DECL|member|locator
 name|QXmlLocator
 modifier|*
 name|locator
+decl_stmt|;
+DECL|member|reader
+name|QXmlSimpleReader
+modifier|*
+name|reader
 decl_stmt|;
 block|}
 class|;
@@ -19815,6 +19833,9 @@ argument_list|,
 operator|&
 name|reader
 argument_list|,
+operator|&
+name|reader
+argument_list|,
 name|errorMsg
 argument_list|,
 name|errorLine
@@ -19838,6 +19859,10 @@ parameter_list|,
 name|QXmlReader
 modifier|*
 name|reader
+parameter_list|,
+name|QXmlSimpleReader
+modifier|*
+name|simpleReader
 parameter_list|,
 name|QString
 modifier|*
@@ -19905,6 +19930,8 @@ name|QDomHandler
 name|hnd
 argument_list|(
 name|this
+argument_list|,
+name|simpleReader
 argument_list|,
 name|namespaceProcessing
 argument_list|)
@@ -21807,6 +21834,9 @@ argument_list|,
 operator|&
 name|reader
 argument_list|,
+operator|&
+name|reader
+argument_list|,
 name|errorMsg
 argument_list|,
 name|errorLine
@@ -21997,6 +22027,8 @@ argument_list|(
 name|source
 argument_list|,
 name|reader
+argument_list|,
+literal|0
 argument_list|,
 name|errorMsg
 argument_list|,
@@ -23260,6 +23292,10 @@ name|QDomDocumentPrivate
 modifier|*
 name|adoc
 parameter_list|,
+name|QXmlSimpleReader
+modifier|*
+name|areader
+parameter_list|,
 name|bool
 name|namespaceProcessing
 parameter_list|)
@@ -23297,6 +23333,11 @@ member_init_list|,
 name|locator
 argument_list|(
 literal|0
+argument_list|)
+member_init_list|,
+name|reader
+argument_list|(
+name|areader
 argument_list|)
 block|{ }
 end_constructor
@@ -23864,12 +23905,6 @@ literal|false
 return|;
 block|}
 end_function
-begin_decl_stmt
-specifier|extern
-name|bool
-name|qt_xml_skipped_entity_in_content
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|skippedEntity
 name|bool
@@ -23886,8 +23921,14 @@ block|{
 comment|// we can only handle inserting entity references into content
 if|if
 condition|(
+name|reader
+operator|&&
 operator|!
-name|qt_xml_skipped_entity_in_content
+name|reader
+operator|->
+name|d_ptr
+operator|->
+name|skipped_entity_in_content
 condition|)
 return|return
 literal|true

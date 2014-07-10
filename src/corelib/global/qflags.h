@@ -52,6 +52,39 @@ name|i
 decl_stmt|;
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|QFlag
+argument_list|(
+argument|int ai
+argument_list|)
+operator|:
+name|i
+argument_list|(
+argument|ai
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|operator
+name|int
+argument_list|()
+specifier|const
+block|{
+return|return
+name|i
+return|;
+block|}
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+comment|// Microsoft Visual Studio has buggy behavior when it comes to
+comment|// unsigned enums: even if the enum is unsigned, the enum tags are
+comment|// always signed
 if|#
 directive|if
 operator|!
@@ -95,18 +128,6 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlag
 argument_list|(
-argument|int ai
-argument_list|)
-operator|:
-name|i
-argument_list|(
-argument|ai
-argument_list|)
-block|{}
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|QFlag
-argument_list|(
 argument|uint ai
 argument_list|)
 operator|:
@@ -142,17 +163,6 @@ block|{}
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|operator
-name|int
-argument_list|()
-specifier|const
-block|{
-return|return
-name|i
-return|;
-block|}
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|operator
 name|uint
 argument_list|()
 specifier|const
@@ -164,6 +174,8 @@ name|i
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -280,11 +292,35 @@ expr_stmt|;
 name|public
 operator|:
 end_expr_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|Q_QDOC
-end_ifndef
+argument_list|)
+end_if
+begin_comment
+comment|// see above for MSVC
+end_comment
+begin_comment
+comment|// the definition below is too complex for qdoc
+end_comment
+begin_typedef
+typedef|typedef
+name|int
+name|Int
+typedef|;
+end_typedef
+begin_else
+else|#
+directive|else
+end_else
 begin_typedef
 typedef|typedef
 name|typename
@@ -330,15 +366,6 @@ ifdef|#
 directive|ifdef
 name|Q_QDOC
 end_ifdef
-begin_typedef
-typedef|typedef
-name|int
-name|Int
-typedef|;
-end_typedef
-begin_comment
-comment|// the real typedef above is too complex for qdoc
-end_comment
 begin_expr_stmt
 specifier|inline
 name|QFlags
