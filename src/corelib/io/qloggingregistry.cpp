@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qloggingcategory_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qfile.h>
 end_include
 begin_include

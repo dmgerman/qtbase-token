@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qloggingcategory_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qloggingregistry_p.h"
 end_include
 begin_decl_stmt
@@ -192,41 +187,18 @@ literal|0x01010101
 argument_list|)
 expr_stmt|;
 comment|// enabledDebug = enabledWarning = enabledCritical = true;
-specifier|const
-name|bool
-name|isDefaultCategory
-init|=
-operator|(
-name|category
-operator|==
-literal|0
-operator|)
-operator|||
-operator|(
-name|strcmp
-argument_list|(
-name|category
-argument_list|,
-name|qtDefaultCategoryName
-argument_list|)
-operator|==
-literal|0
-operator|)
-decl_stmt|;
-comment|// normalize "default" category name, so that we can just do
-comment|// pointer comparison in QLoggingRegistry::updateCategory
 if|if
 condition|(
-name|isDefaultCategory
+name|category
 condition|)
 name|name
 operator|=
-name|qtDefaultCategoryName
+name|category
 expr_stmt|;
 else|else
 name|name
 operator|=
-name|category
+name|qtDefaultCategoryName
 expr_stmt|;
 if|if
 condition|(
