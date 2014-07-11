@@ -1538,6 +1538,7 @@ name|Atom
 operator|::
 name|BriefLeft
 case|:
+comment|//do not output the brief for QML basic types and doc nodes (including examples).
 if|if
 condition|(
 name|relative
@@ -1545,18 +1546,10 @@ operator|->
 name|isQmlBasicType
 argument_list|()
 operator|||
-operator|(
 name|relative
 operator|->
 name|isDocNode
 argument_list|()
-operator|&&
-operator|!
-name|relative
-operator|->
-name|isExample
-argument_list|()
-operator|)
 condition|)
 block|{
 name|skipAhead
