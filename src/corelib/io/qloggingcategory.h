@@ -35,6 +35,7 @@ argument|QLoggingCategory
 argument_list|)
 name|public
 label|:
+comment|// ### Qt 6: Merge constructors
 name|explicit
 name|QLoggingCategory
 parameter_list|(
@@ -44,6 +45,13 @@ modifier|*
 name|category
 parameter_list|)
 function_decl|;
+name|QLoggingCategory
+argument_list|(
+argument|const char *category
+argument_list|,
+argument|QtMsgType severityLevel
+argument_list|)
+empty_stmt|;
 operator|~
 name|QLoggingCategory
 argument_list|()
@@ -237,6 +245,18 @@ parameter_list|)
 function_decl|;
 name|private
 label|:
+name|void
+name|init
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|category
+parameter_list|,
+name|QtMsgType
+name|severityLevel
+parameter_list|)
+function_decl|;
 name|Q_DECL_UNUSED_MEMBER
 name|void
 modifier|*
@@ -347,9 +367,19 @@ parameter_list|)
 define|\
 value|extern const QLoggingCategory&name();
 end_define
-begin_comment
-comment|// relies on QLoggingCategory(QString) being thread safe!
-end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_VARIADIC_MACROS
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_MOC_RUN
+argument_list|)
+end_if
 begin_define
 DECL|macro|Q_LOGGING_CATEGORY
 define|#
@@ -358,16 +388,11 @@ name|Q_LOGGING_CATEGORY
 parameter_list|(
 name|name
 parameter_list|,
-name|string
+modifier|...
 parameter_list|)
 define|\
-value|const QLoggingCategory&name() \     { \         static const QLoggingCategory category(string); \         return category; \     }
+value|const QLoggingCategory&name() \     { \         static const QLoggingCategory category(__VA_ARGS__); \         return category; \     }
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_VARIADIC_MACROS
-end_ifdef
 begin_define
 DECL|macro|qCDebug
 define|#
@@ -412,6 +437,25 @@ else|#
 directive|else
 end_else
 begin_comment
+comment|// defined(Q_COMPILER_VARIADIC_MACROS) || defined(Q_MOC_RUN)
+end_comment
+begin_comment
+comment|// Optional msgType argument not supported
+end_comment
+begin_define
+DECL|macro|Q_LOGGING_CATEGORY
+define|#
+directive|define
+name|Q_LOGGING_CATEGORY
+parameter_list|(
+name|name
+parameter_list|,
+name|string
+parameter_list|)
+define|\
+value|const QLoggingCategory&name() \     { \         static const QLoggingCategory category(string); \         return category; \     }
+end_define
+begin_comment
 comment|// check for enabled category inside QMessageLogger.
 end_comment
 begin_define
@@ -440,7 +484,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_COMPILER_VARIADIC_MACROS
+comment|// Q_COMPILER_VARIADIC_MACROS || defined(Q_MOC_RUN)
 end_comment
 begin_if
 if|#

@@ -95,10 +95,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \class QLoggingCategory     \inmodule QtCore     \since 5.2      \brief The QLoggingCategory class represents a category, or 'area' in the     logging infrastructure.      QLoggingCategory represents a certain logging category - identified     by a string - at runtime. Whether a category should be actually logged or     not can be checked with the \l isEnabled() methods.      All objects are meant to be configured by a common registry (see also     \l{Configuring Categories}). Different objects can also represent the same     category. It's therefore not recommended to export objects across module     boundaries, nor to manipulate the objects directly, nor to inherit from     QLoggingCategory.      \section1 Creating category objects      The Q_DECLARE_LOGGING_CATEGORY() and Q_LOGGING_CATEGORY() macros     conveniently declare and create QLoggingCategory objects:      \snippet qloggingcategory/main.cpp 1      \section1 Checking category configuration      QLoggingCategory provides \l isDebugEnabled(), \l isWarningEnabled(),     \l isCriticalEnabled(), as well as \l isEnabled()     to check whether messages for the given message type should be logged.      \note The qCDebug(), qCWarning(), qCCritical() macros prevent arguments     from being evaluated if the respective message types are not enabled for the     category, so explicit checking is not needed:      \snippet qloggingcategory/main.cpp 4      \section1 Default category configuration      In the default configuration \l isWarningEnabled() , \l isDebugEnabled() and     \l isCriticalEnabled() will return \c true.      \section1 Configuring Categories      Categories can be centrally configured by either setting logging rules,     or by installing a custom filter.      \section2 Logging Rules      Logging rules allow to enable or disable logging for categories in a flexible     way. Rules are specified in text, where every line must have the format      \code<category>[.<type>] = true|false     \endcode      \c<category> is the name of the category, potentially with \c{*} as a     wildcard symbol as the first or last character (or at both positions).     The optional \c<type> must be either \c debug, \c warning, or \c critical.     Lines that do not fit to his scheme are ignored.      Rules are evaluated in text order, from first to last. That is, if two rules     apply to a category/type, the rule that comes later is applied.      Rules can be set via \l setFilterRules(). Since Qt 5.3 logging rules can also     be set in the \c QT_LOGGING_RULES environment variable, and     are automatically loaded from the \c [Rules] section of a logging     configuration file. Such configuration files are looked up in the QtProject     configuration directory, or explicitly set in a \c QT_LOGGING_CONF     environment variable:      \code     [Rules]     *.debug=false     driver.usb.debug=true     \endcode      Rules set by \l setFilterRules() take precedence over rules specified     in the QtProject configuration directory, and can, in turn, be     overwritten by rules from the configuration file specified by     \c QT_LOGGING_CONF, and rules set by \c QT_LOGGING_RULES.       Order of evaluation:     \list     \li Rules from QtProject/qtlogging.ini     \li Rules set by \l setFilterRules()     \li Rules from file in \c QT_LOGGING_CONF     \li Rules from environment variable QT_LOGGING_RULES     \endlist      The \c QtProject/qtlogging.ini file is looked up in all directories returned     by QStandardPaths::GenericConfigLocation, e.g.      \list     \li on Mac OS X: \c ~/Library/Preferences     \li on Unix: \c ~/.config, \c /etc/xdg     \li on Windows: \c %LOCALAPPDATA%, \c %ProgramData%,         \l QCoreApplication::applicationDirPath(),         QCoreApplication::applicationDirPath() + \c "/data"     \endlist      Set the \c QT_LOGGING_DEBUG environment variable to see from where     logging rules are loaded.      \section2 Installing a Custom Filter      As a lower-level alternative to the text rules you can also implement a     custom filter via \l installFilter(). All filter rules are ignored in this     case.      \section1 Printing the category      Use the \c %{category} place holder to print the category in the default     message handler:      \snippet qloggingcategory/main.cpp 3 */
+comment|/*!     \class QLoggingCategory     \inmodule QtCore     \since 5.2      \brief The QLoggingCategory class represents a category, or 'area' in the     logging infrastructure.      QLoggingCategory represents a certain logging category - identified     by a string - at runtime. Whether a category should be actually logged or     not can be checked with the \l isEnabled() methods.      All objects are meant to be configured by a common registry (see also     \l{Configuring Categories}). Different objects can also represent the same     category. It's therefore not recommended to export objects across module     boundaries, nor to manipulate the objects directly, nor to inherit from     QLoggingCategory.      \section1 Creating category objects      The Q_DECLARE_LOGGING_CATEGORY() and Q_LOGGING_CATEGORY() macros     conveniently declare and create QLoggingCategory objects:      \snippet qloggingcategory/main.cpp 1      \section1 Checking category configuration      QLoggingCategory provides \l isDebugEnabled(), \l isWarningEnabled(),     \l isCriticalEnabled(), as well as \l isEnabled()     to check whether messages for the given message type should be logged.      \note The qCDebug(), qCWarning(), qCCritical() macros prevent arguments     from being evaluated if the respective message types are not enabled for the     category, so explicit checking is not needed:      \snippet qloggingcategory/main.cpp 4      \section1 Default category configuration      Both the QLoggingCategory constructor and the Q_LOGGING_CATEGORY() macro     accept an optional QtMsgType argument, which disables all message types with     a lower severity. That is, a category declared with      \snippet qloggingcategory/main.cpp 5      will log messages of type \c QtWarningMsg, \c QtCriticalMsg, \c QtFatalMsg, but will     ignore messages of type \c QtDebugMsg.      If no argument is passed, all messages will be logged.      \section1 Configuring Categories      The default configuration of categories can be overridden either by setting logging     rules, or by installing a custom filter.      \section2 Logging Rules      Logging rules allow to enable or disable logging for categories in a flexible     way. Rules are specified in text, where every line must have the format      \code<category>[.<type>] = true|false     \endcode      \c<category> is the name of the category, potentially with \c{*} as a     wildcard symbol as the first or last character (or at both positions).     The optional \c<type> must be either \c debug, \c warning, or \c critical.     Lines that do not fit to his scheme are ignored.      Rules are evaluated in text order, from first to last. That is, if two rules     apply to a category/type, the rule that comes later is applied.      Rules can be set via \l setFilterRules(). Since Qt 5.3 logging rules can also     be set in the \c QT_LOGGING_RULES environment variable, and     are automatically loaded from the \c [Rules] section of a logging     configuration file. Such configuration files are looked up in the QtProject     configuration directory, or explicitly set in a \c QT_LOGGING_CONF     environment variable:      \code     [Rules]     *.debug=false     driver.usb.debug=true     \endcode      Rules set by \l setFilterRules() take precedence over rules specified     in the QtProject configuration directory, and can, in turn, be     overwritten by rules from the configuration file specified by     \c QT_LOGGING_CONF, and rules set by \c QT_LOGGING_RULES.       Order of evaluation:     \list     \li Rules from QtProject/qtlogging.ini     \li Rules set by \l setFilterRules()     \li Rules from file in \c QT_LOGGING_CONF     \li Rules from environment variable QT_LOGGING_RULES     \endlist      The \c QtProject/qtlogging.ini file is looked up in all directories returned     by QStandardPaths::GenericConfigLocation, e.g.      \list     \li on Mac OS X: \c ~/Library/Preferences     \li on Unix: \c ~/.config, \c /etc/xdg     \li on Windows: \c %LOCALAPPDATA%, \c %ProgramData%,         \l QCoreApplication::applicationDirPath(),         QCoreApplication::applicationDirPath() + \c "/data"     \endlist      Set the \c QT_LOGGING_DEBUG environment variable to see from where     logging rules are loaded.      \section2 Installing a Custom Filter      As a lower-level alternative to the text rules you can also implement a     custom filter via \l installFilter(). All filter rules are ignored in this     case.      \section1 Printing the category      Use the \c %{category} place holder to print the category in the default     message handler:      \snippet qloggingcategory/main.cpp 3 */
 end_comment
 begin_comment
-comment|/*!     Constructs a QLoggingCategory object with the provided \a category name.     The object becomes the local identifier for the category.      If \a category is \c{0}, the category name is changed to \c "default". */
+comment|/*!     Constructs a QLoggingCategory object with the provided \a category name.     All message types for this category are enabled by default.      If \a category is \c{0}, the category name is changed to \c "default". */
 end_comment
 begin_constructor
 DECL|function|QLoggingCategory
@@ -121,6 +121,68 @@ name|name
 argument_list|(
 literal|0
 argument_list|)
+block|{
+name|init
+argument_list|(
+name|category
+argument_list|,
+name|QtDebugMsg
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
+begin_comment
+comment|/*!     Constructs a QLoggingCategory object with the provided \a category name,     and enables all messages with types more severe or equal than \a enableForLevel.      If \a category is \c{0}, the category name is changed to \c "default".      \since 5.4 */
+end_comment
+begin_constructor
+DECL|function|QLoggingCategory
+name|QLoggingCategory
+operator|::
+name|QLoggingCategory
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|category
+parameter_list|,
+name|QtMsgType
+name|enableForLevel
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|name
+argument_list|(
+literal|0
+argument_list|)
+block|{
+name|init
+argument_list|(
+name|category
+argument_list|,
+name|enableForLevel
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
+begin_function
+DECL|function|init
+name|void
+name|QLoggingCategory
+operator|::
+name|init
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|category
+parameter_list|,
+name|QtMsgType
+name|severityLevel
+parameter_list|)
 block|{
 name|enabled
 operator|.
@@ -157,19 +219,15 @@ if|if
 condition|(
 name|isDefaultCategory
 condition|)
-block|{
 name|name
 operator|=
 name|qtDefaultCategoryName
 expr_stmt|;
-block|}
 else|else
-block|{
 name|name
 operator|=
 name|category
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|QLoggingRegistry
@@ -186,10 +244,12 @@ operator|->
 name|registerCategory
 argument_list|(
 name|this
+argument_list|,
+name|severityLevel
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_comment
 comment|/*!     Destructs a QLoggingCategory object. */
 end_comment
@@ -511,7 +571,10 @@ begin_comment
 comment|/*!     \macro Q_DECLARE_LOGGING_CATEGORY(name)     \sa Q_LOGGING_CATEGORY()     \relates QLoggingCategory     \since 5.2      Declares a logging category \a name. The macro can be used to declare     a common logging category shared in different parts of the program.      This macro must be used outside of a class or method. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_LOGGING_CATEGORY(name, string)     \sa Q_DECLARE_LOGGING_CATEGORY()     \relates QLoggingCategory     \since 5.2      Defines a logging category \a name, and makes it configurable under the     \a string identifier.      Only one translation unit in a library or executable can define a category     with a specific name.      This macro must be used outside of a class or method. */
+comment|/*!     \macro Q_LOGGING_CATEGORY(name, string)     \sa Q_DECLARE_LOGGING_CATEGORY()     \relates QLoggingCategory     \since 5.2      Defines a logging category \a name, and makes it configurable under the     \a string identifier. By default, all message types are enabled.      Only one translation unit in a library or executable can define a category     with a specific name.      This macro must be used outside of a class or method. */
+end_comment
+begin_comment
+comment|/*!     \macro Q_LOGGING_CATEGORY(name, string, msgType)     \sa Q_DECLARE_LOGGING_CATEGORY()     \relates QLoggingCategory     \since 5.4      Defines a logging category \a name, and makes it configurable under the     \a string identifier. By default, messages of QtMsgType \a msgType     and more severe are enabled, types with a lower severity are disabled.      Only one translation unit in a library or executable can define a category     with a specific name.      This macro must be used outside of a class or method. It is only defined     if variadic macros are supported. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

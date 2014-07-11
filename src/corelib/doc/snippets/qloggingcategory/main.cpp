@@ -39,6 +39,22 @@ begin_comment
 comment|//![1]
 end_comment
 begin_comment
+comment|//![5]
+end_comment
+begin_macro
+name|Q_LOGGING_CATEGORY
+argument_list|(
+argument|driverUsbEvents
+argument_list|,
+literal|"driver.usb.events"
+argument_list|,
+argument|QtWarningMsg
+argument_list|)
+end_macro
+begin_comment
+comment|//![5]
+end_comment
+begin_comment
 comment|// Completely made up example, inspired by en.wikipedia.org/wiki/USB :)
 end_comment
 begin_struct
