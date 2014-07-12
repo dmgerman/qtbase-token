@@ -350,6 +350,9 @@ function_decl|;
 DECL|member|private
 name|private
 label|:
+ifndef|#
+directive|ifndef
+name|QT_STATIC
 name|void
 modifier|*
 name|resolve
@@ -364,6 +367,8 @@ DECL|member|m_lib
 name|HMODULE
 name|m_lib
 decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
@@ -376,6 +381,9 @@ name|bool
 name|init
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_STATIC
 DECL|function|moduleHandle
 name|void
 operator|*
@@ -387,6 +395,21 @@ return|return
 name|m_lib
 return|;
 block|}
+else|#
+directive|else
+DECL|function|moduleHandle
+name|void
+operator|*
+name|moduleHandle
+argument_list|()
+specifier|const
+block|{
+return|return
+name|Q_NULLPTR
+return|;
+block|}
+endif|#
+directive|endif
 comment|// GL1+GLES2 common
 DECL|member|glBindTexture
 name|void
@@ -2976,6 +2999,9 @@ function_decl|;
 DECL|member|private
 name|private
 label|:
+ifndef|#
+directive|ifndef
+name|QT_STATIC
 name|void
 modifier|*
 name|resolve
@@ -2990,6 +3016,8 @@ DECL|member|m_lib
 name|HMODULE
 name|m_lib
 decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
