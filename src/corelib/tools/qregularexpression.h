@@ -345,8 +345,9 @@ decl|const
 decl_stmt|;
 name|void
 name|optimize
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|static
 name|QString
 name|escape

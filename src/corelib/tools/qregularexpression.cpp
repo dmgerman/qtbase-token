@@ -3189,6 +3189,7 @@ name|QRegularExpression
 operator|::
 name|optimize
 parameter_list|()
+specifier|const
 block|{
 if|if
 condition|(
