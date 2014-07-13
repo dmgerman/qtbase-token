@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2014 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -2983,20 +2983,22 @@ name|QByteArray
 argument_list|>
 argument_list|()
 operator|<<
-literal|"debug  46 T::T static constructor"
+literal|"debug  52 T::T static constructor"
 comment|//  we can't be sure whether the QT_MESSAGE_PATTERN is already destructed
 operator|<<
 literal|"static destructor"
 operator|<<
-literal|"debug tst_qlogging 57 main qDebug"
+literal|"debug tst_qlogging 73 MyClass::myFunction from_a_function 34"
 operator|<<
-literal|"warning tst_qlogging 58 main qWarning"
+literal|"debug tst_qlogging 83 main qDebug"
 operator|<<
-literal|"critical tst_qlogging 59 main qCritical"
+literal|"warning tst_qlogging 84 main qWarning"
 operator|<<
-literal|"warning tst_qlogging 62 main qDebug with category"
+literal|"critical tst_qlogging 85 main qCritical"
 operator|<<
-literal|"debug tst_qlogging 66 main qDebug2"
+literal|"warning tst_qlogging 88 main qDebug with category"
+operator|<<
+literal|"debug tst_qlogging 92 main qDebug2"
 operator|)
 expr_stmt|;
 name|QTest
@@ -3193,6 +3195,79 @@ operator|<<
 literal|"<     "
 operator|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|__GLIBC__
+ifdef|#
+directive|ifdef
+name|QT_NAMESPACE
+DECL|macro|QT_NAMESPACE_STR
+define|#
+directive|define
+name|QT_NAMESPACE_STR
+value|QT_STRINGIFY(QT_NAMESPACE::)
+else|#
+directive|else
+define|#
+directive|define
+name|QT_NAMESPACE_STR
+value|""
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"backtrace"
+argument_list|)
+operator|<<
+literal|"[%{backtrace}] %{message}"
+operator|<<
+literal|true
+operator|<<
+operator|(
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+argument_list|()
+comment|// MyClass::qt_static_metacall is explicitly marked as hidden in the Q_OBJECT macro
+operator|<<
+literal|"[MyClass::myFunction|MyClass::mySlot1|?app?|"
+name|QT_NAMESPACE_STR
+literal|"QMetaMethod::invoke|"
+name|QT_NAMESPACE_STR
+literal|"QMetaObject::invokeMethod] from_a_function 34"
+operator|)
+expr_stmt|;
+endif|#
+directive|endif
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"backtrace depth,separator"
+argument_list|)
+operator|<<
+literal|"[%{backtrace depth=2 separator=\"\n\"}] %{message}"
+operator|<<
+literal|true
+operator|<<
+operator|(
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+argument_list|()
+operator|<<
+literal|"[MyClass::myFunction\nMyClass::mySlot1] from_a_function 34"
+operator|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -3355,6 +3430,29 @@ decl|,
 name|expected
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|output
+operator|.
+name|contains
+argument_list|(
+name|e
+argument_list|)
+condition|)
+block|{
+name|qDebug
+argument_list|()
+operator|<<
+name|output
+expr_stmt|;
+name|qDebug
+argument_list|()
+operator|<<
+literal|"expected: "
+operator|<<
+name|e
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|output
@@ -3365,6 +3463,7 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif
