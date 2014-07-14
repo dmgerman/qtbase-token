@@ -2753,6 +2753,8 @@ name|additionalEnvironmentVariables
 init|=
 literal|"QT_ANDROID_FONTS_MONOSPACE=Droid Sans Mono;Droid Sans;Droid Sans Fallback"
 operator|+
+literal|"\tQT_ANDROID_FONTS_SERIF=Droid Serif"
+operator|+
 literal|"\tNECESSITAS_API_LEVEL="
 operator|+
 name|necessitasApiLevel

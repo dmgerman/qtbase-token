@@ -207,10 +207,10 @@ comment|//! [2]
 block|}
 end_function
 begin_function
-DECL|function|writeTextStream_snippet
+DECL|function|writeDataStream_snippet
 specifier|static
 name|void
-name|writeTextStream_snippet
+name|writeDataStream_snippet
 parameter_list|()
 block|{
 name|QFile
