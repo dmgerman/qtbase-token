@@ -65,6 +65,7 @@ name|eventTest
 argument_list|(
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -199,6 +200,7 @@ name|onTransition
 argument_list|(
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QKeyEvent
 operator|*

@@ -61,7 +61,6 @@ argument_list|(
 name|textColor
 argument_list|)
 block|{     }
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -78,6 +77,7 @@ modifier|*
 init|=
 literal|0
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QFont
 name|font

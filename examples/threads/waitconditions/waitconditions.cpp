@@ -104,10 +104,10 @@ argument_list|(
 name|parent
 argument_list|)
 block|{     }
-DECL|function|run
 name|void
 name|run
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|qsrand
 argument_list|(
@@ -241,10 +241,10 @@ argument_list|(
 name|parent
 argument_list|)
 block|{     }
-DECL|function|run
 name|void
 name|run
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 for|for
 control|(

@@ -69,20 +69,18 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
+argument|QPainter *
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
+argument|const QStyleOptionGraphicsItem *
 argument_list|,
-name|QWidget
-operator|*
+argument|QWidget *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

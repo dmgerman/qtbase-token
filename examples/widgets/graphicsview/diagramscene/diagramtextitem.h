@@ -82,6 +82,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Type
@@ -114,22 +115,21 @@ argument|GraphicsItemChange change
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

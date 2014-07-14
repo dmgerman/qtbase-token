@@ -94,6 +94,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|const
 name|TorrentClient
@@ -109,10 +110,9 @@ operator|:
 name|void
 name|closeEvent
 argument_list|(
-name|QCloseEvent
-operator|*
-name|event
+argument|QCloseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

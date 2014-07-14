@@ -94,10 +94,9 @@ operator|:
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots
@@ -165,6 +164,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QSize
@@ -185,6 +185,7 @@ name|paintEvent
 argument_list|(
 argument|QPaintEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|codeEditor
 operator|->

@@ -158,19 +158,17 @@ name|virtual
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
-name|event
+argument|QContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|e
+argument|QResizeEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -316,6 +314,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|minimumSizeHint
@@ -326,24 +325,23 @@ name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|event
+argument|QPaintEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|slots

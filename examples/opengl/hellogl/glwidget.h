@@ -54,11 +54,13 @@ name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|//! [0]
 comment|//! [1]
@@ -110,10 +112,12 @@ operator|:
 name|void
 name|initializeGL
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintGL
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeGL
@@ -122,22 +126,21 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|//! [2]
 comment|//! [3]

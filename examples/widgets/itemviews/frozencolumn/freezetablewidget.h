@@ -48,10 +48,9 @@ name|virtual
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QModelIndex
@@ -61,6 +60,7 @@ argument|CursorAction cursorAction
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollTo
@@ -69,6 +69,7 @@ argument|const QModelIndex& index
 argument_list|,
 argument|ScrollHint hint = EnsureVisible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -235,26 +235,23 @@ operator|:
 name|void
 name|mousePressEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|mouseEvent
+argument|QGraphicsSceneMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|mouseEvent
+argument|QGraphicsSceneMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|mouseEvent
+argument|QGraphicsSceneMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

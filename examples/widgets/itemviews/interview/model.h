@@ -67,6 +67,7 @@ argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|parent
@@ -74,6 +75,7 @@ argument_list|(
 argument|const QModelIndex&child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
@@ -81,6 +83,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|columnCount
@@ -88,6 +91,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -97,6 +101,7 @@ argument_list|,
 argument|int role
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|headerData
@@ -108,6 +113,7 @@ argument_list|,
 argument|int role
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasChildren
@@ -115,6 +121,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -124,6 +131,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

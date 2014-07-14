@@ -186,6 +186,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Type
@@ -196,10 +197,9 @@ operator|:
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QGraphicsSceneContextMenuEvent
-operator|*
-name|event
+argument|QGraphicsSceneContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|itemChange
@@ -208,6 +208,7 @@ argument|GraphicsItemChange change
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

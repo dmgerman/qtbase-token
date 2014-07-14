@@ -237,19 +237,18 @@ block|;
 name|void
 name|exposeEvent
 argument_list|(
-name|QExposeEvent
-operator|*
-name|event
+argument|QExposeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|m_colorIndex

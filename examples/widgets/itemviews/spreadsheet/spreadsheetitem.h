@@ -48,6 +48,7 @@ operator|*
 name|clone
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -55,6 +56,7 @@ argument_list|(
 argument|int role
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setData
@@ -63,6 +65,7 @@ argument|int role
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|display

@@ -53,6 +53,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawControl
@@ -66,6 +67,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawComplexControl
@@ -79,6 +81,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeFromContents
@@ -92,6 +95,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|subElementRect
@@ -103,6 +107,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|subControlRect
@@ -116,6 +121,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|pixelMetric
@@ -127,30 +133,28 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QPalette
-operator|&
-name|palette
+argument|QPalette&palette
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|unpolish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -91,6 +91,7 @@ argument_list|,
 argument|const QModelIndex&sourceParent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|lessThan
@@ -100,6 +101,7 @@ argument_list|,
 argument|const QModelIndex&right
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

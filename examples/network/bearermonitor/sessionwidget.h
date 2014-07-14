@@ -77,11 +77,12 @@ argument_list|()
 expr_stmt|;
 name|void
 name|timerEvent
-parameter_list|(
+argument_list|(
 name|QTimerEvent
-modifier|*
-parameter_list|)
-function_decl|;
+operator|*
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|private
 label|:
 name|void

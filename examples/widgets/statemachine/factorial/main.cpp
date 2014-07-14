@@ -185,7 +185,6 @@ argument_list|(
 name|fact
 argument_list|)
 block|{}
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -194,6 +193,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -242,7 +242,6 @@ operator|>
 literal|1
 return|;
 block|}
-DECL|function|onTransition
 specifier|virtual
 name|void
 name|onTransition
@@ -251,6 +250,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QStateMachine
 operator|::
@@ -371,7 +371,6 @@ argument_list|(
 name|fact
 argument_list|)
 block|{}
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -380,6 +379,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -428,7 +428,6 @@ operator|<=
 literal|1
 return|;
 block|}
-DECL|function|onTransition
 specifier|virtual
 name|void
 name|onTransition
@@ -436,6 +435,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|fprintf
 argument_list|(

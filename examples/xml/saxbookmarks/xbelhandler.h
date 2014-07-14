@@ -56,68 +56,46 @@ block|;
 name|bool
 name|startElement
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|namespaceURI
+argument|const QString&namespaceURI
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|localName
+argument|const QString&localName
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|qName
+argument|const QString&qName
 argument_list|,
-specifier|const
-name|QXmlAttributes
-operator|&
-name|attributes
+argument|const QXmlAttributes&attributes
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|endElement
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|namespaceURI
+argument|const QString&namespaceURI
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|localName
+argument|const QString&localName
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|qName
+argument|const QString&qName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|characters
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|str
+argument|const QString&str
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|fatalError
 argument_list|(
-specifier|const
-name|QXmlParseException
-operator|&
-name|exception
+argument|const QXmlParseException&exception
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|errorString
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

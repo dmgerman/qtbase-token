@@ -45,7 +45,6 @@ name|scene
 argument_list|)
 block|{     }
 protected|protected:
-DECL|function|resizeEvent
 specifier|virtual
 name|void
 name|resizeEvent
@@ -53,6 +52,7 @@ parameter_list|(
 name|QResizeEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{     }
 block|}
 class|;

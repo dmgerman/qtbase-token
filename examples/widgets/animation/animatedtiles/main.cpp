@@ -107,11 +107,11 @@ name|DeviceCoordinateCache
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|boundingRect
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QRectF
@@ -128,11 +128,11 @@ literal|130
 argument_list|)
 return|;
 block|}
-DECL|function|shape
 name|QPainterPath
 name|shape
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QPainterPath
 name|path
@@ -149,7 +149,6 @@ return|return
 name|path
 return|;
 block|}
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -165,6 +164,7 @@ parameter_list|,
 name|QWidget
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|bool
 name|down
@@ -385,13 +385,13 @@ name|pressed
 parameter_list|()
 function_decl|;
 protected|protected:
-DECL|function|mousePressEvent
 name|void
 name|mousePressEvent
 parameter_list|(
 name|QGraphicsSceneMouseEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 emit|emit
 name|pressed
@@ -401,13 +401,13 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|mouseReleaseEvent
 name|void
 name|mouseReleaseEvent
 parameter_list|(
 name|QGraphicsSceneMouseEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|update
 argument_list|()
@@ -444,7 +444,6 @@ name|scene
 argument_list|)
 block|{ }
 protected|protected:
-DECL|function|resizeEvent
 name|void
 name|resizeEvent
 parameter_list|(
@@ -452,6 +451,7 @@ name|QResizeEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QGraphicsView
 operator|::

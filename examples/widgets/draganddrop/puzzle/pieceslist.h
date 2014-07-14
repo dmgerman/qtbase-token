@@ -50,32 +50,30 @@ operator|:
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QDragEnterEvent
-operator|*
-name|event
+argument|QDragEnterEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QDragMoveEvent
-operator|*
-name|event
+argument|QDragMoveEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QDropEvent
-operator|*
-name|event
+argument|QDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|startDrag
 argument_list|(
 argument|Qt::DropActions supportedActions
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|m_PieceSize

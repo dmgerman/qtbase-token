@@ -56,26 +56,23 @@ operator|:
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragLeaveEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QColor
 name|color
@@ -113,43 +110,35 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -186,25 +175,19 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -236,25 +219,19 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -286,25 +263,19 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

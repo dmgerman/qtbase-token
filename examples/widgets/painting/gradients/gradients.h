@@ -73,15 +73,15 @@ block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|e
+argument|QPaintEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QSize
@@ -224,15 +224,15 @@ block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|p
+argument|QPainter *p
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QSize
@@ -256,10 +256,9 @@ block|}
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|slots

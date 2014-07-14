@@ -102,7 +102,6 @@ specifier|public
 name|QGraphicsWidget
 block|{
 public|public:
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -117,6 +116,7 @@ parameter_list|,
 name|QWidget
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|painter
 operator|->
@@ -163,7 +163,6 @@ argument_list|)
 block|{     }
 protected|protected:
 comment|//![14]
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -172,6 +171,7 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -208,7 +208,6 @@ operator|)
 return|;
 block|}
 comment|//![14]
-DECL|function|onTransition
 specifier|virtual
 name|void
 name|onTransition
@@ -216,6 +215,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 private|private:
 DECL|member|m_rand
@@ -263,7 +263,6 @@ argument_list|)
 block|{ }
 comment|//![10]
 comment|//![11]
-DECL|function|onEntry
 specifier|virtual
 name|void
 name|onEntry
@@ -271,6 +270,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|int
 name|n
@@ -310,7 +310,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|onExit
 specifier|virtual
 name|void
 name|onExit
@@ -318,6 +317,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 comment|//![11]
 comment|//![12]
@@ -522,7 +522,6 @@ name|parent
 argument_list|)
 block|{     }
 protected|protected:
-DECL|function|resizeEvent
 specifier|virtual
 name|void
 name|resizeEvent
@@ -531,6 +530,7 @@ name|QResizeEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|fitInView
 argument_list|(

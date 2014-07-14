@@ -57,10 +57,9 @@ block|;
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

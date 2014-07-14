@@ -58,11 +58,9 @@ range|:
 name|QString
 name|echo
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|message
+argument|const QString&message
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 block|}
 end_decl_stmt

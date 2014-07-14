@@ -106,9 +106,9 @@ block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
+argument|QPainter *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawVectorType
@@ -138,6 +138,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QSize
@@ -151,18 +152,16 @@ block|}
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|e
+argument|QResizeEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|HoverPoints
 operator|*
@@ -343,10 +342,9 @@ operator|:
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|e
+argument|QTimerEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -354,9 +352,9 @@ name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
-name|QWheelEvent
-operator|*
+argument|QWheelEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

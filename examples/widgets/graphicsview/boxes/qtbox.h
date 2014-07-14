@@ -65,24 +65,19 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -104,70 +99,64 @@ name|virtual
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QGraphicsSceneContextMenuEvent
-operator|*
-name|event
+argument|QGraphicsSceneContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|hoverMoveEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mousePressEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|wheelEvent
 argument_list|(
-name|QGraphicsSceneWheelEvent
-operator|*
-name|event
+argument|QGraphicsSceneWheelEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isInResizeArea
@@ -252,19 +241,13 @@ name|virtual
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -279,6 +262,7 @@ argument|int x
 argument_list|,
 argument|int y
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -328,19 +312,13 @@ name|virtual
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -355,6 +333,7 @@ argument|int x
 argument_list|,
 argument|int y
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QColor
 name|m_color
@@ -383,19 +362,13 @@ name|virtual
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -410,6 +383,7 @@ argument|int x
 argument_list|,
 argument|int y
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|m_image

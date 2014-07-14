@@ -118,7 +118,6 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -127,6 +126,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -242,7 +242,6 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -251,6 +250,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QEventTransition

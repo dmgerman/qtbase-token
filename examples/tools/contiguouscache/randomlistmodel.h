@@ -59,6 +59,7 @@ argument_list|(
 argument|const QModelIndex& = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -68,6 +69,7 @@ argument_list|,
 argument|int
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

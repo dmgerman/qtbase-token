@@ -83,7 +83,6 @@ argument_list|(
 name|widget
 argument_list|)
 block|{     }
-DECL|function|resizeEvent
 specifier|virtual
 name|void
 name|resizeEvent
@@ -92,6 +91,7 @@ name|QResizeEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|w
 operator|->
@@ -214,7 +214,6 @@ name|z
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|setGeometry
 name|void
 name|setGeometry
 parameter_list|(
@@ -223,6 +222,7 @@ name|QRectF
 modifier|&
 name|rect
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|original
 operator|->
@@ -277,7 +277,6 @@ name|rect
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|sizeHint
 name|QSizeF
 name|sizeHint
 parameter_list|(
@@ -295,6 +294,7 @@ name|QSizeF
 argument_list|()
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -406,7 +406,6 @@ argument_list|(
 name|pix
 argument_list|)
 block|{     }
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -421,6 +420,7 @@ parameter_list|,
 name|QWidget
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QPointF
 name|reflection
@@ -674,7 +674,6 @@ name|tmp
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|resizeEvent
 name|void
 name|resizeEvent
 parameter_list|(
@@ -682,6 +681,7 @@ name|QGraphicsSceneResizeEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QSize
 name|newSize
@@ -716,11 +716,11 @@ name|newSize
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|boundingRect
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QSize
 name|size

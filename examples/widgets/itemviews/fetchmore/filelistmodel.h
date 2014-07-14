@@ -56,6 +56,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -65,6 +66,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|signals
 operator|:
@@ -94,15 +96,14 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fetchMore
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|parent
+argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

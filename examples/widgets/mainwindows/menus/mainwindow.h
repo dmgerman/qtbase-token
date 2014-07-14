@@ -63,10 +63,9 @@ operator|:
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
-name|event
+argument|QContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|//! [0]
 comment|//! [1]

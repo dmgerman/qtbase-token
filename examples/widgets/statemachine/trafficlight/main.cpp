@@ -119,7 +119,6 @@ argument_list|)
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|paintEvent
 specifier|virtual
 name|void
 name|paintEvent
@@ -127,6 +126,7 @@ parameter_list|(
 name|QPaintEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

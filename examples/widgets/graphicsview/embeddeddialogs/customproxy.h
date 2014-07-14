@@ -47,53 +47,43 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintWindowFrame
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|void
 name|hoverEnterEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hoverLeaveEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|sceneEventFilter
 argument_list|(
-name|QGraphicsItem
-operator|*
-name|watched
+argument|QGraphicsItem *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|itemChange
@@ -102,6 +92,7 @@ argument|GraphicsItemChange change
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

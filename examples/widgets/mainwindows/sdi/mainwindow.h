@@ -66,10 +66,9 @@ operator|:
 name|void
 name|closeEvent
 argument_list|(
-name|QCloseEvent
-operator|*
-name|event
+argument|QCloseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

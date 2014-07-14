@@ -47,13 +47,17 @@ public|public:
 name|TriangleWindow
 parameter_list|()
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|initialize
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|render
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 name|GLuint

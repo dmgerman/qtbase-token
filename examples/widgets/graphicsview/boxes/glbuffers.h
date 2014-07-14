@@ -254,11 +254,13 @@ name|virtual
 name|void
 name|bind
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|unbind
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -298,11 +300,13 @@ name|virtual
 name|void
 name|bind
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|unbind
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -343,11 +347,13 @@ name|virtual
 name|void
 name|bind
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|unbind
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -388,6 +394,7 @@ name|bool
 name|failed
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_failed

@@ -322,6 +322,7 @@ name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|incomingBuffer
@@ -364,6 +365,7 @@ name|setReadBufferSize
 argument_list|(
 argument|qint64 size
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|connectToHost
@@ -374,6 +376,7 @@ argument|quint16 port
 argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|diconnectFromHost
@@ -450,10 +453,9 @@ operator|:
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|event
+argument|QTimerEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|readData
@@ -462,6 +464,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|readLineData
@@ -470,6 +473,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|writeData
@@ -478,6 +482,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

@@ -73,6 +73,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -82,6 +83,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeRows
@@ -92,6 +94,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|dropMimeData
@@ -106,6 +109,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QMimeData
 operator|*
@@ -114,11 +118,13 @@ argument_list|(
 argument|const QModelIndexList&indexes
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|mimeTypes
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
@@ -126,6 +132,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -133,6 +140,7 @@ name|DropActions
 name|supportedDropActions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addPiece

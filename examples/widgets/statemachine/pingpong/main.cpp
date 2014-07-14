@@ -104,7 +104,6 @@ name|parent
 argument_list|)
 block|{}
 protected|protected:
-DECL|function|onEntry
 specifier|virtual
 name|void
 name|onEntry
@@ -112,6 +111,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|machine
 argument_list|()
@@ -154,7 +154,6 @@ name|PongTransition
 parameter_list|()
 block|{}
 protected|protected:
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -163,6 +162,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -179,7 +179,6 @@ literal|3
 operator|)
 return|;
 block|}
-DECL|function|onTransition
 specifier|virtual
 name|void
 name|onTransition
@@ -187,6 +186,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|machine
 argument_list|()
@@ -231,7 +231,6 @@ name|PingTransition
 parameter_list|()
 block|{}
 protected|protected:
-DECL|function|eventTest
 specifier|virtual
 name|bool
 name|eventTest
@@ -240,6 +239,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -256,7 +256,6 @@ literal|2
 operator|)
 return|;
 block|}
-DECL|function|onTransition
 specifier|virtual
 name|void
 name|onTransition
@@ -264,6 +263,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|machine
 argument_list|()

@@ -204,6 +204,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -417,6 +418,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|returnAnimation
 operator|->
@@ -453,6 +455,7 @@ name|onExit
 argument_list|(
 argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|submarine
 operator|->

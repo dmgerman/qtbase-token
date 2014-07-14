@@ -221,9 +221,9 @@ block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
+argument|QPainter *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setCirclePos
@@ -238,6 +238,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QSize
@@ -280,30 +281,30 @@ operator|:
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
+argument|QTimerEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|slots

@@ -117,6 +117,7 @@ name|eventTest
 argument_list|(
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -202,6 +203,7 @@ name|eventTest
 argument_list|(
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -235,6 +237,7 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+function|Q_DECL_OVERRIDE
 block|{
 comment|//We decrease the speed if needed
 if|if
@@ -384,6 +387,7 @@ name|eventTest
 argument_list|(
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -465,6 +469,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|boat
 operator|->
@@ -531,6 +536,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|boat
 operator|->
@@ -597,6 +603,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|boat
 operator|->
@@ -670,6 +677,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Bomb
 operator|*
@@ -797,6 +805,7 @@ name|onEntry
 argument_list|(
 argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Bomb
 operator|*

@@ -52,7 +52,6 @@ argument_list|(
 name|pix
 argument_list|)
 block|{     }
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -67,6 +66,7 @@ parameter_list|,
 name|QWidget
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|painter
 operator|->
@@ -79,7 +79,6 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|mousePressEvent
 specifier|virtual
 name|void
 name|mousePressEvent
@@ -87,13 +86,13 @@ parameter_list|(
 name|QGraphicsSceneMouseEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 emit|emit
 name|clicked
 argument_list|()
 emit|;
 block|}
-DECL|function|setGeometry
 specifier|virtual
 name|void
 name|setGeometry
@@ -103,6 +102,7 @@ name|QRectF
 modifier|&
 name|rect
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QGraphicsWidget
 operator|::
@@ -199,7 +199,6 @@ argument_list|,
 name|parent
 argument_list|)
 block|{     }
-DECL|function|resizeEvent
 specifier|virtual
 name|void
 name|resizeEvent
@@ -207,6 +206,7 @@ parameter_list|(
 name|QResizeEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|fitInView
 argument_list|(

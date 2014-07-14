@@ -60,6 +60,7 @@ name|incomingConnection
 argument_list|(
 argument|qintptr socketDescriptor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

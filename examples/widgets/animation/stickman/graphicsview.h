@@ -49,17 +49,16 @@ name|virtual
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
+argument|QKeyEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|signals
 operator|:

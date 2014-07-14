@@ -30,6 +30,7 @@ block|;
 name|void
 name|initializeGL
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeGL
@@ -38,16 +39,19 @@ argument|int w
 argument_list|,
 argument|int h
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintGL
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
 argument|QTimerEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|update
 argument_list|()
@@ -57,6 +61,7 @@ name|mousePressEvent
 argument_list|(
 argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|killTimer
 argument_list|(
@@ -68,6 +73,7 @@ name|mouseReleaseEvent
 argument_list|(
 argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|timerId
 operator|=

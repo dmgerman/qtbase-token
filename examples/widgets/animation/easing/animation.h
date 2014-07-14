@@ -99,6 +99,7 @@ name|updateCurrentTime
 argument_list|(
 argument|int currentTime
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

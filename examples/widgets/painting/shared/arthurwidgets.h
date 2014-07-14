@@ -95,6 +95,7 @@ name|paintEvent
 argument_list|(
 argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|parentWidget
 argument_list|()
@@ -109,6 +110,7 @@ name|event
 argument_list|(
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 switch|switch
 condition|(
@@ -324,16 +326,16 @@ operator|:
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 if|#
 directive|if

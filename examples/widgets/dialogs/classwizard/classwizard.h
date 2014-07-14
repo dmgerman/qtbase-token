@@ -73,6 +73,7 @@ block|;
 name|void
 name|accept
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -208,6 +209,7 @@ operator|:
 name|void
 name|initializePage
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -268,6 +270,7 @@ operator|:
 name|void
 name|initializePage
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -321,6 +324,7 @@ operator|:
 name|void
 name|initializePage
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

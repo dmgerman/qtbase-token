@@ -34,7 +34,6 @@ argument_list|(
 name|pix
 argument_list|)
 block|{     }
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -49,6 +48,7 @@ parameter_list|,
 name|QWidget
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|painter
 operator|->
@@ -61,11 +61,11 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|boundingRect
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QRectF
@@ -114,7 +114,6 @@ argument_list|(
 name|scene
 argument_list|)
 block|{     }
-DECL|function|resizeEvent
 specifier|virtual
 name|void
 name|resizeEvent
@@ -122,6 +121,7 @@ parameter_list|(
 name|QResizeEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|fitInView
 argument_list|(

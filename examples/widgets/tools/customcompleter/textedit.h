@@ -69,18 +69,16 @@ operator|:
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|e
+argument|QKeyEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|e
+argument|QFocusEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

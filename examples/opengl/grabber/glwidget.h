@@ -114,10 +114,12 @@ operator|:
 name|void
 name|initializeGL
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintGL
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeGL
@@ -126,22 +128,21 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

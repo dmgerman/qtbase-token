@@ -118,11 +118,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|boundingRect
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 comment|// here we only want the size of the children and not the size of the children of the children...
 name|qreal
@@ -165,7 +165,6 @@ return|return
 name|rect
 return|;
 block|}
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -182,6 +181,7 @@ name|QWidget
 modifier|*
 name|widget
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -299,11 +299,11 @@ argument_list|(
 name|parent
 argument_list|)
 block|{ }
-DECL|function|boundingRect
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QRectF
 name|rect
@@ -336,7 +336,6 @@ return|return
 name|rect
 return|;
 block|}
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -350,6 +349,7 @@ parameter_list|,
 name|QWidget
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{ }
 block|}
 class|;
@@ -430,7 +430,6 @@ return|return
 name|m_viewport
 return|;
 block|}
-DECL|function|event
 name|bool
 name|event
 parameter_list|(
@@ -438,6 +437,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 switch|switch
 condition|(
@@ -604,7 +604,6 @@ name|e
 argument_list|)
 return|;
 block|}
-DECL|function|sceneEvent
 name|bool
 name|sceneEvent
 parameter_list|(
@@ -612,6 +611,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 switch|switch
 condition|(
@@ -661,11 +661,11 @@ name|e
 argument_list|)
 return|;
 block|}
-DECL|function|boundingRect
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QRectF
@@ -688,7 +688,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|function|paint
 name|void
 name|paint
 parameter_list|(
@@ -705,6 +704,7 @@ name|QWidget
 modifier|*
 name|widget
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -1144,7 +1144,6 @@ argument_list|)
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|resizeEvent
 name|void
 name|resizeEvent
 parameter_list|(
@@ -1152,6 +1151,7 @@ name|QResizeEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 comment|// resize the scene according to our own size to prevent scrolling
 name|m_scene

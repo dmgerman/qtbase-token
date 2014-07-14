@@ -72,6 +72,7 @@ name|incomingConnection
 argument_list|(
 argument|qintptr socketDescriptor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

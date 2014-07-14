@@ -97,10 +97,9 @@ name|virtual
 name|void
 name|closeEvent
 argument_list|(
-name|QCloseEvent
-operator|*
-name|e
+argument|QCloseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

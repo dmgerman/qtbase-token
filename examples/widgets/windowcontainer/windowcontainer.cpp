@@ -74,7 +74,6 @@ argument_list|(
 literal|false
 argument_list|)
 block|{     }
-DECL|function|render
 name|void
 name|render
 parameter_list|(
@@ -82,6 +81,7 @@ name|QPainter
 modifier|*
 name|p
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QLinearGradient
 name|g
@@ -312,7 +312,6 @@ name|m_polygon
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|mousePressEvent
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -320,6 +319,7 @@ name|QMouseEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_mouseDown
 operator|=
@@ -344,7 +344,6 @@ name|renderLater
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|mouseMoveEvent
 name|void
 name|mouseMoveEvent
 parameter_list|(
@@ -352,6 +351,7 @@ name|QMouseEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -373,7 +373,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|function|mouseReleaseEvent
 name|void
 name|mouseReleaseEvent
 parameter_list|(
@@ -381,6 +380,7 @@ name|QMouseEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_mouseDown
 operator|=
@@ -400,13 +400,13 @@ name|renderLater
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|focusInEvent
 name|void
 name|focusInEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_focus
 operator|=
@@ -416,13 +416,13 @@ name|renderLater
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|focusOutEvent
 name|void
 name|focusOutEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_focus
 operator|=
@@ -437,7 +437,6 @@ name|renderLater
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|keyPressEvent
 name|void
 name|keyPressEvent
 parameter_list|(
@@ -445,6 +444,7 @@ name|QKeyEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_key
 operator|=
@@ -457,13 +457,13 @@ name|renderLater
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|keyReleaseEvent
 name|void
 name|keyReleaseEvent
 parameter_list|(
 name|QKeyEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_key
 operator|=

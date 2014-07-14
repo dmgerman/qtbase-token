@@ -43,10 +43,9 @@ block|;
 name|void
 name|polish
 argument_list|(
-name|QPalette
-operator|&
-name|palette
+argument|QPalette&palette
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

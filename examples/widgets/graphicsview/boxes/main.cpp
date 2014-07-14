@@ -60,7 +60,6 @@ expr_stmt|;
 comment|//setRenderHints(QPainter::SmoothPixmapTransform);
 block|}
 protected|protected:
-DECL|function|resizeEvent
 name|void
 name|resizeEvent
 parameter_list|(
@@ -68,6 +67,7 @@ name|QResizeEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

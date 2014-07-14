@@ -48,26 +48,23 @@ block|;
 name|void
 name|polish
 argument_list|(
-name|QPalette
-operator|&
-name|palette
+argument|QPalette&palette
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|unpolish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|pixelMetric
@@ -79,6 +76,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|styleHint
@@ -92,6 +90,7 @@ argument_list|,
 argument|QStyleHintReturn *returnData
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPrimitive
@@ -105,6 +104,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawControl
@@ -118,6 +118,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

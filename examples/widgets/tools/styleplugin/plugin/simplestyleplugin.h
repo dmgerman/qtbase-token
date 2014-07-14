@@ -62,11 +62,9 @@ name|QStyle
 operator|*
 name|create
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|key
+argument|const QString&key
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

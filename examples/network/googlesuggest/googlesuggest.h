@@ -81,14 +81,11 @@ block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|obj
+argument|QObject *obj
 argument_list|,
-name|QEvent
-operator|*
-name|ev
+argument|QEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showCompletion

@@ -46,6 +46,7 @@ argument_list|(
 argument|const QString&text
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|textFromValue
@@ -53,6 +54,7 @@ argument_list|(
 argument|int value
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

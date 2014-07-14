@@ -120,6 +120,7 @@ name|int
 name|nextId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -166,6 +167,7 @@ name|int
 name|nextId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -213,6 +215,7 @@ name|int
 name|nextId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -257,6 +260,7 @@ name|int
 name|nextId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -311,17 +315,20 @@ block|;
 name|void
 name|initializePage
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|nextId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|slots

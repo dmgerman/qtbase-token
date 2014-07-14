@@ -56,11 +56,9 @@ operator|:
 name|void
 name|highlightBlock
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|text
+argument|const QString&text
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

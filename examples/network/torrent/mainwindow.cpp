@@ -63,6 +63,7 @@ name|fileName
 parameter_list|)
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|dragMoveEvent
 parameter_list|(
@@ -70,7 +71,9 @@ name|QDragMoveEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|dropEvent
 parameter_list|(
@@ -78,6 +81,7 @@ name|QDropEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 endif|#
 directive|endif
@@ -111,8 +115,6 @@ argument_list|(
 name|mainWindow
 argument_list|)
 block|{}
-DECL|function|paint
-specifier|inline
 name|void
 name|paint
 parameter_list|(
@@ -131,6 +133,7 @@ modifier|&
 name|index
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

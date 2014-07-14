@@ -28,13 +28,16 @@ name|AnalogClockWindow
 parameter_list|()
 constructor_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|render
 parameter_list|(
@@ -42,6 +45,7 @@ name|QPainter
 modifier|*
 name|p
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|m_timerId

@@ -46,6 +46,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollTo
@@ -54,6 +55,7 @@ argument|const QModelIndex&index
 argument_list|,
 argument|ScrollHint hint = EnsureVisible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|indexAt
@@ -61,6 +63,7 @@ argument_list|(
 argument|const QPoint&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 name|slots
@@ -68,31 +71,13 @@ operator|:
 name|void
 name|dataChanged
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|topLeft
+argument|const QModelIndex&topLeft
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
-name|bottomRight
+argument|const QModelIndex&bottomRight
 argument_list|,
-specifier|const
-name|QVector
-operator|<
-name|int
-operator|>
-operator|&
-name|roles
-operator|=
-name|QVector
-operator|<
-name|int
-operator|>
-operator|(
-operator|)
+argument|const QVector<int>&roles = QVector<int>()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|rowsInserted
@@ -103,6 +88,7 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|rowsAboutToBeRemoved
@@ -113,6 +99,7 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -125,6 +112,7 @@ argument|EditTrigger trigger
 argument_list|,
 argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|moveCursor
@@ -133,16 +121,19 @@ argument|QAbstractItemView::CursorAction cursorAction
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|horizontalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|verticalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isIndexHidden
@@ -150,6 +141,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSelection
@@ -158,46 +150,42 @@ argument|const QRect&
 argument_list|,
 argument|QItemSelectionModel::SelectionFlags command
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|event
+argument|QPaintEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollContentsBy
@@ -206,6 +194,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QRegion
 name|visualRegionForSelection
@@ -213,6 +202,7 @@ argument_list|(
 argument|const QItemSelection&selection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -240,6 +230,7 @@ block|;
 name|void
 name|updateGeometries
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|margin

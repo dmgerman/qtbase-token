@@ -119,6 +119,7 @@ name|virtual
 name|void
 name|emitChange
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|emit
 name|colorChanged
@@ -151,10 +152,9 @@ name|virtual
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setColor
@@ -215,6 +215,7 @@ name|virtual
 name|void
 name|emitChange
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|emit
 name|valueChanged
@@ -288,33 +289,27 @@ argument|GraphicsItemChange change
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|resizeEvent
 argument_list|(
-name|QGraphicsSceneResizeEvent
-operator|*
-name|event
+argument|QGraphicsSceneResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -489,10 +484,9 @@ name|virtual
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVector
 operator|<
@@ -573,10 +567,9 @@ name|virtual
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -607,15 +600,11 @@ name|virtual
 name|void
 name|drawBackground
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|slots
@@ -691,37 +680,33 @@ name|virtual
 name|void
 name|mousePressEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|wheelEvent
 argument_list|(
-name|QGraphicsSceneWheelEvent
-operator|*
-name|event
+argument|QGraphicsSceneWheelEvent * event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

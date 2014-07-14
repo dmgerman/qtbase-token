@@ -77,10 +77,10 @@ name|QThread
 comment|//! [1] //! [2]
 block|{
 public|public:
-DECL|function|run
 name|void
 name|run
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|qsrand
 argument_list|(
@@ -167,10 +167,10 @@ comment|//! [3] //! [4]
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|run
 name|void
 name|run
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 for|for
 control|(

@@ -108,10 +108,9 @@ operator|:
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
-name|event
+argument|QShowEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|slots
