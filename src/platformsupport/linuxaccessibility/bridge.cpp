@@ -1337,6 +1337,54 @@ comment|//: Role of an accessible object
 block|{
 name|QAccessible
 operator|::
+name|WebDocument
+block|,
+name|ATSPI_ROLE_DOCUMENT_WEB
+block|,
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
+literal|"web document"
+argument_list|)
+block|}
+block|,
+comment|//: Role of an accessible object
+block|{
+name|QAccessible
+operator|::
+name|Paragraph
+block|,
+name|ATSPI_ROLE_PARAGRAPH
+block|,
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
+literal|"paragraph"
+argument_list|)
+block|}
+block|,
+comment|//: Role of an accessible object
+block|{
+name|QAccessible
+operator|::
+name|Section
+block|,
+name|ATSPI_ROLE_SECTION
+block|,
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QSpiAccessibleBridge"
+argument_list|,
+literal|"section"
+argument_list|)
+block|}
+block|,
+comment|//: Role of an accessible object
+block|{
+name|QAccessible
+operator|::
 name|UserRole
 block|,
 name|ATSPI_ROLE_UNKNOWN
