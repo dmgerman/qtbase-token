@@ -32933,6 +32933,8 @@ operator|::
 name|multiTargetTransitionInsideParallelStateGroup
 parameter_list|()
 block|{
+comment|// TODO QTBUG-25958 was reopened, see https://codereview.qt-project.org/89775
+return|return;
 name|QStateMachine
 name|machine
 decl_stmt|;
