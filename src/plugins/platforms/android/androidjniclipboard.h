@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<jni.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QString>
 end_include
 begin_decl_stmt
@@ -61,14 +56,6 @@ name|clipboardText
 parameter_list|()
 function_decl|;
 comment|// Clipboard support
-name|bool
-name|registerNatives
-parameter_list|(
-name|JNIEnv
-modifier|*
-name|env
-parameter_list|)
-function_decl|;
 block|}
 end_decl_stmt
 begin_macro

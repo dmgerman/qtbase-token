@@ -3775,14 +3775,6 @@ name|env
 argument_list|)
 operator|||
 operator|!
-name|QtAndroidClipboard
-operator|::
-name|registerNatives
-argument_list|(
-name|env
-argument_list|)
-operator|||
-operator|!
 name|QtAndroidMenu
 operator|::
 name|registerNatives
