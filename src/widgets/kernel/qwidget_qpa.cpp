@@ -593,6 +593,9 @@ name|setTransientParent
 argument_list|(
 name|nativeParent
 operator|->
+name|window
+argument_list|()
+operator|->
 name|windowHandle
 argument_list|()
 argument_list|)
