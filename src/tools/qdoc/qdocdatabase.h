@@ -1361,6 +1361,11 @@ parameter_list|()
 function_decl|;
 name|NodeMap
 modifier|&
+name|getQmlBasicTypes
+parameter_list|()
+function_decl|;
+name|NodeMap
+modifier|&
 name|getQmlTypes
 parameter_list|()
 function_decl|;
@@ -2285,6 +2290,9 @@ name|namespaceIndex_
 decl_stmt|;
 name|NodeMap
 name|serviceClasses_
+decl_stmt|;
+name|NodeMap
+name|qmlBasicTypes_
 decl_stmt|;
 name|NodeMap
 name|qmlClasses_
