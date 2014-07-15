@@ -376,9 +376,7 @@ name|QCoreApplication
 operator|::
 name|setApplicationVersion
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+name|QStringLiteral
 argument_list|(
 name|QT_VERSION_STR
 argument_list|)
@@ -402,19 +400,10 @@ name|parser
 operator|.
 name|setApplicationDescription
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
-literal|"Qt Resource Compiler version %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
+literal|"Qt Resource Compiler version "
 name|QT_VERSION_STR
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1416,7 +1405,7 @@ name|msg
 init|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"Unable to open %1 for writing: %2\n"
 argument_list|)

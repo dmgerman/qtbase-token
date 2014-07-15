@@ -210,7 +210,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"Unable to open %1 for reading: %2\n"
 argument_list|)
@@ -2963,7 +2963,7 @@ name|msg
 init|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"RCC: Warning: No resources in '%1'.\n"
 argument_list|)
@@ -3066,7 +3066,7 @@ name|msg
 init|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"File too big: %1\n"
 argument_list|)
@@ -3408,7 +3408,7 @@ name|msg
 init|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"Processing %1 files [%2]\n"
 argument_list|)
@@ -3612,7 +3612,7 @@ name|msg
 init|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"Interpreting %1\n"
 argument_list|)
