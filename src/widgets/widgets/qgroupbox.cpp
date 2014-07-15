@@ -1468,6 +1468,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|w
+operator|->
+name|isWindow
+argument_list|()
+condition|)
+return|return;
+if|if
+condition|(
 name|d
 operator|->
 name|checkable
