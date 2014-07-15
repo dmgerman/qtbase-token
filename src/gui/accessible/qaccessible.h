@@ -103,9 +103,6 @@ name|class
 name|QTextCursor
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// We need to inherit QObject to expose the enums to QML.
-end_comment
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
