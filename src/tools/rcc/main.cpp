@@ -57,6 +57,28 @@ include|#
 directive|include
 file|<qcommandlineparser.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<fcntl.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<io.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|dumpRecursive
@@ -1329,6 +1351,34 @@ literal|"-"
 argument_list|)
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// Make sure fwrite to stdout doesn't do LF->CRLF
+if|if
+condition|(
+name|library
+operator|.
+name|format
+argument_list|()
+operator|==
+name|RCCResourceLibrary
+operator|::
+name|Binary
+condition|)
+name|_setmode
+argument_list|(
+name|_fileno
+argument_list|(
+name|stdout
+argument_list|)
+argument_list|,
+name|_O_BINARY
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 comment|// using this overload close() only flushes.
 name|out
 operator|.
