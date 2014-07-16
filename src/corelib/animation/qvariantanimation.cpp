@@ -502,15 +502,7 @@ name|second
 operator|.
 name|convert
 argument_list|(
-cast|static_cast
-argument_list|<
-name|QVariant
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 name|t
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -523,15 +515,7 @@ name|second
 operator|.
 name|convert
 argument_list|(
-cast|static_cast
-argument_list|<
-name|QVariant
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 name|t
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|currentInterval
@@ -542,15 +526,7 @@ name|second
 operator|.
 name|convert
 argument_list|(
-cast|static_cast
-argument_list|<
-name|QVariant
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 name|t
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//... and the interpolator
