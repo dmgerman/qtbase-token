@@ -4724,6 +4724,11 @@ operator|==
 name|ATOM_LIST_VALUE
 condition|)
 block|{
+name|out
+argument_list|()
+operator|<<
+literal|"<table class=\"valuelist\">"
+expr_stmt|;
 name|threeColumnEnumValueTable_
 operator|=
 name|isThreeColumnEnumValueTable
@@ -4736,11 +4741,6 @@ condition|(
 name|threeColumnEnumValueTable_
 condition|)
 block|{
-name|out
-argument_list|()
-operator|<<
-literal|"<table class=\"valuelist\">"
-expr_stmt|;
 if|if
 condition|(
 operator|++
@@ -4765,8 +4765,26 @@ name|out
 argument_list|()
 operator|<<
 literal|"<th class=\"tblConst\">Constant</th>"
+expr_stmt|;
+comment|// If not in \enum topic, skip the value column
+if|if
+condition|(
+name|relative
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|Enum
+condition|)
+name|out
+argument_list|()
 operator|<<
 literal|"<th class=\"tblval\">Value</th>"
+expr_stmt|;
+name|out
+argument_list|()
 operator|<<
 literal|"<th class=\"tbldscr\">Description</th></tr>\n"
 expr_stmt|;
@@ -4775,8 +4793,6 @@ else|else
 block|{
 name|out
 argument_list|()
-operator|<<
-literal|"<table class=\"valuelist\">"
 operator|<<
 literal|"<tr><th class=\"tblConst\">Constant</th><th class=\"tblVal\">Value</th></tr>\n"
 expr_stmt|;
@@ -4972,11 +4988,8 @@ literal|"<tr><td class=\"topAlign\"><tt>"
 operator|<<
 name|t
 operator|<<
-literal|"</tt></td><td class=\"topAlign\">"
+literal|"</tt>"
 expr_stmt|;
-name|QString
-name|itemValue
-decl_stmt|;
 if|if
 condition|(
 name|relative
@@ -4989,6 +5002,11 @@ operator|::
 name|Enum
 condition|)
 block|{
+name|out
+argument_list|()
+operator|<<
+literal|"</td><td class=\"topAlign\">"
+expr_stmt|;
 specifier|const
 name|EnumNode
 modifier|*
@@ -5004,8 +5022,9 @@ argument_list|(
 name|relative
 argument_list|)
 decl_stmt|;
+name|QString
 name|itemValue
-operator|=
+init|=
 name|enume
 operator|->
 name|itemValue
@@ -5018,8 +5037,7 @@ operator|->
 name|string
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|itemValue
@@ -5045,6 +5063,7 @@ argument_list|)
 operator|<<
 literal|"</tt>"
 expr_stmt|;
+block|}
 name|skipAhead
 operator|=
 literal|1
