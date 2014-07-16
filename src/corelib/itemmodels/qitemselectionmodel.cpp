@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -4692,6 +4692,59 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \internal      Sort predicate function for QItemSelectionModelPrivate::_q_layoutChanged(),     sorting by parent first in addition to operator<(). This is to prevent     fragmentation of the selection by grouping indexes with the same row, column     of different parents next to each other, which may happen when a selection     spans sub-trees. */
+end_comment
+begin_function
+DECL|function|qt_PersistentModelIndexLessThan
+specifier|static
+name|bool
+name|qt_PersistentModelIndexLessThan
+parameter_list|(
+specifier|const
+name|QPersistentModelIndex
+modifier|&
+name|i1
+parameter_list|,
+specifier|const
+name|QPersistentModelIndex
+modifier|&
+name|i2
+parameter_list|)
+block|{
+specifier|const
+name|QModelIndex
+name|parent1
+init|=
+name|i1
+operator|.
+name|parent
+argument_list|()
+decl_stmt|;
+specifier|const
+name|QModelIndex
+name|parent2
+init|=
+name|i2
+operator|.
+name|parent
+argument_list|()
+decl_stmt|;
+return|return
+name|parent1
+operator|==
+name|parent2
+condition|?
+name|i1
+operator|<
+name|i2
+else|:
+name|parent1
+operator|<
+name|parent2
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \internal      Merge the selected indexes into selection ranges again. */
 end_comment
 begin_function
@@ -4887,6 +4940,8 @@ name|savedPersistentIndexes
 operator|.
 name|end
 argument_list|()
+argument_list|,
+name|qt_PersistentModelIndexLessThan
 argument_list|)
 expr_stmt|;
 name|std
@@ -4902,6 +4957,8 @@ name|savedPersistentCurrentIndexes
 operator|.
 name|end
 argument_list|()
+argument_list|,
+name|qt_PersistentModelIndexLessThan
 argument_list|)
 expr_stmt|;
 comment|// update the selection by merging the individual indexes
