@@ -15550,7 +15550,10 @@ index|]
 operator|.
 name|insert
 argument_list|(
+name|c
+operator|.
 name|key
+argument_list|()
 argument_list|,
 name|c
 operator|.
