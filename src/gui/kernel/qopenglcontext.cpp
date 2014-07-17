@@ -1325,6 +1325,9 @@ operator|::
 name|destroy
 parameter_list|()
 block|{
+name|deleteQGLContext
+argument_list|()
+expr_stmt|;
 name|Q_D
 argument_list|(
 name|QOpenGLContext
@@ -2525,7 +2528,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
+comment|/*!     internal: If the delete function is specified QOpenGLContext "owns"     the passed context handle and will use the delete function to destroy it.      \internal */
 end_comment
 begin_function
 DECL|function|setQGLContextHandle
