@@ -561,6 +561,16 @@ block|{
 if|if
 condition|(
 name|iif
+operator|==
+name|project
+operator|->
+name|cacheFile
+argument_list|()
+condition|)
+continue|continue;
+if|if
+condition|(
+name|iif
 operator|.
 name|startsWith
 argument_list|(

@@ -5281,6 +5281,20 @@ argument_list|(
 literal|"DISTFILES"
 argument_list|)
 operator|<<
+literal|" "
+operator|<<
+name|varList
+argument_list|(
+literal|"HEADERS"
+argument_list|)
+operator|<<
+literal|" "
+operator|<<
+name|varList
+argument_list|(
+literal|"SOURCES"
+argument_list|)
+operator|<<
 name|endl
 expr_stmt|;
 name|t

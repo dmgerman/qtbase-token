@@ -1708,6 +1708,21 @@ name|project
 operator|->
 name|values
 argument_list|(
+literal|"HEADERS"
+argument_list|)
+argument_list|)
+argument_list|)
+operator|<<
+literal|" "
+operator|<<
+name|valList
+argument_list|(
+name|escapeFilePaths
+argument_list|(
+name|project
+operator|->
+name|values
+argument_list|(
 literal|"SOURCES"
 argument_list|)
 argument_list|)
