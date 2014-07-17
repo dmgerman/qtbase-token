@@ -100,6 +100,50 @@ end_comment
 begin_comment
 comment|// We better avoid these kind of problems by using our own locked implementation.
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+end_if
+begin_comment
+comment|// Work around Intel issue ID 6000058488:
+end_comment
+begin_comment
+comment|// local statics inside an inline function inside an anonymous namespace are global
+end_comment
+begin_comment
+comment|// symbols (this affects the IA-64 C++ ABI, so OS X and Linux only)
+end_comment
+begin_define
+DECL|macro|Q_GLOBAL_STATIC_INTERNAL_DECORATION
+define|#
+directive|define
+name|Q_GLOBAL_STATIC_INTERNAL_DECORATION
+value|Q_DECL_HIDDEN
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|Q_GLOBAL_STATIC_INTERNAL_DECORATION
+define|#
+directive|define
+name|Q_GLOBAL_STATIC_INTERNAL_DECORATION
+value|Q_DECL_HIDDEN inline
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_GLOBAL_STATIC_INTERNAL
 define|#
@@ -109,7 +153,7 @@ parameter_list|(
 name|ARGS
 parameter_list|)
 define|\
-value|Q_DECL_HIDDEN inline Type *innerFunction()                  \     {                                                           \         struct HolderBase {                                     \             ~HolderBase() Q_DECL_NOTHROW                        \             { if (guard.load() == QtGlobalStatic::Initialized)  \                   guard.store(QtGlobalStatic::Destroyed); }     \         };                                                      \         static struct Holder : public HolderBase {              \             Type value;                                         \             Holder()                                            \                 Q_DECL_NOEXCEPT_EXPR(noexcept(Type ARGS))       \                 : value ARGS                                    \             { guard.store(QtGlobalStatic::Initialized); }       \         } holder;                                               \         return&holder.value;                                   \     }
+value|Q_GLOBAL_STATIC_INTERNAL_DECORATION Type *innerFunction()   \     {                                                           \         struct HolderBase {                                     \             ~HolderBase() Q_DECL_NOTHROW                        \             { if (guard.load() == QtGlobalStatic::Initialized)  \                   guard.store(QtGlobalStatic::Destroyed); }     \         };                                                      \         static struct Holder : public HolderBase {              \             Type value;                                         \             Holder()                                            \                 Q_DECL_NOEXCEPT_EXPR(noexcept(Type ARGS))       \                 : value ARGS                                    \             { guard.store(QtGlobalStatic::Initialized); }       \         } holder;                                               \         return&holder.value;                                   \     }
 end_define
 begin_else
 else|#
