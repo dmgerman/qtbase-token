@@ -48,16 +48,16 @@ DECL|macro|HB_VERSION_MICRO
 define|#
 directive|define
 name|HB_VERSION_MICRO
-value|25
+value|32
 DECL|macro|HB_VERSION_STRING
 define|#
 directive|define
 name|HB_VERSION_STRING
-value|"0.9.25"
-DECL|macro|HB_VERSION_CHECK
+value|"0.9.32"
+DECL|macro|HB_VERSION_ATLEAST
 define|#
 directive|define
-name|HB_VERSION_CHECK
+name|HB_VERSION_ATLEAST
 parameter_list|(
 name|major
 parameter_list|,
@@ -66,7 +66,7 @@ parameter_list|,
 name|micro
 parameter_list|)
 define|\
-value|((major)*10000+(minor)*100+(micro)>= \ 	 HB_VERSION_MAJOR*10000+HB_VERSION_MINOR*100+HB_VERSION_MICRO)
+value|((major)*10000+(minor)*100+(micro)<= \ 	 HB_VERSION_MAJOR*10000+HB_VERSION_MINOR*100+HB_VERSION_MICRO)
 name|void
 name|hb_version
 parameter_list|(
@@ -99,7 +99,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|hb_bool_t
-name|hb_version_check
+name|hb_version_atleast
 parameter_list|(
 name|unsigned
 name|int

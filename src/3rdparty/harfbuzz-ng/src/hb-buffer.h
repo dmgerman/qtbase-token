@@ -496,6 +496,39 @@ name|buffer
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_define
+DECL|macro|HB_BUFFER_REPLACEMENT_CODEPOINT_DEFAULT
+define|#
+directive|define
+name|HB_BUFFER_REPLACEMENT_CODEPOINT_DEFAULT
+value|0xFFFDu
+end_define
+begin_comment
+comment|/* Sets codepoint used to replace invalid UTF-8/16/32 entries.  * Default is 0xFFFDu. */
+end_comment
+begin_function_decl
+name|void
+name|hb_buffer_set_replacement_codepoint
+parameter_list|(
+name|hb_buffer_t
+modifier|*
+name|buffer
+parameter_list|,
+name|hb_codepoint_t
+name|replacement
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|hb_codepoint_t
+name|hb_buffer_get_replacement_codepoint
+parameter_list|(
+name|hb_buffer_t
+modifier|*
+name|buffer
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/* Resets the buffer.  Afterwards it's as if it was just created,  * except that it has a larger buffer allocated perhaps... */
 end_comment
@@ -510,7 +543,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* Like reset, but does NOT clear unicode_funcs. */
+comment|/* Like reset, but does NOT clear unicode_funcs and replacement_codepoint. */
 end_comment
 begin_function_decl
 name|void
@@ -652,6 +685,34 @@ name|buffer
 parameter_list|,
 specifier|const
 name|uint32_t
+modifier|*
+name|text
+parameter_list|,
+name|int
+name|text_length
+parameter_list|,
+name|unsigned
+name|int
+name|item_offset
+parameter_list|,
+name|int
+name|item_length
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/* Like add_utf32 but does NOT check for invalid Unicode codepoints. */
+end_comment
+begin_function_decl
+name|void
+name|hb_buffer_add_codepoints
+parameter_list|(
+name|hb_buffer_t
+modifier|*
+name|buffer
+parameter_list|,
+specifier|const
+name|hb_codepoint_t
 modifier|*
 name|text
 parameter_list|,

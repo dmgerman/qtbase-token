@@ -36,7 +36,7 @@ begin_macro
 name|HB_BEGIN_DECLS
 end_macro
 begin_comment
-comment|/*  * Note re various memory-modes:  *  * - In no case shall the HarfBuzz client modify memory  *   that is passed to HarfBuzz in a blob.  If there is  *   any such possibility, MODE_DUPLICATE should be used  *   such that HarfBuzz makes a copy immediately,  *  * - Use MODE_READONLY otherse, unless you really really  *   really know what you are doing,  *  * - MODE_WRITABLE is appropriate if you relaly made a  *   copy of data solely for the purpose of passing to  *   HarfBuzz and doing that just once (no reuse!),  *  * - If the font is mmap()ed, it's ok to use  *   READONLY_MAY_MAKE_WRITABLE, however, there were  *   design problems with that mode, so HarfBuzz do not  *   really use it anymore.  If not sure, use MODE_READONLY.  */
+comment|/*  * Note re various memory-modes:  *  * - In no case shall the HarfBuzz client modify memory  *   that is passed to HarfBuzz in a blob.  If there is  *   any such possibility, MODE_DUPLICATE should be used  *   such that HarfBuzz makes a copy immediately,  *  * - Use MODE_READONLY otherse, unless you really really  *   really know what you are doing,  *  * - MODE_WRITABLE is appropriate if you really made a  *   copy of data solely for the purpose of passing to  *   HarfBuzz and doing that just once (no reuse!),  *  * - If the font is mmap()ed, it's ok to use  *   READONLY_MAY_MAKE_WRITABLE, however, using that mode  *   correctly is very tricky.  Use MODE_READONLY instead.  */
 end_comment
 begin_typedef
 typedef|typedef

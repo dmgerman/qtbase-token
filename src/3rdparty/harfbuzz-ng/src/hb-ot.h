@@ -27,6 +27,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"hb-ot-font.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"hb-ot-layout.h"
 end_include
 begin_include
