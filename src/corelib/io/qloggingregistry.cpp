@@ -1344,7 +1344,7 @@ argument_list|()
 condition|)
 name|debugMsg
 argument_list|(
-literal|"Loading logging rules set by Qt API ..."
+literal|"Loading logging rules set by QLoggingCategory::setFilterRules ..."
 argument_list|)
 expr_stmt|;
 name|apiRules
