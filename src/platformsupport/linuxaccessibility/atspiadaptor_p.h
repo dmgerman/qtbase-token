@@ -240,6 +240,13 @@ argument|QAccessibleInterface *interface
 argument_list|)
 specifier|const
 block|;
+name|void
+name|childrenChanged
+argument_list|(
+argument|QAccessibleInterface *interface
+argument_list|)
+specifier|const
+block|;
 comment|// handlers for the different accessible interfaces
 name|bool
 name|applicationInterface
