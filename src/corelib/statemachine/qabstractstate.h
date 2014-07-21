@@ -49,6 +49,10 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
+name|Q_PROPERTY
+argument_list|(
+argument|bool active READ active NOTIFY activeChanged
+argument_list|)
 name|public
 operator|:
 operator|~
@@ -64,6 +68,11 @@ block|;
 name|QStateMachine
 operator|*
 name|machine
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|active
 argument_list|()
 specifier|const
 block|;
@@ -97,6 +106,12 @@ argument_list|)
 name|QPrivateSignal
 endif|#
 directive|endif
+argument_list|)
+block|;
+name|void
+name|activeChanged
+argument_list|(
+argument|bool active
 argument_list|)
 block|;
 name|protected

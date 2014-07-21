@@ -43,6 +43,9 @@ end_macro
 begin_comment
 comment|/*!   \class QAbstractState   \inmodule QtCore    \brief The QAbstractState class is the base class of states of a QStateMachine.    \since 4.6   \ingroup statemachine    The QAbstractState class is the abstract base class of states that are part   of a QStateMachine. It defines the interface that all state objects have in   common. QAbstractState is part of \l{The State Machine Framework}.    The entered() signal is emitted when the state has been entered. The   exited() signal is emitted when the state has been exited.    The parentState() function returns the state's parent state. The machine()   function returns the state machine that the state is part of.    \section1 Subclassing    The onEntry() function is called when the state is entered; reimplement this   function to perform custom processing when the state is entered.    The onExit() function is called when the state is exited; reimplement this   function to perform custom processing when the state is exited. */
 end_comment
+begin_comment
+comment|/*!     \property QAbstractState::active     \since 5.4      \brief the active property of this state. A state is active between     entered() and exited() signals. */
+end_comment
 begin_constructor
 DECL|function|QAbstractStatePrivate
 name|QAbstractStatePrivate
@@ -59,6 +62,11 @@ name|type
 argument_list|)
 member_init_list|,
 name|isMachine
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|active
 argument_list|(
 literal|false
 argument_list|)
@@ -243,6 +251,25 @@ name|QPrivateSignal
 argument_list|()
 argument_list|)
 emit|;
+if|if
+condition|(
+operator|!
+name|active
+condition|)
+block|{
+name|active
+operator|=
+literal|true
+expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|activeChanged
+argument_list|(
+literal|true
+argument_list|)
+emit|;
+block|}
 block|}
 end_function
 begin_function
@@ -258,6 +285,24 @@ argument_list|(
 name|QAbstractState
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|active
+condition|)
+block|{
+name|active
+operator|=
+literal|false
+expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|activeChanged
+argument_list|(
+literal|false
+argument_list|)
+emit|;
+block|}
 emit|emit
 name|q
 operator|->
@@ -415,6 +460,31 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   Returns whether this state is active.    \sa activeChanged(bool), entered(), exited() */
+end_comment
+begin_function
+DECL|function|active
+name|bool
+name|QAbstractState
+operator|::
+name|active
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QAbstractState
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|active
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   \fn QAbstractState::onExit(QEvent *event)    This function is called when the state is exited. The given \a event is what   caused the state to be exited. Reimplement this function to perform custom   processing when the state is exited. */
 end_comment
 begin_comment
@@ -425,6 +495,9 @@ comment|/*!   \fn QAbstractState::entered()    This signal is emitted when the s
 end_comment
 begin_comment
 comment|/*!   \fn QAbstractState::exited()    This signal is emitted when the state has been exited (after onExit() has   been called). */
+end_comment
+begin_comment
+comment|/*!   \fn QAbstractState::activeChanged(bool active)   \since 5.4    This signal is emitted when the active property is changed.    \sa QAbstractState::active, entered(), exited() */
 end_comment
 begin_comment
 comment|/*!   \reimp */

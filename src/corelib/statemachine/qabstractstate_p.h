@@ -146,10 +146,15 @@ block|;
 name|uint
 name|stateType
 operator|:
-literal|31
+literal|30
 block|;
 name|uint
 name|isMachine
+operator|:
+literal|1
+block|;
+name|bool
+name|active
 operator|:
 literal|1
 block|;
