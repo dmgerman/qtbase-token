@@ -329,7 +329,7 @@ argument_list|)
 expr_stmt|;
 name|jniEnv
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 return|return;
 block|}
