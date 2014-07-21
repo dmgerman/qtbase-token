@@ -576,6 +576,14 @@ expr_stmt|;
 block|}
 else|#
 directive|else
+name|int
+name|loadHints
+init|=
+name|this
+operator|->
+name|loadHints
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|loadHints
