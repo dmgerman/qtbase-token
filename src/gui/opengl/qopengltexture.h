@@ -1177,6 +1177,16 @@ init|=
 literal|0x8365
 block|,
 comment|// GL_UNSIGNED_SHORT_4_4_4_4_REV
+name|UInt32_RGBA8
+init|=
+literal|0x8035
+block|,
+comment|// GL_UNSIGNED_INT_8_8_8_8
+name|UInt32_RGBA8_Rev
+init|=
+literal|0x8367
+block|,
+comment|// GL_UNSIGNED_INT_8_8_8_8_REV
 name|UInt32_RGB10A2
 init|=
 literal|0x8036
