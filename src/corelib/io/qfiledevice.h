@@ -267,12 +267,18 @@ name|setPermissions
 argument_list|(
 argument|Permissions permissionSpec
 argument_list|)
-block|;      enum
+block|;
+comment|// ### Qt 6: rename to MemoryMapFlag& make it a QFlags
+block|enum
 name|MemoryMapFlags
 block|{
 name|NoOptions
 operator|=
 literal|0
+block|,
+name|MapPrivateOption
+operator|=
+literal|0x0001
 block|}
 block|;
 name|uchar
