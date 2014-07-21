@@ -21987,6 +21987,11 @@ return|;
 case|case
 name|Node
 operator|::
+name|QmlBasicType
+case|:
+case|case
+name|Node
+operator|::
 name|QmlType
 case|:
 case|case
