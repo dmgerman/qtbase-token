@@ -8428,7 +8428,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"MS Sans Serif"
+literal|"MS Shell Dlg 2"
 argument_list|)
 expr_stmt|;
 break|break;
