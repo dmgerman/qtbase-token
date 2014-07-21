@@ -95,6 +95,14 @@ name|EGLConfig
 name|config
 parameter_list|)
 function_decl|;
+name|void
+name|applicationStateChanged
+argument_list|(
+name|Qt
+operator|::
+name|ApplicationState
+argument_list|)
+decl_stmt|;
 name|protected
 label|:
 name|virtual

@@ -76,13 +76,6 @@ modifier|*
 name|surface
 parameter_list|)
 block|{
-name|QEGLPlatformContext
-operator|::
-name|swapBuffers
-argument_list|(
-name|surface
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|surface
@@ -110,6 +103,13 @@ name|checkNativeSurface
 argument_list|(
 name|eglConfig
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|QEGLPlatformContext
+operator|::
+name|swapBuffers
+argument_list|(
+name|surface
 argument_list|)
 expr_stmt|;
 block|}
