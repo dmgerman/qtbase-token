@@ -9342,6 +9342,12 @@ if|if
 condition|(
 name|visible
 condition|)
+block|{
+name|setFlag
+argument_list|(
+name|WithinMaximize
+argument_list|)
+expr_stmt|;
 name|ShowWindow
 argument_list|(
 name|m_data
@@ -9361,6 +9367,12 @@ else|:
 name|SW_SHOWNOACTIVATE
 argument_list|)
 expr_stmt|;
+name|clearFlag
+argument_list|(
+name|WithinMaximize
+argument_list|)
+expr_stmt|;
+block|}
 name|m_savedStyle
 operator|=
 literal|0
