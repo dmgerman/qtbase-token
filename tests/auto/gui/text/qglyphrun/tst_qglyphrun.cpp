@@ -191,8 +191,10 @@ name|QFontDatabase
 operator|::
 name|addApplicationFont
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"test.ttf"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
