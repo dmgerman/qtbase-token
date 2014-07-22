@@ -338,12 +338,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|strlen
-argument_list|(
-literal|".debug"
-argument_list|)
+literal|6
 argument_list|)
 expr_stmt|;
+comment|// strlen(".debug")
 name|messageType
 operator|=
 name|QtDebugMsg
@@ -384,12 +382,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|strlen
-argument_list|(
-literal|".warning"
-argument_list|)
+literal|8
 argument_list|)
 expr_stmt|;
+comment|// strlen(".warning")
 name|messageType
 operator|=
 name|QtWarningMsg
@@ -430,12 +426,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|strlen
-argument_list|(
-literal|".critical"
-argument_list|)
+literal|9
 argument_list|)
 expr_stmt|;
+comment|// strlen(".critical")
 name|messageType
 operator|=
 name|QtCriticalMsg
