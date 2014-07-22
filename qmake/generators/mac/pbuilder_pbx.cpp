@@ -8048,8 +8048,8 @@ operator|<<
 literal|";\n"
 comment|// The build phases are not executed in the order they are defined, but by their
 comment|// resolved dependenices, so we have to ensure that this phase is run after the
-comment|// compilation phase, and before the link phase. Making the phase depend on all the
-comment|// object files, and "write" to the list of files to link achieves that.
+comment|// compilation phase, and before the link phase. Making the phase depend on the
+comment|// object file directory, and "write" to the list of files to link achieves that.
 operator|<<
 literal|"\t\t\t"
 operator|<<
@@ -8059,11 +8059,7 @@ literal|"inputPaths"
 argument_list|,
 name|ProStringList
 argument_list|(
-literal|"$(OBJECT_FILE_DIR_$(CURRENT_VARIANT))/$(CURRENT_ARCH)/*"
-operator|+
-name|Option
-operator|::
-name|obj_ext
+literal|"$(OBJECT_FILE_DIR_$(CURRENT_VARIANT))/$(CURRENT_ARCH)/"
 argument_list|)
 argument_list|,
 name|SettingsAsList
