@@ -793,13 +793,14 @@ name|TRANSPARENT
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|EndPage
 argument_list|(
 name|d
 operator|->
 name|hdc
 argument_list|)
+operator|<=
+literal|0
 condition|)
 block|{
 name|qErrnoWarning
@@ -845,13 +846,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|StartPage
 argument_list|(
 name|d
 operator|->
 name|hdc
 argument_list|)
+operator|<=
+literal|0
 condition|)
 block|{
 name|qErrnoWarning
@@ -933,8 +935,8 @@ name|d
 operator|->
 name|hdc
 argument_list|)
-operator|!=
-name|SP_ERROR
+operator|>
+literal|0
 condition|)
 block|{
 comment|// reinitialize the DC before StartPage if needed,
@@ -980,8 +982,8 @@ name|d
 operator|->
 name|hdc
 argument_list|)
-operator|!=
-name|SP_ERROR
+operator|>
+literal|0
 operator|)
 expr_stmt|;
 block|}
