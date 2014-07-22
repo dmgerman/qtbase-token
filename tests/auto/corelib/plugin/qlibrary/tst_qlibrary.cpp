@@ -2640,6 +2640,21 @@ argument_list|(
 name|lh
 argument_list|)
 expr_stmt|;
+comment|// confirm that another QLibrary doesn't get affected - QTBUG-39642
+name|QCOMPARE
+argument_list|(
+name|QLibrary
+argument_list|()
+operator|.
+name|loadHints
+argument_list|()
+argument_list|,
+name|QLibrary
+operator|::
+name|LoadHints
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|library
 operator|.

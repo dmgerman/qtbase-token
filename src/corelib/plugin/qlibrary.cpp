@@ -1413,6 +1413,12 @@ name|Q_LIKELY
 argument_list|(
 name|data
 argument_list|)
+operator|&&
+operator|!
+name|fileName
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 name|data
 operator|->
@@ -1496,6 +1502,14 @@ name|Q_LIKELY
 argument_list|(
 name|data
 argument_list|)
+operator|&&
+operator|!
+name|lib
+operator|->
+name|fileName
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|QLibraryPrivate
