@@ -39,6 +39,22 @@ file|"QtCore/qdebug.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
+DECL|function|localHostName
+specifier|static
+specifier|inline
+name|QByteArray
+name|localHostName
+parameter_list|()
+block|{
+return|return
+name|qgetenv
+argument_list|(
+literal|"COMPUTERNAME"
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|tryLock_sys
 name|QLockFile
 operator|::
@@ -240,7 +256,11 @@ name|fileData
 operator|+=
 literal|'\n'
 expr_stmt|;
-comment|//fileData += localHostname(); // gethostname requires winsock init, see QHostInfo...
+name|fileData
+operator|+=
+name|localHostName
+argument_list|()
+expr_stmt|;
 name|fileData
 operator|+=
 literal|'\n'
@@ -359,6 +379,19 @@ comment|// processes due to sandboxing
 ifndef|#
 directive|ifndef
 name|Q_OS_WINRT
+if|if
+condition|(
+name|hostname
+operator|==
+name|QString
+operator|::
+name|fromLocal8Bit
+argument_list|(
+name|localHostName
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|HANDLE
 name|procHandle
 init|=
@@ -407,6 +440,7 @@ condition|)
 return|return
 literal|true
 return|;
+block|}
 endif|#
 directive|endif
 comment|// !Q_OS_WINRT
