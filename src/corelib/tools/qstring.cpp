@@ -29186,8 +29186,6 @@ argument_list|()
 argument_list|,
 name|length
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
