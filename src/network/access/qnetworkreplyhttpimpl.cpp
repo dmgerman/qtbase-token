@@ -4026,6 +4026,35 @@ argument_list|(
 name|forwardUploadDevice
 argument_list|)
 expr_stmt|;
+comment|// If the device in the user thread claims it has more data, keep the flow to HTTP thread going
+name|QObject
+operator|::
+name|connect
+argument_list|(
+name|uploadByteDevice
+operator|.
+name|data
+argument_list|()
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|readyRead
+argument_list|()
+argument_list|)
+argument_list|,
+name|q
+argument_list|,
+name|SLOT
+argument_list|(
+name|uploadByteDeviceReadyReadSlot
+argument_list|()
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
 comment|// From main thread to user thread:
 name|QObject
 operator|::
@@ -6040,6 +6069,17 @@ name|currentUploadDataLength
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|currentUploadDataLength
+operator|==
+literal|0
+condition|)
+block|{
+comment|// No bytes from upload byte device. There will be bytes later, it will emit readyRead()
+comment|// and our uploadByteDeviceReadyReadSlot() is called.
+return|return;
+block|}
 comment|// Let's make a copy of this data
 name|QByteArray
 name|dataArray
@@ -6068,6 +6108,22 @@ name|size
 argument_list|()
 argument_list|)
 emit|;
+block|}
+end_function
+begin_function
+DECL|function|uploadByteDeviceReadyReadSlot
+name|void
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|uploadByteDeviceReadyReadSlot
+parameter_list|()
+block|{
+comment|// Start the flow between this thread and the HTTP thread again by triggering a upload.
+name|wantUploadDataSlot
+argument_list|(
+literal|1024
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

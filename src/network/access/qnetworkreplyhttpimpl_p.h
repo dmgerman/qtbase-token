@@ -369,6 +369,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void uploadByteDeviceReadyReadSlot()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void emitReplyUploadProgress(qint64, qint64)
 argument_list|)
 name|Q_PRIVATE_SLOT
@@ -961,6 +967,11 @@ name|sentUploadDataSlot
 argument_list|(
 name|qint64
 argument_list|)
+block|;
+comment|// From user's QNonContiguousByteDevice
+name|void
+name|uploadByteDeviceReadyReadSlot
+argument_list|()
 block|;
 name|Q_DECLARE_PUBLIC
 argument_list|(
