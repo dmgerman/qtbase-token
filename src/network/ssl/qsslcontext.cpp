@@ -1878,6 +1878,9 @@ argument_list|(
 name|dh
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
 comment|// Set temp ECDH params
 name|EC_KEY
 modifier|*
@@ -1906,6 +1909,9 @@ argument_list|(
 name|ecdh
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// OPENSSL_NO_EC
 return|return
 name|sslContext
 return|;

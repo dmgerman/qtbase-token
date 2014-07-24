@@ -2932,6 +2932,11 @@ name|dh
 parameter_list|)
 value|q_SSL_CTX_ctrl((ctx), SSL_CTRL_SET_TMP_DH, 0, (char *)dh)
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
 begin_comment
 comment|// EC Diffie-Hellman support
 end_comment
@@ -2967,6 +2972,13 @@ name|ecdh
 parameter_list|)
 value|q_SSL_CTX_ctrl((ctx), SSL_CTRL_SET_TMP_ECDH, 0, (char *)ecdh)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// OPENSSL_NO_EC
+end_comment
 begin_define
 DECL|macro|q_BIO_get_mem_data
 define|#
