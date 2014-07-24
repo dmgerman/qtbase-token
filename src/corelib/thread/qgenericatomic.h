@@ -1354,8 +1354,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement fetchAndAnd on top of testAndSet
-name|Q_FOREVER
-block|{
 name|T
 name|tmp
 operator|=
@@ -1366,6 +1364,8 @@ argument_list|(
 name|_q_value
 argument_list|)
 block|;
+name|Q_FOREVER
+block|{
 if|if
 condition|(
 name|BaseClass
@@ -1382,6 +1382,9 @@ name|tmp
 operator|&
 name|operand
 argument_list|)
+argument_list|,
+operator|&
+name|tmp
 argument_list|)
 condition|)
 return|return
@@ -1532,8 +1535,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement fetchAndOr on top of testAndSet
-name|Q_FOREVER
-block|{
 name|T
 name|tmp
 operator|=
@@ -1544,6 +1545,8 @@ argument_list|(
 name|_q_value
 argument_list|)
 block|;
+name|Q_FOREVER
+block|{
 if|if
 condition|(
 name|BaseClass
@@ -1560,6 +1563,9 @@ name|tmp
 operator||
 name|operand
 argument_list|)
+argument_list|,
+operator|&
+name|tmp
 argument_list|)
 condition|)
 return|return
@@ -1710,8 +1716,6 @@ argument_list|)
 name|Q_DECL_NOTHROW
 block|{
 comment|// implement fetchAndXor on top of testAndSet
-name|Q_FOREVER
-block|{
 name|T
 name|tmp
 operator|=
@@ -1722,6 +1726,8 @@ argument_list|(
 name|_q_value
 argument_list|)
 block|;
+name|Q_FOREVER
+block|{
 if|if
 condition|(
 name|BaseClass
@@ -1738,6 +1744,9 @@ name|tmp
 operator|^
 name|operand
 argument_list|)
+argument_list|,
+operator|&
+name|tmp
 argument_list|)
 condition|)
 return|return
