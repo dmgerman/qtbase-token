@@ -2507,11 +2507,25 @@ operator|==
 literal|"XCODE"
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_CC_MSVC
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"Generating Xcode projects is not supported with an MSVC build of Qt.\n"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|mkfile
 operator|=
 operator|new
 name|ProjectBuilderMakefileGenerator
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 elseif|else
 if|if
