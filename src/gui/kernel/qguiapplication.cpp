@@ -6641,6 +6641,7 @@ condition|(
 name|e
 operator|->
 name|nullWindow
+argument_list|()
 condition|)
 block|{
 name|window
@@ -6997,6 +6998,7 @@ operator|!
 name|e
 operator|->
 name|synthetic
+argument_list|()
 condition|)
 block|{
 if|if
@@ -7097,6 +7099,7 @@ operator|!
 name|e
 operator|->
 name|synthetic
+argument_list|()
 operator|&&
 operator|!
 name|ev
@@ -7314,9 +7317,13 @@ argument_list|)
 decl_stmt|;
 name|fake
 operator|.
-name|synthetic
-operator|=
-literal|true
+name|flags
+operator||=
+name|QWindowSystemInterfacePrivate
+operator|::
+name|WindowSystemEvent
+operator|::
+name|Synthetic
 expr_stmt|;
 name|processTouchEvent
 argument_list|(
@@ -7349,6 +7356,7 @@ operator|||
 name|e
 operator|->
 name|nullWindow
+argument_list|()
 condition|)
 block|{
 comment|// QTBUG-36364, check if window closed in response to press
@@ -7468,6 +7476,7 @@ condition|(
 name|e
 operator|->
 name|nullWindow
+argument_list|()
 condition|)
 block|{
 name|window
@@ -7641,6 +7650,7 @@ condition|(
 name|e
 operator|->
 name|nullWindow
+argument_list|()
 if|#
 directive|if
 name|defined
@@ -9158,6 +9168,7 @@ condition|(
 name|e
 operator|->
 name|nullWindow
+argument_list|()
 condition|)
 block|{
 name|window
@@ -9197,6 +9208,7 @@ condition|(
 name|e
 operator|->
 name|nullWindow
+argument_list|()
 condition|)
 block|{
 name|window
@@ -10106,6 +10118,7 @@ operator|!
 name|e
 operator|->
 name|synthetic
+argument_list|()
 condition|)
 block|{
 for|for
@@ -10192,9 +10205,13 @@ argument_list|)
 decl_stmt|;
 name|fake
 operator|.
-name|synthetic
-operator|=
-literal|true
+name|flags
+operator||=
+name|QWindowSystemInterfacePrivate
+operator|::
+name|WindowSystemEvent
+operator|::
+name|Synthetic
 expr_stmt|;
 name|processMouseEvent
 argument_list|(
@@ -11261,6 +11278,7 @@ operator|!
 name|e
 operator|->
 name|synthetic
+argument_list|()
 operator|&&
 operator|!
 name|touchEvent
@@ -11457,9 +11475,13 @@ argument_list|)
 decl_stmt|;
 name|fake
 operator|.
-name|synthetic
-operator|=
-literal|true
+name|flags
+operator||=
+name|QWindowSystemInterfacePrivate
+operator|::
+name|WindowSystemEvent
+operator|::
+name|Synthetic
 expr_stmt|;
 name|processMouseEvent
 argument_list|(
