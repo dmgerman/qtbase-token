@@ -17060,6 +17060,7 @@ operator|==
 literal|"yes"
 condition|)
 block|{
+comment|// Note that d3d11 is still allowed for ANGLE, hence the check for == "yes".
 if|if
 condition|(
 name|dictionary
@@ -17073,13 +17074,13 @@ name|dictionary
 index|[
 literal|"ANGLE"
 index|]
-operator|!=
-literal|"no"
+operator|==
+literal|"yes"
 condition|)
 block|{
 name|cout
 operator|<<
-literal|"ERROR: Dynamic OpenGL cannot be used together with native Angle (GLES2) builds."
+literal|"ERROR: Dynamic OpenGL cannot be used with -angle."
 operator|<<
 name|endl
 expr_stmt|;
@@ -17449,10 +17450,25 @@ index|]
 operator|!=
 literal|"no"
 condition|)
+block|{
 name|qtConfig
 operator|+=
 literal|"dynamicgl"
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"ANGLE"
+index|]
+operator|==
+literal|"d3d11"
+condition|)
+name|qmakeConfig
+operator|+=
+literal|"angle_d3d11"
+expr_stmt|;
+block|}
 comment|// Image formates -----------------------------------------------
 if|if
 condition|(
