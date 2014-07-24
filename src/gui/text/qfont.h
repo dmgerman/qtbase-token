@@ -147,6 +147,10 @@ name|ForceIntegerMetrics
 init|=
 literal|0x0400
 block|,
+name|NoSubpixelAntialias
+init|=
+literal|0x0800
+block|,
 name|NoFontMerging
 init|=
 literal|0x8000
