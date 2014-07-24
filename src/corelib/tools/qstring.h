@@ -6791,13 +6791,6 @@ name|i
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_expr_stmt
-name|void
-name|updateProperties
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|QString
 name|multiArg
