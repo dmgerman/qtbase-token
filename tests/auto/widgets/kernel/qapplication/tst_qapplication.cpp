@@ -782,6 +782,17 @@ parameter_list|()
 block|{
 comment|// TODO: Add cleanup code here.
 comment|// This will be executed immediately after each test is run.
+name|QVERIFY
+argument_list|(
+name|QApplication
+operator|::
+name|topLevelWidgets
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

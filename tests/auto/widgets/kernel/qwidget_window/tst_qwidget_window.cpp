@@ -121,7 +121,7 @@ class|class
 name|tst_QWidget_window
 super|:
 specifier|public
-name|QWidget
+name|QObject
 block|{
 name|Q_OBJECT
 public|public:
@@ -139,6 +139,10 @@ parameter_list|()
 function_decl|;
 name|void
 name|cleanupTestCase
+parameter_list|()
+function_decl|;
+name|void
+name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -233,6 +237,27 @@ operator|::
 name|cleanupTestCase
 parameter_list|()
 block|{ }
+end_function
+begin_function
+DECL|function|cleanup
+name|void
+name|tst_QWidget_window
+operator|::
+name|cleanup
+parameter_list|()
+block|{
+name|QVERIFY
+argument_list|(
+name|QApplication
+operator|::
+name|topLevelWidgets
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|/* Test if the maximum/minimum size constraints  * are propagated from the widget to the QWidgetWindow  * independently of whether they were set before or after  * window creation (QTBUG-26745). */
