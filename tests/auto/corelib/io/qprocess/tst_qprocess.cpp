@@ -1500,20 +1500,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QPROCESS_USE_SPAWN
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QProcess cannot detect failure to start when using posix_spawn()"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|QProcess
@@ -8592,6 +8578,19 @@ operator|++
 name|i
 control|)
 block|{
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+comment|// POSIX reserves exit code 127 when using posix_spawn
+if|if
+condition|(
+name|i
+operator|==
+literal|127
+condition|)
+continue|continue;
+endif|#
+directive|endif
 name|QProcess
 name|process
 decl_stmt|;

@@ -2490,6 +2490,50 @@ name|processError
 argument_list|)
 emit|;
 block|}
+else|else
+block|{
+ifdef|#
+directive|ifdef
+name|QPROCESS_USE_SPAWN
+comment|// if we're using posix_spawn, waitForStarted always succeeds.
+comment|// POSIX documents that the sub-process launched by posix_spawn will exit with code
+comment|// 127 if anything prevents the target program from starting.
+comment|// http://pubs.opengroup.org/onlinepubs/009695399/functions/posix_spawn.html
+if|if
+condition|(
+name|exitStatus
+operator|==
+name|QProcess
+operator|::
+name|NormalExit
+operator|&&
+name|exitCode
+operator|==
+literal|127
+condition|)
+block|{
+name|processError
+operator|=
+name|QProcess
+operator|::
+name|FailedToStart
+expr_stmt|;
+name|q
+operator|->
+name|setErrorString
+argument_list|(
+name|QProcess
+operator|::
+name|tr
+argument_list|(
+literal|"Process failed to start (spawned process exited with code 127)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+block|}
 name|bool
 name|wasRunning
 init|=
@@ -4087,7 +4131,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Blocks until the process has started and the started() signal has     been emitted, or until \a msecs milliseconds have passed.      Returns \c true if the process was started successfully; otherwise     returns \c false (if the operation timed out or if an error     occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      If msecs is -1, this function will not time out.      \sa started(), waitForReadyRead(), waitForBytesWritten(), waitForFinished() */
+comment|/*!     Blocks until the process has started and the started() signal has     been emitted, or until \a msecs milliseconds have passed.      Returns \c true if the process was started successfully; otherwise     returns \c false (if the operation timed out or if an error     occurred).      This function can operate without an event loop. It is     useful when writing non-GUI applications and when performing     I/O operations in a non-GUI thread.      \warning Calling this function from the main (GUI) thread     might cause your user interface to freeze.      If msecs is -1, this function will not time out.      \note On some UNIX operating systems, this function may return true but     the process may later report a QProcess::FailedToStart error.      \sa started(), waitForReadyRead(), waitForBytesWritten(), waitForFinished() */
 end_comment
 begin_function
 DECL|function|waitForStarted
@@ -6009,6 +6053,13 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
+operator|||
+name|process
+operator|.
+name|error
+argument_list|()
+operator|==
+name|FailedToStart
 condition|)
 return|return
 operator|-
@@ -6077,6 +6128,13 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
+operator|||
+name|process
+operator|.
+name|error
+argument_list|()
+operator|==
+name|FailedToStart
 condition|)
 return|return
 operator|-
