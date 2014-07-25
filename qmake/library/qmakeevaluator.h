@@ -58,6 +58,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qmap.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qset.h>
 end_include
 begin_include
@@ -1111,13 +1116,17 @@ argument|const ProString&prefix
 argument_list|,
 argument|const ProStringList&suffixes
 argument_list|,
+argument|const ProString&priosfx
+argument_list|,
 argument|QHash<ProKey
 argument_list|,
 argument|QSet<ProKey>>&dependencies
 argument_list|,
 argument|ProValueMap&dependees
 argument_list|,
-argument|ProStringList&rootSet
+argument|QMultiMap<int
+argument_list|,
+argument|ProString>&rootSet
 argument_list|)
 specifier|const
 block|;
