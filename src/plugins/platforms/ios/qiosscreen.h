@@ -126,10 +126,6 @@ name|void
 name|updateProperties
 parameter_list|()
 function_decl|;
-name|void
-name|layoutWindows
-parameter_list|()
-function_decl|;
 name|public
 name|slots
 range|:
