@@ -3009,7 +3009,22 @@ name|tst_QWidget
 operator|::
 name|cleanup
 parameter_list|()
-block|{ }
+block|{
+comment|// Only 'testwidget', do not leak any other widgets.
+name|QCOMPARE
+argument_list|(
+name|QApplication
+operator|::
+name|topLevelWidgets
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|// Helper class...
@@ -7410,14 +7425,17 @@ name|testWidget
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QScopedPointer
+argument_list|<
 name|QMainWindow
-modifier|*
+argument_list|>
 name|childDialog
-init|=
+argument_list|(
 operator|new
 name|QMainWindow
 argument_list|(
 name|testWidget
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|testWidget
@@ -15970,6 +15988,15 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|QScopedPointer
+argument_list|<
+name|QWidget
+argument_list|>
+name|childGuard
+argument_list|(
+name|child
+argument_list|)
+decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|window
@@ -65598,16 +65625,13 @@ name|keyboardModifiers
 parameter_list|()
 block|{
 name|KeyboardWidget
-modifier|*
 name|w
-init|=
-operator|new
-name|KeyboardWidget
 decl_stmt|;
 name|QTest
 operator|::
 name|mouseClick
 argument_list|(
+operator|&
 name|w
 argument_list|,
 name|Qt
@@ -65622,7 +65646,7 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|w
-operator|->
+operator|.
 name|m_eventCounter
 argument_list|,
 literal|1
@@ -65633,7 +65657,7 @@ argument_list|(
 name|int
 argument_list|(
 name|w
-operator|->
+operator|.
 name|m_modifiers
 argument_list|)
 argument_list|,
@@ -65650,7 +65674,7 @@ argument_list|(
 name|int
 argument_list|(
 name|w
-operator|->
+operator|.
 name|m_appModifiers
 argument_list|)
 argument_list|,
