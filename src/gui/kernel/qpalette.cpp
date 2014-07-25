@@ -1069,6 +1069,9 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     \fn QPalette::QPalette(QPalette&&other)     \since 5.4      Move-constructs a QPalette instance, making it point at the same     object that \a other was pointing to.      After being moved from, you can only assign to or destroy \a other.     Any other operation will result in undefined behavior. */
+end_comment
+begin_comment
 comment|/*!     Destroys the palette. */
 end_comment
 begin_destructor
@@ -1081,6 +1084,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|d
+operator|&&
 operator|!
 name|d
 operator|->
@@ -1160,6 +1165,8 @@ name|data
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|&&
 operator|!
 name|d
 operator|->
