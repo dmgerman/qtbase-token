@@ -7877,19 +7877,26 @@ argument_list|,
 name|QString
 argument_list|>
 name|map
-argument_list|{
+init|=
+block|{
+block|{
+literal|1
+block|,
+literal|"bar"
+block|}
+block|,
 block|{
 literal|1
 block|,
 literal|"hello"
 block|}
-argument_list|,
+block|,
 block|{
 literal|2
 block|,
 literal|"initializer_list"
 block|}
-argument_list|}
+block|}
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -7921,6 +7928,10 @@ operator|==
 literal|"initializer_list"
 argument_list|)
 expr_stmt|;
+comment|// note the difference to std::map:
+comment|// std::map<int, QString> stdm = {{1, "bar"}, {1, "hello"}, {2, "initializer_list"}};
+comment|// QCOMPARE(stdm.size(), 2UL);
+comment|// QCOMPARE(stdm[1], QString("bar"));
 name|QMultiMap
 argument_list|<
 name|QString
