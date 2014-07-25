@@ -198,12 +198,6 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|qreal
-name|devicePixelRatio
-argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
 name|QWinRTInputContext
 operator|*
 name|inputContext
