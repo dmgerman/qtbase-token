@@ -306,6 +306,13 @@ operator|&
 name|family
 argument_list|)
 block|;
+specifier|static
+name|QString
+name|familyForStyleHint
+argument_list|(
+argument|QFont::StyleHint styleHint
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
