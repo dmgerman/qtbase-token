@@ -68,18 +68,18 @@ argument_list|(
 argument|UINT msg
 argument_list|)
 block|;
-name|virtual
 name|bool
 name|QT_ENSURE_STACK_ALIGNED_FOR_SSE
 name|processEvents
 argument_list|(
 argument|QEventLoop::ProcessEventsFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|sendPostedEvents
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

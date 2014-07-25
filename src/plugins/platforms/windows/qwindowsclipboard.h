@@ -41,20 +41,20 @@ name|public
 operator|:
 name|protected
 operator|:
-name|virtual
 name|IDataObject
 operator|*
 name|retrieveDataObject
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|releaseDataObject
 argument_list|(
 argument|IDataObject *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -83,15 +83,14 @@ name|void
 name|cleanup
 argument_list|()
 block|;
-name|virtual
 name|QMimeData
 operator|*
 name|mimeData
 argument_list|(
 argument|QClipboard::Mode mode = QClipboard::Clipboard
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|setMimeData
 argument_list|(
@@ -99,22 +98,23 @@ argument|QMimeData *data
 argument_list|,
 argument|QClipboard::Mode mode = QClipboard::Clipboard
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|supportsMode
 argument_list|(
 argument|QClipboard::Mode mode
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|ownsMode
 argument_list|(
 argument|QClipboard::Mode mode
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|bool

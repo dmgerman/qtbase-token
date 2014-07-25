@@ -66,7 +66,6 @@ operator|~
 name|QWindowsDirect2DPlatformPixmap
 argument_list|()
 block|;
-name|virtual
 name|void
 name|resize
 argument_list|(
@@ -74,6 +73,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -84,63 +84,60 @@ argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
 block|;
-name|virtual
 name|int
 name|metric
 argument_list|(
 argument|QPaintDevice::PaintDeviceMetric metric
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|fill
 argument_list|(
-specifier|const
-name|QColor
-operator|&
-name|color
+argument|const QColor&color
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|hasAlphaChannel
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|toImage
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|toImage
 argument_list|(
 argument|const QRect&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPaintEngine
 operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|qreal
 name|devicePixelRatio
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|setDevicePixelRatio
 argument_list|(
 argument|qreal scaleFactor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QWindowsDirect2DBitmap
 operator|*

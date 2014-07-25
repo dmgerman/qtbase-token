@@ -50,21 +50,20 @@ name|QInternalMimeData
 block|{
 name|public
 operator|:
-name|virtual
 name|bool
 name|hasFormat_sys
 argument_list|(
 argument|const QString&mimetype
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QStringList
 name|formats_sys
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QVariant
 name|retrieveData_sys
 argument_list|(
@@ -73,6 +72,7 @@ argument_list|,
 argument|QVariant::Type preferredType
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

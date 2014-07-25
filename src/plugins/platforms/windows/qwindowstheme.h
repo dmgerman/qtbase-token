@@ -61,15 +61,14 @@ return|return
 name|m_instance
 return|;
 block|}
-name|virtual
 name|bool
 name|usePlatformNativeDialog
 argument_list|(
 argument|DialogType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPlatformDialogHelper
 operator|*
 name|createPlatformDialogHelper
@@ -77,14 +76,15 @@ argument_list|(
 argument|DialogType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
 argument|ThemeHint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 specifier|const
@@ -120,7 +120,6 @@ name|type
 index|]
 return|;
 block|}
-name|virtual
 name|QPixmap
 name|standardPixmap
 argument_list|(
@@ -129,8 +128,8 @@ argument_list|,
 argument|const QSizeF&size
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPixmap
 name|fileIconPixmap
 argument_list|(
@@ -142,6 +141,7 @@ argument|QPlatformTheme::IconOptions iconOptions =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|windowsThemeChanged

@@ -127,10 +127,10 @@ block|{
 name|cleanupThread
 argument_list|()
 block|; }
-name|virtual
 name|void
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
@@ -154,13 +154,13 @@ name|parent
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-name|virtual
+begin_expr_stmt
 name|void
 name|hide
-parameter_list|()
-function_decl|;
-end_function_decl
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|virtual
 name|bool

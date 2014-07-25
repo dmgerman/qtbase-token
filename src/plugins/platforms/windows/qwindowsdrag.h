@@ -46,12 +46,12 @@ operator|:
 name|QWindowsDropMimeData
 argument_list|()
 block|{}
-name|virtual
 name|IDataObject
 operator|*
 name|retrieveDataObject
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -225,27 +225,25 @@ operator|~
 name|QWindowsDrag
 argument_list|()
 block|;
-name|virtual
 name|QMimeData
 operator|*
 name|platformDropData
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|&
 name|m_dropData
 return|;
 block|}
-name|virtual
 name|Qt
 operator|::
 name|DropAction
 name|drag
 argument_list|(
-name|QDrag
-operator|*
-name|drag
+argument|QDrag *drag
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QWindowsDrag

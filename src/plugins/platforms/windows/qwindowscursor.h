@@ -297,39 +297,32 @@ block|;
 name|QWindowsCursor
 argument_list|()
 block|{}
-name|virtual
 name|void
 name|changeCursor
 argument_list|(
-name|QCursor
-operator|*
-name|widgetCursor
+argument|QCursor * widgetCursor
 argument_list|,
-name|QWindow
-operator|*
-name|widget
+argument|QWindow * widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPoint
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|mousePosition
 argument_list|()
 return|;
 block|}
-name|virtual
 name|void
 name|setPos
 argument_list|(
-specifier|const
-name|QPoint
-operator|&
-name|pos
+argument|const QPoint&pos
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|HCURSOR

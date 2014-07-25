@@ -70,21 +70,18 @@ operator|~
 name|QWindowsInputContext
 argument_list|()
 block|;
-name|virtual
 name|void
 name|reset
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|update
 argument_list|(
-name|Qt
-operator|::
-name|InputMethodQueries
+argument|Qt::InputMethodQueries
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|invokeAction
 argument_list|(
@@ -92,6 +89,7 @@ argument|QInputMethod::Action
 argument_list|,
 argument|int cursorPosition
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QWindowsInputContext

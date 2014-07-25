@@ -131,7 +131,6 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
-name|virtual
 name|QPlatformOpenGLContext
 operator|*
 name|createPlatformOpenGLContext
@@ -139,6 +138,7 @@ argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QOpenGLContext
 operator|::
@@ -154,12 +154,12 @@ argument_list|()
 block|;
 endif|#
 directive|endif
-name|virtual
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|initialize
@@ -169,61 +169,60 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD
-name|virtual
 name|QPlatformClipboard
 operator|*
 name|clipboard
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-name|virtual
 name|QPlatformDrag
 operator|*
 name|drag
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 endif|#
 directive|endif
 comment|// !QT_NO_CLIPBOARD
-name|virtual
 name|QPlatformInputContext
 operator|*
 name|inputContext
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-name|virtual
 name|QPlatformAccessibility
 operator|*
 name|accessibility
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
-name|virtual
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QStringList
 name|themeNames
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPlatformTheme
 operator|*
 name|createPlatformTheme
@@ -231,6 +230,7 @@ argument_list|(
 argument|const QString&name
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformServices
 operator|*
@@ -238,23 +238,22 @@ name|services
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|QVariant
 name|styleHint
 argument_list|(
 argument|StyleHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|Qt
 operator|::
 name|KeyboardModifiers
 name|queryKeyboardModifiers
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QList
 operator|<
 name|int
@@ -264,6 +263,7 @@ argument_list|(
 argument|const QKeyEvent *e
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QWindowsIntegration
@@ -301,7 +301,6 @@ name|defined
 argument_list|(
 name|QT_NO_SESSIONMANAGER
 argument_list|)
-name|virtual
 name|QPlatformSessionManager
 operator|*
 name|createPlatformSessionManager
@@ -311,6 +310,7 @@ argument_list|,
 argument|const QString&key
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

@@ -1584,7 +1584,6 @@ operator|*
 name|context
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|QWindowsGLContext
 argument_list|()
@@ -1612,7 +1611,6 @@ return|return
 name|m_renderingContext
 return|;
 block|}
-name|virtual
 name|QSurfaceFormat
 name|format
 argument_list|()
@@ -1623,7 +1621,6 @@ return|return
 name|m_obtainedFormat
 return|;
 block|}
-name|virtual
 name|void
 name|swapBuffers
 argument_list|(
@@ -1631,7 +1628,6 @@ argument|QPlatformSurface *surface
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|makeCurrent
 argument_list|(
@@ -1639,7 +1635,6 @@ argument|QPlatformSurface *surface
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|doneCurrent
 argument_list|()
@@ -1653,7 +1648,6 @@ name|GL_Proc
 function_decl|)
 parameter_list|()
 function_decl|;
-name|virtual
 name|QFunctionPointer
 name|getProcAddress
 argument_list|(
