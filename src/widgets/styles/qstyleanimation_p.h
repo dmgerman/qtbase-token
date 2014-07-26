@@ -102,9 +102,38 @@ name|QTime
 operator|&
 name|time
 argument_list|)
+block|;      enum
+name|FrameRate
+block|{
+name|DefaultFps
+block|,
+name|SixtyFps
+block|,
+name|ThirtyFps
+block|,
+name|TwentyFps
+block|}
+block|;
+name|FrameRate
+name|frameRate
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setFrameRate
+argument_list|(
+argument|FrameRate fps
+argument_list|)
 block|;
 name|void
 name|updateTarget
+argument_list|()
+block|;
+name|public
+name|Q_SLOTS
+operator|:
+name|void
+name|start
 argument_list|()
 block|;
 name|protected
@@ -132,6 +161,12 @@ name|_duration
 block|;
 name|QTime
 name|_startTime
+block|;
+name|FrameRate
+name|_fps
+block|;
+name|int
+name|_skip
 block|; }
 decl_stmt|;
 end_decl_stmt
