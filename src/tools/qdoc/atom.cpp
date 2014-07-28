@@ -1091,7 +1091,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   The only constructor for LinkAtom. It only create an Atom   of type Atom::Link with \a p1 being the link text. \a p2   contains some search parameters.  */
+comment|/*!   The only constructor for LinkAtom. It creates an Atom of   type Atom::Link. \a p1 being the link target. \a p2 is the   parameters in square brackets. Normally there is just one   word in the square brackets, but there can be up to three   words separated by spaces. The constructor splits \a p2 on   the space character.  */
 end_comment
 begin_constructor
 DECL|function|LinkAtom
@@ -1117,6 +1117,8 @@ argument_list|)
 member_init_list|,
 name|genus_
 argument_list|(
+name|Node
+operator|::
 name|DontCare
 argument_list|)
 member_init_list|,
@@ -1216,21 +1218,31 @@ name|p
 operator|==
 literal|"qml"
 condition|)
+block|{
 name|genus_
 operator|=
+name|Node
+operator|::
 name|QML
 expr_stmt|;
-elseif|else
+continue|continue;
+block|}
 if|if
 condition|(
 name|p
 operator|==
 literal|"cpp"
 condition|)
+block|{
 name|genus_
 operator|=
+name|Node
+operator|::
 name|CPP
 expr_stmt|;
+continue|continue;
+block|}
+break|break;
 block|}
 block|}
 end_constructor

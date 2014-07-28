@@ -767,10 +767,7 @@ argument_list|)
 operator|.
 name|topic
 operator|==
-name|QString
-argument_list|(
-literal|"qmlpropertygroup"
-argument_list|)
+name|COMMAND_QMLPROPERTYGROUP
 condition|)
 block|{
 name|qDebug
