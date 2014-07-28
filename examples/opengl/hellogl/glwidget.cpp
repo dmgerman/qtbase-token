@@ -261,7 +261,7 @@ argument_list|(
 name|angle
 argument_list|)
 emit|;
-name|updateGL
+name|update
 argument_list|()
 expr_stmt|;
 block|}
@@ -303,7 +303,7 @@ argument_list|(
 name|angle
 argument_list|)
 emit|;
-name|updateGL
+name|update
 argument_list|()
 expr_stmt|;
 block|}
@@ -342,7 +342,7 @@ argument_list|(
 name|angle
 argument_list|)
 emit|;
-name|updateGL
+name|update
 argument_list|()
 expr_stmt|;
 block|}
