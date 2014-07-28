@@ -1902,107 +1902,119 @@ name|ianaId
 parameter_list|)
 block|{
 comment|// Rules for defining TZ/IANA names as per ftp://ftp.iana.org/tz/code/Theory
-comment|// * Use only valid POSIX file name components
-comment|// * Within a file name component, use only ASCII letters, `.', `-' and `_'.
-comment|// * Do not use digits
-comment|// * A file name component must not exceed 14 characters or start with `-'
-comment|// Aliases such as "Etc/GMT+7" and "SystemV/EST5EDT" are valid so we need to accept digits
-if|if
-condition|(
-name|ianaId
-operator|.
-name|contains
-argument_list|(
-literal|' '
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-name|QList
-argument_list|<
-name|QByteArray
-argument_list|>
-name|parts
+comment|// 1. Use only valid POSIX file name components
+comment|// 2. Within a file name component, use only ASCII letters, `.', `-' and `_'.
+comment|// 3. Do not use digits
+comment|// 4. A file name component must not exceed 14 characters or start with `-'
+comment|// Aliases such as "Etc/GMT+7" and "SystemV/EST5EDT" are valid so we need to accept digits, ':', and '+'.
+comment|// The following would be preferable if QRegExp would work on QByteArrays directly:
+comment|// const QRegExp rx(QStringLiteral("[a-z0-9:+._][a-z0-9:+._-]{,13}(?:/[a-z0-9:+._][a-z0-9:+._-]{,13})*"),
+comment|//                  Qt::CaseInsensitive);
+comment|// return rx.exactMatch(ianaId);
+comment|// hand-rolled version:
+specifier|const
+name|int
+name|MinSectionLength
+init|=
+literal|1
+decl_stmt|;
+specifier|const
+name|int
+name|MaxSectionLength
+init|=
+literal|14
+decl_stmt|;
+name|int
+name|sectionLength
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+specifier|const
+name|char
+modifier|*
+name|it
 init|=
 name|ianaId
 operator|.
-name|split
-argument_list|(
-literal|'/'
-argument_list|)
-decl_stmt|;
-foreach|foreach
-control|(
-specifier|const
-name|QByteArray
-modifier|&
-name|part
-decl|,
-name|parts
+name|begin
+argument_list|()
+init|,
+modifier|*
+init|const
+name|end
+init|=
+name|ianaId
+operator|.
+name|end
+argument_list|()
+init|;
+name|it
+operator|!=
+name|end
+condition|;
+operator|++
+name|it
+operator|,
+operator|++
+name|sectionLength
 control|)
+block|{
+specifier|const
+name|char
+name|ch
+init|=
+operator|*
+name|it
+decl_stmt|;
+if|if
+condition|(
+name|ch
+operator|==
+literal|'/'
+condition|)
 block|{
 if|if
 condition|(
-name|part
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|14
+name|sectionLength
+argument_list|<
+name|MinSectionLength
 operator|||
-name|part
-operator|.
-name|size
-argument_list|()
-operator|<
-literal|1
+name|sectionLength
+argument_list|>
+name|MaxSectionLength
 condition|)
 return|return
 literal|false
 return|;
+comment|// violates (4)
+name|sectionLength
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
-name|part
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
+name|ch
 operator|==
 literal|'-'
 condition|)
+block|{
+if|if
+condition|(
+name|sectionLength
+operator|==
+literal|0
+condition|)
 return|return
 literal|false
 return|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|part
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-name|QChar
-name|ch
-init|=
-name|part
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
+comment|// violates (4)
+block|}
+elseif|else
 if|if
 condition|(
 operator|!
@@ -2073,11 +2085,27 @@ operator|==
 literal|'.'
 operator|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+comment|// violates (2)
 block|}
 block|}
+if|if
+condition|(
+name|sectionLength
+argument_list|<
+name|MinSectionLength
+operator|||
+name|sectionLength
+argument_list|>
+name|MaxSectionLength
+condition|)
+return|return
+literal|false
+return|;
+comment|// violates (4)
 return|return
 literal|true
 return|;
