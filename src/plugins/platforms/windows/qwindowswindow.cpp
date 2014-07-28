@@ -10780,7 +10780,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"effectiveScreen() returned a null screen"
+literal|"window()->screen() returned a null screen"
 expr_stmt|;
 block|}
 block|}
