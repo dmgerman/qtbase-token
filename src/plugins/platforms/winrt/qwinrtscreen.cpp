@@ -6043,14 +6043,6 @@ name|screen
 argument_list|()
 argument_list|,
 name|newGeometry
-argument_list|)
-expr_stmt|;
-name|QWindowSystemInterface
-operator|::
-name|handleScreenAvailableGeometryChange
-argument_list|(
-name|screen
-argument_list|()
 argument_list|,
 name|newGeometry
 argument_list|)

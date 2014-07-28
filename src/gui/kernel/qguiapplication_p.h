@@ -449,17 +449,6 @@ argument_list|)
 block|;
 specifier|static
 name|void
-name|reportAvailableGeometryChange
-argument_list|(
-name|QWindowSystemInterfacePrivate
-operator|::
-name|ScreenAvailableGeometryEvent
-operator|*
-name|e
-argument_list|)
-block|;
-specifier|static
-name|void
 name|reportLogicalDotsPerInchChange
 argument_list|(
 name|QWindowSystemInterfacePrivate

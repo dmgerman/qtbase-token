@@ -1281,15 +1281,6 @@ specifier|const
 name|QRect
 modifier|&
 name|newGeometry
-parameter_list|)
-function_decl|;
-specifier|static
-name|void
-name|handleScreenAvailableGeometryChange
-parameter_list|(
-name|QScreen
-modifier|*
-name|screen
 parameter_list|,
 specifier|const
 name|QRect

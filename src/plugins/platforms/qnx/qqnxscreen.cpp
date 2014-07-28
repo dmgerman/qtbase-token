@@ -2128,6 +2128,9 @@ name|screen
 argument_list|()
 argument_list|,
 name|m_currentGeometry
+argument_list|,
+name|availableGeometry
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3496,9 +3499,12 @@ name|height
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|handleScreenAvailableGeometryChange
+name|handleScreenGeometryChange
 argument_list|(
 name|screen
+argument_list|()
+argument_list|,
+name|geometry
 argument_list|()
 argument_list|,
 name|availableGeometry

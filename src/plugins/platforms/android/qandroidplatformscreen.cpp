@@ -905,6 +905,9 @@ argument_list|()
 argument_list|,
 name|geometry
 argument_list|()
+argument_list|,
+name|availableGeometry
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -955,16 +958,6 @@ name|screen
 argument_list|()
 argument_list|,
 name|geometry
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|QWindowSystemInterface
-operator|::
-name|handleScreenAvailableGeometryChange
-argument_list|(
-name|QPlatformScreen
-operator|::
-name|screen
 argument_list|()
 argument_list|,
 name|availableGeometry

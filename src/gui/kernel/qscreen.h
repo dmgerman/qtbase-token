@@ -106,7 +106,7 @@ argument|QSize size READ size NOTIFY geometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize availableSize READ availableSize NOTIFY virtualGeometryChanged
+argument|QSize availableSize READ availableSize NOTIFY availableGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -122,7 +122,7 @@ argument|QRect geometry READ geometry NOTIFY geometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect availableGeometry READ availableGeometry NOTIFY virtualGeometryChanged
+argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -393,6 +393,15 @@ name|Q_SIGNALS
 operator|:
 name|void
 name|geometryChanged
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|geometry
+argument_list|)
+block|;
+name|void
+name|availableGeometryChanged
 argument_list|(
 specifier|const
 name|QRect
