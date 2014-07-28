@@ -381,7 +381,6 @@ argument|fd_set *exceptfds
 argument_list|,
 argument|timespec *timeout
 argument_list|)
-name|Q_DECL_FINAL
 block|; }
 decl_stmt|;
 end_decl_stmt

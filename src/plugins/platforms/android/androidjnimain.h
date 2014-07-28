@@ -387,6 +387,10 @@ name|QString
 name|deviceName
 parameter_list|()
 function_decl|;
+name|bool
+name|blockEventLoopsWhenSuspended
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_macro

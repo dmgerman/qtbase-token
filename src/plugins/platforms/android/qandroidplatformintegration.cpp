@@ -35,11 +35,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qgenericunixeventdispatcher_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtPlatformSupport/private/qeglpbuffer_p.h>
 end_include
 begin_include
@@ -66,6 +61,11 @@ begin_include
 include|#
 directive|include
 file|"qabstracteventdispatcher.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qandroideventdispatcher.h"
 end_include
 begin_include
 include|#
@@ -1126,8 +1126,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|createUnixEventDispatcher
-argument_list|()
+operator|new
+name|QAndroidEventDispatcher
 return|;
 block|}
 end_function
