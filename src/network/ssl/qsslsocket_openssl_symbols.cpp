@@ -3994,6 +3994,11 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -4027,6 +4032,13 @@ argument_list|,
 argument|DUMMYARG
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// OPENSSL_NO_EC
+end_comment
 begin_macro
 name|DEFINEFUNC5
 argument_list|(
@@ -6282,6 +6294,9 @@ name|RESOLVEFUNC
 argument_list|(
 argument|BN_bin2bn
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
 name|RESOLVEFUNC
 argument_list|(
 argument|EC_KEY_new_by_curve_name
@@ -6290,6 +6305,9 @@ name|RESOLVEFUNC
 argument_list|(
 argument|EC_KEY_free
 argument_list|)
+endif|#
+directive|endif
+comment|// OPENSSL_NO_EC
 name|RESOLVEFUNC
 argument_list|(
 argument|PKCS12_parse

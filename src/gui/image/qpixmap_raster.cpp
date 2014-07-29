@@ -1686,6 +1686,15 @@ name|Format_ARGB32_Premultiplied
 operator|)
 condition|)
 block|{
+name|inPlace
+operator|=
+name|inPlace
+operator|&&
+name|sourceImage
+operator|.
+name|isDetached
+argument_list|()
+expr_stmt|;
 name|image
 operator|=
 name|sourceImage
