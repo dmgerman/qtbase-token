@@ -173,6 +173,11 @@ name|logicalDpi
 argument_list|()
 specifier|const
 expr_stmt|;
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QPlatformCursor
 operator|*
 name|cursor
@@ -483,6 +488,9 @@ name|m_refreshRate
 decl_stmt|;
 name|int
 name|m_forcedDpi
+decl_stmt|;
+name|int
+name|m_devicePixelRatio
 decl_stmt|;
 name|QFontEngine
 operator|::
