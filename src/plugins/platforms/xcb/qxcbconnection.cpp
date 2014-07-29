@@ -148,11 +148,6 @@ name|defined
 argument_list|(
 name|XCB_USE_XINPUT2
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|XCB_USE_XINPUT2_MAEMO
-argument_list|)
 end_if
 begin_include
 include|#
@@ -1370,16 +1365,6 @@ name|m_nativeInterface
 argument_list|(
 name|nativeInterface
 argument_list|)
-ifdef|#
-directive|ifdef
-name|XCB_USE_XINPUT2_MAEMO
-member_init_list|,
-name|m_xinputData
-argument_list|(
-literal|0
-argument_list|)
-endif|#
-directive|endif
 member_init_list|,
 name|xfixes_first_event
 argument_list|(
@@ -1726,14 +1711,8 @@ name|m_xi2Enabled
 operator|=
 literal|false
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|XCB_USE_XINPUT2_MAEMO
-name|initializeXInput2Maemo
-argument_list|()
-expr_stmt|;
-elif|#
-directive|elif
+if|#
+directive|if
 name|defined
 argument_list|(
 name|XCB_USE_XINPUT2
@@ -1843,14 +1822,8 @@ name|m_drag
 expr_stmt|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|XCB_USE_XINPUT2_MAEMO
-name|finalizeXInput2Maemo
-argument_list|()
-expr_stmt|;
-elif|#
-directive|elif
+if|#
+directive|if
 name|defined
 argument_list|(
 name|XCB_USE_XINPUT2
@@ -4134,24 +4107,8 @@ name|handlePropertyNotifyEvent
 argument_list|)
 expr_stmt|;
 break|break;
-ifdef|#
-directive|ifdef
-name|XCB_USE_XINPUT2_MAEMO
-case|case
-name|GenericEvent
-case|:
-name|handleGenericEventMaemo
-argument_list|(
-operator|(
-name|xcb_ge_event_t
-operator|*
-operator|)
-name|event
-argument_list|)
-expr_stmt|;
-break|break;
-elif|#
-directive|elif
+if|#
+directive|if
 name|defined
 argument_list|(
 name|XCB_USE_XINPUT2
@@ -6539,12 +6496,6 @@ literal|"Rel Horiz Wheel\0"
 literal|"Rel Vert Wheel\0"
 literal|"Rel Horiz Scroll\0"
 literal|"Rel Vert Scroll\0"
-if|#
-directive|if
-name|XCB_USE_MAEMO_WINDOW_PROPERTIES
-literal|"_MEEGOTOUCH_ORIENTATION_ANGLE\0"
-endif|#
-directive|endif
 literal|"_XSETTINGS_SETTINGS\0"
 literal|"_COMPIZ_DECOR_PENDING\0"
 literal|"_COMPIZ_DECOR_REQUEST\0"
@@ -7899,11 +7850,6 @@ name|defined
 argument_list|(
 name|XCB_USE_XINPUT2
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|XCB_USE_XINPUT2_MAEMO
-argument_list|)
 end_if
 begin_function
 DECL|function|xi2ValuatorOffset
@@ -8296,7 +8242,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(XCB_USE_XINPUT2) || defined(XCB_USE_XINPUT2_MAEMO)
+comment|// defined(XCB_USE_XINPUT2)
 end_comment
 begin_function
 DECL|function|systemTrayTracker
