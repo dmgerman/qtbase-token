@@ -7451,8 +7451,6 @@ name|region
 parameter_list|)
 block|{
 comment|// Transform the system clip region from device-independent pixels to device pixels
-comment|// Qt 5.0.0: This is a Mac-only code path for now, can be made cross-platform once
-comment|// it has been tested.
 name|QPaintEngine
 modifier|*
 name|paintEngine
@@ -7462,9 +7460,6 @@ operator|->
 name|paintEngine
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
 name|QTransform
 name|scaleTransform
 decl_stmt|;
@@ -7500,19 +7495,6 @@ argument_list|(
 name|region
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|paintEngine
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|systemClip
-operator|=
-name|region
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 ifndef|#
 directive|ifndef

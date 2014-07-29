@@ -1036,10 +1036,6 @@ name|effectiveDevicePixelRatio
 parameter_list|()
 specifier|const
 block|{
-comment|// Limited feature introduction for Qt 5.0.0, remove ifdef in a later release.
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
 comment|// Special cases for devices that does not support PdmDevicePixelRatio go here:
 if|if
 condition|(
@@ -1070,13 +1066,6 @@ name|PdmDevicePixelRatio
 argument_list|)
 argument_list|)
 return|;
-else|#
-directive|else
-return|return
-literal|1
-return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
