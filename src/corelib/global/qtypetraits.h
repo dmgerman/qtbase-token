@@ -126,6 +126,12 @@ begin_comment
 comment|//   is_reference
 end_comment
 begin_comment
+comment|//   is_const
+end_comment
+begin_comment
+comment|//   is_volatile
+end_comment
+begin_comment
 comment|//   is_pod
 end_comment
 begin_comment
@@ -139,6 +145,12 @@ comment|//   has_trivial_assign
 end_comment
 begin_comment
 comment|//   has_trivial_destructor
+end_comment
+begin_comment
+comment|//   is_signed
+end_comment
+begin_comment
+comment|//   is_unsigned
 end_comment
 begin_comment
 comment|//   remove_const
@@ -1717,6 +1729,69 @@ name|is_reference
 operator|<
 name|T
 operator|&
+operator|>
+operator|:
+name|true_type
+block|{}
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// Specified by TR1 [4.5.3] Type Properties
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|is_const
+operator|:
+name|false_type
+block|{}
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|is_const
+operator|<
+specifier|const
+name|T
+operator|>
+operator|:
+name|true_type
+block|{}
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|is_volatile
+operator|:
+name|false_type
+block|{}
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|is_volatile
+operator|<
+specifier|volatile
+name|T
 operator|>
 operator|:
 name|true_type
