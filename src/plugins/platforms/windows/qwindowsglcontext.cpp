@@ -9064,6 +9064,10 @@ if|if
 condition|(
 operator|!
 name|procAddress
+operator|&&
+name|QWindowsContext
+operator|::
+name|verbose
 condition|)
 name|qWarning
 argument_list|(
