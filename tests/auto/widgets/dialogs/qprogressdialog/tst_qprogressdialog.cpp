@@ -1058,15 +1058,6 @@ argument_list|(
 name|bar
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QProgressBar doesn't adopt custom progress bar as children"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|dlg
@@ -1113,18 +1104,12 @@ operator|!
 name|btn
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|QEXPECT_FAIL("", "QProgressBar doesn't clean up custom progress bars", Continue);     QVERIFY(!bar);
-else|#
-directive|else
-comment|// make cleanup() pass
-operator|delete
+name|QVERIFY
+argument_list|(
+operator|!
 name|bar
+argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_class
