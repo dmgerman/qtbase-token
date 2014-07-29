@@ -824,17 +824,10 @@ operator|::
 name|retranslateStrings
 parameter_list|()
 block|{
-name|Q_Q
-argument_list|(
-name|QProgressDialog
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|useDefaultCancelText
 condition|)
-name|q
-operator|->
 name|setCancelButtonText
 argument_list|(
 name|QProgressDialog
