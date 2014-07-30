@@ -240,4 +240,80 @@ end_function
 begin_comment
 comment|//! [0]
 end_comment
+begin_function
+DECL|function|f
+name|void
+name|f
+parameter_list|()
+block|{
+comment|//! [cxx11]
+name|parser
+operator|.
+name|addOptions
+argument_list|(
+block|{
+comment|// A boolean option with a single name (-p)
+block|{
+literal|"p"
+block|,
+name|QCoreApplication
+operator|::
+name|translate
+operator|(
+literal|"main"
+operator|,
+literal|"Show progress during copy"
+operator|)
+block|}
+block|,
+comment|// A boolean option with multiple names (-f, --force)
+block|{
+block|{
+literal|"f"
+block|,
+literal|"force"
+block|}
+block|,
+name|QCoreApplication
+operator|::
+name|translate
+operator|(
+literal|"main"
+operator|,
+literal|"Overwrite existing files."
+operator|)
+block|}
+block|,
+comment|// An option with a value
+block|{
+block|{
+literal|"t"
+block|,
+literal|"target-directory"
+block|}
+block|,
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"main"
+argument_list|,
+literal|"Copy all source files into<directory>."
+argument_list|)
+block|,
+name|QCoreApplication
+operator|::
+name|translate
+operator|(
+literal|"main"
+operator|,
+literal|"directory"
+operator|)
+block|}
+block|,     }
+argument_list|)
+expr_stmt|;
+comment|//! [cxx11]
+block|}
+end_function
 end_unit

@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<QCommandLineOption>
 end_include
+begin_include
+include|#
+directive|include
+file|<QCommandLineParser>
+end_include
 begin_function
 DECL|function|main
 name|int
@@ -38,6 +43,44 @@ literal|"file"
 argument_list|)
 decl_stmt|;
 comment|//! [0]
+comment|//! [cxx11-init]
+name|QCommandLineParser
+name|parser
+decl_stmt|;
+name|parser
+operator|.
+name|addOption
+argument_list|(
+block|{
+literal|"verbose"
+block|,
+literal|"Verbose mode. Prints out more information."
+block|}
+argument_list|)
+expr_stmt|;
+comment|//! [cxx11-init]
+comment|//! [cxx11-init-list]
+name|QCommandLineParser
+name|parser
+decl_stmt|;
+name|parser
+operator|.
+name|addOption
+argument_list|(
+block|{
+block|{
+literal|"o"
+block|,
+literal|"output"
+block|}
+block|,
+literal|"Write generated data into<file>."
+block|,
+literal|"file"
+block|}
+argument_list|)
+expr_stmt|;
+comment|//! [cxx11-init-list]
 block|}
 end_function
 end_unit

@@ -69,7 +69,70 @@ begin_comment
 comment|/*!     \fn QCommandLineOption&QCommandLineOption::operator=(QCommandLineOption&&other)      Move-assigns \a other to this QCommandLineOption instance.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     Constructs a command line option object with the given arguments.      The name of the option is set to \a name.     The name can be either short or long. If the name is one character in     length, it is considered a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      The description is set to \a description. It is customary to add a "."     at the end of the description.      In addition, the \a valueName can be set if the option expects a value.     The default value for the option is set to \a defaultValue.      \sa setDescription(), setValueName(), setDefaultValues() */
+comment|/*!     Constructs a command line option object with the name \a name.      The name can be either short or long. If the name is one character in     length, it is considered a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      \sa setDescription(), setValueName(), setDefaultValues() */
+end_comment
+begin_constructor
+DECL|function|QCommandLineOption
+name|QCommandLineOption
+operator|::
+name|QCommandLineOption
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+operator|new
+name|QCommandLineOptionPrivate
+argument_list|)
+block|{
+name|d
+operator|->
+name|setNames
+argument_list|(
+name|QStringList
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
+begin_comment
+comment|/*!     Constructs a command line option object with the names \a names.      This overload allows to set multiple names for the option, for instance     \c{o} and \c{output}.      The names can be either short or long. Any name in the list that is one     character in length is a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      \sa setDescription(), setValueName(), setDefaultValues() */
+end_comment
+begin_constructor
+DECL|function|QCommandLineOption
+name|QCommandLineOption
+operator|::
+name|QCommandLineOption
+parameter_list|(
+specifier|const
+name|QStringList
+modifier|&
+name|names
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+operator|new
+name|QCommandLineOptionPrivate
+argument_list|)
+block|{
+name|d
+operator|->
+name|setNames
+argument_list|(
+name|names
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
+begin_comment
+comment|/*!     Constructs a command line option object with the given arguments.      The name of the option is set to \a name.     The name can be either short or long. If the name is one character in     length, it is considered a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      The description is set to \a description. It is customary to add a "."     at the end of the description.      In addition, the \a valueName can be set if the option expects a value.     The default value for the option is set to \a defaultValue.      In Qt versions before 5.4, this constructor was \c explicit. In Qt 5.4     and later, it no longer is and can be used for C++11-style uniform     initialization:      \snippet code/src_corelib_tools_qcommandlineoption.cpp cxx11-init      \sa setDescription(), setValueName(), setDefaultValues() */
 end_comment
 begin_constructor
 DECL|function|QCommandLineOption
@@ -132,7 +195,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a command line option object with the given arguments.      This overload allows to set multiple names for the option, for instance     \c{o} and \c{output}.      The names of the option are set to \a names.     The names can be either short or long. Any name in the list that is one     character in length is a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      The description is set to \a description. It is customary to add a "."     at the end of the description.      In addition, the \a valueName can be set if the option expects a value.     The default value for the option is set to \a defaultValue.      \sa setDescription(), setValueName(), setDefaultValues() */
+comment|/*!     Constructs a command line option object with the given arguments.      This overload allows to set multiple names for the option, for instance     \c{o} and \c{output}.      The names of the option are set to \a names.     The names can be either short or long. Any name in the list that is one     character in length is a short name. Option names must not be empty,     must not start with a dash or a slash character, must not contain a \c{=}     and cannot be repeated.      The description is set to \a description. It is customary to add a "."     at the end of the description.      In addition, the \a valueName can be set if the option expects a value.     The default value for the option is set to \a defaultValue.      In Qt versions before 5.4, this constructor was \c explicit. In Qt 5.4     and later, it no longer is and can be used for C++11-style uniform     initialization:      \snippet code/src_corelib_tools_qcommandlineoption.cpp cxx11-init-list      \sa setDescription(), setValueName(), setDefaultValues() */
 end_comment
 begin_constructor
 DECL|function|QCommandLineOption
