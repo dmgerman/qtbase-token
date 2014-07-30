@@ -18757,9 +18757,6 @@ else|else
 name|html
 operator|+=
 name|arg
-operator|.
-name|toString
-argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -18834,9 +18831,6 @@ condition|)
 name|html
 operator|+=
 name|arg
-operator|.
-name|toString
-argument_list|()
 expr_stmt|;
 else|else
 block|{
@@ -18881,9 +18875,6 @@ else|else
 name|html
 operator|+=
 name|arg
-operator|.
-name|toString
-argument_list|()
 expr_stmt|;
 block|}
 name|handled
