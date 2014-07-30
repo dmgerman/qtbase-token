@@ -500,7 +500,7 @@ return|return
 literal|4.0
 return|;
 specifier|const
-name|QString
+name|QStringRef
 name|version
 init|=
 name|attributes
@@ -509,9 +509,6 @@ name|value
 argument_list|(
 name|versionAttribute
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 decl_stmt|;
 return|return
 name|version
