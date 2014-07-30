@@ -946,7 +946,6 @@ modifier|*
 name|marker
 parameter_list|)
 function_decl|;
-comment|//QString getCollisionLink(const Atom* atom);
 name|QString
 name|getMetadataElement
 parameter_list|(
@@ -1077,13 +1076,6 @@ modifier|&
 name|subs
 parameter_list|)
 function_decl|;
-name|QList
-operator|<
-name|NameCollisionNode
-operator|*
-operator|>
-name|collisionNodes
-expr_stmt|;
 name|QMap
 operator|<
 name|QString

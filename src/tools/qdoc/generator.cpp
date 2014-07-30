@@ -1568,25 +1568,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|node
-operator|->
-name|subType
-argument_list|()
-operator|==
-name|Node
-operator|::
-name|Collision
-condition|)
-name|base
-operator|.
-name|prepend
-argument_list|(
-literal|"collision-"
-argument_list|)
-expr_stmt|;
-comment|//Was QDOC2_COMPAT, required for index.html
-if|if
-condition|(
 name|base
 operator|.
 name|endsWith
@@ -5506,7 +5487,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Recursive writing of HTML files from the root \a node.    \note DitaXmlGenerator overrides this function, but   HtmlGenerator does not.    \note NameCollisionNodes are skipped here and processed   later. See HtmlGenerator::generateCollisionPages() for   more on this.  */
+comment|/*!   Recursive writing of HTML files from the root \a node.    \note DitaXmlGenerator overrides this function, but   HtmlGenerator does not.  */
 end_comment
 begin_function
 DECL|function|generateInnerNode
@@ -5668,45 +5649,6 @@ argument_list|()
 operator|!=
 literal|0
 condition|)
-block|{
-comment|/*           Skip name collision nodes here and process them           later in generateCollisionPages(). Each one is           appended to a list for later.          */
-if|if
-condition|(
-name|node
-operator|->
-name|isCollisionNode
-argument_list|()
-condition|)
-block|{
-name|NameCollisionNode
-modifier|*
-name|ncn
-init|=
-cast|static_cast
-argument_list|<
-name|NameCollisionNode
-operator|*
-argument_list|>
-argument_list|(
-name|node
-argument_list|)
-decl_stmt|;
-name|collisionNodes
-operator|.
-name|append
-argument_list|(
-cast|const_cast
-argument_list|<
-name|NameCollisionNode
-operator|*
-argument_list|>
-argument_list|(
-name|ncn
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 if|if
 condition|(
@@ -5886,7 +5828,7 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
-comment|/*                   A collection node is one of: group, module,                   or QML module.                    Don't output an HTML page for the collection                   node unless the \group, \module, or \qmlmodule                   command was actually seen by qdoc in the qdoc                   comment for the node.                    A key prerequisite in this case is the call to                   mergeCollections(cn). We don't know if this                   collection (group, module, or QML module) has                   members in other modules. We know at this point                   that cn's members list contains only members in                   the current module. Therefore, before outputting                   the page for cn, we must search for members of                   cn in the other modules and add them to the                   members list.                  */
+comment|/*               A collection node is one of: group, module,               or QML module.                Don't output an HTML page for the collection               node unless the \group, \module, or \qmlmodule               command was actually seen by qdoc in the qdoc               comment for the node.                A key prerequisite in this case is the call to               mergeCollections(cn). We don't know if this               collection (group, module, or QML module) has               members in other modules. We know at this point               that cn's members list contains only members in               the current module. Therefore, before outputting               the page for cn, we must search for members of               cn in the other modules and add them to the               members list.             */
 if|if
 condition|(
 name|cn
@@ -5922,7 +5864,6 @@ expr_stmt|;
 name|endSubPage
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -7777,19 +7718,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|/*!   This function might be useless now with the addition of   multiple node trees. It is called a few hundred times,   but it never finds a collision node. The single call has   been commented out by mws (19/05/2014). If it is no   longer needed, it will be removed.    This function can be called if getLink() returns an empty   string. It tests the \a atom string to see if it is a link   of the form<element> ::<name>, where<element> is a QML   element or component without a module qualifier. If so, it   constructs a link to the<name> clause on the disambiguation   page for<element> and returns that link string. It also   adds the<name> as a target in the NameCollisionNode for<element>. These clauses are then constructed when the   disambiguation page is actually generated.  */
-end_comment
-begin_endif
-unit|QString Generator::getCollisionLink(const Atom* atom) {     QString link;     if (!atom->string().contains("::"))         return link;     QStringList path = atom->string().split("::");     NameCollisionNode* ncn = qdb_->findCollisionNode(path[0]);     if (ncn) {         QString label;         if (atom->next()&& atom->next()->next()) {             if (atom->next()->type() == Atom::FormattingLeft&&                     atom->next()->next()->type() == Atom::String)                 label = atom->next()->next()->string();         }         ncn->addLinkTarget(path[1],label);         link = fileName(ncn);         link += QLatin1Char('#');         link += Doc::canonicalTitle(path[1]);     }     return link; }
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   Looks up the tag \a t in the map of metadata values for the   current topic in \a inner. If a value for the tag is found,   the value is returned.    \note If \a t is found in the metadata map, it is erased.   i.e. Once you call this function for a particular \a t,   you consume \a t.  */
 end_comment

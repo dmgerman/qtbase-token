@@ -4482,16 +4482,9 @@ expr_stmt|;
 name|QString
 name|indexPath
 decl_stmt|;
-comment|// Never use a collision node as a landing page
 if|if
 condition|(
 name|node
-operator|&&
-operator|!
-name|node
-operator|->
-name|isCollisionNode
-argument_list|()
 condition|)
 name|indexPath
 operator|=

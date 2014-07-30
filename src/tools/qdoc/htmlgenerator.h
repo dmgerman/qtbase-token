@@ -137,10 +137,6 @@ name|generateDocs
 argument_list|()
 block|;
 name|void
-name|generateCollisionPages
-argument_list|()
-block|;
-name|void
 name|generateManifestFiles
 argument_list|()
 block|;

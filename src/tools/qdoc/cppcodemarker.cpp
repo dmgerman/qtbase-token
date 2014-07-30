@@ -2119,14 +2119,6 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|||
-name|node
-operator|->
-name|parent
-argument_list|()
-operator|->
-name|isCollisionNode
-argument_list|()
 condition|)
 break|break;
 name|fullName
