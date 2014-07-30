@@ -6259,9 +6259,6 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|toString
-argument_list|()
-operator|.
 name|toUInt
 argument_list|(
 operator|&
@@ -6277,9 +6274,6 @@ name|symString
 argument_list|(
 name|symbolIndex
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 operator|.
 name|toUInt
 argument_list|(
@@ -6644,9 +6638,6 @@ block|{
 if|if
 condition|(
 name|documentVersion
-operator|.
-name|toString
-argument_list|()
 operator|.
 name|contains
 argument_list|(
