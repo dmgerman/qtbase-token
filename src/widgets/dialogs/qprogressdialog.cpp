@@ -1732,7 +1732,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QProgressDialog::maximum     \brief the highest value represented by the progress bar      The default is 0.      \sa minimum, setRange() */
+comment|/*!     \property QProgressDialog::maximum     \brief the highest value represented by the progress bar      The default is 100.      \sa minimum, setRange() */
 end_comment
 begin_function
 DECL|function|maximum
