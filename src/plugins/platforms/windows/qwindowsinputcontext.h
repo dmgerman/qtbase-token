@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QPointer>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatforminputcontext.h>
 end_include
 begin_decl_stmt
@@ -58,6 +63,12 @@ name|position
 block|;
 name|bool
 name|isComposing
+block|;
+name|QPointer
+operator|<
+name|QObject
+operator|>
+name|focusObject
 block|;     }
 block|;
 name|public
@@ -88,6 +99,13 @@ argument_list|(
 argument|QInputMethod::Action
 argument_list|,
 argument|int cursorPosition
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|setFocusObject
+argument_list|(
+argument|QObject *object
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -148,6 +166,8 @@ name|void
 name|initContext
 argument_list|(
 argument|HWND hwnd
+argument_list|,
+argument|QObject *focusObject
 argument_list|)
 block|;
 name|void
