@@ -965,7 +965,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|rect
+name|r
 operator|.
 name|isNull
 argument_list|()
