@@ -114,6 +114,20 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|__AVX512DQ__
+comment|// AVX512 Double& Quadword, future Intel Xeon processor
+literal|" avx512dq"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512BW__
+comment|// AVX512 Byte& Word, future Intel Xeon processor
+literal|" avx512bw"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|__AVX512ER__
 comment|// AVX512 Exponentiation& Reciprocal, Intel Xeon Phi codename "Knights Landing"
 literal|" avx512ef"
@@ -124,6 +138,13 @@ directive|ifdef
 name|__AVX512PF__
 comment|// AVX512 Prefetch, Intel Xeon Phi codename "Knights Landing"
 literal|" avx512pf"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512VL__
+comment|// AVX512 Vector Length, future Intel Xeon processor
+literal|" avx512vl"
 endif|#
 directive|endif
 ifdef|#
