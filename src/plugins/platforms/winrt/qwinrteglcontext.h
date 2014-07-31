@@ -40,6 +40,13 @@ argument_list|,
 argument|EGLSurface surface
 argument_list|)
 block|;
+name|QFunctionPointer
+name|getProcAddress
+argument_list|(
+argument|const QByteArray&procName
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|protected
 operator|:
 name|EGLSurface
