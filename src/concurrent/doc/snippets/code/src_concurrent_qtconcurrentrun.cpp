@@ -32,6 +32,44 @@ begin_comment
 comment|//! [0]
 end_comment
 begin_comment
+comment|//! [explicit-pool-0]
+end_comment
+begin_function_decl
+specifier|extern
+name|void
+name|aFunction
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_decl_stmt
+DECL|variable|pool
+name|QThreadPool
+name|pool
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|future
+name|QFuture
+argument_list|<
+name|void
+argument_list|>
+name|future
+init|=
+name|QtConcurrent
+operator|::
+name|run
+argument_list|(
+operator|&
+name|pool
+argument_list|,
+name|aFunction
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|//! [explicit-pool-0]
+end_comment
+begin_comment
 comment|//! [1]
 end_comment
 begin_function_decl
