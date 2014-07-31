@@ -2712,9 +2712,9 @@ argument_list|(
 name|surface
 argument_list|)
 decl_stmt|;
-comment|// OpenGL context might be bound to a non-gui thread
-comment|// use QueuedConnection to sync the window from the platformWindow's thread
-comment|// as QXcbWindow is no QObject, a wrapper slot in QXcbConnection is used.
+comment|// OpenGL context might be bound to a non-gui thread use QueuedConnection to sync
+comment|// the window from the platformWindow's thread as QXcbWindow is no QObject, an
+comment|// event is sent to QXcbConnection. (this is faster than a metacall)
 if|if
 condition|(
 name|platformWindow
@@ -2722,29 +2722,10 @@ operator|->
 name|needsSync
 argument_list|()
 condition|)
-name|QMetaObject
-operator|::
-name|invokeMethod
-argument_list|(
-name|m_screen
-operator|->
-name|connection
-argument_list|()
-argument_list|,
-literal|"syncWindow"
-argument_list|,
-name|Qt
-operator|::
-name|QueuedConnection
-argument_list|,
-name|Q_ARG
-argument_list|(
-name|QXcbWindow
-operator|*
-argument_list|,
 name|platformWindow
-argument_list|)
-argument_list|)
+operator|->
+name|postSyncWindowRequest
+argument_list|()
 expr_stmt|;
 block|}
 block|}
