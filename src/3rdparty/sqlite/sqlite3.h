@@ -88,17 +88,17 @@ DECL|macro|SQLITE_VERSION
 define|#
 directive|define
 name|SQLITE_VERSION
-value|"3.8.4.3"
+value|"3.8.5"
 DECL|macro|SQLITE_VERSION_NUMBER
 define|#
 directive|define
 name|SQLITE_VERSION_NUMBER
-value|3008004
+value|3008005
 DECL|macro|SQLITE_SOURCE_ID
 define|#
 directive|define
 name|SQLITE_SOURCE_ID
-value|"2014-04-03 16:53:12 a611fa96c4a848614efe899130359c9f6fb889c3"
+value|"2014-06-04 14:06:34 b1ed4f2a34ba66c29b130f8d13e9092758019212"
 comment|/* ** CAPI3REF: Run-Time Library Version Numbers ** KEYWORDS: sqlite3_version, sqlite3_sourceid ** ** These interfaces provide the same information as the [SQLITE_VERSION], ** [SQLITE_VERSION_NUMBER], and [SQLITE_SOURCE_ID] C preprocessor macros ** but are associated with the library instead of the header file.  ^(Cautious ** programmers might include assert() statements in their application to ** verify that values returned by these interfaces match the macros in ** the header, and thus insure that the application is ** compiled with matching library and header files. ** **<blockquote><pre> ** assert( sqlite3_libversion_number()==SQLITE_VERSION_NUMBER ); ** assert( strcmp(sqlite3_sourceid(),SQLITE_SOURCE_ID)==0 ); ** assert( strcmp(sqlite3_libversion(),SQLITE_VERSION)==0 ); **</pre></blockquote>)^ ** ** ^The sqlite3_version[] string constant contains the text of [SQLITE_VERSION] ** macro.  ^The sqlite3_libversion() function returns a pointer to the ** to the sqlite3_version[] string constant.  The sqlite3_libversion() ** function is provided for use in DLLs since DLL users usually do not have ** direct access to string constants within the DLL.  ^The ** sqlite3_libversion_number() function returns an integer equal to ** [SQLITE_VERSION_NUMBER].  ^The sqlite3_sourceid() function returns  ** a pointer to a string constant whose value is the same as the  ** [SQLITE_SOURCE_ID] C preprocessor macro. ** ** See also: [sqlite_version()] and [sqlite_source_id()]. */
 DECL|variable|sqlite3_version
 name|SQLITE_API
@@ -910,7 +910,7 @@ name|SQLITE_OPEN_WAL
 value|0x00080000
 comment|/* VFS only */
 comment|/* Reserved:                         0x00F00000 */
-comment|/* ** CAPI3REF: Device Characteristics ** ** The xDeviceCharacteristics method of the [sqlite3_io_methods] ** object returns an integer which is a vector of these ** bit values expressing I/O characteristics of the mass storage ** device that holds the file that the [sqlite3_io_methods] ** refers to. ** ** The SQLITE_IOCAP_ATOMIC property means that all writes of ** any size are atomic.  The SQLITE_IOCAP_ATOMICnnn values ** mean that writes of blocks that are nnn bytes in size and ** are aligned to an address which is an integer multiple of ** nnn are atomic.  The SQLITE_IOCAP_SAFE_APPEND value means ** that when data is appended to a file, the data is appended ** first then the size of the file is extended, never the other ** way around.  The SQLITE_IOCAP_SEQUENTIAL property means that ** information is written to disk in the same order as calls ** to xWrite().  The SQLITE_IOCAP_POWERSAFE_OVERWRITE property means that ** after reboot following a crash or power loss, the only bytes in a ** file that were written at the application level might have changed ** and that adjacent bytes, even bytes within the same sector are ** guaranteed to be unchanged.  The SQLITE_IOCAP_UNDELETABLE_WHEN_OPEN ** flag indicate that a file cannot be deleted when open. */
+comment|/* ** CAPI3REF: Device Characteristics ** ** The xDeviceCharacteristics method of the [sqlite3_io_methods] ** object returns an integer which is a vector of these ** bit values expressing I/O characteristics of the mass storage ** device that holds the file that the [sqlite3_io_methods] ** refers to. ** ** The SQLITE_IOCAP_ATOMIC property means that all writes of ** any size are atomic.  The SQLITE_IOCAP_ATOMICnnn values ** mean that writes of blocks that are nnn bytes in size and ** are aligned to an address which is an integer multiple of ** nnn are atomic.  The SQLITE_IOCAP_SAFE_APPEND value means ** that when data is appended to a file, the data is appended ** first then the size of the file is extended, never the other ** way around.  The SQLITE_IOCAP_SEQUENTIAL property means that ** information is written to disk in the same order as calls ** to xWrite().  The SQLITE_IOCAP_POWERSAFE_OVERWRITE property means that ** after reboot following a crash or power loss, the only bytes in a ** file that were written at the application level might have changed ** and that adjacent bytes, even bytes within the same sector are ** guaranteed to be unchanged.  The SQLITE_IOCAP_UNDELETABLE_WHEN_OPEN ** flag indicate that a file cannot be deleted when open.  The ** SQLITE_IOCAP_IMMUTABLE flag indicates that the file is on ** read-only media and cannot be changed even by processes with ** elevated privileges. */
 DECL|macro|SQLITE_IOCAP_ATOMIC
 define|#
 directive|define
@@ -976,6 +976,11 @@ define|#
 directive|define
 name|SQLITE_IOCAP_POWERSAFE_OVERWRITE
 value|0x00001000
+DECL|macro|SQLITE_IOCAP_IMMUTABLE
+define|#
+directive|define
+name|SQLITE_IOCAP_IMMUTABLE
+value|0x00002000
 comment|/* ** CAPI3REF: File Locking Levels ** ** SQLite uses one of these integer values as the second ** argument to calls it makes to the xLock() and xUnlock() methods ** of an [sqlite3_io_methods] object. */
 DECL|macro|SQLITE_LOCK_NONE
 define|#
@@ -1345,7 +1350,7 @@ comment|/* Methods above are valid for version 3 */
 comment|/* Additional methods may be added in future releases */
 block|}
 struct|;
-comment|/* ** CAPI3REF: Standard File Control Opcodes ** ** These integer constants are opcodes for the xFileControl method ** of the [sqlite3_io_methods] object and for the [sqlite3_file_control()] ** interface. ** ** The [SQLITE_FCNTL_LOCKSTATE] opcode is used for debugging.  This ** opcode causes the xFileControl method to write the current state of ** the lock (one of [SQLITE_LOCK_NONE], [SQLITE_LOCK_SHARED], ** [SQLITE_LOCK_RESERVED], [SQLITE_LOCK_PENDING], or [SQLITE_LOCK_EXCLUSIVE]) ** into an integer that the pArg argument points to. This capability ** is used during testing and only needs to be supported when SQLITE_TEST ** is defined. **<ul> **<li>[[SQLITE_FCNTL_SIZE_HINT]] ** The [SQLITE_FCNTL_SIZE_HINT] opcode is used by SQLite to give the VFS ** layer a hint of how large the database file will grow to be during the ** current transaction.  This hint is not guaranteed to be accurate but it ** is often close.  The underlying VFS might choose to preallocate database ** file space based on this hint in order to help writes to the database ** file run faster. ** **<li>[[SQLITE_FCNTL_CHUNK_SIZE]] ** The [SQLITE_FCNTL_CHUNK_SIZE] opcode is used to request that the VFS ** extends and truncates the database file in chunks of a size specified ** by the user. The fourth argument to [sqlite3_file_control()] should  ** point to an integer (type int) containing the new chunk-size to use ** for the nominated database. Allocating database file space in large ** chunks (say 1MB at a time), may reduce file-system fragmentation and ** improve performance on some systems. ** **<li>[[SQLITE_FCNTL_FILE_POINTER]] ** The [SQLITE_FCNTL_FILE_POINTER] opcode is used to obtain a pointer ** to the [sqlite3_file] object associated with a particular database ** connection.  See the [sqlite3_file_control()] documentation for ** additional information. ** **<li>[[SQLITE_FCNTL_SYNC_OMITTED]] ** No longer in use. ** **<li>[[SQLITE_FCNTL_SYNC]] ** The [SQLITE_FCNTL_SYNC] opcode is generated internally by SQLite and ** sent to the VFS immediately before the xSync method is invoked on a ** database file descriptor. Or, if the xSync method is not invoked  ** because the user has configured SQLite with  ** [PRAGMA synchronous | PRAGMA synchronous=OFF] it is invoked in place  ** of the xSync method. In most cases, the pointer argument passed with ** this file-control is NULL. However, if the database file is being synced ** as part of a multi-database commit, the argument points to a nul-terminated ** string containing the transactions master-journal file name. VFSes that  ** do not need this signal should silently ignore this opcode. Applications  ** should not call [sqlite3_file_control()] with this opcode as doing so may  ** disrupt the operation of the specialized VFSes that do require it.   ** **<li>[[SQLITE_FCNTL_COMMIT_PHASETWO]] ** The [SQLITE_FCNTL_COMMIT_PHASETWO] opcode is generated internally by SQLite ** and sent to the VFS after a transaction has been committed immediately ** but before the database is unlocked. VFSes that do not need this signal ** should silently ignore this opcode. Applications should not call ** [sqlite3_file_control()] with this opcode as doing so may disrupt the  ** operation of the specialized VFSes that do require it.   ** **<li>[[SQLITE_FCNTL_WIN32_AV_RETRY]] ** ^The [SQLITE_FCNTL_WIN32_AV_RETRY] opcode is used to configure automatic ** retry counts and intervals for certain disk I/O operations for the ** windows [VFS] in order to provide robustness in the presence of ** anti-virus programs.  By default, the windows VFS will retry file read, ** file write, and file delete operations up to 10 times, with a delay ** of 25 milliseconds before the first retry and with the delay increasing ** by an additional 25 milliseconds with each subsequent retry.  This ** opcode allows these two values (10 retries and 25 milliseconds of delay) ** to be adjusted.  The values are changed for all database connections ** within the same process.  The argument is a pointer to an array of two ** integers where the first integer i the new retry count and the second ** integer is the delay.  If either integer is negative, then the setting ** is not changed but instead the prior value of that setting is written ** into the array entry, allowing the current retry settings to be ** interrogated.  The zDbName parameter is ignored. ** **<li>[[SQLITE_FCNTL_PERSIST_WAL]] ** ^The [SQLITE_FCNTL_PERSIST_WAL] opcode is used to set or query the ** persistent [WAL | Write Ahead Log] setting.  By default, the auxiliary ** write ahead log and shared memory files used for transaction control ** are automatically deleted when the latest connection to the database ** closes.  Setting persistent WAL mode causes those files to persist after ** close.  Persisting the files is useful when other processes that do not ** have write permission on the directory containing the database file want ** to read the database file, as the WAL and shared memory files must exist ** in order for the database to be readable.  The fourth parameter to ** [sqlite3_file_control()] for this opcode should be a pointer to an integer. ** That integer is 0 to disable persistent WAL mode or 1 to enable persistent ** WAL mode.  If the integer is -1, then it is overwritten with the current ** WAL persistence setting. ** **<li>[[SQLITE_FCNTL_POWERSAFE_OVERWRITE]] ** ^The [SQLITE_FCNTL_POWERSAFE_OVERWRITE] opcode is used to set or query the ** persistent "powersafe-overwrite" or "PSOW" setting.  The PSOW setting ** determines the [SQLITE_IOCAP_POWERSAFE_OVERWRITE] bit of the ** xDeviceCharacteristics methods. The fourth parameter to ** [sqlite3_file_control()] for this opcode should be a pointer to an integer. ** That integer is 0 to disable zero-damage mode or 1 to enable zero-damage ** mode.  If the integer is -1, then it is overwritten with the current ** zero-damage mode setting. ** **<li>[[SQLITE_FCNTL_OVERWRITE]] ** ^The [SQLITE_FCNTL_OVERWRITE] opcode is invoked by SQLite after opening ** a write transaction to indicate that, unless it is rolled back for some ** reason, the entire database file will be overwritten by the current  ** transaction. This is used by VACUUM operations. ** **<li>[[SQLITE_FCNTL_VFSNAME]] ** ^The [SQLITE_FCNTL_VFSNAME] opcode can be used to obtain the names of ** all [VFSes] in the VFS stack.  The names are of all VFS shims and the ** final bottom-level VFS are written into memory obtained from  ** [sqlite3_malloc()] and the result is stored in the char* variable ** that the fourth parameter of [sqlite3_file_control()] points to. ** The caller is responsible for freeing the memory when done.  As with ** all file-control actions, there is no guarantee that this will actually ** do anything.  Callers should initialize the char* variable to a NULL ** pointer in case this file-control is not implemented.  This file-control ** is intended for diagnostic use only. ** **<li>[[SQLITE_FCNTL_PRAGMA]] ** ^Whenever a [PRAGMA] statement is parsed, an [SQLITE_FCNTL_PRAGMA]  ** file control is sent to the open [sqlite3_file] object corresponding ** to the database file to which the pragma statement refers. ^The argument ** to the [SQLITE_FCNTL_PRAGMA] file control is an array of ** pointers to strings (char**) in which the second element of the array ** is the name of the pragma and the third element is the argument to the ** pragma or NULL if the pragma has no argument.  ^The handler for an ** [SQLITE_FCNTL_PRAGMA] file control can optionally make the first element ** of the char** argument point to a string obtained from [sqlite3_mprintf()] ** or the equivalent and that string will become the result of the pragma or ** the error message if the pragma fails. ^If the ** [SQLITE_FCNTL_PRAGMA] file control returns [SQLITE_NOTFOUND], then normal  ** [PRAGMA] processing continues.  ^If the [SQLITE_FCNTL_PRAGMA] ** file control returns [SQLITE_OK], then the parser assumes that the ** VFS has handled the PRAGMA itself and the parser generates a no-op ** prepared statement.  ^If the [SQLITE_FCNTL_PRAGMA] file control returns ** any result code other than [SQLITE_OK] or [SQLITE_NOTFOUND], that means ** that the VFS encountered an error while handling the [PRAGMA] and the ** compilation of the PRAGMA fails with an error.  ^The [SQLITE_FCNTL_PRAGMA] ** file control occurs at the beginning of pragma statement analysis and so ** it is able to override built-in [PRAGMA] statements. ** **<li>[[SQLITE_FCNTL_BUSYHANDLER]] ** ^The [SQLITE_FCNTL_BUSYHANDLER] ** file-control may be invoked by SQLite on the database file handle ** shortly after it is opened in order to provide a custom VFS with access ** to the connections busy-handler callback. The argument is of type (void **) ** - an array of two (void *) values. The first (void *) actually points ** to a function of type (int (*)(void *)). In order to invoke the connections ** busy-handler, this function should be invoked with the second (void *) in ** the array as the only argument. If it returns non-zero, then the operation ** should be retried. If it returns zero, the custom VFS should abandon the ** current operation. ** **<li>[[SQLITE_FCNTL_TEMPFILENAME]] ** ^Application can invoke the [SQLITE_FCNTL_TEMPFILENAME] file-control ** to have SQLite generate a ** temporary filename using the same algorithm that is followed to generate ** temporary filenames for TEMP tables and other internal uses.  The ** argument should be a char** which will be filled with the filename ** written into memory obtained from [sqlite3_malloc()].  The caller should ** invoke [sqlite3_free()] on the result to avoid a memory leak. ** **<li>[[SQLITE_FCNTL_MMAP_SIZE]] ** The [SQLITE_FCNTL_MMAP_SIZE] file control is used to query or set the ** maximum number of bytes that will be used for memory-mapped I/O. ** The argument is a pointer to a value of type sqlite3_int64 that ** is an advisory maximum number of bytes in the file to memory map.  The ** pointer is overwritten with the old value.  The limit is not changed if ** the value originally pointed to is negative, and so the current limit  ** can be queried by passing in a pointer to a negative number.  This ** file-control is used internally to implement [PRAGMA mmap_size]. ** **<li>[[SQLITE_FCNTL_TRACE]] ** The [SQLITE_FCNTL_TRACE] file control provides advisory information ** to the VFS about what the higher layers of the SQLite stack are doing. ** This file control is used by some VFS activity tracing [shims]. ** The argument is a zero-terminated string.  Higher layers in the ** SQLite stack may generate instances of this file control if ** the [SQLITE_USE_FCNTL_TRACE] compile-time option is enabled. ** **<li>[[SQLITE_FCNTL_HAS_MOVED]] ** The [SQLITE_FCNTL_HAS_MOVED] file control interprets its argument as a ** pointer to an integer and it writes a boolean into that integer depending ** on whether or not the file has been renamed, moved, or deleted since it ** was first opened. ** **</ul> */
+comment|/* ** CAPI3REF: Standard File Control Opcodes ** ** These integer constants are opcodes for the xFileControl method ** of the [sqlite3_io_methods] object and for the [sqlite3_file_control()] ** interface. ** ** The [SQLITE_FCNTL_LOCKSTATE] opcode is used for debugging.  This ** opcode causes the xFileControl method to write the current state of ** the lock (one of [SQLITE_LOCK_NONE], [SQLITE_LOCK_SHARED], ** [SQLITE_LOCK_RESERVED], [SQLITE_LOCK_PENDING], or [SQLITE_LOCK_EXCLUSIVE]) ** into an integer that the pArg argument points to. This capability ** is used during testing and only needs to be supported when SQLITE_TEST ** is defined. **<ul> **<li>[[SQLITE_FCNTL_SIZE_HINT]] ** The [SQLITE_FCNTL_SIZE_HINT] opcode is used by SQLite to give the VFS ** layer a hint of how large the database file will grow to be during the ** current transaction.  This hint is not guaranteed to be accurate but it ** is often close.  The underlying VFS might choose to preallocate database ** file space based on this hint in order to help writes to the database ** file run faster. ** **<li>[[SQLITE_FCNTL_CHUNK_SIZE]] ** The [SQLITE_FCNTL_CHUNK_SIZE] opcode is used to request that the VFS ** extends and truncates the database file in chunks of a size specified ** by the user. The fourth argument to [sqlite3_file_control()] should  ** point to an integer (type int) containing the new chunk-size to use ** for the nominated database. Allocating database file space in large ** chunks (say 1MB at a time), may reduce file-system fragmentation and ** improve performance on some systems. ** **<li>[[SQLITE_FCNTL_FILE_POINTER]] ** The [SQLITE_FCNTL_FILE_POINTER] opcode is used to obtain a pointer ** to the [sqlite3_file] object associated with a particular database ** connection.  See the [sqlite3_file_control()] documentation for ** additional information. ** **<li>[[SQLITE_FCNTL_SYNC_OMITTED]] ** No longer in use. ** **<li>[[SQLITE_FCNTL_SYNC]] ** The [SQLITE_FCNTL_SYNC] opcode is generated internally by SQLite and ** sent to the VFS immediately before the xSync method is invoked on a ** database file descriptor. Or, if the xSync method is not invoked  ** because the user has configured SQLite with  ** [PRAGMA synchronous | PRAGMA synchronous=OFF] it is invoked in place  ** of the xSync method. In most cases, the pointer argument passed with ** this file-control is NULL. However, if the database file is being synced ** as part of a multi-database commit, the argument points to a nul-terminated ** string containing the transactions master-journal file name. VFSes that  ** do not need this signal should silently ignore this opcode. Applications  ** should not call [sqlite3_file_control()] with this opcode as doing so may  ** disrupt the operation of the specialized VFSes that do require it.   ** **<li>[[SQLITE_FCNTL_COMMIT_PHASETWO]] ** The [SQLITE_FCNTL_COMMIT_PHASETWO] opcode is generated internally by SQLite ** and sent to the VFS after a transaction has been committed immediately ** but before the database is unlocked. VFSes that do not need this signal ** should silently ignore this opcode. Applications should not call ** [sqlite3_file_control()] with this opcode as doing so may disrupt the  ** operation of the specialized VFSes that do require it.   ** **<li>[[SQLITE_FCNTL_WIN32_AV_RETRY]] ** ^The [SQLITE_FCNTL_WIN32_AV_RETRY] opcode is used to configure automatic ** retry counts and intervals for certain disk I/O operations for the ** windows [VFS] in order to provide robustness in the presence of ** anti-virus programs.  By default, the windows VFS will retry file read, ** file write, and file delete operations up to 10 times, with a delay ** of 25 milliseconds before the first retry and with the delay increasing ** by an additional 25 milliseconds with each subsequent retry.  This ** opcode allows these two values (10 retries and 25 milliseconds of delay) ** to be adjusted.  The values are changed for all database connections ** within the same process.  The argument is a pointer to an array of two ** integers where the first integer i the new retry count and the second ** integer is the delay.  If either integer is negative, then the setting ** is not changed but instead the prior value of that setting is written ** into the array entry, allowing the current retry settings to be ** interrogated.  The zDbName parameter is ignored. ** **<li>[[SQLITE_FCNTL_PERSIST_WAL]] ** ^The [SQLITE_FCNTL_PERSIST_WAL] opcode is used to set or query the ** persistent [WAL | Write Ahead Log] setting.  By default, the auxiliary ** write ahead log and shared memory files used for transaction control ** are automatically deleted when the latest connection to the database ** closes.  Setting persistent WAL mode causes those files to persist after ** close.  Persisting the files is useful when other processes that do not ** have write permission on the directory containing the database file want ** to read the database file, as the WAL and shared memory files must exist ** in order for the database to be readable.  The fourth parameter to ** [sqlite3_file_control()] for this opcode should be a pointer to an integer. ** That integer is 0 to disable persistent WAL mode or 1 to enable persistent ** WAL mode.  If the integer is -1, then it is overwritten with the current ** WAL persistence setting. ** **<li>[[SQLITE_FCNTL_POWERSAFE_OVERWRITE]] ** ^The [SQLITE_FCNTL_POWERSAFE_OVERWRITE] opcode is used to set or query the ** persistent "powersafe-overwrite" or "PSOW" setting.  The PSOW setting ** determines the [SQLITE_IOCAP_POWERSAFE_OVERWRITE] bit of the ** xDeviceCharacteristics methods. The fourth parameter to ** [sqlite3_file_control()] for this opcode should be a pointer to an integer. ** That integer is 0 to disable zero-damage mode or 1 to enable zero-damage ** mode.  If the integer is -1, then it is overwritten with the current ** zero-damage mode setting. ** **<li>[[SQLITE_FCNTL_OVERWRITE]] ** ^The [SQLITE_FCNTL_OVERWRITE] opcode is invoked by SQLite after opening ** a write transaction to indicate that, unless it is rolled back for some ** reason, the entire database file will be overwritten by the current  ** transaction. This is used by VACUUM operations. ** **<li>[[SQLITE_FCNTL_VFSNAME]] ** ^The [SQLITE_FCNTL_VFSNAME] opcode can be used to obtain the names of ** all [VFSes] in the VFS stack.  The names are of all VFS shims and the ** final bottom-level VFS are written into memory obtained from  ** [sqlite3_malloc()] and the result is stored in the char* variable ** that the fourth parameter of [sqlite3_file_control()] points to. ** The caller is responsible for freeing the memory when done.  As with ** all file-control actions, there is no guarantee that this will actually ** do anything.  Callers should initialize the char* variable to a NULL ** pointer in case this file-control is not implemented.  This file-control ** is intended for diagnostic use only. ** **<li>[[SQLITE_FCNTL_PRAGMA]] ** ^Whenever a [PRAGMA] statement is parsed, an [SQLITE_FCNTL_PRAGMA]  ** file control is sent to the open [sqlite3_file] object corresponding ** to the database file to which the pragma statement refers. ^The argument ** to the [SQLITE_FCNTL_PRAGMA] file control is an array of ** pointers to strings (char**) in which the second element of the array ** is the name of the pragma and the third element is the argument to the ** pragma or NULL if the pragma has no argument.  ^The handler for an ** [SQLITE_FCNTL_PRAGMA] file control can optionally make the first element ** of the char** argument point to a string obtained from [sqlite3_mprintf()] ** or the equivalent and that string will become the result of the pragma or ** the error message if the pragma fails. ^If the ** [SQLITE_FCNTL_PRAGMA] file control returns [SQLITE_NOTFOUND], then normal  ** [PRAGMA] processing continues.  ^If the [SQLITE_FCNTL_PRAGMA] ** file control returns [SQLITE_OK], then the parser assumes that the ** VFS has handled the PRAGMA itself and the parser generates a no-op ** prepared statement.  ^If the [SQLITE_FCNTL_PRAGMA] file control returns ** any result code other than [SQLITE_OK] or [SQLITE_NOTFOUND], that means ** that the VFS encountered an error while handling the [PRAGMA] and the ** compilation of the PRAGMA fails with an error.  ^The [SQLITE_FCNTL_PRAGMA] ** file control occurs at the beginning of pragma statement analysis and so ** it is able to override built-in [PRAGMA] statements. ** **<li>[[SQLITE_FCNTL_BUSYHANDLER]] ** ^The [SQLITE_FCNTL_BUSYHANDLER] ** file-control may be invoked by SQLite on the database file handle ** shortly after it is opened in order to provide a custom VFS with access ** to the connections busy-handler callback. The argument is of type (void **) ** - an array of two (void *) values. The first (void *) actually points ** to a function of type (int (*)(void *)). In order to invoke the connections ** busy-handler, this function should be invoked with the second (void *) in ** the array as the only argument. If it returns non-zero, then the operation ** should be retried. If it returns zero, the custom VFS should abandon the ** current operation. ** **<li>[[SQLITE_FCNTL_TEMPFILENAME]] ** ^Application can invoke the [SQLITE_FCNTL_TEMPFILENAME] file-control ** to have SQLite generate a ** temporary filename using the same algorithm that is followed to generate ** temporary filenames for TEMP tables and other internal uses.  The ** argument should be a char** which will be filled with the filename ** written into memory obtained from [sqlite3_malloc()].  The caller should ** invoke [sqlite3_free()] on the result to avoid a memory leak. ** **<li>[[SQLITE_FCNTL_MMAP_SIZE]] ** The [SQLITE_FCNTL_MMAP_SIZE] file control is used to query or set the ** maximum number of bytes that will be used for memory-mapped I/O. ** The argument is a pointer to a value of type sqlite3_int64 that ** is an advisory maximum number of bytes in the file to memory map.  The ** pointer is overwritten with the old value.  The limit is not changed if ** the value originally pointed to is negative, and so the current limit  ** can be queried by passing in a pointer to a negative number.  This ** file-control is used internally to implement [PRAGMA mmap_size]. ** **<li>[[SQLITE_FCNTL_TRACE]] ** The [SQLITE_FCNTL_TRACE] file control provides advisory information ** to the VFS about what the higher layers of the SQLite stack are doing. ** This file control is used by some VFS activity tracing [shims]. ** The argument is a zero-terminated string.  Higher layers in the ** SQLite stack may generate instances of this file control if ** the [SQLITE_USE_FCNTL_TRACE] compile-time option is enabled. ** **<li>[[SQLITE_FCNTL_HAS_MOVED]] ** The [SQLITE_FCNTL_HAS_MOVED] file control interprets its argument as a ** pointer to an integer and it writes a boolean into that integer depending ** on whether or not the file has been renamed, moved, or deleted since it ** was first opened. ** **<li>[[SQLITE_FCNTL_WIN32_SET_HANDLE]] ** The [SQLITE_FCNTL_WIN32_SET_HANDLE] opcode is used for debugging.  This ** opcode causes the xFileControl method to swap the file handle with the one ** pointed to by the pArg argument.  This capability is used during testing ** and only needs to be supported when SQLITE_TEST is defined. ** **</ul> */
 DECL|macro|SQLITE_FCNTL_LOCKSTATE
 define|#
 directive|define
@@ -1451,6 +1456,11 @@ define|#
 directive|define
 name|SQLITE_FCNTL_COMMIT_PHASETWO
 value|22
+DECL|macro|SQLITE_FCNTL_WIN32_SET_HANDLE
+define|#
+directive|define
+name|SQLITE_FCNTL_WIN32_SET_HANDLE
+value|23
 comment|/* ** CAPI3REF: Mutex Handle ** ** The mutex module within SQLite defines [sqlite3_mutex] to be an ** abstract type for a mutex object.  The SQLite core never looks ** at the internal representation of an [sqlite3_mutex].  It only ** deals with pointers to the [sqlite3_mutex] object. ** ** Mutexes are created using [sqlite3_mutex_alloc()]. */
 DECL|typedef|sqlite3_mutex
 typedef|typedef
@@ -2776,7 +2786,7 @@ name|void
 modifier|*
 parameter_list|)
 function_decl|;
-comment|/* ** CAPI3REF: Opening A New Database Connection ** ** ^These routines open an SQLite database file as specified by the  ** filename argument. ^The filename argument is interpreted as UTF-8 for ** sqlite3_open() and sqlite3_open_v2() and as UTF-16 in the native byte ** order for sqlite3_open16(). ^(A [database connection] handle is usually ** returned in *ppDb, even if an error occurs.  The only exception is that ** if SQLite is unable to allocate memory to hold the [sqlite3] object, ** a NULL will be written into *ppDb instead of a pointer to the [sqlite3] ** object.)^ ^(If the database is opened (and/or created) successfully, then ** [SQLITE_OK] is returned.  Otherwise an [error code] is returned.)^ ^The ** [sqlite3_errmsg()] or [sqlite3_errmsg16()] routines can be used to obtain ** an English language description of the error following a failure of any ** of the sqlite3_open() routines. ** ** ^The default encoding for the database will be UTF-8 if ** sqlite3_open() or sqlite3_open_v2() is called and ** UTF-16 in the native byte order if sqlite3_open16() is used. ** ** Whether or not an error occurs when it is opened, resources ** associated with the [database connection] handle should be released by ** passing it to [sqlite3_close()] when it is no longer required. ** ** The sqlite3_open_v2() interface works like sqlite3_open() ** except that it accepts two additional parameters for additional control ** over the new database connection.  ^(The flags parameter to ** sqlite3_open_v2() can take one of ** the following three values, optionally combined with the  ** [SQLITE_OPEN_NOMUTEX], [SQLITE_OPEN_FULLMUTEX], [SQLITE_OPEN_SHAREDCACHE], ** [SQLITE_OPEN_PRIVATECACHE], and/or [SQLITE_OPEN_URI] flags:)^ ** **<dl> ** ^(<dt>[SQLITE_OPEN_READONLY]</dt> **<dd>The database is opened in read-only mode.  If the database does not ** already exist, an error is returned.</dd>)^ ** ** ^(<dt>[SQLITE_OPEN_READWRITE]</dt> **<dd>The database is opened for reading and writing if possible, or reading ** only if the file is write protected by the operating system.  In either ** case the database must already exist, otherwise an error is returned.</dd>)^ ** ** ^(<dt>[SQLITE_OPEN_READWRITE] | [SQLITE_OPEN_CREATE]</dt> **<dd>The database is opened for reading and writing, and is created if ** it does not already exist. This is the behavior that is always used for ** sqlite3_open() and sqlite3_open16().</dd>)^ **</dl> ** ** If the 3rd parameter to sqlite3_open_v2() is not one of the ** combinations shown above optionally combined with other ** [SQLITE_OPEN_READONLY | SQLITE_OPEN_* bits] ** then the behavior is undefined. ** ** ^If the [SQLITE_OPEN_NOMUTEX] flag is set, then the database connection ** opens in the multi-thread [threading mode] as long as the single-thread ** mode has not been set at compile-time or start-time.  ^If the ** [SQLITE_OPEN_FULLMUTEX] flag is set then the database connection opens ** in the serialized [threading mode] unless single-thread was ** previously selected at compile-time or start-time. ** ^The [SQLITE_OPEN_SHAREDCACHE] flag causes the database connection to be ** eligible to use [shared cache mode], regardless of whether or not shared ** cache is enabled using [sqlite3_enable_shared_cache()].  ^The ** [SQLITE_OPEN_PRIVATECACHE] flag causes the database connection to not ** participate in [shared cache mode] even if it is enabled. ** ** ^The fourth parameter to sqlite3_open_v2() is the name of the ** [sqlite3_vfs] object that defines the operating system interface that ** the new database connection should use.  ^If the fourth parameter is ** a NULL pointer then the default [sqlite3_vfs] object is used. ** ** ^If the filename is ":memory:", then a private, temporary in-memory database ** is created for the connection.  ^This in-memory database will vanish when ** the database connection is closed.  Future versions of SQLite might ** make use of additional special filenames that begin with the ":" character. ** It is recommended that when a database filename actually does begin with ** a ":" character you should prefix the filename with a pathname such as ** "./" to avoid ambiguity. ** ** ^If the filename is an empty string, then a private, temporary ** on-disk database will be created.  ^This private database will be ** automatically deleted as soon as the database connection is closed. ** ** [[URI filenames in sqlite3_open()]]<h3>URI Filenames</h3> ** ** ^If [URI filename] interpretation is enabled, and the filename argument ** begins with "file:", then the filename is interpreted as a URI. ^URI ** filename interpretation is enabled if the [SQLITE_OPEN_URI] flag is ** set in the fourth argument to sqlite3_open_v2(), or if it has ** been enabled globally using the [SQLITE_CONFIG_URI] option with the ** [sqlite3_config()] method or by the [SQLITE_USE_URI] compile-time option. ** As of SQLite version 3.7.7, URI filename interpretation is turned off ** by default, but future releases of SQLite might enable URI filename ** interpretation by default.  See "[URI filenames]" for additional ** information. ** ** URI filenames are parsed according to RFC 3986. ^If the URI contains an ** authority, then it must be either an empty string or the string  ** "localhost". ^If the authority is not an empty string or "localhost", an  ** error is returned to the caller. ^The fragment component of a URI, if  ** present, is ignored. ** ** ^SQLite uses the path component of the URI as the name of the disk file ** which contains the database. ^If the path begins with a '/' character,  ** then it is interpreted as an absolute path. ^If the path does not begin  ** with a '/' (meaning that the authority section is omitted from the URI) ** then the path is interpreted as a relative path.  ** ^On windows, the first component of an absolute path  ** is a drive specification (e.g. "C:"). ** ** [[core URI query parameters]] ** The query component of a URI may contain parameters that are interpreted ** either by SQLite itself, or by a [VFS | custom VFS implementation]. ** SQLite interprets the following three query parameters: ** **<ul> **<li><b>vfs</b>: ^The "vfs" parameter may be used to specify the name of **     a VFS object that provides the operating system interface that should **     be used to access the database file on disk. ^If this option is set to **     an empty string the default VFS object is used. ^Specifying an unknown **     VFS is an error. ^If sqlite3_open_v2() is used and the vfs option is **     present, then the VFS specified by the option takes precedence over **     the value passed as the fourth parameter to sqlite3_open_v2(). ** **<li><b>mode</b>: ^(The mode parameter may be set to either "ro", "rw", **     "rwc", or "memory". Attempting to set it to any other value is **     an error)^.  **     ^If "ro" is specified, then the database is opened for read-only  **     access, just as if the [SQLITE_OPEN_READONLY] flag had been set in the  **     third argument to sqlite3_open_v2(). ^If the mode option is set to  **     "rw", then the database is opened for read-write (but not create)  **     access, as if SQLITE_OPEN_READWRITE (but not SQLITE_OPEN_CREATE) had  **     been set. ^Value "rwc" is equivalent to setting both  **     SQLITE_OPEN_READWRITE and SQLITE_OPEN_CREATE.  ^If the mode option is **     set to "memory" then a pure [in-memory database] that never reads **     or writes from disk is used. ^It is an error to specify a value for **     the mode parameter that is less restrictive than that specified by **     the flags passed in the third parameter to sqlite3_open_v2(). ** **<li><b>cache</b>: ^The cache parameter may be set to either "shared" or **     "private". ^Setting it to "shared" is equivalent to setting the **     SQLITE_OPEN_SHAREDCACHE bit in the flags argument passed to **     sqlite3_open_v2(). ^Setting the cache parameter to "private" is  **     equivalent to setting the SQLITE_OPEN_PRIVATECACHE bit. **     ^If sqlite3_open_v2() is used and the "cache" parameter is present in **     a URI filename, its value overrides any behavior requested by setting **     SQLITE_OPEN_PRIVATECACHE or SQLITE_OPEN_SHAREDCACHE flag. **</ul> ** ** ^Specifying an unknown parameter in the query component of a URI is not an ** error.  Future versions of SQLite might understand additional query ** parameters.  See "[query parameters with special meaning to SQLite]" for ** additional information. ** ** [[URI filename examples]]<h3>URI filename examples</h3> ** **<table border="1" align=center cellpadding=5> **<tr><th> URI filenames<th> Results **<tr><td> file:data.db<td>  **          Open the file "data.db" in the current directory. **<tr><td> file:/home/fred/data.db<br> **          file:///home/fred/data.db<br>  **          file://localhost/home/fred/data.db<br><td>  **          Open the database file "/home/fred/data.db". **<tr><td> file://darkstar/home/fred/data.db<td>  **          An error. "darkstar" is not a recognized authority. **<tr><td style="white-space:nowrap">  **          file:///C:/Documents%20and%20Settings/fred/Desktop/data.db **<td> Windows only: Open the file "data.db" on fred's desktop on drive **          C:. Note that the %20 escaping in this example is not strictly  **          necessary - space characters can be used literally **          in URI filenames. **<tr><td> file:data.db?mode=ro&cache=private<td>  **          Open file "data.db" in the current directory for read-only access. **          Regardless of whether or not shared-cache mode is enabled by **          default, use a private cache. **<tr><td> file:/home/fred/data.db?vfs=unix-nolock<td> **          Open file "/home/fred/data.db". Use the special VFS "unix-nolock". **<tr><td> file:data.db?mode=readonly<td>  **          An error. "readonly" is not a valid option for the "mode" parameter. **</table> ** ** ^URI hexadecimal escape sequences (%HH) are supported within the path and ** query components of a URI. A hexadecimal escape sequence consists of a ** percent sign - "%" - followed by exactly two hexadecimal digits  ** specifying an octet value. ^Before the path or query components of a ** URI filename are interpreted, they are encoded using UTF-8 and all  ** hexadecimal escape sequences replaced by a single byte containing the ** corresponding octet. If this process generates an invalid UTF-8 encoding, ** the results are undefined. ** **<b>Note to Windows users:</b>  The encoding used for the filename argument ** of sqlite3_open() and sqlite3_open_v2() must be UTF-8, not whatever ** codepage is currently defined.  Filenames containing international ** characters must be converted to UTF-8 prior to passing them into ** sqlite3_open() or sqlite3_open_v2(). ** **<b>Note to Windows Runtime users:</b>  The temporary directory must be set ** prior to calling sqlite3_open() or sqlite3_open_v2().  Otherwise, various ** features that require the use of temporary files may fail. ** ** See also: [sqlite3_temp_directory] */
+comment|/* ** CAPI3REF: Opening A New Database Connection ** ** ^These routines open an SQLite database file as specified by the  ** filename argument. ^The filename argument is interpreted as UTF-8 for ** sqlite3_open() and sqlite3_open_v2() and as UTF-16 in the native byte ** order for sqlite3_open16(). ^(A [database connection] handle is usually ** returned in *ppDb, even if an error occurs.  The only exception is that ** if SQLite is unable to allocate memory to hold the [sqlite3] object, ** a NULL will be written into *ppDb instead of a pointer to the [sqlite3] ** object.)^ ^(If the database is opened (and/or created) successfully, then ** [SQLITE_OK] is returned.  Otherwise an [error code] is returned.)^ ^The ** [sqlite3_errmsg()] or [sqlite3_errmsg16()] routines can be used to obtain ** an English language description of the error following a failure of any ** of the sqlite3_open() routines. ** ** ^The default encoding for the database will be UTF-8 if ** sqlite3_open() or sqlite3_open_v2() is called and ** UTF-16 in the native byte order if sqlite3_open16() is used. ** ** Whether or not an error occurs when it is opened, resources ** associated with the [database connection] handle should be released by ** passing it to [sqlite3_close()] when it is no longer required. ** ** The sqlite3_open_v2() interface works like sqlite3_open() ** except that it accepts two additional parameters for additional control ** over the new database connection.  ^(The flags parameter to ** sqlite3_open_v2() can take one of ** the following three values, optionally combined with the  ** [SQLITE_OPEN_NOMUTEX], [SQLITE_OPEN_FULLMUTEX], [SQLITE_OPEN_SHAREDCACHE], ** [SQLITE_OPEN_PRIVATECACHE], and/or [SQLITE_OPEN_URI] flags:)^ ** **<dl> ** ^(<dt>[SQLITE_OPEN_READONLY]</dt> **<dd>The database is opened in read-only mode.  If the database does not ** already exist, an error is returned.</dd>)^ ** ** ^(<dt>[SQLITE_OPEN_READWRITE]</dt> **<dd>The database is opened for reading and writing if possible, or reading ** only if the file is write protected by the operating system.  In either ** case the database must already exist, otherwise an error is returned.</dd>)^ ** ** ^(<dt>[SQLITE_OPEN_READWRITE] | [SQLITE_OPEN_CREATE]</dt> **<dd>The database is opened for reading and writing, and is created if ** it does not already exist. This is the behavior that is always used for ** sqlite3_open() and sqlite3_open16().</dd>)^ **</dl> ** ** If the 3rd parameter to sqlite3_open_v2() is not one of the ** combinations shown above optionally combined with other ** [SQLITE_OPEN_READONLY | SQLITE_OPEN_* bits] ** then the behavior is undefined. ** ** ^If the [SQLITE_OPEN_NOMUTEX] flag is set, then the database connection ** opens in the multi-thread [threading mode] as long as the single-thread ** mode has not been set at compile-time or start-time.  ^If the ** [SQLITE_OPEN_FULLMUTEX] flag is set then the database connection opens ** in the serialized [threading mode] unless single-thread was ** previously selected at compile-time or start-time. ** ^The [SQLITE_OPEN_SHAREDCACHE] flag causes the database connection to be ** eligible to use [shared cache mode], regardless of whether or not shared ** cache is enabled using [sqlite3_enable_shared_cache()].  ^The ** [SQLITE_OPEN_PRIVATECACHE] flag causes the database connection to not ** participate in [shared cache mode] even if it is enabled. ** ** ^The fourth parameter to sqlite3_open_v2() is the name of the ** [sqlite3_vfs] object that defines the operating system interface that ** the new database connection should use.  ^If the fourth parameter is ** a NULL pointer then the default [sqlite3_vfs] object is used. ** ** ^If the filename is ":memory:", then a private, temporary in-memory database ** is created for the connection.  ^This in-memory database will vanish when ** the database connection is closed.  Future versions of SQLite might ** make use of additional special filenames that begin with the ":" character. ** It is recommended that when a database filename actually does begin with ** a ":" character you should prefix the filename with a pathname such as ** "./" to avoid ambiguity. ** ** ^If the filename is an empty string, then a private, temporary ** on-disk database will be created.  ^This private database will be ** automatically deleted as soon as the database connection is closed. ** ** [[URI filenames in sqlite3_open()]]<h3>URI Filenames</h3> ** ** ^If [URI filename] interpretation is enabled, and the filename argument ** begins with "file:", then the filename is interpreted as a URI. ^URI ** filename interpretation is enabled if the [SQLITE_OPEN_URI] flag is ** set in the fourth argument to sqlite3_open_v2(), or if it has ** been enabled globally using the [SQLITE_CONFIG_URI] option with the ** [sqlite3_config()] method or by the [SQLITE_USE_URI] compile-time option. ** As of SQLite version 3.7.7, URI filename interpretation is turned off ** by default, but future releases of SQLite might enable URI filename ** interpretation by default.  See "[URI filenames]" for additional ** information. ** ** URI filenames are parsed according to RFC 3986. ^If the URI contains an ** authority, then it must be either an empty string or the string  ** "localhost". ^If the authority is not an empty string or "localhost", an  ** error is returned to the caller. ^The fragment component of a URI, if  ** present, is ignored. ** ** ^SQLite uses the path component of the URI as the name of the disk file ** which contains the database. ^If the path begins with a '/' character,  ** then it is interpreted as an absolute path. ^If the path does not begin  ** with a '/' (meaning that the authority section is omitted from the URI) ** then the path is interpreted as a relative path.  ** ^On windows, the first component of an absolute path  ** is a drive specification (e.g. "C:"). ** ** [[core URI query parameters]] ** The query component of a URI may contain parameters that are interpreted ** either by SQLite itself, or by a [VFS | custom VFS implementation]. ** SQLite interprets the following three query parameters: ** **<ul> **<li><b>vfs</b>: ^The "vfs" parameter may be used to specify the name of **     a VFS object that provides the operating system interface that should **     be used to access the database file on disk. ^If this option is set to **     an empty string the default VFS object is used. ^Specifying an unknown **     VFS is an error. ^If sqlite3_open_v2() is used and the vfs option is **     present, then the VFS specified by the option takes precedence over **     the value passed as the fourth parameter to sqlite3_open_v2(). ** **<li><b>mode</b>: ^(The mode parameter may be set to either "ro", "rw", **     "rwc", or "memory". Attempting to set it to any other value is **     an error)^.  **     ^If "ro" is specified, then the database is opened for read-only  **     access, just as if the [SQLITE_OPEN_READONLY] flag had been set in the  **     third argument to sqlite3_open_v2(). ^If the mode option is set to  **     "rw", then the database is opened for read-write (but not create)  **     access, as if SQLITE_OPEN_READWRITE (but not SQLITE_OPEN_CREATE) had  **     been set. ^Value "rwc" is equivalent to setting both  **     SQLITE_OPEN_READWRITE and SQLITE_OPEN_CREATE.  ^If the mode option is **     set to "memory" then a pure [in-memory database] that never reads **     or writes from disk is used. ^It is an error to specify a value for **     the mode parameter that is less restrictive than that specified by **     the flags passed in the third parameter to sqlite3_open_v2(). ** **<li><b>cache</b>: ^The cache parameter may be set to either "shared" or **     "private". ^Setting it to "shared" is equivalent to setting the **     SQLITE_OPEN_SHAREDCACHE bit in the flags argument passed to **     sqlite3_open_v2(). ^Setting the cache parameter to "private" is  **     equivalent to setting the SQLITE_OPEN_PRIVATECACHE bit. **     ^If sqlite3_open_v2() is used and the "cache" parameter is present in **     a URI filename, its value overrides any behavior requested by setting **     SQLITE_OPEN_PRIVATECACHE or SQLITE_OPEN_SHAREDCACHE flag. ** **<li><b>psow</b>: ^The psow parameter may be "true" (or "on" or "yes" or **     "1") or "false" (or "off" or "no" or "0") to indicate that the **     [powersafe overwrite] property does or does not apply to the **     storage media on which the database file resides.  ^The psow query **     parameter only works for the built-in unix and Windows VFSes. ** **<li><b>nolock</b>: ^The nolock parameter is a boolean query parameter **     which if set disables file locking in rollback journal modes.  This **     is useful for accessing a database on a filesystem that does not **     support locking.  Caution:  Database corruption might result if two **     or more processes write to the same database and any one of those **     processes uses nolock=1. ** **<li><b>immutable</b>: ^The immutable parameter is a boolean query **     parameter that indicates that the database file is stored on **     read-only media.  ^When immutable is set, SQLite assumes that the **     database file cannot be changed, even by a process with higher **     privilege, and so the database is opened read-only and all locking **     and change detection is disabled.  Caution: Setting the immutable **     property on a database file that does in fact change can result **     in incorrect query results and/or [SQLITE_CORRUPT] errors. **     See also: [SQLITE_IOCAP_IMMUTABLE]. **        **</ul> ** ** ^Specifying an unknown parameter in the query component of a URI is not an ** error.  Future versions of SQLite might understand additional query ** parameters.  See "[query parameters with special meaning to SQLite]" for ** additional information. ** ** [[URI filename examples]]<h3>URI filename examples</h3> ** **<table border="1" align=center cellpadding=5> **<tr><th> URI filenames<th> Results **<tr><td> file:data.db<td>  **          Open the file "data.db" in the current directory. **<tr><td> file:/home/fred/data.db<br> **          file:///home/fred/data.db<br>  **          file://localhost/home/fred/data.db<br><td>  **          Open the database file "/home/fred/data.db". **<tr><td> file://darkstar/home/fred/data.db<td>  **          An error. "darkstar" is not a recognized authority. **<tr><td style="white-space:nowrap">  **          file:///C:/Documents%20and%20Settings/fred/Desktop/data.db **<td> Windows only: Open the file "data.db" on fred's desktop on drive **          C:. Note that the %20 escaping in this example is not strictly  **          necessary - space characters can be used literally **          in URI filenames. **<tr><td> file:data.db?mode=ro&cache=private<td>  **          Open file "data.db" in the current directory for read-only access. **          Regardless of whether or not shared-cache mode is enabled by **          default, use a private cache. **<tr><td> file:/home/fred/data.db?vfs=unix-dotfile<td> **          Open file "/home/fred/data.db". Use the special VFS "unix-dotfile" **          that uses dot-files in place of posix advisory locking. **<tr><td> file:data.db?mode=readonly<td>  **          An error. "readonly" is not a valid option for the "mode" parameter. **</table> ** ** ^URI hexadecimal escape sequences (%HH) are supported within the path and ** query components of a URI. A hexadecimal escape sequence consists of a ** percent sign - "%" - followed by exactly two hexadecimal digits  ** specifying an octet value. ^Before the path or query components of a ** URI filename are interpreted, they are encoded using UTF-8 and all  ** hexadecimal escape sequences replaced by a single byte containing the ** corresponding octet. If this process generates an invalid UTF-8 encoding, ** the results are undefined. ** **<b>Note to Windows users:</b>  The encoding used for the filename argument ** of sqlite3_open() and sqlite3_open_v2() must be UTF-8, not whatever ** codepage is currently defined.  Filenames containing international ** characters must be converted to UTF-8 prior to passing them into ** sqlite3_open() or sqlite3_open_v2(). ** **<b>Note to Windows Runtime users:</b>  The temporary directory must be set ** prior to calling sqlite3_open() or sqlite3_open_v2().  Otherwise, various ** features that require the use of temporary files may fail. ** ** See also: [sqlite3_temp_directory] */
 name|SQLITE_API
 name|int
 name|sqlite3_open
@@ -6370,11 +6380,16 @@ define|#
 directive|define
 name|SQLITE_TESTCTRL_VDBE_COVERAGE
 value|21
+DECL|macro|SQLITE_TESTCTRL_BYTEORDER
+define|#
+directive|define
+name|SQLITE_TESTCTRL_BYTEORDER
+value|22
 DECL|macro|SQLITE_TESTCTRL_LAST
 define|#
 directive|define
 name|SQLITE_TESTCTRL_LAST
-value|21
+value|22
 comment|/* ** CAPI3REF: SQLite Runtime Status ** ** ^This interface is used to retrieve runtime status information ** about the performance of SQLite, and optionally to reset various ** highwater marks.  ^The first argument is an integer code for ** the specific parameter to measure.  ^(Recognized integer codes ** are of the form [status parameters | SQLITE_STATUS_...].)^ ** ^The current value of the parameter is returned into *pCurrent. ** ^The highest recorded value is returned in *pHighwater.  ^If the ** resetFlag is true, then the highest record value is reset after ** *pHighwater is written.  ^(Some parameters do not record the highest ** value.  For those parameters ** nothing is written into *pHighwater and the resetFlag is ignored.)^ ** ^(Other parameters record only the highwater mark and not the current ** value.  For these latter parameters nothing is written into *pCurrent.)^ ** ** ^The sqlite3_status() routine returns SQLITE_OK on success and a ** non-zero [error code] on failure. ** ** This routine is threadsafe but is not atomic.  This routine can be ** called while other threads are running the same or different SQLite ** interfaces.  However the values returned in *pCurrent and ** *pHighwater reflect the status of SQLite at different points in time ** and it is possible that another thread might change the parameter ** in between the times when *pCurrent and *pHighwater are written. ** ** See also: [sqlite3_db_status()] */
 name|SQLITE_API
 name|int
@@ -7318,6 +7333,30 @@ name|struct
 name|sqlite3_rtree_geometry
 name|sqlite3_rtree_geometry
 typedef|;
+DECL|typedef|sqlite3_rtree_query_info
+typedef|typedef
+name|struct
+name|sqlite3_rtree_query_info
+name|sqlite3_rtree_query_info
+typedef|;
+comment|/* The double-precision datatype used by RTree depends on the ** SQLITE_RTREE_INT_ONLY compile-time option. */
+ifdef|#
+directive|ifdef
+name|SQLITE_RTREE_INT_ONLY
+DECL|typedef|sqlite3_rtree_dbl
+typedef|typedef
+name|sqlite3_int64
+name|sqlite3_rtree_dbl
+typedef|;
+else|#
+directive|else
+DECL|typedef|sqlite3_rtree_dbl
+typedef|typedef
+name|double
+name|sqlite3_rtree_dbl
+typedef|;
+endif|#
+directive|endif
 comment|/* ** Register a geometry callback named zGeom that can be used as part of an ** R-Tree geometry query as follows: ** **   SELECT ... FROM<rtree> WHERE<rtree col> MATCH $zGeom(... params ...) */
 name|SQLITE_API
 name|int
@@ -7332,9 +7371,6 @@ name|char
 modifier|*
 name|zGeom
 parameter_list|,
-ifdef|#
-directive|ifdef
-name|SQLITE_RTREE_INT_ONLY
 name|int
 function_decl|(
 modifier|*
@@ -7345,42 +7381,14 @@ name|sqlite3_rtree_geometry
 modifier|*
 parameter_list|,
 name|int
-name|n
 parameter_list|,
-name|sqlite3_int64
+name|sqlite3_rtree_dbl
 modifier|*
-name|a
 parameter_list|,
 name|int
 modifier|*
-name|pRes
 parameter_list|)
 parameter_list|,
-else|#
-directive|else
-name|int
-function_decl|(
-modifier|*
-name|xGeom
-function_decl|)
-parameter_list|(
-name|sqlite3_rtree_geometry
-modifier|*
-parameter_list|,
-name|int
-name|n
-parameter_list|,
-name|double
-modifier|*
-name|a
-parameter_list|,
-name|int
-modifier|*
-name|pRes
-parameter_list|)
-parameter_list|,
-endif|#
-directive|endif
 name|void
 modifier|*
 name|pContext
@@ -7403,7 +7411,7 @@ name|nParam
 decl_stmt|;
 comment|/* Size of array aParam[] */
 DECL|member|aParam
-name|double
+name|sqlite3_rtree_dbl
 modifier|*
 name|aParam
 decl_stmt|;
@@ -7428,6 +7436,159 @@ function_decl|;
 comment|/* Called by SQLite to clean up pUser */
 block|}
 struct|;
+comment|/* ** Register a 2nd-generation geometry callback named zScore that can be  ** used as part of an R-Tree geometry query as follows: ** **   SELECT ... FROM<rtree> WHERE<rtree col> MATCH $zQueryFunc(... params ...) */
+name|SQLITE_API
+name|int
+name|sqlite3_rtree_query_callback
+parameter_list|(
+name|sqlite3
+modifier|*
+name|db
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|zQueryFunc
+parameter_list|,
+name|int
+function_decl|(
+modifier|*
+name|xQueryFunc
+function_decl|)
+parameter_list|(
+name|sqlite3_rtree_query_info
+modifier|*
+parameter_list|)
+parameter_list|,
+name|void
+modifier|*
+name|pContext
+parameter_list|,
+name|void
+function_decl|(
+modifier|*
+name|xDestructor
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+parameter_list|)
+function_decl|;
+comment|/* ** A pointer to a structure of the following type is passed as the  ** argument to scored geometry callback registered using ** sqlite3_rtree_query_callback(). ** ** Note that the first 5 fields of this structure are identical to ** sqlite3_rtree_geometry.  This structure is a subclass of ** sqlite3_rtree_geometry. */
+DECL|struct|sqlite3_rtree_query_info
+struct|struct
+name|sqlite3_rtree_query_info
+block|{
+DECL|member|pContext
+name|void
+modifier|*
+name|pContext
+decl_stmt|;
+comment|/* pContext from when function registered */
+DECL|member|nParam
+name|int
+name|nParam
+decl_stmt|;
+comment|/* Number of function parameters */
+DECL|member|aParam
+name|sqlite3_rtree_dbl
+modifier|*
+name|aParam
+decl_stmt|;
+comment|/* value of function parameters */
+DECL|member|pUser
+name|void
+modifier|*
+name|pUser
+decl_stmt|;
+comment|/* callback can use this, if desired */
+DECL|member|xDelUser
+name|void
+function_decl|(
+modifier|*
+name|xDelUser
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+comment|/* function to free pUser */
+DECL|member|aCoord
+name|sqlite3_rtree_dbl
+modifier|*
+name|aCoord
+decl_stmt|;
+comment|/* Coordinates of node or entry to check */
+DECL|member|anQueue
+name|unsigned
+name|int
+modifier|*
+name|anQueue
+decl_stmt|;
+comment|/* Number of pending entries in the queue */
+DECL|member|nCoord
+name|int
+name|nCoord
+decl_stmt|;
+comment|/* Number of coordinates */
+DECL|member|iLevel
+name|int
+name|iLevel
+decl_stmt|;
+comment|/* Level of current node or entry */
+DECL|member|mxLevel
+name|int
+name|mxLevel
+decl_stmt|;
+comment|/* The largest iLevel value in the tree */
+DECL|member|iRowid
+name|sqlite3_int64
+name|iRowid
+decl_stmt|;
+comment|/* Rowid for current entry */
+DECL|member|rParentScore
+name|sqlite3_rtree_dbl
+name|rParentScore
+decl_stmt|;
+comment|/* Score of parent node */
+DECL|member|eParentWithin
+name|int
+name|eParentWithin
+decl_stmt|;
+comment|/* Visibility of parent node */
+DECL|member|eWithin
+name|int
+name|eWithin
+decl_stmt|;
+comment|/* OUT: Visiblity */
+DECL|member|rScore
+name|sqlite3_rtree_dbl
+name|rScore
+decl_stmt|;
+comment|/* OUT: Write the score here */
+block|}
+struct|;
+comment|/* ** Allowed values for sqlite3_rtree_query.eWithin and .eParentWithin. */
+DECL|macro|NOT_WITHIN
+define|#
+directive|define
+name|NOT_WITHIN
+value|0
+comment|/* Object completely outside of query region */
+DECL|macro|PARTLY_WITHIN
+define|#
+directive|define
+name|PARTLY_WITHIN
+value|1
+comment|/* Object partially overlaps query region */
+DECL|macro|FULLY_WITHIN
+define|#
+directive|define
+name|FULLY_WITHIN
+value|2
+comment|/* Object fully contained within query region */
 ifdef|#
 directive|ifdef
 name|__cplusplus
