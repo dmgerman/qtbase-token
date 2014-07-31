@@ -1271,7 +1271,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_OSX
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
