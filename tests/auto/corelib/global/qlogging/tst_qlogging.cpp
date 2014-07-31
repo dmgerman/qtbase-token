@@ -3554,10 +3554,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"pid"
+literal|"pid-tid"
 argument_list|)
 operator|<<
-literal|"%{pid}: %{message}"
+literal|"%{pid}/%{threadid}: %{message}"
 operator|<<
 literal|true
 operator|<<
@@ -3572,10 +3572,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"threadid"
+literal|"qthreadptr"
 argument_list|)
 operator|<<
-literal|"ThreadId:%{threadid}: %{message}"
+literal|"ThreadId:%{qthreadptr}: %{message}"
 operator|<<
 literal|true
 operator|<<
