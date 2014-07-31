@@ -2459,6 +2459,11 @@ name|xkb_first_event
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|uint32_t
+name|glx_first_event
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|bool
 name|has_glx_extension
 decl_stmt|;
