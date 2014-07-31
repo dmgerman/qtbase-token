@@ -138,7 +138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds between last time this QElapsedTimer     object was started and its reference clock's start.      This number is usually arbitrary for all clocks except the     QElapsedTimer::SystemTime clock. For that clock type, this number is the     number of milliseconds since January 1st, 1970 at 0:00 UTC (that is, it     is the Unix time expressed in milliseconds).      \sa clockType(), elapsed() */
+comment|/*!     Returns the number of milliseconds between last time this QElapsedTimer     object was started and its reference clock's start.      This number is usually arbitrary for all clocks except the     QElapsedTimer::SystemTime clock. For that clock type, this number is the     number of milliseconds since January 1st, 1970 at 0:00 UTC (that is, it     is the Unix time expressed in milliseconds).      On Linux, Windows and OS X/iOS systems, this value is usually the time     since the system boot, though it usually does not include the time the     system has spent in sleep states.      \sa clockType(), elapsed() */
 end_comment
 begin_function
 name|qint64
