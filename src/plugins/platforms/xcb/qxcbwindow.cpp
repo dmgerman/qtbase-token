@@ -8813,11 +8813,6 @@ name|QXcbAtom
 operator|::
 name|_NET_WM_WINDOW_TYPE_DOCK
 case|:
-name|qDebug
-argument_list|()
-operator|<<
-literal|"IS DOCK"
-expr_stmt|;
 name|result
 operator||=
 name|QXcbWindowFunctions
@@ -9051,12 +9046,6 @@ name|QXcbWindowFunctions
 operator|::
 name|Dock
 condition|)
-block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"setting to be dock"
-expr_stmt|;
 name|atoms
 operator|.
 name|append
@@ -9069,7 +9058,6 @@ name|_NET_WM_WINDOW_TYPE_DOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|types
