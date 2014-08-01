@@ -6183,6 +6183,22 @@ end_endif
 begin_comment
 comment|// Q_OS_WIN)&& !Q_OS_WINCE&& !Q_OS_WINRT
 end_comment
+begin_function
+DECL|function|initEnvironment
+specifier|static
+name|void
+name|initEnvironment
+parameter_list|()
+block|{
+name|qputenv
+argument_list|(
+literal|"QT_LOGGING_TO_CONSOLE"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*!     Executes tests declared in \a testObject. In addition, the private slots     \c{initTestCase()}, \c{cleanupTestCase()}, \c{init()} and \c{cleanup()}     are executed if they exist. See \l{Creating a Test} for more details.      Optionally, the command line arguments \a argc and \a argv can be provided.     For a list of recognized arguments, read \l {Qt Test Command Line Arguments}.      The following example will run all tests in \c MyTestObject:      \snippet code/src_qtestlib_qtestcase.cpp 18      This function returns 0 if no tests failed, or a value other than 0 if one     or more tests failed or in case of unhandled exceptions.  (Skipped tests do     not influence the return value.)      For stand-alone test applications, the convenience macro \l QTEST_MAIN() can     be used to declare a main() function that parses the command line arguments     and executes the tests, avoiding the need to call this function explicitly.      The return value from this function is also the exit code of the test     application when the \l QTEST_MAIN() macro is used.      For stand-alone test applications, this function should not be called more     than once, as command-line options for logging test output to files and     executing individual test functions will not behave correctly.      Note: This function is not reentrant, only one test can run at a time. A     test that was executed with qExec() can't run another test via qExec() and     threads are not allowed to call qExec() simultaneously.      If you have programatically created the arguments, as opposed to getting them     from the arguments in \c main(), it is likely of interest to use     QTest::qExec(QObject *, const QStringList&) since it is Unicode safe.      \sa QTEST_MAIN() */
 end_comment
@@ -6206,6 +6222,9 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
+name|initEnvironment
+argument_list|()
+expr_stmt|;
 name|QBenchmarkGlobalData
 name|benchmarkData
 decl_stmt|;
