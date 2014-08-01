@@ -23,6 +23,18 @@ name|QIOSScreen
 operator|*
 name|m_screen
 block|; }
+expr|@
+name|property
+argument_list|(
+argument|nonatomic
+argument_list|,
+argument|assign
+argument_list|)
+name|BOOL
+name|changingOrientation
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 operator|-
 operator|(
 name|id
@@ -34,8 +46,8 @@ name|QIOSScreen
 operator|*
 operator|)
 name|screen
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 operator|-
 operator|(
