@@ -46,7 +46,7 @@ name|Q_STATIC_ASSERT
 argument_list|(
 sizeof|sizeof
 argument_list|(
-name|QPixelFormatGrayScale
+name|QPixelFormatGrayscale
 argument_list|)
 operator|==
 sizeof|sizeof
@@ -57,10 +57,10 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|/*!     \class QPixelFormatGrayScale     \inmodule QtGui     \since 5.4     \brief QPixelFormatGrayScale is a helper class for creating pixel formats with     the gray scale color model.      The size of QPixelFormatGrayScale is guaranteed to be the size of QPixelFormat. */
+comment|/*!     \class QPixelFormatGrayscale     \inmodule QtGui     \since 5.4     \brief QPixelFormatGrayscale is a helper class for creating pixel formats with     the gray scale color model.      The size of QPixelFormatGrayscale is guaranteed to be the size of QPixelFormat. */
 end_comment
 begin_comment
-comment|/*!     \fn QPixelFormatGrayScale::QPixelFormatGrayScale(uchar channelSize,                                                      TypeInterpretation typeInterpretation = UnsignedInteger)      Constructor for creating a Grayscale format. Monochrome formats can be     described by passing 1 to \a channelSize. Its also possible to define very     accurate greyscale formats using doubles to describe each pixel by passing 8     as \a channelSize and FloatingPoint as \a typeInterpretation.      \sa TypeInterpretation */
+comment|/*!     \fn QPixelFormatGrayscale::QPixelFormatGrayscale(uchar channelSize,                                                      TypeInterpretation typeInterpretation = UnsignedInteger)      Constructor for creating a Grayscale format. Monochrome formats can be     described by passing 1 to \a channelSize. Its also possible to define very     accurate greyscale formats using doubles to describe each pixel by passing 8     as \a channelSize and FloatingPoint as \a typeInterpretation.      \sa TypeInterpretation */
 end_comment
 begin_expr_stmt
 DECL|variable|sizeof

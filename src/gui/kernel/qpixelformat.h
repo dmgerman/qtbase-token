@@ -686,7 +686,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QPixelFormatGrayScale
+name|QPixelFormatGrayscale
 range|:
 name|public
 name|QPixelFormat
@@ -695,7 +695,7 @@ name|public
 operator|:
 name|Q_DECL_CONSTEXPR
 specifier|inline
-name|QPixelFormatGrayScale
+name|QPixelFormatGrayscale
 argument_list|(
 argument|uchar bufferSize
 argument_list|,
@@ -1284,9 +1284,9 @@ argument|typeInt
 argument_list|)
 block|{ }
 name|Q_DECL_CONSTEXPR
-name|QPixelFormatGrayScale
+name|QPixelFormatGrayscale
 operator|::
-name|QPixelFormatGrayScale
+name|QPixelFormatGrayscale
 argument_list|(
 argument|uchar channelSize
 argument_list|,
