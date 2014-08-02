@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QSurfaceFormat>
+end_include
+begin_include
+include|#
+directive|include
 file|"mainwindow.h"
 end_include
 begin_include
@@ -44,6 +49,23 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+name|QSurfaceFormat
+name|format
+decl_stmt|;
+name|format
+operator|.
+name|setDepthBufferSize
+argument_list|(
+literal|16
+argument_list|)
+expr_stmt|;
+name|QSurfaceFormat
+operator|::
+name|setDefaultFormat
+argument_list|(
+name|format
+argument_list|)
+expr_stmt|;
 comment|// Two top-level windows with two QOpenGLWidget children in each.
 comment|// The rendering for the four QOpenGLWidgets happens on four separate threads.
 name|MainWindow

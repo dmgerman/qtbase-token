@@ -648,7 +648,7 @@ name|glwidget
 argument_list|,
 name|SLOT
 argument_list|(
-name|showBubbles
+name|setShowBubbles
 argument_list|(
 name|bool
 argument_list|)

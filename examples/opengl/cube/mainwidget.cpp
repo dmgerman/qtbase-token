@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:BSD$ ** You may use this file under the terms of the BSD license as follows: ** ** "Redistribution and use in source and binary forms, with or without ** modification, are permitted provided that the following conditions are ** met: **   * Redistributions of source code must retain the above copyright **     notice, this list of conditions and the following disclaimer. **   * Redistributions in binary form must reproduce the above copyright **     notice, this list of conditions and the following disclaimer in **     the documentation and/or other materials provided with the **     distribution. **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names **     of its contributors may be used to endorse or promote products derived **     from this software without specific prior written permission. ** ** ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:BSD$ ** You may use this file under the terms of the BSD license as follows: ** ** "Redistribution and use in source and binary forms, with or without ** modification, are permitted provided that the following conditions are ** met: **   * Redistributions of source code must retain the above copyright **     notice, this list of conditions and the following disclaimer. **   * Redistributions in binary form must reproduce the above copyright **     notice, this list of conditions and the following disclaimer in **     the documentation and/or other materials provided with the **     distribution. **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names **     of its contributors may be used to endorse or promote products derived **     from this software without specific prior written permission. ** ** ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -28,9 +28,19 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QGLWidget
+name|QOpenGLWidget
 argument_list|(
 name|parent
+argument_list|)
+member_init_list|,
+name|geometries
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|texture
+argument_list|(
+literal|0
 argument_list|)
 member_init_list|,
 name|angularSpeed
@@ -47,10 +57,19 @@ name|~
 name|MainWidget
 parameter_list|()
 block|{
-name|deleteTexture
-argument_list|(
+comment|// Make sure the context is current when deleting the texture
+comment|// and the buffers.
+name|makeCurrent
+argument_list|()
+expr_stmt|;
+operator|delete
 name|texture
-argument_list|)
+expr_stmt|;
+operator|delete
+name|geometries
+expr_stmt|;
+name|doneCurrent
+argument_list|()
 expr_stmt|;
 block|}
 end_destructor
@@ -216,8 +235,8 @@ argument_list|)
 operator|*
 name|rotation
 expr_stmt|;
-comment|// Update scene
-name|updateGL
+comment|// Request an update
+name|update
 argument_list|()
 expr_stmt|;
 block|}
@@ -234,14 +253,18 @@ operator|::
 name|initializeGL
 parameter_list|()
 block|{
-name|initializeGLFunctions
+name|initializeOpenGLFunctions
 argument_list|()
 expr_stmt|;
-name|qglClearColor
+name|glClearColor
 argument_list|(
-name|Qt
-operator|::
-name|black
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|initShaders
@@ -265,9 +288,9 @@ argument_list|)
 expr_stmt|;
 comment|//! [2]
 name|geometries
-operator|.
-name|init
-argument_list|()
+operator|=
+operator|new
+name|GeometryEngine
 expr_stmt|;
 comment|// Use QBasicTimer because its faster than QTimer
 name|timer
@@ -300,7 +323,7 @@ name|program
 operator|.
 name|addShaderFromSourceFile
 argument_list|(
-name|QGLShader
+name|QOpenGLShader
 operator|::
 name|Vertex
 argument_list|,
@@ -318,7 +341,7 @@ name|program
 operator|.
 name|addShaderFromSourceFile
 argument_list|(
-name|QGLShader
+name|QOpenGLShader
 operator|::
 name|Fragment
 argument_list|,
@@ -369,59 +392,49 @@ name|initTextures
 parameter_list|()
 block|{
 comment|// Load cube.png image
-name|glEnable
-argument_list|(
-name|GL_TEXTURE_2D
-argument_list|)
-expr_stmt|;
 name|texture
 operator|=
-name|bindTexture
+operator|new
+name|QOpenGLTexture
 argument_list|(
 name|QImage
 argument_list|(
 literal|":/cube.png"
 argument_list|)
+operator|.
+name|mirrored
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Set nearest filtering mode for texture minification
-name|glTexParameteri
+name|texture
+operator|->
+name|setMinificationFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
-name|GL_TEXTURE_MIN_FILTER
-argument_list|,
-name|GL_NEAREST
+name|QOpenGLTexture
+operator|::
+name|Nearest
 argument_list|)
 expr_stmt|;
 comment|// Set bilinear filtering mode for texture magnification
-name|glTexParameteri
+name|texture
+operator|->
+name|setMagnificationFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
-name|GL_TEXTURE_MAG_FILTER
-argument_list|,
-name|GL_LINEAR
+name|QOpenGLTexture
+operator|::
+name|Linear
 argument_list|)
 expr_stmt|;
 comment|// Wrap texture coordinates by repeating
 comment|// f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)
-name|glTexParameteri
+name|texture
+operator|->
+name|setWrapMode
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
-name|GL_TEXTURE_WRAP_S
-argument_list|,
-name|GL_REPEAT
-argument_list|)
-expr_stmt|;
-name|glTexParameteri
-argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
-name|GL_TEXTURE_WRAP_T
-argument_list|,
-name|GL_REPEAT
+name|QOpenGLTexture
+operator|::
+name|Repeat
 argument_list|)
 expr_stmt|;
 block|}
@@ -446,18 +459,6 @@ name|int
 name|h
 parameter_list|)
 block|{
-comment|// Set OpenGL viewport to cover whole widget
-name|glViewport
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-name|w
-argument_list|,
-name|h
-argument_list|)
-expr_stmt|;
 comment|// Calculate aspect ratio
 name|qreal
 name|aspect
@@ -532,6 +533,11 @@ operator||
 name|GL_DEPTH_BUFFER_BIT
 argument_list|)
 expr_stmt|;
+name|texture
+operator|->
+name|bind
+argument_list|()
+expr_stmt|;
 comment|//! [6]
 comment|// Calculate model view transformation
 name|QMatrix4x4
@@ -581,7 +587,7 @@ argument_list|)
 expr_stmt|;
 comment|// Draw cube geometry
 name|geometries
-operator|.
+operator|->
 name|drawCubeGeometry
 argument_list|(
 operator|&

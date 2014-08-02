@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QGLWidget>
+file|<QOpenGLWidget>
 end_include
 begin_comment
 comment|//! [0]
@@ -32,7 +32,7 @@ name|class
 name|GLWidget
 range|:
 name|public
-name|QGLWidget
+name|QOpenGLWidget
 block|{
 name|Q_OBJECT
 name|public
