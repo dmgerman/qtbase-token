@@ -3272,6 +3272,8 @@ argument_list|>
 argument_list|()
 operator|<<
 literal|"[MyClass::myFunction\nMyClass::mySlot1] from_a_function 34"
+operator|<<
+literal|"[T::T\n"
 operator|)
 expr_stmt|;
 endif|#
