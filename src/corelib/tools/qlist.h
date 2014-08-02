@@ -679,6 +679,14 @@ argument_list|(
 argument|const_cast<QListData::Data *>(&QListData::shared_null)
 argument_list|)
 block|{
+name|reserve
+argument_list|(
+name|args
+operator|.
+name|size
+argument_list|()
+argument_list|)
+block|;
 name|std
 operator|::
 name|copy
