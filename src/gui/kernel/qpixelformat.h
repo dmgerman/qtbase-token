@@ -511,7 +511,7 @@ return|return
 name|sub_enum
 return|;
 block|}
-name|protected
+name|private
 label|:
 name|quint64
 name|model
