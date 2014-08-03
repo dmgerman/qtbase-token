@@ -441,56 +441,45 @@ specifier|inline
 name|QPixelFormat
 argument_list|()
 name|Q_DECL_NOTHROW
-expr_stmt|;
+operator|:
+name|data
+argument_list|(
+literal|0
+argument_list|)
+block|{}
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPixelFormat
 argument_list|(
-name|ColorModel
-name|colorModel
+argument|ColorModel colorModel
 argument_list|,
-name|uchar
-name|firstSize
+argument|uchar firstSize
 argument_list|,
-name|uchar
-name|secondSize
+argument|uchar secondSize
 argument_list|,
-name|uchar
-name|thirdSize
+argument|uchar thirdSize
 argument_list|,
-name|uchar
-name|fourthSize
+argument|uchar fourthSize
 argument_list|,
-name|uchar
-name|fifthSize
+argument|uchar fifthSize
 argument_list|,
-name|uchar
-name|alphaSize
+argument|uchar alphaSize
 argument_list|,
-name|AlphaUsage
-name|alphaUsage
+argument|AlphaUsage alphaUsage
 argument_list|,
-name|AlphaPosition
-name|alphaPosition
+argument|AlphaPosition alphaPosition
 argument_list|,
-name|AlphaPremultiplied
-name|premultiplied
+argument|AlphaPremultiplied premultiplied
 argument_list|,
-name|TypeInterpretation
-name|typeInterpretation
+argument|TypeInterpretation typeInterpretation
 argument_list|,
-name|ByteOrder
-name|byteOrder
-operator|=
-name|CurrentSystemEndian
+argument|ByteOrder byteOrder = CurrentSystemEndian
 argument_list|,
-name|uchar
-name|subEnum
-operator|=
+argument|uchar subEnum =
 literal|0
 argument_list|)
 name|Q_DECL_NOTHROW
-decl_stmt|;
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|ColorModel
@@ -1031,7 +1020,17 @@ name|QPixelFormat
 operator|&
 name|fmt2
 operator|)
-expr_stmt|;
+block|{
+return|return
+name|fmt1
+operator|.
+name|data
+operator|==
+name|fmt2
+operator|.
+name|data
+return|;
+block|}
 name|friend
 name|Q_DECL_CONST_FUNCTION
 name|Q_DECL_CONSTEXPR
@@ -1050,7 +1049,16 @@ name|QPixelFormat
 operator|&
 name|fmt2
 operator|)
-expr_stmt|;
+block|{
+return|return
+operator|!
+operator|(
+name|fmt1
+operator|==
+name|fmt2
+operator|)
+return|;
+block|}
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -1298,18 +1306,6 @@ name|Q_DECL_CONSTEXPR
 name|QPixelFormat
 operator|::
 name|QPixelFormat
-argument_list|()
-name|Q_DECL_NOTHROW
-operator|:
-name|data
-argument_list|(
-literal|0
-argument_list|)
-block|{ }
-name|Q_DECL_CONSTEXPR
-name|QPixelFormat
-operator|::
-name|QPixelFormat
 argument_list|(
 argument|ColorModel mdl
 argument_list|,
@@ -1346,67 +1342,6 @@ literal|0
 argument|)
 argument_list|)
 block|{ }
-DECL|function|operator
-name|Q_DECL_CONST_FUNCTION
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|bool
-name|operator
-operator|==
-operator|(
-specifier|const
-name|QPixelFormat
-operator|&
-name|fmt1
-operator|,
-specifier|const
-name|QPixelFormat
-operator|&
-name|fmt2
-operator|)
-block|{
-return|return
-name|fmt1
-operator|.
-name|data
-operator|==
-name|fmt2
-operator|.
-name|data
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
-DECL|function|operator
-name|Q_DECL_CONST_FUNCTION
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|bool
-name|operator
-operator|!=
-operator|(
-specifier|const
-name|QPixelFormat
-operator|&
-name|fmt1
-operator|,
-specifier|const
-name|QPixelFormat
-operator|&
-name|fmt2
-operator|)
-block|{
-return|return
-operator|!
-operator|(
-name|fmt1
-operator|==
-name|fmt2
-operator|)
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
 name|Q_DECL_CONSTEXPR
 name|QPixelFormatRgb
 operator|::
