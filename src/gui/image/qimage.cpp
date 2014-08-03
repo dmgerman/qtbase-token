@@ -19000,9 +19000,7 @@ name|QImage
 operator|::
 name|toImageFormat
 parameter_list|(
-specifier|const
 name|QPixelFormat
-modifier|&
 name|format
 parameter_list|)
 name|Q_DECL_NOTHROW

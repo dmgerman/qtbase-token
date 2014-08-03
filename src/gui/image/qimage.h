@@ -1541,7 +1541,7 @@ operator|::
 name|Format
 name|toImageFormat
 argument_list|(
-argument|const QPixelFormat&format
+argument|QPixelFormat format
 argument_list|)
 name|Q_DECL_NOTHROW
 block|;
