@@ -70,7 +70,7 @@ block|{
 name|QPixelFormat
 name|first
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|8
 argument_list|,
@@ -96,7 +96,7 @@ decl_stmt|;
 name|QPixelFormat
 name|second
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|8
 argument_list|,
@@ -129,7 +129,7 @@ expr_stmt|;
 name|QPixelFormat
 name|third
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|8
 argument_list|,
@@ -308,7 +308,7 @@ block|{
 name|QPixelFormat
 name|argb8888
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|8
 argument_list|,
@@ -386,7 +386,7 @@ expr_stmt|;
 name|QPixelFormat
 name|rgb565
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|5
 argument_list|,
@@ -477,7 +477,7 @@ expr_stmt|;
 name|QPixelFormat
 name|rgba1235
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|1
 argument_list|,
@@ -584,7 +584,7 @@ block|{
 name|QPixelFormat
 name|cmyk6
 init|=
-name|QPixelFormatCmyk
+name|qPixelFormatCmyk
 argument_list|(
 literal|6
 argument_list|)
@@ -659,7 +659,7 @@ expr_stmt|;
 name|QPixelFormat
 name|cmykWithAlpha
 init|=
-name|QPixelFormatCmyk
+name|qPixelFormatCmyk
 argument_list|(
 literal|8
 argument_list|,
@@ -694,7 +694,7 @@ block|{
 name|QPixelFormat
 name|hsl
 init|=
-name|QPixelFormatHsl
+name|qPixelFormatHsl
 argument_list|(
 literal|3
 argument_list|,
@@ -760,7 +760,7 @@ expr_stmt|;
 name|QPixelFormat
 name|hsv
 init|=
-name|QPixelFormatHsv
+name|qPixelFormatHsv
 argument_list|(
 literal|5
 argument_list|,
@@ -1049,7 +1049,7 @@ expr_stmt|;
 name|QPixelFormat
 name|format
 init|=
-name|QPixelFormatYuv
+name|qPixelFormatYuv
 argument_list|(
 name|yuv_layout
 argument_list|,

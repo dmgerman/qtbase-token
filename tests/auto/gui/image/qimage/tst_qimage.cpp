@@ -19998,7 +19998,7 @@ block|{
 name|QPixelFormat
 name|rgb565
 init|=
-name|QPixelFormatRgb
+name|qPixelFormatRgba
 argument_list|(
 literal|5
 argument_list|,

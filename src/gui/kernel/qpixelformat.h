@@ -1082,144 +1082,6 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
-name|class
-name|QPixelFormatRgb
-range|:
-name|public
-name|QPixelFormat
-block|{
-name|public
-operator|:
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|QPixelFormatRgb
-argument_list|(
-argument|uchar redSize
-argument_list|,
-argument|uchar greenSize
-argument_list|,
-argument|uchar blueSize
-argument_list|,
-argument|uchar alphaSize
-argument_list|,
-argument|AlphaUsage alphaUsage
-argument_list|,
-argument|AlphaPosition alphaPosition
-argument_list|,
-argument|AlphaPremultiplied premultiplied = NotPremultiplied
-argument_list|,
-argument|TypeInterpretation typeInterpretation = UnsignedInteger
-argument_list|)
-name|Q_DECL_NOTHROW
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QPixelFormatGrayscale
-range|:
-name|public
-name|QPixelFormat
-block|{
-name|public
-operator|:
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|QPixelFormatGrayscale
-argument_list|(
-argument|uchar bufferSize
-argument_list|,
-argument|TypeInterpretation typeInterpretation = UnsignedInteger
-argument_list|)
-name|Q_DECL_NOTHROW
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QPixelFormatCmyk
-range|:
-name|public
-name|QPixelFormat
-block|{
-name|public
-operator|:
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|QPixelFormatCmyk
-argument_list|(
-argument|uchar channelSize
-argument_list|,
-argument|uchar alphaSize =
-literal|0
-argument_list|,
-argument|AlphaUsage alphaUsage = IgnoresAlpha
-argument_list|,
-argument|AlphaPosition alphaPosition = AtBeginning
-argument_list|,
-argument|TypeInterpretation typeInterpretation = UnsignedInteger
-argument_list|)
-name|Q_DECL_NOTHROW
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QPixelFormatHsl
-range|:
-name|public
-name|QPixelFormat
-block|{
-name|public
-operator|:
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|QPixelFormatHsl
-argument_list|(
-argument|uchar channelSize
-argument_list|,
-argument|uchar alphaSize =
-literal|0
-argument_list|,
-argument|AlphaUsage alphaUsage = IgnoresAlpha
-argument_list|,
-argument|AlphaPosition alphaPosition = AtBeginning
-argument_list|,
-argument|TypeInterpretation typeInterpretation = FloatingPoint
-argument_list|)
-name|Q_DECL_NOTHROW
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QPixelFormatHsv
-range|:
-name|public
-name|QPixelFormat
-block|{
-name|public
-operator|:
-name|Q_DECL_CONSTEXPR
-specifier|inline
-name|QPixelFormatHsv
-argument_list|(
-argument|uchar channelSize
-argument_list|,
-argument|uchar alphaSize =
-literal|0
-argument_list|,
-argument|AlphaUsage alphaUsage = IgnoresAlpha
-argument_list|,
-argument|AlphaPosition alphaPosition = AtBeginning
-argument_list|,
-argument|TypeInterpretation typeInterpretation = FloatingPoint
-argument_list|)
-name|Q_DECL_NOTHROW
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|namespace
 name|QtPrivate
 block|{
@@ -1263,36 +1125,6 @@ argument_list|)
 decl_stmt|;
 block|}
 end_decl_stmt
-begin_decl_stmt
-name|class
-name|QPixelFormatYuv
-range|:
-name|public
-name|QPixelFormat
-block|{
-name|public
-operator|:
-specifier|inline
-name|QPixelFormatYuv
-argument_list|(
-argument|YUVLayout yuvLayout
-argument_list|,
-argument|uchar alphaSize =
-literal|0
-argument_list|,
-argument|AlphaUsage alphaUsage = IgnoresAlpha
-argument_list|,
-argument|AlphaPosition alphaPosition = AtBeginning
-argument_list|,
-argument|AlphaPremultiplied premultiplied = NotPremultiplied
-argument_list|,
-argument|TypeInterpretation typeInterpretation = UnsignedByte
-argument_list|,
-argument|ByteOrder byteOrder = LittleEndian
-argument_list|)
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_expr_stmt
 name|Q_DECL_CONSTEXPR
 name|QPixelFormat
@@ -1335,9 +1167,9 @@ argument|)
 argument_list|)
 block|{ }
 name|Q_DECL_CONSTEXPR
-name|QPixelFormatRgb
-operator|::
-name|QPixelFormatRgb
+specifier|inline
+name|QPixelFormat
+name|qPixelFormatRgba
 argument_list|(
 argument|uchar red
 argument_list|,
@@ -1347,230 +1179,414 @@ argument|uchar blue
 argument_list|,
 argument|uchar alfa
 argument_list|,
-argument|AlphaUsage usage
+argument|QPixelFormat::AlphaUsage usage
 argument_list|,
-argument|AlphaPosition position
+argument|QPixelFormat::AlphaPosition position
 argument_list|,
-argument|AlphaPremultiplied pmul
+argument|QPixelFormat::AlphaPremultiplied pmul=QPixelFormat::NotPremultiplied
 argument_list|,
-argument|TypeInterpretation typeInt
+argument|QPixelFormat::TypeInterpretation typeInt=QPixelFormat::UnsignedInteger
 argument_list|)
 name|Q_DECL_NOTHROW
-operator|:
+block|{
+return|return
 name|QPixelFormat
 argument_list|(
-argument|RGB
-argument_list|,
-argument|red
-argument_list|,
-argument|green
-argument_list|,
-argument|blue
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-argument|alfa
-argument_list|,
-argument|usage
-argument_list|,
-argument|position
-argument_list|,
-argument|pmul
-argument_list|,
-argument|typeInt
-argument_list|)
-block|{ }
-name|Q_DECL_CONSTEXPR
-name|QPixelFormatGrayscale
+name|QPixelFormat
 operator|::
-name|QPixelFormatGrayscale
-argument_list|(
-argument|uchar channelSize
+name|RGB
 argument_list|,
-argument|TypeInterpretation typeInt
-argument_list|)
-name|Q_DECL_NOTHROW
-operator|:
-name|QPixelFormat
-argument_list|(
-argument|Grayscale
+name|red
 argument_list|,
-argument|channelSize
+name|green
+argument_list|,
+name|blue
 argument_list|,
 literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+name|alfa
 argument_list|,
-literal|0
+name|usage
 argument_list|,
-literal|0
+name|position
 argument_list|,
-argument|IgnoresAlpha
+name|pmul
 argument_list|,
-argument|AtBeginning
-argument_list|,
-argument|NotPremultiplied
-argument_list|,
-argument|typeInt
+name|typeInt
 argument_list|)
-block|{ }
-name|Q_DECL_CONSTEXPR
-name|QPixelFormatCmyk
-operator|::
-name|QPixelFormatCmyk
-argument_list|(
-argument|uchar channelSize
-argument_list|,
-argument|uchar alfa
-argument_list|,
-argument|AlphaUsage usage
-argument_list|,
-argument|AlphaPosition position
-argument_list|,
-argument|TypeInterpretation typeInt
-argument_list|)
-name|Q_DECL_NOTHROW
-operator|:
-name|QPixelFormat
-argument_list|(
-argument|CMYK
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-literal|0
-argument_list|,
-argument|alfa
-argument_list|,
-argument|usage
-argument_list|,
-argument|position
-argument_list|,
-argument|NotPremultiplied
-argument_list|,
-argument|typeInt
-argument_list|)
-block|{ }
-name|Q_DECL_CONSTEXPR
-name|QPixelFormatHsl
-operator|::
-name|QPixelFormatHsl
-argument_list|(
-argument|uchar channelSize
-argument_list|,
-argument|uchar alfa
-argument_list|,
-argument|AlphaUsage usage
-argument_list|,
-argument|AlphaPosition position
-argument_list|,
-argument|TypeInterpretation typeInt
-argument_list|)
-name|Q_DECL_NOTHROW
-operator|:
-name|QPixelFormat
-argument_list|(
-argument|HSL
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-argument|alfa
-argument_list|,
-argument|usage
-argument_list|,
-argument|position
-argument_list|,
-argument|NotPremultiplied
-argument_list|,
-argument|typeInt
-argument_list|)
-block|{ }
-name|Q_DECL_CONSTEXPR
-name|QPixelFormatHsv
-operator|::
-name|QPixelFormatHsv
-argument_list|(
-argument|uchar channelSize
-argument_list|,
-argument|uchar alfa
-argument_list|,
-argument|AlphaUsage usage
-argument_list|,
-argument|AlphaPosition position
-argument_list|,
-argument|TypeInterpretation typeInt
-argument_list|)
-name|Q_DECL_NOTHROW
-operator|:
-name|QPixelFormat
-argument_list|(
-argument|HSV
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-argument|channelSize
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-argument|alfa
-argument_list|,
-argument|usage
-argument_list|,
-argument|position
-argument_list|,
-argument|NotPremultiplied
-argument_list|,
-argument|typeInt
-argument_list|)
-block|{ }
-DECL|function|QPixelFormatYuv
-name|QPixelFormatYuv
-operator|::
-name|QPixelFormatYuv
-argument_list|(
-argument|YUVLayout layout
-argument_list|,
-argument|uchar alfa
-argument_list|,
-argument|AlphaUsage usage
-argument_list|,
-argument|AlphaPosition position
-argument_list|,
-argument|AlphaPremultiplied p_mul
-argument_list|,
-argument|TypeInterpretation typeInt
-argument_list|,
-argument|ByteOrder b_order
-argument_list|)
-operator|:
-name|QPixelFormat
-argument_list|(
-argument|QtPrivate::QPixelFormat_createYUV(layout,                                                      alfa,                                                      usage,                                                      position,                                                      p_mul,                                                      typeInt,                                                      b_order)
-argument_list|)
-block|{ }
-name|QT_END_NAMESPACE
+return|;
+block|}
 end_expr_stmt
+begin_decl_stmt
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|QPixelFormat
+name|qPixelFormatGrayscale
+argument_list|(
+name|uchar
+name|channelSize
+argument_list|,
+name|QPixelFormat
+operator|::
+name|TypeInterpretation
+name|typeInt
+operator|=
+name|QPixelFormat
+operator|::
+name|UnsignedInteger
+argument_list|)
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|QPixelFormat
+argument_list|(
+name|QPixelFormat
+operator|::
+name|Grayscale
+argument_list|,
+name|channelSize
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|QPixelFormat
+operator|::
+name|IgnoresAlpha
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AtBeginning
+argument_list|,
+name|QPixelFormat
+operator|::
+name|NotPremultiplied
+argument_list|,
+name|typeInt
+argument_list|)
+return|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|QPixelFormat
+name|qPixelFormatCmyk
+argument_list|(
+name|uchar
+name|channelSize
+argument_list|,
+name|uchar
+name|alfa
+operator|=
+literal|0
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaUsage
+name|usage
+operator|=
+name|QPixelFormat
+operator|::
+name|IgnoresAlpha
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaPosition
+name|position
+operator|=
+name|QPixelFormat
+operator|::
+name|AtBeginning
+argument_list|,
+name|QPixelFormat
+operator|::
+name|TypeInterpretation
+name|typeInt
+operator|=
+name|QPixelFormat
+operator|::
+name|UnsignedInteger
+argument_list|)
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|QPixelFormat
+argument_list|(
+name|QPixelFormat
+operator|::
+name|CMYK
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+literal|0
+argument_list|,
+name|alfa
+argument_list|,
+name|usage
+argument_list|,
+name|position
+argument_list|,
+name|QPixelFormat
+operator|::
+name|NotPremultiplied
+argument_list|,
+name|typeInt
+argument_list|)
+return|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|QPixelFormat
+name|qPixelFormatHsl
+argument_list|(
+name|uchar
+name|channelSize
+argument_list|,
+name|uchar
+name|alfa
+operator|=
+literal|0
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaUsage
+name|usage
+operator|=
+name|QPixelFormat
+operator|::
+name|IgnoresAlpha
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaPosition
+name|position
+operator|=
+name|QPixelFormat
+operator|::
+name|AtBeginning
+argument_list|,
+name|QPixelFormat
+operator|::
+name|TypeInterpretation
+name|typeInt
+operator|=
+name|QPixelFormat
+operator|::
+name|FloatingPoint
+argument_list|)
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|QPixelFormat
+argument_list|(
+name|QPixelFormat
+operator|::
+name|HSL
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|alfa
+argument_list|,
+name|usage
+argument_list|,
+name|position
+argument_list|,
+name|QPixelFormat
+operator|::
+name|NotPremultiplied
+argument_list|,
+name|typeInt
+argument_list|)
+return|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|QPixelFormat
+name|qPixelFormatHsv
+argument_list|(
+name|uchar
+name|channelSize
+argument_list|,
+name|uchar
+name|alfa
+operator|=
+literal|0
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaUsage
+name|usage
+operator|=
+name|QPixelFormat
+operator|::
+name|IgnoresAlpha
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaPosition
+name|position
+operator|=
+name|QPixelFormat
+operator|::
+name|AtBeginning
+argument_list|,
+name|QPixelFormat
+operator|::
+name|TypeInterpretation
+name|typeInt
+operator|=
+name|QPixelFormat
+operator|::
+name|FloatingPoint
+argument_list|)
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|QPixelFormat
+argument_list|(
+name|QPixelFormat
+operator|::
+name|HSV
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+name|channelSize
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|alfa
+argument_list|,
+name|usage
+argument_list|,
+name|position
+argument_list|,
+name|QPixelFormat
+operator|::
+name|NotPremultiplied
+argument_list|,
+name|typeInt
+argument_list|)
+return|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+DECL|function|qPixelFormatYuv
+specifier|inline
+name|QPixelFormat
+name|qPixelFormatYuv
+argument_list|(
+name|QPixelFormat
+operator|::
+name|YUVLayout
+name|layout
+argument_list|,
+name|uchar
+name|alfa
+operator|=
+literal|0
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaUsage
+name|usage
+operator|=
+name|QPixelFormat
+operator|::
+name|IgnoresAlpha
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaPosition
+name|position
+operator|=
+name|QPixelFormat
+operator|::
+name|AtBeginning
+argument_list|,
+name|QPixelFormat
+operator|::
+name|AlphaPremultiplied
+name|p_mul
+operator|=
+name|QPixelFormat
+operator|::
+name|NotPremultiplied
+argument_list|,
+name|QPixelFormat
+operator|::
+name|TypeInterpretation
+name|typeInt
+operator|=
+name|QPixelFormat
+operator|::
+name|UnsignedByte
+argument_list|,
+name|QPixelFormat
+operator|::
+name|ByteOrder
+name|b_order
+operator|=
+name|QPixelFormat
+operator|::
+name|LittleEndian
+argument_list|)
+block|{
+return|return
+name|QtPrivate
+operator|::
+name|QPixelFormat_createYUV
+argument_list|(
+name|layout
+argument_list|,
+name|alfa
+argument_list|,
+name|usage
+argument_list|,
+name|position
+argument_list|,
+name|p_mul
+argument_list|,
+name|typeInt
+argument_list|,
+name|b_order
+argument_list|)
+return|;
+block|}
+end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
