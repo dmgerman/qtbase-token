@@ -1180,21 +1180,15 @@ argument_list|(
 name|QNATIVESOCKETENGINE_DEBUG
 argument_list|)
 name|qDebug
-argument_list|(
-literal|"QNativeSocketEngine::initialize(socketDescriptor == %i) failed: %s"
-argument_list|,
+argument_list|()
+operator|<<
+literal|"QNativeSocketEngine::initialize(socketDescriptor) failed:"
+operator|<<
 name|socketDescriptor
-argument_list|,
+operator|<<
 name|d
 operator|->
 name|socketErrorString
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
-argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
