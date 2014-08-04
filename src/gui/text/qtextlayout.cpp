@@ -1031,8 +1031,18 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|6
+argument_list|)
+end_if
 begin_comment
-comment|/*!     Sets the additional formats supported by the text layout to \a formatList.     The formats are applied with preedit area text in place.      \sa additionalFormats(), clearAdditionalFormats() */
+comment|/*!     \obsolete Use setFormats() instead. */
 end_comment
 begin_function
 DECL|function|setAdditionalFormats
@@ -1060,6 +1070,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// deprecated since 5.6
+end_comment
 begin_comment
 comment|/*!     \since 5.6      Sets the additional formats supported by the text layout to \a formats.     The formats are applied with preedit area text in place.      \sa formats(), clearFormats() */
 end_comment
@@ -1121,8 +1138,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|6
+argument_list|)
+end_if
 begin_comment
-comment|/*!     Returns the list of additional formats supported by the text layout.      \sa setAdditionalFormats(), clearAdditionalFormats() */
+comment|/*!     \obsolete Use formats() instead.      \sa setAdditionalFormats(), clearAdditionalFormats() */
 end_comment
 begin_function
 DECL|function|additionalFormats
@@ -1147,6 +1174,13 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// deprecated since 5.6
+end_comment
 begin_comment
 comment|/*!     \since 5.6      Returns the list of additional formats supported by the text layout.      \sa setFormats(), clearFormats() */
 end_comment
@@ -1172,8 +1206,18 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|6
+argument_list|)
+end_if
 begin_comment
-comment|/*!     Clears the list of additional formats supported by the text layout.      \sa additionalFormats(), setAdditionalFormats() */
+comment|/*!     \obsolete Use clearFormats() instead. */
 end_comment
 begin_function
 DECL|function|clearAdditionalFormats
@@ -1188,6 +1232,13 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// deprecated since 5.6
+end_comment
 begin_comment
 comment|/*!     \since 5.6      Clears the list of additional formats supported by the text layout.      \sa formats(), setFormats() */
 end_comment

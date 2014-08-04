@@ -498,6 +498,18 @@ return|;
 block|}
 block|}
 struct|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|6
+argument_list|)
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use setFormats()"
+argument_list|)
 name|void
 name|setAdditionalFormats
 argument_list|(
@@ -510,6 +522,10 @@ operator|&
 name|overrides
 argument_list|)
 decl_stmt|;
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use formats()"
+argument_list|)
 name|QList
 operator|<
 name|FormatRange
@@ -518,10 +534,16 @@ name|additionalFormats
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use clearFormats()"
+argument_list|)
 name|void
 name|clearAdditionalFormats
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setFormats
 argument_list|(
