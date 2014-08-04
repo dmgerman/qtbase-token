@@ -7558,13 +7558,6 @@ condition|(
 name|d
 operator|->
 name|isBuffered
-operator|&&
-name|d
-operator|->
-name|buffer
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 comment|// if we're still connected, return 0 indicating there may be more data in the future
 comment|// if we're not connected, return -1 indicating EOF
