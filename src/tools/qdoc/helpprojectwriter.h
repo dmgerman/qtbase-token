@@ -384,11 +384,6 @@ specifier|const
 name|Node
 modifier|*
 name|node
-parameter_list|,
-name|bool
-name|writeSections
-init|=
-name|true
 parameter_list|)
 function_decl|;
 name|void
