@@ -787,6 +787,12 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+specifier|static
+name|bool
+name|dpiAwarenessSet
+init|=
+literal|false
+decl_stmt|;
 name|int
 name|tabletAbsoluteRange
 init|=
@@ -830,6 +836,13 @@ argument_list|(
 name|tabletAbsoluteRange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dpiAwarenessSet
+condition|)
+block|{
+comment|// Set only once in case of repeated instantiations of QGuiApplication.
 name|m_context
 operator|.
 name|setProcessDpiAwareness
@@ -837,6 +850,11 @@ argument_list|(
 name|dpiAwareness
 argument_list|)
 expr_stmt|;
+name|dpiAwarenessSet
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 end_constructor
 begin_destructor
