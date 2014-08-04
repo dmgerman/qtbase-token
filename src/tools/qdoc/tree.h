@@ -1003,6 +1003,17 @@ return|return
 name|exampleNodeMap_
 return|;
 block|}
+specifier|const
+name|Node
+modifier|*
+name|checkForCollision
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|)
+function_decl|;
 name|public
 label|:
 specifier|const

@@ -2173,6 +2173,12 @@ operator|::
 name|DitaMapPage
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block|const Node* n = qdb_->checkForCollision(args[0]);         if (n) {             QString other = n->doc().location().fileName();             doc.location().warning(tr("Name/title collision detected: '%1' in '\\%2'")                                    .arg(args[0]).arg(command),                                    tr("Also used here: %1").arg(other));         }
+endif|#
+directive|endif
 name|DocNode
 modifier|*
 name|dn
@@ -2413,6 +2419,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block|const Node* n = qdb_->checkForCollision(names[0]);         if (n) {             QString other = n->doc().location().fileName();             doc.location().warning(tr("Name/title collision detected: '%1' in '\\%2'")                                    .arg(names[0]).arg(command),                                    tr("Also used here: %1").arg(other));         }
+endif|#
+directive|endif
 name|QmlClassNode
 modifier|*
 name|qcn

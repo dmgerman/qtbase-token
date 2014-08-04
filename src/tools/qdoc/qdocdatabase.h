@@ -1581,6 +1581,27 @@ name|Type
 name|type
 argument_list|)
 decl_stmt|;
+specifier|const
+name|Node
+modifier|*
+name|checkForCollision
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|)
+block|{
+return|return
+name|primaryTree
+argument_list|()
+operator|->
+name|checkForCollision
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 comment|/*******************************************************************/
 comment|/*******************************************************************       The functions declared below handle the parameters in '[' ']'.     ********************************************************************/
 specifier|const
