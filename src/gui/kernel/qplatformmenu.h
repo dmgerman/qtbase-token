@@ -278,6 +278,16 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+expr|enum
+name|MenuType
+block|{
+name|DefaultMenu
+operator|=
+literal|0
+block|,
+name|EditMenu
+block|}
+block|;
 name|virtual
 name|void
 name|insertMenuItem
@@ -405,6 +415,18 @@ block|{
 name|Q_UNUSED
 argument_list|(
 name|font
+argument_list|)
+block|; }
+name|virtual
+name|void
+name|setMenuType
+argument_list|(
+argument|MenuType type
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|type
 argument_list|)
 block|; }
 name|virtual
