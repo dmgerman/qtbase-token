@@ -1052,6 +1052,15 @@ range|:
 name|public
 name|QInputEvent
 block|{
+name|Q_GADGET
+name|Q_ENUMS
+argument_list|(
+argument|TabletDevice
+argument_list|)
+name|Q_ENUMS
+argument_list|(
+argument|PointerType
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -3658,12 +3667,19 @@ operator|=
 literal|0x0001
 block|}
 block|;
+ifndef|#
+directive|ifndef
+name|Q_MOC_RUN
+comment|// otherwise moc gives
+comment|// Error: Meta object features not supported for nested classes
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|InfoFlags
 argument_list|,
 argument|InfoFlag
 argument_list|)
+endif|#
+directive|endif
 name|explicit
 name|TouchPoint
 argument_list|(
