@@ -32,28 +32,40 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_expr_stmt
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*! \class Atom     \brief The Atom class is the fundamental unit for representing     documents internally.    Atoms have a \i type and are completed by a \i string whose   meaning depends on the \i type. For example, the string   \quotation       \i italic text looks nicer than \bold bold text   \endquotation   is represented by the following atoms:   \quotation       (FormattingLeft, ATOM_FORMATTING_ITALIC)       (String, "italic")       (FormattingRight, ATOM_FORMATTING_ITALIC)       (String, " text is more attractive than ")       (FormattingLeft, ATOM_FORMATTING_BOLD)       (String, "bold")       (FormattingRight, ATOM_FORMATTING_BOLD)       (String, " text")   \endquotation    \also Text */
 comment|/*! \enum Atom::Type    \value AbstractLeft   \value AbstractRight   \value AnnotatedList   \value AutoLink   \value BaseName   \value BriefLeft   \value BriefRight   \value C   \value CaptionLeft   \value CaptionRight   \value Code   \value CodeBad   \value CodeNew   \value CodeOld   \value CodeQuoteArgument   \value CodeQuoteCommand   \value DivLeft   \value DivRight   \value EndQmlText   \value FormatElse   \value FormatEndif   \value FormatIf   \value FootnoteLeft   \value FootnoteRight   \value FormattingLeft   \value FormattingRight   \value GeneratedList   \value Image   \value ImageText   \value ImportantNote   \value InlineImage   \value LineBreak   \value Link   \value LinkNode   \value ListLeft   \value ListItemNumber   \value ListTagLeft   \value ListTagRight   \value ListItemLeft   \value ListItemRight   \value ListRight   \value Nop   \value Note   \value ParaLeft   \value ParaRight   \value Qml   \value QmlText   \value QuotationLeft   \value QuotationRight   \value RawString   \value SectionLeft   \value SectionRight   \value SectionHeadingLeft   \value SectionHeadingRight   \value SidebarLeft   \value SidebarRight   \value SinceList   \value String   \value TableLeft   \value TableRight   \value TableHeaderLeft   \value TableHeaderRight   \value TableRowLeft   \value TableRowRight   \value TableItemLeft   \value TableItemRight   \value TableOfContents   \value Target   \value UnhandledFormat   \value UnknownCommand */
+DECL|member|noError_
+name|QString
+name|Atom
+operator|::
+name|noError_
+init|=
+name|QString
+argument_list|()
+decl_stmt|;
+end_decl_stmt
+begin_struct
 specifier|static
 specifier|const
-expr|struct
+struct|struct
 block|{
 DECL|member|english
 specifier|const
 name|char
-operator|*
+modifier|*
 name|english
-block|;
+decl_stmt|;
 DECL|member|no
 name|int
 name|no
-block|; }
+decl_stmt|;
+block|}
 DECL|variable|atms
 name|atms
 index|[]
-operator|=
+init|=
 block|{
 block|{
 literal|"AbstractLeft"
@@ -717,8 +729,8 @@ block|,
 literal|0
 block|}
 block|}
-expr_stmt|;
-end_expr_stmt
+struct|;
+end_struct
 begin_comment
 comment|/*! \fn Atom::Atom(Type type, const QString& string)    Constructs an atom of the specified \a type with the single   parameter \a string and does not put the new atom in a list. */
 end_comment
@@ -1242,6 +1254,10 @@ name|CPP
 expr_stmt|;
 continue|continue;
 block|}
+name|error_
+operator|=
+name|p2
+expr_stmt|;
 break|break;
 block|}
 block|}
@@ -1290,6 +1306,13 @@ argument_list|(
 name|t
 operator|.
 name|domain_
+argument_list|)
+member_init_list|,
+name|error_
+argument_list|(
+name|t
+operator|.
+name|error_
 argument_list|)
 block|{
 comment|// nothing
@@ -1345,6 +1368,13 @@ argument_list|(
 name|t
 operator|.
 name|domain_
+argument_list|)
+member_init_list|,
+name|error_
+argument_list|(
+name|t
+operator|.
+name|error_
 argument_list|)
 block|{
 name|previous
