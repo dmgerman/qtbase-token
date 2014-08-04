@@ -439,6 +439,14 @@ name|void
 name|saveCmdLine
 parameter_list|()
 function_decl|;
+name|void
+name|addSysroot
+parameter_list|(
+name|QString
+modifier|*
+name|command
+parameter_list|)
+function_decl|;
 name|bool
 name|tryCompileProject
 parameter_list|(

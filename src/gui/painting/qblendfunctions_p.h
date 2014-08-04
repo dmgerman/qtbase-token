@@ -640,7 +640,7 @@ operator|*
 name|sbpl
 operator|)
 decl_stmt|;
-name|int
+name|quint32
 name|srcx
 init|=
 name|basex
@@ -1537,7 +1537,7 @@ operator|*
 name|sbpl
 operator|)
 decl_stmt|;
-name|int
+name|quint32
 name|srcx
 init|=
 name|basex
