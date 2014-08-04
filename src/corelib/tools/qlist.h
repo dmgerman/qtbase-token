@@ -681,10 +681,13 @@ argument_list|)
 block|{
 name|reserve
 argument_list|(
+name|int
+argument_list|(
 name|args
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 block|;
 name|std
