@@ -208,6 +208,10 @@ name|ImageSrcWithPatternFragmentShader
 block|,
 name|NonPremultipliedImageSrcFragmentShader
 block|,
+name|GrayscaleImageSrcFragmentShader
+block|,
+name|AlphaImageSrcFragmentShader
+block|,
 name|CustomImageSrcFragmentShader
 block|,
 name|SolidBrushSrcFragmentShader
@@ -599,7 +603,23 @@ operator|::
 name|TexturePattern
 operator|+
 literal|4
-block|}
+block|,
+name|GrayscaleImageSrc
+operator|=
+name|Qt
+operator|::
+name|TexturePattern
+operator|+
+literal|5
+block|,
+name|AlphaImageSrc
+operator|=
+name|Qt
+operator|::
+name|TexturePattern
+operator|+
+literal|6
+block|,     }
 block|;      enum
 name|Uniform
 block|{

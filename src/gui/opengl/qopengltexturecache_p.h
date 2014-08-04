@@ -167,6 +167,10 @@ block|,
 name|PremultipliedAlphaBindOption
 operator|=
 literal|0x0001
+block|,
+name|UseRedFor8BitBindOption
+operator|=
+literal|0x0002
 block|,     }
 block|;
 name|Q_DECLARE_FLAGS

@@ -421,6 +421,30 @@ literal|"\n\     varying   highp   vec2      textureCoords; \n\     uniform     
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|qopenglslGrayscaleImageSrcFragmentShader
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|qopenglslGrayscaleImageSrcFragmentShader
+init|=
+literal|"\n\     varying   highp   vec2      textureCoords; \n\     uniform          sampler2D imageTexture; \n\     lowp vec4 srcPixel() \n\     { \n\         return texture2D(imageTexture, textureCoords).rrra; \n\     }\n"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|qopenglslAlphaImageSrcFragmentShader
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|qopenglslAlphaImageSrcFragmentShader
+init|=
+literal|"\n\     varying   highp   vec2      textureCoords; \n\     uniform          sampler2D imageTexture; \n\     lowp vec4 srcPixel() \n\     { \n\         return vec4(0, 0, 0, texture2D(imageTexture, textureCoords).r); \n\     }\n"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|qopenglslShockingPinkSrcFragmentShader
 specifier|static
 specifier|const
