@@ -203,6 +203,10 @@ name|WindowStates
 argument_list|)
 name|Q_ENUMS
 argument_list|(
+name|FocusReason
+argument_list|)
+name|Q_ENUMS
+argument_list|(
 name|InputMethodHint
 name|InputMethodQuery
 argument_list|)
@@ -251,6 +255,10 @@ argument_list|)
 name|Q_ENUMS
 argument_list|(
 name|ScrollPhase
+argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|MouseEventSource
 argument_list|)
 endif|#
 directive|endif
