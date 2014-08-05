@@ -17776,7 +17776,7 @@ end_comment
 begin_decl_stmt
 DECL|variable|pixelformats
 specifier|static
-specifier|const
+name|Q_CONSTEXPR
 name|QPixelFormat
 name|pixelformats
 index|[]
