@@ -739,11 +739,6 @@ name|widgetCount
 block|;
 comment|// Coupled with -widgetcount switch
 specifier|static
-name|bool
-name|load_testability
-block|;
-comment|// Coupled with -testability switch
-specifier|static
 name|void
 name|setSystemPalette
 argument_list|(
