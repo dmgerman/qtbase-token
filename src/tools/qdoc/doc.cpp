@@ -3171,7 +3171,7 @@ break|break;
 case|case
 name|CMD_BR
 case|:
-name|leavePara
+name|enterPara
 argument_list|()
 expr_stmt|;
 name|append
