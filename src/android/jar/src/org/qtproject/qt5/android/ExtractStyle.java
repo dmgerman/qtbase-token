@@ -3693,6 +3693,8 @@ block|,
 literal|16843597
 block|,
 literal|16843518
+block|,
+literal|16843547
 block|}
 decl_stmt|;
 DECL|field|DrawableStatesLabels
@@ -3721,6 +3723,8 @@ block|,
 literal|"multiline"
 block|,
 literal|"activated"
+block|,
+literal|"accelerated"
 block|}
 decl_stmt|;
 DECL|field|DisableDrawableStatesLabels
@@ -3749,6 +3753,8 @@ block|,
 literal|"multiline"
 block|,
 literal|"activated"
+block|,
+literal|"accelerated"
 block|}
 decl_stmt|;
 DECL|method|getFileName
