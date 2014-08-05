@@ -7939,6 +7939,9 @@ condition|(
 operator|!
 name|isReadOnly
 argument_list|()
+operator|&&
+name|hasSelectedText
+argument_list|()
 condition|)
 block|{
 name|copy
