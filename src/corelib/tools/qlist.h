@@ -135,6 +135,30 @@ name|class
 name|QSet
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+DECL|struct|QListSpecialMethods
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|QListSpecialMethods
+block|{ }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|variable|QByteArray
+name|template
+operator|<
+operator|>
+expr|struct
+name|QListSpecialMethods
+operator|<
+name|QByteArray
+operator|>
+expr_stmt|;
+end_expr_stmt
 begin_struct
 DECL|struct|QListData
 struct|struct
@@ -433,6 +457,12 @@ name|T
 operator|>
 name|class
 name|QList
+operator|:
+name|public
+name|QListSpecialMethods
+operator|<
+name|T
+operator|>
 block|{     struct
 name|Node
 block|{
@@ -3969,6 +3999,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|member|operator
 name|Q_INLINE_TEMPLATE
 name|QList
 operator|<
@@ -6164,7 +6195,16 @@ operator|>
 operator|&
 name|l
 argument_list|)
+DECL|function|d
 operator|:
+name|QListSpecialMethods
+operator|<
+name|T
+operator|>
+operator|(
+name|l
+operator|)
+operator|,
 name|d
 argument_list|(
 argument|l.d
@@ -6256,6 +6296,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|~QList
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
 operator|<
@@ -6441,6 +6482,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|dealloc
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|QList
@@ -6498,6 +6540,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|clear
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|QList
@@ -6523,6 +6566,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|removeAll
 name|Q_OUTOFLINE_TEMPLATE
 name|int
 name|QList
@@ -6679,6 +6723,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|function|removeOne
 name|Q_OUTOFLINE_TEMPLATE
 name|bool
 name|QList
@@ -7519,6 +7564,11 @@ argument|List
 argument_list|)
 name|QT_END_NAMESPACE
 end_expr_stmt
+begin_include
+include|#
+directive|include
+file|<QtCore/qbytearraylist.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
