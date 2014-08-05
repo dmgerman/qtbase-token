@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qdatastream.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<pcre.h>
 end_include
 begin_decl_stmt

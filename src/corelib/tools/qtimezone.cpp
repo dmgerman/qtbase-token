@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qdatastream.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qdatetime.h>
 end_include
 begin_include

@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/qiodevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qplugin.h>
 end_include
 begin_include

@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QDataStream>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QDateTime>
 end_include
 begin_include

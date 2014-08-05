@@ -67,6 +67,11 @@ include|#
 directive|include
 file|"qstandardpaths.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<qdatastream.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
