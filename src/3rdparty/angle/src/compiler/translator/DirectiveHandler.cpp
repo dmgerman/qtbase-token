@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2012-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -145,6 +145,10 @@ parameter_list|,
 name|TDiagnostics
 modifier|&
 name|diagnostics
+parameter_list|,
+name|int
+modifier|&
+name|shaderVersion
 parameter_list|)
 member_init_list|:
 name|mExtensionBehavior
@@ -155,6 +159,11 @@ member_init_list|,
 name|mDiagnostics
 argument_list|(
 name|diagnostics
+argument_list|)
+member_init_list|,
+name|mShaderVersion
+argument_list|(
+name|shaderVersion
 argument_list|)
 block|{ }
 end_constructor
@@ -716,19 +725,23 @@ name|int
 name|version
 parameter_list|)
 block|{
-specifier|static
-specifier|const
-name|int
-name|kVersion
-init|=
-literal|100
-decl_stmt|;
 if|if
 condition|(
 name|version
-operator|!=
-name|kVersion
+operator|==
+literal|100
+operator|||
+name|version
+operator|==
+literal|300
 condition|)
+block|{
+name|mShaderVersion
+operator|=
+name|version
+expr_stmt|;
+block|}
+else|else
 block|{
 name|std
 operator|::

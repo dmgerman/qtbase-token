@@ -35,11 +35,6 @@ include|#
 directive|include
 file|"compiler/translator/intermediate.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"GLSLANG/ShaderLang.h"
-end_include
 begin_define
 DECL|macro|HASHED_NAME_PREFIX
 define|#

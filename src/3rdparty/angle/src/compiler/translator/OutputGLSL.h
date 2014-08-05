@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2011 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -50,6 +50,8 @@ argument_list|,
 argument|NameMap& nameMap
 argument_list|,
 argument|TSymbolTable& symbolTable
+argument_list|,
+argument|int shaderVersion
 argument_list|)
 block|;
 name|protected
@@ -68,6 +70,15 @@ argument_list|(
 name|TIntermSymbol
 operator|*
 name|node
+argument_list|)
+block|;
+name|virtual
+name|TString
+name|translateTextureFunction
+argument_list|(
+name|TString
+operator|&
+name|name
 argument_list|)
 block|; }
 decl_stmt|;

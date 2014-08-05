@@ -41,6 +41,11 @@ include|#
 directive|include
 file|"compiler/translator/OutputHLSL.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"compiler/translator/UtilsHLSL.h"
+end_include
 begin_namespace
 DECL|namespace|sh
 namespace|namespace
@@ -468,9 +473,7 @@ name|mTemporaryIndex
 decl_stmt|;
 name|out
 operator|<<
-name|mOutputHLSL
-operator|->
-name|typeString
+name|TypeString
 argument_list|(
 name|node
 operator|->

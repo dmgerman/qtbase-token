@@ -45,7 +45,7 @@ operator|::
 name|fmtflags
 name|numeric_base_int
 argument_list|(
-argument|const std::string& str
+argument|const std::string&str
 argument_list|)
 block|{
 if|if
@@ -93,7 +93,6 @@ operator|::
 name|hex
 return|;
 block|}
-elseif|else
 if|if
 condition|(
 operator|(
@@ -143,9 +142,9 @@ operator|>
 name|bool
 name|numeric_lex_int
 argument_list|(
-argument|const std::string& str
+argument|const std::string&str
 argument_list|,
-argument|IntType* value
+argument|IntType *value
 argument_list|)
 block|{
 name|std
@@ -197,9 +196,9 @@ operator|>
 name|bool
 name|numeric_lex_float
 argument_list|(
-argument|const std::string& str
+argument|const std::string&str
 argument_list|,
-argument|FloatType* value
+argument|FloatType *value
 argument_list|)
 block|{
 name|std

@@ -33,12 +33,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"common/debug.h"
+file|"libGLESv2/formatutils.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/utilities.h"
+file|"common/debug.h"
 end_include
 begin_include
 include|#
@@ -173,7 +173,7 @@ operator|+
 operator|(
 name|gl
 operator|::
-name|ComputeTypeSize
+name|GetTypeBytes
 argument_list|(
 name|i
 operator|->

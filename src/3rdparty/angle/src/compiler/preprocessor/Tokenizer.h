@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2012-2014 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -96,21 +96,11 @@ name|init
 argument_list|(
 argument|size_t count
 argument_list|,
-argument|const char* const string[]
+argument|const char * const string[]
 argument_list|,
 argument|const int length[]
 argument_list|)
 block|;
-name|void
-name|setMaxTokenLength
-argument_list|(
-argument|size_t maxLength
-argument_list|)
-block|{
-name|mMaxTokenLength
-operator|=
-name|maxLength
-block|; }
 name|void
 name|setFileNumber
 argument_list|(
@@ -121,6 +111,12 @@ name|void
 name|setLineNumber
 argument_list|(
 argument|int line
+argument_list|)
+block|;
+name|void
+name|setMaxTokenSize
+argument_list|(
+argument|size_t maxTokenSize
 argument_list|)
 block|;
 name|virtual
@@ -157,8 +153,10 @@ name|mContext
 block|;
 comment|// Scanner extra.
 name|size_t
-name|mMaxTokenLength
-block|; }
+name|mMaxTokenSize
+block|;
+comment|// Maximum token size
+block|}
 decl_stmt|;
 block|}
 end_decl_stmt

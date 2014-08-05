@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2011 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -42,6 +42,9 @@ parameter_list|,
 name|TSymbolTable
 modifier|&
 name|symbolTable
+parameter_list|,
+name|int
+name|shaderVersion
 parameter_list|)
 member_init_list|:
 name|TOutputGLSLBase
@@ -55,6 +58,8 @@ argument_list|,
 name|nameMap
 argument_list|,
 name|symbolTable
+argument_list|,
+name|shaderVersion
 argument_list|)
 block|{ }
 end_constructor

@@ -296,7 +296,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|gl::ScopedPerfEventHelper scopedPerfEventHelper ## __LINE__(__FUNCTION__ message "\n", __VA_ARGS__);
+value|gl::ScopedPerfEventHelper scopedPerfEventHelper ## __LINE__("%s" message "\n", __FUNCTION__, __VA_ARGS__);
 end_define
 begin_else
 else|#
@@ -363,6 +363,15 @@ name|expression
 parameter_list|)
 value|do { \     if(!(expression)) \         ERR("\t! Assert failed in %s(%d): "#expression"\n", __FUNCTION__, __LINE__); \         assert(expression); \     } while(0)
 end_define
+begin_define
+DECL|macro|UNUSED_ASSERTION_VARIABLE
+define|#
+directive|define
+name|UNUSED_ASSERTION_VARIABLE
+parameter_list|(
+name|variable
+parameter_list|)
+end_define
 begin_else
 else|#
 directive|else
@@ -377,6 +386,48 @@ name|expression
 parameter_list|)
 value|(void(0))
 end_define
+begin_define
+DECL|macro|UNUSED_ASSERTION_VARIABLE
+define|#
+directive|define
+name|UNUSED_ASSERTION_VARIABLE
+parameter_list|(
+name|variable
+parameter_list|)
+value|((void)variable)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ANGLE_ENABLE_TRACE
+end_ifndef
+begin_define
+DECL|macro|UNUSED_TRACE_VARIABLE
+define|#
+directive|define
+name|UNUSED_TRACE_VARIABLE
+parameter_list|(
+name|variable
+parameter_list|)
+value|((void)variable)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|UNUSED_TRACE_VARIABLE
+define|#
+directive|define
+name|UNUSED_TRACE_VARIABLE
+parameter_list|(
+name|variable
+parameter_list|)
+end_define
 begin_endif
 endif|#
 directive|endif
@@ -384,6 +435,28 @@ end_endif
 begin_comment
 comment|// A macro to indicate unimplemented functionality
 end_comment
+begin_comment
+comment|// Define NOASSERT_UNIMPLEMENTED to non zero to skip the assert fail in the unimplemented checks
+end_comment
+begin_comment
+comment|// This will allow us to test with some automated test suites (eg dEQP) without crashing
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NOASSERT_UNIMPLEMENTED
+end_ifndef
+begin_define
+DECL|macro|NOASSERT_UNIMPLEMENTED
+define|#
+directive|define
+name|NOASSERT_UNIMPLEMENTED
+value|0
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
@@ -399,7 +472,7 @@ define|#
 directive|define
 name|UNIMPLEMENTED
 parameter_list|()
-value|do { \     FIXME("\t! Unimplemented: %s(%d)\n", __FUNCTION__, __LINE__); \     assert(false); \     } while(0)
+value|do { \     FIXME("\t! Unimplemented: %s(%d)\n", __FUNCTION__, __LINE__); \     assert(NOASSERT_UNIMPLEMENTED); \     } while(0)
 end_define
 begin_else
 else|#
@@ -454,13 +527,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// A macro that determines whether an object has a given runtime type. MSVC uses _CPPRTTI.
-end_comment
-begin_comment
-comment|// GCC uses __GXX_RTTI, but the macro was introduced in version 4.3, so we assume that all older
-end_comment
-begin_comment
-comment|// versions support RTTI.
+comment|// A macro that determines whether an object has a given runtime type.
 end_comment
 begin_if
 if|#
@@ -546,6 +613,74 @@ end_endif
 begin_comment
 comment|// A macro functioning as a compile-time assert to validate constant conditions
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_MSC_VER
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|>=
+literal|1600
+end_if
+begin_define
+DECL|macro|META_ASSERT_MSG
+define|#
+directive|define
+name|META_ASSERT_MSG
+parameter_list|(
+name|condition
+parameter_list|,
+name|msg
+parameter_list|)
+value|static_assert(condition, msg)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|META_ASSERT_CONCAT
+define|#
+directive|define
+name|META_ASSERT_CONCAT
+parameter_list|(
+name|a
+parameter_list|,
+name|b
+parameter_list|)
+value|a ## b
+end_define
+begin_define
+DECL|macro|META_ASSERT_CONCAT2
+define|#
+directive|define
+name|META_ASSERT_CONCAT2
+parameter_list|(
+name|a
+parameter_list|,
+name|b
+parameter_list|)
+value|META_ASSERT_CONCAT(a, b)
+end_define
+begin_define
+DECL|macro|META_ASSERT_MSG
+define|#
+directive|define
+name|META_ASSERT_MSG
+parameter_list|(
+name|condition
+parameter_list|,
+name|msg
+parameter_list|)
+value|typedef int META_ASSERT_CONCAT2(COMPILE_TIME_ASSERT_, __LINE__)[static_cast<bool>(condition)?1:-1]
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|META_ASSERT
 define|#
@@ -554,7 +689,7 @@ name|META_ASSERT
 parameter_list|(
 name|condition
 parameter_list|)
-value|typedef int COMPILE_TIME_ASSERT_##__LINE__[static_cast<bool>(condition)?1:-1]
+value|META_ASSERT_MSG(condition, "compile time assertion failed.")
 end_define
 begin_endif
 endif|#

@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -35,7 +35,9 @@ specifier|static
 name|void
 name|writeVersion
 parameter_list|(
-name|ShShaderType
+name|sh
+operator|::
+name|GLenum
 name|type
 parameter_list|,
 name|TIntermNode
@@ -95,7 +97,9 @@ name|TranslatorGLSL
 operator|::
 name|TranslatorGLSL
 parameter_list|(
-name|ShShaderType
+name|sh
+operator|::
+name|GLenum
 name|type
 parameter_list|,
 name|ShShaderSpec
@@ -107,6 +111,8 @@ argument_list|(
 name|type
 argument_list|,
 name|spec
+argument_list|,
+name|SH_GLSL_OUTPUT
 argument_list|)
 block|{ }
 end_constructor
@@ -141,6 +147,10 @@ name|root
 argument_list|,
 name|sink
 argument_list|)
+expr_stmt|;
+comment|// Write extension behaviour as needed
+name|writeExtensionBehavior
+argument_list|()
 expr_stmt|;
 comment|// Write emulated built-in functions if needed.
 name|getBuiltInFunctionEmulator
@@ -179,6 +189,9 @@ argument_list|()
 argument_list|,
 name|getSymbolTable
 argument_list|()
+argument_list|,
+name|getShaderVersion
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|root
@@ -189,6 +202,91 @@ operator|&
 name|outputGLSL
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|writeExtensionBehavior
+name|void
+name|TranslatorGLSL
+operator|::
+name|writeExtensionBehavior
+parameter_list|()
+block|{
+name|TInfoSinkBase
+modifier|&
+name|sink
+init|=
+name|getInfoSink
+argument_list|()
+operator|.
+name|obj
+decl_stmt|;
+specifier|const
+name|TExtensionBehavior
+modifier|&
+name|extensionBehavior
+init|=
+name|getExtensionBehavior
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|TExtensionBehavior
+operator|::
+name|const_iterator
+name|iter
+init|=
+name|extensionBehavior
+operator|.
+name|begin
+argument_list|()
+init|;
+name|iter
+operator|!=
+name|extensionBehavior
+operator|.
+name|end
+argument_list|()
+condition|;
+operator|++
+name|iter
+control|)
+block|{
+if|if
+condition|(
+name|iter
+operator|->
+name|second
+operator|==
+name|EBhUndefined
+condition|)
+continue|continue;
+comment|// For GLSL output, we don't need to emit most extensions explicitly,
+comment|// but some we need to translate.
+if|if
+condition|(
+name|iter
+operator|->
+name|first
+operator|==
+literal|"GL_EXT_shader_texture_lod"
+condition|)
+block|{
+name|sink
+operator|<<
+literal|"#extension GL_ARB_shader_texture_lod : "
+operator|<<
+name|getBehaviorString
+argument_list|(
+name|iter
+operator|->
+name|second
+argument_list|)
+operator|<<
+literal|"\n"
+expr_stmt|;
+block|}
+block|}
 block|}
 end_function
 end_unit

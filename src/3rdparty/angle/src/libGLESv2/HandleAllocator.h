@@ -31,16 +31,10 @@ define|#
 directive|define
 name|LIBGLESV2_HANDLEALLOCATOR_H_
 end_define
-begin_define
-DECL|macro|GL_APICALL
-define|#
-directive|define
-name|GL_APICALL
-end_define
 begin_include
 include|#
 directive|include
-file|<GLES2/gl2.h>
+file|"angle_gl.h"
 end_include
 begin_include
 include|#

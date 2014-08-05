@@ -95,11 +95,11 @@ name|type
 argument_list|(
 argument|kTypeObj
 argument_list|)
-block|{ }
+block|{     }
 name|bool
 name|equals
 argument_list|(
-argument|const Macro& other
+argument|const Macro&other
 argument_list|)
 specifier|const
 expr_stmt|;

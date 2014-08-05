@@ -32,7 +32,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/osinclude.h"
+file|"common/platform.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<assert.h>
 end_include
 begin_function
 DECL|function|InitProcess

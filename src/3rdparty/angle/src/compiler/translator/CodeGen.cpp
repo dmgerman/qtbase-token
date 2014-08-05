@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -50,7 +50,9 @@ name|TCompiler
 modifier|*
 name|ConstructCompiler
 parameter_list|(
-name|ShShaderType
+name|sh
+operator|::
+name|GLenum
 name|type
 parameter_list|,
 name|ShShaderSpec

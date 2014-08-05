@@ -66,6 +66,10 @@ argument_list|,
 name|TDiagnostics
 operator|&
 name|diagnostics
+argument_list|,
+name|int
+operator|&
+name|shaderVersion
 argument_list|)
 block|;
 name|virtual
@@ -187,6 +191,10 @@ block|;
 name|TDiagnostics
 operator|&
 name|mDiagnostics
+block|;
+name|int
+operator|&
+name|mShaderVersion
 block|; }
 decl_stmt|;
 end_decl_stmt

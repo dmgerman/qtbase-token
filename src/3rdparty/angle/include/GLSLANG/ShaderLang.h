@@ -142,6 +142,18 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_decl_stmt
+name|namespace
+name|sh
+block|{
+comment|// GLenum alias
+typedef|typedef
+name|unsigned
+name|int
+name|GLenum
+typedef|;
+block|}
+end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -154,34 +166,12 @@ block|{
 endif|#
 directive|endif
 comment|// Version number for shader translation API.
-comment|// It is incremented everytime the API changes.
+comment|// It is incremented every time the API changes.
 DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
 name|ANGLE_SH_VERSION
-value|112
-comment|//
-comment|// The names of the following enums have been derived by replacing GL prefix
-comment|// with SH. For example, SH_INFO_LOG_LENGTH is equivalent to GL_INFO_LOG_LENGTH.
-comment|// The enum values are also equal to the values of their GL counterpart. This
-comment|// is done to make it easier for applications to use the shader library.
-comment|//
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|SH_FRAGMENT_SHADER
-name|SH_FRAGMENT_SHADER
-init|=
-literal|0x8B30
-block|,
-DECL|enumerator|SH_VERTEX_SHADER
-name|SH_VERTEX_SHADER
-init|=
-literal|0x8B31
-block|}
-DECL|typedef|ShShaderType
-name|ShShaderType
-typedef|;
+value|128
 typedef|typedef
 enum|enum
 block|{
@@ -253,112 +243,6 @@ literal|0x8B48
 block|}
 DECL|typedef|ShShaderOutput
 name|ShShaderOutput
-typedef|;
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|SH_NONE
-name|SH_NONE
-init|=
-literal|0
-block|,
-DECL|enumerator|SH_INT
-name|SH_INT
-init|=
-literal|0x1404
-block|,
-DECL|enumerator|SH_FLOAT
-name|SH_FLOAT
-init|=
-literal|0x1406
-block|,
-DECL|enumerator|SH_FLOAT_VEC2
-name|SH_FLOAT_VEC2
-init|=
-literal|0x8B50
-block|,
-DECL|enumerator|SH_FLOAT_VEC3
-name|SH_FLOAT_VEC3
-init|=
-literal|0x8B51
-block|,
-DECL|enumerator|SH_FLOAT_VEC4
-name|SH_FLOAT_VEC4
-init|=
-literal|0x8B52
-block|,
-DECL|enumerator|SH_INT_VEC2
-name|SH_INT_VEC2
-init|=
-literal|0x8B53
-block|,
-DECL|enumerator|SH_INT_VEC3
-name|SH_INT_VEC3
-init|=
-literal|0x8B54
-block|,
-DECL|enumerator|SH_INT_VEC4
-name|SH_INT_VEC4
-init|=
-literal|0x8B55
-block|,
-DECL|enumerator|SH_BOOL
-name|SH_BOOL
-init|=
-literal|0x8B56
-block|,
-DECL|enumerator|SH_BOOL_VEC2
-name|SH_BOOL_VEC2
-init|=
-literal|0x8B57
-block|,
-DECL|enumerator|SH_BOOL_VEC3
-name|SH_BOOL_VEC3
-init|=
-literal|0x8B58
-block|,
-DECL|enumerator|SH_BOOL_VEC4
-name|SH_BOOL_VEC4
-init|=
-literal|0x8B59
-block|,
-DECL|enumerator|SH_FLOAT_MAT2
-name|SH_FLOAT_MAT2
-init|=
-literal|0x8B5A
-block|,
-DECL|enumerator|SH_FLOAT_MAT3
-name|SH_FLOAT_MAT3
-init|=
-literal|0x8B5B
-block|,
-DECL|enumerator|SH_FLOAT_MAT4
-name|SH_FLOAT_MAT4
-init|=
-literal|0x8B5C
-block|,
-DECL|enumerator|SH_SAMPLER_2D
-name|SH_SAMPLER_2D
-init|=
-literal|0x8B5E
-block|,
-DECL|enumerator|SH_SAMPLER_CUBE
-name|SH_SAMPLER_CUBE
-init|=
-literal|0x8B60
-block|,
-DECL|enumerator|SH_SAMPLER_2D_RECT_ARB
-name|SH_SAMPLER_2D_RECT_ARB
-init|=
-literal|0x8B63
-block|,
-DECL|enumerator|SH_SAMPLER_EXTERNAL_OES
-name|SH_SAMPLER_EXTERNAL_OES
-init|=
-literal|0x8D66
-block|}
-DECL|typedef|ShDataType
-name|ShDataType
 typedef|;
 typedef|typedef
 enum|enum
@@ -454,6 +338,41 @@ DECL|enumerator|SH_ACTIVE_UNIFORMS_ARRAY
 name|SH_ACTIVE_UNIFORMS_ARRAY
 init|=
 literal|0x6004
+block|,
+DECL|enumerator|SH_SHADER_VERSION
+name|SH_SHADER_VERSION
+init|=
+literal|0x6005
+block|,
+DECL|enumerator|SH_ACTIVE_INTERFACE_BLOCKS_ARRAY
+name|SH_ACTIVE_INTERFACE_BLOCKS_ARRAY
+init|=
+literal|0x6006
+block|,
+DECL|enumerator|SH_ACTIVE_OUTPUT_VARIABLES_ARRAY
+name|SH_ACTIVE_OUTPUT_VARIABLES_ARRAY
+init|=
+literal|0x6007
+block|,
+DECL|enumerator|SH_ACTIVE_ATTRIBUTES_ARRAY
+name|SH_ACTIVE_ATTRIBUTES_ARRAY
+init|=
+literal|0x6008
+block|,
+DECL|enumerator|SH_ACTIVE_VARYINGS_ARRAY
+name|SH_ACTIVE_VARYINGS_ARRAY
+init|=
+literal|0x6009
+block|,
+DECL|enumerator|SH_RESOURCES_STRING_LENGTH
+name|SH_RESOURCES_STRING_LENGTH
+init|=
+literal|0x600A
+block|,
+DECL|enumerator|SH_OUTPUT_TYPE
+name|SH_OUTPUT_TYPE
+init|=
+literal|0x600B
 block|}
 DECL|typedef|ShShaderInfo
 name|ShShaderInfo
@@ -497,13 +416,17 @@ name|SH_SOURCE_PATH
 init|=
 literal|0x0020
 block|,
-DECL|enumerator|SH_MAP_LONG_VARIABLE_NAMES
-name|SH_MAP_LONG_VARIABLE_NAMES
+DECL|enumerator|SH_UNROLL_FOR_LOOP_WITH_INTEGER_INDEX
+name|SH_UNROLL_FOR_LOOP_WITH_INTEGER_INDEX
 init|=
 literal|0x0040
 block|,
-DECL|enumerator|SH_UNROLL_FOR_LOOP_WITH_INTEGER_INDEX
-name|SH_UNROLL_FOR_LOOP_WITH_INTEGER_INDEX
+comment|// If a sampler array index happens to be a loop index,
+comment|//   1) if its type is integer, unroll the loop.
+comment|//   2) if its type is float, fail the shader compile.
+comment|// This is to work around a mac driver bug.
+DECL|enumerator|SH_UNROLL_FOR_LOOP_WITH_SAMPLER_ARRAY_INDEX
+name|SH_UNROLL_FOR_LOOP_WITH_SAMPLER_ARRAY_INDEX
 init|=
 literal|0x0080
 block|,
@@ -529,7 +452,7 @@ comment|// restrictions on fragment shaders.
 comment|// This flag only has an effect if all of the following are true:
 comment|// - The shader spec is SH_WEBGL_SPEC.
 comment|// - The compile options contain the SH_TIMING_RESTRICTIONS flag.
-comment|// - The shader type is SH_FRAGMENT_SHADER.
+comment|// - The shader type is GL_FRAGMENT_SHADER.
 DECL|enumerator|SH_DEPENDENCY_GRAPH
 name|SH_DEPENDENCY_GRAPH
 init|=
@@ -596,6 +519,13 @@ DECL|enumerator|SH_INIT_VARYINGS_WITHOUT_STATIC_USE
 name|SH_INIT_VARYINGS_WITHOUT_STATIC_USE
 init|=
 literal|0x20000
+block|,
+comment|// This flag scalarizes vec/ivec/bvec/mat constructor args.
+comment|// It is intended as a workaround for Linux/Mac driver bugs.
+DECL|enumerator|SH_SCALARIZE_VEC_AND_MAT_CONSTRUCTOR_ARGS
+name|SH_SCALARIZE_VEC_AND_MAT_CONSTRUCTOR_ARGS
+init|=
+literal|0x40000
 block|, }
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions
@@ -715,11 +645,32 @@ DECL|member|EXT_frag_depth
 name|int
 name|EXT_frag_depth
 decl_stmt|;
+DECL|member|EXT_shader_texture_lod
+name|int
+name|EXT_shader_texture_lod
+decl_stmt|;
 comment|// Set to 1 if highp precision is supported in the fragment language.
 comment|// Default is 0.
 DECL|member|FragmentPrecisionHigh
 name|int
 name|FragmentPrecisionHigh
+decl_stmt|;
+comment|// GLSL ES 3.0 constants.
+DECL|member|MaxVertexOutputVectors
+name|int
+name|MaxVertexOutputVectors
+decl_stmt|;
+DECL|member|MaxFragmentInputVectors
+name|int
+name|MaxFragmentInputVectors
+decl_stmt|;
+DECL|member|MinProgramTexelOffset
+name|int
+name|MinProgramTexelOffset
+decl_stmt|;
+DECL|member|MaxProgramTexelOffset
+name|int
+name|MaxProgramTexelOffset
 decl_stmt|;
 comment|// Name Hashing.
 comment|// Set a 64 bit hash function to enable user-defined name hashing.
@@ -762,7 +713,7 @@ parameter_list|)
 function_decl|;
 comment|//
 comment|// ShHandle held by but opaque to the driver.  It is allocated,
-comment|// managed, and de-allocated by the compiler. It's contents
+comment|// managed, and de-allocated by the compiler. Its contents
 comment|// are defined by and used by the compiler.
 comment|//
 comment|// If handle creation fails, 0 will be returned.
@@ -774,12 +725,37 @@ modifier|*
 name|ShHandle
 typedef|;
 comment|//
+comment|// Returns the a concatenated list of the items in ShBuiltInResources as a string.
+comment|// This function must be updated whenever ShBuiltInResources is changed.
+comment|// Parameters:
+comment|// handle: Specifies the handle of the compiler to be used.
+comment|// outStringLen: Specifies the size of the buffer, in number of characters. The size
+comment|//               of the buffer required to store the resources string can be obtained
+comment|//               by calling ShGetInfo with SH_RESOURCES_STRING_LENGTH.
+comment|// outStr: Returns a null-terminated string representing all the built-in resources.
+name|COMPILER_EXPORT
+name|void
+name|ShGetBuiltInResourcesString
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|,
+name|size_t
+name|outStringLen
+parameter_list|,
+name|char
+modifier|*
+name|outStr
+parameter_list|)
+function_decl|;
+comment|//
 comment|// Driver calls these to create and destroy compiler objects.
 comment|//
 comment|// Returns the handle of constructed compiler, null if the requested compiler is
 comment|// not supported.
 comment|// Parameters:
-comment|// type: Specifies the type of shader - SH_FRAGMENT_SHADER or SH_VERTEX_SHADER.
+comment|// type: Specifies the type of shader - GL_FRAGMENT_SHADER or GL_VERTEX_SHADER.
 comment|// spec: Specifies the language spec the compiler must conform to -
 comment|//       SH_GLES2_SPEC or SH_WEBGL_SPEC.
 comment|// output: Specifies the output code type - SH_ESSL_OUTPUT, SH_GLSL_OUTPUT,
@@ -788,22 +764,24 @@ comment|// resources: Specifies the built-in resources.
 name|COMPILER_EXPORT
 name|ShHandle
 name|ShConstructCompiler
-parameter_list|(
-name|ShShaderType
+argument_list|(
+name|sh
+operator|::
+name|GLenum
 name|type
-parameter_list|,
+argument_list|,
 name|ShShaderSpec
 name|spec
-parameter_list|,
+argument_list|,
 name|ShShaderOutput
 name|output
-parameter_list|,
+argument_list|,
 specifier|const
 name|ShBuiltInResources
-modifier|*
+operator|*
 name|resources
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 name|COMPILER_EXPORT
 name|void
 name|ShDestruct
@@ -885,6 +863,8 @@ comment|//                     null termination character.
 comment|// SH_HASHED_NAME_MAX_LENGTH: the max length of a hashed name including the
 comment|//                            null termination character.
 comment|// SH_HASHED_NAMES_COUNT: the number of hashed names from the latest compile.
+comment|// SH_SHADER_VERSION: the version of the shader language
+comment|// SH_OUTPUT_TYPE: the currently set language output type
 comment|//
 comment|// params: Requested parameter
 name|COMPILER_EXPORT
@@ -975,46 +955,48 @@ comment|//             are the same.
 name|COMPILER_EXPORT
 name|void
 name|ShGetVariableInfo
-parameter_list|(
+argument_list|(
 specifier|const
 name|ShHandle
 name|handle
-parameter_list|,
+argument_list|,
 name|ShShaderInfo
 name|variableType
-parameter_list|,
+argument_list|,
 name|int
 name|index
-parameter_list|,
+argument_list|,
 name|size_t
-modifier|*
+operator|*
 name|length
-parameter_list|,
+argument_list|,
 name|int
-modifier|*
+operator|*
 name|size
-parameter_list|,
-name|ShDataType
-modifier|*
+argument_list|,
+name|sh
+operator|::
+name|GLenum
+operator|*
 name|type
-parameter_list|,
+argument_list|,
 name|ShPrecisionType
-modifier|*
+operator|*
 name|precision
-parameter_list|,
+argument_list|,
 name|int
-modifier|*
+operator|*
 name|staticUse
-parameter_list|,
+argument_list|,
 name|char
-modifier|*
+operator|*
 name|name
-parameter_list|,
+argument_list|,
 name|char
-modifier|*
+operator|*
 name|mappedName
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 comment|// Returns information about a name hashing entry from the latest compile.
 comment|// Parameters:
 comment|// handle: Specifies the compiler
@@ -1077,9 +1059,11 @@ typedef|typedef
 struct|struct
 block|{
 DECL|member|type
-name|ShDataType
+name|sh
+operator|::
+name|GLenum
 name|type
-decl_stmt|;
+expr_stmt|;
 DECL|member|size
 name|int
 name|size
@@ -1109,6 +1093,59 @@ name|varInfoArray
 parameter_list|,
 name|size_t
 name|varInfoArraySize
+parameter_list|)
+function_decl|;
+comment|// Gives the compiler-assigned register for an interface block.
+comment|// The method writes the value to the output variable "indexOut".
+comment|// Returns true if it found a valid interface block, false otherwise.
+comment|// Parameters:
+comment|// handle: Specifies the compiler
+comment|// interfaceBlockName: Specifies the interface block
+comment|// indexOut: output variable that stores the assigned register
+name|COMPILER_EXPORT
+name|bool
+name|ShGetInterfaceBlockRegister
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|interfaceBlockName
+parameter_list|,
+name|unsigned
+name|int
+modifier|*
+name|indexOut
+parameter_list|)
+function_decl|;
+comment|// Gives the compiler-assigned register for uniforms in the default
+comment|// interface block.
+comment|// The method writes the value to the output variable "indexOut".
+comment|// Returns true if it found a valid default uniform, false otherwise.
+comment|// Parameters:
+comment|// handle: Specifies the compiler
+comment|// interfaceBlockName: Specifies the uniform
+comment|// indexOut: output variable that stores the assigned register
+name|COMPILER_EXPORT
+name|bool
+name|ShGetUniformRegister
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|uniformName
+parameter_list|,
+name|unsigned
+name|int
+modifier|*
+name|indexOut
 parameter_list|)
 function_decl|;
 ifdef|#

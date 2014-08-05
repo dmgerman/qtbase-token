@@ -33,7 +33,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/ShHandle.h"
+file|"compiler/translator/VariableInfo.h"
 end_include
 begin_decl_stmt
 name|class
@@ -43,36 +43,41 @@ name|public
 label|:
 comment|// Returns true if the passed in variables pack in maxVectors following
 comment|// the packing rules from the GLSL 1.017 spec, Appendix A, section 7.
+name|template
+operator|<
+name|typename
+name|VarT
+operator|>
 name|bool
 name|CheckVariablesWithinPackingLimits
-parameter_list|(
-name|int
-name|maxVectors
-parameter_list|,
-specifier|const
-name|TVariableInfoList
-modifier|&
-name|in_variables
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|unsigned int maxVectors
+argument_list|,
+argument|const std::vector<VarT>&in_variables
+argument_list|)
+expr_stmt|;
 comment|// Gets how many components in a row a data type takes.
 specifier|static
 name|int
 name|GetNumComponentsPerRow
-parameter_list|(
-name|ShDataType
+argument_list|(
+name|sh
+operator|::
+name|GLenum
 name|type
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 comment|// Gets how many rows a data type takes.
 specifier|static
 name|int
 name|GetNumRows
-parameter_list|(
-name|ShDataType
+argument_list|(
+name|sh
+operator|::
+name|GLenum
 name|type
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 name|private
 label|:
 specifier|static

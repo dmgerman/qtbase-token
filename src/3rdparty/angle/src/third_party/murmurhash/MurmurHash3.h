@@ -25,63 +25,11 @@ end_comment
 begin_comment
 comment|// Platform-specific functions and macros
 end_comment
-begin_comment
-comment|// Microsoft Visual Studio
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|_MSC_VER
-argument_list|)
-end_if
-begin_typedef
-DECL|typedef|uint8_t
-typedef|typedef
-name|unsigned
-name|char
-name|uint8_t
-typedef|;
-end_typedef
-begin_typedef
-DECL|typedef|uint32_t
-typedef|typedef
-name|unsigned
-name|long
-name|uint32_t
-typedef|;
-end_typedef
-begin_typedef
-DECL|typedef|uint64_t
-typedef|typedef
-name|unsigned
-name|__int64
-name|uint64_t
-typedef|;
-end_typedef
-begin_comment
-comment|// Other compilers
-end_comment
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// defined(_MSC_VER)
-end_comment
 begin_include
 include|#
 directive|include
 file|<stdint.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !defined(_MSC_VER)
-end_comment
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment

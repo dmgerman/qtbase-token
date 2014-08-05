@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2011 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2011-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -114,14 +114,7 @@ DECL|enumerator|DIRECTIVE_LINE
 name|DIRECTIVE_LINE
 block|}
 enum|;
-block|}
-end_namespace
-begin_comment
-comment|// namespace
-end_comment
-begin_function
 DECL|function|getDirective
-specifier|static
 name|DirectiveType
 name|getDirective
 parameter_list|(
@@ -289,7 +282,6 @@ condition|)
 return|return
 name|DIRECTIVE_DEFINE
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -301,7 +293,6 @@ condition|)
 return|return
 name|DIRECTIVE_UNDEF
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -313,7 +304,6 @@ condition|)
 return|return
 name|DIRECTIVE_IF
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -325,7 +315,6 @@ condition|)
 return|return
 name|DIRECTIVE_IFDEF
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -337,7 +326,6 @@ condition|)
 return|return
 name|DIRECTIVE_IFNDEF
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -349,7 +337,6 @@ condition|)
 return|return
 name|DIRECTIVE_ELSE
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -361,7 +348,6 @@ condition|)
 return|return
 name|DIRECTIVE_ELIF
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -373,7 +359,6 @@ condition|)
 return|return
 name|DIRECTIVE_ENDIF
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -385,7 +370,6 @@ condition|)
 return|return
 name|DIRECTIVE_ERROR
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -397,7 +381,6 @@ condition|)
 return|return
 name|DIRECTIVE_PRAGMA
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -409,7 +392,6 @@ condition|)
 return|return
 name|DIRECTIVE_EXTENSION
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -421,7 +403,6 @@ condition|)
 return|return
 name|DIRECTIVE_VERSION
 return|;
-elseif|else
 if|if
 condition|(
 name|token
@@ -437,10 +418,7 @@ return|return
 name|DIRECTIVE_NONE
 return|;
 block|}
-end_function
-begin_function
 DECL|function|isConditionalDirective
-specifier|static
 name|bool
 name|isConditionalDirective
 parameter_list|(
@@ -480,13 +458,8 @@ literal|false
 return|;
 block|}
 block|}
-end_function
-begin_comment
 comment|// Returns true if the token represents End Of Directive.
-end_comment
-begin_function
 DECL|function|isEOD
-specifier|static
 name|bool
 name|isEOD
 parameter_list|(
@@ -520,10 +493,7 @@ name|LAST
 operator|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|skipUntilEOD
-specifier|static
 name|void
 name|skipUntilEOD
 parameter_list|(
@@ -558,10 +528,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|isMacroNameReserved
-specifier|static
 name|bool
 name|isMacroNameReserved
 parameter_list|(
@@ -613,10 +580,7 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-begin_function
 DECL|function|isMacroPredefined
-specifier|static
 name|bool
 name|isMacroPredefined
 parameter_list|(
@@ -666,7 +630,11 @@ else|:
 literal|false
 return|;
 block|}
-end_function
+block|}
+end_namespace
+begin_comment
+comment|// namespace anonymous
+end_comment
 begin_namespace
 DECL|namespace|pp
 namespace|namespace
@@ -3128,6 +3096,10 @@ enum|enum
 name|State
 block|{
 name|VERSION_NUMBER
+block|,
+name|VERSION_PROFILE
+block|,
+name|VERSION_ENDLINE
 block|}
 enum|;
 name|bool
@@ -3154,6 +3126,8 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
+name|valid
+operator|&&
 operator|(
 name|token
 operator|->
@@ -3176,7 +3150,6 @@ block|{
 switch|switch
 condition|(
 name|state
-operator|++
 condition|)
 block|{
 case|case
@@ -3184,9 +3157,6 @@ name|VERSION_NUMBER
 case|:
 if|if
 condition|(
-name|valid
-operator|&&
-operator|(
 name|token
 operator|->
 name|type
@@ -3194,7 +3164,6 @@ operator|!=
 name|Token
 operator|::
 name|CONST_INT
-operator|)
 condition|)
 block|{
 name|mDiagnostics
@@ -3255,13 +3224,73 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-break|break;
-default|default:
 if|if
 condition|(
 name|valid
 condition|)
 block|{
+name|state
+operator|=
+operator|(
+name|version
+operator|<
+literal|300
+operator|)
+condition|?
+name|VERSION_ENDLINE
+else|:
+name|VERSION_PROFILE
+expr_stmt|;
+block|}
+break|break;
+case|case
+name|VERSION_PROFILE
+case|:
+if|if
+condition|(
+name|token
+operator|->
+name|type
+operator|!=
+name|Token
+operator|::
+name|IDENTIFIER
+operator|||
+name|token
+operator|->
+name|text
+operator|!=
+literal|"es"
+condition|)
+block|{
+name|mDiagnostics
+operator|->
+name|report
+argument_list|(
+name|Diagnostics
+operator|::
+name|PP_INVALID_VERSION_DIRECTIVE
+argument_list|,
+name|token
+operator|->
+name|location
+argument_list|,
+name|token
+operator|->
+name|text
+argument_list|)
+expr_stmt|;
+name|valid
+operator|=
+literal|false
+expr_stmt|;
+block|}
+name|state
+operator|=
+name|VERSION_ENDLINE
+expr_stmt|;
+break|break;
+default|default:
 name|mDiagnostics
 operator|->
 name|report
@@ -3283,7 +3312,6 @@ name|valid
 operator|=
 literal|false
 expr_stmt|;
-block|}
 break|break;
 block|}
 name|mTokenizer
@@ -3301,9 +3329,7 @@ operator|&&
 operator|(
 name|state
 operator|!=
-name|VERSION_NUMBER
-operator|+
-literal|1
+name|VERSION_ENDLINE
 operator|)
 condition|)
 block|{
@@ -3333,6 +3359,7 @@ if|if
 condition|(
 name|valid
 condition|)
+block|{
 name|mDirectiveHandler
 operator|->
 name|handleVersion
@@ -3344,6 +3371,7 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|function|parseLine
 name|void

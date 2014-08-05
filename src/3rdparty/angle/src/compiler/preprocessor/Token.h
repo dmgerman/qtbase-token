@@ -149,7 +149,7 @@ name|flags
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{     }
 name|void
 name|reset
 argument_list|()
@@ -330,9 +330,9 @@ name|rhs
 argument_list|)
 return|;
 block|}
-extern|extern std::ostream& operator<<(std::ostream& out
+extern|extern std::ostream&operator<<(std::ostream&out
 operator|,
-extern|const Token& token
+extern|const Token&token
 block|)
 decl_stmt|;
 end_decl_stmt

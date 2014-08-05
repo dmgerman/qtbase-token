@@ -170,7 +170,7 @@ init|=
 literal|0
 decl_stmt|;
 name|TIntermSequence
-modifier|&
+modifier|*
 name|intermArguments
 init|=
 name|intermFunctionCall
@@ -186,14 +186,14 @@ name|const_iterator
 name|iter
 init|=
 name|intermArguments
-operator|.
+operator|->
 name|begin
 argument_list|()
 init|;
 name|iter
 operator|!=
 name|intermArguments
-operator|.
+operator|->
 name|end
 argument_list|()
 condition|;
@@ -265,12 +265,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Push the leftmost symbol of this function call into the current set of dependent symbols to
-comment|// represent the result of this function call.
+comment|// Push the leftmost symbol of this function call into the current set of
+comment|// dependent symbols to represent the result of this function call.
 comment|// Thus, an expression like "y = f(x)" will yield a dependency graph like
 comment|// "x -> argument 0 -> function call -> y".
-comment|// This line essentially passes the function call node back up to an earlier visitAssignment
-comment|// call, which will create the connection "function call -> y".
+comment|// This line essentially passes the function call node back up to an earlier
+comment|// visitAssignment call, which will create the connection "function call -> y".
 name|mNodeSets
 operator|.
 name|insertIntoTopSet
@@ -293,7 +293,7 @@ name|intermAggregate
 parameter_list|)
 block|{
 name|TIntermSequence
-modifier|&
+modifier|*
 name|sequence
 init|=
 name|intermAggregate
@@ -309,14 +309,14 @@ name|const_iterator
 name|iter
 init|=
 name|sequence
-operator|.
+operator|->
 name|begin
 argument_list|()
 init|;
 name|iter
 operator|!=
 name|sequence
-operator|.
+operator|->
 name|end
 argument_list|()
 condition|;
@@ -353,8 +353,8 @@ modifier|*
 name|intermSymbol
 parameter_list|)
 block|{
-comment|// Push this symbol into the set of dependent symbols for the current assignment or condition
-comment|// that we are traversing.
+comment|// Push this symbol into the set of dependent symbols for the current
+comment|// assignment or condition that we are traversing.
 name|TGraphSymbol
 modifier|*
 name|symbol
@@ -373,8 +373,8 @@ argument_list|(
 name|symbol
 argument_list|)
 expr_stmt|;
-comment|// If this symbol is the current leftmost symbol under an assignment, replace the previous
-comment|// leftmost symbol with this symbol.
+comment|// If this symbol is the current leftmost symbol under an assignment, replace
+comment|// the previous leftmost symbol with this symbol.
 if|if
 condition|(
 operator|!
@@ -536,8 +536,9 @@ operator|.
 name|top
 argument_list|()
 expr_stmt|;
-comment|// After traversing the left subtree of this assignment, we should have found a real
-comment|// leftmost symbol, and the leftmost symbol should not be a placeholder.
+comment|// After traversing the left subtree of this assignment, we should
+comment|// have found a real leftmost symbol, and the leftmost symbol should
+comment|// not be a placeholder.
 name|ASSERT
 argument_list|(
 name|leftmostSymbol
@@ -602,12 +603,13 @@ name|leftmostSymbol
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Push the leftmost symbol of this assignment into the current set of dependent symbols to
-comment|// represent the result of this assignment.
-comment|// An expression like "a = (b = c)" will yield a dependency graph like "c -> b -> a".
-comment|// This line essentially passes the leftmost symbol of the nested assignment ("b" in this
-comment|// example) back up to the earlier visitAssignment call for the outer assignment, which will
-comment|// create the connection "b -> a".
+comment|// Push the leftmost symbol of this assignment into the current set of dependent
+comment|// symbols to represent the result of this assignment.
+comment|// An expression like "a = (b = c)" will yield a dependency graph like
+comment|// "c -> b -> a".
+comment|// This line essentially passes the leftmost symbol of the nested assignment
+comment|// ("b" in this example) back up to the earlier visitAssignment call for the
+comment|// outer assignment, which will create the connection "b -> a".
 name|mNodeSets
 operator|.
 name|insertIntoTopSet

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
 end_ifndef
 begin_define
-DECL|macro|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+DECL|macro|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
 define|#
 directive|define
-name|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
 end_define
 begin_include
 include|#
@@ -34,10 +34,10 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Creates a dependency graph of symbols, function calls, conditions etc. by traversing a
+comment|// Creates a dependency graph of symbols, function calls, conditions etc. by
 end_comment
 begin_comment
-comment|// intermediate tree.
+comment|// traversing a intermediate tree.
 end_comment
 begin_comment
 comment|//
@@ -78,7 +78,7 @@ name|visitBinary
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermBinary*
+argument|TIntermBinary *
 argument_list|)
 block|;
 name|virtual
@@ -87,7 +87,7 @@ name|visitSelection
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermSelection*
+argument|TIntermSelection *
 argument_list|)
 block|;
 name|virtual
@@ -96,7 +96,7 @@ name|visitAggregate
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermAggregate*
+argument|TIntermAggregate *
 argument_list|)
 block|;
 name|virtual
@@ -105,7 +105,7 @@ name|visitLoop
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermLoop*
+argument|TIntermLoop *
 argument_list|)
 block|;
 name|private
@@ -146,7 +146,10 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// This data structure is stack of sets. Each set contains dependency graph parent nodes.
+comment|// This data structure is stack of sets. Each set contains dependency graph
+end_comment
+begin_comment
+comment|// parent nodes.
 end_comment
 begin_comment
 comment|//
@@ -179,7 +182,7 @@ block|{
 name|ASSERT
 argument_list|(
 operator|!
-name|nodeSets
+name|mNodeSets
 operator|.
 name|empty
 argument_list|()
@@ -189,7 +192,7 @@ name|TParentNodeSet
 operator|*
 name|topSet
 operator|=
-name|nodeSets
+name|mNodeSets
 operator|.
 name|top
 argument_list|()
@@ -210,7 +213,7 @@ name|void
 name|pushSet
 parameter_list|()
 block|{
-name|nodeSets
+name|mNodeSets
 operator|.
 name|push
 argument_list|(
@@ -225,19 +228,19 @@ block|{
 name|ASSERT
 argument_list|(
 operator|!
-name|nodeSets
+name|mNodeSets
 operator|.
 name|empty
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|delete
-name|nodeSets
+name|mNodeSets
 operator|.
 name|top
 parameter_list|()
 function_decl|;
-name|nodeSets
+name|mNodeSets
 operator|.
 name|pop
 argument_list|()
@@ -253,7 +256,7 @@ block|{
 name|ASSERT
 argument_list|(
 operator|!
-name|nodeSets
+name|mNodeSets
 operator|.
 name|empty
 argument_list|()
@@ -263,12 +266,12 @@ name|TParentNodeSet
 modifier|*
 name|oldTopSet
 init|=
-name|nodeSets
+name|mNodeSets
 operator|.
 name|top
 argument_list|()
 decl_stmt|;
-name|nodeSets
+name|mNodeSets
 operator|.
 name|pop
 argument_list|()
@@ -276,7 +279,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|nodeSets
+name|mNodeSets
 operator|.
 name|empty
 argument_list|()
@@ -286,7 +289,7 @@ name|TParentNodeSet
 modifier|*
 name|newTopSet
 init|=
-name|nodeSets
+name|mNodeSets
 operator|.
 name|top
 argument_list|()
@@ -325,13 +328,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|nodeSets
+name|mNodeSets
 operator|.
 name|empty
 argument_list|()
 condition|)
 return|return;
-name|nodeSets
+name|mNodeSets
 operator|.
 name|top
 argument_list|()
@@ -349,7 +352,7 @@ block|{
 while|while
 condition|(
 operator|!
-name|nodeSets
+name|mNodeSets
 operator|.
 name|empty
 argument_list|()
@@ -371,7 +374,7 @@ operator|>
 name|TParentNodeSetStack
 expr_stmt|;
 name|TParentNodeSetStack
-name|nodeSets
+name|mNodeSets
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -403,21 +406,21 @@ operator|*
 name|factory
 argument_list|)
 operator|:
-name|sets
+name|mSets
 argument_list|(
 argument|factory->mNodeSets
 argument_list|)
 block|{
-name|sets
+name|mSets
 operator|.
 name|pushSet
 argument_list|()
-block|; }
+block|;         }
 operator|~
 name|TNodeSetMaintainer
 argument_list|()
 block|{
-name|sets
+name|mSets
 operator|.
 name|popSet
 argument_list|()
@@ -426,7 +429,7 @@ name|protected
 operator|:
 name|TNodeSetStack
 operator|&
-name|sets
+name|mSets
 expr_stmt|;
 block|}
 end_decl_stmt
@@ -440,10 +443,10 @@ begin_comment
 comment|// An instance of this class pushes a new node set when instantiated.
 end_comment
 begin_comment
-comment|// When the instance goes out of scope, it and pops the top node set and adds its contents to
+comment|// When the instance goes out of scope, it and pops the top node set and adds
 end_comment
 begin_comment
-comment|// the new top node set.
+comment|// its contents to the new top node set.
 end_comment
 begin_comment
 comment|//
@@ -461,21 +464,21 @@ operator|*
 name|factory
 argument_list|)
 operator|:
-name|sets
+name|mSets
 argument_list|(
 argument|factory->mNodeSets
 argument_list|)
 block|{
-name|sets
+name|mSets
 operator|.
 name|pushSet
 argument_list|()
-block|; }
+block|;         }
 operator|~
 name|TNodeSetPropagatingMaintainer
 argument_list|()
 block|{
-name|sets
+name|mSets
 operator|.
 name|popSetIntoNext
 argument_list|()
@@ -484,7 +487,7 @@ name|protected
 operator|:
 name|TNodeSetStack
 operator|&
-name|sets
+name|mSets
 expr_stmt|;
 block|}
 end_decl_stmt
@@ -495,28 +498,34 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// An instance of this class keeps track of the leftmost symbol while we're exploring an
+comment|// An instance of this class keeps track of the leftmost symbol while we're
 end_comment
 begin_comment
-comment|// assignment.
+comment|// exploring an assignment.
 end_comment
 begin_comment
-comment|// It will push the placeholder symbol kLeftSubtree when instantiated under a left subtree,
+comment|// It will push the placeholder symbol kLeftSubtree when instantiated under a
 end_comment
 begin_comment
-comment|// and kRightSubtree under a right subtree.
+comment|// left subtree, and kRightSubtree under a right subtree.
 end_comment
 begin_comment
-comment|// When it goes out of scope, it will pop the leftmost symbol at the top of the scope.
+comment|// When it goes out of scope, it will pop the leftmost symbol at the top of the
 end_comment
 begin_comment
-comment|// During traversal, the TDependencyGraphBuilder will replace kLeftSubtree with a real symbol.
+comment|// scope.
 end_comment
 begin_comment
-comment|// kRightSubtree will never be replaced by a real symbol because we are tracking the leftmost
+comment|// During traversal, the TDependencyGraphBuilder will replace kLeftSubtree with
 end_comment
 begin_comment
-comment|// symbol.
+comment|// a real symbol.
+end_comment
+begin_comment
+comment|// kRightSubtree will never be replaced by a real symbol because we are tracking
+end_comment
+begin_comment
+comment|// the leftmost symbol.
 end_comment
 begin_comment
 comment|//
@@ -538,19 +547,19 @@ operator|&
 name|subtree
 argument_list|)
 operator|:
-name|leftmostSymbols
+name|mLeftmostSymbols
 argument_list|(
 argument|factory->mLeftmostSymbols
 argument_list|)
 block|{
-name|needsPlaceholderSymbol
+name|mNeedsPlaceholderSymbol
 operator|=
-name|leftmostSymbols
+name|mLeftmostSymbols
 operator|.
 name|empty
 argument_list|()
 operator|||
-name|leftmostSymbols
+name|mLeftmostSymbols
 operator|.
 name|top
 argument_list|()
@@ -560,9 +569,9 @@ name|subtree
 block|;
 if|if
 condition|(
-name|needsPlaceholderSymbol
+name|mNeedsPlaceholderSymbol
 condition|)
-name|leftmostSymbols
+name|mLeftmostSymbols
 operator|.
 name|push
 argument_list|(
@@ -577,9 +586,9 @@ argument_list|()
 block|{
 if|if
 condition|(
-name|needsPlaceholderSymbol
+name|mNeedsPlaceholderSymbol
 condition|)
-name|leftmostSymbols
+name|mLeftmostSymbols
 operator|.
 name|pop
 argument_list|()
@@ -589,10 +598,10 @@ name|protected
 label|:
 name|TSymbolStack
 modifier|&
-name|leftmostSymbols
+name|mLeftmostSymbols
 decl_stmt|;
 name|bool
-name|needsPlaceholderSymbol
+name|mNeedsPlaceholderSymbol
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -634,7 +643,7 @@ block|{}
 name|void
 name|build
 argument_list|(
-argument|TIntermNode* intermNode
+argument|TIntermNode *intermNode
 argument_list|)
 block|{
 name|intermNode
@@ -647,9 +656,9 @@ block|; }
 name|void
 name|connectMultipleNodesToSingleNode
 argument_list|(
-argument|TParentNodeSet* nodes
+argument|TParentNodeSet *nodes
 argument_list|,
-argument|TGraphNode* node
+argument|TGraphNode *node
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -741,6 +750,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+comment|// COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
 end_comment
 end_unit

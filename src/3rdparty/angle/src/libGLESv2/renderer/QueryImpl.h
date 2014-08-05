@@ -96,6 +96,14 @@ parameter_list|()
 init|=
 literal|0
 function_decl|;
+name|virtual
+name|bool
+name|isStarted
+argument_list|()
+specifier|const
+operator|=
+literal|0
+expr_stmt|;
 name|GLenum
 name|getType
 argument_list|()

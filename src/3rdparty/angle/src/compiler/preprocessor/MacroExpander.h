@@ -261,7 +261,7 @@ name|index
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{         }
 name|bool
 name|empty
 argument_list|()

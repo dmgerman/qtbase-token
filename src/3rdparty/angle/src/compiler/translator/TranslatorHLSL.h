@@ -28,12 +28,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/translator/ShHandle.h"
+file|"compiler/translator/Compiler.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/Uniform.h"
+file|"common/shadervars.h"
 end_include
 begin_decl_stmt
 name|class
@@ -46,7 +46,7 @@ name|public
 operator|:
 name|TranslatorHLSL
 argument_list|(
-argument|ShShaderType type
+argument|sh::GLenum type
 argument_list|,
 argument|ShShaderSpec spec
 argument_list|,
@@ -63,18 +63,36 @@ return|return
 name|this
 return|;
 block|}
+name|bool
+name|hasInterfaceBlock
+argument_list|(
+argument|const std::string&interfaceBlockName
+argument_list|)
 specifier|const
-name|sh
-operator|::
-name|ActiveUniforms
-operator|&
-name|getUniforms
-argument_list|()
-block|{
-return|return
-name|mActiveUniforms
-return|;
-block|}
+block|;
+name|unsigned
+name|int
+name|getInterfaceBlockRegister
+argument_list|(
+argument|const std::string&interfaceBlockName
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|hasUniform
+argument_list|(
+argument|const std::string&uniformName
+argument_list|)
+specifier|const
+block|;
+name|unsigned
+name|int
+name|getUniformRegister
+argument_list|(
+argument|const std::string&uniformName
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|virtual
@@ -86,13 +104,31 @@ operator|*
 name|root
 argument_list|)
 block|;
-name|sh
+name|std
 operator|::
-name|ActiveUniforms
-name|mActiveUniforms
+name|map
+operator|<
+name|std
+operator|::
+name|string
+block|,
+name|unsigned
+name|int
+operator|>
+name|mInterfaceBlockRegisterMap
 block|;
-name|ShShaderOutput
-name|mOutputType
+name|std
+operator|::
+name|map
+operator|<
+name|std
+operator|::
+name|string
+block|,
+name|unsigned
+name|int
+operator|>
+name|mUniformRegisterMap
 block|; }
 decl_stmt|;
 end_decl_stmt

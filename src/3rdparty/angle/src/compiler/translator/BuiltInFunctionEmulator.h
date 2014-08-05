@@ -28,11 +28,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"GLSLANG/ShaderLang.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"compiler/translator/InfoSink.h"
 end_include
 begin_include
@@ -63,7 +58,7 @@ name|public
 label|:
 name|BuiltInFunctionEmulator
 argument_list|(
-argument|ShShaderType shaderType
+argument|sh::GLenum shaderType
 argument_list|)
 empty_stmt|;
 comment|// Records that a function is called by the shader and might needs to be

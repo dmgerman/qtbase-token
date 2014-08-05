@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2014 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -19,43 +19,26 @@ include|#
 directive|include
 file|"compiler/translator/localintermediate.h"
 end_include
-begin_comment
+begin_include
+include|#
+directive|include
+file|"compiler/translator/SymbolTable.h"
+end_include
+begin_namespace
+namespace|namespace
+block|{
 comment|//
-end_comment
-begin_comment
 comment|// Two purposes:
-end_comment
-begin_comment
 comment|// 1.  Show an example of how to iterate tree.  Functions can
-end_comment
-begin_comment
 comment|//     also directly call Traverse() on children themselves to
-end_comment
-begin_comment
 comment|//     have finer grained control over the process than shown here.
-end_comment
-begin_comment
 comment|//     See the last function for how to get started.
-end_comment
-begin_comment
 comment|// 2.  Print out a text based description of the tree.
-end_comment
-begin_comment
 comment|//
-end_comment
-begin_comment
 comment|//
-end_comment
-begin_comment
 comment|// Use this class to carry along data from node to node in
-end_comment
-begin_comment
 comment|// the traversal
-end_comment
-begin_comment
 comment|//
-end_comment
-begin_class
 DECL|class|TOutputTraverser
 class|class
 name|TOutputTraverser
@@ -159,7 +142,62 @@ parameter_list|)
 function_decl|;
 block|}
 class|;
-end_class
+comment|//
+comment|// Helper functions for printing, not part of traversing.
+comment|//
+DECL|function|OutputTreeText
+name|void
+name|OutputTreeText
+parameter_list|(
+name|TInfoSinkBase
+modifier|&
+name|sink
+parameter_list|,
+name|TIntermNode
+modifier|*
+name|node
+parameter_list|,
+specifier|const
+name|int
+name|depth
+parameter_list|)
+block|{
+name|int
+name|i
+decl_stmt|;
+name|sink
+operator|.
+name|location
+argument_list|(
+name|node
+operator|->
+name|getLine
+argument_list|()
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|depth
+condition|;
+operator|++
+name|i
+control|)
+name|sink
+operator|<<
+literal|"  "
+expr_stmt|;
+block|}
+block|}
+end_namespace
+begin_comment
+comment|// namespace anonymous
+end_comment
 begin_function
 DECL|function|getCompleteString
 name|TString
@@ -209,46 +247,31 @@ literal|"] of "
 expr_stmt|;
 if|if
 condition|(
-name|matrix
+name|isMatrix
+argument_list|()
 condition|)
 name|stream
 operator|<<
-cast|static_cast
-argument_list|<
-name|int
-argument_list|>
-argument_list|(
-name|size
-argument_list|)
+name|getCols
+argument_list|()
 operator|<<
 literal|"X"
 operator|<<
-cast|static_cast
-argument_list|<
-name|int
-argument_list|>
-argument_list|(
-name|size
-argument_list|)
+name|getRows
+argument_list|()
 operator|<<
 literal|" matrix of "
 expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|size
-operator|>
-literal|1
+name|isVector
+argument_list|()
 condition|)
 name|stream
 operator|<<
-cast|static_cast
-argument_list|<
-name|int
-argument_list|>
-argument_list|(
-name|size
-argument_list|)
+name|getNominalSize
+argument_list|()
 operator|<<
 literal|"-component vector of "
 expr_stmt|;
@@ -263,65 +286,6 @@ operator|.
 name|str
 argument_list|()
 return|;
-block|}
-end_function
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// Helper functions for printing, not part of traversing.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_function
-DECL|function|OutputTreeText
-name|void
-name|OutputTreeText
-parameter_list|(
-name|TInfoSinkBase
-modifier|&
-name|sink
-parameter_list|,
-name|TIntermNode
-modifier|*
-name|node
-parameter_list|,
-specifier|const
-name|int
-name|depth
-parameter_list|)
-block|{
-name|int
-name|i
-decl_stmt|;
-name|sink
-operator|.
-name|location
-argument_list|(
-name|node
-operator|->
-name|getLine
-argument_list|()
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
-name|depth
-condition|;
-operator|++
-name|i
-control|)
-name|sink
-operator|<<
-literal|"  "
-expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -366,7 +330,7 @@ name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 name|sink
@@ -420,7 +384,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -533,6 +497,14 @@ case|:
 name|out
 operator|<<
 literal|"direct index for structure"
+expr_stmt|;
+break|break;
+case|case
+name|EOpIndexDirectInterfaceBlock
+case|:
+name|out
+operator|<<
+literal|"direct index for interface block"
 expr_stmt|;
 break|break;
 case|case
@@ -740,7 +712,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -800,54 +772,6 @@ case|:
 name|out
 operator|<<
 literal|"Pre-Decrement"
-expr_stmt|;
-break|break;
-case|case
-name|EOpConvIntToBool
-case|:
-name|out
-operator|<<
-literal|"Convert int to bool"
-expr_stmt|;
-break|break;
-case|case
-name|EOpConvFloatToBool
-case|:
-name|out
-operator|<<
-literal|"Convert float to bool"
-expr_stmt|;
-break|break;
-case|case
-name|EOpConvBoolToFloat
-case|:
-name|out
-operator|<<
-literal|"Convert bool to float"
-expr_stmt|;
-break|break;
-case|case
-name|EOpConvIntToFloat
-case|:
-name|out
-operator|<<
-literal|"Convert int to float"
-expr_stmt|;
-break|break;
-case|case
-name|EOpConvFloatToInt
-case|:
-name|out
-operator|<<
-literal|"Convert float to int"
-expr_stmt|;
-break|break;
-case|case
-name|EOpConvBoolToInt
-case|:
-name|out
-operator|<<
-literal|"Convert bool to int"
 expr_stmt|;
 break|break;
 case|case
@@ -1018,9 +942,9 @@ operator|<<
 literal|"normalize"
 expr_stmt|;
 break|break;
-comment|//	case EOpDPdx:           out<< "dPdx";                 break;
-comment|//	case EOpDPdy:           out<< "dPdy";                 break;
-comment|//	case EOpFwidth:         out<< "fwidth";               break;
+comment|// case EOpDPdx:           out<< "dPdx";                 break;
+comment|// case EOpDPdy:           out<< "dPdy";                 break;
+comment|// case EOpFwidth:         out<< "fwidth";               break;
 case|case
 name|EOpAny
 case|:
@@ -1122,7 +1046,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -1281,6 +1205,38 @@ case|:
 name|out
 operator|<<
 literal|"Construct ivec4"
+expr_stmt|;
+break|break;
+case|case
+name|EOpConstructUInt
+case|:
+name|out
+operator|<<
+literal|"Construct uint"
+expr_stmt|;
+break|break;
+case|case
+name|EOpConstructUVec2
+case|:
+name|out
+operator|<<
+literal|"Construct uvec2"
+expr_stmt|;
+break|break;
+case|case
+name|EOpConstructUVec3
+case|:
+name|out
+operator|<<
+literal|"Construct uvec3"
+expr_stmt|;
+break|break;
+case|case
+name|EOpConstructUVec4
+case|:
+name|out
+operator|<<
+literal|"Construct uvec4"
 expr_stmt|;
 break|break;
 case|case
@@ -1575,7 +1531,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 name|out
@@ -1594,7 +1550,7 @@ operator|<<
 literal|")\n"
 expr_stmt|;
 operator|++
-name|depth
+name|mDepth
 expr_stmt|;
 name|OutputTreeText
 argument_list|(
@@ -1602,7 +1558,7 @@ name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 name|out
@@ -1625,7 +1581,7 @@ name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 if|if
@@ -1652,10 +1608,12 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|out
 operator|<<
 literal|"true case is null\n"
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|node
@@ -1670,7 +1628,7 @@ name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 name|out
@@ -1689,7 +1647,7 @@ argument_list|)
 expr_stmt|;
 block|}
 operator|--
-name|depth
+name|mDepth
 expr_stmt|;
 return|return
 literal|false
@@ -1746,7 +1704,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -1843,6 +1801,27 @@ operator|<<
 literal|" (const int)\n"
 expr_stmt|;
 break|break;
+case|case
+name|EbtUInt
+case|:
+name|out
+operator|<<
+name|node
+operator|->
+name|getUnionArrayPointer
+argument_list|()
+index|[
+name|i
+index|]
+operator|.
+name|getUConst
+argument_list|()
+expr_stmt|;
+name|out
+operator|<<
+literal|" (const uint)\n"
+expr_stmt|;
+break|break;
 default|default:
 name|out
 operator|.
@@ -1890,7 +1869,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 name|out
@@ -1915,7 +1894,7 @@ operator|<<
 literal|"tested first\n"
 expr_stmt|;
 operator|++
-name|depth
+name|mDepth
 expr_stmt|;
 name|OutputTreeText
 argument_list|(
@@ -1923,7 +1902,7 @@ name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 if|if
@@ -1950,17 +1929,19 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|out
 operator|<<
 literal|"No loop condition\n"
 expr_stmt|;
+block|}
 name|OutputTreeText
 argument_list|(
 name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 if|if
@@ -1987,10 +1968,12 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|out
 operator|<<
 literal|"No loop body\n"
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|node
@@ -2005,7 +1988,7 @@ name|sink
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 name|out
@@ -2024,7 +2007,7 @@ argument_list|)
 expr_stmt|;
 block|}
 operator|--
-name|depth
+name|mDepth
 expr_stmt|;
 return|return
 literal|false
@@ -2058,7 +2041,7 @@ name|out
 argument_list|,
 name|node
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -2121,7 +2104,7 @@ operator|<<
 literal|" with expression\n"
 expr_stmt|;
 operator|++
-name|depth
+name|mDepth
 expr_stmt|;
 name|node
 operator|->
@@ -2134,14 +2117,16 @@ name|this
 argument_list|)
 expr_stmt|;
 operator|--
-name|depth
+name|mDepth
 expr_stmt|;
 block|}
 else|else
+block|{
 name|out
 operator|<<
 literal|"\n"
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -2178,13 +2163,13 @@ if|if
 condition|(
 name|root
 operator|==
-literal|0
+name|NULL
 condition|)
 return|return;
 name|TOutputTraverser
 name|it
 argument_list|(
-name|infoSink
+name|mInfoSink
 operator|.
 name|info
 argument_list|)

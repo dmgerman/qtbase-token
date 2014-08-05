@@ -28,7 +28,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/translator/ShHandle.h"
+file|"compiler/translator/Compiler.h"
 end_include
 begin_decl_stmt
 name|class
@@ -41,7 +41,7 @@ name|public
 operator|:
 name|TranslatorESSL
 argument_list|(
-argument|ShShaderType type
+argument|sh::GLenum type
 argument_list|,
 argument|ShShaderSpec spec
 argument_list|)

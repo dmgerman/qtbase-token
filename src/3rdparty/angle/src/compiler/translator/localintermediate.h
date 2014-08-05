@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2014 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -17,28 +17,18 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_LOCAL_INTERMEDIATE_INCLUDED_
+name|COMPILER_TRANSLATOR_LOCAL_INTERMEDIATE_H_
 end_ifndef
 begin_define
-DECL|macro|_LOCAL_INTERMEDIATE_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_LOCAL_INTERMEDIATE_H_
 define|#
 directive|define
-name|_LOCAL_INTERMEDIATE_INCLUDED_
+name|COMPILER_TRANSLATOR_LOCAL_INTERMEDIATE_H_
 end_define
 begin_include
 include|#
 directive|include
-file|"GLSLANG/ShaderLang.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"compiler/translator/intermediate.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"compiler/translator/SymbolTable.h"
 end_include
 begin_struct
 DECL|struct|TVectorFields
@@ -90,7 +80,7 @@ operator|&
 name|i
 argument_list|)
 operator|:
-name|infoSink
+name|mInfoSink
 argument_list|(
 argument|i
 argument_list|)
@@ -99,7 +89,7 @@ name|TIntermSymbol
 operator|*
 name|addSymbol
 argument_list|(
-argument|int Id
+argument|int id
 argument_list|,
 argument|const TString&
 argument_list|,
@@ -108,20 +98,6 @@ argument_list|,
 argument|const TSourceLoc&
 argument_list|)
 expr_stmt|;
-name|TIntermTyped
-modifier|*
-name|addConversion
-parameter_list|(
-name|TOperator
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-parameter_list|,
-name|TIntermTyped
-modifier|*
-parameter_list|)
-function_decl|;
 name|TIntermTyped
 modifier|*
 name|addBinaryMath
@@ -139,9 +115,6 @@ name|right
 parameter_list|,
 specifier|const
 name|TSourceLoc
-modifier|&
-parameter_list|,
-name|TSymbolTable
 modifier|&
 parameter_list|)
 function_decl|;
@@ -198,9 +171,6 @@ name|child
 parameter_list|,
 specifier|const
 name|TSourceLoc
-modifier|&
-parameter_list|,
-name|TSymbolTable
 modifier|&
 parameter_list|)
 function_decl|;
@@ -318,16 +288,7 @@ name|TSourceLoc
 modifier|&
 parameter_list|)
 function_decl|;
-name|TIntermTyped
-modifier|*
-name|promoteConstantUnion
-parameter_list|(
-name|TBasicType
-parameter_list|,
-name|TIntermConstantUnion
-modifier|*
-parameter_list|)
-function_decl|;
+comment|// TODO(zmo): Get rid of default value.
 name|bool
 name|parseConstTree
 parameter_list|(
@@ -342,9 +303,6 @@ name|ConstantUnion
 modifier|*
 parameter_list|,
 name|TOperator
-parameter_list|,
-name|TSymbolTable
-modifier|&
 parameter_list|,
 name|TType
 parameter_list|,
@@ -448,7 +406,7 @@ decl_stmt|;
 comment|// prevent assignments
 name|TInfoSink
 modifier|&
-name|infoSink
+name|mInfoSink
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -460,6 +418,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _LOCAL_INTERMEDIATE_INCLUDED_
+comment|// COMPILER_TRANSLATOR_LOCAL_INTERMEDIATE_H_
 end_comment
 end_unit

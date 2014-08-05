@@ -33,6 +33,42 @@ include|#
 directive|include
 file|"common/debug.h"
 end_include
+begin_undef
+DECL|macro|EGLAPI
+undef|#
+directive|undef
+name|EGLAPI
+end_undef
+begin_define
+DECL|macro|EGLAPI
+define|#
+directive|define
+name|EGLAPI
+end_define
+begin_include
+include|#
+directive|include
+file|<EGL/egl.h>
+end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Sleep
+end_ifndef
+begin_define
+DECL|macro|Sleep
+define|#
+directive|define
+name|Sleep
+parameter_list|(
+name|ms
+parameter_list|)
+value|WaitForSingleObjectEx(GetCurrentThread(), ms, FALSE)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|namespace
 name|egl
@@ -157,6 +193,8 @@ name|Context
 operator|*
 name|glCreateContext
 argument_list|(
+argument|int clientVersion
+argument_list|,
 argument|const gl::Context *shareContext
 argument_list|,
 argument|rx::Renderer *renderer
@@ -213,7 +251,9 @@ name|glCreateRenderer
 argument_list|(
 argument|egl::Display *display
 argument_list|,
-argument|EGLNativeDisplayType displayId
+argument|EGLNativeDisplayType nativeDisplay
+argument_list|,
+argument|EGLint requestedDisplayType
 argument_list|)
 expr_stmt|;
 name|void

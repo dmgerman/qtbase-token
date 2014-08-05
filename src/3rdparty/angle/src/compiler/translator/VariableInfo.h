@@ -28,77 +28,13 @@ end_define
 begin_include
 include|#
 directive|include
-file|"GLSLANG/ShaderLang.h"
+file|"compiler/translator/intermediate.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|"common/shadervars.h"
 end_include
-begin_comment
-comment|// Provides information about a variable.
-end_comment
-begin_comment
-comment|// It is currently being used to store info about active attribs and uniforms.
-end_comment
-begin_struct
-DECL|struct|TVariableInfo
-struct|struct
-name|TVariableInfo
-block|{
-name|TVariableInfo
-argument_list|(
-argument|ShDataType type
-argument_list|,
-argument|int size
-argument_list|)
-empty_stmt|;
-name|TVariableInfo
-argument_list|()
-expr_stmt|;
-DECL|member|name
-name|TPersistString
-name|name
-decl_stmt|;
-DECL|member|mappedName
-name|TPersistString
-name|mappedName
-decl_stmt|;
-DECL|member|type
-name|ShDataType
-name|type
-decl_stmt|;
-DECL|member|size
-name|int
-name|size
-decl_stmt|;
-DECL|member|isArray
-name|bool
-name|isArray
-decl_stmt|;
-DECL|member|precision
-name|TPrecision
-name|precision
-decl_stmt|;
-DECL|member|staticUse
-name|bool
-name|staticUse
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_typedef
-DECL|typedef|TVariableInfoList
-typedef|typedef
-name|std
-operator|::
-name|vector
-operator|<
-name|TVariableInfo
-operator|>
-name|TVariableInfoList
-expr_stmt|;
-end_typedef
 begin_comment
 comment|// Traverses intermediate tree to collect all attributes, uniforms, varyings.
 end_comment
@@ -113,11 +49,15 @@ name|public
 operator|:
 name|CollectVariables
 argument_list|(
-argument|TVariableInfoList& attribs
+argument|std::vector<sh::Attribute> *attribs
 argument_list|,
-argument|TVariableInfoList& uniforms
+argument|std::vector<sh::Attribute> *outputVariables
 argument_list|,
-argument|TVariableInfoList& varyings
+argument|std::vector<sh::Uniform> *uniforms
+argument_list|,
+argument|std::vector<sh::Varying> *varyings
+argument_list|,
+argument|std::vector<sh::InterfaceBlock> *interfaceBlocks
 argument_list|,
 argument|ShHashFunction64 hashFunction
 argument_list|)
@@ -128,6 +68,7 @@ name|visitSymbol
 argument_list|(
 name|TIntermSymbol
 operator|*
+name|symbol
 argument_list|)
 block|;
 name|virtual
@@ -138,21 +79,108 @@ name|Visit
 argument_list|,
 name|TIntermAggregate
 operator|*
+name|node
 argument_list|)
 block|;
 name|private
 operator|:
-name|TVariableInfoList
-operator|&
+name|template
+operator|<
+name|typename
+name|VarT
+operator|>
+name|void
+name|visitVariable
+argument_list|(
+argument|const TIntermSymbol *variable
+argument_list|,
+argument|std::vector<VarT> *infoList
+argument_list|)
+specifier|const
+block|;
+name|template
+operator|<
+name|typename
+name|VarT
+operator|>
+name|void
+name|visitInfoList
+argument_list|(
+argument|const TIntermSequence&sequence
+argument_list|,
+argument|std::vector<VarT> *infoList
+argument_list|)
+specifier|const
+block|;
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Attribute
+operator|>
+operator|*
 name|mAttribs
 block|;
-name|TVariableInfoList
-operator|&
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Attribute
+operator|>
+operator|*
+name|mOutputVariables
+block|;
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Uniform
+operator|>
+operator|*
 name|mUniforms
 block|;
-name|TVariableInfoList
-operator|&
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Varying
+operator|>
+operator|*
 name|mVaryings
+block|;
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|InterfaceBlock
+operator|>
+operator|*
+name|mInterfaceBlocks
+block|;
+name|std
+operator|::
+name|map
+operator|<
+name|std
+operator|::
+name|string
+block|,
+name|sh
+operator|::
+name|InterfaceBlockField
+operator|*
+operator|>
+name|mInterfaceBlockFields
 block|;
 name|bool
 name|mPointCoordAdded
@@ -168,6 +196,42 @@ name|mHashFunction
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// Expand struct variables to flattened lists of split variables
+end_comment
+begin_comment
+comment|// Implemented for sh::Varying and sh::Uniform.
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|VarT
+operator|>
+name|void
+name|ExpandVariables
+argument_list|(
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
+name|VarT
+operator|>
+operator|&
+name|compact
+argument_list|,
+name|std
+operator|::
+name|vector
+operator|<
+name|VarT
+operator|>
+operator|*
+name|expanded
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

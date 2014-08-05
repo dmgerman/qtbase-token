@@ -52,7 +52,7 @@ name|Input
 argument_list|(
 argument|size_t count
 argument_list|,
-argument|const char* const string[]
+argument|const char *const string[]
 argument_list|,
 argument|const int length[]
 argument_list|)
@@ -132,7 +132,7 @@ name|cIndex
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{         }
 block|}
 struct|;
 specifier|const

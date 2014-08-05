@@ -56,7 +56,7 @@ operator|->
 name|getLine
 argument_list|()
 argument_list|,
-literal|"Samplers are not permitted in vertex shaders"
+literal|"Samplers are not permitted in vertex shaders.\n"
 argument_list|)
 expr_stmt|;
 block|}

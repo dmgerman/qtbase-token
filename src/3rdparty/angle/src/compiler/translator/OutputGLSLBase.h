@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2011 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -33,12 +33,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/ForLoopUnroll.h"
+file|"compiler/translator/intermediate.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|"compiler/translator/LoopInfo.h"
 end_include
 begin_include
 include|#
@@ -56,15 +56,17 @@ name|public
 operator|:
 name|TOutputGLSLBase
 argument_list|(
-argument|TInfoSinkBase& objSink
+argument|TInfoSinkBase&objSink
 argument_list|,
 argument|ShArrayIndexClampingStrategy clampingStrategy
 argument_list|,
 argument|ShHashFunction64 hashFunction
 argument_list|,
-argument|NameMap& nameMap
+argument|NameMap&nameMap
 argument_list|,
 argument|TSymbolTable& symbolTable
+argument_list|,
+argument|int shaderVersion
 argument_list|)
 block|;
 name|protected
@@ -83,11 +85,11 @@ name|writeTriplet
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|const char* preStr
+argument|const char *preStr
 argument_list|,
-argument|const char* inStr
+argument|const char *inStr
 argument_list|,
-argument|const char* postStr
+argument|const char *postStr
 argument_list|)
 block|;
 name|void
@@ -166,7 +168,7 @@ name|visitBinary
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermBinary* node
+argument|TIntermBinary *node
 argument_list|)
 block|;
 name|virtual
@@ -175,7 +177,7 @@ name|visitUnary
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermUnary* node
+argument|TIntermUnary *node
 argument_list|)
 block|;
 name|virtual
@@ -184,7 +186,7 @@ name|visitSelection
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermSelection* node
+argument|TIntermSelection *node
 argument_list|)
 block|;
 name|virtual
@@ -193,7 +195,7 @@ name|visitAggregate
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermAggregate* node
+argument|TIntermAggregate *node
 argument_list|)
 block|;
 name|virtual
@@ -202,7 +204,7 @@ name|visitLoop
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermLoop* node
+argument|TIntermLoop *node
 argument_list|)
 block|;
 name|virtual
@@ -211,7 +213,7 @@ name|visitBranch
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermBranch* node
+argument|TIntermBranch *node
 argument_list|)
 block|;
 name|void
@@ -253,12 +255,24 @@ operator|&
 name|mangled_name
 argument_list|)
 block|;
+comment|// Used to translate function names for differences between ESSL and GLSL
+name|virtual
+name|TString
+name|translateTextureFunction
+argument_list|(
+argument|TString&name
+argument_list|)
+block|{
+return|return
+name|name
+return|;
+block|}
 name|private
 operator|:
 name|bool
 name|structDeclared
 argument_list|(
-argument|const TStructure* structure
+argument|const TStructure *structure
 argument_list|)
 specifier|const
 block|;
@@ -271,6 +285,16 @@ operator|*
 name|structure
 argument_list|)
 block|;
+name|void
+name|writeBuiltInFunctionTriplet
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|const char *preStr
+argument_list|,
+argument|bool useEmulatedFunction
+argument_list|)
+block|;
 name|TInfoSinkBase
 operator|&
 name|mObjSink
@@ -278,54 +302,41 @@ block|;
 name|bool
 name|mDeclaringVariables
 block|;
-comment|// Structs are declared as the tree is traversed. This set contains all
-comment|// the structs already declared. It is maintained so that a struct is
-comment|// declared only once.
-typedef|typedef
+comment|// This set contains all the ids of the structs from every scope.
 name|std
 operator|::
 name|set
 operator|<
-name|TString
+name|int
 operator|>
-name|DeclaredStructs
-expr_stmt|;
-name|DeclaredStructs
 name|mDeclaredStructs
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|ForLoopUnroll
-name|mLoopUnroll
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+block|;
+comment|// Stack of loops that need to be unrolled.
+name|TLoopStack
+name|mLoopUnrollStack
+block|;
 name|ShArrayIndexClampingStrategy
 name|mClampingStrategy
-decl_stmt|;
-end_decl_stmt
-begin_comment
+block|;
 comment|// name hashing.
-end_comment
-begin_decl_stmt
 name|ShHashFunction64
 name|mHashFunction
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+block|;
 name|NameMap
-modifier|&
+operator|&
 name|mNameMap
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+block|;
 name|TSymbolTable
-modifier|&
+operator|&
 name|mSymbolTable
+block|;
+specifier|const
+name|int
+name|mShaderVersion
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
-unit|};
 endif|#
 directive|endif
 end_endif

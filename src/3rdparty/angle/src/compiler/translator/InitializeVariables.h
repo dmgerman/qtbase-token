@@ -104,9 +104,9 @@ name|virtual
 name|bool
 name|visitBinary
 argument_list|(
-argument|Visit visit
+argument|Visit
 argument_list|,
-argument|TIntermBinary* node
+argument|TIntermBinary *node
 argument_list|)
 block|{
 return|return
@@ -120,7 +120,6 @@ name|bool
 name|visitUnary
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermUnary
 modifier|*
@@ -138,7 +137,6 @@ name|bool
 name|visitSelection
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermSelection
 modifier|*
@@ -156,7 +154,6 @@ name|bool
 name|visitLoop
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermLoop
 modifier|*
@@ -174,7 +171,6 @@ name|bool
 name|visitBranch
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermBranch
 modifier|*
@@ -209,7 +205,7 @@ name|void
 name|insertInitCode
 parameter_list|(
 name|TIntermSequence
-modifier|&
+modifier|*
 name|sequence
 parameter_list|)
 function_decl|;

@@ -243,7 +243,7 @@ literal|"main("
 condition|)
 block|{
 name|TIntermSequence
-modifier|&
+modifier|*
 name|sequence
 init|=
 name|node
@@ -255,7 +255,7 @@ name|ASSERT
 argument_list|(
 operator|(
 name|sequence
-operator|.
+operator|->
 name|size
 argument_list|()
 operator|==
@@ -264,7 +264,7 @@ operator|)
 operator|||
 operator|(
 name|sequence
-operator|.
+operator|->
 name|size
 argument_list|()
 operator|==
@@ -281,7 +281,7 @@ decl_stmt|;
 if|if
 condition|(
 name|sequence
-operator|.
+operator|->
 name|size
 argument_list|()
 operator|==
@@ -297,7 +297,7 @@ name|EOpSequence
 argument_list|)
 expr_stmt|;
 name|sequence
-operator|.
+operator|->
 name|push_back
 argument_list|(
 name|body
@@ -308,7 +308,10 @@ else|else
 block|{
 name|body
 operator|=
+operator|(
+operator|*
 name|sequence
+operator|)
 index|[
 literal|1
 index|]
@@ -357,7 +360,7 @@ operator|::
 name|insertInitCode
 parameter_list|(
 name|TIntermSequence
-modifier|&
+modifier|*
 name|sequence
 parameter_list|)
 block|{
@@ -432,11 +435,11 @@ name|EOpAssign
 argument_list|)
 decl_stmt|;
 name|sequence
-operator|.
+operator|->
 name|insert
 argument_list|(
 name|sequence
-operator|.
+operator|->
 name|begin
 argument_list|()
 argument_list|,
@@ -534,11 +537,11 @@ name|EOpAssign
 argument_list|)
 decl_stmt|;
 name|sequence
-operator|.
+operator|->
 name|insert
 argument_list|(
 name|sequence
-operator|.
+operator|->
 name|begin
 argument_list|()
 argument_list|,

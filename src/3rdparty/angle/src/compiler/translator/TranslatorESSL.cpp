@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2011 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -24,13 +24,20 @@ include|#
 directive|include
 file|"compiler/translator/OutputESSL.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
 begin_constructor
 DECL|function|TranslatorESSL
 name|TranslatorESSL
 operator|::
 name|TranslatorESSL
 parameter_list|(
-name|ShShaderType
+name|sh
+operator|::
+name|GLenum
 name|type
 parameter_list|,
 name|ShShaderSpec
@@ -42,6 +49,8 @@ argument_list|(
 name|type
 argument_list|,
 name|spec
+argument_list|,
+name|SH_ESSL_OUTPUT
 argument_list|)
 block|{ }
 end_constructor
@@ -81,7 +90,7 @@ argument_list|,
 name|getShaderType
 argument_list|()
 operator|==
-name|SH_FRAGMENT_SHADER
+name|GL_FRAGMENT_SHADER
 argument_list|)
 expr_stmt|;
 comment|// Write array bounds clamping emulation if needed.
@@ -109,6 +118,9 @@ name|getNameMap
 argument_list|()
 argument_list|,
 name|getSymbolTable
+argument_list|()
+argument_list|,
+name|getShaderVersion
 argument_list|()
 argument_list|)
 decl_stmt|;

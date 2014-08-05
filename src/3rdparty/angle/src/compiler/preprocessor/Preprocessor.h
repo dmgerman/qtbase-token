@@ -112,24 +112,20 @@ name|int
 name|value
 parameter_list|)
 function_decl|;
-comment|// Sets maximum allowed token length.
-comment|// If token length exceeds this limit,
-comment|// the token text will be truncated to the given maximum length, and
-comment|// TOKEN_TOO_LONG diagnostic will be generated.
-comment|// The maximum length defaults to 256.
-name|void
-name|setMaxTokenLength
-parameter_list|(
-name|size_t
-name|maxLength
-parameter_list|)
-function_decl|;
 name|void
 name|lex
 parameter_list|(
 name|Token
 modifier|*
 name|token
+parameter_list|)
+function_decl|;
+comment|// Set maximum preprocessor token size
+name|void
+name|setMaxTokenSize
+parameter_list|(
+name|size_t
+name|maxTokenSize
 parameter_list|)
 function_decl|;
 name|private

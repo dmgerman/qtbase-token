@@ -17,12 +17,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"GLSLANG/ShaderLang.h"
+file|"compiler/translator/intermediate.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|"compiler/translator/LoopInfo.h"
 end_include
 begin_decl_stmt
 DECL|variable|TInfoSinkBase
@@ -30,42 +30,6 @@ name|class
 name|TInfoSinkBase
 decl_stmt|;
 end_decl_stmt
-begin_struct
-DECL|struct|TLoopInfo
-struct|struct
-name|TLoopInfo
-block|{
-DECL|struct|TIndex
-struct|struct
-name|TIndex
-block|{
-DECL|member|id
-name|int
-name|id
-decl_stmt|;
-comment|// symbol id.
-block|}
-DECL|member|index
-name|index
-struct|;
-DECL|member|loop
-name|TIntermLoop
-modifier|*
-name|loop
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_typedef
-DECL|typedef|TLoopStack
-typedef|typedef
-name|TVector
-operator|<
-name|TLoopInfo
-operator|>
-name|TLoopStack
-expr_stmt|;
-end_typedef
 begin_comment
 comment|// Traverses intermediate tree to ensure that the shader does not exceed the
 end_comment
@@ -83,9 +47,9 @@ name|public
 operator|:
 name|ValidateLimitations
 argument_list|(
-argument|ShShaderType shaderType
+argument|sh::GLenum shaderType
 argument_list|,
-argument|TInfoSinkBase& sink
+argument|TInfoSinkBase&sink
 argument_list|)
 block|;
 name|int
@@ -146,7 +110,7 @@ argument|TSourceLoc loc
 argument_list|,
 argument|const char *reason
 argument_list|,
-argument|const char* token
+argument|const char *token
 argument_list|)
 block|;
 name|bool
@@ -157,9 +121,10 @@ block|;
 name|bool
 name|isLoopIndex
 argument_list|(
-argument|const TIntermSymbol* symbol
+name|TIntermSymbol
+operator|*
+name|symbol
 argument_list|)
-specifier|const
 block|;
 name|bool
 name|validateLoopType
@@ -175,46 +140,31 @@ argument_list|(
 name|TIntermLoop
 operator|*
 name|node
-argument_list|,
-name|TLoopInfo
-operator|*
-name|info
 argument_list|)
 block|;
-name|bool
+comment|// If valid, return the index symbol id; Otherwise, return -1.
+name|int
 name|validateForLoopInit
 argument_list|(
 name|TIntermLoop
 operator|*
 name|node
-argument_list|,
-name|TLoopInfo
-operator|*
-name|info
 argument_list|)
 block|;
 name|bool
 name|validateForLoopCond
 argument_list|(
-name|TIntermLoop
-operator|*
-name|node
+argument|TIntermLoop *node
 argument_list|,
-name|TLoopInfo
-operator|*
-name|info
+argument|int indexSymbolId
 argument_list|)
 block|;
 name|bool
 name|validateForLoopExpr
 argument_list|(
-name|TIntermLoop
-operator|*
-name|node
+argument|TIntermLoop *node
 argument_list|,
-name|TLoopInfo
-operator|*
-name|info
+argument|int indexSymbolId
 argument_list|)
 block|;
 comment|// Returns true if none of the loop indices is used as the argument to
@@ -265,7 +215,9 @@ operator|*
 name|node
 argument_list|)
 block|;
-name|ShShaderType
+name|sh
+operator|::
+name|GLenum
 name|mShaderType
 block|;
 name|TInfoSinkBase

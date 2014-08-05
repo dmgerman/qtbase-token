@@ -34,12 +34,6 @@ define|#
 directive|define
 name|INCLUDE_CONFIG_H_
 end_define
-begin_define
-DECL|macro|EGLAPI
-define|#
-directive|define
-name|EGLAPI
-end_define
 begin_include
 include|#
 directive|include

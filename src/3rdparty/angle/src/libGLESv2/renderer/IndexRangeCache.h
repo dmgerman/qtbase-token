@@ -36,6 +36,11 @@ include|#
 directive|include
 file|"common/angleutils.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -207,6 +212,8 @@ end_decl_stmt
 begin_endif
 endif|#
 directive|endif
-endif|LIBGLESV2_RENDERER_INDEXRANGECACHE_H
 end_endif
+begin_comment
+comment|// LIBGLESV2_RENDERER_INDEXRANGECACHE_H
+end_comment
 end_unit

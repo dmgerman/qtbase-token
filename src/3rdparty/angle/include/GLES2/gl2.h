@@ -11,7 +11,7 @@ directive|define
 name|__gl2_h_
 end_define
 begin_comment
-comment|/* $Revision: 10602 $ on $Date:: 2010-03-04 22:35:34 -0800 #$ */
+comment|/* $Revision: 20555 $ on $Date:: 2013-02-12 14:32:47 -0800 #$ */
 end_comment
 begin_include
 include|#
@@ -1571,11 +1571,6 @@ define|#
 directive|define
 name|GL_DEPTH_COMPONENT16
 value|0x81A5
-DECL|macro|GL_STENCIL_INDEX
-define|#
-directive|define
-name|GL_STENCIL_INDEX
-value|0x1901
 DECL|macro|GL_STENCIL_INDEX8
 define|#
 directive|define
@@ -2536,7 +2531,7 @@ name|shaders
 parameter_list|)
 function_decl|;
 name|GL_APICALL
-name|int
+name|GLint
 name|GL_APIENTRY
 name|glGetAttribLocation
 parameter_list|(
@@ -2835,7 +2830,7 @@ name|params
 parameter_list|)
 function_decl|;
 name|GL_APICALL
-name|int
+name|GLint
 name|GL_APIENTRY
 name|glGetUniformLocation
 parameter_list|(
@@ -3137,6 +3132,7 @@ parameter_list|,
 specifier|const
 name|GLchar
 modifier|*
+specifier|const
 modifier|*
 name|string
 parameter_list|,

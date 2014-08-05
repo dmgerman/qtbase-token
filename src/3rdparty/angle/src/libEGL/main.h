@@ -28,6 +28,12 @@ define|#
 directive|define
 name|LIBEGL_MAIN_H_
 end_define
+begin_undef
+DECL|macro|EGLAPI
+undef|#
+directive|undef
+name|EGLAPI
+end_undef
 begin_define
 DECL|macro|EGLAPI
 define|#

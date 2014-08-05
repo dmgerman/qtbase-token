@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2010 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -17,19 +17,14 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_VERSIONGLSL_H_
+name|COMPILER_TRANSLATOR_VERSIONGLSL_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_VERSIONGLSL_H_
+DECL|macro|COMPILER_TRANSLATOR_VERSIONGLSL_H_
 define|#
 directive|define
-name|COMPILER_VERSIONGLSL_H_
+name|COMPILER_TRANSLATOR_VERSIONGLSL_H_
 end_define
-begin_include
-include|#
-directive|include
-file|"GLSLANG/ShaderLang.h"
-end_include
 begin_include
 include|#
 directive|include
@@ -77,6 +72,9 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_comment
+comment|// TODO: ES3 equivalent versions of GLSL
+end_comment
 begin_decl_stmt
 name|class
 name|TVersionGLSL
@@ -88,7 +86,7 @@ name|public
 operator|:
 name|TVersionGLSL
 argument_list|(
-argument|ShShaderType type
+argument|sh::GLenum type
 argument_list|)
 block|;
 comment|// Returns 120 if the following is used the shader:
@@ -114,70 +112,12 @@ operator|*
 argument_list|)
 block|;
 name|virtual
-name|void
-name|visitConstantUnion
-argument_list|(
-name|TIntermConstantUnion
-operator|*
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|visitBinary
-argument_list|(
-name|Visit
-argument_list|,
-name|TIntermBinary
-operator|*
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|visitUnary
-argument_list|(
-name|Visit
-argument_list|,
-name|TIntermUnary
-operator|*
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|visitSelection
-argument_list|(
-name|Visit
-argument_list|,
-name|TIntermSelection
-operator|*
-argument_list|)
-block|;
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
 name|Visit
 argument_list|,
 name|TIntermAggregate
-operator|*
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|visitLoop
-argument_list|(
-name|Visit
-argument_list|,
-name|TIntermLoop
-operator|*
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|visitBranch
-argument_list|(
-name|Visit
-argument_list|,
-name|TIntermBranch
 operator|*
 argument_list|)
 block|;
@@ -191,9 +131,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|ShShaderType
-name|mShaderType
-block|;
 name|int
 name|mVersion
 block|; }
@@ -204,6 +141,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_VERSIONGLSL_H_
+comment|// COMPILER_TRANSLATOR_VERSIONGLSL_H_
 end_comment
 end_unit

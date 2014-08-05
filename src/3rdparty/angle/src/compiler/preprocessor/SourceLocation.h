@@ -44,7 +44,7 @@ name|line
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{     }
 name|SourceLocation
 argument_list|(
 argument|int f
@@ -61,11 +61,11 @@ name|line
 argument_list|(
 argument|l
 argument_list|)
-block|{ }
+block|{     }
 name|bool
 name|equals
 argument_list|(
-argument|const SourceLocation& other
+argument|const SourceLocation&other
 argument_list|)
 specifier|const
 block|{

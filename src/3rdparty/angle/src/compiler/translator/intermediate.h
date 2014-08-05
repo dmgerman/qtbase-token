@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2013 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2014 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -41,13 +41,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__INTERMEDIATE_H
+name|COMPILER_TRANSLATOR_INTERMEDIATE_H_
 end_ifndef
 begin_define
-DECL|macro|__INTERMEDIATE_H
+DECL|macro|COMPILER_TRANSLATOR_INTERMEDIATE_H_
 define|#
 directive|define
-name|__INTERMEDIATE_H
+name|COMPILER_TRANSLATOR_INTERMEDIATE_H_
 end_define
 begin_include
 include|#
@@ -58,6 +58,11 @@ begin_include
 include|#
 directive|include
 file|<algorithm>
+end_include
+begin_include
+include|#
+directive|include
+file|<queue>
 end_include
 begin_include
 include|#
@@ -137,24 +142,6 @@ block|,
 DECL|enumerator|EOpPreDecrement
 name|EOpPreDecrement
 block|,
-DECL|enumerator|EOpConvIntToBool
-name|EOpConvIntToBool
-block|,
-DECL|enumerator|EOpConvFloatToBool
-name|EOpConvFloatToBool
-block|,
-DECL|enumerator|EOpConvBoolToFloat
-name|EOpConvBoolToFloat
-block|,
-DECL|enumerator|EOpConvIntToFloat
-name|EOpConvIntToFloat
-block|,
-DECL|enumerator|EOpConvFloatToInt
-name|EOpConvFloatToInt
-block|,
-DECL|enumerator|EOpConvBoolToInt
-name|EOpConvBoolToInt
-block|,
 comment|//
 comment|// binary operations
 comment|//
@@ -226,6 +213,9 @@ name|EOpIndexIndirect
 block|,
 DECL|enumerator|EOpIndexDirectStruct
 name|EOpIndexDirectStruct
+block|,
+DECL|enumerator|EOpIndexDirectInterfaceBlock
+name|EOpIndexDirectInterfaceBlock
 block|,
 DECL|enumerator|EOpVectorSwizzle
 name|EOpVectorSwizzle
@@ -381,6 +371,9 @@ comment|//
 DECL|enumerator|EOpConstructInt
 name|EOpConstructInt
 block|,
+DECL|enumerator|EOpConstructUInt
+name|EOpConstructUInt
+block|,
 DECL|enumerator|EOpConstructBool
 name|EOpConstructBool
 block|,
@@ -413,6 +406,15 @@ name|EOpConstructIVec3
 block|,
 DECL|enumerator|EOpConstructIVec4
 name|EOpConstructIVec4
+block|,
+DECL|enumerator|EOpConstructUVec2
+name|EOpConstructUVec2
+block|,
+DECL|enumerator|EOpConstructUVec3
+name|EOpConstructUVec3
+block|,
+DECL|enumerator|EOpConstructUVec4
+name|EOpConstructUVec4
 block|,
 DECL|enumerator|EOpConstructMat2
 name|EOpConstructMat2
@@ -461,18 +463,6 @@ name|EOpDivAssign
 block|}
 enum|;
 end_enum
-begin_function_decl
-specifier|extern
-specifier|const
-name|char
-modifier|*
-name|getOperatorString
-parameter_list|(
-name|TOperator
-name|op
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_decl_stmt
 DECL|variable|TIntermTraverser
 name|class
@@ -533,6 +523,12 @@ name|class
 name|TInfoSink
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|TIntermRaw
+name|class
+name|TIntermRaw
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|//
 end_comment
@@ -556,21 +552,21 @@ argument_list|()
 block|{
 comment|// TODO: Move this to TSourceLoc constructor
 comment|// after getting rid of TPublicType.
-name|line
+name|mLine
 operator|.
 name|first_file
 operator|=
-name|line
+name|mLine
 operator|.
 name|last_file
 operator|=
 literal|0
 expr_stmt|;
-name|line
+name|mLine
 operator|.
 name|first_line
 operator|=
-name|line
+name|mLine
 operator|.
 name|last_line
 operator|=
@@ -590,7 +586,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|line
+name|mLine
 return|;
 block|}
 name|void
@@ -602,7 +598,7 @@ modifier|&
 name|l
 parameter_list|)
 block|{
-name|line
+name|mLine
 operator|=
 name|l
 expr_stmt|;
@@ -697,6 +693,16 @@ return|return
 literal|0
 return|;
 block|}
+name|virtual
+name|TIntermRaw
+modifier|*
+name|getAsRawNode
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 comment|// Replace a child node. Return true if |original| is a child
 comment|// node and it is replaced; otherwise, return false.
 name|virtual
@@ -714,10 +720,30 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
+comment|// For traversing a tree in no particular order, but using
+comment|// heap memory.
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+name|std
+operator|::
+name|queue
+operator|<
+name|TIntermNode
+operator|*
+operator|>
+operator|*
+name|nodeQueue
+argument_list|)
+decl|const
+init|=
+literal|0
+decl_stmt|;
 name|protected
 label|:
 name|TSourceLoc
-name|line
+name|mLine
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -777,7 +803,7 @@ operator|&
 name|t
 argument_list|)
 operator|:
-name|type
+name|mType
 argument_list|(
 argument|t
 argument_list|)
@@ -803,10 +829,10 @@ block|;
 name|void
 name|setType
 argument_list|(
-argument|const TType& t
+argument|const TType&t
 argument_list|)
 block|{
-name|type
+name|mType
 operator|=
 name|t
 block|; }
@@ -818,7 +844,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 return|;
 block|}
 name|TType
@@ -828,7 +854,7 @@ argument_list|()
 block|{
 return|return
 operator|&
-name|type
+name|mType
 return|;
 block|}
 name|TBasicType
@@ -837,7 +863,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getBasicType
 argument_list|()
@@ -849,7 +875,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getQualifier
 argument_list|()
@@ -861,9 +887,33 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getPrecision
+argument_list|()
+return|;
+block|}
+name|int
+name|getCols
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mType
+operator|.
+name|getCols
+argument_list|()
+return|;
+block|}
+name|int
+name|getRows
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mType
+operator|.
+name|getRows
 argument_list|()
 return|;
 block|}
@@ -873,19 +923,43 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getNominalSize
 argument_list|()
 return|;
 block|}
+name|int
+name|getSecondarySize
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mType
+operator|.
+name|getSecondarySize
+argument_list|()
+return|;
+block|}
+name|bool
+name|isInterfaceBlock
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mType
+operator|.
+name|isInterfaceBlock
+argument_list|()
+return|;
+block|}
 name|bool
 name|isMatrix
 argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|isMatrix
 argument_list|()
@@ -897,7 +971,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|isArray
 argument_list|()
@@ -909,7 +983,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|isVector
 argument_list|()
@@ -921,9 +995,21 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|isScalar
+argument_list|()
+return|;
+block|}
+name|bool
+name|isScalarInt
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mType
+operator|.
+name|isScalarInt
 argument_list|()
 return|;
 block|}
@@ -935,7 +1021,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getBasicString
 argument_list|()
@@ -949,7 +1035,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getQualifierString
 argument_list|()
@@ -961,33 +1047,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getCompleteString
-argument_list|()
-return|;
-block|}
-name|int
-name|totalRegisterCount
-argument_list|()
-specifier|const
-block|{
-return|return
-name|type
-operator|.
-name|totalRegisterCount
-argument_list|()
-return|;
-block|}
-name|int
-name|elementRegisterCount
-argument_list|()
-specifier|const
-block|{
-return|return
-name|type
-operator|.
-name|elementRegisterCount
 argument_list|()
 return|;
 block|}
@@ -997,7 +1059,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 operator|.
 name|getArraySize
 argument_list|()
@@ -1006,7 +1068,7 @@ block|}
 name|protected
 operator|:
 name|TType
-name|type
+name|mType
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -1046,43 +1108,43 @@ name|public
 operator|:
 name|TIntermLoop
 argument_list|(
-argument|TLoopType aType
+argument|TLoopType type
 argument_list|,
-argument|TIntermNode *aInit
+argument|TIntermNode *init
 argument_list|,
-argument|TIntermTyped* aCond
+argument|TIntermTyped *cond
 argument_list|,
-argument|TIntermTyped* aExpr
+argument|TIntermTyped *expr
 argument_list|,
-argument|TIntermNode* aBody
+argument|TIntermNode *body
 argument_list|)
 operator|:
+name|mType
+argument_list|(
 name|type
-argument_list|(
-name|aType
 argument_list|)
 block|,
+name|mInit
+argument_list|(
 name|init
-argument_list|(
-name|aInit
 argument_list|)
 block|,
+name|mCond
+argument_list|(
 name|cond
-argument_list|(
-name|aCond
 argument_list|)
 block|,
+name|mExpr
+argument_list|(
 name|expr
-argument_list|(
-name|aExpr
 argument_list|)
 block|,
+name|mBody
+argument_list|(
 name|body
-argument_list|(
-name|aBody
 argument_list|)
 block|,
-name|unrollFlag
+name|mUnrollFlag
 argument_list|(
 argument|false
 argument_list|)
@@ -1124,7 +1186,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|type
+name|mType
 return|;
 block|}
 name|TIntermNode
@@ -1133,7 +1195,7 @@ name|getInit
 argument_list|()
 block|{
 return|return
-name|init
+name|mInit
 return|;
 block|}
 name|TIntermTyped
@@ -1142,7 +1204,7 @@ name|getCondition
 argument_list|()
 block|{
 return|return
-name|cond
+name|mCond
 return|;
 block|}
 name|TIntermTyped
@@ -1151,7 +1213,7 @@ name|getExpression
 argument_list|()
 block|{
 return|return
-name|expr
+name|mExpr
 return|;
 block|}
 name|TIntermNode
@@ -1160,7 +1222,7 @@ name|getBody
 argument_list|()
 block|{
 return|return
-name|body
+name|mBody
 return|;
 block|}
 name|void
@@ -1169,45 +1231,54 @@ argument_list|(
 argument|bool flag
 argument_list|)
 block|{
-name|unrollFlag
+name|mUnrollFlag
 operator|=
 name|flag
 block|; }
 name|bool
 name|getUnrollFlag
 argument_list|()
+specifier|const
 block|{
 return|return
-name|unrollFlag
+name|mUnrollFlag
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|TLoopType
-name|type
+name|mType
 block|;
 name|TIntermNode
 operator|*
-name|init
+name|mInit
 block|;
 comment|// for-loop initialization
 name|TIntermTyped
 operator|*
-name|cond
+name|mCond
 block|;
 comment|// loop exit condition
 name|TIntermTyped
 operator|*
-name|expr
+name|mExpr
 block|;
 comment|// for-loop expression
 name|TIntermNode
 operator|*
-name|body
+name|mBody
 block|;
 comment|// loop body
 name|bool
-name|unrollFlag
+name|mUnrollFlag
 block|;
 comment|// Whether the loop should be unrolled or not.
 block|}
@@ -1235,15 +1306,15 @@ name|TIntermBranch
 argument_list|(
 argument|TOperator op
 argument_list|,
-argument|TIntermTyped* e
+argument|TIntermTyped *e
 argument_list|)
 operator|:
-name|flowOp
+name|mFlowOp
 argument_list|(
 name|op
 argument_list|)
 block|,
-name|expression
+name|mExpression
 argument_list|(
 argument|e
 argument_list|)
@@ -1274,7 +1345,7 @@ name|getFlowOp
 argument_list|()
 block|{
 return|return
-name|flowOp
+name|mFlowOp
 return|;
 block|}
 name|TIntermTyped
@@ -1283,17 +1354,25 @@ name|getExpression
 argument_list|()
 block|{
 return|return
-name|expression
+name|mExpression
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|TOperator
-name|flowOp
+name|mFlowOp
 block|;
 name|TIntermTyped
 operator|*
-name|expression
+name|mExpression
 block|;
 comment|// non-zero except for "return exp;" statements
 block|}
@@ -1317,36 +1396,32 @@ name|TIntermTyped
 block|{
 name|public
 operator|:
-comment|// if symbol is initialized as symbol(sym), the memory comes from the poolallocator of sym. If sym comes from
-comment|// per process globalpoolallocator, then it causes increased memory usage per compile
-comment|// it is essential to use "symbol = sym" to assign to symbol
+comment|// if symbol is initialized as symbol(sym), the memory comes from the poolallocator of sym.
+comment|// If sym comes from per process globalpoolallocator, then it causes increased memory usage
+comment|// per compile it is essential to use "symbol = sym" to assign to symbol
 name|TIntermSymbol
 argument_list|(
-argument|int i
+argument|int id
 argument_list|,
-argument|const TString& sym
+argument|const TString&symbol
 argument_list|,
-argument|const TType& t
+argument|const TType&type
 argument_list|)
 operator|:
 name|TIntermTyped
 argument_list|(
-name|t
+name|type
 argument_list|)
 block|,
-name|id
+name|mId
 argument_list|(
-argument|i
+argument|id
 argument_list|)
 block|{
+name|mSymbol
+operator|=
 name|symbol
-operator|=
-name|sym
-block|;
-name|originalSymbol
-operator|=
-name|sym
-block|; }
+block|;     }
 name|virtual
 name|bool
 name|hasSideEffects
@@ -1363,7 +1438,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|id
+name|mId
 return|;
 block|}
 specifier|const
@@ -1374,7 +1449,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|symbol
+name|mSymbol
 return|;
 block|}
 name|void
@@ -1383,31 +1458,10 @@ argument_list|(
 argument|int newId
 argument_list|)
 block|{
-name|id
+name|mId
 operator|=
 name|newId
 block|; }
-name|void
-name|setSymbol
-argument_list|(
-argument|const TString& sym
-argument_list|)
-block|{
-name|symbol
-operator|=
-name|sym
-block|; }
-specifier|const
-name|TString
-operator|&
-name|getOriginalSymbol
-argument_list|()
-specifier|const
-block|{
-return|return
-name|originalSymbol
-return|;
-block|}
 name|virtual
 name|void
 name|traverse
@@ -1439,16 +1493,127 @@ return|return
 name|false
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|{}
 name|protected
 operator|:
 name|int
-name|id
+name|mId
 block|;
 name|TString
-name|symbol
-block|;
+name|mSymbol
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// A Raw node stores raw code, that the translator will insert verbatim
+end_comment
+begin_comment
+comment|// into the output stream. Useful for transformation operations that make
+end_comment
+begin_comment
+comment|// complex code that might not fit naturally into the GLSL model.
+end_comment
+begin_decl_stmt
+name|class
+name|TIntermRaw
+range|:
+name|public
+name|TIntermTyped
+block|{
+name|public
+operator|:
+name|TIntermRaw
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
+argument_list|,
+specifier|const
 name|TString
-name|originalSymbol
+operator|&
+name|rawText
+argument_list|)
+operator|:
+name|TIntermTyped
+argument_list|(
+name|type
+argument_list|)
+block|,
+name|mRawText
+argument_list|(
+argument|rawText
+argument_list|)
+block|{ }
+name|virtual
+name|bool
+name|hasSideEffects
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|TString
+name|getRawText
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mRawText
+return|;
+block|}
+name|virtual
+name|void
+name|traverse
+argument_list|(
+name|TIntermTraverser
+operator|*
+argument_list|)
+block|;
+name|virtual
+name|TIntermRaw
+operator|*
+name|getAsRawNode
+argument_list|()
+block|{
+return|return
+name|this
+return|;
+block|}
+name|virtual
+name|bool
+name|replaceChildNode
+argument_list|(
+argument|TIntermNode *
+argument_list|,
+argument|TIntermNode *
+argument_list|)
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|{}
+name|protected
+operator|:
+name|TString
+name|mRawText
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -1470,15 +1635,15 @@ argument_list|,
 specifier|const
 name|TType
 operator|&
-name|t
+name|type
 argument_list|)
 operator|:
 name|TIntermTyped
 argument_list|(
-name|t
+name|type
 argument_list|)
 block|,
-name|unionArrayPointer
+name|mUnionArrayPointer
 argument_list|(
 argument|unionPointer
 argument_list|)
@@ -1500,7 +1665,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|unionArrayPointer
+name|mUnionArrayPointer
 return|;
 block|}
 name|int
@@ -1511,9 +1676,9 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|unionArrayPointer
+name|mUnionArrayPointer
 operator|?
-name|unionArrayPointer
+name|mUnionArrayPointer
 index|[
 name|index
 index|]
@@ -1521,6 +1686,28 @@ operator|.
 name|getIConst
 argument_list|()
 operator|:
+literal|0
+return|;
+block|}
+name|unsigned
+name|int
+name|getUConst
+argument_list|(
+argument|size_t index
+argument_list|)
+specifier|const
+block|{
+return|return
+name|mUnionArrayPointer
+condition|?
+name|mUnionArrayPointer
+index|[
+name|index
+index|]
+operator|.
+name|getUConst
+argument_list|()
+else|:
 literal|0
 return|;
 block|}
@@ -1532,9 +1719,9 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|unionArrayPointer
+name|mUnionArrayPointer
 condition|?
-name|unionArrayPointer
+name|mUnionArrayPointer
 index|[
 name|index
 index|]
@@ -1553,9 +1740,9 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|unionArrayPointer
+name|mUnionArrayPointer
 condition|?
-name|unionArrayPointer
+name|mUnionArrayPointer
 index|[
 name|index
 index|]
@@ -1610,11 +1797,19 @@ name|TInfoSink
 operator|&
 argument_list|)
 block|;
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|{}
 name|protected
 operator|:
 name|ConstantUnion
 operator|*
-name|unionArrayPointer
+name|mUnionArrayPointer
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -1642,18 +1837,18 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|op
+name|mOp
 return|;
 block|}
 name|void
 name|setOp
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|)
 block|{
-name|op
+name|mOp
 operator|=
-name|o
+name|op
 block|; }
 name|bool
 name|isAssignment
@@ -1680,7 +1875,7 @@ name|protected
 operator|:
 name|TIntermOperator
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|)
 operator|:
 name|TIntermTyped
@@ -1693,30 +1888,30 @@ name|EbpUndefined
 argument_list|)
 argument_list|)
 block|,
-name|op
+name|mOp
 argument_list|(
-argument|o
+argument|op
 argument_list|)
 block|{}
 name|TIntermOperator
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|,
-argument|const TType& t
+argument|const TType&type
 argument_list|)
 operator|:
 name|TIntermTyped
 argument_list|(
-name|t
+name|type
 argument_list|)
 block|,
-name|op
+name|mOp
 argument_list|(
-argument|o
+argument|op
 argument_list|)
 block|{}
 name|TOperator
-name|op
+name|mOp
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -1740,15 +1935,15 @@ name|public
 operator|:
 name|TIntermBinary
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|)
 operator|:
 name|TIntermOperator
 argument_list|(
-name|o
+name|op
 argument_list|)
 block|,
-name|addIndexClamp
+name|mAddIndexClamp
 argument_list|(
 argument|false
 argument_list|)
@@ -1791,41 +1986,39 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|isAssignment
 argument_list|()
 operator|||
-name|left
+name|mLeft
 operator|->
 name|hasSideEffects
 argument_list|()
 operator|||
-name|right
+name|mRight
 operator|->
 name|hasSideEffects
 argument_list|()
-operator|)
 return|;
 block|}
 name|void
 name|setLeft
 argument_list|(
-argument|TIntermTyped* n
+argument|TIntermTyped *node
 argument_list|)
 block|{
-name|left
+name|mLeft
 operator|=
-name|n
+name|node
 block|; }
 name|void
 name|setRight
 argument_list|(
-argument|TIntermTyped* n
+argument|TIntermTyped *node
 argument_list|)
 block|{
-name|right
+name|mRight
 operator|=
-name|n
+name|node
 block|; }
 name|TIntermTyped
 operator|*
@@ -1834,7 +2027,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|left
+name|mLeft
 return|;
 block|}
 name|TIntermTyped
@@ -1844,7 +2037,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|right
+name|mRight
 return|;
 block|}
 name|bool
@@ -1858,7 +2051,7 @@ name|void
 name|setAddIndexClamp
 argument_list|()
 block|{
-name|addIndexClamp
+name|mAddIndexClamp
 operator|=
 name|true
 block|; }
@@ -1867,22 +2060,30 @@ name|getAddIndexClamp
 argument_list|()
 block|{
 return|return
-name|addIndexClamp
+name|mAddIndexClamp
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|TIntermTyped
 operator|*
-name|left
+name|mLeft
 block|;
 name|TIntermTyped
 operator|*
-name|right
+name|mRight
 block|;
 comment|// If set to true, wrap any EOpIndexIndirect with a clamp to bounds.
 name|bool
-name|addIndexClamp
+name|mAddIndexClamp
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -1906,44 +2107,44 @@ name|public
 operator|:
 name|TIntermUnary
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|,
-argument|const TType& t
+argument|const TType&type
 argument_list|)
 operator|:
 name|TIntermOperator
 argument_list|(
-name|o
+name|op
 argument_list|,
-name|t
+name|type
 argument_list|)
 block|,
-name|operand
+name|mOperand
 argument_list|(
-literal|0
+name|NULL
 argument_list|)
 block|,
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 argument_list|(
 argument|false
 argument_list|)
 block|{}
 name|TIntermUnary
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|)
 operator|:
 name|TIntermOperator
 argument_list|(
-name|o
+name|op
 argument_list|)
 block|,
-name|operand
+name|mOperand
 argument_list|(
-literal|0
+name|NULL
 argument_list|)
 block|,
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 argument_list|(
 argument|false
 argument_list|)
@@ -1986,26 +2187,24 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|isAssignment
 argument_list|()
 operator|||
-name|operand
+name|mOperand
 operator|->
 name|hasSideEffects
 argument_list|()
-operator|)
 return|;
 block|}
 name|void
 name|setOperand
 argument_list|(
-argument|TIntermTyped* o
+argument|TIntermTyped *operand
 argument_list|)
 block|{
-name|operand
+name|mOperand
 operator|=
-name|o
+name|operand
 block|; }
 name|TIntermTyped
 operator|*
@@ -2013,7 +2212,7 @@ name|getOperand
 argument_list|()
 block|{
 return|return
-name|operand
+name|mOperand
 return|;
 block|}
 name|bool
@@ -2027,7 +2226,7 @@ name|void
 name|setUseEmulatedFunction
 argument_list|()
 block|{
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 operator|=
 name|true
 block|; }
@@ -2036,19 +2235,27 @@ name|getUseEmulatedFunction
 argument_list|()
 block|{
 return|return
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|TIntermTyped
 operator|*
-name|operand
+name|mOperand
 block|;
 comment|// If set to true, replace the built-in function call with an emulated one
 comment|// to work around driver bugs.
 name|bool
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2099,27 +2306,27 @@ argument_list|(
 name|EOpNull
 argument_list|)
 block|,
-name|userDefined
+name|mUserDefined
 argument_list|(
 name|false
 argument_list|)
 block|,
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 argument_list|(
 argument|false
 argument_list|)
 block|{ }
 name|TIntermAggregate
 argument_list|(
-argument|TOperator o
+argument|TOperator op
 argument_list|)
 operator|:
 name|TIntermOperator
 argument_list|(
-name|o
+name|op
 argument_list|)
 block|,
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 argument_list|(
 argument|false
 argument_list|)
@@ -2171,23 +2378,24 @@ name|true
 return|;
 block|}
 name|TIntermSequence
-operator|&
+operator|*
 name|getSequence
 argument_list|()
 block|{
 return|return
-name|sequence
+operator|&
+name|mSequence
 return|;
 block|}
 name|void
 name|setName
 argument_list|(
-argument|const TString& n
+argument|const TString&name
 argument_list|)
 block|{
-name|name
+name|mName
 operator|=
-name|n
+name|name
 block|; }
 specifier|const
 name|TString
@@ -2197,14 +2405,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|name
+name|mName
 return|;
 block|}
 name|void
 name|setUserDefined
 argument_list|()
 block|{
-name|userDefined
+name|mUserDefined
 operator|=
 name|true
 block|; }
@@ -2214,50 +2422,52 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|userDefined
+name|mUserDefined
 return|;
 block|}
 name|void
 name|setOptimize
 argument_list|(
-argument|bool o
+argument|bool optimize
 argument_list|)
 block|{
-name|optimize
+name|mOptimize
 operator|=
-name|o
+name|optimize
 block|; }
 name|bool
 name|getOptimize
 argument_list|()
+specifier|const
 block|{
 return|return
-name|optimize
+name|mOptimize
 return|;
 block|}
 name|void
 name|setDebug
 argument_list|(
-argument|bool d
+argument|bool debug
 argument_list|)
 block|{
-name|debug
+name|mDebug
 operator|=
-name|d
+name|debug
 block|; }
 name|bool
 name|getDebug
 argument_list|()
+specifier|const
 block|{
 return|return
-name|debug
+name|mDebug
 return|;
 block|}
 name|void
 name|setUseEmulatedFunction
 argument_list|()
 block|{
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 operator|=
 name|true
 block|; }
@@ -2266,9 +2476,17 @@ name|getUseEmulatedFunction
 argument_list|()
 block|{
 return|return
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|TIntermAggregate
@@ -2291,25 +2509,25 @@ operator|)
 block|;
 comment|// disallow assignment operator
 name|TIntermSequence
-name|sequence
+name|mSequence
 block|;
 name|TString
-name|name
+name|mName
 block|;
 name|bool
-name|userDefined
+name|mUserDefined
 block|;
 comment|// used for user defined function names
 name|bool
-name|optimize
+name|mOptimize
 block|;
 name|bool
-name|debug
+name|mDebug
 block|;
 comment|// If set to true, replace the built-in function call with an emulated one
 comment|// to work around driver bugs.
 name|bool
-name|useEmulatedFunction
+name|mUseEmulatedFunction
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2356,17 +2574,17 @@ name|EbpUndefined
 argument_list|)
 argument_list|)
 block|,
-name|condition
+name|mCondition
 argument_list|(
 name|cond
 argument_list|)
 block|,
-name|trueBlock
+name|mTrueBlock
 argument_list|(
 name|trueB
 argument_list|)
 block|,
-name|falseBlock
+name|mFalseBlock
 argument_list|(
 argument|falseB
 argument_list|)
@@ -2396,17 +2614,17 @@ argument_list|(
 name|type
 argument_list|)
 block|,
-name|condition
+name|mCondition
 argument_list|(
 name|cond
 argument_list|)
 block|,
-name|trueBlock
+name|mTrueBlock
 argument_list|(
 name|trueB
 argument_list|)
 block|,
-name|falseBlock
+name|mFalseBlock
 argument_list|(
 argument|falseB
 argument_list|)
@@ -2462,7 +2680,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|condition
+name|mCondition
 return|;
 block|}
 name|TIntermNode
@@ -2472,7 +2690,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|trueBlock
+name|mTrueBlock
 return|;
 block|}
 name|TIntermNode
@@ -2482,7 +2700,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|falseBlock
+name|mFalseBlock
 return|;
 block|}
 name|TIntermSelection
@@ -2494,19 +2712,27 @@ return|return
 name|this
 return|;
 block|}
+name|virtual
+name|void
+name|enqueueChildren
+argument_list|(
+argument|std::queue<TIntermNode *> *nodeQueue
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|TIntermTyped
 operator|*
-name|condition
+name|mCondition
 block|;
 name|TIntermNode
 operator|*
-name|trueBlock
+name|mTrueBlock
 block|;
 name|TIntermNode
 operator|*
-name|falseBlock
+name|mFalseBlock
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2559,6 +2785,7 @@ label|:
 name|POOL_ALLOCATOR_NEW_DELETE
 argument_list|()
 expr_stmt|;
+comment|// TODO(zmo): remove default values.
 name|TIntermTraverser
 argument_list|(
 argument|bool preVisit = true
@@ -2590,12 +2817,12 @@ argument_list|(
 name|rightToLeft
 argument_list|)
 operator|,
-name|depth
+name|mDepth
 argument_list|(
 literal|0
 argument_list|)
 operator|,
-name|maxDepth
+name|mMaxDepth
 argument_list|(
 literal|0
 argument_list|)
@@ -2609,23 +2836,30 @@ name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-argument|TIntermSymbol*
+argument|TIntermSymbol *
+argument_list|)
+block|{}
+name|virtual
+name|void
+name|visitRaw
+argument_list|(
+argument|TIntermRaw *
 argument_list|)
 block|{}
 name|virtual
 name|void
 name|visitConstantUnion
 argument_list|(
-argument|TIntermConstantUnion*
+argument|TIntermConstantUnion *
 argument_list|)
 block|{}
 name|virtual
 name|bool
 name|visitBinary
 argument_list|(
-argument|Visit visit
+argument|Visit
 argument_list|,
-argument|TIntermBinary*
+argument|TIntermBinary *
 argument_list|)
 block|{
 return|return
@@ -2637,7 +2871,6 @@ name|bool
 name|visitUnary
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermUnary
 modifier|*
@@ -2652,7 +2885,6 @@ name|bool
 name|visitSelection
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermSelection
 modifier|*
@@ -2667,7 +2899,6 @@ name|bool
 name|visitAggregate
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermAggregate
 modifier|*
@@ -2682,7 +2913,6 @@ name|bool
 name|visitLoop
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermLoop
 modifier|*
@@ -2697,7 +2927,6 @@ name|bool
 name|visitBranch
 parameter_list|(
 name|Visit
-name|visit
 parameter_list|,
 name|TIntermBranch
 modifier|*
@@ -2713,7 +2942,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|maxDepth
+name|mMaxDepth
 return|;
 block|}
 name|void
@@ -2724,21 +2953,21 @@ modifier|*
 name|current
 parameter_list|)
 block|{
-name|depth
+name|mDepth
 operator|++
 expr_stmt|;
-name|maxDepth
+name|mMaxDepth
 operator|=
 name|std
 operator|::
 name|max
 argument_list|(
-name|maxDepth
+name|mMaxDepth
 argument_list|,
-name|depth
+name|mDepth
 argument_list|)
 expr_stmt|;
-name|path
+name|mPath
 operator|.
 name|push_back
 argument_list|(
@@ -2750,10 +2979,10 @@ name|void
 name|decrementDepth
 parameter_list|()
 block|{
-name|depth
+name|mDepth
 operator|--
 expr_stmt|;
-name|path
+name|mPath
 operator|.
 name|pop_back
 argument_list|()
@@ -2765,7 +2994,7 @@ name|getParentNode
 parameter_list|()
 block|{
 return|return
-name|path
+name|mPath
 operator|.
 name|size
 argument_list|()
@@ -2774,7 +3003,7 @@ literal|0
 condition|?
 name|NULL
 else|:
-name|path
+name|mPath
 operator|.
 name|back
 argument_list|()
@@ -2814,10 +3043,10 @@ decl_stmt|;
 name|protected
 label|:
 name|int
-name|depth
+name|mDepth
 decl_stmt|;
 name|int
-name|maxDepth
+name|mMaxDepth
 decl_stmt|;
 comment|// All the nodes from root to the current node's parent during traversing.
 name|TVector
@@ -2825,18 +3054,165 @@ operator|<
 name|TIntermNode
 operator|*
 operator|>
-name|path
+name|mPath
 expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// For traversing the tree, and computing max depth.
+end_comment
+begin_comment
+comment|// Takes a maximum depth limit to prevent stack overflow.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_decl_stmt
+name|class
+name|TMaxDepthTraverser
+range|:
+name|public
+name|TIntermTraverser
+block|{
+name|public
+operator|:
+name|POOL_ALLOCATOR_NEW_DELETE
+argument_list|()
+block|;
+name|TMaxDepthTraverser
+argument_list|(
+argument|int depthLimit
+argument_list|)
+operator|:
+name|TIntermTraverser
+argument_list|(
+name|true
+argument_list|,
+name|true
+argument_list|,
+name|false
+argument_list|,
+name|false
+argument_list|)
+block|,
+name|mDepthLimit
+argument_list|(
+argument|depthLimit
+argument_list|)
+block|{ }
+name|virtual
+name|bool
+name|visitBinary
+argument_list|(
+argument|Visit
+argument_list|,
+argument|TIntermBinary *
+argument_list|)
+block|{
+return|return
+name|depthCheck
+argument_list|()
+return|;
+block|}
+name|virtual
+name|bool
+name|visitUnary
+argument_list|(
+argument|Visit
+argument_list|,
+argument|TIntermUnary *
+argument_list|)
+block|{
+return|return
+name|depthCheck
+argument_list|()
+return|;
+block|}
+name|virtual
+name|bool
+name|visitSelection
+argument_list|(
+argument|Visit
+argument_list|,
+argument|TIntermSelection *
+argument_list|)
+block|{
+return|return
+name|depthCheck
+argument_list|()
+return|;
+block|}
+name|virtual
+name|bool
+name|visitAggregate
+argument_list|(
+argument|Visit
+argument_list|,
+argument|TIntermAggregate *
+argument_list|)
+block|{
+return|return
+name|depthCheck
+argument_list|()
+return|;
+block|}
+name|virtual
+name|bool
+name|visitLoop
+argument_list|(
+argument|Visit
+argument_list|,
+argument|TIntermLoop *
+argument_list|)
+block|{
+return|return
+name|depthCheck
+argument_list|()
+return|;
+block|}
+name|virtual
+name|bool
+name|visitBranch
+argument_list|(
+argument|Visit
+argument_list|,
+argument|TIntermBranch *
+argument_list|)
+block|{
+return|return
+name|depthCheck
+argument_list|()
+return|;
+block|}
+name|protected
+operator|:
+name|bool
+name|depthCheck
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mMaxDepth
+operator|<
+name|mDepthLimit
+return|;
+block|}
+name|int
+name|mDepthLimit
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// __INTERMEDIATE_H
+comment|// COMPILER_TRANSLATOR_INTERMEDIATE_H_
 end_comment
 end_unit
