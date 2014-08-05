@@ -1077,6 +1077,11 @@ name|q
 operator|->
 name|size
 argument_list|()
+operator|*
+name|q
+operator|->
+name|devicePixelRatio
+argument_list|()
 operator|!=
 name|fbo
 operator|->
