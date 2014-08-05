@@ -13728,8 +13728,19 @@ name|buttons
 argument_list|()
 operator|==
 literal|0
+operator|&&
+name|w
+operator|->
+name|rect
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|relpos
+argument_list|)
 condition|)
 block|{
+comment|// Outside due to mouse grab?
 name|d
 operator|->
 name|toolTipWidget
