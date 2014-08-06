@@ -447,6 +447,12 @@ name|paintEventSent
 operator|=
 literal|false
 expr_stmt|;
+if|if
+condition|(
+name|handle
+argument_list|()
+condition|)
+comment|// platform window may be gone when the window is closed during app exit
 name|d
 operator|->
 name|handleUpdateEvent
