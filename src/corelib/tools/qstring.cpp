@@ -26094,6 +26094,21 @@ begin_comment
 comment|/*!     \class QStringRef     \inmodule QtCore     \since 4.3     \brief The QStringRef class provides a thin wrapper around QString substrings.     \reentrant     \ingroup tools     \ingroup string-processing      QStringRef provides a read-only subset of the QString API.      A string reference explicitly references a portion of a string()     with a given size(), starting at a specific position(). Calling     toString() returns a copy of the data as a real QString instance.      This class is designed to improve the performance of substring     handling when manipulating substrings obtained from existing QString     instances. QStringRef avoids the memory allocation and reference     counting overhead of a standard QString by simply referencing a     part of the original string. This can prove to be advantageous in     low level code, such as that used in a parser, at the expense of     potentially more complex code.      For most users, there are no semantic benefits to using QStringRef     instead of QString since QStringRef requires attention to be paid     to memory management issues, potentially making code more complex     to write and maintain.      \warning A QStringRef is only valid as long as the referenced     string exists. If the original string is deleted, the string     reference points to an invalid memory location.      We suggest that you only use this class in stable code where profiling     has clearly identified that performance improvements can be made by     replacing standard string operations with the optimized substring     handling provided by this class.      \sa {Implicitly Shared Classes} */
 end_comment
 begin_comment
+comment|/*!     \typedef QStringRef::size_type     \internal */
+end_comment
+begin_comment
+comment|/*!     \typedef QStringRef::value_type     \internal */
+end_comment
+begin_comment
+comment|/*!     \typedef QStringRef::const_pointer     \internal */
+end_comment
+begin_comment
+comment|/*!     \typedef QStringRef::const_reference     \internal */
+end_comment
+begin_comment
+comment|/*!     \typedef QStringRef::const_iterator     \internal */
+end_comment
+begin_comment
 comment|/*!  \fn QStringRef::QStringRef()   Constructs an empty string reference. */
 end_comment
 begin_comment
@@ -26134,6 +26149,18 @@ comment|/*!     \fn const QChar *QStringRef::unicode() const      Returns a Unic
 end_comment
 begin_comment
 comment|/*!     \fn const QChar *QStringRef::data() const      Same as unicode(). */
+end_comment
+begin_comment
+comment|/*!     \fn const QChar *QStringRef::begin() const      Same as unicode(). */
+end_comment
+begin_comment
+comment|/*!     \fn const QChar *QStringRef::cbegin() const      Same as unicode(). */
+end_comment
+begin_comment
+comment|/*!     \fn const QChar *QStringRef::end() const      Returns a pointer to one character past the last one in this string.     (It is the same as \c {unicode() + size()}.) */
+end_comment
+begin_comment
+comment|/*!     \fn const QChar *QStringRef::cend() const      Returns a pointer to one character past the last one in this string.     (It is the same as \c {unicode() + size()}.) */
 end_comment
 begin_comment
 comment|/*!     \fn const QChar *QStringRef::constData() const      Same as unicode(). */

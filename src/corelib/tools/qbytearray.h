@@ -2500,6 +2500,14 @@ specifier|const
 expr_stmt|;
 comment|// stl compatibility
 typedef|typedef
+name|int
+name|size_type
+typedef|;
+typedef|typedef
+name|qptrdiff
+name|difference_type
+typedef|;
+typedef|typedef
 specifier|const
 name|char
 modifier|&
@@ -2509,6 +2517,17 @@ typedef|typedef
 name|char
 modifier|&
 name|reference
+typedef|;
+typedef|typedef
+name|char
+modifier|*
+name|pointer
+typedef|;
+typedef|typedef
+specifier|const
+name|char
+modifier|*
+name|const_pointer
 typedef|;
 typedef|typedef
 name|char

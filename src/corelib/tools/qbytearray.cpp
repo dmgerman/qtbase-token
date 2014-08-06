@@ -12141,10 +12141,22 @@ begin_comment
 comment|/*! \typedef QByteArray::iterator     \internal */
 end_comment
 begin_comment
+comment|/*! \typedef QByteArray::size_type     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QByteArray::difference_type     \internal */
+end_comment
+begin_comment
 comment|/*! \typedef QByteArray::const_reference     \internal */
 end_comment
 begin_comment
 comment|/*! \typedef QByteArray::reference     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QByteArray::const_pointer     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QByteArray::pointer     \internal */
 end_comment
 begin_comment
 comment|/*! \typedef QByteArray::value_type   \internal  */
