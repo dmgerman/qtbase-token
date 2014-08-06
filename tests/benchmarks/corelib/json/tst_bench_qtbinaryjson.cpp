@@ -551,7 +551,12 @@ name|insert
 argument_list|(
 literal|"testkey_"
 operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
 name|i
+argument_list|)
 argument_list|,
 name|value
 argument_list|)
@@ -607,7 +612,12 @@ name|insert
 argument_list|(
 literal|"testkey_"
 operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
 name|i
+argument_list|)
 argument_list|,
 name|variantValue
 argument_list|)
