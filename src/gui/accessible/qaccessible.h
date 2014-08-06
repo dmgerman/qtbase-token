@@ -850,6 +850,7 @@ name|Canvas
 init|=
 literal|0x00000035
 block|,
+comment|// Diagram for MSAA
 name|Animation
 init|=
 literal|0x00000036
@@ -913,6 +914,71 @@ block|,
 name|Section
 init|=
 literal|0x00000085
+block|,
+comment|// IAccessible2 roles
+comment|// IA2_ROLE_CANVAS = 0x401, ### Qt 6 use this one instead of Canvas above
+comment|// IA2_ROLE_CAPTION = 0x402,
+comment|// IA2_ROLE_CHECK_MENU_ITEM = 0x403,
+name|ColorChooser
+init|=
+literal|0x404
+block|,
+comment|// IA2_ROLE_DATE_EDITOR = 0x405,
+comment|// IA2_ROLE_DESKTOP_ICON = 0x406,
+comment|// IA2_ROLE_DESKTOP_PANE = 0x407,
+comment|// IA2_ROLE_DIRECTORY_PANE = 0x408,
+comment|// IA2_ROLE_EDITBAR = 0x409,
+comment|// IA2_ROLE_EMBEDDED_OBJECT = 0x40A,
+comment|// IA2_ROLE_ENDNOTE = 0x40B,
+comment|// IA2_ROLE_FILE_CHOOSER = 0x40C,
+comment|// IA2_ROLE_FONT_CHOOSER = 0x40D,
+name|Footer
+init|=
+literal|0x40E
+block|,
+comment|// IA2_ROLE_FOOTNOTE = 0x40F,
+name|Form
+init|=
+literal|0x410
+block|,
+comment|// some platforms (windows and at-spi) use Frame for regular windows
+comment|// because window was taken for tool/dock windows by MSAA
+comment|// Frame = 0x411,
+comment|// IA2_ROLE_GLASS_PANE = 0x412,
+comment|// IA2_ROLE_HEADER = 0x413,
+name|Heading
+init|=
+literal|0x414
+block|,
+comment|// IA2_ROLE_ICON = 0x415,
+comment|// IA2_ROLE_IMAGE_MAP = 0x416,
+comment|// IA2_ROLE_INPUT_METHOD_WINDOW = 0x417,
+comment|// IA2_ROLE_INTERNAL_FRAME = 0x418,
+comment|// IA2_ROLE_LABEL = 0x419,
+comment|// IA2_ROLE_LAYERED_PANE = 0x41A,
+name|Note
+init|=
+literal|0x41B
+block|,
+comment|// IA2_ROLE_OPTION_PANE = 0x41C,
+comment|// IA2_ROLE_PAGE = 0x41D,
+comment|// IA2_ROLE_PARAGRAPH = 0x42E,
+comment|// IA2_ROLE_RADIO_MENU_ITEM = 0x41F,
+comment|// IA2_ROLE_REDUNDANT_OBJECT = 0x420,
+comment|// IA2_ROLE_ROOT_PANE = 0x421,
+comment|// IA2_ROLE_RULER = 0x422,
+comment|// IA2_ROLE_SCROLL_PANE = 0x423,
+comment|// IA2_ROLE_SECTION = 0x424,
+comment|// IA2_ROLE_SHAPE = 0x425,
+comment|// IA2_ROLE_SPLIT_PANE = 0x426,
+comment|// IA2_ROLE_TEAR_OFF_MENU = 0x427,
+comment|// IA2_ROLE_TERMINAL = 0x428,
+comment|// IA2_ROLE_TEXT_FRAME = 0x429,
+comment|// IA2_ROLE_TOGGLE_BUTTON = 0x42A,
+comment|// IA2_ROLE_VIEW_PORT = 0x42B,
+name|ComplementaryContent
+init|=
+literal|0x42C
 block|,
 name|UserRole
 init|=
