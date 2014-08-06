@@ -7558,6 +7558,11 @@ include|#
 directive|include
 file|<QtCore/qbytearraylist.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qstringlist.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
