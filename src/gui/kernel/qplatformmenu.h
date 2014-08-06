@@ -440,6 +440,32 @@ argument_list|,
 argument|const QPlatformMenuItem *item
 argument_list|)
 block|{
+name|showPopup
+argument_list|(
+name|parentWindow
+argument_list|,
+name|QRect
+argument_list|(
+name|pos
+argument_list|,
+name|QSize
+argument_list|()
+argument_list|)
+argument_list|,
+name|item
+argument_list|)
+block|;     }
+name|virtual
+name|void
+name|showPopup
+argument_list|(
+argument|const QWindow *parentWindow
+argument_list|,
+argument|const QRect&targetRect
+argument_list|,
+argument|const QPlatformMenuItem *item
+argument_list|)
+block|{
 name|Q_UNUSED
 argument_list|(
 name|parentWindow
@@ -447,7 +473,7 @@ argument_list|)
 block|;
 name|Q_UNUSED
 argument_list|(
-name|pos
+name|targetRect
 argument_list|)
 block|;
 name|Q_UNUSED
