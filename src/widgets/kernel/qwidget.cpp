@@ -20550,6 +20550,19 @@ operator|&
 name|e
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+if|if
+condition|(
+name|renderToTexture
+condition|)
+name|resolveSamples
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_OPENGL
 block|}
 DECL|function|render
 name|void

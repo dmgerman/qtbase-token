@@ -3171,6 +3171,16 @@ name|resizeViewportFramebuffer
 parameter_list|()
 block|{ }
 end_function
+begin_comment
+comment|// Called after each paint event.
+end_comment
+begin_function
+name|virtual
+name|void
+name|resolveSamples
+parameter_list|()
+block|{ }
+end_function
 begin_endif
 endif|#
 directive|endif
