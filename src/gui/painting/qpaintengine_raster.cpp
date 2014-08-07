@@ -4272,9 +4272,15 @@ name|s
 operator|->
 name|renderHints
 operator|&
+operator|(
 name|QPainter
 operator|::
 name|Antialiasing
+operator||
+name|QPainter
+operator|::
+name|HighQualityAntialiasing
+operator|)
 argument_list|)
 expr_stmt|;
 name|s
