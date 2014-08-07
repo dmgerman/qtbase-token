@@ -651,7 +651,14 @@ name|active_engine
 argument_list|(
 literal|0
 argument_list|)
-block|{     }
+block|{
+name|requestedFormat
+operator|=
+name|QSurfaceFormat
+operator|::
+name|defaultFormat
+argument_list|()
+block|;     }
 name|virtual
 operator|~
 name|QOpenGLContextPrivate

@@ -356,6 +356,13 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
+name|requestedFormat
+operator|=
+name|QSurfaceFormat
+operator|::
+name|defaultFormat
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -1697,7 +1704,7 @@ begin_comment
 comment|/*! \fn void QWindow::modalityChanged(Qt::WindowModality modality)      This signal is emitted when the Qwindow::modality property changes to \a modality. */
 end_comment
 begin_comment
-comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha, depth and     stencil buffer size, etc. For example, to give a window a transparent     background (provided that the window system supports compositing, and     provided that other content in the window does not make it opaque again):      \code     QSurfaceFormat format;     format.setAlphaBufferSize(8);     window.setFormat(format);     \endcode      The surface format will be resolved in the create() function. Calling     this function after create() has been called will not re-resolve the     surface format of the native surface.      \sa create(), destroy() */
+comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha, depth and     stencil buffer size, etc. For example, to give a window a transparent     background (provided that the window system supports compositing, and     provided that other content in the window does not make it opaque again):      \code     QSurfaceFormat format;     format.setAlphaBufferSize(8);     window.setFormat(format);     \endcode      The surface format will be resolved in the create() function. Calling     this function after create() has been called will not re-resolve the     surface format of the native surface.      When the format is not explicitly set via this function, the format returned     by QSurfaceFormat::defaultFormat() will be used. This means that when having     multiple windows, individual calls to this function can be replaced by one     single call to QSurfaceFormat::setDefaultFormat() before creating the first     window.      \sa create(), destroy(), QSurfaceFormat::setDefaultFormat() */
 end_comment
 begin_function
 DECL|function|setFormat

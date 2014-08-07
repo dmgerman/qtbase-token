@@ -356,7 +356,7 @@ begin_comment
 comment|/*!     \enum QSurfaceFormat::OpenGLContextProfile      This enum is used to specify the OpenGL context profile, in     conjunction with QSurfaceFormat::setMajorVersion() and     QSurfaceFormat::setMinorVersion().      Profiles are exposed in OpenGL 3.2 and above, and are used     to choose between a restricted core profile, and a compatibility     profile which might contain deprecated support functionality.      Note that the core profile might still contain functionality that     is deprecated and scheduled for removal in a higher version. To     get access to the deprecated functionality for the core profile     in the set OpenGL version you can use the QSurfaceFormat format option     QSurfaceFormat::DeprecatedFunctions.      \value NoProfile            OpenGL version is lower than 3.2.     \value CoreProfile          Functionality deprecated in OpenGL version 3.0 is not available.     \value CompatibilityProfile Functionality from earlier OpenGL versions is available. */
 end_comment
 begin_comment
-comment|/*!     Constructs a default initialized QSurfaceFormat. */
+comment|/*!     Constructs a default initialized QSurfaceFormat.      \note By default OpenGL 2.0 is requested since this provides the highest     grade of portability between platforms and OpenGL implementations. */
 end_comment
 begin_constructor
 DECL|function|QSurfaceFormat
@@ -1673,6 +1673,56 @@ return|return
 name|d
 operator|->
 name|swapInterval
+return|;
+block|}
+end_function
+begin_macro
+name|Q_GLOBAL_STATIC
+argument_list|(
+argument|QSurfaceFormat
+argument_list|,
+argument|qt_default_surface_format
+argument_list|)
+end_macro
+begin_comment
+comment|/*!     Sets the global default surface \a format.      This format is used by default in QOpenGLContext, QWindow, QOpenGLWidget and     similar classes.      It can always be overridden on a per-instance basis by using the class in     question's own setFormat() function. However, it is often more convenient to     set the format for all windows once at the start of the application. It also     guarantees proper behavior in cases where shared contexts are required,     because settings the format via this function guarantees that all contexts     and surfaces, even the ones created internally by Qt, will use the same     format.      \since 5.4     \sa defaultFormat()  */
+end_comment
+begin_function
+DECL|function|setDefaultFormat
+name|void
+name|QSurfaceFormat
+operator|::
+name|setDefaultFormat
+parameter_list|(
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|format
+parameter_list|)
+block|{
+operator|*
+name|qt_default_surface_format
+argument_list|()
+operator|=
+name|format
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the global default surface format.      When setDefaultFormat() is not called, this is a default-constructed QSurfaceFormat.      \since 5.4     \sa setDefaultFormat()  */
+end_comment
+begin_function
+DECL|function|defaultFormat
+name|QSurfaceFormat
+name|QSurfaceFormat
+operator|::
+name|defaultFormat
+parameter_list|()
+block|{
+return|return
+operator|*
+name|qt_default_surface_format
+argument_list|()
 return|;
 block|}
 end_function
