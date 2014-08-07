@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"Accessible2.h"
+file|"ia2_api_all.h"
 end_include
 begin_comment
 comment|// IAccessible2 inherits from IAccessible
