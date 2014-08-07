@@ -2996,6 +2996,24 @@ argument_list|)
 else|:
 literal|"+debug-socket"
 decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+operator|new
+name|File
+argument_list|(
+name|gdbserverPath
+argument_list|)
+operator|)
+operator|.
+name|exists
+argument_list|()
+condition|)
+name|gdbserverPath
+operator|+=
+literal|".so"
+expr_stmt|;
 comment|// start debugger
 name|m_debuggerProcess
 operator|=
