@@ -90,17 +90,15 @@ name|InvalidStatus
 block|}
 enum|;
 DECL|function|QOpenGLVersionStatus
+name|Q_DECL_CONSTEXPR
 name|QOpenGLVersionStatus
 argument_list|()
 operator|:
 name|version
 argument_list|(
-name|qMakePair
-argument_list|(
 literal|0
 argument_list|,
 literal|0
-argument_list|)
 argument_list|)
 operator|,
 name|status
@@ -109,6 +107,7 @@ argument|InvalidStatus
 argument_list|)
 block|{}
 DECL|function|QOpenGLVersionStatus
+name|Q_DECL_CONSTEXPR
 name|QOpenGLVersionStatus
 argument_list|(
 argument|int majorVersion
@@ -120,12 +119,9 @@ argument_list|)
 operator|:
 name|version
 argument_list|(
-name|qMakePair
-argument_list|(
 name|majorVersion
 argument_list|,
 name|minorVersion
-argument_list|)
 argument_list|)
 operator|,
 name|status
@@ -150,7 +146,6 @@ block|}
 struct|;
 end_struct
 begin_function
-DECL|function|qHash
 specifier|inline
 name|uint
 name|qHash
@@ -165,6 +160,7 @@ name|seed
 init|=
 literal|0
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|qHash
@@ -204,6 +200,7 @@ block|}
 end_function
 begin_expr_stmt
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -220,22 +217,15 @@ operator|&
 name|rhs
 operator|)
 block|{
-if|if
-condition|(
+return|return
 name|lhs
 operator|.
 name|status
-operator|!=
+operator|==
 name|rhs
 operator|.
 name|status
-condition|)
-return|return
-name|false
-return|;
-end_expr_stmt
-begin_return
-return|return
+operator|&&
 name|lhs
 operator|.
 name|version
@@ -244,10 +234,12 @@ name|rhs
 operator|.
 name|version
 return|;
-end_return
+block|}
+end_expr_stmt
 begin_expr_stmt
-unit|}  inline
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|!=
