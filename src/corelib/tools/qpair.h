@@ -46,6 +46,10 @@ name|T2
 name|second_type
 typedef|;
 end_typedef
+begin_macro
+DECL|function|QPair
+name|Q_DECL_CONSTEXPR
+end_macro
 begin_expr_stmt
 DECL|function|QPair
 name|QPair
@@ -58,6 +62,7 @@ name|second
 argument_list|()
 block|{}
 DECL|function|QPair
+name|Q_DECL_CONSTEXPR
 name|QPair
 argument_list|(
 specifier|const
@@ -92,6 +97,7 @@ name|typename
 name|TT2
 operator|>
 DECL|function|QPair
+name|Q_DECL_CONSTEXPR
 name|QPair
 argument_list|(
 specifier|const
@@ -176,6 +182,7 @@ name|typename
 name|TT2
 operator|>
 DECL|function|QPair
+name|Q_DECL_CONSTEXPR
 name|QPair
 argument_list|(
 name|QPair
@@ -340,6 +347,7 @@ name|class
 name|T2
 operator|>
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
 name|operator
@@ -396,6 +404,7 @@ name|class
 name|T2
 operator|>
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
 name|operator
@@ -443,6 +452,7 @@ name|class
 name|T2
 operator|>
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
 name|operator
@@ -512,6 +522,7 @@ name|class
 name|T2
 operator|>
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
 name|operator
@@ -556,6 +567,7 @@ name|class
 name|T2
 operator|>
 DECL|variable|operator
+name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
 name|operator
@@ -602,6 +614,7 @@ name|class
 name|T2
 operator|>
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
 name|operator
@@ -650,6 +663,7 @@ name|T2
 operator|>
 DECL|variable|T1
 DECL|function|qMakePair
+name|Q_DECL_CONSTEXPR
 name|Q_OUTOFLINE_TEMPLATE
 name|QPair
 operator|<
