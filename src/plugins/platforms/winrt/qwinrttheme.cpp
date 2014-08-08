@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwinrtfiledialoghelper.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qfunctions_winrt.h>
 end_include
 begin_include
@@ -687,6 +692,10 @@ if|if
 condition|(
 name|type
 operator|==
+name|FileDialog
+operator|||
+name|type
+operator|==
 name|MessageDialog
 condition|)
 return|return
@@ -715,6 +724,13 @@ condition|(
 name|type
 condition|)
 block|{
+case|case
+name|FileDialog
+case|:
+return|return
+operator|new
+name|QWinRTFileDialogHelper
+return|;
 case|case
 name|MessageDialog
 case|:
