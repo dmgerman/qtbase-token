@@ -530,6 +530,12 @@ name|method
 argument_list|()
 specifier|const
 block|{
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|isSlotObject
+argument_list|)
+block|;
 return|return
 name|method_offset
 operator|+
