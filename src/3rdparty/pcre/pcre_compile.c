@@ -11012,6 +11012,13 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
+specifier|const
+name|pcre_uchar
+modifier|*
+name|endgroup
+init|=
+name|scode
+decl_stmt|;
 name|BOOL
 name|empty_branch
 decl_stmt|;
@@ -11092,22 +11099,7 @@ name|TRUE
 return|;
 comment|/* Unclosed */
 block|}
-comment|/* If we are scanning a completed pattern, there are no forward references     and all groups are complete. We need to detect whether this is a recursive     call, as otherwise there will be an infinite loop. If it is a recursion,     just skip over it. Simple recursions are easily detected. For mutual     recursions we keep a chain on the stack. */
-else|else
-block|{
-name|recurse_check
-modifier|*
-name|r
-init|=
-name|recurses
-decl_stmt|;
-specifier|const
-name|pcre_uchar
-modifier|*
-name|endgroup
-init|=
-name|scode
-decl_stmt|;
+comment|/* If the reference is to a completed group, we need to detect whether this     is a recursive call, as otherwise there will be an infinite loop. If it is     a recursion, just skip over it. Simple recursions are easily detected. For     mutual recursions we keep a chain on the stack. */
 do|do
 name|endgroup
 operator|+=
@@ -11138,6 +11130,14 @@ name|endgroup
 condition|)
 continue|continue;
 comment|/* Simple recursion */
+else|else
+block|{
+name|recurse_check
+modifier|*
+name|r
+init|=
+name|recurses
+decl_stmt|;
 for|for
 control|(
 name|r
