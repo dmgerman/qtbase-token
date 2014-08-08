@@ -26151,16 +26151,16 @@ begin_comment
 comment|/*!     \fn const QChar *QStringRef::data() const      Same as unicode(). */
 end_comment
 begin_comment
-comment|/*!     \fn const QChar *QStringRef::begin() const      Same as unicode(). */
+comment|/*!     \fn const QChar *QStringRef::begin() const     \since 5.4      Same as unicode(). */
 end_comment
 begin_comment
-comment|/*!     \fn const QChar *QStringRef::cbegin() const      Same as unicode(). */
+comment|/*!     \fn const QChar *QStringRef::cbegin() const     \since 5.4      Same as unicode(). */
 end_comment
 begin_comment
-comment|/*!     \fn const QChar *QStringRef::end() const      Returns a pointer to one character past the last one in this string.     (It is the same as \c {unicode() + size()}.) */
+comment|/*!     \fn const QChar *QStringRef::end() const     \since 5.4      Returns a pointer to one character past the last one in this string.     (It is the same as \c {unicode() + size()}.) */
 end_comment
 begin_comment
-comment|/*!     \fn const QChar *QStringRef::cend() const      Returns a pointer to one character past the last one in this string.     (It is the same as \c {unicode() + size()}.) */
+comment|/*!     \fn const QChar *QStringRef::cend() const     \since 5.4      Returns a pointer to one character past the last one in this string.     (It is the same as \c {unicode() + size()}.) */
 end_comment
 begin_comment
 comment|/*!     \fn const QChar *QStringRef::constData() const      Same as unicode(). */
