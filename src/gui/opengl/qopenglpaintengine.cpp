@@ -10663,7 +10663,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Greyscale/mono glyphs
+comment|// Grayscale/mono glyphs
 name|shaderManager
 operator|->
 name|setMaskType
