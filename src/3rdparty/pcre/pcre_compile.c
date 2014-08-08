@@ -30623,7 +30623,7 @@ literal|1
 operator|+
 name|LINK_SIZE
 expr_stmt|;
-comment|/* If it was a capturing subpattern, check to see if it contained any     recursive back references. If so, we must wrap it in atomic brackets.     In any event, remove the block from the chain. */
+comment|/* If it was a capturing subpattern, check to see if it contained any     recursive back references. If so, we must wrap it in atomic brackets.     Because we are moving code along, we must ensure that any pending recursive     references are updated. In any event, remove the block from the chain. */
 if|if
 condition|(
 name|capnumber
@@ -30640,6 +30640,34 @@ operator|->
 name|flag
 condition|)
 block|{
+operator|*
+name|code
+operator|=
+name|OP_END
+expr_stmt|;
+name|adjust_recurse
+argument_list|(
+name|start_bracket
+argument_list|,
+literal|1
+operator|+
+name|LINK_SIZE
+argument_list|,
+operator|(
+name|options
+operator|&
+name|PCRE_UTF8
+operator|)
+operator|!=
+literal|0
+argument_list|,
+name|cd
+argument_list|,
+name|cd
+operator|->
+name|hwm
+argument_list|)
+expr_stmt|;
 name|memmove
 argument_list|(
 name|start_bracket
