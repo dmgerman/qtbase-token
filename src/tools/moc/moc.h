@@ -898,11 +898,6 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|generatedCode
-argument_list|(
-name|false
-argument_list|)
-block|,
 name|mustIncludeQPluginH
 argument_list|(
 argument|false
@@ -913,9 +908,6 @@ name|filename
 block|;
 name|bool
 name|noInclude
-block|;
-name|bool
-name|generatedCode
 block|;
 name|bool
 name|mustIncludeQPluginH
