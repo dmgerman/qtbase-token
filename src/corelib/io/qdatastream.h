@@ -243,11 +243,15 @@ name|Qt_5_4
 init|=
 literal|16
 block|,
+name|Qt_5_5
+init|=
+name|Qt_5_4
+block|,
 if|#
 directive|if
 name|QT_VERSION
 operator|>=
-literal|0x050500
+literal|0x050600
 error|#
 directive|error
 error|Add the datastream version for this Qt version and update Qt_DefaultCompiledVersion
@@ -255,7 +259,7 @@ endif|#
 directive|endif
 name|Qt_DefaultCompiledVersion
 init|=
-name|Qt_5_4
+name|Qt_5_5
 block|}
 enum|;
 enum|enum
