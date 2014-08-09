@@ -1076,7 +1076,8 @@ argument_list|(
 literal|'/'
 argument_list|)
 decl_stmt|;
-name|QList
+specifier|const
+name|QVector
 argument_list|<
 name|QIconDirInfo
 argument_list|>

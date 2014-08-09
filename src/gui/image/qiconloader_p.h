@@ -86,6 +86,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QVector>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QTypeInfo>
 end_include
 begin_decl_stmt
@@ -460,7 +465,7 @@ return|return
 name|m_parents
 return|;
 block|}
-name|QList
+name|QVector
 operator|<
 name|QIconDirInfo
 operator|>
@@ -492,7 +497,7 @@ label|:
 name|QString
 name|m_contentDir
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QIconDirInfo
 operator|>
