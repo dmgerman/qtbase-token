@@ -7633,6 +7633,29 @@ operator|>
 block|{}
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+DECL|struct|T
+DECL|enumerator|Defined
+name|QMetaTypeId2
+operator|<
+name|T
+operator|&
+operator|>
+block|{ enum
+block|{
+name|Defined
+operator|=
+name|false
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|namespace
 name|QtPrivate
