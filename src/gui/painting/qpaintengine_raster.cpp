@@ -16579,7 +16579,7 @@ operator|(
 name|uint
 operator|*
 operator|)
-name|src
+name|scanline
 decl_stmt|;
 for|for
 control|(
