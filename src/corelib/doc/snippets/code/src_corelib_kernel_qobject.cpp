@@ -1457,12 +1457,7 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-parameter_list|(
-name|Priority
-parameter_list|)
-specifier|public
-private|:
+public|public:
 name|MyClass
 parameter_list|(
 name|QObject
@@ -1493,6 +1488,10 @@ block|,
 name|VeryLow
 block|}
 enum|;
+name|Q_ENUM
+argument_list|(
+argument|Priority
+argument_list|)
 name|void
 name|setPriority
 parameter_list|(
@@ -1512,7 +1511,7 @@ begin_comment
 comment|//! [38]
 end_comment
 begin_comment
-comment|//! [39a]
+comment|//! [39]
 end_comment
 begin_class
 DECL|class|QLibrary
@@ -1522,17 +1521,9 @@ super|:
 specifier|public
 name|QObject
 block|{
+name|Q_OBJECT
+public|public:
 operator|...
-name|Q_FLAGS
-argument_list|(
-argument|LoadHint LoadHints
-argument_list|)
-operator|...
-comment|//! [39a]
-comment|//! [39b]
-operator|...
-specifier|public
-operator|:
 expr|enum
 DECL|enum|LoadHint
 name|LoadHint
@@ -1559,8 +1550,13 @@ argument|LoadHints
 argument_list|,
 argument|LoadHint
 argument_list|)
+name|Q_FLAG
+argument_list|(
+argument|LoadHints
+argument_list|)
 operator|...
-comment|//! [39b]
+block|}
+comment|//! [39]
 comment|//! [40]
 comment|//: This name refers to a host name.
 name|hostNameLabel
@@ -1572,9 +1568,13 @@ argument_list|(
 literal|"Name:"
 argument_list|)
 argument_list|)
-expr_stmt|;
+class|;
+end_class
+begin_comment
 comment|/*: This text refers to a C++ code example. */
-DECL|member|example
+end_comment
+begin_decl_stmt
+DECL|variable|example
 name|QString
 name|example
 init|=
@@ -1583,9 +1583,15 @@ argument_list|(
 literal|"Example"
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|//! [40]
+end_comment
+begin_comment
 comment|//! [41]
-DECL|member|button
+end_comment
+begin_decl_stmt
+DECL|variable|button
 name|QPushButton
 modifier|*
 name|button
@@ -1605,9 +1611,15 @@ operator|::
 name|FindDirectChildOnly
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|//! [41]
+end_comment
+begin_comment
 comment|//! [42]
-DECL|member|list
+end_comment
+begin_decl_stmt
+DECL|variable|list
 name|QListWidget
 modifier|*
 name|list
@@ -1628,9 +1640,15 @@ operator|::
 name|FindDirectChildOnly
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|//! [42]
+end_comment
+begin_comment
 comment|//! [43]
-DECL|member|childButtons
+end_comment
+begin_decl_stmt
+DECL|variable|childButtons
 name|QList
 argument_list|<
 name|QPushButton
@@ -1654,9 +1672,15 @@ operator|::
 name|FindDirectChildOnly
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|//! [43]
+end_comment
+begin_comment
 comment|//! [44]
-DECL|member|label
+end_comment
+begin_decl_stmt
+DECL|variable|label
 name|QLabel
 modifier|*
 name|label
@@ -1664,7 +1688,9 @@ init|=
 operator|new
 name|QLabel
 decl_stmt|;
-DECL|member|lineEdit
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|lineEdit
 name|QLineEdit
 modifier|*
 name|lineEdit
@@ -1672,6 +1698,8 @@ init|=
 operator|new
 name|QLineEdit
 decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|QObject
 operator|::
 name|connect
@@ -1691,13 +1719,21 @@ operator|::
 name|setText
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [44]
+end_comment
+begin_comment
 comment|//! [45]
+end_comment
+begin_function_decl
 name|void
 name|someFunction
 parameter_list|()
 function_decl|;
-DECL|member|button
+end_function_decl
+begin_decl_stmt
+DECL|variable|button
 name|QPushButton
 modifier|*
 name|button
@@ -1705,6 +1741,8 @@ init|=
 operator|new
 name|QPushButton
 decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|QObject
 operator|::
 name|connect
@@ -1719,15 +1757,23 @@ argument_list|,
 name|someFunction
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [45]
+end_comment
+begin_comment
 comment|//! [46]
-DECL|member|page
+end_comment
+begin_decl_stmt
+DECL|variable|page
 name|QByteArray
 name|page
 init|=
 operator|...
 decl_stmt|;
-DECL|member|socket
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|socket
 name|QTcpSocket
 modifier|*
 name|socket
@@ -1735,6 +1781,8 @@ init|=
 operator|new
 name|QTcpSocket
 decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|socket
 operator|->
 name|connectToHost
@@ -1744,6 +1792,8 @@ argument_list|,
 literal|80
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|QObject
 operator|::
 name|connect
@@ -1774,21 +1824,37 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [46]
+end_comment
+begin_comment
 comment|//! [47]
+end_comment
+begin_expr_stmt
 name|disconnect
 argument_list|(
-argument|myObject
+name|myObject
 argument_list|,
-argument|&MyObject::mySignal()
+operator|&
+name|MyObject
+operator|::
+name|mySignal
+argument_list|()
 argument_list|,
 literal|0
 argument_list|,
 literal|0
 argument_list|)
-empty_stmt|;
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [47]
+end_comment
+begin_comment
 comment|//! [48]
+end_comment
+begin_expr_stmt
 name|QObject
 operator|::
 name|disconnect
@@ -1808,9 +1874,15 @@ operator|::
 name|setText
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [48]
+end_comment
+begin_comment
 comment|//! [49]
-DECL|member|valueChangedSignal
+end_comment
+begin_decl_stmt
+DECL|variable|valueChangedSignal
 specifier|static
 specifier|const
 name|QMetaMethod
@@ -1826,6 +1898,8 @@ operator|::
 name|valueChanged
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_if
 if|if
 condition|(
 name|isSignalConnected
@@ -1850,13 +1924,21 @@ name|data
 argument_list|)
 emit|;
 block|}
+end_if
+begin_comment
 comment|//! [49]
+end_comment
+begin_comment
 comment|//! [50]
+end_comment
+begin_function_decl
 name|void
 name|someFunction
 parameter_list|()
 function_decl|;
-DECL|member|button
+end_function_decl
+begin_decl_stmt
+DECL|variable|button
 name|QPushButton
 modifier|*
 name|button
@@ -1864,6 +1946,8 @@ init|=
 operator|new
 name|QPushButton
 decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|QObject
 operator|::
 name|connect
@@ -1884,15 +1968,23 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [50]
+end_comment
+begin_comment
 comment|//! [51]
-DECL|member|page
+end_comment
+begin_decl_stmt
+DECL|variable|page
 name|QByteArray
 name|page
 init|=
 operator|...
 decl_stmt|;
-DECL|member|socket
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|socket
 name|QTcpSocket
 modifier|*
 name|socket
@@ -1900,6 +1992,8 @@ init|=
 operator|new
 name|QTcpSocket
 decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|socket
 operator|->
 name|connectToHost
@@ -1909,6 +2003,8 @@ argument_list|,
 literal|80
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|QObject
 operator|::
 name|connect
@@ -1945,14 +2041,30 @@ operator|::
 name|AutoConnection
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//! [51]
+end_comment
+begin_comment
 comment|//! [meta data]
+end_comment
+begin_comment
 comment|//: This is a comment for the translator.
+end_comment
+begin_comment
 comment|//= qtn_foo_bar
+end_comment
+begin_comment
 comment|//~ loc-layout_id foo_dialog
+end_comment
+begin_comment
 comment|//~ loc-blank False
+end_comment
+begin_comment
 comment|//~ magic-stuff This might mean something magic.
-DECL|member|text
+end_comment
+begin_decl_stmt
+DECL|variable|text
 name|QString
 name|text
 init|=
@@ -1963,9 +2075,15 @@ argument_list|(
 literal|"Sim sala bim."
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|//! [meta data]
+end_comment
+begin_comment
 comment|//! [explicit tr context]
-DECL|member|text
+end_comment
+begin_decl_stmt
+DECL|variable|text
 name|QString
 name|text
 init|=
@@ -1976,7 +2094,7 @@ argument_list|(
 literal|"Page up"
 argument_list|)
 decl_stmt|;
-end_class
+end_decl_stmt
 begin_comment
 comment|//! [explicit tr context]
 end_comment
