@@ -51,10 +51,6 @@ name|isAccepted
 name|WRITE
 name|setAccepted
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-name|Type
-argument_list|)
 name|public
 range|:     enum
 name|Type
@@ -881,6 +877,10 @@ literal|65535
 comment|// last user event id
 block|}
 decl_stmt|;
+name|Q_ENUM
+argument_list|(
+argument|Type
+argument_list|)
 name|explicit
 name|QEvent
 parameter_list|(

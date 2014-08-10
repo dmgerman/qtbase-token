@@ -71,10 +71,6 @@ name|Q_CORE_EXPORT
 name|QEasingCurve
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-name|Type
-argument_list|)
 name|public
 range|:     enum
 name|Type
@@ -178,6 +174,10 @@ block|,
 name|NCurveTypes
 block|}
 decl_stmt|;
+name|Q_ENUM
+argument_list|(
+argument|Type
+argument_list|)
 name|QEasingCurve
 argument_list|(
 argument|Type type = Linear

@@ -71,10 +71,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|ChildMode childMode READ childMode WRITE setChildMode NOTIFY childModeChanged
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|ChildMode RestorePolicy
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -84,7 +80,12 @@ name|ExclusiveStates
 block|,
 name|ParallelStates
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ChildMode
+argument_list|)
+expr|enum
 name|RestorePolicy
 block|{
 name|DontRestoreProperties
@@ -92,6 +93,10 @@ block|,
 name|RestoreProperties
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|RestorePolicy
+argument_list|)
 name|QState
 argument_list|(
 name|QState

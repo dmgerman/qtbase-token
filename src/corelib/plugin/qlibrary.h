@@ -45,10 +45,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|LoadHints loadHints READ loadHints WRITE setLoadHints
 argument_list|)
-name|Q_FLAGS
-argument_list|(
-argument|LoadHint LoadHints
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -80,6 +76,14 @@ argument_list|(
 argument|LoadHints
 argument_list|,
 argument|LoadHint
+argument_list|)
+name|Q_FLAG
+argument_list|(
+argument|LoadHint
+argument_list|)
+name|Q_FLAG
+argument_list|(
+argument|LoadHints
 argument_list|)
 name|explicit
 name|QLibrary

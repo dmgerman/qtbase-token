@@ -767,10 +767,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QItemSelectionModel
 argument_list|)
-name|Q_FLAGS
-argument_list|(
-argument|SelectionFlags
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -832,6 +828,10 @@ argument_list|(
 argument|SelectionFlags
 argument_list|,
 argument|SelectionFlag
+argument_list|)
+name|Q_FLAG
+argument_list|(
+argument|SelectionFlags
 argument_list|)
 name|explicit
 name|QItemSelectionModel

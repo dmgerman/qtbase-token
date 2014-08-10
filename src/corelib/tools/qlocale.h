@@ -88,18 +88,6 @@ name|Q_CORE_EXPORT
 name|QLocale
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-name|Language
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-name|Country
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-name|MeasurementSystem
-argument_list|)
 name|friend
 name|class
 name|QString
@@ -2957,7 +2945,15 @@ name|Kosovo
 block|}
 enum|;
 comment|// GENERATED PART ENDS HERE
-enum|enum
+name|Q_ENUM
+argument_list|(
+argument|Language
+argument_list|)
+name|Q_ENUM
+argument_list|(
+name|Country
+argument_list|)
+expr|enum
 name|MeasurementSystem
 block|{
 name|MetricSystem
@@ -2967,12 +2963,16 @@ block|,
 name|ImperialUKSystem
 block|,
 name|ImperialSystem
-init|=
+operator|=
 name|ImperialUSSystem
 comment|// Qt 4 compatibility
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|MeasurementSystem
+argument_list|)
+expr|enum
 name|FormatType
 block|{
 name|LongFormat
@@ -2981,7 +2981,7 @@ name|ShortFormat
 block|,
 name|NarrowFormat
 block|}
-enum|;
+expr_stmt|;
 enum|enum
 name|NumberOption
 block|{

@@ -55,14 +55,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|State
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|Direction
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|State state READ state NOTIFY stateChanged
@@ -96,7 +88,12 @@ name|Forward
 block|,
 name|Backward
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Direction
+argument_list|)
+expr|enum
 name|State
 block|{
 name|Stopped
@@ -105,7 +102,12 @@ name|Paused
 block|,
 name|Running
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|State
+argument_list|)
+expr|enum
 name|DeletionPolicy
 block|{
 name|KeepWhenStopped

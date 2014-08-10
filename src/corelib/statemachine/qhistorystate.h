@@ -45,10 +45,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|HistoryType historyType READ historyType WRITE setHistoryType NOTIFY historyTypeChanged
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|HistoryType
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -59,6 +55,10 @@ block|,
 name|DeepHistory
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|HistoryType
+argument_list|)
 name|QHistoryState
 argument_list|(
 name|QState

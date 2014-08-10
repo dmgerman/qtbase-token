@@ -954,10 +954,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|LayoutChangeHint
-argument_list|)
 name|friend
 name|class
 name|QPersistentModelIndexData
@@ -1458,6 +1454,10 @@ block|,
 name|HorizontalSortHint
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|LayoutChangeHint
+argument_list|)
 name|Q_SIGNALS
 operator|:
 name|void
