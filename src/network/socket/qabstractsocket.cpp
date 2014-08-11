@@ -5984,7 +5984,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits until the socket is connected, up to \a msecs     milliseconds. If the connection has been established, this     function returns \c true; otherwise it returns \c false. In the case     where it returns \c false, you can call error() to determine     the cause of the error.      The following example waits up to one second for a connection     to be established:      \snippet code/src_network_socket_qabstractsocket.cpp 0      If msecs is -1, this function will not time out.      \note This function may wait slightly longer than \a msecs,     depending on the time it takes to complete the host lookup.      \note Multiple calls to this functions do not accumulate the time.     If the function times out, the connecting process will be aborted.      \sa connectToHost(), connected() */
+comment|/*!     Waits until the socket is connected, up to \a msecs     milliseconds. If the connection has been established, this     function returns \c true; otherwise it returns \c false. In the case     where it returns \c false, you can call error() to determine     the cause of the error.      The following example waits up to one second for a connection     to be established:      \snippet code/src_network_socket_qabstractsocket.cpp 0      If msecs is -1, this function will not time out.      \note This function may wait slightly longer than \a msecs,     depending on the time it takes to complete the host lookup.      \note Multiple calls to this functions do not accumulate the time.     If the function times out, the connecting process will be aborted.      \note This function may fail randomly on Windows. Consider using the event     loop and the connected() signal if your software will run on Windows.      \sa connectToHost(), connected() */
 end_comment
 begin_function
 DECL|function|waitForConnected
@@ -6463,7 +6463,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function blocks until new data is available for reading and the     \l{QIODevice::}{readyRead()} signal has been emitted. The function     will timeout after \a msecs milliseconds; the default timeout is     30000 milliseconds.      The function returns \c true if the readyRead() signal is emitted and     there is new data available for reading; otherwise it returns \c false     (if an error occurred or the operation timed out).      \sa waitForBytesWritten() */
+comment|/*!     This function blocks until new data is available for reading and the     \l{QIODevice::}{readyRead()} signal has been emitted. The function     will timeout after \a msecs milliseconds; the default timeout is     30000 milliseconds.      The function returns \c true if the readyRead() signal is emitted and     there is new data available for reading; otherwise it returns \c false     (if an error occurred or the operation timed out).      \note This function may fail randomly on Windows. Consider using the event     loop and the readyRead() signal if your software will run on Windows.      \sa waitForBytesWritten() */
 end_comment
 begin_function
 DECL|function|waitForReadyRead
@@ -6735,7 +6735,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \reimp  */
+comment|/*! \reimp      This function blocks until at least one byte has been written on the socket     and the \l{QIODevice::}{bytesWritten()} signal has been emitted. The     function will timeout after \a msecs milliseconds; the default timeout is     30000 milliseconds.      The function returns \c true if the bytesWritten() signal is emitted;     otherwise it returns \c false (if an error occurred or the operation timed     out).      \note This function may fail randomly on Windows. Consider using the event     loop and the bytesWritten() signal if your software will run on Windows.      \sa waitForReadyRead()  */
 end_comment
 begin_function
 DECL|function|waitForBytesWritten
@@ -7031,7 +7031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits until the socket has disconnected, up to \a msecs     milliseconds. If the connection has been disconnected, this     function returns \c true; otherwise it returns \c false. In the case     where it returns \c false, you can call error() to determine     the cause of the error.      The following example waits up to one second for a connection     to be closed:      \snippet code/src_network_socket_qabstractsocket.cpp 1      If msecs is -1, this function will not time out.      \sa disconnectFromHost(), close() */
+comment|/*!     Waits until the socket has disconnected, up to \a msecs     milliseconds. If the connection has been disconnected, this     function returns \c true; otherwise it returns \c false. In the case     where it returns \c false, you can call error() to determine     the cause of the error.      The following example waits up to one second for a connection     to be closed:      \snippet code/src_network_socket_qabstractsocket.cpp 1      If msecs is -1, this function will not time out.      \note This function may fail randomly on Windows. Consider using the event     loop and the disconnected() signal if your software will run on Windows.      \sa disconnectFromHost(), close() */
 end_comment
 begin_function
 DECL|function|waitForDisconnected
