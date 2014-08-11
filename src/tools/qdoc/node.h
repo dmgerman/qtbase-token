@@ -1051,6 +1051,23 @@ literal|0
 return|;
 block|}
 name|virtual
+name|QmlPropertyNode
+modifier|*
+name|hasQmlProperty
+argument_list|(
+specifier|const
+name|QString
+operator|&
+argument_list|,
+name|bool
+argument_list|)
+decl|const
+block|{
+return|return
+literal|0
+return|;
+block|}
+name|virtual
 name|void
 name|getMemberNamespaces
 parameter_list|(
@@ -2129,6 +2146,17 @@ operator|*
 name|hasQmlProperty
 argument_list|(
 argument|const QString&
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|QmlPropertyNode
+operator|*
+name|hasQmlProperty
+argument_list|(
+argument|const QString&
+argument_list|,
+argument|bool attached
 argument_list|)
 specifier|const
 block|;

@@ -915,6 +915,8 @@ argument_list|(
 name|qpa
 operator|.
 name|name_
+argument_list|,
+name|isAttached
 argument_list|)
 decl_stmt|;
 if|if
