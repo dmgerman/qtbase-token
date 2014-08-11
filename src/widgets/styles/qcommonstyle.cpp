@@ -8861,6 +8861,11 @@ end_endif
 begin_comment
 comment|//QT_NO_TABBAR
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
+end_ifndef
 begin_comment
 comment|/*! \internal */
 end_comment
@@ -9075,6 +9080,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!   \reimp */
 end_comment

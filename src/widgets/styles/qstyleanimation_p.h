@@ -30,6 +30,9 @@ file|"qimage.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 comment|//
 comment|//  W A R N I N G
 comment|//  -------------
@@ -401,6 +404,13 @@ name|_active
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_ANIMATION
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

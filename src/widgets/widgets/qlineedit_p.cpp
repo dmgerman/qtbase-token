@@ -1778,6 +1778,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
+end_ifndef
 begin_function
 DECL|function|startOpacityAnimation
 name|void
@@ -1829,6 +1834,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|updateCursor
 name|void
@@ -1912,6 +1921,9 @@ name|lastTextSize
 operator|=
 name|newTextSize
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 specifier|const
 name|bool
 name|fadeIn
@@ -1990,6 +2002,8 @@ name|fadeIn
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 block|}
 block|}
