@@ -7837,15 +7837,8 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
 name|window
 condition|)
-name|qApp
-operator|->
-name|quit
-argument_list|()
-expr_stmt|;
-else|else
 name|QWindowSystemInterface
 operator|::
 name|handleCloseEvent
