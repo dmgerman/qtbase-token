@@ -4298,6 +4298,10 @@ name|m_subPixelPositionCount
 operator|=
 literal|4
 expr_stmt|;
+name|forceAutoHint
+operator|=
+literal|false
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -5110,6 +5114,14 @@ else|else
 name|load_flags
 operator||=
 name|load_target
+expr_stmt|;
+if|if
+condition|(
+name|forceAutoHint
+condition|)
+name|load_flags
+operator||=
+name|FT_LOAD_FORCE_AUTOHINT
 expr_stmt|;
 return|return
 name|load_flags

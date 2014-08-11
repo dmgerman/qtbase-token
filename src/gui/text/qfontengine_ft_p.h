@@ -1218,6 +1218,9 @@ block|;
 name|bool
 name|cacheEnabled
 block|;
+name|bool
+name|forceAutoHint
+block|;
 name|private
 operator|:
 name|friend
