@@ -493,28 +493,28 @@ argument_list|)
 expr_stmt|;
 name|ComPtr
 argument_list|<
-name|ICoreWindow
+name|ICoreApplicationView2
 argument_list|>
-name|window
+name|view2
 decl_stmt|;
 name|hr
 operator|=
 name|view
-operator|->
-name|get_CoreWindow
+operator|.
+name|As
 argument_list|(
 operator|&
-name|window
+name|view2
 argument_list|)
 expr_stmt|;
 name|RETURN_VOID_IF_FAILED
 argument_list|(
-literal|"Failed to get the core window"
+literal|"Failed to cast the main view"
 argument_list|)
 expr_stmt|;
 name|hr
 operator|=
-name|window
+name|view2
 operator|->
 name|get_Dispatcher
 argument_list|(
@@ -522,9 +522,20 @@ operator|&
 name|coreDispatcher
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hr
+operator|==
+name|HRESULT_FROM_WIN32
+argument_list|(
+name|ERROR_NOT_FOUND
+argument_list|)
+condition|)
+comment|// expected in thread pool cases
+return|return;
 name|RETURN_VOID_IF_FAILED
 argument_list|(
-literal|"Failed to get the core dispatcher"
+literal|"Failed to get core dispatcher"
 argument_list|)
 expr_stmt|;
 name|thread
@@ -640,6 +651,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|thread
+operator|&&
 name|d
 operator|->
 name|thread
