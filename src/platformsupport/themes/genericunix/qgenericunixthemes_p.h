@@ -274,6 +274,12 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|virtual
+name|QString
+name|gtkFontName
+argument_list|()
+specifier|const
+block|;
 specifier|static
 specifier|const
 name|char
