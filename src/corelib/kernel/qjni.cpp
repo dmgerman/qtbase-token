@@ -3874,6 +3874,8 @@ argument_list|,
 name|methodName
 argument_list|,
 name|sig
+argument_list|,
+name|args
 argument_list|)
 decl_stmt|;
 name|va_end
@@ -5392,6 +5394,8 @@ argument_list|,
 name|methodName
 argument_list|,
 name|sig
+argument_list|,
+name|args
 argument_list|)
 decl_stmt|;
 name|va_end
@@ -5856,6 +5860,8 @@ argument_list|,
 name|methodName
 argument_list|,
 name|sig
+argument_list|,
+name|args
 argument_list|)
 decl_stmt|;
 name|va_end

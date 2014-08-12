@@ -591,6 +591,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|qGLContextDeleteFunction
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|platformGLContext
 argument_list|(
 literal|0

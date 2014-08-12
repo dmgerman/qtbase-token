@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformtheme.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qcore_mac_p.h>
 end_include
 begin_ifndef
@@ -116,8 +121,15 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_struct_decl
+struct_decl|struct
+name|FontDescription
+struct_decl|;
+end_struct_decl
+begin_decl_stmt
 name|class
 name|QCoreTextFontDatabase
 range|:
@@ -204,6 +216,13 @@ operator|*
 name|handle
 argument_list|)
 block|;
+name|bool
+name|isPrivateFontFamily
+argument_list|(
+argument|const QString&family
+argument_list|)
+specifier|const
+block|;
 name|QFont
 name|defaultFont
 argument_list|()
@@ -217,12 +236,44 @@ name|standardSizes
 argument_list|()
 specifier|const
 block|;
+comment|// For iOS and OS X platform themes
+name|QFont
+operator|*
+name|themeFont
+argument_list|(
+argument|QPlatformTheme::Font
+argument_list|)
+specifier|const
+block|;
+specifier|const
+name|QHash
+operator|<
+name|QPlatformTheme
+operator|::
+name|Font
+block|,
+name|QFont
+operator|*
+operator|>
+operator|&
+name|themeFonts
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|void
 name|populateFromDescriptor
 argument_list|(
 argument|CTFontDescriptorRef font
+argument_list|)
+block|;
+name|void
+name|populateFromFontDescription
+argument_list|(
+argument|CTFontDescriptorRef font
+argument_list|,
+argument|const FontDescription&fd
 argument_list|)
 block|;
 name|mutable
@@ -238,6 +289,25 @@ operator|<
 name|QVariant
 operator|>
 name|m_applicationFonts
+block|;
+name|mutable
+name|QSet
+operator|<
+name|CTFontDescriptorRef
+operator|>
+name|m_systemFontDescriptors
+block|;
+name|mutable
+name|QHash
+operator|<
+name|QPlatformTheme
+operator|::
+name|Font
+block|,
+name|QFont
+operator|*
+operator|>
+name|m_themeFonts
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -1727,13 +1727,12 @@ decl_stmt|;
 if|if
 condition|(
 name|it
-operator|==
+operator|!=
 name|m_surfaces
 operator|.
 name|end
 argument_list|()
 condition|)
-return|return;
 name|m_surfaces
 operator|.
 name|remove
