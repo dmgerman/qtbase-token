@@ -659,6 +659,9 @@ modifier|*
 name|message
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
 name|Q_TESTLIB_EXPORT
 name|void
 name|ignoreMessage
@@ -672,6 +675,8 @@ modifier|&
 name|messagePattern
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 name|Q_TESTLIB_EXPORT
 name|QString
 name|qFindTestData
