@@ -1538,17 +1538,23 @@ name|Atom
 operator|::
 name|BriefLeft
 case|:
-comment|//do not output the brief for QML basic types and doc nodes (including examples).
+comment|// Do not output the brief for QML nodes, doc nodes or collections
+comment|// (groups, modules, qml module nodes)
 if|if
 condition|(
 name|relative
 operator|->
-name|isQmlBasicType
+name|isQmlType
 argument_list|()
 operator|||
 name|relative
 operator|->
 name|isDocNode
+argument_list|()
+operator|||
+name|relative
+operator|->
+name|isCollectionNode
 argument_list|()
 condition|)
 block|{
