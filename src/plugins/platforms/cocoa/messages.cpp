@@ -175,6 +175,22 @@ modifier|&
 name|caption
 parameter_list|)
 block|{
+name|QString
+name|captionNoAmpersand
+argument_list|(
+name|caption
+argument_list|)
+decl_stmt|;
+name|captionNoAmpersand
+operator|.
+name|remove
+argument_list|(
+name|QChar
+argument_list|(
+literal|'&'
+argument_list|)
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QString
 name|aboutString
@@ -190,7 +206,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -219,7 +235,7 @@ name|AboutRole
 return|;
 if|if
 condition|(
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -237,7 +253,7 @@ operator|::
 name|CaseInsensitive
 argument_list|)
 operator|||
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -255,7 +271,7 @@ operator|::
 name|CaseInsensitive
 argument_list|)
 operator|||
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -273,7 +289,7 @@ operator|::
 name|CaseInsensitive
 argument_list|)
 operator|||
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -291,7 +307,7 @@ operator|::
 name|CaseInsensitive
 argument_list|)
 operator|||
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -318,7 +334,7 @@ return|;
 block|}
 if|if
 condition|(
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -336,7 +352,7 @@ operator|::
 name|CaseInsensitive
 argument_list|)
 operator|||
-name|caption
+name|captionNoAmpersand
 operator|.
 name|startsWith
 argument_list|(
@@ -364,7 +380,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|caption
+name|captionNoAmpersand
 operator|.
 name|compare
 argument_list|(
@@ -390,7 +406,7 @@ return|;
 if|if
 condition|(
 operator|!
-name|caption
+name|captionNoAmpersand
 operator|.
 name|compare
 argument_list|(
@@ -416,7 +432,7 @@ return|;
 if|if
 condition|(
 operator|!
-name|caption
+name|captionNoAmpersand
 operator|.
 name|compare
 argument_list|(
@@ -442,7 +458,7 @@ return|;
 if|if
 condition|(
 operator|!
-name|caption
+name|captionNoAmpersand
 operator|.
 name|compare
 argument_list|(
