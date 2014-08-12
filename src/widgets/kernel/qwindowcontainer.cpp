@@ -234,6 +234,9 @@ condition|)
 block|{
 if|if
 condition|(
+ifndef|#
+directive|ifndef
+name|QT_NO_MDIAREA
 name|qobject_cast
 argument_list|<
 name|QMdiSubWindow
@@ -245,6 +248,8 @@ argument_list|)
 operator|!=
 literal|0
 operator|||
+endif|#
+directive|endif
 name|qobject_cast
 argument_list|<
 name|QAbstractScrollArea
