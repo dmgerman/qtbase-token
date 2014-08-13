@@ -12616,6 +12616,10 @@ block|{
 public|public:
 DECL|function|qt_section_chunk
 name|qt_section_chunk
+parameter_list|()
+block|{}
+DECL|function|qt_section_chunk
+name|qt_section_chunk
 parameter_list|(
 name|int
 name|l
@@ -12644,6 +12648,15 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|qt_section_chunk
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function
 DECL|function|extractSections
 specifier|static
@@ -12651,7 +12664,7 @@ name|QString
 name|extractSections
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|qt_section_chunk
 argument_list|>
@@ -13015,7 +13028,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|qt_section_chunk
 argument_list|>
@@ -13241,7 +13254,7 @@ operator|::
 name|CaseInsensitiveOption
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|qt_section_chunk
 argument_list|>
