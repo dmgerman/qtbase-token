@@ -5020,14 +5020,10 @@ if|if
 condition|(
 name|subpixelType
 operator|==
-name|QFontEngineFT
-operator|::
 name|Subpixel_RGB
 operator|||
 name|subpixelType
 operator|==
-name|QFontEngineFT
-operator|::
 name|Subpixel_BGR
 condition|)
 block|{
@@ -5051,14 +5047,10 @@ if|if
 condition|(
 name|subpixelType
 operator|==
-name|QFontEngineFT
-operator|::
 name|Subpixel_VRGB
 operator|||
 name|subpixelType
 operator|==
-name|QFontEngineFT
-operator|::
 name|Subpixel_VBGR
 condition|)
 block|{
@@ -5998,8 +5990,6 @@ name|pitch
 argument_list|,
 name|subpixelType
 operator|!=
-name|QFontEngineFT
-operator|::
 name|Subpixel_RGB
 argument_list|,
 literal|false
@@ -6042,8 +6032,6 @@ name|pitch
 argument_list|,
 name|subpixelType
 operator|!=
-name|QFontEngineFT
-operator|::
 name|Subpixel_VRGB
 argument_list|,
 literal|false
@@ -7054,8 +7042,6 @@ name|pitch
 argument_list|,
 name|subpixelType
 operator|!=
-name|QFontEngineFT
-operator|::
 name|Subpixel_RGB
 argument_list|,
 name|useLegacyLcdFilter
@@ -7100,8 +7086,6 @@ name|pitch
 argument_list|,
 name|subpixelType
 operator|!=
-name|QFontEngineFT
-operator|::
 name|Subpixel_VRGB
 argument_list|,
 literal|true

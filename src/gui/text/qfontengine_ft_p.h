@@ -434,19 +434,6 @@ name|uchar
 operator|*
 name|data
 block|;     }
-block|;      enum
-name|SubpixelAntialiasingType
-block|{
-name|Subpixel_None
-block|,
-name|Subpixel_RGB
-block|,
-name|Subpixel_BGR
-block|,
-name|Subpixel_VRGB
-block|,
-name|Subpixel_VBGR
-block|}
 block|;      struct
 name|GlyphInfo
 block|{
