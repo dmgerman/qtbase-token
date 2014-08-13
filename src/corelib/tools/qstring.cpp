@@ -5165,6 +5165,15 @@ begin_comment
 comment|/*!      \fn QString& QString::insert(int position, const QString&str)      Inserts the string \a str at the given index \a position and     returns a reference to this string.      Example:      \snippet qstring/main.cpp 26      If the given \a position is greater than size(), the array is     first extended using resize().      \sa append(), prepend(), replace(), remove() */
 end_comment
 begin_comment
+comment|/*!     \fn QString& QString::insert(int position, const QStringRef&str)     \since 5.5     \overload insert()      Inserts the string reference \a str at the given index \a position and     returns a reference to this string.      If the given \a position is greater than size(), the array is     first extended using resize(). */
+end_comment
+begin_comment
+comment|/*!     \fn QString& QString::insert(int position, const char *str)     \since 5.5     \overload insert()      Inserts the C string \a str at the given index \a position and     returns a reference to this string.      If the given \a position is greater than size(), the array is     first extended using resize().      This function is not available when QT_NO_CAST_FROM_ASCII is     defined. */
+end_comment
+begin_comment
+comment|/*!     \fn QString& QString::insert(int position, const QByteArray&str)     \since 5.5     \overload insert()      Inserts the byte array \a str at the given index \a position and     returns a reference to this string.      If the given \a position is greater than size(), the array is     first extended using resize().      This function is not available when QT_NO_CAST_FROM_ASCII is     defined. */
+end_comment
+begin_comment
 comment|/*!     \fn QString&QString::insert(int position, QLatin1String str)     \overload insert()      Inserts the Latin-1 string \a str at the given index \a position. */
 end_comment
 begin_function
