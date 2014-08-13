@@ -234,6 +234,9 @@ decl_stmt|;
 name|QMatrix4x4
 name|m_world
 decl_stmt|;
+name|bool
+name|m_transparent
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

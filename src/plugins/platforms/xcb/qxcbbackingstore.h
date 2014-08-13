@@ -109,6 +109,9 @@ parameter_list|,
 name|QOpenGLContext
 modifier|*
 name|context
+parameter_list|,
+name|bool
+name|translucentBackground
 parameter_list|)
 function_decl|;
 endif|#

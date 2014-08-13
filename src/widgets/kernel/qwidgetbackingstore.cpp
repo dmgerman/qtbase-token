@@ -396,6 +396,22 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// A window may have alpha even when the app did not request
+comment|// WA_TranslucentBackground. Therefore the compositor needs to know whether the app intends
+comment|// to rely on translucency, in order to decide if it should clear to transparent or opaque.
+specifier|const
+name|bool
+name|translucentBackground
+init|=
+name|widget
+operator|->
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_TranslucentBackground
+argument_list|)
+decl_stmt|;
 name|backingStore
 operator|->
 name|handle
@@ -414,13 +430,15 @@ name|offset
 argument_list|,
 name|widgetTextures
 argument_list|,
-name|tlw
+name|widget
 operator|->
 name|d_func
 argument_list|()
 operator|->
 name|shareContext
 argument_list|()
+argument_list|,
+name|translucentBackground
 argument_list|)
 expr_stmt|;
 name|widget
