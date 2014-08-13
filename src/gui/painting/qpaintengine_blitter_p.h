@@ -379,6 +379,18 @@ argument_list|(
 name|QStaticTextItem
 operator|*
 argument_list|)
+block|;
+name|bool
+name|drawCachedGlyphs
+argument_list|(
+argument|int numGlyphs
+argument_list|,
+argument|const glyph_t *glyphs
+argument_list|,
+argument|const QFixedPoint *positions
+argument_list|,
+argument|QFontEngine *fontEngine
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
