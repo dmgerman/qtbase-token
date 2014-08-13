@@ -3803,6 +3803,24 @@ block|,
 name|qt_memrotate270_32
 block|}
 block|,
+comment|// Format_BGB30,
+block|{
+name|qt_memrotate90_32
+block|,
+name|qt_memrotate180_32
+block|,
+name|qt_memrotate270_32
+block|}
+block|,
+comment|// Format_A2BGR30_Premultiplied,
+block|{
+name|qt_memrotate90_32
+block|,
+name|qt_memrotate180_32
+block|,
+name|qt_memrotate270_32
+block|}
+block|,
 comment|// Format_RGB30,
 block|{
 name|qt_memrotate90_32
@@ -3812,14 +3830,6 @@ block|,
 name|qt_memrotate270_32
 block|}
 block|,
-comment|// Format_A2RGB30,
-block|{
-name|qt_memrotate90_32
-block|,
-name|qt_memrotate180_32
-block|,
-name|qt_memrotate270_32
-block|}
 comment|// Format_A2RGB30_Premultiplied,
 block|}
 decl_stmt|;
