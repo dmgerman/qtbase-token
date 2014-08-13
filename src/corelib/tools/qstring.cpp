@@ -6116,6 +6116,12 @@ begin_comment
 comment|/*! \fn QString&QString::prepend(QLatin1String str)      \overload prepend()      Prepends the Latin-1 string \a str to this string. */
 end_comment
 begin_comment
+comment|/*! \fn QString&QString::prepend(const QChar *str, int len)     \since 5.5     \overload prepend()      Prepends \a len characters from the QChar array \a str to this string and     returns a reference to this string. */
+end_comment
+begin_comment
+comment|/*! \fn QString&QString::prepend(const QStringRef&str)     \since 5.5     \overload prepend()      Prepends the string reference \a str to the beginning of this string and     returns a reference to this string. */
+end_comment
+begin_comment
 comment|/*! \fn QString&QString::prepend(const QByteArray&ba)      \overload prepend()      Prepends the byte array \a ba to this string. The byte array is     converted to Unicode using the fromUtf8() function.      You can disable this function by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
