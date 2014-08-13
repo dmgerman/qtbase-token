@@ -444,6 +444,17 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|predit
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|QInputMethodEvent
 name|event
 decl_stmt|;
@@ -466,6 +477,7 @@ operator|&
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 name|d
 operator|->
 name|context
