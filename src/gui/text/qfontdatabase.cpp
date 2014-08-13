@@ -5163,6 +5163,12 @@ name|desc
 parameter_list|,
 name|int
 name|force_encoding_id
+parameter_list|,
+name|QString
+name|styleName
+init|=
+name|QString
+argument_list|()
 parameter_list|)
 block|{
 name|Q_UNUSED
@@ -5312,6 +5318,8 @@ argument_list|(
 name|foundry
 argument_list|,
 name|styleKey
+argument_list|,
+name|styleName
 argument_list|)
 decl_stmt|;
 if|if
@@ -6259,6 +6267,10 @@ operator|&
 name|test
 argument_list|,
 name|force_encoding_id
+argument_list|,
+name|request
+operator|.
+name|styleName
 argument_list|)
 decl_stmt|;
 if|if
@@ -6303,6 +6315,10 @@ operator|&
 name|test
 argument_list|,
 name|force_encoding_id
+argument_list|,
+name|request
+operator|.
+name|styleName
 argument_list|)
 expr_stmt|;
 block|}
