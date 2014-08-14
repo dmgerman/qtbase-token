@@ -125,6 +125,13 @@ name|Q_DECL_OVERRIDE
 expr_stmt|;
 endif|#
 directive|endif
+name|QPlatformGraphicsBuffer
+operator|*
+name|graphicsBuffer
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|void
 name|resize
 argument_list|(

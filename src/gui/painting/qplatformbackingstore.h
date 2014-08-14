@@ -117,6 +117,12 @@ name|class
 name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPlatformGraphicsBuffer
+name|class
+name|QPlatformGraphicsBuffer
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -375,6 +381,13 @@ decl|const
 decl_stmt|;
 endif|#
 directive|endif
+name|virtual
+name|QPlatformGraphicsBuffer
+operator|*
+name|graphicsBuffer
+argument_list|()
+specifier|const
+expr_stmt|;
 name|virtual
 name|void
 name|resize
