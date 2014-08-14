@@ -71,6 +71,13 @@ name|void
 name|connectToDirectFb
 argument_list|()
 block|;
+name|bool
+name|hasCapability
+argument_list|(
+argument|Capability cap
+argument_list|)
+specifier|const
+block|;
 name|QPlatformPixmap
 operator|*
 name|createPlatformPixmap
@@ -155,7 +162,7 @@ operator|<
 name|QPlatformFontDatabase
 operator|>
 name|m_fontDb
-block|; }
+block|;  }
 decl_stmt|;
 end_decl_stmt
 begin_macro
