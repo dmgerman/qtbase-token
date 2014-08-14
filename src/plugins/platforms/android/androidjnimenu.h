@@ -54,6 +54,10 @@ name|QtAndroidMenu
 block|{
 comment|// Menu support
 name|void
+name|openOptionsMenu
+parameter_list|()
+function_decl|;
+name|void
 name|showContextMenu
 parameter_list|(
 name|QAndroidPlatformMenu

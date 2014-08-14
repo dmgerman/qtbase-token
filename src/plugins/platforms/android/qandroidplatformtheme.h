@@ -68,6 +68,11 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|void
+name|showPlatformMenuBar
+argument_list|()
+block|;
+name|virtual
 specifier|const
 name|QPalette
 operator|*

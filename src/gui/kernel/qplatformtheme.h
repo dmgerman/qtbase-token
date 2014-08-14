@@ -575,6 +575,11 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
+name|void
+name|showPlatformMenuBar
+parameter_list|()
+block|{}
+name|virtual
 name|bool
 name|usePlatformNativeDialog
 argument_list|(
