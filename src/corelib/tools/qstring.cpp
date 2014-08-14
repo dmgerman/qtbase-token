@@ -12474,10 +12474,14 @@ name|flags
 parameter_list|)
 specifier|const
 block|{
-name|QStringList
+specifier|const
+name|QVector
+argument_list|<
+name|QStringRef
+argument_list|>
 name|sections
 init|=
-name|split
+name|splitRef
 argument_list|(
 name|sep
 argument_list|,
@@ -12655,7 +12659,9 @@ operator|++
 name|i
 control|)
 block|{
-name|QString
+specifier|const
+name|QStringRef
+modifier|&
 name|section
 init|=
 name|sections
