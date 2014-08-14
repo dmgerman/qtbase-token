@@ -12623,11 +12623,6 @@ return|return
 name|QString
 argument_list|()
 return|;
-name|int
-name|x
-init|=
-literal|0
-decl_stmt|;
 name|QString
 name|ret
 decl_stmt|;
@@ -12643,6 +12638,10 @@ decl_stmt|;
 for|for
 control|(
 name|int
+name|x
+init|=
+literal|0
+init|,
 name|i
 init|=
 literal|0
