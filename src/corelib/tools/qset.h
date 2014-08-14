@@ -2147,6 +2147,47 @@ begin_expr_stmt
 unit|};
 name|template
 operator|<
+name|typename
+name|T
+operator|>
+name|uint
+name|qHash
+argument_list|(
+argument|const QSet<T>&key
+argument_list|,
+argument|uint seed =
+literal|0
+argument_list|)
+DECL|function|noexcept
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(qHashRangeCommutative(key.begin(), key.end(), seed))
+argument_list|)
+block|{
+return|return
+name|qHashRangeCommutative
+argument_list|(
+name|key
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|key
+operator|.
+name|end
+argument_list|()
+argument_list|,
+name|seed
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_comment
+comment|// inline function implementations
+end_comment
+begin_expr_stmt
+name|template
+operator|<
 name|class
 name|T
 operator|>
