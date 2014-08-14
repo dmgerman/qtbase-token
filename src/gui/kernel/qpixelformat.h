@@ -123,11 +123,16 @@ name|ModelField
 init|=
 literal|0
 block|,
+comment|// work around bug in old clang versions: when building webkit
+comment|// with XCode 4.6 and older this fails compilation, thus cast to int
 name|FirstField
 init|=
 name|ModelField
 operator|+
+name|int
+argument_list|(
 name|ModelFieldWidth
+argument_list|)
 block|,
 name|SecondField
 init|=
