@@ -432,7 +432,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the name of the file.     The default implementation in QFileDevice returns QString(). */
+comment|/*!     Returns the name of the file.     The default implementation in QFileDevice returns a null string. */
 end_comment
 begin_function
 DECL|function|fileName

@@ -9426,7 +9426,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QTextStream      Calls skipWhiteSpace() on \a stream and returns \a stream.      \sa {QTextStream manipulators} */
+comment|/*!     \relates QTextStream      Calls \l {QTextStream::}{skipWhiteSpace()} on \a stream and returns \a stream.      \sa {QTextStream manipulators} */
 end_comment
 begin_function
 DECL|function|ws
