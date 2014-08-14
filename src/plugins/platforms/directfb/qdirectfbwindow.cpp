@@ -579,6 +579,9 @@ argument_list|()
 operator|->
 name|geometry
 argument_list|()
+operator|.
+name|size
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
