@@ -4703,11 +4703,55 @@ name|control
 block|; }
 expr_stmt|;
 end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_comment
+comment|// We need to use __typeof__ if we don't have decltype or if the compiler
+end_comment
+begin_comment
+comment|// hasn't been updated to the fix of Core Language Defect Report 382
+end_comment
+begin_comment
+comment|// (http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#382).
+end_comment
+begin_comment
+comment|// GCC 4.3 and 4.4 have support for decltype, but are affected by DR 382.
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_COMPILER_DECLTYPE
-end_ifdef
+argument_list|)
+operator|&&
+expr|\
+operator|(
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+operator|||
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|||
+operator|(
+name|__GNUC__
+operator|*
+literal|100
+operator|+
+name|__GNUC_MINOR__
+operator|)
+operator|>=
+literal|405
+operator|)
+end_if
 begin_define
 DECL|macro|QT_FOREACH_DECLTYPE
 define|#
