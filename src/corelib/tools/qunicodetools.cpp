@@ -6313,59 +6313,17 @@ name|script
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|Q_LIKELY
-argument_list|(
-name|script
-operator|!=
-name|QChar
-operator|::
-name|Script_Common
-argument_list|)
-condition|)
-block|{
+if|#
+directive|if
+literal|0
+comment|// ### Disabled due to regressions. The font selection algorithm is not prepared for this change.
+block|if (Q_LIKELY(script != QChar::Script_Common)) {
 comment|// override preceding Common-s
-while|while
-condition|(
-name|sor
-operator|>
-literal|0
-operator|&&
-name|scripts
-index|[
-name|sor
-operator|-
-literal|1
-index|]
-operator|==
-name|QChar
-operator|::
-name|Script_Common
-condition|)
-operator|--
-name|sor
-expr_stmt|;
-block|}
-else|else
-block|{
+block|while (sor> 0&& scripts[sor - 1] == QChar::Script_Common)                 --sor;         } else {
 comment|// see if we are inheriting preceding run
-if|if
-condition|(
-name|sor
-operator|>
-literal|0
-condition|)
-name|script
-operator|=
-name|scripts
-index|[
-name|sor
-operator|-
-literal|1
-index|]
-expr_stmt|;
-block|}
+block|if (sor> 0)                 script = scripts[sor - 1];         }
+endif|#
+directive|endif
 while|while
 condition|(
 name|sor
@@ -6391,59 +6349,17 @@ name|eor
 operator|=
 name|length
 expr_stmt|;
-if|if
-condition|(
-name|Q_LIKELY
-argument_list|(
-name|script
-operator|!=
-name|QChar
-operator|::
-name|Script_Common
-argument_list|)
-condition|)
-block|{
+if|#
+directive|if
+literal|0
+comment|// ### Disabled due to regressions. The font selection algorithm is not prepared for this change.
+block|if (Q_LIKELY(script != QChar::Script_Common)) {
 comment|// override preceding Common-s
-while|while
-condition|(
-name|sor
-operator|>
-literal|0
-operator|&&
-name|scripts
-index|[
-name|sor
-operator|-
-literal|1
-index|]
-operator|==
-name|QChar
-operator|::
-name|Script_Common
-condition|)
-operator|--
-name|sor
-expr_stmt|;
-block|}
-else|else
-block|{
+block|while (sor> 0&& scripts[sor - 1] == QChar::Script_Common)             --sor;     } else {
 comment|// see if we are inheriting preceding run
-if|if
-condition|(
-name|sor
-operator|>
-literal|0
-condition|)
-name|script
-operator|=
-name|scripts
-index|[
-name|sor
-operator|-
-literal|1
-index|]
-expr_stmt|;
-block|}
+block|if (sor> 0)             script = scripts[sor - 1];     }
+endif|#
+directive|endif
 while|while
 condition|(
 name|sor

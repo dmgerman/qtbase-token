@@ -447,6 +447,7 @@ index|]
 operator|.
 name|flags
 operator|&&
+operator|(
 name|m_analysis
 index|[
 name|i
@@ -460,6 +461,17 @@ name|start
 index|]
 operator|.
 name|script
+operator|||
+name|m_string
+index|[
+name|i
+index|]
+operator|==
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
+operator|)
 operator|&&
 name|m_analysis
 index|[
