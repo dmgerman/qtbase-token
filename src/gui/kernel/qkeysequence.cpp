@@ -4713,10 +4713,19 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QModifKeyName
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
-argument|QList<QModifKeyName>
+argument|QVector<QModifKeyName>
 argument_list|,
 argument|globalModifs
 argument_list|)
@@ -4724,7 +4733,7 @@ end_macro
 begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
-argument|QList<QModifKeyName>
+argument|QVector<QModifKeyName>
 argument_list|,
 argument|globalPortableModifs
 argument_list|)
@@ -4799,7 +4808,7 @@ operator|::
 name|NativeText
 operator|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QModifKeyName
 argument_list|>
@@ -5098,7 +5107,7 @@ condition|)
 return|return
 name|ret
 return|;
-name|QList
+name|QVector
 argument_list|<
 name|QModifKeyName
 argument_list|>
