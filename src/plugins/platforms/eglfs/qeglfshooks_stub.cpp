@@ -196,6 +196,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|qWarning
 argument_list|(
 literal|"EGLFS: Failed to open %s"
@@ -206,6 +207,12 @@ name|fbDev
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|qFatal
+argument_list|(
+literal|"EGLFS: Can't continue without a display"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
