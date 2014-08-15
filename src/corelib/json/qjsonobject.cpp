@@ -1791,6 +1791,9 @@ begin_comment
 comment|/*! \fn QJsonValueRef QJsonObject::iterator::operator*() const      Returns a modifiable reference to the current item's value.      Same as value().      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the element in the QJsonArray or QJsonObject     from which you got the reference.      \sa key() */
 end_comment
 begin_comment
+comment|/*! \fn QJsonValueRef *QJsonObject::iterator::operator->() const      Returns a pointer to a modifiable reference to the current item. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QJsonObject::iterator::operator==(const iterator&other) const     \fn bool QJsonObject::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
@@ -1852,6 +1855,9 @@ comment|/*! \fn QJsonValue QJsonObject::const_iterator::value() const      Retur
 end_comment
 begin_comment
 comment|/*! \fn QJsonValue QJsonObject::const_iterator::operator*() const      Returns the current item's value.      Same as value().      \sa key() */
+end_comment
+begin_comment
+comment|/*! \fn QJsonValue *QJsonObject::const_iterator::operator->() const      Returns a pointer to the current item. */
 end_comment
 begin_comment
 comment|/*! \fn bool QJsonObject::const_iterator::operator==(const const_iterator&other) const     \fn bool QJsonObject::const_iterator::operator==(const iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
