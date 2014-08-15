@@ -1689,6 +1689,12 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_STATFS_F_FLAGS
+argument_list|)
 name|readOnly
 operator|=
 operator|(
@@ -1701,6 +1707,8 @@ operator|)
 operator|!=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 else|#
 directive|else
 name|readOnly
