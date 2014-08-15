@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qplatformscreenpageflipper.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QThread>
 end_include
 begin_include
