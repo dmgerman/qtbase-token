@@ -267,7 +267,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qset.h>
+file|<qvector.h>
 end_include
 begin_include
 include|#
@@ -798,7 +798,7 @@ operator|>
 name|autoDefaultButton
 block|;
 specifier|static
-name|QSet
+name|QVector
 operator|<
 name|QPointer
 operator|<
