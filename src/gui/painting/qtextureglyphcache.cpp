@@ -150,7 +150,10 @@ name|numImages
 operator|++
 index|]
 operator|=
+name|qMove
+argument_list|(
 name|img
+argument_list|)
 expr_stmt|;
 block|}
 end_expr_stmt
@@ -205,7 +208,10 @@ name|numImages
 operator|++
 index|]
 operator|=
+name|qMove
+argument_list|(
 name|img
+argument_list|)
 expr_stmt|;
 block|}
 end_else
