@@ -499,7 +499,7 @@ expr_stmt|;
 name|bool
 name|in_memory_only
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QImage
 operator|>
