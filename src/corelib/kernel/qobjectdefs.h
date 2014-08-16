@@ -462,7 +462,7 @@ define|#
 directive|define
 name|Q_GADGET
 define|\
-value|public: \     static const QMetaObject staticMetaObject; \ private:
+value|public: \     static const QMetaObject staticMetaObject; \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
 endif|#
 directive|endif
 comment|// QT_NO_META_MACROS
