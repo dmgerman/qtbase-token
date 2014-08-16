@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qvector.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtGui/qpicture.h"
 end_include
 begin_include
@@ -500,7 +505,7 @@ name|QImage
 operator|>
 name|image_list
 expr_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QPixmap
 operator|>
