@@ -1959,7 +1959,7 @@ name|int
 name|findBySize
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QImage
 argument_list|>
@@ -2322,7 +2322,7 @@ comment|// Special case for reading Windows ".ico" files. Historically (QTBUG-39
 comment|// these files may contain low-resolution images. As this information is lost,
 comment|// ICOReader sets the original format as an image text key value. Read all matching
 comment|// images into a list trying to find the highest quality per size.
-name|QList
+name|QVector
 argument_list|<
 name|QImage
 argument_list|>
