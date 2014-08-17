@@ -894,7 +894,7 @@ block|;
 name|QPen
 name|pen
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPainterPath
 operator|>

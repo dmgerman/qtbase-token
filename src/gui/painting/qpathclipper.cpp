@@ -11341,7 +11341,7 @@ begin_namespace
 namespace|namespace
 block|{
 DECL|function|toSubpaths
-name|QList
+name|QVector
 argument_list|<
 name|QPainterPath
 argument_list|>
@@ -11353,7 +11353,7 @@ modifier|&
 name|path
 parameter_list|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QPainterPath
 argument_list|>
@@ -12650,7 +12650,7 @@ modifier|&
 name|rect
 parameter_list|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QPainterPath
 argument_list|>
