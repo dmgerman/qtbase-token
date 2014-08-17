@@ -234,7 +234,7 @@ literal|false
 argument_list|)
 block|{     }
 DECL|member|textures
-name|QList
+name|QVector
 argument_list|<
 name|QBackingstoreTextureInfo
 argument_list|>
