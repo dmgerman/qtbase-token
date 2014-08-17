@@ -261,7 +261,7 @@ name|bool
 name|layoutDirty
 decl_stmt|;
 DECL|member|floats
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
