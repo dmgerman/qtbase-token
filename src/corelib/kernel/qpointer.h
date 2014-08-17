@@ -148,6 +148,22 @@ name|QPointer
 argument_list|()
 block|{ }
 specifier|inline
+name|void
+name|swap
+argument_list|(
+argument|QPointer&other
+argument_list|)
+block|{
+name|wp
+operator|.
+name|swap
+argument_list|(
+name|other
+operator|.
+name|wp
+argument_list|)
+block|; }
+specifier|inline
 name|QPointer
 operator|<
 name|T

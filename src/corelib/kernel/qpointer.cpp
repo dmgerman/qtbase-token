@@ -15,6 +15,9 @@ begin_comment
 comment|/*!     \fn QPointer::~QPointer()      Destroys the guarded pointer. Just like a normal pointer,     destroying a guarded pointer does \e not destroy the object being     pointed to. */
 end_comment
 begin_comment
+comment|/*!     \fn void QPointer::swap(QPointer<T>&other)     \since 5.6      Swaps the contents of this QPointer with the contents of \a other.     This operation is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn QPointer<T>& QPointer::operator=(T* p)      Assignment operator. This guarded pointer will now point to the     same object that \a p points to. */
 end_comment
 begin_comment
