@@ -1940,7 +1940,7 @@ struct|;
 end_struct
 begin_expr_stmt
 name|virtual
-name|QList
+name|QVector
 operator|<
 name|QPointer
 operator|<
@@ -2127,7 +2127,7 @@ name|void
 name|activateCausedStack
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QPointer
 operator|<

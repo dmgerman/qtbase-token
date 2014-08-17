@@ -360,7 +360,7 @@ name|calcCausedStack
 argument_list|()
 expr_stmt|;
 block|}
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
@@ -384,7 +384,7 @@ argument_list|>
 name|causedMenu
 decl_stmt|;
 DECL|member|causedStack
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
@@ -1341,7 +1341,7 @@ block|}
 end_function
 begin_function
 DECL|function|calcCausedStack
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
@@ -1354,7 +1354,7 @@ name|calcCausedStack
 parameter_list|()
 specifier|const
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
@@ -6893,7 +6893,7 @@ operator|::
 name|activateCausedStack
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
@@ -7182,7 +7182,7 @@ condition|)
 return|return;
 comment|/* I have to save the caused stack here because it will be undone after popup execution (ie in the hide).        Then I iterate over the list to actually send the events. --Sam     */
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
@@ -7506,7 +7506,7 @@ condition|)
 block|{
 comment|//in case the action has not been activated by the mouse
 comment|//we check the parent hierarchy
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<
