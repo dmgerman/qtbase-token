@@ -255,6 +255,15 @@ block|{}
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QBenchmarkContext
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QBenchmarkResult
@@ -390,6 +399,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QBenchmarkResult
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|/*     The QBenchmarkGlobalData class stores global benchmark-related data.     QBenchmarkGlobalData:current is created at the beginning of qExec()     and cleared at the end. */
 end_comment

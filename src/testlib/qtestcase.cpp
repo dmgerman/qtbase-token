@@ -4132,7 +4132,7 @@ name|QBenchmarkResult
 name|qMedian
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QBenchmarkResult
 argument_list|>
@@ -4171,7 +4171,7 @@ operator|.
 name|front
 argument_list|()
 return|;
-name|QList
+name|QVector
 argument_list|<
 name|QBenchmarkResult
 argument_list|>
@@ -4306,7 +4306,7 @@ literal|1
 else|:
 literal|0
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QBenchmarkResult
 argument_list|>
