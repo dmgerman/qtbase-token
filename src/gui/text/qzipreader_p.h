@@ -208,7 +208,7 @@ name|lastModified
 decl_stmt|;
 block|}
 struct|;
-name|QList
+name|QVector
 operator|<
 name|FileInfo
 operator|>

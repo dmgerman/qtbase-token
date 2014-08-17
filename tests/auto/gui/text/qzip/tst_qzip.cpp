@@ -74,7 +74,7 @@ operator|::
 name|ReadOnly
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QZipReader
 operator|::
@@ -401,7 +401,7 @@ operator|::
 name|ReadOnly
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QZipReader
 operator|::
@@ -567,7 +567,7 @@ name|ReadOnly
 argument_list|)
 decl_stmt|;
 comment|// non existing file.
-name|QList
+name|QVector
 argument_list|<
 name|QZipReader
 operator|::
@@ -673,7 +673,7 @@ operator|&
 name|buffer2
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QZipReader
 operator|::

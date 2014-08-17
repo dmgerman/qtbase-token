@@ -2282,7 +2282,7 @@ name|bool
 name|dirtyFileTree
 decl_stmt|;
 DECL|member|fileHeaders
-name|QList
+name|QVector
 argument_list|<
 name|FileHeader
 argument_list|>
@@ -4570,7 +4570,7 @@ comment|/*!     Returns the list of files the archive contains. */
 end_comment
 begin_function
 DECL|function|fileInfoList
-name|QList
+name|QVector
 argument_list|<
 name|QZipReader
 operator|::
@@ -4587,10 +4587,8 @@ operator|->
 name|scanFiles
 argument_list|()
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
-name|QZipReader
-operator|::
 name|FileInfo
 argument_list|>
 name|files
@@ -5214,7 +5212,8 @@ name|destinationDir
 argument_list|)
 decl_stmt|;
 comment|// create directories first
-name|QList
+specifier|const
+name|QVector
 argument_list|<
 name|FileInfo
 argument_list|>
