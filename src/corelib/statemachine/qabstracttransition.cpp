@@ -560,7 +560,7 @@ argument_list|(
 name|QAbstractTransition
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPointer
 argument_list|<

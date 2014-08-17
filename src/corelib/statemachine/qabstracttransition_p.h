@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qvector.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qsharedpointer.h>
 end_include
 begin_decl_stmt
@@ -143,7 +148,7 @@ name|void
 name|emitTriggered
 argument_list|()
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPointer
 operator|<
