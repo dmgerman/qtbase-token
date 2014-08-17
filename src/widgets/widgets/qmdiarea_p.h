@@ -494,7 +494,7 @@ operator|*
 operator|>
 name|pendingRearrangements
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPointer
 operator|<
@@ -503,7 +503,7 @@ operator|>
 expr|>
 name|pendingPlacements
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPointer
 operator|<
