@@ -5206,11 +5206,20 @@ literal|true
 return|;
 block|}
 end_function
-begin_function
-DECL|function|qt_rcc_compare_hash
-specifier|static
-name|bool
+begin_struct
+DECL|struct|qt_rcc_compare_hash
+struct|struct
 name|qt_rcc_compare_hash
+block|{
+DECL|typedef|result_type
+typedef|typedef
+name|bool
+name|result_type
+typedef|;
+DECL|function|operator ()
+name|result_type
+name|operator
+name|()
 parameter_list|(
 specifier|const
 name|RCCFileInfo
@@ -5222,6 +5231,7 @@ name|RCCFileInfo
 modifier|*
 name|right
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|qt_hash
@@ -5239,7 +5249,9 @@ name|m_name
 argument_list|)
 return|;
 block|}
-end_function
+block|}
+struct|;
+end_struct
 begin_function
 DECL|function|writeDataStructure
 name|bool
@@ -5359,6 +5371,7 @@ name|end
 argument_list|()
 argument_list|,
 name|qt_rcc_compare_hash
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//write out the actual data now
@@ -5477,6 +5490,7 @@ name|end
 argument_list|()
 argument_list|,
 name|qt_rcc_compare_hash
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//write out the actual data now
