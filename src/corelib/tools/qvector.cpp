@@ -156,6 +156,9 @@ begin_comment
 comment|/*! \fn T QVector::takeAt(int i)     \since 5.2      Removes the element at index position \a i and returns it.      Equivalent to     \code     T t = at(i);     remove(i);     return t;     \endcode      Provided for compatibility with QList.      \sa takeFirst(), takeLast(), QList::takeAt() */
 end_comment
 begin_comment
+comment|/*! \fn void QVector::move(int from, int to)     \since 5.6      Moves the item at index position \a from to index position \a to.      Provided for compatibility with QList.      \sa QList::move() */
+end_comment
+begin_comment
 comment|/*! \fn void QVector::removeFirst()     \since 5.1     Removes the first item in the vector. Calling this function is     equivalent to calling remove(0). The vector must not be empty. If     the vector can be empty, call isEmpty() before calling this     function.      \sa remove(), takeFirst(), isEmpty() */
 end_comment
 begin_comment
