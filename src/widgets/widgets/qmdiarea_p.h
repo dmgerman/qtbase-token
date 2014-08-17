@@ -512,7 +512,7 @@ operator|>
 expr|>
 name|childWindows
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
