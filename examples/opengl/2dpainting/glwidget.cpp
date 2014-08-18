@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QPainter>
+end_include
+begin_include
+include|#
+directive|include
 file|<QTimer>
 end_include
 begin_comment
@@ -35,15 +40,8 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QGLWidget
+name|QOpenGLWidget
 argument_list|(
-name|QGLFormat
-argument_list|(
-name|QGL
-operator|::
-name|SampleBuffers
-argument_list|)
-argument_list|,
 name|parent
 argument_list|)
 member_init_list|,
@@ -105,7 +103,7 @@ operator|)
 operator|%
 literal|1000
 expr_stmt|;
-name|repaint
+name|update
 argument_list|()
 expr_stmt|;
 block|}

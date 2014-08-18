@@ -1178,17 +1178,11 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// see also qsettings_win.cpp and qsettings_mac.cpp
+comment|// see also qsettings_win.cpp, qsettings_winrt.cpp and qsettings_mac.cpp
 end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-operator|||
-operator|(
 operator|!
 name|defined
 argument_list|(
@@ -1200,7 +1194,6 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-operator|)
 end_if
 begin_function
 DECL|function|create
@@ -1253,11 +1246,6 @@ end_endif
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-operator|||
 operator|!
 name|defined
 argument_list|(

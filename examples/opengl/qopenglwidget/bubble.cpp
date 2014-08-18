@@ -109,7 +109,7 @@ argument_list|)
 argument_list|,
 name|QImage
 operator|::
-name|Format_ARGB32
+name|Format_ARGB32_Premultiplied
 argument_list|)
 expr_stmt|;
 name|cache
@@ -131,7 +131,7 @@ name|setRenderHint
 argument_list|(
 name|QPainter
 operator|::
-name|HighQualityAntialiasing
+name|Antialiasing
 argument_list|)
 expr_stmt|;
 name|QPen
@@ -167,9 +167,9 @@ name|p
 operator|.
 name|drawEllipse
 argument_list|(
-literal|0
+literal|1
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|int
 argument_list|(

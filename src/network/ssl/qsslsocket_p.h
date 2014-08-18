@@ -118,11 +118,23 @@ include|#
 directive|include
 file|<QtCore/qt_windows.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<wincrypt.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !Q_OS_WINRT
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -139,10 +151,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !HCRYPTPROV_LEGACY
+end_comment
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Q_OS_WIN
+end_comment
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -207,6 +225,12 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
 argument_list|)
 end_if
 begin_if
@@ -311,6 +335,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Q_OS_WIN&& !Q_OS_WINRT
+end_comment
 begin_decl_stmt
 name|class
 name|QSslSocketPrivate
@@ -562,6 +589,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 specifier|static
 name|PtrCertOpenSystemStoreW
 name|ptrCertOpenSystemStoreW
@@ -576,6 +609,7 @@ name|ptrCertCloseStore
 block|;
 endif|#
 directive|endif
+comment|// Q_OS_WIN&& !Q_OS_WINRT
 comment|// The socket itself, including private slots.
 name|QTcpSocket
 operator|*
@@ -684,9 +718,18 @@ name|void
 name|_q_resumeImplementation
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|virtual
 name|void
 name|_q_caRootLoaded

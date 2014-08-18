@@ -92,7 +92,6 @@ name|pemHeader
 parameter_list|()
 specifier|const
 block|{
-comment|// ### use QByteArray::fromRawData() instead
 if|if
 condition|(
 name|type
@@ -102,9 +101,9 @@ operator|::
 name|PublicKey
 condition|)
 return|return
-name|QByteArray
+name|QByteArrayLiteral
 argument_list|(
-literal|"-----BEGIN PUBLIC KEY-----\n"
+literal|"-----BEGIN PUBLIC KEY-----"
 argument_list|)
 return|;
 elseif|else
@@ -117,15 +116,15 @@ operator|::
 name|Rsa
 condition|)
 return|return
-name|QByteArray
+name|QByteArrayLiteral
 argument_list|(
-literal|"-----BEGIN RSA PRIVATE KEY-----\n"
+literal|"-----BEGIN RSA PRIVATE KEY-----"
 argument_list|)
 return|;
 return|return
-name|QByteArray
+name|QByteArrayLiteral
 argument_list|(
-literal|"-----BEGIN DSA PRIVATE KEY-----\n"
+literal|"-----BEGIN DSA PRIVATE KEY-----"
 argument_list|)
 return|;
 block|}
@@ -142,7 +141,6 @@ name|pemFooter
 parameter_list|()
 specifier|const
 block|{
-comment|// ### use QByteArray::fromRawData() instead
 if|if
 condition|(
 name|type
@@ -152,9 +150,9 @@ operator|::
 name|PublicKey
 condition|)
 return|return
-name|QByteArray
+name|QByteArrayLiteral
 argument_list|(
-literal|"-----END PUBLIC KEY-----\n"
+literal|"-----END PUBLIC KEY-----"
 argument_list|)
 return|;
 elseif|else
@@ -167,15 +165,15 @@ operator|::
 name|Rsa
 condition|)
 return|return
-name|QByteArray
+name|QByteArrayLiteral
 argument_list|(
-literal|"-----END RSA PRIVATE KEY-----\n"
+literal|"-----END RSA PRIVATE KEY-----"
 argument_list|)
 return|;
 return|return
-name|QByteArray
+name|QByteArrayLiteral
 argument_list|(
-literal|"-----END DSA PRIVATE KEY-----\n"
+literal|"-----END DSA PRIVATE KEY-----"
 argument_list|)
 return|;
 block|}
@@ -285,6 +283,8 @@ name|prepend
 argument_list|(
 name|pemHeader
 argument_list|()
+operator|+
+literal|'\n'
 argument_list|)
 expr_stmt|;
 name|pem
@@ -293,6 +293,8 @@ name|append
 argument_list|(
 name|pemFooter
 argument_list|()
+operator|+
+literal|'\n'
 argument_list|)
 expr_stmt|;
 return|return
@@ -464,25 +466,28 @@ name|algorithm
 operator|=
 name|algorithm
 expr_stmt|;
-name|d
-operator|->
-name|decodePem
-argument_list|(
-operator|(
+if|if
+condition|(
 name|encoding
 operator|==
 name|QSsl
 operator|::
 name|Der
-operator|)
-condition|?
+condition|)
 name|d
 operator|->
-name|pemFromDer
+name|decodeDer
 argument_list|(
 name|encoded
+argument_list|,
+name|passPhrase
 argument_list|)
-else|:
+expr_stmt|;
+else|else
+name|d
+operator|->
+name|decodePem
+argument_list|(
 name|encoded
 argument_list|,
 name|passPhrase

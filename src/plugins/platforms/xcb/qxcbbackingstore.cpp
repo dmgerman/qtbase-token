@@ -1608,6 +1608,9 @@ parameter_list|,
 name|QOpenGLContext
 modifier|*
 name|context
+parameter_list|,
+name|bool
+name|translucentBackground
 parameter_list|)
 block|{
 name|QPlatformBackingStore
@@ -1623,6 +1626,8 @@ argument_list|,
 name|textures
 argument_list|,
 name|context
+argument_list|,
+name|translucentBackground
 argument_list|)
 expr_stmt|;
 name|Q_XCB_NOOP

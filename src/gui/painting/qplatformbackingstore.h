@@ -313,6 +313,9 @@ parameter_list|,
 name|QOpenGLContext
 modifier|*
 name|context
+parameter_list|,
+name|bool
+name|translucentBackground
 parameter_list|)
 function_decl|;
 name|virtual
@@ -333,6 +336,10 @@ argument_list|,
 name|QSize
 operator|*
 name|textureSize
+argument_list|,
+name|bool
+operator|*
+name|needsSwizzle
 argument_list|)
 decl|const
 decl_stmt|;

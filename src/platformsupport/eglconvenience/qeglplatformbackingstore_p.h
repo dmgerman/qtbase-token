@@ -118,6 +118,8 @@ argument_list|,
 argument|QPlatformTextureList *textures
 argument_list|,
 argument|QOpenGLContext *context
+argument_list|,
+argument|bool translucentBackground
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;

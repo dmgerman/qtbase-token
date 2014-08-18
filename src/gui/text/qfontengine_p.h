@@ -1151,6 +1151,20 @@ parameter_list|(
 name|HintStyle
 parameter_list|)
 block|{ }
+enum|enum
+name|SubpixelAntialiasingType
+block|{
+name|Subpixel_None
+block|,
+name|Subpixel_RGB
+block|,
+name|Subpixel_BGR
+block|,
+name|Subpixel_VRGB
+block|,
+name|Subpixel_VBGR
+block|}
+enum|;
 name|private
 label|:
 specifier|const

@@ -1076,6 +1076,7 @@ name|GLchar
 modifier|*
 name|message
 parameter_list|,
+specifier|const
 name|GLvoid
 modifier|*
 name|userParam
@@ -1163,6 +1164,7 @@ name|GLchar
 modifier|*
 name|message
 parameter_list|,
+specifier|const
 name|GLvoid
 modifier|*
 name|userParam

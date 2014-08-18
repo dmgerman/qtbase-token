@@ -98,7 +98,7 @@ operator|)
 operator|%
 literal|1000
 expr_stmt|;
-name|repaint
+name|update
 argument_list|()
 expr_stmt|;
 block|}

@@ -121,6 +121,23 @@ argument_list|,
 argument|qreal opacity
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|drawCachedGlyphs
+argument_list|(
+argument|const QPaintEngineState *state
+argument_list|,
+argument|QFontEngine::GlyphFormat glyphFormat
+argument_list|,
+argument|int numGlyphs
+argument_list|,
+argument|const glyph_t *glyphs
+argument_list|,
+argument|const QFixedPoint *positions
+argument_list|,
+argument|QFontEngine *fontEngine
+argument_list|)
+block|;
 name|IDirectFBSurface
 operator|*
 name|dfbSurface
@@ -294,6 +311,53 @@ argument_list|()
 return|;
 block|}
 end_expr_stmt
+begin_decl_stmt
+name|class
+name|QDirectFbTextureGlyphCache
+range|:
+name|public
+name|QImageTextureGlyphCache
+block|{
+name|public
+operator|:
+name|QDirectFbTextureGlyphCache
+argument_list|(
+argument|QFontEngine::GlyphFormat format
+argument_list|,
+argument|const QTransform&matrix
+argument_list|)
+operator|:
+name|QImageTextureGlyphCache
+argument_list|(
+argument|format
+argument_list|,
+argument|matrix
+argument_list|)
+block|{}
+name|virtual
+name|void
+name|resizeTextureData
+argument_list|(
+argument|int width
+argument_list|,
+argument|int height
+argument_list|)
+block|;
+name|IDirectFBSurface
+operator|*
+name|sourceSurface
+argument_list|()
+block|;
+name|private
+operator|:
+name|QDirectFBPointer
+operator|<
+name|IDirectFBSurface
+operator|>
+name|m_surface
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

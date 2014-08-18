@@ -158,16 +158,22 @@ directive|define
 name|qDBusDebug
 value|if (::isDebugging == 0); else qDebug
 end_define
-begin_macro
-name|Q_GLOBAL_STATIC_WITH_ARGS
+begin_function
+DECL|function|orgFreedesktopDBusString
+specifier|static
+specifier|inline
+name|QString
+name|orgFreedesktopDBusString
+parameter_list|()
+block|{
+return|return
+name|QStringLiteral
 argument_list|(
-argument|const QString
-argument_list|,
-argument|orgFreedesktopDBusString
-argument_list|,
-argument|(QLatin1String(DBUS_SERVICE_DBUS))
+name|DBUS_SERVICE_DBUS
 argument_list|)
-end_macro
+return|;
+block|}
+end_function
 begin_function
 DECL|function|dbusServiceString
 specifier|static
@@ -177,7 +183,6 @@ name|dbusServiceString
 parameter_list|()
 block|{
 return|return
-operator|*
 name|orgFreedesktopDBusString
 argument_list|()
 return|;
@@ -194,7 +199,6 @@ block|{
 comment|// it's the same string, but just be sure
 name|Q_ASSERT
 argument_list|(
-operator|*
 name|orgFreedesktopDBusString
 argument_list|()
 operator|==
@@ -205,7 +209,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|*
 name|orgFreedesktopDBusString
 argument_list|()
 return|;

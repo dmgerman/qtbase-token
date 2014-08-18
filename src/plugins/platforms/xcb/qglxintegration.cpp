@@ -1020,7 +1020,7 @@ if|if
 condition|(
 name|requestedVersion
 operator|>
-literal|43
+literal|45
 condition|)
 name|glVersions
 operator|<<
@@ -1028,6 +1028,10 @@ name|requestedVersion
 expr_stmt|;
 comment|// Don't bother with versions below 2.0
 name|glVersions
+operator|<<
+literal|45
+operator|<<
+literal|44
 operator|<<
 literal|43
 operator|<<
@@ -1067,7 +1071,7 @@ if|if
 condition|(
 name|requestedVersion
 operator|>
-literal|30
+literal|31
 condition|)
 name|glVersions
 operator|<<
@@ -1075,6 +1079,8 @@ name|requestedVersion
 expr_stmt|;
 comment|// Don't bother with versions below ES 2.0
 name|glVersions
+operator|<<
+literal|31
 operator|<<
 literal|30
 operator|<<

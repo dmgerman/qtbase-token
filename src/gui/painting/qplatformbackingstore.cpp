@@ -143,6 +143,11 @@ specifier|mutable
 name|QSize
 name|textureSize
 decl_stmt|;
+DECL|member|needsSwizzle
+specifier|mutable
+name|bool
+name|needsSwizzle
+decl_stmt|;
 DECL|member|blitter
 name|QOpenGLTextureBlitter
 modifier|*
@@ -686,6 +691,9 @@ parameter_list|,
 name|QOpenGLContext
 modifier|*
 name|context
+parameter_list|,
+name|bool
+name|translucentBackground
 parameter_list|)
 block|{
 name|Q_UNUSED
@@ -736,6 +744,30 @@ name|window
 operator|->
 name|devicePixelRatio
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|funcs
+operator|->
+name|glClearColor
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|translucentBackground
+condition|?
+literal|0
+else|:
+literal|1
+argument_list|)
+expr_stmt|;
+name|funcs
+operator|->
+name|glClear
+argument_list|(
+name|GL_COLOR_BUFFER_BIT
 argument_list|)
 expr_stmt|;
 if|if
@@ -880,6 +912,22 @@ argument_list|,
 name|GL_ONE_MINUS_SRC_ALPHA
 argument_list|)
 expr_stmt|;
+comment|// Do not write out alpha. We need blending, but only for RGB. The toplevel may have
+comment|// alpha enabled in which case blending (writing out< 1.0 alpha values) would lead to
+comment|// semi-transparency even when it is not wanted.
+name|funcs
+operator|->
+name|glColorMask
+argument_list|(
+name|GL_TRUE
+argument_list|,
+name|GL_TRUE
+argument_list|,
+name|GL_TRUE
+argument_list|,
+name|GL_FALSE
+argument_list|)
+expr_stmt|;
 comment|// Backingstore texture with the normal widgets.
 name|GLuint
 name|textureId
@@ -897,6 +945,11 @@ operator|&
 name|d_ptr
 operator|->
 name|textureSize
+argument_list|,
+operator|&
+name|d_ptr
+operator|->
+name|needsSwizzle
 argument_list|)
 decl_stmt|;
 if|if
@@ -924,6 +977,12 @@ argument_list|,
 name|windowRect
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|d_ptr
+operator|->
+name|needsSwizzle
+condition|)
 name|d_ptr
 operator|->
 name|blitter
@@ -948,6 +1007,12 @@ operator|::
 name|OriginTopLeft
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d_ptr
+operator|->
+name|needsSwizzle
+condition|)
 name|d_ptr
 operator|->
 name|blitter
@@ -958,6 +1023,19 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+name|funcs
+operator|->
+name|glColorMask
+argument_list|(
+name|GL_TRUE
+argument_list|,
+name|GL_TRUE
+argument_list|,
+name|GL_TRUE
+argument_list|,
+name|GL_TRUE
+argument_list|)
+expr_stmt|;
 comment|// Textures for renderToTexture widgets that have WA_AlwaysStackOnTop set.
 for|for
 control|(
@@ -1078,7 +1156,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   May be reimplemented in subclasses to return the content of the   backingstore as an OpenGL texture. \a dirtyRegion is the part of the   backingstore which may have changed since the last call to this function. The   caller of this function must ensure that there is a current context.   The size of the texture is returned in \a textureSize.    The ownership of the texture is not transferred. The caller must not store   the return value between calls, but instead call this function before each use.    The default implementation returns a cached texture if \a dirtyRegion is   empty and the window has not been resized, otherwise it retrieves the   content using toImage() and performs a texture upload.  */
+comment|/*!   May be reimplemented in subclasses to return the content of the   backingstore as an OpenGL texture. \a dirtyRegion is the part of the   backingstore which may have changed since the last call to this function. The   caller of this function must ensure that there is a current context.   The size of the texture is returned in \a textureSize.    The ownership of the texture is not transferred. The caller must not store   the return value between calls, but instead call this function before each use.    The default implementation returns a cached texture if \a dirtyRegion is   empty and the window has not been resized, otherwise it retrieves the   content using toImage() and performs a texture upload.    If the red and blue components have to swapped, \a needsSwizzle will be set to \c true.   This allows creating textures from images in formats like QImage::Format_RGB32 without   any further image conversion. Instead, the swizzling will be done in the shaders when   performing composition. Other formats, that do not need such swizzling due to being   already byte ordered RGBA, for example QImage::Format_RGBA8888, must result in having \a   needsSwizzle set to false.  */
 end_comment
 begin_function
 DECL|function|toTexture
@@ -1095,6 +1173,10 @@ parameter_list|,
 name|QSize
 modifier|*
 name|textureSize
+parameter_list|,
+name|bool
+modifier|*
+name|needsSwizzle
 parameter_list|)
 specifier|const
 block|{
@@ -1146,17 +1228,42 @@ name|d_ptr
 operator|->
 name|textureId
 return|;
+comment|// Fast path for RGB32 and RGBA8888, convert everything else to RGBA8888.
 if|if
 condition|(
 name|image
 operator|.
 name|format
 argument_list|()
-operator|!=
+operator|==
 name|QImage
 operator|::
 name|Format_RGB32
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+name|needsSwizzle
+condition|)
+operator|*
+name|needsSwizzle
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|needsSwizzle
+condition|)
+operator|*
+name|needsSwizzle
+operator|=
+literal|false
+expr_stmt|;
+if|if
+condition|(
 name|image
 operator|.
 name|format
@@ -1177,6 +1284,7 @@ operator|::
 name|Format_RGBA8888
 argument_list|)
 expr_stmt|;
+block|}
 name|QOpenGLFunctions
 modifier|*
 name|funcs

@@ -3697,6 +3697,8 @@ operator|->
 name|hasQmlProperty
 argument_list|(
 name|property
+argument_list|,
+name|attached
 argument_list|)
 operator|!=
 literal|0

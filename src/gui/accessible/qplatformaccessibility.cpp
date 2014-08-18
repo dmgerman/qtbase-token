@@ -437,6 +437,27 @@ name|bridges
 argument_list|()
 argument_list|)
 block|; }
+DECL|function|setActive
+name|void
+name|QPlatformAccessibility
+operator|::
+name|setActive
+operator|(
+name|bool
+name|active
+operator|)
+block|{
+name|m_active
+operator|=
+name|active
+block|;
+name|QAccessible
+operator|::
+name|setActive
+argument_list|(
+name|active
+argument_list|)
+block|; }
 endif|#
 directive|endif
 comment|// QT_NO_ACCESSIBILITY

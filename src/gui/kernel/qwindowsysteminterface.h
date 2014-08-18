@@ -1002,6 +1002,7 @@ operator|::
 name|NoModifier
 argument_list|)
 decl_stmt|;
+comment|// rect is relative to parent
 specifier|static
 name|void
 name|handleGeometryChange
@@ -1162,6 +1163,7 @@ operator|=
 name|false
 argument_list|)
 decl_stmt|;
+comment|// region is in local coordinates, do not confuse with geometry which is parent-relative
 specifier|static
 name|void
 name|handleExposeEvent

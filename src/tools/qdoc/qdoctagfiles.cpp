@@ -235,6 +235,11 @@ name|Node
 operator|::
 name|Class
 case|:
+case|case
+name|Node
+operator|::
+name|QmlType
+case|:
 name|kind
 operator|=
 literal|"class"

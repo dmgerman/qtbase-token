@@ -1010,6 +1010,23 @@ block|,
 name|EGL_NONE
 block|}
 decl_stmt|;
+comment|// Cannot just pass m_eglConfig because it may not be suitable for pbuffers. Instead,
+comment|// do what QEGLPbuffer would do: request a config with the same attributes but with
+comment|// PBUFFER_BIT set.
+name|EGLConfig
+name|config
+init|=
+name|q_configFromGLFormat
+argument_list|(
+name|m_eglDisplay
+argument_list|,
+name|m_format
+argument_list|,
+literal|false
+argument_list|,
+name|EGL_PBUFFER_BIT
+argument_list|)
+decl_stmt|;
 name|EGLSurface
 name|pbuffer
 init|=
@@ -1017,7 +1034,7 @@ name|eglCreatePbufferSurface
 argument_list|(
 name|m_eglDisplay
 argument_list|,
-name|m_eglConfig
+name|config
 argument_list|,
 name|pbufferAttributes
 argument_list|)

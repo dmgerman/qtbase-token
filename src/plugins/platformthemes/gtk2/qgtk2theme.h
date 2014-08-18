@@ -31,12 +31,21 @@ operator|:
 name|QGtk2Theme
 argument_list|()
 block|;
+name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|virtual
+name|QString
+name|gtkFontName
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|usePlatformNativeDialog

@@ -31,6 +31,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QOpenGLBuffer>
+end_include
+begin_include
+include|#
+directive|include
 file|<QVector3D>
 end_include
 begin_include
@@ -229,6 +234,9 @@ name|normals
 expr_stmt|;
 name|QOpenGLShaderProgram
 name|program
+decl_stmt|;
+name|QOpenGLBuffer
+name|vbo
 decl_stmt|;
 name|int
 name|vertexAttr

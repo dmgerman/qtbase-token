@@ -1640,7 +1640,7 @@ begin_comment
 comment|/*!     \class QExposeEvent     \since 5.0     \brief The QExposeEvent class contains event parameters for expose events.     \inmodule QtGui      \ingroup events      Expose events are sent to windows when an area of the window is invalidated     or window visibility in the windowing system changes.      The event handler QWindow::exposeEvent() receives expose events. */
 end_comment
 begin_comment
-comment|/*!     Constructs an expose event for the given \a exposeRegion. */
+comment|/*!     Constructs an expose event for the given \a exposeRegion which must be     in local coordinates. */
 end_comment
 begin_constructor
 DECL|function|QExposeEvent
@@ -1678,7 +1678,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn const QRegion&QExposeEvent::region() const      Returns the window area that has been exposed. */
+comment|/*!     \fn const QRegion&QExposeEvent::region() const      Returns the window area that has been exposed. The region is given in local coordinates. */
 end_comment
 begin_comment
 comment|/*!     \class QResizeEvent     \brief The QResizeEvent class contains event parameters for resize events.     \inmodule QtGui      \ingroup events      Resize events are sent to widgets that have been resized.      The event handler QWidget::resizeEvent() receives resize events.      \sa QWidget::resize(), QWidget::setGeometry() */
