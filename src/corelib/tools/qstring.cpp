@@ -25479,6 +25479,9 @@ begin_comment
 comment|/*! \fn const char *QLatin1String::latin1() const      Returns the Latin-1 string stored in this object. */
 end_comment
 begin_comment
+comment|/*! \fn const char *QLatin1String::data() const      Returns the Latin-1 string stored in this object. */
+end_comment
+begin_comment
 comment|/*! \fn int QLatin1String::size() const      Returns the size of the Latin-1 string stored in this object. */
 end_comment
 begin_comment
@@ -25488,10 +25491,16 @@ begin_comment
 comment|/*!     \fn bool QLatin1String::operator==(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
+comment|/*!     \fn bool QLatin1String::operator==(const QByteArray&other) const     \since 5.0     \overload      The \a other byte array is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+end_comment
+begin_comment
 comment|/*! \fn bool QLatin1String::operator!=(const QString&other) const      Returns \c true if this string is not equal to string \a other;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator!=(const char *other) const     \since 4.3     \overload operator!=()      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QLatin1String::operator!=(const QByteArray&other) const     \since 5.0     \overload operator!=()      The \a other byte array is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator>(const QString&other) const      Returns \c true if this string is lexically greater than string \a     other; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
@@ -25500,10 +25509,16 @@ begin_comment
 comment|/*!     \fn bool QLatin1String::operator>(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
 end_comment
 begin_comment
+comment|/*!     \fn bool QLatin1String::operator>(const QByteArray&other) const     \since 5.0     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QLatin1String::operator<(const QString&other) const      Returns \c true if this string is lexically less than the \a other     string; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator<(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QLatin1String::operator<(const QByteArray&other) const     \since 5.0     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator>=(const QString&other) const      Returns \c true if this string is lexically greater than or equal     to string \a other; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
@@ -25512,10 +25527,16 @@ begin_comment
 comment|/*!     \fn bool QLatin1String::operator>=(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
+comment|/*!     \fn bool QLatin1String::operator>=(const QByteArray&other) const     \since 5.0     \overload      The \a other array is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+end_comment
+begin_comment
 comment|/*! \fn bool QLatin1String::operator<=(const QString&other) const      Returns \c true if this string is lexically less than or equal     to string \a other; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     QString::localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \fn bool QLatin1String::operator<=(const char *other) const     \since 4.3     \overload      The \a other const char pointer is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QLatin1String::operator<=(const QByteArray&other) const     \since 5.0     \overload      The \a other array is converted to a QString using     the QString::fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
 comment|/*! \fn bool operator==(QLatin1String s1, QLatin1String s2)    \relates QLatin1String     Returns \c true if string \a s1 is lexically equal to string \a s2; otherwise    returns \c false. */

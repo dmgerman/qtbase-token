@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/qstyle.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qmainwindowlayout_p.h>
 end_include
 begin_include

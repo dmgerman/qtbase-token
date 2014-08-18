@@ -11014,6 +11014,13 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
+specifier|const
+name|pcre_uchar
+modifier|*
+name|endgroup
+init|=
+name|scode
+decl_stmt|;
 name|BOOL
 name|empty_branch
 decl_stmt|;
@@ -11094,22 +11101,7 @@ name|TRUE
 return|;
 comment|/* Unclosed */
 block|}
-comment|/* If we are scanning a completed pattern, there are no forward references     and all groups are complete. We need to detect whether this is a recursive     call, as otherwise there will be an infinite loop. If it is a recursion,     just skip over it. Simple recursions are easily detected. For mutual     recursions we keep a chain on the stack. */
-else|else
-block|{
-name|recurse_check
-modifier|*
-name|r
-init|=
-name|recurses
-decl_stmt|;
-specifier|const
-name|pcre_uchar
-modifier|*
-name|endgroup
-init|=
-name|scode
-decl_stmt|;
+comment|/* If the reference is to a completed group, we need to detect whether this     is a recursive call, as otherwise there will be an infinite loop. If it is     a recursion, just skip over it. Simple recursions are easily detected. For     mutual recursions we keep a chain on the stack. */
 do|do
 name|endgroup
 operator|+=
@@ -11140,6 +11132,14 @@ name|endgroup
 condition|)
 continue|continue;
 comment|/* Simple recursion */
+else|else
+block|{
+name|recurse_check
+modifier|*
+name|r
+init|=
+name|recurses
+decl_stmt|;
 for|for
 control|(
 name|r
@@ -30878,7 +30878,7 @@ literal|1
 operator|+
 name|LINK_SIZE
 expr_stmt|;
-comment|/* If it was a capturing subpattern, check to see if it contained any     recursive back references. If so, we must wrap it in atomic brackets.     In any event, remove the block from the chain. */
+comment|/* If it was a capturing subpattern, check to see if it contained any     recursive back references. If so, we must wrap it in atomic brackets.     Because we are moving code along, we must ensure that any pending recursive     references are updated. In any event, remove the block from the chain. */
 if|if
 condition|(
 name|capnumber
@@ -30895,6 +30895,34 @@ operator|->
 name|flag
 condition|)
 block|{
+operator|*
+name|code
+operator|=
+name|OP_END
+expr_stmt|;
+name|adjust_recurse
+argument_list|(
+name|start_bracket
+argument_list|,
+literal|1
+operator|+
+name|LINK_SIZE
+argument_list|,
+operator|(
+name|options
+operator|&
+name|PCRE_UTF8
+operator|)
+operator|!=
+literal|0
+argument_list|,
+name|cd
+argument_list|,
+name|cd
+operator|->
+name|hwm
+argument_list|)
+expr_stmt|;
 name|memmove
 argument_list|(
 name|start_bracket

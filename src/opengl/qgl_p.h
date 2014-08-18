@@ -866,6 +866,7 @@ name|QOpenGLContext
 modifier|*
 name|guiGlContext
 decl_stmt|;
+comment|// true if QGLContext owns the QOpenGLContext (for who deletes who)
 name|bool
 name|ownContext
 decl_stmt|;

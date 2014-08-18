@@ -1410,6 +1410,33 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns true if the font family is private. For any given family name,     the result is platform dependent. */
+end_comment
+begin_function
+DECL|function|isPrivateFontFamily
+name|bool
+name|QPlatformFontDatabase
+operator|::
+name|isPrivateFontFamily
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|family
+parameter_list|)
+specifier|const
+block|{
+name|Q_UNUSED
+argument_list|(
+name|family
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the default system font.      \sa QGuiApplication::font()     \since 5.0 */
 end_comment
 begin_function
