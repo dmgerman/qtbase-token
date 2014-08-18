@@ -164,14 +164,6 @@ operator|&
 name|event
 argument_list|)
 block|;
-specifier|inline
-name|QPoint
-name|globalPoint
-argument_list|(
-argument|const DFBEvent&event
-argument_list|)
-specifier|const
-block|;
 name|IDirectFB
 operator|*
 name|m_dfbInterface
