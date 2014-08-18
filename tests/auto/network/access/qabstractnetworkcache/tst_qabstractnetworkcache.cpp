@@ -814,7 +814,7 @@ name|PreferNetwork
 operator|<<
 literal|"httpcachetest_lastModified200.cgi"
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -844,7 +844,7 @@ name|PreferCache
 operator|<<
 literal|"httpcachetest_lastModified200.cgi"
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 block|}
 end_function
