@@ -125,18 +125,53 @@ operator|::
 name|initializeXInput2
 parameter_list|()
 block|{
-name|debug_xinput
-operator|=
+comment|// TODO Qt 6 (or perhaps earlier): remove these redundant env variables
+if|if
+condition|(
 name|qEnvironmentVariableIsSet
 argument_list|(
 literal|"QT_XCB_DEBUG_XINPUT"
 argument_list|)
+condition|)
+cast|const_cast
+argument_list|<
+name|QLoggingCategory
+operator|&
+argument_list|>
+argument_list|(
+name|lcQpaXInput
+argument_list|()
+argument_list|)
+operator|.
+name|setEnabled
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|true
+argument_list|)
 expr_stmt|;
-name|debug_xinput_devices
-operator|=
+if|if
+condition|(
 name|qEnvironmentVariableIsSet
 argument_list|(
 literal|"QT_XCB_DEBUG_XINPUT_DEVICES"
+argument_list|)
+condition|)
+cast|const_cast
+argument_list|<
+name|QLoggingCategory
+operator|&
+argument_list|>
+argument_list|(
+name|lcQpaXInputDevices
+argument_list|()
+argument_list|)
+operator|.
+name|setEnabled
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|Display
@@ -255,18 +290,13 @@ condition|(
 name|m_xi2Enabled
 condition|)
 block|{
-if|if
-condition|(
-name|Q_UNLIKELY
-argument_list|(
-name|debug_xinput_devices
-argument_list|)
-condition|)
 ifdef|#
 directive|ifdef
 name|XCB_USE_XINPUT22
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInputDevices
+argument_list|,
 literal|"XInput version %d.%d is available and Qt supports 2.2 or greater"
 argument_list|,
 name|xiMajor
@@ -276,8 +306,10 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInputDevices
+argument_list|,
 literal|"XInput version %d.%d is available and Qt supports 2.0"
 argument_list|,
 name|xiMajor
@@ -383,15 +415,10 @@ operator|!=
 name|XISlavePointer
 condition|)
 continue|continue;
-if|if
-condition|(
-name|Q_UNLIKELY
+name|qCDebug
 argument_list|(
-name|debug_xinput_devices
+name|lcQpaXInputDevices
 argument_list|)
-condition|)
-name|qDebug
-argument_list|()
 operator|<<
 literal|"input device "
 operator|<<
@@ -484,15 +511,10 @@ operator|->
 name|label
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|Q_UNLIKELY
+name|qCDebug
 argument_list|(
-name|debug_xinput_devices
+name|lcQpaXInputDevices
 argument_list|)
-condition|)
-name|qDebug
-argument_list|()
 operator|<<
 literal|"   has valuator"
 operator|<<
@@ -880,11 +902,57 @@ operator|::
 name|Horizontal
 expr_stmt|;
 block|}
+name|qCDebug
+argument_list|(
+name|lcQpaXInputDevices
+argument_list|,
+literal|"   has %d buttons"
+argument_list|,
+name|bci
+operator|->
+name|num_buttons
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 endif|#
 directive|endif
+case|case
+name|XIKeyClass
+case|:
+name|qCDebug
+argument_list|(
+name|lcQpaXInputDevices
+argument_list|)
+operator|<<
+literal|"   it's a keyboard"
+expr_stmt|;
+break|break;
+case|case
+name|XITouchClass
+case|:
+comment|// will be handled in deviceForId()
+break|break;
 default|default:
+name|qCDebug
+argument_list|(
+name|lcQpaXInputDevices
+argument_list|)
+operator|<<
+literal|"   has class"
+operator|<<
+name|devices
+index|[
+name|i
+index|]
+operator|.
+name|classes
+index|[
+name|c
+index|]
+operator|->
+name|type
+expr_stmt|;
 break|break;
 block|}
 block|}
@@ -991,15 +1059,10 @@ name|isTablet
 operator|=
 literal|true
 expr_stmt|;
-if|if
-condition|(
-name|Q_UNLIKELY
+name|qCDebug
 argument_list|(
-name|debug_xinput_devices
+name|lcQpaXInputDevices
 argument_list|)
-condition|)
-name|qDebug
-argument_list|()
 operator|<<
 literal|"   it's a tablet with pointer type"
 operator|<<
@@ -1057,15 +1120,10 @@ argument_list|,
 name|scrollingDevice
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|Q_UNLIKELY
+name|qCDebug
 argument_list|(
-name|debug_xinput_devices
+name|lcQpaXInputDevices
 argument_list|)
-condition|)
-name|qDebug
-argument_list|()
 operator|<<
 literal|"   it's a scrolling device"
 expr_stmt|;
@@ -1076,6 +1134,12 @@ if|if
 condition|(
 operator|!
 name|isTablet
+operator|&&
+name|lcQpaXInputDevices
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
 condition|)
 block|{
 name|XInput2DeviceData
@@ -1094,14 +1158,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|Q_UNLIKELY
-argument_list|(
-name|debug_xinput_devices
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
 name|dev
 operator|&&
 name|dev
@@ -1115,8 +1171,10 @@ name|QTouchDevice
 operator|::
 name|TouchScreen
 condition|)
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInputDevices
+argument_list|,
 literal|"   it's a touchscreen with type %d capabilities 0x%X max touch points %d"
 argument_list|,
 name|dev
@@ -1161,8 +1219,10 @@ name|QTouchDevice
 operator|::
 name|TouchPad
 condition|)
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInputDevices
+argument_list|,
 literal|"   it's a touchpad with type %d capabilities 0x%X max touch points %d size %f x %f"
 argument_list|,
 name|dev
@@ -1205,7 +1265,6 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|XIFreeDeviceInfo
@@ -1877,15 +1936,10 @@ name|tci
 operator|->
 name|num_touches
 expr_stmt|;
-if|if
-condition|(
-name|Q_UNLIKELY
+name|qCDebug
 argument_list|(
-name|debug_xinput_devices
-argument_list|)
-condition|)
-name|qDebug
-argument_list|(
+name|lcQpaXInputDevices
+argument_list|,
 literal|"   has touch class with mode %d"
 argument_list|,
 name|tci
@@ -2105,6 +2159,8 @@ expr_stmt|;
 block|}
 break|break;
 block|}
+default|default:
+break|break;
 block|}
 block|}
 if|if
@@ -2618,11 +2674,17 @@ if|if
 condition|(
 name|Q_UNLIKELY
 argument_list|(
-name|debug_xinput
+name|lcQpaXInput
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
 argument_list|)
 condition|)
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInput
+argument_list|,
 literal|"XI2 touch event type %d seq %d detail %d pos %6.1f, %6.1f root pos %6.1f, %6.1f"
 argument_list|,
 name|event
@@ -2899,11 +2961,17 @@ if|if
 condition|(
 name|Q_UNLIKELY
 argument_list|(
-name|debug_xinput
+name|lcQpaXInput
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
 argument_list|)
 condition|)
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInput
+argument_list|,
 literal|"   valuator %20s value %lf from range %lf -> %lf"
 argument_list|,
 name|atomName
@@ -3692,11 +3760,17 @@ if|if
 condition|(
 name|Q_UNLIKELY
 argument_list|(
-name|debug_xinput
+name|lcQpaXInput
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
 argument_list|)
 condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaXInput
+argument_list|)
 operator|<<
 literal|"   touchpoint "
 operator|<<
@@ -5411,18 +5485,12 @@ name|serialId
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|Q_UNLIKELY
-argument_list|(
-name|debug_xinput
-argument_list|)
-condition|)
-block|{
 comment|// TODO maybe have a hash of tabletData->deviceId to device data so we can
 comment|// look up the tablet name here, and distinguish multiple tablets
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInput
+argument_list|,
 literal|"XI2 proximity change on tablet %d (USB %x): last tool: %x id %x current tool: %x id %x TabletDevice %d"
 argument_list|,
 name|ev
@@ -5459,7 +5527,6 @@ operator|->
 name|tool
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|XFree
 argument_list|(
@@ -5787,11 +5854,17 @@ if|if
 condition|(
 name|Q_UNLIKELY
 argument_list|(
-name|debug_xinput
+name|lcQpaXInput
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
 argument_list|)
 condition|)
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcQpaXInput
+argument_list|,
 literal|"XI2 event on tablet %d with tool %d type %d seq %d detail %d pos %6.1f, %6.1f root pos %6.1f, %6.1f buttons 0x%x pressure %4.2lf tilt %d, %d rotation %6.2lf"
 argument_list|,
 name|ev
