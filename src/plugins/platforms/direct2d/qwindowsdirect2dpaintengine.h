@@ -298,26 +298,6 @@ block|;
 name|private
 operator|:
 name|void
-name|drawGlyphRun
-argument_list|(
-argument|const D2D1_POINT_2F&pos
-argument_list|,
-argument|IDWriteFontFace *fontFace
-argument_list|,
-argument|const QFont&font
-argument_list|,
-argument|int numGlyphs
-argument_list|,
-argument|const UINT16 *glyphIndices
-argument_list|,
-argument|const FLOAT *glyphAdvances
-argument_list|,
-argument|const DWRITE_GLYPH_OFFSET *glyphOffsets
-argument_list|,
-argument|bool rtl
-argument_list|)
-block|;
-name|void
 name|ensureBrush
 argument_list|()
 block|;
@@ -390,26 +370,6 @@ argument_list|(
 name|QPointF
 operator|*
 name|point
-argument_list|)
-block|;
-name|Microsoft
-operator|::
-name|WRL
-operator|::
-name|ComPtr
-operator|<
-name|IDWriteFontFace
-operator|>
-name|fontFaceFromFontEngine
-argument_list|(
-specifier|const
-name|QFont
-operator|&
-name|font
-argument_list|,
-name|QFontEngine
-operator|*
-name|fe
 argument_list|)
 block|; }
 decl_stmt|;
