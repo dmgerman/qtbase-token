@@ -408,7 +408,6 @@ modifier|&
 name|rect
 parameter_list|)
 block|{
-comment|//    bool isMoveOnly = (rect.topLeft() != geometry().topLeft())&& (rect.size() == geometry().size());
 name|QPlatformWindow
 operator|::
 name|setGeometry
@@ -416,15 +415,6 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|window
-argument_list|()
-operator|->
-name|isVisible
-argument_list|()
-condition|)
-block|{
 name|m_dfbWindow
 operator|->
 name|SetBounds
@@ -455,17 +445,6 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// ### TODO port, verify if this is needed
-if|#
-directive|if
-literal|0
-comment|//Hack. When moving since the WindowSurface of a window becomes invalid when moved
-block|if (isMoveOnly) {
-comment|//if resize then windowsurface is updated.
-block|widget()->windowSurface()->resize(rect.size());             window()->update();         }
-endif|#
-directive|endif
-block|}
 block|}
 end_function
 begin_function
@@ -643,31 +622,11 @@ argument_list|()
 operator|&&
 name|visible
 condition|)
-name|QWindowSystemInterface
+name|QPlatformWindow
 operator|::
-name|handleExposeEvent
+name|setVisible
 argument_list|(
-name|window
-argument_list|()
-argument_list|,
-name|QRect
-argument_list|(
-name|QPoint
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-argument_list|,
-name|window
-argument_list|()
-operator|->
-name|geometry
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
+name|visible
 argument_list|)
 expr_stmt|;
 block|}
