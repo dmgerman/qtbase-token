@@ -130,6 +130,13 @@ block|{
 operator|++
 name|threadFinishedCount
 expr_stmt|;
+name|qDebug
+argument_list|(
+literal|"Thread finished, total finished: %d"
+argument_list|,
+name|threadFinishedCount
+argument_list|)
+expr_stmt|;
 block|}
 private|private
 name|slots
