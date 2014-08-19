@@ -2574,6 +2574,26 @@ name|jdouble
 name|scaledDensity
 parameter_list|)
 block|{
+comment|// Android does not give us the correct screen size for immersive mode, but
+comment|// the surface does have the right size
+name|widthPixels
+operator|=
+name|qMax
+argument_list|(
+name|widthPixels
+argument_list|,
+name|desktopWidthPixels
+argument_list|)
+expr_stmt|;
+name|heightPixels
+operator|=
+name|qMax
+argument_list|(
+name|heightPixels
+argument_list|,
+name|desktopHeightPixels
+argument_list|)
+expr_stmt|;
 name|m_desktopWidthPixels
 operator|=
 name|desktopWidthPixels
