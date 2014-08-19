@@ -1683,6 +1683,15 @@ argument_list|(
 name|QSettings
 operator|::
 name|NativeFormat
+argument_list|,
+name|QSettings
+operator|::
+name|UserScope
+argument_list|,
+name|rPath
+argument_list|,
+name|QString
+argument_list|()
 argument_list|)
 member_init_list|,
 name|writeContainer
