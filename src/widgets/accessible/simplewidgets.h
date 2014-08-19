@@ -174,14 +174,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QString
-name|text
-argument_list|(
-argument|QAccessible::Text t
-argument_list|)
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
 comment|// QAccessibleActionInterface
 name|QStringList
 name|actionNames
