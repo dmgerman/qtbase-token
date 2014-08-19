@@ -395,9 +395,6 @@ name|fa
 init|=
 literal|0
 decl_stmt|;
-name|QChar
-name|ac
-decl_stmt|;
 while|while
 condition|(
 operator|(
