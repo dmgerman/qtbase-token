@@ -248,6 +248,8 @@ operator|.
 name|options
 operator||=
 name|kUCCollateDigitsAsNumberMask
+operator||
+name|kUCCollateDigitsOverrideMask
 expr_stmt|;
 else|else
 name|d
@@ -257,7 +259,11 @@ operator|.
 name|options
 operator|&=
 operator|~
+operator|(
 name|kUCCollateDigitsAsNumberMask
+operator||
+name|kUCCollateDigitsOverrideMask
+operator|)
 expr_stmt|;
 name|d
 operator|->
