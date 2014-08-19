@@ -2954,7 +2954,7 @@ name|ba
 operator|.
 name|left
 argument_list|(
-literal|512
+literal|1024
 argument_list|)
 operator|.
 name|toLower
