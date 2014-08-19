@@ -1884,6 +1884,11 @@ comment|//QT_NO_SESSIONMANAGER
 name|clearPalette
 argument_list|()
 block|;
+name|QFontDatabase
+operator|::
+name|removeAllApplicationFonts
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
