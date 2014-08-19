@@ -1754,17 +1754,6 @@ operator|==
 name|COMMAND_OBSOLETE
 condition|)
 block|{
-if|if
-condition|(
-name|node
-operator|->
-name|status
-argument_list|()
-operator|!=
-name|Node
-operator|::
-name|Compat
-condition|)
 name|node
 operator|->
 name|setStatus

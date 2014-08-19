@@ -690,6 +690,8 @@ argument_list|(
 argument|QmlClassNode* qmlClassNode
 argument_list|,
 argument|SynopsisStyle style
+argument_list|,
+argument|Status status = Okay
 argument_list|)
 expr_stmt|;
 name|virtual

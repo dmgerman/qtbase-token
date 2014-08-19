@@ -6285,6 +6285,9 @@ name|qmlClassNode
 parameter_list|,
 name|SynopsisStyle
 name|style
+parameter_list|,
+name|Status
+name|status
 parameter_list|)
 block|{
 name|QList
@@ -6493,7 +6496,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -6545,7 +6548,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 else|else
@@ -6559,7 +6562,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -6612,7 +6615,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 else|else
@@ -6625,7 +6628,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -6654,7 +6657,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -6706,7 +6709,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 else|else
@@ -6719,7 +6722,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -7009,7 +7012,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -7061,7 +7064,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 else|else
@@ -7074,7 +7077,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -7126,7 +7129,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 else|else
@@ -7139,7 +7142,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -7168,7 +7171,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -7220,7 +7223,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 else|else
@@ -7233,7 +7236,7 @@ name|c
 argument_list|,
 name|style
 argument_list|,
-name|Okay
+name|status
 argument_list|)
 expr_stmt|;
 block|}

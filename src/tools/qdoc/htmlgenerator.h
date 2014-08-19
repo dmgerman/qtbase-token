@@ -564,6 +564,16 @@ argument_list|,
 argument|CodeMarker::Status status
 argument_list|)
 block|;
+name|QString
+name|generateQmlMemberFile
+argument_list|(
+argument|QmlClassNode* qcn
+argument_list|,
+argument|CodeMarker *marker
+argument_list|,
+argument|CodeMarker::Status status
+argument_list|)
+block|;
 name|void
 name|generateClassHierarchy
 argument_list|(
