@@ -36,6 +36,12 @@ name|QAndroidPlatformScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAndroidPlatformBackingStore
+name|class
+name|QAndroidPlatformBackingStore
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QAndroidPlatformWindow
 range|:
@@ -137,6 +143,16 @@ operator|==
 name|QSurface
 operator|::
 name|RasterSurface
+operator|||
+name|window
+argument_list|()
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|RasterGLSurface
 return|;
 block|}
 name|bool
@@ -153,6 +169,33 @@ operator|::
 name|ApplicationState
 argument_list|)
 block|;
+name|void
+name|setBackingStore
+argument_list|(
+argument|QAndroidPlatformBackingStore *store
+argument_list|)
+block|{
+name|m_backingStore
+operator|=
+name|store
+block|; }
+name|QAndroidPlatformBackingStore
+operator|*
+name|backingStore
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_backingStore
+return|;
+block|}
+name|virtual
+name|void
+name|repaint
+argument_list|(
+argument|const QRegion&
+argument_list|)
+block|{ }
 name|protected
 operator|:
 name|void
@@ -178,6 +221,12 @@ name|m_windowState
 block|;
 name|WId
 name|m_windowId
+block|;
+name|QAndroidPlatformBackingStore
+operator|*
+name|m_backingStore
+operator|=
+name|nullptr
 block|; }
 decl_stmt|;
 end_decl_stmt

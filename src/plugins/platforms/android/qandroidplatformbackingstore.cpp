@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qandroidplatformrasterwindow.h"
+file|"qandroidplatformwindow.h"
 end_include
 begin_include
 include|#
@@ -110,7 +110,7 @@ expr_stmt|;
 operator|(
 cast|static_cast
 argument_list|<
-name|QAndroidPlatformRasterWindow
+name|QAndroidPlatformWindow
 operator|*
 argument_list|>
 argument_list|(
@@ -203,12 +203,21 @@ operator|==
 name|QSurface
 operator|::
 name|RasterSurface
+operator|||
+name|window
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|RasterGLSurface
 condition|)
 block|{
 operator|(
 cast|static_cast
 argument_list|<
-name|QAndroidPlatformRasterWindow
+name|QAndroidPlatformWindow
 operator|*
 argument_list|>
 argument_list|(
@@ -233,7 +242,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QAndroidPlatformBackingStore does not support GL windows."
+literal|"QAndroidPlatformBackingStore does not support OpenGL-only windows."
 argument_list|)
 expr_stmt|;
 block|}

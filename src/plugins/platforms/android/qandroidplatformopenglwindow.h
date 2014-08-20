@@ -103,6 +103,16 @@ operator|::
 name|ApplicationState
 argument_list|)
 decl_stmt|;
+name|void
+name|repaint
+argument_list|(
+specifier|const
+name|QRegion
+operator|&
+name|region
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|protected
 label|:
 name|virtual
@@ -163,6 +173,9 @@ name|m_surfaceWaitCondition
 decl_stmt|;
 name|QSurfaceFormat
 name|m_format
+decl_stmt|;
+name|QRect
+name|m_oldGeometry
 decl_stmt|;
 block|}
 end_decl_stmt
