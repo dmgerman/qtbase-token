@@ -18,11 +18,6 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -46,6 +41,9 @@ name|QT_BUILD_CORE_LIB
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
 comment|// Environment ------------------------------------------------------
 name|errno_t
 name|qt_winrt_getenv_s
@@ -367,6 +365,13 @@ argument_list|,
 argument|void
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WINRT
+end_comment
 begin_comment
 comment|// Convenience macros for handling HRESULT values
 end_comment
@@ -778,13 +783,6 @@ end_return
 begin_comment
 unit|}  }
 comment|// QWinRTFunctions
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_WINRT
 end_comment
 begin_endif
 endif|#
