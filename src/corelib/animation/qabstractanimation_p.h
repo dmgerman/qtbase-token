@@ -303,19 +303,11 @@ argument_list|()
 operator|:
 name|running
 argument_list|(
-name|false
-argument_list|)
-block|,
-name|startTime
-argument_list|(
-literal|0
+argument|false
 argument_list|)
 block|{}
 name|bool
 name|running
-block|;
-name|qint64
-name|startTime
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -543,6 +535,19 @@ name|qint64
 argument_list|)
 argument_list|)
 block|;
+name|void
+name|startAnimationDriver
+argument_list|()
+block|;
+name|void
+name|stopAnimationDriver
+argument_list|()
+block|;
+name|qint64
+name|elapsed
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|void
@@ -651,7 +656,16 @@ argument_list|)
 argument_list|(
 name|qint64
 argument_list|)
-block|; }
+block|;
+name|qint64
+name|driverStartTime
+block|;
+comment|// The time the animation driver was started
+name|qint64
+name|temporalDrift
+block|;
+comment|// The delta between animation driver time and wall time.
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
