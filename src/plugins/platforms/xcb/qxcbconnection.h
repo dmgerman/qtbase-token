@@ -160,7 +160,7 @@ directive|endif
 end_endif
 begin_struct_decl
 struct_decl|struct
-name|XInput2DeviceData
+name|XInput2TouchDeviceData
 struct_decl|;
 end_struct_decl
 begin_endif
@@ -1760,9 +1760,9 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|XInput2DeviceData
+name|XInput2TouchDeviceData
 modifier|*
-name|deviceForId
+name|touchDeviceForId
 parameter_list|(
 name|int
 name|id
@@ -2246,7 +2246,7 @@ name|QHash
 operator|<
 name|int
 operator|,
-name|XInput2DeviceData
+name|XInput2TouchDeviceData
 operator|*
 operator|>
 name|m_touchDevices
