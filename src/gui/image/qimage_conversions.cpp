@@ -1192,6 +1192,18 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// The conversions might be passthrough and not use the buffer, in that case we are already done.
+if|if
+condition|(
+name|srcData
+operator|!=
+operator|(
+specifier|const
+name|uchar
+operator|*
+operator|)
+name|ptr
+condition|)
 name|store
 argument_list|(
 name|srcData
