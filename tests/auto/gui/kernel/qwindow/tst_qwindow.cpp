@@ -1908,6 +1908,9 @@ name|isExposed
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 comment|// This is a top-level window so assuming it is completely exposed, the
 comment|// expose region must be (0, 0), (width, height). If this is not the case,
 comment|// the platform plugin is sending expose events with a region in an
@@ -1953,6 +1956,8 @@ name|geometry
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|window
 operator|.
 name|hide
