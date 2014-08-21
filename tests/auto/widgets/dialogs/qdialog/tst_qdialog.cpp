@@ -2796,6 +2796,26 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+if|if
+condition|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"wayland"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Wayland: Wayland does not support setting the cursor position."
+argument_list|)
+expr_stmt|;
 name|QPoint
 name|topLeftPos
 init|=
