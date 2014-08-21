@@ -3685,6 +3685,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+end_ifndef
 begin_function
 DECL|function|findInBlock
 specifier|static
@@ -4232,6 +4237,13 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_REGEXP
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

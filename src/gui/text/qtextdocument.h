@@ -539,6 +539,9 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
 name|QTextCursor
 name|find
 argument_list|(
@@ -564,6 +567,8 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_REGULAREXPRESSION
