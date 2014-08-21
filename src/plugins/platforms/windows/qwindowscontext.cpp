@@ -231,7 +231,7 @@ name|Q_LOGGING_CATEGORY
 argument_list|(
 name|lcQpaInputMethods
 argument_list|,
-literal|"qt.qpa.inputmethods"
+literal|"qt.qpa.input.methods"
 argument_list|)
 name|Q_LOGGING_CATEGORY
 argument_list|(
@@ -243,7 +243,7 @@ name|Q_LOGGING_CATEGORY
 argument_list|(
 name|lcQpaTablet
 argument_list|,
-literal|"qt.qpa.tabletsupport"
+literal|"qt.qpa.input.tablet"
 argument_list|)
 name|Q_LOGGING_CATEGORY
 argument_list|(

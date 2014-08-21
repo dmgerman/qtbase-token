@@ -217,13 +217,13 @@ name|Q_LOGGING_CATEGORY
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"qt.qpa.events.input"
+literal|"qt.qpa.input"
 argument_list|)
 name|Q_LOGGING_CATEGORY
 argument_list|(
 name|lcQpaXInputDevices
 argument_list|,
-literal|"qt.qpa.devices"
+literal|"qt.qpa.input.devices"
 argument_list|)
 ifdef|#
 directive|ifdef
