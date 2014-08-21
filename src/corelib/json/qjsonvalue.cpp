@@ -971,7 +971,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to a QVariant.      The QJsonValue types will be converted as follows:      \value Null     QVariant()     \value Bool     QMetaType::Bool     \value Double   QMetaType::Double     \value String   QString     \value Array    QVariantList     \value Object   QVariantMap     \value Undefined QVariant()      \sa fromVariant()  */
+comment|/*!     Converts the value to a \l {QVariant::}{QVariant()}.      The QJsonValue types will be converted as follows:      \value Null     {QVariant::}{QVariant()}     \value Bool     QMetaType::Bool     \value Double   QMetaType::Double     \value String   QString     \value Array    QVariantList     \value Object   QVariantMap     \value Undefined {QVariant::}{QVariant()}      \sa fromVariant()  */
 end_comment
 begin_function
 DECL|function|toVariant
@@ -1290,7 +1290,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Converts the value to an array and returns it.      If type() is not Array, a QJsonArray() will be returned.  */
+comment|/*!     \overload      Converts the value to an array and returns it.      If type() is not Array, a \l{QJsonArray::}{QJsonArray()} will be returned.  */
 end_comment
 begin_function
 DECL|function|toArray
@@ -1359,7 +1359,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Converts the value to an object and returns it.      If type() is not Object, the QJsonObject() will be returned.  */
+comment|/*!     \overload      Converts the value to an object and returns it.      If type() is not Object, the \l {QJsonObject::}{QJsonObject()} will be returned. */
 end_comment
 begin_function
 DECL|function|toObject
