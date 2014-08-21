@@ -235,13 +235,9 @@ argument_list|(
 literal|"none"
 argument_list|)
 condition|)
-name|icString
-operator|=
-name|QStringLiteral
-argument_list|(
-literal|"compose"
-argument_list|)
-expr_stmt|;
+return|return
+literal|0
+return|;
 name|ic
 operator|=
 name|create
