@@ -6461,6 +6461,9 @@ operator|->
 name|elementProperty
 argument_list|()
 decl_stmt|;
+name|DomPropertyList
+name|newPropList
+decl_stmt|;
 if|if
 condition|(
 name|m_layoutWidget
@@ -6647,7 +6650,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|propList
+name|newPropList
 operator|.
 name|append
 argument_list|(
@@ -6686,7 +6689,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|propList
+name|newPropList
 operator|.
 name|append
 argument_list|(
@@ -6725,7 +6728,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|propList
+name|newPropList
 operator|.
 name|append
 argument_list|(
@@ -6764,7 +6767,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|propList
+name|newPropList
 operator|.
 name|append
 argument_list|(
@@ -6777,6 +6780,13 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+name|propList
+operator|.
+name|append
+argument_list|(
+name|newPropList
+argument_list|)
+expr_stmt|;
 name|writeProperties
 argument_list|(
 name|varName
@@ -6789,6 +6799,22 @@ name|WritePropertyIgnoreMargin
 operator||
 name|WritePropertyIgnoreSpacing
 argument_list|)
+expr_stmt|;
+comment|// Clean up again:
+name|propList
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|qDeleteAll
+argument_list|(
+name|newPropList
+argument_list|)
+expr_stmt|;
+name|newPropList
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 name|m_layoutChain
 operator|.
