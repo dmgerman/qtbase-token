@@ -875,9 +875,9 @@ name|preconfigs
 operator|.
 name|join
 argument_list|(
-name|fL1S
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 operator|)
@@ -890,9 +890,9 @@ name|precmds
 operator|.
 name|join
 argument_list|(
-name|fL1S
+name|QLatin1Char
 argument_list|(
-literal|"\n"
+literal|'\n'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -922,9 +922,9 @@ name|postconfigs
 operator|.
 name|join
 argument_list|(
-name|fL1S
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|)
 operator|)
@@ -937,9 +937,9 @@ name|postcmds
 operator|.
 name|join
 argument_list|(
-name|fL1S
+name|QLatin1Char
 argument_list|(
-literal|"\n"
+literal|'\n'
 argument_list|)
 argument_list|)
 expr_stmt|;
