@@ -73,6 +73,16 @@ include|#
 directive|include
 file|<private/qsslcontext_openssl_p.h>
 end_include
+begin_else
+else|#
+directive|else
+end_else
+begin_decl_stmt
+DECL|variable|QSslContext
+name|class
+name|QSslContext
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

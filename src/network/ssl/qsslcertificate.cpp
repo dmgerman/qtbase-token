@@ -8,6 +8,11 @@ end_comment
 begin_comment
 comment|/*!     \enum QSslCertificate::SubjectInfo      Describes keys that you can pass to QSslCertificate::issuerInfo() or     QSslCertificate::subjectInfo() to get information about the certificate     issuer or subject.      \value Organization "O" The name of the organization.      \value CommonName "CN" The common name; most often this is used to store     the host name.      \value LocalityName "L" The locality.      \value OrganizationalUnitName "OU" The organizational unit name.      \value CountryName "C" The country.      \value StateOrProvinceName "ST" The state or province.      \value DistinguishedNameQualifier The distinguished name qualifier      \value SerialNumber The certificate's serial number      \value EmailAddress The email address associated with the certificate */
 end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -31,6 +36,20 @@ begin_include
 include|#
 directive|include
 file|"qsslsocket_winrt_p.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"qsslsocket_mac_p.h"
 end_include
 begin_endif
 endif|#
