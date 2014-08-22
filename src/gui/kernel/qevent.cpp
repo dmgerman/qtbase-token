@@ -4736,6 +4736,9 @@ case|:
 return|return
 literal|"QFileOpenEvent"
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
 case|case
 name|QEvent
 operator|::
@@ -4757,6 +4760,8 @@ case|:
 return|return
 literal|"QGestureEvent"
 return|;
+endif|#
+directive|endif
 case|case
 name|QEvent
 operator|::
@@ -5245,6 +5250,9 @@ name|reason
 argument_list|)
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_GESTURES
 DECL|function|nativeGestureTypeToString
 specifier|static
 specifier|const
@@ -5288,6 +5296,9 @@ name|type
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_GESTURES
 block|}
 class|;
 block|}
