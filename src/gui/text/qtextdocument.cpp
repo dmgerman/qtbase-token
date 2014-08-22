@@ -3575,7 +3575,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QTextCursor QTextDocument::find(const QString&subString, const QTextCursor&cursor, FindFlags options) const      Finds the next occurrence of the string, \a subString, in the document.     The search starts at the position of the given \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed.      Returns a cursor with the match selected if \a subString was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
+comment|/*!     Finds the next occurrence of the string, \a subString, in the document.     The search starts at the position of the given \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed.      Returns a cursor with the match selected if \a subString was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
 end_comment
 begin_function
 DECL|function|find
@@ -3592,7 +3592,7 @@ parameter_list|,
 specifier|const
 name|QTextCursor
 modifier|&
-name|from
+name|cursor
 parameter_list|,
 name|FindFlags
 name|options
@@ -3607,7 +3607,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|from
+name|cursor
 operator|.
 name|isNull
 argument_list|()
@@ -3623,7 +3623,7 @@ name|FindBackward
 condition|)
 name|pos
 operator|=
-name|from
+name|cursor
 operator|.
 name|selectionStart
 argument_list|()
@@ -3631,7 +3631,7 @@ expr_stmt|;
 else|else
 name|pos
 operator|=
-name|from
+name|cursor
 operator|.
 name|selectionEnd
 argument_list|()
@@ -4172,7 +4172,7 @@ parameter_list|,
 specifier|const
 name|QTextCursor
 modifier|&
-name|from
+name|cursor
 parameter_list|,
 name|FindFlags
 name|options
@@ -4187,7 +4187,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|from
+name|cursor
 operator|.
 name|isNull
 argument_list|()
@@ -4203,7 +4203,7 @@ name|FindBackward
 condition|)
 name|pos
 operator|=
-name|from
+name|cursor
 operator|.
 name|selectionStart
 argument_list|()
@@ -4211,7 +4211,7 @@ expr_stmt|;
 else|else
 name|pos
 operator|=
-name|from
+name|cursor
 operator|.
 name|selectionEnd
 argument_list|()
@@ -4761,7 +4761,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the position of the given \a from cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a from cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
+comment|/*!     \since 5.5      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the position of the given \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
 end_comment
 begin_function
 DECL|function|find
@@ -4778,7 +4778,7 @@ parameter_list|,
 specifier|const
 name|QTextCursor
 modifier|&
-name|from
+name|cursor
 parameter_list|,
 name|FindFlags
 name|options
@@ -4793,7 +4793,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|from
+name|cursor
 operator|.
 name|isNull
 argument_list|()
@@ -4809,7 +4809,7 @@ name|FindBackward
 condition|)
 name|pos
 operator|=
-name|from
+name|cursor
 operator|.
 name|selectionStart
 argument_list|()
@@ -4817,7 +4817,7 @@ expr_stmt|;
 else|else
 name|pos
 operator|=
-name|from
+name|cursor
 operator|.
 name|selectionEnd
 argument_list|()

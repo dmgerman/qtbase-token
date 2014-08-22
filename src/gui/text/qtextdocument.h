@@ -532,7 +532,7 @@ name|find
 argument_list|(
 argument|const QString&subString
 argument_list|,
-argument|const QTextCursor&from
+argument|const QTextCursor&cursor
 argument_list|,
 argument|FindFlags options =
 literal|0
@@ -557,7 +557,7 @@ name|find
 argument_list|(
 argument|const QRegExp&expr
 argument_list|,
-argument|const QTextCursor&from
+argument|const QTextCursor&cursor
 argument_list|,
 argument|FindFlags options =
 literal|0
@@ -585,7 +585,7 @@ name|find
 argument_list|(
 argument|const QRegularExpression&expr
 argument_list|,
-argument|const QTextCursor&from
+argument|const QTextCursor&cursor
 argument_list|,
 argument|FindFlags options =
 literal|0
