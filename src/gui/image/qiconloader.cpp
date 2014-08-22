@@ -2637,13 +2637,6 @@ argument_list|(
 name|data
 argument_list|)
 decl_stmt|;
-name|arg
-operator|.
-name|sizes
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 specifier|const
 name|int
 name|N
@@ -2653,8 +2646,12 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|arg
-operator|.
+name|QList
+argument_list|<
+name|QSize
+argument_list|>
+name|sizes
+decl_stmt|;
 name|sizes
 operator|.
 name|reserve
@@ -2692,8 +2689,6 @@ name|dir
 operator|.
 name|size
 decl_stmt|;
-name|arg
-operator|.
 name|sizes
 operator|.
 name|append
@@ -2707,6 +2702,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|arg
+operator|.
+name|sizes
+operator|.
+name|swap
+argument_list|(
+name|sizes
+argument_list|)
+expr_stmt|;
+comment|// commit
 block|}
 break|break;
 case|case
