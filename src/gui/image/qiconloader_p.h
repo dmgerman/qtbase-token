@@ -83,6 +83,11 @@ include|#
 directive|include
 file|<QtCore/QHash>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QTypeInfo>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QIconLoader
@@ -180,6 +185,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QIconDirInfo
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QIconLoaderEngineEntry
