@@ -241,6 +241,7 @@ range|:
 name|public
 name|QIconLoaderEngineEntry
 block|{
+DECL|member|Q_DECL_OVERRIDE
 name|QPixmap
 name|pixmap
 argument_list|(
@@ -250,6 +251,7 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 DECL|member|svgIcon
 name|QIcon
@@ -265,6 +267,7 @@ range|:
 name|public
 name|QIconLoaderEngineEntry
 block|{
+DECL|member|Q_DECL_OVERRIDE
 name|QPixmap
 name|pixmap
 argument_list|(
@@ -274,6 +277,7 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 DECL|member|basePixmap
 name|QPixmap
