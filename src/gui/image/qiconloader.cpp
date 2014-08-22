@@ -2678,6 +2678,24 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+specifier|const
+name|int
+name|N
+init|=
+name|m_entries
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+name|arg
+operator|.
+name|sizes
+operator|.
+name|reserve
+argument_list|(
+name|N
+argument_list|)
+expr_stmt|;
 comment|// Gets all sizes from the DirectoryInfo entries
 for|for
 control|(
@@ -2688,10 +2706,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|m_entries
-operator|.
-name|size
-argument_list|()
+name|N
 condition|;
 operator|++
 name|i
