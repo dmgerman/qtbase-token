@@ -152,6 +152,9 @@ block|;
 name|QNSViewMouseMoveHelper
 operator|*
 name|m_mouseMoveHelper
+block|;
+name|bool
+name|m_resendKeyEvent
 block|; }
 operator|-
 operator|(
