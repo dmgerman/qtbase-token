@@ -1545,6 +1545,12 @@ name|endsWith
 argument_list|(
 literal|".html"
 argument_list|)
+operator|&&
+operator|!
+name|node
+operator|->
+name|isExampleFile
+argument_list|()
 condition|)
 name|base
 operator|.
