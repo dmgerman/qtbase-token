@@ -565,12 +565,6 @@ block|{
 name|QFile
 name|themeIndex
 decl_stmt|;
-name|QList
-argument_list|<
-name|QIconDirInfo
-argument_list|>
-name|keyList
-decl_stmt|;
 name|QStringList
 name|iconDirs
 init|=
