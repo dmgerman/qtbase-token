@@ -1997,6 +1997,15 @@ argument_list|)
 decl_stmt|;
 comment|// Note that m_entries are sorted so that png-files
 comment|// come first
+specifier|const
+name|int
+name|numEntries
+init|=
+name|m_entries
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// Search for exact matches first
 for|for
 control|(
@@ -2007,10 +2016,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|m_entries
-operator|.
-name|count
-argument_list|()
+name|numEntries
 condition|;
 operator|++
 name|i
@@ -2065,10 +2071,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|m_entries
-operator|.
-name|count
-argument_list|()
+name|numEntries
 condition|;
 operator|++
 name|i
