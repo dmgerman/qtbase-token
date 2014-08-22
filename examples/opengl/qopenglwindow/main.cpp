@@ -771,7 +771,7 @@ argument_list|)
 expr_stmt|;
 name|window
 operator|.
-name|show
+name|showMaximized
 argument_list|()
 expr_stmt|;
 return|return
