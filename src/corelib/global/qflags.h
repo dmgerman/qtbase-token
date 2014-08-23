@@ -459,6 +459,7 @@ argument_list|)
 block|{}
 endif|#
 directive|endif
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
@@ -480,6 +481,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
@@ -501,6 +503,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
@@ -525,6 +528,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
@@ -548,6 +552,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
@@ -572,6 +577,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
@@ -595,6 +601,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QFlags
 operator|&
