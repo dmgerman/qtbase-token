@@ -992,9 +992,16 @@ end_comment
 begin_comment
 comment|/*!     Applies the united() function to this region and \a r. \c r1|r2 is     equivalent to \c r1.united(r2).      \sa united(), operator+() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator |
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator |
 name|QRegion
 name|QRegion
 operator|::
@@ -1019,9 +1026,16 @@ end_function
 begin_comment
 comment|/*!     Applies the united() function to this region and \a r. \c r1+r2 is     equivalent to \c r1.united(r2).      \sa united(), operator|() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator +
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator +
 name|QRegion
 name|QRegion
 operator|::
@@ -1046,9 +1060,16 @@ end_function
 begin_comment
 comment|/*!    \overload    \since 4.4  */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator +
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator +
 name|QRegion
 name|QRegion
 operator|::
@@ -1073,9 +1094,16 @@ end_function
 begin_comment
 comment|/*!     Applies the intersected() function to this region and \a r. \c r1&r2     is equivalent to \c r1.intersected(r2).      \sa intersected() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator &
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator &
 name|QRegion
 name|QRegion
 operator|::
@@ -1100,9 +1128,16 @@ end_function
 begin_comment
 comment|/*!    \overload    \since 4.4  */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator &
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator &
 name|QRegion
 name|QRegion
 operator|::
@@ -1127,9 +1162,16 @@ end_function
 begin_comment
 comment|/*!     Applies the subtracted() function to this region and \a r. \c r1-r2     is equivalent to \c r1.subtracted(r2).      \sa subtracted() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator -
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator -
 name|QRegion
 name|QRegion
 operator|::
@@ -1154,9 +1196,16 @@ end_function
 begin_comment
 comment|/*!     Applies the xored() function to this region and \a r. \c r1^r2 is     equivalent to \c r1.xored(r2).      \sa xored() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator ^
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator ^
 name|QRegion
 name|QRegion
 operator|::
