@@ -521,6 +521,10 @@ name|indexOf
 parameter_list|()
 function_decl|;
 name|void
+name|indexOfInvalidRegex
+parameter_list|()
+function_decl|;
+name|void
 name|indexOf2_data
 parameter_list|()
 function_decl|;
@@ -11204,6 +11208,44 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_function
+DECL|function|indexOfInvalidRegex
+name|void
+name|tst_QString
+operator|::
+name|indexOfInvalidRegex
+parameter_list|()
+block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QString::indexOf: invalid QRegularExpression object"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|QString
+argument_list|(
+literal|"invalid regex\\"
+argument_list|)
+operator|.
+name|indexOf
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"invalid regex\\"
+argument_list|)
+argument_list|)
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
