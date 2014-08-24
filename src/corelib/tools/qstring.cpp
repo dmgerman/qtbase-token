@@ -12028,40 +12028,13 @@ name|re
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
-operator|!
-name|re
-operator|.
-name|isValid
-argument_list|()
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QString::contains: invalid QRegularExpression object"
-argument_list|)
-expr_stmt|;
 return|return
-literal|false
-return|;
-block|}
-name|QRegularExpressionMatch
-name|match
-init|=
-name|re
-operator|.
-name|match
+name|contains
 argument_list|(
-operator|*
-name|this
+name|re
+argument_list|,
+name|Q_NULLPTR
 argument_list|)
-decl_stmt|;
-return|return
-name|match
-operator|.
-name|hasMatch
-argument_list|()
 return|;
 block|}
 end_function
@@ -12097,7 +12070,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QString::contains: invalid QRegularExpresssion object"
+literal|"QString::contains: invalid QRegularExpression object"
 argument_list|)
 expr_stmt|;
 return|return
@@ -12132,7 +12105,10 @@ condition|)
 operator|*
 name|match
 operator|=
+name|qMove
+argument_list|(
 name|m
+argument_list|)
 expr_stmt|;
 return|return
 name|hasMatch
