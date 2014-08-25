@@ -12096,6 +12096,8 @@ index|]
 else|:
 operator|(
 name|numFullPtBlocks
+operator|&&
+name|iCurPtBlock
 condition|?
 name|CurPtBlock
 operator|->
@@ -12103,7 +12105,7 @@ name|next
 operator|->
 name|pts
 else|:
-literal|0
+name|Q_NULLPTR
 operator|)
 decl_stmt|;
 if|if
