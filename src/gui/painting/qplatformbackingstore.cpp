@@ -91,6 +91,11 @@ ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
 member_init_list|,
+name|textureId
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|blitter
 argument_list|(
 literal|0
