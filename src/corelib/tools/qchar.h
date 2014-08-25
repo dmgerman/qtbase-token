@@ -265,6 +265,9 @@ argument_list|(
 argument|uchar(c)
 argument_list|)
 block|{ }
+ifndef|#
+directive|ifndef
+name|QT_RESTRICTED_CAST_FROM_ASCII
 name|QT_ASCII_CAST_WARN
 name|Q_DECL_CONSTEXPR
 name|explicit
@@ -278,6 +281,8 @@ argument_list|(
 argument|c
 argument_list|)
 block|{ }
+endif|#
+directive|endif
 endif|#
 directive|endif
 comment|// Unicode information
