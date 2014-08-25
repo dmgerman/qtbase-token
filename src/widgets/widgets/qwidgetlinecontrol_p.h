@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWidgetLineControl_P_H
+name|QWIDGETLINECONTROL_P_H
 end_ifndef
 begin_define
-DECL|macro|QWidgetLineControl_P_H
+DECL|macro|QWIDGETLINECONTROL_P_H
 define|#
 directive|define
-name|QWidgetLineControl_P_H
+name|QWIDGETLINECONTROL_P_H
 end_define
 begin_comment
 comment|//
@@ -3211,6 +3211,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QWidgetLineControl_P_H
+comment|// QWIDGETLINECONTROL_P_H
 end_comment
 end_unit
