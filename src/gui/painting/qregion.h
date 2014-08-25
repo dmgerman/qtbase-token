@@ -927,9 +927,11 @@ directive|endif
 struct|struct
 name|QRegionData
 block|{
-name|QBasicAtomicInt
+name|QtPrivate
+operator|::
+name|RefCount
 name|ref
-decl_stmt|;
+expr_stmt|;
 name|QRegionPrivate
 modifier|*
 name|qt_rgn
@@ -942,6 +944,7 @@ modifier|*
 name|d
 decl_stmt|;
 specifier|static
+specifier|const
 name|struct
 name|QRegionData
 name|shared_empty
