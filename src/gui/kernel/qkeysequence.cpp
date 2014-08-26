@@ -5357,12 +5357,12 @@ literal|1
 condition|)
 block|{
 specifier|const
-name|QString
+name|QStringRef
 name|sub
 init|=
 name|sl
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|lastI
 argument_list|,
