@@ -586,6 +586,16 @@ return|return
 literal|false
 return|;
 block|}
+comment|//Fail early, if context is the same as ctx, it means we have tried to initialize for this context and failed
+if|if
+condition|(
+name|ctx
+operator|==
+name|context
+condition|)
+return|return
+literal|false
+return|;
 name|context
 operator|=
 name|ctx
