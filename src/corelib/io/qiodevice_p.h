@@ -157,7 +157,7 @@ name|capacity
 operator|=
 literal|0
 block|;     }
-name|int
+name|qint64
 name|size
 argument_list|()
 specifier|const
@@ -180,7 +180,7 @@ block|}
 name|void
 name|skip
 parameter_list|(
-name|int
+name|qint64
 name|n
 parameter_list|)
 block|{
@@ -247,7 +247,7 @@ name|char
 modifier|*
 name|target
 parameter_list|,
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
@@ -289,7 +289,7 @@ name|char
 modifier|*
 name|target
 parameter_list|,
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
@@ -352,7 +352,7 @@ block|}
 name|void
 name|chop
 parameter_list|(
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
@@ -401,7 +401,7 @@ name|char
 modifier|*
 name|target
 parameter_list|,
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
@@ -534,7 +534,7 @@ name|char
 modifier|*
 name|block
 parameter_list|,
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
@@ -707,7 +707,7 @@ block|}
 name|private
 label|:
 comment|// length of the unread data
-name|int
+name|qint64
 name|len
 decl_stmt|;
 comment|// start of the unread data

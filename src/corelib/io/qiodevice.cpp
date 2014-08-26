@@ -1982,6 +1982,7 @@ block|{
 comment|// In buffered mode, we try to fill up the QIODevice buffer before
 comment|// we do anything else.
 comment|// buffer is empty at this point, try to fill it
+specifier|const
 name|int
 name|bytesToBuffer
 init|=
@@ -2814,6 +2815,21 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|buffer
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|INT_MAX
+condition|)
+return|return
+name|QByteArray
+argument_list|()
+return|;
 name|result
 operator|=
 name|d
@@ -2921,6 +2937,22 @@ else|else
 block|{
 comment|// Read it all in one go.
 comment|// If resize fails, don't read anything.
+if|if
+condition|(
+name|readBytes
+operator|+
+name|theSize
+operator|-
+name|d
+operator|->
+name|pos
+operator|>
+name|INT_MAX
+condition|)
+return|return
+name|QByteArray
+argument_list|()
+return|;
 name|result
 operator|.
 name|resize
