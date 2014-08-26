@@ -115,11 +115,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|needsFBOReadBackWorkaroud
+DECL|function|needsFBOReadBackWorkaround
 name|bool
 name|QAndroidPlatformOpenGLContext
 operator|::
-name|needsFBOReadBackWorkaroud
+name|needsFBOReadBackWorkaround
 parameter_list|()
 block|{
 specifier|static
@@ -184,11 +184,65 @@ operator|==
 literal|0
 comment|// Adreno 200, 203, 205
 operator|||
+name|qstrncmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Adreno 2xx"
+argument_list|,
+literal|8
+argument_list|)
+operator|==
+literal|0
+comment|// Same as above but without the '(TM)'
+operator|||
+name|qstrncmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Adreno (TM) 30x"
+argument_list|,
+literal|14
+argument_list|)
+operator|==
+literal|0
+comment|// Adreno 302, 305
+operator|||
+name|qstrncmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Adreno 30x"
+argument_list|,
+literal|9
+argument_list|)
+operator|==
+literal|0
+comment|// Same as above but without the '(TM)'
+operator|||
+name|qstrcmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"GC800 core"
+argument_list|)
+operator|==
+literal|0
+operator|||
 name|qstrcmp
 argument_list|(
 name|rendererString
 argument_list|,
 literal|"GC1000 core"
+argument_list|)
+operator|==
+literal|0
+operator|||
+name|qstrcmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Immersion.16"
 argument_list|)
 operator|==
 literal|0
@@ -285,7 +339,7 @@ name|ctx_d
 operator|->
 name|workaround_brokenFBOReadBack
 operator|&&
-name|needsFBOReadBackWorkaroud
+name|needsFBOReadBackWorkaround
 argument_list|()
 condition|)
 name|ctx_d
