@@ -16,10 +16,10 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QStorageInfo     \inmodule QtCore     \since 5.4     \brief Provides information about currently mounted storages and drives.      \ingroup io     \ingroup shared      Allows retrieving information about the volume's space, its mount point,     label, filesystem name.      You can create an instance of QStorageInfo by passing the path to the     volume's mount point as the constructor parameter, or you can set it using     setPath() method. The static mountedVolumes() method can be used to get the     list of all mounted filesystems.      QStorageInfo always caches the retrieved information but you can call     refresh() to invalidate the cache.      The following example retrieves the most common information about the root     volume of the system and prints information about it.      \snippet code/src_corelib_io_qstorageinfo.cpp 2 */
+comment|/*!     \class QStorageInfo     \inmodule QtCore     \since 5.4     \brief Provides information about currently mounted storage and drives.      \ingroup io     \ingroup shared      Allows retrieving information about the volume's space, its mount point,     label, and filesystem name.      You can create an instance of QStorageInfo by passing the path to the     volume's mount point as a constructor parameter, or you can set it using     the setPath() method. The static mountedVolumes() method can be used to get the     list of all mounted filesystems.      QStorageInfo always caches the retrieved information, but you can call     refresh() to invalidate the cache.      The following example retrieves the most common information about the root     volume of the system, and prints information about it.      \snippet code/src_corelib_io_qstorageinfo.cpp 2 */
 end_comment
 begin_comment
-comment|/*!     Constructs an empty QStorageInfo object.      This object is not ready for use, invalid and all its parameters are empty.      \sa setPath(), isReady(), isValid() */
+comment|/*!     Constructs an empty QStorageInfo object.      Objects created with the default constructor will be invalid and therefore     not ready for use.      \sa setPath(), isReady(), isValid() */
 end_comment
 begin_constructor
 DECL|function|QStorageInfo
@@ -36,7 +36,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a new QStorageInfo that gives information about the volume     mounted at \a path.      If you pass a directory or file, the QStorageInfo object will refer to the     volume where this directory or file is located.     You can check if the created object is correct using the isValid() method.      The following example shows how to get volume on which application is     located. It is recommended to always check that volume is ready and valid.      \snippet code/src_corelib_io_qstorageinfo.cpp 0      \sa setPath() */
+comment|/*!     Constructs a new QStorageInfo object that gives information about the volume     mounted at \a path.      If you pass a directory or file, the QStorageInfo object will refer to the     volume where this directory or file is located.     You can check if the created object is correct using the isValid() method.      The following example shows how to get the volume on which the application is     located. It is recommended to always check that the volume is ready and valid.      \snippet code/src_corelib_io_qstorageinfo.cpp 0      \sa setPath() */
 end_comment
 begin_constructor
 DECL|function|QStorageInfo
@@ -64,7 +64,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a new QStorageInfo that gives information about the volume     that contains the \a dir folder. */
+comment|/*!     Constructs a new QStorageInfo object that gives information about the volume     containing the \a dir folder. */
 end_comment
 begin_constructor
 DECL|function|QStorageInfo
@@ -95,7 +95,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a new QStorageInfo that is a copy of the \a other QStorageInfo. */
+comment|/*!     Constructs a new QStorageInfo object that is a copy of the \a other QStorageInfo object. */
 end_comment
 begin_constructor
 DECL|function|QStorageInfo
@@ -118,7 +118,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Destroys the QStorageInfo and frees its resources. */
+comment|/*!     Destroys the QStorageInfo object and frees its resources. */
 end_comment
 begin_destructor
 DECL|function|~QStorageInfo
@@ -130,7 +130,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Makes a copy of \a other QStorageInfo and assigns it to this QStorageInfo. */
+comment|/*!     Makes a copy of the QStorageInfo object \a other and assigns it to this QStorageInfo object. */
 end_comment
 begin_function
 DECL|function|operator =
@@ -160,13 +160,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QStorageInfo&QStorageInfo::operator=(QStorageInfo&&other)      Move-assigns \a other to this QStorageInfo instance. */
+comment|/*!     \fn QStorageInfo&QStorageInfo::operator=(QStorageInfo&&other)      Assigns \a other to this QStorageInfo instance. */
 end_comment
 begin_comment
-comment|/*!     \fn void QStorageInfo::swap(QStorageInfo&other)      Swaps this volume info with the \a other. This function is very fast and     never fails. */
+comment|/*!     \fn void QStorageInfo::swap(QStorageInfo&other)      Swaps this volume info with \a other. This function is very fast and     never fails. */
 end_comment
 begin_comment
-comment|/*!     Sets QStorageInfo to the filesystem mounted where \a path is located.      Path can either be a root path of the filesystem, or a directory or a file     within that filesystem.      \sa rootPath() */
+comment|/*!     Sets this QStorageInfo object to the filesystem mounted where \a path is located.      \a path can either be a root path of the filesystem, a directory, or a file     within that filesystem.      \sa rootPath() */
 end_comment
 begin_function
 DECL|function|setPath
@@ -209,7 +209,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the mount point of the filesystem this QStorageInfo object     represents.      On Windows, returns the volume letter in case the volume is not mounted to     a directory.      Note that the value returned by rootPath() is the real mount point of a     volume and may not be equal to the value passed to constructor or setPath()     method. For example, if you have only the root volume in the system and     pass '/directory' to setPath(), then this method will return '/'.      \sa setPath(), device() */
+comment|/*!     Returns the mount point of the filesystem this QStorageInfo object     represents.      On Windows, it returns the volume letter in case the volume is not mounted to     a directory.      Note that the value returned by rootPath() is the real mount point of a     volume, and may not be equal to the value passed to the constructor or setPath()     method. For example, if you have only the root volume in the system, and     pass '/directory' to setPath(), then this method will return '/'.      \sa setPath(), device() */
 end_comment
 begin_function
 DECL|function|rootPath
@@ -228,7 +228,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the size (in bytes) available for the current user. If the user is     the root user or a system administrator returns all available size.      This size can be less than or equal to the free size, returned by     bytesFree() function.      \sa bytesTotal(), bytesFree() */
+comment|/*!     Returns the size (in bytes) available for the current user. It returns     the total size available if the user is the root user or a system administrator.      This size can be less than or equal to the free size returned by     bytesFree() function.      \sa bytesTotal(), bytesFree() */
 end_comment
 begin_function
 DECL|function|bytesAvailable
@@ -247,7 +247,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of free bytes on a volume. Note, that if there are some     kind of quotas on the filesystem, this value can be bigger than     bytesAvailable().      \sa bytesTotal(), bytesAvailable() */
+comment|/*!     Returns the number of free bytes in a volume. Note that if there are     quotas on the filesystem, this value can be larger than the value     returned by bytesAvailable().      \sa bytesTotal(), bytesAvailable() */
 end_comment
 begin_function
 DECL|function|bytesFree
@@ -266,7 +266,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns total volume size in bytes.      \sa bytesFree(), bytesAvailable() */
+comment|/*!     Returns the total volume size in bytes.      \sa bytesFree(), bytesAvailable() */
 end_comment
 begin_function
 DECL|function|bytesTotal
@@ -285,7 +285,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the type name of the filesystem.      This is a platform-dependent function, and filesystem names can vary     between different operating systems. For example, on Windows filesystems     can be named as 'NTFS' and on Linux as 'ntfs-3g' or 'fuseblk'.      \sa name() */
+comment|/*!     Returns the type name of the filesystem.      This is a platform-dependent function, and filesystem names can vary     between different operating systems. For example, on Windows filesystems     they can be named \c NTFS, and on Linux they can be named \c ntfs-3g or \c fuseblk.      \sa name() */
 end_comment
 begin_function
 DECL|function|fileSystemType
@@ -304,7 +304,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the device for this volume.      For example, on Unix filesystems (including OS X), this returns the     devpath like '/dev/sda0' for local storages. On Windows, returns the UNC     path starting with \\\\?\\ for local storages (i.e. volume GUID).      \sa rootPath() */
+comment|/*!     Returns the device for this volume.      For example, on Unix filesystems (including OS X), this returns the     devpath like \c /dev/sda0 for local storages. On Windows, it returns the UNC     path starting with \c \\\\?\\ for local storages (in other words, the volume GUID).      \sa rootPath() */
 end_comment
 begin_function
 DECL|function|device
@@ -323,7 +323,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-readable name of a filesystem, usually called 'label'.      Not all filesystems support this feature, in this case value returned by     this method could be empty. An empty string is returned if the file system     does not support labels or no label is set.      On Linux, retrieving the volume's label requires udev to be present in the     system.      \sa fileSystemType() */
+comment|/*!     Returns the human-readable name of a filesystem, usually called \c label.      Not all filesystems support this feature. In this case, the value returned by     this method could be empty. An empty string is returned if the file system     does not support labels, or if no label is set.      On Linux, retrieving the volume's label requires \c udev to be present in the     system.      \sa fileSystemType() */
 end_comment
 begin_function
 DECL|function|name
@@ -376,7 +376,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QStorageInfo::isRoot() const      Returns true if this QStorageInfo represents the system root volume; false     otherwise.      On Unix filesystems, the root volume is a volume mounted at "/", on Windows     the root volume is the volume where OS is installed.      \sa root() */
+comment|/*!     \fn bool QStorageInfo::isRoot() const      Returns true if this QStorageInfo represents the system root volume; false     otherwise.      On Unix filesystems, the root volume is a volume mounted on \c /. On Windows,     the root volume is the volume where the OS is installed.      \sa root() */
 end_comment
 begin_comment
 comment|/*!     Returns true if the current filesystem is protected from writing; false     otherwise. */
@@ -398,7 +398,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if current filesystem is ready to work; false otherwise. For     example, false is returned if CD volume is not inserted.      Note that fileSystemType(), name(), bytesTotal(), bytesFree(), and     bytesAvailable() will return invalid data until the volume is ready.      \sa isValid() */
+comment|/*!     Returns true if the current filesystem is ready to work; false otherwise. For     example, false is returned if the CD volume is not inserted.      Note that fileSystemType(), name(), bytesTotal(), bytesFree(), and     bytesAvailable() will return invalid data until the volume is ready.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|isReady
@@ -436,7 +436,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resets QStorageInfo's internal cache.      QStorageInfo caches information about storages to speed up performance -     QStorageInfo retrieves information during object construction and/or call     to setPath() method. You have to manually reset the cache by calling this     function to update storage information. */
+comment|/*!     Resets QStorageInfo's internal cache.      QStorageInfo caches information about storage to speed up performance.     QStorageInfo retrieves information during object construction and/or when calling     the setPath() method. You have to manually reset the cache by calling this     function to update storage information. */
 end_comment
 begin_function
 DECL|function|refresh
@@ -459,7 +459,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns list of QStorageInfos that corresponds to the list of currently     mounted filesystems.      On Windows, this returns drives presented in 'My Computer' folder. On Unix     operating systems, returns list of all mounted filesystems (except for     pseudo filesystems).      By default, returns all currently mounted filesystems.      The example shows how to retrieve all storages present in the system and     skip read-only storages.      \snippet code/src_corelib_io_qstorageinfo.cpp 1      \sa root() */
+comment|/*!     Returns the list of QStorageInfo objects that corresponds to the list of currently     mounted filesystems.      On Windows, this returns the drives visible in the \gui{My Computer} folder. On Unix     operating systems, it returns the list of all mounted filesystems (except for     pseudo filesystems).      Returns all currently mounted filesystems by default.      The example shows how to retrieve all available filesystems, skipping read-only ones.      \snippet code/src_corelib_io_qstorageinfo.cpp 1      \sa root() */
 end_comment
 begin_function
 DECL|function|mountedVolumes
@@ -491,7 +491,7 @@ argument|(QStorageInfoPrivate::root())
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     Returns a QStorageInfo object that represents the system root volume.      On Unix systems this call returns '/' volume, on Windows the volume where     operating system is installed is returned.      \sa isRoot() */
+comment|/*!     Returns a QStorageInfo object that represents the system root volume.      On Unix systems this call returns the root ('/') volume; in Windows the volume where     the operating system is installed.      \sa isRoot() */
 end_comment
 begin_function
 DECL|function|root
@@ -509,10 +509,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn inline bool operator==(const QStorageInfo&first, const QStorageInfo&second)      \relates QStorageInfo      Returns true if \a first QStorageInfo object refers to the same drive or volume     as the \a second; otherwise returns false.      Note that the result of comparing two invalid QStorageInfo objects is always     positive. */
+comment|/*!     \fn inline bool operator==(const QStorageInfo&first, const QStorageInfo&second)      \relates QStorageInfo      Returns true if the \a first QStorageInfo object refers to the same drive or volume     as the \a second; otherwise it returns false.      Note that the result of comparing two invalid QStorageInfo objects is always     positive. */
 end_comment
 begin_comment
-comment|/*!     \fn inline bool operator!=(const QStorageInfo&first, const QStorageInfo&second)      \relates QStorageInfo      Returns true if \a first QStorageInfo object refers to a different drive or     volume than the one specified by \a second; otherwise returns false. */
+comment|/*!     \fn inline bool operator!=(const QStorageInfo&first, const QStorageInfo&second)      \relates QStorageInfo      Returns true if the \a first QStorageInfo object refers to a different drive or     volume than the \a second; otherwise returns false. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
