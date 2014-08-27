@@ -1429,6 +1429,33 @@ argument_list|)
 expr_stmt|;
 comment|// returns 4
 comment|//! [93]
+comment|//! [97]
+name|QString
+name|str
+init|=
+literal|"the minimum"
+decl_stmt|;
+name|QRegularExpressionMatch
+name|match
+decl_stmt|;
+name|str
+operator|.
+name|indexOf
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"m[aeiou]"
+argument_list|)
+argument_list|,
+literal|0
+argument_list|,
+operator|&
+name|match
+argument_list|)
+expr_stmt|;
+comment|// returns 4
+comment|// match.captured() == mi
+comment|//! [97]
 block|}
 end_function
 begin_function
@@ -1638,6 +1665,34 @@ argument_list|)
 expr_stmt|;
 comment|// returns 8
 comment|//! [94]
+comment|//! [98]
+name|QString
+name|str
+init|=
+literal|"the minimum"
+decl_stmt|;
+name|QRegularExpressionMatch
+name|match
+decl_stmt|;
+name|str
+operator|.
+name|lastIndexOf
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"m[aeiou]"
+argument_list|)
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|&
+name|match
+argument_list|)
+expr_stmt|;
+comment|// returns 8
+comment|// match.captured() == mu
+comment|//! [98]
 block|}
 end_function
 begin_function
