@@ -564,6 +564,36 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
+name|QTextCursor
+name|find
+argument_list|(
+argument|const QRegularExpression&expr
+argument_list|,
+argument|int from =
+literal|0
+argument_list|,
+argument|FindFlags options =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QTextCursor
+name|find
+argument_list|(
+argument|const QRegularExpression&expr
+argument_list|,
+argument|const QTextCursor&from
+argument_list|,
+argument|FindFlags options =
+literal|0
+argument_list|)
+specifier|const
+block|;
+endif|#
+directive|endif
 name|QTextFrame
 operator|*
 name|frameAt
