@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QGuiApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QDebug>
 end_include
 begin_macro
@@ -2598,6 +2603,8 @@ decl_stmt|;
 if|if
 condition|(
 name|inputContext
+operator|&&
+name|qGuiApp
 condition|)
 name|inputContext
 operator|->
