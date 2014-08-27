@@ -1215,7 +1215,7 @@ literal|1.0
 argument_list|,
 name|NULL
 argument_list|,
-name|D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND
+name|D2D1_LAYER_OPTIONS1_NONE
 argument_list|)
 argument_list|,
 name|NULL
@@ -4366,7 +4366,7 @@ literal|1.0
 argument_list|,
 name|NULL
 argument_list|,
-name|D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND
+name|D2D1_LAYER_OPTIONS1_NONE
 argument_list|)
 argument_list|,
 name|NULL
