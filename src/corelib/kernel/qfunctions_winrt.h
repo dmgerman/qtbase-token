@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -783,6 +788,13 @@ end_return
 begin_comment
 unit|}  }
 comment|// QWinRTFunctions
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WIN
 end_comment
 begin_endif
 endif|#
