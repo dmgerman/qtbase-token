@@ -3710,7 +3710,7 @@ name|FindFlags
 name|options
 parameter_list|,
 name|QTextCursor
-modifier|&
+modifier|*
 name|cursor
 parameter_list|)
 block|{
@@ -3906,6 +3906,7 @@ condition|)
 return|return
 literal|false
 return|;
+operator|*
 name|cursor
 operator|=
 name|QTextCursor
@@ -3924,11 +3925,11 @@ name|idx
 argument_list|)
 expr_stmt|;
 name|cursor
-operator|.
+operator|->
 name|setPosition
 argument_list|(
 name|cursor
-operator|.
+operator|->
 name|position
 argument_list|()
 operator|+
@@ -4073,6 +4074,7 @@ name|blockOffset
 argument_list|,
 name|options
 argument_list|,
+operator|&
 name|cursor
 argument_list|)
 condition|)
@@ -4124,6 +4126,7 @@ name|blockOffset
 argument_list|,
 name|options
 argument_list|,
+operator|&
 name|cursor
 argument_list|)
 condition|)
