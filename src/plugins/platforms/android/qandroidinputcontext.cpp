@@ -4831,6 +4831,17 @@ name|QVariant
 name|argument
 parameter_list|)
 block|{
+name|QVariant
+name|retval
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|qGuiApp
+condition|)
+return|return
+name|retval
+return|;
 name|bool
 name|inMainThread
 init|=
@@ -4843,9 +4854,6 @@ name|QThread
 operator|::
 name|currentThread
 argument_list|()
-decl_stmt|;
-name|QVariant
-name|retval
 decl_stmt|;
 name|QMetaObject
 operator|::
