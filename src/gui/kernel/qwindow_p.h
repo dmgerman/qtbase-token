@@ -372,6 +372,15 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+name|void
+name|create
+parameter_list|(
+name|bool
+name|recursive
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 name|virtual
 name|void
 name|clearFocusObject
