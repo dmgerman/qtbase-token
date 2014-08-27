@@ -12443,7 +12443,7 @@ name|QCOMPARE
 argument_list|(
 name|QString
 argument_list|(
-literal|""
+literal|"invalid regex\\"
 argument_list|)
 operator|.
 name|lastIndexOf
