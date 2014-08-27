@@ -4106,7 +4106,15 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+name|d
+operator|->
+name|pendingClose
+operator|=
+literal|true
+expr_stmt|;
 return|return;
+block|}
 if|if
 condition|(
 name|d
