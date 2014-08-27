@@ -88,7 +88,8 @@ parameter_list|)
 block|{
 specifier|static
 specifier|const
-name|QByteArray
+name|char
+modifier|*
 name|names
 index|[]
 init|=
@@ -112,8 +113,10 @@ literal|"releasedc"
 block|}
 decl_stmt|;
 specifier|const
-name|QByteArray
+name|char
 modifier|*
+modifier|*
+specifier|const
 name|end
 init|=
 name|names
@@ -132,7 +135,8 @@ index|]
 argument_list|)
 decl_stmt|;
 specifier|const
-name|QByteArray
+name|char
+modifier|*
 modifier|*
 name|result
 init|=
