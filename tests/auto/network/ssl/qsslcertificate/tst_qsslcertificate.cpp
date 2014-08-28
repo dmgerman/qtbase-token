@@ -6135,6 +6135,20 @@ operator|.
 name|toText
 argument_list|()
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-40884: QSslCertificate::toText is not implemented on WinRT"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|QString
@@ -6399,6 +6413,20 @@ name|A
 parameter_list|)
 define|\
 value|QVERIFY2((A),                                               \         qPrintable(QString("errors: %1").arg(toString(errors))) \     )
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-40884: WinRT API does not yet support verifying a chain"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Empty chain is unspecified error
 name|errors
 operator|=
@@ -6945,6 +6973,20 @@ operator|.
 name|extensions
 argument_list|()
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-40884: WinRT API does not support extensions information"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|extensions
@@ -8127,6 +8169,20 @@ name|QSslCertificate
 argument_list|>
 name|caCerts
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-40884: WinRT API does not support pkcs12 imports"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|ok
 operator|=
 name|QSslCertificate

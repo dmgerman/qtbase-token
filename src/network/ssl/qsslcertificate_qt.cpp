@@ -366,6 +366,14 @@ name|notValidAfter
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+end_ifndef
+begin_comment
+comment|// implemented in qsslcertificate_winrt.cpp
+end_comment
 begin_function
 DECL|function|handle
 name|Qt
@@ -385,6 +393,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|publicKey
 name|QSslKey

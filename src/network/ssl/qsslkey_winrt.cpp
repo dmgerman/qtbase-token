@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qsslcertificate_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qfunctions_winrt.h>
 end_include
 begin_include
