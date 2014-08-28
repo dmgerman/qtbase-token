@@ -27,23 +27,6 @@ include|#
 directive|include
 file|<QtNetwork/qnetworkproxy.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-end_ifdef
-begin_define
-DECL|macro|WINRT_EXPECT_FAILURES
-define|#
-directive|define
-name|WINRT_EXPECT_FAILURES
-define|\
-value|if (type == QSsl::PrivateKey) \         QEXPECT_FAIL("", "No support for private keys on WinRT: QTBUG-40688", Abort); \     if (strstr(QTest::currentDataTag(), "rsa-pub-40")) \         QEXPECT_FAIL("", "Weak public keys are not supported on WinRT", Abort);
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|tst_QSslKey
 class|class
@@ -692,12 +675,6 @@ argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|WINRT_EXPECT_FAILURES
-endif|#
-directive|endif
 name|QByteArray
 name|encoded
 init|=
@@ -1052,12 +1029,6 @@ argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|WINRT_EXPECT_FAILURES
-endif|#
-directive|endif
 name|QByteArray
 name|encoded
 init|=
@@ -1163,12 +1134,6 @@ argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|WINRT_EXPECT_FAILURES
-endif|#
-directive|endif
 name|QByteArray
 name|encoded
 init|=
@@ -1493,12 +1458,6 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|WINRT_EXPECT_FAILURES
-endif|#
-directive|endif
 name|QByteArray
 name|plain
 init|=
@@ -1546,6 +1505,16 @@ operator|::
 name|PrivateKey
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_OPENSSL
+name|QSKIP
+argument_list|(
+literal|"Encrypted keys require support from the SSL backend"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QByteArray
 name|encryptedPem
 init|=
@@ -2012,12 +1981,12 @@ comment|// wrong passphrase => should not be able to decode key
 block|}
 ifdef|#
 directive|ifdef
-name|Q_OS_WINRT
+name|QT_NO_OPENSSL
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"The WinRT backend does not support private key imports: QTBUG-40688"
+literal|"Encrypted keys require support from the SSL backend"
 argument_list|,
 name|Abort
 argument_list|)
