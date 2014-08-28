@@ -3295,7 +3295,7 @@ operator|::
 name|Timer
 condition|)
 block|{
-comment|// should be timerEvent, is here for binary compatibility
+comment|// ### Qt6: move to timerEvent, is here for binary compatibility
 name|int
 name|timerId
 init|=
