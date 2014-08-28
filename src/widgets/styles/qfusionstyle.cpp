@@ -12659,6 +12659,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|ignoreCheckMark
+operator|&&
 name|checkable
 operator|&&
 name|checked
