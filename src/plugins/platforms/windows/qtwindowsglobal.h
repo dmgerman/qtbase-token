@@ -131,6 +131,12 @@ name|WindowEventFlag
 operator|+
 literal|7
 block|,
+name|ShowEventOnParentRestoring
+init|=
+name|WindowEventFlag
+operator|+
+literal|20
+block|,
 name|HideEvent
 init|=
 name|WindowEventFlag
@@ -397,6 +403,8 @@ argument_list|(
 argument|UINT message
 argument_list|,
 argument|WPARAM wParamIn
+argument_list|,
+argument|LPARAM lParamIn
 argument_list|)
 block|{
 switch|switch
@@ -513,13 +521,24 @@ return|;
 case|case
 name|WM_SHOWWINDOW
 case|:
-return|return
+if|if
+condition|(
 name|wParamIn
+condition|)
+return|return
+name|lParamIn
+operator|==
+name|SW_PARENTOPENING
 condition|?
 name|QtWindows
 operator|::
-name|ShowEvent
+name|ShowEventOnParentRestoring
 else|:
+name|QtWindows
+operator|::
+name|ShowEvent
+return|;
+return|return
 name|QtWindows
 operator|::
 name|HideEvent
