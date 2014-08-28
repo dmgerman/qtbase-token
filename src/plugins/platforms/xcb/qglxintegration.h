@@ -147,9 +147,9 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|QXcbScreen
+name|Display
 operator|*
-name|m_screen
+name|m_display
 block|;
 name|GLXContext
 name|m_context
