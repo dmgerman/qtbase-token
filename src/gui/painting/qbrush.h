@@ -971,6 +971,7 @@ name|void
 modifier|*
 name|dummy
 decl_stmt|;
+comment|// ### Qt 6: replace with actual content (CoordinateMode, InterpolationMode, ...)
 block|}
 end_decl_stmt
 begin_empty_stmt
