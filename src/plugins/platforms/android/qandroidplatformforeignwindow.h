@@ -29,6 +29,7 @@ directive|include
 file|<QtCore/private/qjni_p.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QAndroidPlatformForeignWindow
 range|:
@@ -52,25 +53,44 @@ block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|rect
+argument|const QRect&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|setVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|applicationStateChanged
+argument_list|(
+argument|Qt::ApplicationState state
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|setParent
+argument_list|(
+argument|const QPlatformWindow *window
+argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
-name|QJNIObjectPrivate
-name|m_view
-block|;
 name|int
 name|m_surfaceId
-operator|=
-operator|-
-literal|1
+block|;
+name|QJNIObjectPrivate
+name|m_view
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
