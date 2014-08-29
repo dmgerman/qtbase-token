@@ -558,11 +558,6 @@ name|QWindowsVistaStylePrivate
 argument_list|()
 block|;
 specifier|static
-name|bool
-name|resolveSymbols
-argument_list|()
-block|;
-specifier|static
 specifier|inline
 name|bool
 name|useVista
