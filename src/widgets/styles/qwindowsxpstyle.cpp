@@ -22750,7 +22750,15 @@ specifier|const
 name|int
 name|buttonMargin
 init|=
+name|int
+argument_list|(
+name|QStyleHelper
+operator|::
+name|dpiScaled
+argument_list|(
 literal|4
+argument_list|)
+argument_list|)
 decl_stmt|;
 name|int
 name|buttonHeight

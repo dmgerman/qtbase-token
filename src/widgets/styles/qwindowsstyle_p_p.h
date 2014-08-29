@@ -114,6 +114,13 @@ argument_list|)
 block|;
 specifier|static
 name|int
+name|fixedPixelMetric
+argument_list|(
+argument|QStyle::PixelMetric pm
+argument_list|)
+block|;
+specifier|static
+name|int
 name|devicePixelRatio
 argument_list|(
 argument|const QWidget *widget =

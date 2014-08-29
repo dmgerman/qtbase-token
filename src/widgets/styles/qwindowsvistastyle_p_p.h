@@ -558,6 +558,13 @@ name|QWindowsVistaStylePrivate
 argument_list|()
 block|;
 specifier|static
+name|int
+name|fixedPixelMetric
+argument_list|(
+argument|QStyle::PixelMetric pm
+argument_list|)
+block|;
+specifier|static
 specifier|inline
 name|bool
 name|useVista
