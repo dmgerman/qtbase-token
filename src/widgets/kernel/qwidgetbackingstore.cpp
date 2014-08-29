@@ -6224,6 +6224,9 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 comment|// There is something other dirty than the renderToTexture widgets.
 comment|// Now it is time to include the renderToTexture ones among the others.
 if|if
@@ -6276,6 +6279,8 @@ name|rect
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 comment|// The dirtyRenderToTextureWidgets list is useless here, so just reset. As
 comment|// unintuitive as it is, we need to send paint events to renderToTexture
 comment|// widgets always when something (any widget) needs to be updated, even if
@@ -6724,6 +6729,9 @@ operator|=
 name|QRegion
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 if|if
 condition|(
 name|widgetTextures
@@ -6734,6 +6742,8 @@ name|count
 argument_list|()
 condition|)
 return|return;
+endif|#
+directive|endif
 block|}
 if|if
 condition|(
