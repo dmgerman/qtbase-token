@@ -188,6 +188,7 @@ operator|&
 name|color
 argument_list|)
 expr_stmt|;
+comment|// ### Qt 6: remove, the trivial one is fine.
 name|QColor
 argument_list|(
 argument|Spec spec
