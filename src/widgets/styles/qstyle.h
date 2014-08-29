@@ -110,6 +110,18 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QStyle
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+argument|StateFlag PrimitiveElement ControlElement SubElement ComplexControl
+argument_list|)
+name|Q_ENUMS
+argument_list|(
+argument|SubControl PixelMetric ContentsType RequestSoftwareInputPanel StyleHint
+argument_list|)
+name|Q_ENUMS
+argument_list|(
+argument|StandardPixmap
+argument_list|)
 name|protected
 operator|:
 name|QStyle
