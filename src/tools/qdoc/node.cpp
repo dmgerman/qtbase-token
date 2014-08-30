@@ -1641,11 +1641,11 @@ if|if
 condition|(
 name|t
 operator|==
-literal|"howto"
+literal|"faq"
 condition|)
 name|pageType_
 operator|=
-name|HowToPage
+name|FAQPage
 expr_stmt|;
 elseif|else
 if|if
