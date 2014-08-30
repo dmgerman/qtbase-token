@@ -449,9 +449,6 @@ argument_list|(
 name|d
 operator|->
 name|publicKeyDerData
-argument_list|,
-name|QByteArray
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

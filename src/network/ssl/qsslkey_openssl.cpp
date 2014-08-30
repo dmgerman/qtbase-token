@@ -275,11 +275,6 @@ name|QByteArray
 modifier|&
 name|der
 parameter_list|,
-specifier|const
-name|QByteArray
-modifier|&
-name|passPhrase
-parameter_list|,
 name|bool
 name|deepClear
 parameter_list|)
@@ -291,7 +286,8 @@ argument_list|(
 name|der
 argument_list|)
 argument_list|,
-name|passPhrase
+name|QByteArray
+argument_list|()
 argument_list|,
 name|deepClear
 argument_list|)

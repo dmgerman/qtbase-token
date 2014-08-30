@@ -144,11 +144,6 @@ name|QByteArray
 modifier|&
 name|der
 parameter_list|,
-specifier|const
-name|QByteArray
-modifier|&
-name|passPhrase
-parameter_list|,
 name|bool
 name|deepClear
 init|=
