@@ -2749,9 +2749,9 @@ name|memset
 argument_list|(
 name|alphaValues
 argument_list|,
-name|size
-argument_list|,
 literal|0
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 name|hr
