@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QAbstractButton>
-end_include
-begin_include
-include|#
-directive|include
 file|"signalsandslots.h"
 end_include
 begin_comment
@@ -103,77 +98,6 @@ argument_list|)
 expr_stmt|;
 comment|// a.value() == 12, b.value() == 48
 comment|//! [4]
-name|QWidget
-modifier|*
-name|widget
-init|=
-cast|reinterpret_cast
-argument_list|<
-name|QWidget
-operator|*
-argument_list|>
-argument_list|(
-operator|new
-name|QObject
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-decl_stmt|;
-comment|//! [5]
-if|if
-condition|(
-name|widget
-operator|->
-name|inherits
-argument_list|(
-literal|"QAbstractButton"
-argument_list|)
-condition|)
-block|{
-name|QAbstractButton
-modifier|*
-name|button
-init|=
-cast|static_cast
-argument_list|<
-name|QAbstractButton
-operator|*
-argument_list|>
-argument_list|(
-name|widget
-argument_list|)
-decl_stmt|;
-name|button
-operator|->
-name|toggle
-argument_list|()
-expr_stmt|;
-comment|//! [5] //! [6]
-block|}
-comment|//! [6]
-comment|//! [7]
-if|if
-condition|(
-name|QAbstractButton
-modifier|*
-name|button
-init|=
-name|qobject_cast
-argument_list|<
-name|QAbstractButton
-operator|*
-argument_list|>
-argument_list|(
-name|widget
-argument_list|)
-condition|)
-name|button
-operator|->
-name|toggle
-argument_list|()
-expr_stmt|;
-comment|//! [7]
 block|}
 end_function
 end_unit
