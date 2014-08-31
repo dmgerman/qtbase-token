@@ -102,8 +102,10 @@ name|~
 name|QLinuxFbIntegration
 parameter_list|()
 block|{
-operator|delete
+name|destroyScreen
+argument_list|(
 name|m_primaryScreen
+argument_list|)
 expr_stmt|;
 block|}
 end_destructor

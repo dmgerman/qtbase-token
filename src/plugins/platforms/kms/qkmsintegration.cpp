@@ -180,8 +180,10 @@ decl|,
 name|m_screens
 control|)
 block|{
-operator|delete
+name|destroyScreen
+argument_list|(
 name|screen
+argument_list|)
 expr_stmt|;
 block|}
 operator|delete

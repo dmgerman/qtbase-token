@@ -283,6 +283,18 @@ argument_list|(
 name|s
 argument_list|)
 block|; }
+specifier|inline
+name|void
+name|emitDestroyScreen
+argument_list|(
+argument|QPlatformScreen *s
+argument_list|)
+block|{
+name|destroyScreen
+argument_list|(
+name|s
+argument_list|)
+block|; }
 name|unsigned
 name|options
 argument_list|()

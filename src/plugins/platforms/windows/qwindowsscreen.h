@@ -582,27 +582,10 @@ expr_stmt|;
 name|QWindowsScreenManager
 argument_list|()
 expr_stmt|;
-specifier|inline
 name|void
 name|clearScreens
 parameter_list|()
-block|{
-comment|// Delete screens in reverse order to avoid crash in case of multiple screens
-while|while
-condition|(
-operator|!
-name|m_screens
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|delete
-name|m_screens
-operator|.
-name|takeLast
-parameter_list|()
 function_decl|;
-block|}
 name|bool
 name|handleScreenChanges
 parameter_list|()

@@ -549,6 +549,14 @@ modifier|*
 name|screen
 parameter_list|)
 function_decl|;
+name|void
+name|destroyScreen
+parameter_list|(
+name|QPlatformScreen
+modifier|*
+name|screen
+parameter_list|)
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

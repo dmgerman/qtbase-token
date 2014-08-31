@@ -84,6 +84,18 @@ argument_list|(
 name|QPlatformScreen
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|screen
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Manually deleting a QPlatformScreen. Call QPlatformIntegration::destroyScreen instead."
+argument_list|)
+expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
 name|screen_list
@@ -100,6 +112,7 @@ name|d
 operator|->
 name|screen
 expr_stmt|;
+block|}
 block|}
 end_destructor
 begin_comment

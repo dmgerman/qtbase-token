@@ -2310,10 +2310,10 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
+name|destroyScreen
+argument_list|(
 name|screen
-operator|->
-name|deleteLater
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 end_function

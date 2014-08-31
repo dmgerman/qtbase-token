@@ -116,6 +116,14 @@ operator|*
 name|screen
 argument_list|)
 block|;
+name|void
+name|destroyScreen
+argument_list|(
+name|QOpenWFDScreen
+operator|*
+name|screen
+argument_list|)
+block|;
 name|private
 operator|:
 name|QList

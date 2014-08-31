@@ -103,8 +103,10 @@ name|~
 name|QMinimalEglIntegration
 parameter_list|()
 block|{
-operator|delete
+name|destroyScreen
+argument_list|(
 name|mScreen
+argument_list|)
 expr_stmt|;
 block|}
 end_destructor

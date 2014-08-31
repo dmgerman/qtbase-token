@@ -585,8 +585,15 @@ name|mOn
 operator|=
 literal|false
 expr_stmt|;
-operator|delete
+name|mDevice
+operator|->
+name|integration
+argument_list|()
+operator|->
+name|destroyScreen
+argument_list|(
 name|mScreen
+argument_list|)
 expr_stmt|;
 name|wfdDestroyPipeline
 argument_list|(
