@@ -2400,13 +2400,13 @@ operator|+
 operator|(
 name|val
 operator|&
-literal|0xFF
+literal|0xFFFF
 operator|)
 operator|/
 operator|(
 name|qreal
 operator|)
-literal|0xFF
+literal|0xFFFF
 return|;
 block|}
 end_function
