@@ -1608,6 +1608,18 @@ operator|&&
 name|window
 condition|)
 block|{
+name|GLXContext
+name|prevContext
+init|=
+name|glXGetCurrentContext
+argument_list|()
+decl_stmt|;
+name|GLXDrawable
+name|prevDrawable
+init|=
+name|glXGetCurrentDrawable
+argument_list|()
+decl_stmt|;
 name|glXMakeCurrent
 argument_list|(
 name|DISPLAY_FROM_XCB
@@ -1625,7 +1637,6 @@ argument_list|(
 name|m_format
 argument_list|)
 expr_stmt|;
-comment|// Make our context non-current
 name|glXMakeCurrent
 argument_list|(
 name|DISPLAY_FROM_XCB
@@ -1633,9 +1644,9 @@ argument_list|(
 name|screen
 argument_list|)
 argument_list|,
-literal|0
+name|prevDrawable
 argument_list|,
-literal|0
+name|prevContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -2072,6 +2083,18 @@ expr_stmt|;
 return|return;
 block|}
 comment|// Update OpenGL version and buffer sizes in our format.
+name|GLXContext
+name|prevContext
+init|=
+name|glXGetCurrentContext
+argument_list|()
+decl_stmt|;
+name|GLXDrawable
+name|prevDrawable
+init|=
+name|glXGetCurrentDrawable
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2153,9 +2176,9 @@ name|glXMakeCurrent
 argument_list|(
 name|dpy
 argument_list|,
-literal|0
+name|prevDrawable
 argument_list|,
-literal|0
+name|prevContext
 argument_list|)
 expr_stmt|;
 name|XDestroyWindow

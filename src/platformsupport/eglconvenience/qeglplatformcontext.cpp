@@ -988,6 +988,47 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
+comment|// Have to save& restore to prevent QOpenGLContext::currentContext() from becoming
+comment|// inconsistent after QOpenGLContext::create().
+name|EGLDisplay
+name|prevDisplay
+init|=
+name|eglGetCurrentDisplay
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|prevDisplay
+operator|==
+name|EGL_NO_DISPLAY
+condition|)
+comment|// when no context is current
+name|prevDisplay
+operator|=
+name|m_eglDisplay
+expr_stmt|;
+name|EGLContext
+name|prevContext
+init|=
+name|eglGetCurrentContext
+argument_list|()
+decl_stmt|;
+name|EGLSurface
+name|prevSurfaceDraw
+init|=
+name|eglGetCurrentSurface
+argument_list|(
+name|EGL_DRAW
+argument_list|)
+decl_stmt|;
+name|EGLSurface
+name|prevSurfaceRead
+init|=
+name|eglGetCurrentSurface
+argument_list|(
+name|EGL_READ
+argument_list|)
+decl_stmt|;
 comment|// Make the context current to ensure the GL version query works. This needs a surface too.
 specifier|const
 name|EGLint
@@ -1311,13 +1352,13 @@ block|}
 block|}
 name|eglMakeCurrent
 argument_list|(
-name|m_eglDisplay
+name|prevDisplay
 argument_list|,
-name|EGL_NO_SURFACE
+name|prevSurfaceDraw
 argument_list|,
-name|EGL_NO_SURFACE
+name|prevSurfaceRead
 argument_list|,
-name|EGL_NO_CONTEXT
+name|prevContext
 argument_list|)
 expr_stmt|;
 block|}
