@@ -2119,16 +2119,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isSoftwareKeyboardVisible
-specifier|public
-name|boolean
-name|isSoftwareKeyboardVisible
-parameter_list|()
-block|{
-return|return
-name|m_keyboardIsVisible
-return|;
-block|}
 DECL|method|getAppIconSize
 name|String
 name|getAppIconSize
