@@ -16920,6 +16920,26 @@ operator|::
 name|selection
 parameter_list|()
 block|{
+if|if
+condition|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"wayland"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Wayland: This causes a crash triggered by setVisible(false)"
+argument_list|)
+expr_stmt|;
 name|QTreeView
 name|treeView
 decl_stmt|;

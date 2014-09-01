@@ -592,10 +592,6 @@ name|void
 name|generateDocs
 argument_list|()
 block|;
-name|void
-name|generateCollisionPages
-argument_list|()
-block|;
 name|QString
 name|protectEnc
 argument_list|(

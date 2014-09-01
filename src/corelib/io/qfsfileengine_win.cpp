@@ -1424,20 +1424,16 @@ return|return
 operator|-
 literal|1
 return|;
-name|DWORD
+name|qint64
 name|bytesToRead
 init|=
-name|DWORD
-argument_list|(
 name|maxlen
-argument_list|)
 decl_stmt|;
-comment|//<- lossy
 comment|// Reading on Windows fails with ERROR_NO_SYSTEM_RESOURCES when
 comment|// the chunks are too large, so we limit the block size to 32MB.
 specifier|static
 specifier|const
-name|DWORD
+name|qint64
 name|maxBlockSize
 init|=
 literal|32
@@ -1456,14 +1452,14 @@ block|{
 name|DWORD
 name|blockSize
 init|=
-name|qMin
-argument_list|<
 name|DWORD
-argument_list|>
+argument_list|(
+name|qMin
 argument_list|(
 name|bytesToRead
 argument_list|,
 name|maxBlockSize
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|DWORD
@@ -1540,10 +1536,7 @@ name|maxlen
 condition|)
 do|;
 return|return
-name|qint64
-argument_list|(
 name|totalRead
-argument_list|)
 return|;
 block|}
 end_function

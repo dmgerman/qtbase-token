@@ -1825,7 +1825,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the device pixel ratio for the pixmap. This is the     ratio between pixmap pixels and device-independent pixels.      Use this function when calculating layout geometry based on     the pixmap size: QSize layoutSize = image.size() / image.devicePixelRatio()      The default value is 1.0.      \sa setDevicePixelRatio() */
+comment|/*!     Returns the device pixel ratio for the pixmap. This is the     ratio between \e{device pixels} and \e{device independent pixels}.      Use this function when calculating layout geometry based on     the pixmap size: QSize layoutSize = image.size() / image.devicePixelRatio()      The default value is 1.0.      \sa setDevicePixelRatio(), QImageReader */
 end_comment
 begin_function
 DECL|function|devicePixelRatio
@@ -1856,7 +1856,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the device pixel ratio for the pixmap. This is the     ratio between image pixels and device-independent pixels.      The default \a scaleFactor is 1.0. Setting it to something else has     two effects:      QPainters that are opened on the pixmap will be scaled. For     example, painting on a 200x200 image if with a ratio of 2.0     will result in effective (device-independent) painting bounds     of 100x100.      Code paths in Qt that calculate layout geometry based on the     pixmap size will take the ratio into account:     QSize layoutSize = pixmap.size() / pixmap.devicePixelRatio()     The net effect of this is that the pixmap is displayed as     high-dpi pixmap rather than a large pixmap.          \sa devicePixelRatio() */
+comment|/*!     Sets the device pixel ratio for the pixmap. This is the     ratio between image pixels and device-independent pixels.      The default \a scaleFactor is 1.0. Setting it to something else has     two effects:      QPainters that are opened on the pixmap will be scaled. For     example, painting on a 200x200 image if with a ratio of 2.0     will result in effective (device-independent) painting bounds     of 100x100.      Code paths in Qt that calculate layout geometry based on the     pixmap size will take the ratio into account:     QSize layoutSize = pixmap.size() / pixmap.devicePixelRatio()     The net effect of this is that the pixmap is displayed as     high-DPI pixmap rather than a large pixmap     (see \l{Drawing High Resolution Versions of Pixmaps and Images}).          \sa devicePixelRatio() */
 end_comment
 begin_function
 DECL|function|setDevicePixelRatio

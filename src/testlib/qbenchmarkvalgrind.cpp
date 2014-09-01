@@ -118,7 +118,7 @@ name|rx
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"^valgrind-([0-9]).([0-9]).[0-9]"
+literal|"^valgrind-([0-9]+).([0-9]+).[0-9]+"
 argument_list|)
 argument_list|)
 decl_stmt|;

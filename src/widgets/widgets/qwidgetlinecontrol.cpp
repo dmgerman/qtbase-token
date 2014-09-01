@@ -2966,7 +2966,7 @@ block|{
 name|QAccessibleTextInsertEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 literal|0
@@ -3002,7 +3002,7 @@ block|{
 name|QAccessibleTextRemoveEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 literal|0
@@ -3031,7 +3031,7 @@ block|{
 name|QAccessibleTextUpdateEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 literal|0
@@ -3269,7 +3269,7 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleTextInsertEvent
 name|insertEvent
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 name|m_cursor
@@ -3399,7 +3399,7 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleTextCursorEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 name|m_cursor
@@ -3441,7 +3441,7 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleTextInsertEvent
 name|insertEvent
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 name|m_cursor
@@ -3629,7 +3629,7 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleTextRemoveEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 name|m_cursor
@@ -3909,7 +3909,7 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleTextRemoveEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 name|m_selstart
@@ -6446,7 +6446,7 @@ block|{
 name|QAccessibleTextCursorEvent
 name|event
 argument_list|(
-name|parent
+name|accessibleObject
 argument_list|()
 argument_list|,
 name|m_cursor
@@ -7938,6 +7938,9 @@ if|if
 condition|(
 operator|!
 name|isReadOnly
+argument_list|()
+operator|&&
+name|hasSelectedText
 argument_list|()
 condition|)
 block|{

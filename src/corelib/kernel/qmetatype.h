@@ -138,7 +138,7 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(QVariantMap, 8, QVariantMap) \     F(QVariantList, 9, QVariantList) \     F(QVariantHash, 28, QVariantHash) \  #define QT_FOR_EACH_STATIC_GUI_CLASS(F)\     F(QFont, 64, QFont) \     F(QPixmap, 65, QPixmap) \     F(QBrush, 66, QBrush) \     F(QColor, 67, QColor) \     F(QPalette, 68, QPalette) \     F(QIcon, 69, QIcon) \     F(QImage, 70, QImage) \     F(QPolygon, 71, QPolygon) \     F(QRegion, 72, QRegion) \     F(QBitmap, 73, QBitmap) \     F(QCursor, 74, QCursor) \     F(QKeySequence, 75, QKeySequence) \     F(QPen, 76, QPen) \     F(QTextLength, 77, QTextLength) \     F(QTextFormat, 78, QTextFormat) \     F(QMatrix, 79, QMatrix) \     F(QTransform, 80, QTransform) \     F(QMatrix4x4, 81, QMatrix4x4) \     F(QVector2D, 82, QVector2D) \     F(QVector3D, 83, QVector3D) \     F(QVector4D, 84, QVector4D) \     F(QQuaternion, 85, QQuaternion) \     F(QPolygonF, 86, QPolygonF) \   #define QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\     F(QSizePolicy, 121, QSizePolicy)
+value|F(QVariantMap, 8, QVariantMap) \     F(QVariantList, 9, QVariantList) \     F(QVariantHash, 28, QVariantHash) \     F(QByteArrayList, 49, QByteArrayList) \  #define QT_FOR_EACH_STATIC_GUI_CLASS(F)\     F(QFont, 64, QFont) \     F(QPixmap, 65, QPixmap) \     F(QBrush, 66, QBrush) \     F(QColor, 67, QColor) \     F(QPalette, 68, QPalette) \     F(QIcon, 69, QIcon) \     F(QImage, 70, QImage) \     F(QPolygon, 71, QPolygon) \     F(QRegion, 72, QRegion) \     F(QBitmap, 73, QBitmap) \     F(QCursor, 74, QCursor) \     F(QKeySequence, 75, QKeySequence) \     F(QPen, 76, QPen) \     F(QTextLength, 77, QTextLength) \     F(QTextFormat, 78, QTextFormat) \     F(QMatrix, 79, QMatrix) \     F(QTransform, 80, QTransform) \     F(QMatrix4x4, 81, QMatrix4x4) \     F(QVector2D, 82, QVector2D) \     F(QVector3D, 83, QVector3D) \     F(QVector4D, 84, QVector4D) \     F(QQuaternion, 85, QQuaternion) \     F(QPolygonF, 86, QPolygonF) \   #define QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\     F(QSizePolicy, 121, QSizePolicy)
 end_define
 begin_comment
 unit|\
@@ -167,7 +167,7 @@ parameter_list|(
 name|F
 parameter_list|)
 define|\
-value|F(ULong, -1, ulong, "unsigned long") \     F(UInt, -1, uint, "unsigned int") \     F(UShort, -1, ushort, "unsigned short") \     F(UChar, -1, uchar, "unsigned char") \     F(LongLong, -1, qlonglong, "long long") \     F(ULongLong, -1, qulonglong, "unsigned long long") \     F(SChar, -1, signed char, "qint8") \     F(UChar, -1, uchar, "quint8") \     F(Short, -1, short, "qint16") \     F(UShort, -1, ushort, "quint16") \     F(Int, -1, int, "qint32") \     F(UInt, -1, uint, "quint32") \     F(LongLong, -1, qlonglong, "qint64") \     F(ULongLong, -1, qulonglong, "quint64") \     F(QVariantList, -1, QVariantList, "QList<QVariant>") \     F(QVariantMap, -1, QVariantMap, "QMap<QString,QVariant>") \     F(QVariantHash, -1, QVariantHash, "QHash<QString,QVariant>") \  #define QT_FOR_EACH_STATIC_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_CLASS(F)\     QT_FOR_EACH_STATIC_CORE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_TEMPLATE(F)\     QT_FOR_EACH_STATIC_GUI_CLASS(F)\     QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\  #define QT_DEFINE_METATYPE_ID(TypeName, Id, Name) \     TypeName = Id,
+value|F(ULong, -1, ulong, "unsigned long") \     F(UInt, -1, uint, "unsigned int") \     F(UShort, -1, ushort, "unsigned short") \     F(UChar, -1, uchar, "unsigned char") \     F(LongLong, -1, qlonglong, "long long") \     F(ULongLong, -1, qulonglong, "unsigned long long") \     F(SChar, -1, signed char, "qint8") \     F(UChar, -1, uchar, "quint8") \     F(Short, -1, short, "qint16") \     F(UShort, -1, ushort, "quint16") \     F(Int, -1, int, "qint32") \     F(UInt, -1, uint, "quint32") \     F(LongLong, -1, qlonglong, "qint64") \     F(ULongLong, -1, qulonglong, "quint64") \     F(QVariantList, -1, QVariantList, "QList<QVariant>") \     F(QVariantMap, -1, QVariantMap, "QMap<QString,QVariant>") \     F(QVariantHash, -1, QVariantHash, "QHash<QString,QVariant>") \     F(QByteArrayList, -1, QByteArrayList, "QList<QByteArray>") \  #define QT_FOR_EACH_STATIC_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_CLASS(F)\     QT_FOR_EACH_STATIC_CORE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_TEMPLATE(F)\     QT_FOR_EACH_STATIC_GUI_CLASS(F)\     QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\  #define QT_DEFINE_METATYPE_ID(TypeName, Id, Name) \     TypeName = Id,
 end_define
 begin_define
 DECL|macro|QT_FOR_EACH_AUTOMATIC_TEMPLATE_1ARG
@@ -1161,7 +1161,7 @@ name|Bool
 block|,
 name|LastCoreType
 init|=
-name|QJsonDocument
+name|QByteArrayList
 block|,
 name|FirstGuiType
 init|=
@@ -1385,6 +1385,10 @@ block|,
 name|QJsonDocument
 init|=
 literal|48
+block|,
+name|QByteArrayList
+init|=
+literal|49
 block|,
 name|QObjectStar
 init|=
@@ -8935,6 +8939,16 @@ operator|,
 name|QVariant
 operator|>
 name|QVariantHash
+expr_stmt|;
+end_typedef
+begin_typedef
+DECL|typedef|QByteArrayList
+typedef|typedef
+name|QList
+operator|<
+name|QByteArray
+operator|>
+name|QByteArrayList
 expr_stmt|;
 end_typedef
 begin_define

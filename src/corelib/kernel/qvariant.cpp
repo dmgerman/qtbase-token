@@ -107,6 +107,11 @@ include|#
 directive|include
 file|"qjsondocument.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qbytearraylist.h"
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -10996,6 +11001,14 @@ operator|==
 name|QMetaType
 operator|::
 name|QStringList
+operator|||
+name|d
+operator|.
+name|type
+operator|==
+name|QMetaType
+operator|::
+name|QByteArrayList
 operator|||
 name|QMetaType
 operator|::

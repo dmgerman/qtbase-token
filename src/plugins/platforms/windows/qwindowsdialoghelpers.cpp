@@ -7090,7 +7090,6 @@ condition|(
 name|l
 condition|)
 block|{
-break|break;
 case|case
 name|QFileDialogOptions
 operator|::

@@ -127,6 +127,11 @@ include|#
 directive|include
 file|"qjsondocument.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qbytearraylist.h"
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -238,7 +243,7 @@ begin_comment
 comment|/*!     \macro Q_DECLARE_SMART_POINTER_METATYPE(SmartPointer)     \relates QMetaType      This macro makes the smart pointer \a SmartPointer known to QMetaType as a     smart pointer. This makes it possible to put an instance of SmartPointer<T> into     a QVariant, if T is a type which inherits QObject.      Note that the QWeakPointer, QSharedPointer and QPointer already have built-in     support, and it is not necessary to use this macro with them.      This example shows a typical use of Q_DECLARE_SMART_POINTER_METATYPE():      \snippet code/src_corelib_kernel_qmetatype.cpp 13 */
 end_comment
 begin_comment
-comment|/*!     \enum QMetaType::Type      These are the built-in types supported by QMetaType:      \value Void \c void     \value Bool \c bool     \value Int \c int     \value UInt \c{unsigned int}     \value Double \c double     \value QChar QChar     \value QString QString     \value QByteArray QByteArray      \value VoidStar \c{void *}     \value Long \c{long}     \value LongLong LongLong     \value Short \c{short}     \value Char \c{char}     \value ULong \c{unsigned long}     \value ULongLong ULongLong     \value UShort \c{unsigned short}     \value SChar \c{signed char}     \value UChar \c{unsigned char}     \value Float \c float     \value QObjectStar QObject *     \value QVariant QVariant      \value QCursor QCursor     \value QDate QDate     \value QSize QSize     \value QTime QTime     \value QVariantList QVariantList     \value QPolygon QPolygon     \value QPolygonF QPolygonF     \value QColor QColor     \value QSizeF QSizeF     \value QRectF QRectF     \value QLine QLine     \value QTextLength QTextLength     \value QStringList QStringList     \value QVariantMap QVariantMap     \value QVariantHash QVariantHash     \value QIcon QIcon     \value QPen QPen     \value QLineF QLineF     \value QTextFormat QTextFormat     \value QRect QRect     \value QPoint QPoint     \value QUrl QUrl     \value QRegExp QRegExp     \value QRegularExpression QRegularExpression     \value QDateTime QDateTime     \value QPointF QPointF     \value QPalette QPalette     \value QFont QFont     \value QBrush QBrush     \value QRegion QRegion     \value QBitArray QBitArray     \value QImage QImage     \value QKeySequence QKeySequence     \value QSizePolicy QSizePolicy     \value QPixmap QPixmap     \value QLocale QLocale     \value QBitmap QBitmap     \value QMatrix QMatrix     \value QTransform QTransform     \value QMatrix4x4 QMatrix4x4     \value QVector2D QVector2D     \value QVector3D QVector3D     \value QVector4D QVector4D     \value QQuaternion QQuaternion     \value QEasingCurve QEasingCurve     \value QJsonValue QJsonValue     \value QJsonObject QJsonObject     \value QJsonArray QJsonArray     \value QJsonDocument QJsonDocument     \value QModelIndex QModelIndex     \value QUuid QUuid      \value User  Base value for user types     \value UnknownType This is an invalid type id. It is returned from QMetaType for types that are not registered      Additional types can be registered using Q_DECLARE_METATYPE().      \sa type(), typeName() */
+comment|/*!     \enum QMetaType::Type      These are the built-in types supported by QMetaType:      \value Void \c void     \value Bool \c bool     \value Int \c int     \value UInt \c{unsigned int}     \value Double \c double     \value QChar QChar     \value QString QString     \value QByteArray QByteArray      \value VoidStar \c{void *}     \value Long \c{long}     \value LongLong LongLong     \value Short \c{short}     \value Char \c{char}     \value ULong \c{unsigned long}     \value ULongLong ULongLong     \value UShort \c{unsigned short}     \value SChar \c{signed char}     \value UChar \c{unsigned char}     \value Float \c float     \value QObjectStar QObject *     \value QVariant QVariant      \value QCursor QCursor     \value QDate QDate     \value QSize QSize     \value QTime QTime     \value QVariantList QVariantList     \value QPolygon QPolygon     \value QPolygonF QPolygonF     \value QColor QColor     \value QSizeF QSizeF     \value QRectF QRectF     \value QLine QLine     \value QTextLength QTextLength     \value QStringList QStringList     \value QVariantMap QVariantMap     \value QVariantHash QVariantHash     \value QIcon QIcon     \value QPen QPen     \value QLineF QLineF     \value QTextFormat QTextFormat     \value QRect QRect     \value QPoint QPoint     \value QUrl QUrl     \value QRegExp QRegExp     \value QRegularExpression QRegularExpression     \value QDateTime QDateTime     \value QPointF QPointF     \value QPalette QPalette     \value QFont QFont     \value QBrush QBrush     \value QRegion QRegion     \value QBitArray QBitArray     \value QImage QImage     \value QKeySequence QKeySequence     \value QSizePolicy QSizePolicy     \value QPixmap QPixmap     \value QLocale QLocale     \value QBitmap QBitmap     \value QMatrix QMatrix     \value QTransform QTransform     \value QMatrix4x4 QMatrix4x4     \value QVector2D QVector2D     \value QVector3D QVector3D     \value QVector4D QVector4D     \value QQuaternion QQuaternion     \value QEasingCurve QEasingCurve     \value QJsonValue QJsonValue     \value QJsonObject QJsonObject     \value QJsonArray QJsonArray     \value QJsonDocument QJsonDocument     \value QModelIndex QModelIndex     \value QUuid QUuid     \value QByteArrayList QByteArrayList      \value User  Base value for user types     \value UnknownType This is an invalid type id. It is returned from QMetaType for types that are not registered      Additional types can be registered using Q_DECLARE_METATYPE().      \sa type(), typeName() */
 end_comment
 begin_comment
 comment|/*!     \enum QMetaType::TypeFlag      The enum describes attributes of a type supported by QMetaType.      \value NeedsConstruction This type has non-trivial constructors. If the flag is not set instances can be safely initialized with memset to 0.     \value NeedsDestruction This type has a non-trivial destructor. If the flag is not set calls to the destructor are not necessary before discarding objects.     \value MovableType An instance of a type having this attribute can be safely moved by memcpy.     \omitvalue SharedPointerToQObject     \omitvalue IsEnumeration     \omitvalue PointerToQObject     \omitvalue WeakPointerToQObject     \omitvalue TrackingPointerToQObject     \omitvalue WasDeclaredAsMetaType */
@@ -3515,6 +3520,28 @@ name|data
 operator|)
 expr_stmt|;
 break|break;
+case|case
+name|QMetaType
+operator|::
+name|QByteArrayList
+case|:
+name|stream
+operator|<<
+operator|*
+expr|static_cast
+operator|<
+specifier|const
+name|NS
+argument_list|(
+name|QByteArrayList
+argument_list|)
+operator|*
+operator|>
+operator|(
+name|data
+operator|)
+expr_stmt|;
+break|break;
 endif|#
 directive|endif
 case|case
@@ -4726,6 +4753,27 @@ operator|<
 name|NS
 argument_list|(
 name|QVariant
+argument_list|)
+operator|*
+operator|>
+operator|(
+name|data
+operator|)
+expr_stmt|;
+break|break;
+case|case
+name|QMetaType
+operator|::
+name|QByteArrayList
+case|:
+name|stream
+operator|>>
+operator|*
+expr|static_cast
+operator|<
+name|NS
+argument_list|(
+name|QByteArrayList
 argument_list|)
 operator|*
 operator|>

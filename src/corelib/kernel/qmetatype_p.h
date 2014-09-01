@@ -640,6 +640,23 @@ operator|=
 name|false
 block|; }
 expr_stmt|;
+name|template
+operator|<
+operator|>
+expr|struct
+name|TypeDefinition
+operator|<
+name|QByteArrayList
+operator|>
+block|{
+specifier|static
+specifier|const
+name|bool
+name|IsAvailable
+operator|=
+name|false
+block|; }
+expr_stmt|;
 endif|#
 directive|endif
 ifdef|#

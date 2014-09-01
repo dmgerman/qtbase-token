@@ -6408,6 +6408,7 @@ block|}
 end_constructor
 begin_function
 DECL|function|qDeleteQGLContext
+specifier|static
 name|void
 name|qDeleteQGLContext
 parameter_list|(
@@ -12209,7 +12210,7 @@ name|setQGLContextHandle
 argument_list|(
 name|this
 argument_list|,
-name|qDeleteQGLContext
+literal|0
 argument_list|)
 expr_stmt|;
 name|d

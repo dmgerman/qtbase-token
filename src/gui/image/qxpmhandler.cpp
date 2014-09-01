@@ -11024,7 +11024,7 @@ operator|!=
 name|QImage
 operator|::
 name|Format_RGB32
-operator|||
+operator|&&
 name|sourceImage
 operator|.
 name|format
@@ -11033,7 +11033,7 @@ operator|!=
 name|QImage
 operator|::
 name|Format_ARGB32
-operator|||
+operator|&&
 name|sourceImage
 operator|.
 name|format

@@ -474,19 +474,19 @@ literal|"alert message"
 argument_list|)
 block|}
 block|,
-comment|//: Role of an accessible object
+comment|//: Role of an accessible object: a window with frame and title
 block|{
 name|QAccessible
 operator|::
 name|Window
 block|,
-name|ATSPI_ROLE_WINDOW
+name|ATSPI_ROLE_FRAME
 block|,
 name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QSpiAccessibleBridge"
 argument_list|,
-literal|"window"
+literal|"frame"
 argument_list|)
 block|}
 block|,

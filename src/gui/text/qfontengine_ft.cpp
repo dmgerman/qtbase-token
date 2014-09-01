@@ -5083,7 +5083,7 @@ operator|->
 name|outline_drawing
 condition|)
 name|load_flags
-operator|=
+operator||=
 name|FT_LOAD_NO_BITMAP
 expr_stmt|;
 if|if

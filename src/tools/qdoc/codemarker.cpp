@@ -3285,6 +3285,8 @@ name|QmlClassNode
 modifier|*
 parameter_list|,
 name|SynopsisStyle
+parameter_list|,
+name|Status
 parameter_list|)
 block|{
 return|return

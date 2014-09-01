@@ -1262,7 +1262,7 @@ index|[
 literal|"HARFBUZZ"
 index|]
 operator|=
-literal|"no"
+literal|"qt"
 expr_stmt|;
 name|dictionary
 index|[
@@ -3456,7 +3456,7 @@ index|[
 literal|"HARFBUZZ"
 index|]
 operator|=
-literal|"yes"
+literal|"qt"
 expr_stmt|;
 elseif|else
 if|if
@@ -12412,13 +12412,13 @@ name|desc
 argument_list|(
 literal|"HARFBUZZ"
 argument_list|,
-literal|"yes"
+literal|"qt"
 argument_list|,
 literal|"-qt-harfbuzz"
 argument_list|,
-literal|"(experimental) Use HarfBuzz-NG bundled with Qt\n"
-literal|"to do text shaping. It can still be disabled\n"
-literal|"by setting QT_HARFBUZZ environment variable to \"old\"."
+literal|"Use HarfBuzz-NG bundled with Qt to do text shaping.\n"
+literal|"It can still be disabled by setting\n"
+literal|"the QT_HARFBUZZ environment variable to \"old\"."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -12429,9 +12429,10 @@ literal|"system"
 argument_list|,
 literal|"-system-harfbuzz"
 argument_list|,
-literal|"(experimental) Use HarfBuzz-NG from the operating system\n"
+literal|"Use HarfBuzz-NG from the operating system\n"
 literal|"to do text shaping. It can still be disabled\n"
-literal|"by setting QT_HARFBUZZ environment variable to \"old\".\n"
+literal|"by setting the QT_HARFBUZZ environment variable to \"old\".\n"
+literal|"See http://www.harfbuzz.org\n"
 argument_list|)
 expr_stmt|;
 if|if
@@ -17648,7 +17649,7 @@ index|[
 literal|"HARFBUZZ"
 index|]
 operator|==
-literal|"yes"
+literal|"qt"
 condition|)
 name|qtConfig
 operator|+=
@@ -24219,7 +24220,7 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
-literal|"    HarfBuzz-NG support....."
+literal|"    HarfBuzz support........"
 operator|<<
 name|dictionary
 index|[

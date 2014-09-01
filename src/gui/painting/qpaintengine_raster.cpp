@@ -4292,9 +4292,15 @@ name|s
 operator|->
 name|renderHints
 operator|&
+operator|(
 name|QPainter
 operator|::
 name|Antialiasing
+operator||
+name|QPainter
+operator|::
+name|HighQualityAntialiasing
+operator|)
 argument_list|)
 expr_stmt|;
 name|s
@@ -16603,7 +16609,7 @@ operator|(
 name|uint
 operator|*
 operator|)
-name|src
+name|scanline
 decl_stmt|;
 for|for
 control|(

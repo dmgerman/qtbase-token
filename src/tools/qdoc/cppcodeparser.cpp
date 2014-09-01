@@ -2173,21 +2173,12 @@ operator|::
 name|DitaMapPage
 expr_stmt|;
 block|}
-comment|/*           Search for a node with the same name. If there is one,           then there is a collision, so create a collision node           and make the existing node a child of the collision           node, and then create the new Page node and make           it a child of the collision node as well. Return the           collision node.            If there is no collision, just create a new Page           node and return that one.         */
-name|NameCollisionNode
-modifier|*
-name|ncn
-init|=
-name|qdb_
-operator|->
-name|checkForCollision
-argument_list|(
-name|args
-index|[
+if|#
+directive|if
 literal|0
-index|]
-argument_list|)
-decl_stmt|;
+block|const Node* n = qdb_->checkForCollision(args[0]);         if (n) {             QString other = n->doc().location().fileName();             doc.location().warning(tr("Name/title collision detected: '%1' in '\\%2'")                                    .arg(args[0]).arg(command),                                    tr("Also used here: %1").arg(other));         }
+endif|#
+directive|endif
 name|DocNode
 modifier|*
 name|dn
@@ -2251,19 +2242,6 @@ name|startLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ncn
-condition|)
-block|{
-name|ncn
-operator|->
-name|addCollision
-argument_list|(
-name|dn
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|dn
 return|;
@@ -2441,21 +2419,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*           Search for a node with the same name. If there is one,           then there is a collision, so create a collision node           and make the existing node a child of the collision           node, and then create the new QML class node and make           it a child of the collision node as well. Return the           collision node.            If there is no collision, just create a new QML class           node and return that one.          */
-name|NameCollisionNode
-modifier|*
-name|ncn
-init|=
-name|qdb_
-operator|->
-name|checkForCollision
-argument_list|(
-name|names
-index|[
+if|#
+directive|if
 literal|0
-index|]
-argument_list|)
-decl_stmt|;
+block|const Node* n = qdb_->checkForCollision(names[0]);         if (n) {             QString other = n->doc().location().fileName();             doc.location().warning(tr("Name/title collision detected: '%1' in '\\%2'")                                    .arg(names[0]).arg(command),                                    tr("Also used here: %1").arg(other));         }
+endif|#
+directive|endif
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -2491,26 +2460,6 @@ name|startLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// to be removed if \qmltype and \instantiates work ok
-block|if (isParsingCpp() || isParsingQdoc()) {             qcn->requireCppClass();             if (names.size()< 2) {                 QString msg = "C++ class name not specified for class documented as "                     "QML type: '\\qmlclass " + arg.first + "<class name>'";                 doc.startLocation().warning(tr(msg.toLatin1().data()));             }             else if (!classNode) {                 QString msg = "C++ class not found in any .h file for class documented "                     "as QML type: '\\qmlclass " + arg.first + "'";                 doc.startLocation().warning(tr(msg.toLatin1().data()));             }         }
-endif|#
-directive|endif
-if|if
-condition|(
-name|ncn
-condition|)
-block|{
-name|ncn
-operator|->
-name|addCollision
-argument_list|(
-name|qcn
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|qcn
 return|;

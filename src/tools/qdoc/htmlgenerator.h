@@ -137,10 +137,6 @@ name|generateDocs
 argument_list|()
 block|;
 name|void
-name|generateCollisionPages
-argument_list|()
-block|;
-name|void
 name|generateManifestFiles
 argument_list|()
 block|;
@@ -558,6 +554,16 @@ name|QString
 name|generateLowStatusMemberFile
 argument_list|(
 argument|InnerNode *inner
+argument_list|,
+argument|CodeMarker *marker
+argument_list|,
+argument|CodeMarker::Status status
+argument_list|)
+block|;
+name|QString
+name|generateQmlMemberFile
+argument_list|(
+argument|QmlClassNode* qcn
 argument_list|,
 argument|CodeMarker *marker
 argument_list|,

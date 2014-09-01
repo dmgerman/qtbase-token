@@ -614,6 +614,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|qreal
+name|devicePixelRatio
+argument_list|()
+specifier|const
+expr_stmt|;
 name|public
 name|Q_SLOTS
 range|:

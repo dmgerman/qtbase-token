@@ -414,7 +414,7 @@ comment|// ignores newlines
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a QSslKey by decoding the string in the byte array     \a encoded using a specified \a algorithm and \a encoding format.     If the encoded key is encrypted, \a passPhrase is used to decrypt     it. \a type specifies whether the key is public or private.      After construction, use isNull() to check if \a encoded contained     a valid key. */
+comment|/*!     Constructs a QSslKey by decoding the string in the byte array     \a encoded using a specified \a algorithm and \a encoding format.     \a type specifies whether the key is public or private.      If the key is encoded as PEM and encrypted, \a passPhrase is used     to decrypt it.      After construction, use isNull() to check if \a encoded contained     a valid key. */
 end_comment
 begin_constructor
 DECL|function|QSslKey
@@ -479,8 +479,6 @@ operator|->
 name|decodeDer
 argument_list|(
 name|encoded
-argument_list|,
-name|passPhrase
 argument_list|)
 expr_stmt|;
 else|else
@@ -496,7 +494,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a QSslKey by reading and decoding data from a     \a device using a specified \a algorithm and \a encoding format.     If the encoded key is encrypted, \a passPhrase is used to decrypt     it. \a type specifies whether the key is public or private.      After construction, use isNull() to check if \a device provided     a valid key. */
+comment|/*!     Constructs a QSslKey by reading and decoding data from a     \a device using a specified \a algorithm and \a encoding format.     \a type specifies whether the key is public or private.      If the key is encoded as PEM and encrypted, \a passPhrase is used     to decrypt it.      After construction, use isNull() to check if \a device provided     a valid key. */
 end_comment
 begin_constructor
 DECL|function|QSslKey
@@ -561,25 +559,26 @@ name|algorithm
 operator|=
 name|algorithm
 expr_stmt|;
-name|d
-operator|->
-name|decodePem
-argument_list|(
-operator|(
+if|if
+condition|(
 name|encoding
 operator|==
 name|QSsl
 operator|::
 name|Der
-operator|)
-condition|?
+condition|)
 name|d
 operator|->
-name|pemFromDer
+name|decodeDer
 argument_list|(
 name|encoded
 argument_list|)
-else|:
+expr_stmt|;
+else|else
+name|d
+operator|->
+name|decodePem
+argument_list|(
 name|encoded
 argument_list|,
 name|passPhrase
@@ -613,6 +612,9 @@ operator|new
 name|QSslKeyPrivate
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
 name|d
 operator|->
 name|opaque
@@ -626,6 +628,16 @@ argument_list|(
 name|handle
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|d
+operator|->
+name|opaque
+operator|=
+name|handle
+expr_stmt|;
+endif|#
+directive|endif
 name|d
 operator|->
 name|algorithm
@@ -819,10 +831,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the key in DER encoding. The result is encrypted with   \a passPhrase if the key is a private key and \a passPhrase is   non-empty. */
-end_comment
-begin_comment
-comment|// ### autotest failure for non-empty passPhrase and private key
+comment|/*!   Returns the key in DER encoding.    The \a passPhrase argument should be omitted as DER cannot be   encrypted. It will be removed in a future version of Qt. */
 end_comment
 begin_function
 DECL|function|toDer
@@ -856,6 +865,30 @@ return|return
 name|QByteArray
 argument_list|()
 return|;
+comment|// Encrypted DER is nonsense, see QTBUG-41038.
+if|if
+condition|(
+name|d
+operator|->
+name|type
+operator|==
+name|QSsl
+operator|::
+name|PrivateKey
+operator|&&
+operator|!
+name|passPhrase
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|QByteArray
+argument_list|()
+return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
 return|return
 name|d
 operator|->
@@ -867,6 +900,15 @@ name|passPhrase
 argument_list|)
 argument_list|)
 return|;
+else|#
+directive|else
+return|return
+name|d
+operator|->
+name|derData
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment

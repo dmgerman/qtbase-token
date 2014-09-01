@@ -1653,6 +1653,9 @@ begin_comment
 comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator*() const      Returns a modifiable reference to the current item.      You can change the value of an item by using operator*() on the     left side of an assignment.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference. */
 end_comment
 begin_comment
+comment|/*! \fn QJsonValueRef *QJsonArray::iterator::operator->() const      Returns a pointer to a modifiable reference to the current item. */
+end_comment
+begin_comment
 comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator[](int j) const      Returns a modifiable reference to the item at offset \a j from the     item pointed to by this iterator (the item at position \c{*this + j}).      This function is provided to make QJsonArray iterators behave like C++     pointers.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa operator+() */
 end_comment
 begin_comment
@@ -1729,6 +1732,9 @@ comment|/*! \fn QJsonArray::const_iterator::const_iterator(const iterator&other)
 end_comment
 begin_comment
 comment|/*! \fn QJsonValue QJsonArray::const_iterator::operator*() const      Returns the current item. */
+end_comment
+begin_comment
+comment|/*! \fn QJsonValue *QJsonArray::const_iterator::operator->() const      Returns a pointer to the current item. */
 end_comment
 begin_comment
 comment|/*! \fn QJsonValue QJsonArray::const_iterator::operator[](int j) const      Returns the item at offset \a j from the item pointed to by this iterator (the item at     position \c{*this + j}).      This function is provided to make QJsonArray iterators behave like C++     pointers.      \sa operator+() */

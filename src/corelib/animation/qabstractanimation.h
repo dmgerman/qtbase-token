@@ -370,6 +370,7 @@ name|elapsed
 argument_list|()
 specifier|const
 block|;
+comment|// ### Qt6: Remove these two functions
 name|void
 name|setStartTime
 argument_list|(
@@ -393,6 +394,7 @@ argument_list|()
 block|;
 name|protected
 operator|:
+comment|// ### Qt6: Remove timestep argument
 name|void
 name|advanceAnimation
 argument_list|(

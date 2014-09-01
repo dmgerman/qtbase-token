@@ -242,6 +242,10 @@ name|Q_ENUMS
 argument_list|(
 name|GestureType
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|NativeGestureType
+argument_list|)
 endif|#
 directive|endif
 name|Q_ENUMS

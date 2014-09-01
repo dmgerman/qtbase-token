@@ -1361,19 +1361,20 @@ argument_list|,
 name|currentMessage
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1000
-argument_list|)
+comment|// Set display message for 2 seconds
+name|QElapsedTimer
+name|t
+decl_stmt|;
+name|t
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
-comment|// Set display message for 2 seconds again
 name|testWidget
 operator|->
 name|showMessage
 argument_list|(
-literal|"Ready"
+literal|"Ready 2000"
 argument_list|,
 literal|2000
 argument_list|)
@@ -1387,7 +1388,7 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|(
-literal|"Ready"
+literal|"Ready 2000"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1401,13 +1402,6 @@ argument_list|,
 name|currentMessage
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1500
-argument_list|)
-expr_stmt|;
 comment|// Message disappears after 2 seconds
 name|QTRY_VERIFY
 argument_list|(
@@ -1418,6 +1412,47 @@ argument_list|()
 operator|.
 name|isNull
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|qint64
+name|ts
+init|=
+name|t
+operator|.
+name|elapsed
+argument_list|()
+decl_stmt|;
+comment|// XXX: ideally ts should be 2000, but sometimes it appears to go away early, probably due to timer granularity.
+name|QVERIFY2
+argument_list|(
+name|ts
+operator|>=
+literal|1800
+argument_list|,
+name|qPrintable
+argument_list|(
+literal|"Timer was "
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|ts
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ts
+operator|<
+literal|2000
+condition|)
+name|qWarning
+argument_list|(
+literal|"QTBUG25492_msgtimeout: message vanished early, should be>= 2000, was %lld"
+argument_list|,
+name|ts
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1459,13 +1494,6 @@ name|currentMessage
 argument_list|()
 argument_list|,
 name|currentMessage
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1000
 argument_list|)
 expr_stmt|;
 comment|// Set display message forever again

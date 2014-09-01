@@ -314,6 +314,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<d3d10.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<d3d11.h>
 end_include
 begin_include

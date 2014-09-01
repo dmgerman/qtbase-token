@@ -197,6 +197,16 @@ name|QLatin1String
 argument_list|(
 literal|"qt_rubberband"
 argument_list|)
+operator|&&
+name|w
+operator|->
+name|objectName
+argument_list|()
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"qt_spinbox_lineedit"
+argument_list|)
 condition|)
 name|widgets
 operator|.
@@ -384,9 +394,6 @@ name|int
 name|fa
 init|=
 literal|0
-decl_stmt|;
-name|QChar
-name|ac
 decl_stmt|;
 while|while
 condition|(

@@ -288,6 +288,17 @@ name|terminate
 parameter_list|()
 function_decl|;
 specifier|static
+specifier|const
+name|QStringList
+modifier|&
+name|outputFileNames
+parameter_list|()
+block|{
+return|return
+name|outFileNames_
+return|;
+block|}
+specifier|static
 name|void
 name|writeOutFileNames
 parameter_list|()
@@ -946,7 +957,6 @@ modifier|*
 name|marker
 parameter_list|)
 function_decl|;
-comment|//QString getCollisionLink(const Atom* atom);
 name|QString
 name|getMetadataElement
 parameter_list|(
@@ -1077,13 +1087,6 @@ modifier|&
 name|subs
 parameter_list|)
 function_decl|;
-name|QList
-operator|<
-name|NameCollisionNode
-operator|*
-operator|>
-name|collisionNodes
-expr_stmt|;
 name|QMap
 operator|<
 name|QString
@@ -1291,6 +1294,10 @@ decl_stmt|;
 specifier|static
 name|QString
 name|outSubdir_
+decl_stmt|;
+specifier|static
+name|QStringList
+name|outFileNames_
 decl_stmt|;
 specifier|static
 name|QSet

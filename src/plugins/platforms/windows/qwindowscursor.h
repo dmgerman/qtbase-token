@@ -311,12 +311,7 @@ name|pos
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
-block|{
-return|return
-name|mousePosition
-argument_list|()
-return|;
-block|}
+block|;
 name|void
 name|setPos
 argument_list|(

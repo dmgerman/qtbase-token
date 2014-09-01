@@ -551,24 +551,6 @@ begin_comment
 comment|/*! \fn QImage::Format QPlatformScreen::format() const = 0     Reimplement in subclass to return the image format which corresponds to the screen format */
 end_comment
 begin_comment
-comment|/*!   Implemented in subclasses to return a page flipper object for the screen, or 0 if the   hardware does not support page flipping. The default implementation returns 0.  */
-end_comment
-begin_function
-DECL|function|pageFlipper
-name|QPlatformScreenPageFlipper
-modifier|*
-name|QPlatformScreen
-operator|::
-name|pageFlipper
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Reimplement this function in subclass to return the cursor of the screen.      The default implementation returns 0. */
 end_comment
 begin_function

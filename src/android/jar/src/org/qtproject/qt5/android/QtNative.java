@@ -407,13 +407,18 @@ block|}
 DECL|method|openURL
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|openURL
 parameter_list|(
 name|String
 name|url
 parameter_list|)
 block|{
+name|boolean
+name|ok
+init|=
+literal|true
+decl_stmt|;
 try|try
 block|{
 name|Uri
@@ -459,7 +464,14 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
+name|ok
+operator|=
+literal|false
+expr_stmt|;
 block|}
+return|return
+name|ok
+return|;
 block|}
 comment|// this method loads full path libs
 DECL|method|loadQtLibraries

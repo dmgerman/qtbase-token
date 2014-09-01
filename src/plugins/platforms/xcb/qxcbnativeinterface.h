@@ -91,6 +91,10 @@ block|,
 name|X11Screen
 block|,
 name|RootWindow
+block|,
+name|ScreenSubpixelType
+block|,
+name|ScreenAntialiasingEnabled
 block|}
 block|;
 name|QXcbNativeInterface

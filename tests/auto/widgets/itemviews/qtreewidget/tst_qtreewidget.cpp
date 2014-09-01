@@ -24263,6 +24263,26 @@ operator|::
 name|task20345_sortChildren
 parameter_list|()
 block|{
+if|if
+condition|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"wayland"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Wayland: This causes a crash triggered by setVisible(false)"
+argument_list|)
+expr_stmt|;
 comment|// This test case is considered successful if it is executed (no crash in sorting)
 name|QTreeWidget
 name|tw

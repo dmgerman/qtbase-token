@@ -5966,12 +5966,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|localCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6012,12 +6013,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|localCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6045,12 +6047,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|interCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -8811,7 +8814,7 @@ block|{
 comment|// Passing CN matches
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8831,7 +8834,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8851,7 +8854,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8871,7 +8874,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8891,7 +8894,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8912,7 +8915,7 @@ expr_stmt|;
 comment|// Failing CN matches
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8932,7 +8935,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8952,7 +8955,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8972,7 +8975,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -8992,7 +8995,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9012,7 +9015,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9032,7 +9035,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9052,7 +9055,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9072,7 +9075,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9092,7 +9095,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9112,7 +9115,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9132,7 +9135,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QSslSocketBackendPrivate
+name|QSslSocketPrivate
 operator|::
 name|isMatchingHostname
 argument_list|(
@@ -9398,12 +9401,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|localCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -10698,12 +10702,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|localCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -14851,12 +14856,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|localCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -16054,12 +16060,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|localCert
 operator|.
 name|first
 argument_list|()
 operator|.
-name|handle
+name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;

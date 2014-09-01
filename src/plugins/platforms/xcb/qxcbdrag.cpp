@@ -1438,6 +1438,23 @@ modifier|*
 name|me
 parameter_list|)
 block|{
+comment|// The mouse event is in the coordinate system of the window that started the drag.
+comment|// We do not know which window that was at this point, so we just use the device pixel ratio
+comment|// of the QGuiApplication. This will break once we support screens with different DPR. Fixing
+comment|// this properly requires some redesign of the drag and drop architecture.
+specifier|static
+specifier|const
+name|int
+name|dpr
+init|=
+name|int
+argument_list|(
+name|qApp
+operator|->
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|QBasicDrag
 operator|::
 name|move
@@ -1599,11 +1616,15 @@ name|globalPos
 operator|.
 name|x
 argument_list|()
+operator|*
+name|dpr
 argument_list|,
 name|globalPos
 operator|.
 name|y
 argument_list|()
+operator|*
+name|dpr
 argument_list|)
 decl_stmt|;
 if|if
@@ -2395,6 +2416,8 @@ name|globalPos
 operator|.
 name|x
 argument_list|()
+operator|*
+name|dpr
 operator|<<
 literal|16
 operator|)
@@ -2403,6 +2426,8 @@ name|globalPos
 operator|.
 name|y
 argument_list|()
+operator|*
+name|dpr
 expr_stmt|;
 name|move
 operator|.
@@ -3468,6 +3493,25 @@ operator|->
 name|geometry
 argument_list|()
 decl_stmt|;
+specifier|const
+name|int
+name|dpr
+init|=
+name|int
+argument_list|(
+name|w
+operator|->
+name|handle
+argument_list|()
+operator|->
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|p
+operator|/=
+name|dpr
+expr_stmt|;
 name|p
 operator|-=
 name|geometry
@@ -4208,6 +4252,19 @@ name|IgnoreAction
 argument_list|)
 expr_stmt|;
 block|}
+specifier|static
+specifier|const
+name|int
+name|dpr
+init|=
+name|int
+argument_list|(
+name|qApp
+operator|->
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -4291,8 +4348,12 @@ operator|=
 name|QRect
 argument_list|(
 name|p
+operator|/
+name|dpr
 argument_list|,
 name|s
+operator|/
+name|dpr
 argument_list|)
 expr_stmt|;
 block|}
