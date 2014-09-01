@@ -5324,7 +5324,7 @@ argument_list|()
 operator|->
 name|pixelMetric
 argument_list|(
-name|PM_ExclusiveIndicatorWidth
+name|PM_ExclusiveIndicatorHeight
 argument_list|)
 decl_stmt|;
 if|if
