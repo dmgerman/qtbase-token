@@ -326,6 +326,13 @@ include|#
 directive|include
 file|<dxgi.h>
 end_include
+begin_if
+if|#
+directive|if
+name|_MSC_VER
+operator|>=
+literal|1700
+end_if
 begin_include
 include|#
 directive|include
@@ -336,6 +343,10 @@ include|#
 directive|include
 file|<d3dcompiler.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
