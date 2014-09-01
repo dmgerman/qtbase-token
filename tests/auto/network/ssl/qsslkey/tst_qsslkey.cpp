@@ -38,11 +38,6 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|QT_NO_OPENSSL
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
 name|QT_BUILD_INTERNAL
 argument_list|)
 end_if
