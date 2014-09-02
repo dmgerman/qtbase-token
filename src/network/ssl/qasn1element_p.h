@@ -222,6 +222,17 @@ name|toInfo
 argument_list|()
 specifier|const
 expr_stmt|;
+name|qint64
+name|toInteger
+argument_list|(
+name|bool
+operator|*
+name|ok
+operator|=
+literal|0
+argument_list|)
+decl|const
+decl_stmt|;
 name|QVector
 operator|<
 name|QAsn1Element
