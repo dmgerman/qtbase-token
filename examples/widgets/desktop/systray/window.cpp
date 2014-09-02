@@ -523,6 +523,13 @@ operator|::
 name|showMessage
 parameter_list|()
 block|{
+name|showIconCheckBox
+operator|->
+name|setChecked
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|QSystemTrayIcon
 operator|::
 name|MessageIcon

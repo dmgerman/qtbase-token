@@ -284,6 +284,16 @@ name|bool
 name|isBalloonVisible
 argument_list|()
 block|;
+specifier|static
+name|void
+name|updateBalloonPosition
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|)
+block|;
 name|private
 operator|:
 name|QBalloonTip
@@ -356,6 +366,9 @@ name|pixmap
 block|;
 name|int
 name|timerId
+block|;
+name|bool
+name|showArrow
 block|; }
 decl_stmt|;
 end_decl_stmt
