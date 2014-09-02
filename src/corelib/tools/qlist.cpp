@@ -2120,7 +2120,7 @@ begin_comment
 comment|/*! \fn T *QList::iterator::operator->() const      Returns a pointer to the current item.      \sa operator*() */
 end_comment
 begin_comment
-comment|/*! \fn T&QList::iterator::operator[](int j) const      Returns a modifiable reference to the item at position *this +     \a{j}.      This function is provided to make QList iterators behave like C++     pointers.      \sa operator+() */
+comment|/*! \fn T&QList::iterator::operator[](difference_type j) const      Returns a modifiable reference to the item at position *this +     \a{j}.      This function is provided to make QList iterators behave like C++     pointers.      \sa operator+() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QList::iterator::operator==(const iterator&other) const     \fn bool QList::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
@@ -2153,16 +2153,16 @@ begin_comment
 comment|/*! \fn QList::iterator QList::iterator::operator--(int)      \overload      The postfix -- operator (\c{it--}) makes the preceding item     current and returns an iterator to the previously current item. */
 end_comment
 begin_comment
-comment|/*! \fn QList::iterator&QList::iterator::operator+=(int j)      Advances the iterator by \a j items. (If \a j is negative, the     iterator goes backward.)      \sa operator-=(), operator+() */
+comment|/*! \fn QList::iterator&QList::iterator::operator+=(difference_type j)      Advances the iterator by \a j items. (If \a j is negative, the     iterator goes backward.)      \sa operator-=(), operator+() */
 end_comment
 begin_comment
-comment|/*! \fn QList::iterator&QList::iterator::operator-=(int j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      \sa operator+=(), operator-() */
+comment|/*! \fn QList::iterator&QList::iterator::operator-=(difference_type j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      \sa operator+=(), operator-() */
 end_comment
 begin_comment
-comment|/*! \fn QList::iterator QList::iterator::operator+(int j) const      Returns an iterator to the item at \a j positions forward from     this iterator. (If \a j is negative, the iterator goes backward.)      \sa operator-(), operator+=() */
+comment|/*! \fn QList::iterator QList::iterator::operator+(difference_type j) const      Returns an iterator to the item at \a j positions forward from     this iterator. (If \a j is negative, the iterator goes backward.)      \sa operator-(), operator+=() */
 end_comment
 begin_comment
-comment|/*! \fn QList::iterator QList::iterator::operator-(int j) const      Returns an iterator to the item at \a j positions backward from     this iterator. (If \a j is negative, the iterator goes forward.)      \sa operator+(), operator-=() */
+comment|/*! \fn QList::iterator QList::iterator::operator-(difference_type j) const      Returns an iterator to the item at \a j positions backward from     this iterator. (If \a j is negative, the iterator goes forward.)      \sa operator+(), operator-=() */
 end_comment
 begin_comment
 comment|/*! \fn int QList::iterator::operator-(iterator other) const      Returns the number of items between the item pointed to by \a     other and the item pointed to by this iterator. */
@@ -2204,7 +2204,7 @@ begin_comment
 comment|/*! \fn const T *QList::const_iterator::operator->() const      Returns a pointer to the current item.      \sa operator*() */
 end_comment
 begin_comment
-comment|/*! \fn const T&QList::const_iterator::operator[](int j) const      Returns the item at position *this + \a{j}.      This function is provided to make QList iterators behave like C++     pointers.      \sa operator+() */
+comment|/*! \fn const T&QList::const_iterator::operator[](difference_type j) const      Returns the item at position *this + \a{j}.      This function is provided to make QList iterators behave like C++     pointers.      \sa operator+() */
 end_comment
 begin_comment
 comment|/*! \fn bool QList::const_iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
@@ -2237,16 +2237,16 @@ begin_comment
 comment|/*! \fn QList::const_iterator QList::const_iterator::operator--(int)      \overload      The postfix -- operator (\c{it--}) makes the preceding item     current and returns an iterator to the previously current item. */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator&QList::const_iterator::operator+=(int j)      Advances the iterator by \a j items. (If \a j is negative, the     iterator goes backward.)      \sa operator-=(), operator+() */
+comment|/*! \fn QList::const_iterator&QList::const_iterator::operator+=(difference_type j)      Advances the iterator by \a j items. (If \a j is negative, the     iterator goes backward.)      \sa operator-=(), operator+() */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator&QList::const_iterator::operator-=(int j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      \sa operator+=(), operator-() */
+comment|/*! \fn QList::const_iterator&QList::const_iterator::operator-=(difference_type j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      \sa operator+=(), operator-() */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator QList::const_iterator::operator+(int j) const      Returns an iterator to the item at \a j positions forward from     this iterator. (If \a j is negative, the iterator goes backward.)      \sa operator-(), operator+=() */
+comment|/*! \fn QList::const_iterator QList::const_iterator::operator+(difference_type j) const      Returns an iterator to the item at \a j positions forward from     this iterator. (If \a j is negative, the iterator goes backward.)      \sa operator-(), operator+=() */
 end_comment
 begin_comment
-comment|/*! \fn QList::const_iterator QList::const_iterator::operator-(int j) const      Returns an iterator to the item at \a j positions backward from     this iterator. (If \a j is negative, the iterator goes forward.)      \sa operator+(), operator-=() */
+comment|/*! \fn QList::const_iterator QList::const_iterator::operator-(difference_type j) const      Returns an iterator to the item at \a j positions backward from     this iterator. (If \a j is negative, the iterator goes forward.)      \sa operator+(), operator-=() */
 end_comment
 begin_comment
 comment|/*! \fn int QList::const_iterator::operator-(const_iterator other) const      Returns the number of items between the item pointed to by \a     other and the item pointed to by this iterator. */

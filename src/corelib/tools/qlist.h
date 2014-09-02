@@ -1240,6 +1240,7 @@ operator|::
 name|random_access_iterator_tag
 name|iterator_category
 expr_stmt|;
+comment|// ### Qt6: use int
 typedef|typedef
 name|qptrdiff
 name|difference_type
@@ -1335,7 +1336,7 @@ modifier|&
 name|operator
 index|[]
 argument_list|(
-name|int
+name|difference_type
 name|j
 argument_list|)
 decl|const
@@ -1713,7 +1714,7 @@ operator|&
 name|operator
 operator|+=
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 block|{
@@ -1734,7 +1735,7 @@ operator|&
 name|operator
 operator|-=
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 block|{
@@ -1754,7 +1755,7 @@ name|iterator
 name|operator
 operator|+
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 specifier|const
@@ -1775,7 +1776,7 @@ name|iterator
 name|operator
 operator|-
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 specifier|const
@@ -1836,6 +1837,7 @@ operator|::
 name|random_access_iterator_tag
 name|iterator_category
 expr_stmt|;
+comment|// ### Qt6: use int
 typedef|typedef
 name|qptrdiff
 name|difference_type
@@ -1972,7 +1974,7 @@ modifier|&
 name|operator
 index|[]
 argument_list|(
-name|int
+name|difference_type
 name|j
 argument_list|)
 decl|const
@@ -2209,7 +2211,7 @@ operator|&
 name|operator
 operator|+=
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 block|{
@@ -2230,7 +2232,7 @@ operator|&
 name|operator
 operator|-=
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 block|{
@@ -2250,7 +2252,7 @@ name|const_iterator
 name|operator
 operator|+
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 specifier|const
@@ -2271,7 +2273,7 @@ name|const_iterator
 name|operator
 operator|-
 operator|(
-name|int
+name|difference_type
 name|j
 operator|)
 specifier|const
@@ -2979,6 +2981,9 @@ modifier|&
 name|const_reference
 typedef|;
 end_typedef
+begin_comment
+comment|// ### Qt6: use int
+end_comment
 begin_typedef
 typedef|typedef
 name|qptrdiff
