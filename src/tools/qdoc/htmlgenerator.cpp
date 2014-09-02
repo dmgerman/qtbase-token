@@ -5418,15 +5418,10 @@ name|Atom
 operator|::
 name|SectionHeadingLeft
 case|:
-name|out
-argument_list|()
-operator|<<
-literal|"<h"
-operator|+
-name|QString
-operator|::
-name|number
-argument_list|(
+block|{
+name|int
+name|unit
+init|=
 name|atom
 operator|->
 name|string
@@ -5439,18 +5434,65 @@ name|hOffset
 argument_list|(
 name|relative
 argument_list|)
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<h"
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|unit
 argument_list|)
 operator|+
 name|QLatin1Char
 argument_list|(
-literal|'>'
+literal|' '
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|unit
+operator|<
+literal|3
+condition|)
+block|{
+name|out
+argument_list|()
+operator|<<
+literal|"id=\""
+operator|<<
+name|Doc
+operator|::
+name|canonicalTitle
+argument_list|(
+name|Text
+operator|::
+name|sectionHeading
+argument_list|(
+name|atom
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+operator|<<
+literal|"\""
+expr_stmt|;
+block|}
+name|out
+argument_list|()
+operator|<<
+literal|">"
 expr_stmt|;
 name|inSectionHeading_
 operator|=
 literal|true
 expr_stmt|;
 break|break;
+block|}
 case|case
 name|Atom
 operator|::
@@ -6549,11 +6591,9 @@ argument_list|()
 condition|)
 block|{
 comment|// out()<< "<hr />\n";
-name|out
-argument_list|()
-operator|<<
-literal|"<a name=\""
-operator|<<
+name|QString
+name|ref
+init|=
 name|registerRef
 argument_list|(
 operator|(
@@ -6566,6 +6606,13 @@ operator|.
 name|toLower
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<a name=\""
+operator|<<
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -6576,7 +6623,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 name|protectEnc
 argument_list|(
@@ -6778,15 +6829,20 @@ operator|<<
 literal|"</ul>\n"
 expr_stmt|;
 block|}
+name|QString
+name|detailsRef
+init|=
+name|registerRef
+argument_list|(
+literal|"details"
+argument_list|)
+decl_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|<<
-name|registerRef
-argument_list|(
-literal|"details"
-argument_list|)
+name|detailsRef
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -6820,7 +6876,11 @@ operator|<<
 literal|"<div class=\"descr\">\n"
 comment|// QTBUG-9504
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|detailsRef
+operator|<<
+literal|"\">"
 operator|<<
 literal|"Detailed Description"
 operator|<<
@@ -7625,11 +7685,9 @@ name|constEnd
 argument_list|()
 condition|)
 block|{
-name|out
-argument_list|()
-operator|<<
-literal|"<a name=\""
-operator|<<
+name|QString
+name|ref
+init|=
 name|registerRef
 argument_list|(
 operator|(
@@ -7642,6 +7700,13 @@ operator|.
 name|toLower
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<a name=\""
+operator|<<
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -7652,7 +7717,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 name|protectEnc
 argument_list|(
@@ -7687,15 +7756,20 @@ argument_list|,
 name|DetailedDescriptionMark
 argument_list|)
 expr_stmt|;
+name|QString
+name|detailsRef
+init|=
+name|registerRef
+argument_list|(
+literal|"details"
+argument_list|)
+decl_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|<<
-name|registerRef
-argument_list|(
-literal|"details"
-argument_list|)
+name|detailsRef
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -7706,7 +7780,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|detailsRef
+operator|<<
+literal|"\">"
 operator|<<
 literal|"Detailed Description"
 operator|<<
@@ -8371,11 +8449,9 @@ name|constEnd
 argument_list|()
 condition|)
 block|{
-name|out
-argument_list|()
-operator|<<
-literal|"<a name=\""
-operator|<<
+name|QString
+name|ref
+init|=
 name|registerRef
 argument_list|(
 operator|(
@@ -8385,6 +8461,13 @@ operator|)
 operator|.
 name|name
 argument_list|)
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<a name=\""
+operator|<<
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -8395,7 +8478,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 name|protectEnc
 argument_list|(
@@ -8627,6 +8714,9 @@ operator|->
 name|fullTitle
 argument_list|()
 decl_stmt|;
+name|QString
+name|ref
+decl_stmt|;
 name|generateHeader
 argument_list|(
 name|fullTitle
@@ -8713,15 +8803,19 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|ref
+operator|=
+name|registerRef
+argument_list|(
+literal|"namespaces"
+argument_list|)
+expr_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|<<
-name|registerRef
-argument_list|(
-literal|"namespaces"
-argument_list|)
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -8732,7 +8826,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>Namespaces</h2>\n"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">Namespaces</h2>\n"
 expr_stmt|;
 name|generateAnnotatedList
 argument_list|(
@@ -8765,15 +8863,19 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|ref
+operator|=
+name|registerRef
+argument_list|(
+literal|"classes"
+argument_list|)
+expr_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|<<
-name|registerRef
-argument_list|(
-literal|"classes"
-argument_list|)
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -8784,7 +8886,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>Classes</h2>\n"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">Classes</h2>\n"
 expr_stmt|;
 name|generateAnnotatedList
 argument_list|(
@@ -8836,11 +8942,8 @@ name|constEnd
 argument_list|()
 condition|)
 block|{
-name|out
-argument_list|()
-operator|<<
-literal|"<a name=\""
-operator|<<
+name|ref
+operator|=
 name|registerRef
 argument_list|(
 operator|(
@@ -8850,6 +8953,13 @@ operator|)
 operator|.
 name|name
 argument_list|)
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<a name=\""
+operator|<<
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -8860,7 +8970,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 name|protectEnc
 argument_list|(
@@ -8924,15 +9038,19 @@ argument_list|,
 name|DetailedDescriptionMark
 argument_list|)
 expr_stmt|;
+name|ref
+operator|=
+name|registerRef
+argument_list|(
+literal|"details"
+argument_list|)
+expr_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|<<
-name|registerRef
-argument_list|(
-literal|"details"
-argument_list|)
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -8949,7 +9067,11 @@ comment|// QTBUG-9504
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 literal|"Detailed Description"
 operator|<<
@@ -14333,11 +14455,9 @@ name|constEnd
 argument_list|()
 condition|)
 block|{
-name|out
-argument_list|()
-operator|<<
-literal|"<a name=\""
-operator|<<
+name|QString
+name|ref
+init|=
 name|registerRef
 argument_list|(
 operator|(
@@ -14350,6 +14470,13 @@ operator|.
 name|toLower
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<a name=\""
+operator|<<
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -14360,7 +14487,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 name|protectEnc
 argument_list|(
@@ -21334,6 +21465,14 @@ argument_list|,
 name|MemberMark
 argument_list|)
 expr_stmt|;
+name|QString
+name|nodeRef
+init|=
+name|refForNode
+argument_list|(
+name|node
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|node
@@ -21381,17 +21520,18 @@ directive|endif
 name|out
 argument_list|()
 operator|<<
-literal|"<h3 class=\"flags\">"
+literal|"<h3 class=\"flags\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|+
-name|refForNode
-argument_list|(
-name|node
-argument_list|)
+name|nodeRef
 operator|+
 literal|"\"></a>"
 expr_stmt|;
@@ -21440,17 +21580,18 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"<h3 class=\"fn\">"
+literal|"<h3 class=\"fn\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|+
-name|refForNode
-argument_list|(
-name|node
-argument_list|)
+name|nodeRef
 operator|+
 literal|"\"></a>"
 expr_stmt|;
@@ -22586,6 +22727,14 @@ argument_list|()
 operator|<<
 literal|"<div class=\"qmlitem\">"
 expr_stmt|;
+name|QString
+name|nodeRef
+init|=
+name|refForNode
+argument_list|(
+name|node
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|node
@@ -22649,7 +22798,11 @@ decl_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr valign=\"top\" class=\"even\">"
+literal|"<tr valign=\"top\" class=\"even\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -22661,10 +22814,7 @@ argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|+
-name|refForNode
-argument_list|(
-name|qpgn
-argument_list|)
+name|nodeRef
 operator|+
 literal|"\"></a>"
 expr_stmt|;
@@ -22722,10 +22872,21 @@ operator|*
 name|p
 argument_list|)
 expr_stmt|;
+name|nodeRef
+operator|=
+name|refForNode
+argument_list|(
+name|qpn
+argument_list|)
+expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr valign=\"top\" class=\"odd\">"
+literal|"<tr valign=\"top\" class=\"odd\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -22737,10 +22898,7 @@ argument_list|()
 operator|<<
 literal|"<a name=\""
 operator|+
-name|refForNode
-argument_list|(
-name|qpn
-argument_list|)
+name|nodeRef
 operator|+
 literal|"\"></a>"
 expr_stmt|;
@@ -22838,7 +22996,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr valign=\"top\" class=\"odd\">"
+literal|"<tr valign=\"top\" class=\"odd\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -22977,7 +23139,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr valign=\"top\" class=\"odd\">"
+literal|"<tr valign=\"top\" class=\"odd\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23068,7 +23234,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr valign=\"top\" class=\"odd\">"
+literal|"<tr valign=\"top\" class=\"odd\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23159,7 +23329,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr valign=\"top\" class=\"odd\">"
+literal|"<tr valign=\"top\" class=\"odd\" id=\""
+operator|<<
+name|nodeRef
+operator|<<
+literal|"\">"
 expr_stmt|;
 name|out
 argument_list|()
