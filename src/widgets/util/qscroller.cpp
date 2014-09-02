@@ -2957,18 +2957,6 @@ return|return;
 comment|// -- calculate the current pos (or the position after the current scroll)
 name|QPointF
 name|startPos
-init|=
-name|d
-operator|->
-name|contentPosition
-operator|+
-name|d
-operator|->
-name|overshootPosition
-decl_stmt|;
-name|startPos
-operator|=
-name|QPointF
 argument_list|(
 name|d
 operator|->
@@ -2988,7 +2976,7 @@ operator|::
 name|Vertical
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QRectF
 name|marginRect
 argument_list|(
