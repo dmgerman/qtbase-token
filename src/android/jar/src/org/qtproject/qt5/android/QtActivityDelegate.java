@@ -6120,6 +6120,13 @@ literal|" not found!"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|view
+operator|==
+literal|null
+condition|)
+return|return;
 comment|// Keep last frame in stack until it is replaced to get correct
 comment|// shutdown transition
 if|if
@@ -6144,13 +6151,7 @@ operator|=
 name|view
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|view
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
 name|m_layout
 operator|.
