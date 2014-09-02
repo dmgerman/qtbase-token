@@ -5166,13 +5166,7 @@ condition|(
 operator|!
 name|global
 condition|)
-block|{
-name|ptr
-operator|=
-literal|0
-expr_stmt|;
 return|return;
-block|}
 name|ptr
 operator|->
 name|ref
