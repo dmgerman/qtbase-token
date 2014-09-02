@@ -987,6 +987,7 @@ operator|>
 name|colors
 argument_list|)
 block|;
+comment|// ### Qt 6: remove const
 name|qreal
 name|devicePixelRatio
 argument_list|()
