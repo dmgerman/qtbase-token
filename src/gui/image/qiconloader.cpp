@@ -128,7 +128,7 @@ name|themeHint
 argument_list|(
 name|QPlatformTheme
 operator|::
-name|SystemIconThemeName
+name|SystemIconFallbackThemeName
 argument_list|)
 block|;
 if|if
