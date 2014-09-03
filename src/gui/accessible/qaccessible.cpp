@@ -1200,10 +1200,22 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+comment|// NOTE: Querying for the accessibleInterface below will result in
+comment|// resolving and caching the interface, which in some cases will
+comment|// cache the wrong information as updateAccessibility is called
+comment|// during construction of widgets. If you see cases where the
+comment|// cache seems wrong, this call is "to blame", but the code that
+comment|// caches dynamic data should be updated to handle change events.
 if|if
 condition|(
 operator|!
 name|isActive
+argument_list|()
+operator|||
+operator|!
+name|event
+operator|->
+name|accessibleInterface
 argument_list|()
 condition|)
 return|return;
@@ -1222,8 +1234,6 @@ operator|::
 name|TableModelChanged
 condition|)
 block|{
-if|if
-condition|(
 name|QAccessibleInterface
 modifier|*
 name|iface
@@ -1232,10 +1242,11 @@ name|event
 operator|->
 name|accessibleInterface
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
 if|if
 condition|(
+name|iface
+operator|&&
 name|iface
 operator|->
 name|tableInterface
@@ -1258,7 +1269,6 @@ name|event
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

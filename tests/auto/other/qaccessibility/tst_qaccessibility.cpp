@@ -5854,10 +5854,27 @@ operator|&
 name|window
 argument_list|)
 expr_stmt|;
-comment|//    We currently don't have an accessible interface for QWindow
-comment|//    the active state is either in the QMainWindow or QQuickView
-comment|//    QAccessibleInterface *windowIface(QAccessible::queryAccessibleInterface(&window));
-comment|//    QVERIFY(windowIface->state().active);
+comment|// We currently don't have an accessible interface for QWindow
+comment|// the active state is either in the QMainWindow or QQuickView
+name|QAccessibleInterface
+modifier|*
+name|windowIface
+argument_list|(
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+operator|&
+name|window
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|windowIface
+argument_list|)
+expr_stmt|;
 name|QAccessible
 operator|::
 name|State
@@ -5869,6 +5886,9 @@ name|active
 operator|=
 literal|true
 expr_stmt|;
+comment|// We should still not crash if we somehow end up sending state change events
+comment|// Note that we do not QVERIFY_EVENT, as that relies on the updateHandler being
+comment|// called, which does not happen/make sense when there's no interface for the event.
 name|QAccessibleStateChangeEvent
 name|active
 argument_list|(
@@ -5878,57 +5898,6 @@ argument_list|,
 name|activeState
 argument_list|)
 decl_stmt|;
-name|QVERIFY_EVENT
-argument_list|(
-operator|&
-name|active
-argument_list|)
-expr_stmt|;
-name|QWindow
-name|child
-decl_stmt|;
-name|child
-operator|.
-name|setParent
-argument_list|(
-operator|&
-name|window
-argument_list|)
-expr_stmt|;
-name|child
-operator|.
-name|setGeometry
-argument_list|(
-literal|10
-argument_list|,
-literal|10
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-expr_stmt|;
-name|child
-operator|.
-name|show
-argument_list|()
-expr_stmt|;
-name|child
-operator|.
-name|requestActivate
-argument_list|()
-expr_stmt|;
-name|QTRY_VERIFY
-argument_list|(
-name|QGuiApplication
-operator|::
-name|focusWindow
-argument_list|()
-operator|==
-operator|&
-name|child
-argument_list|)
-expr_stmt|;
 name|QAccessibleStateChangeEvent
 name|deactivate
 argument_list|(
@@ -5938,28 +5907,6 @@ argument_list|,
 name|activeState
 argument_list|)
 decl_stmt|;
-name|QVERIFY_EVENT
-argument_list|(
-operator|&
-name|deactivate
-argument_list|)
-expr_stmt|;
-comment|// deactivation of parent
-name|QAccessibleStateChangeEvent
-name|activeChild
-argument_list|(
-operator|&
-name|child
-argument_list|,
-name|activeState
-argument_list|)
-decl_stmt|;
-name|QVERIFY_EVENT
-argument_list|(
-operator|&
-name|activeChild
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_function
