@@ -97,9 +97,7 @@ name|QAtomicInt
 name|m_goingToStop
 block|;
 name|QSemaphore
-name|m_dispatcherSemaphore
-block|,
-name|m_stopperSemaphore
+name|m_semaphore
 block|; }
 decl_stmt|;
 end_decl_stmt
