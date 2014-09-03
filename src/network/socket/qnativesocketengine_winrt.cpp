@@ -629,11 +629,10 @@ argument_list|(
 name|QNativeSocketEngine
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|parent
-argument_list|)
-expr_stmt|;
+condition|)
 name|d
 operator|->
 name|sslSocket
@@ -649,14 +648,6 @@ operator|->
 name|parent
 argument_list|()
 argument_list|)
-expr_stmt|;
-else|#
-directive|else
-name|d
-operator|->
-name|sslSocket
-operator|=
-name|Q_NULLPTR
 expr_stmt|;
 endif|#
 directive|endif
@@ -4340,6 +4331,11 @@ name|socketDescriptor
 argument_list|(
 operator|-
 literal|1
+argument_list|)
+member_init_list|,
+name|sslSocket
+argument_list|(
+name|Q_NULLPTR
 argument_list|)
 block|{ }
 end_constructor
