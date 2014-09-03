@@ -57,6 +57,11 @@ name|QInternal
 operator|::
 name|PaintDeviceFlags
 name|f
+parameter_list|,
+name|QWindowsDirect2DPaintEngine
+operator|::
+name|Flags
+name|paintFlags
 parameter_list|)
 member_init_list|:
 name|engine
@@ -65,6 +70,8 @@ operator|new
 name|QWindowsDirect2DPaintEngine
 argument_list|(
 name|bitmap
+argument_list|,
+name|paintFlags
 argument_list|)
 argument_list|)
 member_init_list|,
@@ -113,6 +120,11 @@ name|QInternal
 operator|::
 name|PaintDeviceFlags
 name|flags
+parameter_list|,
+name|QWindowsDirect2DPaintEngine
+operator|::
+name|Flags
+name|paintFlags
 parameter_list|)
 member_init_list|:
 name|d_ptr
@@ -123,6 +135,8 @@ argument_list|(
 name|bitmap
 argument_list|,
 name|flags
+argument_list|,
+name|paintFlags
 argument_list|)
 argument_list|)
 block|{ }

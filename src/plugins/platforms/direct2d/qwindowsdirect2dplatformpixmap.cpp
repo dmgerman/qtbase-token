@@ -95,6 +95,11 @@ parameter_list|(
 name|QWindowsDirect2DBitmap
 modifier|*
 name|bitmap
+parameter_list|,
+name|QWindowsDirect2DPaintEngine
+operator|::
+name|Flags
+name|flags
 parameter_list|)
 member_init_list|:
 name|owns_bitmap
@@ -117,6 +122,8 @@ argument_list|,
 name|QInternal
 operator|::
 name|Pixmap
+argument_list|,
+name|flags
 argument_list|)
 argument_list|)
 member_init_list|,
@@ -212,6 +219,11 @@ operator|::
 name|PixelType
 name|pixelType
 parameter_list|,
+name|QWindowsDirect2DPaintEngine
+operator|::
+name|Flags
+name|flags
+parameter_list|,
 name|QWindowsDirect2DBitmap
 modifier|*
 name|bitmap
@@ -230,6 +242,8 @@ operator|new
 name|QWindowsDirect2DPlatformPixmapPrivate
 argument_list|(
 name|bitmap
+argument_list|,
+name|flags
 argument_list|)
 argument_list|)
 block|{

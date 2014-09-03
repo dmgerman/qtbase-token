@@ -64,11 +64,29 @@ argument|QWindowsDirect2DPaintEngine
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|Flag
+block|{
+name|NoFlag
+operator|=
+literal|0
+block|,
+name|UseGrayscaleAntialiasing
+operator|=
+literal|1
+block|,     }
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|Flags
+argument_list|,
+argument|Flag
+argument_list|)
 name|QWindowsDirect2DPaintEngine
 argument_list|(
-name|QWindowsDirect2DBitmap
-operator|*
-name|bitmap
+argument|QWindowsDirect2DBitmap *bitmap
+argument_list|,
+argument|Flags flags
 argument_list|)
 block|;
 name|bool
@@ -374,6 +392,12 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QWindowsDirect2DPaintEngine::Flags
+argument_list|)
+end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

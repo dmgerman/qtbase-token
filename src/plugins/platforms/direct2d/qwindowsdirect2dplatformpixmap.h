@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"qwindowsdirect2dpaintengine.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qpa/qplatformpixmap.h>
 end_include
 begin_include
@@ -58,6 +63,8 @@ comment|// We do NOT take ownership of the bitmap through this constructor!
 name|QWindowsDirect2DPlatformPixmap
 argument_list|(
 argument|PixelType pixelType
+argument_list|,
+argument|QWindowsDirect2DPaintEngine::Flags flags
 argument_list|,
 argument|QWindowsDirect2DBitmap *bitmap
 argument_list|)

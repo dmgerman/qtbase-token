@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtGui/QPaintDevice>
 end_include
+begin_include
+include|#
+directive|include
+file|"qwindowsdirect2dpaintengine.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWindowsDirect2DBitmap
@@ -54,6 +59,8 @@ argument_list|(
 argument|QWindowsDirect2DBitmap *bitmap
 argument_list|,
 argument|QInternal::PaintDeviceFlags flags
+argument_list|,
+argument|QWindowsDirect2DPaintEngine::Flags paintFlags = QWindowsDirect2DPaintEngine::NoFlag
 argument_list|)
 block|;
 name|QPaintEngine
