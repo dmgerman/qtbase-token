@@ -937,7 +937,7 @@ operator|.
 name|toObjectId
 argument_list|()
 operator|!=
-literal|"1.2.840.113549.1.1.1"
+name|RSA_ENCRYPTION_OID
 condition|)
 return|return;
 comment|// key data
@@ -1051,7 +1051,7 @@ operator|.
 name|toObjectId
 argument_list|()
 operator|!=
-literal|"1.2.840.10040.4.1"
+name|DSA_ENCRYPTION_OID
 condition|)
 return|return;
 if|if

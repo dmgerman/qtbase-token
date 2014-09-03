@@ -6141,7 +6141,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WINRT
+name|QT_NO_OPENSSL
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -6419,7 +6419,7 @@ define|\
 value|QVERIFY2((A),                                               \         qPrintable(QString("errors: %1").arg(toString(errors))) \     )
 ifdef|#
 directive|ifdef
-name|Q_OS_WINRT
+name|QT_NO_OPENSSL
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -6977,20 +6977,6 @@ operator|.
 name|extensions
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-40884: WinRT API does not support extensions information"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|extensions
@@ -7717,20 +7703,6 @@ operator|.
 name|extensions
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-40884: WinRT API does not support extensions information"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|extensions
@@ -8639,7 +8611,7 @@ name|caCerts
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WINRT
+name|QT_NO_OPENSSL
 name|QEXPECT_FAIL
 argument_list|(
 literal|""

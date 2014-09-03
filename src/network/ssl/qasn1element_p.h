@@ -55,6 +55,16 @@ file|<QtCore/qmap.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|macro|RSA_ENCRYPTION_OID
+define|#
+directive|define
+name|RSA_ENCRYPTION_OID
+value|QByteArrayLiteral("1.2.840.113549.1.1.1")
+DECL|macro|DSA_ENCRYPTION_OID
+define|#
+directive|define
+name|DSA_ENCRYPTION_OID
+value|QByteArrayLiteral("1.2.840.10040.4.1")
 name|class
 name|Q_AUTOTEST_EXPORT
 name|QAsn1Element
@@ -116,15 +126,6 @@ block|,
 name|SetType
 init|=
 literal|0x31
-block|,
-comment|// application
-name|Rfc822NameType
-init|=
-literal|0x81
-block|,
-name|DnsNameType
-init|=
-literal|0x82
 block|,
 comment|// context specific
 name|Context0Type
