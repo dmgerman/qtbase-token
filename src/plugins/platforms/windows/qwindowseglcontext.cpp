@@ -34,6 +34,11 @@ name|defined
 argument_list|(
 name|QT_OPENGL_ES_2_ANGLE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_OPENGL_DYNAMIC
+argument_list|)
 end_if
 begin_include
 include|#
