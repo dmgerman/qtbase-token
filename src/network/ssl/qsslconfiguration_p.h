@@ -71,6 +71,11 @@ include|#
 directive|include
 file|"qsslkey.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qsslellipticcurve.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -218,6 +223,12 @@ name|QSsl
 operator|::
 name|SslOptions
 name|defaultSslOptions
+block|;
+name|QVector
+operator|<
+name|QSslEllipticCurve
+operator|>
+name|ellipticCurves
 block|;
 name|QByteArray
 name|sslSession
