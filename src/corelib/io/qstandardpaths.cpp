@@ -904,7 +904,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 operator|&&
 operator|!
