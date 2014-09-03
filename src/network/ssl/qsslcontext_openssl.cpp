@@ -1127,7 +1127,7 @@ comment|// Initialize ciphers
 name|QByteArray
 name|cipherString
 decl_stmt|;
-name|int
+name|bool
 name|first
 init|=
 literal|true
