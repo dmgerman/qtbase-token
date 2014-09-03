@@ -131,6 +131,10 @@ name|void
 name|_q_updateScreens
 argument_list|()
 block|;
+name|void
+name|_q_availableGeometryChanged
+argument_list|()
+block|;
 name|QList
 operator|<
 name|QDesktopScreenWidget
