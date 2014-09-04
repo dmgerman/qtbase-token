@@ -2198,10 +2198,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QChar QChar::toCaseFolded() const      Returns the case folded equivalent of the character.     For most Unicode characters this is the same as toLowerCase(). */
+comment|/*!     \fn QChar QChar::toCaseFolded() const      Returns the case folded equivalent of the character.     For most Unicode characters this is the same as toLower(). */
 end_comment
 begin_comment
-comment|/*!     \overload     Returns the case folded equivalent of the UCS-4-encoded character specified     by \a ucs4. For most Unicode characters this is the same as toLowerCase(). */
+comment|/*!     \overload     Returns the case folded equivalent of the UCS-4-encoded character specified     by \a ucs4. For most Unicode characters this is the same as toLower(). */
 end_comment
 begin_function
 DECL|function|toCaseFolded

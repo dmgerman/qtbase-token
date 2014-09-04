@@ -29,7 +29,7 @@ begin_comment
 comment|/*!     \class QCollator     \inmodule QtCore     \brief The QCollator class compares strings according to a localized collation algorithm.      \since 5.2      \reentrant     \ingroup i18n     \ingroup string-processing     \ingroup shared      QCollator is initialized with a QLocale and an optional collation strategy. It tries to     initialize the collator with the specified values. The collator can then be used to compare     and sort strings in a locale dependent fashion.      A QCollator object can be used together with template based sorting algorithms such as std::sort     to sort a list of QStrings.      In addition to the locale and collation strategy, several optional flags can be set that influence     the result of the collation. */
 end_comment
 begin_comment
-comment|/*!     Constructs a QCollator from \a locale. If \a locale is not specified     QLocale::default() will be used.      \sa setLocale()  */
+comment|/*!     Constructs a QCollator from \a locale. If \a locale is not specified     the system's default locale is used.      \sa setLocale()  */
 end_comment
 begin_constructor
 DECL|function|QCollator
