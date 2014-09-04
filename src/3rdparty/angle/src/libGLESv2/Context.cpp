@@ -1426,10 +1426,7 @@ name|mResourceManager
 operator|->
 name|deleteFenceSync
 argument_list|(
-cast|reinterpret_cast
-argument_list|<
-name|GLuint
-argument_list|>
+name|uintptr_t
 argument_list|(
 name|fenceSync
 argument_list|)
@@ -1888,10 +1885,7 @@ name|mResourceManager
 operator|->
 name|getFenceSync
 argument_list|(
-cast|reinterpret_cast
-argument_list|<
-name|GLuint
-argument_list|>
+name|uintptr_t
 argument_list|(
 name|handle
 argument_list|)
