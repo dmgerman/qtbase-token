@@ -374,10 +374,15 @@ name|void
 name|privateKey
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
 name|void
 name|privateKeyOpaque
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|protocol
 parameter_list|()
@@ -566,10 +571,15 @@ name|void
 name|versionAccessors
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
 name|void
 name|sslOptions
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|encryptWithoutConnecting
 parameter_list|()
@@ -4421,6 +4431,11 @@ name|privateKey
 parameter_list|()
 block|{ }
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
+end_ifndef
 begin_function
 DECL|function|privateKeyOpaque
 name|void
@@ -4617,6 +4632,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|protocol
 name|void
@@ -13723,6 +13742,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
+end_ifndef
 begin_function
 DECL|function|sslOptions
 name|void
@@ -13980,6 +14004,10 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|encryptWithoutConnecting
 name|void
