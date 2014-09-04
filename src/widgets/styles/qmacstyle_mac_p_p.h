@@ -421,6 +421,10 @@ operator|:
 name|QMacStylePrivate
 argument_list|()
 block|;
+operator|~
+name|QMacStylePrivate
+argument_list|()
+block|;
 comment|// Ideally these wouldn't exist, but since they already exist we need some accessors.
 specifier|static
 specifier|const
@@ -667,6 +671,33 @@ argument|QObject *button
 argument_list|)
 specifier|const
 block|;
+name|NSView
+operator|*
+name|buttonOfKind
+argument_list|(
+argument|ThemeButtonKind kind
+argument_list|)
+specifier|const
+block|;
+name|void
+name|drawNSViewInRect
+argument_list|(
+argument|NSView *view
+argument_list|,
+argument|const QRect&rect
+argument_list|,
+argument|QPainter *p
+argument_list|)
+specifier|const
+block|;
+name|void
+name|resolveCurrentNSView
+argument_list|(
+name|QWindow
+operator|*
+name|window
+argument_list|)
+block|;
 name|public
 operator|:
 name|mutable
@@ -745,6 +776,19 @@ directive|endif
 name|void
 operator|*
 name|indicatorBranchButtonCell
+block|;
+name|NSView
+operator|*
+name|backingStoreNSView
+block|;
+name|QHash
+operator|<
+name|ThemeButtonKind
+block|,
+name|NSView
+operator|*
+operator|>
+name|buttons
 block|; }
 decl_stmt|;
 end_decl_stmt
