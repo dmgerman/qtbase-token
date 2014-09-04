@@ -133,7 +133,7 @@ argument|SelectionBehavior selectionBehavior READ selectionBehavior WRITE setSel
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize iconSize READ iconSize WRITE setIconSize
+argument|QSize iconSize READ iconSize WRITE setIconSize NOTIFY iconSizeChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -946,6 +946,15 @@ block|;
 name|void
 name|viewportEntered
 argument_list|()
+block|;
+name|void
+name|iconSizeChanged
+argument_list|(
+specifier|const
+name|QSize
+operator|&
+name|size
+argument_list|)
 block|;
 name|protected
 operator|:

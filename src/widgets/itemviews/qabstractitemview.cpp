@@ -4898,6 +4898,12 @@ operator|->
 name|doDelayedItemsLayout
 argument_list|()
 expr_stmt|;
+emit|emit
+name|iconSizeChanged
+argument_list|(
+name|size
+argument_list|)
+emit|;
 block|}
 end_function
 begin_function
