@@ -905,6 +905,9 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|QFile
 operator|::
 name|remove
@@ -913,7 +916,21 @@ name|d
 operator|->
 name|fileName
 argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Could not remove our own lock file"
+operator|<<
+name|d
+operator|->
+name|fileName
+operator|<<
+literal|"maybe permissions changed meanwhile?"
 expr_stmt|;
+comment|// This is bad because other users of this lock file will now have to wait for the stale-lock-timeout...
+block|}
 name|d
 operator|->
 name|lockError

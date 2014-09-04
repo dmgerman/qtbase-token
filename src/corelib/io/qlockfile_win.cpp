@@ -37,6 +37,11 @@ include|#
 directive|include
 file|"QtCore/qdebug.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"QtCore/qthread.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|localHostName
@@ -503,6 +508,22 @@ operator|->
 name|fileHandle
 argument_list|)
 expr_stmt|;
+name|int
+name|attempts
+init|=
+literal|0
+decl_stmt|;
+specifier|static
+specifier|const
+name|int
+name|maxAttempts
+init|=
+literal|500
+decl_stmt|;
+comment|// 500ms
+while|while
+condition|(
+operator|!
 name|QFile
 operator|::
 name|remove
@@ -511,7 +532,42 @@ name|d
 operator|->
 name|fileName
 argument_list|)
+operator|&&
+operator|++
+name|attempts
+operator|<
+name|maxAttempts
+condition|)
+block|{
+comment|// Someone is reading the lock file right now (on Windows this prevents deleting it).
+name|QThread
+operator|::
+name|msleep
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|attempts
+operator|==
+name|maxAttempts
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Could not remove our own lock file"
+operator|<<
+name|d
+operator|->
+name|fileName
+operator|<<
+literal|". Either other users of the lock file are reading it constantly for 500 ms, or we (no longer) have permissions to delete the file"
+expr_stmt|;
+comment|// This is bad because other users of this lock file will now have to wait for the stale-lock-timeout...
+block|}
 name|d
 operator|->
 name|lockError
