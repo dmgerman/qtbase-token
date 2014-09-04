@@ -27407,16 +27407,16 @@ literal|0x1D9D0CB
 decl_stmt|;
 comment|// Version history:
 comment|// - Qt 4.2 - 4.8.6, 5.0 - 5.3    : Version 1.0
-comment|// - Qt 4.8.6 - today, 5.4 - today: Version 1.1, save screen width in addition to check for high DPI scaling.
+comment|// - Qt 4.8.6 - today, 5.4 - today: Version 2.0, save screen width in addition to check for high DPI scaling.
 name|quint16
 name|majorVersion
 init|=
-literal|1
+literal|2
 decl_stmt|;
 name|quint16
 name|minorVersion
 init|=
-literal|1
+literal|0
 decl_stmt|;
 specifier|const
 name|int
@@ -27570,7 +27570,7 @@ specifier|const
 name|quint16
 name|currentMajorVersion
 init|=
-literal|1
+literal|2
 decl_stmt|;
 name|quint16
 name|majorVersion
@@ -27591,7 +27591,7 @@ expr_stmt|;
 if|if
 condition|(
 name|majorVersion
-operator|!=
+operator|>
 name|currentMajorVersion
 condition|)
 return|return
@@ -27634,10 +27634,6 @@ if|if
 condition|(
 name|majorVersion
 operator|>
-literal|1
-operator|||
-name|minorVersion
-operator|>=
 literal|1
 condition|)
 name|stream
