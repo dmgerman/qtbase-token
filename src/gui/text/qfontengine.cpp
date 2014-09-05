@@ -1945,9 +1945,6 @@ expr_stmt|;
 name|unsigned
 name|int
 name|script_index
-init|=
-operator|-
-literal|1
 decl_stmt|;
 name|ret
 operator|=
