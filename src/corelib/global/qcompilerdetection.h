@@ -3456,12 +3456,6 @@ directive|define
 name|Q_COMPILER_EXTERN_TEMPLATES
 end_define
 begin_define
-DECL|macro|Q_COMPILER_INITIALIZER_LISTS
-define|#
-directive|define
-name|Q_COMPILER_INITIALIZER_LISTS
-end_define
-begin_define
 DECL|macro|Q_COMPILER_UNIFORM_INIT
 define|#
 directive|define
@@ -3504,6 +3498,15 @@ DECL|macro|Q_COMPILER_EXPLICIT_CONVERSIONS
 define|#
 directive|define
 name|Q_COMPILER_EXPLICIT_CONVERSIONS
+end_define
+begin_comment
+comment|/* GCC 4.4 implements initializer_list but does not define typedefs required         * by the standard. */
+end_comment
+begin_define
+DECL|macro|Q_COMPILER_INITIALIZER_LISTS
+define|#
+directive|define
+name|Q_COMPILER_INITIALIZER_LISTS
 end_define
 begin_define
 DECL|macro|Q_COMPILER_LAMBDA
