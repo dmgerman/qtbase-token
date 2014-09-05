@@ -186,8 +186,13 @@ define|#
 directive|define
 name|JSONERR_DOC_LARGE
 value|QT_TRANSLATE_NOOP("QJsonParseError", "too large document")
+DECL|macro|JSONERR_GARBAGEEND
+define|#
+directive|define
+name|JSONERR_GARBAGEEND
+value|QT_TRANSLATE_NOOP("QJsonParseError", "garbage at the end of the document")
 comment|/*!     \class QJsonParseError     \inmodule QtCore     \ingroup json     \reentrant     \since 5.0      \brief The QJsonParseError class is used to report errors during JSON parsing.      \sa {JSON Support in Qt}, {JSON Save Game Example} */
-comment|/*!     \enum QJsonParseError::ParseError      This enum describes the type of error that occurred during the parsing of a JSON document.      \value NoError                  No error occurred     \value UnterminatedObject       An object is not correctly terminated with a closing curly bracket     \value MissingNameSeparator     A comma separating different items is missing     \value UnterminatedArray        The array is not correctly terminated with a closing square bracket     \value MissingValueSeparator    A colon separating keys from values inside objects is missing     \value IllegalValue             The value is illegal     \value TerminationByNumber      The input stream ended while parsing a number     \value IllegalNumber            The number is not well formed     \value IllegalEscapeSequence    An illegal escape sequence occurred in the input     \value IllegalUTF8String        An illegal UTF8 sequence occurred in the input     \value UnterminatedString       A string wasn't terminated with a quote     \value MissingObject            An object was expected but couldn't be found     \value DeepNesting              The JSON document is too deeply nested for the parser to parse it     \value DocumentTooLarge         The JSON document is too large for the parser to parse it */
+comment|/*!     \enum QJsonParseError::ParseError      This enum describes the type of error that occurred during the parsing of a JSON document.      \value NoError                  No error occurred     \value UnterminatedObject       An object is not correctly terminated with a closing curly bracket     \value MissingNameSeparator     A comma separating different items is missing     \value UnterminatedArray        The array is not correctly terminated with a closing square bracket     \value MissingValueSeparator    A colon separating keys from values inside objects is missing     \value IllegalValue             The value is illegal     \value TerminationByNumber      The input stream ended while parsing a number     \value IllegalNumber            The number is not well formed     \value IllegalEscapeSequence    An illegal escape sequence occurred in the input     \value IllegalUTF8String        An illegal UTF8 sequence occurred in the input     \value UnterminatedString       A string wasn't terminated with a quote     \value MissingObject            An object was expected but couldn't be found     \value DeepNesting              The JSON document is too deeply nested for the parser to parse it     \value DocumentTooLarge         The JSON document is too large for the parser to parse it     \value GarbageAtEnd             The parsed document contains additional garbage characters at the end  */
 comment|/*!     \variable QJsonParseError::error      Contains the type of the parse error. Is equal to QJsonParseError::NoError if the document     was parsed correctly.      \sa ParseError, errorString() */
 comment|/*!     \variable QJsonParseError::offset      Contains the offset in the input string where the parse error occurred.      \sa error, errorString() */
 comment|/*!   Returns the human-readable message appropriate to the reported JSON parsing error.    \sa error  */
@@ -321,6 +326,14 @@ case|:
 name|sz
 operator|=
 name|JSONERR_DOC_LARGE
+expr_stmt|;
+break|break;
+case|case
+name|GarbageAtEnd
+case|:
+name|sz
+operator|=
+name|JSONERR_GARBAGEEND
 expr_stmt|;
 break|break;
 block|}
@@ -832,6 +845,26 @@ operator|=
 name|QJsonParseError
 operator|::
 name|IllegalValue
+expr_stmt|;
+goto|goto
+name|error
+goto|;
+block|}
+name|eatSpace
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|json
+operator|<
+name|end
+condition|)
+block|{
+name|lastError
+operator|=
+name|QJsonParseError
+operator|::
+name|GarbageAtEnd
 expr_stmt|;
 goto|goto
 name|error

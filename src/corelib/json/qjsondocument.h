@@ -87,6 +87,9 @@ name|DeepNesting
 block|,
 DECL|enumerator|DocumentTooLarge
 name|DocumentTooLarge
+block|,
+DECL|enumerator|GarbageAtEnd
+name|GarbageAtEnd
 block|}
 enum|;
 name|QString
