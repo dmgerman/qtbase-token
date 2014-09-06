@@ -40,6 +40,12 @@ argument_list|(
 name|QT_OPENGL_DYNAMIC
 argument_list|)
 end_if
+begin_define
+DECL|macro|EGL_EGLEXT_PROTOTYPES
+define|#
+directive|define
+name|EGL_EGLEXT_PROTOTYPES
+end_define
 begin_include
 include|#
 directive|include
