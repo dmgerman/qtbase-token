@@ -17464,24 +17464,6 @@ expr_stmt|;
 comment|// Draw handle
 name|theme
 operator|.
-name|rect
-operator|=
-name|proxy
-argument_list|()
-operator|->
-name|subControlRect
-argument_list|(
-name|CC_ScrollBar
-argument_list|,
-name|option
-argument_list|,
-name|SC_ScrollBarSlider
-argument_list|,
-name|widget
-argument_list|)
-expr_stmt|;
-name|theme
-operator|.
 name|partId
 operator|=
 name|flags
