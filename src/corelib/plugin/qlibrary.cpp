@@ -3650,18 +3650,6 @@ specifier|static
 name|int
 name|debug_env
 init|=
-operator|-
-literal|1
-decl_stmt|;
-if|if
-condition|(
-name|debug_env
-operator|==
-operator|-
-literal|1
-condition|)
-name|debug_env
-operator|=
 name|QT_PREPEND_NAMESPACE
 argument_list|(
 name|qEnvironmentVariableIntValue
@@ -3669,7 +3657,7 @@ argument_list|)
 argument_list|(
 literal|"QT_DEBUG_PLUGINS"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 return|return
 name|debug_env
 operator|!=
