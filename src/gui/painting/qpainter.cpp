@@ -2439,15 +2439,11 @@ specifier|static
 name|bool
 name|do_fallback_overlay
 init|=
-name|qgetenv
+operator|!
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_PAINT_FALLBACK_OVERLAY"
 argument_list|)
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
 decl_stmt|;
 if|if
 condition|(
