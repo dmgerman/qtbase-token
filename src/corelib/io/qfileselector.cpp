@@ -705,13 +705,10 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 name|env_override
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 return|return;
 name|sharedData
