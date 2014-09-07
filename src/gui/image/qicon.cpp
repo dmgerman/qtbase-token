@@ -4238,13 +4238,10 @@ name|bool
 name|disable2xImageLoading
 init|=
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIsEmpty
 argument_list|(
 literal|"QT_HIGHDPI_DISABLE_2X_IMAGE_LOADING"
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
