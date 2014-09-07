@@ -3664,14 +3664,11 @@ name|debug_env
 operator|=
 name|QT_PREPEND_NAMESPACE
 argument_list|(
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|)
 argument_list|(
 literal|"QT_DEBUG_PLUGINS"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 expr_stmt|;
 return|return
 name|debug_env
