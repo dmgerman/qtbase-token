@@ -909,10 +909,6 @@ argument_list|(
 name|states
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|dummyState
-condition|)
 operator|delete
 name|dummyState
 expr_stmt|;
