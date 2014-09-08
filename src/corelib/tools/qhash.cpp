@@ -1096,21 +1096,18 @@ name|seed
 operator|^=
 name|seedPtr
 expr_stmt|;
-if|#
-directive|if
-name|QT_POINTER_SIZE
-operator|==
-literal|8
 name|seed
 operator|^=
 operator|(
+name|qulonglong
+argument_list|(
 name|seedPtr
+argument_list|)
 operator|>>
 literal|32
 operator|)
 expr_stmt|;
-endif|#
-directive|endif
+comment|// no-op on 32-bit platforms
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
