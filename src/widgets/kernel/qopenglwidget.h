@@ -60,6 +60,14 @@ argument|QOpenGLWidget
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|UpdateBehavior
+block|{
+name|NoPartialUpdate
+block|,
+name|PartialUpdate
+block|}
+block|;
 name|explicit
 name|QOpenGLWidget
 argument_list|(
@@ -73,6 +81,17 @@ block|;
 operator|~
 name|QOpenGLWidget
 argument_list|()
+block|;
+name|void
+name|setUpdateBehavior
+argument_list|(
+argument|UpdateBehavior updateBehavior
+argument_list|)
+block|;
+name|UpdateBehavior
+name|updateBehavior
+argument_list|()
+specifier|const
 block|;
 name|void
 name|setFormat
