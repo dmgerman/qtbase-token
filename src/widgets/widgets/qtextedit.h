@@ -1203,6 +1203,12 @@ operator|&
 name|cursor
 argument_list|)
 block|;
+name|void
+name|zoomInF
+argument_list|(
+argument|float range
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
