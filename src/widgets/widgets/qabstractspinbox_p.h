@@ -574,6 +574,9 @@ name|uint
 name|showGroupSeparator
 operator|:
 literal|1
+block|;
+name|int
+name|wheelDeltaRemainder
 block|; }
 decl_stmt|;
 end_decl_stmt
