@@ -4091,6 +4091,15 @@ literal|5
 argument_list|)
 return|;
 block|}
+case|case
+name|WheelScrollLines
+case|:
+return|return
+name|QVariant
+argument_list|(
+literal|3
+argument_list|)
+return|;
 block|}
 return|return
 name|QVariant

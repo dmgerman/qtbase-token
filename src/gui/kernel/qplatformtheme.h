@@ -220,6 +220,8 @@ block|,
 name|MousePressAndHoldInterval
 block|,
 name|MouseDoubleClickDistance
+block|,
+name|WheelScrollLines
 block|}
 enum|;
 enum|enum
