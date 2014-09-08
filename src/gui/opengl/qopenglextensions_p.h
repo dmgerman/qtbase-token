@@ -173,6 +173,10 @@ block|,
 name|Sized8Formats
 operator|=
 literal|0x00200000
+block|,
+name|DiscardFramebuffer
+operator|=
+literal|0x00400000
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -268,6 +272,16 @@ argument_list|,
 argument|qopengl_GLsizeiptr size
 argument_list|,
 argument|GLvoid *data
+argument_list|)
+block|;
+name|void
+name|glDiscardFramebufferEXT
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei numAttachments
+argument_list|,
+argument|const GLenum *attachments
 argument_list|)
 block|;
 name|private
@@ -424,6 +438,23 @@ expr|,
 name|GLvoid
 operator|*
 name|data
+operator|)
+block|;
+name|void
+argument_list|(
+argument|QOPENGLF_APIENTRYP DiscardFramebuffer
+argument_list|)
+operator|(
+name|GLenum
+name|target
+expr|,
+name|GLsizei
+name|numAttachments
+expr|,
+specifier|const
+name|GLenum
+operator|*
+name|attachments
 operator|)
 block|; }
 block|;
@@ -729,6 +760,48 @@ argument_list|,
 name|size
 argument_list|,
 name|data
+argument_list|)
+block|;
+name|Q_OPENGL_FUNCTIONS_DEBUG
+block|}
+DECL|function|glDiscardFramebufferEXT
+specifier|inline
+name|void
+name|QOpenGLExtensions
+operator|::
+name|glDiscardFramebufferEXT
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei numAttachments
+argument_list|,
+argument|const GLenum *attachments
+argument_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QOpenGLExtensions
+argument_list|)
+block|;
+name|Q_ASSERT
+argument_list|(
+name|QOpenGLExtensions
+operator|::
+name|isInitialized
+argument_list|(
+name|d
+argument_list|)
+argument_list|)
+block|;
+name|d
+operator|->
+name|DiscardFramebuffer
+argument_list|(
+name|target
+argument_list|,
+name|numAttachments
+argument_list|,
+name|attachments
 argument_list|)
 block|;
 name|Q_OPENGL_FUNCTIONS_DEBUG
