@@ -51,6 +51,16 @@ name|QAndroidPlatformForeignWindow
 argument_list|()
 block|;
 name|void
+name|lower
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|raise
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
 name|setGeometry
 argument_list|(
 argument|const QRect&rect
