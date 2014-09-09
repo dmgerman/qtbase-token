@@ -611,7 +611,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \internal      This function is used by the Qt WebEngine to set up context sharing     across multiple windows. Do not use it for any other purpose.      Please maintain the binary compatibility of these functions. */
+comment|/*!     \internal      This function is used by Qt::AA_ShareOpenGLContexts and the Qt     WebEngine to set up context sharing across multiple windows. Do     not use it for any other purpose.      Please maintain the binary compatibility of these functions. */
 end_comment
 begin_function
 DECL|function|qt_gl_set_global_share_context

@@ -1637,6 +1637,10 @@ name|AA_UseSoftwareOpenGL
 init|=
 literal|17
 block|,
+name|AA_ShareOpenGLContexts
+init|=
+literal|18
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}
