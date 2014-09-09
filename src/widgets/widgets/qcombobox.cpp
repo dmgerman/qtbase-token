@@ -1636,10 +1636,6 @@ operator|==
 name|QComboBox
 operator|::
 name|AdjustToMinimumContentsLengthWithIcon
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 name|int
 name|count

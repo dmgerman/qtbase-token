@@ -5621,13 +5621,7 @@ argument_list|()
 operator|.
 name|plus_
 operator|=
-operator|(
 name|plus
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 expr_stmt|;
 operator|++
 name|key

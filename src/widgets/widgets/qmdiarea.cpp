@@ -7398,10 +7398,6 @@ init|=
 name|increaseFactor
 operator|>
 literal|0
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 comment|// and use that index + increseFactor as a candidate.
 name|int
@@ -11844,10 +11840,6 @@ name|QEvent
 operator|::
 name|KeyPress
 operator|)
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 comment|// 1) Ctrl-Tab once -> activate the previously active window.
 comment|// 2) Ctrl-Tab (Tab, Tab, ...) -> iterate through all windows (activateNextSubWindow()).

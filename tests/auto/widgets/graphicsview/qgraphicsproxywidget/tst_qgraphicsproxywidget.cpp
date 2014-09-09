@@ -5307,10 +5307,6 @@ name|WA_UnderMouse
 argument_list|)
 argument_list|,
 name|hasWidget
-condition|?
-literal|true
-else|:
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// ### this attribute isn't supported
@@ -7765,10 +7761,6 @@ operator|(
 name|p
 operator|==
 literal|0
-condition|?
-literal|true
-else|:
-literal|false
 operator|)
 decl_stmt|;
 name|SubQGraphicsProxyWidget

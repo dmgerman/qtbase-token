@@ -227,15 +227,9 @@ name|value
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
 name|attributeValue
 operator|!=
 literal|0
-operator|)
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 end_function

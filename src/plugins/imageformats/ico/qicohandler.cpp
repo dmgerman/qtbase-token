@@ -705,7 +705,6 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
 name|iodev
 operator|->
 name|write
@@ -720,11 +719,6 @@ name|ICONDIRENTRY_SIZE
 argument_list|)
 operator|==
 name|ICONDIRENTRY_SIZE
-operator|)
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 return|return
@@ -897,7 +891,6 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
 name|iodev
 operator|->
 name|write
@@ -912,11 +905,6 @@ literal|6
 argument_list|)
 operator|==
 literal|6
-operator|)
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 return|return
@@ -1358,7 +1346,6 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
 name|iodev
 operator|->
 name|write
@@ -1373,11 +1360,6 @@ name|BMP_INFOHDR_SIZE
 argument_list|)
 operator|==
 name|BMP_INFOHDR_SIZE
-operator|)
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 return|return
@@ -4962,16 +4944,10 @@ name|imageNumber
 expr_stmt|;
 block|}
 return|return
-operator|(
 name|imageNumber
 operator|<
 name|imageCount
 argument_list|()
-operator|)
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 end_function

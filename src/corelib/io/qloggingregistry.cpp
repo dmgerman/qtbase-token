@@ -1547,10 +1547,6 @@ name|enableForLevel
 operator|==
 name|QtDebugMsg
 operator|)
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 name|bool
 name|warning
@@ -1560,10 +1556,6 @@ name|enableForLevel
 operator|<=
 name|QtWarningMsg
 operator|)
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 name|bool
 name|critical
@@ -1573,10 +1565,6 @@ name|enableForLevel
 operator|<=
 name|QtCriticalMsg
 operator|)
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 comment|// hard-wired implementation of
 comment|//   qt.*.debug=false

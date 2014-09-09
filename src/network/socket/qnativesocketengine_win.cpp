@@ -5716,10 +5716,6 @@ operator|=
 name|available
 operator|>
 literal|0
-condition|?
-literal|true
-else|:
-literal|false
 expr_stmt|;
 endif|#
 directive|endif
