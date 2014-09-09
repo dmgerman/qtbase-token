@@ -9335,6 +9335,9 @@ block|{
 name|QSize
 name|sz
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|QStyle
@@ -9388,6 +9391,9 @@ block|{
 name|QSize
 name|sz
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|QStyle

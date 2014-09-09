@@ -23810,6 +23810,9 @@ block|{
 name|QSize
 name|sz
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|QStyle
@@ -23920,6 +23923,9 @@ block|{
 name|QSize
 name|sz
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|QStyle
@@ -27588,6 +27594,9 @@ directive|endif
 condition|)
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_DockWidgetCloseButton
@@ -27608,6 +27617,9 @@ expr_stmt|;
 else|else
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarCloseButton
@@ -27778,6 +27790,9 @@ operator|)
 expr_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarMaxButton
@@ -27948,6 +27963,9 @@ operator|)
 expr_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarMinButton
@@ -28152,6 +28170,9 @@ operator|)
 expr_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarNormalButton
@@ -28324,6 +28345,9 @@ operator|)
 expr_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarShadeButton
@@ -28491,6 +28515,9 @@ operator|)
 expr_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarUnshadeButton
@@ -28650,6 +28677,9 @@ operator|)
 expr_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarContextHelpButton
@@ -28833,6 +28863,9 @@ argument_list|)
 decl_stmt|;
 name|pm
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarMenuButton
@@ -30458,6 +30491,9 @@ expr_stmt|;
 name|QPixmap
 name|pm
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarCloseButton
@@ -30620,6 +30656,9 @@ expr_stmt|;
 name|QPixmap
 name|pm
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarNormalButton
@@ -30782,6 +30821,9 @@ expr_stmt|;
 name|QPixmap
 name|pm
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarMinButton

@@ -6702,6 +6702,9 @@ name|d
 operator|->
 name|tabBarcloseButtonIcon
 operator|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_DialogCloseButton
@@ -19679,6 +19682,9 @@ expr_stmt|;
 name|QPixmap
 name|pm
 init|=
+name|proxy
+argument_list|()
+operator|->
 name|standardIcon
 argument_list|(
 name|SP_TitleBarMenuButton
