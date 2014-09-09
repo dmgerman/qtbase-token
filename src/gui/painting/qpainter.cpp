@@ -26193,13 +26193,10 @@ specifier|const
 name|bool
 name|antialiasingDisabled
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_NO_ANTIALIASING"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
