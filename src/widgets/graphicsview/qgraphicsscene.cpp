@@ -19575,13 +19575,10 @@ specifier|static
 name|int
 name|drawRect
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_DRAW_SCENE_ITEM_RECTS"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

@@ -125,13 +125,10 @@ name|checked_env
 operator|=
 operator|!
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_GRAPHICSLAYOUT_DEBUG"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 expr_stmt|;
 return|return
 name|checked_env
