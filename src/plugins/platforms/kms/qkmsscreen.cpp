@@ -934,13 +934,10 @@ specifier|static
 name|int
 name|hideCursor
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_QPA_KMS_HIDECURSOR"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
