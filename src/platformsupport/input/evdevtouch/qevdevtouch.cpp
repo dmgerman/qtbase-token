@@ -747,13 +747,10 @@ expr_stmt|;
 name|bool
 name|printDeviceInfo
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_QPA_EVDEV_DEBUG"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 comment|// only the first device argument is used for now
 name|QString
