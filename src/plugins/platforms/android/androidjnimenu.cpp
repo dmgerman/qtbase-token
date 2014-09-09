@@ -849,13 +849,10 @@ name|qMax
 argument_list|(
 literal|36
 argument_list|,
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_ANDROID_APP_ICON_SIZE"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QImage

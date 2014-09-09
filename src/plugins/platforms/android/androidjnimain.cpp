@@ -1797,13 +1797,10 @@ specifier|static
 name|bool
 name|block
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_BLOCK_EVENT_LOOPS_WHEN_SUSPENDED"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 return|return
 name|block

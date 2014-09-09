@@ -881,13 +881,10 @@ name|max
 argument_list|(
 literal|5
 argument_list|,
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_ANDROID_MAX_ASSETS_CACHE_SIZE"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 argument_list|)
 argument_list|)
 member_init_list|,

@@ -205,13 +205,10 @@ comment|// Raster only apps should set QT_ANDROID_RASTER_IMAGE_DEPTH to 16
 comment|// is way much faster than 32
 if|if
 condition|(
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_ANDROID_RASTER_IMAGE_DEPTH"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 operator|==
 literal|16
 condition|)

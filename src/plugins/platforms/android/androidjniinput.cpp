@@ -680,13 +680,10 @@ specifier|static
 name|bool
 name|rightMouseFromLongPress
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_NECESSITAS_COMPATIBILITY_LONG_PRESS"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
