@@ -164,13 +164,10 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_QPA_ENABLE_TERMINAL_KEYBOARD"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 condition|)
 block|{
 operator|::
