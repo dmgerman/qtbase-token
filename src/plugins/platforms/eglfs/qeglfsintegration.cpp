@@ -106,13 +106,10 @@ parameter_list|()
 block|{
 name|mDisableInputHandlers
 operator|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_QPA_EGLFS_DISABLE_INPUT"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 expr_stmt|;
 name|initResources
 argument_list|()

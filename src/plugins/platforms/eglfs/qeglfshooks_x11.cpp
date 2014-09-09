@@ -1550,13 +1550,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"EGLFS_X11_FULLSCREEN"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 condition|)
 block|{
 comment|// Go fullscreen. The QScreen and QWindow size is controlled by EGLFS_X11_SIZE regardless,
