@@ -1615,6 +1615,11 @@ operator|->
 name|glFlush
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|resolveSamples
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment
