@@ -165,13 +165,10 @@ argument_list|(
 name|debugBackingStoreEnvironmentVariable
 argument_list|)
 operator|&&
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 name|debugBackingStoreEnvironmentVariable
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 operator|>
 literal|0
 condition|)
