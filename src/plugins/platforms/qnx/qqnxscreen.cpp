@@ -1462,13 +1462,10 @@ comment|// check if display depth was specified in environment variable;
 comment|// use default value if no valid value found
 name|defaultDepth
 operator|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QQNX_DISPLAY_DEPTH"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -3435,13 +3432,10 @@ specifier|const
 name|int
 name|rotation
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"ORIENTATION"
-argument_list|)
-operator|.
-name|toInt
-argument_list|(
+argument_list|,
 operator|&
 name|ok
 argument_list|)
@@ -4180,13 +4174,10 @@ specifier|const
 name|int
 name|disablePowerSave
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QQNX_DISABLE_POWER_SAVE"
-argument_list|)
-operator|.
-name|toInt
-argument_list|(
+argument_list|,
 operator|&
 name|ok
 argument_list|)
