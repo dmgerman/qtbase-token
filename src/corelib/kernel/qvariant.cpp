@@ -9790,8 +9790,10 @@ name|QMetaType
 operator|::
 name|convert
 argument_list|(
-operator|&
-name|val
+name|constData
+argument_list|(
+name|d
+argument_list|)
 argument_list|,
 name|d
 operator|.
@@ -9803,11 +9805,9 @@ argument_list|,
 name|t
 argument_list|)
 condition|)
-block|{
 return|return
 name|ret
 return|;
-block|}
 if|if
 condition|(
 operator|!
