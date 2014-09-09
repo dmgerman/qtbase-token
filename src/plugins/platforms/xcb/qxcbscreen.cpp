@@ -1646,13 +1646,10 @@ specifier|static
 name|int
 name|override_dpr
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_DEVICE_PIXEL_RATIO"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 decl_stmt|;
 specifier|static
 name|bool
