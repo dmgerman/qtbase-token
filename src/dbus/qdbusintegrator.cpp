@@ -5714,13 +5714,10 @@ condition|)
 operator|::
 name|isDebugging
 operator|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QDBUS_DEBUG"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 expr_stmt|;
 name|Q_UNUSED
 argument_list|(
