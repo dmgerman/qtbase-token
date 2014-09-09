@@ -1890,13 +1890,10 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_USE_NATIVE_WINDOWS"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 operator|>
 literal|0
 condition|)
