@@ -746,6 +746,13 @@ name|QInputEvent
 block|{
 name|public
 operator|:
+expr|enum
+block|{
+name|DefaultDeltasPerStep
+operator|=
+literal|120
+block|}
+block|;
 name|QWheelEvent
 argument_list|(
 argument|const QPointF&pos
