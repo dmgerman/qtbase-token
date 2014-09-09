@@ -1093,13 +1093,10 @@ argument_list|(
 literal|"QT_USE_WINRT_NATIVE_DIALOGS"
 argument_list|)
 condition|?
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"QT_USE_WINRT_NATIVE_DIALOGS"
 argument_list|)
-operator|.
-name|toInt
-argument_list|()
 else|:
 literal|true
 decl_stmt|;
