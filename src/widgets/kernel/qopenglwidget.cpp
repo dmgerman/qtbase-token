@@ -626,6 +626,16 @@ argument_list|(
 name|deviceSize
 argument_list|)
 expr_stmt|;
+name|paintDevice
+operator|->
+name|setDevicePixelRatio
+argument_list|(
+name|q
+operator|->
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+expr_stmt|;
 emit|emit
 name|q
 operator|->
