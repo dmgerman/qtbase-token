@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qxcbscreen.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qfontengine_p.h>
 end_include
 begin_decl_stmt
@@ -65,6 +70,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QXcbObject
 name|class
+name|Q_XCB_EXPORT
 name|QXcbScreen
 range|:
 name|public

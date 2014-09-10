@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<qpa/qplatformscreen.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qxcbexport.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QXcbConnection
@@ -50,6 +55,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_XCB_EXPORT
 name|QXcbIntegration
 range|:
 name|public

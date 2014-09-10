@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtCore/QRect>
 end_include
+begin_include
+include|#
+directive|include
+file|"qxcbexport.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWidget
@@ -48,7 +53,14 @@ name|QXcbConnection
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXcbNativeInterfaceHandler
 name|class
+name|QXcbNativeInterfaceHandler
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|Q_XCB_EXPORT
 name|QXcbNativeInterface
 range|:
 name|public
@@ -62,19 +74,9 @@ name|ResourceType
 block|{
 name|Display
 block|,
-name|EglDisplay
-block|,
 name|Connection
 block|,
 name|Screen
-block|,
-name|EglContext
-block|,
-name|EglConfig
-block|,
-name|GLXConfig
-block|,
-name|GLXContext
 block|,
 name|AppTime
 block|,
@@ -138,6 +140,16 @@ argument|QWindow *window
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+operator|*
+name|nativeResourceForBackingStore
+argument_list|(
+argument|const QByteArray&resource
+argument_list|,
+argument|QBackingStore *backingStore
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|NativeResourceForIntegrationFunction
 name|nativeResourceFunctionForIntegration
 argument_list|(
@@ -154,6 +166,20 @@ name|Q_DECL_OVERRIDE
 block|;
 name|NativeResourceForScreenFunction
 name|nativeResourceFunctionForScreen
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|NativeResourceForWindowFunction
+name|nativeResourceFunctionForWindow
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|NativeResourceForBackingStoreFunction
+name|nativeResourceFunctionForBackingStore
 argument_list|(
 argument|const QByteArray&resource
 argument_list|)
@@ -182,15 +208,6 @@ block|}
 name|void
 operator|*
 name|displayForWindow
-argument_list|(
-name|QWindow
-operator|*
-name|window
-argument_list|)
-block|;
-name|void
-operator|*
-name|eglDisplayForWindow
 argument_list|(
 name|QWindow
 operator|*
@@ -287,46 +304,6 @@ argument_list|,
 argument|xcb_timestamp_t time
 argument_list|)
 block|;
-specifier|static
-name|void
-operator|*
-name|eglContextForContext
-argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
-argument_list|)
-block|;
-specifier|static
-name|void
-operator|*
-name|eglConfigForContext
-argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
-argument_list|)
-block|;
-specifier|static
-name|void
-operator|*
-name|glxContextForContext
-argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
-argument_list|)
-block|;
-specifier|static
-name|void
-operator|*
-name|glxConfigForContext
-argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
-argument_list|)
-block|;
 name|Q_INVOKABLE
 name|void
 name|beep
@@ -390,6 +367,22 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|addHandler
+argument_list|(
+name|QXcbNativeInterfaceHandler
+operator|*
+name|handler
+argument_list|)
+block|;
+name|void
+name|removeHandler
+argument_list|(
+name|QXcbNativeInterfaceHandler
+operator|*
+name|handler
+argument_list|)
+block|;
 name|signals
 operator|:
 name|void
@@ -434,6 +427,103 @@ name|QWindow
 operator|*
 name|window
 argument_list|)
+block|;
+name|QList
+operator|<
+name|QXcbNativeInterfaceHandler
+operator|*
+operator|>
+name|m_handlers
+block|;
+name|NativeResourceForIntegrationFunction
+name|handlerNativeResourceFunctionForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+block|;
+name|NativeResourceForContextFunction
+name|handlerNativeResourceFunctionForContext
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+block|;
+name|NativeResourceForScreenFunction
+name|handlerNativeResourceFunctionForScreen
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+block|;
+name|NativeResourceForWindowFunction
+name|handlerNativeResourceFunctionForWindow
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+block|;
+name|NativeResourceForBackingStoreFunction
+name|handlerNativeResourceFunctionForBackingStore
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+block|;
+name|QFunctionPointer
+name|handlerPlatformFunction
+argument_list|(
+argument|const QByteArray&function
+argument_list|)
+specifier|const
+block|;
+name|void
+operator|*
+name|handlerNativeResourceForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+block|;
+name|void
+operator|*
+name|handlerNativeResourceForContext
+argument_list|(
+argument|const QByteArray&resource
+argument_list|,
+argument|QOpenGLContext *context
+argument_list|)
+specifier|const
+block|;
+name|void
+operator|*
+name|handlerNativeResourceForScreen
+argument_list|(
+argument|const QByteArray&resource
+argument_list|,
+argument|QScreen *screen
+argument_list|)
+specifier|const
+block|;
+name|void
+operator|*
+name|handlerNativeResourceForWindow
+argument_list|(
+argument|const QByteArray&resource
+argument_list|,
+argument|QWindow *window
+argument_list|)
+specifier|const
+block|;
+name|void
+operator|*
+name|handlerNativeResourceForBackingStore
+argument_list|(
+argument|const QByteArray&resource
+argument_list|,
+argument|QBackingStore *backingStore
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
