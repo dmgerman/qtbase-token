@@ -1537,7 +1537,7 @@ argument_list|)
 operator|->
 name|d_ptr
 operator|->
-name|resolveFont
+name|resolvePalette
 argument_list|(
 name|inheritedMask
 argument_list|)

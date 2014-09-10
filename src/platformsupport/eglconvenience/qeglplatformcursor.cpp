@@ -1662,6 +1662,9 @@ name|m_program
 condition|)
 block|{
 comment|// one time initialization
+name|initializeOpenGLFunctions
+argument_list|()
+expr_stmt|;
 name|createShaderPrograms
 argument_list|()
 expr_stmt|;
@@ -1893,6 +1896,13 @@ argument_list|,
 name|m_cursor
 operator|.
 name|texture
+argument_list|)
+expr_stmt|;
+name|glBindBuffer
+argument_list|(
+name|GL_ARRAY_BUFFER
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|m_program

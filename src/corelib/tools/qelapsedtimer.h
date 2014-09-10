@@ -40,6 +40,25 @@ block|,
 name|PerformanceCounter
 block|}
 enum|;
+name|Q_DECL_CONSTEXPR
+name|QElapsedTimer
+argument_list|()
+operator|:
+name|t1
+argument_list|(
+name|Q_INT64_C
+argument_list|(
+literal|0x8000000000000000
+argument_list|)
+argument_list|)
+operator|,
+name|t2
+argument_list|(
+argument|Q_INT64_C(
+literal|0x8000000000000000
+argument|)
+argument_list|)
+block|{     }
 specifier|static
 name|ClockType
 name|clockType

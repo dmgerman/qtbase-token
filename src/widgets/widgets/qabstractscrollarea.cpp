@@ -5513,6 +5513,9 @@ name|DragLeave
 case|:
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 comment|// QOpenGLWidget needs special support because it has to know
 comment|// its size has changed, so that it can resize its fbo.
 if|if
@@ -5537,6 +5540,8 @@ operator|->
 name|resizeViewportFramebuffer
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|QFrame
 operator|::

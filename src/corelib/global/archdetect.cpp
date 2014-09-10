@@ -296,15 +296,14 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// endinanness
+comment|// endianness
 end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
+name|Q_BYTE_ORDER
+operator|==
 name|Q_LITTLE_ENDIAN
-argument_list|)
 end_if
 begin_define
 DECL|macro|ARCH_ENDIANNESS
@@ -316,10 +315,9 @@ end_define
 begin_elif
 elif|#
 directive|elif
-name|defined
-argument_list|(
+name|Q_BYTE_ORDER
+operator|==
 name|Q_BIG_ENDIAN
-argument_list|)
 end_elif
 begin_define
 DECL|macro|ARCH_ENDIANNESS

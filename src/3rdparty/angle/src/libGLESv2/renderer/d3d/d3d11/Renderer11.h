@@ -1448,7 +1448,7 @@ name|std
 operator|::
 name|unordered_map
 operator|<
-name|DXGI_FORMAT
+name|GLenum
 operator|,
 name|MultisampleSupportInfo
 operator|>

@@ -5323,6 +5323,9 @@ name|ptr
 parameter_list|)
 function_decl|;
 comment|// Special non-ES OpenGL variants, not to be called directly
+ifndef|#
+directive|ifndef
+name|QT_OPENGL_ES_2
 name|void
 function_decl|(
 name|QOPENGLF_APIENTRYP
@@ -5346,6 +5349,8 @@ name|GLdouble
 name|zFar
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct

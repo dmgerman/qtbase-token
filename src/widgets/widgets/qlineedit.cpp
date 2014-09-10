@@ -5890,12 +5890,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|QRect
-name|r
-init|=
-name|rect
-argument_list|()
-decl_stmt|;
 name|QPalette
 name|pal
 init|=
@@ -5929,8 +5923,9 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|QRect
 name|r
-operator|=
+init|=
 name|style
 argument_list|()
 operator|->
@@ -5945,7 +5940,7 @@ name|panel
 argument_list|,
 name|this
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|r
 operator|.
 name|setX

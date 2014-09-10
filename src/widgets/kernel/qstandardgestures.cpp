@@ -2016,11 +2016,17 @@ literal|50
 decl_stmt|;
 if|if
 condition|(
+name|qAbs
+argument_list|(
 name|xDistance
+argument_list|)
 operator|>
 name|MoveThreshold
 operator|||
+name|qAbs
+argument_list|(
 name|yDistance
+argument_list|)
 operator|>
 name|MoveThreshold
 condition|)

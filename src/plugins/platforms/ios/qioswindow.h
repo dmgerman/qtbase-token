@@ -151,6 +151,14 @@ name|bool
 name|visible
 parameter_list|)
 function_decl|;
+name|void
+name|setOpacity
+argument_list|(
+name|qreal
+name|level
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|bool
 name|isExposed
 argument_list|()

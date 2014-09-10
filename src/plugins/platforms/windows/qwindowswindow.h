@@ -1139,26 +1139,6 @@ name|void
 name|applyCursor
 argument_list|()
 block|;
-name|QWindowsWindow
-operator|*
-name|childAt
-argument_list|(
-argument|const QPoint&clientPoint
-argument_list|,
-argument|unsigned cwexflags = CWP_SKIPINVISIBLE
-argument_list|)
-specifier|const
-block|;
-name|QWindowsWindow
-operator|*
-name|childAtScreenPoint
-argument_list|(
-argument|const QPoint&screenPoint
-argument_list|,
-argument|unsigned cwexflags = CWP_SKIPINVISIBLE
-argument_list|)
-specifier|const
-block|;
 specifier|static
 name|QByteArray
 name|debugWindowFlags

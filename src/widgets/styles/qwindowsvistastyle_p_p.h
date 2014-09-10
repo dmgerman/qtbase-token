@@ -558,9 +558,11 @@ name|QWindowsVistaStylePrivate
 argument_list|()
 block|;
 specifier|static
-name|bool
-name|resolveSymbols
-argument_list|()
+name|int
+name|fixedPixelMetric
+argument_list|(
+argument|QStyle::PixelMetric pm
+argument_list|)
 block|;
 specifier|static
 specifier|inline

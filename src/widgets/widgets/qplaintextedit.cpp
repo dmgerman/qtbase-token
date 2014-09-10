@@ -3436,11 +3436,6 @@ name|isValid
 argument_list|()
 condition|)
 return|return;
-name|QRectF
-name|lr
-init|=
-name|br
-decl_stmt|;
 name|QTextLine
 name|line
 init|=
@@ -3467,8 +3462,9 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QRectF
 name|lr
-operator|=
+init|=
 name|line
 operator|.
 name|naturalTextRect
@@ -3481,7 +3477,7 @@ operator|.
 name|topLeft
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|lr

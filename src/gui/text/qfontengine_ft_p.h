@@ -580,6 +580,38 @@ argument_list|,
 argument|Glyph *glyph
 argument_list|)
 block|;
+specifier|inline
+name|bool
+name|isGlyphMissing
+argument_list|(
+argument|glyph_t index
+argument_list|)
+specifier|const
+block|{
+return|return
+name|missing_glyphs
+operator|.
+name|contains
+argument_list|(
+name|index
+argument_list|)
+return|;
+block|}
+specifier|inline
+name|void
+name|setGlyphMissing
+argument_list|(
+argument|glyph_t index
+argument_list|)
+specifier|const
+block|{
+name|missing_glyphs
+operator|.
+name|insert
+argument_list|(
+name|index
+argument_list|)
+block|; }
 name|private
 operator|:
 name|mutable
@@ -593,6 +625,13 @@ operator|>
 name|glyph_data
 block|;
 comment|// maps from glyph index to glyph data
+name|mutable
+name|QSet
+operator|<
+name|glyph_t
+operator|>
+name|missing_glyphs
+block|;
 name|mutable
 name|Glyph
 operator|*

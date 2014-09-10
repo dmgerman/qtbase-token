@@ -197,6 +197,8 @@ end_decl_stmt
 begin_endif
 endif|#
 directive|endif
-endif|LIBGLESV2_RENDERER_RENDERTARGET11_H_
 end_endif
+begin_comment
+comment|// LIBGLESV2_RENDERER_RENDERTARGET11_H_
+end_comment
 end_unit

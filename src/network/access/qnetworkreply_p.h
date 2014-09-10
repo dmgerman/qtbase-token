@@ -87,6 +87,31 @@ name|QNetworkHeadersPrivate
 block|{
 name|public
 label|:
+enum|enum
+name|State
+block|{
+name|Idle
+block|,
+comment|// The reply is idle.
+name|Buffering
+block|,
+comment|// The reply is buffering outgoing data.
+name|Working
+block|,
+comment|// The reply is uploading/downloading data.
+name|Finished
+block|,
+comment|// The reply has finished.
+name|Aborted
+block|,
+comment|// The reply has been aborted.
+name|WaitingForSession
+block|,
+comment|// The reply is waiting for the session to open before connecting.
+name|Reconnecting
+comment|// The reply will reconnect to once roaming has completed.
+block|}
+enum|;
 name|QNetworkReplyPrivate
 argument_list|()
 expr_stmt|;

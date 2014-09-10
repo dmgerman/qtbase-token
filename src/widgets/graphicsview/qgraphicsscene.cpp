@@ -6762,9 +6762,9 @@ name|parentItem
 argument_list|()
 condition|)
 block|{
-comment|// Resolvefont for an item is a noop operation, but
+comment|// ResolvePalette for an item is a noop operation, but
 comment|// every item can be a widget, or can have a widget
-comment|// childre.
+comment|// children.
 name|item
 operator|->
 name|d_ptr

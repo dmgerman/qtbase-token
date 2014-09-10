@@ -97,9 +97,7 @@ name|QAtomicInt
 name|m_goingToStop
 block|;
 name|QSemaphore
-name|m_dispatcherSemaphore
-block|,
-name|m_stopperSemaphore
+name|m_semaphore
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -115,6 +113,19 @@ modifier|*
 name|instance
 parameter_list|()
 function_decl|;
+specifier|static
+name|bool
+name|stopped
+parameter_list|()
+block|{
+return|return
+operator|!
+name|instance
+argument_list|()
+operator|->
+name|started
+return|;
+block|}
 name|void
 name|startAll
 parameter_list|()

@@ -14106,10 +14106,6 @@ modifier|*
 modifier|*
 name|newMem
 init|=
-name|memory
-decl_stmt|;
-name|newMem
-operator|=
 operator|(
 name|void
 operator|*
@@ -14132,7 +14128,7 @@ name|void
 operator|*
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!

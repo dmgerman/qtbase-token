@@ -88,9 +88,59 @@ argument|QWindowsStyle
 argument_list|)
 name|public
 operator|:
+expr|enum
+block|{
+name|InvalidMetric
+operator|=
+operator|-
+literal|23576
+block|}
+block|;
 name|QWindowsStylePrivate
 argument_list|()
 block|;
+specifier|static
+name|int
+name|pixelMetricFromSystemDp
+argument_list|(
+argument|QStyle::PixelMetric pm
+argument_list|,
+argument|const QStyleOption *option =
+literal|0
+argument_list|,
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+block|;
+specifier|static
+name|int
+name|fixedPixelMetric
+argument_list|(
+argument|QStyle::PixelMetric pm
+argument_list|)
+block|;
+specifier|static
+name|int
+name|devicePixelRatio
+argument_list|(
+argument|const QWidget *widget =
+literal|0
+argument_list|)
+block|{
+return|return
+name|widget
+operator|?
+name|widget
+operator|->
+name|devicePixelRatio
+argument_list|()
+operator|:
+name|QWindowsStylePrivate
+operator|::
+name|appDevicePixelRatio
+argument_list|()
+return|;
+block|}
 name|bool
 name|hasSeenAlt
 argument_list|(
@@ -172,6 +222,17 @@ operator|=
 literal|12
 comment|// checkmarks width on windows
 block|}
+block|;
+name|private
+operator|:
+specifier|static
+name|int
+name|appDevicePixelRatio
+argument_list|()
+block|;
+specifier|static
+name|int
+name|m_appDevicePixelRatio
 block|; }
 decl_stmt|;
 end_decl_stmt

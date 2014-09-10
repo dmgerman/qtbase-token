@@ -15974,7 +15974,7 @@ argument_list|()
 decl_stmt|;
 name|rect
 operator|.
-name|moveCenter
+name|translate
 argument_list|(
 name|offset
 argument_list|)

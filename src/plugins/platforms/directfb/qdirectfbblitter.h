@@ -189,8 +189,25 @@ name|QDirectFbConvenience
 block|;
 name|private
 operator|:
+name|void
+name|drawDebugRect
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|rect
+argument_list|,
+specifier|const
+name|QColor
+operator|&
+name|color
+argument_list|)
+block|;
 name|bool
 name|m_premult
+block|;
+name|bool
+name|m_debugPaint
 block|; }
 decl_stmt|;
 end_decl_stmt

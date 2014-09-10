@@ -956,7 +956,7 @@ name|d
 operator|->
 name|state
 operator|==
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Aborted
 operator|||
@@ -964,7 +964,7 @@ name|d
 operator|->
 name|state
 operator|==
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Finished
 condition|)
@@ -1017,7 +1017,7 @@ name|d
 operator|->
 name|state
 operator|==
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Finished
 operator|||
@@ -1025,7 +1025,7 @@ name|d
 operator|->
 name|state
 operator|==
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Aborted
 condition|)
@@ -1041,7 +1041,7 @@ name|d
 operator|->
 name|state
 operator|!=
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Finished
 condition|)
@@ -1067,7 +1067,7 @@ name|d
 operator|->
 name|state
 operator|==
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|WaitingForSession
 condition|)
@@ -1075,7 +1075,7 @@ name|d
 operator|->
 name|state
 operator|=
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Working
 expr_stmt|;
@@ -1089,7 +1089,7 @@ name|d
 operator|->
 name|state
 operator|=
-name|QNetworkReplyHttpImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Aborted
 expr_stmt|;
@@ -8446,17 +8446,17 @@ name|state
 condition|)
 block|{
 case|case
-name|QNetworkReplyImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Buffering
 case|:
 case|case
-name|QNetworkReplyImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Working
 case|:
 case|case
-name|QNetworkReplyImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|Reconnecting
 case|:
@@ -8466,7 +8466,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-name|QNetworkReplyImplPrivate
+name|QNetworkReplyPrivate
 operator|::
 name|WaitingForSession
 case|:

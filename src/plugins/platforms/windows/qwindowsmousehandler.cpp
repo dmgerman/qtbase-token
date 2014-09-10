@@ -1711,6 +1711,8 @@ operator|::
 name|windowAt
 argument_list|(
 name|globalPos
+argument_list|,
+name|CWP_SKIPINVISIBLE
 argument_list|)
 decl_stmt|;
 name|bool

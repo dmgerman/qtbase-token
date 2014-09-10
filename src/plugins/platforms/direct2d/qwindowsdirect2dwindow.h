@@ -59,6 +59,13 @@ operator|~
 name|QWindowsDirect2DWindow
 argument_list|()
 block|;
+name|void
+name|setWindowFlags
+argument_list|(
+argument|Qt::WindowFlags flags
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QPixmap
 operator|*
 name|pixmap
@@ -84,6 +91,15 @@ argument_list|)
 block|;
 name|void
 name|present
+argument_list|(
+specifier|const
+name|QRegion
+operator|&
+name|region
+argument_list|)
+block|;
+name|void
+name|setupSwapChain
 argument_list|()
 block|;
 name|void
@@ -145,6 +161,9 @@ name|m_pixmap
 block|;
 name|bool
 name|m_needsFullFlush
+block|;
+name|bool
+name|m_directRendering
 block|; }
 decl_stmt|;
 end_decl_stmt

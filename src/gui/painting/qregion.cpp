@@ -12383,19 +12383,11 @@ name|numFullPtBlocks
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|region
 operator|=
 operator|new
 name|QRegionPrivate
-operator|)
-condition|)
-return|return
-literal|0
-return|;
+expr_stmt|;
 comment|/* special case a rectangle */
 if|if
 condition|(

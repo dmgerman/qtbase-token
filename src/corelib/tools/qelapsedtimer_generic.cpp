@@ -62,7 +62,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with start(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed() */
+comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with start(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      Restarting the timer makes it valid again.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed() */
 end_comment
 begin_function
 name|qint64

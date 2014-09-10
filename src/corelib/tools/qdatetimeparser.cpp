@@ -3638,11 +3638,6 @@ operator|!=
 name|Invalid
 condition|)
 block|{
-name|QString
-name|str
-init|=
-name|text
-decl_stmt|;
 name|text
 operator|.
 name|replace
@@ -3795,11 +3790,6 @@ else|:
 name|Intermediate
 operator|)
 expr_stmt|;
-name|QString
-name|str
-init|=
-name|text
-decl_stmt|;
 name|text
 operator|.
 name|replace
