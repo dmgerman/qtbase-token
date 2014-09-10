@@ -275,11 +275,15 @@ name|updateObjectName
 argument_list|()
 block|;
 name|void
-name|repaintWindow
+name|handleScreenChange
 argument_list|()
 block|;
 name|private
 operator|:
+name|void
+name|repaintWindow
+argument_list|()
+block|;
 name|void
 name|updateGeometry
 argument_list|()

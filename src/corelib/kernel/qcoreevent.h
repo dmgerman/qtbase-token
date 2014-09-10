@@ -859,6 +859,10 @@ operator|=
 literal|215
 block|,
 comment|// internal for QQuickWidget
+name|ScreenChangeInternal
+operator|=
+literal|216
+block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
