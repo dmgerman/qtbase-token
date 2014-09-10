@@ -1225,6 +1225,8 @@ name|PM_ScrollView_ScrollBarOverlap
 block|,
 name|PM_SubMenuOverlap
 block|,
+name|PM_TreeViewIndentation
+block|,
 comment|// do not add any values below/greater than this
 name|PM_CustomBase
 operator|=

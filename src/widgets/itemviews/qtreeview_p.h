@@ -255,6 +255,11 @@ argument_list|(
 name|false
 argument_list|)
 block|,
+name|customIndent
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|current
 argument_list|(
 literal|0
@@ -833,6 +838,9 @@ block|;
 name|bool
 name|allColumnsShowFocus
 block|;
+name|bool
+name|customIndent
+block|;
 comment|// used for drawing
 name|mutable
 name|QPair
@@ -1153,6 +1161,12 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|void
+name|updateIndentationFromStyle
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|// used for spanning rows
 end_comment

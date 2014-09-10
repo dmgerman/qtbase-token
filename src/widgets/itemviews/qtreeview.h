@@ -49,7 +49,7 @@ argument|int autoExpandDelay READ autoExpandDelay WRITE setAutoExpandDelay
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int indentation READ indentation WRITE setIndentation
+argument|int indentation READ indentation WRITE setIndentation RESET resetIndentation
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -163,6 +163,10 @@ name|setIndentation
 argument_list|(
 argument|int i
 argument_list|)
+block|;
+name|void
+name|resetIndentation
+argument_list|()
 block|;
 name|bool
 name|rootIsDecorated
