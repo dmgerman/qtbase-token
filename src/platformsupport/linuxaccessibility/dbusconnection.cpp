@@ -199,7 +199,6 @@ specifier|const
 name|bool
 name|a11yAlwaysOn
 init|=
-operator|!
 name|qEnvironmentVariableIsSet
 argument_list|(
 literal|"QT_LINUX_ACCESSIBILITY_ALWAYS_ON"
