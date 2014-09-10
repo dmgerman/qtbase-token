@@ -775,7 +775,11 @@ operator|::
 name|~
 name|QOpenGLTextureBlitter
 parameter_list|()
-block|{ }
+block|{
+name|destroy
+argument_list|()
+expr_stmt|;
+block|}
 end_destructor
 begin_function
 DECL|function|create
@@ -1168,6 +1172,13 @@ operator|::
 name|destroy
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|isCreated
+argument_list|()
+condition|)
+return|return;
 name|Q_D
 argument_list|(
 name|QOpenGLTextureBlitter
