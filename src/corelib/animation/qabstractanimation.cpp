@@ -2816,6 +2816,13 @@ name|running
 operator|=
 literal|true
 expr_stmt|;
+name|d
+operator|->
+name|timer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 emit|emit
 name|started
 argument_list|()
@@ -2868,18 +2875,25 @@ name|elapsed
 parameter_list|()
 specifier|const
 block|{
-comment|// The default implementation picks up the elapsed time from the
-comment|// unified timer and can ignore the time offset.
+name|Q_D
+argument_list|(
+specifier|const
+name|QAnimationDriver
+argument_list|)
+expr_stmt|;
 return|return
-name|QUnifiedTimer
-operator|::
-name|instance
-argument_list|()
+name|d
 operator|->
-name|time
+name|running
+condition|?
+name|d
+operator|->
+name|timer
 operator|.
 name|elapsed
 argument_list|()
+else|:
+literal|0
 return|;
 block|}
 end_function

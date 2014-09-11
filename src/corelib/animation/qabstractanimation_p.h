@@ -306,6 +306,9 @@ argument_list|(
 argument|false
 argument_list|)
 block|{}
+name|QElapsedTimer
+name|timer
+block|;
 name|bool
 name|running
 block|; }
