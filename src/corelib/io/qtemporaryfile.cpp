@@ -726,6 +726,9 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 end_function
 begin_comment
