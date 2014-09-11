@@ -41,6 +41,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|emitAllUploadProgressSignals
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|operation
 argument_list|(
 name|QNetworkAccessManager

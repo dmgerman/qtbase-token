@@ -150,7 +150,28 @@ name|downloadBuffer
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+if|if
+condition|(
+name|request
+operator|.
+name|attribute
+argument_list|(
+name|QNetworkRequest
+operator|::
+name|EmitAllUploadProgressSignalsAttribute
+argument_list|)
+operator|.
+name|toBool
+argument_list|()
+operator|==
+literal|true
+condition|)
+name|emitAllUploadProgressSignals
+operator|=
+literal|true
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|_q_startOperation
@@ -2229,6 +2250,12 @@ name|bytesUploaded
 operator|=
 name|bytesSent
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|emitAllUploadProgressSignals
+condition|)
+block|{
 comment|//choke signal emissions, except the first and last signals which are unconditional
 if|if
 condition|(
@@ -2267,6 +2294,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|pauseNotificationHandling
 argument_list|()

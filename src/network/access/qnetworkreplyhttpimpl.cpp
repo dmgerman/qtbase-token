@@ -3323,6 +3323,26 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|attribute
+argument_list|(
+name|QNetworkRequest
+operator|::
+name|EmitAllUploadProgressSignalsAttribute
+argument_list|)
+operator|.
+name|toBool
+argument_list|()
+operator|==
+literal|true
+condition|)
+name|emitAllUploadProgressSignals
+operator|=
+literal|true
+expr_stmt|;
 comment|// Create the HTTP thread delegate
 name|QHttpThreadDelegate
 modifier|*
@@ -8695,6 +8715,12 @@ condition|(
 name|isFinished
 condition|)
 return|return;
+if|if
+condition|(
+operator|!
+name|emitAllUploadProgressSignals
+condition|)
+block|{
 comment|//choke signal emissions, except the first and last signals which are unconditional
 if|if
 condition|(
@@ -8733,6 +8759,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 emit|emit
 name|q

@@ -122,6 +122,8 @@ name|SpdyAllowedAttribute
 block|,
 name|SpdyWasUsedAttribute
 block|,
+name|EmitAllUploadProgressSignalsAttribute
+block|,
 name|User
 init|=
 literal|1000

@@ -136,6 +136,9 @@ decl_stmt|;
 name|QElapsedTimer
 name|uploadProgressSignalChoke
 decl_stmt|;
+name|bool
+name|emitAllUploadProgressSignals
+decl_stmt|;
 specifier|const
 specifier|static
 name|int
