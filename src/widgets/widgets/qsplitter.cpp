@@ -7088,8 +7088,9 @@ name|stream
 operator|<<
 name|qint32
 argument_list|(
+name|d
+operator|->
 name|handleWidth
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|stream
