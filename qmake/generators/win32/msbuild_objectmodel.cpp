@@ -4499,6 +4499,13 @@ name|tool
 operator|.
 name|Version
 argument_list|)
+operator|<<
+name|tagValue
+argument_list|(
+literal|"DefaultLanguage"
+argument_list|,
+literal|"en"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
