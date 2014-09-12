@@ -2859,9 +2859,12 @@ operator|~
 name|VCConfiguration
 argument_list|()
 block|{}
+name|bool
+name|suppressUnknownOptionWarnings
+expr_stmt|;
 name|DotNET
 name|CompilerVersion
-expr_stmt|;
+decl_stmt|;
 name|bool
 name|WinRT
 decl_stmt|,

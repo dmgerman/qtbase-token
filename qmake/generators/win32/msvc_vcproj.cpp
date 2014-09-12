@@ -6116,6 +6116,17 @@ name|Configuration
 decl_stmt|;
 name|conf
 operator|.
+name|suppressUnknownOptionWarnings
+operator|=
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"suppress_vcproj_warnings"
+argument_list|)
+expr_stmt|;
+name|conf
+operator|.
 name|CompilerVersion
 operator|=
 name|which_dotnet_version
