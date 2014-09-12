@@ -126,9 +126,11 @@ name|MinimumDayOffset
 init|=
 literal|1
 end_decl_stmt
-begin_class
-DECL|class|QCalendarDateSectionValidator
+begin_namespace
 unit|};
+namespace|namespace
+block|{
+DECL|class|QCalendarDateSectionValidator
 class|class
 name|QCalendarDateSectionValidator
 block|{
@@ -237,8 +239,6 @@ function_decl|;
 private|private:
 block|}
 class|;
-end_class
-begin_function
 DECL|function|highlightString
 name|QString
 name|QCalendarDateSectionValidator
@@ -314,8 +314,6 @@ literal|"</b>"
 argument_list|)
 return|;
 block|}
-end_function
-begin_class
 DECL|class|QCalendarDayValidator
 class|class
 name|QCalendarDayValidator
@@ -391,8 +389,6 @@ name|m_oldDay
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_constructor
 DECL|function|QCalendarDayValidator
 name|QCalendarDayValidator
 operator|::
@@ -417,8 +413,6 @@ argument_list|(
 literal|1
 argument_list|)
 block|{ }
-end_constructor
-begin_function
 DECL|function|handleKey
 name|QCalendarDateSectionValidator
 operator|::
@@ -671,8 +665,6 @@ operator|::
 name|ThisSection
 return|;
 block|}
-end_function
-begin_function
 DECL|function|applyToDate
 name|QDate
 name|QCalendarDayValidator
@@ -745,8 +737,6 @@ name|day
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setDate
 name|void
 name|QCalendarDayValidator
@@ -773,8 +763,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|text
 name|QString
 name|QCalendarDayValidator
@@ -819,8 +807,6 @@ name|m_pos
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|text
 name|QString
 name|QCalendarDayValidator
@@ -952,11 +938,7 @@ name|QString
 argument_list|()
 return|;
 block|}
-end_function
-begin_comment
 comment|//////////////////////////////////
-end_comment
-begin_class
 DECL|class|QCalendarMonthValidator
 class|class
 name|QCalendarMonthValidator
@@ -1032,8 +1014,6 @@ name|m_oldMonth
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_constructor
 DECL|function|QCalendarMonthValidator
 name|QCalendarMonthValidator
 operator|::
@@ -1058,8 +1038,6 @@ argument_list|(
 literal|1
 argument_list|)
 block|{ }
-end_constructor
-begin_function
 DECL|function|handleKey
 name|QCalendarDateSectionValidator
 operator|::
@@ -1312,8 +1290,6 @@ operator|::
 name|ThisSection
 return|;
 block|}
-end_function
-begin_function
 DECL|function|applyToDate
 name|QDate
 name|QCalendarMonthValidator
@@ -1404,8 +1380,6 @@ name|day
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setDate
 name|void
 name|QCalendarMonthValidator
@@ -1432,8 +1406,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|text
 name|QString
 name|QCalendarMonthValidator
@@ -1478,8 +1450,6 @@ name|m_pos
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|text
 name|QString
 name|QCalendarMonthValidator
@@ -1602,11 +1572,7 @@ argument_list|)
 return|;
 block|}
 block|}
-end_function
-begin_comment
 comment|//////////////////////////////////
-end_comment
-begin_class
 DECL|class|QCalendarYearValidator
 class|class
 name|QCalendarYearValidator
@@ -1689,8 +1655,6 @@ name|m_oldYear
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_constructor
 DECL|function|QCalendarYearValidator
 name|QCalendarYearValidator
 operator|::
@@ -1715,8 +1679,6 @@ argument_list|(
 literal|2000
 argument_list|)
 block|{ }
-end_constructor
-begin_function
 DECL|function|pow10
 name|int
 name|QCalendarYearValidator
@@ -1754,8 +1716,6 @@ return|return
 name|power
 return|;
 block|}
-end_function
-begin_function
 DECL|function|handleKey
 name|QCalendarDateSectionValidator
 operator|::
@@ -1997,8 +1957,6 @@ operator|::
 name|ThisSection
 return|;
 block|}
-end_function
-begin_function
 DECL|function|applyToDate
 name|QDate
 name|QCalendarYearValidator
@@ -2078,8 +2036,6 @@ name|day
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setDate
 name|void
 name|QCalendarYearValidator
@@ -2106,8 +2062,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|text
 name|QString
 name|QCalendarYearValidator
@@ -2177,8 +2131,6 @@ name|m_pos
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|text
 name|QString
 name|QCalendarYearValidator
@@ -2253,11 +2205,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_function
-begin_comment
 comment|///////////////////////////////////
-end_comment
-begin_class
 DECL|class|QCalendarDateValidator
 class|class
 name|QCalendarDateValidator
@@ -2434,8 +2382,6 @@ name|m_lastSectionMove
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_constructor
 DECL|function|QCalendarDateValidator
 name|QCalendarDateValidator
 operator|::
@@ -2482,8 +2428,6 @@ name|QCalendarDayValidator
 argument_list|()
 expr_stmt|;
 block|}
-end_constructor
-begin_function
 DECL|function|setLocale
 name|void
 name|QCalendarDateValidator
@@ -2515,8 +2459,6 @@ operator|=
 name|locale
 expr_stmt|;
 block|}
-end_function
-begin_destructor
 DECL|function|~QCalendarDateValidator
 name|QCalendarDateValidator
 operator|::
@@ -2537,11 +2479,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-end_destructor
-begin_comment
 comment|// from qdatetime.cpp
-end_comment
-begin_function
 DECL|function|countRepeat
 name|int
 name|QCalendarDateValidator
@@ -2617,8 +2555,6 @@ return|return
 name|count
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setInitialDate
 name|void
 name|QCalendarDateValidator
@@ -2667,8 +2603,6 @@ operator|::
 name|ThisSection
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|currentText
 name|QString
 name|QCalendarDateValidator
@@ -2769,8 +2703,6 @@ return|return
 name|str
 return|;
 block|}
-end_function
-begin_function
 DECL|function|clear
 name|void
 name|QCalendarDateValidator
@@ -2816,8 +2748,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setFormat
 name|void
 name|QCalendarDateValidator
@@ -3085,8 +3015,6 @@ operator|+=
 name|separator
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|applyToDate
 name|void
 name|QCalendarDateValidator
@@ -3122,8 +3050,6 @@ name|m_currentDate
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|toNextToken
 name|void
 name|QCalendarDateValidator
@@ -3181,8 +3107,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|toPreviousToken
 name|void
 name|QCalendarDateValidator
@@ -3237,8 +3161,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|handleKeyEvent
 name|void
 name|QCalendarDateValidator
@@ -3352,11 +3274,7 @@ name|toPreviousToken
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|//////////////////////////////////
-end_comment
-begin_class
 DECL|class|QCalendarTextNavigator
 class|class
 name|QCalendarTextNavigator
@@ -3539,8 +3457,6 @@ name|m_date
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|widget
 name|QWidget
 modifier|*
@@ -3554,8 +3470,6 @@ return|return
 name|m_widget
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setWidget
 name|void
 name|QCalendarTextNavigator
@@ -3572,8 +3486,6 @@ operator|=
 name|widget
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|date
 name|QDate
 name|QCalendarTextNavigator
@@ -3586,8 +3498,6 @@ return|return
 name|m_date
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setDate
 name|void
 name|QCalendarTextNavigator
@@ -3605,8 +3515,6 @@ operator|=
 name|date
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|updateDateLabel
 name|void
 name|QCalendarTextNavigator
@@ -3757,8 +3665,6 @@ name|show
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|applyDate
 name|void
 name|QCalendarTextNavigator
@@ -3792,8 +3698,6 @@ name|date
 argument_list|)
 emit|;
 block|}
-end_function
-begin_function
 DECL|function|createDateLabel
 name|void
 name|QCalendarTextNavigator
@@ -3915,8 +3819,6 @@ name|Window
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|removeDateLabel
 name|void
 name|QCalendarTextNavigator
@@ -3961,8 +3863,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|eventFilter
 name|bool
 name|QCalendarTextNavigator
@@ -4152,8 +4052,6 @@ name|e
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|timerEvent
 name|void
 name|QCalendarTextNavigator
@@ -4186,8 +4084,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|dateEditAcceptDelay
 name|int
 name|QCalendarTextNavigator
@@ -4200,8 +4096,6 @@ return|return
 name|m_editDelay
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setDateEditAcceptDelay
 name|void
 name|QCalendarTextNavigator
@@ -4217,13 +4111,9 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
-end_function
-begin_class_decl
 class_decl|class
 name|QCalendarView
 class_decl|;
-end_class_decl
-begin_class
 DECL|class|QCalendarModel
 class|class
 name|QCalendarModel
@@ -4721,8 +4611,6 @@ name|m_view
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_class
 DECL|class|QCalendarView
 class|class
 name|QCalendarView
@@ -4911,8 +4799,6 @@ endif|#
 directive|endif
 block|}
 class|;
-end_class
-begin_constructor
 DECL|function|QCalendarModel
 name|QCalendarModel
 operator|::
@@ -5000,8 +4886,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_constructor
-begin_function
 DECL|function|dayOfWeekForColumn
 name|Qt
 operator|::
@@ -5063,8 +4947,6 @@ name|day
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|columnForDayOfWeek
 name|int
 name|QCalendarModel
@@ -5121,11 +5003,7 @@ operator|+
 name|m_firstColumn
 return|;
 block|}
-end_function
-begin_comment
 comment|/* This simple algorithm tries to generate a valid date from the month shown. Some months don't contain a first day (e.g. Jan of -4713 year, so QDate (-4713, 1, 1) would be invalid). In that case we try to generate another valid date for that month. Later, returned date's day is the number of cells calendar widget will reserve for days before referenceDate. (E.g. if returned date's day is 16, that day will be placed in 3rd or 4th row, not in the 1st or 2nd row). Depending on referenceData we can change behaviour of Oct 1582. If referenceDate is 1st of Oct we render 1 Oct in 1st or 2nd row. If referenceDate is 17 of Oct we show always 16 dates before 17 of Oct, and since this month contains the hole 5-14 Oct, the first of Oct will be rendered in 2nd or 3rd row, showing more dates from previous month. */
-end_comment
-begin_function
 DECL|function|referenceDate
 name|QDate
 name|QCalendarModel
@@ -5176,8 +5054,6 @@ name|QDate
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|columnForFirstOfMonth
 name|int
 name|QCalendarModel
@@ -5224,8 +5100,6 @@ operator|%
 literal|7
 return|;
 block|}
-end_function
-begin_function
 DECL|function|dateForCell
 name|QDate
 name|QCalendarModel
@@ -5342,8 +5216,6 @@ name|requestedDay
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|cellForDate
 name|void
 name|QCalendarModel
@@ -5529,8 +5401,6 @@ operator|+
 name|m_firstColumn
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|dayName
 name|QString
 name|QCalendarModel
@@ -5650,8 +5520,6 @@ name|QString
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|formatForCell
 name|QTextCharFormat
 name|QCalendarModel
@@ -5938,8 +5806,6 @@ return|return
 name|format
 return|;
 block|}
-end_function
-begin_function
 DECL|function|data
 name|QVariant
 name|QCalendarModel
@@ -6181,8 +6047,6 @@ name|QVariant
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|flags
 name|Qt
 operator|::
@@ -6257,8 +6121,6 @@ name|index
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setDate
 name|void
 name|QCalendarModel
@@ -6297,8 +6159,6 @@ operator|=
 name|m_maximumDate
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|showMonth
 name|void
 name|QCalendarModel
@@ -6335,8 +6195,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setMinimumDate
 name|void
 name|QCalendarModel
@@ -6390,8 +6248,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setMaximumDate
 name|void
 name|QCalendarModel
@@ -6445,8 +6301,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setRange
 name|void
 name|QCalendarModel
@@ -6509,8 +6363,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|internalUpdate
 name|void
 name|QCalendarModel
@@ -6587,8 +6439,6 @@ literal|1
 argument_list|)
 emit|;
 block|}
-end_function
-begin_function
 DECL|function|setHorizontalHeaderFormat
 name|void
 name|QCalendarModel
@@ -6660,8 +6510,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setFirstColumnDay
 name|void
 name|QCalendarModel
@@ -6689,8 +6537,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|firstColumnDay
 name|Qt
 operator|::
@@ -6705,8 +6551,6 @@ return|return
 name|m_firstDay
 return|;
 block|}
-end_function
-begin_function
 DECL|function|weekNumbersShown
 name|bool
 name|QCalendarModel
@@ -6719,8 +6563,6 @@ return|return
 name|m_weekNumbersShown
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setWeekNumbersShown
 name|void
 name|QCalendarModel
@@ -6773,8 +6615,6 @@ name|internalUpdate
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_constructor
 DECL|function|QCalendarView
 name|QCalendarView
 operator|::
@@ -6841,8 +6681,6 @@ name|ScrollBarAlwaysOff
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
-begin_function
 DECL|function|moveCursor
 name|QModelIndex
 name|QCalendarView
@@ -7115,8 +6953,6 @@ name|currentIndex
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|keyPressEvent
 name|void
 name|QCalendarView
@@ -7270,13 +7106,9 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT
-end_ifndef
-begin_function
 DECL|function|wheelEvent
 name|void
 name|QCalendarView
@@ -7357,12 +7189,8 @@ name|currentDate
 argument_list|)
 emit|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|event
 name|bool
 name|QCalendarView
@@ -7425,8 +7253,6 @@ name|event
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|handleMouseEvent
 name|QDate
 name|QCalendarView
@@ -7524,8 +7350,6 @@ name|QDate
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|mouseDoubleClickEvent
 name|void
 name|QCalendarView
@@ -7609,8 +7433,6 @@ argument_list|()
 emit|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QCalendarView
@@ -7768,8 +7590,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|mouseMoveEvent
 name|void
 name|QCalendarView
@@ -7913,8 +7733,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|mouseReleaseEvent
 name|void
 name|QCalendarView
@@ -8038,8 +7856,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_class
 DECL|class|QCalendarDelegate
 class|class
 name|QCalendarDelegate
@@ -8125,11 +7941,7 @@ name|storedOption
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_comment
 comment|//Private tool button class
-end_comment
-begin_class
 DECL|class|QCalToolButton
 class|class
 name|QCalToolButton
@@ -8244,8 +8056,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_class
 DECL|class|QPrevNextCalButton
 class|class
 name|QPrevNextCalButton
@@ -8315,7 +8125,11 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
+block|}
+end_namespace
+begin_comment
+comment|// unnamed namespace
+end_comment
 begin_class
 DECL|class|QCalendarWidgetPrivate
 class|class
