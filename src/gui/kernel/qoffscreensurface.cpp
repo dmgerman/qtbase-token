@@ -82,6 +82,14 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|requestedFormat
+argument_list|(
+name|QSurfaceFormat
+operator|::
+name|defaultFormat
+argument_list|()
+argument_list|)
+member_init_list|,
 name|screen
 argument_list|(
 literal|0
