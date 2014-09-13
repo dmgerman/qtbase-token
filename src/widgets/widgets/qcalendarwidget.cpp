@@ -223,6 +223,7 @@ name|QLocale
 name|m_locale
 decl_stmt|;
 protected|protected:
+specifier|static
 name|QString
 name|highlightString
 parameter_list|(
@@ -234,7 +235,6 @@ parameter_list|,
 name|int
 name|pos
 parameter_list|)
-specifier|const
 function_decl|;
 private|private:
 block|}
@@ -253,7 +253,6 @@ parameter_list|,
 name|int
 name|pos
 parameter_list|)
-specifier|const
 block|{
 if|if
 condition|(
