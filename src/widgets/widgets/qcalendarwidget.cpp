@@ -286,7 +286,7 @@ decl_stmt|;
 return|return
 name|str
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|0
 argument_list|,
@@ -300,7 +300,7 @@ argument_list|)
 operator|+
 name|str
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|startPos
 argument_list|,
