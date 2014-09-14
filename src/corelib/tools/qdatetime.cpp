@@ -2724,7 +2724,7 @@ expr_stmt|;
 return|return
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"%1 %2 %3 %4"
 argument_list|)
@@ -2794,7 +2794,7 @@ return|;
 return|return
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"%1-%2-%3"
 argument_list|)
@@ -4486,7 +4486,7 @@ default|default:
 return|return
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"%1:%2:%3"
 argument_list|)
@@ -10758,7 +10758,7 @@ name|buf
 operator|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|"%1 %2 %3 %4 %5"
 argument_list|)
@@ -15445,7 +15445,7 @@ name|spec
 operator|=
 name|QString
 operator|::
-name|fromUtf8
+name|fromLatin1
 argument_list|(
 literal|" Qt::OffsetFromUTC %1s"
 argument_list|)
