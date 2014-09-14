@@ -282,6 +282,8 @@ argument_list|(
 argument|other.m_status
 argument_list|)
 block|{}
+comment|// ### XXX: when the tooling situation improves, look at fixing the padding.
+comment|// 4 bytes padding
 name|qint64
 name|m_msecs
 block|;
