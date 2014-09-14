@@ -2846,6 +2846,10 @@ name|separator
 operator|+=
 name|nextChar
 expr_stmt|;
+name|quoting
+operator|=
+literal|false
+expr_stmt|;
 block|}
 else|else
 block|{
