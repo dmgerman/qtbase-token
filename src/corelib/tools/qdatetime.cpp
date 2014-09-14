@@ -3870,7 +3870,7 @@ name|year
 init|=
 name|string
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|0
 argument_list|,
@@ -3901,7 +3901,7 @@ name|year
 argument_list|,
 name|string
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|5
 argument_list|,
@@ -3913,7 +3913,7 @@ argument_list|()
 argument_list|,
 name|string
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|8
 argument_list|,
