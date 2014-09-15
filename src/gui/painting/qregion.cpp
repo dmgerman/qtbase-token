@@ -2808,6 +2808,10 @@ DECL|member|numRects
 name|int
 name|numRects
 decl_stmt|;
+DECL|member|innerArea
+name|int
+name|innerArea
+decl_stmt|;
 DECL|member|rects
 name|QVector
 argument_list|<
@@ -2822,10 +2826,6 @@ decl_stmt|;
 DECL|member|innerRect
 name|QRect
 name|innerRect
-decl_stmt|;
-DECL|member|innerArea
-name|int
-name|innerArea
 decl_stmt|;
 DECL|function|QRegionPrivate
 specifier|inline
@@ -2858,16 +2858,6 @@ argument_list|(
 literal|1
 argument_list|)
 member_init_list|,
-name|extents
-argument_list|(
-name|r
-argument_list|)
-member_init_list|,
-name|innerRect
-argument_list|(
-name|r
-argument_list|)
-member_init_list|,
 name|innerArea
 argument_list|(
 name|r
@@ -2879,6 +2869,16 @@ name|r
 operator|.
 name|height
 argument_list|()
+argument_list|)
+member_init_list|,
+name|extents
+argument_list|(
+name|r
+argument_list|)
+member_init_list|,
+name|innerRect
+argument_list|(
+name|r
 argument_list|)
 block|{     }
 name|void
