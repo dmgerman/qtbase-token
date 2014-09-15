@@ -3339,7 +3339,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a pointer to the used QSqlDatabase or 0 if no database was set. */
+comment|/*!     Returns the model's database connection. */
 end_comment
 begin_function
 DECL|function|database
