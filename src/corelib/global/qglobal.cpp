@@ -6373,7 +6373,7 @@ begin_comment
 comment|/*!     \macro Q_FORWARD_DECLARE_CF_TYPE(type)     \since 5.2     \relates<QtGlobal>      Forward-declares a Core Foundation \a type. This includes the actual     type and the ref type. For example, Q_FORWARD_DECLARE_CF_TYPE(CFString)     declares __CFString and CFStringRef. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_FORWARD_DECLARE_MUTABLE_CF_TYPE(type)     \since 5.2     \relates<QtGlobal>      Forward-declares a mutable Core Foundation \a type. This includes the actual     type and the ref type. For example, Q_FORWARD_DECLARE_CF_TYPE(CFString)     declares __CFMutableString and CFMutableStringRef. */
+comment|/*!     \macro Q_FORWARD_DECLARE_MUTABLE_CF_TYPE(type)     \since 5.2     \relates<QtGlobal>      Forward-declares a mutable Core Foundation \a type. This includes the actual     type and the ref type. For example, Q_FORWARD_DECLARE_MUTABLE_CF_TYPE(CFMutableString)     declares __CFMutableString and CFMutableStringRef. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
