@@ -182,8 +182,10 @@ name|bool
 name|gotMousePress
 decl_stmt|;
 DECL|member|tlw
+name|QPointer
+argument_list|<
 name|QWidget
-modifier|*
+argument_list|>
 name|tlw
 decl_stmt|;
 ifdef|#
