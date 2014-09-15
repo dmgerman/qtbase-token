@@ -10241,6 +10241,11 @@ name|int
 name|ymax
 decl_stmt|;
 comment|/* ycoord at which we exit this edge. */
+DECL|member|ClockWise
+name|int
+name|ClockWise
+decl_stmt|;
+comment|/* flag for winding number rule       */
 DECL|member|bres
 name|BRESINFO
 name|bres
@@ -10267,11 +10272,6 @@ modifier|*
 name|nextWETE
 decl_stmt|;
 comment|/* for winding num rule */
-DECL|member|ClockWise
-name|int
-name|ClockWise
-decl_stmt|;
-comment|/* flag for winding number rule       */
 block|}
 DECL|typedef|EdgeTableEntry
 name|EdgeTableEntry
