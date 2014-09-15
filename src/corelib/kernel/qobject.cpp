@@ -8325,11 +8325,20 @@ operator|++
 name|method
 expr_stmt|;
 comment|// skip code
-name|QByteArray
-name|methodName
-decl_stmt|;
 name|QArgumentTypeArray
 name|methodTypes
+decl_stmt|;
+name|QByteArray
+name|methodName
+init|=
+name|QMetaObjectPrivate
+operator|::
+name|decodeMethodSignature
+argument_list|(
+name|method
+argument_list|,
+name|methodTypes
+argument_list|)
 decl_stmt|;
 specifier|const
 name|QMetaObject
