@@ -138,19 +138,12 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-comment|// If the seed not initialized yet (-1), set it to 0
-comment|// otherwise abort, so we don't get unexplained test failures later.
-name|QVERIFY
-argument_list|(
+comment|// Always initialize the hash seed to 0 to get reliable test results
 name|qt_qhash_seed
 operator|.
-name|testAndSetRelaxed
+name|store
 argument_list|(
-operator|-
-literal|1
-argument_list|,
 literal|0
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

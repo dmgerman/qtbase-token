@@ -81,6 +81,10 @@ block|,
 name|Fail
 block|,
 name|XPass
+block|,
+name|BlacklistedPass
+block|,
+name|BlacklistedFail
 block|}
 enum|;
 enum|enum

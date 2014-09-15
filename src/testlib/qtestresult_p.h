@@ -135,6 +135,14 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
+name|setBlacklistCurrentTest
+parameter_list|(
+name|bool
+name|b
+parameter_list|)
+function_decl|;
+specifier|static
+name|void
 name|addFailure
 parameter_list|(
 specifier|const

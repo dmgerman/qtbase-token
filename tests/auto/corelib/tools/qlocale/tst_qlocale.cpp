@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qlocale_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qnumeric.h>
 end_include
 begin_if
@@ -13348,6 +13353,12 @@ argument_list|,
 name|m_time
 argument_list|)
 expr_stmt|;
+comment|// make sure QLocale::system() gets updated
+name|QLocalePrivate
+operator|::
+name|updateSystemPrivate
+argument_list|()
+expr_stmt|;
 block|}
 DECL|member|m_decimal
 DECL|member|m_thousand
@@ -13489,6 +13500,12 @@ argument_list|()
 argument_list|,
 name|shortTimeFormat
 argument_list|)
+expr_stmt|;
+comment|// make sure QLocale::system() gets updated
+name|QLocalePrivate
+operator|::
+name|updateSystemPrivate
+argument_list|()
 expr_stmt|;
 name|QLocale
 name|locale

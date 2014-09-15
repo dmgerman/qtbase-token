@@ -200,6 +200,22 @@ case|:
 return|return
 literal|"XPASS  "
 return|;
+case|case
+name|QAbstractTestLogger
+operator|::
+name|BlacklistedPass
+case|:
+return|return
+literal|"BPASS  "
+return|;
+case|case
+name|QAbstractTestLogger
+operator|::
+name|BlacklistedFail
+case|:
+return|return
+literal|"BFAIL  "
+return|;
 block|}
 return|return
 literal|"??????"
@@ -1677,7 +1693,7 @@ argument_list|(
 name|buf
 argument_list|)
 argument_list|,
-literal|"Totals: %d passed, %d failed, %d skipped\n"
+literal|"Totals: %d passed, %d failed, %d skipped, %d blacklisted\n"
 argument_list|,
 name|QTestLog
 operator|::
@@ -1692,6 +1708,11 @@ argument_list|,
 name|QTestLog
 operator|::
 name|skipCount
+argument_list|()
+argument_list|,
+name|QTestLog
+operator|::
+name|blacklistCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1707,7 +1728,7 @@ argument_list|(
 name|buf
 argument_list|)
 argument_list|,
-literal|"Totals: %d passed, %d failed, %d skipped\n"
+literal|"Totals: %d passed, %d failed, %d skipped, %d blacklisted\n"
 literal|"********* Finished testing of %s *********\n"
 argument_list|,
 name|QTestLog
@@ -1723,6 +1744,11 @@ argument_list|,
 name|QTestLog
 operator|::
 name|skipCount
+argument_list|()
+argument_list|,
+name|QTestLog
+operator|::
+name|blacklistCount
 argument_list|()
 argument_list|,
 name|QTestResult
