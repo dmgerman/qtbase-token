@@ -4288,6 +4288,7 @@ return|return
 name|Resource_Buffer
 return|;
 block|}
+comment|// size == -1 means "unknown"
 DECL|function|registerSelf
 name|bool
 name|registerSelf
@@ -4296,8 +4297,25 @@ specifier|const
 name|uchar
 modifier|*
 name|b
+parameter_list|,
+name|int
+name|size
 parameter_list|)
 block|{
+comment|// 5 int "pointers"
+if|if
+condition|(
+name|size
+operator|>=
+literal|0
+operator|&&
+name|size
+operator|<
+literal|20
+condition|)
+return|return
+literal|false
+return|;
 comment|//setup the data now
 name|int
 name|offset
@@ -4560,6 +4578,30 @@ name|offset
 operator|+=
 literal|4
 expr_stmt|;
+comment|// Some sanity checking for sizes. This is _not_ a security measure.
+if|if
+condition|(
+name|size
+operator|>=
+literal|0
+operator|&&
+operator|(
+name|tree_offset
+operator|>=
+name|size
+operator|||
+name|data_offset
+operator|>=
+name|size
+operator|||
+name|name_offset
+operator|>=
+name|size
+operator|)
+condition|)
+return|return
+literal|false
+return|;
 if|if
 condition|(
 name|version
@@ -5076,6 +5118,8 @@ operator|::
 name|registerSelf
 argument_list|(
 name|data
+argument_list|,
+name|data_len
 argument_list|)
 condition|)
 block|{
@@ -5532,6 +5576,9 @@ operator|->
 name|registerSelf
 argument_list|(
 name|rccData
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
