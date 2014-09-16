@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglplatformcursor_p.h>
+file|<QtGui/qpa/qplatformcursor.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

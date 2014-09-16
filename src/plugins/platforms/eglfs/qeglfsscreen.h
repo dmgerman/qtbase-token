@@ -30,12 +30,6 @@ file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QEGLPlatformCursor
-name|class
-name|QEGLPlatformCursor
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QEglFSWindow
 name|class
 name|QEglFSWindow
@@ -189,7 +183,7 @@ block|;
 name|EGLSurface
 name|m_surface
 block|;
-name|QEGLPlatformCursor
+name|QPlatformCursor
 operator|*
 name|m_cursor
 block|;

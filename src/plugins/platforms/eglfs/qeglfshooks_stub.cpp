@@ -584,7 +584,7 @@ block|}
 end_function
 begin_function
 DECL|function|createCursor
-name|QEGLPlatformCursor
+name|QPlatformCursor
 modifier|*
 name|QEglFSHooks
 operator|::
