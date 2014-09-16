@@ -188,6 +188,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_USE_ICU
+argument_list|)
 ifdef|#
 directive|ifdef
 name|USE_COMPARESTRINGEX
