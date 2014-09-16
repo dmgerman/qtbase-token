@@ -5685,7 +5685,12 @@ name|fmt
 operator|.
 name|setIndent
 argument_list|(
-literal|0
+name|currentNode
+operator|->
+name|blockFormat
+operator|.
+name|indent
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|cursor
