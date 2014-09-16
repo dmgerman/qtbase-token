@@ -71,6 +71,18 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!   Called after a new instance is constructed. The default implementation does nothing.    Subclasses can use this function to perform additional initialization that relies on   virtual functions.  */
+end_comment
+begin_function
+DECL|function|initialize
+name|void
+name|QPlatformOpenGLContext
+operator|::
+name|initialize
+parameter_list|()
+block|{ }
+end_function
+begin_comment
 comment|/*!     Reimplement in subclass if your platform uses framebuffer objects for surfaces.      The default implementation returns 0. */
 end_comment
 begin_function

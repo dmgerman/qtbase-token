@@ -89,6 +89,11 @@ name|QPlatformOpenGLContext
 argument_list|()
 expr_stmt|;
 name|virtual
+name|void
+name|initialize
+parameter_list|()
+function_decl|;
+name|virtual
 name|QSurfaceFormat
 name|format
 argument_list|()

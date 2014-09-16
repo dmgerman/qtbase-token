@@ -53,12 +53,29 @@ argument|QPlatformSurface *surface
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|EGLSurface
+name|createTemporaryOffscreenSurface
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|destroyTemporaryOffscreenSurface
+argument_list|(
+argument|EGLSurface surface
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|void
 name|swapBuffers
 argument_list|(
 argument|QPlatformSurface *surface
 argument_list|)
 name|Q_DECL_OVERRIDE
+block|;
+name|private
+operator|:
+name|EGLNativeWindowType
+name|m_tempWindow
 block|; }
 decl_stmt|;
 end_decl_stmt

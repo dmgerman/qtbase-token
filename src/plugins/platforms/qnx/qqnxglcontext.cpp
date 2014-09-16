@@ -564,11 +564,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|initialize
+DECL|function|initializeContext
 name|void
 name|QQnxGLContext
 operator|::
-name|initialize
+name|initializeContext
 parameter_list|()
 block|{
 name|qGLContextDebug
@@ -638,11 +638,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|shutdown
+DECL|function|shutdownContext
 name|void
 name|QQnxGLContext
 operator|::
-name|shutdown
+name|shutdownContext
 parameter_list|()
 block|{
 name|qGLContextDebug

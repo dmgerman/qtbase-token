@@ -1440,6 +1440,13 @@ name|d
 operator|->
 name|platformGLContext
 operator|->
+name|initialize
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|platformGLContext
+operator|->
 name|setContext
 argument_list|(
 name|this

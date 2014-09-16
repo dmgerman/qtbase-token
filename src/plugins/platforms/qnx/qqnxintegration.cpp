@@ -689,7 +689,7 @@ argument_list|)
 comment|// Initialize global OpenGL resources
 name|QQnxGLContext
 operator|::
-name|initialize
+name|initializeContext
 argument_list|()
 expr_stmt|;
 endif|#
@@ -1118,7 +1118,7 @@ argument_list|)
 comment|// Cleanup global OpenGL resources
 name|QQnxGLContext
 operator|::
-name|shutdown
+name|shutdownContext
 argument_list|()
 expr_stmt|;
 endif|#

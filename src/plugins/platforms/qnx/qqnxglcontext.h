@@ -78,12 +78,12 @@ argument_list|)
 block|;
 specifier|static
 name|void
-name|initialize
+name|initializeContext
 argument_list|()
 block|;
 specifier|static
 name|void
-name|shutdown
+name|shutdownContext
 argument_list|()
 block|;
 name|void

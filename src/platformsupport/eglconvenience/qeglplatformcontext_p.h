@@ -91,6 +91,10 @@ operator|~
 name|QEGLPlatformContext
 argument_list|()
 block|;
+name|void
+name|initialize
+argument_list|()
+block|;
 name|bool
 name|makeCurrent
 argument_list|(
@@ -178,6 +182,18 @@ name|surface
 argument_list|)
 operator|=
 literal|0
+block|;
+name|virtual
+name|EGLSurface
+name|createTemporaryOffscreenSurface
+argument_list|()
+block|;
+name|virtual
+name|void
+name|destroyTemporaryOffscreenSurface
+argument_list|(
+argument|EGLSurface surface
+argument_list|)
 block|;
 name|private
 operator|:
