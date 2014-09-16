@@ -8136,12 +8136,6 @@ literal|0
 expr_stmt|;
 name|e
 operator|->
-name|underlinePositions
-operator|=
-literal|0
-expr_stmt|;
-name|e
-operator|->
 name|specialData
 operator|=
 literal|0

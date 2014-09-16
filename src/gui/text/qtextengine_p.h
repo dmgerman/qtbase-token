@@ -2817,12 +2817,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|int
-modifier|*
-name|underlinePositions
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|mutable
 name|LayoutData
 modifier|*
