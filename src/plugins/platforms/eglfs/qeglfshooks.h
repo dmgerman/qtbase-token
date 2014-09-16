@@ -205,6 +205,11 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
+name|void
+name|presentBuffer
+parameter_list|()
+function_decl|;
+name|virtual
 name|QByteArray
 name|fbDeviceName
 argument_list|()

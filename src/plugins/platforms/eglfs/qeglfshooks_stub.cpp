@@ -670,6 +670,15 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_function
+DECL|function|presentBuffer
+name|void
+name|QEglFSHooks
+operator|::
+name|presentBuffer
+parameter_list|()
+block|{ }
+end_function
 begin_ifndef
 ifndef|#
 directive|ifndef

@@ -225,6 +225,14 @@ argument_list|(
 name|surface
 argument_list|)
 expr_stmt|;
+name|QEglFSHooks
+operator|::
+name|hooks
+argument_list|()
+operator|->
+name|presentBuffer
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_macro
