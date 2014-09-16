@@ -182,7 +182,7 @@ operator|.
 name|dbmsType
 argument_list|()
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -230,7 +230,7 @@ operator|.
 name|dbmsType
 argument_list|()
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -278,7 +278,7 @@ operator|.
 name|dbmsType
 argument_list|()
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -372,7 +372,7 @@ operator|.
 name|dbmsType
 argument_list|()
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)

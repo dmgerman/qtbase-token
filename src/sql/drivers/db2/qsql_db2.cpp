@@ -173,6 +173,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|DB2
 expr_stmt|;
 block|}

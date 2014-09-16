@@ -552,6 +552,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|SQLite
 expr_stmt|;
 block|}

@@ -1522,6 +1522,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|Interbase
 expr_stmt|;
 block|}

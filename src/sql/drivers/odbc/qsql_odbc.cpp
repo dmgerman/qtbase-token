@@ -9299,12 +9299,12 @@ name|dbmsType
 condition|)
 block|{
 case|case
-name|QODBCDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 case|:
 case|case
-name|QODBCDriverPrivate
+name|QSqlDriver
 operator|::
 name|Sybase
 case|:
@@ -9317,7 +9317,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QODBCDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 case|:
@@ -9330,7 +9330,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QODBCDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 case|:
@@ -9970,8 +9970,6 @@ name|d
 operator|->
 name|dbmsType
 operator|==
-name|QODBCDriverPrivate
-operator|::
 name|MSSqlServer
 operator|)
 operator|||
@@ -9980,8 +9978,6 @@ name|d
 operator|->
 name|dbmsType
 operator|==
-name|QODBCDriverPrivate
-operator|::
 name|Sybase
 operator|)
 operator|||
@@ -9990,8 +9986,6 @@ name|d
 operator|->
 name|dbmsType
 operator|==
-name|QODBCDriverPrivate
-operator|::
 name|MySqlServer
 operator|)
 operator|||
@@ -10000,8 +9994,6 @@ name|d
 operator|->
 name|dbmsType
 operator|==
-name|QODBCDriverPrivate
-operator|::
 name|PostgreSQL
 operator|)
 return|;
@@ -10023,8 +10015,6 @@ name|d
 operator|->
 name|dbmsType
 operator|==
-name|QODBCDriverPrivate
-operator|::
 name|MySqlServer
 condition|)
 return|return
@@ -10534,8 +10524,6 @@ name|d
 operator|->
 name|dbmsType
 operator|==
-name|QODBCDriverPrivate
-operator|::
 name|MSSqlServer
 condition|)
 block|{
@@ -11441,6 +11429,8 @@ argument_list|)
 condition|)
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|PostgreSQL
 expr_stmt|;
 elseif|else
@@ -11462,6 +11452,8 @@ argument_list|)
 condition|)
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|Oracle
 expr_stmt|;
 elseif|else
@@ -11483,6 +11475,8 @@ argument_list|)
 condition|)
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|MySqlServer
 expr_stmt|;
 elseif|else
@@ -11504,6 +11498,8 @@ argument_list|)
 condition|)
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|MSSqlServer
 expr_stmt|;
 elseif|else
@@ -11525,6 +11521,8 @@ argument_list|)
 condition|)
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|Sybase
 expr_stmt|;
 block|}

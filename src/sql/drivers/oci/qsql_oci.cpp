@@ -2715,6 +2715,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|Oracle
 expr_stmt|;
 block|}

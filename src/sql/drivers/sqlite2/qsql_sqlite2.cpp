@@ -271,6 +271,8 @@ operator|)
 expr_stmt|;
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|SQLite
 expr_stmt|;
 block|}

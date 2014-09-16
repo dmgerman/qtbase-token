@@ -696,7 +696,7 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -718,7 +718,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -896,7 +896,7 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -960,7 +960,7 @@ if|if
 condition|(
 name|dbType
 operator|!=
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)
@@ -16076,7 +16076,7 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -16098,7 +16098,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)

@@ -544,6 +544,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|PostgreSQL
 expr_stmt|;
 block|}

@@ -444,6 +444,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|Sybase
 expr_stmt|;
 block|}

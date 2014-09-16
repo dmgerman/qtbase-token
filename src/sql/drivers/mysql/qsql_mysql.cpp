@@ -201,6 +201,8 @@ argument_list|)
 block|{
 name|dbmsType
 operator|=
+name|QSqlDriver
+operator|::
 name|MySqlServer
 expr_stmt|;
 block|}

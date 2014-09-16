@@ -1130,7 +1130,7 @@ name|QSqlDatabase
 name|db
 parameter_list|)
 block|{
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -1209,7 +1209,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -1295,13 +1295,13 @@ condition|(
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Sybase
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 operator|)
@@ -1439,7 +1439,7 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -1455,7 +1455,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 condition|)
@@ -1475,7 +1475,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)
@@ -1506,7 +1506,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -1653,7 +1653,7 @@ name|isValid
 argument_list|()
 condition|)
 return|return;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -1669,7 +1669,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -1923,7 +1923,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -2006,7 +2006,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -2786,7 +2786,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -2802,7 +2802,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 operator|&&
@@ -2858,7 +2858,7 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -3339,7 +3339,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -3388,7 +3388,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -3495,7 +3495,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -3585,7 +3585,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -5405,7 +5405,7 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -5421,7 +5421,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -6842,7 +6842,7 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -6858,7 +6858,7 @@ if|if
 condition|(
 name|dbType
 operator|!=
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)
@@ -7201,7 +7201,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -7461,7 +7461,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 condition|)
@@ -7558,7 +7558,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -7601,7 +7601,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -7618,7 +7618,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 condition|)
@@ -7643,19 +7643,19 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DB2
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)
@@ -7680,7 +7680,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -7699,7 +7699,7 @@ literal|" (id int, t_s64bit int, t_u64bit int)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//} else if (dbType == QSqlDriverPrivate::Interbase) {
+comment|//} else if (dbType == QSqlDriver::Interbase) {
 comment|//    QVERIFY_SQL(q, exec("create table " + qtest_bigint + " (id int, t_s64bit int64, t_u64bit int64)"));
 block|}
 else|else
@@ -7744,13 +7744,13 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -7967,7 +7967,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -8023,7 +8023,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -8084,7 +8084,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -8105,25 +8105,25 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Sybase
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 operator|||
@@ -8374,7 +8374,7 @@ argument_list|(
 literal|"t_varchar"
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -8390,19 +8390,19 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Interbase
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DB2
 condition|)
@@ -9845,7 +9845,7 @@ name|next
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -9861,7 +9861,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 condition|)
@@ -10009,7 +10009,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 condition|)
@@ -10085,7 +10085,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 condition|)
@@ -10167,7 +10167,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 condition|)
@@ -10250,7 +10250,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 condition|)
@@ -10459,7 +10459,7 @@ argument_list|(
 name|db
 argument_list|)
 operator|!=
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 operator|||
@@ -13073,7 +13073,7 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -13089,7 +13089,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 condition|)
@@ -13341,7 +13341,7 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -13357,7 +13357,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)
@@ -14871,7 +14871,7 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -14887,7 +14887,7 @@ if|if
 condition|(
 name|dbType
 operator|!=
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)

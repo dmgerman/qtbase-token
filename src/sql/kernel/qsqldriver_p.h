@@ -72,28 +72,6 @@ argument|QSqlDriver
 argument_list|)
 name|public
 operator|:
-expr|enum
-name|DBMSType
-block|{
-name|UnknownDB
-block|,
-name|MSSqlServer
-block|,
-name|MySqlServer
-block|,
-name|PostgreSQL
-block|,
-name|Oracle
-block|,
-name|Sybase
-block|,
-name|SQLite
-block|,
-name|Interbase
-block|,
-name|DB2
-block|}
-block|;
 name|QSqlDriverPrivate
 argument_list|()
 operator|:
@@ -119,7 +97,7 @@ argument_list|)
 block|,
 name|dbmsType
 argument_list|(
-argument|UnknownDB
+argument|QSqlDriver::UnknownDBMS
 argument_list|)
 block|{ }
 name|uint
@@ -136,6 +114,8 @@ operator|::
 name|NumericalPrecisionPolicy
 name|precisionPolicy
 block|;
+name|QSqlDriver
+operator|::
 name|DBMSType
 name|dbmsType
 block|; }

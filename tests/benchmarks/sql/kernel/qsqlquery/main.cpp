@@ -335,7 +335,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -416,7 +416,7 @@ operator|&&
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 operator|||
@@ -516,7 +516,7 @@ name|QSqlDatabase
 name|db
 parameter_list|)
 block|{
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -804,7 +804,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -823,7 +823,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|SQLite
 condition|)
@@ -842,13 +842,13 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -867,7 +867,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 condition|)
@@ -891,7 +891,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 condition|)
@@ -924,7 +924,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 condition|)
@@ -984,7 +984,7 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -1000,7 +1000,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MySqlServer
 condition|)
@@ -1018,7 +1018,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -1036,7 +1036,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -1082,13 +1082,13 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|MSSqlServer
 operator|||
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Sybase
 condition|)

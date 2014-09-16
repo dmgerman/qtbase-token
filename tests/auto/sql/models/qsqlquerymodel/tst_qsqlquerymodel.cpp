@@ -582,7 +582,7 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -598,7 +598,7 @@ if|if
 condition|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
@@ -2436,7 +2436,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -2484,7 +2484,7 @@ init|=
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Interbase
 operator|)
@@ -2492,7 +2492,7 @@ operator|||
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 operator|)
@@ -2500,7 +2500,7 @@ operator|||
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DB2
 operator|)
@@ -3960,7 +3960,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -4010,7 +4010,7 @@ init|=
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Interbase
 operator|)
@@ -4018,7 +4018,7 @@ operator|||
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 operator|)
@@ -4026,7 +4026,7 @@ operator|||
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DB2
 operator|)
@@ -4332,7 +4332,7 @@ name|db
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DBMSType
 name|dbType
@@ -4597,7 +4597,7 @@ init|=
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Interbase
 operator|)
@@ -4605,7 +4605,7 @@ operator|||
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|Oracle
 operator|)
@@ -4613,7 +4613,7 @@ operator|||
 operator|(
 name|dbType
 operator|==
-name|QSqlDriverPrivate
+name|QSqlDriver
 operator|::
 name|DB2
 operator|)

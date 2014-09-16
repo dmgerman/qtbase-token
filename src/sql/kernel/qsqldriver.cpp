@@ -235,6 +235,9 @@ begin_comment
 comment|/*!     \enum QSqlDriver::NotificationSource      This enum contains a list of SQL notification sources.      \value UnknownSource The notification source is unknown     \value SelfSource The notification source is this connection     \value OtherSource The notification source is another connection */
 end_comment
 begin_comment
+comment|/*!     \enum QSqlDriver::DBMSType      This enum contains DBMS types.      \value UnknownDBMS     \value MSSqlServer     \value MySqlServer     \value PostgreSQL     \value Oracle     \value Sybase     \value SQLite     \value Interbase     \value DB2 */
+end_comment
+begin_comment
 comment|/*!     \fn bool QSqlDriver::hasFeature(DriverFeature feature) const      Returns \c true if the driver supports feature \a feature; otherwise     returns \c false.      Note that some databases need to be open() before this can be     determined.      \sa DriverFeature */
 end_comment
 begin_comment
@@ -1966,6 +1969,28 @@ name|d_func
 argument_list|()
 operator|->
 name|precisionPolicy
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.4      Returns the current DBMS type for the database connection. */
+end_comment
+begin_function
+DECL|function|dbmsType
+name|QSqlDriver
+operator|::
+name|DBMSType
+name|QSqlDriver
+operator|::
+name|dbmsType
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d_func
+argument_list|()
+operator|->
+name|dbmsType
 return|;
 block|}
 end_function
