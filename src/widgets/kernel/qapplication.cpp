@@ -13904,6 +13904,19 @@ name|flags
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|setMouseEventSource
+argument_list|(
+operator|&
+name|me
+argument_list|,
+name|mouse
+operator|->
+name|source
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// throw away any mouse-tracking-only mouse events
 if|if
 condition|(
