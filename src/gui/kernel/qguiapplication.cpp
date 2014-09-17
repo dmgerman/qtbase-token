@@ -11529,6 +11529,10 @@ argument_list|,
 name|e
 operator|->
 name|modifiers
+argument_list|,
+name|Qt
+operator|::
+name|MouseEventSynthesizedByQt
 argument_list|)
 decl_stmt|;
 name|fake
