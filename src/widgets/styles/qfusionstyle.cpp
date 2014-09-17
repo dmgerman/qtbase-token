@@ -25245,12 +25245,11 @@ break|break;
 case|case
 name|PM_MaximumDragDistance
 case|:
-name|val
-operator|=
+return|return
 operator|-
 literal|1
-expr_stmt|;
-break|break;
+return|;
+comment|// Do not dpi-scale because the value is magic
 case|case
 name|PM_TabCloseIndicatorWidth
 case|:
@@ -25289,12 +25288,11 @@ break|break;
 case|case
 name|PM_SubMenuOverlap
 case|:
-name|val
-operator|=
+return|return
 operator|-
 literal|1
-expr_stmt|;
-break|break;
+return|;
+comment|// Do not dpi-scale because the value is magic
 case|case
 name|PM_DockWidgetHandleExtent
 case|:
@@ -25373,7 +25371,6 @@ return|return
 literal|1
 return|;
 comment|// Do not dpi-scale because the drawn frame is always exactly 1 pixel thick
-break|break;
 default|default:
 return|return
 name|QCommonStyle
