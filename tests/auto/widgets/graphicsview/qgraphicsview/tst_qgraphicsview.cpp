@@ -603,6 +603,22 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
+public|public:
+DECL|function|tst_QGraphicsView
+name|tst_QGraphicsView
+parameter_list|()
+member_init_list|:
+name|platformName
+argument_list|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+argument_list|)
+block|{ }
 private|private
 name|slots
 private|:
@@ -1090,6 +1106,10 @@ name|rootWindow
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|platformName
+name|QString
+name|platformName
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -21887,6 +21907,29 @@ argument_list|(
 literal|"GTK + style test skipped, see QTBUG-29002"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useStyledPanel
+operator|&&
+name|style
+operator|==
+name|QStringLiteral
+argument_list|(
+literal|"Macintosh"
+argument_list|)
+operator|&&
+name|platformName
+operator|==
+name|QStringLiteral
+argument_list|(
+literal|"cocoa"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Insignificant on OSX"
+argument_list|)
+expr_stmt|;
 name|QGraphicsScene
 name|scene
 decl_stmt|;
@@ -34204,6 +34247,20 @@ operator|::
 name|hoverLeave
 parameter_list|()
 block|{
+if|if
+condition|(
+name|platformName
+operator|==
+name|QStringLiteral
+argument_list|(
+literal|"cocoa"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Insignificant on OSX"
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QRect
 name|availableGeometry
