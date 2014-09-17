@@ -497,7 +497,7 @@ name|d
 operator|->
 name|orientation
 expr_stmt|;
-comment|// ### Qt 5: use State_Horizontal instead
+comment|// ### Qt 6: remove this member from QStyleOptionProgressBarV2
 name|optionV2
 operator|->
 name|invertedAppearance

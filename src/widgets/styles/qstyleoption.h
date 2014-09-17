@@ -1213,6 +1213,7 @@ operator|::
 name|Orientation
 name|orientation
 block|;
+comment|// ### Qt 6: remove
 name|bool
 name|invertedAppearance
 block|;

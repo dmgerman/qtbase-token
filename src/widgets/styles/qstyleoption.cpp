@@ -1597,7 +1597,7 @@ begin_comment
 comment|/*!     \variable QStyleOptionProgressBar::progress     \brief the current progress for the progress bar      The current progress. A value of QStyleOptionProgressBar::minimum     - 1 indicates that the progress hasn't started yet. The default     value is 0.      \sa QProgressBar::value */
 end_comment
 begin_comment
-comment|/*!     \variable QStyleOptionProgressBar::orientation     \brief the progress bar's orientation (horizontal or vertical);     the default orentation is Qt::Horizontal      \sa QProgressBar::orientation */
+comment|/*!     \variable QStyleOptionProgressBar::orientation     \brief the progress bar's orientation (horizontal or vertical);     the default orentation is Qt::Horizontal      \deprecated     Use the QStyle::State_Horizontal flag instead (in the the QStyleOption::state member).      \sa QProgressBar::orientation */
 end_comment
 begin_comment
 comment|/*!     \variable QStyleOptionProgressBar::invertedAppearance     \brief whether the progress bar's appearance is inverted      The default value is false.      \sa QProgressBar::invertedAppearance */
