@@ -153,6 +153,10 @@ name|public
 name|QAbstractListModel
 block|{
 name|Q_OBJECT
+name|friend
+name|class
+name|QListWidget
+block|;
 name|public
 operator|:
 name|QListModel

@@ -211,6 +211,10 @@ name|public
 name|QAbstractTableModel
 block|{
 name|Q_OBJECT
+name|friend
+name|class
+name|QTableWidget
+block|;
 name|public
 operator|:
 expr|enum
