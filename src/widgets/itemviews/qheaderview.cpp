@@ -3949,7 +3949,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      If \a movable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa sectionsMovable(), sectionMoved() */
+comment|/*!     \since 5.0      If \a movable is true, the header may be moved by the user; otherwise it     is fixed in place.      By default, all sections are movable except the first, which always stays     fixed.      \sa sectionsMovable(), sectionMoved() */
 end_comment
 begin_function
 DECL|function|setSectionsMovable
