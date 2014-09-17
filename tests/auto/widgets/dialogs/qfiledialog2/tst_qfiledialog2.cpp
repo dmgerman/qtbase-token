@@ -2350,6 +2350,27 @@ operator|::
 name|task180459_lastDirectory
 parameter_list|()
 block|{
+if|if
+condition|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+operator|==
+name|QStringLiteral
+argument_list|(
+literal|"cocoa"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Insignificant on OSX"
+argument_list|)
+expr_stmt|;
+comment|//QTBUG-39183
 comment|//first visit the temp directory and close the dialog
 name|QNonNativeFileDialog
 modifier|*
