@@ -7415,6 +7415,10 @@ name|m_pageLayout
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|PPK_CustomBase
+case|:
+break|break;
 comment|// No default so that compiler will complain if new keys added and not handled in this engine
 block|}
 return|return
