@@ -1564,10 +1564,6 @@ name|bpl
 operator|<=
 literal|0
 operator|||
-name|height
-operator|<=
-literal|0
-operator|||
 name|bpl
 operator|<
 name|min_bytes_per_line
