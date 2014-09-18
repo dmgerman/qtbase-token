@@ -8058,6 +8058,23 @@ modifier|*
 name|staticTextItem
 parameter_list|)
 block|{
+if|if
+condition|(
+name|staticTextItem
+operator|->
+name|usesRawFont
+condition|)
+block|{
+name|QPaintEngineEx
+operator|::
+name|drawStaticTextItem
+argument_list|(
+name|staticTextItem
+argument_list|)
+expr_stmt|;
+comment|// Draw as path
+return|return;
+block|}
 name|QVariantList
 name|variants
 decl_stmt|;

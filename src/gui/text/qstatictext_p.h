@@ -134,6 +134,11 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
+name|usesRawFont
+argument_list|(
+literal|0
+argument_list|)
+operator|,
 name|m_fontEngine
 argument_list|(
 literal|0
@@ -218,6 +223,12 @@ operator|=
 name|other
 operator|.
 name|userDataNeedsUpdate
+block|;
+name|usesRawFont
+operator|=
+name|other
+operator|.
+name|usesRawFont
 block|;
 name|m_fontEngine
 operator|=
@@ -388,6 +399,12 @@ decl_stmt|;
 comment|// 1 byte per item
 name|char
 name|userDataNeedsUpdate
+range|:
+literal|1
+decl_stmt|;
+comment|//
+name|char
+name|usesRawFont
 range|:
 literal|1
 decl_stmt|;

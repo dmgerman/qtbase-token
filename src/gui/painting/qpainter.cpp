@@ -20164,6 +20164,13 @@ name|glyphPositions
 operator|=
 name|positions
 expr_stmt|;
+comment|// The font property is meaningless, the fontengine must be used directly:
+name|staticTextItem
+operator|.
+name|usesRawFont
+operator|=
+literal|true
+expr_stmt|;
 name|extended
 operator|->
 name|drawStaticTextItem
