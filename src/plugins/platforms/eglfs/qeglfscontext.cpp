@@ -364,7 +364,9 @@ name|hooks
 argument_list|()
 operator|->
 name|waitForVSync
-argument_list|()
+argument_list|(
+name|surface
+argument_list|)
 expr_stmt|;
 name|QEGLPlatformContext
 operator|::
@@ -379,7 +381,9 @@ name|hooks
 argument_list|()
 operator|->
 name|presentBuffer
-argument_list|()
+argument_list|(
+name|surface
+argument_list|)
 expr_stmt|;
 block|}
 end_function

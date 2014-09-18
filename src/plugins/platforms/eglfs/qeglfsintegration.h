@@ -42,6 +42,14 @@ name|QEglFSIntegration
 argument_list|()
 block|;
 name|void
+name|addScreen
+argument_list|(
+name|QPlatformScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+name|void
 name|initialize
 argument_list|()
 name|Q_DECL_OVERRIDE
@@ -59,14 +67,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QVariant
-name|styleHint
-argument_list|(
-argument|QPlatformIntegration::StyleHint hint
-argument_list|)
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
 specifier|static
 name|EGLConfig
 name|chooseConfig
@@ -78,13 +78,6 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|QEGLPlatformScreen
-operator|*
-name|createScreen
-argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
 name|QEGLPlatformWindow
 operator|*
 name|createWindow

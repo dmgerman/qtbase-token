@@ -146,11 +146,6 @@ operator|::
 name|QEGLPlatformIntegration
 parameter_list|()
 member_init_list|:
-name|m_screen
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|m_display
 argument_list|(
 name|EGL_NO_DISPLAY
@@ -186,7 +181,7 @@ operator|::
 name|~
 name|QEGLPlatformIntegration
 parameter_list|()
-block|{  }
+block|{ }
 end_destructor
 begin_function
 DECL|function|initialize
@@ -239,16 +234,6 @@ argument_list|(
 literal|"Could not initialize egl display"
 argument_list|)
 expr_stmt|;
-name|m_screen
-operator|=
-name|createScreen
-argument_list|()
-expr_stmt|;
-name|screenAdded
-argument_list|(
-name|m_screen
-argument_list|)
-expr_stmt|;
 name|m_inputContext
 operator|=
 name|QPlatformInputContextFactory
@@ -289,9 +274,6 @@ name|w
 operator|->
 name|destroy
 argument_list|()
-expr_stmt|;
-operator|delete
-name|m_screen
 expr_stmt|;
 if|if
 condition|(
@@ -850,8 +832,6 @@ name|EglDisplay
 case|:
 name|result
 operator|=
-name|m_screen
-operator|->
 name|display
 argument_list|()
 expr_stmt|;
@@ -1004,8 +984,6 @@ expr_stmt|;
 else|else
 name|result
 operator|=
-name|m_screen
-operator|->
 name|display
 argument_list|()
 expr_stmt|;
