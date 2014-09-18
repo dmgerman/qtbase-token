@@ -805,6 +805,23 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|msec
+operator|<
+literal|0
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QTimer::singleShot: Timers cannot have negative timeouts"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|receiver
 operator|&&
 name|member

@@ -328,6 +328,27 @@ comment|// perhaps application/thread is shutting down
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|thread
+argument_list|()
+operator|!=
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSocketNotifier: Socket notifiers cannot be enabled or disabled from another thread"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|d
 operator|->
 name|snenabled

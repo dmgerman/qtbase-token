@@ -2463,7 +2463,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::startTimer: timers cannot be started from another thread"
+literal|"QEventDispatcherGlib::registerTimer: timers cannot be started from another thread"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2538,7 +2538,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::killTimer: timers cannot be stopped from another thread"
+literal|"QEventDispatcherGlib::unregisterTimer: timers cannot be stopped from another thread"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2618,7 +2618,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::killTimers: timers cannot be stopped from another thread"
+literal|"QEventDispatcherGlib::unregisterTimers: timers cannot be stopped from another thread"
 argument_list|)
 expr_stmt|;
 return|return

@@ -4674,6 +4674,9 @@ modifier|*
 name|object
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 if|if
 condition|(
 name|timerId
@@ -4717,11 +4720,13 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::startTimer: timers cannot be started from another thread"
+literal|"QEventDispatcherWin32::registerTimer: timers cannot be started from another thread"
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
+endif|#
+directive|endif
 name|Q_D
 argument_list|(
 name|QEventDispatcherWin32
@@ -4826,6 +4831,9 @@ name|int
 name|timerId
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 if|if
 condition|(
 name|timerId
@@ -4861,13 +4869,15 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::killTimer: timers cannot be stopped from another thread"
+literal|"QEventDispatcherWin32::unregisterTimer: timers cannot be stopped from another thread"
 argument_list|)
 expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
+endif|#
+directive|endif
 name|Q_D
 argument_list|(
 name|QEventDispatcherWin32
@@ -4954,6 +4964,9 @@ modifier|*
 name|object
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 if|if
 condition|(
 operator|!
@@ -4996,13 +5009,15 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QObject::killTimers: timers cannot be stopped from another thread"
+literal|"QEventDispatcherWin32::unregisterTimers: timers cannot be stopped from another thread"
 argument_list|)
 expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
+endif|#
+directive|endif
 name|Q_D
 argument_list|(
 name|QEventDispatcherWin32
