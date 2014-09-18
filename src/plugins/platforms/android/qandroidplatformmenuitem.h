@@ -174,6 +174,12 @@ name|isEnabled
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setIconSize
+argument_list|(
+argument|int size
+argument_list|)
+block|;
 name|private
 operator|:
 name|quintptr

@@ -224,6 +224,12 @@ argument|bool isEnabled
 argument_list|)
 block|;
 name|void
+name|setIconSize
+argument_list|(
+argument|int size
+argument_list|)
+block|;
+name|void
 name|setNativeContents
 argument_list|(
 argument|WId item
@@ -369,6 +375,9 @@ name|m_merged
 block|;
 name|quintptr
 name|m_tag
+block|;
+name|int
+name|m_iconSize
 block|; }
 decl_stmt|;
 end_decl_stmt

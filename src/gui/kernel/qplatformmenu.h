@@ -245,6 +245,15 @@ literal|0
 block|;
 name|virtual
 name|void
+name|setIconSize
+argument_list|(
+argument|int size
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
 name|setNativeContents
 argument_list|(
 argument|WId item
