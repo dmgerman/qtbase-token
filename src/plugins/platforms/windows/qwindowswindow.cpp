@@ -4401,7 +4401,6 @@ name|maximumWidth
 operator|+
 name|frameWidth
 expr_stmt|;
-comment|// windows with title bar have an implicit size limit of 112 pixels
 if|if
 condition|(
 name|maximumHeight
@@ -4414,14 +4413,9 @@ name|ptMaxTrackSize
 operator|.
 name|y
 operator|=
-name|qMax
-argument_list|(
 name|maximumHeight
 operator|+
 name|frameHeight
-argument_list|,
-literal|112
-argument_list|)
 expr_stmt|;
 name|qCDebug
 argument_list|(
