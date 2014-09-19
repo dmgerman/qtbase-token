@@ -9437,15 +9437,8 @@ literal|".BUILDABLE"
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|bundle_resources_files
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
+comment|// Always add "Copy Bundle Resources" phase, even when we have no bundle
+comment|// resources, since Xcode depends on it being there for e.g asset catalogs.
 name|QString
 name|grp
 argument_list|(
@@ -9549,7 +9542,6 @@ literal|";\n"
 operator|<<
 literal|"\t\t};\n"
 expr_stmt|;
-block|}
 block|}
 comment|//REFERENCE
 name|project
