@@ -17800,7 +17800,7 @@ name|QPixelFormat
 argument_list|(
 name|QPixelFormat
 operator|::
-name|Grayscale
+name|Indexed
 argument_list|,
 comment|/*RED*/
 literal|1
@@ -17851,7 +17851,7 @@ name|QPixelFormat
 argument_list|(
 name|QPixelFormat
 operator|::
-name|Grayscale
+name|Indexed
 argument_list|,
 comment|/*RED*/
 literal|1
@@ -18287,7 +18287,7 @@ argument_list|,
 comment|/*ALPHA POSITION*/
 name|QPixelFormat
 operator|::
-name|AtBeginning
+name|AtEnd
 argument_list|,
 comment|/*PREMULTIPLIED*/
 name|QPixelFormat
@@ -18542,7 +18542,7 @@ argument_list|,
 comment|/*ALPHA POSITION*/
 name|QPixelFormat
 operator|::
-name|AtBeginning
+name|AtEnd
 argument_list|,
 comment|/*PREMULTIPLIED*/
 name|QPixelFormat
