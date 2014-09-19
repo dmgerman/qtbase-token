@@ -41,12 +41,13 @@ operator|:
 name|QEglFSIntegration
 argument_list|()
 block|;
-operator|~
-name|QEglFSIntegration
-argument_list|()
-block|;
 name|void
 name|initialize
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|destroy
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;

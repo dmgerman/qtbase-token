@@ -119,6 +119,11 @@ name|initialize
 argument_list|()
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+name|virtual
+name|void
+name|destroy
+parameter_list|()
+function_decl|;
 name|QEGLPlatformScreen
 operator|*
 name|screen
