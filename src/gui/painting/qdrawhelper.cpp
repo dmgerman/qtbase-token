@@ -31747,8 +31747,6 @@ name|rasterop_solid_NotSourceAndDestination
 block|,
 name|rasterop_solid_SourceAndNotDestination
 block|,
-name|rasterop_solid_SourceAndNotDestination
-block|,
 name|rasterop_solid_NotSourceOrDestination
 block|,
 name|rasterop_solid_SourceOrNotDestination
@@ -31843,8 +31841,6 @@ block|,
 name|rasterop_NotSource
 block|,
 name|rasterop_NotSourceAndDestination
-block|,
-name|rasterop_SourceAndNotDestination
 block|,
 name|rasterop_SourceAndNotDestination
 block|,
