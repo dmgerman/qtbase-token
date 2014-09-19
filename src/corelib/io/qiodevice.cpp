@@ -1789,7 +1789,7 @@ decl_stmt|;
 do|do
 block|{
 comment|// Try reading from the buffer.
-name|int
+name|qint64
 name|lastReadChunkSize
 init|=
 name|d
