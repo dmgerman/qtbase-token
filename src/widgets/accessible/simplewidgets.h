@@ -72,9 +72,9 @@ name|public
 operator|:
 name|QAccessibleButton
 argument_list|(
-argument|QWidget *w
-argument_list|,
-argument|QAccessible::Role r
+name|QWidget
+operator|*
+name|w
 argument_list|)
 block|;
 name|QString
@@ -95,6 +95,14 @@ name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|rect
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QAccessible
+operator|::
+name|Role
+name|role
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -146,15 +154,23 @@ name|public
 operator|:
 name|QAccessibleToolButton
 argument_list|(
-argument|QWidget *w
-argument_list|,
-argument|QAccessible::Role role
+name|QWidget
+operator|*
+name|w
 argument_list|)
 block|;
 name|QAccessible
 operator|::
 name|State
 name|state
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QAccessible
+operator|::
+name|Role
+name|role
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
