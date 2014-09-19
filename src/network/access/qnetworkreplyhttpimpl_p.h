@@ -632,6 +632,10 @@ name|QNonContiguousByteDevice
 operator|>
 name|uploadByteDevice
 block|;
+name|bool
+name|uploadDeviceChoking
+block|;
+comment|// if we couldn't readPointer() any data at the moment
 name|QIODevice
 operator|*
 name|outgoingData

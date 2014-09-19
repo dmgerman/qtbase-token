@@ -1697,6 +1697,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|uploadDeviceChoking
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|outgoingData
 argument_list|(
 literal|0
@@ -6076,9 +6081,20 @@ operator|==
 literal|0
 condition|)
 block|{
+name|uploadDeviceChoking
+operator|=
+literal|true
+expr_stmt|;
 comment|// No bytes from upload byte device. There will be bytes later, it will emit readyRead()
 comment|// and our uploadByteDeviceReadyReadSlot() is called.
 return|return;
+block|}
+else|else
+block|{
+name|uploadDeviceChoking
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|// Let's make a copy of this data
 name|QByteArray
@@ -6119,11 +6135,23 @@ name|uploadByteDeviceReadyReadSlot
 parameter_list|()
 block|{
 comment|// Start the flow between this thread and the HTTP thread again by triggering a upload.
+comment|// However only do this when we were choking before, else the state in
+comment|// QNonContiguousByteDeviceThreadForwardImpl gets messed up.
+if|if
+condition|(
+name|uploadDeviceChoking
+condition|)
+block|{
+name|uploadDeviceChoking
+operator|=
+literal|false
+expr_stmt|;
 name|wantUploadDataSlot
 argument_list|(
 literal|1024
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
