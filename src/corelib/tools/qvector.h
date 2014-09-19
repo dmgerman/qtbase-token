@@ -2733,6 +2733,11 @@ operator|->
 name|alloc
 argument_list|)
 expr_stmt|;
+name|Q_CHECK_PTR
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|capacityReserved
@@ -2753,6 +2758,11 @@ operator|.
 name|d
 operator|->
 name|size
+argument_list|)
+expr_stmt|;
+name|Q_CHECK_PTR
+argument_list|(
+name|d
 argument_list|)
 expr_stmt|;
 block|}
@@ -3623,6 +3633,11 @@ argument_list|(
 name|asize
 argument_list|)
 expr_stmt|;
+name|Q_CHECK_PTR
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|size
@@ -3699,6 +3714,11 @@ operator|::
 name|allocate
 argument_list|(
 name|asize
+argument_list|)
+expr_stmt|;
+name|Q_CHECK_PTR
+argument_list|(
+name|d
 argument_list|)
 expr_stmt|;
 name|d
@@ -3790,6 +3810,11 @@ name|args
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|Q_CHECK_PTR
+argument_list|(
+name|d
 argument_list|)
 expr_stmt|;
 comment|// std::initializer_list<T>::iterator is guaranteed to be
