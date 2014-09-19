@@ -537,6 +537,10 @@ endif|#
 directive|endif
 name|Q_ASSERT_X
 argument_list|(
+name|data
+operator|==
+literal|0
+operator|||
 operator|!
 name|data
 operator|->
