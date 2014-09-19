@@ -1135,6 +1135,20 @@ name|allocated
 condition|)
 block|{
 comment|// need to create some free space
+if|if
+condition|(
+name|freePos
+operator|>=
+name|uint
+argument_list|(
+name|MaxAllocSize
+argument_list|)
+operator|/
+name|fragmentSize
+condition|)
+name|qBadAlloc
+argument_list|()
+expr_stmt|;
 name|uint
 name|needed
 init|=
