@@ -147,6 +147,11 @@ name|m_dirty
 argument_list|(
 name|TxNone
 argument_list|)
+member_init_list|,
+name|d
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -227,6 +232,11 @@ name|m_dirty
 argument_list|(
 name|TxProject
 argument_list|)
+member_init_list|,
+name|d
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -298,6 +308,11 @@ name|m_dirty
 argument_list|(
 name|TxShear
 argument_list|)
+member_init_list|,
+name|d
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
 block|{ }
 end_constructor
 begin_comment
@@ -367,6 +382,11 @@ member_init_list|,
 name|m_dirty
 argument_list|(
 name|TxShear
+argument_list|)
+member_init_list|,
+name|d
+argument_list|(
+name|Q_NULLPTR
 argument_list|)
 block|{ }
 end_constructor

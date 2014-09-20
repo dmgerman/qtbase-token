@@ -761,9 +761,14 @@ argument_list|)
 operator|,
 name|m_dirty
 argument_list|(
-argument|TxProject
+name|TxProject
 argument_list|)
-block|{}
+operator|,
+name|d
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
+block|{     }
 specifier|inline
 name|QTransform
 argument_list|(
@@ -797,9 +802,14 @@ argument_list|)
 operator|,
 name|m_dirty
 argument_list|(
-argument|TxNone
+name|TxNone
 argument_list|)
-block|{}
+operator|,
+name|d
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
+block|{     }
 specifier|inline
 name|TransformationType
 name|inline_type
