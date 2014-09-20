@@ -7657,8 +7657,13 @@ name|src_bpl
 expr_stmt|;
 block|}
 block|}
-else|else
-comment|/* (d == 8) */
+elseif|else
+if|if
+condition|(
+name|d
+operator|==
+literal|8
+condition|)
 block|{
 for|for
 control|(
