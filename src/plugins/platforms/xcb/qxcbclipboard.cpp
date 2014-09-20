@@ -3793,6 +3793,15 @@ operator|->
 name|selection
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|mode
+operator|>
+name|QClipboard
+operator|::
+name|Selection
+condition|)
+return|return;
 comment|// here we care only about the xfixes events that come from non Qt processes
 if|if
 condition|(
