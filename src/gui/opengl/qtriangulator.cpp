@@ -2979,11 +2979,16 @@ literal|2
 decl_stmt|;
 if|if
 condition|(
+name|uint
+argument_list|(
 name|count
+argument_list|)
 operator|>=
-literal|1
+operator|(
+literal|1u
 operator|<<
 name|mid
+operator|)
 condition|)
 name|low
 operator|=
