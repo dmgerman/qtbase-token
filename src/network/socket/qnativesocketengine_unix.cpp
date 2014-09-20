@@ -530,7 +530,7 @@ decl_stmt|;
 if|if
 condition|(
 name|socket
-operator|<=
+operator|<
 literal|0
 operator|&&
 name|socketProtocol
@@ -569,7 +569,7 @@ block|}
 if|if
 condition|(
 name|socket
-operator|<=
+operator|<
 literal|0
 condition|)
 block|{
