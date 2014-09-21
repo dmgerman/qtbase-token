@@ -13807,12 +13807,6 @@ operator|.
 name|name
 argument_list|)
 decl_stmt|;
-name|QVector
-argument_list|<
-name|Declaration
-argument_list|>
-name|declarations
-decl_stmt|;
 for|for
 control|(
 name|int
