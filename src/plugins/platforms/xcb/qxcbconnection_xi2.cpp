@@ -1822,9 +1822,14 @@ name|nrDevices
 operator|<=
 literal|0
 condition|)
+block|{
+operator|delete
+name|dev
+expr_stmt|;
 return|return
 literal|0
 return|;
+block|}
 name|int
 name|type
 init|=
