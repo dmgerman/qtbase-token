@@ -3169,6 +3169,17 @@ operator|::
 name|finishComposingText
 parameter_list|()
 block|{
+if|if
+condition|(
+name|m_composingText
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|JNI_TRUE
+return|;
+comment|// not composing
 name|QSharedPointer
 argument_list|<
 name|QInputMethodQueryEvent
@@ -3188,17 +3199,6 @@ condition|)
 return|return
 name|JNI_FALSE
 return|;
-if|if
-condition|(
-name|m_composingText
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-return|return
-name|JNI_TRUE
-return|;
-comment|// not composing
 specifier|const
 name|int
 name|blockPos
