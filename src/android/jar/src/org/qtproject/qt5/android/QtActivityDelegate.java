@@ -6248,11 +6248,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|m_layout
-operator|.
-name|requestLayout
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|destroySurface
 specifier|public
