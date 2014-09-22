@@ -955,12 +955,9 @@ decl_stmt|;
 name|int
 name|charsChanged
 init|=
-name|qMax
-argument_list|(
 name|charsRemoved
-argument_list|,
+operator|+
 name|charsAdded
-argument_list|)
 decl_stmt|;
 name|QTextBlock
 name|changeStartBlock
