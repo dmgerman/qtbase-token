@@ -14529,6 +14529,9 @@ case|:
 case|case
 literal|'|'
 case|:
+case|case
+literal|'\\'
+case|:
 return|return
 literal|true
 return|;
