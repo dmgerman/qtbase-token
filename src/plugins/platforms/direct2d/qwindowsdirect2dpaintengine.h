@@ -71,10 +71,10 @@ name|NoFlag
 operator|=
 literal|0
 block|,
-name|UseGrayscaleAntialiasing
+name|TranslucentTopLevelWindow
 operator|=
 literal|1
-block|,     }
+block|}
 block|;
 name|Q_DECLARE_FLAGS
 argument_list|(

@@ -1525,7 +1525,7 @@ name|flags
 operator||=
 name|QWindowsDirect2DPaintEngine
 operator|::
-name|UseGrayscaleAntialiasing
+name|TranslucentTopLevelWindow
 expr_stmt|;
 name|QWindowsDirect2DPlatformPixmap
 modifier|*
