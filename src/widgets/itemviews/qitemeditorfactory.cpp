@@ -1312,7 +1312,7 @@ name|left
 operator|+
 name|right
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption

@@ -695,7 +695,7 @@ specifier|const
 name|QFrame
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV3
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|opt
@@ -1152,7 +1152,7 @@ argument_list|(
 name|QFrame
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV3
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|opt

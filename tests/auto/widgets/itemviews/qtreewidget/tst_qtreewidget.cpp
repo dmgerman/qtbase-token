@@ -23430,7 +23430,7 @@ comment|//we check that an item with no text will get an editor with a correct s
 name|QTreeWidget
 name|tree
 decl_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|opt

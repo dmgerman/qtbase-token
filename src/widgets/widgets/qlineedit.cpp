@@ -245,7 +245,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Initialize \a option with the values from this QLineEdit. This method     is useful for subclasses when they need a QStyleOptionFrame or QStyleOptionFrameV2, but don't want     to fill in all the information themselves. This function will check the version     of the QStyleOptionFrame and fill in the additional values for a     QStyleOptionFrameV2.      \sa QStyleOption::initFrom() */
+comment|/*!     Initialize \a option with the values from this QLineEdit. This method     is useful for subclasses when they need a QStyleOptionFrame, but don't want     to fill in all the information themselves.      \sa QStyleOption::initFrom() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -1602,7 +1602,7 @@ operator|->
 name|rightmargin
 decl_stmt|;
 comment|// "some"
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -1719,7 +1719,7 @@ name|d
 operator|->
 name|rightmargin
 decl_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -2356,7 +2356,7 @@ name|hasSelectedText
 argument_list|()
 condition|)
 block|{
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -3520,7 +3520,7 @@ name|cursorFlashTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -5444,7 +5444,7 @@ name|cursorFlashTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -5896,7 +5896,7 @@ init|=
 name|palette
 argument_list|()
 decl_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|panel
 decl_stmt|;
 name|initStyleOption
@@ -7969,7 +7969,7 @@ operator|::
 name|StyleChange
 case|:
 block|{
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|initStyleOption

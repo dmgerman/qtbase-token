@@ -558,7 +558,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|q
@@ -1011,7 +1011,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|q
@@ -1178,7 +1178,7 @@ specifier|const
 name|QLineEdit
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|q
@@ -2130,7 +2130,7 @@ specifier|const
 name|QLineEdit
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|styleOption
 decl_stmt|;
 name|q

@@ -294,7 +294,7 @@ name|option
 operator|->
 name|features
 operator||=
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 operator|::
 name|Flat
 expr_stmt|;

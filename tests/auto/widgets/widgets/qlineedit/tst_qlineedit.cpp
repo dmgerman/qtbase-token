@@ -8727,7 +8727,7 @@ operator|::
 name|passwordEchoOnEdit
 parameter_list|()
 block|{
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|QLineEdit
@@ -9025,7 +9025,7 @@ argument_list|(
 literal|"Platform not defining echo delay and overriding only possible in internal build"
 argument_list|)
 expr_stmt|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|QChar
@@ -21709,7 +21709,7 @@ operator|::
 name|task241436_passwordEchoOnEditRestoreEchoMode
 parameter_list|()
 block|{
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|opt
 decl_stmt|;
 name|QLineEdit

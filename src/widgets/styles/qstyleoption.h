@@ -2390,7 +2390,7 @@ operator|=
 literal|1
 block|}
 block|;
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 operator|::
 name|FrameFeatures
 name|features
