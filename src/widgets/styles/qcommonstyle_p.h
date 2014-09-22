@@ -89,11 +89,16 @@ operator|~
 name|QCommonStylePrivate
 argument_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|qDeleteAll
 argument_list|(
 name|animations
 argument_list|)
 block|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_ITEMVIEWS
@@ -312,6 +317,9 @@ directive|endif
 name|int
 name|animationFps
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|void
 name|_q_removeAnimation
 argument_list|()
@@ -361,7 +369,11 @@ name|QStyleAnimation
 operator|*
 operator|>
 name|animations
-block|; }
+block|;
+endif|#
+directive|endif
+comment|// QT_NO_ANIMATION
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

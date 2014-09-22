@@ -2323,7 +2323,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Set the placeholder \a placeholder to be bound to value \a val in   the prepared statement. Note that the placeholder mark (e.g \c{:})   must be included when specifying the placeholder name. If \a   paramType is QSql::Out or QSql::InOut, the placeholder will be   overwritten with data from the database after the exec() call.   In this case, sufficient space must be pre-allocated to store   the result into.    To bind a NULL value, use a null QVariant; for example, use   \c {QVariant(QVariant::String)} if you are binding a string.    Values cannot be bound to multiple locations in the query, eg:   \code   INSERT INTO testtable (id, name, samename) VALUES (:id, :name, :name)   \endcode   Binding to name will bind to the first :name, but not the second.    \sa addBindValue(), prepare(), exec(), boundValue(), boundValues() */
+comment|/*!   Set the placeholder \a placeholder to be bound to value \a val in   the prepared statement. Note that the placeholder mark (e.g \c{:})   must be included when specifying the placeholder name. If \a   paramType is QSql::Out or QSql::InOut, the placeholder will be   overwritten with data from the database after the exec() call.   In this case, sufficient space must be pre-allocated to store   the result into.    To bind a NULL value, use a null QVariant; for example, use   \c {QVariant(QVariant::String)} if you are binding a string.    \sa addBindValue(), prepare(), exec(), boundValue(), boundValues() */
 end_comment
 begin_function
 DECL|function|bindValue

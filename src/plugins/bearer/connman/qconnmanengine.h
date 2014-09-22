@@ -284,10 +284,6 @@ name|void
 name|reEvaluateCellular
 argument_list|()
 block|;
-name|void
-name|inotifyActivated
-argument_list|()
-block|;
 name|private
 operator|:
 name|QConnmanManagerInterface
@@ -411,10 +407,6 @@ operator|&
 name|context
 argument_list|)
 block|;
-name|bool
-name|isAlwaysAskRoaming
-argument_list|()
-block|;
 name|QMap
 operator|<
 name|QString
@@ -423,12 +415,6 @@ name|QConnmanServiceInterface
 operator|*
 operator|>
 name|connmanServiceInterfaces
-block|;
-name|int
-name|inotifyWatcher
-block|;
-name|int
-name|inotifyFileDescriptor
 block|;
 name|protected
 operator|:

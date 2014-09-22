@@ -5073,11 +5073,17 @@ block|{
 comment|// timer isn't owned by this object
 name|qWarning
 argument_list|(
-literal|"QObject::killTimer(): Error: timer id %d is not valid for object %p (%s), timer has not been killed"
+literal|"QObject::killTimer(): Error: timer id %d is not valid for object %p (%s, %s), timer has not been killed"
 argument_list|,
 name|id
 argument_list|,
 name|this
+argument_list|,
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
 argument_list|,
 name|qPrintable
 argument_list|(

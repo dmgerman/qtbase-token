@@ -66,7 +66,7 @@ argument_list|)
 block|;
 specifier|static
 name|bool
-name|needsFBOReadBackWorkaroud
+name|needsFBOReadBackWorkaround
 argument_list|()
 block|; }
 decl_stmt|;

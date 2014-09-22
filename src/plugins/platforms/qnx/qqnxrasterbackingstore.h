@@ -112,45 +112,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|class
-name|ScrollOp
-block|{
-name|public
-operator|:
-name|ScrollOp
-argument_list|(
-argument|const QRegion&a
-argument_list|,
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-operator|:
-name|totalArea
-argument_list|(
-name|a
-argument_list|)
-block|,
-name|dx
-argument_list|(
-name|x
-argument_list|)
-block|,
-name|dy
-argument_list|(
-argument|y
-argument_list|)
-block|{}
-name|QRegion
-name|totalArea
-block|;
-name|int
-name|dx
-block|;
-name|int
-name|dy
-block|;     }
-block|;
 name|QQnxRasterWindow
 operator|*
 name|platformWindow
@@ -161,14 +122,11 @@ name|QWindow
 operator|*
 name|m_window
 block|;
-name|QList
-operator|<
-name|ScrollOp
-operator|>
-name|m_scrollOpList
+name|bool
+name|m_needsPosting
 block|;
 name|bool
-name|m_hasUnflushedPaintOperations
+name|m_scrolled
 block|; }
 decl_stmt|;
 end_decl_stmt

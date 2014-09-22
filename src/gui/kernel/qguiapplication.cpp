@@ -745,6 +745,11 @@ name|qRegisterGuiVariant
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
+end_ifndef
 begin_function_decl
 specifier|extern
 name|void
@@ -752,6 +757,10 @@ name|qRegisterGuiGetInterpolator
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 specifier|extern
 name|void
@@ -1882,6 +1891,11 @@ endif|#
 directive|endif
 comment|//QT_NO_SESSIONMANAGER
 name|clearPalette
+argument_list|()
+block|;
+name|QFontDatabase
+operator|::
+name|removeAllApplicationFonts
 argument_list|()
 block|;
 ifndef|#
@@ -5041,10 +5055,15 @@ comment|// trigger registering of QVariant's GUI types
 name|qRegisterGuiVariant
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 comment|// trigger registering of animation interpolators
 name|qRegisterGuiGetInterpolator
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 comment|// set a global share context when enabled unless there is already one
 ifndef|#
 directive|ifndef

@@ -11688,8 +11688,15 @@ decl_stmt|;
 name|int
 name|pos
 init|=
+name|qBound
+argument_list|(
+literal|0
+argument_list|,
 operator|*
 name|cursorPos
+argument_list|,
+name|lineEnd
+argument_list|)
 decl_stmt|;
 name|int
 name|itm

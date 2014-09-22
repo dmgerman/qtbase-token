@@ -16,6 +16,36 @@ define|#
 directive|define
 name|QEVENTDISPATCHER_CF_P_H
 end_define
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is not part of the Qt API.  It exists purely as an
+end_comment
+begin_comment
+comment|// implementation detail.  This header file may change from version to
+end_comment
+begin_comment
+comment|// version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
 begin_define
 DECL|macro|DEBUG_EVENT_DISPATCHER
 define|#

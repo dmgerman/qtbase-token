@@ -26,13 +26,19 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// This file is part of the QPA API and is not meant to be used
+comment|// This file is not part of the Qt API.  It exists purely as an
 end_comment
 begin_comment
-comment|// in applications. Usage of this API may make your code
+comment|// implementation detail.  This header file may change from version to
 end_comment
 begin_comment
-comment|// source and binary incompatible with future versions of Qt.
+comment|// version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
 end_comment
 begin_comment
 comment|//

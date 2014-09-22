@@ -795,6 +795,8 @@ index|[
 literal|4
 index|]
 decl_stmt|;
+comment|// Some drivers have no labels on the wheel buttons, some have no label on just one and some have no label on
+comment|// button 4 and the wrong one on button 5. So we just check that they are not labelled with unrelated buttons.
 if|if
 condition|(
 operator|(
@@ -809,11 +811,29 @@ operator|==
 name|QXcbAtom
 operator|::
 name|ButtonWheelUp
+operator|||
+name|qatom
+argument_list|(
+name|label4
+argument_list|)
+operator|==
+name|QXcbAtom
+operator|::
+name|ButtonWheelDown
 operator|)
 operator|&&
 operator|(
 operator|!
 name|label5
+operator|||
+name|qatom
+argument_list|(
+name|label5
+argument_list|)
+operator|==
+name|QXcbAtom
+operator|::
+name|ButtonWheelUp
 operator|||
 name|qatom
 argument_list|(

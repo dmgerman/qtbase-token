@@ -280,12 +280,17 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QCommonStyle
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_removeAnimation()
 argument_list|)
+endif|#
+directive|endif
 block|}
 decl_stmt|;
 end_decl_stmt
