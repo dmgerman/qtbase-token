@@ -5554,6 +5554,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|commonSedArgs
 operator|<<
 literal|"-e \"s,@SHORT_VERSION@,"
@@ -5576,6 +5577,38 @@ argument_list|)
 operator|<<
 literal|",g\" "
 expr_stmt|;
+name|commonSedArgs
+operator|<<
+literal|"-e \"s,@FULL_VERSION@,"
+operator|<<
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"VER_MAJ"
+argument_list|)
+operator|<<
+literal|"."
+operator|<<
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"VER_MIN"
+argument_list|)
+operator|<<
+literal|"."
+operator|<<
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"VER_PAT"
+argument_list|)
+operator|<<
+literal|",g\" "
+expr_stmt|;
+block|}
 name|commonSedArgs
 operator|<<
 literal|"-e \"s,@TYPEINFO@,"
