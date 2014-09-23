@@ -30,6 +30,13 @@ begin_empty
 empty|#import "quiview.h"
 end_empty
 begin_decl_stmt
+DECL|variable|QIOSMenu
+name|class
+name|QIOSMenu
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QIOSMenu
 unit|@
 DECL|variable|QUIMenuController
 name|class
@@ -89,7 +96,7 @@ argument_list|(
 argument|QPlatformMenu *
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|{}
+block|;
 name|void
 name|setVisible
 argument_list|(
@@ -170,6 +177,10 @@ name|m_enabled
 block|;
 name|bool
 name|m_separator
+block|;
+name|QIOSMenu
+operator|*
+name|m_menu
 block|;
 name|private
 operator|:
@@ -323,6 +334,14 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|handleItemSelected
+argument_list|(
+name|QIOSMenuItem
+operator|*
+name|menuItem
+argument_list|)
+block|;
 specifier|static
 name|QIOSMenu
 operator|*
@@ -384,6 +403,12 @@ name|m_menuType
 block|;
 name|MenuType
 name|m_effectiveMenuType
+block|;
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|m_parentWindow
 block|;
 name|QRect
 name|m_targetRect
