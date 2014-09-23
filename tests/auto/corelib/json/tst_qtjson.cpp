@@ -18564,9 +18564,9 @@ name|QByteArray
 name|json
 init|=
 literal|"{"
-literal|"\"x\u2090_1\": \"hello_1\","
-literal|"\"y\u2090_2\": \"hello_2\","
-literal|"\"T\u2090_3\": \"hello_3\","
+literal|"\"x\\u2090_1\": \"hello_1\","
+literal|"\"y\\u2090_2\": \"hello_2\","
+literal|"\"T\\u2090_3\": \"hello_3\","
 literal|"\"xyz_4\": \"hello_4\","
 literal|"\"abc_5\": \"hello_5\""
 literal|"}"
