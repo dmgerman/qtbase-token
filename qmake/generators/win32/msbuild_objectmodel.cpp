@@ -11007,8 +11007,6 @@ operator|.
 name|file
 argument_list|,
 name|filtername
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|xml
@@ -11426,8 +11424,6 @@ argument_list|,
 name|filename
 argument_list|,
 name|filtername
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -11637,9 +11633,6 @@ specifier|const
 name|QString
 modifier|&
 name|filterName
-parameter_list|,
-name|bool
-name|checkDeploymentFilter
 parameter_list|)
 block|{
 specifier|const
@@ -11994,19 +11987,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|checkDeploymentFilter
-operator|||
-name|filterName
-operator|.
-name|startsWith
-argument_list|(
-literal|"Deployment Files"
-argument_list|)
-condition|)
+else|else
 block|{
 name|xmlFilter
 operator|<<

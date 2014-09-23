@@ -912,15 +912,23 @@ specifier|static
 name|void
 name|outputFileConfig
 argument_list|(
-argument|XmlOutput&xml
+name|XmlOutput
+operator|&
+name|xml
 argument_list|,
-argument|XmlOutput&xmlFilter
+name|XmlOutput
+operator|&
+name|xmlFilter
 argument_list|,
-argument|const QString&fileName
+specifier|const
+name|QString
+operator|&
+name|fileName
 argument_list|,
-argument|const QString&filterName
-argument_list|,
-argument|bool checkDeploymentFilter
+specifier|const
+name|QString
+operator|&
+name|filterName
 argument_list|)
 block|;
 specifier|static
