@@ -824,6 +824,19 @@ argument_list|)
 block|;
 name|private
 operator|:
+expr|struct
+name|OutputFilterData
+block|{
+name|VCFilter
+name|filter
+block|;
+name|VCFilterFile
+name|info
+block|;
+name|bool
+name|inBuild
+block|;     }
+block|;
 specifier|static
 name|void
 name|addFilters
@@ -895,7 +908,7 @@ specifier|static
 name|bool
 name|outputFileConfig
 argument_list|(
-argument|VCFilter filter
+argument|OutputFilterData *d
 argument_list|,
 argument|XmlOutput&xml
 argument_list|,
@@ -904,6 +917,8 @@ argument_list|,
 argument|const QString&filename
 argument_list|,
 argument|bool fileAdded
+argument_list|,
+argument|bool hasCustomBuildStep
 argument_list|)
 block|;
 specifier|static
