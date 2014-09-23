@@ -3181,6 +3181,20 @@ name|QString
 name|str
 parameter_list|)
 function_decl|;
+name|VCFilterFile
+name|findFile
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|filePath
+argument_list|,
+name|bool
+operator|*
+name|found
+argument_list|)
+decl|const
+decl_stmt|;
 comment|// Variables
 name|QString
 name|Name
