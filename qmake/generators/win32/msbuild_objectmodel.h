@@ -895,7 +895,7 @@ specifier|static
 name|bool
 name|outputFileConfig
 argument_list|(
-argument|VCFilter&filter
+argument|VCFilter filter
 argument_list|,
 argument|XmlOutput&xml
 argument_list|,
