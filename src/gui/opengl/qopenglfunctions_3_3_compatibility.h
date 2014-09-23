@@ -7602,13 +7602,14 @@ name|QOpenGLFunctions_1_4_DeprecatedBackend
 operator|*
 name|d_1_4_Deprecated
 block|;
-name|QOpenGLFunctions_2_0_DeprecatedBackend
+name|void
 operator|*
-name|d_2_0_Deprecated
+name|m_reserved_2_0_Deprecated
 block|;
-name|QOpenGLFunctions_3_0_DeprecatedBackend
+comment|// To maintain BC
+name|QOpenGLFunctions_3_3_DeprecatedBackend
 operator|*
-name|d_3_0_Deprecated
+name|d_3_3_Deprecated
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -8721,7 +8722,7 @@ argument_list|(
 argument|const GLubyte *c
 argument_list|)
 block|{
-name|d_1_1_Core
+name|d_1_1_Deprecated
 operator|->
 name|Indexubv
 argument_list|(
@@ -8738,7 +8739,7 @@ argument_list|(
 argument|GLubyte c
 argument_list|)
 block|{
-name|d_1_1_Core
+name|d_1_1_Deprecated
 operator|->
 name|Indexub
 argument_list|(
@@ -9120,7 +9121,7 @@ argument_list|,
 argument|GLvoid* *params
 argument_list|)
 block|{
-name|d_1_1_Core
+name|d_1_1_Deprecated
 operator|->
 name|GetPointerv
 argument_list|(
@@ -14760,7 +14761,7 @@ argument_list|,
 argument|const GLuint *color
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|SecondaryColorP3uiv
 argument_list|(
@@ -14781,7 +14782,7 @@ argument_list|,
 argument|GLuint color
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|SecondaryColorP3ui
 argument_list|(
@@ -14802,7 +14803,7 @@ argument_list|,
 argument|const GLuint *color
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|ColorP4uiv
 argument_list|(
@@ -14823,7 +14824,7 @@ argument_list|,
 argument|GLuint color
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|ColorP4ui
 argument_list|(
@@ -14844,7 +14845,7 @@ argument_list|,
 argument|const GLuint *color
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|ColorP3uiv
 argument_list|(
@@ -14865,7 +14866,7 @@ argument_list|,
 argument|GLuint color
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|ColorP3ui
 argument_list|(
@@ -14886,7 +14887,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|NormalP3uiv
 argument_list|(
@@ -14907,7 +14908,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|NormalP3ui
 argument_list|(
@@ -14930,7 +14931,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP4uiv
 argument_list|(
@@ -14955,7 +14956,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP4ui
 argument_list|(
@@ -14980,7 +14981,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP3uiv
 argument_list|(
@@ -15005,7 +15006,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP3ui
 argument_list|(
@@ -15030,7 +15031,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP2uiv
 argument_list|(
@@ -15055,7 +15056,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP2ui
 argument_list|(
@@ -15080,7 +15081,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP1uiv
 argument_list|(
@@ -15105,7 +15106,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|MultiTexCoordP1ui
 argument_list|(
@@ -15128,7 +15129,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP4uiv
 argument_list|(
@@ -15149,7 +15150,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP4ui
 argument_list|(
@@ -15170,7 +15171,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP3uiv
 argument_list|(
@@ -15191,7 +15192,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP3ui
 argument_list|(
@@ -15212,7 +15213,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP2uiv
 argument_list|(
@@ -15233,7 +15234,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP2ui
 argument_list|(
@@ -15254,7 +15255,7 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP1uiv
 argument_list|(
@@ -15275,7 +15276,7 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|TexCoordP1ui
 argument_list|(
@@ -15296,7 +15297,7 @@ argument_list|,
 argument|const GLuint *value
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|VertexP4uiv
 argument_list|(
@@ -15317,7 +15318,7 @@ argument_list|,
 argument|GLuint value
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|VertexP4ui
 argument_list|(
@@ -15338,7 +15339,7 @@ argument_list|,
 argument|const GLuint *value
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|VertexP3uiv
 argument_list|(
@@ -15359,7 +15360,7 @@ argument_list|,
 argument|GLuint value
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|VertexP3ui
 argument_list|(
@@ -15380,7 +15381,7 @@ argument_list|,
 argument|const GLuint *value
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|VertexP2uiv
 argument_list|(
@@ -15401,7 +15402,7 @@ argument_list|,
 argument|GLuint value
 argument_list|)
 block|{
-name|d_3_3_Core
+name|d_3_3_Deprecated
 operator|->
 name|VertexP2ui
 argument_list|(
@@ -24448,7 +24449,7 @@ argument_list|,
 argument|const GLushort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4usv
 argument_list|(
@@ -24469,7 +24470,7 @@ argument_list|,
 argument|const GLuint *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4uiv
 argument_list|(
@@ -24490,7 +24491,7 @@ argument_list|,
 argument|const GLubyte *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4ubv
 argument_list|(
@@ -24511,7 +24512,7 @@ argument_list|,
 argument|const GLshort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4sv
 argument_list|(
@@ -24538,7 +24539,7 @@ argument_list|,
 argument|GLshort w
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4s
 argument_list|(
@@ -24565,7 +24566,7 @@ argument_list|,
 argument|const GLint *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4iv
 argument_list|(
@@ -24586,7 +24587,7 @@ argument_list|,
 argument|const GLfloat *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4fv
 argument_list|(
@@ -24613,7 +24614,7 @@ argument_list|,
 argument|GLfloat w
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4f
 argument_list|(
@@ -24640,7 +24641,7 @@ argument_list|,
 argument|const GLdouble *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4dv
 argument_list|(
@@ -24667,7 +24668,7 @@ argument_list|,
 argument|GLdouble w
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4d
 argument_list|(
@@ -24694,7 +24695,7 @@ argument_list|,
 argument|const GLbyte *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4bv
 argument_list|(
@@ -24715,7 +24716,7 @@ argument_list|,
 argument|const GLushort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Nusv
 argument_list|(
@@ -24736,7 +24737,7 @@ argument_list|,
 argument|const GLuint *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Nuiv
 argument_list|(
@@ -24757,7 +24758,7 @@ argument_list|,
 argument|const GLubyte *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Nubv
 argument_list|(
@@ -24784,7 +24785,7 @@ argument_list|,
 argument|GLubyte w
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Nub
 argument_list|(
@@ -24811,7 +24812,7 @@ argument_list|,
 argument|const GLshort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Nsv
 argument_list|(
@@ -24832,7 +24833,7 @@ argument_list|,
 argument|const GLint *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Niv
 argument_list|(
@@ -24853,7 +24854,7 @@ argument_list|,
 argument|const GLbyte *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib4Nbv
 argument_list|(
@@ -24874,7 +24875,7 @@ argument_list|,
 argument|const GLshort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib3sv
 argument_list|(
@@ -24899,7 +24900,7 @@ argument_list|,
 argument|GLshort z
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib3s
 argument_list|(
@@ -24924,7 +24925,7 @@ argument_list|,
 argument|const GLfloat *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib3fv
 argument_list|(
@@ -24949,7 +24950,7 @@ argument_list|,
 argument|GLfloat z
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib3f
 argument_list|(
@@ -24974,7 +24975,7 @@ argument_list|,
 argument|const GLdouble *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib3dv
 argument_list|(
@@ -24999,7 +25000,7 @@ argument_list|,
 argument|GLdouble z
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib3d
 argument_list|(
@@ -25024,7 +25025,7 @@ argument_list|,
 argument|const GLshort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib2sv
 argument_list|(
@@ -25047,7 +25048,7 @@ argument_list|,
 argument|GLshort y
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib2s
 argument_list|(
@@ -25070,7 +25071,7 @@ argument_list|,
 argument|const GLfloat *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib2fv
 argument_list|(
@@ -25093,7 +25094,7 @@ argument_list|,
 argument|GLfloat y
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib2f
 argument_list|(
@@ -25116,7 +25117,7 @@ argument_list|,
 argument|const GLdouble *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib2dv
 argument_list|(
@@ -25139,7 +25140,7 @@ argument_list|,
 argument|GLdouble y
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib2d
 argument_list|(
@@ -25162,7 +25163,7 @@ argument_list|,
 argument|const GLshort *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib1sv
 argument_list|(
@@ -25183,7 +25184,7 @@ argument_list|,
 argument|GLshort x
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib1s
 argument_list|(
@@ -25204,7 +25205,7 @@ argument_list|,
 argument|const GLfloat *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib1fv
 argument_list|(
@@ -25225,7 +25226,7 @@ argument_list|,
 argument|GLfloat x
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib1f
 argument_list|(
@@ -25246,7 +25247,7 @@ argument_list|,
 argument|const GLdouble *v
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib1dv
 argument_list|(
@@ -25267,7 +25268,7 @@ argument_list|,
 argument|GLdouble x
 argument_list|)
 block|{
-name|d_2_0_Deprecated
+name|d_2_0_Core
 operator|->
 name|VertexAttrib1d
 argument_list|(
@@ -25290,7 +25291,7 @@ argument_list|,
 argument|const GLushort *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4usv
 argument_list|(
@@ -25311,7 +25312,7 @@ argument_list|,
 argument|const GLubyte *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4ubv
 argument_list|(
@@ -25332,7 +25333,7 @@ argument_list|,
 argument|const GLshort *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4sv
 argument_list|(
@@ -25353,7 +25354,7 @@ argument_list|,
 argument|const GLbyte *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4bv
 argument_list|(
@@ -25374,7 +25375,7 @@ argument_list|,
 argument|const GLuint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4uiv
 argument_list|(
@@ -25395,7 +25396,7 @@ argument_list|,
 argument|const GLuint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI3uiv
 argument_list|(
@@ -25416,7 +25417,7 @@ argument_list|,
 argument|const GLuint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI2uiv
 argument_list|(
@@ -25437,7 +25438,7 @@ argument_list|,
 argument|const GLuint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI1uiv
 argument_list|(
@@ -25458,7 +25459,7 @@ argument_list|,
 argument|const GLint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4iv
 argument_list|(
@@ -25479,7 +25480,7 @@ argument_list|,
 argument|const GLint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI3iv
 argument_list|(
@@ -25500,7 +25501,7 @@ argument_list|,
 argument|const GLint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI2iv
 argument_list|(
@@ -25521,7 +25522,7 @@ argument_list|,
 argument|const GLint *v
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI1iv
 argument_list|(
@@ -25548,7 +25549,7 @@ argument_list|,
 argument|GLuint w
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4ui
 argument_list|(
@@ -25579,7 +25580,7 @@ argument_list|,
 argument|GLuint z
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI3ui
 argument_list|(
@@ -25606,7 +25607,7 @@ argument_list|,
 argument|GLuint y
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI2ui
 argument_list|(
@@ -25629,7 +25630,7 @@ argument_list|,
 argument|GLuint x
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI1ui
 argument_list|(
@@ -25656,7 +25657,7 @@ argument_list|,
 argument|GLint w
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI4i
 argument_list|(
@@ -25687,7 +25688,7 @@ argument_list|,
 argument|GLint z
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI3i
 argument_list|(
@@ -25714,7 +25715,7 @@ argument_list|,
 argument|GLint y
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI2i
 argument_list|(
@@ -25737,7 +25738,7 @@ argument_list|,
 argument|GLint x
 argument_list|)
 block|{
-name|d_3_0_Deprecated
+name|d_3_0_Core
 operator|->
 name|VertexAttribI1i
 argument_list|(

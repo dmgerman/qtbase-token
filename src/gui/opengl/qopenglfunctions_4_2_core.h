@@ -6201,12 +6201,12 @@ argument_list|(
 argument|const GLubyte *c
 argument_list|)
 block|{
-name|d_1_1_Core
-operator|->
-name|Indexubv
+name|Q_UNUSED
 argument_list|(
 name|c
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glIndexub
 specifier|inline
@@ -6218,12 +6218,12 @@ argument_list|(
 argument|GLubyte c
 argument_list|)
 block|{
-name|d_1_1_Core
-operator|->
-name|Indexub
+name|Q_UNUSED
 argument_list|(
 name|c
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glIsTexture
 specifier|inline
@@ -6600,14 +6600,17 @@ argument_list|,
 argument|GLvoid* *params
 argument_list|)
 block|{
-name|d_1_1_Core
-operator|->
-name|GetPointerv
+name|Q_UNUSED
 argument_list|(
 name|pname
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|params
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glDrawElements
 specifier|inline
@@ -12240,14 +12243,17 @@ argument_list|,
 argument|const GLuint *color
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|SecondaryColorP3uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|color
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glSecondaryColorP3ui
 specifier|inline
@@ -12261,14 +12267,17 @@ argument_list|,
 argument|GLuint color
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|SecondaryColorP3ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|color
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glColorP4uiv
 specifier|inline
@@ -12282,14 +12291,17 @@ argument_list|,
 argument|const GLuint *color
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|ColorP4uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|color
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glColorP4ui
 specifier|inline
@@ -12303,14 +12315,17 @@ argument_list|,
 argument|GLuint color
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|ColorP4ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|color
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glColorP3uiv
 specifier|inline
@@ -12324,14 +12339,17 @@ argument_list|,
 argument|const GLuint *color
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|ColorP3uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|color
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glColorP3ui
 specifier|inline
@@ -12345,14 +12363,17 @@ argument_list|,
 argument|GLuint color
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|ColorP3ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|color
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glNormalP3uiv
 specifier|inline
@@ -12366,14 +12387,17 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|NormalP3uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glNormalP3ui
 specifier|inline
@@ -12387,14 +12411,17 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|NormalP3ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP4uiv
 specifier|inline
@@ -12410,16 +12437,22 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP4uiv
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP4ui
 specifier|inline
@@ -12435,16 +12468,22 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP4ui
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP3uiv
 specifier|inline
@@ -12460,16 +12499,22 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP3uiv
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP3ui
 specifier|inline
@@ -12485,16 +12530,22 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP3ui
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP2uiv
 specifier|inline
@@ -12510,16 +12561,22 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP2uiv
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP2ui
 specifier|inline
@@ -12535,16 +12592,22 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP2ui
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP1uiv
 specifier|inline
@@ -12560,16 +12623,22 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP1uiv
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glMultiTexCoordP1ui
 specifier|inline
@@ -12585,16 +12654,22 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|MultiTexCoordP1ui
+name|Q_UNUSED
 argument_list|(
 name|texture
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP4uiv
 specifier|inline
@@ -12608,14 +12683,17 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP4uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP4ui
 specifier|inline
@@ -12629,14 +12707,17 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP4ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP3uiv
 specifier|inline
@@ -12650,14 +12731,17 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP3uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP3ui
 specifier|inline
@@ -12671,14 +12755,17 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP3ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP2uiv
 specifier|inline
@@ -12692,14 +12779,17 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP2uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP2ui
 specifier|inline
@@ -12713,14 +12803,17 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP2ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP1uiv
 specifier|inline
@@ -12734,14 +12827,17 @@ argument_list|,
 argument|const GLuint *coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP1uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glTexCoordP1ui
 specifier|inline
@@ -12755,14 +12851,17 @@ argument_list|,
 argument|GLuint coords
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|TexCoordP1ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|coords
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glVertexP4uiv
 specifier|inline
@@ -12776,14 +12875,17 @@ argument_list|,
 argument|const GLuint *value
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|VertexP4uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|value
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glVertexP4ui
 specifier|inline
@@ -12797,14 +12899,17 @@ argument_list|,
 argument|GLuint value
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|VertexP4ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|value
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glVertexP3uiv
 specifier|inline
@@ -12818,14 +12923,17 @@ argument_list|,
 argument|const GLuint *value
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|VertexP3uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|value
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glVertexP3ui
 specifier|inline
@@ -12839,14 +12947,17 @@ argument_list|,
 argument|GLuint value
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|VertexP3ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|value
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glVertexP2uiv
 specifier|inline
@@ -12860,14 +12971,17 @@ argument_list|,
 argument|const GLuint *value
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|VertexP2uiv
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|value
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glVertexP2ui
 specifier|inline
@@ -12881,14 +12995,17 @@ argument_list|,
 argument|GLuint value
 argument_list|)
 block|{
-name|d_3_3_Core
-operator|->
-name|VertexP2ui
+name|Q_UNUSED
 argument_list|(
 name|type
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|value
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glGetQueryObjectui64v
 specifier|inline

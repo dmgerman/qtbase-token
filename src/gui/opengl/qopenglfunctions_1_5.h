@@ -5996,7 +5996,7 @@ argument_list|(
 argument|const GLubyte *c
 argument_list|)
 block|{
-name|d_1_1_Core
+name|d_1_1_Deprecated
 operator|->
 name|Indexubv
 argument_list|(
@@ -6013,7 +6013,7 @@ argument_list|(
 argument|GLubyte c
 argument_list|)
 block|{
-name|d_1_1_Core
+name|d_1_1_Deprecated
 operator|->
 name|Indexub
 argument_list|(
@@ -6395,7 +6395,7 @@ argument_list|,
 argument|GLvoid* *params
 argument_list|)
 block|{
-name|d_1_1_Core
+name|d_1_1_Deprecated
 operator|->
 name|GetPointerv
 argument_list|(

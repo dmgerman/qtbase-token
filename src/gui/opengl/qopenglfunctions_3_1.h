@@ -3772,12 +3772,12 @@ argument_list|(
 argument|const GLubyte *c
 argument_list|)
 block|{
-name|d_1_1_Core
-operator|->
-name|Indexubv
+name|Q_UNUSED
 argument_list|(
 name|c
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glIndexub
 specifier|inline
@@ -3789,12 +3789,12 @@ argument_list|(
 argument|GLubyte c
 argument_list|)
 block|{
-name|d_1_1_Core
-operator|->
-name|Indexub
+name|Q_UNUSED
 argument_list|(
 name|c
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glIsTexture
 specifier|inline
@@ -4171,14 +4171,17 @@ argument_list|,
 argument|GLvoid* *params
 argument_list|)
 block|{
-name|d_1_1_Core
-operator|->
-name|GetPointerv
+name|Q_UNUSED
 argument_list|(
 name|pname
-argument_list|,
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|params
 argument_list|)
+block|;
+name|QOPENGL_DEPRECATEDFUNCTION
 block|; }
 DECL|function|glDrawElements
 specifier|inline
