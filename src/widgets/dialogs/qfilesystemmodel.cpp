@@ -102,6 +102,9 @@ argument_list|(
 name|aindex
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|QFileSystemModelPrivate
 modifier|*
 name|d
@@ -116,9 +119,6 @@ name|d_func
 argument_list|()
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -7359,6 +7359,12 @@ argument_list|(
 name|enable
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|enable
+argument_list|)
 endif|#
 directive|endif
 block|}
@@ -7822,6 +7828,9 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|Q_D
 argument_list|(
 name|QFileSystemModel
@@ -7839,9 +7848,6 @@ operator|::
 name|LanguageChange
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|root
@@ -7859,12 +7865,12 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 literal|true
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|QAbstractItemModel
 operator|::
@@ -7896,6 +7902,9 @@ argument_list|(
 name|aindex
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|QFileSystemModelPrivate
 modifier|*
 name|d
@@ -7910,9 +7919,6 @@ name|d_func
 argument_list|()
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -8184,6 +8190,12 @@ argument_list|(
 name|info
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|info
+argument_list|)
 endif|#
 directive|endif
 if|#
@@ -9375,6 +9387,16 @@ name|delayedSort
 argument_list|()
 expr_stmt|;
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|path
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|updates
+argument_list|)
 endif|#
 directive|endif
 comment|// !QT_NO_FILESYSTEMWATCHER
