@@ -909,6 +909,21 @@ argument|bool fileAllreadyAdded
 argument_list|)
 block|;
 specifier|static
+name|void
+name|outputFileConfig
+argument_list|(
+argument|XmlOutput&xml
+argument_list|,
+argument|XmlOutput&xmlFilter
+argument_list|,
+argument|const QString&fileName
+argument_list|,
+argument|const QString&filterName
+argument_list|,
+argument|bool checkDeploymentFilter
+argument_list|)
+block|;
+specifier|static
 name|QString
 name|generateCondition
 argument_list|(
