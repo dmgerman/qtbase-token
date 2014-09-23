@@ -3542,7 +3542,7 @@ name|SetWindowPos
 argument_list|(
 name|hwnd
 argument_list|,
-literal|0
+name|HWND_NOTOPMOST
 argument_list|,
 literal|0
 argument_list|,
