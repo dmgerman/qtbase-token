@@ -307,6 +307,13 @@ block|;
 name|Qt
 operator|::
 name|DropActions
+name|supportedDragActions
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|DropActions
 name|supportedDropActions
 argument_list|()
 specifier|const

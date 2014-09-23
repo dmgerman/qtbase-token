@@ -1478,6 +1478,36 @@ begin_comment
 comment|/*!     \reimp  */
 end_comment
 begin_function
+DECL|function|supportedDragActions
+name|Qt
+operator|::
+name|DropActions
+name|QAbstractProxyModel
+operator|::
+name|supportedDragActions
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QAbstractProxyModel
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|model
+operator|->
+name|supportedDragActions
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \reimp  */
+end_comment
+begin_function
 DECL|function|supportedDropActions
 name|Qt
 operator|::
