@@ -103,7 +103,7 @@ argument_list|(
 argument|bool
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|{}
+block|;
 name|void
 name|setFont
 argument_list|(
@@ -167,6 +167,9 @@ name|m_role
 block|;
 name|bool
 name|m_enabled
+block|;
+name|bool
+name|m_separator
 block|;
 name|private
 operator|:
