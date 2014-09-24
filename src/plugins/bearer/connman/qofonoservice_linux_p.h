@@ -440,6 +440,7 @@ block|;
 name|private
 operator|:
 name|QVariantMap
+operator|&
 name|getProperties
 argument_list|()
 block|;
