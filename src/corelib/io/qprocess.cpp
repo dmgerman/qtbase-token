@@ -4010,7 +4010,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \deprecated     Returns the environment that QProcess will use when starting a     process, or an empty QStringList if no environment has been set     using setEnvironment() or setEnvironmentHash(). If no environment     has been set, the environment of the calling process will be used.      \note The environment settings are ignored on Windows CE,     as there is no concept of an environment.      \sa processEnvironment(), setEnvironment(), systemEnvironment() */
+comment|/*!     \deprecated     Returns the environment that QProcess will use when starting a     process, or an empty QStringList if no environment has been set     using setEnvironment(). If no environment has been set, the     environment of the calling process will be used.      \note The environment settings are ignored on Windows CE,     as there is no concept of an environment.      \sa processEnvironment(), setEnvironment(), systemEnvironment() */
 end_comment
 begin_function
 DECL|function|environment
@@ -5086,7 +5086,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts the given \a program in a new process, passing the command line     arguments in \a arguments.      The QProcess object will immediately enter the Starting state. If the     process starts successfully, QProcess will emit started(); otherwise,     error() will be emitted.      \note Processes are started asynchronously, which means the started()     and error() signals may be delayed. Call waitForStarted() to make     sure the process has started (or has failed to start) and those signals     have been emitted.      \note No further splitting of the arguments is performed.      \b{Windows:} The arguments are quoted and joined into a command line     that is compatible with the CommandLineToArgvW() Windows function.     For programs that have different command line quoting requirements,     you need to use setNativeArguments().      The OpenMode is set to \a mode.      If the QProcess object is already running a process, a warning may be     printed at the console, and the existing process will continue running     unaffected.      \sa pid(), started(), waitForStarted(), setNativeArguments() */
+comment|/*!     Starts the given \a program in a new process, passing the command line     arguments in \a arguments.      The QProcess object will immediately enter the Starting state. If the     process starts successfully, QProcess will emit started(); otherwise,     error() will be emitted.      \note Processes are started asynchronously, which means the started()     and error() signals may be delayed. Call waitForStarted() to make     sure the process has started (or has failed to start) and those signals     have been emitted.      \note No further splitting of the arguments is performed.      \b{Windows:} The arguments are quoted and joined into a command line     that is compatible with the \c CommandLineToArgvW() Windows function.     For programs that have different command line quoting requirements,     you need to use setNativeArguments().      The OpenMode is set to \a mode.      If the QProcess object is already running a process, a warning may be     printed at the console, and the existing process will continue running     unaffected.      \sa pid(), started(), waitForStarted(), setNativeArguments() */
 end_comment
 begin_function
 DECL|function|start
@@ -5938,7 +5938,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns the exit status of the last process that finished.      On Windows, if the process was terminated with TerminateProcess()     from another application this function will still return NormalExit     unless the exit code is less than 0. */
+comment|/*!     \since 4.1      Returns the exit status of the last process that finished.      On Windows, if the process was terminated with TerminateProcess() from     another application, this function will still return NormalExit     unless the exit code is less than 0. */
 end_comment
 begin_function
 DECL|function|exitStatus

@@ -109,6 +109,8 @@ condition|)
 name|options
 operator||=
 name|kUCCollateDigitsAsNumberMask
+operator||
+name|kUCCollateDigitsOverrideMask
 expr_stmt|;
 if|if
 condition|(

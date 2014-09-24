@@ -160,6 +160,9 @@ argument_list|(
 argument|qreal value
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|void
 name|animateShow
 argument_list|(
@@ -175,6 +178,8 @@ operator|:
 literal|0.0
 argument_list|)
 block|; }
+endif|#
+directive|endif
 name|protected
 operator|:
 name|void
@@ -194,12 +199,17 @@ argument_list|()
 block|;
 name|private
 operator|:
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|void
 name|startOpacityAnimation
 argument_list|(
 argument|qreal endValue
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|qreal
 name|m_opacity
 block|; }

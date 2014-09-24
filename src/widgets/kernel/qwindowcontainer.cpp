@@ -234,6 +234,9 @@ condition|)
 block|{
 if|if
 condition|(
+ifndef|#
+directive|ifndef
+name|QT_NO_MDIAREA
 name|qobject_cast
 argument_list|<
 name|QMdiSubWindow
@@ -245,6 +248,8 @@ argument_list|)
 operator|!=
 literal|0
 operator|||
+endif|#
+directive|endif
 name|qobject_cast
 argument_list|<
 name|QAbstractScrollArea
@@ -484,6 +489,11 @@ operator|&
 name|d
 operator|->
 name|fakeParent
+argument_list|)
+expr_stmt|;
+name|setAcceptDrops
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|connect
@@ -877,6 +887,9 @@ expr_stmt|;
 block|}
 block|}
 break|break;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 case|case
 name|QEvent
 operator|::
@@ -935,6 +948,8 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+endif|#
+directive|endif
 default|default:
 break|break;
 block|}

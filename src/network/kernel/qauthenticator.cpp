@@ -1323,23 +1323,7 @@ break|break;
 case|case
 name|Ntlm
 case|:
-comment|// #### extract from header
-if|if
-condition|(
-name|user
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-name|password
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|phase
-operator|=
-name|Done
-expr_stmt|;
+comment|// work is done in calculateResponse()
 break|break;
 case|case
 name|DigestMd5

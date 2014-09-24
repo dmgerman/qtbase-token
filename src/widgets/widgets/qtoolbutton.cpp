@@ -2502,6 +2502,17 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+comment|// changing the menu set may change the size hint, so reset it
+name|d
+operator|->
+name|sizeHint
+operator|=
+name|QSize
+argument_list|()
+expr_stmt|;
+name|updateGeometry
+argument_list|()
+expr_stmt|;
 name|update
 argument_list|()
 expr_stmt|;

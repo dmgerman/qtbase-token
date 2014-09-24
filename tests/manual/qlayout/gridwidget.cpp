@@ -73,6 +73,13 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+name|hb
+operator|->
+name|setObjectName
+argument_list|(
+literal|"GridWidget"
+argument_list|)
+expr_stmt|;
 name|QComboBox
 modifier|*
 name|combo
@@ -274,6 +281,64 @@ argument_list|,
 literal|1
 argument_list|,
 literal|5
+argument_list|)
+expr_stmt|;
+name|qDebug
+argument_list|(
+literal|"There should be four warnings, but no crash or freeze:"
+argument_list|)
+expr_stmt|;
+name|hb
+operator|->
+name|addWidget
+argument_list|(
+name|this
+argument_list|,
+literal|6
+argument_list|,
+literal|6
+argument_list|)
+expr_stmt|;
+comment|///< This command should print a warning, but should not add "this"
+name|hb
+operator|->
+name|addWidget
+argument_list|(
+name|Q_NULLPTR
+argument_list|,
+literal|6
+argument_list|,
+literal|7
+argument_list|)
+expr_stmt|;
+comment|///< This command should print a warning, but should not add "NULL"
+name|hb
+operator|->
+name|addLayout
+argument_list|(
+name|hb
+argument_list|,
+literal|7
+argument_list|,
+literal|6
+argument_list|)
+expr_stmt|;
+comment|///< This command should print a warning, but should not add "hb"
+name|hb
+operator|->
+name|addLayout
+argument_list|(
+name|Q_NULLPTR
+argument_list|,
+literal|7
+argument_list|,
+literal|7
+argument_list|)
+expr_stmt|;
+comment|///< This command should print a warning, but should not add "NULL"
+name|qDebug
+argument_list|(
+literal|"Neither crashed nor frozen"
 argument_list|)
 expr_stmt|;
 block|}

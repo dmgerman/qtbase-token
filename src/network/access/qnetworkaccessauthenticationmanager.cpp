@@ -903,6 +903,14 @@ argument_list|(
 name|authenticator
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|authenticator
+operator|->
+name|isNull
+argument_list|()
+condition|)
+return|return;
 name|QString
 name|domain
 init|=

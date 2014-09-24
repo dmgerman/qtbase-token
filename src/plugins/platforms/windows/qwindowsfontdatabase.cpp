@@ -8169,23 +8169,28 @@ block|{
 case|case
 name|LANG_CHINESE
 case|:
-comment|// Chinese (Taiwan)
+comment|// Chinese
 if|if
 condition|(
 name|lid
 operator|==
 literal|0x0804
+operator|||
+name|lid
+operator|==
+literal|0x1004
 condition|)
-comment|// Taiwan
-name|tryFonts
-operator|=
-name|ch_TW_tryFonts
-expr_stmt|;
-else|else
+comment|// China mainland and Singapore
 name|tryFonts
 operator|=
 name|ch_CN_tryFonts
 expr_stmt|;
+else|else
+name|tryFonts
+operator|=
+name|ch_TW_tryFonts
+expr_stmt|;
+comment|// Taiwan, Hong Kong and Macau
 break|break;
 case|case
 name|LANG_JAPANESE

@@ -140,10 +140,19 @@ name|virtual
 name|void
 name|downstreamReadyWrite
 argument_list|()
+block|;      enum
+name|CacheCleanupMode
+block|{
+name|ReleaseCachedConnection
+block|,
+name|RemoveCachedConnection
+block|}
 block|;
 name|void
 name|disconnectFromFtp
-argument_list|()
+argument_list|(
+argument|CacheCleanupMode mode = ReleaseCachedConnection
+argument_list|)
 block|;
 name|public
 name|slots

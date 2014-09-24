@@ -232,6 +232,9 @@ modifier|*
 name|msg
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
 specifier|static
 name|void
 name|ignoreMessage
@@ -245,6 +248,8 @@ modifier|&
 name|expression
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 specifier|static
 name|int
 name|unhandledIgnoreMessages

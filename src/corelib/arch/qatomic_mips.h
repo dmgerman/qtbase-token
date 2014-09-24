@@ -434,7 +434,7 @@ specifier|volatile
 operator|(
 literal|".set push\n"
 literal|".set mips32\n"
-literal|"sync 0x11\n"
+literal|"sync 0x12\n"
 literal|".set pop\n"
 operator|::
 operator|:

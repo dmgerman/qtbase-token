@@ -199,6 +199,10 @@ name|QXcbScreen
 operator|*
 name|m_screen
 block|;
+name|Display
+operator|*
+name|m_display
+block|;
 name|GLXFBConfig
 name|m_config
 block|;

@@ -194,6 +194,12 @@ name|QAccessibleInterface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindowContainer
+name|class
+name|QWindowContainer
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QObject
 name|class
 name|Q_GUI_EXPORT
@@ -1598,6 +1604,10 @@ decl_stmt|;
 name|friend
 name|class
 name|QGuiApplicationPrivate
+decl_stmt|;
+name|friend
+name|class
+name|QWindowContainer
 decl_stmt|;
 name|friend
 name|Q_GUI_EXPORT

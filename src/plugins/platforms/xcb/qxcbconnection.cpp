@@ -1797,6 +1797,23 @@ expr_stmt|;
 name|sync
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|qEnvironmentVariableIsEmpty
+argument_list|(
+literal|"QT_IM_MODULE"
+argument_list|)
+condition|)
+name|qputenv
+argument_list|(
+literal|"QT_IM_MODULE"
+argument_list|,
+name|QByteArray
+argument_list|(
+literal|"compose"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -2051,7 +2068,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindowEventListener *eventListener = windowEventListenerFromId(e->event)) { \         handled = eventListener->handleGenericEvent(event,&result); \         if (!handled) \             m_keyboard->handler(m_focusWindow ? m_focusWindow : eventListener, e); \     } \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindowEventListener *eventListener = windowEventListenerFromId(e->event)) { \         handled = eventListener->handleGenericEvent(event,&result); \         if (!handled) \             m_keyboard->handler(e); \     } \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG
