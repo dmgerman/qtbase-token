@@ -729,7 +729,7 @@ name|swopengl
 init|=
 name|QByteArrayLiteral
 argument_list|(
-literal|"QtSoftwareOpenGL.dll"
+literal|"opengl32sw.dll"
 argument_list|)
 decl_stmt|;
 name|QByteArray
