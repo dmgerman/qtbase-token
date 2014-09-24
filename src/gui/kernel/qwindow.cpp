@@ -4886,6 +4886,11 @@ condition|(
 name|d
 operator|->
 name|parentWindow
+operator|||
+name|QGuiApplication
+operator|::
+name|closingDown
+argument_list|()
 condition|)
 return|return;
 if|if
