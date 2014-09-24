@@ -458,7 +458,7 @@ name|QStringList
 name|contextList
 block|;
 name|private
-name|slots
+name|Q_SLOTS
 operator|:
 name|void
 name|propertyChanged
