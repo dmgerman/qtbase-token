@@ -44,6 +44,8 @@ name|matchedConditions
 index|[]
 init|=
 block|{
+literal|"*"
+block|,
 ifdef|#
 directive|ifdef
 name|Q_OS_LINUX
