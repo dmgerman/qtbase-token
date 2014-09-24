@@ -602,7 +602,7 @@ name|index
 parameter_list|)
 block|{
 return|return
-name|qColorToCOLORREF
+name|COLORREFToQColor
 argument_list|(
 name|GetSysColor
 argument_list|(
