@@ -903,7 +903,7 @@ argument|XmlOutput&xmlFilter
 argument_list|,
 argument|const QString&filename
 argument_list|,
-argument|bool fileAllreadyAdded
+argument|bool fileAdded
 argument_list|)
 block|;
 specifier|static

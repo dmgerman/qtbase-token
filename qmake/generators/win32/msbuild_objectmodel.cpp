@@ -11044,14 +11044,9 @@ modifier|&
 name|filename
 parameter_list|,
 name|bool
-name|fileAllreadyAdded
+name|fileAdded
 parameter_list|)
 block|{
-name|bool
-name|fileAdded
-init|=
-literal|false
-decl_stmt|;
 comment|// Clearing each filter tool
 name|filter
 operator|.
@@ -11289,7 +11284,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|fileAllreadyAdded
+name|fileAdded
 condition|)
 block|{
 name|fileAdded
@@ -11411,9 +11406,6 @@ if|if
 condition|(
 operator|!
 name|fileAdded
-operator|&&
-operator|!
-name|fileAllreadyAdded
 condition|)
 block|{
 name|fileAdded
