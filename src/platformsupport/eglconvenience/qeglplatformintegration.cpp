@@ -1486,7 +1486,7 @@ name|QEGLPlatformCursor
 modifier|*
 name|cursor
 init|=
-cast|static_cast
+name|qobject_cast
 argument_list|<
 name|QEGLPlatformCursor
 operator|*
