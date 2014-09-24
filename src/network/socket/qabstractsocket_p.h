@@ -243,9 +243,6 @@ name|bool
 name|abortCalled
 decl_stmt|;
 name|bool
-name|closeCalled
-decl_stmt|;
-name|bool
 name|pendingClose
 decl_stmt|;
 name|QAbstractSocket
