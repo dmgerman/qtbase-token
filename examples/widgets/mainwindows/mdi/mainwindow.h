@@ -69,6 +69,15 @@ operator|:
 name|MainWindow
 argument_list|()
 block|;
+name|bool
+name|openFile
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|fileName
+argument_list|)
+block|;
 name|protected
 operator|:
 name|void
