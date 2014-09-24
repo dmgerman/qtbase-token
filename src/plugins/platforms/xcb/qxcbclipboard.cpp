@@ -1216,17 +1216,8 @@ operator|=
 name|connection
 argument_list|()
 operator|->
-name|screens
-argument_list|()
-operator|.
-name|at
-argument_list|(
-name|connection
-argument_list|()
-operator|->
 name|primaryScreen
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|int
 name|x
