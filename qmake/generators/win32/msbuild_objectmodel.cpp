@@ -10980,8 +10980,6 @@ name|info
 operator|.
 name|file
 argument_list|,
-name|filtername
-argument_list|,
 name|fileAdded
 argument_list|)
 condition|)
@@ -11044,11 +11042,6 @@ specifier|const
 name|QString
 modifier|&
 name|filename
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|filtername
 parameter_list|,
 name|bool
 name|fileAllreadyAdded
@@ -11276,7 +11269,9 @@ operator|||
 operator|!
 name|inBuild
 operator|||
-name|filtername
+name|filter
+operator|.
+name|Name
 operator|.
 name|startsWith
 argument_list|(
@@ -11324,7 +11319,9 @@ name|attrTagS
 argument_list|(
 literal|"Filter"
 argument_list|,
-name|filtername
+name|filter
+operator|.
+name|Name
 argument_list|)
 expr_stmt|;
 name|xml
@@ -11348,28 +11345,36 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|filtername
+name|filter
+operator|.
+name|Name
 operator|.
 name|startsWith
 argument_list|(
 literal|"Form Files"
 argument_list|)
 operator|||
-name|filtername
+name|filter
+operator|.
+name|Name
 operator|.
 name|startsWith
 argument_list|(
 literal|"Generated Files"
 argument_list|)
 operator|||
-name|filtername
+name|filter
+operator|.
+name|Name
 operator|.
 name|startsWith
 argument_list|(
 literal|"Resource Files"
 argument_list|)
 operator|||
-name|filtername
+name|filter
+operator|.
+name|Name
 operator|.
 name|startsWith
 argument_list|(
@@ -11423,7 +11428,9 @@ name|xmlFilter
 argument_list|,
 name|filename
 argument_list|,
-name|filtername
+name|filter
+operator|.
+name|Name
 argument_list|)
 expr_stmt|;
 block|}
@@ -11467,7 +11474,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|filtername
+name|filter
+operator|.
+name|Name
 operator|.
 name|startsWith
 argument_list|(
