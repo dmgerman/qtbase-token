@@ -10513,9 +10513,7 @@ literal|"IGNORE_ALL_STDOUT"
 argument_list|)
 operator|<<
 name|QString
-argument_list|(
-literal|":3: Warning: Macro argument mismatch.\n:4: Warning: Macro argument mismatch."
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
