@@ -383,6 +383,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_cacheSaveDeviceAboutToClose()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_metaDataChanged()
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -561,7 +567,7 @@ argument|const QString&errorString
 argument_list|)
 block|;
 name|void
-name|metaDataChanged
+name|_q_metaDataChanged
 argument_list|()
 block|;
 name|void
