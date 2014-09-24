@@ -392,9 +392,6 @@ block|;
 name|bool
 name|m_visible
 block|;
-name|bool
-name|m_effectiveVisible
-block|;
 name|QString
 name|m_text
 block|;
@@ -439,12 +436,16 @@ name|updateVisibility
 argument_list|()
 block|;
 name|void
-name|updateVisibilityUsingUIMenuController
-argument_list|()
+name|toggleShowUsingUIMenuController
+argument_list|(
+argument|bool show
+argument_list|)
 block|;
 name|void
-name|updateVisibilityUsingUIPickerView
-argument_list|()
+name|toggleShowUsingUIPickerView
+argument_list|(
+argument|bool show
+argument_list|)
 block|;
 name|QIOSMenuItemList
 name|visibleMenuItems
@@ -454,17 +455,7 @@ block|;
 name|void
 name|repositionMenu
 argument_list|()
-block|;
-name|void
-name|hide
-argument_list|()
-block|{
-name|setVisible
-argument_list|(
-name|false
-argument_list|)
 block|; }
-block|}
 decl_stmt|;
 end_decl_stmt
 begin_endif
