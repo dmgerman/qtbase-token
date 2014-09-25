@@ -1592,6 +1592,14 @@ operator|::
 name|testDesktopGL
 argument_list|()
 condition|)
+block|{
+name|qCWarning
+argument_list|(
+name|lcQpaGl
+argument_list|,
+literal|"Software OpenGL failed. Falling back to system OpenGL."
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|=
 name|QOpenGLStaticContext
@@ -1599,6 +1607,7 @@ operator|::
 name|create
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 elif|#
