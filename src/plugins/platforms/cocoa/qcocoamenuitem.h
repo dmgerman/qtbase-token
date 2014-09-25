@@ -304,6 +304,14 @@ return|return
 name|m_menu
 return|;
 block|}
+name|void
+name|clearMenu
+argument_list|(
+name|QCocoaMenu
+operator|*
+name|menu
+argument_list|)
+block|;
 name|MenuRole
 name|effectiveRole
 argument_list|()
