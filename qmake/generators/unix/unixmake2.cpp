@@ -5231,6 +5231,17 @@ condition|(
 operator|!
 name|project
 operator|->
+name|isEmpty
+argument_list|(
+literal|"QMAKE_BUNDLE"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|project
+operator|->
 name|first
 argument_list|(
 literal|"QMAKE_PKGINFO"
@@ -5414,17 +5425,6 @@ operator|<<
 literal|"\n\t\n"
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_BUNDLE"
-argument_list|)
-condition|)
-block|{
 comment|//copy the plist
 name|QString
 name|info_plist
