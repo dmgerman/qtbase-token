@@ -5283,6 +5283,10 @@ literal|"QMAKE_PKGINFO"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|bundledFiles
+operator|<<
+name|pkginfo
+expr_stmt|;
 name|QString
 name|destdir
 init|=
