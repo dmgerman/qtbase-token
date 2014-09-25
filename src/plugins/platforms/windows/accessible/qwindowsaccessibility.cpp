@@ -489,8 +489,13 @@ if|if
 condition|(
 operator|!
 name|iface
+operator|||
+operator|!
+name|iface
+operator|->
+name|isValid
+argument_list|()
 condition|)
-comment|// ### This should not happen, maybe make it an assert.
 return|return;
 name|QWindow
 modifier|*
