@@ -32,14 +32,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-name|tst_QSslError
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QSslError
-parameter_list|()
-destructor_decl|;
 DECL|function|enterLoop
 specifier|static
 name|void
@@ -105,21 +97,6 @@ name|timeout
 argument_list|()
 return|;
 block|}
-public|public
-name|slots
-public|:
-name|void
-name|initTestCase_data
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
@@ -151,50 +128,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QSslError
-name|tst_QSslError
-operator|::
-name|tst_QSslError
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QSslError
-name|tst_QSslError
-operator|::
-name|~
-name|tst_QSslError
-parameter_list|()
-block|{  }
-end_destructor
-begin_function
-DECL|function|initTestCase_data
-name|void
-name|tst_QSslError
-operator|::
-name|initTestCase_data
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QSslError
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QSslError
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
