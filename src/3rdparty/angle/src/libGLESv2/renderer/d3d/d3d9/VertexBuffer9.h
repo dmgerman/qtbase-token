@@ -55,7 +55,6 @@ name|rx
 operator|::
 name|Renderer9
 operator|*
-specifier|const
 name|renderer
 argument_list|)
 block|;
@@ -65,7 +64,9 @@ name|VertexBuffer9
 argument_list|()
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|initialize
 argument_list|(
 argument|unsigned int size
@@ -84,7 +85,9 @@ name|vertexBuffer
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
@@ -101,7 +104,9 @@ argument|unsigned int offset
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|getSpaceRequired
 argument_list|(
 argument|const gl::VertexAttribute&attrib
@@ -122,14 +127,18 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|setBufferSize
 argument_list|(
 argument|unsigned int size
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|discard
 argument_list|()
 block|;
@@ -150,7 +159,6 @@ name|rx
 operator|::
 name|Renderer9
 operator|*
-specifier|const
 name|mRenderer
 block|;
 name|IDirect3DVertexBuffer9
@@ -164,8 +172,9 @@ block|;
 name|bool
 name|mDynamicUsage
 block|;
-specifier|static
-name|bool
+name|gl
+operator|::
+name|Error
 name|spaceRequired
 argument_list|(
 argument|const gl::VertexAttribute&attrib
@@ -176,6 +185,7 @@ argument|GLsizei instances
 argument_list|,
 argument|unsigned int *outSpaceRequired
 argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 block|}

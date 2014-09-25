@@ -3,7 +3,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Copyright (c) 2002-2012 The ANGLE Project Authors. All rights reserved.
+comment|// Copyright (c) 2002-2014 The ANGLE Project Authors. All rights reserved.
 end_comment
 begin_comment
 comment|// Use of this source code is governed by a BSD-style license that can be
@@ -35,6 +35,21 @@ begin_include
 include|#
 directive|include
 file|"common/angleutils.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"common/mathutil.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
 end_include
 begin_macro
 name|namespace
@@ -69,6 +84,9 @@ name|namespace
 name|rx
 block|{
 name|class
+name|IndexBufferInterface
+decl_stmt|;
+name|class
 name|StaticIndexBufferInterface
 decl_stmt|;
 name|class
@@ -86,13 +104,8 @@ decl_stmt|;
 struct|struct
 name|TranslatedIndexData
 block|{
-name|unsigned
-name|int
-name|minIndex
-decl_stmt|;
-name|unsigned
-name|int
-name|maxIndex
+name|RangeUI
+name|indexRange
 decl_stmt|;
 name|unsigned
 name|int
@@ -110,6 +123,9 @@ decl_stmt|;
 name|BufferD3D
 modifier|*
 name|storage
+decl_stmt|;
+name|GLenum
+name|indexType
 decl_stmt|;
 name|unsigned
 name|int
@@ -135,41 +151,34 @@ operator|~
 name|IndexDataManager
 argument_list|()
 expr_stmt|;
-name|GLenum
-name|prepareIndexData
-argument_list|(
-name|GLenum
-name|type
-argument_list|,
-name|GLsizei
-name|count
-argument_list|,
 name|gl
 operator|::
-name|Buffer
-operator|*
-name|arrayElementBuffer
+name|Error
+name|prepareIndexData
+argument_list|(
+argument|GLenum type
 argument_list|,
-specifier|const
-name|GLvoid
-operator|*
-name|indices
+argument|GLsizei count
 argument_list|,
-name|TranslatedIndexData
-operator|*
-name|translated
+argument|gl::Buffer *arrayElementBuffer
+argument_list|,
+argument|const GLvoid *indices
+argument_list|,
+argument|TranslatedIndexData *translated
 argument_list|)
-decl_stmt|;
-name|StaticIndexBufferInterface
-modifier|*
-name|getCountingIndices
-parameter_list|(
-name|GLsizei
-name|count
-parameter_list|)
-function_decl|;
+expr_stmt|;
 name|private
 label|:
+name|gl
+operator|::
+name|Error
+name|getStreamingIndexBuffer
+argument_list|(
+argument|GLenum destinationIndexType
+argument_list|,
+argument|IndexBufferInterface **outBuffer
+argument_list|)
+expr_stmt|;
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|IndexDataManager
@@ -187,10 +196,6 @@ decl_stmt|;
 name|StreamingIndexBufferInterface
 modifier|*
 name|mStreamingBufferInt
-decl_stmt|;
-name|StaticIndexBufferInterface
-modifier|*
-name|mCountingBuffer
 decl_stmt|;
 block|}
 empty_stmt|;

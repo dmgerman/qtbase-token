@@ -23,13 +23,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|LIBGLESV2_DYNAMIC_HLSL_H_
+name|LIBGLESV2_RENDERER_DYNAMIC_HLSL_H_
 end_ifndef
 begin_define
-DECL|macro|LIBGLESV2_DYNAMIC_HLSL_H_
+DECL|macro|LIBGLESV2_RENDERER_DYNAMIC_HLSL_H_
 define|#
 directive|define
-name|LIBGLESV2_DYNAMIC_HLSL_H_
+name|LIBGLESV2_RENDERER_DYNAMIC_HLSL_H_
 end_define
 begin_include
 include|#
@@ -40,6 +40,21 @@ begin_include
 include|#
 directive|include
 file|"libGLESv2/constants.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
+begin_include
+include|#
+directive|include
+file|<map>
 end_include
 begin_decl_stmt
 name|namespace
@@ -69,12 +84,6 @@ block|{
 name|class
 name|InfoLog
 decl_stmt|;
-name|class
-name|FragmentShader
-decl_stmt|;
-name|class
-name|VertexShader
-decl_stmt|;
 struct_decl|struct
 name|VariableLocation
 struct_decl|;
@@ -90,20 +99,36 @@ struct_decl|;
 struct_decl|struct
 name|PackedVarying
 struct_decl|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|class
+name|Renderer
+decl_stmt|;
+name|class
+name|ShaderD3D
+decl_stmt|;
 typedef|typedef
 specifier|const
+name|gl
+operator|::
 name|PackedVarying
-modifier|*
+operator|*
 name|VaryingPacking
 index|[
+name|gl
+operator|::
 name|IMPLEMENTATION_MAX_VARYING_VECTORS
 index|]
 index|[
 literal|4
 index|]
-typedef|;
+expr_stmt|;
 struct|struct
-name|PixelShaderOuputVariable
+name|PixelShaderOutputVariable
 block|{
 name|GLenum
 name|type
@@ -142,6 +167,8 @@ decl_stmt|;
 name|int
 name|packVaryings
 argument_list|(
+name|gl
+operator|::
 name|InfoLog
 operator|&
 name|infoLog
@@ -149,11 +176,15 @@ argument_list|,
 name|VaryingPacking
 name|packing
 argument_list|,
-name|FragmentShader
+name|rx
+operator|::
+name|ShaderD3D
 operator|*
 name|fragmentShader
 argument_list|,
-name|VertexShader
+name|rx
+operator|::
+name|ShaderD3D
 operator|*
 name|vertexShader
 argument_list|,
@@ -177,7 +208,7 @@ name|generateVertexShaderForInputLayout
 argument_list|(
 argument|const std::string&sourceShader
 argument_list|,
-argument|const VertexFormat inputLayout[]
+argument|const gl::VertexFormat inputLayout[]
 argument_list|,
 argument|const sh::Attribute shaderAttributes[]
 argument_list|)
@@ -190,7 +221,7 @@ name|generatePixelShaderForOutputSignature
 argument_list|(
 argument|const std::string&sourceShader
 argument_list|,
-argument|const std::vector<PixelShaderOuputVariable>&outputVariables
+argument|const std::vector<PixelShaderOutputVariable>&outputVariables
 argument_list|,
 argument|bool usesFragDepth
 argument_list|,
@@ -201,6 +232,8 @@ expr_stmt|;
 name|bool
 name|generateShaderLinkHLSL
 argument_list|(
+name|gl
+operator|::
 name|InfoLog
 operator|&
 name|infoLog
@@ -224,11 +257,15 @@ name|string
 operator|&
 name|vertexHLSL
 argument_list|,
-name|FragmentShader
+name|rx
+operator|::
+name|ShaderD3D
 operator|*
 name|fragmentShader
 argument_list|,
-name|VertexShader
+name|rx
+operator|::
+name|ShaderD3D
 operator|*
 name|vertexShader
 argument_list|,
@@ -248,6 +285,8 @@ name|std
 operator|::
 name|vector
 operator|<
+name|gl
+operator|::
 name|LinkedVarying
 operator|>
 operator|*
@@ -259,6 +298,8 @@ name|map
 operator|<
 name|int
 argument_list|,
+name|gl
+operator|::
 name|VariableLocation
 operator|>
 operator|*
@@ -268,7 +309,7 @@ name|std
 operator|::
 name|vector
 operator|<
-name|PixelShaderOuputVariable
+name|PixelShaderOutputVariable
 operator|>
 operator|*
 name|outPixelShaderKey
@@ -286,9 +327,9 @@ name|generateGeometryShaderHLSL
 argument_list|(
 argument|int registers
 argument_list|,
-argument|FragmentShader *fragmentShader
+argument|rx::ShaderD3D *fragmentShader
 argument_list|,
-argument|VertexShader *vertexShader
+argument|rx::ShaderD3D *vertexShader
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -296,6 +337,8 @@ name|void
 name|getInputLayoutSignature
 argument_list|(
 specifier|const
+name|gl
+operator|::
 name|VertexFormat
 name|inputLayout
 index|[]
@@ -368,7 +411,7 @@ operator|::
 name|string
 name|generateVaryingHLSL
 argument_list|(
-argument|VertexShader *shader
+argument|const ShaderD3D *shader
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -376,7 +419,9 @@ name|void
 name|storeUserLinkedVaryings
 argument_list|(
 specifier|const
-name|VertexShader
+name|rx
+operator|::
+name|ShaderD3D
 operator|*
 name|vertexShader
 argument_list|,
@@ -384,6 +429,8 @@ name|std
 operator|::
 name|vector
 operator|<
+name|gl
+operator|::
 name|LinkedVarying
 operator|>
 operator|*
@@ -403,6 +450,8 @@ name|std
 operator|::
 name|vector
 operator|<
+name|gl
+operator|::
 name|LinkedVarying
 operator|>
 operator|*
@@ -413,7 +462,9 @@ decl_stmt|;
 name|void
 name|defineOutputVariables
 argument_list|(
-name|FragmentShader
+name|rx
+operator|::
+name|ShaderD3D
 operator|*
 name|fragmentShader
 argument_list|,
@@ -423,6 +474,8 @@ name|map
 operator|<
 name|int
 argument_list|,
+name|gl
+operator|::
 name|VariableLocation
 operator|>
 operator|*
@@ -437,9 +490,9 @@ name|generatePointSpriteHLSL
 argument_list|(
 argument|int registers
 argument_list|,
-argument|FragmentShader *fragmentShader
+argument|rx::ShaderD3D *fragmentShader
 argument_list|,
-argument|VertexShader *vertexShader
+argument|rx::ShaderD3D *vertexShader
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -463,7 +516,7 @@ operator|::
 name|string
 name|generateAttributeConversionHLSL
 argument_list|(
-argument|const VertexFormat&vertexFormat
+argument|const gl::VertexFormat&vertexFormat
 argument_list|,
 argument|const sh::ShaderVariable&shaderAttrib
 argument_list|)
@@ -478,6 +531,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// LIBGLESV2_DYNAMIC_HLSL_H_
+comment|// LIBGLESV2_RENDERER_DYNAMIC_HLSL_H_
 end_comment
 end_unit

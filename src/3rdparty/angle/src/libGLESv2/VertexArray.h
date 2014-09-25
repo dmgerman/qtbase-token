@@ -58,6 +58,11 @@ include|#
 directive|include
 file|"libGLESv2/VertexAttribute.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_decl_stmt
 name|namespace
 name|rx

@@ -99,6 +99,11 @@ argument_list|,
 argument|RenderbufferStorage *newStorage
 argument_list|)
 block|;
+name|virtual
+operator|~
+name|Renderbuffer
+argument_list|()
+block|;
 name|void
 name|setStorage
 argument_list|(
@@ -201,14 +206,6 @@ name|getRenderTarget
 argument_list|()
 expr_stmt|;
 name|virtual
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getDepthStencil
-argument_list|()
-expr_stmt|;
-name|virtual
 name|GLsizei
 name|getWidth
 argument_list|()
@@ -263,7 +260,8 @@ name|unsigned
 name|int
 name|issueSerials
 parameter_list|(
-name|GLuint
+name|unsigned
+name|int
 name|count
 parameter_list|)
 function_decl|;
@@ -409,7 +407,7 @@ name|rx
 operator|::
 name|RenderTarget
 operator|*
-name|getDepthStencil
+name|getRenderTarget
 argument_list|()
 block|;
 name|protected

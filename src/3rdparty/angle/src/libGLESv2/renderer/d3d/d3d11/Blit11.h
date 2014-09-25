@@ -38,6 +38,16 @@ include|#
 directive|include
 file|"libGLESv2/angletypes.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -70,37 +80,26 @@ operator|~
 name|Blit11
 argument_list|()
 expr_stmt|;
-name|bool
-name|swizzleTexture
-argument_list|(
-name|ID3D11ShaderResourceView
-operator|*
-name|source
-argument_list|,
-name|ID3D11RenderTargetView
-operator|*
-name|dest
-argument_list|,
-specifier|const
 name|gl
 operator|::
-name|Extents
-operator|&
-name|size
+name|Error
+name|swizzleTexture
+argument_list|(
+argument|ID3D11ShaderResourceView *source
 argument_list|,
-name|GLenum
-name|swizzleRed
+argument|ID3D11RenderTargetView *dest
 argument_list|,
-name|GLenum
-name|swizzleGreen
+argument|const gl::Extents&size
 argument_list|,
-name|GLenum
-name|swizzleBlue
+argument|GLenum swizzleRed
 argument_list|,
-name|GLenum
-name|swizzleAlpha
+argument|GLenum swizzleGreen
+argument_list|,
+argument|GLenum swizzleBlue
+argument_list|,
+argument|GLenum swizzleAlpha
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|bool
 name|copyTexture
 argument_list|(

@@ -28,17 +28,18 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|<GLSLANG/ShaderLang.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"common/shadervars.h"
+file|"compiler/translator/IntermNode.h"
 end_include
-begin_comment
-comment|// Traverses intermediate tree to collect all attributes, uniforms, varyings.
-end_comment
 begin_decl_stmt
+name|namespace
+name|sh
+block|{
+comment|// Traverses intermediate tree to collect all attributes, uniforms, varyings.
 name|class
 name|CollectVariables
 range|:
@@ -49,15 +50,15 @@ name|public
 operator|:
 name|CollectVariables
 argument_list|(
-argument|std::vector<sh::Attribute> *attribs
+argument|std::vector<Attribute> *attribs
 argument_list|,
-argument|std::vector<sh::Attribute> *outputVariables
+argument|std::vector<Attribute> *outputVariables
 argument_list|,
-argument|std::vector<sh::Uniform> *uniforms
+argument|std::vector<Uniform> *uniforms
 argument_list|,
-argument|std::vector<sh::Varying> *varyings
+argument|std::vector<Varying> *varyings
 argument_list|,
-argument|std::vector<sh::InterfaceBlock> *interfaceBlocks
+argument|std::vector<InterfaceBlock> *interfaceBlocks
 argument_list|,
 argument|ShHashFunction64 hashFunction
 argument_list|)
@@ -80,6 +81,15 @@ argument_list|,
 name|TIntermAggregate
 operator|*
 name|node
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|visitBinary
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermBinary *binaryNode
 argument_list|)
 block|;
 name|private
@@ -116,8 +126,6 @@ name|std
 operator|::
 name|vector
 operator|<
-name|sh
-operator|::
 name|Attribute
 operator|>
 operator|*
@@ -127,8 +135,6 @@ name|std
 operator|::
 name|vector
 operator|<
-name|sh
-operator|::
 name|Attribute
 operator|>
 operator|*
@@ -138,8 +144,6 @@ name|std
 operator|::
 name|vector
 operator|<
-name|sh
-operator|::
 name|Uniform
 operator|>
 operator|*
@@ -149,8 +153,6 @@ name|std
 operator|::
 name|vector
 operator|<
-name|sh
-operator|::
 name|Varying
 operator|>
 operator|*
@@ -160,8 +162,6 @@ name|std
 operator|::
 name|vector
 operator|<
-name|sh
-operator|::
 name|InterfaceBlock
 operator|>
 operator|*
@@ -175,8 +175,6 @@ name|std
 operator|::
 name|string
 block|,
-name|sh
-operator|::
 name|InterfaceBlockField
 operator|*
 operator|>
@@ -195,14 +193,7 @@ name|ShHashFunction64
 name|mHashFunction
 block|; }
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// Expand struct variables to flattened lists of split variables
-end_comment
-begin_comment
-comment|// Implemented for sh::Varying and sh::Uniform.
-end_comment
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -225,13 +216,14 @@ name|std
 operator|::
 name|vector
 operator|<
-name|VarT
+name|ShaderVariable
 operator|>
 operator|*
 name|expanded
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

@@ -39,6 +39,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|"common/mathutil.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<map>
 end_include
 begin_decl_stmt
@@ -63,13 +73,10 @@ parameter_list|,
 name|GLsizei
 name|count
 parameter_list|,
-name|unsigned
-name|int
-name|minIdx
-parameter_list|,
-name|unsigned
-name|int
-name|maxIdx
+specifier|const
+name|RangeUI
+modifier|&
+name|range
 parameter_list|,
 name|unsigned
 name|int
@@ -89,15 +96,9 @@ argument_list|,
 name|GLsizei
 name|count
 argument_list|,
-name|unsigned
-name|int
+name|RangeUI
 operator|*
-name|outMinIndex
-argument_list|,
-name|unsigned
-name|int
-operator|*
-name|outMaxIndex
+name|rangeOut
 argument_list|,
 name|unsigned
 name|int
@@ -121,6 +122,22 @@ function_decl|;
 name|void
 name|clear
 parameter_list|()
+function_decl|;
+specifier|static
+name|RangeUI
+name|ComputeRange
+parameter_list|(
+name|GLenum
+name|type
+parameter_list|,
+specifier|const
+name|GLvoid
+modifier|*
+name|indices
+parameter_list|,
+name|GLsizei
+name|count
+parameter_list|)
 function_decl|;
 name|private
 label|:
@@ -165,13 +182,8 @@ struct|;
 struct|struct
 name|IndexBounds
 block|{
-name|unsigned
-name|int
-name|minIndex
-decl_stmt|;
-name|unsigned
-name|int
-name|maxIndex
+name|RangeUI
+name|range
 decl_stmt|;
 name|unsigned
 name|int
@@ -182,9 +194,7 @@ argument_list|()
 expr_stmt|;
 name|IndexBounds
 argument_list|(
-argument|unsigned int minIdx
-argument_list|,
-argument|unsigned int maxIdx
+argument|const RangeUI&range
 argument_list|,
 argument|unsigned int offset
 argument_list|)

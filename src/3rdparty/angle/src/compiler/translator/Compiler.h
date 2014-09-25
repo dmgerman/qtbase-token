@@ -316,7 +316,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Uniform
+name|ShaderVariable
 operator|>
 operator|&
 name|getExpandedUniforms
@@ -352,7 +352,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Varying
+name|ShaderVariable
 operator|>
 operator|&
 name|getExpandedVaryings
@@ -437,6 +437,14 @@ return|return
 name|builtInResourcesString
 return|;
 block|}
+comment|// Get the resources set by InitBuiltInSymbolTable
+specifier|const
+name|ShBuiltInResources
+operator|&
+name|getResources
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|sh
@@ -606,14 +614,6 @@ name|getExtensionBehavior
 argument_list|()
 specifier|const
 block|;
-comment|// Get the resources set by InitBuiltInSymbolTable
-specifier|const
-name|ShBuiltInResources
-operator|&
-name|getResources
-argument_list|()
-specifier|const
-block|;
 specifier|const
 name|ArrayBoundsClamper
 operator|&
@@ -669,7 +669,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Uniform
+name|ShaderVariable
 operator|>
 name|expandedUniforms
 block|;
@@ -689,7 +689,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Varying
+name|ShaderVariable
 operator|>
 name|expandedVaryings
 block|;

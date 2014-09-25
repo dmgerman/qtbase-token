@@ -123,12 +123,12 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"KHR/khrplatform.h"
+file|<stddef.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<stddef.h>
+file|"KHR/khrplatform.h"
 end_include
 begin_comment
 comment|//
@@ -154,6 +154,17 @@ name|GLenum
 typedef|;
 block|}
 end_decl_stmt
+begin_comment
+comment|// Must be included after GLenum proxy typedef
+end_comment
+begin_comment
+comment|// Note: make sure to increment ANGLE_SH_VERSION when changing ShaderVars.h
+end_comment
+begin_include
+include|#
+directive|include
+file|"ShaderVars.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -171,7 +182,7 @@ DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
 name|ANGLE_SH_VERSION
-value|128
+value|130
 typedef|typedef
 enum|enum
 block|{
@@ -334,45 +345,20 @@ name|SH_HASHED_NAMES_COUNT
 init|=
 literal|0x6003
 block|,
-DECL|enumerator|SH_ACTIVE_UNIFORMS_ARRAY
-name|SH_ACTIVE_UNIFORMS_ARRAY
-init|=
-literal|0x6004
-block|,
 DECL|enumerator|SH_SHADER_VERSION
 name|SH_SHADER_VERSION
 init|=
-literal|0x6005
-block|,
-DECL|enumerator|SH_ACTIVE_INTERFACE_BLOCKS_ARRAY
-name|SH_ACTIVE_INTERFACE_BLOCKS_ARRAY
-init|=
-literal|0x6006
-block|,
-DECL|enumerator|SH_ACTIVE_OUTPUT_VARIABLES_ARRAY
-name|SH_ACTIVE_OUTPUT_VARIABLES_ARRAY
-init|=
-literal|0x6007
-block|,
-DECL|enumerator|SH_ACTIVE_ATTRIBUTES_ARRAY
-name|SH_ACTIVE_ATTRIBUTES_ARRAY
-init|=
-literal|0x6008
-block|,
-DECL|enumerator|SH_ACTIVE_VARYINGS_ARRAY
-name|SH_ACTIVE_VARYINGS_ARRAY
-init|=
-literal|0x6009
+literal|0x6004
 block|,
 DECL|enumerator|SH_RESOURCES_STRING_LENGTH
 name|SH_RESOURCES_STRING_LENGTH
 init|=
-literal|0x600A
+literal|0x6005
 block|,
 DECL|enumerator|SH_OUTPUT_TYPE
 name|SH_OUTPUT_TYPE
 init|=
-literal|0x600B
+literal|0x6006
 block|}
 DECL|typedef|ShShaderInfo
 name|ShShaderInfo
@@ -526,6 +512,14 @@ DECL|enumerator|SH_SCALARIZE_VEC_AND_MAT_CONSTRUCTOR_ARGS
 name|SH_SCALARIZE_VEC_AND_MAT_CONSTRUCTOR_ARGS
 init|=
 literal|0x40000
+block|,
+comment|// This flag overwrites a struct name with a unique prefix.
+comment|// It is intended as a workaround for drivers that do not handle
+comment|// struct scopes correctly, including all Mac drivers and Linux AMD.
+DECL|enumerator|SH_REGENERATE_STRUCT_NAMES
+name|SH_REGENERATE_STRUCT_NAMES
+init|=
+literal|0x80000
 block|, }
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions
@@ -1030,31 +1024,92 @@ modifier|*
 name|hashedName
 parameter_list|)
 function_decl|;
-comment|// Returns a parameter from a compiled shader.
+comment|// Shader variable inspection.
+comment|// Returns a pointer to a list of variables of the designated type.
+comment|// (See ShaderVars.h for type definitions, included above)
+comment|// Returns NULL on failure.
 comment|// Parameters:
 comment|// handle: Specifies the compiler
-comment|// pname: Specifies the parameter to query.
-comment|// The following parameters are defined:
-comment|// SH_ACTIVE_UNIFORMS_ARRAY: an STL vector of active uniforms. Valid only for
-comment|//                           HLSL output.
-comment|// params: Requested parameter
 name|COMPILER_EXPORT
-name|void
-name|ShGetInfoPointer
-parameter_list|(
 specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|ShShaderInfo
-name|pname
-parameter_list|,
-name|void
-modifier|*
-modifier|*
-name|params
-parameter_list|)
-function_decl|;
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Uniform
+operator|>
+operator|*
+name|ShGetUniforms
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+name|COMPILER_EXPORT
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Varying
+operator|>
+operator|*
+name|ShGetVaryings
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+name|COMPILER_EXPORT
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Attribute
+operator|>
+operator|*
+name|ShGetAttributes
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+name|COMPILER_EXPORT
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|Attribute
+operator|>
+operator|*
+name|ShGetOutputVariables
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+name|COMPILER_EXPORT
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
+name|sh
+operator|::
+name|InterfaceBlock
+operator|>
+operator|*
+name|ShGetInterfaceBlocks
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
 typedef|typedef
 struct|struct
 block|{

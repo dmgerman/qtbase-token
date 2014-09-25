@@ -1,9 +1,4 @@
 begin_unit
-begin_include
-include|#
-directive|include
-file|"precompiled.h"
-end_include
 begin_comment
 comment|//
 end_comment
@@ -71,6 +66,11 @@ begin_include
 include|#
 directive|include
 file|"libGLESv2/main.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
 end_include
 begin_namespace
 DECL|namespace|gl

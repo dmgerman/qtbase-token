@@ -40,7 +40,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<cstddef>
+file|"common/debug.h"
 end_include
 begin_include
 include|#
@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"common/debug.h"
+file|<cstddef>
 end_include
 begin_decl_stmt
 name|class

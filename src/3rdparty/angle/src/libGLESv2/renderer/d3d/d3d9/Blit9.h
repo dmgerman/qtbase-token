@@ -33,6 +33,11 @@ include|#
 directive|include
 file|"common/angleutils.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
+end_include
 begin_decl_stmt
 name|namespace
 name|gl
@@ -50,10 +55,7 @@ name|class
 name|Renderer9
 decl_stmt|;
 name|class
-name|TextureStorageInterface2D
-decl_stmt|;
-name|class
-name|TextureStorageInterfaceCube
+name|TextureStorage
 decl_stmt|;
 name|class
 name|Blit9
@@ -75,7 +77,7 @@ expr_stmt|;
 comment|// Copy from source surface to dest surface.
 comment|// sourceRect, xoffset, yoffset are in D3D coordinates (0,0 in upper-left)
 name|bool
-name|copy
+name|copy2D
 argument_list|(
 name|gl
 operator|::
@@ -97,7 +99,7 @@ argument_list|,
 name|GLint
 name|yoffset
 argument_list|,
-name|TextureStorageInterface2D
+name|TextureStorage
 operator|*
 name|storage
 argument_list|,
@@ -106,7 +108,7 @@ name|level
 argument_list|)
 decl_stmt|;
 name|bool
-name|copy
+name|copyCube
 argument_list|(
 name|gl
 operator|::
@@ -128,7 +130,7 @@ argument_list|,
 name|GLint
 name|yoffset
 argument_list|,
-name|TextureStorageInterfaceCube
+name|TextureStorage
 operator|*
 name|storage
 argument_list|,

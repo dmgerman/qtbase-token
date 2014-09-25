@@ -61,10 +61,7 @@ name|class
 name|Renderer11
 decl_stmt|;
 name|class
-name|TextureStorageInterface2D
-decl_stmt|;
-name|class
-name|TextureStorageInterfaceCube
+name|TextureStorage11
 decl_stmt|;
 name|class
 name|Image11
@@ -113,9 +110,9 @@ specifier|const
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorage2D
 argument_list|(
-argument|TextureStorageInterface2D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|,
@@ -130,9 +127,9 @@ argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorageCube
 argument_list|(
-argument|TextureStorageInterfaceCube *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int face
 argument_list|,
@@ -149,9 +146,9 @@ argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorage3D
 argument_list|(
-argument|TextureStorageInterface3D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|,
@@ -170,9 +167,9 @@ argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorage2DArray
 argument_list|(
-argument|TextureStorageInterface2DArray *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|,
@@ -274,6 +271,21 @@ argument_list|,
 argument|gl::Framebuffer *source
 argument_list|)
 block|;
+name|bool
+name|recoverFromAssociatedStorage
+argument_list|()
+block|;
+name|bool
+name|isAssociatedStorageValid
+argument_list|(
+argument|TextureStorage11* textureStorage
+argument_list|)
+specifier|const
+block|;
+name|void
+name|disassociateStorage
+argument_list|()
+block|;
 name|protected
 operator|:
 name|HRESULT
@@ -295,6 +307,24 @@ argument_list|(
 name|Image11
 argument_list|)
 block|;
+name|bool
+name|copyToStorageImpl
+argument_list|(
+argument|TextureStorage11 *storage11
+argument_list|,
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
 name|ID3D11Resource
 operator|*
 name|getStagingTexture
@@ -307,6 +337,10 @@ argument_list|()
 block|;
 name|void
 name|createStagingTexture
+argument_list|()
+block|;
+name|void
+name|releaseStagingTexture
 argument_list|()
 block|;
 name|Renderer11
@@ -323,6 +357,23 @@ block|;
 name|unsigned
 name|int
 name|mStagingSubresource
+block|;
+name|bool
+name|mRecoverFromStorage
+block|;
+name|TextureStorage11
+operator|*
+name|mAssociatedStorage
+block|;
+name|int
+name|mAssociatedStorageLevel
+block|;
+name|int
+name|mAssociatedStorageLayerTarget
+block|;
+name|unsigned
+name|int
+name|mRecoveredFromStorageCount
 block|; }
 decl_stmt|;
 block|}

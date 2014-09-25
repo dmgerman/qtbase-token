@@ -28,7 +28,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|"compiler/translator/IntermNode.h"
 end_include
 begin_decl_stmt
 name|class
@@ -40,11 +40,25 @@ block|{
 name|public
 operator|:
 name|ScalarizeVecAndMatConstructorArgs
-argument_list|()
+argument_list|(
+argument|sh::GLenum shaderType
+argument_list|,
+argument|bool fragmentPrecisionHigh
+argument_list|)
 operator|:
 name|mTempVarCount
 argument_list|(
 literal|0
+argument_list|)
+block|,
+name|mShaderType
+argument_list|(
+name|shaderType
+argument_list|)
+block|,
+name|mFragmentPrecisionHigh
+argument_list|(
+argument|fragmentPrecisionHigh
 argument_list|)
 block|{}
 name|protected
@@ -98,6 +112,14 @@ name|mSequenceStack
 block|;
 name|int
 name|mTempVarCount
+block|;
+name|sh
+operator|::
+name|GLenum
+name|mShaderType
+block|;
+name|bool
+name|mFragmentPrecisionHigh
 block|; }
 decl_stmt|;
 end_decl_stmt

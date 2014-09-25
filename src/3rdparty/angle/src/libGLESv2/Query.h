@@ -31,7 +31,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"angle_gl.h"
+file|"libGLESv2/Error.h"
 end_include
 begin_include
 include|#
@@ -43,13 +43,15 @@ include|#
 directive|include
 file|"common/RefCountObject.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
 block|{
-name|class
-name|Renderer
-decl_stmt|;
 name|class
 name|QueryImpl
 decl_stmt|;
@@ -69,9 +71,7 @@ name|public
 operator|:
 name|Query
 argument_list|(
-argument|rx::Renderer *renderer
-argument_list|,
-argument|GLenum type
+argument|rx::QueryImpl *impl
 argument_list|,
 argument|GLuint id
 argument_list|)
@@ -81,29 +81,32 @@ operator|~
 name|Query
 argument_list|()
 block|;
-name|void
+name|Error
 name|begin
 argument_list|()
 block|;
-name|void
+name|Error
 name|end
 argument_list|()
 block|;
-name|GLuint
+name|Error
 name|getResult
-argument_list|()
+argument_list|(
+name|GLuint
+operator|*
+name|params
+argument_list|)
 block|;
-name|GLboolean
+name|Error
 name|isResultAvailable
-argument_list|()
+argument_list|(
+name|GLuint
+operator|*
+name|available
+argument_list|)
 block|;
 name|GLenum
 name|getType
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|isStarted
 argument_list|()
 specifier|const
 block|;

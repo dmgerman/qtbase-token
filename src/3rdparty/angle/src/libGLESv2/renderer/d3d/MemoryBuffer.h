@@ -63,6 +63,17 @@ name|size
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|empty
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mSize
+operator|==
+literal|0
+return|;
+block|}
 specifier|const
 name|uint8_t
 operator|*

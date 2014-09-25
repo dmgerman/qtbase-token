@@ -435,6 +435,25 @@ end_endif
 begin_comment
 comment|// A macro to indicate unimplemented functionality
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|ANGLE_TEST_CONFIG
+argument_list|)
+end_if
+begin_define
+DECL|macro|NOASSERT_UNIMPLEMENTED
+define|#
+directive|define
+name|NOASSERT_UNIMPLEMENTED
+value|1
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// Define NOASSERT_UNIMPLEMENTED to non zero to skip the assert fail in the unimplemented checks
 end_comment

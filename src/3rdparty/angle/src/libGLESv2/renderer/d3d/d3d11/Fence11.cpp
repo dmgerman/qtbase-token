@@ -1,9 +1,4 @@
 begin_unit
-begin_include
-include|#
-directive|include
-file|"precompiled.h"
-end_include
 begin_comment
 comment|//
 end_comment
@@ -30,12 +25,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/main.h"
+file|"libGLESv2/renderer/d3d/d3d11/Renderer11.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/renderer/d3d/d3d11/Renderer11.h"
+file|"libGLESv2/main.h"
 end_include
 begin_namespace
 DECL|namespace|rx

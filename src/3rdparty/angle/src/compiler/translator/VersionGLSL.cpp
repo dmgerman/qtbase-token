@@ -254,6 +254,15 @@ block|}
 break|break;
 block|}
 case|case
+name|EOpInvariantDeclaration
+case|:
+name|updateVersion
+argument_list|(
+name|GLSL_VERSION_120
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 name|EOpParameters
 case|:
 block|{

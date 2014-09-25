@@ -17,7 +17,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"compiler/translator/localintermediate.h"
+file|"compiler/translator/Intermediate.h"
 end_include
 begin_include
 include|#
@@ -1453,6 +1453,14 @@ case|:
 name|out
 operator|<<
 literal|"Declaration: "
+expr_stmt|;
+break|break;
+case|case
+name|EOpInvariantDeclaration
+case|:
+name|out
+operator|<<
+literal|"Invariant Declaration: "
 expr_stmt|;
 break|break;
 default|default:

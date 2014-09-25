@@ -34,7 +34,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|"compiler/translator/IntermNode.h"
 end_include
 begin_include
 include|#

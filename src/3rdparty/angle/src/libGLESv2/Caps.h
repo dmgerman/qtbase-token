@@ -54,6 +54,15 @@ begin_decl_stmt
 name|namespace
 name|gl
 block|{
+typedef|typedef
+name|std
+operator|::
+name|set
+operator|<
+name|GLuint
+operator|>
+name|SupportedSampleSet
+expr_stmt|;
 struct|struct
 name|TextureCaps
 block|{
@@ -72,14 +81,25 @@ comment|// Support for being used as a framebuffer attachment or renderbuffer fo
 name|bool
 name|renderable
 decl_stmt|;
-name|std
-operator|::
-name|set
-operator|<
-name|GLuint
-operator|>
+name|SupportedSampleSet
 name|sampleCounts
+decl_stmt|;
+comment|// Get the maximum number of samples supported
+name|GLuint
+name|getMaxSamples
+argument_list|()
+specifier|const
 expr_stmt|;
+comment|// Get the number of supported samples that is at least as many as requested.  Returns 0 if
+comment|// there are no sample counts available
+name|GLuint
+name|getNearestSamples
+argument_list|(
+name|GLuint
+name|requestedSamples
+argument_list|)
+decl|const
+decl_stmt|;
 block|}
 struct|;
 name|class
@@ -189,6 +209,7 @@ comment|// GL_OES_texture_half_float, GL_OES_texture_half_float_linear
 comment|// GL_OES_texture_float, GL_OES_texture_float_linear
 comment|// GL_EXT_texture_rg
 comment|// GL_EXT_texture_compression_dxt1, GL_ANGLE_texture_compression_dxt3, GL_ANGLE_texture_compression_dxt5
+comment|// GL_EXT_sRGB
 comment|// GL_ANGLE_depth_texture
 comment|// GL_EXT_color_buffer_float
 name|void
@@ -331,6 +352,9 @@ comment|// GL_ANGLE_framebuffer_multisample
 name|bool
 name|framebufferMultisample
 decl_stmt|;
+name|GLuint
+name|maxSamples
+decl_stmt|;
 comment|// GL_ANGLE_instanced_arrays
 name|bool
 name|instancedArrays
@@ -417,6 +441,119 @@ name|minAliasedLineWidth
 decl_stmt|;
 name|GLfloat
 name|maxAliasedLineWidth
+decl_stmt|;
+comment|// Table 6.29, implementation dependent values (cont.)
+name|GLuint
+name|maxElementsIndices
+decl_stmt|;
+name|GLuint
+name|maxElementsVertices
+decl_stmt|;
+name|std
+operator|::
+name|vector
+operator|<
+name|GLenum
+operator|>
+name|compressedTextureFormats
+expr_stmt|;
+name|std
+operator|::
+name|vector
+operator|<
+name|GLenum
+operator|>
+name|programBinaryFormats
+expr_stmt|;
+name|std
+operator|::
+name|vector
+operator|<
+name|GLenum
+operator|>
+name|shaderBinaryFormats
+expr_stmt|;
+name|GLuint64
+name|maxServerWaitTimeout
+decl_stmt|;
+comment|// Table 6.31, implementation dependent vertex shader limits
+name|GLuint
+name|maxVertexAttributes
+decl_stmt|;
+name|GLuint
+name|maxVertexUniformComponents
+decl_stmt|;
+name|GLuint
+name|maxVertexUniformVectors
+decl_stmt|;
+name|GLuint
+name|maxVertexUniformBlocks
+decl_stmt|;
+name|GLuint
+name|maxVertexOutputComponents
+decl_stmt|;
+name|GLuint
+name|maxVertexTextureImageUnits
+decl_stmt|;
+comment|// Table 6.32, implementation dependent fragment shader limits
+name|GLuint
+name|maxFragmentUniformComponents
+decl_stmt|;
+name|GLuint
+name|maxFragmentUniformVectors
+decl_stmt|;
+name|GLuint
+name|maxFragmentUniformBlocks
+decl_stmt|;
+name|GLuint
+name|maxFragmentInputComponents
+decl_stmt|;
+name|GLuint
+name|maxTextureImageUnits
+decl_stmt|;
+name|GLint
+name|minProgramTexelOffset
+decl_stmt|;
+name|GLint
+name|maxProgramTexelOffset
+decl_stmt|;
+comment|// Table 6.33, implementation dependent aggregate shader limits
+name|GLuint
+name|maxUniformBufferBindings
+decl_stmt|;
+name|GLuint64
+name|maxUniformBlockSize
+decl_stmt|;
+name|GLuint
+name|uniformBufferOffsetAlignment
+decl_stmt|;
+name|GLuint
+name|maxCombinedUniformBlocks
+decl_stmt|;
+name|GLuint64
+name|maxCombinedVertexUniformComponents
+decl_stmt|;
+name|GLuint64
+name|maxCombinedFragmentUniformComponents
+decl_stmt|;
+name|GLuint
+name|maxVaryingComponents
+decl_stmt|;
+name|GLuint
+name|maxVaryingVectors
+decl_stmt|;
+name|GLuint
+name|maxCombinedTextureImageUnits
+decl_stmt|;
+comment|// Table 6.34, implementation dependent transform feedback limits
+name|GLuint
+name|maxTransformFeedbackInterleavedComponents
+decl_stmt|;
+name|GLuint
+name|maxTransformFeedbackSeparateAttributes
+decl_stmt|;
+name|GLuint
+name|maxTransformFeedbackSeparateComponents
 decl_stmt|;
 block|}
 struct|;

@@ -39,8 +39,27 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libGLESv2/renderer/d3d/TextureStorage.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
+begin_decl_stmt
+name|namespace
+name|gl
+block|{
+struct_decl|struct
+name|ImageIndex
+struct_decl|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|rx
@@ -59,6 +78,9 @@ name|Renderer11
 decl_stmt|;
 name|class
 name|SwapChain11
+decl_stmt|;
+name|class
+name|Image11
 decl_stmt|;
 name|class
 name|TextureStorage11
@@ -124,58 +146,22 @@ name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|(
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
-name|virtual
-name|RenderTarget
-operator|*
-name|getRenderTargetFace
-argument_list|(
-argument|GLenum faceTarget
-argument_list|,
-argument|int level
-argument_list|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
-name|virtual
-name|RenderTarget
-operator|*
-name|getRenderTargetLayer
-argument_list|(
-argument|int mipLevel
-argument_list|,
-argument|int layer
-argument_list|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
-name|virtual
-name|void
-name|generateMipmap
-argument_list|(
-argument|int level
-argument_list|)
-block|{}
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
-name|generateMipmap
-argument_list|(
-argument|int face
-argument_list|,
-argument|int level
-argument_list|)
-block|{}
+name|generateMipmaps
+argument_list|()
+operator|=
+literal|0
 block|;
 name|virtual
 name|int
@@ -210,7 +196,9 @@ argument|int layerTarget
 argument_list|)
 specifier|const
 block|;
-name|void
+name|gl
+operator|::
+name|Error
 name|generateSwizzles
 argument_list|(
 argument|GLenum swizzleRed
@@ -255,6 +243,82 @@ argument|GLsizei height
 argument_list|,
 argument|GLsizei depth
 argument_list|)
+block|;
+name|bool
+name|copySubresourceLevel
+argument_list|(
+argument|ID3D11Resource* dstTexture
+argument_list|,
+argument|unsigned int dstSubresource
+argument_list|,
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
+name|virtual
+name|void
+name|associateImage
+argument_list|(
+argument|Image11* image
+argument_list|,
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|disassociateImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|bool
+name|isAssociatedImageValid
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|releaseAssociatedImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* incomingImage
+argument_list|)
+operator|=
+literal|0
 block|;
 name|protected
 operator|:
@@ -350,17 +414,6 @@ argument|GLenum swizzleBlue
 argument_list|,
 argument|GLenum swizzleAlpha
 argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getTextureLevelDepth
-argument_list|(
-argument|int mipLevel
-argument_list|)
-specifier|const
-operator|=
-literal|0
 block|;
 name|Renderer11
 operator|*
@@ -631,14 +684,61 @@ name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|(
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
 block|;
 name|virtual
 name|void
-name|generateMipmap
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|void
+name|associateImage
+argument_list|(
+argument|Image11* image
+argument_list|,
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|)
+block|;
+name|virtual
+name|void
+name|disassociateImage
 argument_list|(
 argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|isAssociatedImageValid
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseAssociatedImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* incomingImage
 argument_list|)
 block|;
 name|protected
@@ -656,15 +756,6 @@ name|getSwizzleRenderTarget
 argument_list|(
 argument|int mipLevel
 argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getTextureLevelDepth
-argument_list|(
-argument|int mipLevel
-argument_list|)
-specifier|const
 block|;
 name|private
 operator|:
@@ -707,6 +798,15 @@ block|;
 name|ID3D11RenderTargetView
 operator|*
 name|mSwizzleRenderTargets
+index|[
+name|gl
+operator|::
+name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
+index|]
+block|;
+name|Image11
+operator|*
+name|mAssociatedImages
 index|[
 name|gl
 operator|::
@@ -760,20 +860,63 @@ block|;
 name|virtual
 name|RenderTarget
 operator|*
-name|getRenderTargetFace
+name|getRenderTarget
 argument_list|(
-argument|GLenum faceTarget
-argument_list|,
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
 block|;
 name|virtual
 name|void
-name|generateMipmap
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|void
+name|associateImage
 argument_list|(
-argument|int faceIndex
+argument|Image11* image
 argument_list|,
 argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|)
+block|;
+name|virtual
+name|void
+name|disassociateImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|isAssociatedImageValid
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseAssociatedImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* incomingImage
 argument_list|)
 block|;
 name|protected
@@ -791,15 +934,6 @@ name|getSwizzleRenderTarget
 argument_list|(
 argument|int mipLevel
 argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getTextureLevelDepth
-argument_list|(
-argument|int mipLevel
-argument_list|)
-specifier|const
 block|;
 name|private
 operator|:
@@ -845,6 +979,18 @@ block|;
 name|ID3D11RenderTargetView
 operator|*
 name|mSwizzleRenderTargets
+index|[
+name|gl
+operator|::
+name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
+index|]
+block|;
+name|Image11
+operator|*
+name|mAssociatedImages
+index|[
+literal|6
+index|]
 index|[
 name|gl
 operator|::
@@ -899,29 +1045,67 @@ name|getResource
 argument_list|()
 specifier|const
 block|;
+comment|// Handles both layer and non-layer RTs
 name|virtual
 name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|(
-argument|int mipLevel
-argument_list|)
-block|;
-name|virtual
-name|RenderTarget
-operator|*
-name|getRenderTargetLayer
-argument_list|(
-argument|int mipLevel
-argument_list|,
-argument|int layer
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
 block|;
 name|virtual
 name|void
-name|generateMipmap
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|void
+name|associateImage
+argument_list|(
+argument|Image11* image
+argument_list|,
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|)
+block|;
+name|virtual
+name|void
+name|disassociateImage
 argument_list|(
 argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|isAssociatedImageValid
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseAssociatedImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* incomingImage
 argument_list|)
 block|;
 name|protected
@@ -939,15 +1123,6 @@ name|getSwizzleRenderTarget
 argument_list|(
 argument|int mipLevel
 argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getTextureLevelDepth
-argument_list|(
-argument|int mipLevel
-argument_list|)
-specifier|const
 block|;
 name|private
 operator|:
@@ -1022,6 +1197,15 @@ operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
 decl_stmt|;
+name|Image11
+modifier|*
+name|mAssociatedImages
+index|[
+name|gl
+operator|::
+name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
+index|]
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -1078,18 +1262,63 @@ block|;
 name|virtual
 name|RenderTarget
 operator|*
-name|getRenderTargetLayer
+name|getRenderTarget
 argument_list|(
-argument|int mipLevel
-argument_list|,
-argument|int layer
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
 block|;
 name|virtual
 name|void
-name|generateMipmap
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|void
+name|associateImage
+argument_list|(
+argument|Image11* image
+argument_list|,
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|)
+block|;
+name|virtual
+name|void
+name|disassociateImage
 argument_list|(
 argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|isAssociatedImageValid
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* expectedImage
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseAssociatedImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layerTarget
+argument_list|,
+argument|Image11* incomingImage
 argument_list|)
 block|;
 name|protected
@@ -1107,15 +1336,6 @@ name|getSwizzleRenderTarget
 argument_list|(
 argument|int mipLevel
 argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getTextureLevelDepth
-argument_list|(
-argument|int mipLevel
-argument_list|)
-specifier|const
 block|;
 name|private
 operator|:
@@ -1190,6 +1410,25 @@ name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
+decl_stmt|;
+end_decl_stmt
+begin_typedef
+typedef|typedef
+name|std
+operator|::
+name|map
+operator|<
+name|LevelLayerKey
+operator|,
+name|Image11
+operator|*
+operator|>
+name|ImageMap
+expr_stmt|;
+end_typedef
+begin_decl_stmt
+name|ImageMap
+name|mAssociatedImages
 decl_stmt|;
 end_decl_stmt
 begin_endif

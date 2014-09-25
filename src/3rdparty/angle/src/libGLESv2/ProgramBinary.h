@@ -34,21 +34,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"angle_gl.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<string>
-end_include
-begin_include
-include|#
-directive|include
-file|<vector>
-end_include
-begin_include
-include|#
-directive|include
 file|"common/RefCountObject.h"
 end_include
 begin_include
@@ -84,8 +69,47 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/DynamicHLSL.h"
+file|"libGLESv2/renderer/d3d/DynamicHLSL.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<string>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
+begin_comment
+comment|// TODO(jmadill): place this in workarounds library
+end_comment
+begin_define
+DECL|macro|ANGLE_WORKAROUND_ENABLED
+define|#
+directive|define
+name|ANGLE_WORKAROUND_ENABLED
+value|1
+end_define
+begin_define
+DECL|macro|ANGLE_WORKAROUND_DISABLED
+define|#
+directive|define
+name|ANGLE_WORKAROUND_DISABLED
+value|2
+end_define
+begin_define
+DECL|macro|ANGLE_MRT_PERF_WORKAROUND
+define|#
+directive|define
+name|ANGLE_MRT_PERF_WORKAROUND
+value|ANGLE_WORKAROUND_ENABLED
+end_define
 begin_decl_stmt
 name|namespace
 name|sh
@@ -95,6 +119,31 @@ name|HLSLBlockEncoder
 decl_stmt|;
 block|}
 end_decl_stmt
+begin_include
+include|#
+directive|include
+file|<GLES3/gl3.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2ext.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<string>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -111,17 +160,20 @@ struct_decl|;
 name|class
 name|UniformStorage
 decl_stmt|;
+name|class
+name|ProgramImpl
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|gl
 block|{
+struct_decl|struct
+name|Caps
+struct_decl|;
 name|class
-name|FragmentShader
-decl_stmt|;
-name|class
-name|VertexShader
+name|Shader
 decl_stmt|;
 name|class
 name|InfoLog
@@ -229,15 +281,39 @@ name|ProgramBinary
 argument_list|(
 name|rx
 operator|::
-name|Renderer
+name|ProgramImpl
 operator|*
-name|renderer
+name|impl
 argument_list|)
 block|;
 operator|~
 name|ProgramBinary
 argument_list|()
 block|;
+name|rx
+operator|::
+name|ProgramImpl
+operator|*
+name|getImplementation
+argument_list|()
+block|{
+return|return
+name|mProgram
+return|;
+block|}
+specifier|const
+name|rx
+operator|::
+name|ProgramImpl
+operator|*
+name|getImplementation
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mProgram
+return|;
+block|}
 name|rx
 operator|::
 name|ShaderExecutable
@@ -305,9 +381,11 @@ argument_list|(
 argument|SamplerType type
 argument_list|,
 argument|unsigned int samplerIndex
+argument_list|,
+argument|const Caps&caps
 argument_list|)
 block|;
-name|TextureType
+name|GLenum
 name|getSamplerTextureType
 argument_list|(
 argument|SamplerType type
@@ -582,32 +660,26 @@ argument_list|,
 argument|const GLfloat *value
 argument_list|)
 block|;
-name|bool
+name|void
 name|getUniformfv
 argument_list|(
 argument|GLint location
 argument_list|,
-argument|GLsizei *bufSize
-argument_list|,
 argument|GLfloat *params
 argument_list|)
 block|;
-name|bool
+name|void
 name|getUniformiv
 argument_list|(
 argument|GLint location
 argument_list|,
-argument|GLsizei *bufSize
-argument_list|,
 argument|GLint *params
 argument_list|)
 block|;
-name|bool
+name|void
 name|getUniformuiv
 argument_list|(
 argument|GLint location
-argument_list|,
-argument|GLsizei *bufSize
 argument_list|,
 argument|GLuint *params
 argument_list|)
@@ -616,11 +688,11 @@ name|void
 name|dirtyAllUniforms
 argument_list|()
 block|;
-name|void
+name|Error
 name|applyUniforms
 argument_list|()
 block|;
-name|bool
+name|Error
 name|applyUniformBuffers
 argument_list|(
 specifier|const
@@ -632,12 +704,19 @@ name|Buffer
 operator|*
 operator|>
 name|boundBuffers
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|bool
 name|load
 argument_list|(
 argument|InfoLog&infoLog
+argument_list|,
+argument|GLenum binaryFormat
 argument_list|,
 argument|const void *binary
 argument_list|,
@@ -647,7 +726,9 @@ block|;
 name|bool
 name|save
 argument_list|(
-argument|void* binary
+argument|GLenum *binaryFormat
+argument_list|,
+argument|void *binary
 argument_list|,
 argument|GLsizei bufSize
 argument_list|,
@@ -665,13 +746,15 @@ argument|InfoLog&infoLog
 argument_list|,
 argument|const AttributeBindings&attributeBindings
 argument_list|,
-argument|FragmentShader *fragmentShader
+argument|Shader *fragmentShader
 argument_list|,
-argument|VertexShader *vertexShader
+argument|Shader *vertexShader
 argument_list|,
 argument|const std::vector<std::string>& transformFeedbackVaryings
 argument_list|,
 argument|GLenum transformFeedbackBufferMode
+argument_list|,
+argument|const Caps&caps
 argument_list|)
 block|;
 name|void
@@ -843,6 +926,11 @@ argument_list|(
 name|InfoLog
 operator|&
 name|infoLog
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|bool
@@ -851,6 +939,11 @@ argument_list|(
 name|InfoLog
 operator|*
 name|infoLog
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|bool
@@ -903,34 +996,23 @@ return|return
 name|mUniforms
 return|;
 block|}
-specifier|const
-name|rx
-operator|::
-name|UniformStorage
+specifier|static
+name|bool
+name|linkVaryings
+argument_list|(
+name|InfoLog
 operator|&
-name|getVertexUniformStorage
-argument_list|()
-specifier|const
-block|{
-return|return
+name|infoLog
+argument_list|,
+name|Shader
 operator|*
-name|mVertexUniformStorage
-return|;
-block|}
-specifier|const
-name|rx
-operator|::
-name|UniformStorage
-operator|&
-name|getFragmentUniformStorage
-argument_list|()
-specifier|const
-block|{
-return|return
+name|fragmentShader
+argument_list|,
+name|Shader
 operator|*
-name|mFragmentUniformStorage
-return|;
-block|}
+name|vertexShader
+argument_list|)
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -949,29 +1031,13 @@ block|;
 name|GLint
 name|logicalTextureUnit
 block|;
-name|TextureType
+name|GLenum
 name|textureType
 block|;     }
 block|;
 name|void
 name|reset
 argument_list|()
-block|;
-name|bool
-name|linkVaryings
-argument_list|(
-name|InfoLog
-operator|&
-name|infoLog
-argument_list|,
-name|FragmentShader
-operator|*
-name|fragmentShader
-argument_list|,
-name|VertexShader
-operator|*
-name|vertexShader
-argument_list|)
 block|;
 name|bool
 name|linkAttributes
@@ -985,45 +1051,13 @@ name|AttributeBindings
 operator|&
 name|attributeBindings
 argument_list|,
-name|FragmentShader
-operator|*
-name|fragmentShader
-argument_list|,
-name|VertexShader
+specifier|const
+name|Shader
 operator|*
 name|vertexShader
 argument_list|)
 block|;
-name|template
-operator|<
-name|class
-name|ShaderVarType
-operator|>
-name|bool
-name|linkValidateFields
-argument_list|(
-name|InfoLog
-operator|&
-name|infoLog
-argument_list|,
-specifier|const
-name|std
-operator|::
-name|string
-operator|&
-name|varName
-argument_list|,
-specifier|const
-name|ShaderVarType
-operator|&
-name|vertexVar
-argument_list|,
-specifier|const
-name|ShaderVarType
-operator|&
-name|fragmentVar
-argument_list|)
-block|;
+specifier|static
 name|bool
 name|linkValidateVariablesBase
 argument_list|(
@@ -1038,8 +1072,9 @@ argument_list|,
 argument|bool validatePrecision
 argument_list|)
 block|;
+specifier|static
 name|bool
-name|linkValidateVariables
+name|linkValidateUniforms
 argument_list|(
 name|InfoLog
 operator|&
@@ -1067,8 +1102,9 @@ operator|&
 name|fragmentUniform
 argument_list|)
 block|;
+specifier|static
 name|bool
-name|linkValidateVariables
+name|linkValidateVaryings
 argument_list|(
 name|InfoLog
 operator|&
@@ -1096,8 +1132,9 @@ operator|&
 name|fragmentVarying
 argument_list|)
 block|;
+specifier|static
 name|bool
-name|linkValidateVariables
+name|linkValidateInterfaceBlockFields
 argument_list|(
 name|InfoLog
 operator|&
@@ -1133,14 +1170,19 @@ operator|&
 name|infoLog
 argument_list|,
 specifier|const
-name|VertexShader
+name|Shader
 operator|&
 name|vertexShader
 argument_list|,
 specifier|const
-name|FragmentShader
+name|Shader
 operator|&
 name|fragmentShader
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|void
@@ -1158,7 +1200,7 @@ name|defineUniform
 argument_list|(
 argument|GLenum shader
 argument_list|,
-argument|const sh::Uniform&uniform
+argument|const sh::ShaderVariable&uniform
 argument_list|,
 argument|const std::string&fullName
 argument_list|,
@@ -1176,6 +1218,11 @@ argument_list|,
 name|InfoLog
 operator|&
 name|infoLog
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|bool
@@ -1184,6 +1231,11 @@ argument_list|(
 name|InfoLog
 operator|&
 name|infoLog
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 specifier|static
@@ -1196,11 +1248,9 @@ argument|GLenum samplerType
 argument_list|,
 argument|unsigned int samplerCount
 argument_list|,
-argument|Sampler *outArray
+argument|std::vector<Sampler>&outSamplers
 argument_list|,
-argument|GLuint *usedRange
-argument_list|,
-argument|unsigned int limit
+argument|GLuint *outUsedRange
 argument_list|)
 block|;
 name|bool
@@ -1233,14 +1283,19 @@ operator|&
 name|infoLog
 argument_list|,
 specifier|const
-name|VertexShader
+name|Shader
 operator|&
 name|vertexShader
 argument_list|,
 specifier|const
-name|FragmentShader
+name|Shader
 operator|&
 name|fragmentShader
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|bool
@@ -1255,13 +1310,20 @@ argument_list|,
 argument|GLenum transformFeedbackBufferMode
 argument_list|,
 argument|std::vector<LinkedVarying> *outTransformFeedbackLinkedVaryings
+argument_list|,
+argument|const Caps&caps
 argument_list|)
 specifier|const
 block|;
+name|template
+operator|<
+name|typename
+name|VarT
+operator|>
 name|void
 name|defineUniformBlockMembers
 argument_list|(
-argument|const std::vector<sh::InterfaceBlockField>&fields
+argument|const std::vector<VarT>&fields
 argument_list|,
 argument|const std::string&prefix
 argument_list|,
@@ -1270,6 +1332,8 @@ argument_list|,
 argument|sh::BlockLayoutEncoder *encoder
 argument_list|,
 argument|std::vector<unsigned int> *blockUniformIndexes
+argument_list|,
+argument|bool inRowMajorLayout
 argument_list|)
 block|;
 name|bool
@@ -1290,6 +1354,11 @@ operator|::
 name|InterfaceBlock
 operator|&
 name|interfaceBlock
+argument_list|,
+specifier|const
+name|Caps
+operator|&
+name|caps
 argument_list|)
 block|;
 name|bool
@@ -1302,19 +1371,17 @@ argument_list|,
 argument|GLenum shader
 argument_list|,
 argument|unsigned int registerIndex
+argument_list|,
+argument|const Caps&caps
 argument_list|)
 block|;
 name|void
 name|defineOutputVariables
 argument_list|(
-name|FragmentShader
+name|Shader
 operator|*
 name|fragmentShader
 argument_list|)
-block|;
-name|void
-name|initializeUniformStorage
-argument_list|()
 block|;
 name|template
 operator|<
@@ -1360,12 +1427,10 @@ operator|<
 name|typename
 name|T
 operator|>
-name|bool
+name|void
 name|getUniformv
 argument_list|(
 argument|GLint location
-argument_list|,
-argument|GLsizei *bufSize
 argument_list|,
 argument|T *params
 argument_list|,
@@ -1480,7 +1545,6 @@ operator|~
 name|PixelExecutable
 argument_list|()
 block|;
-comment|// FIXME(geofflang): Work around NVIDIA driver bug by repacking buffers
 name|bool
 name|matchesSignature
 argument_list|(
@@ -1489,9 +1553,10 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|true
+name|mOutputSignature
+operator|==
+name|signature
 return|;
-comment|/* mOutputSignature == signature; */
 block|}
 specifier|const
 name|std
@@ -1540,24 +1605,9 @@ block|;     }
 block|;
 name|rx
 operator|::
-name|Renderer
+name|ProgramImpl
 operator|*
-specifier|const
-name|mRenderer
-block|;
-name|DynamicHLSL
-operator|*
-name|mDynamicHLSL
-block|;
-name|std
-operator|::
-name|string
-name|mVertexHLSL
-block|;
-name|rx
-operator|::
-name|D3DWorkaroundType
-name|mVertexWorkarounds
+name|mProgram
 block|;
 name|std
 operator|::
@@ -1567,27 +1617,6 @@ name|VertexExecutable
 operator|*
 operator|>
 name|mVertexExecutables
-block|;
-name|std
-operator|::
-name|string
-name|mPixelHLSL
-block|;
-name|rx
-operator|::
-name|D3DWorkaroundType
-name|mPixelWorkarounds
-block|;
-name|bool
-name|mUsesFragDepth
-block|;
-name|std
-operator|::
-name|vector
-operator|<
-name|PixelShaderOuputVariable
-operator|>
-name|mPixelShaderKey
 block|;
 name|std
 operator|::
@@ -1643,17 +1672,21 @@ name|LinkedVarying
 operator|>
 name|mTransformFeedbackLinkedVaryings
 block|;
+name|std
+operator|::
+name|vector
+operator|<
 name|Sampler
+operator|>
 name|mSamplersPS
-index|[
-name|MAX_TEXTURE_IMAGE_UNITS
-index|]
 block|;
+name|std
+operator|::
+name|vector
+operator|<
 name|Sampler
+operator|>
 name|mSamplersVS
-index|[
-name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
-index|]
 block|;
 name|GLuint
 name|mUsedVertexSamplerRange
@@ -1705,18 +1738,6 @@ block|,
 name|VariableLocation
 operator|>
 name|mOutputVariables
-block|;
-name|rx
-operator|::
-name|UniformStorage
-operator|*
-name|mVertexUniformStorage
-block|;
-name|rx
-operator|::
-name|UniformStorage
-operator|*
-name|mFragmentUniformStorage
 block|;
 name|bool
 name|mValidated

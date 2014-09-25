@@ -30,11 +30,6 @@ include|#
 directive|include
 file|"compiler/translator/Compiler.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"common/shadervars.h"
-end_include
 begin_decl_stmt
 name|class
 name|TranslatorHLSL

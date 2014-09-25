@@ -37,12 +37,22 @@ end_define
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/angleutils.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"common/RefCountObject.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/renderer/IndexRangeCache.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -83,7 +93,7 @@ operator|~
 name|Buffer
 argument_list|()
 block|;
-name|void
+name|Error
 name|bufferData
 argument_list|(
 argument|const void *data
@@ -93,7 +103,7 @@ argument_list|,
 argument|GLenum usage
 argument_list|)
 block|;
-name|void
+name|Error
 name|bufferSubData
 argument_list|(
 argument|const void *data
@@ -103,7 +113,7 @@ argument_list|,
 argument|GLintptr offset
 argument_list|)
 block|;
-name|void
+name|Error
 name|copyBufferSubData
 argument_list|(
 argument|Buffer* source
@@ -115,8 +125,7 @@ argument_list|,
 argument|GLsizeiptr size
 argument_list|)
 block|;
-name|GLvoid
-operator|*
+name|Error
 name|mapRange
 argument_list|(
 argument|GLintptr offset
@@ -126,7 +135,7 @@ argument_list|,
 argument|GLbitfield access
 argument_list|)
 block|;
-name|void
+name|Error
 name|unmap
 argument_list|()
 block|;
@@ -210,6 +219,32 @@ name|void
 name|markTransformFeedbackUsage
 argument_list|()
 block|;
+name|rx
+operator|::
+name|IndexRangeCache
+operator|*
+name|getIndexRangeCache
+argument_list|()
+block|{
+return|return
+operator|&
+name|mIndexRangeCache
+return|;
+block|}
+specifier|const
+name|rx
+operator|::
+name|IndexRangeCache
+operator|*
+name|getIndexRangeCache
+argument_list|()
+specifier|const
+block|{
+return|return
+operator|&
+name|mIndexRangeCache
+return|;
+block|}
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -226,7 +261,7 @@ block|;
 name|GLenum
 name|mUsage
 block|;
-name|GLsizeiptr
+name|GLint64
 name|mSize
 block|;
 name|GLint
@@ -244,6 +279,11 @@ name|mMapOffset
 block|;
 name|GLint64
 name|mMapLength
+block|;
+name|rx
+operator|::
+name|IndexRangeCache
+name|mIndexRangeCache
 block|; }
 decl_stmt|;
 block|}

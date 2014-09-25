@@ -33,6 +33,21 @@ include|#
 directive|include
 file|"libGLESv2/angletypes.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_decl_stmt
 name|namespace
 name|gl
@@ -70,7 +85,9 @@ name|Clear11
 argument_list|()
 expr_stmt|;
 comment|// Clears the framebuffer with the supplied clear parameters, assumes that the framebuffer is currently applied.
-name|void
+name|gl
+operator|::
+name|Error
 name|clearFramebuffer
 argument_list|(
 specifier|const
@@ -86,7 +103,7 @@ name|Framebuffer
 operator|*
 name|frameBuffer
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|private
 label|:
 name|Renderer11
