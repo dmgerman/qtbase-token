@@ -3577,10 +3577,15 @@ return|return
 name|QString
 argument_list|()
 return|;
+comment|// type initialized just to silence a compiler warning [-Werror=maybe-uninitialized]
 name|QTextBoundaryFinder
 operator|::
 name|BoundaryType
 name|type
+init|=
+name|QTextBoundaryFinder
+operator|::
+name|Grapheme
 decl_stmt|;
 switch|switch
 condition|(
@@ -3878,10 +3883,15 @@ return|return
 name|QString
 argument_list|()
 return|;
+comment|// type initialized just to silence a compiler warning [-Werror=maybe-uninitialized]
 name|QTextBoundaryFinder
 operator|::
 name|BoundaryType
 name|type
+init|=
+name|QTextBoundaryFinder
+operator|::
+name|Grapheme
 decl_stmt|;
 switch|switch
 condition|(
@@ -4277,10 +4287,15 @@ return|return
 name|QString
 argument_list|()
 return|;
+comment|// type initialized just to silence a compiler warning [-Werror=maybe-uninitialized]
 name|QTextBoundaryFinder
 operator|::
 name|BoundaryType
 name|type
+init|=
+name|QTextBoundaryFinder
+operator|::
+name|Grapheme
 decl_stmt|;
 switch|switch
 condition|(
