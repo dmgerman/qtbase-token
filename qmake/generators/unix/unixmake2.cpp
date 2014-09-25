@@ -2748,6 +2748,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|QString
+name|allDeps
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -3185,42 +3188,6 @@ operator|=
 literal|"$(OBJECTS)"
 expr_stmt|;
 block|}
-name|t
-operator|<<
-literal|"all: "
-operator|<<
-name|escapeDependencyPath
-argument_list|(
-name|deps
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|valGlue
-argument_list|(
-name|escapeDependencyPaths
-argument_list|(
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"ALL_DEPS"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-argument_list|)
-operator|<<
-literal|"$(TARGET)"
-operator|<<
-name|endl
-operator|<<
-name|endl
-expr_stmt|;
 comment|//real target
 name|t
 operator|<<
@@ -3340,42 +3307,6 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"all: "
-operator|<<
-name|escapeDependencyPath
-argument_list|(
-name|deps
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|valGlue
-argument_list|(
-name|escapeDependencyPaths
-argument_list|(
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"ALL_DEPS"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-argument_list|)
-operator|<<
-literal|"$(TARGET)"
-operator|<<
-name|endl
-operator|<<
-name|endl
-expr_stmt|;
-name|t
-operator|<<
 literal|"$(TARGET): "
 operator|<<
 name|var
@@ -3482,6 +3413,10 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
+name|allDeps
+operator|=
+literal|" $(TARGET)"
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -3981,42 +3916,6 @@ operator|=
 literal|"$(OBJECTS)"
 expr_stmt|;
 block|}
-name|t
-operator|<<
-literal|"all:  "
-operator|<<
-name|escapeDependencyPath
-argument_list|(
-name|deps
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|valGlue
-argument_list|(
-name|escapeDependencyPaths
-argument_list|(
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"ALL_DEPS"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|destdir
-operator|<<
-literal|"$(TARGET)\n\n"
-expr_stmt|;
 comment|//real target
 name|t
 operator|<<
@@ -4049,42 +3948,6 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"all: "
-operator|<<
-name|escapeDependencyPath
-argument_list|(
-name|deps
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|valGlue
-argument_list|(
-name|escapeDependencyPaths
-argument_list|(
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"ALL_DEPS"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|destdir
-operator|<<
-literal|"$(TARGET)\n\n"
-expr_stmt|;
-name|t
-operator|<<
 name|destdir
 operator|<<
 literal|"$(TARGET): "
@@ -4106,6 +3969,14 @@ literal|"POST_TARGETDEPS"
 argument_list|)
 expr_stmt|;
 block|}
+name|allDeps
+operator|=
+literal|' '
+operator|+
+name|destdir
+operator|+
+literal|"$(TARGET)"
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -4752,54 +4623,30 @@ operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
-name|t
-operator|<<
-literal|"all: "
-operator|<<
-name|escapeDependencyPath
-argument_list|(
-name|deps
-argument_list|)
-operator|<<
-literal|" "
-operator|<<
-name|valGlue
-argument_list|(
-name|escapeDependencyPaths
-argument_list|(
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"ALL_DEPS"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|""
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-argument_list|)
-operator|<<
+name|allDeps
+operator|=
+literal|' '
+operator|+
 name|destdir
-operator|<<
-literal|"$(TARGET) "
-operator|<<
+operator|+
+literal|"$(TARGET)"
+operator|+
 name|varGlue
 argument_list|(
 literal|"QMAKE_AR_SUBLIBS"
 argument_list|,
+literal|' '
+operator|+
 name|destdir
 argument_list|,
-literal|" "
+literal|' '
 operator|+
 name|destdir
 argument_list|,
 literal|""
 argument_list|)
-operator|<<
-literal|"\n\n"
+expr_stmt|;
+name|t
 operator|<<
 literal|"staticlib: "
 operator|<<
@@ -6499,6 +6346,42 @@ block|}
 block|}
 block|}
 block|}
+name|t
+operator|<<
+name|endl
+operator|<<
+literal|"all: "
+operator|<<
+name|escapeDependencyPath
+argument_list|(
+name|deps
+argument_list|)
+operator|<<
+name|valGlue
+argument_list|(
+name|escapeDependencyPaths
+argument_list|(
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"ALL_DEPS"
+argument_list|)
+argument_list|)
+argument_list|,
+literal|" "
+argument_list|,
+literal|" "
+argument_list|,
+literal|""
+argument_list|)
+operator|<<
+name|allDeps
+operator|<<
+name|endl
+operator|<<
+name|endl
+expr_stmt|;
 name|ProString
 name|ddir
 decl_stmt|;
