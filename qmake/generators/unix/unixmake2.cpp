@@ -6144,7 +6144,14 @@ literal|"\n\t"
 operator|<<
 literal|"@$(SYMLINK) "
 operator|<<
-name|version
+name|project
+operator|->
+name|first
+argument_list|(
+name|vkey
+argument_list|)
+operator|+
+literal|"/Current/"
 operator|<<
 name|project
 operator|->
