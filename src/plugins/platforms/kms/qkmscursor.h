@@ -96,6 +96,9 @@ name|m_cursorImage
 block|;
 name|bool
 name|m_moved
+block|;
+name|QSize
+name|m_cursorSize
 block|; }
 decl_stmt|;
 end_decl_stmt
