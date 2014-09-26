@@ -12660,6 +12660,18 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|/*! \fn QDateTime QDateTime::fromCFDate(CFDateRef date)     \since 5.5      Constructs a new QDateTime containing a copy of the CFDate \a date.      \sa toCFDate() */
+end_comment
+begin_comment
+comment|/*! \fn CFDateRef QDateTime::toCFDate() const     \since 5.5      Creates a CFDate from a QDateTime. The caller owns the CFDate object     and is responsible for releasing it.      \sa fromCFDate() */
+end_comment
+begin_comment
+comment|/*! \fn QDateTime QDateTime::fromNSDate(const NSDate *date)     \since 5.5      Constructs a new QDateTime containing a copy of the NSDate \a date.      \sa toNSDate() */
+end_comment
+begin_comment
+comment|/*! \fn NSDate QDateTime::toNSDate() const     \since 5.5      Creates an NSDate from a QDateTime. The NSDate object is autoreleased.      \sa fromNSDate() */
+end_comment
+begin_comment
 comment|/*!   \since 4.2    Returns a datetime whose date and time are the number of \a seconds   that have passed since 1970-01-01T00:00:00, Coordinated Universal   Time (Qt::UTC) and converted to Qt::LocalTime.  On systems that do not   support time zones, the time will be set as if local time were Qt::UTC.    \sa toTime_t(), setTime_t() */
 end_comment
 begin_function
