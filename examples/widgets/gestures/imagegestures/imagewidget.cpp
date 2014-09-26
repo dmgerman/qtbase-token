@@ -357,12 +357,6 @@ operator|<<
 literal|"gestureEvent():"
 operator|<<
 name|event
-operator|->
-name|gestures
-argument_list|()
-operator|.
-name|size
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -521,7 +515,7 @@ argument_list|)
 operator|<<
 literal|"panTriggered():"
 operator|<<
-name|delta
+name|gesture
 expr_stmt|;
 name|horizontalOffset
 operator|+=
