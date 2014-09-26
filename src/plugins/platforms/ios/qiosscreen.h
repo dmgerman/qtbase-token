@@ -126,13 +126,6 @@ name|void
 name|updateProperties
 parameter_list|()
 function_decl|;
-name|public
-name|slots
-range|:
-name|void
-name|updateStatusBarVisibility
-argument_list|()
-decl_stmt|;
 name|private
 label|:
 name|UIScreen
