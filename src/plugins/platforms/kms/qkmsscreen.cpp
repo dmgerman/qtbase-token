@@ -710,8 +710,6 @@ name|tweakFormat
 argument_list|(
 name|format
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|m_eglWindowSurface
@@ -736,6 +734,15 @@ name|lcQpaScreen
 argument_list|)
 operator|<<
 literal|"created window surface"
+expr_stmt|;
+name|m_surfaceFormat
+operator|=
+name|q_glFormatFromConfig
+argument_list|(
+name|display
+argument_list|,
+name|config
+argument_list|)
 expr_stmt|;
 block|}
 end_function
