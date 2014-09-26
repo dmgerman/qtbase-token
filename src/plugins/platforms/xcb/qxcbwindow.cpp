@@ -12198,6 +12198,24 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// _NET_WM_STATE can't change minimized state
+if|if
+condition|(
+name|m_lastWindowStateEvent
+operator|==
+name|Qt
+operator|::
+name|WindowMinimized
+condition|)
+name|newState
+operator|=
+name|Qt
+operator|::
+name|WindowMinimized
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|newState
