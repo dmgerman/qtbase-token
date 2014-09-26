@@ -27631,19 +27631,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|// no need to do extra work for underlines if we don't paint
-if|if
-condition|(
-name|tf
-operator|&
-name|Qt
-operator|::
-name|TextDontPrint
-condition|)
-name|maxUnderlines
-operator|=
-literal|0
-expr_stmt|;
 name|QList
 argument_list|<
 name|QTextLayout
@@ -27743,6 +27730,15 @@ argument_list|)
 operator|&&
 operator|!
 name|hidemnmemonic
+operator|&&
+operator|!
+operator|(
+name|tf
+operator|&
+name|Qt
+operator|::
+name|TextDontPrint
+operator|)
 condition|)
 block|{
 name|QTextLayout
