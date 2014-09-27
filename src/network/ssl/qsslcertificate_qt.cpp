@@ -150,7 +150,8 @@ literal|false
 return|;
 name|qWarning
 argument_list|(
-literal|"QSslCertificate::isSelfSigned: This function does not check, whether the certificate \              is actually signed. It just checks whether issuer and subject are identical"
+literal|"QSslCertificate::isSelfSigned: This function does not check, whether the certificate "
+literal|"is actually signed. It just checks whether issuer and subject are identical"
 argument_list|)
 expr_stmt|;
 return|return
