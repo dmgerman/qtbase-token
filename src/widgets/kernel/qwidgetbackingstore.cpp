@@ -6163,6 +6163,15 @@ comment|// specially, they are not in the regular dirty list, in order to
 comment|// prevent triggering unnecessary backingstore painting when only the
 comment|// OpenGL content changes. Check if we have such widgets in the special
 comment|// dirty list.
+name|QVarLengthArray
+argument_list|<
+name|QWidget
+modifier|*
+argument_list|,
+literal|16
+argument_list|>
+name|paintPending
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -6192,6 +6201,48 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|paintPending
+operator|<<
+name|w
+expr_stmt|;
+name|resetWidget
+argument_list|(
+name|w
+argument_list|)
+expr_stmt|;
+block|}
+name|dirtyRenderToTextureWidgets
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|paintPending
+operator|.
+name|count
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|QWidget
+modifier|*
+name|w
+init|=
+name|paintPending
+index|[
+name|i
+index|]
+decl_stmt|;
 name|w
 operator|->
 name|d_func
@@ -6205,17 +6256,7 @@ name|rect
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|resetWidget
-argument_list|(
-name|w
-argument_list|)
-expr_stmt|;
 block|}
-name|dirtyRenderToTextureWidgets
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 comment|// We might have newly exposed areas on the screen if this function was
 comment|// called from sync(QWidget *, QRegion)), so we have to make sure those
 comment|// are flushed. We also need to composite the renderToTexture widgets.
