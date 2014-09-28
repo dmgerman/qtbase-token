@@ -28,6 +28,13 @@ include|#
 directive|include
 file|<QGridLayout>
 end_include
+begin_macro
+DECL|function|QT_FORWARD_DECLARE_CLASS
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
+argument|QOpenGLWidget
+argument_list|)
+end_macro
 begin_decl_stmt
 name|class
 name|MainWindow
@@ -45,6 +52,18 @@ name|void
 name|addNew
 argument_list|()
 block|;
+name|bool
+name|timerEnabled
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_timer
+operator|->
+name|isActive
+argument_list|()
+return|;
+block|}
 name|private
 name|slots
 operator|:
@@ -52,6 +71,12 @@ name|void
 name|updateIntervalChanged
 argument_list|(
 argument|int value
+argument_list|)
+block|;
+name|void
+name|timerUsageChanged
+argument_list|(
+argument|bool enabled
 argument_list|)
 block|;
 name|private
@@ -69,6 +94,13 @@ name|m_nextX
 block|;
 name|int
 name|m_nextY
+block|;
+name|QVector
+operator|<
+name|QOpenGLWidget
+operator|*
+operator|>
+name|m_glWidgets
 block|; }
 decl_stmt|;
 end_decl_stmt
