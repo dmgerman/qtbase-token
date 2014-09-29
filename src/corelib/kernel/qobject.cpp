@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2013 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2013 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -1033,6 +1033,21 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|Q_LIKELY
+argument_list|(
+name|threadData
+operator|->
+name|thread
+operator|==
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+argument_list|)
+condition|)
+block|{
 comment|// unregister pending timers
 if|if
 condition|(
@@ -1089,6 +1104,15 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"QObject::~QObject: Timers cannot be stopped from another thread"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -4928,9 +4952,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|interval
 operator|<
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -4944,6 +4971,8 @@ return|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
@@ -4953,11 +4982,35 @@ name|eventDispatcher
 operator|.
 name|load
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
 argument_list|(
 literal|"QObject::startTimer: Timers can only be used with threads started with QThread"
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|thread
+argument_list|()
+operator|!=
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QObject::startTimer: Timers cannot be started from another thread"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5038,6 +5091,27 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|thread
+argument_list|()
+operator|!=
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QObject::killTimer: Timers cannot be stopped from another thread"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|id
 condition|)
 block|{
@@ -5073,11 +5147,17 @@ block|{
 comment|// timer isn't owned by this object
 name|qWarning
 argument_list|(
-literal|"QObject::killTimer(): Error: timer id %d is not valid for object %p (%s), timer has not been killed"
+literal|"QObject::killTimer(): Error: timer id %d is not valid for object %p (%s, %s), timer has not been killed"
 argument_list|,
 name|id
 argument_list|,
 name|this
+argument_list|,
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
 argument_list|,
 name|qPrintable
 argument_list|(

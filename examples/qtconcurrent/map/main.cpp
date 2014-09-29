@@ -152,6 +152,12 @@ init|=
 name|QtConcurrent
 operator|::
 name|blockingMapped
+argument_list|<
+name|QList
+argument_list|<
+name|QImage
+argument_list|>
+argument_list|>
 argument_list|(
 name|images
 argument_list|,

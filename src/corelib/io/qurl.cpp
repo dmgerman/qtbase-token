@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2012 Intel Corporation. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2012 Intel Corporation. ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|/*!     \class QUrl     \inmodule QtCore      \brief The QUrl class provides a convenient interface for working     with URLs.      \reentrant     \ingroup io     \ingroup network     \ingroup shared       It can parse and construct URLs in both encoded and unencoded     form. QUrl also has support for internationalized domain names     (IDNs).      The most common way to use QUrl is to initialize it via the     constructor by passing a QString. Otherwise, setUrl() can also     be used.      URLs can be represented in two forms: encoded or unencoded. The     unencoded representation is suitable for showing to users, but     the encoded representation is typically what you would send to     a web server. For example, the unencoded URL     "http://bÃ¼hler.example.com/List of applicants.xml"     would be sent to the server as     "http://xn--bhler-kva.example.com/List%20of%20applicants.xml".      A URL can also be constructed piece by piece by calling     setScheme(), setUserName(), setPassword(), setHost(), setPort(),     setPath(), setQuery() and setFragment(). Some convenience     functions are also available: setAuthority() sets the user name,     password, host and port. setUserInfo() sets the user name and     password at once.      Call isValid() to check if the URL is valid. This can be done at any point     during the constructing of a URL. If isValid() returns \c false, you should     clear() the URL before proceeding, or start over by parsing a new URL with     setUrl().      Constructing a query is particularly convenient through the use of the \l     QUrlQuery class and its methods QUrlQuery::setQueryItems(),     QUrlQuery::addQueryItem() and QUrlQuery::removeQueryItem(). Use     QUrlQuery::setQueryDelimiters() to customize the delimiters used for     generating the query string.      For the convenience of generating encoded URL strings or query     strings, there are two static functions called     fromPercentEncoding() and toPercentEncoding() which deal with     percent encoding and decoding of QStrings.      Calling isRelative() will tell whether or not the URL is     relative. A relative URL can be resolved by passing it as argument     to resolved(), which returns an absolute URL. isParentOf() is used     for determining whether one URL is a parent of another.      fromLocalFile() constructs a QUrl by parsing a local     file path. toLocalFile() converts a URL to a local file path.      The human readable representation of the URL is fetched with     toString(). This representation is appropriate for displaying a     URL to a user in unencoded form. The encoded form however, as     returned by toEncoded(), is for internal use, passing to web     servers, mail clients and so on. Both forms are technically correct     and represent the same URL unambiguously -- in fact, passing either     form to QUrl's constructor or to setUrl() will yield the same QUrl     object.      QUrl conforms to the URI specification from     \l{RFC 3986} (Uniform Resource Identifier: Generic Syntax), and includes     scheme extensions from \l{RFC 1738} (Uniform Resource Locators). Case     folding rules in QUrl conform to \l{RFC 3491} (Nameprep: A Stringprep     Profile for Internationalized Domain Names (IDN)). It is also compatible with the     \l{http://freedesktop.org/wiki/Specifications/file-uri-spec/}{file URI specification}     from freedesktop.org, provided that the locale encodes file names using     UTF-8 (required by IDN).      \section2 Error checking      QUrl is capable of detecting many errors in URLs while parsing it or when     components of the URL are set with individual setter methods (like     setScheme(), setHost() or setPath()). If the parsing or setter function is     successful, any previously recorded error conditions will be discarded.      By default, QUrl setter methods operate in QUrl::TolerantMode, which means     they accept some common mistakes and mis-representation of data. An     alternate method of parsing is QUrl::StrictMode, which applies further     checks. See QUrl::ParsingMode for a description of the difference of the     parsing modes.      QUrl only checks for conformance with the URL specification. It does not     try to verify that high-level protocol URLs are in the format they are     expected to be by handlers elsewhere. For example, the following URIs are     all considered valid by QUrl, even if they do not make sense when used:      \list       \li "http:/filename.html"       \li "mailto://example.com"     \endlist      When the parser encounters an error, it signals the event by making     isValid() return false and toString() / toEncoded() return an empty string.     If it is necessary to show the user the reason why the URL failed to parse,     the error condition can be obtained from QUrl by calling errorString().     Note that this message is highly technical and may not make sense to     end-users.      QUrl is capable of recording only one error condition. If more than one     error is found, it is undefined which error is reported.      \section2 Character Conversions      Follow these rules to avoid erroneous character conversion when     dealing with URLs and strings:      \list     \li When creating an QString to contain a URL from a QByteArray or a        char*, always use QString::fromUtf8().     \endlist */
@@ -8020,7 +8020,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the host of the URL if it is defined; otherwise     an empty string is returned.      The \a options argument controls how the hostname will be formatted. The     QUrl::EncodeUnicode option will cause this function to return the hostname     in the ASCII-Compatible Encoding (ACE) form, which is suitable for use in     channels that are not 8-bit clean or that require the legacy hostname (such     as DNS requests or in HTTP request headers). If that flag is not present,     this function returns the International Domain Name (IDN) in Unicode form,     according to the list of permissible top-level domains (see     idnWhiteList()).      All other flags are ignored. Host names cannot contain control or percent     characters, so the returned value can be considered fully decoded.      \sa setHost(), idnWhitelist(), setIdnWhitelist(), authority() */
+comment|/*!     Returns the host of the URL if it is defined; otherwise     an empty string is returned.      The \a options argument controls how the hostname will be formatted. The     QUrl::EncodeUnicode option will cause this function to return the hostname     in the ASCII-Compatible Encoding (ACE) form, which is suitable for use in     channels that are not 8-bit clean or that require the legacy hostname (such     as DNS requests or in HTTP request headers). If that flag is not present,     this function returns the International Domain Name (IDN) in Unicode form,     according to the list of permissible top-level domains (see     idnWhitelist()).      All other flags are ignored. Host names cannot contain control or percent     characters, so the returned value can be considered fully decoded.      \sa setHost(), idnWhitelist(), setIdnWhitelist(), authority() */
 end_comment
 begin_function
 DECL|function|host
@@ -8612,13 +8612,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QUrl::setQueryItems(const QList<QPair<QString, QString>>&query)     \deprecated      Sets the query string of the URL to an encoded version of \a     query. The contents of \a query are converted to a string     internally, each pair delimited by the character returned by     pairDelimiter(), and the key and value are delimited by     valueDelimiter().      \note This method does not encode spaces (ASCII 0x20) as plus (+) signs,     like HTML forms do. If you need that kind of encoding, you must encode     the value yourself and use QUrl::setEncodedQueryItems.      \obsolete Use QUrlQuery and setQuery().      \sa queryItems(), setEncodedQueryItems() */
+comment|/*!     \fn void QUrl::setQueryItems(const QList<QPair<QString, QString>>&query)     \deprecated      Sets the query string of the URL to an encoded version of \a     query. The contents of \a query are converted to a string     internally, each pair delimited by the character returned by     queryPairDelimiter(), and the key and value are delimited by     queryValueDelimiter().      \note This method does not encode spaces (ASCII 0x20) as plus (+) signs,     like HTML forms do. If you need that kind of encoding, you must encode     the value yourself and use QUrl::setEncodedQueryItems.      \obsolete Use QUrlQuery and setQuery().      \sa queryItems(), setEncodedQueryItems() */
 end_comment
 begin_comment
-comment|/*!     \fn void QUrl::setEncodedQueryItems(const QList<QPair<QByteArray, QByteArray>>&query)     \deprecated     \since 4.4      Sets the query string of the URL to the encoded version of \a     query. The contents of \a query are converted to a string     internally, each pair delimited by the character returned by     pairDelimiter(), and the key and value are delimited by     valueDelimiter().      \obsolete Use QUrlQuery and setQuery().      \sa encodedQueryItems(), setQueryItems() */
+comment|/*!     \fn void QUrl::setEncodedQueryItems(const QList<QPair<QByteArray, QByteArray>>&query)     \deprecated     \since 4.4      Sets the query string of the URL to the encoded version of \a     query. The contents of \a query are converted to a string     internally, each pair delimited by the character returned by     queryPairDelimiter(), and the key and value are delimited by     queryValueDelimiter().      \obsolete Use QUrlQuery and setQuery().      \sa encodedQueryItems(), setQueryItems() */
 end_comment
 begin_comment
-comment|/*!     \fn void QUrl::addQueryItem(const QString&key, const QString&value)     \deprecated      Inserts the pair \a key = \a value into the query string of the     URL.      The key/value pair is encoded before it is added to the query. The     pair is converted into separate strings internally. The \a key and     \a value is first encoded into UTF-8 and then delimited by the     character returned by valueDelimiter(). Each key/value pair is     delimited by the character returned by pairDelimiter().      \note This method does not encode spaces (ASCII 0x20) as plus (+) signs,     like HTML forms do. If you need that kind of encoding, you must encode     the value yourself and use QUrl::addEncodedQueryItem.      \obsolete Use QUrlQuery and setQuery().      \sa addEncodedQueryItem() */
+comment|/*!     \fn void QUrl::addQueryItem(const QString&key, const QString&value)     \deprecated      Inserts the pair \a key = \a value into the query string of the     URL.      The key-value pair is encoded before it is added to the query. The     pair is converted into separate strings internally. The \a key and     \a value is first encoded into UTF-8 and then delimited by the     character returned by queryValueDelimiter(). Each key-value pair is     delimited by the character returned by queryPairDelimiter().      \note This method does not encode spaces (ASCII 0x20) as plus (+) signs,     like HTML forms do. If you need that kind of encoding, you must encode     the value yourself and use QUrl::addEncodedQueryItem.      \obsolete Use QUrlQuery and setQuery().      \sa addEncodedQueryItem() */
 end_comment
 begin_comment
 comment|/*!     \fn void QUrl::addEncodedQueryItem(const QByteArray&key, const QByteArray&value)     \deprecated     \since 4.4      Inserts the pair \a key = \a value into the query string of the     URL.      \obsolete Use QUrlQuery and setQuery().      \sa addQueryItem() */
@@ -8725,7 +8725,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the fragment of the URL to \a fragment. The fragment is the     last part of the URL, represented by a '#' followed by a string of     characters. It is typically used in HTTP for referring to a     certain link or point on a page:      \image qurl-fragment.png      The fragment is sometimes also referred to as the URL "reference".      Passing an argument of QString() (a null QString) will unset the fragment.     Passing an argument of QString("") (an empty but not null QString)     will set the fragment to an empty string (as if the original URL     had a lone "#").      The \a fragment data is interpreted according to \a mode: in StrictMode,     any '%' characters must be followed by exactly two hexadecimal characters     and some characters (including space) are not allowed in undecoded form. In     TolerantMode, all characters are accepted in undecoded form and the     tolerant parser will correct stray '%' not followed by two hex characters.     In DecodedMode, '%' stand for themselves and encoded characters are not     possible.      QUrl::DecodedMode should be used when setting the fragment from a data     source which is not a URL or with a fragment obtained by calling     fragment() with the QUrl::FullyDecoded formatting option.      \sa fragment(), hasFragment() */
+comment|/*!     Sets the fragment of the URL to \a fragment. The fragment is the     last part of the URL, represented by a '#' followed by a string of     characters. It is typically used in HTTP for referring to a     certain link or point on a page:      \image qurl-fragment.png      The fragment is sometimes also referred to as the URL "reference".      Passing an argument of QString() (a null QString) will unset the fragment.     Passing an argument of QString("") (an empty but not null QString) will set the     fragment to an empty string (as if the original URL had a lone "#").      The \a fragment data is interpreted according to \a mode: in StrictMode,     any '%' characters must be followed by exactly two hexadecimal characters     and some characters (including space) are not allowed in undecoded form. In     TolerantMode, all characters are accepted in undecoded form and the     tolerant parser will correct stray '%' not followed by two hex characters.     In DecodedMode, '%' stand for themselves and encoded characters are not     possible.      QUrl::DecodedMode should be used when setting the fragment from a data     source which is not a URL or with a fragment obtained by calling     fragment() with the QUrl::FullyDecoded formatting option.      \sa fragment(), hasFragment() */
 end_comment
 begin_function
 DECL|function|setFragment
@@ -8894,7 +8894,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QUrl::setEncodedFragment(const QByteArray&fragment)     \deprecated     \since 4.4      Sets the URL's fragment to the percent-encoded \a fragment. The fragment is the     last part of the URL, represented by a '#' followed by a string of     characters. It is typically used in HTTP for referring to a     certain link or point on a page:      \image qurl-fragment.png      The fragment is sometimes also referred to as the URL "reference".      Passing an argument of QByteArray() (a null QByteArray) will unset     the fragment.  Passing an argument of QByteArray("") (an empty but     not null QByteArray) will set the fragment to an empty string (as     if the original URL had a lone "#").      \obsolete Use setFragment(), which has the same behavior of null / empty.      \sa setFragment(), encodedFragment() */
+comment|/*!     \fn void QUrl::setEncodedFragment(const QByteArray&fragment)     \deprecated     \since 4.4      Sets the URL's fragment to the percent-encoded \a fragment. The fragment is the     last part of the URL, represented by a '#' followed by a string of     characters. It is typically used in HTTP for referring to a     certain link or point on a page:      \image qurl-fragment.png      The fragment is sometimes also referred to as the URL "reference".      Passing an argument of QByteArray() (a null QByteArray) will unset the fragment.     Passing an argument of QByteArray("") (an empty but not null QByteArray)     will set the fragment to an empty string (as if the original URL     had a lone "#").      \obsolete Use setFragment(), which has the same behavior of null / empty.      \sa setFragment(), encodedFragment() */
 end_comment
 begin_comment
 comment|/*!     \fn QByteArray QUrl::encodedFragment() const     \deprecated     \since 4.4      Returns the fragment of the URL if it is defined; otherwise an     empty string is returned. The returned value will have its     non-ASCII and other control characters percent-encoded, as in     toEncoded().      \obsolete Use query(QUrl::FullyEncoded).toLatin1().      \sa setEncodedFragment(), toEncoded() */
@@ -13102,6 +13102,51 @@ name|url
 return|;
 block|}
 end_function
+begin_function
+DECL|function|isIp6
+specifier|static
+name|bool
+name|isIp6
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|text
+parameter_list|)
+block|{
+name|QIPAddressUtils
+operator|::
+name|IPv6Address
+name|address
+decl_stmt|;
+return|return
+operator|!
+name|text
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|QIPAddressUtils
+operator|::
+name|parseIp6
+argument_list|(
+name|address
+argument_list|,
+name|text
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|text
+operator|.
+name|end
+argument_list|()
+argument_list|)
+operator|==
+literal|0
+return|;
+block|}
+end_function
 begin_comment
 comment|// The following code has the following copyright:
 end_comment
@@ -13151,7 +13196,40 @@ return|return
 name|QUrl
 argument_list|()
 return|;
-comment|// Check both QUrl::isRelative (to detect full URLs) and QDir::isAbsolutePath (since on Windows drive letters can be interpreted as schemes)
+comment|// Check for IPv6 addresses, since a path starting with ":" is absolute (a resource)
+comment|// and IPv6 addresses can start with "c:" too
+if|if
+condition|(
+name|isIp6
+argument_list|(
+name|trimmedString
+argument_list|)
+condition|)
+block|{
+name|QUrl
+name|url
+decl_stmt|;
+name|url
+operator|.
+name|setHost
+argument_list|(
+name|trimmedString
+argument_list|)
+expr_stmt|;
+name|url
+operator|.
+name|setScheme
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"http"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|url
+return|;
+block|}
 name|QUrl
 name|url
 init|=
@@ -13164,6 +13242,7 @@ operator|::
 name|TolerantMode
 argument_list|)
 decl_stmt|;
+comment|// Check both QUrl::isRelative (to detect full URLs) and QDir::isAbsolutePath (since on Windows drive letters can be interpreted as schemes)
 if|if
 condition|(
 name|url
@@ -13248,6 +13327,40 @@ operator|.
 name|trimmed
 argument_list|()
 decl_stmt|;
+comment|// Check for IPv6 addresses, since a path starting with ":" is absolute (a resource)
+comment|// and IPv6 addresses can start with "c:" too
+if|if
+condition|(
+name|isIp6
+argument_list|(
+name|trimmedString
+argument_list|)
+condition|)
+block|{
+name|QUrl
+name|url
+decl_stmt|;
+name|url
+operator|.
+name|setHost
+argument_list|(
+name|trimmedString
+argument_list|)
+expr_stmt|;
+name|url
+operator|.
+name|setScheme
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"http"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|url
+return|;
+block|}
 comment|// Check first for files, since on Windows drive letters can be interpretted as schemes
 if|if
 condition|(

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 BogDan Vatra<bogdan@kde.org> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 BogDan Vatra<bogdan@kde.org> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -313,21 +313,38 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|QSharedPointer
-operator|<
-name|QInputMethodQueryEvent
-operator|>
-name|focusObjectInputMethodQuery
-argument_list|(
-argument|Qt::InputMethodQueries queries = Qt::ImQueryAll
-argument_list|)
-block|;
 name|void
-name|sendInputMethodEvent
+name|sendInputMethodEventThreadSafe
 argument_list|(
 name|QInputMethodEvent
 operator|*
 name|event
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|void
+name|sendInputMethodEventUnsafe
+argument_list|(
+name|QInputMethodEvent
+operator|*
+name|event
+argument_list|)
+block|;
+name|QSharedPointer
+operator|<
+name|QInputMethodQueryEvent
+operator|>
+name|focusObjectInputMethodQueryThreadSafe
+argument_list|(
+argument|Qt::InputMethodQueries queries = Qt::ImQueryAll
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|QInputMethodQueryEvent
+operator|*
+name|focusObjectInputMethodQueryUnsafe
+argument_list|(
+argument|Qt::InputMethodQueries queries
 argument_list|)
 block|;
 name|Q_INVOKABLE
@@ -345,35 +362,6 @@ argument_list|(
 argument|Qt::InputMethodQuery query
 argument_list|,
 argument|QVariant argument
-argument_list|)
-block|;
-name|private
-name|slots
-operator|:
-name|virtual
-name|void
-name|sendEvent
-argument_list|(
-name|QObject
-operator|*
-name|receiver
-argument_list|,
-name|QInputMethodEvent
-operator|*
-name|event
-argument_list|)
-block|;
-name|virtual
-name|void
-name|sendEvent
-argument_list|(
-name|QObject
-operator|*
-name|receiver
-argument_list|,
-name|QInputMethodQueryEvent
-operator|*
-name|event
 argument_list|)
 block|;
 name|private

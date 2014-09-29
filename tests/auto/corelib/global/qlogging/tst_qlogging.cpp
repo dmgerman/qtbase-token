@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2014 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2014 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -1441,6 +1441,67 @@ return|return
 literal|0
 return|;
 block|}
+DECL|function|nested_struct
+name|int
+name|nested_struct
+parameter_list|()
+block|{
+struct|struct
+name|Nested
+block|{
+name|void
+name|nested
+parameter_list|()
+block|{
+name|ADD
+argument_list|(
+literal|"TestClass1::nested_struct"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+struct|;
+name|Nested
+argument_list|()
+operator|.
+name|nested
+argument_list|()
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+DECL|function|nested_struct_const
+name|int
+name|nested_struct_const
+parameter_list|()
+specifier|const
+block|{
+struct|struct
+name|Nested
+block|{
+name|void
+name|nested
+parameter_list|()
+block|{
+name|ADD
+argument_list|(
+literal|"TestClass1::nested_struct_const"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+struct|;
+name|Nested
+argument_list|()
+operator|.
+name|nested
+argument_list|()
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_REF_QUALIFIERS
@@ -1828,6 +1889,12 @@ name|--
 argument_list|(
 literal|0
 argument_list|)
+expr_stmt|;
+name|nested_struct
+argument_list|()
+expr_stmt|;
+name|nested_struct_const
+argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
@@ -3195,6 +3262,24 @@ name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"TestClass1::nested_struct"
+argument_list|,
+literal|"Nested function processing is broken"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"TestClass1::nested_struct_const"
+argument_list|,
+literal|"Nested function processing is broken"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 name|QTEST
 argument_list|(
 name|QString
@@ -3273,22 +3358,22 @@ name|QByteArray
 argument_list|>
 argument_list|()
 operator|<<
-literal|"debug  52 T::T static constructor"
+literal|"debug  44 T::T static constructor"
 comment|//  we can't be sure whether the QT_MESSAGE_PATTERN is already destructed
 operator|<<
 literal|"static destructor"
 operator|<<
-literal|"debug tst_qlogging 73 MyClass::myFunction from_a_function 34"
+literal|"debug tst_qlogging 65 MyClass::myFunction from_a_function 34"
 operator|<<
-literal|"debug tst_qlogging 83 main qDebug"
+literal|"debug tst_qlogging 75 main qDebug"
 operator|<<
-literal|"warning tst_qlogging 84 main qWarning"
+literal|"warning tst_qlogging 76 main qWarning"
 operator|<<
-literal|"critical tst_qlogging 85 main qCritical"
+literal|"critical tst_qlogging 77 main qCritical"
 operator|<<
-literal|"warning tst_qlogging 88 main qDebug with category"
+literal|"warning tst_qlogging 80 main qDebug with category"
 operator|<<
-literal|"debug tst_qlogging 92 main qDebug2"
+literal|"debug tst_qlogging 84 main qDebug2"
 operator|)
 expr_stmt|;
 name|QTest

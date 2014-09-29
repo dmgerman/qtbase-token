@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -102,6 +102,9 @@ argument_list|(
 name|aindex
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|QFileSystemModelPrivate
 modifier|*
 name|d
@@ -116,9 +119,6 @@ name|d_func
 argument_list|()
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -7359,6 +7359,12 @@ argument_list|(
 name|enable
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|enable
+argument_list|)
 endif|#
 directive|endif
 block|}
@@ -7822,6 +7828,9 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|Q_D
 argument_list|(
 name|QFileSystemModel
@@ -7839,9 +7848,6 @@ operator|::
 name|LanguageChange
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|root
@@ -7859,12 +7865,12 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 literal|true
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|QAbstractItemModel
 operator|::
@@ -7896,6 +7902,9 @@ argument_list|(
 name|aindex
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMWATCHER
 name|QFileSystemModelPrivate
 modifier|*
 name|d
@@ -7910,9 +7919,6 @@ name|d_func
 argument_list|()
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FILESYSTEMWATCHER
 name|d
 operator|->
 name|fileInfoGatherer
@@ -8184,6 +8190,12 @@ argument_list|(
 name|info
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|info
+argument_list|)
 endif|#
 directive|endif
 if|#
@@ -9375,6 +9387,16 @@ name|delayedSort
 argument_list|()
 expr_stmt|;
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|path
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|updates
+argument_list|)
 endif|#
 directive|endif
 comment|// !QT_NO_FILESYSTEMWATCHER

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -992,9 +992,16 @@ end_comment
 begin_comment
 comment|/*!     Applies the united() function to this region and \a r. \c r1|r2 is     equivalent to \c r1.united(r2).      \sa united(), operator+() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator |
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator |
 name|QRegion
 name|QRegion
 operator|::
@@ -1019,9 +1026,16 @@ end_function
 begin_comment
 comment|/*!     Applies the united() function to this region and \a r. \c r1+r2 is     equivalent to \c r1.united(r2).      \sa united(), operator|() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator +
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator +
 name|QRegion
 name|QRegion
 operator|::
@@ -1046,9 +1060,16 @@ end_function
 begin_comment
 comment|/*!    \overload    \since 4.4  */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator +
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator +
 name|QRegion
 name|QRegion
 operator|::
@@ -1073,9 +1094,16 @@ end_function
 begin_comment
 comment|/*!     Applies the intersected() function to this region and \a r. \c r1&r2     is equivalent to \c r1.intersected(r2).      \sa intersected() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator &
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator &
 name|QRegion
 name|QRegion
 operator|::
@@ -1100,9 +1128,16 @@ end_function
 begin_comment
 comment|/*!    \overload    \since 4.4  */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator &
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator &
 name|QRegion
 name|QRegion
 operator|::
@@ -1127,9 +1162,16 @@ end_function
 begin_comment
 comment|/*!     Applies the subtracted() function to this region and \a r. \c r1-r2     is equivalent to \c r1.subtracted(r2).      \sa subtracted() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator -
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator -
 name|QRegion
 name|QRegion
 operator|::
@@ -1154,9 +1196,16 @@ end_function
 begin_comment
 comment|/*!     Applies the xored() function to this region and \a r. \c r1^r2 is     equivalent to \c r1.xored(r2).      \sa xored() */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_ifdef
 begin_function
-DECL|function|operator ^
 specifier|const
+endif|#
+directive|endif
+DECL|function|operator ^
 name|QRegion
 name|QRegion
 operator|::
@@ -2759,6 +2808,10 @@ DECL|member|numRects
 name|int
 name|numRects
 decl_stmt|;
+DECL|member|innerArea
+name|int
+name|innerArea
+decl_stmt|;
 DECL|member|rects
 name|QVector
 argument_list|<
@@ -2773,10 +2826,6 @@ decl_stmt|;
 DECL|member|innerRect
 name|QRect
 name|innerRect
-decl_stmt|;
-DECL|member|innerArea
-name|int
-name|innerArea
 decl_stmt|;
 DECL|function|QRegionPrivate
 specifier|inline
@@ -2809,16 +2858,6 @@ argument_list|(
 literal|1
 argument_list|)
 member_init_list|,
-name|extents
-argument_list|(
-name|r
-argument_list|)
-member_init_list|,
-name|innerRect
-argument_list|(
-name|r
-argument_list|)
-member_init_list|,
 name|innerArea
 argument_list|(
 name|r
@@ -2830,6 +2869,16 @@ name|r
 operator|.
 name|height
 argument_list|()
+argument_list|)
+member_init_list|,
+name|extents
+argument_list|(
+name|r
+argument_list|)
+member_init_list|,
+name|innerRect
+argument_list|(
+name|r
 argument_list|)
 block|{     }
 name|void
@@ -10192,6 +10241,11 @@ name|int
 name|ymax
 decl_stmt|;
 comment|/* ycoord at which we exit this edge. */
+DECL|member|ClockWise
+name|int
+name|ClockWise
+decl_stmt|;
+comment|/* flag for winding number rule       */
 DECL|member|bres
 name|BRESINFO
 name|bres
@@ -10218,11 +10272,6 @@ modifier|*
 name|nextWETE
 decl_stmt|;
 comment|/* for winding num rule */
-DECL|member|ClockWise
-name|int
-name|ClockWise
-decl_stmt|;
-comment|/* flag for winding number rule       */
 block|}
 DECL|typedef|EdgeTableEntry
 name|EdgeTableEntry

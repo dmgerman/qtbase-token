@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 BogDan Vatra<bogdan@kde.org> ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 BogDan Vatra<bogdan@kde.org> ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -115,11 +115,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|needsFBOReadBackWorkaroud
+DECL|function|needsFBOReadBackWorkaround
 name|bool
 name|QAndroidPlatformOpenGLContext
 operator|::
-name|needsFBOReadBackWorkaroud
+name|needsFBOReadBackWorkaround
 parameter_list|()
 block|{
 specifier|static
@@ -138,6 +138,35 @@ if|if
 condition|(
 operator|!
 name|set
+condition|)
+block|{
+name|QByteArray
+name|env
+init|=
+name|qgetenv
+argument_list|(
+literal|"QT_ANDROID_DISABLE_GLYPH_CACHE_WORKAROUND"
+argument_list|)
+decl_stmt|;
+name|needsWorkaround
+operator|=
+name|env
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|env
+operator|==
+literal|"0"
+operator|||
+name|env
+operator|==
+literal|"false"
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|needsWorkaround
 condition|)
 block|{
 specifier|const
@@ -184,6 +213,51 @@ operator|==
 literal|0
 comment|// Adreno 200, 203, 205
 operator|||
+name|qstrncmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Adreno 2xx"
+argument_list|,
+literal|8
+argument_list|)
+operator|==
+literal|0
+comment|// Same as above but without the '(TM)'
+operator|||
+name|qstrncmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Adreno (TM) 30x"
+argument_list|,
+literal|14
+argument_list|)
+operator|==
+literal|0
+comment|// Adreno 302, 305
+operator|||
+name|qstrncmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Adreno 30x"
+argument_list|,
+literal|9
+argument_list|)
+operator|==
+literal|0
+comment|// Same as above but without the '(TM)'
+operator|||
+name|qstrcmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"GC800 core"
+argument_list|)
+operator|==
+literal|0
+operator|||
 name|qstrcmp
 argument_list|(
 name|rendererString
@@ -192,7 +266,17 @@ literal|"GC1000 core"
 argument_list|)
 operator|==
 literal|0
+operator|||
+name|qstrcmp
+argument_list|(
+name|rendererString
+argument_list|,
+literal|"Immersion.16"
+argument_list|)
+operator|==
+literal|0
 expr_stmt|;
+block|}
 name|set
 operator|=
 literal|true
@@ -285,7 +369,7 @@ name|ctx_d
 operator|->
 name|workaround_brokenFBOReadBack
 operator|&&
-name|needsFBOReadBackWorkaroud
+name|needsFBOReadBackWorkaround
 argument_list|()
 condition|)
 name|ctx_d

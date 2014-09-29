@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -5824,10 +5824,27 @@ operator|&
 name|window
 argument_list|)
 expr_stmt|;
-comment|//    We currently don't have an accessible interface for QWindow
-comment|//    the active state is either in the QMainWindow or QQuickView
-comment|//    QAccessibleInterface *windowIface(QAccessible::queryAccessibleInterface(&window));
-comment|//    QVERIFY(windowIface->state().active);
+comment|// We currently don't have an accessible interface for QWindow
+comment|// the active state is either in the QMainWindow or QQuickView
+name|QAccessibleInterface
+modifier|*
+name|windowIface
+argument_list|(
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+operator|&
+name|window
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|windowIface
+argument_list|)
+expr_stmt|;
 name|QAccessible
 operator|::
 name|State
@@ -5839,6 +5856,9 @@ name|active
 operator|=
 literal|true
 expr_stmt|;
+comment|// We should still not crash if we somehow end up sending state change events
+comment|// Note that we do not QVERIFY_EVENT, as that relies on the updateHandler being
+comment|// called, which does not happen/make sense when there's no interface for the event.
 name|QAccessibleStateChangeEvent
 name|active
 argument_list|(
@@ -5848,57 +5868,6 @@ argument_list|,
 name|activeState
 argument_list|)
 decl_stmt|;
-name|QVERIFY_EVENT
-argument_list|(
-operator|&
-name|active
-argument_list|)
-expr_stmt|;
-name|QWindow
-name|child
-decl_stmt|;
-name|child
-operator|.
-name|setParent
-argument_list|(
-operator|&
-name|window
-argument_list|)
-expr_stmt|;
-name|child
-operator|.
-name|setGeometry
-argument_list|(
-literal|10
-argument_list|,
-literal|10
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-expr_stmt|;
-name|child
-operator|.
-name|show
-argument_list|()
-expr_stmt|;
-name|child
-operator|.
-name|requestActivate
-argument_list|()
-expr_stmt|;
-name|QTRY_VERIFY
-argument_list|(
-name|QGuiApplication
-operator|::
-name|focusWindow
-argument_list|()
-operator|==
-operator|&
-name|child
-argument_list|)
-expr_stmt|;
 name|QAccessibleStateChangeEvent
 name|deactivate
 argument_list|(
@@ -5908,28 +5877,6 @@ argument_list|,
 name|activeState
 argument_list|)
 decl_stmt|;
-name|QVERIFY_EVENT
-argument_list|(
-operator|&
-name|deactivate
-argument_list|)
-expr_stmt|;
-comment|// deactivation of parent
-name|QAccessibleStateChangeEvent
-name|activeChild
-argument_list|(
-operator|&
-name|child
-argument_list|,
-name|activeState
-argument_list|)
-decl_stmt|;
-name|QVERIFY_EVENT
-argument_list|(
-operator|&
-name|activeChild
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_function

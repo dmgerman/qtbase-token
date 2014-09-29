@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -3925,6 +3925,24 @@ name|Node
 modifier|*
 name|rootNode
 decl_stmt|;
+comment|// Restrict searching only to the local (primary) tree
+name|QVector
+argument_list|<
+name|Tree
+modifier|*
+argument_list|>
+name|searchOrder
+init|=
+name|qdb_
+operator|->
+name|searchOrder
+argument_list|()
+decl_stmt|;
+name|qdb_
+operator|->
+name|setLocalSearch
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -4321,17 +4339,19 @@ argument_list|)
 condition|)
 block|{
 specifier|const
-name|DocNode
+name|Node
 modifier|*
 name|indexPage
 init|=
 name|qdb_
 operator|->
-name|findDocNodeByTitle
+name|findNodeForTarget
 argument_list|(
 name|subproject
 operator|.
 name|indexTitle
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 if|if
@@ -4464,18 +4484,20 @@ argument_list|()
 expr_stmt|;
 comment|// section
 specifier|const
-name|DocNode
+name|Node
 modifier|*
 name|page
 init|=
 name|qdb_
 operator|->
-name|findDocNodeByTitle
+name|findNodeForTarget
 argument_list|(
 name|atom
 operator|->
 name|string
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|writer
@@ -4604,11 +4626,13 @@ name|fullDocumentLocation
 argument_list|(
 name|qdb_
 operator|->
-name|findDocNodeByTitle
+name|findNodeForTarget
 argument_list|(
 name|subproject
 operator|.
 name|indexTitle
+argument_list|,
+literal|0
 argument_list|)
 argument_list|,
 name|Generator
@@ -4750,22 +4774,18 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|DocNode
+specifier|const
+name|Node
 modifier|*
 name|nextPage
 init|=
-cast|const_cast
-argument_list|<
-name|DocNode
-operator|*
-argument_list|>
-argument_list|(
 name|qdb_
 operator|->
-name|findDocNodeByTitle
+name|findNodeForTarget
 argument_list|(
 name|nextTitle
-argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 comment|// Write the contents node.
@@ -4825,18 +4845,13 @@ condition|)
 break|break;
 name|nextPage
 operator|=
-cast|const_cast
-argument_list|<
-name|DocNode
-operator|*
-argument_list|>
-argument_list|(
 name|qdb_
 operator|->
-name|findDocNodeByTitle
+name|findNodeForTarget
 argument_list|(
 name|nextTitle
-argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|visited
@@ -4867,6 +4882,14 @@ expr_stmt|;
 comment|// section
 block|}
 block|}
+comment|// Restore original search order
+name|qdb_
+operator|->
+name|setSearchOrder
+argument_list|(
+name|searchOrder
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|writeEndElement

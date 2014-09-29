@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2013 Intel Corporation ** Contact: http://www.qt-project.org/legal ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Copyright (C) 2013 Intel Corporation ** Contact: http://www.qt-project.org/legal ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -28022,7 +28022,7 @@ literal|true
 return|;
 block|}
 name|bool
-name|haveGpl3
+name|haveLgpl3
 init|=
 literal|false
 decl_stmt|;
@@ -28051,7 +28051,7 @@ operator|==
 literal|"Snapshot"
 condition|)
 block|{
-name|haveGpl3
+name|haveLgpl3
 operator|=
 name|QFile
 operator|::
@@ -28059,7 +28059,7 @@ name|exists
 argument_list|(
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.GPL"
+literal|"/LICENSE.LGPLv3"
 argument_list|)
 expr_stmt|;
 name|theLicense
@@ -28068,11 +28068,11 @@ literal|"GNU Lesser General Public License (LGPL) version 2.1"
 expr_stmt|;
 if|if
 condition|(
-name|haveGpl3
+name|haveLgpl3
 condition|)
 name|theLicense
 operator|+=
-literal|"\nor the GNU General Public License (GPL) version 3"
+literal|"\nor the GNU Lesser General Public License (LGPL) version 3"
 expr_stmt|;
 block|}
 else|else
@@ -28160,11 +28160,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|haveGpl3
+name|haveLgpl3
 condition|)
 name|cout
 operator|<<
-literal|"Type '3' to view the GNU General Public License version 3 (GPLv3)."
+literal|"Type '3' to view the Lesser GNU General Public License version 3 (LGPLv3)."
 operator|<<
 name|endl
 expr_stmt|;
@@ -28267,14 +28267,14 @@ name|licenseFile
 operator|=
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.GPL"
+literal|"/LICENSE.LGPLv3"
 expr_stmt|;
 else|else
 name|licenseFile
 operator|=
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.LGPL"
+literal|"/LICENSE.LGPLv21"
 expr_stmt|;
 block|}
 comment|// Get console line height, to fill the screen properly
@@ -28459,7 +28459,7 @@ index|[
 literal|"LICENSE FILE"
 index|]
 operator|+
-literal|"/LICENSE.GPL"
+literal|"/LICENSE.LGPLv3"
 argument_list|)
 operator|||
 name|QFile
@@ -28471,7 +28471,7 @@ index|[
 literal|"LICENSE FILE"
 index|]
 operator|+
-literal|"/LICENSE.LGPL"
+literal|"/LICENSE.LGPLv21"
 argument_list|)
 decl_stmt|;
 if|if

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -111,6 +111,11 @@ begin_include
 include|#
 directive|include
 file|<QtTest/private/cycle_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtTest/private/qtestblacklist_p.h>
 end_include
 begin_include
 include|#
@@ -4502,6 +4507,27 @@ name|foundFunction
 operator|=
 literal|true
 expr_stmt|;
+name|QTestPrivate
+operator|::
+name|checkBlackList
+argument_list|(
+name|slot
+argument_list|,
+name|dataCount
+condition|?
+name|table
+operator|.
+name|testData
+argument_list|(
+name|curDataIndex
+argument_list|)
+operator|->
+name|dataTag
+argument_list|()
+else|:
+literal|0
+argument_list|)
+expr_stmt|;
 name|QTestDataSetter
 name|s
 argument_list|(
@@ -6157,6 +6183,22 @@ end_endif
 begin_comment
 comment|// Q_OS_WIN)&& !Q_OS_WINCE&& !Q_OS_WINRT
 end_comment
+begin_function
+DECL|function|initEnvironment
+specifier|static
+name|void
+name|initEnvironment
+parameter_list|()
+block|{
+name|qputenv
+argument_list|(
+literal|"QT_LOGGING_TO_CONSOLE"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*!     Executes tests declared in \a testObject. In addition, the private slots     \c{initTestCase()}, \c{cleanupTestCase()}, \c{init()} and \c{cleanup()}     are executed if they exist. See \l{Creating a Test} for more details.      Optionally, the command line arguments \a argc and \a argv can be provided.     For a list of recognized arguments, read \l {Qt Test Command Line Arguments}.      The following example will run all tests in \c MyTestObject:      \snippet code/src_qtestlib_qtestcase.cpp 18      This function returns 0 if no tests failed, or a value other than 0 if one     or more tests failed or in case of unhandled exceptions.  (Skipped tests do     not influence the return value.)      For stand-alone test applications, the convenience macro \l QTEST_MAIN() can     be used to declare a main() function that parses the command line arguments     and executes the tests, avoiding the need to call this function explicitly.      The return value from this function is also the exit code of the test     application when the \l QTEST_MAIN() macro is used.      For stand-alone test applications, this function should not be called more     than once, as command-line options for logging test output to files and     executing individual test functions will not behave correctly.      Note: This function is not reentrant, only one test can run at a time. A     test that was executed with qExec() can't run another test via qExec() and     threads are not allowed to call qExec() simultaneously.      If you have programatically created the arguments, as opposed to getting them     from the arguments in \c main(), it is likely of interest to use     QTest::qExec(QObject *, const QStringList&) since it is Unicode safe.      \sa QTEST_MAIN() */
 end_comment
@@ -6180,6 +6222,9 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
+name|initEnvironment
+argument_list|()
+expr_stmt|;
 name|QBenchmarkGlobalData
 name|benchmarkData
 decl_stmt|;
@@ -6288,6 +6333,11 @@ comment|// no need to release the assertion on exit.
 block|}
 endif|#
 directive|endif
+name|QTestPrivate
+operator|::
+name|parseBlackList
+argument_list|()
+expr_stmt|;
 name|QTestResult
 operator|::
 name|reset

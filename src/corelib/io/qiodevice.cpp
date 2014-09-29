@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QIODEVICE_DEBUG
@@ -415,7 +415,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QIODevice     \inmodule QtCore     \reentrant      \brief The QIODevice class is the base interface class of all I/O     devices in Qt.      \ingroup io      QIODevice provides both a common implementation and an abstract     interface for devices that support reading and writing of blocks     of data, such as QFile, QBuffer and QTcpSocket. QIODevice is     abstract and can not be instantiated, but it is common to use the     interface it defines to provide device-independent I/O features.     For example, Qt's XML classes operate on a QIODevice pointer,     allowing them to be used with various devices (such as files and     buffers).      Before accessing the device, open() must be called to set the     correct OpenMode (such as ReadOnly or ReadWrite). You can then     write to the device with write() or putChar(), and read by calling     either read(), readLine(), or readAll(). Call close() when you are     done with the device.      QIODevice distinguishes between two types of devices:     random-access devices and sequential devices.      \list     \li Random-access devices support seeking to arbitrary     positions using seek(). The current position in the file is     available by calling pos(). QFile and QBuffer are examples of     random-access devices.      \li Sequential devices don't support seeking to arbitrary     positions. The data must be read in one pass. The functions     pos() and size() don't work for sequential devices.     QTcpSocket and QProcess are examples of sequential devices.     \endlist      You can use isSequential() to determine the type of device.      QIODevice emits readyRead() when new data is available for     reading; for example, if new data has arrived on the network or if     additional data is appended to a file that you are reading     from. You can call bytesAvailable() to determine the number of     bytes that are currently available for reading. It's common to use     bytesAvailable() together with the readyRead() signal when     programming with asynchronous devices such as QTcpSocket, where     fragments of data can arrive at arbitrary points in     time. QIODevice emits the bytesWritten() signal every time a     payload of data has been written to the device. Use bytesToWrite()     to determine the current amount of data waiting to be written.      Certain subclasses of QIODevice, such as QTcpSocket and QProcess,     are asynchronous. This means that I/O functions such as write()     or read() always return immediately, while communication with the     device itself may happen when control goes back to the event loop.     QIODevice provides functions that allow you to force these     operations to be performed immediately, while blocking the     calling thread and without entering the event loop. This allows     QIODevice subclasses to be used without an event loop, or in     a separate thread:      \list     \li waitForReadyRead() - This function suspends operation in the     calling thread until new data is available for reading.      \li waitForBytesWritten() - This function suspends operation in the     calling thread until one payload of data has been written to the     device.      \li waitFor....() - Subclasses of QIODevice implement blocking     functions for device-specific operations. For example, QProcess     has a function called waitForStarted() which suspends operation in     the calling thread until the process has started.     \endlist      Calling these functions from the main, GUI thread, may cause your     user interface to freeze. Example:      \snippet code/src_corelib_io_qiodevice.cpp 0      By subclassing QIODevice, you can provide the same interface to     your own I/O devices. Subclasses of QIODevice are only required to     implement the protected readData() and writeData() functions.     QIODevice uses these functions to implement all its convenience     functions, such as getChar(), readLine() and write(). QIODevice     also handles access control for you, so you can safely assume that     the device is opened in write mode if writeData() is called.      Some subclasses, such as QFile and QTcpSocket, are implemented     using a memory buffer for intermediate storing of data. This     reduces the number of required device accessing calls, which are     often very slow. Buffering makes functions like getChar() and     putChar() fast, as they can operate on the memory buffer instead     of directly on the device itself. Certain I/O operations, however,     don't work well with a buffer. For example, if several users open     the same device and read it character by character, they may end     up reading the same data when they meant to read a separate chunk     each. For this reason, QIODevice allows you to bypass any     buffering by passing the Unbuffered flag to open(). When     subclassing QIODevice, remember to bypass any buffer you may use     when the device is open in Unbuffered mode.      \sa QBuffer, QFile, QTcpSocket */
+comment|/*!     \class QIODevice     \inmodule QtCore     \reentrant      \brief The QIODevice class is the base interface class of all I/O     devices in Qt.      \ingroup io      QIODevice provides both a common implementation and an abstract     interface for devices that support reading and writing of blocks     of data, such as QFile, QBuffer and QTcpSocket. QIODevice is     abstract and can not be instantiated, but it is common to use the     interface it defines to provide device-independent I/O features.     For example, Qt's XML classes operate on a QIODevice pointer,     allowing them to be used with various devices (such as files and     buffers).      Before accessing the device, open() must be called to set the     correct OpenMode (such as ReadOnly or ReadWrite). You can then     write to the device with write() or putChar(), and read by calling     either read(), readLine(), or readAll(). Call close() when you are     done with the device.      QIODevice distinguishes between two types of devices:     random-access devices and sequential devices.      \list     \li Random-access devices support seeking to arbitrary     positions using seek(). The current position in the file is     available by calling pos(). QFile and QBuffer are examples of     random-access devices.      \li Sequential devices don't support seeking to arbitrary     positions. The data must be read in one pass. The functions     pos() and size() don't work for sequential devices.     QTcpSocket and QProcess are examples of sequential devices.     \endlist      You can use isSequential() to determine the type of device.      QIODevice emits readyRead() when new data is available for     reading; for example, if new data has arrived on the network or if     additional data is appended to a file that you are reading     from. You can call bytesAvailable() to determine the number of     bytes that are currently available for reading. It's common to use     bytesAvailable() together with the readyRead() signal when     programming with asynchronous devices such as QTcpSocket, where     fragments of data can arrive at arbitrary points in     time. QIODevice emits the bytesWritten() signal every time a     payload of data has been written to the device. Use bytesToWrite()     to determine the current amount of data waiting to be written.      Certain subclasses of QIODevice, such as QTcpSocket and QProcess,     are asynchronous. This means that I/O functions such as write()     or read() always return immediately, while communication with the     device itself may happen when control goes back to the event loop.     QIODevice provides functions that allow you to force these     operations to be performed immediately, while blocking the     calling thread and without entering the event loop. This allows     QIODevice subclasses to be used without an event loop, or in     a separate thread:      \list     \li waitForReadyRead() - This function suspends operation in the     calling thread until new data is available for reading.      \li waitForBytesWritten() - This function suspends operation in the     calling thread until one payload of data has been written to the     device.      \li waitFor....() - Subclasses of QIODevice implement blocking     functions for device-specific operations. For example, QProcess     has a function called \l {QProcess::}{waitForStarted()} which suspends operation in     the calling thread until the process has started.     \endlist      Calling these functions from the main, GUI thread, may cause your     user interface to freeze. Example:      \snippet code/src_corelib_io_qiodevice.cpp 0      By subclassing QIODevice, you can provide the same interface to     your own I/O devices. Subclasses of QIODevice are only required to     implement the protected readData() and writeData() functions.     QIODevice uses these functions to implement all its convenience     functions, such as getChar(), readLine() and write(). QIODevice     also handles access control for you, so you can safely assume that     the device is opened in write mode if writeData() is called.      Some subclasses, such as QFile and QTcpSocket, are implemented     using a memory buffer for intermediate storing of data. This     reduces the number of required device accessing calls, which are     often very slow. Buffering makes functions like getChar() and     putChar() fast, as they can operate on the memory buffer instead     of directly on the device itself. Certain I/O operations, however,     don't work well with a buffer. For example, if several users open     the same device and read it character by character, they may end     up reading the same data when they meant to read a separate chunk     each. For this reason, QIODevice allows you to bypass any     buffering by passing the Unbuffered flag to open(). When     subclassing QIODevice, remember to bypass any buffer you may use     when the device is open in Unbuffered mode.      \sa QBuffer, QFile, QTcpSocket */
 end_comment
 begin_comment
 comment|/*!     \enum QIODevice::OpenModeFlag      This enum is used with open() to describe the mode in which a device     is opened. It is also returned by openMode().      \value NotOpen   The device is not open.     \value ReadOnly  The device is open for reading.     \value WriteOnly The device is open for writing. Note that this mode implies                      Truncate.     \value ReadWrite The device is open for reading and writing.     \value Append    The device is opened in append mode so that all data is                      written to the end of the file.     \value Truncate  If possible, the device is truncated before it is opened.                      All earlier contents of the device are lost.     \value Text      When reading, the end-of-line terminators are                      translated to '\\n'. When writing, the end-of-line                      terminators are translated to the local encoding, for                      example '\\r\\n' for Win32.     \value Unbuffered Any buffer in the device is bypassed.      Certain flags, such as \c Unbuffered and \c Truncate, are     meaningless when used with some subclasses. Some of these     restrictions are implied by the type of device that is represented     by a subclass. In other cases, the restriction may be due to the     implementation, or may be imposed by the underlying platform; for     example, QTcpSocket does not support \c Unbuffered mode, and     limitations in the native API prevent QFile from supporting \c     Unbuffered on Windows. */
@@ -1546,7 +1546,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     For buffered devices, this function returns the number of bytes     waiting to be written. For devices with no buffer, this function     returns 0.      \sa bytesAvailable(), bytesWritten(), isSequential() */
+comment|/*!  For buffered devices, this function returns the number of bytes     waiting to be written. For devices with no buffer, this function     returns 0.      \sa bytesAvailable(), bytesWritten(), isSequential() */
 end_comment
 begin_function
 DECL|function|bytesToWrite
@@ -1982,6 +1982,7 @@ block|{
 comment|// In buffered mode, we try to fill up the QIODevice buffer before
 comment|// we do anything else.
 comment|// buffer is empty at this point, try to fill it
+specifier|const
 name|int
 name|bytesToBuffer
 init|=
@@ -2503,7 +2504,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \overload      Reads at most \a maxSize bytes from the device, and returns the     data read as a QByteArray.      This function has no way of reporting errors; returning an empty     QByteArray() can mean either that no data was currently available     for reading, or that an error occurred. */
+comment|/*!     \overload      Reads at most \a maxSize bytes from the device, and returns the     data read as a QByteArray.      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for reading, or that an error occurred. */
 end_comment
 begin_function
 DECL|function|read
@@ -2740,7 +2741,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Reads all available data from the device, and returns it as a     QByteArray.      This function has no way of reporting errors; returning an empty     QByteArray() can mean either that no data was currently available     for reading, or that an error occurred. */
+comment|/*!     \overload      Reads all available data from the device, and returns it as a     byte array.      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for reading, or that an error occurred. */
 end_comment
 begin_function
 DECL|function|readAll
@@ -2814,6 +2815,21 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|buffer
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|INT_MAX
+condition|)
+return|return
+name|QByteArray
+argument_list|()
+return|;
 name|result
 operator|=
 name|d
@@ -2921,6 +2937,22 @@ else|else
 block|{
 comment|// Read it all in one go.
 comment|// If resize fails, don't read anything.
+if|if
+condition|(
+name|readBytes
+operator|+
+name|theSize
+operator|-
+name|d
+operator|->
+name|pos
+operator|>
+name|INT_MAX
+condition|)
+return|return
+name|QByteArray
+argument_list|()
+return|;
 name|result
 operator|.
 name|resize
@@ -3529,7 +3561,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Reads a line from the device, but no more than \a maxSize characters,     and returns the result as a QByteArray.      This function has no way of reporting errors; returning an empty     QByteArray() can mean either that no data was currently available     for reading, or that an error occurred. */
+comment|/*!     \overload      Reads a line from the device, but no more than \a maxSize characters,     and returns the result as a byte array.      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for reading, or that an error occurred. */
 end_comment
 begin_function
 DECL|function|readLine
@@ -4696,7 +4728,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1     \overload      Peeks at most \a maxSize bytes from the device, returning the data peeked     as a QByteArray.      Example:      \snippet code/src_corelib_io_qiodevice.cpp 5      This function has no way of reporting errors; returning an empty     QByteArray() can mean either that no data was currently available     for peeking, or that an error occurred.      \sa read() */
+comment|/*!     \since 4.1     \overload      Peeks at most \a maxSize bytes from the device, returning the data peeked     as a QByteArray.      Example:      \snippet code/src_corelib_io_qiodevice.cpp 5      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for peeking, or that an error occurred.      \sa read() */
 end_comment
 begin_function
 DECL|function|peek

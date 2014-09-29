@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -105,7 +105,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QTreeView     \brief The QTreeView class provides a default model/view implementation of a tree view.      \ingroup model-view     \ingroup advanced     \inmodule QtWidgets      A QTreeView implements a tree representation of items from a     model. This class is used to provide standard hierarchical lists that     were previously provided by the \c QListView class, but using the more     flexible approach provided by Qt's model/view architecture.      The QTreeView class is one of the \l{Model/View Classes} and is part of     Qt's \l{Model/View Programming}{model/view framework}.      QTreeView implements the interfaces defined by the     QAbstractItemView class to allow it to display data provided by     models derived from the QAbstractItemModel class.      It is simple to construct a tree view displaying data from a     model. In the following example, the contents of a directory are     supplied by a QFileSystemModel and displayed as a tree:      \snippet shareddirmodel/main.cpp 3     \snippet shareddirmodel/main.cpp 6      The model/view architecture ensures that the contents of the tree view     are updated as the model changes.      Items that have children can be in an expanded (children are     visible) or collapsed (children are hidden) state. When this state     changes a collapsed() or expanded() signal is emitted with the     model index of the relevant item.      The amount of indentation used to indicate levels of hierarchy is     controlled by the \l indentation property.      Headers in tree views are constructed using the QHeaderView class and can     be hidden using \c{header()->hide()}. Note that each header is configured     with its \l{QHeaderView::}{stretchLastSection} property set to true,     ensuring that the view does not waste any of the space assigned to it for     its header. If this value is set to true, this property will override the     resize mode set on the last section in the header.       \section1 Key Bindings      QTreeView supports a set of key bindings that enable the user to     navigate in the view and interact with the contents of items:      \table     \header \li Key \li Action     \row \li Up   \li Moves the cursor to the item in the same column on          the previous row. If the parent of the current item has no more rows to          navigate to, the cursor moves to the relevant item in the last row          of the sibling that precedes the parent.     \row \li Down \li Moves the cursor to the item in the same column on          the next row. If the parent of the current item has no more rows to          navigate to, the cursor moves to the relevant item in the first row          of the sibling that follows the parent.     \row \li Left  \li Hides the children of the current item (if present)          by collapsing a branch.     \row \li Minus  \li Same as LeftArrow.     \row \li Right \li Reveals the children of the current item (if present)          by expanding a branch.     \row \li Plus  \li Same as RightArrow.     \row \li Asterisk  \li Expands all children of the current item (if present).     \row \li PageUp   \li Moves the cursor up one page.     \row \li PageDown \li Moves the cursor down one page.     \row \li Home \li Moves the cursor to an item in the same column of the first          row of the first top-level item in the model.     \row \li End  \li Moves the cursor to an item in the same column of the last          row of the last top-level item in the model.     \row \li F2   \li In editable models, this opens the current item for editing.          The Escape key can be used to cancel the editing process and revert          any changes to the data displayed.     \endtable      \omit     Describe the expanding/collapsing concept if not covered elsewhere.     \endomit      \table 100%     \row \li \inlineimage windowsvista-treeview.png Screenshot of a Windows Vista style tree view          \li \inlineimage macintosh-treeview.png Screenshot of a Macintosh style tree view          \li \inlineimage fusion-treeview.png Screenshot of a Fusion style tree view     \row \li A \l{Windows Vista Style Widget Gallery}{Windows Vista style} tree view.          \li A \l{Macintosh Style Widget Gallery}{Macintosh style} tree view.          \li A \l{Fusion Style Widget Gallery}{Fusion style} tree view.     \endtable      \section1 Improving Performance      It is possible to give the view hints about the data it is handling in order     to improve its performance when displaying large numbers of items. One approach     that can be taken for views that are intended to display items with equal heights     is to set the \l uniformRowHeights property to true.      \sa QListView, QTreeWidget, {View Classes}, QAbstractItemModel, QAbstractItemView,         {Dir View Example} */
+comment|/*!     \class QTreeView     \brief The QTreeView class provides a default model/view implementation of a tree view.      \ingroup model-view     \ingroup advanced     \inmodule QtWidgets      A QTreeView implements a tree representation of items from a     model. This class is used to provide standard hierarchical lists that     were previously provided by the \c QListView class, but using the more     flexible approach provided by Qt's model/view architecture.      The QTreeView class is one of the \l{Model/View Classes} and is part of     Qt's \l{Model/View Programming}{model/view framework}.      QTreeView implements the interfaces defined by the     QAbstractItemView class to allow it to display data provided by     models derived from the QAbstractItemModel class.      It is simple to construct a tree view displaying data from a     model. In the following example, the contents of a directory are     supplied by a QFileSystemModel and displayed as a tree:      \snippet shareddirmodel/main.cpp 3     \snippet shareddirmodel/main.cpp 6      The model/view architecture ensures that the contents of the tree view     are updated as the model changes.      Items that have children can be in an expanded (children are     visible) or collapsed (children are hidden) state. When this state     changes a collapsed() or expanded() signal is emitted with the     model index of the relevant item.      The amount of indentation used to indicate levels of hierarchy is     controlled by the \l indentation property.      Headers in tree views are constructed using the QHeaderView class and can     be hidden using \c{header()->hide()}. Note that each header is configured     with its \l{QHeaderView::}{stretchLastSection} property set to true,     ensuring that the view does not waste any of the space assigned to it for     its header. If this value is set to true, this property will override the     resize mode set on the last section in the header.      By default, all columns in a tree view are movable except the first. To     disable movement of these columns, use QHeaderView's     \l {QHeaderView::}{setSectionsMovable()} function. For more information     about rearranging sections, see \l {Moving Header Sections}.      \section1 Key Bindings      QTreeView supports a set of key bindings that enable the user to     navigate in the view and interact with the contents of items:      \table     \header \li Key \li Action     \row \li Up   \li Moves the cursor to the item in the same column on          the previous row. If the parent of the current item has no more rows to          navigate to, the cursor moves to the relevant item in the last row          of the sibling that precedes the parent.     \row \li Down \li Moves the cursor to the item in the same column on          the next row. If the parent of the current item has no more rows to          navigate to, the cursor moves to the relevant item in the first row          of the sibling that follows the parent.     \row \li Left  \li Hides the children of the current item (if present)          by collapsing a branch.     \row \li Minus  \li Same as LeftArrow.     \row \li Right \li Reveals the children of the current item (if present)          by expanding a branch.     \row \li Plus  \li Same as RightArrow.     \row \li Asterisk  \li Expands all children of the current item (if present).     \row \li PageUp   \li Moves the cursor up one page.     \row \li PageDown \li Moves the cursor down one page.     \row \li Home \li Moves the cursor to an item in the same column of the first          row of the first top-level item in the model.     \row \li End  \li Moves the cursor to an item in the same column of the last          row of the last top-level item in the model.     \row \li F2   \li In editable models, this opens the current item for editing.          The Escape key can be used to cancel the editing process and revert          any changes to the data displayed.     \endtable      \omit     Describe the expanding/collapsing concept if not covered elsewhere.     \endomit      \table 100%     \row \li \inlineimage windowsvista-treeview.png Screenshot of a Windows Vista style tree view          \li \inlineimage macintosh-treeview.png Screenshot of a Macintosh style tree view          \li \inlineimage fusion-treeview.png Screenshot of a Fusion style tree view     \row \li A \l{Windows Vista Style Widget Gallery}{Windows Vista style} tree view.          \li A \l{Macintosh Style Widget Gallery}{Macintosh style} tree view.          \li A \l{Fusion Style Widget Gallery}{Fusion style} tree view.     \endtable      \section1 Improving Performance      It is possible to give the view hints about the data it is handling in order     to improve its performance when displaying large numbers of items. One approach     that can be taken for views that are intended to display items with equal heights     is to set the \l uniformRowHeights property to true.      \sa QListView, QTreeWidget, {View Classes}, QAbstractItemModel, QAbstractItemView,         {Dir View Example} */
 end_comment
 begin_comment
 comment|/*!   \fn void QTreeView::expanded(const QModelIndex&index)    This signal is emitted when the item specified by \a index is expanded. */
@@ -1058,7 +1058,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QTreeView::indentation   \brief indentation of the items in the tree view.    This property holds the indentation measured in pixels of the items for each   level in the tree view. For top-level items, the indentation specifies the   horizontal distance from the viewport edge to the items in the first column;   for child items, it specifies their indentation from their parent items.    By default, this property has a value of 20. */
+comment|/*!   \property QTreeView::indentation   \brief indentation of the items in the tree view.    This property holds the indentation measured in pixels of the items for each   level in the tree view. For top-level items, the indentation specifies the   horizontal distance from the viewport edge to the items in the first column;   for child items, it specifies their indentation from their parent items.    By default, the value of this property is style dependent. Thus, when the style   changes, this property updates from it. Calling setIndentation() stops the updates,   calling resetIndentation() will restore default behavior. */
 end_comment
 begin_function
 DECL|function|indentation
@@ -1100,11 +1100,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|customIndent
+operator|||
+operator|(
 name|i
 operator|!=
 name|d
 operator|->
 name|indent
+operator|)
 condition|)
 block|{
 name|d
@@ -1115,10 +1122,50 @@ name|i
 expr_stmt|;
 name|d
 operator|->
+name|customIndent
+operator|=
+literal|true
+expr_stmt|;
+name|d
+operator|->
 name|viewport
 operator|->
 name|update
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|resetIndentation
+name|void
+name|QTreeView
+operator|::
+name|resetIndentation
+parameter_list|()
+block|{
+name|Q_D
+argument_list|(
+name|QTreeView
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|customIndent
+condition|)
+block|{
+name|d
+operator|->
+name|updateIndentationFromStyle
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|customIndent
+operator|=
+literal|false
 expr_stmt|;
 block|}
 block|}
@@ -10260,6 +10307,23 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|customIndent
+condition|)
+block|{
+comment|// ### Qt 6: move to event()
+comment|// QAbstractItemView calls this method in case of a style change,
+comment|// so update the indentation here if it wasn't set manually.
+name|d
+operator|->
+name|updateIndentationFromStyle
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|d
 operator|->
 name|hasRemovedItems
@@ -15607,6 +15671,9 @@ name|Q_Q
 argument_list|(
 name|QTreeView
 argument_list|)
+expr_stmt|;
+name|updateIndentationFromStyle
+argument_list|()
 expr_stmt|;
 name|updateStyledFrameWidths
 argument_list|()
@@ -21222,6 +21289,40 @@ operator|.
 name|column
 argument_list|()
 return|;
+block|}
+end_function
+begin_function
+DECL|function|updateIndentationFromStyle
+name|void
+name|QTreeViewPrivate
+operator|::
+name|updateIndentationFromStyle
+parameter_list|()
+block|{
+name|Q_Q
+argument_list|(
+specifier|const
+name|QTreeView
+argument_list|)
+expr_stmt|;
+name|indent
+operator|=
+name|q
+operator|->
+name|style
+argument_list|()
+operator|->
+name|pixelMetric
+argument_list|(
+name|QStyle
+operator|::
+name|PM_TreeViewIndentation
+argument_list|,
+literal|0
+argument_list|,
+name|q
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

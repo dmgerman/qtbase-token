@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QNETWORKACCESSHTTPBACKEND_DEBUG
@@ -2299,19 +2299,20 @@ name|corrected_initial_age
 operator|+
 name|resident_time
 decl_stmt|;
+name|int
+name|freshness_lifetime
+init|=
+literal|0
+decl_stmt|;
 comment|// RFC 2616 13.2.4 Expiration Calculations
 if|if
 condition|(
-operator|!
-name|expirationDate
+name|lastModified
 operator|.
 name|isValid
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|lastModified
+operator|&&
+name|dateHeader
 operator|.
 name|isValid
 argument_list|()
@@ -2320,23 +2321,18 @@ block|{
 name|int
 name|diff
 init|=
-name|currentDateTime
+name|lastModified
 operator|.
 name|secsTo
 argument_list|(
-name|lastModified
+name|dateHeader
 argument_list|)
 decl_stmt|;
-name|expirationDate
+name|freshness_lifetime
 operator|=
-name|lastModified
-operator|.
-name|addSecs
-argument_list|(
 name|diff
 operator|/
 literal|10
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2353,21 +2349,21 @@ condition|)
 block|{
 name|QDateTime
 name|dt
-decl_stmt|;
-name|dt
+init|=
+name|currentDateTime
 operator|.
-name|setTime_t
+name|addSecs
 argument_list|(
 name|current_age
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|dt
+name|currentDateTime
 operator|.
 name|daysTo
 argument_list|(
-name|currentDateTime
+name|dt
 argument_list|)
 operator|>
 literal|1
@@ -2383,19 +2379,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|// the cache-saving code below sets the expirationDate with date+max_age
-comment|// if "max-age" is present, or to Expires otherwise
-name|int
-name|freshness_lifetime
-init|=
-name|dateHeader
-operator|.
-name|secsTo
-argument_list|(
-name|expirationDate
-argument_list|)
-decl_stmt|;
+comment|// the cache-saving code below sets the freshness_lifetime with (dateHeader - last_modified) / 10
+comment|// if "last-modified" is present, or to Expires otherwise
 name|response_is_fresh
 operator|=
 operator|(
@@ -7441,6 +7426,34 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|synchronous
+condition|)
+block|{
+comment|// Command line applications using the synchronous path such as xmlpatterns may need an extra push.
+name|networkSession
+operator|->
+name|open
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|networkSession
+operator|->
+name|waitForOpened
+argument_list|()
+condition|)
+block|{
+name|postRequest
+argument_list|()
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 block|}
 return|return
 literal|false

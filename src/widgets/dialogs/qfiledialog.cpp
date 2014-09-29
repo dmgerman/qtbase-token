@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia.  For licensing terms and ** conditions see http://qt.digia.com/licensing.  For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights.  These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 3.0 as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU General Public License version 3.0 requirements will be ** met: http://www.gnu.org/copyleft/gpl.html. ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_define
 DECL|macro|QT_NO_URL_CAST_FROM_STRING
@@ -632,16 +632,15 @@ else|else
 block|{
 name|stream
 operator|<<
-name|QByteArray
-argument_list|()
+name|d
+operator|->
+name|splitterState
 expr_stmt|;
 name|stream
 operator|<<
-name|QList
-argument_list|<
-name|QUrl
-argument_list|>
-argument_list|()
+name|d
+operator|->
+name|sidebarUrls
 expr_stmt|;
 block|}
 name|stream
@@ -679,8 +678,9 @@ expr_stmt|;
 else|else
 name|stream
 operator|<<
-name|QByteArray
-argument_list|()
+name|d
+operator|->
+name|headerData
 expr_stmt|;
 name|stream
 operator|<<
@@ -742,18 +742,6 @@ condition|)
 return|return
 literal|false
 return|;
-name|QByteArray
-name|splitterState
-decl_stmt|;
-name|QByteArray
-name|headerData
-decl_stmt|;
-name|QList
-argument_list|<
-name|QUrl
-argument_list|>
-name|bookmarks
-decl_stmt|;
 name|QStringList
 name|history
 decl_stmt|;
@@ -799,9 +787,13 @@ literal|false
 return|;
 name|stream
 operator|>>
+name|d
+operator|->
 name|splitterState
 operator|>>
-name|bookmarks
+name|d
+operator|->
+name|sidebarUrls
 operator|>>
 name|history
 expr_stmt|;
@@ -838,6 +830,8 @@ expr_stmt|;
 block|}
 name|stream
 operator|>>
+name|d
+operator|->
 name|headerData
 operator|>>
 name|viewMode
@@ -892,6 +886,8 @@ name|splitter
 operator|->
 name|restoreState
 argument_list|(
+name|d
+operator|->
 name|splitterState
 argument_list|)
 condition|)
@@ -1000,7 +996,9 @@ name|sidebar
 operator|->
 name|setUrls
 argument_list|(
-name|bookmarks
+name|d
+operator|->
+name|sidebarUrls
 argument_list|)
 expr_stmt|;
 while|while
@@ -1042,6 +1040,8 @@ name|headerView
 operator|->
 name|restoreState
 argument_list|(
+name|d
+operator|->
 name|headerData
 argument_list|)
 condition|)
