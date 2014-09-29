@@ -100,10 +100,6 @@ operator|:
 name|bool
 name|sendCacheContents
 argument_list|()
-block|;
-name|QIODevice
-operator|*
-name|device
 block|;  }
 decl_stmt|;
 end_decl_stmt

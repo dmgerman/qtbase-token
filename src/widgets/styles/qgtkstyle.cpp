@@ -1659,6 +1659,12 @@ name|retval
 decl_stmt|;
 name|retval
 operator|.
+name|pixel
+operator|=
+literal|0
+expr_stmt|;
+name|retval
+operator|.
 name|red
 operator|=
 name|color

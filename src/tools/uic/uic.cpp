@@ -881,6 +881,9 @@ argument_list|,
 literal|"uic: File is not a 'jambi' form\n"
 argument_list|)
 expr_stmt|;
+operator|delete
+name|ui
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -939,6 +942,9 @@ argument_list|(
 name|language
 argument_list|)
 argument_list|)
+expr_stmt|;
+operator|delete
+name|ui
 expr_stmt|;
 return|return
 literal|false

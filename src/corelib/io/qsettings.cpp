@@ -3512,6 +3512,9 @@ parameter_list|(
 name|QString
 modifier|&
 name|str
+parameter_list|,
+name|int
+name|limit
 parameter_list|)
 block|{
 name|int
@@ -3531,7 +3534,7 @@ while|while
 condition|(
 name|n
 operator|>=
-literal|0
+name|limit
 operator|&&
 operator|(
 operator|(
@@ -3838,6 +3841,14 @@ expr_stmt|;
 comment|// fallthrough
 name|StNormal
 label|:
+name|int
+name|chopLimit
+init|=
+name|stringResult
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
 name|i
@@ -4068,6 +4079,13 @@ else|else
 block|{
 comment|// the character is skipped
 block|}
+name|chopLimit
+operator|=
+name|stringResult
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 literal|'"'
@@ -4110,6 +4128,8 @@ condition|)
 name|iniChopTrailingSpaces
 argument_list|(
 name|stringResult
+argument_list|,
+name|chopLimit
 argument_list|)
 expr_stmt|;
 if|if
@@ -4306,6 +4326,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|currentValueIsQuoted
+condition|)
+name|iniChopTrailingSpaces
+argument_list|(
+name|stringResult
+argument_list|,
+name|chopLimit
+argument_list|)
+expr_stmt|;
 goto|goto
 name|end
 goto|;
@@ -4480,16 +4512,6 @@ goto|;
 block|}
 name|end
 label|:
-if|if
-condition|(
-operator|!
-name|currentValueIsQuoted
-condition|)
-name|iniChopTrailingSpaces
-argument_list|(
-name|stringResult
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|isStringList

@@ -4603,6 +4603,12 @@ name|sym
 operator|==
 name|XKB_KEY_NoSymbol
 condition|)
+block|{
+name|xkb_state_unref
+argument_list|(
+name|kb_state
+argument_list|)
+expr_stmt|;
 return|return
 name|QList
 argument_list|<
@@ -4610,6 +4616,7 @@ name|int
 argument_list|>
 argument_list|()
 return|;
+block|}
 name|QList
 argument_list|<
 name|int
