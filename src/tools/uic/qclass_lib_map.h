@@ -3242,6 +3242,16 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
+argument|QOpenGLWidget
+argument_list|,
+argument|QtWidgets
+argument_list|,
+argument|qopenglwidget.h
+argument_list|)
+end_macro
+begin_macro
+name|QT_CLASS_LIB
+argument_list|(
 argument|QGLBuffer
 argument_list|,
 argument|QtOpenGL
