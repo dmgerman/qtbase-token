@@ -117,11 +117,20 @@ block|;
 name|void
 name|showPopup
 argument_list|(
-argument|const QWindow *parentWindow
+specifier|const
+name|QWindow
+operator|*
+name|parentWindow
 argument_list|,
-argument|QPoint pos
+specifier|const
+name|QRect
+operator|&
+name|targetRect
 argument_list|,
-argument|const QPlatformMenuItem *item
+specifier|const
+name|QPlatformMenuItem
+operator|*
+name|item
 argument_list|)
 block|;
 name|void
