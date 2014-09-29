@@ -3664,6 +3664,10 @@ return|return
 name|QString
 argument_list|()
 return|;
+default|default:
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep behavior in sync with QTextCursor::movePosition()!
 name|QTextBoundaryFinder
@@ -3969,6 +3973,10 @@ return|return
 name|QString
 argument_list|()
 return|;
+default|default:
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep behavior in sync with QTextCursor::movePosition()!
 name|QTextBoundaryFinder
@@ -4384,6 +4392,10 @@ expr_stmt|;
 return|return
 name|txt
 return|;
+default|default:
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep behavior in sync with QTextCursor::movePosition()!
 name|QTextBoundaryFinder
