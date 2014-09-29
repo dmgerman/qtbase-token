@@ -6567,9 +6567,9 @@ literal|"ALL_DEPS"
 argument_list|)
 argument_list|)
 argument_list|,
-literal|" "
+literal|" \\\n\t\t"
 argument_list|,
-literal|" "
+literal|" \\\n\t\t"
 argument_list|,
 literal|""
 argument_list|)
