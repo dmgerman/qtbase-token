@@ -200,8 +200,10 @@ name|QWindow
 modifier|*
 name|parentWindow
 parameter_list|,
-name|QPoint
-name|pos
+specifier|const
+name|QRect
+modifier|&
+name|targetRect
 parameter_list|,
 specifier|const
 name|QPlatformMenuItem

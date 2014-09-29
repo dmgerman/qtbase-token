@@ -448,8 +448,10 @@ name|QWindow
 modifier|*
 name|parentWindow
 parameter_list|,
-name|QPoint
-name|pos
+specifier|const
+name|QRect
+modifier|&
+name|targetRect
 parameter_list|,
 specifier|const
 name|QPlatformMenuItem
@@ -460,11 +462,6 @@ block|{
 name|Q_UNUSED
 argument_list|(
 name|parentWindow
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|pos
 argument_list|)
 expr_stmt|;
 name|Q_UNUSED
@@ -482,6 +479,8 @@ operator|::
 name|showContextMenu
 argument_list|(
 name|this
+argument_list|,
+name|targetRect
 argument_list|)
 expr_stmt|;
 block|}
