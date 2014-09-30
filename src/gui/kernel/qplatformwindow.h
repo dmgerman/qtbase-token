@@ -423,6 +423,11 @@ argument_list|,
 argument|int defaultHeight
 argument_list|)
 block|;
+name|virtual
+name|void
+name|requestUpdate
+argument_list|()
+block|;
 name|protected
 operator|:
 specifier|static

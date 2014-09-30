@@ -1237,6 +1237,14 @@ name|int
 name|msec
 parameter_list|)
 function_decl|;
+name|Q_REVISION
+argument_list|(
+literal|3
+argument_list|)
+name|void
+name|requestUpdate
+parameter_list|()
+function_decl|;
 name|Q_SIGNALS
 label|:
 name|void
