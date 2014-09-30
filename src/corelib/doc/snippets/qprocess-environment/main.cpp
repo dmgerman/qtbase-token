@@ -31,22 +31,6 @@ operator|<<
 literal|"TMPDIR=C:\\MyApp\\temp"
 expr_stmt|;
 comment|// Add an environment variable
-name|env
-operator|.
-name|replaceInStrings
-argument_list|(
-name|QRegExp
-argument_list|(
-literal|"^PATH=(.*)"
-argument_list|,
-name|Qt
-operator|::
-name|CaseInsensitive
-argument_list|)
-argument_list|,
-literal|"PATH=\\1;C:\\Bin"
-argument_list|)
-expr_stmt|;
 name|process
 operator|.
 name|setEnvironment
@@ -86,22 +70,6 @@ literal|"C:\\MyApp\\temp"
 argument_list|)
 expr_stmt|;
 comment|// Add an environment variable
-name|env
-operator|.
-name|insert
-argument_list|(
-literal|"PATH"
-argument_list|,
-name|env
-operator|.
-name|value
-argument_list|(
-literal|"Path"
-argument_list|)
-operator|+
-literal|";C:\\Bin"
-argument_list|)
-expr_stmt|;
 name|process
 operator|.
 name|setProcessEnvironment
