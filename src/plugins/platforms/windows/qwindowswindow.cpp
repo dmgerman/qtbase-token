@@ -10182,10 +10182,15 @@ name|hRegion
 init|=
 name|createRectRegion
 argument_list|(
+name|QWindowsScaling
+operator|::
+name|mapToNative
+argument_list|(
 name|rects
 operator|.
 name|front
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
