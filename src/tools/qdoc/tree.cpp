@@ -72,6 +72,16 @@ modifier|*
 name|qdb
 parameter_list|)
 member_init_list|:
+name|treeHasBeenAnalyzed_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|docsHaveBeenGenerated_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|module_
 argument_list|(
 name|module

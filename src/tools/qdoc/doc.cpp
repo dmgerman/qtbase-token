@@ -14157,16 +14157,6 @@ directive|define
 name|COMMAND_QMLBRIEF
 value|Doc::alias("qmlbrief")
 end_define
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|Doc::Doc(const Location& start_loc,          const Location& end_loc,          const QString& source,          const QSet<QString>& metaCommandSet) {     priv = new DocPrivate(start_loc,end_loc,source);     DocParser parser;     parser.parse(source,priv,metaCommandSet,QSet<QString>()); }
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   Parse the qdoc comment \a source. Build up a list of all the topic   commands found including their arguments.  This constructor is used   when there can be more than one topic command in theqdoc comment.   Normally, there is only one topic command in a qdoc comment, but in   QML documentation, there is the case where the qdoc \e{qmlproperty}   command can appear multiple times in a qdoc comment.  */
 end_comment
@@ -16406,6 +16396,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!   All the heap allocated variables are deleted.  */
+end_comment
 begin_function
 DECL|function|terminate
 name|void

@@ -280,9 +280,15 @@ if|if
 condition|(
 name|helpProjectWriter
 condition|)
+block|{
 operator|delete
 name|helpProjectWriter
 expr_stmt|;
+name|helpProjectWriter
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 end_destructor
 begin_comment
@@ -436,6 +442,7 @@ operator|<<
 literal|"gif"
 argument_list|)
 expr_stmt|;
+comment|/*       The formatting maps are owned by Generator. They are cleared in       Generator::terminate().      */
 name|int
 name|i
 init|=
@@ -897,6 +904,13 @@ expr_stmt|;
 block|}
 comment|// The following line was changed to fix QTBUG-27798
 comment|//codeIndent = config.getInt(CONFIG_CODEINDENT);
+comment|/*       The help file write should be allocated once and only once       per qdoc execution.      */
+if|if
+condition|(
+name|helpProjectWriter
+operator|==
+literal|0
+condition|)
 name|helpProjectWriter
 operator|=
 operator|new
@@ -1173,7 +1187,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|runPrepareOnly
+name|preparing
 argument_list|()
 condition|)
 name|Generator
@@ -1184,7 +1198,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|runGenerateOnly
+name|generating
 argument_list|()
 condition|)
 block|{
@@ -1241,7 +1255,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|runPrepareOnly
+name|preparing
 argument_list|()
 condition|)
 block|{
@@ -13244,7 +13258,7 @@ name|generateSectionList
 argument_list|(
 name|section
 argument_list|,
-literal|0
+name|inner
 argument_list|,
 name|marker
 argument_list|,
@@ -13616,7 +13630,7 @@ index|[
 name|j
 index|]
 argument_list|,
-name|qcn
+name|qml_cn
 argument_list|,
 name|marker
 argument_list|,
@@ -15958,6 +15972,7 @@ condition|(
 name|useOutputSubdirs
 argument_list|()
 condition|)
+block|{
 name|link
 operator|=
 name|QString
@@ -15978,6 +15993,7 @@ literal|'/'
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|link
 operator|+=
 name|fileName
@@ -16196,6 +16212,7 @@ operator|<<
 literal|"<ul>\n"
 expr_stmt|;
 name|NodeMapMap
+modifier|&
 name|funcIndex
 init|=
 name|qdb_
@@ -21224,6 +21241,29 @@ name|outputSubdirectory
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|link
+operator|.
+name|startsWith
+argument_list|(
+name|node
+operator|->
+name|outputSubdirectory
+argument_list|()
+argument_list|)
+condition|)
+name|link
+operator|.
+name|prepend
+argument_list|(
+name|QString
+argument_list|(
+literal|"../"
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|else
 name|link
 operator|.
 name|prepend
@@ -25660,7 +25700,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reads metacontent - additional attributes and tags to apply   when generating manifest files, read from config. Takes the   configuration class \a config as a parameter.  */
+comment|/*!   Reads metacontent - additional attributes and tags to apply   when generating manifest files, read from config. Takes the   configuration class \a config as a parameter.    The manifest metacontent map is cleared immediately after   the manifest files have been generated.  */
 end_comment
 begin_function
 DECL|function|readManifestMetaContent

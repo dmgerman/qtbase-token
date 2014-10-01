@@ -799,9 +799,9 @@ argument_list|)
 expr_stmt|;
 name|outSubDir_
 operator|=
-name|CodeParser
+name|Generator
 operator|::
-name|currentOutputSubdirectory
+name|outputSubdir
 argument_list|()
 expr_stmt|;
 if|if

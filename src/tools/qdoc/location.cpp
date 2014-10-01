@@ -694,7 +694,7 @@ condition|(
 operator|!
 name|Generator
 operator|::
-name|runPrepareOnly
+name|preparing
 argument_list|()
 condition|)
 name|emitMessage
@@ -735,7 +735,7 @@ condition|(
 operator|!
 name|Generator
 operator|::
-name|runPrepareOnly
+name|preparing
 argument_list|()
 condition|)
 name|emitMessage

@@ -2114,7 +2114,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|runPrepareOnly
+name|preparing
 argument_list|()
 condition|)
 name|Generator
@@ -2125,7 +2125,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|runGenerateOnly
+name|generating
 argument_list|()
 condition|)
 block|{
@@ -2182,7 +2182,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|runPrepareOnly
+name|preparing
 argument_list|()
 condition|)
 block|{

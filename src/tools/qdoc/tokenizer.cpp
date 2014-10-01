@@ -2193,6 +2193,7 @@ literal|'|'
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/*       The keyword hash table is always cleared before any words are inserted.      */
 name|memset
 argument_list|(
 name|kwordHashTable
@@ -2359,6 +2360,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!   The heap allocated variables are freed here. The keyword   hash table is not cleared here, but it is cleared in the   initialize() function, before any keywords are inserted.  */
+end_comment
 begin_function
 DECL|function|terminate
 name|void
