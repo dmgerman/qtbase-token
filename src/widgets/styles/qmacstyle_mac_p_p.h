@@ -676,6 +676,8 @@ operator|*
 name|buttonOfKind
 argument_list|(
 argument|ThemeButtonKind kind
+argument_list|,
+argument|QPoint *offset
 argument_list|)
 specifier|const
 block|;

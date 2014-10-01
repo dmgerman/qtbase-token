@@ -12853,9 +12853,14 @@ argument_list|)
 argument_list|)
 operator|)
 condition|)
+block|{
+operator|delete
+name|region
+expr_stmt|;
 return|return
 literal|0
 return|;
+block|}
 name|region
 operator|->
 name|vectorize
