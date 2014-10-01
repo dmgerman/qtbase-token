@@ -28021,11 +28021,6 @@ return|return
 literal|true
 return|;
 block|}
-name|bool
-name|haveLgpl3
-init|=
-literal|false
-decl_stmt|;
 name|QString
 name|licenseFile
 init|=
@@ -28051,27 +28046,9 @@ operator|==
 literal|"Snapshot"
 condition|)
 block|{
-name|haveLgpl3
-operator|=
-name|QFile
-operator|::
-name|exists
-argument_list|(
-name|orgLicenseFile
-operator|+
-literal|"/LICENSE.LGPLv3"
-argument_list|)
-expr_stmt|;
 name|theLicense
 operator|=
 literal|"GNU Lesser General Public License (LGPL) version 2.1"
-expr_stmt|;
-if|if
-condition|(
-name|haveLgpl3
-condition|)
-name|theLicense
-operator|+=
 literal|"\nor the GNU Lesser General Public License (LGPL) version 3"
 expr_stmt|;
 block|}
@@ -28158,10 +28135,6 @@ operator|==
 literal|"Snapshot"
 condition|)
 block|{
-if|if
-condition|(
-name|haveLgpl3
-condition|)
 name|cout
 operator|<<
 literal|"Type '3' to view the Lesser GNU General Public License version 3 (LGPLv3)."
