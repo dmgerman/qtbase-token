@@ -3644,6 +3644,13 @@ name|desktopEnvironment
 operator|==
 name|QByteArrayLiteral
 argument_list|(
+literal|"X-CINNAMON"
+argument_list|)
+operator|||
+name|desktopEnvironment
+operator|==
+name|QByteArrayLiteral
+argument_list|(
 literal|"UNITY"
 argument_list|)
 operator|||
