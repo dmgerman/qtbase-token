@@ -326,6 +326,11 @@ name|void
 name|initialize
 parameter_list|()
 function_decl|;
+name|virtual
+name|void
+name|destroy
+parameter_list|()
+function_decl|;
 comment|//Deeper window system integrations
 name|virtual
 name|QPlatformFontDatabase

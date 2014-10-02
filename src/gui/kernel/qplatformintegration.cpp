@@ -406,6 +406,18 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
+comment|/*!   Called before the platform integration is deleted. Useful when cleanup relies on virtual   functions.    \since 5.5 */
+end_comment
+begin_function
+DECL|function|destroy
+name|void
+name|QPlatformIntegration
+operator|::
+name|destroy
+parameter_list|()
+block|{ }
+end_function
+begin_comment
 comment|/*!   Returns the platforms input context.    The default implementation returns 0, implying no input method support. */
 end_comment
 begin_function

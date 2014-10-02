@@ -200,6 +200,11 @@ operator|::
 name|destroy
 parameter_list|()
 block|{
+name|QEGLPlatformIntegration
+operator|::
+name|destroy
+argument_list|()
+expr_stmt|;
 name|QEglFSHooks
 operator|::
 name|hooks

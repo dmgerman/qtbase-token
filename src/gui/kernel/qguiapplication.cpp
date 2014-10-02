@@ -5361,6 +5361,11 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+name|platform_integration
+operator|->
+name|destroy
+argument_list|()
+expr_stmt|;
 operator|delete
 name|platform_theme
 expr_stmt|;
