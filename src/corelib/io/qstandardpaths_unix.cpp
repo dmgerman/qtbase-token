@@ -603,11 +603,19 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QStandardPaths: wrong permissions on runtime directory %s"
+literal|"QStandardPaths: could not set correct permissions on runtime directory %s: %s"
 argument_list|,
 name|qPrintable
 argument_list|(
 name|xdgRuntimeDir
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|file
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
