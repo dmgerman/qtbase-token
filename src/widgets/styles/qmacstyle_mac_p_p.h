@@ -402,6 +402,20 @@ operator|>
 name|QCocoaWidget
 expr_stmt|;
 end_typedef
+begin_typedef
+typedef|typedef
+name|void
+function_decl|(
+modifier|^
+name|QCocoaDrawRectBlock
+function_decl|)
+parameter_list|(
+name|NSRect
+parameter_list|,
+name|CGContextRef
+parameter_list|)
+function_decl|;
+end_typedef
 begin_define
 DECL|macro|SIZE
 define|#
@@ -735,6 +749,8 @@ argument_list|,
 argument|const QRect&rect
 argument_list|,
 argument|QPainter *p
+argument_list|,
+argument|QCocoaDrawRectBlock drawRectBlock = nil
 argument_list|)
 specifier|const
 block|;
