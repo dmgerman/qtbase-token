@@ -73,9 +73,7 @@ name|dirtyRegion
 operator|+=
 name|rect
 expr_stmt|;
-name|d
-operator|->
-name|triggerUpdate
+name|requestUpdate
 argument_list|()
 expr_stmt|;
 block|}
@@ -107,9 +105,7 @@ name|dirtyRegion
 operator|+=
 name|region
 expr_stmt|;
-name|d
-operator|->
-name|triggerUpdate
+name|requestUpdate
 argument_list|()
 expr_stmt|;
 block|}
@@ -441,12 +437,6 @@ operator|::
 name|UpdateRequest
 condition|)
 block|{
-name|d
-operator|->
-name|paintEventSent
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 name|handle
