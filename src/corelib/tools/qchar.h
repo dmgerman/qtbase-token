@@ -1257,6 +1257,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isSpace
@@ -1317,6 +1318,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLetter
@@ -1332,6 +1334,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNumber
@@ -1347,6 +1350,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLetterOrNumber
@@ -1362,6 +1366,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isDigit
@@ -1377,6 +1382,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLower
@@ -1392,6 +1398,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isUpper
@@ -1407,6 +1414,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isTitleCase
@@ -1937,6 +1945,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isSpace
@@ -1977,6 +1986,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLetter
@@ -1987,6 +1997,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNumber
@@ -1997,6 +2008,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLetterOrNumber
@@ -2007,6 +2019,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isDigit
@@ -2017,6 +2030,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLower
@@ -2027,6 +2041,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isUpper
@@ -2037,6 +2052,7 @@ argument_list|)
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isTitleCase
@@ -2243,6 +2259,7 @@ literal|0xff
 operator|)
 argument_list|)
 block|; }
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2294,6 +2311,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2340,6 +2358,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2376,6 +2395,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2432,6 +2452,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2470,6 +2491,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2508,6 +2530,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
@@ -2546,6 +2569,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QChar
