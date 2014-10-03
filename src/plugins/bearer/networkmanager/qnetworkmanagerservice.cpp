@@ -307,7 +307,6 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -356,7 +355,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -400,7 +398,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -515,7 +512,6 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|serviceName
 parameter_list|,
 name|QDBusObjectPath
 name|connectionPath
@@ -539,11 +535,6 @@ argument_list|(
 name|QLatin1String
 argument_list|(
 literal|"ActivateConnection"
-argument_list|)
-argument_list|,
-name|QVariant
-argument_list|(
-name|serviceName
 argument_list|)
 argument_list|,
 name|QVariant
@@ -576,8 +567,6 @@ operator|new
 name|QDBusPendingCallWatcher
 argument_list|(
 name|pendingCall
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|connect
@@ -2326,7 +2315,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -2369,7 +2357,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -2412,7 +2399,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -2798,7 +2784,6 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|QDBusConnection
 operator|::
 name|systemBus
@@ -3134,7 +3119,6 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -3221,7 +3205,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|dbusConnection
 operator|.
 name|connect
@@ -4022,30 +4005,6 @@ return|return
 name|d
 operator|->
 name|connectionInterface
-return|;
-block|}
-end_function
-begin_function
-DECL|function|serviceName
-name|QString
-name|QNetworkManagerConnectionActive
-operator|::
-name|serviceName
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d
-operator|->
-name|connectionInterface
-operator|->
-name|property
-argument_list|(
-literal|"ServiceName"
-argument_list|)
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 end_function

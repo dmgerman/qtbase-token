@@ -439,13 +439,16 @@ operator|*
 operator|>
 name|accessPoints
 block|;
-name|QList
+name|QMap
 operator|<
-name|QNetworkManagerInterfaceAccessPoint
-operator|*
+name|QString
+block|,
+name|QString
 operator|>
 name|configuredAccessPoints
-block|; }
+block|;
+comment|//ap, settings path
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
