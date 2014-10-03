@@ -178,7 +178,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
-comment|// ### Qt 5: merge these two constructors (with type == DefaultType)
 name|QSizePolicy
 argument_list|(
 argument|Policy horizontal
