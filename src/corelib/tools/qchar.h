@@ -1149,6 +1149,7 @@ operator|,
 literal|0
 argument_list|)
 name|QT_DEPRECATED
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|char
 name|toAscii
@@ -1162,6 +1163,7 @@ return|;
 block|}
 endif|#
 directive|endif
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|char
 name|toLatin1
@@ -1199,6 +1201,7 @@ literal|0
 argument_list|)
 name|QT_DEPRECATED
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QChar
 name|fromAscii
@@ -1216,6 +1219,7 @@ return|;
 block|}
 endif|#
 directive|endif
+name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
 name|QChar
@@ -1225,6 +1229,7 @@ name|char
 name|c
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNull
@@ -1417,6 +1422,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNonCharacter
@@ -1432,6 +1438,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isHighSurrogate
@@ -1447,6 +1454,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLowSurrogate
@@ -1462,6 +1470,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isSurrogate
@@ -1477,6 +1486,7 @@ name|ucs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uchar
 name|cell
@@ -1492,6 +1502,7 @@ literal|0xff
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uchar
 name|row
@@ -1528,6 +1539,7 @@ name|row
 parameter_list|)
 function_decl|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNonCharacter
@@ -1557,6 +1569,7 @@ operator|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isHighSurrogate
@@ -1578,6 +1591,7 @@ operator|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isLowSurrogate
@@ -1599,6 +1613,7 @@ operator|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isSurrogate
@@ -1618,6 +1633,7 @@ operator|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|requiresSurrogates
@@ -1635,6 +1651,7 @@ operator|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|surrogateToUcs4
@@ -1662,6 +1679,7 @@ literal|0x35fdc00
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
 name|surrogateToUcs4
@@ -1678,17 +1696,16 @@ name|surrogateToUcs4
 argument_list|(
 name|high
 operator|.
-name|unicode
-argument_list|()
+name|ucs
 argument_list|,
 name|low
 operator|.
-name|unicode
-argument_list|()
+name|ucs
 argument_list|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|ushort
 name|highSurrogate
@@ -1711,6 +1728,7 @@ argument_list|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|ushort
 name|lowSurrogate
@@ -2086,6 +2104,7 @@ empty_stmt|;
 endif|#
 directive|endif
 name|friend
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|==
@@ -2096,6 +2115,7 @@ name|QChar
 operator|)
 expr_stmt|;
 name|friend
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|<
@@ -2123,6 +2143,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|char
 name|QChar
@@ -2146,6 +2167,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QChar
 name|QChar
@@ -2550,6 +2572,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -2574,6 +2597,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -2598,6 +2622,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -2623,6 +2648,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -2648,6 +2674,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -2672,6 +2699,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
