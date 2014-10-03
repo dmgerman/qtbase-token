@@ -668,8 +668,8 @@ block|,
 DECL|enumerator|NativeDisplay
 name|NativeDisplay
 block|,
-DECL|enumerator|Display
-name|Display
+DECL|enumerator|XlibDisplay
+name|XlibDisplay
 block|}
 enum|;
 end_enum
@@ -887,7 +887,7 @@ argument_list|)
 condition|)
 block|{
 case|case
-name|Display
+name|XlibDisplay
 case|:
 comment|// Play nice when using the x11 hooks: Be compatible with xcb that allows querying
 comment|// the X Display pointer, which is nothing but our native display.
