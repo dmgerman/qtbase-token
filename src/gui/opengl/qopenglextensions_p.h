@@ -169,6 +169,10 @@ block|,
 name|MapBufferRange
 operator|=
 literal|0x00100000
+block|,
+name|Sized8Formats
+operator|=
+literal|0x00200000
 block|}
 block|;
 name|Q_DECLARE_FLAGS
