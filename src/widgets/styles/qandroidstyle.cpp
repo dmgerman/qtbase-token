@@ -3448,25 +3448,6 @@ name|widget
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
-name|subElement
-operator|==
-name|SE_LineEditContents
-condition|)
-comment|// fix spinbox display problem
-return|return
-name|QFusionStyle
-operator|::
-name|subElementRect
-argument_list|(
-name|subElement
-argument_list|,
-name|option
-argument_list|,
-name|widget
-argument_list|)
-return|;
 specifier|const
 name|ItemType
 name|itemType
