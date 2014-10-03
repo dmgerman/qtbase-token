@@ -53,6 +53,11 @@ include|#
 directive|include
 file|"private/qwidget_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qalgorithms.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -118,14 +123,10 @@ operator|~
 name|QDesktopWidgetPrivate
 argument_list|()
 block|{
-name|foreach
+name|qDeleteAll
 argument_list|(
-argument|QDesktopScreenWidget *s
-argument_list|,
-argument|screens
+name|screens
 argument_list|)
-name|delete
-name|s
 block|; }
 name|void
 name|_q_updateScreens
