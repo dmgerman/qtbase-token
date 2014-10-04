@@ -3630,6 +3630,11 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
+name|size
+operator|>
+literal|0
+operator|&&
+operator|(
 name|count
 operator|==
 operator|-
@@ -3641,6 +3646,7 @@ name|size
 argument_list|()
 operator|<
 name|count
+operator|)
 condition|)
 block|{
 if|if
