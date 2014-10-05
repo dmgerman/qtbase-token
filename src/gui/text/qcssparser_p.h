@@ -660,7 +660,6 @@ literal|4
 block|}
 enum|;
 struct|struct
-name|Q_GUI_EXPORT
 name|Value
 block|{
 enum|enum
@@ -706,6 +705,7 @@ expr_stmt|;
 name|QVariant
 name|variant
 decl_stmt|;
+name|Q_GUI_EXPORT
 name|QString
 name|toString
 argument_list|()
@@ -2196,7 +2196,6 @@ name|StyleSheetOrigin_Inline
 block|}
 enum|;
 struct|struct
-name|Q_GUI_EXPORT
 name|StyleSheet
 block|{
 name|StyleSheet
@@ -2260,6 +2259,7 @@ name|StyleRule
 operator|>
 name|idIndex
 expr_stmt|;
+name|Q_GUI_EXPORT
 name|void
 name|buildIndexes
 argument_list|(
@@ -2583,7 +2583,6 @@ name|OR
 block|}
 enum|;
 struct|struct
-name|Q_GUI_EXPORT
 name|Symbol
 block|{
 specifier|inline
@@ -2617,6 +2616,7 @@ name|start
 decl_stmt|,
 name|len
 decl_stmt|;
+name|Q_GUI_EXPORT
 name|QString
 name|lexem
 argument_list|()
