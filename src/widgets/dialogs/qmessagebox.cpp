@@ -6698,25 +6698,38 @@ literal|"to accommodate the needs of our various users.</p>"
 literal|"<p>Qt licensed under our commercial license agreement is appropriate "
 literal|"for development of proprietary/commercial software where you do not "
 literal|"want to share any source code with third parties or otherwise cannot "
-literal|"comply with the terms of the GNU LGPL version 2.1 or GNU GPL version "
-literal|"3.0.</p>"
+literal|"comply with the terms of the GNU LGPL version 3 or GNU LGPL version 2.1.</p>"
+literal|"<p>Qt licensed under the GNU LGPL version 3 is appropriate for the "
+literal|"development of Qt applications provided you can comply with the terms "
+literal|"and conditions of the GNU LGPL version 3.</p>"
 literal|"<p>Qt licensed under the GNU LGPL version 2.1 is appropriate for the "
 literal|"development of Qt applications provided you can comply with the terms "
 literal|"and conditions of the GNU LGPL version 2.1.</p>"
-literal|"<p>Qt licensed under the GNU General Public License version 3.0 is "
-literal|"appropriate for the development of Qt applications where you wish to "
-literal|"use such applications in combination with software subject to the "
-literal|"terms of the GNU GPL version 3.0 or where you are otherwise willing "
-literal|"to comply with the terms of the GNU GPL version 3.0.</p>"
-literal|"<p>Please see<a href=\"http://qt.digia.com/Product/Licensing/\">qt.digia.com/Product/Licensing</a> "
+literal|"<p>Please see<a href=\"http://%2/\">%2</a> "
 literal|"for an overview of Qt licensing.</p>"
-literal|"<p>Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies) and other "
+literal|"<p>Copyright (C) %1 Digia Plc and/or its subsidiary(-ies) and other "
 literal|"contributors.</p>"
 literal|"<p>Qt and the Qt logo are trademarks of Digia Plc and/or its subsidiary(-ies).</p>"
-literal|"<p>Qt is developed as an open source project on "
-literal|"<a href=\"http://qt-project.org/\">qt-project.org</a>.</p>"
-literal|"<p>Qt is a Digia product. See<a href=\"http://qt.digia.com/\">qt.digia.com</a> "
+literal|"<p>Qt is a Digia product developed as an open source project. See<a href=\"http://%3/\">%3</a> "
 literal|"for more information.</p>"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"2014"
+argument_list|)
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"qt.io/licensing"
+argument_list|)
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"qt.io"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QMessageBox
