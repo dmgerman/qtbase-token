@@ -418,6 +418,15 @@ argument_list|(
 name|gtkWidget
 argument_list|)
 expr_stmt|;
+name|gdk_window_focus
+argument_list|(
+name|gtkWidget
+operator|->
+name|window
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
