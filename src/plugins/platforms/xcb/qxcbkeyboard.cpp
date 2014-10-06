@@ -4947,6 +4947,10 @@ condition|(
 name|qtKey
 operator|==
 name|baseQtKey
+operator|||
+name|qtKey
+operator|==
+literal|0
 condition|)
 continue|continue;
 name|result
