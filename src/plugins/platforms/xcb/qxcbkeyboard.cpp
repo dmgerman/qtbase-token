@@ -4547,7 +4547,7 @@ argument_list|,
 name|XKB_STATE_LAYOUT_LOCKED
 argument_list|)
 decl_stmt|;
-name|xkb_mod_index_t
+name|xkb_mod_mask_t
 name|latchedMods
 init|=
 name|xkb_state_serialize_mods
@@ -4557,7 +4557,7 @@ argument_list|,
 name|XKB_STATE_MODS_LATCHED
 argument_list|)
 decl_stmt|;
-name|xkb_mod_index_t
+name|xkb_mod_mask_t
 name|lockedMods
 init|=
 name|xkb_state_serialize_mods
