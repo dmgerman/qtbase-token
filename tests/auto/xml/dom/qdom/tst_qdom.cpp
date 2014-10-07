@@ -3299,6 +3299,23 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-12927
+name|QVERIFY
+argument_list|(
+name|doc2
+operator|.
+name|importNode
+argument_list|(
+name|QDomNode
+argument_list|()
+argument_list|,
+name|deep
+argument_list|)
+operator|.
+name|isNull
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
