@@ -135,6 +135,11 @@ specifier|const
 name|QString
 modifier|&
 name|filter
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|filterId
 parameter_list|)
 init|=
 literal|0
@@ -440,6 +445,11 @@ specifier|const
 name|QString
 modifier|&
 name|filter
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|filterId
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -654,6 +664,11 @@ specifier|const
 name|QString
 modifier|&
 name|filter
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|filterId
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -902,6 +917,11 @@ specifier|const
 name|QString
 operator|&
 name|filtername
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|filterId
 argument_list|)
 block|;
 specifier|static
