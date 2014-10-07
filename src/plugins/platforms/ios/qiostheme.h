@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QPalette>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformtheme.h>
 end_include
 begin_decl_stmt
@@ -39,6 +44,16 @@ block|;
 operator|~
 name|QIOSTheme
 argument_list|()
+block|;
+specifier|const
+name|QPalette
+operator|*
+name|palette
+argument_list|(
+argument|Palette type = SystemPalette
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|themeHint
@@ -89,6 +104,9 @@ name|QFont
 operator|*
 operator|>
 name|m_fonts
+block|;
+name|QPalette
+name|m_systemPalette
 block|; }
 decl_stmt|;
 end_decl_stmt
