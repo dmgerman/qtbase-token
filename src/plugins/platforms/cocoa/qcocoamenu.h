@@ -267,6 +267,20 @@ name|menuBar
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setContainingMenuItem
+argument_list|(
+name|QCocoaMenuItem
+operator|*
+name|menuItem
+argument_list|)
+block|;
+name|QCocoaMenuItem
+operator|*
+name|containingMenuItem
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QCocoaMenuItem
@@ -320,6 +334,10 @@ block|;
 name|QCocoaMenuBar
 operator|*
 name|m_menuBar
+block|;
+name|QCocoaMenuItem
+operator|*
+name|m_containingMenuItem
 block|; }
 decl_stmt|;
 end_decl_stmt

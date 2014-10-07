@@ -573,7 +573,7 @@ begin_comment
 comment|/*! \fn bool QBitArray::fill(bool value, int size = -1)      Sets every bit in the bit array to \a value, returning true if successful;     otherwise returns \c false. If \a size is different from -1 (the default),     the bit array is resized to \a size beforehand.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 6      \sa resize() */
 end_comment
 begin_comment
-comment|/*!     \overload      Sets bits at index positions \a begin up to and excluding \a end     to \a value.      \a begin and \a end must be a valid index position in the bit     array (i.e., 0<= \a begin<= size() and 0<= \a end<= size()). */
+comment|/*!     \overload      Sets bits at index positions \a begin up to (but not including) \a end     to \a value.      \a begin must be a valid index position in the bit array     (0<= \a begin< size()).      \a end must be either a valid index position or equal to size(), in     which case the fill operation runs until the end of the array     (0<= \a end<= size()).      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 15 */
 end_comment
 begin_function
 DECL|function|fill

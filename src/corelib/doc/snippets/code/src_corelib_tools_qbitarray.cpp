@@ -958,4 +958,66 @@ end_comment
 begin_comment
 comment|//! [14]
 end_comment
+begin_comment
+comment|//! [15]
+end_comment
+begin_decl_stmt
+name|QBitArray
+name|ba
+argument_list|(
+literal|4
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|ba
+operator|.
+name|fill
+argument_list|(
+literal|true
+argument_list|,
+literal|1
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// ba: [ 0, 1, 0, 0 ]
+end_comment
+begin_expr_stmt
+name|ba
+operator|.
+name|fill
+argument_list|(
+literal|true
+argument_list|,
+literal|1
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// ba: [ 0, 1, 1, 0 ]
+end_comment
+begin_expr_stmt
+name|ba
+operator|.
+name|fill
+argument_list|(
+literal|true
+argument_list|,
+literal|1
+argument_list|,
+literal|4
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// ba: [ 0, 1, 1, 1 ]
+end_comment
+begin_comment
+comment|//! [15]
+end_comment
 end_unit

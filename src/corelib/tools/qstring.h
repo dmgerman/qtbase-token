@@ -765,7 +765,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|([]() -> QString { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         const QString s(holder); \         return s; \     }())
+value|([]() -> QString { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         const QString qstring_literal_temp(holder); \         return qstring_literal_temp; \     }())
 end_define
 begin_comment
 unit|\
