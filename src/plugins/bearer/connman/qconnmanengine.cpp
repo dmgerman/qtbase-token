@@ -2103,9 +2103,8 @@ block|{
 return|return
 name|QNetworkConfiguration
 operator|::
-name|BearerWiMAX
+name|BearerLTE
 return|;
-comment|//not exact
 block|}
 block|}
 return|return
