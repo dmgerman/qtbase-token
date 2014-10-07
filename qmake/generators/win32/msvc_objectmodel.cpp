@@ -13173,7 +13173,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"Sources"
+literal|"Source Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13182,7 +13182,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"Headers"
+literal|"Header Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13191,7 +13191,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"GeneratedFiles"
+literal|"Generated Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13200,7 +13200,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"LexYaccFiles"
+literal|"LexYacc Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13209,7 +13209,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"TranslationFiles"
+literal|"Translation Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13218,7 +13218,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"FormFiles"
+literal|"Form Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13227,7 +13227,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"ResourceFiles"
+literal|"Resource Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13236,7 +13236,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"DeploymentFiles"
+literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
 name|QSet
@@ -13347,7 +13347,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"RootFiles"
+literal|"Root Files"
 argument_list|)
 expr_stmt|;
 name|xml
@@ -13563,7 +13563,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"Sources"
+literal|"Source Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13572,7 +13572,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"Headers"
+literal|"Header Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13581,7 +13581,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"GeneratedFiles"
+literal|"Generated Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13590,7 +13590,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"LexYaccFiles"
+literal|"LexYacc Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13599,7 +13599,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"TranslationFiles"
+literal|"Translation Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13608,7 +13608,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"FormFiles"
+literal|"Form Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13617,7 +13617,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"ResourceFiles"
+literal|"Resource Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13626,7 +13626,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"DeploymentFiles"
+literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
 for|for
@@ -13672,7 +13672,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"RootFiles"
+literal|"Root Files"
 argument_list|)
 expr_stmt|;
 name|xml
