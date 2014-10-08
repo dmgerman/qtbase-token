@@ -19,6 +19,13 @@ operator|::
 name|MainWindow
 parameter_list|()
 block|{
+name|setMinimumSize
+argument_list|(
+literal|800
+argument_list|,
+literal|400
+argument_list|)
+expr_stmt|;
 name|GLWidget
 modifier|*
 name|glwidget1
