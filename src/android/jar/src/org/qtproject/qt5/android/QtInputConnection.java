@@ -762,6 +762,15 @@ argument_list|,
 name|flags
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|qExtractedText
+operator|==
+literal|null
+condition|)
+return|return
+literal|null
+return|;
 name|ExtractedText
 name|extractedText
 init|=
