@@ -343,7 +343,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"version"
 argument_list|)
@@ -366,7 +366,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"language"
 argument_list|)
@@ -389,7 +389,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"displayname"
 argument_list|)
@@ -412,7 +412,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stdsetdef"
 argument_list|)
@@ -438,7 +438,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stdSetDef"
 argument_list|)
@@ -527,7 +527,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"author"
 argument_list|)
@@ -547,7 +547,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"comment"
 argument_list|)
@@ -567,7 +567,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"exportmacro"
 argument_list|)
@@ -587,7 +587,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"class"
 argument_list|)
@@ -607,7 +607,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"widget"
 argument_list|)
@@ -639,7 +639,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"layoutdefault"
 argument_list|)
@@ -671,7 +671,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"layoutfunction"
 argument_list|)
@@ -703,7 +703,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"pixmapfunction"
 argument_list|)
@@ -723,7 +723,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"customwidgets"
 argument_list|)
@@ -755,7 +755,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"tabstops"
 argument_list|)
@@ -787,7 +787,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"images"
 argument_list|)
@@ -819,7 +819,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"includes"
 argument_list|)
@@ -851,7 +851,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"resources"
 argument_list|)
@@ -883,7 +883,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"connections"
 argument_list|)
@@ -915,7 +915,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"designerdata"
 argument_list|)
@@ -947,7 +947,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"slots"
 argument_list|)
@@ -979,7 +979,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"buttongroups"
 argument_list|)
@@ -2790,7 +2790,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"include"
 argument_list|)
@@ -3114,7 +3114,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"location"
 argument_list|)
@@ -3137,7 +3137,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"impldecl"
 argument_list|)
@@ -3490,7 +3490,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -3576,7 +3576,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"include"
 argument_list|)
@@ -3905,7 +3905,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"location"
 argument_list|)
@@ -4300,7 +4300,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -4386,7 +4386,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"action"
 argument_list|)
@@ -4420,7 +4420,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"actiongroup"
 argument_list|)
@@ -4454,7 +4454,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -4488,7 +4488,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"attribute"
 argument_list|)
@@ -5067,7 +5067,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -5090,7 +5090,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"menu"
 argument_list|)
@@ -5176,7 +5176,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -5210,7 +5210,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"attribute"
 argument_list|)
@@ -5624,7 +5624,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -5979,7 +5979,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -6065,7 +6065,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -6099,7 +6099,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"attribute"
 argument_list|)
@@ -6534,7 +6534,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"buttongroup"
 argument_list|)
@@ -6884,7 +6884,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"image"
 argument_list|)
@@ -7210,7 +7210,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -7296,7 +7296,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"data"
 argument_list|)
@@ -7672,7 +7672,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"format"
 argument_list|)
@@ -7695,7 +7695,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"length"
 argument_list|)
@@ -8074,7 +8074,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"customwidget"
 argument_list|)
@@ -8390,7 +8390,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"location"
 argument_list|)
@@ -8829,7 +8829,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"class"
 argument_list|)
@@ -8849,7 +8849,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"extends"
 argument_list|)
@@ -8869,7 +8869,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"header"
 argument_list|)
@@ -8901,7 +8901,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"sizehint"
 argument_list|)
@@ -8933,7 +8933,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"addpagemethod"
 argument_list|)
@@ -8953,7 +8953,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"container"
 argument_list|)
@@ -8976,7 +8976,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"sizepolicy"
 argument_list|)
@@ -9008,7 +9008,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"pixmap"
 argument_list|)
@@ -9028,7 +9028,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"script"
 argument_list|)
@@ -9060,7 +9060,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"properties"
 argument_list|)
@@ -9092,7 +9092,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"slots"
 argument_list|)
@@ -9124,7 +9124,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"propertyspecifications"
 argument_list|)
@@ -10363,7 +10363,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -10674,7 +10674,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"type"
 argument_list|)
@@ -11022,7 +11022,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hordata"
 argument_list|)
@@ -11045,7 +11045,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"verdata"
 argument_list|)
@@ -11424,7 +11424,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"spacing"
 argument_list|)
@@ -11450,7 +11450,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"margin"
 argument_list|)
@@ -11803,7 +11803,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"spacing"
 argument_list|)
@@ -11826,7 +11826,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"margin"
 argument_list|)
@@ -12187,7 +12187,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"tabstop"
 argument_list|)
@@ -12590,7 +12590,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"class"
 argument_list|)
@@ -12613,7 +12613,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -12636,7 +12636,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stretch"
 argument_list|)
@@ -12659,7 +12659,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"rowstretch"
 argument_list|)
@@ -12682,7 +12682,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"columnstretch"
 argument_list|)
@@ -12705,7 +12705,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"rowminimumheight"
 argument_list|)
@@ -12728,7 +12728,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"columnminimumwidth"
 argument_list|)
@@ -12814,7 +12814,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -12848,7 +12848,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"attribute"
 argument_list|)
@@ -12882,7 +12882,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"item"
 argument_list|)
@@ -13560,7 +13560,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"row"
 argument_list|)
@@ -13586,7 +13586,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"column"
 argument_list|)
@@ -13612,7 +13612,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"rowspan"
 argument_list|)
@@ -13638,7 +13638,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"colspan"
 argument_list|)
@@ -13664,7 +13664,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"alignment"
 argument_list|)
@@ -13750,7 +13750,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"widget"
 argument_list|)
@@ -13782,7 +13782,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"layout"
 argument_list|)
@@ -13814,7 +13814,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"spacer"
 argument_list|)
@@ -14466,7 +14466,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -14816,7 +14816,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -15192,7 +15192,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"row"
 argument_list|)
@@ -15218,7 +15218,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"column"
 argument_list|)
@@ -15307,7 +15307,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -15341,7 +15341,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"item"
 argument_list|)
@@ -16050,7 +16050,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"class"
 argument_list|)
@@ -16073,7 +16073,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -16096,7 +16096,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"native"
 argument_list|)
@@ -16112,7 +16112,7 @@ operator|.
 name|toString
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -16187,7 +16187,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"class"
 argument_list|)
@@ -16209,7 +16209,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -16243,7 +16243,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"script"
 argument_list|)
@@ -16277,7 +16277,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"widgetdata"
 argument_list|)
@@ -16311,7 +16311,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"attribute"
 argument_list|)
@@ -16345,7 +16345,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"row"
 argument_list|)
@@ -16379,7 +16379,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"column"
 argument_list|)
@@ -16413,7 +16413,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"item"
 argument_list|)
@@ -16447,7 +16447,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"layout"
 argument_list|)
@@ -16481,7 +16481,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"widget"
 argument_list|)
@@ -16515,7 +16515,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"action"
 argument_list|)
@@ -16549,7 +16549,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"actiongroup"
 argument_list|)
@@ -16583,7 +16583,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"addaction"
 argument_list|)
@@ -16617,7 +16617,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"zorder"
 argument_list|)
@@ -17864,7 +17864,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -17950,7 +17950,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -18311,7 +18311,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"alpha"
 argument_list|)
@@ -18400,7 +18400,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"red"
 argument_list|)
@@ -18423,7 +18423,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"green"
 argument_list|)
@@ -18446,7 +18446,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"blue"
 argument_list|)
@@ -18908,7 +18908,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"position"
 argument_list|)
@@ -18997,7 +18997,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"color"
 argument_list|)
@@ -19558,7 +19558,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"startx"
 argument_list|)
@@ -19584,7 +19584,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"starty"
 argument_list|)
@@ -19610,7 +19610,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"endx"
 argument_list|)
@@ -19636,7 +19636,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"endy"
 argument_list|)
@@ -19662,7 +19662,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"centralx"
 argument_list|)
@@ -19688,7 +19688,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"centraly"
 argument_list|)
@@ -19714,7 +19714,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"focalx"
 argument_list|)
@@ -19740,7 +19740,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"focaly"
 argument_list|)
@@ -19766,7 +19766,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"radius"
 argument_list|)
@@ -19792,7 +19792,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"angle"
 argument_list|)
@@ -19818,7 +19818,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"type"
 argument_list|)
@@ -19841,7 +19841,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"spread"
 argument_list|)
@@ -19864,7 +19864,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"coordinatemode"
 argument_list|)
@@ -19950,7 +19950,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"gradientstop"
 argument_list|)
@@ -20628,7 +20628,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"brushstyle"
 argument_list|)
@@ -20714,7 +20714,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"color"
 argument_list|)
@@ -20746,7 +20746,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"texture"
 argument_list|)
@@ -20778,7 +20778,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"gradient"
 argument_list|)
@@ -21314,7 +21314,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"role"
 argument_list|)
@@ -21400,7 +21400,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"brush"
 argument_list|)
@@ -21814,7 +21814,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"colorrole"
 argument_list|)
@@ -21848,7 +21848,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"color"
 argument_list|)
@@ -22287,7 +22287,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"active"
 argument_list|)
@@ -22319,7 +22319,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"inactive"
 argument_list|)
@@ -22351,7 +22351,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"disabled"
 argument_list|)
@@ -22960,7 +22960,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"family"
 argument_list|)
@@ -22980,7 +22980,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"pointsize"
 argument_list|)
@@ -23003,7 +23003,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"weight"
 argument_list|)
@@ -23026,7 +23026,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"italic"
 argument_list|)
@@ -23039,7 +23039,7 @@ operator|.
 name|readElementText
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -23051,7 +23051,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"bold"
 argument_list|)
@@ -23064,7 +23064,7 @@ operator|.
 name|readElementText
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -23076,7 +23076,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"underline"
 argument_list|)
@@ -23089,7 +23089,7 @@ operator|.
 name|readElementText
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -23101,7 +23101,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"strikeout"
 argument_list|)
@@ -23114,7 +23114,7 @@ operator|.
 name|readElementText
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -23126,7 +23126,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"antialiasing"
 argument_list|)
@@ -23139,7 +23139,7 @@ operator|.
 name|readElementText
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -23151,7 +23151,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stylestrategy"
 argument_list|)
@@ -23171,7 +23171,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"kerning"
 argument_list|)
@@ -23184,7 +23184,7 @@ operator|.
 name|readElementText
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"true"
 argument_list|)
@@ -24086,12 +24086,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'x'
-argument_list|)
+literal|"x"
 argument_list|)
 condition|)
 block|{
@@ -24112,12 +24109,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'y'
-argument_list|)
+literal|"y"
 argument_list|)
 condition|)
 block|{
@@ -24526,12 +24520,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'x'
-argument_list|)
+literal|"x"
 argument_list|)
 condition|)
 block|{
@@ -24552,12 +24543,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'y'
-argument_list|)
+literal|"y"
 argument_list|)
 condition|)
 block|{
@@ -24578,7 +24566,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"width"
 argument_list|)
@@ -24601,7 +24589,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"height"
 argument_list|)
@@ -25092,7 +25080,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"language"
 argument_list|)
@@ -25115,7 +25103,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"country"
 argument_list|)
@@ -25487,7 +25475,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hsizetype"
 argument_list|)
@@ -25510,7 +25498,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"vsizetype"
 argument_list|)
@@ -25596,7 +25584,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hsizetype"
 argument_list|)
@@ -25619,7 +25607,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"vsizetype"
 argument_list|)
@@ -25642,7 +25630,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"horstretch"
 argument_list|)
@@ -25665,7 +25653,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"verstretch"
 argument_list|)
@@ -26212,7 +26200,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"width"
 argument_list|)
@@ -26235,7 +26223,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"height"
 argument_list|)
@@ -26632,7 +26620,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"year"
 argument_list|)
@@ -26655,7 +26643,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"month"
 argument_list|)
@@ -26678,7 +26666,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"day"
 argument_list|)
@@ -27136,7 +27124,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hour"
 argument_list|)
@@ -27159,7 +27147,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"minute"
 argument_list|)
@@ -27182,7 +27170,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"second"
 argument_list|)
@@ -27664,7 +27652,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hour"
 argument_list|)
@@ -27687,7 +27675,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"minute"
 argument_list|)
@@ -27710,7 +27698,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"second"
 argument_list|)
@@ -27733,7 +27721,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"year"
 argument_list|)
@@ -27756,7 +27744,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"month"
 argument_list|)
@@ -27779,7 +27767,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"day"
 argument_list|)
@@ -28405,7 +28393,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"notr"
 argument_list|)
@@ -28428,7 +28416,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"comment"
 argument_list|)
@@ -28451,7 +28439,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"extracomment"
 argument_list|)
@@ -28537,7 +28525,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"string"
 argument_list|)
@@ -28898,7 +28886,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"resource"
 argument_list|)
@@ -28921,7 +28909,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"alias"
 argument_list|)
@@ -29379,7 +29367,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"theme"
 argument_list|)
@@ -29402,7 +29390,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"resource"
 argument_list|)
@@ -29488,7 +29476,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"normaloff"
 argument_list|)
@@ -29520,7 +29508,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"normalon"
 argument_list|)
@@ -29552,7 +29540,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"disabledoff"
 argument_list|)
@@ -29584,7 +29572,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"disabledon"
 argument_list|)
@@ -29616,7 +29604,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"activeoff"
 argument_list|)
@@ -29648,7 +29636,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"activeon"
 argument_list|)
@@ -29680,7 +29668,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"selectedoff"
 argument_list|)
@@ -29712,7 +29700,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"selectedon"
 argument_list|)
@@ -30771,7 +30759,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"notr"
 argument_list|)
@@ -30794,7 +30782,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"comment"
 argument_list|)
@@ -30817,7 +30805,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"extracomment"
 argument_list|)
@@ -31201,12 +31189,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'x'
-argument_list|)
+literal|"x"
 argument_list|)
 condition|)
 block|{
@@ -31227,12 +31212,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'y'
-argument_list|)
+literal|"y"
 argument_list|)
 condition|)
 block|{
@@ -31649,12 +31631,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'x'
-argument_list|)
+literal|"x"
 argument_list|)
 condition|)
 block|{
@@ -31675,12 +31654,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'y'
-argument_list|)
+literal|"y"
 argument_list|)
 condition|)
 block|{
@@ -31701,7 +31677,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"width"
 argument_list|)
@@ -31724,7 +31700,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"height"
 argument_list|)
@@ -32257,7 +32233,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"width"
 argument_list|)
@@ -32280,7 +32256,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"height"
 argument_list|)
@@ -32669,7 +32645,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"unicode"
 argument_list|)
@@ -32996,7 +32972,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"string"
 argument_list|)
@@ -33700,7 +33676,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -33723,7 +33699,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stdset"
 argument_list|)
@@ -33812,7 +33788,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"bool"
 argument_list|)
@@ -33832,7 +33808,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"color"
 argument_list|)
@@ -33864,7 +33840,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"cstring"
 argument_list|)
@@ -33884,7 +33860,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"cursor"
 argument_list|)
@@ -33907,7 +33883,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"cursorshape"
 argument_list|)
@@ -33927,7 +33903,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"enum"
 argument_list|)
@@ -33947,7 +33923,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"font"
 argument_list|)
@@ -33979,7 +33955,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"iconset"
 argument_list|)
@@ -34011,7 +33987,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"pixmap"
 argument_list|)
@@ -34043,7 +34019,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"palette"
 argument_list|)
@@ -34075,7 +34051,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"point"
 argument_list|)
@@ -34107,7 +34083,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"rect"
 argument_list|)
@@ -34139,7 +34115,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"set"
 argument_list|)
@@ -34159,7 +34135,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"locale"
 argument_list|)
@@ -34191,7 +34167,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"sizepolicy"
 argument_list|)
@@ -34223,7 +34199,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"size"
 argument_list|)
@@ -34255,7 +34231,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"string"
 argument_list|)
@@ -34287,7 +34263,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stringlist"
 argument_list|)
@@ -34319,7 +34295,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"number"
 argument_list|)
@@ -34342,7 +34318,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"float"
 argument_list|)
@@ -34365,7 +34341,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"double"
 argument_list|)
@@ -34388,7 +34364,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"date"
 argument_list|)
@@ -34420,7 +34396,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"time"
 argument_list|)
@@ -34452,7 +34428,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"datetime"
 argument_list|)
@@ -34484,7 +34460,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"pointf"
 argument_list|)
@@ -34516,7 +34492,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"rectf"
 argument_list|)
@@ -34548,7 +34524,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"sizef"
 argument_list|)
@@ -34580,7 +34556,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"longlong"
 argument_list|)
@@ -34603,7 +34579,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"char"
 argument_list|)
@@ -34635,7 +34611,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"url"
 argument_list|)
@@ -34667,7 +34643,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"uint"
 argument_list|)
@@ -34690,7 +34666,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ulonglong"
 argument_list|)
@@ -34713,7 +34689,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"brush"
 argument_list|)
@@ -37401,7 +37377,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"connection"
 argument_list|)
@@ -37745,7 +37721,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"sender"
 argument_list|)
@@ -37765,7 +37741,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"signal"
 argument_list|)
@@ -37785,7 +37761,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"receiver"
 argument_list|)
@@ -37805,7 +37781,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"slot"
 argument_list|)
@@ -37825,7 +37801,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hints"
 argument_list|)
@@ -38433,7 +38409,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hint"
 argument_list|)
@@ -38760,7 +38736,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"type"
 argument_list|)
@@ -38846,12 +38822,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'x'
-argument_list|)
+literal|"x"
 argument_list|)
 condition|)
 block|{
@@ -38872,12 +38845,9 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QString
+name|QLatin1String
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'y'
-argument_list|)
+literal|"y"
 argument_list|)
 condition|)
 block|{
@@ -39262,7 +39232,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"source"
 argument_list|)
@@ -39285,7 +39255,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"language"
 argument_list|)
@@ -39656,7 +39626,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -40006,7 +39976,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"property"
 argument_list|)
@@ -40356,7 +40326,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"signal"
 argument_list|)
@@ -40378,7 +40348,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"slot"
 argument_list|)
@@ -40773,7 +40743,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"stringpropertyspecification"
 argument_list|)
@@ -41100,7 +41070,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"name"
 argument_list|)
@@ -41123,7 +41093,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"type"
 argument_list|)
@@ -41146,7 +41116,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"notr"
 argument_list|)
