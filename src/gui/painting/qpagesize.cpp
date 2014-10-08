@@ -10313,10 +10313,7 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"QPageSize()"
-argument_list|)
 expr_stmt|;
 block|}
 return|return

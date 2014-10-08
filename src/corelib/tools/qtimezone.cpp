@@ -1957,13 +1957,8 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"QTimeZone("
-argument_list|)
 operator|<<
-name|qPrintable
-argument_list|(
 name|QString
 operator|::
 name|fromUtf8
@@ -1972,7 +1967,6 @@ name|tz
 operator|.
 name|id
 argument_list|()
-argument_list|)
 argument_list|)
 operator|<<
 literal|')'

@@ -1033,10 +1033,7 @@ name|KEYBOARD_DEBUG
 name|qDebug
 argument_list|()
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"Key event text:"
-argument_list|)
 operator|<<
 name|event
 operator|->
@@ -1047,37 +1044,25 @@ name|de
 operator|.
 name|text
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"native virtual key:"
-argument_list|)
 operator|<<
 name|de
 operator|.
 name|id
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"hardware code/scancode:"
-argument_list|)
 operator|<<
 name|de
 operator|.
 name|hardwareCode
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"modifiers:"
-argument_list|)
 operator|<<
 name|de
 operator|.
 name|modifiers
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"text:"
-argument_list|)
 operator|<<
 name|de
 operator|.
@@ -1288,9 +1273,6 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|QStringLiteral
 argument_list|(
 literal|"QSpiApplication::notifyKeyboardListenerCallback with no queued key called"
 argument_list|)
@@ -1416,10 +1398,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"QSpiApplication::keyEventError "
-argument_list|)
 operator|<<
 name|error
 operator|.
