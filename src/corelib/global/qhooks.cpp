@@ -17,7 +17,7 @@ name|qtHookData
 index|[]
 init|=
 block|{
-literal|1
+literal|2
 block|,
 comment|// hook data version
 name|QHooks

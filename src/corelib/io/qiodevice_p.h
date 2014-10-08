@@ -770,18 +770,6 @@ block|;
 name|qint64
 name|devicePos
 block|;
-comment|// these three are for fast position updates during read, avoiding isSequential test
-name|qint64
-name|seqDumpPos
-block|;
-name|qint64
-operator|*
-name|pPos
-block|;
-name|qint64
-operator|*
-name|pDevicePos
-block|;
 name|bool
 name|baseReadLineDataCalled
 block|;

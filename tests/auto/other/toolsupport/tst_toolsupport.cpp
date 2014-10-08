@@ -421,7 +421,7 @@ operator|<<
 operator|-
 literal|1
 operator|<<
-literal|272
+literal|248
 expr_stmt|;
 block|}
 endif|#
