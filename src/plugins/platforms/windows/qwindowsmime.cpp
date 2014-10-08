@@ -2842,7 +2842,7 @@ name|mimeType
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/plain"
 argument_list|)
@@ -2944,7 +2944,7 @@ name|mimeType
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/plain"
 argument_list|)

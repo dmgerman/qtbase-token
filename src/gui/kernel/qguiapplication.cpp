@@ -4494,7 +4494,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/gdb"
 argument_list|)

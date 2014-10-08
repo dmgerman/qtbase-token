@@ -16317,7 +16317,7 @@ name|property
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"qproperty-"
 argument_list|)
