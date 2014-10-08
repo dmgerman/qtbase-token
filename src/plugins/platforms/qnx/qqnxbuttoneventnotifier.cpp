@@ -464,10 +464,7 @@ argument_list|(
 name|key
 argument_list|)
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"b_up"
-argument_list|)
 condition|?
 name|ButtonUp
 else|:

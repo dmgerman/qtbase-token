@@ -14328,10 +14328,7 @@ argument_list|()
 operator|&&
 name|eventType
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"windows_generic_MSG"
-argument_list|)
 condition|)
 block|{
 name|MSG

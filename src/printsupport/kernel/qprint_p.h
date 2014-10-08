@@ -1102,10 +1102,7 @@ if|if
 condition|(
 name|choice
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"DuplexTumble"
-argument_list|)
 condition|)
 return|return
 name|QPrint
@@ -1117,10 +1114,7 @@ if|if
 condition|(
 name|choice
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"DuplexNoTumble"
-argument_list|)
 condition|)
 return|return
 name|QPrint

@@ -1461,10 +1461,7 @@ argument_list|)
 operator|||
 name|requested
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"angle"
-argument_list|)
 decl_stmt|;
 specifier|const
 name|bool
@@ -1481,10 +1478,7 @@ argument_list|)
 operator|||
 name|requested
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"desktop"
-argument_list|)
 decl_stmt|;
 specifier|const
 name|bool
@@ -1501,10 +1495,7 @@ argument_list|)
 operator|||
 name|requested
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"software"
-argument_list|)
 decl_stmt|;
 comment|// If ANGLE is requested, use it, don't try anything else.
 if|if
