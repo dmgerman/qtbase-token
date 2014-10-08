@@ -51,7 +51,7 @@ return|return
 operator|(
 name|key
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"android"
 argument_list|)

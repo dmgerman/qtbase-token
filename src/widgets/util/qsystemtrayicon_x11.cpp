@@ -1372,7 +1372,7 @@ name|platform
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"xcb"
 argument_list|)

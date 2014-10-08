@@ -402,7 +402,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"mmRendererWindowName"
 argument_list|)
@@ -424,7 +424,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"qnxWindowGroup"
 argument_list|)

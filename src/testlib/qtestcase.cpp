@@ -7135,7 +7135,7 @@ name|dirName
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Debug"
 argument_list|)
@@ -7151,7 +7151,7 @@ name|dirName
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Release"
 argument_list|)

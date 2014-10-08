@@ -1095,7 +1095,7 @@ if|if
 condition|(
 name|toolBarStyle
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"TextBesideIcon"
 argument_list|)
@@ -1111,7 +1111,7 @@ if|if
 condition|(
 name|toolBarStyle
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"TextOnly"
 argument_list|)
@@ -1127,7 +1127,7 @@ if|if
 condition|(
 name|toolBarStyle
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"TextUnderIcon"
 argument_list|)
@@ -3705,7 +3705,7 @@ argument_list|()
 operator|&&
 name|session
 operator|!=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"default"
 argument_list|)

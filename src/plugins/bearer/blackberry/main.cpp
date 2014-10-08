@@ -68,7 +68,7 @@ if|if
 condition|(
 name|key
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"blackberry"
 argument_list|)

@@ -72,7 +72,7 @@ name|compare
 argument_list|(
 name|key
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"windowsprintsupport"
 argument_list|)

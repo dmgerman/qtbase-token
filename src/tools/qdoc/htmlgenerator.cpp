@@ -25263,7 +25263,7 @@ if|if
 condition|(
 name|tag
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"qt"
 argument_list|)

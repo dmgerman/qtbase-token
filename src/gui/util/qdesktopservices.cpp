@@ -375,7 +375,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"file"
 argument_list|)

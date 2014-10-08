@@ -973,7 +973,7 @@ argument_list|(
 name|passOption
 argument_list|)
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"1"
 argument_list|)
@@ -997,7 +997,7 @@ argument_list|(
 name|passOption
 argument_list|)
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"2"
 argument_list|)

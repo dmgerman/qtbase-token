@@ -1586,7 +1586,7 @@ if|if
 condition|(
 name|state
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"failure"
 argument_list|)
@@ -2655,7 +2655,7 @@ operator|->
 name|security
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"none"
 argument_list|)

@@ -1845,7 +1845,7 @@ if|if
 condition|(
 name|ianaId
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"OffsetFromUtc"
 argument_list|)
