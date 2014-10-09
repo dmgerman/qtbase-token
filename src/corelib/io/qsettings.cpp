@@ -12052,6 +12052,21 @@ argument_list|(
 name|QSettings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|key
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSettings::setValue: Empty key passed"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|QString
 name|k
 init|=
@@ -12350,6 +12365,24 @@ specifier|const
 name|QSettings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|key
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSettings::value: Empty key passed"
+argument_list|)
+expr_stmt|;
+return|return
+name|QVariant
+argument_list|()
+return|;
+block|}
 name|QVariant
 name|result
 init|=
