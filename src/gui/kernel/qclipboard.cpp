@@ -705,7 +705,28 @@ argument_list|(
 name|mode
 argument_list|)
 condition|)
-return|return;
+block|{
+if|if
+condition|(
+name|src
+operator|!=
+literal|0
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Data set on unsupported clipboard mode. QMimeData object will be deleted."
+argument_list|)
+expr_stmt|;
+name|src
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 name|clipboard
 operator|->
 name|setMimeData
@@ -715,6 +736,7 @@ argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
