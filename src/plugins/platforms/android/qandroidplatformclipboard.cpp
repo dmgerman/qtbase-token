@@ -128,6 +128,9 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
+operator|delete
+name|data
+expr_stmt|;
 block|}
 end_function
 begin_function
