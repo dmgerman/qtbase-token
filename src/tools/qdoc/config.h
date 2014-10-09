@@ -1143,6 +1143,11 @@ specifier|static
 name|QString
 name|QMLTYPESPAGE
 decl_stmt|;
+DECL|member|WRITEQAPAGES
+specifier|static
+name|QString
+name|WRITEQAPAGES
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -1649,6 +1654,13 @@ define|#
 directive|define
 name|CONFIG_QMLTYPESPAGE
 value|ConfigStrings::QMLTYPESPAGE
+end_define
+begin_define
+DECL|macro|CONFIG_WRITEQAPAGES
+define|#
+directive|define
+name|CONFIG_WRITEQAPAGES
+value|ConfigStrings::WRITEQAPAGES
 end_define
 begin_macro
 name|QT_END_NAMESPACE

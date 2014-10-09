@@ -82,6 +82,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|linkCount_
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|module_
 argument_list|(
 name|module

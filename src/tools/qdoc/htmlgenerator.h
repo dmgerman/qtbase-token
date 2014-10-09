@@ -193,6 +193,11 @@ block|}
 name|protected
 operator|:
 name|virtual
+name|void
+name|generateQAPage
+argument_list|()
+block|;
+name|virtual
 name|int
 name|generateAtom
 argument_list|(

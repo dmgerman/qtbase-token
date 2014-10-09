@@ -987,6 +987,19 @@ literal|"qmltypespage"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|member|WRITEQAPAGES
+name|QString
+name|ConfigStrings
+operator|::
+name|WRITEQAPAGES
+init|=
+name|QStringLiteral
+argument_list|(
+literal|"writeqapages"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*!   An entry in a stack, where each entry is a list   of string values.  */
 end_comment

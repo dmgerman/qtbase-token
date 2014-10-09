@@ -199,6 +199,15 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|writeQaPages
+specifier|static
+name|bool
+name|writeQaPages
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|redirectDocumentationToDevNull
 specifier|static
 name|bool
@@ -1161,6 +1170,22 @@ argument_list|,
 name|QStringList
 argument_list|(
 name|singleExec
+condition|?
+literal|"true"
+else|:
+literal|"false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setStringList
+argument_list|(
+name|CONFIG_WRITEQAPAGES
+argument_list|,
+name|QStringList
+argument_list|(
+name|writeQaPages
 condition|?
 literal|"true"
 else|:
@@ -2534,7 +2559,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//qDebug()<< "CALL: resolveInheritance()";
 name|qdb
 operator|->
 name|resolveInheritance
@@ -2672,7 +2696,6 @@ argument_list|(
 literal|"Resolving stuff prior to generating docs"
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "CALL: resolveIssues()";
 name|qdb
 operator|->
 name|resolveIssues
@@ -2903,7 +2926,6 @@ argument_list|(
 literal|"Generating docs"
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "CALL: generateDocs()";
 name|QSet
 argument_list|<
 name|QString
@@ -2974,7 +2996,17 @@ operator|++
 name|of
 expr_stmt|;
 block|}
-comment|//Generator::writeOutFileNames();
+if|#
+directive|if
+literal|0
+block|if (Generator::generating()&& Generator::writeQaPages())         qdb->printLinkCounts(project);
+endif|#
+directive|endif
+name|qdb
+operator|->
+name|clearLinkCounts
+argument_list|()
+expr_stmt|;
 name|Generator
 operator|::
 name|debug
@@ -3845,6 +3877,39 @@ argument_list|(
 name|singleExecOption
 argument_list|)
 expr_stmt|;
+name|QCommandLineOption
+name|writeQaPagesOption
+argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
+name|QStringLiteral
+argument_list|(
+literal|"write-qa-pages"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|writeQaPagesOption
+operator|.
+name|setDescription
+argument_list|(
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"qdoc"
+argument_list|,
+literal|"Write QA pages."
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|addOption
+argument_list|(
+name|writeQaPagesOption
+argument_list|)
+expr_stmt|;
 name|parser
 operator|.
 name|process
@@ -3895,6 +3960,15 @@ operator|.
 name|isSet
 argument_list|(
 name|singleExecOption
+argument_list|)
+expr_stmt|;
+name|writeQaPages
+operator|=
+name|parser
+operator|.
+name|isSet
+argument_list|(
+name|writeQaPagesOption
 argument_list|)
 expr_stmt|;
 name|redirectDocumentationToDevNull
@@ -4112,6 +4186,20 @@ condition|)
 name|Generator
 operator|::
 name|setSingleExec
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|parser
+operator|.
+name|isSet
+argument_list|(
+name|writeQaPagesOption
+argument_list|)
+condition|)
+name|Generator
+operator|::
+name|setWriteQaPages
 argument_list|()
 expr_stmt|;
 if|if
