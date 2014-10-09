@@ -4241,7 +4241,7 @@ name|key
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Rotated"
 argument_list|)
@@ -4261,7 +4261,7 @@ name|key
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".Transverse"
 argument_list|)
@@ -10313,10 +10313,7 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"QPageSize()"
-argument_list|)
 expr_stmt|;
 block|}
 return|return

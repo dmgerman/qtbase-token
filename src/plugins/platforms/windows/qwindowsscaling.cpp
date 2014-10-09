@@ -81,10 +81,7 @@ if|if
 condition|(
 name|envDevicePixelRatioEnv
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"auto"
-argument_list|)
 condition|)
 block|{
 specifier|const

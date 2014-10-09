@@ -3665,10 +3665,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|"Private"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3692,10 +3689,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|"Public"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3719,10 +3713,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|"Protected"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3741,10 +3732,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|" | MethodCompatibility"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3763,10 +3751,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|" | MethodCloned"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3785,10 +3770,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|" | isScriptable"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3809,10 +3791,7 @@ name|comment
 operator|.
 name|append
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
 literal|" | MethodRevisioned"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -39,6 +39,16 @@ include|#
 directive|include
 file|"common/platform.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
 begin_decl_stmt
 name|namespace
 name|gl

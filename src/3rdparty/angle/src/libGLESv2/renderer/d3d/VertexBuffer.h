@@ -36,6 +36,26 @@ include|#
 directive|include
 file|"common/angleutils.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<cstddef>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_decl_stmt
 name|namespace
 name|gl
@@ -69,79 +89,57 @@ name|VertexBuffer
 argument_list|()
 expr_stmt|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|initialize
-parameter_list|(
-name|unsigned
-name|int
-name|size
-parameter_list|,
-name|bool
-name|dynamicUsage
-parameter_list|)
-init|=
+argument_list|(
+argument|unsigned int size
+argument_list|,
+argument|bool dynamicUsage
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|storeVertexAttributes
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|VertexAttribute
-operator|&
-name|attrib
+argument|const gl::VertexAttribute&attrib
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|VertexAttribCurrentValueData
-operator|&
-name|currentValue
+argument|const gl::VertexAttribCurrentValueData&currentValue
 argument_list|,
-name|GLint
-name|start
+argument|GLint start
 argument_list|,
-name|GLsizei
-name|count
+argument|GLsizei count
 argument_list|,
-name|GLsizei
-name|instances
+argument|GLsizei instances
 argument_list|,
-name|unsigned
-name|int
-name|offset
+argument|unsigned int offset
 argument_list|)
-init|=
+operator|=
 literal|0
-decl_stmt|;
+expr_stmt|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|getSpaceRequired
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|VertexAttribute
-operator|&
-name|attrib
+argument|const gl::VertexAttribute&attrib
 argument_list|,
-name|GLsizei
-name|count
+argument|GLsizei count
 argument_list|,
-name|GLsizei
-name|instances
+argument|GLsizei instances
 argument_list|,
-name|unsigned
-name|int
-operator|*
-name|outSpaceRequired
+argument|unsigned int *outSpaceRequired
 argument_list|)
-decl|const
-init|=
+specifier|const
+operator|=
 literal|0
-decl_stmt|;
+expr_stmt|;
 name|virtual
 name|unsigned
 name|int
@@ -152,23 +150,25 @@ operator|=
 literal|0
 expr_stmt|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|setBufferSize
-parameter_list|(
-name|unsigned
-name|int
-name|size
-parameter_list|)
-init|=
+argument_list|(
+argument|unsigned int size
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|discard
-parameter_list|()
-init|=
+argument_list|()
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|unsigned
 name|int
 name|getSerial
@@ -216,23 +216,18 @@ operator|~
 name|VertexBufferInterface
 argument_list|()
 expr_stmt|;
-name|bool
-name|reserveVertexSpace
-argument_list|(
-specifier|const
 name|gl
 operator|::
-name|VertexAttribute
-operator|&
-name|attribute
+name|Error
+name|reserveVertexSpace
+argument_list|(
+argument|const gl::VertexAttribute&attribute
 argument_list|,
-name|GLsizei
-name|count
+argument|GLsizei count
 argument_list|,
-name|GLsizei
-name|instances
+argument|GLsizei instances
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|unsigned
 name|int
 name|getBufferSize
@@ -246,38 +241,24 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|storeVertexAttributes
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|VertexAttribute
-operator|&
-name|attrib
+argument|const gl::VertexAttribute&attrib
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|VertexAttribCurrentValueData
-operator|&
-name|currentValue
+argument|const gl::VertexAttribCurrentValueData&currentValue
 argument_list|,
-name|GLint
-name|start
+argument|GLint start
 argument_list|,
-name|GLsizei
-name|count
+argument|GLsizei count
 argument_list|,
-name|GLsizei
-name|instances
+argument|GLsizei instances
 argument_list|,
-name|unsigned
-name|int
-operator|*
-name|outStreamOffset
+argument|unsigned int *outStreamOffset
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|bool
 name|directStoragePossible
 argument_list|(
@@ -306,16 +287,16 @@ expr_stmt|;
 name|protected
 label|:
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|reserveSpace
-parameter_list|(
-name|unsigned
-name|int
-name|size
-parameter_list|)
-init|=
+argument_list|(
+argument|unsigned int size
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|unsigned
 name|int
 name|getWritePosition
@@ -330,18 +311,20 @@ name|int
 name|writePosition
 parameter_list|)
 function_decl|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|discard
-parameter_list|()
-function_decl|;
-name|bool
+argument_list|()
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|setBufferSize
-parameter_list|(
-name|unsigned
-name|int
-name|size
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|unsigned int size
+argument_list|)
+expr_stmt|;
 name|private
 label|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -394,7 +377,9 @@ argument_list|()
 block|;
 name|protected
 operator|:
-name|bool
+name|gl
+operator|::
+name|Error
 name|reserveSpace
 argument_list|(
 argument|unsigned int size
@@ -423,7 +408,9 @@ operator|~
 name|StaticVertexBufferInterface
 argument_list|()
 block|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
@@ -449,7 +436,9 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|bool
+name|gl
+operator|::
+name|Error
 name|reserveSpace
 argument_list|(
 argument|unsigned int size

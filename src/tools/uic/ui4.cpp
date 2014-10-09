@@ -16101,7 +16101,6 @@ condition|)
 block|{
 name|setAttributeNative
 argument_list|(
-operator|(
 name|attribute
 operator|.
 name|value
@@ -16114,11 +16113,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -23037,7 +23031,6 @@ condition|)
 block|{
 name|setElementItalic
 argument_list|(
-operator|(
 name|reader
 operator|.
 name|readElementText
@@ -23047,11 +23040,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -23068,7 +23056,6 @@ condition|)
 block|{
 name|setElementBold
 argument_list|(
-operator|(
 name|reader
 operator|.
 name|readElementText
@@ -23078,11 +23065,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -23099,7 +23081,6 @@ condition|)
 block|{
 name|setElementUnderline
 argument_list|(
-operator|(
 name|reader
 operator|.
 name|readElementText
@@ -23109,11 +23090,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -23130,7 +23106,6 @@ condition|)
 block|{
 name|setElementStrikeOut
 argument_list|(
-operator|(
 name|reader
 operator|.
 name|readElementText
@@ -23140,11 +23115,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -23161,7 +23131,6 @@ condition|)
 block|{
 name|setElementAntialiasing
 argument_list|(
-operator|(
 name|reader
 operator|.
 name|readElementText
@@ -23171,11 +23140,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -23212,7 +23176,6 @@ condition|)
 block|{
 name|setElementKerning
 argument_list|(
-operator|(
 name|reader
 operator|.
 name|readElementText
@@ -23222,11 +23185,6 @@ name|QStringLiteral
 argument_list|(
 literal|"true"
 argument_list|)
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 argument_list|)
 expr_stmt|;
 continue|continue;

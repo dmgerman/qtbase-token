@@ -4043,7 +4043,7 @@ name|familyName
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"WST_"
 argument_list|)
@@ -4444,7 +4444,7 @@ argument_list|)
 operator|&&
 name|familyName
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Segoe UI"
 argument_list|)
@@ -8234,7 +8234,7 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Courier"
 argument_list|)
@@ -8848,14 +8848,14 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"default"
 argument_list|)
 operator|||
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"system"
 argument_list|)
@@ -8872,7 +8872,7 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"system_fixed"
 argument_list|)
@@ -8886,7 +8886,7 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ansi_fixed"
 argument_list|)
@@ -8900,7 +8900,7 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ansi_var"
 argument_list|)
@@ -8914,7 +8914,7 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"device_default"
 argument_list|)
@@ -8928,7 +8928,7 @@ if|if
 condition|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"oem_fixed"
 argument_list|)
@@ -9577,7 +9577,7 @@ operator|.
 name|family
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"MS Shell Dlg"
 argument_list|)

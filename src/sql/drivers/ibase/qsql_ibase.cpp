@@ -10044,10 +10044,6 @@ name|toInt
 argument_list|()
 operator|>
 literal|0
-condition|?
-literal|true
-else|:
-literal|false
 argument_list|)
 expr_stmt|;
 name|f

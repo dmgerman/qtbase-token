@@ -1,9 +1,19 @@
 begin_unit
-begin_include
-include|#
-directive|include
-file|"precompiled.h"
-end_include
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Copyright 2014 The ANGLE Project Authors. All rights reserved.
+end_comment
+begin_comment
+comment|// Use of this source code is governed by a BSD-style license that can be
+end_comment
+begin_comment
+comment|// found in the LICENSE file.
+end_comment
+begin_comment
+comment|//
+end_comment
 begin_include
 include|#
 directive|include
@@ -28,16 +38,6 @@ begin_include
 include|#
 directive|include
 file|"common/platform.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"third_party/trace_event/trace_event.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<d3dcompiler.h>
 end_include
 begin_if
 if|#
@@ -201,25 +201,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|LoadLibrary
-end_ifndef
-begin_define
-DECL|macro|LoadLibrary
-define|#
-directive|define
-name|LoadLibrary
-parameter_list|(
-name|dll
-parameter_list|)
-value|LoadPackagedLibrary(dll, NULL)
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_namespace
 DECL|namespace|rx
 namespace|namespace
@@ -259,13 +240,6 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
-name|TRACE_EVENT0
-argument_list|(
-literal|"gpu"
-argument_list|,
-literal|"initializeCompiler"
-argument_list|)
-expr_stmt|;
 if|#
 directive|if
 operator|!
@@ -719,24 +693,12 @@ name|infoLog
 operator|.
 name|append
 argument_list|(
-literal|"Warning: D3D shader compilation failed with "
-argument_list|)
-expr_stmt|;
-name|infoLog
-operator|.
-name|append
-argument_list|(
+literal|"Warning: D3D shader compilation failed with %s flags."
+argument_list|,
 name|flagNames
 index|[
 name|i
 index|]
-argument_list|)
-expr_stmt|;
-name|infoLog
-operator|.
-name|append
-argument_list|(
-literal|" flags."
 argument_list|)
 expr_stmt|;
 if|if
@@ -752,26 +714,14 @@ name|infoLog
 operator|.
 name|append
 argument_list|(
-literal|" Retrying with "
-argument_list|)
-expr_stmt|;
-name|infoLog
-operator|.
-name|append
-argument_list|(
+literal|" Retrying with %s.\n"
+argument_list|,
 name|flagNames
 index|[
 name|i
 operator|+
 literal|1
 index|]
-argument_list|)
-expr_stmt|;
-name|infoLog
-operator|.
-name|append
-argument_list|(
-literal|".\n"
 argument_list|)
 expr_stmt|;
 block|}

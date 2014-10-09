@@ -22,6 +22,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"common/debug.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<algorithm>
 end_include
 begin_include
@@ -211,6 +216,11 @@ operator|::
 name|data
 parameter_list|()
 block|{
+name|ASSERT
+argument_list|(
+name|mData
+argument_list|)
+expr_stmt|;
 return|return
 name|mData
 return|;

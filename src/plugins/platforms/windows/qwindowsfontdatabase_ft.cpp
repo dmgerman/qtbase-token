@@ -403,7 +403,7 @@ name|familyName
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"WST_"
 argument_list|)
@@ -807,7 +807,7 @@ argument_list|)
 operator|&&
 name|faceName
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Segoe UI"
 argument_list|)

@@ -764,7 +764,7 @@ argument_list|()
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"samsung SM-T211"
 argument_list|)
@@ -783,7 +783,7 @@ argument_list|()
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"samsung SM-T210"
 argument_list|)
@@ -802,7 +802,7 @@ argument_list|()
 operator|.
 name|compare
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"samsung SM-T215"
 argument_list|)

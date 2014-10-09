@@ -49887,6 +49887,11 @@ emit|emit
 name|readyRead
 argument_list|()
 emit|;
+comment|// Emitting readyRead() several times triggers a bug ("QIODevice::read: Called with maxSize< 0") we fix with this commit
+emit|emit
+name|readyRead
+argument_list|()
+emit|;
 block|}
 block|}
 class|;

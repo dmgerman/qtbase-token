@@ -3543,10 +3543,15 @@ return|return
 name|QString
 argument_list|()
 return|;
+comment|// type initialized just to silence a compiler warning [-Werror=maybe-uninitialized]
 name|QTextBoundaryFinder
 operator|::
 name|BoundaryType
 name|type
+init|=
+name|QTextBoundaryFinder
+operator|::
+name|Grapheme
 decl_stmt|;
 switch|switch
 condition|(
@@ -3625,6 +3630,10 @@ return|return
 name|QString
 argument_list|()
 return|;
+default|default:
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep behavior in sync with QTextCursor::movePosition()!
 name|QTextBoundaryFinder
@@ -3844,10 +3853,15 @@ return|return
 name|QString
 argument_list|()
 return|;
+comment|// type initialized just to silence a compiler warning [-Werror=maybe-uninitialized]
 name|QTextBoundaryFinder
 operator|::
 name|BoundaryType
 name|type
+init|=
+name|QTextBoundaryFinder
+operator|::
+name|Grapheme
 decl_stmt|;
 switch|switch
 condition|(
@@ -3925,6 +3939,10 @@ return|return
 name|QString
 argument_list|()
 return|;
+default|default:
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep behavior in sync with QTextCursor::movePosition()!
 name|QTextBoundaryFinder
@@ -4243,10 +4261,15 @@ return|return
 name|QString
 argument_list|()
 return|;
+comment|// type initialized just to silence a compiler warning [-Werror=maybe-uninitialized]
 name|QTextBoundaryFinder
 operator|::
 name|BoundaryType
 name|type
+init|=
+name|QTextBoundaryFinder
+operator|::
+name|Grapheme
 decl_stmt|;
 switch|switch
 condition|(
@@ -4335,6 +4358,10 @@ expr_stmt|;
 return|return
 name|txt
 return|;
+default|default:
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep behavior in sync with QTextCursor::movePosition()!
 name|QTextBoundaryFinder

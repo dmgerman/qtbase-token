@@ -47,11 +47,6 @@ parameter_list|()
 member_init_list|:
 name|QNetworkAccessBackend
 argument_list|()
-member_init_list|,
-name|device
-argument_list|(
-literal|0
-argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -422,31 +417,7 @@ name|QNetworkAccessCacheBackend
 operator|::
 name|closeDownstreamChannel
 parameter_list|()
-block|{
-if|if
-condition|(
-name|operation
-argument_list|()
-operator|==
-name|QNetworkAccessManager
-operator|::
-name|GetOperation
-condition|)
-block|{
-name|device
-operator|->
-name|close
-argument_list|()
-expr_stmt|;
-operator|delete
-name|device
-expr_stmt|;
-name|device
-operator|=
-literal|0
-expr_stmt|;
-block|}
-block|}
+block|{ }
 end_function
 begin_function
 DECL|function|closeUpstreamChannel

@@ -271,7 +271,7 @@ name|mountDir
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/dev"
 argument_list|)
@@ -281,7 +281,7 @@ name|mountDir
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/proc"
 argument_list|)
@@ -291,7 +291,7 @@ name|mountDir
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/run"
 argument_list|)
@@ -301,7 +301,7 @@ name|mountDir
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/sys"
 argument_list|)
@@ -311,7 +311,7 @@ name|mountDir
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/var/run"
 argument_list|)
@@ -321,7 +321,7 @@ name|mountDir
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/var/lock"
 argument_list|)

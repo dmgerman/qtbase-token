@@ -262,6 +262,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpair.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qset.h>
 end_include
 begin_include
@@ -356,6 +361,47 @@ begin_empty_stmt
 DECL|enumerator|QAquaSizeUnknown
 empty_stmt|;
 end_empty_stmt
+begin_enum
+DECL|enum|QCocoaWidgetKind
+enum|enum
+name|QCocoaWidgetKind
+block|{
+DECL|enumerator|QCocoaArrowButton
+name|QCocoaArrowButton
+block|,
+comment|// Disclosure triangle, like in QTreeView
+DECL|enumerator|QCocoaCheckBox
+name|QCocoaCheckBox
+block|,
+DECL|enumerator|QCocoaComboBox
+name|QCocoaComboBox
+block|,
+comment|// Editable QComboBox
+DECL|enumerator|QCocoaPopupButton
+name|QCocoaPopupButton
+block|,
+comment|// Non-editable QComboBox
+DECL|enumerator|QCocoaPushButton
+name|QCocoaPushButton
+block|,
+DECL|enumerator|QCocoaRadioButton
+name|QCocoaRadioButton
+block|}
+enum|;
+end_enum
+begin_typedef
+DECL|typedef|QCocoaWidgetKind
+DECL|typedef|QCocoaWidget
+typedef|typedef
+name|QPair
+operator|<
+name|QCocoaWidgetKind
+operator|,
+name|QAquaWidgetSize
+operator|>
+name|QCocoaWidget
+expr_stmt|;
+end_typedef
 begin_define
 DECL|macro|SIZE
 define|#
@@ -673,9 +719,11 @@ specifier|const
 block|;
 name|NSView
 operator|*
-name|buttonOfKind
+name|cocoaControl
 argument_list|(
-argument|ThemeButtonKind kind
+argument|QCocoaWidget widget
+argument_list|,
+argument|QPoint *offset
 argument_list|)
 specifier|const
 block|;
@@ -783,12 +831,12 @@ name|backingStoreNSView
 block|;
 name|QHash
 operator|<
-name|ThemeButtonKind
+name|QCocoaWidget
 block|,
 name|NSView
 operator|*
 operator|>
-name|buttons
+name|cocoaControls
 block|; }
 decl_stmt|;
 end_decl_stmt

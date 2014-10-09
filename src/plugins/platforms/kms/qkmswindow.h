@@ -42,11 +42,15 @@ block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|rect
+argument|const QRect&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|QSurfaceFormat
+name|format
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

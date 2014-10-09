@@ -1292,7 +1292,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"RoamingAllowed"
 argument_list|)

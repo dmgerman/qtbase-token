@@ -446,10 +446,6 @@ name|size
 argument_list|()
 operator|>
 literal|0
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 end_function

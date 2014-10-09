@@ -2132,6 +2132,19 @@ expr_stmt|;
 operator|++
 name|m_frames
 expr_stmt|;
+comment|// When requested, follow the ideal way to animate: Rely on
+comment|// blocking swap and just schedule updates continuously.
+if|if
+condition|(
+operator|!
+name|m_mainWindow
+operator|->
+name|timerEnabled
+argument_list|()
+condition|)
+name|update
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function

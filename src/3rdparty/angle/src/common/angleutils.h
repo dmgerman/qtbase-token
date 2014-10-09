@@ -58,6 +58,11 @@ include|#
 directive|include
 file|<sstream>
 end_include
+begin_include
+include|#
+directive|include
+file|<cstdarg>
+end_include
 begin_comment
 comment|// A macro to disallow the copy constructor and operator= functions
 end_comment
@@ -82,13 +87,11 @@ operator|<
 name|typename
 name|T
 operator|,
-name|unsigned
-name|int
+name|size_t
 name|N
 operator|>
 specifier|inline
-name|unsigned
-name|int
+name|size_t
 name|ArraySize
 argument_list|(
 argument|T(&)[N]
@@ -524,6 +527,33 @@ name|str
 argument_list|()
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
+name|std
+operator|::
+name|string
+name|FormatString
+argument_list|(
+argument|const char *fmt
+argument_list|,
+argument|va_list vararg
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|std
+operator|::
+name|string
+name|FormatString
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|fmt
+argument_list|,
+operator|...
+argument_list|)
+expr_stmt|;
 end_expr_stmt
 begin_if
 if|#

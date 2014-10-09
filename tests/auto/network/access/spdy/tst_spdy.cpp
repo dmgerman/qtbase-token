@@ -718,10 +718,6 @@ name|QSslConfiguration
 operator|::
 name|NextProtocolSpdy3_0
 operator|)
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 name|QCOMPARE
 argument_list|(

@@ -1701,7 +1701,7 @@ if|if
 condition|(
 name|name
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"State"
 argument_list|)

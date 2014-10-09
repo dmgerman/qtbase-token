@@ -5957,6 +5957,15 @@ operator|new
 name|JSONObject
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|chunkData
+operator|==
+literal|null
+condition|)
+return|return
+name|jsonRect
+return|;
 name|jsonRect
 operator|.
 name|put

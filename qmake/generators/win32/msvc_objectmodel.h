@@ -115,25 +115,6 @@ begin_comment
 comment|/*     If a triState value is 'unset' then the     corresponding property is not in the output,     forcing the tool to utilize default values.     False/True values will be in the output... */
 end_comment
 begin_enum
-DECL|enum|customBuildCheck
-enum|enum
-name|customBuildCheck
-block|{
-DECL|enumerator|none
-name|none
-block|,
-DECL|enumerator|mocSrc
-name|mocSrc
-block|,
-DECL|enumerator|mocHdr
-name|mocHdr
-block|,
-DECL|enumerator|lexyacc
-name|lexyacc
-block|}
-enum|;
-end_enum
-begin_enum
 DECL|enum|triState
 enum|enum
 name|triState
@@ -3200,6 +3181,20 @@ name|QString
 name|str
 parameter_list|)
 function_decl|;
+name|VCFilterFile
+name|findFile
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|filePath
+argument_list|,
+name|bool
+operator|*
+name|found
+argument_list|)
+decl|const
+decl_stmt|;
 comment|// Variables
 name|QString
 name|Name
@@ -3227,9 +3222,6 @@ name|VCFilterFile
 operator|>
 name|Files
 expr_stmt|;
-name|customBuildCheck
-name|CustomBuild
-decl_stmt|;
 name|bool
 name|useCustomBuildTool
 decl_stmt|;

@@ -3432,12 +3432,6 @@ directive|define
 name|Q_COMPILER_AUTO_TYPE
 end_define
 begin_define
-DECL|macro|Q_COMPILER_CLASS_ENUM
-define|#
-directive|define
-name|Q_COMPILER_CLASS_ENUM
-end_define
-begin_define
 DECL|macro|Q_COMPILER_DEFAULT_MEMBERS
 define|#
 directive|define
@@ -3519,6 +3513,12 @@ DECL|macro|Q_COMPILER_RAW_STRINGS
 define|#
 directive|define
 name|Q_COMPILER_RAW_STRINGS
+end_define
+begin_define
+DECL|macro|Q_COMPILER_CLASS_ENUM
+define|#
+directive|define
+name|Q_COMPILER_CLASS_ENUM
 end_define
 begin_endif
 endif|#

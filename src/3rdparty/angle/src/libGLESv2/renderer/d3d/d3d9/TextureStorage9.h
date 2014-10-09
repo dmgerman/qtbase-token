@@ -116,58 +116,22 @@ name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|(
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
-name|virtual
-name|RenderTarget
-operator|*
-name|getRenderTargetFace
-argument_list|(
-argument|GLenum faceTarget
-argument_list|,
-argument|int level
-argument_list|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
-name|virtual
-name|RenderTarget
-operator|*
-name|getRenderTargetLayer
-argument_list|(
-argument|int mipLevel
-argument_list|,
-argument|int layer
-argument_list|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
-name|virtual
-name|void
-name|generateMipmap
-argument_list|(
-argument|int level
-argument_list|)
-block|{}
+operator|=
+literal|0
 block|;
 name|virtual
 name|void
-name|generateMipmap
-argument_list|(
-argument|int face
-argument_list|,
-argument|int level
-argument_list|)
-block|{}
+name|generateMipmaps
+argument_list|()
+operator|=
+literal|0
 block|;
 name|virtual
 name|int
@@ -288,7 +252,12 @@ name|RenderTarget
 operator|*
 name|getRenderTarget
 argument_list|(
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
 block|;
 name|virtual
@@ -300,10 +269,8 @@ specifier|const
 block|;
 name|virtual
 name|void
-name|generateMipmap
-argument_list|(
-argument|int level
-argument_list|)
+name|generateMipmaps
+argument_list|()
 block|;
 name|private
 operator|:
@@ -375,11 +342,14 @@ block|;
 name|virtual
 name|RenderTarget
 operator|*
-name|getRenderTargetFace
+name|getRenderTarget
 argument_list|(
-argument|GLenum faceTarget
-argument_list|,
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|)
 block|;
 name|virtual
@@ -391,12 +361,8 @@ specifier|const
 block|;
 name|virtual
 name|void
-name|generateMipmap
-argument_list|(
-argument|int faceIndex
-argument_list|,
-argument|int level
-argument_list|)
+name|generateMipmaps
+argument_list|()
 block|;
 name|private
 operator|:

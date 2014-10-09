@@ -85,6 +85,9 @@ decl_stmt|;
 name|class
 name|StreamingIndexBufferInterface
 decl_stmt|;
+name|class
+name|StaticIndexBufferInterface
+decl_stmt|;
 struct_decl|struct
 name|TranslatedAttribute
 struct_decl|;
@@ -236,7 +239,9 @@ argument|IDirect3DIndexBuffer9 **ppIndexBuffer
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|generateSwizzle
 argument_list|(
 name|gl
@@ -247,7 +252,9 @@ name|texture
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setSamplerState
 argument_list|(
 argument|gl::SamplerType type
@@ -258,7 +265,9 @@ argument|const gl::SamplerState&sampler
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setTexture
 argument_list|(
 argument|gl::SamplerType type
@@ -269,7 +278,9 @@ argument|gl::Texture *texture
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|setUniformBuffers
 argument_list|(
 specifier|const
@@ -290,7 +301,9 @@ index|[]
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setRasterizerState
 argument_list|(
 specifier|const
@@ -302,7 +315,9 @@ name|rasterState
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setBlendState
 argument_list|(
 argument|gl::Framebuffer *framebuffer
@@ -315,7 +330,9 @@ argument|unsigned int sampleMask
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setDepthStencilState
 argument_list|(
 argument|const gl::DepthStencilState&depthStencilState
@@ -337,7 +354,7 @@ argument|bool enabled
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|void
 name|setViewport
 argument_list|(
 argument|const gl::Rectangle&viewport
@@ -354,7 +371,9 @@ argument|bool ignoreViewport
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|applyRenderTarget
 argument_list|(
 name|gl
@@ -365,7 +384,9 @@ name|frameBuffer
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|applyShaders
 argument_list|(
 argument|gl::ProgramBinary *programBinary
@@ -380,7 +401,9 @@ argument|bool transformFeedbackActive
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|applyUniforms
 argument_list|(
 specifier|const
@@ -401,7 +424,9 @@ argument|GLsizei elementCount
 argument_list|)
 block|;
 name|virtual
-name|GLenum
+name|gl
+operator|::
+name|Error
 name|applyVertexBuffer
 argument_list|(
 argument|gl::ProgramBinary *programBinary
@@ -418,7 +443,9 @@ argument|GLsizei instances
 argument_list|)
 block|;
 name|virtual
-name|GLenum
+name|gl
+operator|::
+name|Error
 name|applyIndexBuffer
 argument_list|(
 argument|const GLvoid *indices
@@ -444,7 +471,9 @@ argument|GLintptr offsets[]
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|drawArrays
 argument_list|(
 argument|GLenum mode
@@ -457,7 +486,9 @@ argument|bool transformFeedbackActive
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|drawElements
 argument_list|(
 argument|GLenum mode
@@ -476,7 +507,9 @@ argument|GLsizei instances
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|clear
 argument_list|(
 specifier|const
@@ -552,20 +585,6 @@ block|;
 name|virtual
 name|unsigned
 name|int
-name|getMaxVertexTextureImageUnits
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxCombinedTextureImageUnits
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
 name|getReservedVertexUniformVectors
 argument_list|()
 specifier|const
@@ -574,41 +593,6 @@ name|virtual
 name|unsigned
 name|int
 name|getReservedFragmentUniformVectors
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxVertexUniformVectors
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxFragmentUniformVectors
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxVaryingVectors
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxVertexShaderUniformBuffers
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxFragmentShaderUniformBuffers
 argument_list|()
 specifier|const
 block|;
@@ -627,34 +611,6 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|unsigned
-name|int
-name|getMaxTransformFeedbackBuffers
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxTransformFeedbackSeparateComponents
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxTransformFeedbackInterleavedComponents
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getMaxUniformBufferSize
-argument_list|()
-specifier|const
-block|;
-name|virtual
 name|bool
 name|getShareHandleSupport
 argument_list|()
@@ -663,24 +619,6 @@ block|;
 name|virtual
 name|bool
 name|getPostSubBufferSupport
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|int
-name|getMaxRecommendedElementsIndices
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|int
-name|getMaxRecommendedElementsVertices
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|bool
-name|getSRGBTextureSupport
 argument_list|()
 specifier|const
 block|;
@@ -707,105 +645,62 @@ name|getMaxSwapInterval
 argument_list|()
 specifier|const
 block|;
-name|virtual
-name|GLsizei
-name|getMaxSupportedSamples
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|GLsizei
-name|getMaxSupportedFormatSamples
-argument_list|(
-argument|GLenum internalFormat
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|GLsizei
-name|getNumSampleCounts
-argument_list|(
-argument|GLenum internalFormat
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|void
-name|getSampleCounts
-argument_list|(
-argument|GLenum internalFormat
-argument_list|,
-argument|GLsizei bufSize
-argument_list|,
-argument|GLint *params
-argument_list|)
-specifier|const
-block|;
-name|int
-name|getNearestSupportedSamples
-argument_list|(
-argument|D3DFORMAT format
-argument_list|,
-argument|int requested
-argument_list|)
-specifier|const
-block|;
 comment|// Pixel operations
 name|virtual
 name|bool
-name|copyToRenderTarget
+name|copyToRenderTarget2D
 argument_list|(
-name|TextureStorageInterface2D
+name|TextureStorage
 operator|*
 name|dest
 argument_list|,
-name|TextureStorageInterface2D
+name|TextureStorage
 operator|*
 name|source
 argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyToRenderTarget
+name|copyToRenderTargetCube
 argument_list|(
-name|TextureStorageInterfaceCube
+name|TextureStorage
 operator|*
 name|dest
 argument_list|,
-name|TextureStorageInterfaceCube
+name|TextureStorage
 operator|*
 name|source
 argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyToRenderTarget
+name|copyToRenderTarget3D
 argument_list|(
-name|TextureStorageInterface3D
+name|TextureStorage
 operator|*
 name|dest
 argument_list|,
-name|TextureStorageInterface3D
+name|TextureStorage
 operator|*
 name|source
 argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyToRenderTarget
+name|copyToRenderTarget2DArray
 argument_list|(
-name|TextureStorageInterface2DArray
+name|TextureStorage
 operator|*
 name|dest
 argument_list|,
-name|TextureStorageInterface2DArray
+name|TextureStorage
 operator|*
 name|source
 argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyImage
+name|copyImage2D
 argument_list|(
 argument|gl::Framebuffer *framebuffer
 argument_list|,
@@ -817,14 +712,14 @@ argument|GLint xoffset
 argument_list|,
 argument|GLint yoffset
 argument_list|,
-argument|TextureStorageInterface2D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|GLint level
 argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyImage
+name|copyImageCube
 argument_list|(
 argument|gl::Framebuffer *framebuffer
 argument_list|,
@@ -836,7 +731,7 @@ argument|GLint xoffset
 argument_list|,
 argument|GLint yoffset
 argument_list|,
-argument|TextureStorageInterfaceCube *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|GLenum target
 argument_list|,
@@ -845,7 +740,7 @@ argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyImage
+name|copyImage3D
 argument_list|(
 argument|gl::Framebuffer *framebuffer
 argument_list|,
@@ -859,14 +754,14 @@ argument|GLint yoffset
 argument_list|,
 argument|GLint zOffset
 argument_list|,
-argument|TextureStorageInterface3D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|GLint level
 argument_list|)
 block|;
 name|virtual
 name|bool
-name|copyImage
+name|copyImage2DArray
 argument_list|(
 argument|gl::Framebuffer *framebuffer
 argument_list|,
@@ -880,7 +775,7 @@ argument|GLint yoffset
 argument_list|,
 argument|GLint zOffset
 argument_list|,
-argument|TextureStorageInterface2DArray *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|GLint level
 argument_list|)
@@ -909,7 +804,9 @@ argument|GLenum filter
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|readPixels
 argument_list|(
 argument|gl::Framebuffer *framebuffer
@@ -930,7 +827,7 @@ argument|GLuint outputPitch
 argument_list|,
 argument|const gl::PixelPackState&pack
 argument_list|,
-argument|void* pixels
+argument|uint8_t *pixels
 argument_list|)
 block|;
 comment|// RenderTarget creation
@@ -958,7 +855,27 @@ argument_list|,
 argument|GLsizei samples
 argument_list|)
 block|;
+comment|// Shader creation
+name|virtual
+name|ShaderImpl
+operator|*
+name|createShader
+argument_list|(
+argument|GLenum type
+argument_list|)
+block|;
+name|virtual
+name|ProgramImpl
+operator|*
+name|createProgram
+argument_list|()
+block|;
 comment|// Shader operations
+name|virtual
+name|void
+name|releaseShaderCompiler
+argument_list|()
+block|;
 name|virtual
 name|ShaderExecutable
 operator|*
@@ -1099,28 +1016,12 @@ argument_list|)
 block|;
 comment|// Texture creation
 name|virtual
-name|Texture2DImpl
+name|TextureImpl
 operator|*
-name|createTexture2D
-argument_list|()
-block|;
-name|virtual
-name|TextureCubeImpl
-operator|*
-name|createTextureCube
-argument_list|()
-block|;
-name|virtual
-name|Texture3DImpl
-operator|*
-name|createTexture3D
-argument_list|()
-block|;
-name|virtual
-name|Texture2DArrayImpl
-operator|*
-name|createTexture2DArray
-argument_list|()
+name|createTexture
+argument_list|(
+argument|GLenum target
+argument_list|)
 block|;
 comment|// Buffer creation
 name|virtual
@@ -1161,6 +1062,13 @@ name|virtual
 name|FenceImpl
 operator|*
 name|createFence
+argument_list|()
+block|;
+comment|// Transform Feedback creation
+name|virtual
+name|TransformFeedbackImpl
+operator|*
+name|createTransformFeedback
 argument_list|()
 block|;
 comment|// Buffer-to-texture and Texture-to-buffer copies
@@ -1214,14 +1122,6 @@ name|bool
 name|getLUID
 argument_list|(
 argument|LUID *adapterLuid
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|GLenum
-name|getNativeTextureFormat
-argument_list|(
-argument|GLenum internalFormat
 argument_list|)
 specifier|const
 block|;
@@ -1311,7 +1211,9 @@ operator|*
 name|v
 argument_list|)
 block|;
-name|void
+name|gl
+operator|::
+name|Error
 name|drawLineLoop
 argument_list|(
 argument|GLsizei count
@@ -1325,7 +1227,9 @@ argument_list|,
 argument|gl::Buffer *elementArrayBuffer
 argument_list|)
 block|;
-name|void
+name|gl
+operator|::
+name|Error
 name|drawIndexedPoints
 argument_list|(
 argument|GLsizei count
@@ -1337,6 +1241,16 @@ argument_list|,
 argument|int minIndex
 argument_list|,
 argument|gl::Buffer *elementArrayBuffer
+argument_list|)
+block|;
+name|gl
+operator|::
+name|Error
+name|getCountingIB
+argument_list|(
+argument|size_t count
+argument_list|,
+argument|StaticIndexBufferInterface **outIB
 argument_list|)
 block|;
 name|bool
@@ -1464,240 +1378,200 @@ name|mMaxSwapInterval
 block|;
 name|bool
 name|mVertexTextureSupport
-block|;      struct
-name|MultisampleSupportInfo
-block|{
-name|bool
-name|supportedSamples
-index|[
-name|D3DMULTISAMPLE_16_SAMPLES
-operator|+
-literal|1
-index|]
 block|;
-name|unsigned
-name|int
-name|maxSupportedSamples
-block|;     }
-block|;
-typedef|typedef
-name|std
-operator|::
-name|map
-operator|<
-name|D3DFORMAT
-operator|,
-name|MultisampleSupportInfo
-operator|>
-name|MultisampleSupportMap
-expr_stmt|;
-name|MultisampleSupportMap
-name|mMultiSampleSupport
-decl_stmt|;
-name|unsigned
-name|int
-name|mMaxSupportedSamples
-decl_stmt|;
-name|MultisampleSupportInfo
-name|getMultiSampleSupport
-parameter_list|(
-name|D3DFORMAT
-name|format
-parameter_list|)
-function_decl|;
 comment|// current render target states
 name|unsigned
 name|int
 name|mAppliedRenderTargetSerial
-decl_stmt|;
+block|;
 name|unsigned
 name|int
 name|mAppliedDepthbufferSerial
-decl_stmt|;
+block|;
 name|unsigned
 name|int
 name|mAppliedStencilbufferSerial
-decl_stmt|;
+block|;
 name|bool
 name|mDepthStencilInitialized
-decl_stmt|;
+block|;
 name|bool
 name|mRenderTargetDescInitialized
-decl_stmt|;
+block|;
 name|rx
 operator|::
 name|RenderTarget
 operator|::
 name|Desc
 name|mRenderTargetDesc
-expr_stmt|;
+block|;
 name|unsigned
 name|int
 name|mCurStencilSize
-decl_stmt|;
+block|;
 name|unsigned
 name|int
 name|mCurDepthSize
-decl_stmt|;
+block|;
 name|IDirect3DStateBlock9
-modifier|*
+operator|*
 name|mMaskedClearSavedState
-decl_stmt|;
+block|;
 comment|// previously set render states
 name|bool
 name|mForceSetDepthStencilState
-decl_stmt|;
+block|;
 name|gl
 operator|::
 name|DepthStencilState
 name|mCurDepthStencilState
-expr_stmt|;
+block|;
 name|int
 name|mCurStencilRef
-decl_stmt|;
+block|;
 name|int
 name|mCurStencilBackRef
-decl_stmt|;
+block|;
 name|bool
 name|mCurFrontFaceCCW
-decl_stmt|;
+block|;
 name|bool
 name|mForceSetRasterState
-decl_stmt|;
+block|;
 name|gl
 operator|::
 name|RasterizerState
 name|mCurRasterState
-expr_stmt|;
+block|;
 name|bool
 name|mForceSetScissor
-decl_stmt|;
+block|;
 name|gl
 operator|::
 name|Rectangle
 name|mCurScissor
-expr_stmt|;
+block|;
 name|bool
 name|mScissorEnabled
-decl_stmt|;
+block|;
 name|bool
 name|mForceSetViewport
-decl_stmt|;
+block|;
 name|gl
 operator|::
 name|Rectangle
 name|mCurViewport
-expr_stmt|;
+block|;
 name|float
 name|mCurNear
-decl_stmt|;
+block|;
 name|float
 name|mCurFar
-decl_stmt|;
+block|;
 name|float
 name|mCurDepthFront
-decl_stmt|;
+block|;
 name|bool
 name|mForceSetBlendState
-decl_stmt|;
+block|;
 name|gl
 operator|::
 name|BlendState
 name|mCurBlendState
-expr_stmt|;
+block|;
 name|gl
 operator|::
 name|ColorF
 name|mCurBlendColor
-expr_stmt|;
+block|;
 name|GLuint
 name|mCurSampleMask
-decl_stmt|;
+block|;
 comment|// Currently applied sampler states
+name|std
+operator|::
+name|vector
+operator|<
 name|bool
+operator|>
 name|mForceSetVertexSamplerStates
-index|[
-name|gl
+block|;
+name|std
 operator|::
-name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
-index|]
-decl_stmt|;
+name|vector
+operator|<
 name|gl
 operator|::
 name|SamplerState
+operator|>
 name|mCurVertexSamplerStates
-index|[
-name|gl
+block|;
+name|std
 operator|::
-name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
-index|]
-expr_stmt|;
+name|vector
+operator|<
 name|bool
+operator|>
 name|mForceSetPixelSamplerStates
-index|[
-name|gl
+block|;
+name|std
 operator|::
-name|MAX_TEXTURE_IMAGE_UNITS
-index|]
-decl_stmt|;
+name|vector
+operator|<
 name|gl
 operator|::
 name|SamplerState
+operator|>
 name|mCurPixelSamplerStates
-index|[
-name|gl
-operator|::
-name|MAX_TEXTURE_IMAGE_UNITS
-index|]
-expr_stmt|;
+block|;
 comment|// Currently applied textures
+name|std
+operator|::
+name|vector
+operator|<
 name|unsigned
 name|int
+operator|>
 name|mCurVertexTextureSerials
-index|[
-name|gl
+block|;
+name|std
 operator|::
-name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
-index|]
-decl_stmt|;
+name|vector
+operator|<
 name|unsigned
 name|int
+operator|>
 name|mCurPixelTextureSerials
-index|[
-name|gl
-operator|::
-name|MAX_TEXTURE_IMAGE_UNITS
-index|]
-decl_stmt|;
+block|;
 name|unsigned
 name|int
 name|mAppliedIBSerial
-decl_stmt|;
+block|;
 name|IDirect3DVertexShader9
-modifier|*
+operator|*
 name|mAppliedVertexShader
-decl_stmt|;
+block|;
 name|IDirect3DPixelShader9
-modifier|*
+operator|*
 name|mAppliedPixelShader
-decl_stmt|;
+block|;
 name|unsigned
 name|int
 name|mAppliedProgramSerial
-decl_stmt|;
+block|;
 name|rx
 operator|::
 name|dx_VertexConstants
 name|mVertexConstants
-expr_stmt|;
+block|;
 name|rx
 operator|::
 name|dx_PixelConstants
 name|mPixelConstants
-expr_stmt|;
+block|;
 name|bool
 name|mDxUniformsDirty
-decl_stmt|;
+block|;
 comment|// A pool of event queries that are currently unused.
 name|std
 operator|::
@@ -1707,69 +1581,67 @@ name|IDirect3DQuery9
 operator|*
 operator|>
 name|mEventQueryPool
-expr_stmt|;
+block|;
 name|VertexShaderCache
 name|mVertexShaderCache
-decl_stmt|;
+block|;
 name|PixelShaderCache
 name|mPixelShaderCache
-decl_stmt|;
+block|;
 name|VertexDataManager
-modifier|*
+operator|*
 name|mVertexDataManager
-decl_stmt|;
+block|;
 name|VertexDeclarationCache
 name|mVertexDeclarationCache
-decl_stmt|;
+block|;
 name|IndexDataManager
-modifier|*
+operator|*
 name|mIndexDataManager
-decl_stmt|;
+block|;
 name|StreamingIndexBufferInterface
-modifier|*
+operator|*
 name|mLineLoopIB
-decl_stmt|;
-enum|enum
+block|;
+name|StaticIndexBufferInterface
+operator|*
+name|mCountingIB
+block|;      enum
 block|{
 name|NUM_NULL_COLORBUFFER_CACHE_ENTRIES
-init|=
+operator|=
 literal|12
 block|}
-enum|;
-struct|struct
+block|;     struct
 name|NullColorbufferCacheEntry
 block|{
 name|UINT
 name|lruCount
-decl_stmt|;
+block|;
 name|int
 name|width
-decl_stmt|;
+block|;
 name|int
 name|height
-decl_stmt|;
+block|;
 name|gl
 operator|::
 name|FramebufferAttachment
 operator|*
 name|buffer
-expr_stmt|;
-block|}
+block|;     }
 name|mNullColorbufferCache
 index|[
 name|NUM_NULL_COLORBUFFER_CACHE_ENTRIES
 index|]
-struct|;
+block|;
 name|UINT
 name|mMaxNullColorbufferLRU
+block|;  }
 decl_stmt|;
 block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_endif
-unit|}
 endif|#
 directive|endif
 end_endif

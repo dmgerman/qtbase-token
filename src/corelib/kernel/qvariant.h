@@ -2241,9 +2241,20 @@ operator|)
 expr_stmt|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
+comment|// ### Qt6: FIXME: Remove the special Q_CC_MSVC handling, it was introduced to maintain BC for QTBUG-41810 .
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_NO_TEMPLATE_FRIENDS
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
 name|template
 operator|<
 name|typename

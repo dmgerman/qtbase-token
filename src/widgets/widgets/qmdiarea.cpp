@@ -1305,6 +1305,32 @@ literal|2
 argument_list|,
 literal|1
 argument_list|)
+operator|+
+name|widgets
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|->
+name|style
+argument_list|()
+operator|->
+name|pixelMetric
+argument_list|(
+name|QStyle
+operator|::
+name|PM_FocusFrameVMargin
+argument_list|,
+literal|0
+argument_list|,
+name|widgets
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
 decl_stmt|;
 specifier|const
 name|int
@@ -7372,10 +7398,6 @@ init|=
 name|increaseFactor
 operator|>
 literal|0
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 comment|// and use that index + increseFactor as a candidate.
 name|int
@@ -11818,10 +11840,6 @@ name|QEvent
 operator|::
 name|KeyPress
 operator|)
-condition|?
-literal|true
-else|:
-literal|false
 decl_stmt|;
 comment|// 1) Ctrl-Tab once -> activate the previously active window.
 comment|// 2) Ctrl-Tab (Tab, Tab, ...) -> iterate through all windows (activateNextSubWindow()).

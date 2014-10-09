@@ -57,6 +57,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"compiler/translator/RegenerateStructNames.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/translator/RenameFunction.h"
 end_include
 begin_include
@@ -1067,6 +1072,11 @@ condition|)
 block|{
 name|ScalarizeVecAndMatConstructorArgs
 name|scalarizer
+argument_list|(
+name|shaderType
+argument_list|,
+name|fragmentPrecisionHigh
+argument_list|)
 decl_stmt|;
 name|root
 operator|->
@@ -1074,6 +1084,34 @@ name|traverse
 argument_list|(
 operator|&
 name|scalarizer
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|success
+operator|&&
+operator|(
+name|compileOptions
+operator|&
+name|SH_REGENERATE_STRUCT_NAMES
+operator|)
+condition|)
+block|{
+name|RegenerateStructNames
+name|gen
+argument_list|(
+name|symbolTable
+argument_list|,
+name|shaderVersion
+argument_list|)
+decl_stmt|;
+name|root
+operator|->
+name|traverse
+argument_list|(
+operator|&
+name|gen
 argument_list|)
 expr_stmt|;
 block|}
@@ -2124,6 +2162,8 @@ modifier|*
 name|root
 parameter_list|)
 block|{
+name|sh
+operator|::
 name|CollectVariables
 name|collect
 argument_list|(
@@ -2155,6 +2195,8 @@ argument_list|)
 expr_stmt|;
 comment|// For backwards compatiblity with ShGetVariableInfo, expand struct
 comment|// uniforms and varyings into separate variables for each field.
+name|sh
+operator|::
 name|ExpandVariables
 argument_list|(
 name|uniforms
@@ -2163,6 +2205,8 @@ operator|&
 name|expandedUniforms
 argument_list|)
 expr_stmt|;
+name|sh
+operator|::
 name|ExpandVariables
 argument_list|(
 name|varyings

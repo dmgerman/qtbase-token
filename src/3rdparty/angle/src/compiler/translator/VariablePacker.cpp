@@ -17,7 +17,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"compiler/translator/VariablePacker.h"
+file|<algorithm>
 end_include
 begin_include
 include|#
@@ -27,12 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"common/utilities.h"
+file|"compiler/translator/VariablePacker.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<algorithm>
+file|"common/utilities.h"
 end_include
 begin_function
 DECL|function|GetNumComponentsPerRow

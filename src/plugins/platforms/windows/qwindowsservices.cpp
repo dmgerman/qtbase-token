@@ -747,7 +747,7 @@ if|if
 condition|(
 name|scheme
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"mailto"
 argument_list|)

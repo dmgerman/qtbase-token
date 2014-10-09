@@ -66,363 +66,58 @@ name|class
 name|Renderer
 decl_stmt|;
 name|class
-name|TextureStorageInterface
-decl_stmt|;
-name|class
-name|TextureStorageInterface2D
-decl_stmt|;
-name|class
-name|TextureStorageInterfaceCube
-decl_stmt|;
-name|class
-name|TextureStorageInterface3D
-decl_stmt|;
-name|class
-name|TextureStorageInterface2DArray
-decl_stmt|;
-name|bool
-name|IsMipmapFiltered
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|SamplerState
-operator|&
-name|samplerState
-argument_list|)
-decl_stmt|;
-name|class
-name|TextureD3D
-block|{
-name|public
-label|:
-name|TextureD3D
-argument_list|(
-name|Renderer
-operator|*
-name|renderer
-argument_list|)
-expr_stmt|;
-name|virtual
-operator|~
-name|TextureD3D
-argument_list|()
-expr_stmt|;
-name|GLint
-name|getBaseLevelWidth
-argument_list|()
-specifier|const
-expr_stmt|;
-name|GLint
-name|getBaseLevelHeight
-argument_list|()
-specifier|const
-expr_stmt|;
-name|GLint
-name|getBaseLevelDepth
-argument_list|()
-specifier|const
-expr_stmt|;
-name|GLenum
-name|getBaseLevelInternalFormat
-argument_list|()
-specifier|const
-expr_stmt|;
-name|bool
-name|isImmutable
-argument_list|()
-specifier|const
-block|{
-return|return
-name|mImmutable
-return|;
-block|}
-name|protected
-label|:
-name|void
-name|setImage
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
-argument_list|,
-name|GLenum
-name|type
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
-argument_list|,
-name|Image
-operator|*
-name|image
-argument_list|)
-decl_stmt|;
-name|bool
-name|subImage
-argument_list|(
-name|GLint
-name|xoffset
-argument_list|,
-name|GLint
-name|yoffset
-argument_list|,
-name|GLint
-name|zoffset
-argument_list|,
-name|GLsizei
-name|width
-argument_list|,
-name|GLsizei
-name|height
-argument_list|,
-name|GLsizei
-name|depth
-argument_list|,
-name|GLenum
-name|format
-argument_list|,
-name|GLenum
-name|type
-argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
-argument_list|,
-name|Image
-operator|*
-name|image
-argument_list|)
-decl_stmt|;
-name|void
-name|setCompressedImage
-parameter_list|(
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|,
-name|Image
-modifier|*
-name|image
-parameter_list|)
-function_decl|;
-name|bool
-name|subImageCompressed
-parameter_list|(
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|,
-name|Image
-modifier|*
-name|image
-parameter_list|)
-function_decl|;
-name|bool
-name|isFastUnpackable
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
-argument_list|,
-name|GLenum
-name|sizedInternalFormat
-argument_list|)
-decl_stmt|;
-name|bool
-name|fastUnpackPixels
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
-argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|destArea
-argument_list|,
-name|GLenum
-name|sizedInternalFormat
-argument_list|,
-name|GLenum
-name|type
-argument_list|,
 name|RenderTarget
-operator|*
-name|destRenderTarget
-argument_list|)
 decl_stmt|;
-name|GLint
-name|creationLevels
-argument_list|(
-name|GLsizei
-name|width
-argument_list|,
-name|GLsizei
-name|height
-argument_list|,
-name|GLsizei
-name|depth
-argument_list|)
-decl|const
-decl_stmt|;
-name|int
-name|mipLevels
-argument_list|()
-specifier|const
-expr_stmt|;
-name|Renderer
-modifier|*
-name|mRenderer
-decl_stmt|;
-name|GLenum
-name|mUsage
-decl_stmt|;
-name|bool
-name|mDirtyImages
-decl_stmt|;
-name|bool
-name|mImmutable
-decl_stmt|;
-name|private
-label|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|TextureD3D
-argument_list|)
-expr_stmt|;
-name|virtual
-name|TextureStorageInterface
-modifier|*
-name|getBaseLevelStorage
-parameter_list|()
-init|=
-literal|0
-function_decl|;
-name|virtual
-specifier|const
-name|ImageD3D
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
-operator|=
-literal|0
-expr_stmt|;
-block|}
-empty_stmt|;
 name|class
-name|TextureD3D_2D
+name|TextureStorage
+decl_stmt|;
+name|class
+name|TextureD3D
 range|:
 name|public
-name|Texture2DImpl
-decl_stmt|,
-name|public
-name|TextureD3D
+name|TextureImpl
 block|{
 name|public
-label|:
-name|TextureD3D_2D
+operator|:
+name|TextureD3D
 argument_list|(
 name|Renderer
 operator|*
 name|renderer
 argument_list|)
-expr_stmt|;
+block|;
 name|virtual
 operator|~
-name|TextureD3D_2D
+name|TextureD3D
 argument_list|()
-expr_stmt|;
+block|;
 specifier|static
-name|TextureD3D_2D
-modifier|*
-name|makeTextureD3D_2D
-parameter_list|(
-name|Texture2DImpl
-modifier|*
-name|texture
-parameter_list|)
-function_decl|;
-name|virtual
-name|TextureStorageInterface
-modifier|*
-name|getNativeTexture
-parameter_list|()
-function_decl|;
-name|virtual
-name|Image
-modifier|*
-name|getImage
+name|TextureD3D
+operator|*
+name|makeTextureD3D
 argument_list|(
-name|int
-name|level
+name|TextureImpl
+operator|*
+name|texture
 argument_list|)
-decl|const
-decl_stmt|;
+block|;
+name|virtual
+name|TextureStorage
+operator|*
+name|getNativeTexture
+argument_list|()
+block|;
 name|virtual
 name|void
 name|setUsage
-parameter_list|(
-name|GLenum
+argument_list|(
+argument|GLenum usage
+argument_list|)
+block|{
+name|mUsage
+operator|=
 name|usage
-parameter_list|)
-function_decl|;
-name|virtual
+block|; }
 name|bool
 name|hasDirtyImages
 argument_list|()
@@ -432,277 +127,490 @@ return|return
 name|mDirtyImages
 return|;
 block|}
-name|virtual
 name|void
 name|resetDirty
-parameter_list|()
-function_decl|;
+argument_list|()
+block|{
+name|mDirtyImages
+operator|=
+name|false
+block|; }
+name|GLint
+name|getBaseLevelWidth
+argument_list|()
+specifier|const
+block|;
+name|GLint
+name|getBaseLevelHeight
+argument_list|()
+specifier|const
+block|;
+name|GLint
+name|getBaseLevelDepth
+argument_list|()
+specifier|const
+block|;
+name|GLenum
+name|getBaseLevelInternalFormat
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|isImmutable
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mImmutable
+return|;
+block|}
+name|virtual
+name|RenderTarget
+operator|*
+name|getRenderTarget
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|unsigned
+name|int
+name|getRenderTargetSerial
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+operator|=
+literal|0
+block|;
+name|protected
+operator|:
+name|void
+name|setImage
+argument_list|(
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const void *pixels
+argument_list|,
+argument|Image *image
+argument_list|)
+block|;
+name|bool
+name|subImage
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
+argument_list|,
+argument|const gl::ImageIndex&index
+argument_list|)
+block|;
+name|void
+name|setCompressedImage
+argument_list|(
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|,
+argument|Image *image
+argument_list|)
+block|;
+name|bool
+name|subImageCompressed
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|,
+argument|Image *image
+argument_list|)
+block|;
+name|bool
+name|isFastUnpackable
+argument_list|(
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|GLenum sizedInternalFormat
+argument_list|)
+block|;
+name|bool
+name|fastUnpackPixels
+argument_list|(
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
+argument_list|,
+argument|const gl::Box&destArea
+argument_list|,
+argument|GLenum sizedInternalFormat
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|RenderTarget *destRenderTarget
+argument_list|)
+block|;
+name|GLint
+name|creationLevels
+argument_list|(
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+specifier|const
+block|;
+name|int
+name|mipLevels
+argument_list|()
+specifier|const
+block|;
+name|Renderer
+operator|*
+name|mRenderer
+block|;
+name|GLenum
+name|mUsage
+block|;
+name|bool
+name|mDirtyImages
+block|;
+name|bool
+name|mImmutable
+block|;
+name|private
+operator|:
+name|DISALLOW_COPY_AND_ASSIGN
+argument_list|(
+name|TextureD3D
+argument_list|)
+block|;
+name|virtual
+name|void
+name|initializeStorage
+argument_list|(
+argument|bool renderTarget
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|updateStorage
+argument_list|()
+operator|=
+literal|0
+block|;
+name|virtual
+name|TextureStorage
+operator|*
+name|getBaseLevelStorage
+argument_list|()
+operator|=
+literal|0
+block|;
+name|virtual
+specifier|const
+name|ImageD3D
+operator|*
+name|getBaseLevelImage
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|; }
+decl_stmt|;
+name|class
+name|TextureD3D_2D
+range|:
+name|public
+name|TextureD3D
+block|{
+name|public
+operator|:
+name|TextureD3D_2D
+argument_list|(
+name|Renderer
+operator|*
+name|renderer
+argument_list|)
+block|;
+name|virtual
+operator|~
+name|TextureD3D_2D
+argument_list|()
+block|;
+name|virtual
+name|Image
+operator|*
+name|getImage
+argument_list|(
+argument|int level
+argument_list|,
+argument|int layer
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|Image
+operator|*
+name|getImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|GLsizei
+name|getLayerCount
+argument_list|(
+argument|int level
+argument_list|)
+specifier|const
+block|;
 name|GLsizei
 name|getWidth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLsizei
 name|getHeight
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLenum
 name|getInternalFormat
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLenum
 name|getActualFormat
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isDepth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|virtual
 name|void
 name|setImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint level
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|GLenum
-name|internalFormat
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|format
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum internalFormat
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum format
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|GLenum type
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|setCompressedImage
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
 name|virtual
 name|void
 name|subImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint level
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint xoffset
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint yoffset
 argument_list|,
-name|GLsizei
-name|height
+argument|GLint zoffset
 argument_list|,
-name|GLenum
-name|format
+argument|GLsizei width
 argument_list|,
-name|GLenum
-name|type
+argument|GLsizei height
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLsizei depth
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|GLenum format
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|subImageCompressed
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
 name|virtual
 name|void
 name|copyImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLenum
-name|format
+argument|GLint level
 argument_list|,
-name|GLint
-name|x
+argument|GLenum format
 argument_list|,
-name|GLint
-name|y
+argument|GLint x
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|source
+argument|GLsizei height
+argument_list|,
+argument|gl::Framebuffer *source
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|copySubImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint zoffset
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|source
+argument|gl::Framebuffer *source
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|storage
-parameter_list|(
-name|GLsizei
-name|levels
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|)
-function_decl|;
-name|virtual
-name|bool
-name|isSamplerComplete
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|SamplerState
-operator|&
-name|samplerState
+argument|GLenum target
+argument_list|,
+argument|GLsizei levels
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
 argument_list|)
-decl|const
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|bindTexImage
@@ -713,89 +621,88 @@ name|Surface
 operator|*
 name|surface
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|releaseTexImage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
 name|void
 name|generateMipmaps
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
+name|virtual
+name|RenderTarget
+operator|*
+name|getRenderTarget
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+block|;
 name|virtual
 name|unsigned
 name|int
 name|getRenderTargetSerial
-parameter_list|(
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getRenderTarget
-parameter_list|(
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getDepthSencil
-parameter_list|(
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+block|;
 name|private
-label|:
+operator|:
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|TextureD3D_2D
 argument_list|)
-expr_stmt|;
+block|;
+name|virtual
 name|void
 name|initializeStorage
-parameter_list|(
-name|bool
-name|renderTarget
-parameter_list|)
-function_decl|;
-name|TextureStorageInterface2D
-modifier|*
+argument_list|(
+argument|bool renderTarget
+argument_list|)
+block|;
+name|TextureStorage
+operator|*
 name|createCompleteStorage
 argument_list|(
-name|bool
-name|renderTarget
+argument|bool renderTarget
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|setCompleteTexStorage
-parameter_list|(
-name|TextureStorageInterface2D
-modifier|*
+argument_list|(
+name|TextureStorage
+operator|*
 name|newCompleteTexStorage
-parameter_list|)
-function_decl|;
+argument_list|)
+block|;
+name|virtual
 name|void
 name|updateStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|bool
 name|ensureRenderTarget
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
-name|TextureStorageInterface
-modifier|*
+name|TextureStorage
+operator|*
 name|getBaseLevelStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
 specifier|const
 name|ImageD3D
@@ -803,146 +710,115 @@ operator|*
 name|getBaseLevelImage
 argument_list|()
 specifier|const
-expr_stmt|;
-name|bool
-name|isMipmapComplete
-argument_list|()
-specifier|const
-expr_stmt|;
+block|;
 name|bool
 name|isValidLevel
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isLevelComplete
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|updateStorageLevel
-parameter_list|(
-name|int
-name|level
-parameter_list|)
-function_decl|;
-name|virtual
+argument_list|(
+argument|int level
+argument_list|)
+block|;
 name|void
 name|redefineImage
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLint level
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
 name|void
 name|commitRect
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|)
-function_decl|;
-name|TextureStorageInterface2D
-modifier|*
+argument_list|(
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
+name|TextureStorage
+operator|*
 name|mTexStorage
-decl_stmt|;
+block|;
 name|ImageD3D
-modifier|*
+operator|*
 name|mImageArray
 index|[
 name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
+block|; }
 decl_stmt|;
-block|}
-empty_stmt|;
 name|class
 name|TextureD3D_Cube
 range|:
 name|public
-name|TextureCubeImpl
-decl_stmt|,
-name|public
 name|TextureD3D
 block|{
 name|public
-label|:
+operator|:
 name|TextureD3D_Cube
 argument_list|(
 name|Renderer
 operator|*
 name|renderer
 argument_list|)
-expr_stmt|;
+block|;
 name|virtual
 operator|~
 name|TextureD3D_Cube
 argument_list|()
-expr_stmt|;
-specifier|static
-name|TextureD3D_Cube
-modifier|*
-name|makeTextureD3D_Cube
-parameter_list|(
-name|TextureCubeImpl
-modifier|*
-name|texture
-parameter_list|)
-function_decl|;
-name|virtual
-name|TextureStorageInterface
-modifier|*
-name|getNativeTexture
-parameter_list|()
-function_decl|;
+block|;
 name|virtual
 name|Image
-modifier|*
+operator|*
 name|getImage
 argument_list|(
-name|GLenum
-name|target
+argument|int level
 argument_list|,
-name|int
-name|level
+argument|int layer
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|virtual
-name|void
-name|setUsage
-parameter_list|(
-name|GLenum
-name|usage
-parameter_list|)
-function_decl|;
+name|Image
+operator|*
+name|getImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|GLsizei
+name|getLayerCount
+argument_list|(
+argument|int level
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|bool
 name|hasDirtyImages
@@ -956,368 +832,298 @@ block|}
 name|virtual
 name|void
 name|resetDirty
-parameter_list|()
-function_decl|;
+argument_list|()
+block|{
+name|mDirtyImages
+operator|=
+name|false
+block|; }
+name|virtual
+name|void
+name|setUsage
+argument_list|(
+argument|GLenum usage
+argument_list|)
+block|{
+name|mUsage
+operator|=
+name|usage
+block|; }
 name|GLenum
 name|getInternalFormat
 argument_list|(
-name|GLenum
-name|target
+argument|GLint level
 argument_list|,
-name|GLint
-name|level
+argument|GLint layer
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isDepth
 argument_list|(
-name|GLenum
-name|target
+argument|GLint level
 argument_list|,
-name|GLint
-name|level
+argument|GLint layer
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|virtual
 name|void
 name|setImage
 argument_list|(
-name|int
-name|faceIndex
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|internalFormat
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum internalFormat
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum format
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum type
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|setCompressedImage
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
 name|virtual
 name|void
 name|subImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint zoffset
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|GLenum
-name|format
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|type
+argument|GLsizei depth
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum format
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|GLenum type
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|subImageCompressed
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
 name|virtual
 name|void
 name|copyImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum format
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|source
+argument|gl::Framebuffer *source
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|copySubImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint zoffset
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|source
+argument|gl::Framebuffer *source
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|storage
-parameter_list|(
-name|GLsizei
-name|levels
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|size
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei levels
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
 name|virtual
-name|bool
-name|isSamplerComplete
+name|void
+name|bindTexImage
+argument_list|(
+name|egl
+operator|::
+name|Surface
+operator|*
+name|surface
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseTexImage
+argument_list|()
+block|;
+name|virtual
+name|void
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|RenderTarget
+operator|*
+name|getRenderTarget
 argument_list|(
 specifier|const
 name|gl
 operator|::
-name|SamplerState
+name|ImageIndex
 operator|&
-name|samplerState
+name|index
 argument_list|)
-decl|const
-decl_stmt|;
-name|virtual
-name|bool
-name|isCubeComplete
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|void
-name|generateMipmaps
-parameter_list|()
-function_decl|;
+block|;
 name|virtual
 name|unsigned
 name|int
 name|getRenderTargetSerial
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getRenderTarget
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getDepthStencil
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
-specifier|static
-name|int
-name|targetToIndex
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|)
-function_decl|;
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+block|;
 name|private
-label|:
+operator|:
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|TextureD3D_Cube
 argument_list|)
-expr_stmt|;
+block|;
+name|virtual
 name|void
 name|initializeStorage
-parameter_list|(
-name|bool
-name|renderTarget
-parameter_list|)
-function_decl|;
-name|TextureStorageInterfaceCube
-modifier|*
+argument_list|(
+argument|bool renderTarget
+argument_list|)
+block|;
+name|TextureStorage
+operator|*
 name|createCompleteStorage
 argument_list|(
-name|bool
-name|renderTarget
+argument|bool renderTarget
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|setCompleteTexStorage
-parameter_list|(
-name|TextureStorageInterfaceCube
-modifier|*
+argument_list|(
+name|TextureStorage
+operator|*
 name|newCompleteTexStorage
-parameter_list|)
-function_decl|;
+argument_list|)
+block|;
+name|virtual
 name|void
 name|updateStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|bool
 name|ensureRenderTarget
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
-name|TextureStorageInterface
-modifier|*
+name|TextureStorage
+operator|*
 name|getBaseLevelStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
 specifier|const
 name|ImageD3D
@@ -1325,87 +1131,70 @@ operator|*
 name|getBaseLevelImage
 argument_list|()
 specifier|const
-expr_stmt|;
-name|bool
-name|isMipmapCubeComplete
-argument_list|()
-specifier|const
-expr_stmt|;
+block|;
 name|bool
 name|isValidFaceLevel
 argument_list|(
-name|int
-name|faceIndex
+argument|int faceIndex
 argument_list|,
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isFaceLevelComplete
 argument_list|(
-name|int
-name|faceIndex
+argument|int faceIndex
 argument_list|,
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
+name|bool
+name|isCubeComplete
+argument_list|()
+specifier|const
+block|;
 name|void
 name|updateStorageFaceLevel
-parameter_list|(
-name|int
-name|faceIndex
-parameter_list|,
-name|int
-name|level
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int faceIndex
+argument_list|,
+argument|int level
+argument_list|)
+block|;
 name|void
 name|redefineImage
-parameter_list|(
-name|int
-name|faceIndex
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int faceIndex
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
 name|void
 name|commitRect
-parameter_list|(
-name|int
-name|faceIndex
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int faceIndex
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
 name|ImageD3D
-modifier|*
+operator|*
 name|mImageArray
 index|[
 literal|6
@@ -1415,445 +1204,352 @@ name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-decl_stmt|;
-name|TextureStorageInterfaceCube
-modifier|*
+block|;
+name|TextureStorage
+operator|*
 name|mTexStorage
+block|; }
 decl_stmt|;
-block|}
-empty_stmt|;
 name|class
 name|TextureD3D_3D
 range|:
 name|public
-name|Texture3DImpl
-decl_stmt|,
-name|public
 name|TextureD3D
 block|{
 name|public
-label|:
+operator|:
 name|TextureD3D_3D
 argument_list|(
 name|Renderer
 operator|*
 name|renderer
 argument_list|)
-expr_stmt|;
+block|;
 name|virtual
 operator|~
 name|TextureD3D_3D
 argument_list|()
-expr_stmt|;
-specifier|static
-name|TextureD3D_3D
-modifier|*
-name|makeTextureD3D_3D
-parameter_list|(
-name|Texture3DImpl
-modifier|*
-name|texture
-parameter_list|)
-function_decl|;
-name|virtual
-name|TextureStorageInterface
-modifier|*
-name|getNativeTexture
-parameter_list|()
-function_decl|;
+block|;
 name|virtual
 name|Image
-modifier|*
+operator|*
 name|getImage
 argument_list|(
-name|int
-name|level
+argument|int level
+argument_list|,
+argument|int layer
 argument_list|)
-decl|const
-decl_stmt|;
-name|virtual
-name|void
-name|setUsage
-parameter_list|(
-name|GLenum
-name|usage
-parameter_list|)
-function_decl|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
 specifier|const
-block|{
-return|return
-name|mDirtyImages
-return|;
-block|}
+block|;
 name|virtual
-name|void
-name|resetDirty
-parameter_list|()
-function_decl|;
+name|Image
+operator|*
+name|getImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|GLsizei
+name|getLayerCount
+argument_list|(
+argument|int level
+argument_list|)
+specifier|const
+block|;
 name|GLsizei
 name|getWidth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLsizei
 name|getHeight
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLsizei
 name|getDepth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLenum
 name|getInternalFormat
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isDepth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|virtual
 name|void
 name|setImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint level
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|depth
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|internalFormat
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum internalFormat
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum format
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum type
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|setCompressedImage
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
 name|virtual
 name|void
 name|subImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint level
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint yoffset
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint zoffset
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|depth
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|format
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum format
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum type
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|subImageCompressed
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
+name|virtual
 name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+name|copyImage
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|gl::Framebuffer *source
+argument_list|)
+block|;
 name|virtual
 name|void
 name|copySubImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint zoffset
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|source
+argument|gl::Framebuffer *source
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|storage
-parameter_list|(
-name|GLsizei
-name|levels
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei levels
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
 name|virtual
-name|bool
-name|isSamplerComplete
+name|void
+name|bindTexImage
+argument_list|(
+name|egl
+operator|::
+name|Surface
+operator|*
+name|surface
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseTexImage
+argument_list|()
+block|;
+name|virtual
+name|void
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|RenderTarget
+operator|*
+name|getRenderTarget
 argument_list|(
 specifier|const
 name|gl
 operator|::
-name|SamplerState
+name|ImageIndex
 operator|&
-name|samplerState
+name|index
 argument_list|)
-decl|const
-decl_stmt|;
-name|virtual
-name|bool
-name|isMipmapComplete
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|void
-name|generateMipmaps
-parameter_list|()
-function_decl|;
+block|;
 name|virtual
 name|unsigned
 name|int
 name|getRenderTargetSerial
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|layer
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getRenderTarget
-parameter_list|(
-name|GLint
-name|level
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getRenderTarget
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|layer
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getDepthStencil
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|layer
-parameter_list|)
-function_decl|;
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+block|;
 name|private
-label|:
+operator|:
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|TextureD3D_3D
 argument_list|)
-expr_stmt|;
+block|;
 name|virtual
 name|void
 name|initializeStorage
-parameter_list|(
-name|bool
-name|renderTarget
-parameter_list|)
-function_decl|;
-name|TextureStorageInterface3D
-modifier|*
+argument_list|(
+argument|bool renderTarget
+argument_list|)
+block|;
+name|TextureStorage
+operator|*
 name|createCompleteStorage
 argument_list|(
-name|bool
-name|renderTarget
+argument|bool renderTarget
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|setCompleteTexStorage
-parameter_list|(
-name|TextureStorageInterface3D
-modifier|*
+argument_list|(
+name|TextureStorage
+operator|*
 name|newCompleteTexStorage
-parameter_list|)
-function_decl|;
+argument_list|)
+block|;
+name|virtual
 name|void
 name|updateStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|bool
 name|ensureRenderTarget
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
-name|TextureStorageInterface
-modifier|*
+name|TextureStorage
+operator|*
 name|getBaseLevelStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
 specifier|const
 name|ImageD3D
@@ -1861,524 +1557,413 @@ operator|*
 name|getBaseLevelImage
 argument_list|()
 specifier|const
-expr_stmt|;
+block|;
 name|bool
 name|isValidLevel
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isLevelComplete
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|updateStorageLevel
-parameter_list|(
-name|int
-name|level
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int level
+argument_list|)
+block|;
 name|void
 name|redefineImage
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLint level
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
 name|void
 name|commitRect
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
 name|ImageD3D
-modifier|*
+operator|*
 name|mImageArray
 index|[
 name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-decl_stmt|;
-name|TextureStorageInterface3D
-modifier|*
+block|;
+name|TextureStorage
+operator|*
 name|mTexStorage
+block|; }
 decl_stmt|;
-block|}
-empty_stmt|;
 name|class
 name|TextureD3D_2DArray
 range|:
 name|public
-name|Texture2DArrayImpl
-decl_stmt|,
-name|public
 name|TextureD3D
 block|{
 name|public
-label|:
+operator|:
 name|TextureD3D_2DArray
 argument_list|(
 name|Renderer
 operator|*
 name|renderer
 argument_list|)
-expr_stmt|;
+block|;
 name|virtual
 operator|~
 name|TextureD3D_2DArray
 argument_list|()
-expr_stmt|;
-specifier|static
-name|TextureD3D_2DArray
-modifier|*
-name|makeTextureD3D_2DArray
-parameter_list|(
-name|Texture2DArrayImpl
-modifier|*
-name|texture
-parameter_list|)
-function_decl|;
-name|virtual
-name|TextureStorageInterface
-modifier|*
-name|getNativeTexture
-parameter_list|()
-function_decl|;
+block|;
 name|virtual
 name|Image
-modifier|*
+operator|*
 name|getImage
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|,
-name|int
-name|layer
+argument|int layer
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
+name|virtual
+name|Image
+operator|*
+name|getImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|GLsizei
 name|getLayerCount
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
-name|virtual
-name|void
-name|setUsage
-parameter_list|(
-name|GLenum
-name|usage
-parameter_list|)
-function_decl|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
 specifier|const
-block|{
-return|return
-name|mDirtyImages
-return|;
-block|}
-name|virtual
-name|void
-name|resetDirty
-parameter_list|()
-function_decl|;
+block|;
 name|GLsizei
 name|getWidth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLsizei
 name|getHeight
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLsizei
 name|getLayers
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|GLenum
 name|getInternalFormat
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isDepth
 argument_list|(
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|virtual
 name|void
 name|setImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint level
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|depth
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|internalFormat
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum internalFormat
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum format
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum type
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|setCompressedImage
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
 name|virtual
 name|void
 name|subImage
 argument_list|(
-name|GLint
-name|level
+argument|GLenum target
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint level
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint yoffset
 argument_list|,
-name|GLsizei
-name|width
+argument|GLint zoffset
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|depth
+argument|GLsizei height
 argument_list|,
-name|GLenum
-name|format
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum format
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|GLenum type
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|subImageCompressed
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const void *pixels
+argument_list|)
+block|;
+name|virtual
 name|void
-modifier|*
-name|pixels
-parameter_list|)
-function_decl|;
+name|copyImage
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|gl::Framebuffer *source
+argument_list|)
+block|;
 name|virtual
 name|void
 name|copySubImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint zoffset
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|source
+argument|gl::Framebuffer *source
 argument_list|)
-decl_stmt|;
+block|;
 name|virtual
 name|void
 name|storage
-parameter_list|(
-name|GLsizei
-name|levels
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei levels
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
 name|virtual
-name|bool
-name|isSamplerComplete
+name|void
+name|bindTexImage
+argument_list|(
+name|egl
+operator|::
+name|Surface
+operator|*
+name|surface
+argument_list|)
+block|;
+name|virtual
+name|void
+name|releaseTexImage
+argument_list|()
+block|;
+name|virtual
+name|void
+name|generateMipmaps
+argument_list|()
+block|;
+name|virtual
+name|RenderTarget
+operator|*
+name|getRenderTarget
 argument_list|(
 specifier|const
 name|gl
 operator|::
-name|SamplerState
+name|ImageIndex
 operator|&
-name|samplerState
+name|index
 argument_list|)
-decl|const
-decl_stmt|;
-name|virtual
-name|bool
-name|isMipmapComplete
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|void
-name|generateMipmaps
-parameter_list|()
-function_decl|;
+block|;
 name|virtual
 name|unsigned
 name|int
 name|getRenderTargetSerial
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|layer
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getRenderTarget
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|layer
-parameter_list|)
-function_decl|;
-name|virtual
-name|RenderTarget
-modifier|*
-name|getDepthStencil
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|layer
-parameter_list|)
-function_decl|;
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|)
+block|;
 name|private
-label|:
+operator|:
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|TextureD3D_2DArray
 argument_list|)
-expr_stmt|;
+block|;
 name|virtual
 name|void
 name|initializeStorage
-parameter_list|(
-name|bool
-name|renderTarget
-parameter_list|)
-function_decl|;
-name|TextureStorageInterface2DArray
-modifier|*
+argument_list|(
+argument|bool renderTarget
+argument_list|)
+block|;
+name|TextureStorage
+operator|*
 name|createCompleteStorage
 argument_list|(
-name|bool
-name|renderTarget
+argument|bool renderTarget
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|setCompleteTexStorage
-parameter_list|(
-name|TextureStorageInterface2DArray
-modifier|*
+argument_list|(
+name|TextureStorage
+operator|*
 name|newCompleteTexStorage
-parameter_list|)
-function_decl|;
+argument_list|)
+block|;
+name|virtual
 name|void
 name|updateStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|bool
 name|ensureRenderTarget
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
-name|TextureStorageInterface
-modifier|*
+name|TextureStorage
+operator|*
 name|getBaseLevelStorage
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|virtual
 specifier|const
 name|ImageD3D
@@ -2386,75 +1971,61 @@ operator|*
 name|getBaseLevelImage
 argument_list|()
 specifier|const
-expr_stmt|;
+block|;
 name|bool
 name|isValidLevel
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|isLevelComplete
 argument_list|(
-name|int
-name|level
+argument|int level
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|void
 name|updateStorageLevel
-parameter_list|(
-name|int
-name|level
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int level
+argument_list|)
+block|;
 name|void
 name|deleteImages
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|void
 name|redefineImage
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLint level
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+block|;
 name|void
 name|commitRect
-parameter_list|(
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|layerTarget
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint layerTarget
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
 comment|// Storing images as an array of single depth textures since D3D11 treats each array level of a
 comment|// Texture2D object as a separate subresource.  Each layer would have to be looped over
 comment|// to update all the texture layers since they cannot all be updated at once and it makes the most
@@ -2466,23 +2037,22 @@ name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-decl_stmt|;
+block|;
 name|ImageD3D
-modifier|*
-modifier|*
+operator|*
+operator|*
 name|mImageArray
 index|[
 name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-decl_stmt|;
-name|TextureStorageInterface2DArray
-modifier|*
+block|;
+name|TextureStorage
+operator|*
 name|mTexStorage
+block|; }
 decl_stmt|;
-block|}
-empty_stmt|;
 block|}
 end_decl_stmt
 begin_endif

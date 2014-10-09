@@ -87,15 +87,6 @@ operator|->
 name|create
 argument_list|()
 expr_stmt|;
-name|window
-operator|->
-name|setSurfaceType
-argument_list|(
-name|QSurface
-operator|::
-name|OpenGLSurface
-argument_list|)
-expr_stmt|;
 block|}
 end_constructor
 begin_destructor

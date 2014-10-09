@@ -110,6 +110,18 @@ name|glyphPositionDataSize
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|textRangeStart
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+block|,
+name|textRangeEnd
+argument_list|(
+argument|-
+literal|1
+argument_list|)
 block|{     }
 name|QGlyphRunPrivate
 argument_list|(
@@ -182,7 +194,21 @@ argument_list|)
 block|,
 name|glyphPositionDataSize
 argument_list|(
-argument|other.glyphPositionDataSize
+name|other
+operator|.
+name|glyphPositionDataSize
+argument_list|)
+block|,
+name|textRangeStart
+argument_list|(
+name|other
+operator|.
+name|textRangeStart
+argument_list|)
+block|,
+name|textRangeEnd
+argument_list|(
+argument|other.textRangeEnd
 argument_list|)
 block|{     }
 name|QVector
@@ -223,6 +249,12 @@ name|glyphPositionData
 block|;
 name|int
 name|glyphPositionDataSize
+block|;
+name|int
+name|textRangeStart
+block|;
+name|int
+name|textRangeEnd
 block|;
 specifier|static
 name|QGlyphRunPrivate

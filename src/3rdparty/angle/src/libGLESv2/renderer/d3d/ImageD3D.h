@@ -58,16 +58,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|TextureStorageInterface2D
-decl_stmt|;
-name|class
-name|TextureStorageInterfaceCube
-decl_stmt|;
-name|class
-name|TextureStorageInterface3D
-decl_stmt|;
-name|class
-name|TextureStorageInterface2DArray
+name|TextureStorage
 decl_stmt|;
 name|class
 name|ImageD3D
@@ -106,9 +97,9 @@ literal|0
 block|;
 name|virtual
 name|void
-name|setManagedSurface
+name|setManagedSurface2D
 argument_list|(
-argument|TextureStorageInterface2D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|)
@@ -116,9 +107,9 @@ block|{}
 block|;
 name|virtual
 name|void
-name|setManagedSurface
+name|setManagedSurfaceCube
 argument_list|(
-argument|TextureStorageInterfaceCube *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int face
 argument_list|,
@@ -128,9 +119,9 @@ block|{}
 block|;
 name|virtual
 name|void
-name|setManagedSurface
+name|setManagedSurface3D
 argument_list|(
-argument|TextureStorageInterface3D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|)
@@ -138,9 +129,9 @@ block|{}
 block|;
 name|virtual
 name|void
-name|setManagedSurface
+name|setManagedSurface2DArray
 argument_list|(
-argument|TextureStorageInterface2DArray *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int layer
 argument_list|,
@@ -150,9 +141,9 @@ block|{}
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorage2D
 argument_list|(
-argument|TextureStorageInterface2D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|,
@@ -169,9 +160,9 @@ literal|0
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorageCube
 argument_list|(
-argument|TextureStorageInterfaceCube *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int face
 argument_list|,
@@ -190,9 +181,9 @@ literal|0
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorage3D
 argument_list|(
-argument|TextureStorageInterface3D *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|,
@@ -213,9 +204,9 @@ literal|0
 block|;
 name|virtual
 name|bool
-name|copyToStorage
+name|copyToStorage2DArray
 argument_list|(
-argument|TextureStorageInterface2DArray *storage
+argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|,

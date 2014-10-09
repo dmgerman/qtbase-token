@@ -32,6 +32,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/angleutils.h"
 end_include
 begin_namespace
@@ -1156,6 +1161,42 @@ argument_list|(
 name|EvqTemporary
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|mShaderType
+operator|==
+name|GL_FRAGMENT_SHADER
+operator|&&
+name|type
+operator|.
+name|getBasicType
+argument_list|()
+operator|==
+name|EbtFloat
+operator|&&
+name|type
+operator|.
+name|getPrecision
+argument_list|()
+operator|==
+name|EbpUndefined
+condition|)
+block|{
+comment|// We use the highest available precision for the temporary variable
+comment|// to avoid computing the actual precision using the rules defined
+comment|// in GLSL ES 1.0 Section 4.5.2.
+name|type
+operator|.
+name|setPrecision
+argument_list|(
+name|mFragmentPrecisionHigh
+condition|?
+name|EbpHigh
+else|:
+name|EbpMedium
+argument_list|)
+expr_stmt|;
+block|}
 name|TIntermBinary
 modifier|*
 name|init

@@ -11291,6 +11291,84 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|findFile
+name|VCFilterFile
+name|VCFilter
+operator|::
+name|findFile
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|filePath
+parameter_list|,
+name|bool
+modifier|*
+name|found
+parameter_list|)
+specifier|const
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|Files
+operator|.
+name|count
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+specifier|const
+name|VCFilterFile
+modifier|&
+name|f
+init|=
+name|Files
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|f
+operator|.
+name|file
+operator|==
+name|filePath
+condition|)
+block|{
+operator|*
+name|found
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|f
+return|;
+block|}
+block|}
+operator|*
+name|found
+operator|=
+literal|false
+expr_stmt|;
+return|return
+name|VCFilterFile
+argument_list|()
+return|;
+block|}
+end_function
+begin_function
 DECL|function|addExtraCompiler
 name|bool
 name|VCFilter
@@ -13095,7 +13173,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"Sources"
+literal|"Source Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13104,7 +13182,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"Headers"
+literal|"Header Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13113,7 +13191,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"GeneratedFiles"
+literal|"Generated Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13122,7 +13200,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"LexYaccFiles"
+literal|"LexYacc Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13131,7 +13209,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"TranslationFiles"
+literal|"Translation Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13140,7 +13218,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"FormFiles"
+literal|"Form Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13149,7 +13227,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"ResourceFiles"
+literal|"Resource Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13158,7 +13236,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"DeploymentFiles"
+literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
 name|QSet
@@ -13269,7 +13347,7 @@ name|tempProj
 argument_list|,
 name|xml
 argument_list|,
-literal|"RootFiles"
+literal|"Root Files"
 argument_list|)
 expr_stmt|;
 name|xml
@@ -13485,7 +13563,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"Sources"
+literal|"Source Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13494,7 +13572,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"Headers"
+literal|"Header Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13503,7 +13581,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"GeneratedFiles"
+literal|"Generated Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13512,7 +13590,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"LexYaccFiles"
+literal|"LexYacc Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13521,7 +13599,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"TranslationFiles"
+literal|"Translation Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13530,7 +13608,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"FormFiles"
+literal|"Form Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13539,7 +13617,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"ResourceFiles"
+literal|"Resource Files"
 argument_list|)
 expr_stmt|;
 name|outputFilter
@@ -13548,7 +13626,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"DeploymentFiles"
+literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
 for|for
@@ -13594,7 +13672,7 @@ name|tool
 argument_list|,
 name|xml
 argument_list|,
-literal|"RootFiles"
+literal|"Root Files"
 argument_list|)
 expr_stmt|;
 name|xml
@@ -16788,65 +16866,20 @@ name|Config
 expr_stmt|;
 name|bool
 name|inBuild
-init|=
-literal|false
 decl_stmt|;
 name|VCFilterFile
 name|info
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
 init|=
-literal|0
-init|;
-name|i
-operator|<
 name|filter
 operator|.
-name|Files
-operator|.
-name|count
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-if|if
-condition|(
-name|filter
-operator|.
-name|Files
-operator|.
-name|at
+name|findFile
 argument_list|(
-name|i
-argument_list|)
-operator|.
-name|file
-operator|==
 name|filename
-condition|)
-block|{
-name|info
-operator|=
-name|filter
-operator|.
-name|Files
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
+argument_list|,
+operator|&
 name|inBuild
-operator|=
-literal|true
-expr_stmt|;
-block|}
-block|}
+argument_list|)
+decl_stmt|;
 name|inBuild
 operator|&=
 operator|!

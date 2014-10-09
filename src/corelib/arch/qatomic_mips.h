@@ -344,6 +344,12 @@ name|_MIPS_ARCH_MIPS1
 argument_list|)
 operator|||
 operator|(
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|__mips

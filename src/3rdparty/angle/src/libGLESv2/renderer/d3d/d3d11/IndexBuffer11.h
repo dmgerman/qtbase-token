@@ -63,7 +63,9 @@ name|IndexBuffer11
 argument_list|()
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|initialize
 argument_list|(
 argument|unsigned int bufferSize
@@ -84,7 +86,9 @@ name|indexBuffer
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|mapBuffer
 argument_list|(
 argument|unsigned int offset
@@ -95,7 +99,9 @@ argument|void** outMappedMemory
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|unmapBuffer
 argument_list|()
 block|;
@@ -113,7 +119,9 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|setSize
 argument_list|(
 argument|unsigned int bufferSize
@@ -122,7 +130,9 @@ argument|GLenum indexType
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|discard
 argument_list|()
 block|;

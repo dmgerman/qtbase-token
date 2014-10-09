@@ -931,10 +931,6 @@ return|return
 name|m_action
 operator|&&
 name|m_owner
-condition|?
-literal|true
-else|:
-literal|false
 return|;
 block|}
 end_function

@@ -86,7 +86,7 @@ name|compare
 argument_list|(
 name|system
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"compose"
 argument_list|)

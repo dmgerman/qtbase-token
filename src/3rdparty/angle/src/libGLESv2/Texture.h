@@ -37,16 +37,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<vector>
-end_include
-begin_include
-include|#
-directive|include
-file|"angle_gl.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"common/debug.h"
 end_include
 begin_include
@@ -64,6 +54,26 @@ include|#
 directive|include
 file|"libGLESv2/constants.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/renderer/TextureImpl.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/Caps.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_decl_stmt
 name|namespace
 name|egl
@@ -78,22 +88,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Texture2DImpl
-decl_stmt|;
-name|class
-name|TextureCubeImpl
-decl_stmt|;
-name|class
-name|Texture3DImpl
-decl_stmt|;
-name|class
-name|Texture2DArrayImpl
-decl_stmt|;
-name|class
 name|TextureStorageInterface
-decl_stmt|;
-name|class
-name|RenderTarget
 decl_stmt|;
 name|class
 name|Image
@@ -110,6 +105,20 @@ decl_stmt|;
 name|class
 name|FramebufferAttachment
 decl_stmt|;
+struct_decl|struct
+name|ImageIndex
+struct_decl|;
+name|bool
+name|IsMipmapFiltered
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|SamplerState
+operator|&
+name|samplerState
+argument_list|)
+decl_stmt|;
 name|class
 name|Texture
 range|:
@@ -120,6 +129,8 @@ name|public
 operator|:
 name|Texture
 argument_list|(
+argument|rx::TextureImpl *impl
+argument_list|,
 argument|GLuint id
 argument_list|,
 argument|GLenum target
@@ -163,7 +174,6 @@ operator|*
 name|sampler
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setUsage
 argument_list|(
@@ -195,32 +205,61 @@ name|getBaseLevelInternalFormat
 argument_list|()
 specifier|const
 block|;
+name|GLsizei
+name|getWidth
+argument_list|(
+argument|const ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|GLsizei
+name|getHeight
+argument_list|(
+argument|const ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|GLenum
+name|getInternalFormat
+argument_list|(
+argument|const ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|GLenum
+name|getActualFormat
+argument_list|(
+argument|const ImageIndex&index
+argument_list|)
+specifier|const
+block|;
 name|virtual
 name|bool
 name|isSamplerComplete
 argument_list|(
 argument|const SamplerState&samplerState
+argument_list|,
+argument|const TextureCapsMap&textureCaps
+argument_list|,
+argument|const Extensions&extensions
+argument_list|,
+argument|int clientVersion
 argument_list|)
 specifier|const
 operator|=
 literal|0
 block|;
-name|virtual
 name|rx
 operator|::
-name|TextureStorageInterface
+name|TextureStorage
 operator|*
 name|getNativeTexture
 argument_list|()
-operator|=
-literal|0
 block|;
 name|virtual
 name|void
 name|generateMipmaps
 argument_list|()
-operator|=
-literal|0
 block|;
 name|virtual
 name|void
@@ -246,23 +285,6 @@ argument|GLsizei height
 argument_list|,
 argument|Framebuffer *source
 argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|resetDirty
-argument_list|()
-operator|=
-literal|0
 block|;
 name|unsigned
 name|int
@@ -278,6 +300,30 @@ name|int
 name|immutableLevelCount
 argument_list|()
 block|;
+name|rx
+operator|::
+name|TextureImpl
+operator|*
+name|getImplementation
+argument_list|()
+block|{
+return|return
+name|mTexture
+return|;
+block|}
+specifier|const
+name|rx
+operator|::
+name|TextureImpl
+operator|*
+name|getImplementation
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mTexture
+return|;
+block|}
 specifier|static
 specifier|const
 name|GLuint
@@ -300,6 +346,12 @@ name|mipLevels
 argument_list|()
 specifier|const
 block|;
+name|rx
+operator|::
+name|TextureImpl
+operator|*
+name|mTexture
+block|;
 name|SamplerState
 name|mSamplerState
 block|;
@@ -312,14 +364,6 @@ block|;
 name|GLenum
 name|mTarget
 block|;
-name|private
-operator|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|Texture
-argument_list|)
-block|;
-name|virtual
 specifier|const
 name|rx
 operator|::
@@ -328,8 +372,13 @@ operator|*
 name|getBaseLevelImage
 argument_list|()
 specifier|const
-operator|=
-literal|0
+block|;
+name|private
+operator|:
+name|DISALLOW_COPY_AND_ASSIGN
+argument_list|(
+name|Texture
+argument_list|)
 block|; }
 decl_stmt|;
 name|class
@@ -342,39 +391,14 @@ name|public
 operator|:
 name|Texture2D
 argument_list|(
-argument|rx::Texture2DImpl *impl
+argument|rx::TextureImpl *impl
 argument_list|,
 argument|GLuint id
 argument_list|)
 block|;
+name|virtual
 operator|~
 name|Texture2D
-argument_list|()
-block|;
-name|virtual
-name|rx
-operator|::
-name|TextureStorageInterface
-operator|*
-name|getNativeTexture
-argument_list|()
-block|;
-name|virtual
-name|void
-name|setUsage
-argument_list|(
-argument|GLenum usage
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|void
-name|resetDirty
 argument_list|()
 block|;
 name|GLsizei
@@ -515,31 +539,6 @@ argument_list|,
 argument|Framebuffer *source
 argument_list|)
 block|;
-name|virtual
-name|void
-name|copySubImage
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLint x
-argument_list|,
-argument|GLint y
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|Framebuffer *source
-argument_list|)
-block|;
 name|void
 name|storage
 argument_list|(
@@ -557,6 +556,12 @@ name|bool
 name|isSamplerComplete
 argument_list|(
 argument|const SamplerState&samplerState
+argument_list|,
+argument|const TextureCapsMap&textureCaps
+argument_list|,
+argument|const Extensions&extensions
+argument_list|,
+argument|int clientVersion
 argument_list|)
 specifier|const
 block|;
@@ -581,37 +586,6 @@ name|void
 name|generateMipmaps
 argument_list|()
 block|;
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-argument|GLint level
-argument_list|)
-block|;
-name|protected
-operator|:
-name|friend
-name|class
-name|Texture2DAttachment
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
-argument_list|(
-argument|GLint level
-argument_list|)
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getDepthSencil
-argument_list|(
-argument|GLint level
-argument_list|)
-block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -619,33 +593,17 @@ argument_list|(
 name|Texture2D
 argument_list|)
 block|;
-name|virtual
-specifier|const
-name|rx
-operator|::
-name|Image
-operator|*
-name|getBaseLevelImage
+name|bool
+name|isMipmapComplete
 argument_list|()
 specifier|const
 block|;
-name|void
-name|redefineImage
+name|bool
+name|isLevelComplete
 argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLenum internalformat
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
+argument|int level
 argument_list|)
-block|;
-name|rx
-operator|::
-name|Texture2DImpl
-operator|*
-name|mTexture
+specifier|const
 block|;
 name|egl
 operator|::
@@ -664,39 +622,14 @@ name|public
 operator|:
 name|TextureCubeMap
 argument_list|(
-argument|rx::TextureCubeImpl *impl
+argument|rx::TextureImpl *impl
 argument_list|,
 argument|GLuint id
 argument_list|)
 block|;
+name|virtual
 operator|~
 name|TextureCubeMap
-argument_list|()
-block|;
-name|virtual
-name|rx
-operator|::
-name|TextureStorageInterface
-operator|*
-name|getNativeTexture
-argument_list|()
-block|;
-name|virtual
-name|void
-name|setUsage
-argument_list|(
-argument|GLenum usage
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|void
-name|resetDirty
 argument_list|()
 block|;
 name|GLsizei
@@ -957,31 +890,6 @@ argument_list|,
 argument|Framebuffer *source
 argument_list|)
 block|;
-name|virtual
-name|void
-name|copySubImage
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLint x
-argument_list|,
-argument|GLint y
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|Framebuffer *source
-argument_list|)
-block|;
 name|void
 name|storage
 argument_list|(
@@ -997,6 +905,12 @@ name|bool
 name|isSamplerComplete
 argument_list|(
 argument|const SamplerState&samplerState
+argument_list|,
+argument|const TextureCapsMap&textureCaps
+argument_list|,
+argument|const Extensions&extensions
+argument_list|,
+argument|int clientVersion
 argument_list|)
 specifier|const
 block|;
@@ -1005,46 +919,18 @@ name|isCubeComplete
 argument_list|()
 specifier|const
 block|;
-name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|unsigned
+specifier|static
 name|int
-name|getRenderTargetSerial
+name|targetToLayerIndex
 argument_list|(
 argument|GLenum target
-argument_list|,
-argument|GLint level
 argument_list|)
 block|;
-name|protected
-operator|:
-name|friend
-name|class
-name|TextureCubeMapAttachment
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
+specifier|static
+name|GLenum
+name|layerIndexToTarget
 argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|)
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getDepthStencil
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
+argument|GLint layer
 argument_list|)
 block|;
 name|private
@@ -1054,21 +940,19 @@ argument_list|(
 name|TextureCubeMap
 argument_list|)
 block|;
-name|virtual
-specifier|const
-name|rx
-operator|::
-name|Image
-operator|*
-name|getBaseLevelImage
+name|bool
+name|isMipmapComplete
 argument_list|()
 specifier|const
 block|;
-name|rx
-operator|::
-name|TextureCubeImpl
-operator|*
-name|mTexture
+name|bool
+name|isFaceLevelComplete
+argument_list|(
+argument|int faceIndex
+argument_list|,
+argument|int level
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 name|class
@@ -1081,39 +965,14 @@ name|public
 operator|:
 name|Texture3D
 argument_list|(
-argument|rx::Texture3DImpl *impl
+argument|rx::TextureImpl *impl
 argument_list|,
 argument|GLuint id
 argument_list|)
 block|;
+name|virtual
 operator|~
 name|Texture3D
-argument_list|()
-block|;
-name|virtual
-name|rx
-operator|::
-name|TextureStorageInterface
-operator|*
-name|getNativeTexture
-argument_list|()
-block|;
-name|virtual
-name|void
-name|setUsage
-argument_list|(
-argument|GLenum usage
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|void
-name|resetDirty
 argument_list|()
 block|;
 name|GLsizei
@@ -1270,94 +1129,18 @@ argument|GLsizei depth
 argument_list|)
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|virtual
-name|void
-name|copySubImage
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLint x
-argument_list|,
-argument|GLint y
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|Framebuffer *source
-argument_list|)
-block|;
-name|virtual
 name|bool
 name|isSamplerComplete
 argument_list|(
 argument|const SamplerState&samplerState
+argument_list|,
+argument|const TextureCapsMap&textureCaps
+argument_list|,
+argument|const Extensions&extensions
+argument_list|,
+argument|int clientVersion
 argument_list|)
 specifier|const
-block|;
-name|virtual
-name|bool
-name|isMipmapComplete
-argument_list|()
-specifier|const
-block|;
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint layer
-argument_list|)
-block|;
-name|protected
-operator|:
-name|friend
-name|class
-name|Texture3DAttachment
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
-argument_list|(
-argument|GLint level
-argument_list|)
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint layer
-argument_list|)
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getDepthStencil
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint layer
-argument_list|)
 block|;
 name|private
 operator|:
@@ -1366,21 +1149,17 @@ argument_list|(
 name|Texture3D
 argument_list|)
 block|;
-name|virtual
-specifier|const
-name|rx
-operator|::
-name|Image
-operator|*
-name|getBaseLevelImage
+name|bool
+name|isMipmapComplete
 argument_list|()
 specifier|const
 block|;
-name|rx
-operator|::
-name|Texture3DImpl
-operator|*
-name|mTexture
+name|bool
+name|isLevelComplete
+argument_list|(
+argument|int level
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 name|class
@@ -1393,39 +1172,14 @@ name|public
 operator|:
 name|Texture2DArray
 argument_list|(
-argument|rx::Texture2DArrayImpl *impl
+argument|rx::TextureImpl *impl
 argument_list|,
 argument|GLuint id
 argument_list|)
 block|;
+name|virtual
 operator|~
 name|Texture2DArray
-argument_list|()
-block|;
-name|virtual
-name|rx
-operator|::
-name|TextureStorageInterface
-operator|*
-name|getNativeTexture
-argument_list|()
-block|;
-name|virtual
-name|void
-name|setUsage
-argument_list|(
-argument|GLenum usage
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|hasDirtyImages
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|void
-name|resetDirty
 argument_list|()
 block|;
 name|GLsizei
@@ -1582,85 +1336,18 @@ argument|GLsizei depth
 argument_list|)
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|virtual
-name|void
-name|copySubImage
-argument_list|(
-argument|GLenum target
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLint x
-argument_list|,
-argument|GLint y
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|Framebuffer *source
-argument_list|)
-block|;
-name|virtual
 name|bool
 name|isSamplerComplete
 argument_list|(
 argument|const SamplerState&samplerState
+argument_list|,
+argument|const TextureCapsMap&textureCaps
+argument_list|,
+argument|const Extensions&extensions
+argument_list|,
+argument|int clientVersion
 argument_list|)
 specifier|const
-block|;
-name|virtual
-name|bool
-name|isMipmapComplete
-argument_list|()
-specifier|const
-block|;
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint layer
-argument_list|)
-block|;
-name|protected
-operator|:
-name|friend
-name|class
-name|Texture2DArrayAttachment
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint layer
-argument_list|)
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getDepthStencil
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint layer
-argument_list|)
 block|;
 name|private
 operator|:
@@ -1669,21 +1356,17 @@ argument_list|(
 name|Texture2DArray
 argument_list|)
 block|;
-name|virtual
-specifier|const
-name|rx
-operator|::
-name|Image
-operator|*
-name|getBaseLevelImage
+name|bool
+name|isMipmapComplete
 argument_list|()
 specifier|const
 block|;
-name|rx
-operator|::
-name|Texture2DArrayImpl
-operator|*
-name|mTexture
+name|bool
+name|isLevelComplete
+argument_list|(
+argument|int level
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 block|}

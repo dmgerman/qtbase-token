@@ -31,6 +31,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libGLESv2/renderer/d3d/VertexDataManager.h"
 end_include
 begin_decl_stmt
@@ -58,31 +63,22 @@ operator|~
 name|VertexDeclarationCache
 argument_list|()
 expr_stmt|;
-name|GLenum
-name|applyDeclaration
-argument_list|(
-name|IDirect3DDevice9
-operator|*
-name|device
-argument_list|,
-name|TranslatedAttribute
-name|attributes
-index|[]
-argument_list|,
 name|gl
 operator|::
-name|ProgramBinary
-operator|*
-name|programBinary
+name|Error
+name|applyDeclaration
+argument_list|(
+argument|IDirect3DDevice9 *device
 argument_list|,
-name|GLsizei
-name|instances
+argument|TranslatedAttribute attributes[]
 argument_list|,
-name|GLsizei
-operator|*
-name|repeatDraw
+argument|gl::ProgramBinary *programBinary
+argument_list|,
+argument|GLsizei instances
+argument_list|,
+argument|GLsizei *repeatDraw
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|void
 name|markStateDirty
 parameter_list|()

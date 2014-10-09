@@ -1,9 +1,4 @@
 begin_unit
-begin_include
-include|#
-directive|include
-file|"precompiled.h"
-end_include
 begin_comment
 comment|//
 end_comment
@@ -564,11 +559,16 @@ init|=
 name|glGetCurrentContext
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
 name|context
-condition|)
-block|{
+operator|->
+name|recordError
+argument_list|(
+name|Error
+argument_list|(
+name|errorCode
+argument_list|)
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|errorCode
@@ -577,11 +577,6 @@ block|{
 case|case
 name|GL_INVALID_ENUM
 case|:
-name|context
-operator|->
-name|recordInvalidEnum
-argument_list|()
-expr_stmt|;
 name|TRACE
 argument_list|(
 literal|"\t! Error generated: invalid enum\n"
@@ -591,11 +586,6 @@ break|break;
 case|case
 name|GL_INVALID_VALUE
 case|:
-name|context
-operator|->
-name|recordInvalidValue
-argument_list|()
-expr_stmt|;
 name|TRACE
 argument_list|(
 literal|"\t! Error generated: invalid value\n"
@@ -605,11 +595,6 @@ break|break;
 case|case
 name|GL_INVALID_OPERATION
 case|:
-name|context
-operator|->
-name|recordInvalidOperation
-argument_list|()
-expr_stmt|;
 name|TRACE
 argument_list|(
 literal|"\t! Error generated: invalid operation\n"
@@ -619,11 +604,6 @@ break|break;
 case|case
 name|GL_OUT_OF_MEMORY
 case|:
-name|context
-operator|->
-name|recordOutOfMemory
-argument_list|()
-expr_stmt|;
 name|TRACE
 argument_list|(
 literal|"\t! Error generated: out of memory\n"
@@ -633,11 +613,6 @@ break|break;
 case|case
 name|GL_INVALID_FRAMEBUFFER_OPERATION
 case|:
-name|context
-operator|->
-name|recordInvalidFramebufferOperation
-argument_list|()
-expr_stmt|;
 name|TRACE
 argument_list|(
 literal|"\t! Error generated: invalid framebuffer operation\n"
@@ -648,7 +623,6 @@ default|default:
 name|UNREACHABLE
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

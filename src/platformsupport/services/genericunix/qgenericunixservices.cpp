@@ -551,7 +551,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"mailto"
 argument_list|)

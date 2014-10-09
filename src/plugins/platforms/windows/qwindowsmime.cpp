@@ -2842,7 +2842,7 @@ name|mimeType
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/plain"
 argument_list|)
@@ -2944,7 +2944,7 @@ name|mimeType
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/plain"
 argument_list|)
@@ -3955,7 +3955,7 @@ block|{
 return|return
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/uri-list"
 argument_list|)
@@ -4069,7 +4069,7 @@ if|if
 condition|(
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/uri-list"
 argument_list|)
@@ -4164,7 +4164,7 @@ if|if
 condition|(
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/uri-list"
 argument_list|)
@@ -4672,7 +4672,7 @@ if|if
 condition|(
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/html"
 argument_list|)
@@ -4756,7 +4756,7 @@ block|{
 return|return
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/html"
 argument_list|)
@@ -5522,7 +5522,7 @@ argument_list|()
 operator|&&
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"application/x-qt-image"
 argument_list|)
@@ -5647,14 +5647,12 @@ specifier|const
 block|{
 if|if
 condition|(
-operator|(
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"application/x-qt-image"
 argument_list|)
-operator|)
 operator|&&
 operator|(
 name|canGetData
@@ -6546,7 +6544,7 @@ name|formatetc
 argument_list|)
 argument_list|)
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/html"
 argument_list|)
@@ -7005,7 +7003,7 @@ if|if
 condition|(
 name|mimeType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/html"
 argument_list|)

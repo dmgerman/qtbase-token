@@ -110,6 +110,16 @@ modifier|&
 name|staticContents
 parameter_list|)
 function_decl|;
+name|QImage
+name|toImage
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|m_image
+return|;
+block|}
 name|private
 label|:
 name|QOpenGLContext

@@ -5108,15 +5108,9 @@ name|readToken
 argument_list|()
 expr_stmt|;
 return|return
-operator|(
 name|tok
 operator|==
 name|target
-condition|?
-literal|true
-else|:
-literal|false
-operator|)
 return|;
 block|}
 end_function

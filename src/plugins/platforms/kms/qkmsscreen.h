@@ -65,6 +65,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qsurfaceformat.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qloggingcategory.h>
 end_include
 begin_include
@@ -208,6 +213,15 @@ operator|&
 name|format
 argument_list|)
 block|;
+name|QSurfaceFormat
+name|surfaceFormat
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_surfaceFormat
+return|;
+block|}
 name|private
 operator|:
 name|void
@@ -279,6 +293,9 @@ name|m_eglWindowSurface
 block|;
 name|bool
 name|m_modeSet
+block|;
+name|QSurfaceFormat
+name|m_surfaceFormat
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -94,11 +94,6 @@ name|mSize
 return|;
 block|}
 name|virtual
-name|void
-name|clear
-argument_list|()
-block|;
-name|virtual
 name|bool
 name|supportsDirectBinding
 argument_list|()
@@ -116,7 +111,9 @@ argument_list|()
 block|;
 comment|// BufferImpl implementation
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setData
 argument_list|(
 argument|const void* data
@@ -133,7 +130,9 @@ name|getData
 argument_list|()
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setSubData
 argument_list|(
 argument|const void* data
@@ -144,7 +143,9 @@ argument|size_t offset
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copySubData
 argument_list|(
 argument|BufferImpl* source
@@ -157,8 +158,9 @@ argument|GLsizeiptr size
 argument_list|)
 block|;
 name|virtual
-name|GLvoid
-operator|*
+name|gl
+operator|::
+name|Error
 name|map
 argument_list|(
 argument|size_t offset
@@ -166,10 +168,14 @@ argument_list|,
 argument|size_t length
 argument_list|,
 argument|GLbitfield access
+argument_list|,
+argument|GLvoid **mapPtr
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|unmap
 argument_list|()
 block|;

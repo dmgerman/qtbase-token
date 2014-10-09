@@ -38,21 +38,7 @@ name|MAX_VERTEX_ATTRIBS
 init|=
 literal|16
 block|,
-name|MAX_TEXTURE_IMAGE_UNITS
-init|=
-literal|16
-block|,
 comment|// Implementation upper limits, real maximums depend on the hardware
-name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
-init|=
-literal|16
-block|,
-name|IMPLEMENTATION_MAX_COMBINED_TEXTURE_IMAGE_UNITS
-init|=
-name|MAX_TEXTURE_IMAGE_UNITS
-operator|+
-name|IMPLEMENTATION_MAX_VERTEX_TEXTURE_IMAGE_UNITS
-block|,
 name|IMPLEMENTATION_MAX_VARYING_VECTORS
 init|=
 literal|32

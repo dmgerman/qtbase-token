@@ -3982,7 +3982,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \deprecated     Sets the environment that QProcess will use when starting a process to the     \a environment specified which consists of a list of key=value pairs.      For example, the following code adds the \c{C:\\BIN} directory to the list of     executable paths (\c{PATHS}) on Windows:      \snippet qprocess-environment/main.cpp 0      \note This function is less efficient than the setProcessEnvironment()     function.      \sa environment(), setProcessEnvironment(), systemEnvironment() */
+comment|/*!     \deprecated     Sets the environment that QProcess will pass to the child process.     The parameter \a environment is a list of key=value pairs.      For example, the following code adds the environment variable \c{TMPDIR}:      \snippet qprocess-environment/main.cpp 0      \note This function is less efficient than the setProcessEnvironment()     function.      \sa environment(), setProcessEnvironment(), systemEnvironment() */
 end_comment
 begin_function
 DECL|function|setEnvironment
@@ -4010,7 +4010,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \deprecated     Returns the environment that QProcess will use when starting a     process, or an empty QStringList if no environment has been set     using setEnvironment(). If no environment has been set, the     environment of the calling process will be used.      \note The environment settings are ignored on Windows CE,     as there is no concept of an environment.      \sa processEnvironment(), setEnvironment(), systemEnvironment() */
+comment|/*!     \deprecated     Returns the environment that QProcess will pass to its child     process, or an empty QStringList if no environment has been set     using setEnvironment(). If no environment has been set, the     environment of the calling process will be used.      \note The environment settings are ignored on Windows CE,     as there is no concept of an environment.      \sa processEnvironment(), setEnvironment(), systemEnvironment() */
 end_comment
 begin_function
 DECL|function|environment
@@ -4038,7 +4038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Sets the environment that QProcess will use when starting a process to the     \a environment object.      For example, the following code adds the \c{C:\\BIN} directory to the list of     executable paths (\c{PATHS}) on Windows and sets \c{TMPDIR}:      \snippet qprocess-environment/main.cpp 1      Note how, on Windows, environment variable names are case-insensitive.      \sa processEnvironment(), QProcessEnvironment::systemEnvironment(), setEnvironment() */
+comment|/*!     \since 4.6     Sets the \a environment that QProcess will pass to the child process.      For example, the following code adds the environment variable \c{TMPDIR}:      \snippet qprocess-environment/main.cpp 1      Note how, on Windows, environment variable names are case-insensitive.      \sa processEnvironment(), QProcessEnvironment::systemEnvironment(), setEnvironment() */
 end_comment
 begin_function
 DECL|function|setProcessEnvironment
@@ -4067,7 +4067,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Returns the environment that QProcess will use when starting a     process, or an empty object if no environment has been set using     setEnvironment() or setProcessEnvironment(). If no environment has     been set, the environment of the calling process will be used.      \note The environment settings are ignored on Windows CE,     as there is no concept of an environment.      \sa setProcessEnvironment(), setEnvironment(), QProcessEnvironment::isEmpty() */
+comment|/*!     \since 4.6     Returns the environment that QProcess will pass to its child     process, or an empty object if no environment has been set using     setEnvironment() or setProcessEnvironment(). If no environment has     been set, the environment of the calling process will be used.      \note The environment settings are ignored on Windows CE,     as there is no concept of an environment.      \sa setProcessEnvironment(), setEnvironment(), QProcessEnvironment::isEmpty() */
 end_comment
 begin_function
 DECL|function|processEnvironment

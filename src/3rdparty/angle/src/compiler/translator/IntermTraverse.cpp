@@ -17,7 +17,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"compiler/translator/intermediate.h"
+file|"compiler/translator/IntermNode.h"
 end_include
 begin_comment
 comment|//

@@ -519,6 +519,7 @@ name|bool
 modifier|*
 name|sameScope
 parameter_list|)
+specifier|const
 block|{
 name|int
 name|level
@@ -631,6 +632,7 @@ parameter_list|,
 name|int
 name|shaderVersion
 parameter_list|)
+specifier|const
 block|{
 for|for
 control|(
@@ -1361,6 +1363,7 @@ parameter_list|(
 name|TBasicType
 name|type
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(

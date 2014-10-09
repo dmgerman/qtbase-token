@@ -53,7 +53,9 @@ name|BufferImpl
 argument_list|()
 block|{ }
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setData
 argument_list|(
 argument|const void* data
@@ -74,67 +76,63 @@ init|=
 literal|0
 function_decl|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setSubData
-parameter_list|(
-specifier|const
-name|void
-modifier|*
-name|data
-parameter_list|,
-name|size_t
-name|size
-parameter_list|,
-name|size_t
-name|offset
-parameter_list|)
-init|=
+argument_list|(
+argument|const void* data
+argument_list|,
+argument|size_t size
+argument_list|,
+argument|size_t offset
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copySubData
-parameter_list|(
-name|BufferImpl
-modifier|*
-name|source
-parameter_list|,
-name|GLintptr
-name|sourceOffset
-parameter_list|,
-name|GLintptr
-name|destOffset
-parameter_list|,
-name|GLsizeiptr
-name|size
-parameter_list|)
-init|=
+argument_list|(
+argument|BufferImpl* source
+argument_list|,
+argument|GLintptr sourceOffset
+argument_list|,
+argument|GLintptr destOffset
+argument_list|,
+argument|GLsizeiptr size
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|GLvoid
-modifier|*
+name|gl
+operator|::
+name|Error
 name|map
-parameter_list|(
-name|size_t
-name|offset
-parameter_list|,
-name|size_t
-name|length
-parameter_list|,
-name|GLbitfield
-name|access
-parameter_list|)
-init|=
+argument_list|(
+argument|size_t offset
+argument_list|,
+argument|size_t length
+argument_list|,
+argument|GLbitfield access
+argument_list|,
+argument|GLvoid **mapPtr
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|unmap
-parameter_list|()
-init|=
+argument_list|()
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
 name|void
 name|markTransformFeedbackUsage

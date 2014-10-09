@@ -2557,8 +2557,22 @@ literal|"EGL_NV_post_sub_buffer"
 argument_list|)
 expr_stmt|;
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|ANGLE_TEST_CONFIG
+argument_list|)
 comment|// TODO: complete support for the EGL_KHR_create_context extension
-comment|//extensions.push_back("EGL_KHR_create_context");
+name|extensions
+operator|.
+name|push_back
+argument_list|(
+literal|"EGL_KHR_create_context"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|std
 operator|::
 name|ostringstream

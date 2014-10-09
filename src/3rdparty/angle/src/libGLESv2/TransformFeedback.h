@@ -42,6 +42,15 @@ file|"angle_gl.h"
 end_include
 begin_decl_stmt
 name|namespace
+name|rx
+block|{
+name|class
+name|TransformFeedbackImpl
+decl_stmt|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|namespace
 name|gl
 block|{
 name|class
@@ -52,9 +61,10 @@ name|RefCountObject
 block|{
 name|public
 operator|:
-name|explicit
 name|TransformFeedback
 argument_list|(
+argument|rx::TransformFeedbackImpl* impl
+argument_list|,
 argument|GLuint id
 argument_list|)
 block|;
@@ -102,6 +112,12 @@ name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|TransformFeedback
 argument_list|)
+block|;
+name|rx
+operator|::
+name|TransformFeedbackImpl
+operator|*
+name|mTransformFeedback
 block|;
 name|GLboolean
 name|mStarted

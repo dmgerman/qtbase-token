@@ -2299,10 +2299,7 @@ if|if
 condition|(
 name|oid
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"1.3.6.1.5.5.7.1.1"
-argument_list|)
 condition|)
 block|{
 comment|// authorityInfoAccess
@@ -2457,10 +2454,7 @@ if|if
 condition|(
 name|oid
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"2.5.29.14"
-argument_list|)
 condition|)
 block|{
 comment|// subjectKeyIdentifier
@@ -2508,10 +2502,7 @@ if|if
 condition|(
 name|oid
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"2.5.29.19"
-argument_list|)
 condition|)
 block|{
 comment|// basicConstraints
@@ -2657,10 +2648,7 @@ if|if
 condition|(
 name|oid
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"2.5.29.35"
-argument_list|)
 condition|)
 block|{
 comment|// authorityKeyIdentifier

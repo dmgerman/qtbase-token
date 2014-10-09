@@ -1461,10 +1461,7 @@ argument_list|)
 operator|||
 name|requested
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"angle"
-argument_list|)
 decl_stmt|;
 specifier|const
 name|bool
@@ -1481,10 +1478,7 @@ argument_list|)
 operator|||
 name|requested
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"desktop"
-argument_list|)
 decl_stmt|;
 specifier|const
 name|bool
@@ -1501,10 +1495,7 @@ argument_list|)
 operator|||
 name|requested
 operator|==
-name|QByteArrayLiteral
-argument_list|(
 literal|"software"
-argument_list|)
 decl_stmt|;
 comment|// If ANGLE is requested, use it, don't try anything else.
 if|if
@@ -1592,6 +1583,14 @@ operator|::
 name|testDesktopGL
 argument_list|()
 condition|)
+block|{
+name|qCWarning
+argument_list|(
+name|lcQpaGl
+argument_list|,
+literal|"Software OpenGL failed. Falling back to system OpenGL."
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|=
 name|QOpenGLStaticContext
@@ -1599,6 +1598,7 @@ operator|::
 name|create
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 elif|#
