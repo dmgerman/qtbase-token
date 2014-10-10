@@ -265,9 +265,7 @@ decl_stmt|;
 name|QSurfaceFormat
 name|platformFormat
 init|=
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|surfaceFormatFor
@@ -514,9 +512,7 @@ operator|=
 name|EGL_NO_SURFACE
 expr_stmt|;
 block|}
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|destroyNativeWindow
@@ -562,9 +558,7 @@ argument_list|()
 decl_stmt|;
 name|m_window
 operator|=
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|createNativeWindow

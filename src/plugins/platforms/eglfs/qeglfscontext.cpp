@@ -157,9 +157,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|supportsPBuffers
@@ -179,9 +177,7 @@ condition|)
 block|{
 name|m_tempWindow
 operator|=
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|createNativeOffscreenWindow
@@ -246,9 +242,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|supportsPBuffers
@@ -273,9 +267,7 @@ argument_list|,
 name|surface
 argument_list|)
 expr_stmt|;
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|destroyNativeWindow
@@ -358,9 +350,7 @@ name|paintOnScreen
 argument_list|()
 expr_stmt|;
 block|}
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|waitForVSync
@@ -375,9 +365,7 @@ argument_list|(
 name|surface
 argument_list|)
 expr_stmt|;
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|presentBuffer

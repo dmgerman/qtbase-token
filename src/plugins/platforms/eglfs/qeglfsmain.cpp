@@ -103,6 +103,6 @@ end_macro
 begin_include
 include|#
 directive|include
-file|"main.moc"
+file|"qeglfsmain.moc"
 end_include
 end_unit

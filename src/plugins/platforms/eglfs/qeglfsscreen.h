@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglplatformscreen_p.h>
+file|"qeglfsglobal.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QTextStream>
+file|<QtPlatformSupport/private/qeglplatformscreen_p.h>
 end_include
 begin_include
 include|#
@@ -43,6 +43,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_EGLFS_EXPORT
 name|QEglFSScreen
 range|:
 name|public

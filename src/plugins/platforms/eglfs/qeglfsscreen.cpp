@@ -52,9 +52,7 @@ argument_list|)
 block|{
 name|m_cursor
 operator|=
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|createCursor
@@ -96,9 +94,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|screenSize
@@ -117,9 +113,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|screenDepth
@@ -139,9 +133,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|screenFormat
@@ -159,9 +151,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|physicalScreenSize
@@ -179,9 +169,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|logicalDpi
@@ -201,9 +189,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|nativeOrientation
@@ -223,9 +209,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QEglFSHooks
-operator|::
-name|hooks
+name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|orientation
