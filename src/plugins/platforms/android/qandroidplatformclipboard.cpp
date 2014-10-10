@@ -127,8 +127,16 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-operator|delete
+if|if
+condition|(
 name|data
+operator|!=
+literal|0
+condition|)
+name|data
+operator|->
+name|deleteLater
+argument_list|()
 expr_stmt|;
 block|}
 end_function
