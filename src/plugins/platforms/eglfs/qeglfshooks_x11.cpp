@@ -1270,7 +1270,7 @@ argument_list|,
 literal|480
 argument_list|)
 expr_stmt|;
-name|qDebug
+name|qWarning
 argument_list|(
 literal|"EGLFS_X11_SIZE not set, falling back to 640x480"
 argument_list|)

@@ -282,7 +282,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"eglfs: Cannot set opacity for non-raster windows"
+literal|"QEGLPlatformWindow: Cannot set opacity for non-raster windows"
 argument_list|)
 expr_stmt|;
 comment|// Nothing to do here. The opacity is stored in the QWindow.

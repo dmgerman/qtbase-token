@@ -682,12 +682,10 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QEGLPlatformContext::init: eglError: %x, this: %p \n"
+literal|"QEGLPlatformContext: Failed to create context: %x"
 argument_list|,
 name|eglGetError
 argument_list|()
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1593,12 +1591,10 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QEGLPlatformContext::makeCurrent: eglError: %x, this: %p \n"
+literal|"QEGLPlatformContext: eglMakeCurrent failed: %x"
 argument_list|,
 name|eglGetError
 argument_list|()
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -1670,12 +1666,10 @@ name|ok
 condition|)
 name|qWarning
 argument_list|(
-literal|"QEGLPlatformContext::doneCurrent(): eglError: %d, this: %p \n"
+literal|"QEGLPlatformContext: eglMakeCurrent failed: %x"
 argument_list|,
 name|eglGetError
 argument_list|()
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -1722,12 +1716,10 @@ name|ok
 condition|)
 name|qWarning
 argument_list|(
-literal|"QEGLPlatformContext::swapBuffers(): eglError: %d, this: %p \n"
+literal|"QEGLPlatformContext: eglSwapBuffers failed: %x"
 argument_list|,
 name|eglGetError
 argument_list|()
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}

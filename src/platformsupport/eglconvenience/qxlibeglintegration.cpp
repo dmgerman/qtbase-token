@@ -5,8 +5,21 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QLoggingCategory>
+end_include
+begin_include
+include|#
+directive|include
 file|"qxlibeglintegration_p.h"
 end_include
+begin_macro
+name|Q_LOGGING_CATEGORY
+argument_list|(
+argument|lcXlibEglDebug
+argument_list|,
+literal|"qt.egl.xlib.debug"
+argument_list|)
+end_macro
 begin_function
 DECL|function|getCompatibleVisualId
 name|VisualID
@@ -293,12 +306,12 @@ name|visualId
 operator|=
 literal|0
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_DEBUG_X11_VISUAL_SELECTION
-name|qWarning
+name|qCWarning
 argument_list|(
-literal|"Warning: EGL suggested using X Visual ID %d (%d %d %d depth %d) for EGL config %d (%d %d %d %d), but this is incompatible"
+name|lcXlibEglDebug
+argument_list|,
+literal|"EGL suggested using X Visual ID %d (%d %d %d depth %d) for EGL config %d"
+literal|"(%d %d %d %d), but this is incompatible"
 argument_list|,
 operator|(
 name|int
@@ -326,15 +339,15 @@ argument_list|,
 name|configAlphaSize
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 else|else
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
-literal|"Warning: EGL suggested using X Visual ID %d for EGL config %d, but that isn't a valid ID"
+name|lcXlibEglDebug
+argument_list|,
+literal|"EGL suggested using X Visual ID %d for EGL config %d, but that isn't a valid ID"
 argument_list|,
 operator|(
 name|int
@@ -355,48 +368,31 @@ name|chosenVisualInfo
 argument_list|)
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|QT_DEBUG_X11_VISUAL_SELECTION
 else|else
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcXlibEglDebug
+argument_list|,
 literal|"EGL did not suggest a VisualID (EGL_NATIVE_VISUAL_ID was zero) for EGLConfig %d"
 argument_list|,
 name|configId
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|visualId
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_DEBUG_X11_VISUAL_SELECTION
-if|if
-condition|(
+name|qCDebug
+argument_list|(
+name|lcXlibEglDebug
+argument_list|,
 name|configAlphaSize
 operator|>
 literal|0
-condition|)
-name|qDebug
-argument_list|(
+condition|?
 literal|"Using ARGB Visual ID %d provided by EGL for config %d"
-argument_list|,
-operator|(
-name|int
-operator|)
-name|visualId
-argument_list|,
-name|configId
-argument_list|)
-expr_stmt|;
-else|else
-name|qDebug
-argument_list|(
+else|:
 literal|"Using Opaque Visual ID %d provided by EGL for config %d"
 argument_list|,
 operator|(
@@ -407,8 +403,6 @@ argument_list|,
 name|configId
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|visualId
 return|;
@@ -531,11 +525,10 @@ condition|(
 name|visualId
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_DEBUG_X11_VISUAL_SELECTION
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcXlibEglDebug
+argument_list|,
 literal|"Using Visual ID %d provided by XGetVisualInfo for EGL config %d"
 argument_list|,
 operator|(
@@ -546,8 +539,6 @@ argument_list|,
 name|configId
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|visualId
 return|;

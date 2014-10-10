@@ -1292,7 +1292,7 @@ name|cfg
 condition|)
 name|qWarning
 argument_list|(
-literal|"Cant find EGLConfig, returning null config"
+literal|"Cannot find EGLConfig, returning null config"
 argument_list|)
 expr_stmt|;
 return|return
