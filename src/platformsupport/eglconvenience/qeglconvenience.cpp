@@ -2386,6 +2386,25 @@ name|h
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|w
+operator|<=
+literal|0
+operator|||
+name|h
+operator|<=
+literal|0
+condition|)
+name|qWarning
+argument_list|(
+literal|"Unable to query physical screen size, defaulting to %d dpi.\n"
+literal|"To override, set QT_QPA_EGLFS_PHYSICAL_WIDTH "
+literal|"and QT_QPA_EGLFS_PHYSICAL_HEIGHT (in millimeters)."
+argument_list|,
+name|defaultPhysicalDpi
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|size
