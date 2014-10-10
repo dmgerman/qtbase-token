@@ -249,7 +249,10 @@ literal|0
 condition|)
 block|{
 comment|// First step: is the extension known ?
+name|QCFType
+argument_list|<
 name|CFStringRef
+argument_list|>
 name|extensionRef
 init|=
 name|QCFString
@@ -259,7 +262,10 @@ argument_list|(
 name|suffix
 argument_list|)
 decl_stmt|;
+name|QCFType
+argument_list|<
 name|CFStringRef
+argument_list|>
 name|uniformTypeIdentifier
 init|=
 name|UTTypeCreatePreferredIdentifierForTag
@@ -284,7 +290,10 @@ return|return
 literal|true
 return|;
 comment|// Second step: check if an application knows the package type
+name|QCFType
+argument_list|<
 name|CFStringRef
+argument_list|>
 name|path
 init|=
 name|QCFString
