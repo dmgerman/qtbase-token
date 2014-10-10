@@ -25288,11 +25288,12 @@ break|break;
 case|case
 name|PM_SubMenuOverlap
 case|:
-return|return
+name|val
+operator|=
 operator|-
 literal|1
-return|;
-comment|// Do not dpi-scale because the value is magic
+expr_stmt|;
+break|break;
 case|case
 name|PM_DockWidgetHandleExtent
 case|:
