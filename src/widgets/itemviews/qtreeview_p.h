@@ -949,6 +949,16 @@ argument|const QModelIndex&idx
 argument_list|)
 specifier|const
 block|{
+if|if
+condition|(
+name|hiddenIndexes
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|false
+return|;
 comment|//We first check if the idx is a QPersistentModelIndex, because creating QPersistentModelIndex is slow
 return|return
 name|isPersistent
@@ -964,13 +974,16 @@ name|idx
 argument_list|)
 return|;
 block|}
+end_decl_stmt
+begin_decl_stmt
 specifier|inline
 name|bool
 name|isItemHiddenOrDisabled
 argument_list|(
-argument|int i
+name|int
+name|i
 argument_list|)
-specifier|const
+decl|const
 block|{
 if|if
 condition|(
@@ -991,7 +1004,7 @@ return|;
 specifier|const
 name|QModelIndex
 name|index
-operator|=
+init|=
 name|viewItems
 operator|.
 name|at
@@ -1000,7 +1013,7 @@ name|i
 argument_list|)
 operator|.
 name|index
-block|;
+decl_stmt|;
 return|return
 name|isRowHidden
 argument_list|(
