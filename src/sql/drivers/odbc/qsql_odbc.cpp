@@ -1897,10 +1897,6 @@ condition|(
 name|lengthIndicator
 operator|==
 name|SQL_NULL_DATA
-operator|||
-name|lengthIndicator
-operator|==
-name|SQL_NO_TOTAL
 condition|)
 block|{
 name|fieldVal
@@ -1909,6 +1905,30 @@ name|clear
 argument_list|()
 expr_stmt|;
 break|break;
+block|}
+comment|// starting with ODBC Native Client 2012, SQL_NO_TOTAL is returned
+comment|// instead of the length (which sometimes was wrong in older versions)
+comment|// see link for more info: http://msdn.microsoft.com/en-us/library/jj219209.aspx
+comment|// if length indicator equals SQL_NO_TOTAL, indicating that
+comment|// more data can be fetched, but size not known, collect data
+comment|// and fetch next block
+if|if
+condition|(
+name|lengthIndicator
+operator|==
+name|SQL_NO_TOTAL
+condition|)
+block|{
+name|fieldVal
+operator|+=
+name|fromSQLTCHAR
+argument_list|(
+name|buf
+argument_list|,
+name|colSize
+argument_list|)
+expr_stmt|;
+continue|continue;
 block|}
 comment|// if SQL_SUCCESS_WITH_INFO is returned, indicating that
 comment|// more data can be fetched, the length indicator does NOT
