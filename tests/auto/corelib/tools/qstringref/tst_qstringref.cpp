@@ -16565,11 +16565,6 @@ name|ref
 operator|.
 name|right
 argument_list|(
-name|ref
-operator|.
-name|size
-argument_list|()
-operator|-
 literal|6
 argument_list|)
 operator|.
@@ -16617,7 +16612,7 @@ argument_list|()
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"OrginalString"
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;

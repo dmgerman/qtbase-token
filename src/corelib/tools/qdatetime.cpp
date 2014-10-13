@@ -13330,6 +13330,11 @@ name|isoString
 operator|.
 name|right
 argument_list|(
+name|isoString
+operator|.
+name|length
+argument_list|()
+operator|-
 literal|11
 argument_list|)
 expr_stmt|;
