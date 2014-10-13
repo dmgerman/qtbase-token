@@ -51,6 +51,12 @@ specifier|const
 name|QString
 operator|&
 name|specification
+argument_list|,
+name|QObject
+operator|*
+name|parent
+operator|=
+literal|0
 argument_list|)
 block|;
 operator|~

@@ -64,8 +64,17 @@ specifier|const
 name|QString
 operator|&
 name|specification
+argument_list|,
+name|QObject
+operator|*
+name|parent
 argument_list|)
 range|:
+name|QObject
+argument_list|(
+name|parent
+argument_list|)
+decl_stmt|,
 name|m_notify
 argument_list|(
 literal|0
