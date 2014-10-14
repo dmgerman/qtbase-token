@@ -396,6 +396,10 @@ condition|(
 name|id
 operator|==
 name|IID_IUnknown
+operator|||
+name|id
+operator|==
+name|IID_IAccessibleRelation
 condition|)
 operator|*
 name|iface
