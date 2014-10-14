@@ -116,6 +116,12 @@ name|knownFlagsMask
 argument_list|(
 literal|0
 argument_list|)
+operator|,
+name|size_
+argument_list|(
+argument|-
+literal|1
+argument_list|)
 block|{     }
 expr|enum
 name|MetaDataFlag
