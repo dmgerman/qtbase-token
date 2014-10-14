@@ -9434,7 +9434,7 @@ condition|(
 operator|!
 name|m_screen
 operator|->
-name|availableGeometry
+name|geometry
 argument_list|()
 operator|.
 name|intersects
@@ -9454,7 +9454,7 @@ if|if
 condition|(
 name|screen
 operator|->
-name|availableGeometry
+name|geometry
 argument_list|()
 operator|.
 name|intersects
