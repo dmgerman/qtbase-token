@@ -78,6 +78,13 @@ argument_list|,
 argument|int height
 argument_list|)
 block|;
+name|QOpenGLPaintDevice
+argument_list|(
+name|QOpenGLPaintDevicePrivate
+operator|*
+name|dd
+argument_list|)
+block|;
 name|virtual
 operator|~
 name|QOpenGLPaintDevice
@@ -161,17 +168,7 @@ specifier|const
 block|;
 name|virtual
 name|void
-name|beginPaint
-argument_list|()
-block|;
-name|virtual
-name|void
 name|ensureActiveTarget
-argument_list|()
-block|;
-name|virtual
-name|void
-name|endPaint
 argument_list|()
 block|;
 name|protected

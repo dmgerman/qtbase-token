@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qopenglpaintdevice_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qobject_p.h>
 end_include
 begin_include
@@ -56,53 +61,6 @@ end_macro
 begin_comment
 comment|/*!     \class QOpenGLPaintDevice     \brief The QOpenGLPaintDevice class enables painting to an OpenGL context using QPainter.     \since 5.0     \inmodule QtGui      \ingroup painting-3D      The QOpenGLPaintDevice uses the \b current QOpenGL context to render     QPainter draw commands. The context is captured upon construction. It     requires support for OpenGL (ES) 2.0 or higher.      \section1 Performance      The QOpenGLPaintDevice is almost always hardware accelerated and     has the potential of being much faster than software     rasterization. However, it is more sensitive to state changes, and     therefore requires the drawing commands to be carefully ordered to     achieve optimal performance.      \section1 Antialiasing and Quality      Antialiasing in the OpenGL paint engine is done using     multisampling. Most hardware require significantly more memory to     do multisampling and the resulting quality is not on par with the     quality of the software paint engine. The OpenGL paint engine's     strength lies in its performance, not its visual rendering     quality.      \section1 State Changes      When painting to a QOpenGLPaintDevice using QPainter, the state of     the current OpenGL context will be altered by the paint engine to     reflect its needs.  Applications should not rely upon the OpenGL     state being reset to its original conditions, particularly the     current shader program, OpenGL viewport, texture units, and     drawing modes.      \section1 Mixing QPainter and OpenGL      When intermixing QPainter and OpenGL, it is important to notify     QPainter that the OpenGL state may have been cluttered so it can     restore its internal state. This is acheived by calling \l     QPainter::beginNativePainting() before starting the OpenGL     rendering and calling \l QPainter::endNativePainting() after     finishing.      \sa {OpenGL Window Example}  */
 end_comment
-begin_class
-DECL|class|QOpenGLPaintDevicePrivate
-class|class
-name|QOpenGLPaintDevicePrivate
-block|{
-public|public:
-name|QOpenGLPaintDevicePrivate
-parameter_list|(
-specifier|const
-name|QSize
-modifier|&
-name|size
-parameter_list|)
-constructor_decl|;
-DECL|member|size
-name|QSize
-name|size
-decl_stmt|;
-DECL|member|ctx
-name|QOpenGLContext
-modifier|*
-name|ctx
-decl_stmt|;
-DECL|member|dpmx
-name|qreal
-name|dpmx
-decl_stmt|;
-DECL|member|dpmy
-name|qreal
-name|dpmy
-decl_stmt|;
-DECL|member|devicePixelRatio
-name|qreal
-name|devicePixelRatio
-decl_stmt|;
-DECL|member|flipped
-name|bool
-name|flipped
-decl_stmt|;
-DECL|member|engine
-name|QPaintEngine
-modifier|*
-name|engine
-decl_stmt|;
-block|}
-class|;
-end_class
 begin_comment
 comment|/*!     Constructs a QOpenGLPaintDevice.      The QOpenGLPaintDevice is only valid for the current context.      \sa QOpenGLContext::currentContext() */
 end_comment
@@ -177,6 +135,26 @@ argument_list|,
 name|height
 argument_list|)
 argument_list|)
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
+comment|/*!     \internal  */
+end_comment
+begin_constructor
+DECL|function|QOpenGLPaintDevice
+name|QOpenGLPaintDevice
+operator|::
+name|QOpenGLPaintDevice
+parameter_list|(
+name|QOpenGLPaintDevicePrivate
+modifier|*
+name|dd
+parameter_list|)
+member_init_list|:
+name|d_ptr
+argument_list|(
+name|dd
 argument_list|)
 block|{ }
 end_constructor
@@ -764,18 +742,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   This virtual method is called when starting to paint.    The default implementation does nothing.    \sa endPaint()  */
-end_comment
-begin_function
-DECL|function|beginPaint
-name|void
-name|QOpenGLPaintDevice
-operator|::
-name|beginPaint
-parameter_list|()
-block|{ }
-end_function
-begin_comment
 comment|/*!     This virtual method is provided as a callback to allow re-binding a target     frame buffer object or context when different QOpenGLPaintDevice instances     are issuing draw calls alternately.      \l{QPainter::beginNativePainting()}{beginNativePainting()} will also trigger     this method.      The default implementation does nothing. */
 end_comment
 begin_function
@@ -784,18 +750,6 @@ name|void
 name|QOpenGLPaintDevice
 operator|::
 name|ensureActiveTarget
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|/*!   This virtual method is called when the painting has finished.    The default implementation does nothing.    \sa beginPaint() */
-end_comment
-begin_function
-DECL|function|endPaint
-name|void
-name|QOpenGLPaintDevice
-operator|::
-name|endPaint
 parameter_list|()
 block|{ }
 end_function
