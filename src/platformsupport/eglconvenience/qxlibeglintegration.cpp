@@ -306,7 +306,7 @@ name|visualId
 operator|=
 literal|0
 expr_stmt|;
-name|qCWarning
+name|qCDebug
 argument_list|(
 name|lcXlibEglDebug
 argument_list|,
@@ -343,7 +343,7 @@ block|}
 block|}
 else|else
 block|{
-name|qCWarning
+name|qCDebug
 argument_list|(
 name|lcXlibEglDebug
 argument_list|,
