@@ -3155,14 +3155,6 @@ argument_list|(
 name|QEventDispatcherWin32
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|d
-operator|->
-name|internalHwnd
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|d
@@ -3339,10 +3331,6 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// trigger a call to sendPostedEvents()
-name|wakeUp
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_constructor
@@ -3423,9 +3411,15 @@ name|d
 operator|->
 name|internalHwnd
 condition|)
+block|{
 name|createInternalHwnd
 argument_list|()
 expr_stmt|;
+name|wakeUp
+argument_list|()
+expr_stmt|;
+comment|// trigger a call to sendPostedEvents()
+block|}
 name|d
 operator|->
 name|interrupt
