@@ -12038,6 +12038,13 @@ name|this
 expr_stmt|;
 name|d
 operator|->
+name|device
+operator|->
+name|beginPaint
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
 name|funcs
 operator|.
 name|initializeOpenGLFunctions
@@ -12316,6 +12323,13 @@ name|Q_D
 argument_list|(
 name|QOpenGL2PaintEngineEx
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|device
+operator|->
+name|endPaint
+argument_list|()
 expr_stmt|;
 name|QOpenGLContext
 modifier|*

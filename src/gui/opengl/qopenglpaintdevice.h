@@ -161,7 +161,17 @@ specifier|const
 block|;
 name|virtual
 name|void
+name|beginPaint
+argument_list|()
+block|;
+name|virtual
+name|void
 name|ensureActiveTarget
+argument_list|()
+block|;
+name|virtual
+name|void
+name|endPaint
 argument_list|()
 block|;
 name|protected

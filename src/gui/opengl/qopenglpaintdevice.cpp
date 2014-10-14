@@ -764,7 +764,19 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This virtual method is provided as a callback to allow re-binding a target     frame buffer object or context when different QOpenGLPaintDevice instances     are issuing draw calls alternately.      QPainter::beginNativePainting will also trigger this method. */
+comment|/*!   This virtual method is called when starting to paint.    The default implementation does nothing.    \sa endPaint()  */
+end_comment
+begin_function
+DECL|function|beginPaint
+name|void
+name|QOpenGLPaintDevice
+operator|::
+name|beginPaint
+parameter_list|()
+block|{ }
+end_function
+begin_comment
+comment|/*!     This virtual method is provided as a callback to allow re-binding a target     frame buffer object or context when different QOpenGLPaintDevice instances     are issuing draw calls alternately.      \l{QPainter::beginNativePainting()}{beginNativePainting()} will also trigger     this method.      The default implementation does nothing. */
 end_comment
 begin_function
 DECL|function|ensureActiveTarget
@@ -772,6 +784,18 @@ name|void
 name|QOpenGLPaintDevice
 operator|::
 name|ensureActiveTarget
+parameter_list|()
+block|{ }
+end_function
+begin_comment
+comment|/*!   This virtual method is called when the painting has finished.    The default implementation does nothing.    \sa beginPaint() */
+end_comment
+begin_function
+DECL|function|endPaint
+name|void
+name|QOpenGLPaintDevice
+operator|::
+name|endPaint
 parameter_list|()
 block|{ }
 end_function
