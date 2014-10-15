@@ -108,7 +108,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_CORE_EXPORT
 name|QVersionNumber
 block|{
 name|public
@@ -525,6 +524,7 @@ name|size
 argument_list|()
 return|;
 block|}
+name|Q_CORE_EXPORT
 name|bool
 name|isPrefixOf
 argument_list|(
@@ -537,6 +537,7 @@ decl|const
 name|Q_DECL_NOTHROW
 name|Q_REQUIRED_RESULT
 decl_stmt|;
+name|Q_CORE_EXPORT
 specifier|static
 name|int
 name|compare
@@ -554,6 +555,7 @@ argument_list|)
 name|Q_DECL_NOTHROW
 name|Q_REQUIRED_RESULT
 decl_stmt|;
+name|Q_CORE_EXPORT
 specifier|static
 name|Q_DECL_PURE_FUNCTION
 name|QVersionNumber
@@ -571,12 +573,14 @@ name|v2
 argument_list|)
 name|Q_REQUIRED_RESULT
 decl_stmt|;
+name|Q_CORE_EXPORT
 name|QString
 name|toString
 argument_list|()
 specifier|const
 name|Q_REQUIRED_RESULT
 expr_stmt|;
+name|Q_CORE_EXPORT
 specifier|static
 name|Q_DECL_PURE_FUNCTION
 name|QVersionNumber
@@ -597,6 +601,7 @@ name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|private
 label|:
+name|Q_CORE_EXPORT
 specifier|static
 name|QVersionNumber
 name|normalizedImpl
