@@ -142,6 +142,15 @@ argument_list|(
 literal|"Transient Window"
 argument_list|)
 expr_stmt|;
+name|m_window
+operator|->
+name|setFlags
+argument_list|(
+name|Qt
+operator|::
+name|Dialog
+argument_list|)
+expr_stmt|;
 block|}
 name|m_window
 operator|->
