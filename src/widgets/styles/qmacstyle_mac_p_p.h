@@ -386,6 +386,12 @@ name|QCocoaPushButton
 block|,
 DECL|enumerator|QCocoaRadioButton
 name|QCocoaRadioButton
+block|,
+DECL|enumerator|QCocoaHorizontalSlider
+name|QCocoaHorizontalSlider
+block|,
+DECL|enumerator|QCocoaVerticalSlider
+name|QCocoaVerticalSlider
 block|}
 enum|;
 end_enum
