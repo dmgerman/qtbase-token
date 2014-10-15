@@ -6574,7 +6574,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Causes an alert to be shown for \a msec miliseconds. If \a msec is \c 0 (the     default), then the alert is shown indefinitely until the window becomes     active again.      In alert state, the window indicates that it demands attention, for example by     flashing or bouncing the taskbar entry.      \since 5.1 */
+comment|/*!     Causes an alert to be shown for \a msec miliseconds. If \a msec is \c 0 (the     default), then the alert is shown indefinitely until the window becomes     active again. This function has no effect on an active window.      In alert state, the window indicates that it demands attention, for example by     flashing or bouncing the taskbar entry.      \since 5.1 */
 end_comment
 begin_function
 DECL|function|alert
@@ -6604,6 +6604,9 @@ operator|->
 name|platformWindow
 operator|->
 name|isAlertState
+argument_list|()
+operator|||
+name|isActive
 argument_list|()
 condition|)
 return|return;
