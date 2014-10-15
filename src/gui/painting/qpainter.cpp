@@ -23805,6 +23805,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|state
 operator|->
 name|renderHints
@@ -23812,6 +23813,7 @@ operator|&
 name|QPainter
 operator|::
 name|Antialiasing
+operator|)
 operator|&&
 name|state
 operator|->

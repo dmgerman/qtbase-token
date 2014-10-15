@@ -6318,11 +6318,13 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|option
 operator|->
 name|state
 operator|&
 name|State_Selected
+operator|)
 condition|)
 block|{
 break|break;
