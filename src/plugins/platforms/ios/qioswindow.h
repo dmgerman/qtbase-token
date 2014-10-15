@@ -149,6 +149,11 @@ name|false
 argument_list|)
 expr_stmt|;
 block|}
+name|bool
+name|shouldAutoActivateWindow
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|requestActivateWindow
 parameter_list|()
