@@ -2801,6 +2801,132 @@ if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
+literal|0x10001000L
+end_if
+begin_macro
+name|DEFINEFUNC5
+argument_list|(
+argument|int
+argument_list|,
+argument|SSL_get_ex_new_index
+argument_list|,
+argument|long argl
+argument_list|,
+argument|argl
+argument_list|,
+argument|void *argp
+argument_list|,
+argument|argp
+argument_list|,
+argument|CRYPTO_EX_new *new_func
+argument_list|,
+argument|new_func
+argument_list|,
+argument|CRYPTO_EX_dup *dup_func
+argument_list|,
+argument|dup_func
+argument_list|,
+argument|CRYPTO_EX_free *free_func
+argument_list|,
+argument|free_func
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|int
+argument_list|,
+argument|SSL_set_ex_data
+argument_list|,
+argument|SSL *ssl
+argument_list|,
+argument|ssl
+argument_list|,
+argument|int idx
+argument_list|,
+argument|idx
+argument_list|,
+argument|void *arg
+argument_list|,
+argument|arg
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|void *
+argument_list|,
+argument|SSL_get_ex_data
+argument_list|,
+argument|const SSL *ssl
+argument_list|,
+argument|ssl
+argument_list|,
+argument|int idx
+argument_list|,
+argument|idx
+argument_list|,
+argument|return NULL
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10001000L
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_PSK
+argument_list|)
+end_if
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|void
+argument_list|,
+argument|SSL_set_psk_client_callback
+argument_list|,
+argument|SSL* ssl
+argument_list|,
+argument|ssl
+argument_list|,
+argument|q_psk_client_callback_t callback
+argument_list|,
+argument|callback
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
 literal|0x10000000L
 end_if
 begin_ifndef
@@ -6596,6 +6722,42 @@ name|RESOLVEFUNC
 argument_list|(
 argument|SSL_get_session
 argument_list|)
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10001000L
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_get_ex_new_index
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_set_ex_data
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_get_ex_data
+argument_list|)
+endif|#
+directive|endif
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10001000L
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|OPENSSL_NO_PSK
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSL_set_psk_client_callback
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|SSL_write

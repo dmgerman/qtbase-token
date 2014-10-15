@@ -287,6 +287,18 @@ operator|>
 expr|>
 name|errorList
 block|;
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10001000L
+specifier|static
+name|int
+name|s_indexForSSLExtraData
+block|;
+comment|// index used in SSL_get_ex_data to get the matching QSslSocketBackendPrivate
+endif|#
+directive|endif
 comment|// Platform specific functions
 name|void
 name|startClientEncryption
@@ -339,6 +351,21 @@ block|;
 name|bool
 name|checkSslErrors
 argument_list|()
+block|;
+name|unsigned
+name|int
+name|tlsPskClientCallback
+argument_list|(
+argument|const char *hint
+argument_list|,
+argument|char *identity
+argument_list|,
+argument|unsigned int max_identity_len
+argument_list|,
+argument|unsigned char *psk
+argument_list|,
+argument|unsigned int max_psk_len
+argument_list|)
 block|;
 ifdef|#
 directive|ifdef

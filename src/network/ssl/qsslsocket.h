@@ -77,6 +77,12 @@ name|QSslEllipticCurve
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QSslPreSharedKeyAuthenticator
+name|class
+name|QSslPreSharedKeyAuthenticator
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QSslSocketPrivate
 name|class
 name|QSslSocketPrivate
@@ -801,6 +807,14 @@ name|void
 name|encryptedBytesWritten
 argument_list|(
 argument|qint64 totalBytes
+argument_list|)
+block|;
+name|void
+name|preSharedKeyAuthenticationRequired
+argument_list|(
+name|QSslPreSharedKeyAuthenticator
+operator|*
+name|authenticator
 argument_list|)
 block|;
 name|protected
