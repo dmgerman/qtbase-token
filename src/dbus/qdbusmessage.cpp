@@ -2161,6 +2161,18 @@ name|isReplyRequired
 parameter_list|()
 specifier|const
 block|{
+comment|// Only method calls can have replies
+if|if
+condition|(
+name|d_ptr
+operator|->
+name|type
+operator|!=
+name|DBUS_MESSAGE_TYPE_METHOD_CALL
+condition|)
+return|return
+literal|false
+return|;
 if|if
 condition|(
 operator|!
