@@ -3208,6 +3208,50 @@ literal|"int TestClass1::operator>(int)"
 operator|<<
 literal|"TestClass1::operator>"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"objc_1"
+argument_list|)
+operator|<<
+literal|"-[SomeClass someMethod:withArguments:]"
+operator|<<
+literal|"-[SomeClass someMethod:withArguments:]"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"objc_2"
+argument_list|)
+operator|<<
+literal|"+[SomeClass withClassMethod:withArguments:]"
+operator|<<
+literal|"+[SomeClass withClassMethod:withArguments:]"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"objc_3"
+argument_list|)
+operator|<<
+literal|"-[SomeClass someMethodWithoutArguments]"
+operator|<<
+literal|"-[SomeClass someMethodWithoutArguments]"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"objc_4"
+argument_list|)
+operator|<<
+literal|"__31-[SomeClass someMethodSchedulingBlock]_block_invoke"
+operator|<<
+literal|"__31-[SomeClass someMethodSchedulingBlock]_block_invoke"
+expr_stmt|;
 block|}
 end_function
 begin_endif
