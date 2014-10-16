@@ -15269,7 +15269,7 @@ return|;
 name|int
 name|ret
 init|=
-name|QWindowsStylePrivate
+name|QWindowsVistaStylePrivate
 operator|::
 name|fixedPixelMetric
 argument_list|(
