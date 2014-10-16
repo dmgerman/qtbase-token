@@ -11771,14 +11771,17 @@ expr_stmt|;
 block|}
 comment|// Intentionally does not compile.
 comment|//     QWeakPointer<int> sop = qWeakPointerFromVariant<int>(v);
+name|QFile
+name|file
+decl_stmt|;
 name|QWeakPointer
 argument_list|<
 name|QFile
 argument_list|>
 name|tracking
 init|=
-operator|new
-name|QFile
+operator|&
+name|file
 decl_stmt|;
 name|tracking
 operator|.
