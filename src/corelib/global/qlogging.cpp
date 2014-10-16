@@ -4598,35 +4598,10 @@ argument_list|(
 name|str
 argument_list|)
 expr_stmt|;
-name|message
-operator|.
-name|append
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'\n'
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 name|message
 return|;
 block|}
-comment|// don't print anything if pattern was empty
-if|if
-condition|(
-name|pattern
-operator|->
-name|tokens
-index|[
-literal|0
-index|]
-operator|==
-literal|0
-condition|)
-return|return
-name|message
-return|;
 name|bool
 name|skip
 init|=
@@ -5517,16 +5492,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|message
-operator|.
-name|append
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'\n'
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 name|message
 return|;
@@ -5889,7 +5854,7 @@ name|priority
 argument_list|,
 literal|"Qt"
 argument_list|,
-literal|"%s:%d (%s): %s"
+literal|"%s:%d (%s): %s\n"
 argument_list|,
 name|context
 operator|.
@@ -5953,6 +5918,16 @@ argument_list|,
 name|buf
 argument_list|)
 decl_stmt|;
+comment|// print nothing if message pattern didn't apply / was empty.
+comment|// (still print empty lines, e.g. because message itself was empty)
+if|if
+condition|(
+name|logMessage
+operator|.
+name|isNull
+argument_list|()
+condition|)
+return|return;
 if|if
 condition|(
 operator|!
@@ -5966,6 +5941,16 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+name|logMessage
+operator|.
+name|append
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\n'
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|OutputDebugString
 argument_list|(
 cast|reinterpret_cast
@@ -5989,6 +5974,16 @@ name|defined
 argument_list|(
 name|QT_USE_SLOG2
 argument_list|)
+name|logMessage
+operator|.
+name|append
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\n'
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|slog2_default_handler
 argument_list|(
 name|type
@@ -6015,14 +6010,6 @@ name|defined
 argument_list|(
 name|QT_BOOTSTRAPPED
 argument_list|)
-comment|// remove trailing \n, systemd appears to want them newline-less
-name|logMessage
-operator|.
-name|chop
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|systemd_default_message_handler
 argument_list|(
 name|type
@@ -6056,7 +6043,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s"
+literal|"%s\n"
 argument_list|,
 name|logMessage
 operator|.
