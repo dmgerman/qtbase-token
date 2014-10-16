@@ -202,6 +202,9 @@ name|m_currentWindow
 block|;
 name|QMutex
 name|m_windowLock
+block|;
+name|QColor
+name|m_backgroundColor
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -224,6 +227,12 @@ name|Renderer
 operator|>
 operator|&
 name|renderer
+argument_list|,
+name|QScreen
+operator|*
+name|screen
+operator|=
+literal|0
 argument_list|)
 block|;
 name|QColor
