@@ -130,15 +130,10 @@ name|QStateMachine
 name|machine
 decl_stmt|;
 name|QObject
-modifier|*
 name|object
-init|=
-operator|new
-name|QObject
-argument_list|()
 decl_stmt|;
 name|object
-operator|->
+operator|.
 name|setProperty
 argument_list|(
 literal|"fooBar"
@@ -161,6 +156,7 @@ name|s1
 operator|->
 name|assignProperty
 argument_list|(
+operator|&
 name|object
 argument_list|,
 literal|"fooBar"
@@ -188,7 +184,7 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|object
-operator|->
+operator|.
 name|property
 argument_list|(
 literal|"fooBar"
@@ -214,15 +210,10 @@ name|QStateMachine
 name|machine
 decl_stmt|;
 name|QObject
-modifier|*
 name|object
-init|=
-operator|new
-name|QObject
-argument_list|()
 decl_stmt|;
 name|object
-operator|->
+operator|.
 name|setProperty
 argument_list|(
 literal|"fooBar"
@@ -245,6 +236,7 @@ name|s1
 operator|->
 name|assignProperty
 argument_list|(
+operator|&
 name|object
 argument_list|,
 literal|"fooBar"
@@ -256,6 +248,7 @@ name|s1
 operator|->
 name|assignProperty
 argument_list|(
+operator|&
 name|object
 argument_list|,
 literal|"fooBar"
@@ -283,7 +276,7 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|object
-operator|->
+operator|.
 name|property
 argument_list|(
 literal|"fooBar"
