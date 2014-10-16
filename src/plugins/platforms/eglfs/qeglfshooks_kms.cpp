@@ -913,7 +913,7 @@ name|m_device
 argument_list|)
 expr_stmt|;
 return|return
-cast|static_cast
+cast|reinterpret_cast
 argument_list|<
 name|EGLNativeDisplayType
 argument_list|>
