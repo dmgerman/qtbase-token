@@ -746,14 +746,14 @@ operator|*
 name|cocoaControl
 argument_list|(
 argument|QCocoaWidget widget
-argument_list|,
-argument|QPoint *offset
 argument_list|)
 specifier|const
 block|;
 name|void
 name|drawNSViewInRect
 argument_list|(
+argument|QCocoaWidget widget
+argument_list|,
 argument|NSView *view
 argument_list|,
 argument|const QRect&rect
