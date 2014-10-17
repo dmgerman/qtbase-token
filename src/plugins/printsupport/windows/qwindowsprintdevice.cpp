@@ -1860,10 +1860,7 @@ name|LONG
 index|[
 name|resCount
 operator|*
-sizeof|sizeof
-argument_list|(
-name|LONG
-argument_list|)
+literal|2
 index|]
 argument_list|)
 decl_stmt|;
@@ -1910,10 +1907,13 @@ operator|<
 name|int
 argument_list|(
 name|resCount
+operator|*
+literal|2
 argument_list|)
 condition|;
-operator|++
 name|i
+operator|+=
+literal|2
 control|)
 name|m_resolutions
 operator|.
@@ -1922,6 +1922,8 @@ argument_list|(
 name|resolutions
 index|[
 name|i
+operator|+
+literal|1
 index|]
 argument_list|)
 expr_stmt|;
