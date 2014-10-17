@@ -66552,6 +66552,10 @@ expr_stmt|;
 operator|delete
 name|modal
 expr_stmt|;
+name|modal
+operator|=
+name|Q_NULLPTR
+expr_stmt|;
 block|}
 DECL|function|doMouseMoves
 name|void
