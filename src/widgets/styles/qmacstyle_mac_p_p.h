@@ -381,6 +381,10 @@ DECL|enumerator|QCocoaPopupButton
 name|QCocoaPopupButton
 block|,
 comment|// Non-editable QComboBox
+DECL|enumerator|QCocoaPullDownButton
+name|QCocoaPullDownButton
+block|,
+comment|// QPushButton with menu
 DECL|enumerator|QCocoaPushButton
 name|QCocoaPushButton
 block|,
