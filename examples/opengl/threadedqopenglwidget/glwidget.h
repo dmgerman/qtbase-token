@@ -281,11 +281,14 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|GLWidget
 argument_list|(
 name|QWidget
 operator|*
 name|parent
+operator|=
+literal|0
 argument_list|)
 block|;
 operator|~

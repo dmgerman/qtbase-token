@@ -25949,12 +25949,12 @@ name|QStringRef
 argument_list|(
 name|m_string
 argument_list|,
+name|m_size
+operator|-
 name|n
 operator|+
 name|m_position
 argument_list|,
-name|m_size
-operator|-
 name|n
 argument_list|)
 return|;

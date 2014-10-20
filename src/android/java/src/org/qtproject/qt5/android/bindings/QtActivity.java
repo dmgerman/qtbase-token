@@ -564,7 +564,7 @@ specifier|final
 name|int
 name|MINISTRO_API_LEVEL
 init|=
-literal|4
+literal|5
 decl_stmt|;
 comment|// Ministro api level (check IMinistro.aidl file)
 DECL|field|NECESSITAS_API_LEVEL

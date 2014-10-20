@@ -3608,6 +3608,34 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+return|return
+name|QJNIObjectPrivate
+operator|::
+name|getStaticObjectField
+argument_list|(
+literal|"android/os/Build$VERSION"
+argument_list|,
+literal|"RELEASE"
+argument_list|,
+literal|"Ljava/lang/String;"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+return|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+comment|// Q_OS_ANDROID_NO_SDK
 comment|// TBD
 elif|#
 directive|elif

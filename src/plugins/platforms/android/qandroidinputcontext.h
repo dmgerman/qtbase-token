@@ -312,6 +312,17 @@ name|updateCursorPosition
 argument_list|()
 block|;
 name|private
+name|slots
+operator|:
+name|void
+name|showInputPanelLater
+argument_list|(
+name|Qt
+operator|::
+name|ApplicationState
+argument_list|)
+block|;
+name|private
 operator|:
 name|void
 name|sendInputMethodEventThreadSafe

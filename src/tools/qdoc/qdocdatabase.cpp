@@ -5829,6 +5829,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|// Recursively find child nodes with since commands.
 if|if
 condition|(
@@ -5840,7 +5841,6 @@ operator|->
 name|isInnerNode
 argument_list|()
 condition|)
-block|{
 name|findAllSince
 argument_list|(
 cast|static_cast
@@ -5854,8 +5854,6 @@ name|child
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 operator|++
 name|child
 expr_stmt|;

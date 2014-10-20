@@ -55,6 +55,12 @@ file|<QtPlatformSupport/private/qbasicfontdatabase_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QFontEngineFT
+name|class
+name|QFontEngineFT
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QFontconfigDatabase
 range|:
@@ -138,6 +144,17 @@ block|;
 name|QFont
 name|defaultFont
 argument_list|()
+specifier|const
+block|;
+name|private
+operator|:
+name|void
+name|setupFontEngine
+argument_list|(
+argument|QFontEngineFT *engine
+argument_list|,
+argument|const QFontDef&fontDef
+argument_list|)
 specifier|const
 block|; }
 decl_stmt|;

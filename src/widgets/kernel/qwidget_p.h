@@ -3140,6 +3140,16 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
+comment|// Called on setViewport().
+end_comment
+begin_function
+name|virtual
+name|void
+name|initializeViewportFramebuffer
+parameter_list|()
+block|{ }
+end_function
+begin_comment
 comment|// When using a QOpenGLWidget as viewport with QAbstractScrollArea, resize events are
 end_comment
 begin_comment

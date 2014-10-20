@@ -809,6 +809,11 @@ name|reinitialized
 init|=
 literal|false
 decl_stmt|;
+name|bool
+name|unsupportedProtocol
+init|=
+literal|false
+decl_stmt|;
 name|init_context
 label|:
 switch|switch
@@ -846,13 +851,17 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+comment|// SSL 2 not supported by the system, but chosen deliberately -> error
 name|sslContext
 operator|->
 name|ctx
 operator|=
 literal|0
 expr_stmt|;
-comment|// SSL 2 not supported by the system, but chosen deliberately -> error
+name|unsupportedProtocol
+operator|=
+literal|true
+expr_stmt|;
 endif|#
 directive|endif
 break|break;
@@ -959,13 +968,17 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+comment|// TLS 1.1 not supported by the system, but chosen deliberately -> error
 name|sslContext
 operator|->
 name|ctx
 operator|=
 literal|0
 expr_stmt|;
-comment|// TLS 1.1 not supported by the system, but chosen deliberately -> error
+name|unsupportedProtocol
+operator|=
+literal|true
+expr_stmt|;
 endif|#
 directive|endif
 break|break;
@@ -996,13 +1009,17 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+comment|// TLS 1.2 not supported by the system, but chosen deliberately -> error
 name|sslContext
 operator|->
 name|ctx
 operator|=
 literal|0
 expr_stmt|;
-comment|// TLS 1.2 not supported by the system, but chosen deliberately -> error
+name|unsupportedProtocol
+operator|=
+literal|true
+expr_stmt|;
 endif|#
 directive|endif
 break|break;
@@ -1051,6 +1068,15 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|unsupportedProtocol
+condition|?
+name|QSslSocket
+operator|::
+name|tr
+argument_list|(
+literal|"unsupported protocol"
+argument_list|)
+else|:
 name|QSslSocketBackendPrivate
 operator|::
 name|getErrorsFromOpenSsl

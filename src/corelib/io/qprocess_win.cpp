@@ -3402,10 +3402,10 @@ operator|!
 name|readyReadEmitted
 condition|)
 break|break;
-name|Sleep
-argument_list|(
-literal|100
-argument_list|)
+name|QThread
+operator|::
+name|yieldCurrentThread
+argument_list|()
 expr_stmt|;
 block|}
 return|return

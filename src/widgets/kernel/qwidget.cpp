@@ -24397,6 +24397,7 @@ condition|(
 name|w
 condition|)
 block|{
+comment|// Just like setFocus(), we update (clear) the focus_child of our parents
 if|if
 condition|(
 name|w
@@ -24425,6 +24426,9 @@ name|parentWidget
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Since focus_child is the basis for the top level QWidgetWindow's focusObject()
+comment|// we need to report this change to the rest of Qt, but we match setFocus() and
+comment|// do it at the end of the function.
 ifndef|#
 directive|ifndef
 name|QT_NO_GRAPHICSVIEW
@@ -24529,6 +24533,11 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
+block|}
+comment|// Since we've unconditionally cleared the focus_child of our parents, we need
+comment|// to report this to the rest of Qt. Note that the focus_child is not the same
+comment|// thing as the application's focusWidget, which is why this piece of code is
+comment|// not inside the hasFocus() block above.
 if|if
 condition|(
 name|QTLWExtra
@@ -24566,7 +24575,6 @@ name|focusObject
 argument_list|()
 argument_list|)
 emit|;
-block|}
 block|}
 block|}
 comment|/*!     \fn bool QWidget::focusNextChild()      Finds a new widget to give the keyboard focus to, as appropriate     for \uicontrol Tab, and returns \c true if it can find a new widget, or     false if it can't.      \sa focusPreviousChild() */
@@ -36248,6 +36256,15 @@ name|imHints
 operator|=
 name|hints
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|==
+name|qApp
+operator|->
+name|focusObject
+argument_list|()
+condition|)
 name|qApp
 operator|->
 name|inputMethod
@@ -41307,7 +41324,11 @@ operator|!
 name|internalWinId
 argument_list|()
 operator|&&
-name|hasFocus
+name|this
+operator|==
+name|qApp
+operator|->
+name|focusObject
 argument_list|()
 operator|&&
 name|focusWidget
@@ -41393,6 +41414,13 @@ operator|&&
 name|focusWidget
 operator|->
 name|isEnabled
+argument_list|()
+operator|&&
+name|this
+operator|==
+name|qApp
+operator|->
+name|focusObject
 argument_list|()
 operator|&&
 name|focusWidget
@@ -42868,6 +42896,15 @@ name|updateMicroFocus
 parameter_list|()
 block|{
 comment|// updating everything since this is currently called for any kind of state change
+if|if
+condition|(
+name|this
+operator|==
+name|qApp
+operator|->
+name|focusObject
+argument_list|()
+condition|)
 name|qApp
 operator|->
 name|inputMethod

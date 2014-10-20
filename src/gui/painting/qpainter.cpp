@@ -8862,7 +8862,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*!     Returns the currently clip as a path. Note that the clip path is     given in logical coordinates.      \warning QPainter does not store the combined clip explicitly as     this is handled by the underlying QPaintEngine, so the path is     recreated on demand and transformed to the current logical     coordinate system. This is potentially an expensive operation.      \sa setClipPath(), clipRegion(), setClipping() */
+comment|/*!     Returns the current clip path in logical coordinates.      \warning QPainter does not store the combined clip explicitly as     this is handled by the underlying QPaintEngine, so the path is     recreated on demand and transformed to the current logical     coordinate system. This is potentially an expensive operation.      \sa setClipPath(), clipRegion(), setClipping() */
 end_comment
 begin_function
 DECL|function|clipPath

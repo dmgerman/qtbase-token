@@ -11339,6 +11339,8 @@ name|showPopup
 argument_list|(
 name|tlw
 argument_list|,
+name|QRect
+argument_list|(
 name|tlw
 operator|->
 name|mapFromGlobal
@@ -11349,6 +11351,10 @@ name|mapToGlobal
 argument_list|(
 name|offset
 argument_list|)
+argument_list|)
+argument_list|,
+name|QSize
+argument_list|()
 argument_list|)
 argument_list|,
 name|currentItem

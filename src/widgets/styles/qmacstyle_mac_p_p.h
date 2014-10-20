@@ -381,11 +381,21 @@ DECL|enumerator|QCocoaPopupButton
 name|QCocoaPopupButton
 block|,
 comment|// Non-editable QComboBox
+DECL|enumerator|QCocoaPullDownButton
+name|QCocoaPullDownButton
+block|,
+comment|// QPushButton with menu
 DECL|enumerator|QCocoaPushButton
 name|QCocoaPushButton
 block|,
 DECL|enumerator|QCocoaRadioButton
 name|QCocoaRadioButton
+block|,
+DECL|enumerator|QCocoaHorizontalSlider
+name|QCocoaHorizontalSlider
+block|,
+DECL|enumerator|QCocoaVerticalSlider
+name|QCocoaVerticalSlider
 block|}
 enum|;
 end_enum
@@ -401,6 +411,20 @@ name|QAquaWidgetSize
 operator|>
 name|QCocoaWidget
 expr_stmt|;
+end_typedef
+begin_typedef
+typedef|typedef
+name|void
+function_decl|(
+modifier|^
+name|QCocoaDrawRectBlock
+function_decl|)
+parameter_list|(
+name|NSRect
+parameter_list|,
+name|CGContextRef
+parameter_list|)
+function_decl|;
 end_typedef
 begin_define
 DECL|macro|SIZE
@@ -735,6 +759,8 @@ argument_list|,
 argument|const QRect&rect
 argument_list|,
 argument|QPainter *p
+argument_list|,
+argument|QCocoaDrawRectBlock drawRectBlock = nil
 argument_list|)
 specifier|const
 block|;

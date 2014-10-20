@@ -72,6 +72,10 @@ literal|"QWindowsGuiEventDispatcher"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|createInternalHwnd
+argument_list|()
+expr_stmt|;
+comment|// QTBUG-40881: Do not delay registering timers, etc. for QtMfc.
 block|}
 end_constructor
 begin_function

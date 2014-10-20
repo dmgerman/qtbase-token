@@ -3432,18 +3432,6 @@ directive|define
 name|Q_COMPILER_AUTO_TYPE
 end_define
 begin_define
-DECL|macro|Q_COMPILER_DEFAULT_MEMBERS
-define|#
-directive|define
-name|Q_COMPILER_DEFAULT_MEMBERS
-end_define
-begin_define
-DECL|macro|Q_COMPILER_DELETE_MEMBERS
-define|#
-directive|define
-name|Q_COMPILER_DELETE_MEMBERS
-end_define
-begin_define
 DECL|macro|Q_COMPILER_EXTERN_TEMPLATES
 define|#
 directive|define
@@ -3537,6 +3525,21 @@ operator|)
 operator|>=
 literal|406
 end_if
+begin_comment
+comment|/* Pre-4.6 compilers implement a non-final snapshot of N2346, hence default and delete         * functions are supported only if they are public. Starting from 4.6, GCC handles         * final version - the access modifier is not relevant. */
+end_comment
+begin_define
+DECL|macro|Q_COMPILER_DEFAULT_MEMBERS
+define|#
+directive|define
+name|Q_COMPILER_DEFAULT_MEMBERS
+end_define
+begin_define
+DECL|macro|Q_COMPILER_DELETE_MEMBERS
+define|#
+directive|define
+name|Q_COMPILER_DELETE_MEMBERS
+end_define
 begin_comment
 comment|/* C++11 features supported in GCC 4.6: */
 end_comment

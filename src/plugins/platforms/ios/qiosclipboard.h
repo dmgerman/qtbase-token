@@ -19,6 +19,11 @@ end_empty
 begin_include
 include|#
 directive|include
+file|<QMimeData>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformclipboard.h>
 end_include
 begin_decl_stmt
@@ -38,6 +43,10 @@ name|QPlatformClipboard
 block|{
 name|public
 operator|:
+name|QIOSClipboard
+argument_list|()
+block|;
+operator|~
 name|QIOSClipboard
 argument_list|()
 block|;
@@ -79,6 +88,17 @@ operator|:
 name|QUIClipboard
 operator|*
 name|m_clipboard
+block|;
+name|QMap
+operator|<
+name|QClipboard
+operator|::
+name|Mode
+block|,
+name|QMimeData
+operator|*
+operator|>
+name|m_mimeData
 block|; }
 decl_stmt|;
 end_decl_stmt

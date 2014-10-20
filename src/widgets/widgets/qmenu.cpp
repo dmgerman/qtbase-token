@@ -17298,6 +17298,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|item
+operator|->
+name|setIcon
+argument_list|(
+name|QIcon
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|item
 operator|->
 name|setVisible

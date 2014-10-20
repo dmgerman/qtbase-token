@@ -2197,7 +2197,8 @@ return|;
 name|int
 name|pos
 decl_stmt|;
-comment|// skip trailing [with XXX] for templates (gcc)
+comment|// Skip trailing [with XXX] for templates (gcc), but make
+comment|// sure to not affect Objective-C message names.
 name|pos
 operator|=
 name|info
@@ -2215,6 +2216,23 @@ name|endsWith
 argument_list|(
 literal|']'
 argument_list|)
+operator|&&
+operator|!
+operator|(
+name|info
+operator|.
+name|startsWith
+argument_list|(
+literal|'+'
+argument_list|)
+operator|||
+name|info
+operator|.
+name|startsWith
+argument_list|(
+literal|'-'
+argument_list|)
+operator|)
 condition|)
 block|{
 while|while

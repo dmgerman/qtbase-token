@@ -1446,6 +1446,9 @@ name|str
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn uint qHash(const QSslCertificate&key, uint seed)      Returns the hash value for the \a key, using \a seed to seed the calculation.     \since 5.4     \relates QHash */
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

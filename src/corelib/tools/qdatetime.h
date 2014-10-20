@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qsharedpointer.h>
+file|<QtCore/qshareddata.h>
 end_include
 begin_include
 include|#

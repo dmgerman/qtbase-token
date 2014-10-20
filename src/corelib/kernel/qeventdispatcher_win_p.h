@@ -117,13 +117,11 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QEventDispatcherWin32
 argument_list|)
+name|protected
+operator|:
 name|void
 name|createInternalHwnd
 argument_list|()
-block|;
-name|friend
-name|class
-name|QGuiEventDispatcherWin32
 block|;
 name|public
 operator|:

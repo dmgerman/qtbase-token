@@ -308,6 +308,42 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_XDG_PLATFORM
+define|#
+directive|define
+name|Q_XDG_PLATFORM
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// ************************************************************************
 end_comment
@@ -5396,9 +5432,20 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_NO_STANDARDPATHS
+argument_list|)
+operator|||
+operator|!
+name|defined
+argument_list|(
+name|Q_XDG_PLATFORM
+argument_list|)
+comment|// Non XDG platforms (OS X, iOS, Blackberry, Android...) have used this code path erroneously
+comment|// for some time now. Moving away from that would require migrating existing settings.
 name|QString
 name|userPath
 decl_stmt|;
@@ -5481,6 +5528,9 @@ expr_stmt|;
 block|}
 else|#
 directive|else
+comment|// When using a proper XDG platform, use QStandardPaths rather than the above hand-written code;
+comment|// it makes the use of test mode from unit tests possible.
+comment|// Ideally all platforms should use this, but see above for the migration issue.
 name|QString
 name|userPath
 init|=
@@ -12002,6 +12052,21 @@ argument_list|(
 name|QSettings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|key
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSettings::setValue: Empty key passed"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|QString
 name|k
 init|=
@@ -12300,6 +12365,24 @@ specifier|const
 name|QSettings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|key
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSettings::value: Empty key passed"
+argument_list|)
+expr_stmt|;
+return|return
+name|QVariant
+argument_list|()
+return|;
+block|}
 name|QVariant
 name|result
 init|=

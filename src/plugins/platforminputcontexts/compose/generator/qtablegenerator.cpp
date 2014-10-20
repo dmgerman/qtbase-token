@@ -2215,8 +2215,7 @@ directive|ifdef
 name|DEBUG_GENERATOR
 if|if
 condition|(
-name|composeTable
-argument_list|()
+name|m_composeTable
 operator|.
 name|isEmpty
 argument_list|()
