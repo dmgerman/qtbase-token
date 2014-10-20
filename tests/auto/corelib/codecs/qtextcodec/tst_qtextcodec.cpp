@@ -956,6 +956,17 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"Apple Roman"
+argument_list|)
+operator|<<
+literal|"Apple Roman"
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"macintosh"
 argument_list|)
 operator|<<
