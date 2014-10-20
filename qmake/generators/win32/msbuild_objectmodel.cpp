@@ -70,6 +70,16 @@ literal|"Link"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|_Lib
+specifier|const
+name|char
+name|_Lib
+index|[]
+init|=
+literal|"Lib"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|_ManifestTool
 specifier|const
 name|char
@@ -5211,7 +5221,25 @@ operator|.
 name|compiler
 argument_list|)
 expr_stmt|;
-comment|// Link
+comment|// Librarian / Linker
+if|if
+condition|(
+name|config
+operator|.
+name|ConfigurationType
+operator|==
+name|typeStaticLibrary
+condition|)
+name|write
+argument_list|(
+name|xml
+argument_list|,
+name|config
+operator|.
+name|librarian
+argument_list|)
+expr_stmt|;
+else|else
 name|write
 argument_list|(
 name|xml
@@ -9781,7 +9809,7 @@ name|xml
 operator|<<
 name|tag
 argument_list|(
-name|_Link
+name|_Lib
 argument_list|)
 operator|<<
 name|attrTagX
@@ -9897,7 +9925,7 @@ comment|//unused<< attrTagT(_Verbose, tool.Verbose)
 operator|<<
 name|closetag
 argument_list|(
-name|_Link
+name|_Lib
 argument_list|)
 expr_stmt|;
 block|}
