@@ -39885,6 +39885,21 @@ name|w
 parameter_list|)
 specifier|const
 block|{
+comment|// Qt's fontDialog relies on the font of the sample edit for its selection,
+comment|// we should never override it.
+if|if
+condition|(
+name|w
+operator|->
+name|objectName
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"qt_fontDialog_sampleEdit"
+argument_list|)
+condition|)
+return|return;
 name|QWidget
 modifier|*
 name|container
