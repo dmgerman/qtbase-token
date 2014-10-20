@@ -15,6 +15,15 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!  * \class QOpenGLPixelTransferOptions  *  * \brief The QOpenGLPixelTransferOptions class describes the pixel storage  * modes that affect the unpacking of pixels during texture upload.  */
+end_comment
+begin_comment
+comment|/*!  * \fn QOpenGLPixelTransferOptions& QOpenGLPixelTransferOptions::operator=(QOpenGLPixelTransferOptions&&other)  * \internal  */
+end_comment
+begin_comment
+comment|/*!  * \fn void QOpenGLPixelTransferOptions::swap(QOpenGLPixelTransferOptions&other)  * \internal  */
+end_comment
 begin_class
 DECL|class|QOpenGLPixelTransferOptionsData
 class|class
@@ -103,6 +112,9 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_comment
+comment|/*!  * Constructs a new QOpenGLPixelTransferOptions instance with the default settings.  */
+end_comment
 begin_constructor
 DECL|function|QOpenGLPixelTransferOptions
 name|QOpenGLPixelTransferOptions
@@ -117,6 +129,9 @@ name|QOpenGLPixelTransferOptionsData
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!  * \internal  */
+end_comment
 begin_constructor
 DECL|function|QOpenGLPixelTransferOptions
 name|QOpenGLPixelTransferOptions
@@ -137,6 +152,9 @@ name|data
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!  * \internal  */
+end_comment
 begin_function
 DECL|function|operator =
 name|QOpenGLPixelTransferOptions
@@ -175,6 +193,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * Destructor.  */
+end_comment
 begin_destructor
 DECL|function|~QOpenGLPixelTransferOptions
 name|QOpenGLPixelTransferOptions
@@ -184,6 +205,9 @@ name|QOpenGLPixelTransferOptions
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!  * Sets the \a alignment requirements for each pixel row. Corresponds to \c GL_UNPACK_ALIGNMENT.  * The default value is 4, as specified by OpenGL.  */
+end_comment
 begin_function
 DECL|function|setAlignment
 name|void
@@ -203,6 +227,9 @@ name|alignment
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return the current alignment requirement for each pixel row.  */
+end_comment
 begin_function
 DECL|function|alignment
 name|int
@@ -219,6 +246,9 @@ name|alignment
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * Sets the number of images that are skipped to \a skipImages.  * Corresponds to \c GL_UNPACK_SKIP_IMAGES. Equivalent to incrementing the pointer  * passed to QOpenGLTexture::setData(). The default value is 0.  */
+end_comment
 begin_function
 DECL|function|setSkipImages
 name|void
@@ -238,6 +268,9 @@ name|skipImages
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return the number of images that are skipped.  */
+end_comment
 begin_function
 DECL|function|skipImages
 name|int
@@ -254,6 +287,9 @@ name|skipImages
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * Sets the number of rows that are skipped to \a skipRows.  * Corresponds to \c GL_UNPACK_SKIP_ROWS. Equivalent to incrementing the pointer  * passed to QOpenGLTexture::setData(). The default value is 0.  */
+end_comment
 begin_function
 DECL|function|setSkipRows
 name|void
@@ -273,6 +309,9 @@ name|skipRows
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return the number of rows that are skipped.  */
+end_comment
 begin_function
 DECL|function|skipRows
 name|int
@@ -289,6 +328,9 @@ name|skipRows
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * Sets the number of pixels that are skipped to \a skipPixels.  * Corresponds to \c GL_UNPACK_SKIP_PIXELS. Equivalent to incrementing the pointer  * passed to QOpenGLTexture::setData(). The default value is 0.  */
+end_comment
 begin_function
 DECL|function|setSkipPixels
 name|void
@@ -308,6 +350,9 @@ name|skipPixels
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return the number of pixels that are skipped.  */
+end_comment
 begin_function
 DECL|function|skipPixels
 name|int
@@ -324,6 +369,9 @@ name|skipPixels
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * Sets the image height for 3D textures to \a imageHeight.  * Corresponds to \c GL_UNPACK_IMAGE_HEIGHT.  * The default value is 0.  */
+end_comment
 begin_function
 DECL|function|setImageHeight
 name|void
@@ -343,6 +391,9 @@ name|imageHeight
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return the currently set image height.  */
+end_comment
 begin_function
 DECL|function|imageHeight
 name|int
@@ -359,6 +410,9 @@ name|imageHeight
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * Sets the number of pixels in a row to \a rowLength.  * Corresponds to \c GL_UNPACK_ROW_LENGTH.  * The default value is 0.  */
+end_comment
 begin_function
 DECL|function|setRowLength
 name|void
@@ -378,6 +432,9 @@ name|rowLength
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return the currently set row length.  */
+end_comment
 begin_function
 DECL|function|rowLength
 name|int
@@ -394,6 +451,9 @@ name|rowLength
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \a lsbFirst specifies if bits within a byte are ordered from least to most significat.  * The default value is \c false, meaning that the first bit in each byte is the  * most significant one. This is significant for bitmap data only.  * Corresponds to \c GL_UNPACK_LSB_FIRST.  */
+end_comment
 begin_function
 DECL|function|setLeastSignificantByteFirst
 name|void
@@ -413,6 +473,9 @@ name|lsbFirst
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return \c true if bits within a byte are ordered from least to most significant.  */
+end_comment
 begin_function
 DECL|function|isLeastSignificantBitFirst
 name|bool
@@ -429,6 +492,9 @@ name|lsbFirst
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \a swapBytes specifies if the byte ordering for multibyte components is reversed.  * The default value is \c false.  * Corresponds to \c GL_UNPACK_SWAP_BYTES.  */
+end_comment
 begin_function
 DECL|function|setSwapBytesEnabled
 name|void
@@ -448,6 +514,9 @@ name|swapBytes
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!  * \return \c true if the byte ordering for multibyte components is reversed.  */
+end_comment
 begin_function
 DECL|function|isSwapBytesEnabled
 name|bool
