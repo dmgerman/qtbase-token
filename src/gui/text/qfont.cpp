@@ -3541,7 +3541,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4     Sets the letter spacing for the font to \a spacing and the type     of spacing to \a type.      Letter spacing changes the default spacing between individual     letters in the font.  The spacing between the letters can be     made smaller as well as larger.      \sa letterSpacing(), letterSpacingType(), setWordSpacing() */
+comment|/*!     \since 4.4     Sets the letter spacing for the font to \a spacing and the type     of spacing to \a type.      Letter spacing changes the default spacing between individual     letters in the font.  The spacing between the letters can be     made smaller as well as larger either in percentage of the     character width or in pixels, depending on the selected spacing type.      \sa letterSpacing(), letterSpacingType(), setWordSpacing() */
 end_comment
 begin_function
 DECL|function|setLetterSpacing
