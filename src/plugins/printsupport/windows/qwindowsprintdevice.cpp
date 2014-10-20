@@ -1797,10 +1797,8 @@ argument_list|,
 name|bottomMargin
 argument_list|)
 expr_stmt|;
-name|ReleaseDC
+name|DeleteDC
 argument_list|(
-name|NULL
-argument_list|,
 name|pDC
 argument_list|)
 expr_stmt|;
