@@ -137,11 +137,11 @@ argument_list|(
 name|Q_OS_WINRT
 argument_list|)
 name|void
-name|retreiveVolumeInfo
+name|retrieveVolumeInfo
 argument_list|()
 block|;
 name|void
-name|retreiveDiskFreeSpace
+name|retrieveDiskFreeSpace
 argument_list|()
 block|;
 elif|#
@@ -171,7 +171,7 @@ argument_list|(
 name|Q_OS_UNIX
 argument_list|)
 name|void
-name|retreiveVolumeInfo
+name|retrieveVolumeInfo
 argument_list|()
 block|;
 endif|#

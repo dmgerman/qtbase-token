@@ -1591,7 +1591,7 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-name|retreiveVolumeInfo
+name|retrieveVolumeInfo
 argument_list|()
 expr_stmt|;
 name|name
@@ -1604,11 +1604,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|retreiveVolumeInfo
+DECL|function|retrieveVolumeInfo
 name|void
 name|QStorageInfoPrivate
 operator|::
-name|retreiveVolumeInfo
+name|retrieveVolumeInfo
 parameter_list|()
 block|{
 name|QT_STATFSBUF
