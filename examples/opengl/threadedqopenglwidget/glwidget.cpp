@@ -17,15 +17,6 @@ include|#
 directive|include
 file|<QGuiApplication>
 end_include
-begin_decl_stmt
-DECL|variable|bubbleNum
-specifier|const
-name|int
-name|bubbleNum
-init|=
-literal|8
-decl_stmt|;
-end_decl_stmt
 begin_constructor
 DECL|function|GLWidget
 name|GLWidget
