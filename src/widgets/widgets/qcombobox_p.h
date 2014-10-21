@@ -1006,6 +1006,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QComboMenuDelegate
 range|:
 name|public
@@ -1166,6 +1167,7 @@ comment|// be other side effects from using the new class
 end_comment
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QComboBoxDelegate
 range|:
 name|public

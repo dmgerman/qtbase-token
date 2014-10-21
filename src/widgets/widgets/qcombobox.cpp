@@ -7751,11 +7751,6 @@ operator|==
 name|editable
 condition|)
 return|return;
-name|d
-operator|->
-name|updateDelegate
-argument_list|()
-expr_stmt|;
 name|QStyleOptionComboBox
 name|opt
 decl_stmt|;
@@ -7892,6 +7887,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|d
+operator|->
+name|updateDelegate
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|updateFocusPolicy
