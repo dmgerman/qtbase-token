@@ -653,6 +653,26 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|RTLD_DEEPBIND
+argument_list|)
+if|if
+condition|(
+name|loadHints
+operator|&
+name|QLibrary
+operator|::
+name|DeepBindHint
+condition|)
+name|dlFlags
+operator||=
+name|RTLD_DEEPBIND
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Provide access to RTLD_NODELETE flag on Unix
 comment|// From GNU documentation on RTLD_NODELETE:
 comment|// Do not unload the library during dlclose(). Consequently, the

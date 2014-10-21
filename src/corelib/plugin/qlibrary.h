@@ -69,6 +69,10 @@ block|,
 name|PreventUnloadHint
 operator|=
 literal|0x08
+block|,
+name|DeepBindHint
+operator|=
+literal|0x10
 block|}
 block|;
 name|Q_DECLARE_FLAGS
