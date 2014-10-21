@@ -978,11 +978,7 @@ modifier|*
 name|item
 parameter_list|)
 block|{
-name|item
-operator|->
-name|d_ptr
-operator|->
-name|ensureSequentialSiblingIndex
+name|ensureSequentialTopLevelSiblingIndexes
 argument_list|()
 expr_stmt|;
 name|needSortTopLevelItems
