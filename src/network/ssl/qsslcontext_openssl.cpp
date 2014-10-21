@@ -891,13 +891,14 @@ name|QSsl
 operator|::
 name|SecureProtocols
 case|:
-comment|// SslV2 will be disabled below
+comment|// SSLv2 and SSLv3 will be disabled by SSL options
+comment|// But we need q_SSLv23_server_method() otherwise AnyProtocol will be unable to connect on Win32.
 case|case
 name|QSsl
 operator|::
 name|TlsV1SslV3
 case|:
-comment|// SslV2 will be disabled below
+comment|// SSLv2 will will be disabled by SSL options
 case|case
 name|QSsl
 operator|::
