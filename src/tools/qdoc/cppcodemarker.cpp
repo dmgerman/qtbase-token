@@ -399,7 +399,7 @@ name|parent
 argument_list|()
 argument_list|)
 operator|+
-literal|"::"
+literal|"::&#8203;"
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -908,7 +908,10 @@ argument_list|()
 condition|)
 name|extra
 operator|+=
-literal|" ["
+name|QLatin1Char
+argument_list|(
+literal|'['
+argument_list|)
 operator|+
 name|bracketed
 operator|.
@@ -917,9 +920,9 @@ argument_list|(
 literal|' '
 argument_list|)
 operator|+
-name|QLatin1Char
+name|QStringLiteral
 argument_list|(
-literal|']'
+literal|"] "
 argument_list|)
 expr_stmt|;
 block|}
@@ -1341,7 +1344,7 @@ condition|)
 block|{
 name|extra
 operator|+=
-literal|" (preliminary)"
+literal|"(preliminary) "
 expr_stmt|;
 block|}
 elseif|else
@@ -1359,7 +1362,7 @@ condition|)
 block|{
 name|extra
 operator|+=
-literal|" (deprecated)"
+literal|"(deprecated) "
 expr_stmt|;
 block|}
 elseif|else
@@ -1377,7 +1380,7 @@ condition|)
 block|{
 name|extra
 operator|+=
-literal|" (obsolete)"
+literal|"(obsolete) "
 expr_stmt|;
 block|}
 block|}
@@ -1406,9 +1409,9 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|synopsis
-operator|+
 name|extra
+operator|+
+name|synopsis
 return|;
 block|}
 end_function
