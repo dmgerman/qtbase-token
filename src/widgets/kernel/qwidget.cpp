@@ -4184,9 +4184,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|Q_OS_OSX
 if|if
 condition|(
 name|q
@@ -4210,8 +4207,6 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|win
 operator|->
 name|setFlags
