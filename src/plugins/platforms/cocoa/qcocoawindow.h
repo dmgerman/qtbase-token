@@ -1023,6 +1023,9 @@ block|;
 name|bool
 name|m_inSetVisible
 block|;
+name|bool
+name|m_inSetGeometry
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
