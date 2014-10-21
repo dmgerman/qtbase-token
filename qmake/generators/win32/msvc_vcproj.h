@@ -506,6 +506,13 @@ name|retrievePlatformToolSet
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|isStandardSuffix
+argument_list|(
+argument|const QString&suffix
+argument_list|)
+specifier|const
+block|;
 name|friend
 name|class
 name|VCFilter
