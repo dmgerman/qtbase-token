@@ -28,9 +28,6 @@ include|#
 directive|include
 file|"qtwindows_additional.h"
 end_include
-begin_macro
-name|QT_BEGIN_NAMESPACE
-end_macro
 begin_if
 if|#
 directive|if
@@ -55,6 +52,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QWindowsFontEngineData
 block|{
