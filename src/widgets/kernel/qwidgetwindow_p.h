@@ -314,8 +314,16 @@ name|void
 name|repaintWindow
 argument_list|()
 block|;
+name|bool
+name|updateSize
+argument_list|()
+block|;
+name|bool
+name|updatePos
+argument_list|()
+block|;
 name|void
-name|updateGeometry
+name|updateMargins
 argument_list|()
 block|;
 name|void
