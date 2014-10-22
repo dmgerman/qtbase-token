@@ -1889,6 +1889,13 @@ expr_stmt|;
 comment|// NTLM is a multi phase authentication. Copying credentials between authenticators would mess things up.
 if|if
 condition|(
+name|fromChannel
+operator|>=
+literal|0
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|isProxy
 operator|&&
@@ -1920,6 +1927,7 @@ operator|::
 name|Ntlm
 condition|)
 return|return;
+block|}
 comment|// select another channel
 name|QAuthenticator
 modifier|*

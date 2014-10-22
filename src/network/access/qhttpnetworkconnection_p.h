@@ -179,6 +179,12 @@ name|QHttpNetworkReply
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QHttpThreadDelegate
+name|class
+name|QHttpThreadDelegate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QByteArray
 name|class
 name|QByteArray
@@ -435,6 +441,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QHttpNetworkConnection
 argument_list|)
+name|friend
+name|class
+name|QHttpThreadDelegate
+block|;
 name|friend
 name|class
 name|QHttpNetworkReply
