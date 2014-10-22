@@ -12376,6 +12376,17 @@ name|Description
 operator|+=
 name|cmd_name
 expr_stmt|;
+comment|// Execute custom build steps in an environment variable scope to prevent unwanted
+comment|// side effects for downstream build steps
+name|CustomBuildTool
+operator|.
+name|CommandLine
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|"setlocal"
+argument_list|)
+expr_stmt|;
 name|CustomBuildTool
 operator|.
 name|CommandLine
@@ -12388,6 +12399,15 @@ name|cmd
 operator|.
 name|trimmed
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|CustomBuildTool
+operator|.
+name|CommandLine
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|"endlocal"
 argument_list|)
 expr_stmt|;
 name|int
