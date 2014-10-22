@@ -128,7 +128,7 @@ name|hideInputPanel
 argument_list|()
 block|;
 name|void
-name|hideVirtualKeyboard
+name|clearCurrentFocusObject
 argument_list|()
 block|;
 name|bool
@@ -193,6 +193,21 @@ name|m_imeState
 return|;
 block|}
 block|;
+name|bool
+name|isReloadingInputViewsFromUpdate
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_isReloadingInputViewsFromUpdate
+return|;
+block|}
+specifier|static
+name|QIOSInputContext
+operator|*
+name|instance
+argument_list|()
+block|;
 name|private
 operator|:
 name|QIOSKeyboardListener
@@ -205,6 +220,9 @@ name|m_textResponder
 block|;
 name|ImeState
 name|m_imeState
+block|;
+name|bool
+name|m_isReloadingInputViewsFromUpdate
 block|; }
 decl_stmt|;
 end_decl_stmt
