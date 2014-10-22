@@ -1070,6 +1070,14 @@ name|ll
 decl_stmt|;
 if|if
 condition|(
+name|CFNumberGetType
+argument_list|(
+name|cfnumber
+argument_list|)
+operator|==
+name|kCFNumberIntType
+condition|)
+block|{
 name|CFNumberGetValue
 argument_list|(
 name|cfnumber
@@ -1079,10 +1087,11 @@ argument_list|,
 operator|&
 name|i
 argument_list|)
-condition|)
+expr_stmt|;
 return|return
 name|i
 return|;
+block|}
 name|CFNumberGetValue
 argument_list|(
 name|cfnumber
