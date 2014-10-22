@@ -176,28 +176,54 @@ init|=
 literal|3
 block|}
 enum|;
+comment|// Mapping OpenType weight value.
 enum|enum
 name|Weight
 block|{
+name|Thin
+init|=
+literal|0
+block|,
+comment|// 100
+name|ExtraLight
+init|=
+literal|12
+block|,
+comment|// 200
 name|Light
 init|=
 literal|25
 block|,
+comment|// 300
 name|Normal
 init|=
 literal|50
 block|,
+comment|// 400
+name|Medium
+init|=
+literal|57
+block|,
+comment|// 500
 name|DemiBold
 init|=
 literal|63
 block|,
+comment|// 600
 name|Bold
 init|=
 literal|75
 block|,
+comment|// 700
+name|ExtraBold
+init|=
+literal|81
+block|,
+comment|// 800
 name|Black
 init|=
 literal|87
+comment|// 900
 block|}
 enum|;
 enum|enum
@@ -1170,7 +1196,7 @@ return|return
 name|weight
 argument_list|()
 operator|>
-name|Normal
+name|Medium
 return|;
 block|}
 end_expr_stmt

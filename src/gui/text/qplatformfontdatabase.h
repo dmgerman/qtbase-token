@@ -421,6 +421,15 @@ literal|2
 index|]
 parameter_list|)
 function_decl|;
+specifier|static
+name|QFont
+operator|::
+name|Weight
+name|weightFromInteger
+argument_list|(
+argument|int weight
+argument_list|)
+expr_stmt|;
 comment|//callback
 specifier|static
 name|void

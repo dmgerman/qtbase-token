@@ -2771,7 +2771,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 will be     thin, whilst 99 will be extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
+comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 will be     thin, whilst 99 will be extremely black.      This enum contains the predefined font weights:      \value Thin 0     \value ExtraLight 12     \value Light 25     \value Normal 50     \value Medium 57     \value DemiBold 63     \value Bold 75     \value ExtraBold 81     \value Black 87 */
 end_comment
 begin_comment
 comment|/*!     Sets the weight of the font to \a weight, using the scale defined by     \l QFont::Weight enumeration.      \sa weight(), QFontInfo */
@@ -2841,7 +2841,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFont::bold() const      Returns \c true if weight() is a value greater than    \l{Weight}{QFont::Normal}; otherwise returns \c false.      \sa weight(), setBold(), QFontInfo::bold() */
+comment|/*!     \fn bool QFont::bold() const      Returns \c true if weight() is a value greater than    \l{Weight}{QFont::Medium}; otherwise returns \c false.      \sa weight(), setBold(), QFontInfo::bold() */
 end_comment
 begin_comment
 comment|/*!     \fn void QFont::setBold(bool enable)      If \a enable is true sets the font's weight to     \l{Weight}{QFont::Bold};     otherwise sets the weight to \l{Weight}{QFont::Normal}.      For finer boldness control use setWeight().      \sa bold(), setWeight() */

@@ -474,6 +474,17 @@ name|length
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_expr_stmt
+specifier|static
+name|QFont
+operator|::
+name|Weight
+name|qtWeightFromCFWeight
+argument_list|(
+argument|float value
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 specifier|static
 name|int
