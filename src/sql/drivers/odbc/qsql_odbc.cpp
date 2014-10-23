@@ -1783,6 +1783,8 @@ literal|0
 condition|)
 name|colSize
 operator|=
+name|int
+argument_list|(
 name|lengthIndicator
 operator|/
 sizeof|sizeof
@@ -1791,6 +1793,7 @@ name|SQLTCHAR
 argument_list|)
 operator|+
 literal|1
+argument_list|)
 expr_stmt|;
 name|QVarLengthArray
 argument_list|<
@@ -1899,11 +1902,14 @@ operator|)
 condition|?
 name|colSize
 else|:
+name|int
+argument_list|(
 name|lengthIndicator
 operator|/
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|fieldVal
@@ -11136,6 +11142,8 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
+name|SQLSMALLINT
+argument_list|(
 name|serverString
 operator|.
 name|size
@@ -11144,6 +11152,7 @@ operator|*
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
+argument_list|)
 argument_list|)
 argument_list|,
 operator|&
@@ -11305,6 +11314,8 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
+name|SQLSMALLINT
+argument_list|(
 name|serverString
 operator|.
 name|size
@@ -11313,6 +11324,7 @@ operator|*
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
+argument_list|)
 argument_list|)
 argument_list|,
 operator|&
@@ -11459,6 +11471,8 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
+name|SQLSMALLINT
+argument_list|(
 name|driverResponse
 operator|.
 name|size
@@ -11467,6 +11481,7 @@ operator|*
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
+argument_list|)
 argument_list|)
 argument_list|,
 operator|&
