@@ -1145,7 +1145,7 @@ name|toBase64
 argument_list|(
 name|QByteArray
 operator|::
-name|Base64
+name|Base64Encoding
 operator||
 name|QByteArray
 operator|::
@@ -1159,7 +1159,7 @@ name|toBase64
 argument_list|(
 name|QByteArray
 operator|::
-name|Base64
+name|Base64Encoding
 argument_list|)
 expr_stmt|;
 comment|// returns "PHA+SGVsbG8/PC9wPg=="
@@ -1169,7 +1169,7 @@ name|toBase64
 argument_list|(
 name|QByteArray
 operator|::
-name|Base64Url
+name|Base64UrlEncoding
 argument_list|)
 expr_stmt|;
 comment|// returns "PHA-SGVsbG8_PC9wPg=="
@@ -1179,7 +1179,7 @@ name|toBase64
 argument_list|(
 name|QByteArray
 operator|::
-name|Base64Url
+name|Base64UrlEncoding
 operator||
 name|QByteArray
 operator|::
