@@ -14646,7 +14646,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \reimp */
+comment|/*!     \reimp      \warning When maximizing or restoring a subwindow, the resulting call to this function     may have an invalid QResizeEvent::oldSize(). */
 end_comment
 begin_function
 DECL|function|resizeEvent
