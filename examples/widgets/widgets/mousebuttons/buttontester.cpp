@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"buttontester.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QDebug>
+end_include
 begin_function
 DECL|function|mousePressEvent
 name|void
