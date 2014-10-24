@@ -10882,12 +10882,11 @@ expr_stmt|;
 if|if
 condition|(
 name|QFileInfo
+operator|::
+name|exists
 argument_list|(
 name|fn
 argument_list|)
-operator|.
-name|exists
-argument_list|()
 condition|)
 goto|goto
 name|cool
