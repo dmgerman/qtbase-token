@@ -5763,6 +5763,22 @@ name|initResources
 operator|+=
 name|initName
 expr_stmt|;
+comment|// Work around -Wmissing-declarations warnings.
+name|writeString
+argument_list|(
+literal|"int "
+argument_list|)
+expr_stmt|;
+name|writeMangleNamespaceFunction
+argument_list|(
+name|initResources
+argument_list|)
+expr_stmt|;
+name|writeString
+argument_list|(
+literal|"();\n"
+argument_list|)
+expr_stmt|;
 name|writeString
 argument_list|(
 literal|"int "
@@ -5819,6 +5835,22 @@ decl_stmt|;
 name|cleanResources
 operator|+=
 name|initName
+expr_stmt|;
+comment|// Work around -Wmissing-declarations warnings.
+name|writeString
+argument_list|(
+literal|"int "
+argument_list|)
+expr_stmt|;
+name|writeMangleNamespaceFunction
+argument_list|(
+name|cleanResources
+argument_list|)
+expr_stmt|;
+name|writeString
+argument_list|(
+literal|"();\n"
+argument_list|)
 expr_stmt|;
 name|writeString
 argument_list|(
