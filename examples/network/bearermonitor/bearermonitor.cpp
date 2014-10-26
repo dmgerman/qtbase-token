@@ -619,6 +619,15 @@ modifier|*
 name|parent
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|config
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return;
 name|QTreeWidgetItem
 modifier|*
 name|item
