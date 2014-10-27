@@ -137,7 +137,13 @@ operator|::
 name|~
 name|Shader
 parameter_list|()
-block|{ }
+block|{
+name|SafeDelete
+argument_list|(
+name|mShader
+argument_list|)
+expr_stmt|;
+block|}
 DECL|function|getHandle
 name|GLuint
 name|Shader
