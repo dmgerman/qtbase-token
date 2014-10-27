@@ -1284,7 +1284,11 @@ expr_stmt|;
 name|QWindowSystemInterface
 operator|::
 name|flushWindowSystemEvents
-argument_list|()
+argument_list|(
+name|QEventLoop
+operator|::
+name|ExcludeUserInputEvents
+argument_list|)
 expr_stmt|;
 block|}
 end_function

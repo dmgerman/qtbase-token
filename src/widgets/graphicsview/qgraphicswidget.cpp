@@ -3297,6 +3297,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// layout size hint only changes if an item changes from/to explicitly hidden state
+if|if
+condition|(
+name|value
+operator|.
+name|toBool
+argument_list|()
+operator|||
+name|d
+operator|->
+name|explicitlyHidden
+condition|)
+name|updateGeometry
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 name|ItemVisibleHasChanged

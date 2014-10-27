@@ -7908,6 +7908,25 @@ name|Qt
 operator|::
 name|MiterJoin
 case|:
+case|case
+name|Qt
+operator|::
+name|SvgMiterJoin
+case|:
+operator|*
+name|d
+operator|->
+name|currentPage
+operator|<<
+name|d
+operator|->
+name|pen
+operator|.
+name|miterLimit
+argument_list|()
+operator|<<
+literal|"M "
+expr_stmt|;
 name|pdfJoinStyle
 operator|=
 literal|0
@@ -11556,6 +11575,7 @@ name|softMaskObject
 operator|>
 literal|0
 condition|)
+block|{
 name|xprintf
 argument_list|(
 literal|"/SMask %d 0 R\n"
@@ -11563,6 +11583,12 @@ argument_list|,
 name|softMaskObject
 argument_list|)
 expr_stmt|;
+name|xprintf
+argument_list|(
+literal|"/Decode [1 0 1 0 1 0]\n"
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|lenobj
 init|=

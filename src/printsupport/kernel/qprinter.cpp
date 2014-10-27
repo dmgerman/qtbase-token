@@ -3241,7 +3241,7 @@ begin_comment
 comment|/*!     \enum QPrinter::DuplexMode     \since 4.4      This enum is used to indicate whether printing will occur on one or both sides     of each sheet of paper (simplex or duplex printing).      \value DuplexNone       Single sided (simplex) printing only.     \value DuplexAuto       The printer's default setting is used to determine whether                             duplex printing is used.     \value DuplexLongSide   Both sides of each sheet of paper are used for printing.                             The paper is turned over its longest edge before the second                             side is printed     \value DuplexShortSide  Both sides of each sheet of paper are used for printing.                             The paper is turned over its shortest edge before the second                             side is printed */
 end_comment
 begin_comment
-comment|/*!   \since 4.2    Enables double sided printing if \a doubleSided is true; otherwise disables it.    Currently this option is only supported on X11. */
+comment|/*!   \since 4.2    \obsolete Use setDuplex() instead.    Enables double sided printing if \a doubleSided is true; otherwise disables it.    \sa setDuplex() */
 end_comment
 begin_function
 DECL|function|setDoubleSidedPrinting
@@ -3266,7 +3266,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.2    Returns \c true if double side printing is enabled.    Currently this option is only supported on X11. */
+comment|/*!   \since 4.2    \obsolete Use duplex() instead.    Returns \c true if double side printing is enabled.    \sa duplex() */
 end_comment
 begin_function
 DECL|function|doubleSidedPrinting
@@ -3286,7 +3286,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    Enables double sided printing based on the \a duplex mode.    Currently this option is only supported on X11. */
+comment|/*!   \since 4.4    Enables double sided printing based on the \a duplex mode.    \sa duplex() */
 end_comment
 begin_function
 DECL|function|setDuplex
@@ -3318,7 +3318,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4    Returns the current duplex mode.    Currently this option is only supported on X11. */
+comment|/*!   \since 4.4    Returns the current duplex mode.    \sa setDuplex() */
 end_comment
 begin_function
 DECL|function|duplex

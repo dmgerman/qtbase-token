@@ -832,6 +832,21 @@ name|spacing
 argument_list|()
 specifier|const
 block|;
+name|int
+name|topMargin
+argument_list|()
+specifier|const
+block|;
+name|int
+name|bottomMargin
+argument_list|()
+specifier|const
+block|{
+return|return
+name|topMargin
+argument_list|()
+return|;
+block|}
 name|void
 name|updateTopBottomMargin
 argument_list|()
@@ -991,6 +1006,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QComboMenuDelegate
 range|:
 name|public
@@ -1151,6 +1167,7 @@ comment|// be other side effects from using the new class
 end_comment
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QComboBoxDelegate
 range|:
 name|public

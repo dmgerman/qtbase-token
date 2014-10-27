@@ -6197,6 +6197,13 @@ argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
+name|qputenv
+argument_list|(
+literal|"QT_QTESTLIB_RUNNING"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

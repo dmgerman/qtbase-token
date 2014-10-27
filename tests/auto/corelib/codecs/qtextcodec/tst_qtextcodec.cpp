@@ -956,10 +956,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"macintosh"
+literal|"Apple Roman"
 argument_list|)
 operator|<<
-literal|"macintosh"
+literal|"Apple Roman"
 operator|<<
 literal|true
 expr_stmt|;
@@ -975,7 +975,6 @@ literal|"TIS-620"
 operator|<<
 literal|true
 expr_stmt|;
-comment|//    QTest::newRow("hp-roman8")<< "hp-roman8"<< true;
 name|QTest
 operator|::
 name|newRow
@@ -1054,7 +1053,6 @@ literal|"EUC-KR"
 operator|<<
 literal|false
 expr_stmt|;
-comment|//QTest::newRow("GB18030-0")<< "GB18030-0"<< false; // only GB18030 works
 name|QTest
 operator|::
 name|newRow
@@ -1063,6 +1061,17 @@ literal|"GB18030"
 argument_list|)
 operator|<<
 literal|"GB18030"
+operator|<<
+literal|false
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"HP-ROMAN8"
+argument_list|)
+operator|<<
+literal|"HP-ROMAN8"
 operator|<<
 literal|false
 expr_stmt|;
@@ -1112,8 +1121,6 @@ literal|false
 expr_stmt|;
 comment|//ISO 8859-1 to 10 and  ISO 8859-13 to 16 tested previously
 comment|// Iscii-Bng, Dev, Gjr, Knd, Mlm, Ori, Pnj, Tlg, and Tml  tested in Iscii test
-comment|//QTest::newRow("JIS X 0201")<< "JIS X 0201"<< false; // actually not there
-comment|//QTest::newRow("JIS X 0208")<< "JIS X 0208"<< false; // actually not there
 name|QTest
 operator|::
 name|newRow
@@ -1136,17 +1143,16 @@ literal|"KOI8-U"
 operator|<<
 literal|false
 expr_stmt|;
-comment|//QTest::newRow("MuleLao-1")<< "MuleLao-1"<< false; //only on x11
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"ROMAN8"
+literal|"Macintosh"
 argument_list|)
 operator|<<
-literal|"ROMAN8"
+literal|"Macintosh"
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 name|QTest
 operator|::

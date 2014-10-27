@@ -6496,7 +6496,7 @@ name|QSsl
 operator|::
 name|SecureProtocols
 operator|<<
-literal|true
+literal|false
 expr_stmt|;
 ifndef|#
 directive|ifndef
@@ -6784,7 +6784,7 @@ name|QSsl
 operator|::
 name|SslV3
 operator|<<
-literal|true
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -13841,6 +13841,8 @@ name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
 operator||
+name|SSL_OP_NO_SSLv3
+operator||
 name|SSL_OP_NO_COMPRESSION
 argument_list|)
 argument_list|)
@@ -13867,6 +13869,8 @@ argument_list|(
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13896,6 +13900,8 @@ argument_list|(
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13923,6 +13929,8 @@ operator|(
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 operator||
 name|SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION
 operator|)
@@ -13955,6 +13963,8 @@ operator|(
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 operator|)
 operator|&
 operator|~
@@ -13996,6 +14006,8 @@ operator|(
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 operator||
 name|SSL_OP_NO_TICKET
 operator|)
@@ -14043,6 +14055,8 @@ operator|(
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 operator||
 name|SSL_OP_NO_TICKET
 operator||

@@ -1292,6 +1292,16 @@ init|=
 literal|0
 decl_stmt|;
 name|virtual
+name|bool
+name|isIgnored
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
 name|void
 name|setGeometry
 parameter_list|(

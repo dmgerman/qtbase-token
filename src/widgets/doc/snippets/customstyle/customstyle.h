@@ -33,6 +33,7 @@ name|public
 operator|:
 name|CustomStyle
 argument_list|()
+block|;
 operator|~
 name|CustomStyle
 argument_list|()

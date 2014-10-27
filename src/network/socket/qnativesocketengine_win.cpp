@@ -5600,6 +5600,10 @@ condition|(
 name|err
 operator|==
 name|WSAECONNRESET
+operator|||
+name|err
+operator|==
+name|WSAENETRESET
 condition|)
 block|{
 comment|// Discard error message to prevent QAbstractSocket from

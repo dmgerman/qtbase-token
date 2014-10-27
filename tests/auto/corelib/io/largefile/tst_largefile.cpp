@@ -154,9 +154,9 @@ comment|// HFS+ does not support sparse files, so we limit file size for the tes
 comment|// on Mac OS.
 name|maxSizeBits
 operator|=
-literal|32
+literal|24
 expr_stmt|;
-comment|// 4 GiB
+comment|// 16 MiB
 else|#
 directive|else
 name|maxSizeBits

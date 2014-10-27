@@ -2750,7 +2750,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the weight of the font which is one of the enumerated     values from \l{QFont::Weight}.      \sa setWeight(), Weight, QFontInfo */
+comment|/*!     Returns the weight of the font, using the same scale as the     \l{QFont::Weight} enumeration.      \sa setWeight(), Weight, QFontInfo */
 end_comment
 begin_function
 DECL|function|weight
@@ -2771,10 +2771,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 is     ultralight, whilst 99 will be extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
+comment|/*!     \enum QFont::Weight      Qt uses a weighting scale from 0 to 99 similar to, but not the     same as, the scales used in Windows or CSS. A weight of 0 will be     thin, whilst 99 will be extremely black.      This enum contains the predefined font weights:      \value Light 25     \value Normal 50     \value DemiBold 63     \value Bold 75     \value Black 87 */
 end_comment
 begin_comment
-comment|/*!     Sets the weight the font to \a weight, which should be a value     from the \l QFont::Weight enumeration.      \sa weight(), QFontInfo */
+comment|/*!     Sets the weight of the font to \a weight, using the scale defined by     \l QFont::Weight enumeration.      \sa weight(), QFontInfo */
 end_comment
 begin_function
 DECL|function|setWeight

@@ -13356,6 +13356,10 @@ argument_list|)
 decl_stmt|;
 name|pathList
 operator|=
+name|qmakeIncludes
+expr_stmt|;
+name|pathList
+operator|+=
 name|headerPaths
 expr_stmt|;
 block|}

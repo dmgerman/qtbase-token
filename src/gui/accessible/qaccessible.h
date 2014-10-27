@@ -587,6 +587,11 @@ name|supportsAutoCompletion
 range|:
 literal|1
 decl_stmt|;
+name|quint64
+name|searchEdit
+range|:
+literal|1
+decl_stmt|;
 comment|// quint64 horizontal : 1;
 comment|// quint64 vertical : 1;
 comment|// quint64 invalidEntry : 1;

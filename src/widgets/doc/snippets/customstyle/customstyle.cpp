@@ -20,12 +20,14 @@ name|CustomStyle
 parameter_list|()
 block|{
 comment|//! [0]
+specifier|const
 name|QSpinBox
 modifier|*
 name|spinBox
 init|=
 name|qobject_cast
 argument_list|<
+specifier|const
 name|QSpinBox
 operator|*
 argument_list|>

@@ -1060,10 +1060,18 @@ modifier|&
 name|f
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
 name|dbg
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|dbg
 operator|<<
 literal|"QSqlField("
 operator|<<
@@ -1094,9 +1102,6 @@ operator|>=
 literal|0
 condition|)
 name|dbg
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", length: "
 operator|<<
@@ -1115,9 +1120,6 @@ operator|>=
 literal|0
 condition|)
 name|dbg
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", precision: "
 operator|<<
@@ -1138,9 +1140,6 @@ operator|::
 name|Unknown
 condition|)
 name|dbg
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", required: "
 operator|<<
@@ -1160,9 +1159,6 @@ literal|"no"
 operator|)
 expr_stmt|;
 name|dbg
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", generated: "
 operator|<<
@@ -1187,9 +1183,6 @@ operator|>=
 literal|0
 condition|)
 name|dbg
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", typeID: "
 operator|<<
@@ -1210,11 +1203,8 @@ name|isNull
 argument_list|()
 condition|)
 name|dbg
-operator|.
-name|nospace
-argument_list|()
 operator|<<
-literal|", auto-value: \""
+literal|", defaultValue: \""
 operator|<<
 name|f
 operator|.
@@ -1224,17 +1214,25 @@ operator|<<
 literal|'\"'
 expr_stmt|;
 name|dbg
+operator|<<
+literal|", autoValue: "
+operator|<<
+name|f
 operator|.
-name|nospace
+name|isAutoValue
+argument_list|()
+operator|<<
+literal|", readOnly: "
+operator|<<
+name|f
+operator|.
+name|isReadOnly
 argument_list|()
 operator|<<
 literal|')'
 expr_stmt|;
 return|return
 name|dbg
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function

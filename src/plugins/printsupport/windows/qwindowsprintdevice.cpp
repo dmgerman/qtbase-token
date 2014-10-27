@@ -1797,10 +1797,8 @@ argument_list|,
 name|bottomMargin
 argument_list|)
 expr_stmt|;
-name|ReleaseDC
+name|DeleteDC
 argument_list|(
-name|NULL
-argument_list|,
 name|pDC
 argument_list|)
 expr_stmt|;
@@ -1862,10 +1860,7 @@ name|LONG
 index|[
 name|resCount
 operator|*
-sizeof|sizeof
-argument_list|(
-name|LONG
-argument_list|)
+literal|2
 index|]
 argument_list|)
 decl_stmt|;
@@ -1912,10 +1907,13 @@ operator|<
 name|int
 argument_list|(
 name|resCount
+operator|*
+literal|2
 argument_list|)
 condition|;
-operator|++
 name|i
+operator|+=
+literal|2
 control|)
 name|m_resolutions
 operator|.
@@ -1924,6 +1922,8 @@ argument_list|(
 name|resolutions
 index|[
 name|i
+operator|+
+literal|1
 index|]
 argument_list|)
 expr_stmt|;
@@ -2513,6 +2513,15 @@ literal|1
 condition|)
 block|{
 comment|// TODO Assume if duplex flag supports both modes
+name|m_duplexModes
+operator|.
+name|append
+argument_list|(
+name|QPrint
+operator|::
+name|DuplexAuto
+argument_list|)
+expr_stmt|;
 name|m_duplexModes
 operator|.
 name|append

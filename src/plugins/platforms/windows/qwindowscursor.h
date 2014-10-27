@@ -296,7 +296,7 @@ block|}
 block|;
 name|QWindowsCursor
 argument_list|()
-block|{}
+block|;
 name|void
 name|changeCursor
 argument_list|(

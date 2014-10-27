@@ -3710,7 +3710,9 @@ if|if
 condition|(
 operator|!
 name|hTheme
-condition|)
+operator|||
+name|FAILED
+argument_list|(
 name|pGetThemeSysFont
 argument_list|(
 name|hTheme
@@ -3720,8 +3722,8 @@ argument_list|,
 operator|&
 name|lf
 argument_list|)
-expr_stmt|;
-else|else
+argument_list|)
+condition|)
 block|{
 name|NONCLIENTMETRICS
 name|ncm
