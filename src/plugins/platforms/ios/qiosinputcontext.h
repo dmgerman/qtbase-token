@@ -204,6 +204,11 @@ return|;
 block|}
 block|;
 name|bool
+name|inputMethodAccepted
+argument_list|()
+specifier|const
+block|;
+name|bool
 name|isReloadingInputViewsFromUpdate
 argument_list|()
 specifier|const
