@@ -4696,6 +4696,17 @@ operator|&&
 name|isOpaque
 operator|&&
 operator|!
+name|q_func
+argument_list|()
+operator|->
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_WState_InPaintEvent
+argument_list|)
+operator|&&
+operator|!
 operator|(
 name|overlapped
 operator|=
