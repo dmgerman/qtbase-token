@@ -6366,6 +6366,44 @@ directive|endif
 comment|// !Q_OS_WINCE
 block|}
 end_function
+begin_function
+DECL|function|testShowWithoutActivating
+specifier|static
+specifier|inline
+name|bool
+name|testShowWithoutActivating
+parameter_list|(
+specifier|const
+name|QWindow
+modifier|*
+name|window
+parameter_list|)
+block|{
+comment|// QWidget-attribute Qt::WA_ShowWithoutActivating .
+specifier|const
+name|QVariant
+name|showWithoutActivating
+init|=
+name|window
+operator|->
+name|property
+argument_list|(
+literal|"_q_showWithoutActivating"
+argument_list|)
+decl_stmt|;
+return|return
+name|showWithoutActivating
+operator|.
+name|isValid
+argument_list|()
+operator|&&
+name|showWithoutActivating
+operator|.
+name|toBool
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|// partially from QWidgetPrivate::show_sys()
 end_comment
@@ -6545,6 +6583,11 @@ operator|==
 name|Qt
 operator|::
 name|Tool
+operator|||
+name|testShowWithoutActivating
+argument_list|(
+name|w
+argument_list|)
 condition|)
 name|sm
 operator|=

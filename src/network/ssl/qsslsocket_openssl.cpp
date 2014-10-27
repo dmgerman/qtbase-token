@@ -1326,7 +1326,16 @@ operator|==
 name|QSsl
 operator|::
 name|TlsV1SslV3
-operator|||
+condition|)
+name|options
+operator|=
+name|SSL_OP_ALL
+operator||
+name|SSL_OP_NO_SSLv2
+expr_stmt|;
+elseif|else
+if|if
+condition|(
 name|protocol
 operator|==
 name|QSsl
@@ -1338,6 +1347,8 @@ operator|=
 name|SSL_OP_ALL
 operator||
 name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
 expr_stmt|;
 else|else
 name|options

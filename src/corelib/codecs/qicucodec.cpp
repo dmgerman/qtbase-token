@@ -1466,6 +1466,21 @@ name|name
 operator|=
 literal|"windows-949"
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|qstrcmp
+argument_list|(
+name|name
+argument_list|,
+literal|"Apple Roman"
+argument_list|)
+condition|)
+name|name
+operator|=
+literal|"macintosh"
+expr_stmt|;
 comment|// these are broken data in ICU 4.4, and can't be resolved even though they are aliases to tis-620
 if|if
 condition|(

@@ -5605,7 +5605,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|metaDataChanged
+name|_q_metaDataChanged
 argument_list|()
 expr_stmt|;
 block|}
@@ -6459,7 +6459,7 @@ name|invokeMethod
 argument_list|(
 name|q
 argument_list|,
-literal|"metaDataChanged"
+literal|"_q_metaDataChanged"
 argument_list|,
 name|Qt
 operator|::
@@ -9307,11 +9307,11 @@ emit|;
 block|}
 end_function
 begin_function
-DECL|function|metaDataChanged
+DECL|function|_q_metaDataChanged
 name|void
 name|QNetworkReplyHttpImplPrivate
 operator|::
-name|metaDataChanged
+name|_q_metaDataChanged
 parameter_list|()
 block|{
 comment|// FIXME merge this with replyDownloadMetaData(); ?

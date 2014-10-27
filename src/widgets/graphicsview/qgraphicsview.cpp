@@ -2529,6 +2529,8 @@ name|selectionArea
 operator|.
 name|addPolygon
 argument_list|(
+name|q
+operator|->
 name|mapToScene
 argument_list|(
 name|rubberBandRect

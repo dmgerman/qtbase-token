@@ -8163,6 +8163,12 @@ expr_stmt|;
 if|if
 condition|(
 name|item
+operator|&&
+operator|!
+name|item
+operator|->
+name|isIgnored
+argument_list|()
 condition|)
 name|rowIsEmpty
 operator|=

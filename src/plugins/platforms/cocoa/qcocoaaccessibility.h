@@ -84,6 +84,15 @@ modifier|*
 name|interface
 parameter_list|)
 function_decl|;
+name|NSString
+modifier|*
+name|macSubrole
+parameter_list|(
+name|QAccessibleInterface
+modifier|*
+name|interface
+parameter_list|)
+function_decl|;
 name|bool
 name|shouldBeIgnored
 parameter_list|(

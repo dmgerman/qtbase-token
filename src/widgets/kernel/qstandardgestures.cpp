@@ -2158,7 +2158,6 @@ operator|!=
 name|horizontal
 condition|)
 block|{
-comment|// the user has changed the direction!
 name|result
 operator|=
 name|QGestureRecognizer
@@ -2166,12 +2165,15 @@ operator|::
 name|CancelGesture
 expr_stmt|;
 block|}
+else|else
+block|{
 name|result
 operator|=
 name|QGestureRecognizer
 operator|::
 name|TriggerGesture
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

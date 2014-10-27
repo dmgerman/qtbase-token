@@ -6768,6 +6768,15 @@ index|[
 name|glyph_buffer_size
 index|]
 expr_stmt|;
+name|memset
+argument_list|(
+name|glyph_buffer
+argument_list|,
+literal|0
+argument_list|,
+name|glyph_buffer_size
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|slot

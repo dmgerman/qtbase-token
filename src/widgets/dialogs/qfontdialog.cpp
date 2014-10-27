@@ -1550,6 +1550,16 @@ expr_stmt|;
 name|retranslateStrings
 argument_list|()
 expr_stmt|;
+name|sampleEdit
+operator|->
+name|setObjectName
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"qt_fontDialog_sampleEdit"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment

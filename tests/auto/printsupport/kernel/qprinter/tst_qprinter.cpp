@@ -7044,9 +7044,9 @@ parameter_list|()
 block|{
 comment|// duplex()) / setDuplex() / PPK_Duplex
 comment|// PdfFormat: Supported, default QPrinter::DuplexNone
-comment|// NativeFormat, Cups: Supported, default QPrinter::DuplexNone
-comment|// NativeFormat, Win: Unsupported, always QPrinter::DuplexNone
-comment|// NativeFormat, Mac: Unsupported, always QPrinter::DuplexNone
+comment|// NativeFormat, Cups: Supported, default to printer default
+comment|// NativeFormat, Win: Supported, default to printer default
+comment|// NativeFormat, Mac: Supported, default to printer default
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -7108,18 +7108,68 @@ name|NativeFormat
 condition|)
 block|{
 comment|// Test default
-comment|// TODO Printer specific, need QPrinterInfo::duplex()
-comment|//QCOMPARE(native.duplex(), QPrinter::DuplexNone);
-comment|// Test set/get
+name|QPrinterInfo
+name|printerInfo
+init|=
+name|QPrinterInfo
+operator|::
+name|defaultPrinter
+argument_list|()
+decl_stmt|;
 name|QPrinter
 operator|::
 name|DuplexMode
 name|expected
 init|=
+name|printerInfo
+operator|.
+name|defaultDuplexMode
+argument_list|()
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|native
+operator|.
+name|duplex
+argument_list|()
+argument_list|,
+name|expected
+argument_list|)
+expr_stmt|;
+comment|// Test set/get (skipping Auto as that will return something different)
+foreach|foreach
+control|(
+name|QPrinter
+operator|::
+name|DuplexMode
+name|mode
+decl|,
+name|printerInfo
+operator|.
+name|supportedDuplexModes
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|mode
+operator|!=
+name|expected
+operator|&&
+name|mode
+operator|!=
 name|QPrinter
 operator|::
 name|DuplexAuto
-decl_stmt|;
+condition|)
+block|{
+name|expected
+operator|=
+name|mode
+expr_stmt|;
+break|break;
+block|}
+block|}
 name|native
 operator|.
 name|setDuplex
@@ -7127,22 +7177,6 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|Q_OS_MAC
-operator|||
-name|defined
-name|Q_OS_WIN
-name|expected
-operator|=
-name|QPrinter
-operator|::
-name|DuplexNone
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC || Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|native
@@ -7192,6 +7226,43 @@ argument_list|,
 name|expected
 argument_list|)
 expr_stmt|;
+comment|// Test setting invalid option
+if|if
+condition|(
+operator|!
+name|printerInfo
+operator|.
+name|supportedDuplexModes
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|QPrinter
+operator|::
+name|DuplexLongSide
+argument_list|)
+condition|)
+block|{
+name|native
+operator|.
+name|setDuplex
+argument_list|(
+name|QPrinter
+operator|::
+name|DuplexLongSide
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|native
+operator|.
+name|duplex
+argument_list|()
+argument_list|,
+name|expected
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -7212,9 +7283,9 @@ name|doubleSidedPrinting
 parameter_list|()
 block|{
 comment|// PdfFormat: Supported, default false
-comment|// NativeFormat, Cups: Supported, default false
-comment|// NativeFormat, Win: Unsupported, always false
-comment|// NativeFormat, Mac: Unsupported, always false
+comment|// NativeFormat, Cups: Supported, default to printer default
+comment|// NativeFormat, Win: Supported, default to printer default
+comment|// NativeFormat, Mac: Supported, default to printer default
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -7270,14 +7341,48 @@ name|NativeFormat
 condition|)
 block|{
 comment|// Test default
-comment|// TODO Printer specific, need QPrinterInfo::duplex()
-comment|//QCOMPARE(native.doubleSidedPrinting(), false);
-comment|// Test set/get
+name|QPrinterInfo
+name|printerInfo
+decl_stmt|;
 name|bool
 name|expected
 init|=
-literal|true
+operator|(
+name|printerInfo
+operator|.
+name|defaultDuplexMode
+argument_list|()
+operator|!=
+name|QPrinter
+operator|::
+name|DuplexNone
+operator|)
 decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|native
+operator|.
+name|doubleSidedPrinting
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// Test set/get
+name|expected
+operator|=
+operator|(
+name|printerInfo
+operator|.
+name|supportedDuplexModes
+argument_list|()
+operator|.
+name|count
+argument_list|()
+operator|>
+literal|1
+operator|)
+expr_stmt|;
 name|native
 operator|.
 name|setDoubleSidedPrinting
@@ -7285,20 +7390,6 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|Q_OS_MAC
-operator|||
-name|defined
-name|Q_OS_WIN
-name|expected
-operator|=
-literal|false
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC || Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|native

@@ -2944,7 +2944,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      This is an image format specific function that sets the quality     level of the image to \a quality. For image formats that do not     support setting the quality, this value is ignored.      The value range of \a quality depends on the image format. For     example, the "jpeg" format supports a quality range from 0 (low     quality, high compression) to 100 (high quality, low compression).      \sa quality() */
+comment|/*!     \since 4.2      Sets the quality setting of the image format to \a quality.      Some image formats, in particular lossy ones, entail a tradeoff between a)     visual quality of the resulting image, and b) decoding execution time.     This function sets the level of that tradeoff for image formats that     support it.      In case of scaled image reading, the quality setting may also influence the     tradeoff level between visual quality and execution speed of the scaling     algorithm.      The value range of \a quality depends on the image format. For example,     the "jpeg" format supports a quality range from 0 (low visual quality) to     100 (high visual quality).      \sa quality() setScaledSize() */
 end_comment
 begin_function
 DECL|function|setQuality
@@ -2966,7 +2966,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns the quality level of the image.      \sa setQuality() */
+comment|/*!     \since 4.2      Returns the quality setting of the image format.      \sa setQuality() */
 end_comment
 begin_function
 DECL|function|quality

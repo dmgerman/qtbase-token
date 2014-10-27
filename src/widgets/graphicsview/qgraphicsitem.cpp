@@ -336,6 +336,12 @@ name|path
 operator|==
 name|QPainterPath
 argument_list|()
+operator|||
+name|pen
+operator|==
+name|Qt
+operator|::
+name|NoPen
 condition|)
 return|return
 name|path

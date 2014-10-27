@@ -1277,9 +1277,6 @@ name|m_blitProgram
 operator|=
 operator|new
 name|QOpenGLShaderProgram
-argument_list|(
-name|ctx
-argument_list|)
 expr_stmt|;
 specifier|const
 name|bool
@@ -2507,6 +2504,13 @@ name|free
 argument_list|()
 expr_stmt|;
 name|m_textureResource
+operator|=
+literal|0
+expr_stmt|;
+operator|delete
+name|m_blitProgram
+expr_stmt|;
+name|m_blitProgram
 operator|=
 literal|0
 expr_stmt|;

@@ -906,6 +906,14 @@ operator|.
 name|toStringList
 argument_list|()
 expr_stmt|;
+name|m_parents
+operator|.
+name|removeAll
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Ensure a default platform fallback for all themes
 if|if
 condition|(

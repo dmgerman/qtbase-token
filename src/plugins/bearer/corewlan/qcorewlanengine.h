@@ -199,6 +199,10 @@ name|void
 name|networksChanged
 argument_list|()
 block|;
+name|void
+name|checkDisconnect
+argument_list|()
+block|;
 name|private
 operator|:
 name|bool
@@ -240,6 +244,9 @@ argument|const QString&interfaceName
 argument_list|,
 argument|bool b
 argument_list|)
+block|;
+name|QString
+name|disconnectedInterfaceString
 block|;
 name|protected
 operator|:
