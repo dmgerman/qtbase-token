@@ -183,9 +183,6 @@ name|friend
 name|class
 name|QEglFSWindow
 block|;
-name|EGLDisplay
-name|m_dpy
-block|;
 name|EGLSurface
 name|m_surface
 block|;
