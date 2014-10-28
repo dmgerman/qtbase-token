@@ -33,18 +33,16 @@ decl_stmt|,
 name|UITextInput
 decl|>
 block|{   @
-name|public
+name|private
+name|QIOSInputContext
+modifier|*
+name|m_inputContext
+decl_stmt|;
 name|QString
 name|m_markedText
 decl_stmt|;
 name|BOOL
 name|m_inSendEventToFocusObject
-decl_stmt|;
-block|@
-name|private
-name|QIOSInputContext
-modifier|*
-name|m_inputContext
 decl_stmt|;
 block|}
 end_decl_stmt
