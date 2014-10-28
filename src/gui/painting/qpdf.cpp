@@ -14247,6 +14247,9 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|embedFonts
+operator|||
 name|face_id
 operator|.
 name|filename
