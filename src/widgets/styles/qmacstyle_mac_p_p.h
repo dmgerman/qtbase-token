@@ -760,6 +760,8 @@ argument|const QRect&rect
 argument_list|,
 argument|QPainter *p
 argument_list|,
+argument|bool isQWidget = true
+argument_list|,
 argument|QCocoaDrawRectBlock drawRectBlock = nil
 argument_list|)
 specifier|const
