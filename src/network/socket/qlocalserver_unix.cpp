@@ -251,6 +251,12 @@ operator|::
 name|WorldAccessOption
 condition|)
 block|{
+name|QFileInfo
+name|serverNameFileInfo
+argument_list|(
+name|fullServerName
+argument_list|)
+decl_stmt|;
 name|tempDir
 operator|.
 name|reset
@@ -258,7 +264,15 @@ argument_list|(
 operator|new
 name|QTemporaryDir
 argument_list|(
-name|fullServerName
+name|serverNameFileInfo
+operator|.
+name|absolutePath
+argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -292,12 +306,10 @@ argument_list|()
 expr_stmt|;
 name|tempPath
 operator|+=
-name|QLatin1Char
+name|QLatin1String
 argument_list|(
-literal|'/'
+literal|"/s"
 argument_list|)
-operator|+
-name|requestedServerName
 expr_stmt|;
 block|}
 comment|// create the unix socket
