@@ -53,6 +53,16 @@ init|=
 literal|"inputAccessoryView"
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|kImePlatformDataReturnKeyType
+specifier|const
+name|char
+name|kImePlatformDataReturnKeyType
+index|[]
+init|=
+literal|"returnKeyType"
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 expr|@
