@@ -115,9 +115,9 @@ name|Macros
 expr_stmt|;
 end_typedef
 begin_decl_stmt
-DECL|variable|QIODevice
+DECL|variable|QFile
 name|class
-name|QIODevice
+name|QFile
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -159,7 +159,7 @@ name|QByteArray
 operator|&
 name|filename
 argument_list|,
-name|QIODevice
+name|QFile
 operator|*
 name|device
 argument_list|)
