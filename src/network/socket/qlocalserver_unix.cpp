@@ -676,11 +676,6 @@ name|S_IRWXO
 expr_stmt|;
 if|if
 condition|(
-name|mode
-condition|)
-block|{
-if|if
-condition|(
 operator|::
 name|chmod
 argument_list|(
@@ -710,7 +705,6 @@ expr_stmt|;
 return|return
 literal|false
 return|;
-block|}
 block|}
 if|if
 condition|(
