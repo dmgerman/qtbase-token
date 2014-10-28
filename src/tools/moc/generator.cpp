@@ -1160,6 +1160,12 @@ expr_stmt|;
 comment|//
 comment|// Build stringdata struct
 comment|//
+specifier|const
+name|int
+name|constCharArraySizeLimit
+init|=
+literal|65535
+decl_stmt|;
 name|fprintf
 argument_list|(
 name|out
@@ -1186,7 +1192,12 @@ argument_list|)
 expr_stmt|;
 block|{
 name|int
-name|len
+name|stringDataLength
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|stringDataCounter
 init|=
 literal|0
 decl_stmt|;
@@ -1207,8 +1218,10 @@ condition|;
 operator|++
 name|i
 control|)
-name|len
-operator|+=
+block|{
+name|int
+name|thisLength
+init|=
 name|strings
 operator|.
 name|at
@@ -1220,14 +1233,48 @@ name|length
 argument_list|()
 operator|+
 literal|1
+decl_stmt|;
+name|stringDataLength
+operator|+=
+name|thisLength
 expr_stmt|;
+if|if
+condition|(
+name|stringDataLength
+operator|/
+name|constCharArraySizeLimit
+condition|)
+block|{
+comment|// save previous stringdata and start computing the next one.
 name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    char stringdata[%d];\n"
+literal|"    char stringdata%d[%d];\n"
 argument_list|,
-name|len
+name|stringDataCounter
+operator|++
+argument_list|,
+name|stringDataLength
+operator|-
+name|thisLength
+argument_list|)
+expr_stmt|;
+name|stringDataLength
+operator|=
+name|thisLength
+expr_stmt|;
+block|}
+block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"    char stringdata%d[%d];\n"
+argument_list|,
+name|stringDataCounter
+argument_list|,
+name|stringDataLength
 argument_list|)
 expr_stmt|;
 block|}
@@ -1249,7 +1296,7 @@ name|out
 argument_list|,
 literal|"#define QT_MOC_LITERAL(idx, ofs, len) \\\n"
 literal|"    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \\\n"
-literal|"    qptrdiff(offsetof(qt_meta_stringdata_%s_t, stringdata) + ofs \\\n"
+literal|"    qptrdiff(offsetof(qt_meta_stringdata_%s_t, stringdata0) + ofs \\\n"
 literal|"        - idx * sizeof(QByteArrayData)) \\\n"
 literal|"    )\n"
 argument_list|,
@@ -1477,6 +1524,11 @@ name|len
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|stringDataLength
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1512,6 +1564,50 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
+name|stringDataLength
+operator|+=
+name|len
+operator|+
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|stringDataLength
+operator|>=
+name|constCharArraySizeLimit
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"\",\n    \""
+argument_list|)
+expr_stmt|;
+name|stringDataLength
+operator|=
+name|len
+operator|+
+literal|1
+expr_stmt|;
+name|col
+operator|=
+literal|0
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|i
+condition|)
+name|fputs
+argument_list|(
+literal|"\\0"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+comment|// add \0 at the end of each string
 if|if
 condition|(
 name|col
@@ -1700,25 +1796,6 @@ operator|+=
 name|spanLen
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|i
-operator|!=
-name|strings
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-condition|)
-comment|// skip the last \0 the c++ will add it for us
-name|fputs
-argument_list|(
-literal|"\\0"
-argument_list|,
-name|out
-argument_list|)
-expr_stmt|;
 name|col
 operator|+=
 name|len
@@ -2988,7 +3065,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    if (!strcmp(_clname, qt_meta_stringdata_%s.stringdata))\n"
+literal|"    if (!strcmp(_clname, qt_meta_stringdata_%s.stringdata0))\n"
 literal|"        return static_cast<void*>(const_cast< %s*>(this));\n"
 argument_list|,
 name|qualifiedClassNameIdentifier
