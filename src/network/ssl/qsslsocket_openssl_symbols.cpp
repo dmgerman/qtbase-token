@@ -99,6 +99,11 @@ end_macro
 begin_comment
 comment|/*     Note to maintainer:     -------------------      We load OpenSSL symbols dynamically. Because symbols are known to     disappear, and signatures sometimes change, between releases, we need to     be careful about how this is done. To ensure we don't end up dereferencing     null function pointers, and continue running even if certain functions are     missing, we define helper functions for each of the symbols we load from     OpenSSL, all prefixed with "q_" (declared in     qsslsocket_openssl_symbols_p.h). So instead of calling SSL_connect     directly, we call q_SSL_connect, which is a function that checks if the     actual SSL_connect fptr is null, and returns a failure if it is, or calls     SSL_connect if it isn't.      This requires a somewhat tedious process of declaring each function we     want to call in OpenSSL thrice: once with the q_, in _p.h, once using the     DEFINEFUNC macros below, and once in the function that actually resolves     the symbols, below the DEFINEFUNC declarations below.      There's one DEFINEFUNC macro declared for every number of arguments     exposed by OpenSSL (feel free to extend when needed). The easiest thing to     do is to find an existing entry that matches the arg count of the function     you want to import, and do the same.      The first macro arg is the function return type. The second is the     verbatim name of the function/symbol. Then follows a list of N pairs of     argument types with a variable name, and just the variable name (char *a,     a, char *b, b, etc). Finally there's two arguments - a suitable return     statement for the error case (for an int function, return 0 or return -1     is usually right). Then either just "return" or DUMMYARG, the latter being     for void functions.      Note: Take into account that these macros and declarations are processed     at compile-time, and the result depends on the OpenSSL headers the     compiling host has installed, but the symbols are resolved at run-time,     possibly with a different version of OpenSSL. */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_LINKED_OPENSSL
+end_ifndef
 begin_namespace
 namespace|namespace
 block|{
@@ -140,6 +145,13 @@ expr_stmt|;
 block|}
 block|}
 end_namespace
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_LINKED_OPENSSL
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
