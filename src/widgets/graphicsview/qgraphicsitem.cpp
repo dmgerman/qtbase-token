@@ -13187,7 +13187,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGraphicsItem::rotate(qreal angle)     \obsolete      Use      \code     setRotation(rotation() + angle);     \endcode      instead.      Rotates the current item transformation \a angle degrees clockwise around     its origin. To translate around an arbitrary point (x, y), you need to     combine translation and rotation with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 6      \sa setTransform(), transform(), scale(), shear(), translate() */
+comment|/*!     \fn void QGraphicsItem::rotate(qreal angle)     \obsolete      Use      \code     item->setTransform(QTransform().rotate(angle), true);     \endcode      instead.      Rotates the current item transformation \a angle degrees clockwise around     its origin. To translate around an arbitrary point (x, y), you need to     combine translation and rotation with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 6      \sa setTransform(), transform(), scale(), shear(), translate() */
 end_comment
 begin_comment
 comment|/*!     \fn void QGraphicsItem::scale(qreal sx, qreal sy)     \obsolete      Use      \code     setTransform(QTransform::fromScale(sx, sy), true);     \endcode      instead.      Scales the current item transformation by (\a sx, \a sy) around its     origin. To scale from an arbitrary point (x, y), you need to combine     translation and scaling with setTransform().      Example:      \snippet code/src_gui_graphicsview_qgraphicsitem.cpp 7      \sa setTransform(), transform() */
