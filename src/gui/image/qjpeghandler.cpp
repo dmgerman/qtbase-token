@@ -5586,6 +5586,12 @@ name|defined
 argument_list|(
 name|__ARM_NEON__
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_64
+argument_list|)
 comment|// from qimage_neon.cpp
 if|if
 condition|(
@@ -5600,7 +5606,6 @@ name|qt_convert_rgb888_to_rgb32_neon
 expr_stmt|;
 endif|#
 directive|endif
-comment|// __ARM_NEON__
 if|#
 directive|if
 name|defined
