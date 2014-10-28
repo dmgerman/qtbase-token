@@ -72,7 +72,6 @@ name|CaptionLeft
 block|,
 name|CaptionRight
 block|,
-comment|// 10
 name|Code
 block|,
 name|CodeBad
@@ -93,7 +92,6 @@ name|EndQmlText
 block|,
 name|FootnoteLeft
 block|,
-comment|// 20
 name|FootnoteRight
 block|,
 name|FormatElse
@@ -114,7 +112,6 @@ name|HR
 block|,
 name|Image
 block|,
-comment|// 30
 name|ImageText
 block|,
 name|ImportantLeft
@@ -135,7 +132,6 @@ name|LineBreak
 block|,
 name|Link
 block|,
-comment|// 40
 name|LinkNode
 block|,
 name|ListLeft
@@ -152,11 +148,14 @@ name|ListItemRight
 block|,
 name|ListRight
 block|,
+name|NavAutoLink
+block|,
+name|NavLink
+block|,
 name|Nop
 block|,
 name|NoteLeft
 block|,
-comment|// 50
 name|NoteRight
 block|,
 name|ParaLeft
@@ -177,7 +176,6 @@ name|SectionLeft
 block|,
 name|SectionRight
 block|,
-comment|// 60
 name|SectionHeadingLeft
 block|,
 name|SectionHeadingRight
@@ -198,7 +196,6 @@ name|String
 block|,
 name|TableLeft
 block|,
-comment|// 70
 name|TableRight
 block|,
 name|TableHeaderLeft
@@ -219,7 +216,6 @@ name|Target
 block|,
 name|UnhandledFormat
 block|,
-comment|// 80
 name|UnknownCommand
 block|,
 name|Last

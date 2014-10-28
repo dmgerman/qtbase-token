@@ -10159,6 +10159,7 @@ argument_list|(
 name|string
 argument_list|)
 expr_stmt|;
+comment|// The Atom type is Link.
 block|}
 end_function
 begin_function
@@ -10339,6 +10340,7 @@ argument_list|(
 name|p1
 argument_list|)
 expr_stmt|;
+comment|// The Atom type is Link.
 else|else
 name|priv
 operator|->
