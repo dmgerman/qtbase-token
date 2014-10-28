@@ -6329,7 +6329,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s"
+literal|"%s\n"
 argument_list|,
 name|message
 operator|.

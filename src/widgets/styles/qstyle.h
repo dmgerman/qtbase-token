@@ -1540,6 +1540,8 @@ name|SH_Widget_Animate
 block|,
 name|SH_Splitter_OpaqueResize
 block|,
+comment|// Whether we should use a native popup.
+comment|// Only supported for non-editable combo boxes on Mac OS X so far.
 name|SH_ComboBox_UseNativePopup
 block|,
 name|SH_LineEdit_PasswordMaskDelay
