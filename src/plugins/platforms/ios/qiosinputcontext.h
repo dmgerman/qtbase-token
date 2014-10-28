@@ -92,6 +92,11 @@ name|currentState
 argument_list|(
 literal|0
 argument_list|)
+operator|,
+name|focusObject
+argument_list|(
+literal|0
+argument_list|)
 block|{}
 name|Qt
 operator|::
@@ -104,6 +109,11 @@ expr_stmt|;
 DECL|member|currentState
 name|QInputMethodQueryEvent
 name|currentState
+decl_stmt|;
+DECL|member|focusObject
+name|QObject
+modifier|*
+name|focusObject
 decl_stmt|;
 block|}
 struct|;
