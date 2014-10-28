@@ -812,6 +812,13 @@ name|propagateSizeHints
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|bool
+name|handleGeometryChanging
+argument_list|(
+argument|MSG *message
+argument_list|)
+specifier|const
+block|;
 name|QMargins
 name|frameMarginsDp
 argument_list|()

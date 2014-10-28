@@ -1020,6 +1020,39 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
+comment|// Allows for manipulating the suggested geometry before a resize/move
+end_comment
+begin_comment
+comment|// event in derived classes for platforms that support it, for example to
+end_comment
+begin_comment
+comment|// implement heightForWidth().
+end_comment
+begin_function
+DECL|function|closestAcceptableGeometry
+name|QRectF
+name|QWindowPrivate
+operator|::
+name|closestAcceptableGeometry
+parameter_list|(
+specifier|const
+name|QRectF
+modifier|&
+name|rect
+parameter_list|)
+specifier|const
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|rect
+argument_list|)
+return|return
+name|QRectF
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Sets the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      The surfaceType will be used when the native surface is created     in the create() function. Calling this function after the native     surface has been created requires calling destroy() and create()     to release the old native surface and create a new one.      \sa QBackingStore, QOpenGLContext, create(), destroy() */
 end_comment
 begin_function
