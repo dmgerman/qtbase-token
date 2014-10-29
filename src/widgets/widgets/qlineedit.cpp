@@ -4100,6 +4100,9 @@ operator|)
 decl_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_IM
 if|if
 condition|(
 name|d
@@ -4164,6 +4167,8 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+endif|#
+directive|endif
 block|{
 name|d
 operator|->
@@ -4438,6 +4443,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// exit composition mode
+ifndef|#
+directive|ifndef
+name|QT_NO_IM
 if|if
 condition|(
 name|d
@@ -4583,6 +4591,8 @@ operator|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|position
