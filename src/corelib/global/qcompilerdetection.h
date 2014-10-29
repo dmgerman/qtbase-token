@@ -2512,12 +2512,20 @@ end_endif
 begin_if
 if|#
 directive|if
-literal|0
+name|__has_feature
+argument_list|(
+name|cxx_atomic
+argument_list|)
+operator|&&
+name|__has_include
+argument_list|(
+operator|<
+name|atomic
+operator|>
+argument_list|)
 end_if
-begin_comment
-comment|/* not implemented in clang yet */
-end_comment
 begin_define
+DECL|macro|Q_COMPILER_ATOMICS
 define|#
 directive|define
 name|Q_COMPILER_ATOMICS
@@ -4222,6 +4230,15 @@ DECL|macro|Q_COMPILER_REF_QUALIFIERS
 undef|#
 directive|undef
 name|Q_COMPILER_REF_QUALIFIERS
+end_undef
+begin_comment
+comment|// Also disable<atomic>, since it's clearly not there
+end_comment
+begin_undef
+DECL|macro|Q_COMPILER_ATOMICS
+undef|#
+directive|undef
+name|Q_COMPILER_ATOMICS
 end_undef
 begin_endif
 endif|#
