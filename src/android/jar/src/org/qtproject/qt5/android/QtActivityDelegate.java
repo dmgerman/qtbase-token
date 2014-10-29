@@ -2960,11 +2960,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-comment|/*(ai.flags&ApplicationInfo.FLAG_DEBUGGABLE) != 0&&*/
 name|extras
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+comment|/*(ai.flags&ApplicationInfo.FLAG_DEBUGGABLE) != 0&&*/
 name|extras
 operator|.
 name|containsKey
@@ -3177,10 +3180,6 @@ block|}
 if|if
 condition|(
 comment|/*(ai.flags&ApplicationInfo.FLAG_DEBUGGABLE) != 0&&*/
-name|extras
-operator|!=
-literal|null
-operator|&&
 name|extras
 operator|.
 name|containsKey
@@ -3815,10 +3814,6 @@ if|if
 condition|(
 comment|/*(ai.flags&ApplicationInfo.FLAG_DEBUGGABLE) != 0&&*/
 name|extras
-operator|!=
-literal|null
-operator|&&
-name|extras
 operator|.
 name|containsKey
 argument_list|(
@@ -3989,6 +3984,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// extras != null
 if|if
 condition|(
 literal|null
