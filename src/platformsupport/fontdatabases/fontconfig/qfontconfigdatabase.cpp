@@ -1717,7 +1717,9 @@ name|fontFile
 operator|->
 name|fileName
 operator|=
-name|QLatin1String
+name|QString
+operator|::
+name|fromLocal8Bit
 argument_list|(
 operator|(
 specifier|const
