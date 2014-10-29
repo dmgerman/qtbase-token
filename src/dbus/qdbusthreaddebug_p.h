@@ -741,34 +741,6 @@ block|{ }
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|struct|QDBusMutexLocker
-name|struct
-name|QDBusWatchAndTimeoutLocker
-range|:
-name|QDBusMutexLocker
-block|{
-DECL|function|QDBusWatchAndTimeoutLocker
-specifier|inline
-name|QDBusWatchAndTimeoutLocker
-argument_list|(
-argument|ThreadAction a
-argument_list|,
-argument|QDBusConnectionPrivate *s
-argument_list|)
-operator|:
-name|QDBusMutexLocker
-argument_list|(
-argument|a
-argument_list|,
-argument|s
-argument_list|,
-argument|&s->watchAndTimeoutLock
-argument_list|)
-block|{ }
-block|}
-decl_stmt|;
-end_decl_stmt
 begin_if
 if|#
 directive|if

@@ -1671,15 +1671,23 @@ name|ConnectionMode
 name|mode
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|QDBusConnectionInterface
+modifier|*
+name|busService
+decl_stmt|;
+end_decl_stmt
 begin_comment
-comment|// members accessed in unlocked mode (except for deletion)
+comment|// the dispatch lock protects everything related to the DBusConnection or DBusServer
 end_comment
 begin_comment
-comment|// connection and server provide their own locking mechanisms
+comment|// including the timeouts and watches
 end_comment
-begin_comment
-comment|// busService doesn't have state to be changed
-end_comment
+begin_decl_stmt
+name|QMutex
+name|dispatchLock
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|DBusConnection
 modifier|*
@@ -1690,26 +1698,6 @@ begin_decl_stmt
 name|DBusServer
 modifier|*
 name|server
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|QDBusConnectionInterface
-modifier|*
-name|busService
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// watchers and timeouts are accessed from any thread
-end_comment
-begin_comment
-comment|// but the corresponding timer and QSocketNotifier must be handled
-end_comment
-begin_comment
-comment|// only in the object's thread
-end_comment
-begin_decl_stmt
-name|QMutex
-name|watchAndTimeoutLock
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1728,13 +1716,8 @@ name|timeoutsPendingAdd
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// members accessed through a lock
+comment|// the master lock protects our own internal state
 end_comment
-begin_decl_stmt
-name|QMutex
-name|dispatchLock
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|QReadWriteLock
 name|lock
