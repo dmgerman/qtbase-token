@@ -201,6 +201,12 @@ name|QString
 operator|&
 name|str
 argument_list|)
+block|;
+name|virtual
+name|QString
+name|getManifestFileForRcFile
+argument_list|()
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

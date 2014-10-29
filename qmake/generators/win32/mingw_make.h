@@ -48,6 +48,12 @@ name|QString
 name|getLibTarget
 argument_list|()
 block|;
+name|virtual
+name|QString
+name|getManifestFileForRcFile
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|writeMakefile
 argument_list|(
