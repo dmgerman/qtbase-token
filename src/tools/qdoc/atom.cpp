@@ -35,7 +35,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*! \class Atom     \brief The Atom class is the fundamental unit for representing     documents internally.    Atoms have a \i type and are completed by a \i string whose   meaning depends on the \i type. For example, the string   \quotation       \i italic text looks nicer than \bold bold text   \endquotation   is represented by the following atoms:   \quotation       (FormattingLeft, ATOM_FORMATTING_ITALIC)       (String, "italic")       (FormattingRight, ATOM_FORMATTING_ITALIC)       (String, " text is more attractive than ")       (FormattingLeft, ATOM_FORMATTING_BOLD)       (String, "bold")       (FormattingRight, ATOM_FORMATTING_BOLD)       (String, " text")   \endquotation    \also Text */
-comment|/*! \enum Atom::Type    \value AbstractLeft   \value AbstractRight   \value AnnotatedList   \value AutoLink   \value BaseName   \value BriefLeft   \value BriefRight   \value C   \value CaptionLeft   \value CaptionRight   \value Code   \value CodeBad   \value CodeNew   \value CodeOld   \value CodeQuoteArgument   \value CodeQuoteCommand   \value DivLeft   \value DivRight   \value EndQmlText   \value FormatElse   \value FormatEndif   \value FormatIf   \value FootnoteLeft   \value FootnoteRight   \value FormattingLeft   \value FormattingRight   \value GeneratedList   \value Image   \value ImageText   \value ImportantNote   \value InlineImage   \value LineBreak   \value Link   \value LinkNode   \value ListLeft   \value ListItemNumber   \value ListTagLeft   \value ListTagRight   \value ListItemLeft   \value ListItemRight   \value ListRight   \value NavAutoLink   \value NavLink   \value Nop   \value Note   \value ParaLeft   \value ParaRight   \value Qml   \value QmlText   \value QuotationLeft   \value QuotationRight   \value RawString   \value SectionLeft   \value SectionRight   \value SectionHeadingLeft   \value SectionHeadingRight   \value SidebarLeft   \value SidebarRight   \value SinceList   \value String   \value TableLeft   \value TableRight   \value TableHeaderLeft   \value TableHeaderRight   \value TableRowLeft   \value TableRowRight   \value TableItemLeft   \value TableItemRight   \value TableOfContents   \value Target   \value UnhandledFormat   \value UnknownCommand */
+comment|/*! \enum Atom::Type    \value AbstractLeft   \value AbstractRight   \value AnnotatedList   \value AutoLink   \value BaseName   \value BriefLeft   \value BriefRight   \value C   \value CaptionLeft   \value CaptionRight   \value Code   \value CodeBad   \value CodeNew   \value CodeOld   \value CodeQuoteArgument   \value CodeQuoteCommand   \value DivLeft   \value DivRight   \value EndQmlText   \value FormatElse   \value FormatEndif   \value FormatIf   \value FootnoteLeft   \value FootnoteRight   \value FormattingLeft   \value FormattingRight   \value GeneratedList   \value Image   \value ImageText   \value ImportantNote   \value InlineImage   \value JavaScript   \value EndJavaScript   \value Keyword   \value LineBreak   \value Link   \value LinkNode   \value ListLeft   \value ListItemNumber   \value ListTagLeft   \value ListTagRight   \value ListItemLeft   \value ListItemRight   \value ListRight   \value NavAutoLink   \value NavLink   \value Nop   \value Note   \value ParaLeft   \value ParaRight   \value Qml   \value QmlText   \value QuotationLeft   \value QuotationRight   \value RawString   \value SectionLeft   \value SectionRight   \value SectionHeadingLeft   \value SectionHeadingRight   \value SidebarLeft   \value SidebarRight   \value SinceList   \value String   \value TableLeft   \value TableRight   \value TableHeaderLeft   \value TableHeaderRight   \value TableRowLeft   \value TableRowRight   \value TableItemLeft   \value TableItemRight   \value TableOfContents   \value Target   \value UnhandledFormat   \value UnknownCommand */
 DECL|member|noError_
 name|QString
 name|Atom
@@ -361,6 +361,14 @@ block|,
 name|Atom
 operator|::
 name|EndJavaScript
+block|}
+block|,
+block|{
+literal|"Keyword"
+block|,
+name|Atom
+operator|::
+name|Keyword
 block|}
 block|,
 block|{

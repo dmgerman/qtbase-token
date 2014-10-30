@@ -342,6 +342,15 @@ operator|&
 name|config
 argument_list|)
 block|;
+name|void
+name|generateKeywordAnchors
+argument_list|(
+specifier|const
+name|Node
+operator|*
+name|node
+argument_list|)
+block|;
 name|private
 operator|:
 expr|enum

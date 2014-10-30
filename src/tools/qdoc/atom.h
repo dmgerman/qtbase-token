@@ -124,6 +124,8 @@ name|JavaScript
 block|,
 name|EndJavaScript
 block|,
+name|Keyword
+block|,
 name|LegaleseLeft
 block|,
 name|LegaleseRight

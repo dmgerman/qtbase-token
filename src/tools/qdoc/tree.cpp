@@ -5657,6 +5657,7 @@ argument_list|)
 return|;
 if|if
 condition|(
+operator|(
 name|atom
 operator|->
 name|type
@@ -5665,6 +5666,18 @@ operator|==
 name|Atom
 operator|::
 name|Target
+operator|)
+operator|||
+operator|(
+name|atom
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Atom
+operator|::
+name|Keyword
+operator|)
 condition|)
 return|return
 name|Doc
