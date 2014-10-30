@@ -59,6 +59,16 @@ label|:
 name|QWindowsMouseHandler
 argument_list|()
 expr_stmt|;
+name|QTouchDevice
+operator|*
+name|touchDevice
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_touchDevice
+return|;
+block|}
 name|bool
 name|translateMouseEvent
 argument_list|(
