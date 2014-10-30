@@ -651,15 +651,18 @@ block|{
 name|public
 label|:
 name|virtual
+operator|~
+name|QXcbWindowEventListener
+argument_list|()
+block|{}
+name|virtual
 name|bool
 name|handleGenericEvent
-parameter_list|(
-name|xcb_generic_event_t
-modifier|*
-parameter_list|,
-name|long
-modifier|*
-parameter_list|)
+argument_list|(
+argument|xcb_generic_event_t *
+argument_list|,
+argument|long *
+argument_list|)
 block|{
 return|return
 name|false
