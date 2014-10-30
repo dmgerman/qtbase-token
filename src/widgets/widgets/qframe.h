@@ -26,6 +26,12 @@ name|QFramePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QStyleOptionFrame
+name|class
+name|QStyleOptionFrame
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QFrame
@@ -268,6 +274,13 @@ argument_list|,
 argument|Qt::WindowFlags f =
 literal|0
 argument_list|)
+block|;
+name|void
+name|initStyleOption
+argument_list|(
+argument|QStyleOptionFrame *option
+argument_list|)
+specifier|const
 block|;
 name|private
 operator|:
