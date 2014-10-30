@@ -172,6 +172,11 @@ name|yVelocity
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|pointCount
+argument_list|(
+literal|2
+argument_list|)
 block|{     }
 name|qreal
 name|horizontalVelocity
@@ -228,7 +233,12 @@ name|xVelocity
 block|;
 name|qreal
 name|yVelocity
-block|; }
+block|;
+name|int
+name|pointCount
+block|;
+comment|// ### fixme Qt 5.5: Add accessor to QPanGesture.
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
