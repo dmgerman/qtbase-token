@@ -15921,6 +15921,7 @@ specifier|const
 name|bool
 name|sufficientSpace
 init|=
+operator|(
 name|horizontal
 operator|&&
 name|hSpace
@@ -15935,6 +15936,7 @@ name|contentsMargin
 operator|.
 name|right
 argument_list|()
+operator|)
 operator|)
 operator|||
 name|vSpace
