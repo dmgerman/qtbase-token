@@ -4064,11 +4064,6 @@ name|qreal
 name|penWidth
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QWin32PrintEngine
-argument_list|)
-expr_stmt|;
 name|composeGdiPath
 argument_list|(
 name|path
