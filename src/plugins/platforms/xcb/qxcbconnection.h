@@ -1572,6 +1572,17 @@ name|m_reader
 return|;
 block|}
 end_expr_stmt
+begin_expr_stmt
+name|bool
+name|canGrab
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_canGrabServer
+return|;
+block|}
+end_expr_stmt
 begin_label
 name|protected
 label|:
