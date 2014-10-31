@@ -4449,7 +4449,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!   This function is called in the child process context just before the     program is executed on Unix or Mac OS X (i.e., after \e fork(), but before     \e execve()). Reimplement this function to do last minute initialization     of the child process. Example:      \snippet code/src_corelib_io_qprocess.cpp 4      You cannot exit the process (by calling exit(), for instance) from     this function. If you need to stop the program before it starts     execution, your workaround is to emit finished() and then call     exit().      \warning This function is called by QProcess on Unix and Mac OS X     only. On Windows and QNX, it is not called. */
+comment|/*!   This function is called in the child process context just before the     program is executed on Unix or OS X (i.e., after \c fork(), but before     \c execve()). Reimplement this function to do last minute initialization     of the child process. Example:      \snippet code/src_corelib_io_qprocess.cpp 4      You cannot exit the process (by calling exit(), for instance) from     this function. If you need to stop the program before it starts     execution, your workaround is to emit finished() and then call     exit().      \warning This function is called by QProcess on Unix and OS X     only. On Windows and QNX, it is not called. */
 end_comment
 begin_function
 DECL|function|setupChildProcess
@@ -5867,7 +5867,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Attempts to terminate the process.      The process may not exit as a result of calling this function (it is given     the chance to prompt the user for any unsaved files, etc).      On Windows, terminate() posts a WM_CLOSE message to all toplevel windows     of the process and then to the main thread of the process itself. On Unix     and Mac OS X the SIGTERM signal is sent.      Console applications on Windows that do not run an event loop, or whose     event loop does not handle the WM_CLOSE message, can only be terminated by     calling kill().      \sa kill() */
+comment|/*!     Attempts to terminate the process.      The process may not exit as a result of calling this function (it is given     the chance to prompt the user for any unsaved files, etc).      On Windows, terminate() posts a WM_CLOSE message to all toplevel windows     of the process and then to the main thread of the process itself. On Unix     and OS X the \c SIGTERM signal is sent.      Console applications on Windows that do not run an event loop, or whose     event loop does not handle the WM_CLOSE message, can only be terminated by     calling kill().      \sa kill() */
 end_comment
 begin_function
 DECL|function|terminate
@@ -5890,7 +5890,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Kills the current process, causing it to exit immediately.      On Windows, kill() uses TerminateProcess, and on Unix and Mac OS X, the     SIGKILL signal is sent to the process.      \sa terminate() */
+comment|/*!     Kills the current process, causing it to exit immediately.      On Windows, kill() uses TerminateProcess, and on Unix and OS X, the     SIGKILL signal is sent to the process.      \sa terminate() */
 end_comment
 begin_function
 DECL|function|kill
