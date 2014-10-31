@@ -263,16 +263,6 @@ name|public
 label|:
 name|QMetaType
 operator|::
-name|Creator
-name|creator
-expr_stmt|;
-name|QMetaType
-operator|::
-name|Deleter
-name|deleter
-expr_stmt|;
-name|QMetaType
-operator|::
 name|SaveOperator
 name|saveOp
 expr_stmt|;
@@ -418,11 +408,7 @@ parameter_list|,
 name|DATASTREAM_DELEGATE
 parameter_list|)
 define|\
-value|{ \
-comment|/*creator*/
-value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Create), \
-comment|/*deleter*/
-value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Delete), \     DATASTREAM_DELEGATE(Type) \
+value|{ \     DATASTREAM_DELEGATE(Type) \
 comment|/*constructor*/
 value|(QtMetaTypePrivate::QMetaTypeFunctionHelper<Type, QtMetaTypePrivate::TypeDefinition<Type>::IsAvailable>::Construct), \
 comment|/*destructor*/
@@ -464,11 +450,7 @@ directive|define
 name|QT_METATYPE_INTERFACE_INIT_EMPTY
 parameter_list|()
 define|\
-value|{ \
-comment|/*creator*/
-value|0, \
-comment|/*deleter*/
-value|0, \     QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL(void) \
+value|{ \     QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL(void) \
 comment|/*constructor*/
 value|0, \
 comment|/*destructor*/
