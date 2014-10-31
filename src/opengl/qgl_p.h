@@ -874,6 +874,17 @@ name|void
 name|setupSharing
 parameter_list|()
 function_decl|;
+name|void
+name|refreshCurrentFbo
+parameter_list|()
+function_decl|;
+name|void
+name|setCurrentFbo
+parameter_list|(
+name|GLuint
+name|fbo
+parameter_list|)
+function_decl|;
 name|QGLFormat
 name|glFormat
 decl_stmt|;

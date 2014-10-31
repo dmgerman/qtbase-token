@@ -734,6 +734,13 @@ name|contextHandle
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ctx
+operator|->
+name|d_ptr
+operator|->
+name|refreshCurrentFbo
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|d
