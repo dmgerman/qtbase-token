@@ -21413,7 +21413,7 @@ index|]
 else|:
 name|QString
 argument_list|(
-literal|"4.8"
+literal|"4.9"
 argument_list|)
 argument_list|)
 decl_stmt|;
