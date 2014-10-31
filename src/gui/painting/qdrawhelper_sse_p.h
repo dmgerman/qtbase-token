@@ -480,20 +480,11 @@ argument_list|(
 name|c
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_CC_MSVC
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4309
-name|)
+name|QT_WARNING_DISABLE_MSVC
+argument_list|(
+literal|4309
+argument_list|)
 comment|// truncation of constant value
-endif|#
-directive|endif
 specifier|const
 name|__m64
 name|maskmask1

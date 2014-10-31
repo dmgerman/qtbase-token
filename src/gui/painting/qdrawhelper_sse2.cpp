@@ -2910,23 +2910,11 @@ argument_list|(
 name|c
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
+name|QT_WARNING_DISABLE_MSVC
 argument_list|(
-name|Q_CC_MSVC
+literal|4309
 argument_list|)
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4309
-name|)
 comment|// truncation of constant value
-endif|#
-directive|endif
 specifier|const
 name|__m128i
 name|maskmask
