@@ -195,10 +195,6 @@ operator|&
 name|nativeHandle
 argument_list|)
 block|;
-name|QXcbScreen
-operator|*
-name|m_screen
-block|;
 name|Display
 operator|*
 name|m_display
