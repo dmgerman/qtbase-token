@@ -49,6 +49,7 @@ name|QMetaMethod
 block|{
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMetaMethod
 argument_list|()
@@ -903,6 +904,7 @@ name|QMetaEnum
 block|{
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMetaEnum
 argument_list|()
@@ -1320,6 +1322,7 @@ name|QMetaClassInfo
 block|{
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMetaClassInfo
 argument_list|()
