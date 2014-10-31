@@ -84,8 +84,6 @@ parameter_list|,
 name|JNIEnv
 modifier|*
 name|env
-init|=
-literal|0
 parameter_list|)
 function_decl|;
 name|void

@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"androidjnimenu.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qjni_p.h>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|QAndroidPlatformMenu
@@ -481,6 +486,9 @@ argument_list|(
 name|this
 argument_list|,
 name|targetRect
+argument_list|,
+name|QJNIEnvironmentPrivate
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
