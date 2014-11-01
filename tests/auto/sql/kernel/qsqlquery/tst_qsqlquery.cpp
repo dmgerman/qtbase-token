@@ -27968,23 +27968,37 @@ operator|::
 name|Double
 argument_list|)
 expr_stmt|;
-comment|// PSQL does not have support for the round() function
+name|QString
+name|field
+init|=
+literal|"id"
+decl_stmt|;
+comment|// PSQL does not have the round() function with real type
 if|if
 condition|(
 name|dbType
-operator|!=
+operator|==
 name|QSqlDriver
 operator|::
 name|PostgreSQL
 condition|)
 block|{
+name|field
+operator|+=
+literal|"::NUMERIC"
+expr_stmt|;
+block|}
 name|QVERIFY_SQL
 argument_list|(
 name|q
 argument_list|,
 name|exec
 argument_list|(
-literal|"SELECT ROUND(id, 1) FROM "
+literal|"SELECT ROUND("
+operator|+
+name|field
+operator|+
+literal|", 1) FROM "
 operator|+
 name|tableName
 operator|+
@@ -28041,7 +28055,11 @@ name|q
 argument_list|,
 name|exec
 argument_list|(
-literal|"SELECT ROUND(id, 0) FROM "
+literal|"SELECT ROUND("
+operator|+
+name|field
+operator|+
+literal|", 0) FROM "
 operator|+
 name|tableName
 operator|+
@@ -28116,7 +28134,6 @@ operator|::
 name|Double
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 specifier|const
