@@ -11734,7 +11734,7 @@ begin_comment
 comment|/*!     \fn void QPainter::drawLine(const QPointF&p1, const QPointF&p2)     \overload      Draws a line from \a p1 to \a p2. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPainter::drawLine(int x1, int y1, int x2, int y2)     \overload      Draws a line from (\a x1, \a y1) to (\a x2, \a y2) and sets the     current pen position to (\a x2, \a y2). */
+comment|/*!     \fn void QPainter::drawLine(int x1, int y1, int x2, int y2)     \overload      Draws a line from (\a x1, \a y1) to (\a x2, \a y2). */
 end_comment
 begin_comment
 comment|/*!     \fn void QPainter::drawRect(const QRectF&rectangle)      Draws the current \a rectangle with the current pen and brush.      A filled rectangle has a size of \a{rectangle}.size(). A stroked     rectangle has a size of \a{rectangle}.size() plus the pen width.      \table 100%     \row     \li \inlineimage qpainter-rectangle.png     \li     \snippet code/src_gui_painting_qpainter.cpp 7     \endtable      \sa drawRects(), drawPolygon(), {Coordinate System} */
