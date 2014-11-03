@@ -128,7 +128,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|__arm64__
+name|__aarch64__
 argument_list|)
 end_if
 begin_define
@@ -142,7 +142,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|__arm64__
+name|__aarch64__
 argument_list|)
 end_if
 begin_define
