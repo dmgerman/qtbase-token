@@ -95,6 +95,7 @@ DECL|macro|Q_CC_MSVC
 define|#
 directive|define
 name|Q_CC_MSVC
+value|(_MSC_VER)
 end_define
 begin_define
 DECL|macro|Q_CC_MSVC_NET
@@ -480,6 +481,7 @@ DECL|macro|Q_CC_INTEL
 define|#
 directive|define
 name|Q_CC_INTEL
+value|(__INTEL_COMPILER)
 end_define
 begin_define
 DECL|macro|Q_ASSUME_IMPL
@@ -1344,6 +1346,7 @@ DECL|macro|Q_CC_INTEL
 define|#
 directive|define
 name|Q_CC_INTEL
+value|(__INTEL_COMPILER)
 end_define
 begin_comment
 comment|/* Uses CFront, make sure to read the manual how to tweak templates. */
