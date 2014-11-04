@@ -18303,6 +18303,15 @@ name|Qt
 operator|::
 name|ClickFocus
 decl_stmt|;
+specifier|static
+name|QPointer
+argument_list|<
+name|QWidget
+argument_list|>
+name|focusedWidgetOnTouchBegin
+init|=
+literal|0
+decl_stmt|;
 switch|switch
 condition|(
 name|event
@@ -18326,6 +18335,13 @@ name|QEvent
 operator|::
 name|TouchBegin
 case|:
+name|focusedWidgetOnTouchBegin
+operator|=
+name|QApplication
+operator|::
+name|focusWidget
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|setFocusOnRelease
@@ -18348,6 +18364,20 @@ operator|!
 name|setFocusOnRelease
 condition|)
 return|return;
+if|if
+condition|(
+name|focusedWidgetOnTouchBegin
+operator|!=
+name|QApplication
+operator|::
+name|focusWidget
+argument_list|()
+condition|)
+block|{
+comment|// Focus widget was changed while delivering press/move events.
+comment|// To not interfere with application logic, we leave focus as-is
+return|return;
+block|}
 break|break;
 case|case
 name|QEvent
