@@ -8894,16 +8894,10 @@ argument_list|(
 name|Q_CC_CLANG
 argument_list|)
 operator|&&
-operator|(
-name|__clang_major__
-operator|*
-literal|100
-operator|)
-operator|+
-name|__clang_minor__
-operator|)
+name|Q_CC_CLANG
 operator|<
 literal|304
+operator|)
 operator|)
 comment|// There is no Q_COMPILER_>>  but if compiler support auto, it should also support>>
 name|void

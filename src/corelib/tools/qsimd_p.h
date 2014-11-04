@@ -678,11 +678,7 @@ name|Q_CC_CLANG
 argument_list|)
 operator|&&
 operator|(
-name|__clang_major__
-operator|*
-literal|100
-operator|+
-name|__clang_minor__
+name|Q_CC_CLANG
 operator|>=
 literal|208
 operator|)
