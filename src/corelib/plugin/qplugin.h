@@ -157,10 +157,17 @@ end_function_decl
 begin_if
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|Q_OF_ELF
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|)
 operator|&&
 operator|(
 name|defined
