@@ -300,6 +300,10 @@ name|bool
 name|isOnline
 argument_list|()
 block|;
+name|QStringList
+name|interfaces
+argument_list|()
+block|;
 name|private
 operator|:
 name|QVariantMap
