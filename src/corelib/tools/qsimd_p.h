@@ -660,11 +660,7 @@ name|Q_CC_GNU
 argument_list|)
 operator|&&
 operator|(
-name|__GNUC__
-operator|*
-literal|100
-operator|+
-name|__GNUC_MINOR__
+name|Q_CC_GNU
 operator|>=
 literal|404
 operator|)
@@ -1125,11 +1121,7 @@ argument_list|(
 name|Q_CC_GNU
 argument_list|)
 operator|&&
-name|__GNUC__
-operator|*
-literal|100
-operator|+
-name|__GNUC_MINOR__
+name|Q_CC_GNU
 operator|<
 literal|405
 operator|)

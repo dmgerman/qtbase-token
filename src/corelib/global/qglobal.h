@@ -4741,13 +4741,7 @@ argument_list|(
 name|Q_CC_GNU
 argument_list|)
 operator|||
-operator|(
-name|__GNUC__
-operator|*
-literal|100
-operator|+
-name|__GNUC_MINOR__
-operator|)
+name|Q_CC_GNU
 operator|>=
 literal|405
 operator|)
