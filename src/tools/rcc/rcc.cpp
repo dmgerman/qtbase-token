@@ -4938,6 +4938,16 @@ operator|==
 name|Pass1
 condition|)
 block|{
+if|if
+condition|(
+name|offset
+operator|<
+literal|8
+condition|)
+name|offset
+operator|=
+literal|8
+expr_stmt|;
 name|writeString
 argument_list|(
 literal|"\nstatic const unsigned char qt_resource_data["
