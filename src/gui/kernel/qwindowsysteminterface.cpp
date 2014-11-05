@@ -1541,6 +1541,8 @@ name|QEvent
 operator|::
 name|KeyPress
 operator|&&
+name|tlw
+operator|&&
 name|QWindowSystemInterface
 operator|::
 name|tryHandleShortcutEvent
