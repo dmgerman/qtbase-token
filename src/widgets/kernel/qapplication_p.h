@@ -1104,7 +1104,7 @@ directive|endif
 end_endif
 begin_function_decl
 specifier|static
-name|void
+name|bool
 name|updateTouchPointsForWidget
 parameter_list|(
 name|QWidget
