@@ -157,22 +157,15 @@ name|public
 label|:
 name|TargetLoc
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|t
+argument|const QString& t
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|fileName
+argument|const QString& fileName
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|text
+argument|const QString& text
+argument_list|,
+argument|bool broken = false
 argument_list|)
-operator|:
+block|:
 name|target_
 argument_list|(
 name|t
@@ -185,7 +178,12 @@ argument_list|)
 operator|,
 name|text_
 argument_list|(
-argument|text
+name|text
+argument_list|)
+operator|,
+name|broken_
+argument_list|(
+argument|broken
 argument_list|)
 block|{ }
 name|QString
@@ -196,6 +194,9 @@ name|fileName_
 decl_stmt|;
 name|QString
 name|text_
+decl_stmt|;
+name|bool
+name|broken_
 decl_stmt|;
 block|}
 struct|;
@@ -1153,6 +1154,9 @@ parameter_list|,
 name|QString
 modifier|&
 name|text
+parameter_list|,
+name|bool
+name|broken
 parameter_list|)
 function_decl|;
 name|TargetList

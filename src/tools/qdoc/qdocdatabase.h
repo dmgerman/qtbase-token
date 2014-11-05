@@ -2356,6 +2356,11 @@ parameter_list|,
 name|QString
 modifier|&
 name|text
+parameter_list|,
+name|bool
+name|broken
+init|=
+name|false
 parameter_list|)
 block|{
 return|return
@@ -2369,6 +2374,8 @@ argument_list|,
 name|fileName
 argument_list|,
 name|text
+argument_list|,
+name|broken
 argument_list|)
 return|;
 block|}
