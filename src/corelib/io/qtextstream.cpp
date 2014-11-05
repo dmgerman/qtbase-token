@@ -2035,53 +2035,11 @@ operator|)
 operator|)
 condition|)
 do|;
-comment|// if the token was not found, but we reached the end of input,
-comment|// then we accept what we got. if we are not at the end of input,
-comment|// we return false.
 if|if
 condition|(
-operator|!
-name|foundToken
-operator|&&
-operator|(
-operator|!
-name|maxlen
-operator|||
-name|totalSize
-operator|<
-name|maxlen
-operator|)
-operator|&&
-operator|(
 name|totalSize
 operator|==
 literal|0
-operator|||
-operator|(
-name|string
-operator|&&
-name|stringOffset
-operator|+
-name|totalSize
-operator|<
-name|string
-operator|->
-name|size
-argument_list|()
-operator|)
-operator|||
-operator|(
-name|device
-operator|&&
-operator|!
-name|device
-operator|->
-name|atEnd
-argument_list|()
-operator|&&
-name|canStillReadFromDevice
-operator|)
-operator|)
 condition|)
 block|{
 if|#
@@ -2092,7 +2050,7 @@ name|QTEXTSTREAM_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QTextStreamPrivate::scan() did not find the token."
+literal|"QTextStreamPrivate::scan() reached the end of input."
 argument_list|)
 expr_stmt|;
 endif|#
