@@ -4180,9 +4180,6 @@ name|pDataObj
 argument_list|)
 condition|)
 block|{
-name|QByteArray
-name|texturi
-decl_stmt|;
 name|QList
 argument_list|<
 name|QVariant
@@ -7870,7 +7867,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// if it is not in there then register it an see if we can get it
+comment|// if it is not in there then register it and see if we can get it
 name|int
 name|cf
 init|=
