@@ -99,6 +99,9 @@ begin_comment
 comment|/*!     \fn void QVector::append(const T&value)      Inserts \a value at the end of the vector.      Example:     \snippet code/src_corelib_tools_qvector.cpp 7      This is the same as calling resize(size() + 1) and assigning \a     value to the new last element in the vector.      This operation is relatively fast, because QVector typically     allocates more memory than necessary, so it can grow without     reallocating the entire vector each time.      \sa operator<<(), prepend(), insert() */
 end_comment
 begin_comment
+comment|/*! \fn void QVector::append(const QVector<T>&value)      \overload      \since 5.5      Appends the items of the \a value vector to this vector.      \sa operator<<(), operator+=() */
+end_comment
+begin_comment
 comment|/*! \fn void QVector::prepend(const T&value)      Inserts \a value at the beginning of the vector.      Example:     \snippet code/src_corelib_tools_qvector.cpp 8      This is the same as vector.insert(0, \a value).      For large vectors, this operation can be slow (\l{linear time}),     because it requires moving all the items in the vector by one     position further in memory. If you want a container class that     provides a fast prepend() function, use QList or QLinkedList     instead.      \sa append(), insert() */
 end_comment
 begin_comment
