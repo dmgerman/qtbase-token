@@ -11944,6 +11944,27 @@ block|}
 block|}
 break|break;
 default|default:
+if|if
+condition|(
+name|in
+index|[
+name|pos
+index|]
+operator|.
+name|isSpace
+argument_list|()
+operator|&&
+operator|!
+name|verbatim
+condition|)
+name|arg
+operator|+=
+name|QChar
+argument_list|(
+literal|' '
+argument_list|)
+expr_stmt|;
+else|else
 name|arg
 operator|+=
 name|in
