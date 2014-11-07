@@ -218,15 +218,6 @@ name|inputMethodAccepted
 argument_list|()
 specifier|const
 block|;
-name|bool
-name|isReloadingInputViewsFromUpdate
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_isReloadingInputViewsFromUpdate
-return|;
-block|}
 specifier|static
 name|QIOSInputContext
 operator|*
@@ -245,9 +236,6 @@ name|m_textResponder
 block|;
 name|ImeState
 name|m_imeState
-block|;
-name|bool
-name|m_isReloadingInputViewsFromUpdate
 block|; }
 decl_stmt|;
 end_decl_stmt
