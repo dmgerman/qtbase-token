@@ -5111,6 +5111,12 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|UdpSocket
+operator|||
+name|socketState
+operator|!=
+name|QAbstractSocket
+operator|::
+name|UnconnectedState
 condition|)
 return|return
 literal|false
