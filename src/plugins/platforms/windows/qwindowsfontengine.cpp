@@ -4386,9 +4386,8 @@ name|format
 operator||=
 name|GGO_GLYPH_INDEX
 expr_stmt|;
-name|int
-name|res
-init|=
+if|if
+condition|(
 name|GetGlyphOutline
 argument_list|(
 name|hdc
@@ -4407,18 +4406,12 @@ argument_list|,
 operator|&
 name|mat
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|res
 operator|==
 name|GDI_ERROR
 condition|)
-block|{
 return|return
 literal|false
 return|;
-block|}
 comment|// #### obey scale
 operator|*
 name|metric
