@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtNetwork/QSslConfiguration>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtNetwork/QSslPreSharedKeyAuthenticator>
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -556,6 +561,18 @@ operator|&
 name|errors
 argument_list|)
 block|;
+name|void
+name|preSharedKeyAuthenticationRequired
+argument_list|(
+name|QNetworkReply
+operator|*
+name|reply
+argument_list|,
+name|QSslPreSharedKeyAuthenticator
+operator|*
+name|authenticator
+argument_list|)
+block|;
 endif|#
 directive|endif
 ifndef|#
@@ -631,6 +648,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_replySslErrors(QList<QSslError>)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_replyPreSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator*)
 argument_list|)
 ifndef|#
 directive|ifndef

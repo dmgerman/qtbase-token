@@ -247,6 +247,14 @@ operator|&
 name|errors
 argument_list|)
 block|;
+name|void
+name|_q_replyPreSharedKeyAuthenticationRequired
+argument_list|(
+name|QSslPreSharedKeyAuthenticator
+operator|*
+name|authenticator
+argument_list|)
+block|;
 name|QNetworkReply
 operator|*
 name|postProcess

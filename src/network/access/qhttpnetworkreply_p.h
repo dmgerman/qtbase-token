@@ -486,6 +486,14 @@ operator|&
 name|errors
 argument_list|)
 decl_stmt|;
+name|void
+name|preSharedKeyAuthenticationRequired
+parameter_list|(
+name|QSslPreSharedKeyAuthenticator
+modifier|*
+name|authenticator
+parameter_list|)
+function_decl|;
 endif|#
 directive|endif
 name|Q_SIGNALS

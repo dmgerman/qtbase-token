@@ -615,6 +615,14 @@ argument_list|)
 block|;
 comment|// ssl errors from the socket
 name|void
+name|_q_preSharedKeyAuthenticationRequired
+argument_list|(
+name|QSslPreSharedKeyAuthenticator
+operator|*
+argument_list|)
+block|;
+comment|// tls-psk auth necessary
+name|void
 name|_q_encryptedBytesWritten
 argument_list|(
 argument|qint64 bytes

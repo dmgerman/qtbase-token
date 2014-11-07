@@ -341,6 +341,12 @@ argument|d_func()
 argument_list|,
 argument|void replySslConfigurationChanged(const QSslConfiguration&)
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void replyPreSharedKeyAuthenticationRequiredSlot(QSslPreSharedKeyAuthenticator *)
+argument_list|)
 endif|#
 directive|endif
 ifndef|#
@@ -913,6 +919,13 @@ argument_list|(
 specifier|const
 name|QSslConfiguration
 operator|&
+argument_list|)
+block|;
+name|void
+name|replyPreSharedKeyAuthenticationRequiredSlot
+argument_list|(
+name|QSslPreSharedKeyAuthenticator
+operator|*
 argument_list|)
 block|;
 endif|#
