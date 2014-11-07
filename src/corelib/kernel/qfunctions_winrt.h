@@ -117,7 +117,6 @@ directive|ifdef
 name|QT_BUILD_CORE_LIB
 endif|#
 directive|endif
-name|QT_END_NAMESPACE
 comment|// Environment ------------------------------------------------------
 name|errno_t
 name|qt_winrt_getenv_s
@@ -162,6 +161,9 @@ name|qt_winrt__tzset
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_comment
 comment|// As Windows Runtime lacks some standard functions used in Qt, these got
 end_comment
@@ -197,7 +199,7 @@ parameter_list|,
 name|returntype
 parameter_list|)
 define|\
-value|inline returntype funcname() \         { \             return qt_winrt_##funcname(); \         }
+value|inline returntype funcname() \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func1
@@ -212,7 +214,7 @@ parameter_list|,
 name|param1
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1) \         { \             return qt_winrt_##funcname(p1); \         }
+value|inline returntype funcname(param1 p1) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func2
@@ -229,7 +231,7 @@ parameter_list|,
 name|param2
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2) \         { \             return qt_winrt_##funcname(p1,  p2); \         }
+value|inline returntype funcname(param1 p1, param2 p2) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func3
@@ -248,7 +250,7 @@ parameter_list|,
 name|param3
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3) \         { \             return qt_winrt_##funcname(p1,  p2, p3); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func4
@@ -269,7 +271,7 @@ parameter_list|,
 name|param4
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func5
@@ -292,7 +294,7 @@ parameter_list|,
 name|param5
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4, p5); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4, p5); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func6
@@ -317,7 +319,7 @@ parameter_list|,
 name|param6
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4, p5, p6); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4, p5, p6); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func7
@@ -344,7 +346,7 @@ parameter_list|,
 name|param7
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6, param7 p7) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4, p5, p6, p7); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6, param7 p7) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4, p5, p6, p7); \         }
 end_define
 begin_typedef
 DECL|typedef|StartAdressExFunc
@@ -440,6 +442,7 @@ argument|void
 argument_list|)
 end_macro
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|namespace
 name|Microsoft
 block|{
@@ -784,6 +787,9 @@ begin_comment
 unit|}  }
 comment|// QWinRTFunctions
 end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
