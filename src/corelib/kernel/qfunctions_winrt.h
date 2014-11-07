@@ -38,6 +38,78 @@ include|#
 directive|include
 file|<QtCore/qt_windows.h>
 end_include
+begin_comment
+comment|// Convenience macros for handling HRESULT values
+end_comment
+begin_define
+DECL|macro|RETURN_IF_FAILED
+define|#
+directive|define
+name|RETURN_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|,
+name|ret
+parameter_list|)
+define|\
+value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
+end_define
+begin_define
+DECL|macro|RETURN_HR_IF_FAILED
+define|#
+directive|define
+name|RETURN_HR_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return hr)
+end_define
+begin_define
+DECL|macro|RETURN_OK_IF_FAILED
+define|#
+directive|define
+name|RETURN_OK_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return S_OK)
+end_define
+begin_define
+DECL|macro|RETURN_FALSE_IF_FAILED
+define|#
+directive|define
+name|RETURN_FALSE_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return false)
+end_define
+begin_define
+DECL|macro|RETURN_VOID_IF_FAILED
+define|#
+directive|define
+name|RETURN_VOID_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return)
+end_define
+begin_define
+DECL|macro|Q_ASSERT_SUCCEEDED
+define|#
+directive|define
+name|Q_ASSERT_SUCCEEDED
+parameter_list|(
+name|hr
+parameter_list|)
+define|\
+value|Q_ASSERT_X(SUCCEEDED(hr), Q_FUNC_INFO, qPrintable(qt_error_string(hr)));
+end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifdef|#
@@ -46,9 +118,6 @@ name|QT_BUILD_CORE_LIB
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
 comment|// Environment ------------------------------------------------------
 name|errno_t
 name|qt_winrt_getenv_s
@@ -370,80 +439,6 @@ argument_list|,
 argument|void
 argument_list|)
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_WINRT
-end_comment
-begin_comment
-comment|// Convenience macros for handling HRESULT values
-end_comment
-begin_define
-DECL|macro|RETURN_IF_FAILED
-define|#
-directive|define
-name|RETURN_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|,
-name|ret
-parameter_list|)
-define|\
-value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
-end_define
-begin_define
-DECL|macro|RETURN_HR_IF_FAILED
-define|#
-directive|define
-name|RETURN_HR_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return hr)
-end_define
-begin_define
-DECL|macro|RETURN_OK_IF_FAILED
-define|#
-directive|define
-name|RETURN_OK_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return S_OK)
-end_define
-begin_define
-DECL|macro|RETURN_FALSE_IF_FAILED
-define|#
-directive|define
-name|RETURN_FALSE_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return false)
-end_define
-begin_define
-DECL|macro|RETURN_VOID_IF_FAILED
-define|#
-directive|define
-name|RETURN_VOID_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return)
-end_define
-begin_define
-DECL|macro|Q_ASSERT_SUCCEEDED
-define|#
-directive|define
-name|Q_ASSERT_SUCCEEDED
-parameter_list|(
-name|hr
-parameter_list|)
-define|\
-value|Q_ASSERT_X(SUCCEEDED(hr), Q_FUNC_INFO, qPrintable(qt_error_string(hr)));
-end_define
 begin_decl_stmt
 name|namespace
 name|Microsoft
@@ -788,6 +783,13 @@ end_return
 begin_comment
 unit|}  }
 comment|// QWinRTFunctions
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WINRT
 end_comment
 begin_endif
 endif|#
