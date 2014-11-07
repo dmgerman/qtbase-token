@@ -1042,6 +1042,10 @@ name|bool
 name|isValid
 argument_list|()
 block|;
+name|QStringList
+name|availableConnections
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -1058,6 +1062,12 @@ block|;
 name|void
 name|propertiesReady
 argument_list|()
+block|;
+name|void
+name|carrierChanged
+argument_list|(
+name|bool
+argument_list|)
 block|;
 name|private
 name|Q_SLOTS
@@ -1717,10 +1727,7 @@ name|specificObject
 argument_list|()
 specifier|const
 block|;
-name|QList
-operator|<
-name|QDBusObjectPath
-operator|>
+name|QStringList
 name|devices
 argument_list|()
 specifier|const
