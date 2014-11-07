@@ -1743,6 +1743,11 @@ argument_list|()
 specifier|const
 block|;
 name|bool
+name|default6Route
+argument_list|()
+specifier|const
+block|;
+name|bool
 name|setConnections
 argument_list|()
 block|;
