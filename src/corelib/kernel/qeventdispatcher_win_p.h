@@ -123,6 +123,14 @@ name|void
 name|createInternalHwnd
 argument_list|()
 block|;
+name|void
+name|installMessageHook
+argument_list|()
+block|;
+name|void
+name|uninstallMessageHook
+argument_list|()
+block|;
 name|public
 operator|:
 name|explicit
