@@ -2039,6 +2039,11 @@ block|}
 elseif|else
 if|if
 condition|(
+name|input
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
 name|m
 operator|.
 name|hasPartialMatch
