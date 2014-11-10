@@ -2841,7 +2841,7 @@ begin_comment
 comment|/*!     \fn QWindow::windowStateChanged(Qt::WindowState windowState)      This signal is emitted when the \a windowState changes, either     by being set explicitly with setWindowState(), or automatically when     the user clicks one of the titlebar buttons or by other means. */
 end_comment
 begin_comment
-comment|/*!     Sets the transient \a parent      This is a hint to the window manager that this window is a dialog or pop-up     on behalf of the given window.      \sa transientParent(), parent() */
+comment|/*!     Sets the transient \a parent      This is a hint to the window manager that this window is a dialog or pop-up     on behalf of the given window.      In order to cause the window to be centered above its transient parent by     default, depending on the window manager, it may also be necessary to call     setFlags() with a suitable \l Qt::WindowType (such as \c Qt::Dialog).      \sa transientParent(), parent() */
 end_comment
 begin_function
 DECL|function|setTransientParent

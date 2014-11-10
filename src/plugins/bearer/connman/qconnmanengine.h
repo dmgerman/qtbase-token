@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qofonoservice_linux_p.h"
+file|"../linux_common/qofonoservice_linux_p.h"
 end_include
 begin_include
 include|#

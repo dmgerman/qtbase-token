@@ -931,14 +931,14 @@ DECL|macro|J_SCRIPT_REGEXPLITERAL_RULE1
 define|#
 directive|define
 name|J_SCRIPT_REGEXPLITERAL_RULE1
-value|87
+value|88
 end_define
 begin_define
 DECL|macro|J_SCRIPT_REGEXPLITERAL_RULE2
 define|#
 directive|define
 name|J_SCRIPT_REGEXPLITERAL_RULE2
-value|88
+value|89
 end_define
 begin_endif
 unit|QT_QML_END_NAMESPACE

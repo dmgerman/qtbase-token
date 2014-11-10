@@ -9906,6 +9906,29 @@ block|}
 endif|#
 directive|endif
 comment|// QT_NO_ITEMVIEWS
+ifndef|#
+directive|ifndef
+name|QT_NO_COMBOBOX
+case|case
+name|CE_ComboBoxLabel
+case|:
+name|QCommonStyle
+operator|::
+name|drawControl
+argument_list|(
+name|element
+argument_list|,
+name|option
+argument_list|,
+name|painter
+argument_list|,
+name|widget
+argument_list|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
+comment|// QT_NO_COMBOBOX
 default|default:
 name|QWindowsXPStyle
 operator|::
