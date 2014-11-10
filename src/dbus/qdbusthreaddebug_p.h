@@ -253,6 +253,21 @@ name|PendingCallBlockAction
 operator|=
 literal|28
 operator|,
+DECL|enumerator|SendMessageAction
+name|SendMessageAction
+operator|=
+literal|29
+operator|,
+DECL|enumerator|SendWithReplyAndBlockAction
+name|SendWithReplyAndBlockAction
+operator|=
+literal|30
+operator|,
+DECL|enumerator|HuntAndEmitAction
+name|HuntAndEmitAction
+operator|=
+literal|31
+operator|,
 DECL|enumerator|AddTimeoutAction
 name|AddTimeoutAction
 operator|=
@@ -721,34 +736,6 @@ argument_list|,
 argument|s
 argument_list|,
 argument|&s->dispatchLock
-argument_list|)
-block|{ }
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|struct|QDBusMutexLocker
-name|struct
-name|QDBusWatchAndTimeoutLocker
-range|:
-name|QDBusMutexLocker
-block|{
-DECL|function|QDBusWatchAndTimeoutLocker
-specifier|inline
-name|QDBusWatchAndTimeoutLocker
-argument_list|(
-argument|ThreadAction a
-argument_list|,
-argument|QDBusConnectionPrivate *s
-argument_list|)
-operator|:
-name|QDBusMutexLocker
-argument_list|(
-argument|a
-argument_list|,
-argument|s
-argument_list|,
-argument|&s->watchAndTimeoutLock
 argument_list|)
 block|{ }
 block|}
