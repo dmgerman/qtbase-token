@@ -6610,6 +6610,13 @@ condition|(
 name|hop_by_hop
 condition|)
 continue|continue;
+if|if
+condition|(
+name|header
+operator|==
+literal|"set-cookie"
+condition|)
+continue|continue;
 comment|// for 4.6.0, we were planning to not store the date header in the
 comment|// cached resource; through that we planned to reduce the number
 comment|// of writes to disk when using a QNetworkDiskCache (i.e. don't
