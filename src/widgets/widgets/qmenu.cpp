@@ -17263,6 +17263,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|menuItem
+condition|)
+block|{
 name|copyActionToPlatformItem
 argument_list|(
 name|e
@@ -17282,6 +17287,7 @@ argument_list|(
 name|menuItem
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|d
 operator|->

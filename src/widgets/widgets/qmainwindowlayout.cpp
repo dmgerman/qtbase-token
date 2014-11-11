@@ -152,8 +152,8 @@ directive|endif
 end_endif
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_NO_DOCKWIDGET
 specifier|extern
 name|QMainWindowLayout

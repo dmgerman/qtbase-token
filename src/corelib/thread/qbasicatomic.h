@@ -248,29 +248,10 @@ argument_list|(
 name|Q_CC_CLANG
 argument_list|)
 operator|&&
-operator|(
-operator|(
-operator|(
-operator|(
-name|__clang_major__
-operator|*
-literal|100
-operator|)
-operator|+
-name|__clang_minor__
-operator|)
+name|Q_CC_CLANG
 operator|<
 literal|303
-operator|)
-expr|\
-operator|||
-name|defined
-argument_list|(
-name|__apple_build_version__
-argument_list|)
-expr|\
-operator|)
-comment|/* Do not define QT_BASIC_ATOMIC_HAS_CONSTRUCTORS for "stock" clang before version 3.3.       Apple's version has different (higher!) version numbers, so disable it for all of them for now.       (The only way to distinguish between them seems to be a check for __apple_build_version__ .)        For details about the bug: see http://llvm.org/bugs/show_bug.cgi?id=12670     */
+comment|/*       Do not define QT_BASIC_ATOMIC_HAS_CONSTRUCTORS for Clang before version 3.3.       For details about the bug: see http://llvm.org/bugs/show_bug.cgi?id=12670     */
 else|#
 directive|else
 define|#

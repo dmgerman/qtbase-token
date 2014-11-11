@@ -2183,13 +2183,7 @@ name|Q_CC_INTEL
 argument_list|)
 if|#
 directive|if
-operator|(
-name|__GNUC__
-operator|*
-literal|100
-operator|+
-name|__GNUC_MINOR__
-operator|)
+name|Q_CC_GNU
 operator|<
 literal|403
 comment|// GCC 4.2 (at least the one that comes with Apple's XCode, on Mac) is

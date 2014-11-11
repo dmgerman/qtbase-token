@@ -265,6 +265,15 @@ argument_list|()
 expr_stmt|;
 block|}
 end_destructor
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_ES_2
+argument_list|)
+end_if
 begin_function
 DECL|function|isCoreProfile
 specifier|static
@@ -291,6 +300,10 @@ name|CoreProfile
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|createTextureData
 name|void
