@@ -2039,11 +2039,6 @@ case|:
 case|case
 name|QPlatformIntegration
 operator|::
-name|FontSmoothingGamma
-case|:
-case|case
-name|QPlatformIntegration
-operator|::
 name|StartDragVelocity
 case|:
 case|case
@@ -2059,6 +2054,18 @@ case|:
 comment|// TODO using various xcb, gnome or KDE settings
 break|break;
 comment|// Not implemented, use defaults
+case|case
+name|QPlatformIntegration
+operator|::
+name|FontSmoothingGamma
+case|:
+comment|// Match Qt 4.8 text rendering, and rendering of other X11 toolkits.
+return|return
+name|qreal
+argument_list|(
+literal|1.0
+argument_list|)
+return|;
 case|case
 name|QPlatformIntegration
 operator|::
