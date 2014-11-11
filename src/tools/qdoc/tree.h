@@ -157,15 +157,22 @@ name|public
 label|:
 name|TargetLoc
 argument_list|(
+argument|const Node* loc
+argument_list|,
 argument|const QString& t
 argument_list|,
 argument|const QString& fileName
 argument_list|,
 argument|const QString& text
 argument_list|,
-argument|bool broken = false
+argument|bool broken
 argument_list|)
 block|:
+name|loc_
+argument_list|(
+name|loc
+argument_list|)
+operator|,
 name|target_
 argument_list|(
 name|t
@@ -186,9 +193,14 @@ argument_list|(
 argument|broken
 argument_list|)
 block|{ }
+specifier|const
+name|Node
+operator|*
+name|loc_
+expr_stmt|;
 name|QString
 name|target_
-expr_stmt|;
+decl_stmt|;
 name|QString
 name|fileName_
 decl_stmt|;
@@ -1141,6 +1153,11 @@ block|}
 name|QString
 name|getNewLinkTarget
 parameter_list|(
+specifier|const
+name|Node
+modifier|*
+name|locNode
+parameter_list|,
 specifier|const
 name|Node
 modifier|*

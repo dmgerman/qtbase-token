@@ -2346,6 +2346,11 @@ parameter_list|(
 specifier|const
 name|Node
 modifier|*
+name|locNode
+parameter_list|,
+specifier|const
+name|Node
+modifier|*
 name|t
 parameter_list|,
 specifier|const
@@ -2369,6 +2374,8 @@ argument_list|()
 operator|->
 name|getNewLinkTarget
 argument_list|(
+name|locNode
+argument_list|,
 name|t
 argument_list|,
 name|fileName

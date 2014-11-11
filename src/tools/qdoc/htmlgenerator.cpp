@@ -1804,7 +1804,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<p>This is the complete list of links from "
+literal|"<p>This is a list of links from "
 operator|<<
 name|defaultModuleName
 argument_list|()
@@ -1818,12 +1818,17 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"Click on a link to go directly to the actual link in the docs.  "
+literal|"Click on a link to go to the location of the link. The link is marked "
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"Then click on that link to check whether it goes to the correct place.</p>\n"
+literal|"with red asterisks. "
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"Click on the marked link to see if it goes to the right place.</p>\n"
 expr_stmt|;
 name|TargetList
 modifier|*
@@ -1844,7 +1849,7 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"alignedsummary\">\n"
+literal|"<table class=\"valuelist\"><tr valign=\"top\" class=\"odd\"><th class=\"tblConst\">Link to  link...</th><th class=\"tblval\">In file...</th><th class=\"tbldscr\">Somewhere after line number...</th></tr>\n"
 expr_stmt|;
 foreach|foreach
 control|(
@@ -1860,7 +1865,7 @@ comment|// e.g.:<a name="link-8421"></a><a href="layout.html">Layout Management<
 name|out
 argument_list|()
 operator|<<
-literal|"<tr><td class=\"memItemLeft leftAlign topAlign\">"
+literal|"<tr><td class=\"topAlign\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -1886,9 +1891,55 @@ name|t
 operator|->
 name|text_
 operator|<<
-literal|"</a>"
+literal|"</a></td>"
 expr_stmt|;
 name|out
+argument_list|()
+operator|<<
+literal|"<td class=\"topAlign\">"
+expr_stmt|;
+name|QString
+name|f
+init|=
+name|t
+operator|->
+name|loc_
+operator|->
+name|doc
+argument_list|()
+operator|.
+name|location
+argument_list|()
+operator|.
+name|filePath
+argument_list|()
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+name|f
+operator|<<
+literal|"</td>"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<td class=\"topAlign\">"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+name|t
+operator|->
+name|loc_
+operator|->
+name|doc
+argument_list|()
+operator|.
+name|location
+argument_list|()
+operator|.
+name|lineNo
 argument_list|()
 operator|<<
 literal|"</td></tr>\n"
@@ -1985,12 +2036,10 @@ expr_stmt|;
 name|QString
 name|title
 init|=
-literal|"Links from "
+literal|"Broken links in "
 operator|+
 name|defaultModuleName
 argument_list|()
-operator|+
-literal|" that go nowhere"
 decl_stmt|;
 name|generateHeader
 argument_list|(
@@ -2018,7 +2067,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<p>This is the complete list of broken links in "
+literal|"<p>This is a list of broken links in "
 operator|<<
 name|defaultModuleName
 argument_list|()
@@ -2028,17 +2077,17 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"Click on a link to go directly to the actual link in the docs.  "
+literal|"Click on a link to go to the broken link.  "
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"The target for the link could not be found.</p>\n"
+literal|"The link's target could not be found.</p>\n"
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"alignedsummary\">\n"
+literal|"<table class=\"valuelist\"><tr valign=\"top\" class=\"odd\"><th class=\"tblConst\">Link to broken link...</th><th class=\"tblval\">In file...</th><th class=\"tbldscr\">Somewhere after line number...</th></tr>\n"
 expr_stmt|;
 foreach|foreach
 control|(
@@ -2054,7 +2103,7 @@ comment|// e.g.:<a name="link-8421"></a><a href="layout.html">Layout Management<
 name|out
 argument_list|()
 operator|<<
-literal|"<tr><td class=\"memItemLeft leftAlign topAlign\">"
+literal|"<tr><td class=\"topAlign\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -2080,9 +2129,55 @@ name|t
 operator|->
 name|text_
 operator|<<
-literal|"</a>"
+literal|"</a></td>"
 expr_stmt|;
 name|out
+argument_list|()
+operator|<<
+literal|"<td class=\"topAlign\">"
+expr_stmt|;
+name|QString
+name|f
+init|=
+name|t
+operator|->
+name|loc_
+operator|->
+name|doc
+argument_list|()
+operator|.
+name|location
+argument_list|()
+operator|.
+name|filePath
+argument_list|()
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+name|f
+operator|<<
+literal|"</td>"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<td class=\"topAlign\">"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+name|t
+operator|->
+name|loc_
+operator|->
+name|doc
+argument_list|()
+operator|.
+name|location
+argument_list|()
+operator|.
+name|lineNo
 argument_list|()
 operator|<<
 literal|"</td></tr>\n"
@@ -2368,6 +2463,8 @@ name|qdb_
 operator|->
 name|getNewLinkTarget
 argument_list|(
+name|relative
+argument_list|,
 name|node
 argument_list|,
 name|outFileName
@@ -5477,6 +5574,8 @@ name|qdb_
 operator|->
 name|getNewLinkTarget
 argument_list|(
+name|relative
+argument_list|,
 name|node
 argument_list|,
 name|outFileName
@@ -5547,6 +5646,8 @@ name|qdb_
 operator|->
 name|getNewLinkTarget
 argument_list|(
+name|relative
+argument_list|,
 name|node
 argument_list|,
 name|outFileName

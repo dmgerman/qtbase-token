@@ -6823,6 +6823,11 @@ parameter_list|(
 specifier|const
 name|Node
 modifier|*
+name|locNode
+parameter_list|,
+specifier|const
+name|Node
+modifier|*
 name|t
 parameter_list|,
 specifier|const
@@ -6909,6 +6914,8 @@ init|=
 operator|new
 name|TargetLoc
 argument_list|(
+name|locNode
+argument_list|,
 name|target
 argument_list|,
 name|fileName
