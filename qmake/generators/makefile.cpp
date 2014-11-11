@@ -795,9 +795,6 @@ operator|::
 name|initOutPaths
 parameter_list|()
 block|{
-name|verifyCompilers
-argument_list|()
-expr_stmt|;
 name|ProValueMap
 modifier|&
 name|v
@@ -2603,10 +2600,10 @@ operator|::
 name|init
 parameter_list|()
 block|{
-name|initOutPaths
+name|verifyCompilers
 argument_list|()
 expr_stmt|;
-name|verifyCompilers
+name|initOutPaths
 argument_list|()
 expr_stmt|;
 name|ProValueMap
