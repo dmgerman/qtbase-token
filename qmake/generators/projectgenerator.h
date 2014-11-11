@@ -27,9 +27,6 @@ name|public
 name|MakefileGenerator
 block|{
 name|bool
-name|init_flag
-block|;
-name|bool
 name|addFile
 argument_list|(
 name|QString

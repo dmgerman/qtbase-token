@@ -132,9 +132,6 @@ name|bool
 name|findLibraries
 argument_list|()
 block|;
-name|bool
-name|init_flag
-block|;
 name|QString
 name|objectsLinkLine
 block|;

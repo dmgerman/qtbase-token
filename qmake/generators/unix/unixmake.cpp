@@ -53,15 +53,6 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|init_flag
-condition|)
-return|return;
-name|init_flag
-operator|=
-literal|true
-expr_stmt|;
-if|if
-condition|(
 name|project
 operator|->
 name|isEmpty

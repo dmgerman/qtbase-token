@@ -214,10 +214,6 @@ name|QString
 name|spec
 block|;
 name|bool
-name|init_opath_already
-block|,
-name|init_already
-block|,
 name|no_io
 block|;
 name|QHash

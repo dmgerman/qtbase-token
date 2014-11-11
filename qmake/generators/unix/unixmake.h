@@ -27,8 +27,6 @@ name|public
 name|MakefileGenerator
 block|{
 name|bool
-name|init_flag
-block|,
 name|include_deps
 block|;
 name|QString

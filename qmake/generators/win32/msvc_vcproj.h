@@ -61,9 +61,6 @@ name|public
 name|Win32MakefileGenerator
 block|{
 name|bool
-name|init_flag
-block|;
-name|bool
 name|is64Bit
 block|;
 name|bool

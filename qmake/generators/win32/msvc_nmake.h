@@ -26,9 +26,6 @@ range|:
 name|public
 name|Win32MakefileGenerator
 block|{
-name|bool
-name|init_flag
-block|;
 name|void
 name|writeNmakeParts
 argument_list|(

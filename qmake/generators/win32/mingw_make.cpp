@@ -54,11 +54,6 @@ parameter_list|()
 member_init_list|:
 name|Win32MakefileGenerator
 argument_list|()
-member_init_list|,
-name|init_flag
-argument_list|(
-literal|false
-argument_list|)
 block|{
 if|if
 condition|(
@@ -1276,15 +1271,6 @@ operator|::
 name|init
 parameter_list|()
 block|{
-if|if
-condition|(
-name|init_flag
-condition|)
-return|return;
-name|init_flag
-operator|=
-literal|true
-expr_stmt|;
 comment|/* this should probably not be here, but I'm using it to wrap the .t files */
 if|if
 condition|(

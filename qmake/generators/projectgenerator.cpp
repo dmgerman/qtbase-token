@@ -142,11 +142,6 @@ parameter_list|()
 member_init_list|:
 name|MakefileGenerator
 argument_list|()
-member_init_list|,
-name|init_flag
-argument_list|(
-literal|false
-argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -157,20 +152,11 @@ operator|::
 name|init
 parameter_list|()
 block|{
-if|if
-condition|(
-name|init_flag
-condition|)
-return|return;
 name|int
 name|file_count
 init|=
 literal|0
 decl_stmt|;
-name|init_flag
-operator|=
-literal|true
-expr_stmt|;
 name|verifyCompilers
 argument_list|()
 expr_stmt|;
