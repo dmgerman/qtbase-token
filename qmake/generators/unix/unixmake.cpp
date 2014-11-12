@@ -100,18 +100,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_FAILED_REQUIREMENTS"
-argument_list|)
-condition|)
-comment|/* no point */
-return|return;
 name|ProStringList
 modifier|&
 name|configs
