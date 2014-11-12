@@ -194,6 +194,10 @@ specifier|const
 name|DWORD
 name|m_WM_MSIME_MOUSE
 block|;
+specifier|static
+name|HIMC
+name|m_defaultContext
+block|;
 name|CompositionContext
 name|m_compositionContext
 block|;

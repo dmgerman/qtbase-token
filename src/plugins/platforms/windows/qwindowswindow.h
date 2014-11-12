@@ -510,6 +510,10 @@ block|,
 name|MaximizeToFullScreen
 operator|=
 literal|0x80000
+block|,
+name|InputMethodDisabled
+operator|=
+literal|0x100000
 block|}
 block|;
 name|QWindowsWindow
