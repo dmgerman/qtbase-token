@@ -35787,7 +35787,7 @@ name|QStyleHelper
 operator|::
 name|dpiScaled
 argument_list|(
-literal|32.
+literal|16.
 argument_list|)
 argument_list|)
 expr_stmt|;
