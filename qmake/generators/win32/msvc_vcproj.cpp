@@ -5182,6 +5182,13 @@ name|initOld
 argument_list|()
 expr_stmt|;
 comment|// Currently calling old DSP code to set variables. CLEAN UP!
+if|#
+directive|if
+literal|0
+comment|// Verbose output if "-d -d"...
+block|qDebug("Generator: MSVC.NET: List of current variables:");     for (ProValueMap::ConstIterator it = project->variables().begin(); it != project->variables().end(); ++it)         qDebug("Generator: MSVC.NET: %s => %s", qPrintable(it.key().toQString()), qPrintable(it.value().join(" | ")));
+endif|#
+directive|endif
 comment|// Figure out what we're trying to build
 if|if
 condition|(
@@ -10812,10 +10819,6 @@ name|deststr
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Verbose output if "-d -d"...
-name|outputVariables
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -11166,22 +11169,6 @@ name|QString
 argument_list|()
 argument_list|)
 return|;
-block|}
-end_function
-begin_function
-DECL|function|outputVariables
-name|void
-name|VcprojGenerator
-operator|::
-name|outputVariables
-parameter_list|()
-block|{
-if|#
-directive|if
-literal|0
-block|qDebug("Generator: MSVC.NET: List of current variables:");     for (ProValueMap::ConstIterator it = project->variables().begin(); it != project->variables().end(); ++it)         qDebug("Generator: MSVC.NET: %s => %s", qPrintable(it.key().toQString()), qPrintable(it.value().join(" | ")));
-endif|#
-directive|endif
 block|}
 end_function
 begin_macro

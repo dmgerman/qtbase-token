@@ -258,11 +258,6 @@ argument|const QString&build
 argument_list|)
 specifier|const
 block|;
-name|virtual
-name|void
-name|outputVariables
-argument_list|()
-block|;
 name|void
 name|initOld
 argument_list|()
