@@ -108,7 +108,7 @@ argument|int section
 argument_list|,
 argument|Qt::Orientation orientation
 argument_list|,
-argument|int role
+argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
 block|;
