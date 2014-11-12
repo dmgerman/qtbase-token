@@ -61,7 +61,7 @@ argument|bool cascadingSectionResizes READ cascadingSectionResizes WRITE setCasc
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int defaultSectionSize READ defaultSectionSize WRITE setDefaultSectionSize
+argument|int defaultSectionSize READ defaultSectionSize WRITE setDefaultSectionSize RESET resetDefaultSectionSize
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -550,6 +550,10 @@ name|setDefaultSectionSize
 argument_list|(
 argument|int size
 argument_list|)
+block|;
+name|void
+name|resetDefaultSectionSize
+argument_list|()
 block|;
 name|int
 name|minimumSectionSize

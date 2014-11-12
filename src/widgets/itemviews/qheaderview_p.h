@@ -208,6 +208,11 @@ name|true
 argument_list|)
 block|,
 comment|// will be false for QTreeView and true for QTableView
+name|customDefaultSectionSize
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|stretchSections
 argument_list|(
 literal|0
@@ -621,28 +626,8 @@ name|orientation
 operator|=
 name|o
 block|;
-name|defaultSectionSize
-operator|=
-operator|(
-name|o
-operator|==
-name|Qt
-operator|::
-name|Horizontal
-condition|?
-literal|100
-else|:
-name|qMax
-argument_list|(
-name|q_func
+name|updateDefaultSectionSizeFromStyle
 argument_list|()
-operator|->
-name|minimumSectionSize
-argument_list|()
-argument_list|,
-literal|30
-argument_list|)
-operator|)
 block|;
 name|defaultAlignment
 operator|=
@@ -1182,6 +1167,9 @@ block|;
 name|bool
 name|allowUserMoveOfSection0
 block|;
+name|bool
+name|customDefaultSectionSize
+block|;
 name|int
 name|stretchSections
 block|;
@@ -1453,6 +1441,10 @@ name|setDefaultSectionSize
 argument_list|(
 argument|int size
 argument_list|)
+block|;
+name|void
+name|updateDefaultSectionSizeFromStyle
+argument_list|()
 block|;
 name|void
 name|recalcSectionStartPos

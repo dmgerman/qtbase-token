@@ -1227,6 +1227,10 @@ name|PM_SubMenuOverlap
 block|,
 name|PM_TreeViewIndentation
 block|,
+name|PM_HeaderDefaultSectionSizeHorizontal
+block|,
+name|PM_HeaderDefaultSectionSizeVertical
+block|,
 comment|// do not add any values below/greater than this
 name|PM_CustomBase
 operator|=
