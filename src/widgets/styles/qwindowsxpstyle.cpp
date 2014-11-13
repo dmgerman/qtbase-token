@@ -5467,14 +5467,18 @@ name|haveCachedPixmap
 condition|)
 block|{
 comment|// If the pixmap is not cached, generate it! -------------------------
+if|if
+condition|(
+operator|!
 name|buffer
 argument_list|(
 name|w
 argument_list|,
 name|h
 argument_list|)
-expr_stmt|;
+condition|)
 comment|// Ensure a buffer of at least (w, h) in size
+return|return;
 name|HDC
 name|dc
 init|=
