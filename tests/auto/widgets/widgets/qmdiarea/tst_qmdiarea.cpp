@@ -400,9 +400,6 @@ name|rubberBand
 init|=
 name|mdiArea
 operator|->
-name|viewport
-argument_list|()
-operator|->
 name|findChild
 argument_list|<
 name|QRubberBand
