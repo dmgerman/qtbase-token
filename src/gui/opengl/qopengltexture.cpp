@@ -9302,7 +9302,7 @@ block|{
 name|qWarning
 argument_list|(
 literal|"Cannot set data on a texture that does not have storage allocated.\n"
-literal|"To do so call allocate() before this function"
+literal|"To do so call allocateStorage() before this function"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9584,7 +9584,7 @@ block|{
 name|qWarning
 argument_list|(
 literal|"Cannot set data on a texture that does not have storage allocated.\n"
-literal|"To do so call allocate() before this function"
+literal|"To do so call allocateStorage() before this function"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10016,7 +10016,7 @@ block|{
 name|qWarning
 argument_list|(
 literal|"Cannot set data on a texture that does not have storage allocated.\n"
-literal|"To do so call allocate() before this function"
+literal|"To do so call allocateStorage() before this function"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10278,7 +10278,7 @@ block|{
 name|qWarning
 argument_list|(
 literal|"Cannot set data on a texture that does not have storage allocated.\n"
-literal|"To do so call allocate() before this function"
+literal|"To do so call allocateStorage() before this function"
 argument_list|)
 expr_stmt|;
 return|return;
