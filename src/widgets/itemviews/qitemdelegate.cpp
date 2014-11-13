@@ -6142,13 +6142,13 @@ condition|)
 return|return
 literal|false
 return|;
-comment|// don't filter enter key events for QTextEdit
-comment|// We want the editor to be able to process the key press
-comment|// before committing the data (e.g. so it can do
-comment|// validation/fixup of the input).
+comment|// don't filter enter key events for QTextEdit or QPlainTextEdit
 endif|#
 directive|endif
 comment|// QT_NO_TEXTEDIT
+comment|// We want the editor to be able to process the key press
+comment|// before committing the data (e.g. so it can do
+comment|// validation/fixup of the input).
 if|if
 condition|(
 operator|!
