@@ -5447,14 +5447,9 @@ name|mkt
 operator|<<
 literal|"MOC       = "
 operator|<<
-name|Option
-operator|::
-name|fixPathToTargetOS
-argument_list|(
 name|var
 argument_list|(
 literal|"QMAKE_MOC"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -5463,14 +5458,9 @@ name|mkt
 operator|<<
 literal|"UIC       = "
 operator|<<
-name|Option
-operator|::
-name|fixPathToTargetOS
-argument_list|(
 name|var
 argument_list|(
 literal|"QMAKE_UIC"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
