@@ -389,6 +389,10 @@ typedef|typedef
 name|QJsonValueRef
 name|reference
 typedef|;
+typedef|typedef
+name|QJsonValueRefPtr
+name|pointer
+typedef|;
 specifier|inline
 name|iterator
 argument_list|()
@@ -990,6 +994,10 @@ typedef|;
 typedef|typedef
 name|QJsonValue
 name|reference
+typedef|;
+typedef|typedef
+name|QJsonValuePtr
+name|pointer
 typedef|;
 specifier|inline
 name|const_iterator
