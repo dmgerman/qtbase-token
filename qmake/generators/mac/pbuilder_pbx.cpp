@@ -8641,13 +8641,6 @@ argument_list|()
 decl_stmt|;
 name|destDir
 operator|=
-name|fixForOutput
-argument_list|(
-name|destDir
-argument_list|)
-expr_stmt|;
-name|destDir
-operator|=
 name|fileInfo
 argument_list|(
 name|Option
