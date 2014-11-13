@@ -7565,31 +7565,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"IMAGES"
-argument_list|)
-condition|)
-name|t
-operator|<<
-name|varGlue
-argument_list|(
-literal|"QMAKE_IMAGE_COLLECTION"
-argument_list|,
-literal|"\t-$(DEL_FILE) "
-argument_list|,
-literal|" "
-argument_list|,
-literal|""
-argument_list|)
-operator|<<
-literal|"\n\t"
-expr_stmt|;
-if|if
-condition|(
 name|src_incremental
 condition|)
 name|t

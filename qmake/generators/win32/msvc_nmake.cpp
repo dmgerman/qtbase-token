@@ -1551,22 +1551,6 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-comment|// Note: The QMAKE_IMAGE_COLLECTION file have all images
-comment|// as dependency, so don't add precompiled header then
-if|if
-condition|(
-name|file
-operator|==
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_IMAGE_COLLECTION"
-argument_list|)
-condition|)
-return|return
-name|aList
-return|;
 for|for
 control|(
 name|QStringList

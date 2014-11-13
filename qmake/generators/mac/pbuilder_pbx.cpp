@@ -5648,17 +5648,6 @@ name|endl
 expr_stmt|;
 name|mkt
 operator|<<
-literal|"IMAGES = "
-operator|<<
-name|varList
-argument_list|(
-literal|"QMAKE_IMAGE_COLLECTION"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|mkt
-operator|<<
 literal|"PARSERS ="
 expr_stmt|;
 if|if
