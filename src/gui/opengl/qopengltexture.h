@@ -1275,6 +1275,16 @@ name|void
 name|allocateStorage
 parameter_list|()
 function_decl|;
+name|void
+name|allocateStorage
+parameter_list|(
+name|PixelFormat
+name|pixelFormat
+parameter_list|,
+name|PixelType
+name|pixelType
+parameter_list|)
+function_decl|;
 name|bool
 name|isStorageAllocated
 argument_list|()
