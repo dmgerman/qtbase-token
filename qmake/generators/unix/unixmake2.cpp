@@ -894,8 +894,6 @@ argument_list|()
 argument_list|)
 decl_stmt|,
 name|target_deps
-decl_stmt|,
-name|prl
 decl_stmt|;
 name|bool
 name|do_incremental

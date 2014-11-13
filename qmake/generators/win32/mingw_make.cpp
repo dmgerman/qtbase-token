@@ -1529,17 +1529,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ProStringList
-modifier|&
-name|configs
-init|=
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"CONFIG"
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|project
