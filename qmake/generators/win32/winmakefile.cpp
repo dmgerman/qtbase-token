@@ -3953,8 +3953,6 @@ argument_list|)
 condition|)
 name|resDestDir
 operator|=
-name|fileInfo
-argument_list|(
 name|project
 operator|->
 name|first
@@ -3963,10 +3961,6 @@ literal|"DESTDIR"
 argument_list|)
 operator|.
 name|toQString
-argument_list|()
-argument_list|)
-operator|.
-name|absoluteFilePath
 argument_list|()
 expr_stmt|;
 else|else
