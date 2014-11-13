@@ -1287,6 +1287,14 @@ argument_list|(
 name|QDBusObjectPath
 argument_list|)
 block|;
+name|void
+name|accessPointsFinished
+argument_list|(
+name|QDBusPendingCallWatcher
+operator|*
+name|watcher
+argument_list|)
+block|;
 name|private
 operator|:
 name|QNetworkManagerInterfaceDeviceWirelessPrivate

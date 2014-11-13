@@ -436,6 +436,10 @@ name|QStringList
 name|contexts
 argument_list|()
 block|;
+name|PathPropertiesList
+name|contextsWithProperties
+argument_list|()
+block|;
 name|bool
 name|roamingAllowed
 argument_list|()
@@ -471,6 +475,9 @@ name|propertiesMap
 block|;
 name|QStringList
 name|contextList
+block|;
+name|PathPropertiesList
+name|contextListProperties
 block|;
 name|private
 name|slots
