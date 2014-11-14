@@ -295,6 +295,11 @@ argument_list|()
 specifier|const
 block|;
 comment|// To window
+name|EGLConfig
+name|eglConfig
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|void
