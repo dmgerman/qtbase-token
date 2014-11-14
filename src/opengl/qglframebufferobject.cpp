@@ -3599,7 +3599,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QImage QGLFramebufferObject::toImage() const      Returns the contents of this framebuffer object as a QImage.      On QNX the back buffer is not preserved when a buffer swap occures. So this function     might return old content. */
+comment|/*!     \fn QImage QGLFramebufferObject::toImage() const      Returns the contents of this framebuffer object as a QImage.      The returned image has a format of premultiplied ARGB32 or RGB32. The latter is used     only when internalTextureFormat() is set to \c GL_RGB.      If the rendering in the framebuffer was not done with premultiplied alpha in mind,     create a wrapper QImage with a non-premultiplied format. This is necessary before     performing operations like QImage::save() because otherwise the image data would get     unpremultiplied, even though it was not premultiplied in the first place. To create     such a wrapper without performing a copy of the pixel data, do the following:      \code     QImage fboImage(fbo.toImage());     QImage image(fboImage.constBits(), fboImage.width(), fboImage.height(), QImage::Format_ARGB32);     \endcode      On QNX the back buffer is not preserved when a buffer swap occures. So this function     might return old content. */
 end_comment
 begin_function
 DECL|function|toImage
