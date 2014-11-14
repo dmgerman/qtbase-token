@@ -6557,11 +6557,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|hb_font_destroy
-argument_list|(
-name|hb_font
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(

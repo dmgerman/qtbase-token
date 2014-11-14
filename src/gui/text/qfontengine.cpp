@@ -2004,11 +2004,6 @@ name|script_index
 argument_list|)
 expr_stmt|;
 block|}
-name|hb_face_destroy
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|ret
