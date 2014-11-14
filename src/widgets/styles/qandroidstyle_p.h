@@ -286,11 +286,6 @@ name|void
 name|setPaddingLeftToSizeWidth
 argument_list|()
 block|;
-name|QPixmap
-name|img
-argument_list|()
-specifier|const
-block|;
 name|protected
 operator|:
 name|ItemType
@@ -371,11 +366,6 @@ block|;
 name|virtual
 name|QSize
 name|size
-argument_list|()
-specifier|const
-block|;
-name|QPixmap
-name|img
 argument_list|()
 specifier|const
 block|;
@@ -660,13 +650,6 @@ argument|const QStyleOption *opt
 argument_list|)
 specifier|const
 block|;
-name|QPixmap
-name|img
-argument_list|(
-argument|const QStyleOption *opt
-argument_list|)
-specifier|const
-block|;
 name|private
 operator|:
 typedef|typedef
@@ -890,6 +873,16 @@ name|QMargins
 name|padding
 parameter_list|()
 function_decl|;
+name|virtual
+name|QSize
+name|size
+parameter_list|(
+specifier|const
+name|QStyleOption
+modifier|*
+name|option
+parameter_list|)
+function_decl|;
 name|protected
 label|:
 name|virtual
@@ -956,19 +949,20 @@ operator|*
 name|w
 argument_list|)
 block|;
-name|QSize
-name|sizeCheckBox
-argument_list|(
-argument|const QStyleOption *opt
-argument_list|)
-specifier|const
+name|virtual
+name|QMargins
+name|padding
+argument_list|()
 block|;
-name|QPixmap
-name|imgCheckBox
+name|virtual
+name|QSize
+name|size
 argument_list|(
-argument|const QStyleOption *opt
-argument_list|)
 specifier|const
+name|QStyleOption
+operator|*
+name|option
+argument_list|)
 block|;
 name|protected
 operator|:
