@@ -220,12 +220,6 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QStyledItemDelegate
 argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_commitDataAndCloseEditor(QWidget*)
-argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt

@@ -58,6 +58,12 @@ name|QHelpEvent
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractItemDelegatePrivate
+name|class
+name|QAbstractItemDelegatePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QAbstractItemDelegate
@@ -293,9 +299,19 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QAbstractItemDelegate
+argument_list|)
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QAbstractItemDelegate
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_commitDataAndCloseEditor(QWidget*)
 argument_list|)
 block|}
 decl_stmt|;
