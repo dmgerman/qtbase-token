@@ -1022,7 +1022,14 @@ argument_list|)
 specifier|const
 block|;
 name|QString
-name|fileVarGlue
+name|varList
+argument_list|(
+argument|const ProKey&var
+argument_list|)
+specifier|const
+block|;
+name|QString
+name|fixFileVarGlue
 argument_list|(
 argument|const ProKey&var
 argument_list|,
@@ -1031,13 +1038,6 @@ argument_list|,
 argument|const QString&glue
 argument_list|,
 argument|const QString&after
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|varList
-argument_list|(
-argument|const ProKey&var
 argument_list|)
 specifier|const
 block|;

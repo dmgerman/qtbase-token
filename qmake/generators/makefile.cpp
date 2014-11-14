@@ -10676,10 +10676,10 @@ block|}
 end_function
 begin_function
 name|QString
-DECL|function|fileVarGlue
+DECL|function|fixFileVarGlue
 name|MakefileGenerator
 operator|::
-name|fileVarGlue
+name|fixFileVarGlue
 parameter_list|(
 specifier|const
 name|ProKey
@@ -19370,7 +19370,7 @@ condition|)
 block|{
 name|t
 operator|<<
-name|fileVarGlue
+name|fixFileVarGlue
 argument_list|(
 literal|"QMAKE_CLEAN"
 argument_list|,
@@ -19426,7 +19426,7 @@ name|endl
 expr_stmt|;
 name|t
 operator|<<
-name|fileVarGlue
+name|fixFileVarGlue
 argument_list|(
 literal|"QMAKE_DISTCLEAN"
 argument_list|,
