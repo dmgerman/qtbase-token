@@ -37662,6 +37662,13 @@ break|break;
 case|case
 name|SH_TabBar_Alignment
 case|:
+name|ret
+operator|=
+name|Qt
+operator|::
+name|AlignLeft
+expr_stmt|;
+break|break;
 case|case
 name|SH_Header_ArrowAlignment
 case|:
@@ -37669,7 +37676,11 @@ name|ret
 operator|=
 name|Qt
 operator|::
-name|AlignLeft
+name|AlignRight
+operator||
+name|Qt
+operator|::
+name|AlignVCenter
 expr_stmt|;
 break|break;
 case|case
