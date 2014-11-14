@@ -36,6 +36,12 @@ directive|include
 file|"compiler/translator/IntermNode.h"
 end_include
 begin_decl_stmt
+DECL|variable|TSymbolTable
+name|class
+name|TSymbolTable
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|namespace
 name|sh
 block|{
@@ -61,6 +67,8 @@ argument_list|,
 argument|std::vector<InterfaceBlock> *interfaceBlocks
 argument_list|,
 argument|ShHashFunction64 hashFunction
+argument_list|,
+argument|const TSymbolTable&symbolTable
 argument_list|)
 block|;
 name|virtual
@@ -189,25 +197,31 @@ block|;
 name|bool
 name|mFragCoordAdded
 block|;
+name|bool
+name|mPositionAdded
+block|;
+name|bool
+name|mPointSizeAdded
+block|;
 name|ShHashFunction64
 name|mHashFunction
+block|;
+specifier|const
+name|TSymbolTable
+operator|&
+name|mSymbolTable
 block|; }
 decl_stmt|;
-comment|// Expand struct variables to flattened lists of split variables
-name|template
-operator|<
-name|typename
-name|VarT
-operator|>
+comment|// Expand struct uniforms to flattened lists of split variables
 name|void
-name|ExpandVariables
+name|ExpandUniforms
 argument_list|(
 specifier|const
 name|std
 operator|::
 name|vector
 operator|<
-name|VarT
+name|Uniform
 operator|>
 operator|&
 name|compact
@@ -221,7 +235,7 @@ operator|>
 operator|*
 name|expanded
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_endif

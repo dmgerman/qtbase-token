@@ -163,6 +163,41 @@ name|empty
 argument_list|()
 return|;
 block|}
+comment|// All of the shader's variables are described using nested data
+comment|// structures. This is needed in order to disambiguate similar looking
+comment|// types, such as two structs containing the same fields, but in
+comment|// different orders. "findInfoByMappedName" provides an easy query for
+comment|// users to dive into the data structure and fetch the unique variable
+comment|// instance corresponding to a dereferencing chain of the top-level
+comment|// variable.
+comment|// Given a mapped name like 'a[0].b.c[0]', return the ShaderVariable
+comment|// that defines 'c' in |leafVar|, and the original name 'A[0].B.C[0]'
+comment|// in |originalName|, based on the assumption that |this| defines 'a'.
+comment|// If no match is found, return false.
+name|bool
+name|findInfoByMappedName
+argument_list|(
+specifier|const
+name|std
+operator|::
+name|string
+operator|&
+name|mappedFullName
+argument_list|,
+specifier|const
+name|ShaderVariable
+operator|*
+operator|*
+name|leafVar
+argument_list|,
+name|std
+operator|::
+name|string
+operator|*
+name|originalFullName
+argument_list|)
+decl|const
+decl_stmt|;
 name|GLenum
 name|type
 decl_stmt|;
@@ -199,6 +234,52 @@ operator|::
 name|string
 name|structName
 expr_stmt|;
+name|protected
+label|:
+name|bool
+name|isSameVariableAtLinkTime
+argument_list|(
+specifier|const
+name|ShaderVariable
+operator|&
+name|other
+argument_list|,
+name|bool
+name|matchPrecision
+argument_list|)
+decl|const
+decl_stmt|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|ShaderVariable
+operator|&
+name|other
+operator|)
+specifier|const
+expr_stmt|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|ShaderVariable
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
 block|}
 struct|;
 name|struct
@@ -233,6 +314,47 @@ name|Uniform
 operator|&
 name|other
 operator|)
+block|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|Uniform
+operator|&
+name|other
+operator|)
+specifier|const
+block|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|Uniform
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
+comment|// Decide whether two uniforms are the same at shader link time,
+comment|// assuming one from vertex shader and the other from fragment shader.
+comment|// See GLSL ES Spec 3.00.3, sec 4.3.5.
+name|bool
+name|isSameUniformAtLinkTime
+argument_list|(
+argument|const Uniform&other
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 name|struct
@@ -268,6 +390,37 @@ operator|&
 name|other
 operator|)
 block|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|Attribute
+operator|&
+name|other
+operator|)
+specifier|const
+block|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|Attribute
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
 name|int
 name|location
 block|; }
@@ -306,6 +459,48 @@ name|other
 operator|)
 block|;
 name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|InterfaceBlockField
+operator|&
+name|other
+operator|)
+specifier|const
+block|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|InterfaceBlockField
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
+comment|// Decide whether two InterfaceBlock fields are the same at shader
+comment|// link time, assuming one from vertex shader and the other from
+comment|// fragment shader.
+comment|// See GLSL ES Spec 3.00.3, sec 4.3.7.
+name|bool
+name|isSameInterfaceBlockFieldAtLinkTime
+argument_list|(
+argument|const InterfaceBlockField&other
+argument_list|)
+specifier|const
+block|;
+name|bool
 name|isRowMajorLayout
 block|; }
 decl_stmt|;
@@ -328,7 +523,7 @@ argument_list|(
 specifier|const
 name|Varying
 operator|&
-name|other
+name|otherg
 argument_list|)
 block|;
 name|Varying
@@ -341,6 +536,47 @@ name|Varying
 operator|&
 name|other
 operator|)
+block|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|Varying
+operator|&
+name|other
+operator|)
+specifier|const
+block|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|Varying
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
+comment|// Decide whether two varyings are the same at shader link time,
+comment|// assuming one from vertex shader and the other from fragment shader.
+comment|// See GLSL ES Spec 3.00.3, sec 4.3.9.
+name|bool
+name|isSameVaryingAtLinkTime
+argument_list|(
+argument|const Varying&other
+argument_list|)
+specifier|const
 block|;
 name|InterpolationType
 name|interpolation

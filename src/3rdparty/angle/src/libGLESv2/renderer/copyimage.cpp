@@ -20,7 +20,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"libGLESv2/renderer/copyImage.h"
+file|"libGLESv2/renderer/copyimage.h"
 end_include
 begin_namespace
 DECL|namespace|rx

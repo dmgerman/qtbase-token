@@ -47,7 +47,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libEGL/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libEGL/Config.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libEGL/AttributeMap.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -74,7 +84,7 @@ operator|~
 name|Display
 argument_list|()
 expr_stmt|;
-name|bool
+name|Error
 name|initialize
 parameter_list|()
 function_decl|;
@@ -91,7 +101,7 @@ name|getDisplay
 argument_list|(
 argument|EGLNativeDisplayType displayId
 argument_list|,
-argument|EGLint displayType
+argument|const AttributeMap&attribMap
 argument_list|)
 expr_stmt|;
 specifier|static
@@ -151,7 +161,7 @@ modifier|*
 name|value
 parameter_list|)
 function_decl|;
-name|EGLSurface
+name|Error
 name|createWindowSurface
 parameter_list|(
 name|EGLNativeWindowType
@@ -164,9 +174,13 @@ specifier|const
 name|EGLint
 modifier|*
 name|attribList
+parameter_list|,
+name|EGLSurface
+modifier|*
+name|outSurface
 parameter_list|)
 function_decl|;
-name|EGLSurface
+name|Error
 name|createOffscreenSurface
 parameter_list|(
 name|EGLConfig
@@ -179,9 +193,13 @@ specifier|const
 name|EGLint
 modifier|*
 name|attribList
+parameter_list|,
+name|EGLSurface
+modifier|*
+name|outSurface
 parameter_list|)
 function_decl|;
-name|EGLContext
+name|Error
 name|createContext
 argument_list|(
 name|EGLConfig
@@ -202,6 +220,10 @@ name|notifyResets
 argument_list|,
 name|bool
 name|robustAccess
+argument_list|,
+name|EGLContext
+operator|*
+name|outContext
 argument_list|)
 decl_stmt|;
 name|void
@@ -319,19 +341,26 @@ expr_stmt|;
 name|Display
 argument_list|(
 argument|EGLNativeDisplayType displayId
-argument_list|,
-argument|EGLint displayType
 argument_list|)
 empty_stmt|;
-name|bool
+name|void
+name|setAttributes
+parameter_list|(
+specifier|const
+name|AttributeMap
+modifier|&
+name|attribMap
+parameter_list|)
+function_decl|;
+name|Error
 name|restoreLostDevice
 parameter_list|()
 function_decl|;
 name|EGLNativeDisplayType
 name|mDisplayId
 decl_stmt|;
-name|EGLint
-name|mRequestedDisplayType
+name|AttributeMap
+name|mAttributeMap
 decl_stmt|;
 typedef|typedef
 name|std

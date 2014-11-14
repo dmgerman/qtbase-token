@@ -51,6 +51,12 @@ block|{
 name|class
 name|Framebuffer
 decl_stmt|;
+struct_decl|struct
+name|ImageIndex
+struct_decl|;
+struct_decl|struct
+name|Box
+struct_decl|;
 block|}
 end_decl_stmt
 begin_decl_stmt
@@ -96,17 +102,30 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setManagedSurface2D
 argument_list|(
 argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|)
-block|{}
+block|{
+return|return
+name|gl
+operator|::
+name|Error
+argument_list|(
+name|GL_NO_ERROR
+argument_list|)
+return|;
+block|}
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setManagedSurfaceCube
 argument_list|(
 argument|TextureStorage *storage
@@ -115,20 +134,42 @@ argument|int face
 argument_list|,
 argument|int level
 argument_list|)
-block|{}
+block|{
+return|return
+name|gl
+operator|::
+name|Error
+argument_list|(
+name|GL_NO_ERROR
+argument_list|)
+return|;
+block|}
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setManagedSurface3D
 argument_list|(
 argument|TextureStorage *storage
 argument_list|,
 argument|int level
 argument_list|)
-block|{}
+block|{
+return|return
+name|gl
+operator|::
+name|Error
+argument_list|(
+name|GL_NO_ERROR
+argument_list|)
+return|;
+block|}
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setManagedSurface2DArray
 argument_list|(
 argument|TextureStorage *storage
@@ -137,88 +178,40 @@ argument|int layer
 argument_list|,
 argument|int level
 argument_list|)
-block|{}
-block|;
-name|virtual
-name|bool
-name|copyToStorage2D
+block|{
+return|return
+name|gl
+operator|::
+name|Error
 argument_list|(
-argument|TextureStorage *storage
-argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
+name|GL_NO_ERROR
 argument_list|)
-operator|=
-literal|0
+return|;
+block|}
 block|;
 name|virtual
-name|bool
-name|copyToStorageCube
+name|gl
+operator|::
+name|Error
+name|copyToStorage
 argument_list|(
-argument|TextureStorage *storage
+name|TextureStorage
+operator|*
+name|storage
 argument_list|,
-argument|int face
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|bool
-name|copyToStorage3D
-argument_list|(
-argument|TextureStorage *storage
-argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|bool
-name|copyToStorage2DArray
-argument_list|(
-argument|TextureStorage *storage
-argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
+specifier|const
+name|gl
+operator|::
+name|Box
+operator|&
+name|region
 argument_list|)
 operator|=
 literal|0

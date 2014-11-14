@@ -339,6 +339,12 @@ return|return
 literal|"-"
 return|;
 case|case
+name|EOpPositive
+case|:
+return|return
+literal|"+"
+return|;
+case|case
 name|EOpVectorLogicalNot
 case|:
 return|return

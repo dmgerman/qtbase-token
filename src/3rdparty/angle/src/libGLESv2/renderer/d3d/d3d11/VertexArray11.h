@@ -55,8 +55,6 @@ name|public
 operator|:
 name|VertexArray11
 argument_list|(
-name|rx
-operator|::
 name|Renderer11
 operator|*
 name|renderer
@@ -116,8 +114,6 @@ argument_list|(
 name|VertexArray11
 argument_list|)
 block|;
-name|rx
-operator|::
 name|Renderer11
 operator|*
 name|mRenderer

@@ -131,8 +131,6 @@ name|public
 operator|:
 name|Buffer11
 argument_list|(
-name|rx
-operator|::
 name|Renderer11
 operator|*
 name|renderer
@@ -207,11 +205,11 @@ name|supportsDirectBinding
 argument_list|()
 specifier|const
 block|;
-name|virtual
-name|Renderer
+name|RendererD3D
 operator|*
 name|getRenderer
 argument_list|()
+name|override
 block|;
 comment|// BufferImpl implementation
 name|virtual
@@ -227,11 +225,14 @@ argument_list|,
 argument|GLenum usage
 argument_list|)
 block|;
-name|virtual
-name|void
-operator|*
+name|gl
+operator|::
+name|Error
 name|getData
-argument_list|()
+argument_list|(
+argument|const uint8_t **outData
+argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -304,8 +305,6 @@ block|;
 name|class
 name|PackStorage11
 block|;
-name|rx
-operator|::
 name|Renderer11
 operator|*
 name|mRenderer

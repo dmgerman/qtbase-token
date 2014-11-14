@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/constants.h"
+file|"libGLESv2/Constants.h"
 end_include
 begin_include
 include|#
@@ -67,9 +67,6 @@ begin_decl_stmt
 name|namespace
 name|rx
 block|{
-name|class
-name|Renderer
-decl_stmt|;
 name|class
 name|VertexArrayImpl
 decl_stmt|;
@@ -185,10 +182,11 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|&
 name|mVertexAttributes
-operator|.
-name|data
-argument_list|()
+index|[
+literal|0
+index|]
 return|;
 block|}
 name|Buffer

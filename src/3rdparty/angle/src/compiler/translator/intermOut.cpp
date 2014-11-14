@@ -226,6 +226,14 @@ name|getQualifierString
 argument_list|()
 operator|<<
 literal|" "
+expr_stmt|;
+if|if
+condition|(
+name|precision
+operator|!=
+name|EbpUndefined
+condition|)
+name|stream
 operator|<<
 name|getPrecisionString
 argument_list|()
@@ -732,6 +740,14 @@ literal|"Negate value"
 expr_stmt|;
 break|break;
 case|case
+name|EOpPositive
+case|:
+name|out
+operator|<<
+literal|"Positive sign"
+expr_stmt|;
+break|break;
+case|case
 name|EOpVectorLogicalNot
 case|:
 case|case
@@ -1109,6 +1125,19 @@ case|:
 name|out
 operator|<<
 literal|"Function Parameters: "
+expr_stmt|;
+break|break;
+case|case
+name|EOpPrototype
+case|:
+name|out
+operator|<<
+literal|"Function Prototype: "
+operator|<<
+name|node
+operator|->
+name|getName
+argument_list|()
 expr_stmt|;
 break|break;
 case|case

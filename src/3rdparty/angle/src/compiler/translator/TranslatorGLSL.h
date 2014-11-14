@@ -60,6 +60,14 @@ block|;
 name|private
 operator|:
 name|void
+name|writeVersion
+argument_list|(
+name|TIntermNode
+operator|*
+name|root
+argument_list|)
+block|;
+name|void
 name|writeExtensionBehavior
 argument_list|()
 block|; }

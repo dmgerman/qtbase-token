@@ -73,7 +73,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 name|class
 name|VertexBuffer
@@ -206,7 +206,7 @@ name|public
 label|:
 name|VertexBufferInterface
 argument_list|(
-argument|rx::Renderer *renderer
+argument|RendererD3D *renderer
 argument_list|,
 argument|bool dynamic
 argument_list|)
@@ -332,13 +332,11 @@ argument_list|(
 name|VertexBufferInterface
 argument_list|)
 expr_stmt|;
-name|rx
-operator|::
-name|Renderer
-operator|*
+name|RendererD3D
+modifier|*
 specifier|const
 name|mRenderer
-expr_stmt|;
+decl_stmt|;
 name|VertexBuffer
 modifier|*
 name|mVertexBuffer
@@ -366,7 +364,7 @@ name|public
 operator|:
 name|StreamingVertexBufferInterface
 argument_list|(
-argument|rx::Renderer *renderer
+argument|RendererD3D *renderer
 argument_list|,
 argument|std::size_t initialSize
 argument_list|)
@@ -397,9 +395,7 @@ operator|:
 name|explicit
 name|StaticVertexBufferInterface
 argument_list|(
-name|rx
-operator|::
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)

@@ -128,6 +128,9 @@ comment|//
 DECL|enumerator|EOpNegative
 name|EOpNegative
 block|,
+DECL|enumerator|EOpPositive
+name|EOpPositive
+block|,
 DECL|enumerator|EOpLogicalNot
 name|EOpLogicalNot
 block|,
@@ -840,6 +843,15 @@ name|mType
 operator|=
 name|t
 block|; }
+name|void
+name|setTypePreservePrecision
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|t
+argument_list|)
+block|;
 specifier|const
 name|TType
 operator|&
@@ -2490,6 +2502,14 @@ argument_list|(
 argument|std::queue<TIntermNode *> *nodeQueue
 argument_list|)
 specifier|const
+block|;
+name|void
+name|setPrecisionFromChildren
+argument_list|()
+block|;
+name|void
+name|setBuiltInFunctionPrecision
+argument_list|()
 block|;
 name|protected
 operator|:

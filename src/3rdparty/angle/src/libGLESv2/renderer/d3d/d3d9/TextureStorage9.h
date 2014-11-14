@@ -103,17 +103,23 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|gl
+operator|::
+name|Error
+name|getBaseTexture
+argument_list|(
 name|IDirect3DBaseTexture9
 operator|*
-name|getBaseTexture
-argument_list|()
-specifier|const
+operator|*
+name|outTexture
+argument_list|)
 operator|=
 literal|0
 block|;
 name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -122,14 +128,12 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
 operator|=
 literal|0
 block|;
@@ -157,10 +161,44 @@ name|getLevelCount
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|setData
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|,
+argument|Image *image
+argument_list|,
+argument|const gl::Box *destBox
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const uint8_t *pixelData
+argument_list|)
+block|;
 name|protected
 operator|:
 name|int
 name|mTopLevel
+block|;
+name|size_t
+name|mMipLevels
+block|;
+name|size_t
+name|mTextureWidth
+block|;
+name|size_t
+name|mTextureHeight
+block|;
+name|GLenum
+name|mInternalFormat
+block|;
+name|D3DFORMAT
+name|mTextureFormat
 block|;
 name|Renderer9
 operator|*
@@ -168,7 +206,7 @@ name|mRenderer
 block|;
 name|TextureStorage9
 argument_list|(
-argument|Renderer *renderer
+argument|Renderer9 *renderer
 argument_list|,
 argument|DWORD usage
 argument_list|)
@@ -199,7 +237,7 @@ name|public
 operator|:
 name|TextureStorage9_2D
 argument_list|(
-name|Renderer
+name|Renderer9
 operator|*
 name|renderer
 argument_list|,
@@ -210,7 +248,7 @@ argument_list|)
 block|;
 name|TextureStorage9_2D
 argument_list|(
-argument|Renderer *renderer
+argument|Renderer9 *renderer
 argument_list|,
 argument|GLenum internalformat
 argument_list|,
@@ -238,18 +276,22 @@ operator|*
 name|storage
 argument_list|)
 block|;
-name|IDirect3DSurface9
-operator|*
+name|gl
+operator|::
+name|Error
 name|getSurfaceLevel
 argument_list|(
 argument|int level
 argument_list|,
 argument|bool dirty
+argument_list|,
+argument|IDirect3DSurface9 **outSurface
 argument_list|)
 block|;
 name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -258,19 +300,56 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 block|;
 name|virtual
+name|gl
+operator|::
+name|Error
+name|getBaseTexture
+argument_list|(
 name|IDirect3DBaseTexture9
 operator|*
-name|getBaseTexture
-argument_list|()
-specifier|const
+operator|*
+name|outTexture
+argument_list|)
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
+name|gl
+operator|::
+name|Error
+name|generateMipmap
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|sourceIndex
+argument_list|,
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|destIndex
+argument_list|)
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|copyToStorage
+argument_list|(
+name|TextureStorage
+operator|*
+name|destStorage
+argument_list|)
 block|;
 name|private
 operator|:
@@ -278,10 +357,6 @@ name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|TextureStorage9_2D
 argument_list|)
-block|;
-name|void
-name|initializeRenderTarget
-argument_list|()
 block|;
 name|IDirect3DTexture9
 operator|*
@@ -302,7 +377,7 @@ name|public
 operator|:
 name|TextureStorage9_Cube
 argument_list|(
-argument|Renderer *renderer
+argument|Renderer9 *renderer
 argument_list|,
 argument|GLenum internalformat
 argument_list|,
@@ -328,8 +403,9 @@ operator|*
 name|storage
 argument_list|)
 block|;
-name|IDirect3DSurface9
-operator|*
+name|gl
+operator|::
+name|Error
 name|getCubeMapSurface
 argument_list|(
 argument|GLenum faceTarget
@@ -337,11 +413,14 @@ argument_list|,
 argument|int level
 argument_list|,
 argument|bool dirty
+argument_list|,
+argument|IDirect3DSurface9 **outSurface
 argument_list|)
 block|;
 name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -350,19 +429,56 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 block|;
 name|virtual
+name|gl
+operator|::
+name|Error
+name|getBaseTexture
+argument_list|(
 name|IDirect3DBaseTexture9
 operator|*
-name|getBaseTexture
-argument_list|()
-specifier|const
+operator|*
+name|outTexture
+argument_list|)
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
+name|gl
+operator|::
+name|Error
+name|generateMipmap
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|sourceIndex
+argument_list|,
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|destIndex
+argument_list|)
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|copyToStorage
+argument_list|(
+name|TextureStorage
+operator|*
+name|destStorage
+argument_list|)
 block|;
 name|private
 operator|:
@@ -371,9 +487,12 @@ argument_list|(
 name|TextureStorage9_Cube
 argument_list|)
 block|;
-name|void
-name|initializeRenderTarget
-argument_list|()
+specifier|static
+specifier|const
+name|size_t
+name|CUBE_FACE_COUNT
+operator|=
+literal|6
 block|;
 name|IDirect3DCubeTexture9
 operator|*
@@ -383,7 +502,7 @@ name|RenderTarget9
 operator|*
 name|mRenderTarget
 index|[
-literal|6
+name|CUBE_FACE_COUNT
 index|]
 block|; }
 decl_stmt|;

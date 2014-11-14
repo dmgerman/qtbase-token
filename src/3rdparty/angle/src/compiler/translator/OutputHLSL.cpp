@@ -591,6 +591,10 @@ name|mContainsLoopDiscontinuity
 operator|=
 literal|false
 expr_stmt|;
+name|mContainsAnyLoop
+operator|=
+literal|false
+expr_stmt|;
 name|mOutputLod0Function
 operator|=
 literal|false
@@ -707,6 +711,15 @@ operator|==
 name|GL_FRAGMENT_SHADER
 operator|&&
 name|containsLoopDiscontinuity
+argument_list|(
+name|mContext
+operator|.
+name|treeRoot
+argument_list|)
+expr_stmt|;
+name|mContainsAnyLoop
+operator|=
+name|containsAnyLoop
 argument_list|(
 name|mContext
 operator|.
@@ -1582,9 +1595,7 @@ condition|)
 block|{
 name|out
 operator|<<
-literal|"#define ANGLE_USES_DISCARD_REWRITING"
-operator|<<
-literal|"\n"
+literal|"#define ANGLE_USES_DISCARD_REWRITING\n"
 expr_stmt|;
 block|}
 if|if
@@ -1594,11 +1605,19 @@ condition|)
 block|{
 name|out
 operator|<<
-literal|"#define ANGLE_USES_NESTED_BREAK"
-operator|<<
-literal|"\n"
+literal|"#define ANGLE_USES_NESTED_BREAK\n"
 expr_stmt|;
 block|}
+name|out
+operator|<<
+literal|"#ifdef ANGLE_ENABLE_LOOP_FLATTEN\n"
+literal|"#define LOOP [loop]\n"
+literal|"#define FLATTEN [flatten]\n"
+literal|"#else\n"
+literal|"#define LOOP\n"
+literal|"#define FLATTEN\n"
+literal|"#endif\n"
+expr_stmt|;
 if|if
 condition|(
 name|mContext
@@ -6898,6 +6917,21 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|EOpPositive
+case|:
+name|outputTriplet
+argument_list|(
+name|visit
+argument_list|,
+literal|"(+"
+argument_list|,
+literal|""
+argument_list|,
+literal|")"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 name|EOpVectorLogicalNot
 case|:
 name|outputTriplet
@@ -7692,29 +7726,6 @@ literal|""
 condition|)
 comment|// Variable declaration
 block|{
-if|if
-condition|(
-operator|!
-name|mInsideFunction
-condition|)
-block|{
-name|out
-operator|<<
-literal|"static "
-expr_stmt|;
-block|}
-name|out
-operator|<<
-name|TypeString
-argument_list|(
-name|variable
-operator|->
-name|getType
-argument_list|()
-argument_list|)
-operator|+
-literal|" "
-expr_stmt|;
 for|for
 control|(
 name|TIntermSequence
@@ -7738,6 +7749,47 @@ name|sit
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|isSingleStatement
+argument_list|(
+operator|*
+name|sit
+argument_list|)
+condition|)
+block|{
+name|mUnfoldShortCircuit
+operator|->
+name|traverse
+argument_list|(
+operator|*
+name|sit
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|mInsideFunction
+condition|)
+block|{
+name|out
+operator|<<
+literal|"static "
+expr_stmt|;
+block|}
+name|out
+operator|<<
+name|TypeString
+argument_list|(
+name|variable
+operator|->
+name|getType
+argument_list|()
+argument_list|)
+operator|+
+literal|" "
+expr_stmt|;
 name|TIntermSymbol
 modifier|*
 name|symbol
@@ -7811,7 +7863,7 @@ condition|)
 block|{
 name|out
 operator|<<
-literal|", "
+literal|";\n"
 expr_stmt|;
 block|}
 block|}
@@ -7973,10 +8025,15 @@ literal|" "
 operator|<<
 name|Decorate
 argument_list|(
+name|TFunction
+operator|::
+name|unmangleName
+argument_list|(
 name|node
 operator|->
 name|getName
 argument_list|()
+argument_list|)
 argument_list|)
 operator|<<
 operator|(
@@ -10201,6 +10258,26 @@ name|getCondition
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// D3D errors when there is a gradient operation in a loop in an unflattened if
+comment|// however flattening all the ifs in branch heavy shaders made D3D error too.
+comment|// As a temporary workaround we flatten the ifs only if there is at least a loop
+comment|// present somewhere in the shader.
+if|if
+condition|(
+name|mContext
+operator|.
+name|shaderType
+operator|==
+name|GL_FRAGMENT_SHADER
+operator|&&
+name|mContainsAnyLoop
+condition|)
+block|{
+name|out
+operator|<<
+literal|"FLATTEN "
+expr_stmt|;
+block|}
 name|out
 operator|<<
 literal|"if ("
@@ -10502,7 +10579,7 @@ condition|)
 block|{
 name|out
 operator|<<
-literal|"{do\n"
+literal|"{LOOP do\n"
 expr_stmt|;
 name|outputLineDirective
 argument_list|(
@@ -10523,7 +10600,7 @@ else|else
 block|{
 name|out
 operator|<<
-literal|"{for("
+literal|"{LOOP for("
 expr_stmt|;
 if|if
 condition|(
@@ -10940,6 +11017,23 @@ operator|==
 name|EOpSequence
 condition|)
 block|{
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|aggregate
+operator|->
+name|getOp
+argument_list|()
+operator|==
+name|EOpDeclaration
+condition|)
+block|{
+comment|// Declaring multiple comma-separated variables must be considered multiple statements
+comment|// because each individual declaration has side effects which are visible in the next.
 return|return
 literal|false
 return|;
@@ -11647,7 +11741,7 @@ block|}
 comment|// for(int index = initial; index< clampedLimit; index += increment)
 name|out
 operator|<<
-literal|"for("
+literal|"LOOP for("
 expr_stmt|;
 name|index
 operator|->

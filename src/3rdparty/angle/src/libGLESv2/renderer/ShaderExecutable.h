@@ -116,6 +116,35 @@ name|size
 argument_list|()
 return|;
 block|}
+specifier|const
+name|std
+operator|::
+name|string
+operator|&
+name|getDebugInfo
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mDebugInfo
+return|;
+block|}
+name|void
+name|appendDebugInfo
+argument_list|(
+specifier|const
+name|std
+operator|::
+name|string
+operator|&
+name|info
+argument_list|)
+block|{
+name|mDebugInfo
+operator|+=
+name|info
+expr_stmt|;
+block|}
 name|private
 label|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -130,6 +159,11 @@ operator|<
 name|uint8_t
 operator|>
 name|mFunctionBuffer
+expr_stmt|;
+name|std
+operator|::
+name|string
+name|mDebugInfo
 expr_stmt|;
 block|}
 empty_stmt|;
@@ -176,6 +210,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// LIBGLESV2_RENDERER_SHADEREXECUTABLE9_H_
+comment|// LIBGLESV2_RENDERER_SHADEREXECUTABLE_H_
 end_comment
 end_unit

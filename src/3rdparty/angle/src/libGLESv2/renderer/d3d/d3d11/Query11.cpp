@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"common/utilities.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<GLES2/gl2ext.h>
 end_include
 begin_namespace
@@ -52,8 +57,6 @@ name|Query11
 operator|::
 name|Query11
 parameter_list|(
-name|rx
-operator|::
 name|Renderer11
 modifier|*
 name|renderer

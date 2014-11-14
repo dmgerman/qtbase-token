@@ -28,7 +28,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/renderer/Renderer.h"
+file|"libGLESv2/renderer/d3d/RendererD3D.h"
 end_include
 begin_namespace
 DECL|namespace|rx
@@ -92,7 +92,7 @@ name|IndexBufferInterface
 operator|::
 name|IndexBufferInterface
 parameter_list|(
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|,
@@ -424,7 +424,7 @@ name|StreamingIndexBufferInterface
 operator|::
 name|StreamingIndexBufferInterface
 parameter_list|(
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|)
@@ -575,7 +575,7 @@ name|StaticIndexBufferInterface
 operator|::
 name|StaticIndexBufferInterface
 parameter_list|(
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|)

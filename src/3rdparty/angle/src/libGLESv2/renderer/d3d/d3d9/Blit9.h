@@ -36,6 +36,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<GLES2/gl2.h>
 end_include
 begin_decl_stmt
@@ -74,124 +79,102 @@ operator|~
 name|Blit9
 argument_list|()
 expr_stmt|;
+name|gl
+operator|::
+name|Error
+name|initialize
+argument_list|()
+expr_stmt|;
 comment|// Copy from source surface to dest surface.
 comment|// sourceRect, xoffset, yoffset are in D3D coordinates (0,0 in upper-left)
-name|bool
+name|gl
+operator|::
+name|Error
 name|copy2D
 argument_list|(
+argument|gl::Framebuffer *framebuffer
+argument_list|,
+argument|const RECT&sourceRect
+argument_list|,
+argument|GLenum destFormat
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|TextureStorage *storage
+argument_list|,
+argument|GLint level
+argument_list|)
+expr_stmt|;
 name|gl
 operator|::
-name|Framebuffer
-operator|*
-name|framebuffer
-argument_list|,
-specifier|const
-name|RECT
-operator|&
-name|sourceRect
-argument_list|,
-name|GLenum
-name|destFormat
-argument_list|,
-name|GLint
-name|xoffset
-argument_list|,
-name|GLint
-name|yoffset
-argument_list|,
-name|TextureStorage
-operator|*
-name|storage
-argument_list|,
-name|GLint
-name|level
-argument_list|)
-decl_stmt|;
-name|bool
+name|Error
 name|copyCube
 argument_list|(
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|framebuffer
+argument|gl::Framebuffer *framebuffer
 argument_list|,
-specifier|const
-name|RECT
-operator|&
-name|sourceRect
+argument|const RECT&sourceRect
 argument_list|,
-name|GLenum
-name|destFormat
+argument|GLenum destFormat
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|TextureStorage
-operator|*
-name|storage
+argument|TextureStorage *storage
 argument_list|,
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// Copy from source surface to dest surface.
 comment|// sourceRect, xoffset, yoffset are in D3D coordinates (0,0 in upper-left)
 comment|// source is interpreted as RGBA and destFormat specifies the desired result format. For example, if destFormat = GL_RGB, the alpha channel will be forced to 0.
-name|bool
+name|gl
+operator|::
+name|Error
 name|formatConvert
-parameter_list|(
-name|IDirect3DSurface9
-modifier|*
-name|source
-parameter_list|,
-specifier|const
-name|RECT
-modifier|&
-name|sourceRect
-parameter_list|,
-name|GLenum
-name|destFormat
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|IDirect3DSurface9
-modifier|*
-name|dest
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|IDirect3DSurface9 *source
+argument_list|,
+argument|const RECT&sourceRect
+argument_list|,
+argument|GLenum destFormat
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|IDirect3DSurface9 *dest
+argument_list|)
+expr_stmt|;
 comment|// 2x2 box filter sample from source to dest.
 comment|// Requires that source is RGB(A) and dest has the same format as source.
-name|bool
+name|gl
+operator|::
+name|Error
 name|boxFilter
-parameter_list|(
+argument_list|(
 name|IDirect3DSurface9
-modifier|*
+operator|*
 name|source
-parameter_list|,
+argument_list|,
 name|IDirect3DSurface9
-modifier|*
+operator|*
 name|dest
-parameter_list|)
-function_decl|;
+argument_list|)
+expr_stmt|;
 name|private
 label|:
-name|rx
-operator|::
 name|Renderer9
-operator|*
+modifier|*
 name|mRenderer
-expr_stmt|;
+decl_stmt|;
+name|bool
+name|mGeometryLoaded
+decl_stmt|;
 name|IDirect3DVertexBuffer9
 modifier|*
 name|mQuadVertexBuffer
@@ -200,57 +183,52 @@ name|IDirect3DVertexDeclaration9
 modifier|*
 name|mQuadVertexDeclaration
 decl_stmt|;
-name|void
-name|initGeometry
-parameter_list|()
-function_decl|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|setFormatConvertShaders
-parameter_list|(
-name|GLenum
-name|destFormat
-parameter_list|)
-function_decl|;
-name|bool
+argument_list|(
+argument|GLenum destFormat
+argument_list|)
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|copy
-parameter_list|(
-name|IDirect3DSurface9
-modifier|*
-name|source
-parameter_list|,
-specifier|const
-name|RECT
-modifier|&
-name|sourceRect
-parameter_list|,
-name|GLenum
-name|destFormat
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|IDirect3DSurface9
-modifier|*
-name|dest
-parameter_list|)
-function_decl|;
-name|IDirect3DTexture9
-modifier|*
+argument_list|(
+argument|IDirect3DSurface9 *source
+argument_list|,
+argument|const RECT&sourceRect
+argument_list|,
+argument|GLenum destFormat
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|IDirect3DSurface9 *dest
+argument_list|)
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|copySurfaceToTexture
-parameter_list|(
+argument_list|(
 name|IDirect3DSurface9
-modifier|*
+operator|*
 name|surface
-parameter_list|,
+argument_list|,
 specifier|const
 name|RECT
-modifier|&
+operator|&
 name|sourceRect
-parameter_list|)
-function_decl|;
+argument_list|,
+name|IDirect3DTexture9
+operator|*
+operator|*
+name|outTexture
+argument_list|)
+expr_stmt|;
 name|void
 name|setViewport
 parameter_list|(
@@ -309,32 +287,36 @@ operator|<
 name|class
 name|D3DShaderType
 operator|>
-name|bool
+name|gl
+operator|::
+name|Error
 name|setShader
 argument_list|(
 argument|ShaderId source
 argument_list|,
 argument|const char *profile
 argument_list|,
-argument|D3DShaderType *(Renderer9::*createShader)(const DWORD *, size_t length)
+argument|gl::Error (Renderer9::*createShader)(const DWORD *, size_t length, D3DShaderType **outShader)
 argument_list|,
 argument|HRESULT (WINAPI IDirect3DDevice9::*setShader)(D3DShaderType*)
 argument_list|)
 expr_stmt|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|setVertexShader
-parameter_list|(
-name|ShaderId
-name|shader
-parameter_list|)
-function_decl|;
-name|bool
+argument_list|(
+argument|ShaderId shader
+argument_list|)
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|setPixelShader
-parameter_list|(
-name|ShaderId
-name|shader
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|ShaderId shader
+argument_list|)
+expr_stmt|;
 name|void
 name|render
 parameter_list|()

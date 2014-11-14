@@ -41,7 +41,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/constants.h"
+file|"libGLESv2/Constants.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -63,7 +63,7 @@ name|class
 name|ImageD3D
 decl_stmt|;
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 name|class
 name|RenderTarget
@@ -81,7 +81,7 @@ name|public
 operator|:
 name|TextureD3D
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -101,7 +101,6 @@ operator|*
 name|texture
 argument_list|)
 block|;
-name|virtual
 name|TextureStorage
 operator|*
 name|getNativeTexture
@@ -165,8 +164,9 @@ name|mImmutable
 return|;
 block|}
 name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -175,6 +175,11 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 operator|=
 literal|0
@@ -194,9 +199,66 @@ argument_list|)
 operator|=
 literal|0
 block|;
+comment|// Returns an iterator over all "Images" for this particular Texture.
+name|virtual
+name|gl
+operator|::
+name|ImageIndexIterator
+name|imageIterator
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+comment|// Returns an ImageIndex for a particular "Image". 3D Textures do not have images for
+comment|// slices of their depth texures, so 3D textures ignore the layer parameter.
+name|virtual
+name|gl
+operator|::
+name|ImageIndex
+name|getImageIndex
+argument_list|(
+argument|GLint mip
+argument_list|,
+argument|GLint layer
+argument_list|)
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|bool
+name|isValidIndex
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|generateMipmaps
+argument_list|()
+block|;
+name|TextureStorage
+operator|*
+name|getStorage
+argument_list|()
+block|;
+name|Image
+operator|*
+name|getBaseLevelImage
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
-name|void
+name|gl
+operator|::
+name|Error
 name|setImage
 argument_list|(
 argument|const gl::PixelUnpackState&unpack
@@ -205,10 +267,12 @@ argument|GLenum type
 argument_list|,
 argument|const void *pixels
 argument_list|,
-argument|Image *image
+argument|const gl::ImageIndex&index
 argument_list|)
 block|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|subImage
 argument_list|(
 argument|GLint xoffset
@@ -234,9 +298,13 @@ argument_list|,
 argument|const gl::ImageIndex&index
 argument_list|)
 block|;
-name|void
+name|gl
+operator|::
+name|Error
 name|setCompressedImage
 argument_list|(
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|GLsizei imageSize
 argument_list|,
 argument|const void *pixels
@@ -244,7 +312,9 @@ argument_list|,
 argument|Image *image
 argument_list|)
 block|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLint xoffset
@@ -263,6 +333,8 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|,
 argument|Image *image
@@ -276,7 +348,9 @@ argument_list|,
 argument|GLenum sizedInternalFormat
 argument_list|)
 block|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|fastUnpackPixels
 argument_list|(
 argument|const gl::PixelUnpackState&unpack
@@ -308,7 +382,90 @@ name|mipLevels
 argument_list|()
 specifier|const
 block|;
-name|Renderer
+name|virtual
+name|void
+name|initMipmapsImages
+argument_list|()
+operator|=
+literal|0
+block|;
+name|bool
+name|isBaseImageZeroSize
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|bool
+name|isImageComplete
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+operator|=
+literal|0
+block|;
+name|bool
+name|canCreateRenderTargetForImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|ensureRenderTarget
+argument_list|()
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|createCompleteStorage
+argument_list|(
+argument|bool renderTarget
+argument_list|,
+argument|TextureStorage **outTexStorage
+argument_list|)
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|setCompleteTexStorage
+argument_list|(
+name|TextureStorage
+operator|*
+name|newCompleteTexStorage
+argument_list|)
+operator|=
+literal|0
+block|;
+name|gl
+operator|::
+name|Error
+name|commitRegion
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
+argument_list|,
+specifier|const
+name|gl
+operator|::
+name|Box
+operator|&
+name|region
+argument_list|)
+block|;
+name|RendererD3D
 operator|*
 name|mRenderer
 block|;
@@ -321,6 +478,10 @@ block|;
 name|bool
 name|mImmutable
 block|;
+name|TextureStorage
+operator|*
+name|mTexStorage
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -329,7 +490,9 @@ name|TextureD3D
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|initializeStorage
 argument_list|(
 argument|bool renderTarget
@@ -338,29 +501,20 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|updateStorage
 argument_list|()
 operator|=
 literal|0
 block|;
-name|virtual
-name|TextureStorage
-operator|*
-name|getBaseLevelStorage
-argument_list|()
-operator|=
-literal|0
-block|;
-name|virtual
+name|bool
+name|shouldUseSetData
+argument_list|(
+argument|const Image *image
+argument_list|)
 specifier|const
-name|ImageD3D
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
-operator|=
-literal|0
 block|; }
 decl_stmt|;
 name|class
@@ -373,7 +527,7 @@ name|public
 operator|:
 name|TextureD3D_2D
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -447,7 +601,9 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setImage
 argument_list|(
 argument|GLenum target
@@ -472,7 +628,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLenum target
@@ -489,11 +647,15 @@ argument|GLsizei depth
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImage
 argument_list|(
 argument|GLenum target
@@ -522,7 +684,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLenum target
@@ -545,11 +709,15 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copyImage
 argument_list|(
 argument|GLenum target
@@ -570,7 +738,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copySubImage
 argument_list|(
 argument|GLenum target
@@ -595,7 +765,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|storage
 argument_list|(
 argument|GLenum target
@@ -628,13 +800,9 @@ name|releaseTexImage
 argument_list|()
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -643,6 +811,11 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 block|;
 name|virtual
@@ -658,6 +831,34 @@ operator|&
 name|index
 argument_list|)
 block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndexIterator
+name|imageIterator
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndex
+name|getImageIndex
+argument_list|(
+argument|GLint mip
+argument_list|,
+argument|GLint layer
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|bool
+name|isValidIndex
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -666,21 +867,30 @@ name|TextureD3D_2D
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|initializeStorage
 argument_list|(
 argument|bool renderTarget
 argument_list|)
 block|;
-name|TextureStorage
-operator|*
+name|virtual
+name|gl
+operator|::
+name|Error
 name|createCompleteStorage
 argument_list|(
 argument|bool renderTarget
+argument_list|,
+argument|TextureStorage **outTexStorage
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|gl
+operator|::
+name|Error
 name|setCompleteTexStorage
 argument_list|(
 name|TextureStorage
@@ -689,27 +899,16 @@ name|newCompleteTexStorage
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|updateStorage
 argument_list|()
 block|;
-name|bool
-name|ensureRenderTarget
-argument_list|()
-block|;
 name|virtual
-name|TextureStorage
-operator|*
-name|getBaseLevelStorage
+name|void
+name|initMipmapsImages
 argument_list|()
-block|;
-name|virtual
-specifier|const
-name|ImageD3D
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
 block|;
 name|bool
 name|isValidLevel
@@ -725,7 +924,17 @@ argument|int level
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|bool
+name|isImageComplete
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|gl
+operator|::
+name|Error
 name|updateStorageLevel
 argument_list|(
 argument|int level
@@ -742,24 +951,6 @@ argument|GLsizei width
 argument_list|,
 argument|GLsizei height
 argument_list|)
-block|;
-name|void
-name|commitRect
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|)
-block|;
-name|TextureStorage
-operator|*
-name|mTexStorage
 block|;
 name|ImageD3D
 operator|*
@@ -781,7 +972,7 @@ name|public
 operator|:
 name|TextureD3D_Cube
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -868,7 +1059,9 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setImage
 argument_list|(
 argument|GLenum target
@@ -893,7 +1086,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLenum target
@@ -910,11 +1105,15 @@ argument|GLsizei depth
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImage
 argument_list|(
 argument|GLenum target
@@ -943,7 +1142,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLenum target
@@ -966,11 +1167,15 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copyImage
 argument_list|(
 argument|GLenum target
@@ -991,7 +1196,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copySubImage
 argument_list|(
 argument|GLenum target
@@ -1016,7 +1223,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|storage
 argument_list|(
 argument|GLenum target
@@ -1049,13 +1258,9 @@ name|releaseTexImage
 argument_list|()
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -1064,6 +1269,11 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 block|;
 name|virtual
@@ -1079,6 +1289,34 @@ operator|&
 name|index
 argument_list|)
 block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndexIterator
+name|imageIterator
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndex
+name|getImageIndex
+argument_list|(
+argument|GLint mip
+argument_list|,
+argument|GLint layer
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|bool
+name|isValidIndex
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -1087,21 +1325,30 @@ name|TextureD3D_Cube
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|initializeStorage
 argument_list|(
 argument|bool renderTarget
 argument_list|)
 block|;
-name|TextureStorage
-operator|*
+name|virtual
+name|gl
+operator|::
+name|Error
 name|createCompleteStorage
 argument_list|(
 argument|bool renderTarget
+argument_list|,
+argument|TextureStorage **outTexStorage
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|gl
+operator|::
+name|Error
 name|setCompleteTexStorage
 argument_list|(
 name|TextureStorage
@@ -1110,27 +1357,16 @@ name|newCompleteTexStorage
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|updateStorage
 argument_list|()
 block|;
-name|bool
-name|ensureRenderTarget
-argument_list|()
-block|;
 name|virtual
-name|TextureStorage
-operator|*
-name|getBaseLevelStorage
+name|void
+name|initMipmapsImages
 argument_list|()
-block|;
-name|virtual
-specifier|const
-name|ImageD3D
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
 block|;
 name|bool
 name|isValidFaceLevel
@@ -1155,7 +1391,17 @@ name|isCubeComplete
 argument_list|()
 specifier|const
 block|;
-name|void
+name|virtual
+name|bool
+name|isImageComplete
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|gl
+operator|::
+name|Error
 name|updateStorageFaceLevel
 argument_list|(
 argument|int faceIndex
@@ -1177,22 +1423,6 @@ argument_list|,
 argument|GLsizei height
 argument_list|)
 block|;
-name|void
-name|commitRect
-argument_list|(
-argument|int faceIndex
-argument_list|,
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|)
-block|;
 name|ImageD3D
 operator|*
 name|mImageArray
@@ -1204,10 +1434,6 @@ name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-block|;
-name|TextureStorage
-operator|*
-name|mTexStorage
 block|; }
 decl_stmt|;
 name|class
@@ -1220,7 +1446,7 @@ name|public
 operator|:
 name|TextureD3D_3D
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -1294,7 +1520,9 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setImage
 argument_list|(
 argument|GLenum target
@@ -1319,7 +1547,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLenum target
@@ -1336,11 +1566,15 @@ argument|GLsizei depth
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImage
 argument_list|(
 argument|GLenum target
@@ -1369,7 +1603,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLenum target
@@ -1392,11 +1628,15 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copyImage
 argument_list|(
 argument|GLenum target
@@ -1417,7 +1657,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copySubImage
 argument_list|(
 argument|GLenum target
@@ -1442,7 +1684,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|storage
 argument_list|(
 argument|GLenum target
@@ -1475,13 +1719,9 @@ name|releaseTexImage
 argument_list|()
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -1490,6 +1730,11 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 block|;
 name|virtual
@@ -1505,6 +1750,34 @@ operator|&
 name|index
 argument_list|)
 block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndexIterator
+name|imageIterator
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndex
+name|getImageIndex
+argument_list|(
+argument|GLint mip
+argument_list|,
+argument|GLint layer
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|bool
+name|isValidIndex
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -1513,21 +1786,30 @@ name|TextureD3D_3D
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|initializeStorage
 argument_list|(
 argument|bool renderTarget
 argument_list|)
 block|;
-name|TextureStorage
-operator|*
+name|virtual
+name|gl
+operator|::
+name|Error
 name|createCompleteStorage
 argument_list|(
 argument|bool renderTarget
+argument_list|,
+argument|TextureStorage **outStorage
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|gl
+operator|::
+name|Error
 name|setCompleteTexStorage
 argument_list|(
 name|TextureStorage
@@ -1536,27 +1818,16 @@ name|newCompleteTexStorage
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|updateStorage
 argument_list|()
 block|;
-name|bool
-name|ensureRenderTarget
-argument_list|()
-block|;
 name|virtual
-name|TextureStorage
-operator|*
-name|getBaseLevelStorage
+name|void
+name|initMipmapsImages
 argument_list|()
-block|;
-name|virtual
-specifier|const
-name|ImageD3D
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
 block|;
 name|bool
 name|isValidLevel
@@ -1572,7 +1843,17 @@ argument|int level
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|bool
+name|isImageComplete
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|gl
+operator|::
+name|Error
 name|updateStorageLevel
 argument_list|(
 argument|int level
@@ -1592,24 +1873,6 @@ argument_list|,
 argument|GLsizei depth
 argument_list|)
 block|;
-name|void
-name|commitRect
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|)
-block|;
 name|ImageD3D
 operator|*
 name|mImageArray
@@ -1618,10 +1881,6 @@ name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-block|;
-name|TextureStorage
-operator|*
-name|mTexStorage
 block|; }
 decl_stmt|;
 name|class
@@ -1634,7 +1893,7 @@ name|public
 operator|:
 name|TextureD3D_2DArray
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -1686,13 +1945,6 @@ argument|GLint level
 argument_list|)
 specifier|const
 block|;
-name|GLsizei
-name|getLayers
-argument_list|(
-argument|GLint level
-argument_list|)
-specifier|const
-block|;
 name|GLenum
 name|getInternalFormat
 argument_list|(
@@ -1708,7 +1960,9 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setImage
 argument_list|(
 argument|GLenum target
@@ -1733,7 +1987,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLenum target
@@ -1750,11 +2006,15 @@ argument|GLsizei depth
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImage
 argument_list|(
 argument|GLenum target
@@ -1783,7 +2043,9 @@ argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLenum target
@@ -1806,11 +2068,15 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copyImage
 argument_list|(
 argument|GLenum target
@@ -1831,7 +2097,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copySubImage
 argument_list|(
 argument|GLenum target
@@ -1856,7 +2124,9 @@ argument|gl::Framebuffer *source
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|storage
 argument_list|(
 argument|GLenum target
@@ -1889,13 +2159,9 @@ name|releaseTexImage
 argument_list|()
 block|;
 name|virtual
-name|void
-name|generateMipmaps
-argument_list|()
-block|;
-name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|getRenderTarget
 argument_list|(
 specifier|const
@@ -1904,6 +2170,11 @@ operator|::
 name|ImageIndex
 operator|&
 name|index
+argument_list|,
+name|RenderTarget
+operator|*
+operator|*
+name|outRT
 argument_list|)
 block|;
 name|virtual
@@ -1919,6 +2190,34 @@ operator|&
 name|index
 argument_list|)
 block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndexIterator
+name|imageIterator
+argument_list|()
+specifier|const
+block|;
+name|virtual
+name|gl
+operator|::
+name|ImageIndex
+name|getImageIndex
+argument_list|(
+argument|GLint mip
+argument_list|,
+argument|GLint layer
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|bool
+name|isValidIndex
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -1927,21 +2226,30 @@ name|TextureD3D_2DArray
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|initializeStorage
 argument_list|(
 argument|bool renderTarget
 argument_list|)
 block|;
-name|TextureStorage
-operator|*
+name|virtual
+name|gl
+operator|::
+name|Error
 name|createCompleteStorage
 argument_list|(
 argument|bool renderTarget
+argument_list|,
+argument|TextureStorage **outStorage
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|gl
+operator|::
+name|Error
 name|setCompleteTexStorage
 argument_list|(
 name|TextureStorage
@@ -1950,27 +2258,16 @@ name|newCompleteTexStorage
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|updateStorage
 argument_list|()
 block|;
-name|bool
-name|ensureRenderTarget
-argument_list|()
-block|;
 name|virtual
-name|TextureStorage
-operator|*
-name|getBaseLevelStorage
+name|void
+name|initMipmapsImages
 argument_list|()
-block|;
-name|virtual
-specifier|const
-name|ImageD3D
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
 block|;
 name|bool
 name|isValidLevel
@@ -1986,7 +2283,17 @@ argument|int level
 argument_list|)
 specifier|const
 block|;
-name|void
+name|virtual
+name|bool
+name|isImageComplete
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|)
+specifier|const
+block|;
+name|gl
+operator|::
+name|Error
 name|updateStorageLevel
 argument_list|(
 argument|int level
@@ -2010,22 +2317,6 @@ argument_list|,
 argument|GLsizei depth
 argument_list|)
 block|;
-name|void
-name|commitRect
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint layerTarget
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|)
-block|;
 comment|// Storing images as an array of single depth textures since D3D11 treats each array level of a
 comment|// Texture2D object as a separate subresource.  Each layer would have to be looped over
 comment|// to update all the texture layers since they cannot all be updated at once and it makes the most
@@ -2047,10 +2338,6 @@ name|gl
 operator|::
 name|IMPLEMENTATION_MAX_TEXTURE_LEVELS
 index|]
-block|;
-name|TextureStorage
-operator|*
-name|mTexStorage
 block|; }
 decl_stmt|;
 block|}

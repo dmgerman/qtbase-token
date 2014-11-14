@@ -57,7 +57,7 @@ name|SwapChain9
 argument_list|(
 argument|Renderer9 *renderer
 argument_list|,
-argument|HWND window
+argument|NativeWindow nativeWindow
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
@@ -101,8 +101,6 @@ argument_list|,
 argument|EGLint width
 argument_list|,
 argument|EGLint height
-argument_list|,
-argument|EGLint
 argument_list|)
 block|;
 name|virtual
@@ -128,6 +126,24 @@ operator|*
 name|getOffscreenTexture
 argument_list|()
 block|;
+name|EGLint
+name|getWidth
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mWidth
+return|;
+block|}
+name|EGLint
+name|getHeight
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mHeight
+return|;
+block|}
 specifier|static
 name|SwapChain9
 operator|*

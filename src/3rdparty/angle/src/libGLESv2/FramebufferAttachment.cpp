@@ -684,9 +684,6 @@ block|{
 return|return
 name|mRenderbuffer
 operator|->
-name|getStorage
-argument_list|()
-operator|->
 name|getSamples
 argument_list|()
 return|;

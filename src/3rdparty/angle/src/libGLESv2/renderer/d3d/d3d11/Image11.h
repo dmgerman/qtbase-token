@@ -39,6 +39,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/ImageIndex.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/debug.h"
 end_include
 begin_decl_stmt
@@ -54,9 +59,6 @@ begin_decl_stmt
 name|namespace
 name|rx
 block|{
-name|class
-name|Renderer
-decl_stmt|;
 name|class
 name|Renderer11
 decl_stmt|;
@@ -90,7 +92,9 @@ name|img
 argument_list|)
 block|;
 specifier|static
-name|void
+name|gl
+operator|::
+name|Error
 name|generateMipmap
 argument_list|(
 name|Image11
@@ -109,86 +113,34 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|bool
-name|copyToStorage2D
+name|gl
+operator|::
+name|Error
+name|copyToStorage
 argument_list|(
-argument|TextureStorage *storage
+name|TextureStorage
+operator|*
+name|storage
 argument_list|,
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
+specifier|const
+name|gl
+operator|::
+name|Box
+operator|&
+name|region
 argument_list|)
 block|;
-name|virtual
-name|bool
-name|copyToStorageCube
-argument_list|(
-argument|TextureStorage *storage
-argument_list|,
-argument|int face
-argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|copyToStorage3D
-argument_list|(
-argument|TextureStorage *storage
-argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint zoffset
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|copyToStorage2DArray
-argument_list|(
-argument|TextureStorage *storage
-argument_list|,
-argument|int level
-argument_list|,
-argument|GLint xoffset
-argument_list|,
-argument|GLint yoffset
-argument_list|,
-argument|GLint arrayLayer
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|)
-block|;
-name|virtual
 name|bool
 name|redefine
 argument_list|(
-argument|Renderer *renderer
+argument|RendererD3D *renderer
 argument_list|,
 argument|GLenum target
 argument_list|,
@@ -202,6 +154,7 @@ argument|GLsizei depth
 argument_list|,
 argument|bool forceRelease
 argument_list|)
+name|override
 block|;
 name|DXGI_FORMAT
 name|getDXGIFormat
@@ -209,7 +162,9 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|loadData
 argument_list|(
 argument|GLint xoffset
@@ -232,7 +187,9 @@ argument|const void *input
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|loadCompressedData
 argument_list|(
 argument|GLint xoffset
@@ -251,7 +208,9 @@ argument|const void *input
 argument_list|)
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copy
 argument_list|(
 argument|GLint xoffset
@@ -260,18 +219,33 @@ argument|GLint yoffset
 argument_list|,
 argument|GLint zoffset
 argument_list|,
-argument|GLint x
+argument|const gl::Rectangle&sourceArea
 argument_list|,
-argument|GLint y
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|gl::Framebuffer *source
+argument|RenderTarget *source
 argument_list|)
 block|;
-name|bool
+name|virtual
+name|gl
+operator|::
+name|Error
+name|copy
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|const gl::Rectangle&sourceArea
+argument_list|,
+argument|const gl::ImageIndex&sourceIndex
+argument_list|,
+argument|TextureStorage *source
+argument_list|)
+block|;
+name|gl
+operator|::
+name|Error
 name|recoverFromAssociatedStorage
 argument_list|()
 block|;
@@ -288,7 +262,9 @@ argument_list|()
 block|;
 name|protected
 operator|:
-name|HRESULT
+name|gl
+operator|::
+name|Error
 name|map
 argument_list|(
 argument|D3D11_MAP mapType
@@ -307,35 +283,61 @@ argument_list|(
 name|Image11
 argument_list|)
 block|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyToStorageImpl
 argument_list|(
-argument|TextureStorage11 *storage11
+name|TextureStorage11
+operator|*
+name|storage11
 argument_list|,
-argument|int level
+specifier|const
+name|gl
+operator|::
+name|ImageIndex
+operator|&
+name|index
 argument_list|,
-argument|int layerTarget
-argument_list|,
+specifier|const
+name|gl
+operator|::
+name|Box
+operator|&
+name|region
+argument_list|)
+block|;
+name|gl
+operator|::
+name|Error
+name|copy
+argument_list|(
 argument|GLint xoffset
 argument_list|,
 argument|GLint yoffset
 argument_list|,
-argument|GLsizei width
+argument|GLint zoffset
 argument_list|,
-argument|GLsizei height
+argument|const gl::Rectangle&sourceArea
+argument_list|,
+argument|ID3D11Texture2D *source
+argument_list|,
+argument|UINT sourceSubResource
 argument_list|)
 block|;
-name|ID3D11Resource
-operator|*
+name|gl
+operator|::
+name|Error
 name|getStagingTexture
-argument_list|()
+argument_list|(
+argument|ID3D11Resource **outStagingTexture
+argument_list|,
+argument|unsigned int *outSubresourceIndex
+argument_list|)
 block|;
-name|unsigned
-name|int
-name|getStagingSubresource
-argument_list|()
-block|;
-name|void
+name|gl
+operator|::
+name|Error
 name|createStagingTexture
 argument_list|()
 block|;
@@ -365,11 +367,10 @@ name|TextureStorage11
 operator|*
 name|mAssociatedStorage
 block|;
-name|int
-name|mAssociatedStorageLevel
-block|;
-name|int
-name|mAssociatedStorageLayerTarget
+name|gl
+operator|::
+name|ImageIndex
+name|mAssociatedImageIndex
 block|;
 name|unsigned
 name|int

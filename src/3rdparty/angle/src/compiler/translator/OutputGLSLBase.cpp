@@ -1843,6 +1843,14 @@ literal|"(-"
 expr_stmt|;
 break|break;
 case|case
+name|EOpPositive
+case|:
+name|preString
+operator|=
+literal|"(+"
+expr_stmt|;
+break|break;
+case|case
 name|EOpVectorLogicalNot
 case|:
 name|preString
@@ -2476,7 +2484,7 @@ name|out
 operator|<<
 literal|" "
 operator|<<
-name|hashName
+name|hashFunctionName
 argument_list|(
 name|node
 operator|->
@@ -2823,7 +2831,6 @@ break|break;
 case|case
 name|EOpInvariantDeclaration
 case|:
-block|{
 comment|// Invariant declaration.
 name|ASSERT
 argument_list|(
@@ -2832,6 +2839,7 @@ operator|==
 name|PreVisit
 argument_list|)
 expr_stmt|;
+block|{
 specifier|const
 name|TIntermSequence
 modifier|*
@@ -2876,19 +2884,20 @@ name|out
 operator|<<
 literal|"invariant "
 operator|<<
+name|hashVariableName
+argument_list|(
 name|symbol
 operator|->
 name|getSymbol
 argument_list|()
-operator|<<
-literal|";"
+argument_list|)
 expr_stmt|;
+block|}
 name|visitChildren
 operator|=
 literal|false
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|EOpConstructFloat
 case|:
@@ -3242,11 +3251,11 @@ name|writeTriplet
 argument_list|(
 name|visit
 argument_list|,
-name|NULL
+literal|"("
 argument_list|,
 literal|", "
 argument_list|,
-name|NULL
+literal|")"
 argument_list|)
 expr_stmt|;
 break|break;

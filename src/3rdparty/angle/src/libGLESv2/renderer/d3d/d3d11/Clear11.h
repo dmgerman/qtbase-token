@@ -97,6 +97,7 @@ name|ClearParameters
 operator|&
 name|clearParams
 argument_list|,
+specifier|const
 name|gl
 operator|::
 name|Framebuffer

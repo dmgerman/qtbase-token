@@ -44,6 +44,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<vector>
 end_include
 begin_decl_stmt
@@ -62,6 +67,9 @@ block|{
 name|class
 name|RenderTarget11
 decl_stmt|;
+struct_decl|struct
+name|Workarounds
+struct_decl|;
 name|namespace
 name|gl_d3d11
 block|{
@@ -812,8 +820,9 @@ argument_list|,
 literal|0
 argument_list|)
 block|; }
-name|RenderTarget11
-operator|*
+name|gl
+operator|::
+name|Error
 name|GetAttachmentRenderTarget
 argument_list|(
 name|gl
@@ -821,8 +830,17 @@ operator|::
 name|FramebufferAttachment
 operator|*
 name|attachment
+argument_list|,
+name|RenderTarget11
+operator|*
+operator|*
+name|outRT
 argument_list|)
 expr_stmt|;
+name|Workarounds
+name|GenerateWorkarounds
+parameter_list|()
+function_decl|;
 block|}
 block|}
 end_decl_stmt
