@@ -1733,6 +1733,51 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!     \class QPlatformSurfaceEvent     \since 5.5     \brief The QPlatformSurfaceEvent class is used to notify about native platform surface events.     \inmodule QtGui      \ingroup events      Platform window events are synchronously sent to windows and offscreen surfaces when their     underlying native surfaces are created or are about to be destroyed.      Applications can respond to these events to know when the underlying platform     surface exists. */
+end_comment
+begin_comment
+comment|/*!     \enum QPlatformSurfaceEvent::SurfaceEventType      This enum describes the type of platform surface event. The possible types are:      \value SurfaceCreated               The underlying native surface has been created     \value SurfaceAboutToBeDestroyed    The underlying native surface will be destroyed immediately after this event      The \c SurfaceAboutToBeDestroyed event type is useful as a means of stopping rendering to     a platform window before it is destroyed. */
+end_comment
+begin_comment
+comment|/*!     \fn QPlatformSurfaceEvent::SurfaceEventType QPlatformSurfaceEvent::surfaceEventType() const      Returns the specific type of platform surface event. */
+end_comment
+begin_comment
+comment|/*!     Constructs a platform surface event for the given \a surfaceEventType. */
+end_comment
+begin_constructor
+DECL|function|QPlatformSurfaceEvent
+name|QPlatformSurfaceEvent
+operator|::
+name|QPlatformSurfaceEvent
+parameter_list|(
+name|SurfaceEventType
+name|surfaceEventType
+parameter_list|)
+member_init_list|:
+name|QEvent
+argument_list|(
+name|PlatformSurface
+argument_list|)
+member_init_list|,
+name|m_surfaceEventType
+argument_list|(
+name|surfaceEventType
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
+comment|/*!   \internal */
+end_comment
+begin_destructor
+DECL|function|~QPlatformSurfaceEvent
+name|QPlatformSurfaceEvent
+operator|::
+name|~
+name|QPlatformSurfaceEvent
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     \fn const QRegion&QExposeEvent::region() const      Returns the window area that has been exposed. The region is given in local coordinates. */
 end_comment
 begin_comment

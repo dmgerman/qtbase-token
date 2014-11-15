@@ -863,6 +863,11 @@ name|ScreenChangeInternal
 operator|=
 literal|216
 block|,
+name|PlatformSurface
+operator|=
+literal|217
+block|,
+comment|// Platform surface created or about to be destroyed
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
