@@ -189,6 +189,7 @@ name|y
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setLeft
@@ -197,6 +198,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setTop
@@ -205,6 +207,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setRight
@@ -213,6 +216,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setBottom
@@ -221,6 +225,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setX
@@ -229,6 +234,7 @@ name|int
 name|x
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setY
@@ -237,6 +243,7 @@ name|int
 name|y
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setTopLeft
@@ -247,6 +254,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setBottomRight
@@ -257,6 +265,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setTopRight
@@ -267,6 +276,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setBottomLeft
@@ -312,6 +322,7 @@ name|center
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveLeft
@@ -320,6 +331,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTop
@@ -328,6 +340,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveRight
@@ -336,6 +349,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveBottom
@@ -344,6 +358,7 @@ name|int
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTopLeft
@@ -354,6 +369,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveBottomRight
@@ -364,6 +380,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTopRight
@@ -374,6 +391,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveBottomLeft
@@ -384,6 +402,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveCenter
@@ -394,6 +413,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|translate
@@ -405,6 +425,7 @@ name|int
 name|dy
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|translate
@@ -442,6 +463,7 @@ argument_list|)
 decl|const
 name|Q_REQUIRED_RESULT
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTo
@@ -453,6 +475,7 @@ name|int
 name|t
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTo
@@ -463,6 +486,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setRect
@@ -480,6 +504,7 @@ name|int
 name|h
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|getRect
@@ -502,6 +527,7 @@ name|h
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setCoords
@@ -519,6 +545,7 @@ name|int
 name|y2
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|getCoords
@@ -541,6 +568,7 @@ name|y2
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|adjust
@@ -599,6 +627,7 @@ name|height
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setWidth
@@ -607,6 +636,7 @@ name|int
 name|w
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setHeight
@@ -615,6 +645,7 @@ name|int
 name|h
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setSize
@@ -786,6 +817,7 @@ name|margins
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRect
 operator|&
@@ -798,6 +830,7 @@ operator|&
 name|margins
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRect
 operator|&
@@ -1309,6 +1342,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1323,6 +1357,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|setTop
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1337,6 +1372,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|setRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1351,6 +1387,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|setBottom
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1365,6 +1402,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|setTopLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1389,6 +1427,7 @@ name|y
 argument_list|()
 block|; }
 DECL|function|setBottomRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1413,6 +1452,7 @@ name|y
 argument_list|()
 block|; }
 DECL|function|setTopRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1437,6 +1477,7 @@ name|y
 argument_list|()
 block|; }
 DECL|function|setBottomLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1461,6 +1502,7 @@ name|y
 argument_list|()
 block|; }
 DECL|function|setX
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1475,6 +1517,7 @@ operator|=
 name|ax
 block|; }
 DECL|function|setY
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1669,6 +1712,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|translate
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1697,6 +1741,7 @@ operator|+=
 name|dy
 block|; }
 DECL|function|translate
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1831,6 +1876,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|moveTo
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1863,6 +1909,7 @@ operator|=
 name|ay
 block|; }
 DECL|function|moveTo
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1905,6 +1952,7 @@ name|y
 argument_list|()
 block|; }
 DECL|function|moveLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1927,6 +1975,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|moveTop
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1949,6 +1998,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|moveRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1971,6 +2021,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|moveBottom
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -1993,6 +2044,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|moveTopLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2019,6 +2071,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveBottomRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2045,6 +2098,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveTopRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2071,6 +2125,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveBottomLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2097,6 +2152,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveCenter
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2155,6 +2211,7 @@ operator|+
 name|h
 block|; }
 DECL|function|getRect
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2200,6 +2257,7 @@ operator|+
 literal|1
 block|; }
 DECL|function|setRect
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2244,6 +2302,7 @@ literal|1
 operator|)
 block|; }
 DECL|function|getCoords
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2281,6 +2340,7 @@ operator|=
 name|y2
 block|; }
 DECL|function|setCoords
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2360,6 +2420,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|adjust
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2392,6 +2453,7 @@ operator|+=
 name|dy2
 block|; }
 DECL|function|setWidth
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2412,6 +2474,7 @@ literal|1
 operator|)
 block|; }
 DECL|function|setHeight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -2432,6 +2495,7 @@ literal|1
 operator|)
 block|; }
 DECL|function|setSize
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRect
@@ -3044,6 +3108,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRect
 operator|&
@@ -3073,6 +3138,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRect
 operator|&
@@ -3297,6 +3363,7 @@ name|y
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setLeft
@@ -3305,6 +3372,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setTop
@@ -3313,6 +3381,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setRight
@@ -3321,6 +3390,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setBottom
@@ -3329,6 +3399,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setX
@@ -3343,6 +3414,7 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setY
@@ -3436,6 +3508,7 @@ name|center
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setTopLeft
@@ -3446,6 +3519,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setBottomRight
@@ -3456,6 +3530,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setTopRight
@@ -3466,6 +3541,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setBottomLeft
@@ -3476,6 +3552,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveLeft
@@ -3484,6 +3561,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTop
@@ -3492,6 +3570,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveRight
@@ -3500,6 +3579,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveBottom
@@ -3508,6 +3588,7 @@ name|qreal
 name|pos
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTopLeft
@@ -3518,6 +3599,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveBottomRight
@@ -3528,6 +3610,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTopRight
@@ -3538,6 +3621,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveBottomLeft
@@ -3548,6 +3632,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveCenter
@@ -3558,6 +3643,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|translate
@@ -3569,6 +3655,7 @@ name|qreal
 name|dy
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|translate
@@ -3606,6 +3693,7 @@ argument_list|)
 decl|const
 name|Q_REQUIRED_RESULT
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTo
@@ -3617,6 +3705,7 @@ name|qreal
 name|y
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|moveTo
@@ -3627,6 +3716,7 @@ modifier|&
 name|p
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setRect
@@ -3644,6 +3734,7 @@ name|qreal
 name|h
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|getRect
@@ -3666,6 +3757,7 @@ name|h
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setCoords
@@ -3683,6 +3775,7 @@ name|qreal
 name|y2
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|getCoords
@@ -3705,6 +3798,7 @@ name|y2
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|adjust
@@ -3763,6 +3857,7 @@ name|height
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setWidth
@@ -3771,6 +3866,7 @@ name|qreal
 name|w
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setHeight
@@ -3779,6 +3875,7 @@ name|qreal
 name|h
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setSize
@@ -3925,6 +4022,7 @@ name|margins
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRectF
 operator|&
@@ -3937,6 +4035,7 @@ operator|&
 name|margins
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRectF
 operator|&
@@ -4428,6 +4527,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4453,6 +4553,7 @@ operator|-=
 name|diff
 block|; }
 DECL|function|setRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4469,6 +4570,7 @@ operator|-
 name|xp
 block|; }
 DECL|function|setTop
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4494,6 +4596,7 @@ operator|-=
 name|diff
 block|; }
 DECL|function|setBottom
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4510,6 +4613,7 @@ operator|-
 name|yp
 block|; }
 DECL|function|setTopLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4536,6 +4640,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|setTopRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4562,6 +4667,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|setBottomLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4588,6 +4694,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|setBottomRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4643,6 +4750,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|moveLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4657,6 +4765,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|moveTop
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4671,6 +4780,7 @@ operator|=
 name|pos
 block|; }
 DECL|function|moveRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4687,6 +4797,7 @@ operator|-
 name|w
 block|; }
 DECL|function|moveBottom
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4703,6 +4814,7 @@ operator|-
 name|h
 block|; }
 DECL|function|moveTopLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4729,6 +4841,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveTopRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4755,6 +4868,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveBottomLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4781,6 +4895,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveBottomRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4807,6 +4922,7 @@ argument_list|()
 argument_list|)
 block|; }
 DECL|function|moveCenter
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4892,6 +5008,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|translate
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4912,6 +5029,7 @@ operator|+=
 name|dy
 block|; }
 DECL|function|translate
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4936,6 +5054,7 @@ name|y
 argument_list|()
 block|; }
 DECL|function|moveTo
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -4956,6 +5075,7 @@ operator|=
 name|ay
 block|; }
 DECL|function|moveTo
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5050,6 +5170,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|getRect
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5095,6 +5216,7 @@ operator|->
 name|h
 block|; }
 DECL|function|setRect
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5135,6 +5257,7 @@ operator|=
 name|aah
 block|; }
 DECL|function|getCoords
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5176,6 +5299,7 @@ operator|+
 name|h
 block|; }
 DECL|function|setCoords
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5212,6 +5336,7 @@ operator|-
 name|yp1
 block|; }
 DECL|function|adjust
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5293,6 +5418,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setWidth
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5309,6 +5435,7 @@ operator|=
 name|aw
 block|; }
 DECL|function|setHeight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -5325,6 +5452,7 @@ operator|=
 name|ah
 block|; }
 DECL|function|setSize
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QRectF
@@ -6006,6 +6134,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRectF
 operator|&
@@ -6035,6 +6164,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QRectF
 operator|&
