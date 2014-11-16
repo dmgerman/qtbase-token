@@ -75,6 +75,7 @@ name|height
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setWidth
@@ -83,6 +84,7 @@ name|int
 name|w
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setHeight
@@ -186,18 +188,21 @@ operator|&
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 modifier|&
 name|rwidth
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 modifier|&
 name|rheight
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
 operator|&
@@ -209,6 +214,7 @@ name|QSize
 operator|&
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
 operator|&
@@ -220,6 +226,7 @@ name|QSize
 operator|&
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
 operator|&
@@ -560,6 +567,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setWidth
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QSize
@@ -574,6 +582,7 @@ operator|=
 name|w
 block|; }
 DECL|function|setHeight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QSize
@@ -688,6 +697,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|rwidth
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 operator|&
@@ -703,6 +713,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|rheight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 operator|&
@@ -718,6 +729,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
 operator|&
@@ -751,6 +763,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
 operator|&
@@ -784,6 +797,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
 operator|&
@@ -1312,6 +1326,7 @@ name|height
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setWidth
@@ -1320,6 +1335,7 @@ name|qreal
 name|w
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setHeight
@@ -1423,18 +1439,21 @@ operator|&
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 modifier|&
 name|rwidth
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 modifier|&
 name|rheight
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|&
@@ -1446,6 +1465,7 @@ name|QSizeF
 operator|&
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|&
@@ -1457,6 +1477,7 @@ name|QSizeF
 operator|&
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|&
@@ -1831,6 +1852,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setWidth
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QSizeF
@@ -1845,6 +1867,7 @@ operator|=
 name|w
 block|; }
 DECL|function|setHeight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QSizeF
@@ -1959,6 +1982,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|rwidth
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 operator|&
@@ -1974,6 +1998,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|rheight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 operator|&
@@ -1989,6 +2014,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|&
@@ -2022,6 +2048,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|&
@@ -2055,6 +2082,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|&
