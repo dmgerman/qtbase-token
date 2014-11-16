@@ -61,6 +61,7 @@ name|y
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setX
@@ -69,6 +70,7 @@ name|int
 name|x
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setY
@@ -84,18 +86,21 @@ name|manhattanLength
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 modifier|&
 name|rx
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 modifier|&
 name|ry
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -108,6 +113,7 @@ operator|&
 name|p
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -120,6 +126,7 @@ operator|&
 name|p
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -130,6 +137,7 @@ name|float
 name|factor
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -140,6 +148,7 @@ name|double
 name|factor
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -150,6 +159,7 @@ name|int
 name|factor
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -560,6 +570,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setX
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QPoint
@@ -574,6 +585,7 @@ operator|=
 name|xpos
 block|; }
 DECL|function|setY
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QPoint
@@ -614,6 +626,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|rx
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 operator|&
@@ -629,6 +642,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|ry
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
 operator|&
@@ -644,6 +658,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -677,6 +692,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -710,6 +726,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -747,6 +764,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -784,6 +802,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -1254,6 +1273,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPoint
 operator|&
@@ -1411,6 +1431,7 @@ name|y
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setX
@@ -1419,6 +1440,7 @@ name|qreal
 name|x
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setY
@@ -1427,18 +1449,21 @@ name|qreal
 name|y
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 modifier|&
 name|rx
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 modifier|&
 name|ry
 parameter_list|()
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -1451,6 +1476,7 @@ operator|&
 name|p
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -1463,6 +1489,7 @@ operator|&
 name|p
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -1473,6 +1500,7 @@ name|qreal
 name|c
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -1886,6 +1914,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setX
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QPointF
@@ -1900,6 +1929,7 @@ operator|=
 name|xpos
 block|; }
 DECL|function|setY
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QPointF
@@ -1914,6 +1944,7 @@ operator|=
 name|ypos
 block|; }
 DECL|function|rx
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 operator|&
@@ -1929,6 +1960,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|ry
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
 operator|&
@@ -1944,6 +1976,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -1977,6 +2010,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -2010,6 +2044,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
@@ -2326,6 +2361,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QPointF
 operator|&
