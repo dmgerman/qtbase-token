@@ -112,9 +112,9 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

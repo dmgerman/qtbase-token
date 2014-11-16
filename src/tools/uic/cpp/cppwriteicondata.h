@@ -70,26 +70,23 @@ block|;
 name|void
 name|acceptUI
 argument_list|(
-name|DomUI
-operator|*
-name|node
+argument|DomUI *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptImages
 argument_list|(
-name|DomImages
-operator|*
-name|images
+argument|DomImages *images
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptImage
 argument_list|(
-name|DomImage
-operator|*
-name|image
+argument|DomImage *image
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|void

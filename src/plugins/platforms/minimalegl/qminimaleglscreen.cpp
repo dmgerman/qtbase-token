@@ -84,7 +84,6 @@ argument_list|,
 name|display
 argument_list|)
 block|{     }
-DECL|function|eglSurfaceForPlatformSurface
 name|EGLSurface
 name|eglSurfaceForPlatformSurface
 parameter_list|(
@@ -92,6 +91,7 @@ name|QPlatformSurface
 modifier|*
 name|surface
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QMinimalEglWindow
 modifier|*

@@ -85,6 +85,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
@@ -94,6 +95,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// editing
 name|QWidget
@@ -107,6 +109,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setEditorData
@@ -116,6 +119,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setModelData
@@ -127,6 +131,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateEditorGeometry
@@ -138,6 +143,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// editor factory
 name|QItemEditorFactory
@@ -179,36 +185,24 @@ block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|editorEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|,
-name|QAbstractItemModel
-operator|*
-name|model
+argument|QAbstractItemModel *model
 argument_list|,
-specifier|const
-name|QStyleOptionViewItem
-operator|&
-name|option
+argument|const QStyleOptionViewItem&option
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
-name|index
+argument|const QModelIndex&index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

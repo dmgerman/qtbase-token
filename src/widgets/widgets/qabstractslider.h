@@ -296,10 +296,9 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setRepeatAction
@@ -339,17 +338,16 @@ block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|ev
+argument|QKeyEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
+argument|QTimerEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -357,20 +355,18 @@ name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
-name|QWheelEvent
-operator|*
-name|e
+argument|QWheelEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

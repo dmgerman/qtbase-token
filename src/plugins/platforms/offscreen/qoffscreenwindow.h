@@ -52,37 +52,40 @@ block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|rect
+argument|const QRect&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setWindowState
 argument_list|(
 argument|Qt::WindowState state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QMargins
 name|frameMargins
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|requestActivateWindow
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|WId
 name|winId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QOffscreenWindow

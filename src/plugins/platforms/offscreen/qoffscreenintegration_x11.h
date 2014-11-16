@@ -61,6 +61,7 @@ argument_list|(
 argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformOpenGLContext
 operator|*
@@ -69,6 +70,7 @@ argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -171,50 +173,47 @@ block|;
 name|bool
 name|makeCurrent
 argument_list|(
-name|QPlatformSurface
-operator|*
-name|surface
+argument|QPlatformSurface *surface
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|doneCurrent
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|swapBuffers
 argument_list|(
-name|QPlatformSurface
-operator|*
-name|surface
+argument|QPlatformSurface *surface
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 argument_list|(
-operator|*
-name|getProcAddress
-argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|procName
+argument|*getProcAddress(const QByteArray&procName)
 argument_list|)
-argument_list|)
-argument_list|()
+operator|(
+operator|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isSharing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

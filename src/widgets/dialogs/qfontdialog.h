@@ -217,6 +217,7 @@ name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QFont
@@ -275,28 +276,25 @@ operator|:
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|done
 argument_list|(
 argument|int result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

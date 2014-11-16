@@ -258,6 +258,7 @@ block|;
 name|void
 name|run
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -445,6 +446,7 @@ block|}
 name|void
 name|asynchronousFinish
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|finish
 argument_list|()

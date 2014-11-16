@@ -960,11 +960,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
-DECL|function|duration
 name|int
 name|duration
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|-
@@ -997,13 +997,13 @@ literal|0
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|updateCurrentTime
 name|void
 name|updateCurrentTime
 parameter_list|(
 name|int
 comment|/*currentTime*/
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

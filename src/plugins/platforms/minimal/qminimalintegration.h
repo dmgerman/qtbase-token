@@ -50,6 +50,7 @@ name|QRect
 name|geometry
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|mGeometry
@@ -59,6 +60,7 @@ name|int
 name|depth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|mDepth
@@ -70,6 +72,7 @@ name|Format
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|mFormat
@@ -134,12 +137,14 @@ argument_list|(
 argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformWindow
 operator|*
@@ -148,6 +153,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformBackingStore
 operator|*
@@ -156,12 +162,14 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|unsigned
 name|options

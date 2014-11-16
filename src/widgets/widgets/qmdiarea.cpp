@@ -2675,6 +2675,7 @@ name|parent
 argument_list|)
 block|{}
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -2682,10 +2683,12 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CONTEXTMENU
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|contextMenuEvent
 parameter_list|(
@@ -2693,6 +2696,7 @@ name|QContextMenuEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 endif|#
 directive|endif

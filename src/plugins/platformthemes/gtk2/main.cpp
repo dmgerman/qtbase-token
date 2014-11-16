@@ -33,20 +33,16 @@ literal|"gtk2.json"
 argument_list|)
 decl|public
 range|:
+DECL|member|Q_DECL_OVERRIDE
 name|QPlatformTheme
 operator|*
 name|create
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|key
+argument|const QString&key
 argument_list|,
-specifier|const
-name|QStringList
-operator|&
-name|params
+argument|const QStringList&params
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 block|}
 class|;

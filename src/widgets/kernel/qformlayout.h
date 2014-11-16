@@ -412,10 +412,9 @@ comment|// reimplemented from QLayout
 name|void
 name|addItem
 argument_list|(
-name|QLayoutItem
-operator|*
-name|item
+argument|QLayoutItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QLayoutItem
 operator|*
@@ -424,6 +423,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QLayoutItem
 operator|*
@@ -431,34 +431,37 @@ name|takeAt
 argument_list|(
 argument|int index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|rect
+argument|const QRect&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|invalidate
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasHeightForWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|heightForWidth
@@ -466,6 +469,7 @@ argument_list|(
 argument|int width
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -473,11 +477,13 @@ name|Orientations
 name|expandingDirections
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|count
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount

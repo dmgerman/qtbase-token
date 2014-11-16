@@ -1159,10 +1159,12 @@ init|=
 literal|0
 parameter_list|)
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QSize
 name|sizeHint
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 signals|signals:
 name|void
@@ -1174,6 +1176,7 @@ name|_q_doubleClicked
 parameter_list|()
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|event
 parameter_list|(
@@ -1181,7 +1184,9 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|paintEvent
 parameter_list|(
@@ -1189,7 +1194,9 @@ name|QPaintEvent
 modifier|*
 name|paintEvent
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -1197,7 +1204,9 @@ name|QMouseEvent
 modifier|*
 name|mouseEvent
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseDoubleClickEvent
 parameter_list|(
@@ -1205,7 +1214,9 @@ name|QMouseEvent
 modifier|*
 name|mouseEvent
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseReleaseEvent
 parameter_list|(
@@ -1213,6 +1224,7 @@ name|QMouseEvent
 modifier|*
 name|mouseEvent
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|label
@@ -1649,10 +1661,12 @@ init|=
 literal|0
 parameter_list|)
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QSize
 name|sizeHint
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|void
 name|setControlVisible
@@ -1713,6 +1727,7 @@ name|_q_close
 parameter_list|()
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|paintEvent
 parameter_list|(
@@ -1720,7 +1735,9 @@ name|QPaintEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -1728,7 +1745,9 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseReleaseEvent
 parameter_list|(
@@ -1736,7 +1755,9 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseMoveEvent
 parameter_list|(
@@ -1744,7 +1765,9 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|leaveEvent
 parameter_list|(
@@ -1752,7 +1775,9 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|event
 parameter_list|(
@@ -1760,6 +1785,7 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|activeControl

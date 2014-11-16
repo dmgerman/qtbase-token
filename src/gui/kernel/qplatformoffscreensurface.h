@@ -110,6 +110,7 @@ name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool

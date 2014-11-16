@@ -107,26 +107,23 @@ operator|:
 name|bool
 name|eventTest
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|onTransition
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

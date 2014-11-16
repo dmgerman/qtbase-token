@@ -130,16 +130,19 @@ name|virtual
 name|void
 name|open
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|closeDownstreamChannel
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|downstreamReadyWrite
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;      enum
 name|CacheCleanupMode
 block|{
@@ -245,6 +248,7 @@ argument_list|,
 argument|const QNetworkRequest&request
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

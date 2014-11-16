@@ -519,6 +519,7 @@ specifier|inline
 name|QDefaultItemEditorFactory
 parameter_list|()
 block|{}
+DECL|member|Q_DECL_OVERRIDE
 name|QWidget
 modifier|*
 name|createEditor
@@ -531,13 +532,16 @@ modifier|*
 name|parent
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QByteArray
 name|valuePropertyName
 parameter_list|(
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

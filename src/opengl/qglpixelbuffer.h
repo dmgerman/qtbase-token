@@ -199,6 +199,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QGLFormat
 name|format
@@ -218,11 +219,13 @@ argument_list|(
 argument|PaintDeviceMetric metric
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|devType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QInternal

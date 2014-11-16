@@ -465,6 +465,7 @@ name|SurfaceType
 name|surfaceType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|bool
 name|isVisible
@@ -545,6 +546,7 @@ name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QSurfaceFormat
 name|requestedFormat
@@ -1471,11 +1473,12 @@ comment|// TODO Qt 6 - add closeEvent virtual handler
 name|virtual
 name|bool
 name|event
-parameter_list|(
+argument_list|(
 name|QEvent
-modifier|*
-parameter_list|)
-function_decl|;
+operator|*
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|void
 name|keyPressEvent
@@ -1600,6 +1603,7 @@ operator|*
 name|surfaceHandle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|Q_DISABLE_COPY
 argument_list|(

@@ -44,24 +44,18 @@ name|void
 operator|*
 name|nativeResourceForWindow
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|resourceString
+argument|const QByteArray&resourceString
 argument_list|,
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|NativeResourceForContextFunction
 name|nativeResourceFunctionForContext
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|resource
+argument|const QByteArray&resource
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 operator|*

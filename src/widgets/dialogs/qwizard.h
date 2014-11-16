@@ -504,11 +504,13 @@ name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:
@@ -560,26 +562,23 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|event
+argument|QPaintEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifdef|#
 directive|ifdef
@@ -608,6 +607,7 @@ name|done
 argument_list|(
 argument|int result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

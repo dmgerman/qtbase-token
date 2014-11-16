@@ -116,6 +116,7 @@ argument|PrintEnginePropertyKey key
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|property
@@ -123,6 +124,7 @@ argument_list|(
 argument|PrintEnginePropertyKey key
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// end reimplementations QPdfPrintEngine
 name|private
@@ -159,10 +161,12 @@ block|;
 name|bool
 name|openPrintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|closePrintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

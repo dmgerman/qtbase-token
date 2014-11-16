@@ -360,7 +360,6 @@ name|calcCausedStack
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|calcCausedStack
 name|QList
 argument_list|<
 name|QPointer
@@ -371,6 +370,7 @@ argument_list|>
 name|calcCausedStack
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|causedStack
@@ -619,7 +619,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|actionEvent
 name|void
 name|actionEvent
 parameter_list|(
@@ -627,6 +626,7 @@ name|QActionEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QMenu
 operator|::

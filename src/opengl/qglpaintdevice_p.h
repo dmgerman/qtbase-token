@@ -76,6 +76,7 @@ name|int
 name|devType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QInternal
@@ -151,6 +152,7 @@ argument_list|(
 argument|QPaintDevice::PaintDeviceMetric metric
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|GLuint
 name|m_previousFBO
@@ -188,23 +190,27 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// QGLWidgets need to do swapBufers in endPaint:
 name|virtual
 name|void
 name|beginPaint
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|endPaint
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QSize
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QGLContext
@@ -212,6 +218,7 @@ operator|*
 name|context
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setWidget

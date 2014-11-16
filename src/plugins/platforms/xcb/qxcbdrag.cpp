@@ -400,6 +400,7 @@ name|QXcbDropData
 parameter_list|()
 destructor_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|hasFormat_sys
 parameter_list|(
@@ -409,12 +410,16 @@ modifier|&
 name|mimeType
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QStringList
 name|formats_sys
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVariant
 name|retrieveData_sys
 parameter_list|(
@@ -429,6 +434,7 @@ name|Type
 name|type
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|QVariant
 name|xdndObtainData

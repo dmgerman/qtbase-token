@@ -63,6 +63,7 @@ argument_list|,
 argument|const QByteArray&format
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImageIOHandler
 operator|*
@@ -73,6 +74,7 @@ argument_list|,
 argument|const QByteArray&format = QByteArray()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

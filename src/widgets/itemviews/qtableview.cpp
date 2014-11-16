@@ -3112,13 +3112,13 @@ argument_list|(
 name|parent
 argument_list|)
 block|{}
-DECL|function|paintEvent
 name|void
 name|paintEvent
 parameter_list|(
 name|QPaintEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QStyleOptionHeader
 name|opt

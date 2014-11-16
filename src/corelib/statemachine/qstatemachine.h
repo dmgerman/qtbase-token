@@ -392,14 +392,11 @@ name|QT_NO_STATEMACHINE_EVENTFILTER
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -463,18 +460,16 @@ operator|:
 name|void
 name|onEntry
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|onExit
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -515,10 +510,9 @@ block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

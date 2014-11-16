@@ -237,10 +237,12 @@ modifier|*
 name|dockWidget
 parameter_list|)
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QSize
 name|sizeHint
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 DECL|function|minimumSizeHint
 specifier|inline
@@ -254,6 +256,7 @@ name|sizeHint
 argument_list|()
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|enterEvent
 parameter_list|(
@@ -261,7 +264,9 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|leaveEvent
 parameter_list|(
@@ -269,7 +274,9 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|paintEvent
 parameter_list|(
@@ -277,6 +284,7 @@ name|QPaintEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

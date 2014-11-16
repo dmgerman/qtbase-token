@@ -55,50 +55,39 @@ name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|beginPaint
 argument_list|(
-specifier|const
-name|QRegion
-operator|&
+argument|const QRegion&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|endPaint
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|flush
 argument_list|(
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|offset
+argument|const QPoint&offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resize
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
+argument|const QSize&size
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|staticContents
+argument|const QRegion&staticContents
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

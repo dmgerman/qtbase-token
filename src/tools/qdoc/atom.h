@@ -762,6 +762,7 @@ name|bool
 name|isLinkAtom
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -774,6 +775,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|genus_
@@ -784,6 +786,7 @@ name|bool
 name|specifiesDomain
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -799,6 +802,7 @@ operator|*
 name|domain
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|domain_
@@ -811,6 +815,7 @@ name|Type
 name|goal
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|goal_
@@ -822,6 +827,7 @@ name|QString
 operator|&
 name|error
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|error_

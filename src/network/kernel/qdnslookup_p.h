@@ -261,8 +261,9 @@ argument_list|)
 block|{ }
 name|void
 name|run
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|signals
 label|:
 name|void

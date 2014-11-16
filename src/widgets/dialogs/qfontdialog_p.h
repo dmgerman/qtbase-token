@@ -382,6 +382,7 @@ name|bool
 name|canBeNativeDialog
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|_q_runNativeAppModalPanel
@@ -393,17 +394,17 @@ name|virtual
 name|void
 name|initHelper
 argument_list|(
-name|QPlatformDialogHelper
-operator|*
+argument|QPlatformDialogHelper *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|helperPrepareShow
 argument_list|(
-name|QPlatformDialogHelper
-operator|*
+argument|QPlatformDialogHelper *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

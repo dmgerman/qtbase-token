@@ -105,6 +105,7 @@ operator|*
 name|createObject
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|new

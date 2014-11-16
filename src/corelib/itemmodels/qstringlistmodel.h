@@ -69,6 +69,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|sibling
@@ -80,6 +81,7 @@ argument_list|,
 argument|const QModelIndex&idx
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -89,6 +91,7 @@ argument_list|,
 argument|int role
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setData
@@ -99,6 +102,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -108,6 +112,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertRows
@@ -118,6 +123,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeRows
@@ -128,6 +134,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|sort
@@ -136,6 +143,7 @@ argument|int column
 argument_list|,
 argument|Qt::SortOrder order = Qt::AscendingOrder
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|stringList
@@ -157,6 +165,7 @@ name|DropActions
 name|supportedDropActions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

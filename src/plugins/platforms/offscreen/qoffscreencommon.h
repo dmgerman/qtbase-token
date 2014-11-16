@@ -70,6 +70,7 @@ name|QRect
 name|geometry
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_geometry
@@ -79,6 +80,7 @@ name|int
 name|depth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|32
@@ -90,6 +92,7 @@ name|Format
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QImage
@@ -102,6 +105,7 @@ operator|*
 name|cursor
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_cursor
@@ -124,6 +128,7 @@ argument_list|,
 argument|int height
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QPlatformWindow
@@ -161,6 +166,7 @@ name|QMimeData
 operator|*
 name|platformDropData
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -173,6 +179,7 @@ name|drag
 argument_list|(
 argument|QDrag *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Qt
@@ -207,38 +214,27 @@ name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|flush
 argument_list|(
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|offset
+argument|const QPoint&offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resize
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
+argument|const QSize&size
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|staticContents
+argument|const QRegion&staticContents
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|scroll
@@ -249,6 +245,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|grabWindow

@@ -662,6 +662,7 @@ argument|qint64 maximumLength
 argument_list|,
 argument|qint64&len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -728,6 +729,7 @@ name|advanceReadPointer
 argument_list|(
 argument|qint64 a
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -763,6 +765,7 @@ begin_function
 name|bool
 name|atEnd
 parameter_list|()
+function|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -783,6 +786,7 @@ begin_function
 name|bool
 name|reset
 parameter_list|()
+function|Q_DECL_OVERRIDE
 block|{
 name|m_amount
 operator|=
@@ -814,6 +818,7 @@ begin_function
 name|qint64
 name|size
 parameter_list|()
+function|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_size

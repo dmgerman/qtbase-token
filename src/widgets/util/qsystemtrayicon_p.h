@@ -328,32 +328,30 @@ operator|:
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|e
+argument|QTimerEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

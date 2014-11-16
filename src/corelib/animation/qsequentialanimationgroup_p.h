@@ -150,6 +150,7 @@ name|animationInsertedAt
 argument_list|(
 argument|int index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|animationRemoved
@@ -158,6 +159,7 @@ argument|int index
 argument_list|,
 argument|QAbstractAnimation *anim
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|atEnd

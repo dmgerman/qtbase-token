@@ -62,59 +62,51 @@ block|;
 name|void
 name|acceptUI
 argument_list|(
-name|DomUI
-operator|*
-name|node
+argument|DomUI *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptWidget
 argument_list|(
-name|DomWidget
-operator|*
-name|node
+argument|DomWidget *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptSpacer
 argument_list|(
-name|DomSpacer
-operator|*
-name|node
+argument|DomSpacer *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptLayout
 argument_list|(
-name|DomLayout
-operator|*
-name|node
+argument|DomLayout *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptActionGroup
 argument_list|(
-name|DomActionGroup
-operator|*
-name|node
+argument|DomActionGroup *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptAction
 argument_list|(
-name|DomAction
-operator|*
-name|node
+argument|DomAction *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptButtonGroup
 argument_list|(
-specifier|const
-name|DomButtonGroup
-operator|*
-name|buttonGroup
+argument|const DomButtonGroup *buttonGroup
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

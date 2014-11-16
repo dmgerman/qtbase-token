@@ -147,36 +147,43 @@ name|open
 argument_list|(
 argument|OpenMode openMode
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|seek
 argument_list|(
 argument|qint64 off
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|atEnd
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -186,18 +193,16 @@ name|QT_NO_QOBJECT
 name|void
 name|connectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
+argument|const QMetaMethod&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|disconnectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
+argument|const QMetaMethod&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -208,6 +213,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|writeData
@@ -216,6 +222,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

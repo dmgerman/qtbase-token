@@ -370,10 +370,9 @@ block|;
 name|void
 name|addItem
 argument_list|(
-name|QLayoutItem
-operator|*
-name|item
+argument|QLayoutItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QLayoutItem
 operator|*
@@ -382,6 +381,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QLayoutItem
 operator|*
@@ -389,26 +389,31 @@ name|takeAt
 argument_list|(
 argument|int index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|count
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|maximumSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeFromContent
@@ -422,11 +427,9 @@ block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|r
+argument|const QRect&r
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;      enum
 name|Role
 block|{
@@ -546,16 +549,19 @@ name|QSize
 name|minimumSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|maximumSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

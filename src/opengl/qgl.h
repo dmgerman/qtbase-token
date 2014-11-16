@@ -1630,6 +1630,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|GLuint
 name|bindTexture
@@ -1728,9 +1729,9 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -1784,16 +1785,16 @@ block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent*
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent*
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

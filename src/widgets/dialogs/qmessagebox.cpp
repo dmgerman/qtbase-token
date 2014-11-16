@@ -336,7 +336,6 @@ argument_list|(
 name|parent
 argument_list|)
 block|{ }
-DECL|function|contextMenuEvent
 name|void
 name|contextMenuEvent
 parameter_list|(
@@ -344,6 +343,7 @@ name|QContextMenuEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 ifndef|#
 directive|ifndef
@@ -715,11 +715,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|sizeHint
 name|QSize
 name|sizeHint
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|ensurePolished
 argument_list|()
@@ -1285,20 +1285,25 @@ argument_list|>
 name|options
 decl_stmt|;
 private|private:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|initHelper
 parameter_list|(
 name|QPlatformDialogHelper
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|helperPrepareShow
 parameter_list|(
 name|QPlatformDialogHelper
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|helperDone
 parameter_list|(
@@ -1309,6 +1314,7 @@ parameter_list|,
 name|QPlatformDialogHelper
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

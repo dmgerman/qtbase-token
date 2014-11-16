@@ -517,6 +517,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -526,6 +527,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -537,6 +539,7 @@ argument|glyph_t glyph
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 specifier|const

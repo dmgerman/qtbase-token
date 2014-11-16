@@ -618,6 +618,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForBytesWritten
@@ -625,6 +626,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForFinished
@@ -658,30 +660,36 @@ name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|bytesToWrite
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isSequential
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|atEnd
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|int
@@ -907,6 +915,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|writeData
@@ -915,6 +924,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

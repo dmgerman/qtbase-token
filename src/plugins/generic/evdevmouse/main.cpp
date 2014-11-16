@@ -36,6 +36,7 @@ range|:
 name|QEvdevMousePlugin
 argument_list|()
 decl_stmt|;
+DECL|member|Q_DECL_OVERRIDE
 name|QObject
 modifier|*
 name|create
@@ -50,6 +51,7 @@ name|QString
 modifier|&
 name|specification
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

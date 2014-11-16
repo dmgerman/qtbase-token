@@ -159,14 +159,16 @@ function_decl|;
 endif|#
 directive|endif
 comment|// from QAbstractSocketEngineReceiver
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|readNotification
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|closeNotification
 name|void
 name|closeNotification
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|readNotification
 argument_list|()

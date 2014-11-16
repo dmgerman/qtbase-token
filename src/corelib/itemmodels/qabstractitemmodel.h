@@ -2373,6 +2373,7 @@ argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|dropMimeData
@@ -2387,6 +2388,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -2454,6 +2456,7 @@ argument_list|(
 argument|const QModelIndex&child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasChildren
@@ -2461,6 +2464,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -2500,6 +2504,7 @@ argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|dropMimeData
@@ -2514,6 +2519,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -2581,6 +2587,7 @@ argument_list|(
 argument|const QModelIndex&child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|columnCount
@@ -2588,6 +2595,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasChildren
@@ -2595,6 +2603,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

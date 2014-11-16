@@ -179,6 +179,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setData
@@ -189,6 +190,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeColumns
@@ -199,23 +201,24 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|select
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setTable
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|tableName
+argument|const QString&tableName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -256,6 +259,7 @@ name|revertRow
 argument_list|(
 argument|int row
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -263,6 +267,7 @@ name|QString
 name|selectStatement
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|updateRowInTable
@@ -271,20 +276,20 @@ argument|int row
 argument_list|,
 argument|const QSqlRecord&values
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertRowIntoTable
 argument_list|(
-specifier|const
-name|QSqlRecord
-operator|&
-name|values
+argument|const QSqlRecord&values
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|orderByClause
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

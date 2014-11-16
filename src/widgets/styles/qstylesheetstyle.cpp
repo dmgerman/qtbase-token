@@ -9576,7 +9576,6 @@ DECL|function|QStyleSheetStyleSelector
 name|QStyleSheetStyleSelector
 parameter_list|()
 block|{ }
-DECL|function|nodeNames
 name|QStringList
 name|nodeNames
 parameter_list|(
@@ -9584,6 +9583,7 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9686,7 +9686,6 @@ return|return
 name|result
 return|;
 block|}
-DECL|function|attribute
 name|QString
 name|attribute
 parameter_list|(
@@ -9699,6 +9698,7 @@ modifier|&
 name|name
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9993,7 +9993,6 @@ return|return
 name|valueStr
 return|;
 block|}
-DECL|function|nodeNameEquals
 name|bool
 name|nodeNameEquals
 parameter_list|(
@@ -10006,6 +10005,7 @@ modifier|&
 name|nodeName
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -10169,19 +10169,18 @@ return|return
 literal|false
 return|;
 block|}
-DECL|function|hasAttributes
 name|bool
 name|hasAttributes
 parameter_list|(
 name|NodePtr
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|true
 return|;
 block|}
-DECL|function|nodeIds
 name|QStringList
 name|nodeIds
 parameter_list|(
@@ -10189,6 +10188,7 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|isNullNode
@@ -10211,7 +10211,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|function|isNullNode
 name|bool
 name|isNullNode
 parameter_list|(
@@ -10219,6 +10218,7 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|node
@@ -10228,7 +10228,6 @@ operator|==
 literal|0
 return|;
 block|}
-DECL|function|parentNode
 name|NodePtr
 name|parentNode
 parameter_list|(
@@ -10236,6 +10235,7 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|NodePtr
 name|n
@@ -10263,13 +10263,13 @@ return|return
 name|n
 return|;
 block|}
-DECL|function|previousSiblingNode
 name|NodePtr
 name|previousSiblingNode
 parameter_list|(
 name|NodePtr
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|NodePtr
 name|n
@@ -10284,7 +10284,6 @@ return|return
 name|n
 return|;
 block|}
-DECL|function|duplicateNode
 name|NodePtr
 name|duplicateNode
 parameter_list|(
@@ -10292,18 +10291,19 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|node
 return|;
 block|}
-DECL|function|freeNode
 name|void
 name|freeNode
 parameter_list|(
 name|NodePtr
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{ }
 private|private:
 DECL|member|m_attributeCache

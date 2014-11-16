@@ -92,23 +92,21 @@ block|;
 name|bool
 name|begin
 argument_list|(
-name|QPaintDevice
-operator|*
-name|pdev
+argument|QPaintDevice *pdev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|end
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateState
 argument_list|(
-specifier|const
-name|QPaintEngineState
-operator|&
-name|state
+argument|const QPaintEngineState&state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updatePen
@@ -206,20 +204,16 @@ block|;
 name|void
 name|drawEllipse
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPath
 argument_list|(
-specifier|const
-name|QPainterPath
-operator|&
-name|path
+argument|const QPainterPath&path
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPolygon
@@ -230,6 +224,7 @@ argument|int numPoints
 argument_list|,
 argument|PolygonDrawMode mode
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifdef|#
 directive|ifdef
@@ -268,40 +263,24 @@ directive|endif
 name|void
 name|drawPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pm
+argument|const QPixmap&pm
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|sr
+argument|const QRectF&sr
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTiledPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|const QPixmap&pixmap
 argument_list|,
-specifier|const
-name|QPointF
-operator|&
-name|s
+argument|const QPointF&s
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawImage
@@ -314,25 +293,22 @@ argument|const QRectF&sr
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTextItem
 argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
+argument|const QPointF&p
 argument_list|,
-specifier|const
-name|QTextItem
-operator|&
-name|ti
+argument|const QTextItem&ti
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Type
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Picture

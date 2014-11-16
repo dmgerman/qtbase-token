@@ -184,6 +184,7 @@ name|virtual
 name|bool
 name|shouldQuit
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|shouldQuitInternal

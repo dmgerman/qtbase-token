@@ -225,6 +225,7 @@ name|int
 name|devType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|width
@@ -749,6 +750,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|bool
@@ -798,6 +800,7 @@ argument_list|(
 argument|PaintDeviceMetric
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QPixmap

@@ -673,6 +673,7 @@ name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:
@@ -936,18 +937,19 @@ name|done
 argument_list|(
 argument|int result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|accept
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

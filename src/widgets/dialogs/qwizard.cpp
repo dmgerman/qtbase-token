@@ -1471,6 +1471,7 @@ name|subTitleFormat
 parameter_list|)
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|paintEvent
 parameter_list|(
@@ -1478,6 +1479,7 @@ name|QPaintEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 if|#
 directive|if
@@ -2434,11 +2436,11 @@ name|m_sideWidget
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|minimumSizeHint
 name|QSize
 name|minimumSizeHint
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

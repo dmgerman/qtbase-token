@@ -95,12 +95,14 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|focusNextPrevChild
 argument_list|(
 argument|bool next
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -161,26 +163,25 @@ block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
+argument|QObject *
 argument_list|,
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollContentsBy
@@ -189,6 +190,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|viewportSizeHint

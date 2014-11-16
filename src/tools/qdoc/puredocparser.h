@@ -75,21 +75,17 @@ name|virtual
 name|QStringList
 name|sourceFileNameFilter
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|parseSourceFile
 argument_list|(
-specifier|const
-name|Location
-operator|&
-name|location
+argument|const Location& location
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|filePath
+argument|const QString& filePath
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

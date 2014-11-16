@@ -168,11 +168,11 @@ name|XCB_NONE
 return|;
 block|}
 protected|protected:
-DECL|function|formats_sys
 name|QStringList
 name|formats_sys
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -331,7 +331,6 @@ return|return
 name|formatList
 return|;
 block|}
-DECL|function|hasFormat_sys
 name|bool
 name|hasFormat_sys
 parameter_list|(
@@ -341,6 +340,7 @@ modifier|&
 name|format
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QStringList
 name|list
@@ -357,7 +357,6 @@ name|format
 argument_list|)
 return|;
 block|}
-DECL|function|retrieveData_sys
 name|QVariant
 name|retrieveData_sys
 parameter_list|(
@@ -372,6 +371,7 @@ name|Type
 name|requestedType
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -1001,7 +1001,6 @@ block|}
 block|}
 block|}
 protected|protected:
-DECL|function|timerEvent
 name|void
 name|timerEvent
 parameter_list|(
@@ -1009,6 +1008,7 @@ name|QTimerEvent
 modifier|*
 name|ev
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

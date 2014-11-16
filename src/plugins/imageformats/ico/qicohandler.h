@@ -50,43 +50,45 @@ name|bool
 name|canRead
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|read
 argument_list|(
-name|QImage
-operator|*
-name|image
+argument|QImage *image
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|write
 argument_list|(
-specifier|const
-name|QImage
-operator|&
-name|image
+argument|const QImage&image
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QByteArray
 name|name
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|imageCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|jumpToImage
 argument_list|(
 argument|int imageNumber
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|jumpToNextImage
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|bool
@@ -103,6 +105,7 @@ argument_list|(
 argument|ImageOption option
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|option
@@ -110,6 +113,7 @@ argument_list|(
 argument|ImageOption option
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -204,24 +204,28 @@ name|bool
 name|isSequential
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|bytesToWrite
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -235,6 +239,7 @@ name|virtual
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|LocalSocketError
 name|error
@@ -287,6 +292,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForConnected
@@ -308,6 +314,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:
@@ -337,22 +344,21 @@ name|virtual
 name|qint64
 name|readData
 argument_list|(
-name|char
-operator|*
+argument|char*
 argument_list|,
-name|qint64
+argument|qint64
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|writeData
 argument_list|(
-specifier|const
-name|char
-operator|*
+argument|const char*
 argument_list|,
-name|qint64
+argument|qint64
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -111,19 +111,16 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateCurrentValue
 argument_list|(
-specifier|const
-name|QVariant
-operator|&
-name|value
+argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateState
@@ -132,6 +129,7 @@ argument|QAbstractAnimation::State newState
 argument_list|,
 argument|QAbstractAnimation::State oldState
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

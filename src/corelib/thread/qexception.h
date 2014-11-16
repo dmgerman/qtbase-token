@@ -92,12 +92,14 @@ name|void
 name|raise
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QUnhandledException
 operator|*
 name|clone
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

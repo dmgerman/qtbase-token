@@ -177,6 +177,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|Q_SLOTS
@@ -235,17 +236,16 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 operator|:

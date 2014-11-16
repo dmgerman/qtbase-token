@@ -170,11 +170,11 @@ argument_list|(
 name|parent
 argument_list|)
 block|{}
-DECL|function|createPopupMenu
 name|QMenu
 modifier|*
 name|createPopupMenu
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -231,7 +231,6 @@ argument_list|,
 name|parent
 argument_list|)
 block|{}
-DECL|function|validate
 name|State
 name|validate
 parameter_list|(
@@ -244,6 +243,7 @@ modifier|&
 name|pos
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|bool
 name|replacePercent
@@ -421,7 +421,6 @@ argument_list|)
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|focusInEvent
 name|void
 name|focusInEvent
 parameter_list|(
@@ -429,6 +428,7 @@ name|QFocusEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|origText
 operator|=
@@ -443,7 +443,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|focusOutEvent
 name|void
 name|focusOutEvent
 parameter_list|(
@@ -451,6 +450,7 @@ name|QFocusEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

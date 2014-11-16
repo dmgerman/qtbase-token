@@ -242,10 +242,9 @@ block|;
 name|bool
 name|begin
 argument_list|(
-name|QPaintDevice
-operator|*
-name|device
+argument|QPaintDevice *device
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|ensureActive
@@ -254,66 +253,67 @@ block|;
 name|bool
 name|end
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|clipEnabledChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|penChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|brushChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|brushOriginChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|opacityChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|compositionModeChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|renderHintsChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|transformChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|drawPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pm
+argument|const QPixmap&pm
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|sr
+argument|const QRectF&sr
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -327,6 +327,7 @@ argument|const QPixmap&pixmap
 argument_list|,
 argument|QPainter::PixmapFragmentHints hints
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -340,51 +341,37 @@ argument|const QRectF&sr
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|drawTextItem
 argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
+argument|const QPointF&p
 argument_list|,
-specifier|const
-name|QTextItem
-operator|&
-name|textItem
+argument|const QTextItem&textItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|fill
 argument_list|(
-specifier|const
-name|QVectorPath
-operator|&
-name|path
+argument|const QVectorPath&path
 argument_list|,
-specifier|const
-name|QBrush
-operator|&
-name|brush
+argument|const QBrush&brush
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|stroke
 argument_list|(
-specifier|const
-name|QVectorPath
-operator|&
-name|path
+argument|const QVectorPath&path
 argument_list|,
-specifier|const
-name|QPen
-operator|&
-name|pen
+argument|const QPen&pen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -394,15 +381,15 @@ argument|const QVectorPath&path
 argument_list|,
 argument|Qt::ClipOperation op
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|drawStaticTextItem
 argument_list|(
-name|QStaticTextItem
-operator|*
-name|textItem
+argument|QStaticTextItem *textItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|drawTexture
@@ -420,6 +407,7 @@ name|Type
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|OpenGL2
@@ -429,10 +417,9 @@ name|virtual
 name|void
 name|setState
 argument_list|(
-name|QPainterState
-operator|*
-name|s
+argument|QPainterState *s
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QPainterState
@@ -442,6 +429,7 @@ argument_list|(
 argument|QPainterState *orig
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QGL2PaintEngineState
@@ -489,10 +477,12 @@ block|}
 name|void
 name|beginNativePainting
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|endNativePainting
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|invalidateState
@@ -517,6 +507,7 @@ argument_list|,
 argument|const QTransform&
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -530,6 +521,7 @@ argument_list|,
 argument|const QTransform&
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setTranslateZ
@@ -1042,8 +1034,9 @@ parameter_list|()
 function_decl|;
 name|void
 name|systemStateChanged
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 specifier|static
 name|QGLEngineShaderManager
 modifier|*

@@ -328,21 +328,17 @@ name|virtual
 name|void
 name|connectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|disconnectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

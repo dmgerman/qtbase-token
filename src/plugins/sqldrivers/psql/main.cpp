@@ -41,6 +41,7 @@ range|:
 name|QPSQLDriverPlugin
 argument_list|()
 decl_stmt|;
+DECL|member|Q_DECL_OVERRIDE
 name|QSqlDriver
 modifier|*
 name|create
@@ -49,6 +50,7 @@ specifier|const
 name|QString
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

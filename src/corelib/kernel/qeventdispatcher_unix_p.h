@@ -258,10 +258,12 @@ name|processEvents
 argument_list|(
 argument|QEventLoop::ProcessEventsFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasPendingEvents
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|registerSocketNotifier
@@ -335,6 +337,7 @@ block|;
 name|void
 name|flush
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

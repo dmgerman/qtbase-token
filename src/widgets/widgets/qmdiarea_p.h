@@ -167,6 +167,7 @@ argument_list|,
 argument|const QRect&domain
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|Type
@@ -199,6 +200,7 @@ argument_list|,
 argument|const QRect&domain
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|Type
@@ -231,6 +233,7 @@ argument_list|,
 argument|const QRect&domain
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|Type
@@ -290,6 +293,7 @@ argument_list|,
 argument|const QRect&domain
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|int
@@ -774,14 +778,11 @@ block|;
 name|void
 name|scrollBarPolicyChanged
 argument_list|(
-name|Qt
-operator|::
-name|Orientation
+argument|Qt::Orientation
 argument_list|,
-name|Qt
-operator|::
-name|ScrollBarPolicy
+argument|Qt::ScrollBarPolicy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// reimp
 name|QMdiSubWindow

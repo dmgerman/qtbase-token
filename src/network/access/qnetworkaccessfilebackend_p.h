@@ -86,16 +86,19 @@ name|virtual
 name|void
 name|open
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|closeDownstreamChannel
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|downstreamReadyWrite
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|slots
@@ -157,6 +160,7 @@ argument_list|,
 argument|const QNetworkRequest&request
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

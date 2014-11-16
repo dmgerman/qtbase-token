@@ -56,26 +56,23 @@ block|;
 name|void
 name|acceptUI
 argument_list|(
-name|DomUI
-operator|*
-name|node
+argument|DomUI *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptCustomWidgets
 argument_list|(
-name|DomCustomWidgets
-operator|*
-name|node
+argument|DomCustomWidgets *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptCustomWidget
 argument_list|(
-name|DomCustomWidget
-operator|*
-name|node
+argument|DomCustomWidget *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QStringList

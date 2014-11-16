@@ -107,9 +107,9 @@ operator|:
 name|void
 name|exposeEvent
 argument_list|(
-name|QExposeEvent
-operator|*
+argument|QExposeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

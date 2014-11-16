@@ -52,6 +52,7 @@ argument_list|(
 argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformWindow
 operator|*
@@ -60,6 +61,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformBackingStore
 operator|*
@@ -68,6 +70,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -77,6 +80,7 @@ operator|*
 name|drag
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -85,18 +89,21 @@ operator|*
 name|services
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QOffscreenIntegration

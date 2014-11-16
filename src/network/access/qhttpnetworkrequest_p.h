@@ -161,36 +161,39 @@ name|QUrl
 name|url
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setUrl
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|majorVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|minorVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|contentLength
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setContentLength
 argument_list|(
 argument|qint64 length
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -204,6 +207,7 @@ expr|>
 name|header
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QByteArray
 name|headerField
@@ -213,20 +217,16 @@ argument_list|,
 argument|const QByteArray&defaultValue = QByteArray()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setHeaderField
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|name
+argument|const QByteArray&name
 argument_list|,
-specifier|const
-name|QByteArray
-operator|&
-name|data
+argument|const QByteArray&data
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Operation
 name|operation

@@ -132,6 +132,7 @@ name|open
 argument_list|(
 argument|QIODevice::OpenMode openMode
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|open
@@ -144,75 +145,75 @@ block|;
 name|bool
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|flush
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|syncToDisk
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|seek
 argument_list|(
-name|qint64
+argument|qint64
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isSequential
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|remove
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|copy
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|rename
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|renameOverwrite
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|link
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|mkdir
@@ -222,6 +223,7 @@ argument_list|,
 argument|bool createParentDirectories
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|rmdir
@@ -231,22 +233,26 @@ argument_list|,
 argument|bool recurseParentDirectories
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setSize
 argument_list|(
 argument|qint64 size
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|caseSensitive
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isRelativePath
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|entryList
@@ -256,6 +262,7 @@ argument_list|,
 argument|const QStringList&filterNames
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|FileFlags
 name|fileFlags
@@ -263,12 +270,14 @@ argument_list|(
 argument|FileFlags type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setPermissions
 argument_list|(
 argument|uint perms
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|fileName
@@ -276,6 +285,7 @@ argument_list|(
 argument|FileName file
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|uint
 name|ownerId
@@ -283,6 +293,7 @@ argument_list|(
 argument|FileOwner
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|owner
@@ -290,6 +301,7 @@ argument_list|(
 argument|FileOwner
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QDateTime
 name|fileTime
@@ -297,20 +309,20 @@ argument_list|(
 argument|FileTime time
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setFileName
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|file
+argument|const QString&file
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|handle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -323,11 +335,13 @@ argument|QDir::Filters filters
 argument_list|,
 argument|const QStringList&filterNames
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Iterator
 operator|*
 name|endEntryList
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -338,6 +352,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|readLine
@@ -346,6 +361,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|write
@@ -354,6 +370,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|extension
@@ -366,6 +383,7 @@ argument_list|,
 argument|ExtensionReturn *output =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|supportsExtension
@@ -373,6 +391,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|//FS only!!
 name|bool

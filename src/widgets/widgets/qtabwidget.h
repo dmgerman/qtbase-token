@@ -358,11 +358,13 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|heightForWidth
@@ -370,11 +372,13 @@ argument_list|(
 argument|int width
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasHeightForWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setCornerWidget
@@ -526,30 +530,30 @@ block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
+argument|QShowEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
+argument|QKeyEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setTabBar
@@ -561,16 +565,16 @@ block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|initStyleOption

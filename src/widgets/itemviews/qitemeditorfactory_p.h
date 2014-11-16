@@ -91,10 +91,9 @@ operator|:
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|Q_SLOTS

@@ -96,6 +96,7 @@ argument|gint width
 argument_list|,
 argument|GtkStyle *style
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintBox
@@ -114,6 +115,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintHline
@@ -136,6 +138,7 @@ argument|int y
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintVline
@@ -158,6 +161,7 @@ argument|int x
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintExpander
@@ -176,6 +180,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintFocus
@@ -192,6 +197,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintResizeGrip
@@ -212,6 +218,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintArrow
@@ -234,6 +241,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintHandle
@@ -252,6 +260,7 @@ argument|GtkOrientation orientation
 argument_list|,
 argument|GtkStyle *style
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintSlider
@@ -272,6 +281,7 @@ argument|GtkOrientation orientation
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintShadow
@@ -290,6 +300,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&pmKey = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintFlatBox
@@ -308,6 +319,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString& = QString()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintExtention
@@ -326,6 +338,7 @@ argument|GtkPositionType gap_pos
 argument_list|,
 argument|GtkStyle *style
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintOption
@@ -342,6 +355,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&detail
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintCheckbox
@@ -358,6 +372,7 @@ argument|GtkStyle *style
 argument_list|,
 argument|const QString&detail
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

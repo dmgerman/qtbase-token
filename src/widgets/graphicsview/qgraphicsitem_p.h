@@ -3625,13 +3625,14 @@ argument_list|(
 argument|Qt::CoordinateSystem system
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
+argument|QPainter *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|pixmap
@@ -3643,6 +3644,7 @@ argument_list|,
 argument|QGraphicsEffect::PixmapPadMode mode
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|paddedEffectRect

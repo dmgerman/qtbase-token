@@ -153,17 +153,16 @@ operator|:
 name|bool
 name|eventTest
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|onTransition
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

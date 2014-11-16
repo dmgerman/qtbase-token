@@ -77,57 +77,48 @@ block|;
 name|void
 name|acceptUI
 argument_list|(
-name|DomUI
-operator|*
-name|node
+argument|DomUI *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptWidget
 argument_list|(
-name|DomWidget
-operator|*
-name|node
+argument|DomWidget *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptLayout
 argument_list|(
-name|DomLayout
-operator|*
-name|node
+argument|DomLayout *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptSpacer
 argument_list|(
-name|DomSpacer
-operator|*
-name|node
+argument|DomSpacer *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptProperty
 argument_list|(
-name|DomProperty
-operator|*
-name|node
+argument|DomProperty *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptWidgetScripts
 argument_list|(
-specifier|const
-name|DomScripts
-operator|&
+argument|const DomScripts&
 argument_list|,
-name|DomWidget
-operator|*
+argument|DomWidget *
 argument_list|,
-specifier|const
-name|DomWidgets
-operator|&
+argument|const DomWidgets&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|//
 comment|// custom widgets
@@ -135,18 +126,16 @@ comment|//
 name|void
 name|acceptCustomWidgets
 argument_list|(
-name|DomCustomWidgets
-operator|*
-name|node
+argument|DomCustomWidgets *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptCustomWidget
 argument_list|(
-name|DomCustomWidget
-operator|*
-name|node
+argument|DomCustomWidget *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|//
 comment|// include hints
@@ -154,18 +143,16 @@ comment|//
 name|void
 name|acceptIncludes
 argument_list|(
-name|DomIncludes
-operator|*
-name|node
+argument|DomIncludes *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptInclude
 argument_list|(
-name|DomInclude
-operator|*
-name|node
+argument|DomInclude *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|scriptsActivated

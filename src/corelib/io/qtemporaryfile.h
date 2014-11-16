@@ -143,6 +143,7 @@ name|QString
 name|fileName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|fileTemplate
@@ -241,6 +242,7 @@ name|open
 argument_list|(
 argument|OpenMode flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

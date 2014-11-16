@@ -161,6 +161,7 @@ name|State
 name|state
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 comment|// QAccessibleTextInterface
 comment|//  selection
@@ -318,6 +319,7 @@ name|int
 name|characterCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 comment|// character<-> geometry
 name|QRect

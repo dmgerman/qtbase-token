@@ -297,6 +297,7 @@ name|resolvePalette
 argument_list|(
 argument|uint inheritedMask
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updatePalette
@@ -332,6 +333,7 @@ name|resolveFont
 argument_list|(
 argument|uint inheritedMask
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateFont
@@ -416,31 +418,37 @@ name|qreal
 name|width
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setWidth
 argument_list|(
-name|qreal
+argument|qreal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resetWidth
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|height
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setHeight
 argument_list|(
-name|qreal
+argument|qreal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resetHeight
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setGeometryFromSetPos

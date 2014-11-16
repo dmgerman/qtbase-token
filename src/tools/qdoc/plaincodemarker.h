@@ -41,29 +41,23 @@ block|;
 name|bool
 name|recognizeCode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|code
+argument|const QString& code
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|recognizeExtension
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|ext
+argument|const QString& ext
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|recognizeLanguage
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|lang
+argument|const QString& lang
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Atom
 operator|::
@@ -71,25 +65,18 @@ name|Type
 name|atomType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|markedUpCode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|code
+argument|const QString& code
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node *relative
 argument_list|,
-specifier|const
-name|Location
-operator|&
-name|location
+argument|const Location&location
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|markedUpSynopsis
@@ -100,70 +87,53 @@ argument|const Node *relative
 argument_list|,
 argument|SynopsisStyle style
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|markedUpName
 argument_list|(
-specifier|const
-name|Node
-operator|*
-name|node
+argument|const Node *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|markedUpFullName
 argument_list|(
-specifier|const
-name|Node
-operator|*
-name|node
+argument|const Node *node
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node *relative
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|markedUpEnumValue
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|enumValue
+argument|const QString&enumValue
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node *relative
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|markedUpIncludes
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|includes
+argument|const QStringList& includes
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|functionBeginRegExp
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|funcName
+argument|const QString& funcName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|functionEndRegExp
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|funcName
+argument|const QString& funcName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -177,6 +147,7 @@ argument|SynopsisStyle style
 argument_list|,
 argument|Status status
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

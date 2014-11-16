@@ -58,23 +58,18 @@ block|;
 name|void
 name|pointerEvent
 argument_list|(
-specifier|const
-name|QMouseEvent
-operator|&
-name|event
+argument|const QMouseEvent&event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeCursor
 argument_list|(
-name|QCursor
-operator|*
-name|windowCursor
+argument|QCursor *windowCursor
 argument_list|,
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -329,6 +329,7 @@ name|bool
 name|atEnd
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|readPointer
@@ -342,6 +343,7 @@ name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|size
@@ -354,6 +356,7 @@ name|virtual
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|readPointer
 operator|=
@@ -379,6 +382,7 @@ name|qint64
 name|bytesToWrite
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -389,17 +393,20 @@ name|qint64
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|isSequential
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|reset
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
@@ -409,6 +416,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxSize
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
@@ -418,6 +426,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 maxSize
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QHttpMultiPartPrivate
 operator|*

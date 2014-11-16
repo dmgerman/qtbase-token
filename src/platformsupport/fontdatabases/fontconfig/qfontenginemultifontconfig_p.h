@@ -83,6 +83,7 @@ argument_list|,
 argument|uint ucs4
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

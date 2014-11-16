@@ -80,6 +80,7 @@ name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_format
@@ -89,6 +90,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_pbuffer

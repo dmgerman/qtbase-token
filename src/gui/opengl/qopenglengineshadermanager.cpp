@@ -98,10 +98,10 @@ operator|delete
 name|m_shaders
 expr_stmt|;
 block|}
-DECL|function|invalidateResource
 name|void
 name|invalidateResource
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 operator|delete
 name|m_shaders
@@ -111,13 +111,13 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-DECL|function|freeResource
 name|void
 name|freeResource
 parameter_list|(
 name|QOpenGLContext
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{     }
 DECL|function|shaders
 name|QOpenGLEngineSharedShaders

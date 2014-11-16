@@ -96,6 +96,7 @@ private|:
 name|QSpinBoxPrivate
 parameter_list|()
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|emitSignals
 parameter_list|(
@@ -106,7 +107,9 @@ specifier|const
 name|QVariant
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QVariant
 name|valueFromText
@@ -117,7 +120,9 @@ modifier|&
 name|n
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|textFromValue
@@ -128,6 +133,7 @@ modifier|&
 name|n
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|QVariant
 name|validateAndInterpret
@@ -200,6 +206,7 @@ private|:
 name|QDoubleSpinBoxPrivate
 parameter_list|()
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|emitSignals
 parameter_list|(
@@ -210,7 +217,9 @@ specifier|const
 name|QVariant
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QVariant
 name|valueFromText
@@ -221,7 +230,9 @@ modifier|&
 name|n
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|textFromValue
@@ -232,6 +243,7 @@ modifier|&
 name|n
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|QVariant
 name|validateAndInterpret

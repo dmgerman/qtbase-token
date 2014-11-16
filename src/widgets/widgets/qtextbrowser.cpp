@@ -390,6 +390,7 @@ name|url
 parameter_list|)
 function_decl|;
 comment|// re-imlemented from QTextEditPrivate
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QUrl
 name|resolveUrl
@@ -400,6 +401,7 @@ modifier|&
 name|url
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 DECL|function|resolveUrl
 specifier|inline

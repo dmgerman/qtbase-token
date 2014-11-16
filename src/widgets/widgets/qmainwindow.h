@@ -648,20 +648,18 @@ name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
-name|event
+argument|QContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

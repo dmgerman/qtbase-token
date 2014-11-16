@@ -69,21 +69,25 @@ name|virtual
 name|void
 name|init
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|start
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|checkpoint
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|stop
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -91,6 +95,7 @@ name|isMeasurementAccepted
 argument_list|(
 argument|qint64 measurement
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
@@ -98,6 +103,7 @@ name|adjustIterationCount
 argument_list|(
 argument|int suggestion
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
@@ -105,11 +111,13 @@ name|adjustMedianCount
 argument_list|(
 argument|int suggestion
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|repeatCount
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|1
@@ -119,6 +127,7 @@ name|virtual
 name|bool
 name|needsWarmupIteration
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -130,6 +139,7 @@ operator|::
 name|QBenchmarkMetric
 name|metricType
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|bool

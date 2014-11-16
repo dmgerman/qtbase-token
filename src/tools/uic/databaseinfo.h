@@ -50,18 +50,16 @@ block|;
 name|void
 name|acceptUI
 argument_list|(
-name|DomUI
-operator|*
-name|node
+argument|DomUI *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|acceptWidget
 argument_list|(
-name|DomWidget
-operator|*
-name|node
+argument|DomWidget *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QStringList

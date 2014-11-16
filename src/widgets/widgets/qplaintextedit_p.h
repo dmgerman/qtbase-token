@@ -139,6 +139,7 @@ operator|*
 name|createMimeDataFromSelection
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|canInsertFromMimeData
@@ -146,15 +147,14 @@ argument_list|(
 argument|const QMimeData *source
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|insertFromMimeData
 argument_list|(
-specifier|const
-name|QMimeData
-operator|*
-name|source
+argument|const QMimeData *source
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|hitTest
@@ -164,6 +164,7 @@ argument_list|,
 argument|Qt::HitTestAccuracy = Qt::FuzzyHit
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRectF
 name|blockBoundingRect
@@ -171,6 +172,7 @@ argument_list|(
 argument|const QTextBlock&block
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QRectF
@@ -228,6 +230,7 @@ block|}
 name|void
 name|ensureCursorVisible
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|textEdit
 operator|->
@@ -257,6 +260,7 @@ argument|int type
 argument_list|,
 argument|const QUrl&name
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|textEdit

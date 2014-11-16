@@ -96,36 +96,24 @@ block|;
 name|QStringList
 name|addPaths
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|paths
+argument|const QStringList&paths
 argument_list|,
-name|QStringList
-operator|*
-name|files
+argument|QStringList *files
 argument_list|,
-name|QStringList
-operator|*
-name|directories
+argument|QStringList *directories
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|removePaths
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|paths
+argument|const QStringList&paths
 argument_list|,
-name|QStringList
-operator|*
-name|files
+argument|QStringList *files
 argument_list|,
-name|QStringList
-operator|*
-name|directories
+argument|QStringList *directories
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|Q_SLOTS

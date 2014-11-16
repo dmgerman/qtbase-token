@@ -70,26 +70,23 @@ name|QByteArray
 name|desktopEnvironment
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|openUrl
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|openDocument
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

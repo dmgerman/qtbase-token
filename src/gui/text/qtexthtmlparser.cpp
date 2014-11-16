@@ -10422,6 +10422,7 @@ operator|::
 name|CaseInsensitive
 expr_stmt|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QStringList
 name|nodeNames
@@ -10430,7 +10431,9 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|attribute
@@ -10444,7 +10447,9 @@ modifier|&
 name|name
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|bool
 name|hasAttributes
@@ -10453,7 +10458,9 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|bool
 name|isNullNode
@@ -10462,7 +10469,9 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|NodePtr
 name|parentNode
@@ -10471,7 +10480,9 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|NodePtr
 name|previousSiblingNode
@@ -10480,7 +10491,9 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|NodePtr
 name|duplicateNode
@@ -10489,7 +10502,9 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|freeNode
@@ -10498,6 +10513,7 @@ name|NodePtr
 name|node
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|parser

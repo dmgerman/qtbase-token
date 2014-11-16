@@ -72,38 +72,30 @@ block|;
 name|QString
 name|getInterfaceFromId
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|id
+argument|const QString&id
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasIdentifier
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|id
+argument|const QString&id
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|connectToId
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|id
+argument|const QString&id
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|disconnectFromId
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|id
+argument|const QString&id
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_INVOKABLE
 name|void
@@ -120,11 +112,9 @@ operator|::
 name|State
 name|sessionStateForId
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|id
+argument|const QString&id
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QNetworkConfigurationManager
 operator|::
@@ -132,20 +122,24 @@ name|Capabilities
 name|capabilities
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QNetworkSessionPrivate
 operator|*
 name|createSessionBackend
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QNetworkConfigurationPrivatePointer
 name|defaultConfiguration
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|requiresPolling
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|Q_SLOTS

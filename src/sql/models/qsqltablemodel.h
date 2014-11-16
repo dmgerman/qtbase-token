@@ -110,6 +110,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlRecord
 name|record
@@ -131,6 +132,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setData
@@ -141,6 +143,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|headerData
@@ -152,6 +155,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isDirty
@@ -168,6 +172,7 @@ block|;
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -205,6 +210,7 @@ argument|int column
 argument_list|,
 argument|Qt::SortOrder order
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -236,6 +242,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeColumns
@@ -246,6 +253,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeRows
@@ -256,6 +264,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertRows
@@ -266,6 +275,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertRecord
@@ -308,10 +318,12 @@ block|;
 name|bool
 name|submit
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|revert
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|submitAll
@@ -427,6 +439,7 @@ argument_list|(
 argument|const QModelIndex&item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlRecord
 name|primaryValues

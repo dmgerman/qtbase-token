@@ -182,6 +182,7 @@ name|void
 name|init
 parameter_list|()
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|int
 name|bound
@@ -190,6 +191,7 @@ name|int
 name|val
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

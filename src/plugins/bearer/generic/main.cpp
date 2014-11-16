@@ -50,6 +50,7 @@ name|~
 name|QGenericEnginePlugin
 parameter_list|()
 destructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QBearerEngine
 modifier|*
 name|create
@@ -60,6 +61,7 @@ modifier|&
 name|key
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

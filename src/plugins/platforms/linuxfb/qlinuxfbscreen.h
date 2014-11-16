@@ -63,6 +63,7 @@ operator|:
 name|QRegion
 name|doRedraw
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

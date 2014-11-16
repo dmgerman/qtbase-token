@@ -362,6 +362,7 @@ name|int
 name|count
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QGraphicsLayoutItem
 operator|*
@@ -370,12 +371,14 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|removeAt
 argument_list|(
 argument|int index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|removeItem
@@ -388,16 +391,15 @@ block|;
 name|void
 name|invalidate
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 comment|// inherited from QGraphicsLayoutItem
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSizeF
 name|sizeHint
@@ -407,6 +409,7 @@ argument_list|,
 argument|const QSizeF&constraint = QSizeF()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// ####
 comment|//QRect cellRect(int row, int column, int rowSpan = 1, int columnSpan = 1) const;

@@ -178,6 +178,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|labelText
@@ -322,34 +323,30 @@ operator|:
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|closeEvent
 argument_list|(
-name|QCloseEvent
-operator|*
-name|event
+argument|QCloseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
-name|event
+argument|QShowEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 name|Q_SLOTS

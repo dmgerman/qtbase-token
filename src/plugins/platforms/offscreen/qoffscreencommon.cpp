@@ -64,17 +64,16 @@ argument_list|,
 literal|10
 argument_list|)
 block|{}
-DECL|function|pos
 name|QPoint
 name|pos
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_pos
 return|;
 block|}
-DECL|function|setPos
 name|void
 name|setPos
 parameter_list|(
@@ -83,6 +82,7 @@ name|QPoint
 modifier|&
 name|pos
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_pos
 operator|=
@@ -232,7 +232,6 @@ else|:
 literal|0
 expr_stmt|;
 block|}
-DECL|function|changeCursor
 name|void
 name|changeCursor
 parameter_list|(
@@ -244,6 +243,7 @@ name|QWindow
 modifier|*
 name|window
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(

@@ -144,6 +144,7 @@ argument|int index
 argument_list|,
 argument|QAbstractAnimation *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// private slot
 name|void

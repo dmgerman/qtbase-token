@@ -1269,12 +1269,12 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-DECL|function|copy
 name|QEasingCurveFunction
 modifier|*
 name|copy
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|BezierEase
 modifier|*
@@ -1429,13 +1429,13 @@ return|return
 name|newT
 return|;
 block|}
-DECL|function|value
 name|qreal
 name|value
 parameter_list|(
 name|qreal
 name|x
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -2946,13 +2946,13 @@ operator|::
 name|TCBSpline
 argument_list|)
 block|{ }
-DECL|function|value
 name|qreal
 name|value
 parameter_list|(
 name|qreal
 name|x
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -3027,12 +3027,12 @@ literal|1.0
 argument_list|)
 argument_list|)
 block|{ }
-DECL|function|copy
 name|QEasingCurveFunction
 modifier|*
 name|copy
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|ElasticEase
 modifier|*
@@ -3072,13 +3072,13 @@ return|return
 name|rv
 return|;
 block|}
-DECL|function|value
 name|qreal
 name|value
 parameter_list|(
 name|qreal
 name|t
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|qreal
 name|p
@@ -3218,12 +3218,12 @@ literal|1.0
 argument_list|)
 argument_list|)
 block|{ }
-DECL|function|copy
 name|QEasingCurveFunction
 modifier|*
 name|copy
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|BounceEase
 modifier|*
@@ -3257,13 +3257,13 @@ return|return
 name|rv
 return|;
 block|}
-DECL|function|value
 name|qreal
 name|value
 parameter_list|(
 name|qreal
 name|t
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|qreal
 name|a
@@ -3384,12 +3384,12 @@ literal|1.70158
 argument_list|)
 argument_list|)
 block|{ }
-DECL|function|copy
 name|QEasingCurveFunction
 modifier|*
 name|copy
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|BackEase
 modifier|*
@@ -3423,13 +3423,13 @@ return|return
 name|rv
 return|;
 block|}
-DECL|function|value
 name|qreal
 name|value
 parameter_list|(
 name|qreal
 name|t
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|qreal
 name|o

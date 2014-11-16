@@ -87,11 +87,9 @@ name|virtual
 name|void
 name|setFileName
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|file
+argument|const QString&file
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -99,28 +97,33 @@ name|open
 argument_list|(
 argument|QIODevice::OpenMode flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|flush
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -132,8 +135,9 @@ name|virtual
 name|bool
 name|seek
 argument_list|(
-name|qint64
+argument|qint64
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
@@ -143,6 +147,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
@@ -152,53 +157,51 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|remove
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|copy
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|rename
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|link
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|newName
+argument|const QString&newName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|isSequential
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|isRelativePath
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -209,6 +212,7 @@ argument_list|,
 argument|bool createParentDirectories
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -219,6 +223,7 @@ argument_list|,
 argument|bool recurseParentDirectories
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -226,6 +231,7 @@ name|setSize
 argument_list|(
 argument|qint64 size
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QStringList
@@ -236,12 +242,14 @@ argument_list|,
 argument|const QStringList&filterNames
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|caseSensitive
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|FileFlags
@@ -250,6 +258,7 @@ argument_list|(
 argument|FileFlags type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -257,6 +266,7 @@ name|setPermissions
 argument_list|(
 argument|uint perms
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
@@ -265,6 +275,7 @@ argument_list|(
 argument|QAbstractFileEngine::FileName file
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|uint
@@ -273,6 +284,7 @@ argument_list|(
 argument|FileOwner
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
@@ -281,6 +293,7 @@ argument_list|(
 argument|FileOwner
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QDateTime
@@ -289,6 +302,7 @@ argument_list|(
 argument|FileTime time
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|Iterator
@@ -299,12 +313,14 @@ argument|QDir::Filters filters
 argument_list|,
 argument|const QStringList&filterNames
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|Iterator
 operator|*
 name|endEntryList
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|extension
@@ -317,6 +333,7 @@ argument_list|,
 argument|ExtensionReturn *output =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|supportsExtension
@@ -324,6 +341,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

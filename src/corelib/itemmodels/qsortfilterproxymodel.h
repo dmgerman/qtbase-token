@@ -115,10 +115,9 @@ block|;
 name|void
 name|setSourceModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|sourceModel
+argument|QAbstractItemModel *sourceModel
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|mapToSource
@@ -126,6 +125,7 @@ argument_list|(
 argument|const QModelIndex&proxyIndex
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|mapFromSource
@@ -133,6 +133,7 @@ argument_list|(
 argument|const QModelIndex&sourceIndex
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QItemSelection
 name|mapSelectionToSource
@@ -140,6 +141,7 @@ argument_list|(
 argument|const QItemSelection&proxySelection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QItemSelection
 name|mapSelectionFromSource
@@ -147,6 +149,7 @@ argument_list|(
 argument|const QItemSelection&sourceSelection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRegExp
 name|filterRegExp
@@ -371,6 +374,7 @@ argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|parent
@@ -378,6 +382,7 @@ argument_list|(
 argument|const QModelIndex&child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|sibling
@@ -389,6 +394,7 @@ argument_list|,
 argument|const QModelIndex&idx
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
@@ -396,6 +402,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|columnCount
@@ -403,6 +410,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasChildren
@@ -410,6 +418,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -419,6 +428,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setData
@@ -429,6 +439,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|headerData
@@ -440,6 +451,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setHeaderData
@@ -452,6 +464,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QMimeData
 operator|*
@@ -460,6 +473,7 @@ argument_list|(
 argument|const QModelIndexList&indexes
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|dropMimeData
@@ -474,6 +488,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertRows
@@ -484,6 +499,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertColumns
@@ -494,6 +510,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeRows
@@ -504,6 +521,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeColumns
@@ -514,15 +532,14 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fetchMore
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|parent
+argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|canFetchMore
@@ -530,6 +547,7 @@ argument_list|(
 argument|const QModelIndex&parent
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -539,6 +557,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|buddy
@@ -546,6 +565,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndexList
 name|match
@@ -562,6 +582,7 @@ argument_list|,
 argument|Qt::MatchFlags flags =                           Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|span
@@ -569,6 +590,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|sort
@@ -577,11 +599,13 @@ argument|int column
 argument_list|,
 argument|Qt::SortOrder order = Qt::AscendingOrder
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|mimeTypes
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -589,6 +613,7 @@ name|DropActions
 name|supportedDropActions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

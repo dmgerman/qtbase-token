@@ -100,10 +100,10 @@ operator|delete
 name|funcs
 expr_stmt|;
 block|}
-DECL|function|invalidateResource
 name|void
 name|invalidateResource
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|m_features
 operator|=
@@ -111,13 +111,13 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-DECL|function|freeResource
 name|void
 name|freeResource
 parameter_list|(
 name|QOpenGLContext
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 comment|// no gl resources to free
 block|}

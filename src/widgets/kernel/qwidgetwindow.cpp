@@ -160,11 +160,11 @@ name|QWidgetWindow
 parameter_list|)
 specifier|public
 private|:
-DECL|function|eventReceiver
 name|QWindow
 modifier|*
 name|eventReceiver
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_Q
 argument_list|(
@@ -218,10 +218,10 @@ return|return
 name|w
 return|;
 block|}
-DECL|function|clearFocusObject
 name|void
 name|clearFocusObject
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_Q
 argument_list|(

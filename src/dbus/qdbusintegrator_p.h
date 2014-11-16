@@ -232,6 +232,7 @@ name|placeMetaCall
 argument_list|(
 argument|QObject *object
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QDBusConnectionPrivate
 operator|::
@@ -357,9 +358,9 @@ block|;
 name|void
 name|placeMetaCall
 argument_list|(
-name|QObject
-operator|*
+argument|QObject *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

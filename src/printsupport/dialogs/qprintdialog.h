@@ -94,6 +94,7 @@ block|;
 name|int
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 if|#
 directive|if
@@ -111,6 +112,7 @@ name|virtual
 name|void
 name|accept
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -119,6 +121,7 @@ name|done
 argument_list|(
 argument|int result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setOption
@@ -162,6 +165,7 @@ name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

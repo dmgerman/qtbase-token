@@ -188,13 +188,13 @@ argument_list|(
 name|parent
 argument_list|)
 block|{}
-DECL|function|createMimeDataFromSelection
 specifier|virtual
 name|QMimeData
 modifier|*
 name|createMimeDataFromSelection
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QTextEdit
 modifier|*
@@ -228,7 +228,6 @@ name|createMimeDataFromSelection
 argument_list|()
 return|;
 block|}
-DECL|function|canInsertFromMimeData
 specifier|virtual
 name|bool
 name|canInsertFromMimeData
@@ -239,6 +238,7 @@ modifier|*
 name|source
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QTextEdit
 modifier|*
@@ -276,7 +276,6 @@ name|source
 argument_list|)
 return|;
 block|}
-DECL|function|insertFromMimeData
 specifier|virtual
 name|void
 name|insertFromMimeData
@@ -286,6 +285,7 @@ name|QMimeData
 modifier|*
 name|source
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QTextEdit
 modifier|*

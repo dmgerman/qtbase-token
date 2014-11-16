@@ -154,6 +154,7 @@ argument_list|(
 argument|Font type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QVariant
@@ -162,6 +163,7 @@ argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QStringList
@@ -220,6 +222,7 @@ argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 specifier|const
@@ -230,6 +233,7 @@ argument_list|(
 argument|Palette type = SystemPalette
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 specifier|const
@@ -240,6 +244,7 @@ argument_list|(
 argument|Font type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 specifier|const
@@ -285,6 +290,7 @@ argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 specifier|const
@@ -295,6 +301,7 @@ argument_list|(
 argument|Font type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|standardButtonText

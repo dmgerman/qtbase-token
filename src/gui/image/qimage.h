@@ -613,6 +613,7 @@ name|int
 name|devType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|operator
@@ -1463,6 +1464,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// Auxiliary data
 name|int
@@ -1659,6 +1661,7 @@ argument_list|(
 argument|PaintDeviceMetric metric
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|mirrored_helper

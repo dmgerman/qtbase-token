@@ -152,11 +152,13 @@ argument_list|(
 argument|const QString&mimeType
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|formats
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|bool
@@ -218,6 +220,7 @@ argument_list|,
 argument|QVariant::Type type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool

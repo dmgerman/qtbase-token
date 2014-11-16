@@ -56,6 +56,7 @@ name|int
 name|duration
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -73,16 +74,16 @@ block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateCurrentTime
 argument_list|(
 argument|int currentTime
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateState
@@ -91,12 +92,14 @@ argument|QAbstractAnimation::State newState
 argument_list|,
 argument|QAbstractAnimation::State oldState
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateDirection
 argument_list|(
 argument|QAbstractAnimation::Direction direction
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

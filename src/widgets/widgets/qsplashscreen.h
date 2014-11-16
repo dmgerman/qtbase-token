@@ -133,10 +133,9 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -150,9 +149,9 @@ block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

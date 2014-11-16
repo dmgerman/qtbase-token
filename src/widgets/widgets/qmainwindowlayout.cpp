@@ -5825,6 +5825,7 @@ name|parent
 parameter_list|)
 constructor_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|event
 parameter_list|(
@@ -5832,6 +5833,7 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

@@ -90,11 +90,9 @@ name|virtual
 name|void
 name|pointerEvent
 argument_list|(
-specifier|const
-name|QMouseEvent
-operator|&
-name|event
+argument|const QMouseEvent&event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -103,14 +101,11 @@ name|virtual
 name|void
 name|changeCursor
 argument_list|(
-name|QCursor
-operator|*
-name|widgetCursor
+argument|QCursor *widgetCursor
 argument_list|,
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

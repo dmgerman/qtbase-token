@@ -445,17 +445,20 @@ name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QString
@@ -701,6 +704,7 @@ name|done
 argument_list|(
 argument|int result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

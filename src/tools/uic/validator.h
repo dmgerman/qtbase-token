@@ -57,53 +57,53 @@ operator|*
 name|uic
 argument_list|)
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|acceptUI
 argument_list|(
-name|DomUI
-operator|*
-name|node
+argument|DomUI *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|acceptWidget
 argument_list|(
-name|DomWidget
-operator|*
-name|node
+argument|DomWidget *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|acceptLayoutItem
 argument_list|(
-name|DomLayoutItem
-operator|*
-name|node
+argument|DomLayoutItem *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|acceptLayout
 argument_list|(
-name|DomLayout
-operator|*
-name|node
+argument|DomLayout *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|acceptActionGroup
 argument_list|(
-name|DomActionGroup
-operator|*
-name|node
+argument|DomActionGroup *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|acceptAction
 argument_list|(
-name|DomAction
-operator|*
-name|node
+argument|DomAction *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 DECL|member|private
 name|private

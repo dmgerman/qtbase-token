@@ -100,6 +100,7 @@ name|bool
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAction
 operator|*
@@ -136,10 +137,9 @@ block|;
 name|void
 name|addItem
 argument_list|(
-name|QLayoutItem
-operator|*
-name|item
+argument|QLayoutItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QLayoutItem
 operator|*
@@ -148,6 +148,7 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QLayoutItem
 operator|*
@@ -155,20 +156,24 @@ name|takeAt
 argument_list|(
 argument|int index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|count
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|invalidate
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -176,25 +181,26 @@ name|Orientations
 name|expandingDirections
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|r
+argument|const QRect&r
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|insertAction
@@ -217,6 +223,7 @@ argument_list|(
 argument|QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QLayout

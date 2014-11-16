@@ -85,6 +85,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -96,6 +97,7 @@ argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -106,6 +108,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformOffscreenSurface
 operator|*
@@ -114,6 +117,7 @@ argument_list|(
 argument|QOffscreenSurface *surface
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasCapability
@@ -121,16 +125,19 @@ argument_list|(
 argument|Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|initialize
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|moveToScreen
@@ -145,12 +152,14 @@ operator|*
 name|fontDatabase
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -160,6 +169,7 @@ operator|*
 name|clipboard
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -171,6 +181,7 @@ operator|*
 name|drag
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -179,6 +190,7 @@ operator|*
 name|inputContext
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -188,6 +200,7 @@ operator|*
 name|accessibility
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -196,6 +209,7 @@ operator|*
 name|services
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -203,6 +217,7 @@ name|KeyboardModifiers
 name|queryKeyboardModifiers
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -213,11 +228,13 @@ argument_list|(
 argument|const QKeyEvent *e
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|themeNames
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformTheme
 operator|*
@@ -226,6 +243,7 @@ argument_list|(
 argument|const QString&name
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|styleHint
@@ -233,6 +251,7 @@ argument_list|(
 argument|StyleHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QXcbConnection
 operator|*
@@ -280,6 +299,7 @@ directive|endif
 name|void
 name|sync
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

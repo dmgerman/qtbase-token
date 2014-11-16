@@ -1159,6 +1159,7 @@ name|init
 parameter_list|()
 function_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -1168,7 +1169,9 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|insertBefore
@@ -1181,7 +1184,9 @@ name|QDomNodePrivate
 modifier|*
 name|refChild
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|insertAfter
@@ -1194,7 +1199,9 @@ name|QDomNodePrivate
 modifier|*
 name|refChild
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|replaceChild
@@ -1207,7 +1214,9 @@ name|QDomNodePrivate
 modifier|*
 name|oldChild
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|removeChild
@@ -1216,7 +1225,9 @@ name|QDomNodePrivate
 modifier|*
 name|oldChild
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|appendChild
@@ -1225,14 +1236,15 @@ name|QDomNodePrivate
 modifier|*
 name|newChild
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -1240,6 +1252,7 @@ operator|::
 name|DocumentTypeNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|save
 parameter_list|(
@@ -1252,6 +1265,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// Variables
 DECL|member|entities
@@ -1311,6 +1325,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QDomNodePrivate
 modifier|*
@@ -1321,14 +1336,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -1443,13 +1459,13 @@ name|arg
 parameter_list|)
 function_decl|;
 comment|// Reimplemented from QDomNodePrivate
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -1457,6 +1473,7 @@ operator|::
 name|CharacterDataNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -1466,6 +1483,7 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
@@ -1513,6 +1531,7 @@ name|offset
 parameter_list|)
 function_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -1522,14 +1541,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -1537,6 +1557,7 @@ operator|::
 name|TextNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -1550,6 +1571,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
@@ -1612,6 +1634,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|setNodeValue
 parameter_list|(
@@ -1620,7 +1643,9 @@ name|QString
 modifier|&
 name|v
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -1630,14 +1655,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -1645,6 +1671,7 @@ operator|::
 name|AttributeNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -1658,6 +1685,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// Variables
 DECL|member|m_specified
@@ -1908,13 +1936,13 @@ literal|0
 operator|)
 return|;
 block|}
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -1922,6 +1950,7 @@ operator|::
 name|ElementNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -1931,7 +1960,9 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -1945,6 +1976,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// Variables
 DECL|member|m_attr
@@ -1990,6 +2022,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -1999,14 +2032,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2014,6 +2048,7 @@ operator|::
 name|CommentNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -2027,6 +2062,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
@@ -2066,6 +2102,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -2075,14 +2112,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2090,6 +2128,7 @@ operator|::
 name|CDATASectionNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -2103,6 +2142,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
@@ -2152,6 +2192,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -2161,14 +2202,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2176,6 +2218,7 @@ operator|::
 name|NotationNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -2189,6 +2232,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// Variables
 DECL|member|m_sys
@@ -2252,6 +2296,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -2261,14 +2306,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2276,6 +2322,7 @@ operator|::
 name|EntityNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -2289,6 +2336,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// Variables
 DECL|member|m_sys
@@ -2341,6 +2389,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -2350,14 +2399,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2365,6 +2415,7 @@ operator|::
 name|EntityReferenceNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -2378,6 +2429,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
@@ -2422,6 +2474,7 @@ name|deep
 parameter_list|)
 constructor_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -2431,14 +2484,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2446,6 +2500,7 @@ operator|::
 name|ProcessingInstructionNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|save
@@ -2459,6 +2514,7 @@ parameter_list|,
 name|int
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
@@ -2712,6 +2768,7 @@ name|deep
 parameter_list|)
 function_decl|;
 comment|// Reimplemented from QDomNodePrivate
+DECL|member|Q_DECL_OVERRIDE
 name|QDomNodePrivate
 modifier|*
 name|cloneNode
@@ -2721,14 +2778,15 @@ name|deep
 init|=
 literal|true
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|nodeType
 name|QDomNode
 operator|::
 name|NodeType
 name|nodeType
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QDomNode
@@ -2736,9 +2794,11 @@ operator|::
 name|DocumentNode
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|clear
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// Variables
 DECL|member|impl
@@ -2812,10 +2872,13 @@ name|QDomHandler
 parameter_list|()
 destructor_decl|;
 comment|// content handler
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|endDocument
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|startElement
 parameter_list|(
@@ -2839,7 +2902,9 @@ name|QXmlAttributes
 modifier|&
 name|atts
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|endElement
 parameter_list|(
@@ -2858,7 +2923,9 @@ name|QString
 modifier|&
 name|qName
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|characters
 parameter_list|(
@@ -2867,7 +2934,9 @@ name|QString
 modifier|&
 name|ch
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|processingInstruction
 parameter_list|(
@@ -2881,7 +2950,9 @@ name|QString
 modifier|&
 name|data
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|skippedEntity
 parameter_list|(
@@ -2890,8 +2961,10 @@ name|QString
 modifier|&
 name|name
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// error handler
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|fatalError
 parameter_list|(
@@ -2900,16 +2973,22 @@ name|QXmlParseException
 modifier|&
 name|exception
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// lexical handler
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|startCDATA
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|endCDATA
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|startEntity
 parameter_list|(
@@ -2917,7 +2996,9 @@ specifier|const
 name|QString
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|endEntity
 parameter_list|(
@@ -2925,7 +3006,9 @@ specifier|const
 name|QString
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|startDTD
 parameter_list|(
@@ -2944,7 +3027,9 @@ name|QString
 modifier|&
 name|systemId
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|comment
 parameter_list|(
@@ -2953,8 +3038,10 @@ name|QString
 modifier|&
 name|ch
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// decl handler
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|externalEntityDecl
 parameter_list|(
@@ -2973,8 +3060,10 @@ name|QString
 modifier|&
 name|systemId
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// DTD handler
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|notationDecl
 parameter_list|(
@@ -2993,7 +3082,9 @@ name|QString
 modifier|&
 name|systemId
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|unparsedEntityDecl
 parameter_list|(
@@ -3017,7 +3108,9 @@ name|QString
 modifier|&
 name|notationName
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|setDocumentLocator
 parameter_list|(
@@ -3025,6 +3118,7 @@ name|QXmlLocator
 modifier|*
 name|locator
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 DECL|member|errorMsg
 name|QString

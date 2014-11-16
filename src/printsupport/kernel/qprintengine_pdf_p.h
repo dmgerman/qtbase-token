@@ -187,21 +187,24 @@ expr_stmt|;
 comment|// reimplementations QPaintEngine
 name|bool
 name|begin
-parameter_list|(
+argument_list|(
 name|QPaintDevice
-modifier|*
+operator|*
 name|pdev
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|bool
 name|end
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 comment|// end reimplementations QPaintEngine
 comment|// reimplementations QPrintEngine
 name|bool
 name|abort
 parameter_list|()
+function|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -213,6 +216,7 @@ name|PrinterState
 name|printerState
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|state
@@ -220,8 +224,9 @@ return|;
 block|}
 name|bool
 name|newPage
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|int
 name|metric
 argument_list|(
@@ -230,20 +235,22 @@ operator|::
 name|PaintDeviceMetric
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|virtual
 name|void
 name|setProperty
-parameter_list|(
+argument_list|(
 name|PrintEnginePropertyKey
 name|key
-parameter_list|,
+argument_list|,
 specifier|const
 name|QVariant
-modifier|&
+operator|&
 name|value
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|QVariant
 name|property
@@ -252,6 +259,7 @@ name|PrintEnginePropertyKey
 name|key
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 comment|// end reimplementations QPrintEngine
 name|QPrinter

@@ -156,6 +156,7 @@ name|QTipLabel
 modifier|*
 name|instance
 decl_stmt|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|eventFilter
 parameter_list|(
@@ -165,6 +166,7 @@ parameter_list|,
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 DECL|member|hideTimer
 DECL|member|expireTimer
@@ -263,6 +265,7 @@ name|w
 parameter_list|)
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|timerEvent
 parameter_list|(
@@ -270,7 +273,9 @@ name|QTimerEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|paintEvent
 parameter_list|(
@@ -278,7 +283,9 @@ name|QPaintEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseMoveEvent
 parameter_list|(
@@ -286,7 +293,9 @@ name|QMouseEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|resizeEvent
 parameter_list|(
@@ -294,6 +303,7 @@ name|QResizeEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 ifndef|#
 directive|ifndef

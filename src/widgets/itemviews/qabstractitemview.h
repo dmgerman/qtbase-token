@@ -651,6 +651,7 @@ argument_list|(
 argument|Qt::InputMethodQuery query
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifdef|#
 directive|ifdef
@@ -1196,54 +1197,49 @@ name|focusNextPrevChild
 argument_list|(
 argument|bool next
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|viewportEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -1251,84 +1247,74 @@ name|QT_NO_DRAGANDDROP
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QDragEnterEvent
-operator|*
-name|event
+argument|QDragEnterEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QDragMoveEvent
-operator|*
-name|event
+argument|QDragMoveEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragLeaveEvent
 argument_list|(
-name|QDragLeaveEvent
-operator|*
-name|event
+argument|QDragLeaveEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QDropEvent
-operator|*
-name|event
+argument|QDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|event
+argument|QTimerEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|inputMethodEvent
 argument_list|(
-name|QInputMethodEvent
-operator|*
-name|event
+argument|QInputMethodEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef

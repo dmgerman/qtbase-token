@@ -218,6 +218,7 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|draw
@@ -231,6 +232,7 @@ argument_list|,
 argument|const QRectF&srcRect = QRectF()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -325,6 +327,7 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|draw
@@ -338,6 +341,7 @@ argument_list|,
 argument|const QRectF&srcRect = QRectF()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -414,6 +418,7 @@ argument_list|,
 argument|const QRectF&srcRect = QRectF()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -457,6 +462,7 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|draw
@@ -470,6 +476,7 @@ argument_list|,
 argument|const QRectF&src = QRectF()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|blurRadius

@@ -316,18 +316,16 @@ operator|:
 name|void
 name|connectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
+argument|const QMetaMethod&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|disconnectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
+argument|const QMetaMethod&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

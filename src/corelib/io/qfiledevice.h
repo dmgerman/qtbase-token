@@ -206,11 +206,13 @@ name|virtual
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isSequential
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|handle
@@ -227,17 +229,20 @@ name|qint64
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|seek
 argument_list|(
 argument|qint64 offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|atEnd
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|flush
@@ -247,6 +252,7 @@ name|qint64
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -347,6 +353,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|writeData
@@ -355,6 +362,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|readLineData
@@ -363,6 +371,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

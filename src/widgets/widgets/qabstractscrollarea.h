@@ -199,11 +199,13 @@ name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -264,19 +266,18 @@ block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
+argument|QObject *
 argument_list|,
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -289,44 +290,44 @@ block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -334,9 +335,9 @@ name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
-name|QWheelEvent
-operator|*
+argument|QWheelEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -346,9 +347,9 @@ name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
+argument|QContextMenuEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -358,39 +359,39 @@ name|QT_NO_DRAGANDDROP
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QDragEnterEvent
-operator|*
+argument|QDragEnterEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QDragMoveEvent
-operator|*
+argument|QDragMoveEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragLeaveEvent
 argument_list|(
-name|QDragLeaveEvent
-operator|*
+argument|QDragLeaveEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QDropEvent
-operator|*
+argument|QDropEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
+argument|QKeyEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

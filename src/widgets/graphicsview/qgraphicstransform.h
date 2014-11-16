@@ -221,6 +221,7 @@ argument_list|(
 argument|QMatrix4x4 *matrix
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:
@@ -346,6 +347,7 @@ argument_list|(
 argument|QMatrix4x4 *matrix
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:

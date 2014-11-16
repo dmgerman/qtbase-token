@@ -187,11 +187,13 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -306,30 +308,30 @@ block|;
 name|void
 name|childEvent
 argument_list|(
-name|QChildEvent
-operator|*
+argument|QChildEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|moveSplitter
@@ -459,50 +461,51 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|moveSplitter

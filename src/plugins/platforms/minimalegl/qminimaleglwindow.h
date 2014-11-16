@@ -48,15 +48,15 @@ block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRect
-operator|&
+argument|const QRect&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|WId
 name|winId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

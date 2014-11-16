@@ -497,9 +497,11 @@ name|~
 name|QProcessManager
 parameter_list|()
 destructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|run
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|void
 name|catchDeadChildren

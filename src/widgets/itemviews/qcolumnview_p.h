@@ -149,6 +149,7 @@ name|resizeEvent
 argument_list|(
 argument|QResizeEvent * event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -270,6 +271,7 @@ argument_list|(
 argument|const QModelIndex&
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QRect
@@ -287,6 +289,7 @@ modifier|&
 parameter_list|,
 name|ScrollHint
 parameter_list|)
+function|Q_DECL_OVERRIDE
 block|{     }
 end_function
 begin_decl_stmt
@@ -298,6 +301,7 @@ name|QPoint
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QModelIndex
@@ -315,6 +319,7 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QModelIndex
@@ -327,6 +332,7 @@ name|int
 name|horizontalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -338,6 +344,7 @@ name|int
 name|verticalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -353,6 +360,7 @@ name|QItemSelection
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QRegion
@@ -369,6 +377,7 @@ name|QModelIndex
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -387,6 +396,7 @@ name|QItemSelectionModel
 operator|::
 name|SelectionFlags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{     }
 end_decl_stmt
 begin_label
@@ -495,6 +505,7 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -575,6 +586,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

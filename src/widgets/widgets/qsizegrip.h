@@ -55,84 +55,81 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setVisible
 argument_list|(
-name|bool
+argument|bool
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|mouseEvent
+argument|QMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|moveEvent
 argument_list|(
-name|QMoveEvent
-operator|*
-name|moveEvent
+argument|QMoveEvent *moveEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
-name|showEvent
+argument|QShowEvent *showEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hideEvent
 argument_list|(
-name|QHideEvent
-operator|*
-name|hideEvent
+argument|QHideEvent *hideEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
+argument|QObject *
 argument_list|,
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 operator|:

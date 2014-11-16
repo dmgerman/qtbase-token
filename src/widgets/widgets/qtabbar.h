@@ -384,11 +384,13 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setDrawBase
@@ -606,58 +608,58 @@ block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
+argument|QShowEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hideEvent
 argument_list|(
-name|QHideEvent
-operator|*
+argument|QHideEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
+argument|QMouseEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -665,34 +667,32 @@ name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
-name|QWheelEvent
-operator|*
-name|event
+argument|QWheelEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
+argument|QKeyEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|event
+argument|QTimerEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|initStyleOption

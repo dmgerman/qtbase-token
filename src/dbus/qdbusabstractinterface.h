@@ -85,16 +85,13 @@ operator|:
 name|int
 name|qt_metacall
 argument_list|(
-name|QMetaObject
-operator|::
-name|Call
+argument|QMetaObject::Call
 argument_list|,
-name|int
+argument|int
 argument_list|,
-name|void
-operator|*
-operator|*
+argument|void**
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -480,20 +477,16 @@ block|;
 name|void
 name|connectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|disconnectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|internalPropGet

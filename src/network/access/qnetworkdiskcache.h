@@ -82,61 +82,51 @@ name|qint64
 name|cacheSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QNetworkCacheMetaData
 name|metaData
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateMetaData
 argument_list|(
-specifier|const
-name|QNetworkCacheMetaData
-operator|&
-name|metaData
+argument|const QNetworkCacheMetaData&metaData
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QIODevice
 operator|*
 name|data
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|remove
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QIODevice
 operator|*
 name|prepare
 argument_list|(
-specifier|const
-name|QNetworkCacheMetaData
-operator|&
-name|metaData
+argument|const QNetworkCacheMetaData&metaData
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|insert
 argument_list|(
-name|QIODevice
-operator|*
-name|device
+argument|QIODevice *device
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QNetworkCacheMetaData
 name|fileMetaData
@@ -151,6 +141,7 @@ operator|:
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

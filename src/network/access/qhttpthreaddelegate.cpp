@@ -654,11 +654,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|dispose
 specifier|virtual
 name|void
 name|dispose
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 if|#
 directive|if

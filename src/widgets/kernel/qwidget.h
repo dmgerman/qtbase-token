@@ -1048,6 +1048,7 @@ name|int
 name|devType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|WId
 name|winId
@@ -2995,6 +2996,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|void
 name|ensurePolished
@@ -3122,11 +3124,12 @@ label|:
 comment|// Event handlers
 name|bool
 name|event
-parameter_list|(
+argument_list|(
 name|QEvent
-modifier|*
-parameter_list|)
-function_decl|;
+operator|*
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|virtual
 name|void
 name|mousePressEvent
@@ -3377,6 +3380,7 @@ argument_list|(
 name|PaintDeviceMetric
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|void
 name|initPainter
@@ -3386,6 +3390,7 @@ operator|*
 name|painter
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|QPaintDevice
 modifier|*
@@ -3396,12 +3401,14 @@ operator|*
 name|offset
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|QPainter
 operator|*
 name|sharedPainter
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|virtual
 name|void

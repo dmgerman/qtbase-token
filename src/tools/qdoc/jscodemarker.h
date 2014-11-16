@@ -46,31 +46,25 @@ name|virtual
 name|bool
 name|recognizeCode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|code
+argument|const QString&code
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|recognizeExtension
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|ext
+argument|const QString&ext
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|recognizeLanguage
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|language
+argument|const QString&language
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|Atom
@@ -79,26 +73,19 @@ name|Type
 name|atomType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|markedUpCode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|code
+argument|const QString&code
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node *relative
 argument_list|,
-specifier|const
-name|Location
-operator|&
-name|location
+argument|const Location&location
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

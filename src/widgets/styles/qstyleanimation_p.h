@@ -74,6 +74,7 @@ name|int
 name|duration
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setDuration
@@ -153,6 +154,7 @@ name|updateCurrentTime
 argument_list|(
 argument|int time
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -219,6 +221,7 @@ name|bool
 name|isUpdateNeeded
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -281,6 +284,7 @@ name|bool
 name|isUpdateNeeded
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -362,6 +366,7 @@ name|updateCurrentTime
 argument_list|(
 argument|int time
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -428,6 +433,7 @@ name|updateCurrentTime
 argument_list|(
 argument|int time
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -223,11 +223,13 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -253,6 +255,7 @@ argument_list|(
 argument|int
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|openExternalLinks
@@ -387,86 +390,79 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|ev
+argument|QKeyEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|ev
+argument|QMouseEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|ev
+argument|QMouseEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|ev
+argument|QMouseEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
-name|ev
+argument|QContextMenuEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|ev
+argument|QFocusEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|ev
+argument|QFocusEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|focusNextPrevChild
 argument_list|(
 argument|bool next
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

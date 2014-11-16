@@ -1007,7 +1007,6 @@ comment|// don't clear the mouseTarget just yet, since we need to explicitly ung
 block|}
 block|}
 protected|protected:
-DECL|function|timerEvent
 name|void
 name|timerEvent
 parameter_list|(
@@ -1015,6 +1014,7 @@ name|QTimerEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(

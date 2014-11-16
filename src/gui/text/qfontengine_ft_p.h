@@ -653,6 +653,7 @@ name|FaceId
 name|faceId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFontEngine
@@ -661,18 +662,21 @@ name|Properties
 name|properties
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|emSquareSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|supportsSubPixelPositions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|default_hint_style
@@ -695,72 +699,84 @@ argument_list|,
 argument|uint *length
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
 name|synthesized
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|ascent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|descent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|leading
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|xHeight
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|averageCharWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qreal
 name|maxCharWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qreal
 name|minLeftBearing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qreal
 name|minRightBearing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|lineThickness
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFixed
 name|underlinePosition
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|glyph_t
@@ -769,6 +785,7 @@ argument_list|(
 argument|uint ucs4
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|doKerning
@@ -778,6 +795,7 @@ argument_list|,
 argument|ShaperFlags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -789,6 +807,7 @@ argument|QPainterPath *path
 argument_list|,
 argument|glyph_metrics_t *metrics
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -797,6 +816,7 @@ argument_list|(
 argument|const QTransform&transform
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -812,6 +832,7 @@ argument|QPainterPath *path
 argument_list|,
 argument|QTextItem::RenderFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -827,6 +848,7 @@ argument|QPainterPath *path
 argument_list|,
 argument|QTextItem::RenderFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -843,16 +865,15 @@ argument_list|,
 argument|ShaperFlags flags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
-specifier|const
-name|QGlyphLayout
-operator|&
-name|glyphs
+argument|const QGlyphLayout&glyphs
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|glyph_metrics_t
@@ -860,6 +881,7 @@ name|boundingBox
 argument_list|(
 argument|glyph_t glyph
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|glyph_metrics_t
@@ -869,6 +891,7 @@ argument|glyph_t glyph
 argument_list|,
 argument|const QTransform&matrix
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -879,6 +902,7 @@ argument_list|,
 argument|ShaperFlags flags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QImage
@@ -886,6 +910,7 @@ name|alphaMapForGlyph
 argument_list|(
 argument|glyph_t g
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|alphaMapForGlyph
@@ -900,10 +925,11 @@ name|virtual
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
-name|glyph_t
+argument|glyph_t
 argument_list|,
-name|QFixed
+argument|QFixed
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|alphaMapForGlyph
@@ -914,6 +940,7 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QImage
@@ -925,6 +952,7 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|glyph_metrics_t
@@ -938,6 +966,7 @@ argument|const QTransform&matrix
 argument_list|,
 argument|QFontEngine::GlyphFormat format
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QImage
@@ -954,12 +983,14 @@ argument|const QTransform&t
 argument_list|,
 argument|QPoint *offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|hasInternalCaching
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|cacheEnabled
@@ -969,6 +1000,7 @@ name|virtual
 name|void
 name|unlockAlphaMapForGlyph
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -976,6 +1008,7 @@ name|removeGlyphFromCache
 argument_list|(
 argument|glyph_t glyph
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
@@ -984,6 +1017,7 @@ argument_list|(
 argument|QFontEngine::GlyphFormat
 comment|/* format */
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -994,6 +1028,7 @@ name|int
 name|glyphCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 name|Scaling
 block|{
@@ -1198,6 +1233,7 @@ argument|QFixed *ypos
 argument_list|,
 argument|quint32 *nPoints
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -1205,6 +1241,7 @@ name|setDefaultHintStyle
 argument_list|(
 argument|HintStyle style
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QFontEngine
@@ -1214,6 +1251,7 @@ argument_list|(
 argument|qreal pixelSize
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|initFromFontEngine

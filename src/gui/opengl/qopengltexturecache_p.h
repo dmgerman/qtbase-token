@@ -208,14 +208,14 @@ block|;
 name|void
 name|invalidateResource
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|freeResource
 argument_list|(
-name|QOpenGLContext
-operator|*
-name|ctx
+argument|QOpenGLContext *ctx
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

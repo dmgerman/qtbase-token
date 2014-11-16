@@ -306,6 +306,7 @@ name|FaceId
 name|faceId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|face_id
@@ -321,6 +322,7 @@ argument_list|,
 argument|uint *length
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|glyph_t
@@ -329,6 +331,7 @@ argument_list|(
 argument|uint ucs4
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|stringToCMap
@@ -344,6 +347,7 @@ argument_list|,
 argument|ShaperFlags flags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|recalcAdvances
@@ -353,6 +357,7 @@ argument_list|,
 argument|ShaperFlags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addOutlineToPath
@@ -367,73 +372,83 @@ argument|QPainterPath *path
 argument_list|,
 argument|QTextItem::RenderFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
 argument|glyph_t t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
-specifier|const
-name|QGlyphLayout
-operator|&
-name|glyphs
+argument|const QGlyphLayout&glyphs
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
 argument|glyph_t glyph
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|ascent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|descent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|leading
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|maxCharWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|minLeftBearing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|minRightBearing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|underlinePosition
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|lineThickness
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
 name|glyphCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|glyphMapEntries

@@ -253,13 +253,13 @@ argument_list|()
 expr_stmt|;
 block|}
 protected|protected:
-DECL|function|paintEvent
 name|void
 name|paintEvent
 parameter_list|(
 name|QPaintEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QSize
 name|pageSize

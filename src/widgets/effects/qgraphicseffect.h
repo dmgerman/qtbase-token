@@ -393,10 +393,9 @@ operator|:
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -481,6 +480,7 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|blurRadius
@@ -526,10 +526,9 @@ operator|:
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -606,6 +605,7 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPointF
 name|offset
@@ -780,10 +780,9 @@ operator|:
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -886,10 +885,9 @@ operator|:
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -38,18 +38,16 @@ literal|"compose.json"
 argument_list|)
 decl|public
 range|:
+DECL|member|Q_DECL_OVERRIDE
 name|QComposeInputContext
 operator|*
 name|create
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&
 argument_list|,
-specifier|const
-name|QStringList
-operator|&
+argument|const QStringList&
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 block|}
 class|;

@@ -551,6 +551,7 @@ name|EGLConfig
 name|config
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_hooks

@@ -1315,10 +1315,9 @@ block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QDropEvent
-operator|*
-name|event
+argument|QDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|Q_SLOTS
@@ -1421,10 +1420,9 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QStringList
@@ -1496,10 +1494,9 @@ operator|:
 name|void
 name|setModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|model
+argument|QAbstractItemModel *model
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::

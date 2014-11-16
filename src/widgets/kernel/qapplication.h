@@ -795,12 +795,11 @@ block|;
 name|bool
 name|notify
 argument_list|(
-name|QObject
-operator|*
+argument|QObject *
 argument_list|,
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifdef|#
 directive|ifdef
@@ -914,23 +913,20 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|compressEvent
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|,
-name|QObject
-operator|*
-name|receiver
+argument|QObject *receiver
 argument_list|,
-name|QPostEventList
-operator|*
+argument|QPostEventList *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -1119,25 +1119,18 @@ block|;
 name|void
 name|remove
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|key
+argument|const QString&key
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|set
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|key
+argument|const QString&key
 argument_list|,
-specifier|const
-name|QVariant
-operator|&
-name|value
+argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|get
@@ -1147,6 +1140,7 @@ argument_list|,
 argument|QVariant *value
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|children
@@ -1156,28 +1150,34 @@ argument_list|,
 argument|ChildSpec spec
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|sync
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|flush
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isWritable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|fileName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|readIniFile

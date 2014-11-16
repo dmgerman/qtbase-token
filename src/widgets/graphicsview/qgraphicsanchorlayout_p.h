@@ -596,10 +596,12 @@ block|;
 endif|#
 directive|endif
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|virtual
 name|void
 name|updateChildrenSizes
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|calculateSizeHints
@@ -761,10 +763,12 @@ block|;
 endif|#
 directive|endif
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|virtual
 name|void
 name|updateChildrenSizes
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|calculateSizeHints

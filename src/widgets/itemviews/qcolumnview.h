@@ -75,6 +75,7 @@ argument_list|(
 argument|const QPoint&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollTo
@@ -83,11 +84,13 @@ argument|const QModelIndex&index
 argument_list|,
 argument|ScrollHint hint = EnsureVisible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|visualRect
@@ -95,35 +98,33 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|model
+argument|QAbstractItemModel *model
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSelectionModel
 argument_list|(
-name|QItemSelectionModel
-operator|*
-name|selectionModel
+argument|QItemSelectionModel * selectionModel
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setRootIndex
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|index
+argument|const QModelIndex&index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|selectAll
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 comment|// QColumnView functions
 name|void
@@ -193,6 +194,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|moveCursor
@@ -201,14 +203,14 @@ argument|CursorAction cursorAction
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|event
+argument|QResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSelection
@@ -217,6 +219,7 @@ argument|const QRect& rect
 argument_list|,
 argument|QItemSelectionModel::SelectionFlags command
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QRegion
 name|visualRegionForSelection
@@ -224,16 +227,19 @@ argument_list|(
 argument|const QItemSelection&selection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|horizontalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|verticalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|rowsInserted
@@ -244,20 +250,16 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|currentChanged
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|current
+argument|const QModelIndex&current
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
-name|previous
+argument|const QModelIndex&previous
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// QColumnView functions
 name|void
@@ -267,6 +269,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QAbstractItemView

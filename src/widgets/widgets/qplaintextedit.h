@@ -626,6 +626,7 @@ argument_list|(
 argument|Qt::InputMethodQuery property
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_INVOKABLE
 name|QVariant
@@ -785,91 +786,81 @@ name|virtual
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|e
+argument|QTimerEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|e
+argument|QKeyEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|keyReleaseEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|e
+argument|QKeyEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|e
+argument|QResizeEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|e
+argument|QPaintEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|e
+argument|QMouseEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -877,6 +868,7 @@ name|focusNextPrevChild
 argument_list|(
 argument|bool next
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -885,10 +877,9 @@ name|virtual
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
-name|e
+argument|QContextMenuEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -899,37 +890,33 @@ name|virtual
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QDragEnterEvent
-operator|*
-name|e
+argument|QDragEnterEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|dragLeaveEvent
 argument_list|(
-name|QDragLeaveEvent
-operator|*
-name|e
+argument|QDragLeaveEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QDragMoveEvent
-operator|*
-name|e
+argument|QDragMoveEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|dropEvent
 argument_list|(
-name|QDropEvent
-operator|*
-name|e
+argument|QDropEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -937,36 +924,33 @@ name|virtual
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|e
+argument|QFocusEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|e
+argument|QFocusEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
+argument|QShowEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -975,10 +959,9 @@ name|virtual
 name|void
 name|wheelEvent
 argument_list|(
-name|QWheelEvent
-operator|*
-name|e
+argument|QWheelEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -1011,9 +994,9 @@ name|virtual
 name|void
 name|inputMethodEvent
 argument_list|(
-name|QInputMethodEvent
-operator|*
+argument|QInputMethodEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlainTextEdit
 argument_list|(
@@ -1034,6 +1017,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -1157,13 +1141,11 @@ block|;
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
+argument|QPainter *
 argument_list|,
-specifier|const
-name|PaintContext
-operator|&
+argument|const PaintContext&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|hitTest
@@ -1173,16 +1155,19 @@ argument_list|,
 argument|Qt::HitTestAccuracy
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|pageCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSizeF
 name|documentSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRectF
 name|frameBoundingRect
@@ -1190,6 +1175,7 @@ argument_list|(
 argument|QTextFrame *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRectF
 name|blockBoundingRect
@@ -1197,6 +1183,7 @@ argument_list|(
 argument|const QTextBlock&block
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|ensureBlockLayout
@@ -1232,6 +1219,7 @@ comment|/*charsRemoved*/
 argument_list|,
 argument|int charsAdded
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

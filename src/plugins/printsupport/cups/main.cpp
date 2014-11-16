@@ -48,6 +48,7 @@ name|keys
 argument_list|()
 specifier|const
 decl_stmt|;
+DECL|member|Q_DECL_OVERRIDE
 name|QPlatformPrinterSupport
 modifier|*
 name|create
@@ -56,6 +57,7 @@ specifier|const
 name|QString
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

@@ -350,19 +350,21 @@ name|virtual
 name|void
 name|notifyLayoutDirectionChange
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|notifyActiveWindowChange
 argument_list|(
-name|QWindow
-operator|*
+argument|QWindow *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|shouldQuit
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|tryCloseAllWindows
@@ -413,6 +415,7 @@ block|;
 name|void
 name|createEventDispatcher
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|void
@@ -684,6 +687,7 @@ operator|:
 name|void
 name|notifyThemeChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -691,10 +695,9 @@ name|QT_NO_DRAGANDDROP
 name|void
 name|notifyDragStarted
 argument_list|(
-specifier|const
-name|QDrag
-operator|*
+argument|const QDrag *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -1248,6 +1251,7 @@ operator|&
 name|base
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 end_decl_stmt
 begin_label

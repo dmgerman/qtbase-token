@@ -84,36 +84,29 @@ name|QGesture
 operator|*
 name|create
 argument_list|(
-name|QObject
-operator|*
-name|target
+argument|QObject *target
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QGestureRecognizer
 operator|::
 name|Result
 name|recognize
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|,
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -139,36 +132,29 @@ name|QGesture
 operator|*
 name|create
 argument_list|(
-name|QObject
-operator|*
-name|target
+argument|QObject *target
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QGestureRecognizer
 operator|::
 name|Result
 name|recognize
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|,
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -188,36 +174,29 @@ name|QGesture
 operator|*
 name|create
 argument_list|(
-name|QObject
-operator|*
-name|target
+argument|QObject *target
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QGestureRecognizer
 operator|::
 name|Result
 name|recognize
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|,
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -237,36 +216,29 @@ name|QGesture
 operator|*
 name|create
 argument_list|(
-name|QObject
-operator|*
-name|target
+argument|QObject *target
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QGestureRecognizer
 operator|::
 name|Result
 name|recognize
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|,
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -286,36 +258,29 @@ name|QGesture
 operator|*
 name|create
 argument_list|(
-name|QObject
-operator|*
-name|target
+argument|QObject *target
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QGestureRecognizer
 operator|::
 name|Result
 name|recognize
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|,
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|(
-name|QGesture
-operator|*
-name|state
+argument|QGesture *state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

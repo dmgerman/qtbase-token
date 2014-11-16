@@ -80,6 +80,7 @@ parameter_list|,
 name|int
 name|column
 parameter_list|,
+DECL|member|Q_DECL_OVERRIDE
 specifier|const
 name|QModelIndex
 modifier|&
@@ -89,7 +90,9 @@ name|QModelIndex
 argument_list|()
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QModelIndex
 name|parent
@@ -100,7 +103,9 @@ modifier|&
 name|child
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|int
 name|rowCount
@@ -114,7 +119,9 @@ name|QModelIndex
 argument_list|()
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|int
 name|columnCount
@@ -128,7 +135,9 @@ name|QModelIndex
 argument_list|()
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QVariant
 name|data
@@ -146,6 +155,7 @@ operator|::
 name|DisplayRole
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|QModelIndex
 name|selectedIndex

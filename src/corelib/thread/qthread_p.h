@@ -1066,6 +1066,7 @@ operator|:
 name|void
 name|run
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

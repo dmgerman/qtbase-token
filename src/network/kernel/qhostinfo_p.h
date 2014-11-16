@@ -452,6 +452,7 @@ block|;
 name|void
 name|run
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|toBeLookedUp
@@ -521,6 +522,7 @@ block|;
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|work

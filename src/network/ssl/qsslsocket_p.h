@@ -838,6 +838,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxSize
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QByteArray
@@ -845,6 +846,7 @@ name|peek
 argument_list|(
 argument|qint64 maxSize
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// Platform specific functions
 name|virtual

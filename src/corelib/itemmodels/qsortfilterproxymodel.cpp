@@ -1547,10 +1547,12 @@ name|bool
 name|remove
 parameter_list|)
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|_q_sourceModelDestroyed
 parameter_list|()
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

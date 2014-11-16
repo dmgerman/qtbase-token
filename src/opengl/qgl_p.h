@@ -456,6 +456,7 @@ block|;
 name|void
 name|aboutToDestroy
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -1951,6 +1952,7 @@ operator|:
 name|void
 name|invalidateResource
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|m_id
 operator|=
@@ -1961,6 +1963,7 @@ name|freeResource
 argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -2043,6 +2046,7 @@ argument|QGLContext *ctx
 argument_list|,
 argument|GLuint id
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_func
 argument_list|(

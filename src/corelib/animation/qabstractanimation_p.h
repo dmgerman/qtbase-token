@@ -261,10 +261,9 @@ block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|e
+argument|QTimerEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|Q_SLOTS
@@ -556,9 +555,9 @@ operator|:
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
+argument|QTimerEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 name|Q_SLOTS
@@ -733,17 +732,20 @@ block|;
 name|void
 name|restartAnimationTimer
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateAnimationsTime
 argument_list|(
 argument|qint64 delta
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|//useful for profiling/debugging
 name|int
 name|runningAnimationCount
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|animations

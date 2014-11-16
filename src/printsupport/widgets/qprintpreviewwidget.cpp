@@ -180,6 +180,7 @@ return|return
 name|pageNum
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|paint
 parameter_list|(
@@ -196,6 +197,7 @@ name|QWidget
 modifier|*
 name|widget
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|pageNum
@@ -703,7 +705,6 @@ name|resized
 parameter_list|()
 function_decl|;
 protected|protected:
-DECL|function|resizeEvent
 name|void
 name|resizeEvent
 parameter_list|(
@@ -711,6 +712,7 @@ name|QResizeEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 block|{
 specifier|const
@@ -735,7 +737,6 @@ name|resized
 argument_list|()
 emit|;
 block|}
-DECL|function|showEvent
 name|void
 name|showEvent
 parameter_list|(
@@ -743,6 +744,7 @@ name|QShowEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QGraphicsView
 operator|::

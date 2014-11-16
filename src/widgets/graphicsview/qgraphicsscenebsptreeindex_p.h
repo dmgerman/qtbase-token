@@ -145,6 +145,7 @@ argument_list|,
 argument|Qt::SortOrder order
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -158,6 +159,7 @@ argument_list|,
 argument|Qt::SortOrder order
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -169,6 +171,7 @@ argument_list|(
 argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|bspTreeDepth
@@ -187,50 +190,44 @@ operator|:
 name|void
 name|updateSceneRect
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addItem
 argument_list|(
-name|QGraphicsItem
-operator|*
-name|item
+argument|QGraphicsItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|removeItem
 argument_list|(
-name|QGraphicsItem
-operator|*
-name|item
+argument|QGraphicsItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|prepareBoundingRectChange
 argument_list|(
-specifier|const
-name|QGraphicsItem
-operator|*
-name|item
+argument|const QGraphicsItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|itemChange
@@ -241,6 +238,7 @@ argument|QGraphicsItem::GraphicsItemChange change
 argument_list|,
 argument|const void *const value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -212,6 +212,7 @@ argument_list|,
 argument|int&
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fixup
@@ -219,6 +220,7 @@ argument_list|(
 argument|QString&input
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setBottom
@@ -372,6 +374,7 @@ argument_list|,
 argument|int&
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -543,6 +546,7 @@ argument_list|,
 argument|int& pos
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setRegExp

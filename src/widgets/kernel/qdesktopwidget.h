@@ -199,10 +199,9 @@ operator|:
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|e
+argument|QResizeEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

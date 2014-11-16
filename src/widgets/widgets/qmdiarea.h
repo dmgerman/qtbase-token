@@ -148,11 +148,13 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QMdiSubWindow
 operator|*
@@ -365,80 +367,69 @@ operator|:
 name|void
 name|setupViewport
 argument_list|(
-name|QWidget
-operator|*
-name|viewport
+argument|QWidget *viewport
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|paintEvent
+argument|QPaintEvent *paintEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|childEvent
 argument_list|(
-name|QChildEvent
-operator|*
-name|childEvent
+argument|QChildEvent *childEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|resizeEvent
+argument|QResizeEvent *resizeEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|timerEvent
+argument|QTimerEvent *timerEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
-name|showEvent
+argument|QShowEvent *showEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|viewportEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollContentsBy
@@ -447,6 +438,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -108,12 +108,13 @@ expr_stmt|;
 name|virtual
 name|void
 name|notifyAccessibilityUpdate
-parameter_list|(
+argument_list|(
 name|QAccessibleEvent
-modifier|*
+operator|*
 name|event
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QDBusConnection
 name|dBusConnection
 argument_list|()

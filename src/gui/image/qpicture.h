@@ -84,6 +84,7 @@ name|int
 name|devType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|uint
 name|size
@@ -332,6 +333,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -348,6 +350,7 @@ argument_list|(
 argument|PaintDeviceMetric m
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

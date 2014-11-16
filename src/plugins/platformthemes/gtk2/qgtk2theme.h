@@ -53,6 +53,7 @@ argument_list|(
 argument|DialogType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformDialogHelper
 operator|*
@@ -61,6 +62,7 @@ argument_list|(
 argument|DialogType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 specifier|const

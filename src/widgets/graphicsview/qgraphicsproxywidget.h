@@ -80,28 +80,20 @@ block|;
 name|void
 name|setGeometry
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -113,6 +105,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QGraphicsProxyWidget
 operator|*
@@ -132,42 +125,37 @@ argument|GraphicsItemChange change
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
-name|event
+argument|QShowEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hideEvent
 argument_list|(
-name|QHideEvent
-operator|*
-name|event
+argument|QHideEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -175,10 +163,9 @@ name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QGraphicsSceneContextMenuEvent
-operator|*
-name|event
+argument|QGraphicsSceneContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -188,108 +175,95 @@ name|QT_NO_DRAGANDDROP
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragLeaveEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|hoverEnterEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hoverLeaveEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hoverMoveEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|grabMouseEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|ungrabMouseEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -297,50 +271,46 @@ name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 argument_list|(
-name|QGraphicsSceneWheelEvent
-operator|*
-name|event
+argument|QGraphicsSceneWheelEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyReleaseEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|focusNextPrevChild
 argument_list|(
 argument|bool next
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|inputMethodQuery
@@ -348,14 +318,14 @@ argument_list|(
 argument|Qt::InputMethodQuery query
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|inputMethodEvent
 argument_list|(
-name|QInputMethodEvent
-operator|*
-name|event
+argument|QInputMethodEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QSizeF
 name|sizeHint
@@ -365,14 +335,14 @@ argument_list|,
 argument|const QSizeF&constraint = QSizeF()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QGraphicsSceneResizeEvent
-operator|*
-name|event
+argument|QGraphicsSceneResizeEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 name|Q_SLOTS

@@ -264,11 +264,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|function|dispose
 specifier|virtual
 name|void
 name|dispose
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 operator|delete
 name|this

@@ -161,6 +161,7 @@ name|freeResource
 argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QOpenGLContext
 operator|*
@@ -232,6 +233,9 @@ unit|}      void
 name|invalidateResource
 argument_list|()
 end_macro
+begin_macro
+name|Q_DECL_OVERRIDE
+end_macro
 begin_block
 block|{
 name|m_texture
@@ -302,6 +306,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -311,6 +316,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -322,24 +328,28 @@ argument|glyph_t glyph
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
 name|glyphPadding
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
 name|maxTextureWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|int
 name|maxTextureHeight
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|GLuint

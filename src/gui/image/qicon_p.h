@@ -355,6 +355,7 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|pixmap
@@ -365,6 +366,7 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmapIconEngineEntry
 operator|*
@@ -388,6 +390,7 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addPixmap
@@ -398,6 +401,7 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addFile
@@ -410,25 +414,27 @@ argument|QIcon::Mode mode
 argument_list|,
 argument|QIcon::State state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|key
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QIconEngine
 operator|*
 name|clone
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|read
 argument_list|(
-name|QDataStream
-operator|&
-name|in
+argument|QDataStream&in
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|write
@@ -436,6 +442,7 @@ argument_list|(
 argument|QDataStream&out
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|virtual_hook
@@ -444,6 +451,7 @@ argument|int id
 argument_list|,
 argument|void *data
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

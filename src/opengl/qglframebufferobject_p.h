@@ -275,6 +275,7 @@ operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|fbo
@@ -288,6 +289,7 @@ name|QSize
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|fbo
@@ -302,12 +304,14 @@ operator|*
 name|context
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QGLFormat
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|fboFormat
@@ -318,6 +322,7 @@ name|bool
 name|alphaRequested
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|reqAlpha

@@ -144,18 +144,21 @@ name|virtual
 name|void
 name|abort
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 comment|// reimplemented from QNetworkReply / QIODevice
 name|virtual
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -163,12 +166,14 @@ name|setReadBufferSize
 argument_list|(
 argument|qint64 size
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|qint64
@@ -178,14 +183,15 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_DECLARE_PRIVATE
 argument_list|(
@@ -255,33 +261,28 @@ argument_list|(
 argument|QSslConfiguration&configuration
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSslConfigurationImplementation
 argument_list|(
-specifier|const
-name|QSslConfiguration
-operator|&
-name|configuration
+argument|const QSslConfiguration&configuration
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|ignoreSslErrors
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|ignoreSslErrorsImplementation
 argument_list|(
-specifier|const
-name|QList
-operator|<
-name|QSslError
-operator|>
-operator|&
-name|errors
+argument|const QList<QSslError>&errors
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -838,6 +839,7 @@ block|;
 name|void
 name|abort
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{ }
 name|protected
 operator|:
@@ -848,6 +850,7 @@ argument|char *
 argument_list|,
 argument|qint64
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|-

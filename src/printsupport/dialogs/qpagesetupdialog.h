@@ -107,6 +107,7 @@ name|virtual
 name|int
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 ifdef|#
 directive|ifdef
@@ -152,6 +153,7 @@ name|done
 argument_list|(
 argument|int result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPrinter
 operator|*

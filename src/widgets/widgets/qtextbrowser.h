@@ -114,6 +114,7 @@ argument|int type
 argument_list|,
 argument|const QUrl&name
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isBackwardAvailable
@@ -263,55 +264,49 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|ev
+argument|QKeyEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|ev
+argument|QMouseEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|ev
+argument|QMouseEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|ev
+argument|QMouseEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|ev
+argument|QFocusEvent *ev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -319,15 +314,15 @@ name|focusNextPrevChild
 argument_list|(
 argument|bool next
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|e
+argument|QPaintEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

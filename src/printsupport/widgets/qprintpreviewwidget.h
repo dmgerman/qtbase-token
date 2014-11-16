@@ -132,6 +132,7 @@ name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|public
 name|Q_SLOTS

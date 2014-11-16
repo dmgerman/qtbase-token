@@ -269,7 +269,6 @@ name|row
 argument_list|)
 return|;
 block|}
-DECL|function|currentChanged
 name|void
 name|currentChanged
 parameter_list|(
@@ -283,6 +282,7 @@ name|QModelIndex
 modifier|&
 name|previous
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QListView
 operator|::

@@ -309,6 +309,7 @@ argument|QObject *o
 argument_list|,
 argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(

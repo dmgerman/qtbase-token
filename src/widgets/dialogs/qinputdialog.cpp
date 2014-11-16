@@ -337,7 +337,6 @@ argument_list|)
 emit|;
 block|}
 private|private:
-DECL|function|keyPressEvent
 name|void
 name|keyPressEvent
 parameter_list|(
@@ -345,6 +344,7 @@ name|QKeyEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -403,7 +403,6 @@ name|notifyTextChanged
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|mousePressEvent
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -411,6 +410,7 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QSpinBox
 operator|::
@@ -517,7 +517,6 @@ argument_list|)
 emit|;
 block|}
 private|private:
-DECL|function|keyPressEvent
 name|void
 name|keyPressEvent
 parameter_list|(
@@ -525,6 +524,7 @@ name|QKeyEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -583,7 +583,6 @@ name|notifyTextChanged
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|mousePressEvent
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -591,6 +590,7 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QDoubleSpinBox
 operator|::

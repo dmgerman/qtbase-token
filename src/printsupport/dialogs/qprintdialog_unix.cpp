@@ -198,6 +198,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|showEvent
 parameter_list|(
@@ -205,6 +206,7 @@ name|QShowEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 friend|friend
@@ -492,6 +494,7 @@ name|void
 name|updateWidgets
 parameter_list|()
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|setTabs
@@ -505,6 +508,7 @@ argument_list|>
 modifier|&
 name|tabs
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 DECL|member|options
 name|Ui

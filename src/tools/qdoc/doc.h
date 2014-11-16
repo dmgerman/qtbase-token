@@ -342,6 +342,7 @@ name|bool
 name|isMapRef
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -354,6 +355,7 @@ operator|*
 name|subrefs
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|&
@@ -366,6 +368,7 @@ name|appendSubref
 argument_list|(
 argument|DitaRef* t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|subrefs_
 operator|.
@@ -402,6 +405,7 @@ name|bool
 name|isMapRef
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true

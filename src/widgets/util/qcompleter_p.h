@@ -820,16 +820,13 @@ block|{ }
 name|QMatchData
 name|filter
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
+argument|const QModelIndex&
 argument_list|,
-name|int
+argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QIndexMapper
 name|indexHint
@@ -880,22 +877,20 @@ block|{ }
 name|void
 name|filterOnDemand
 argument_list|(
-name|int
+argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QMatchData
 name|filter
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
+argument|const QModelIndex&
 argument_list|,
-name|int
+argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -951,6 +946,7 @@ argument_list|,
 argument|const QModelIndex& idx
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|QStyleOptionViewItem
 name|optCopy
@@ -1084,6 +1080,7 @@ argument_list|,
 argument|const QModelIndex& = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
@@ -1091,6 +1088,7 @@ argument_list|(
 argument|const QModelIndex&index = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|columnCount
@@ -1098,6 +1096,7 @@ argument_list|(
 argument|const QModelIndex&index = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasChildren
@@ -1105,6 +1104,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|parent
@@ -1112,6 +1112,7 @@ argument_list|(
 argument|const QModelIndex& = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QModelIndex
@@ -1126,14 +1127,14 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSourceModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|sourceModel
+argument|QAbstractItemModel *sourceModel
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|mapToSource
@@ -1141,6 +1142,7 @@ argument_list|(
 argument|const QModelIndex& proxyIndex
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|mapFromSource
@@ -1148,6 +1150,7 @@ argument_list|(
 argument|const QModelIndex& sourceIndex
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QCompleterPrivate
 operator|*

@@ -98,6 +98,7 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|setUniforms
 parameter_list|(
@@ -105,6 +106,7 @@ name|QGLShaderProgram
 modifier|*
 name|program
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 DECL|member|effect
 name|QGraphicsShaderEffect

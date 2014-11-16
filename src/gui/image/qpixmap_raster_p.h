@@ -73,6 +73,7 @@ operator|*
 name|createCompatiblePlatformPixmap
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resize
@@ -81,6 +82,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|fromData
@@ -93,6 +95,7 @@ argument|const char *format
 argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fromImage
@@ -101,6 +104,7 @@ argument|const QImage&image
 argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fromImageInPlace
@@ -109,6 +113,7 @@ argument|QImage&image
 argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fromImageReader
@@ -117,20 +122,16 @@ argument|QImageReader *imageReader
 argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|copy
 argument_list|(
-specifier|const
-name|QPlatformPixmap
-operator|*
-name|data
+argument|const QPlatformPixmap *data
 argument_list|,
-specifier|const
-name|QRect
-operator|&
-name|rect
+argument|const QRect&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|scroll
@@ -141,25 +142,26 @@ argument|int dy
 argument_list|,
 argument|const QRect&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fill
 argument_list|(
-specifier|const
-name|QColor
-operator|&
-name|color
+argument|const QColor&color
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasAlphaChannel
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|toImage
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|toImage
@@ -167,28 +169,33 @@ argument_list|(
 argument|const QRect&rect
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPaintEngine
 operator|*
 name|paintEngine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 operator|*
 name|buffer
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setDevicePixelRatio
 argument_list|(
 argument|qreal scaleFactor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -198,6 +205,7 @@ argument_list|(
 argument|QPaintDevice::PaintDeviceMetric metric
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|createPixmapForImage

@@ -84,6 +84,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|columnCount
@@ -91,6 +92,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlRecord
 name|record
@@ -112,6 +114,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|headerData
@@ -123,6 +126,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setHeaderData
@@ -135,6 +139,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertColumns
@@ -145,6 +150,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeColumns
@@ -155,6 +161,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setQuery
@@ -200,14 +207,9 @@ block|;
 name|void
 name|fetchMore
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|parent
-operator|=
-name|QModelIndex
-argument_list|()
+argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|canFetchMore
@@ -215,6 +217,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

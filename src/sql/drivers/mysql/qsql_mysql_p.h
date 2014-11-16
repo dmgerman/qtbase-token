@@ -160,6 +160,7 @@ name|QVariant
 name|handle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -172,57 +173,65 @@ name|fetch
 argument_list|(
 argument|int i
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|fetchNext
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|fetchLast
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|fetchFirst
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
 argument_list|(
 argument|int field
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isNull
 argument_list|(
 argument|int field
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|reset
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|query
+argument|const QString& query
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|size
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|numRowsAffected
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|lastInsertId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlRecord
 name|record
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|virtual_hook
@@ -231,10 +240,12 @@ argument|int id
 argument_list|,
 argument|void *data
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|nextResult
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 if|#
 directive|if
@@ -244,15 +255,14 @@ literal|40108
 name|bool
 name|prepare
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|stmt
+argument|const QString& stmt
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -317,6 +327,7 @@ argument_list|(
 argument|DriverFeature f
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|open
@@ -333,16 +344,19 @@ argument|int port
 argument_list|,
 argument|const QString& connOpts
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlResult
 operator|*
 name|createResult
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|tables
@@ -350,6 +364,7 @@ argument_list|(
 argument|QSql::TableType
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlIndex
 name|primaryIndex
@@ -357,6 +372,7 @@ argument_list|(
 argument|const QString& tablename
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSqlRecord
 name|record
@@ -364,6 +380,7 @@ argument_list|(
 argument|const QString& tablename
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|formatValue
@@ -373,11 +390,13 @@ argument_list|,
 argument|bool trimStrings
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|handle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|escapeIdentifier
@@ -387,6 +406,7 @@ argument_list|,
 argument|IdentifierType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isIdentifierEscaped
@@ -396,20 +416,24 @@ argument_list|,
 argument|IdentifierType type
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|bool
 name|beginTransaction
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|commitTransaction
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|rollbackTransaction
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

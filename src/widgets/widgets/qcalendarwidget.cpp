@@ -325,6 +325,7 @@ public|public:
 name|QCalendarDayValidator
 parameter_list|()
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|Section
 name|handleKey
@@ -332,7 +333,9 @@ parameter_list|(
 name|int
 name|key
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QDate
 name|applyToDate
@@ -343,7 +346,9 @@ modifier|&
 name|date
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|setDate
@@ -353,13 +358,17 @@ name|QDate
 modifier|&
 name|date
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|text
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|text
@@ -373,6 +382,7 @@ name|int
 name|repeat
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|m_pos
@@ -950,6 +960,7 @@ public|public:
 name|QCalendarMonthValidator
 parameter_list|()
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|Section
 name|handleKey
@@ -957,7 +968,9 @@ parameter_list|(
 name|int
 name|key
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QDate
 name|applyToDate
@@ -968,7 +981,9 @@ modifier|&
 name|date
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|setDate
@@ -978,13 +993,17 @@ name|QDate
 modifier|&
 name|date
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|text
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|text
@@ -998,6 +1017,7 @@ name|int
 name|repeat
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|m_pos
@@ -1584,6 +1604,7 @@ public|public:
 name|QCalendarYearValidator
 parameter_list|()
 constructor_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|Section
 name|handleKey
@@ -1591,7 +1612,9 @@ parameter_list|(
 name|int
 name|key
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QDate
 name|applyToDate
@@ -1602,7 +1625,9 @@ modifier|&
 name|date
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|setDate
@@ -1612,13 +1637,17 @@ name|QDate
 modifier|&
 name|date
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|text
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QString
 name|text
@@ -1632,6 +1661,7 @@ name|int
 name|repeat
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 name|int
@@ -3376,6 +3406,7 @@ modifier|&
 name|date
 parameter_list|)
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|eventFilter
 parameter_list|(
@@ -3387,7 +3418,9 @@ name|QEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|timerEvent
 parameter_list|(
@@ -3395,6 +3428,7 @@ name|QTimerEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 signals|signals:
 name|void
@@ -4136,7 +4170,6 @@ init|=
 literal|0
 parameter_list|)
 constructor_decl|;
-DECL|function|rowCount
 name|int
 name|rowCount
 parameter_list|(
@@ -4145,6 +4178,7 @@ name|QModelIndex
 modifier|&
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|RowCount
@@ -4152,7 +4186,6 @@ operator|+
 name|m_firstRow
 return|;
 block|}
-DECL|function|columnCount
 name|int
 name|columnCount
 parameter_list|(
@@ -4161,6 +4194,7 @@ name|QModelIndex
 modifier|&
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|ColumnCount
@@ -4168,6 +4202,7 @@ operator|+
 name|m_firstColumn
 return|;
 block|}
+DECL|member|Q_DECL_OVERRIDE
 name|QVariant
 name|data
 parameter_list|(
@@ -4180,7 +4215,9 @@ name|int
 name|role
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|Qt
 operator|::
 name|ItemFlags
@@ -4192,8 +4229,8 @@ modifier|&
 name|index
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|insertRows
 name|bool
 name|insertRows
 parameter_list|(
@@ -4211,6 +4248,7 @@ init|=
 name|QModelIndex
 argument_list|()
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|beginInsertRows
 argument_list|(
@@ -4232,7 +4270,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|function|insertColumns
 name|bool
 name|insertColumns
 parameter_list|(
@@ -4250,6 +4287,7 @@ init|=
 name|QModelIndex
 argument_list|()
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|beginInsertColumns
 argument_list|(
@@ -4271,7 +4309,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|function|removeRows
 name|bool
 name|removeRows
 parameter_list|(
@@ -4289,6 +4326,7 @@ init|=
 name|QModelIndex
 argument_list|()
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|beginRemoveRows
 argument_list|(
@@ -4310,7 +4348,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|function|removeColumns
 name|bool
 name|removeColumns
 parameter_list|(
@@ -4328,6 +4365,7 @@ init|=
 name|QModelIndex
 argument_list|()
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|beginRemoveColumns
 argument_list|(
@@ -4649,7 +4687,6 @@ name|bool
 name|enable
 parameter_list|)
 function_decl|;
-DECL|function|keyboardSearch
 specifier|virtual
 name|void
 name|keyboardSearch
@@ -4659,6 +4696,7 @@ name|QString
 modifier|&
 name|search
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -4701,6 +4739,7 @@ name|editingFinished
 parameter_list|()
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|QModelIndex
 name|moveCursor
 parameter_list|(
@@ -4712,7 +4751,9 @@ operator|::
 name|KeyboardModifiers
 name|modifiers
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseDoubleClickEvent
 parameter_list|(
@@ -4720,7 +4761,9 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mousePressEvent
 parameter_list|(
@@ -4728,7 +4771,9 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseMoveEvent
 parameter_list|(
@@ -4736,7 +4781,9 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|mouseReleaseEvent
 parameter_list|(
@@ -4744,10 +4791,12 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|wheelEvent
 parameter_list|(
@@ -4755,9 +4804,11 @@ name|QWheelEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 endif|#
 directive|endif
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|keyPressEvent
 parameter_list|(
@@ -4765,7 +4816,9 @@ name|QKeyEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|event
 parameter_list|(
@@ -4773,6 +4826,7 @@ name|QEvent
 modifier|*
 name|event
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|QDate
 name|handleMouseEvent
@@ -7906,12 +7960,14 @@ name|QStyleOptionViewItem
 modifier|&
 name|option
 parameter_list|,
+DECL|member|Q_DECL_OVERRIDE
 specifier|const
 name|QModelIndex
 modifier|&
 name|index
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 name|void
 name|paintCell
@@ -7968,7 +8024,6 @@ name|parent
 argument_list|)
 block|{  }
 protected|protected:
-DECL|function|paintEvent
 name|void
 name|paintEvent
 parameter_list|(
@@ -7976,6 +8031,7 @@ name|QPaintEvent
 modifier|*
 name|e
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -8083,13 +8139,13 @@ name|parent
 argument_list|)
 block|{}
 protected|protected:
-DECL|function|paintEvent
 name|void
 name|paintEvent
 parameter_list|(
 name|QPaintEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|QStylePainter
 name|painter

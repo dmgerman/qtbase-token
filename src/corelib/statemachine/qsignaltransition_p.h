@@ -93,10 +93,9 @@ name|virtual
 name|void
 name|callOnTransition
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|const
 name|QObject

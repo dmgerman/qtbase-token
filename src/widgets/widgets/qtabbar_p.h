@@ -435,11 +435,9 @@ block|; }
 name|void
 name|updateCurrentValue
 argument_list|(
-specifier|const
-name|QVariant
-operator|&
-name|current
+argument|const QVariant&current
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateState
@@ -448,6 +446,7 @@ argument|State
 argument_list|,
 argument|State newState
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -1216,6 +1215,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QSize
@@ -1231,26 +1231,23 @@ block|}
 name|void
 name|enterEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|leaveEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|event
+argument|QPaintEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

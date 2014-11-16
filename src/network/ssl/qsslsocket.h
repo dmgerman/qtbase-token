@@ -131,6 +131,7 @@ block|;
 name|void
 name|resume
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 comment|// to continue after proxy authentication required, SSL errors etc.
 comment|// Autostarting the SSL client handshake.
@@ -169,6 +170,7 @@ argument|SocketState state = ConnectedState
 argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|using
 name|QAbstractSocket
@@ -186,10 +188,12 @@ argument|OpenMode openMode = ReadWrite
 argument_list|,
 argument|NetworkLayerProtocol protocol = AnyIPProtocol
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|disconnectFromHost
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -199,6 +203,7 @@ argument|QAbstractSocket::SocketOption option
 argument_list|,
 argument|const QVariant&value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QVariant
@@ -206,6 +211,7 @@ name|socketOption
 argument_list|(
 argument|QAbstractSocket::SocketOption option
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|SslMode
 name|mode
@@ -273,25 +279,30 @@ name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|bytesToWrite
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|canReadLine
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|atEnd
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|flush
@@ -307,6 +318,7 @@ name|setReadBufferSize
 argument_list|(
 argument|qint64 size
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// Similar to QIODevice's:
 name|qint64
@@ -659,6 +671,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForEncrypted
@@ -673,6 +686,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForBytesWritten
@@ -680,6 +694,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForDisconnected
@@ -687,6 +702,7 @@ argument_list|(
 argument|int msecs =
 literal|30000
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -796,6 +812,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|writeData
@@ -804,6 +821,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

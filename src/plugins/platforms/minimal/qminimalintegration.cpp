@@ -298,11 +298,11 @@ specifier|public
 name|QPlatformFontDatabase
 block|{
 public|public:
-DECL|function|populateFontDatabase
 specifier|virtual
 name|void
 name|populateFontDatabase
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{}
 block|}
 class|;

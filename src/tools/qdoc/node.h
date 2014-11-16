@@ -1972,6 +1972,7 @@ argument_list|,
 argument|NodeList& nodes
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|FunctionNode
 operator|*
@@ -2038,6 +2039,7 @@ name|bool
 name|isInnerNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -2048,6 +2050,7 @@ name|bool
 name|isLeaf
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -2146,6 +2149,7 @@ name|addPageKeywords
 argument_list|(
 argument|const QString& t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|pageKeywds
 operator|<<
@@ -2157,6 +2161,7 @@ name|setOutputFileName
 argument_list|(
 argument|const QString& f
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|outputFileName_
 operator|=
@@ -2167,6 +2172,7 @@ name|QString
 name|outputFileName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|outputFileName_
@@ -2180,6 +2186,7 @@ argument_list|(
 argument|const QString&
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QmlPropertyNode
@@ -2191,6 +2198,7 @@ argument_list|,
 argument|bool attached
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addChild
@@ -2222,6 +2230,7 @@ name|appendGroupName
 argument_list|(
 argument|const QString& t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|groupNames_
 operator|.
@@ -2366,6 +2375,7 @@ name|bool
 name|isInnerNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -2376,6 +2386,7 @@ name|bool
 name|isLeaf
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -2434,6 +2445,7 @@ name|bool
 name|isNamespace
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -2445,6 +2457,7 @@ operator|*
 name|tree
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -2466,6 +2479,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -2478,6 +2492,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -2636,6 +2651,7 @@ name|bool
 name|isClass
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -2646,6 +2662,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -2656,6 +2673,7 @@ name|bool
 name|isWrapper
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|wrapper_
@@ -2668,6 +2686,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -2680,6 +2699,7 @@ name|QString
 name|obsoleteLink
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|obsoleteLink_
@@ -2691,6 +2711,7 @@ name|setObsoleteLink
 argument_list|(
 argument|const QString& t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|obsoleteLink_
 operator|=
@@ -2700,6 +2721,7 @@ name|virtual
 name|void
 name|setWrapper
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|wrapper_
 operator|=
@@ -2864,6 +2886,7 @@ name|bool
 name|isAbstract
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|abstract_
@@ -2875,6 +2898,7 @@ name|setAbstract
 argument_list|(
 argument|bool b
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|abstract_
 operator|=
@@ -2962,11 +2986,9 @@ name|virtual
 name|void
 name|setTitle
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|title
+argument|const QString&title
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -2974,6 +2996,7 @@ name|setSubTitle
 argument_list|(
 argument|const QString&subTitle
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|subtitle_
 operator|=
@@ -2983,6 +3006,7 @@ name|SubType
 name|subType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|nodeSubtype_
@@ -2993,6 +3017,7 @@ name|QString
 name|title
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|title_
@@ -3003,12 +3028,14 @@ name|QString
 name|fullTitle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|subTitle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
@@ -3026,6 +3053,7 @@ name|QString
 name|nameForLists
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|title
@@ -3044,6 +3072,7 @@ name|bool
 name|isHeaderFile
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -3061,6 +3090,7 @@ name|bool
 name|isExample
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -3078,6 +3108,7 @@ name|bool
 name|isExampleFile
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -3097,6 +3128,7 @@ name|bool
 name|isExternalPage
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|nodeSubtype_
@@ -3109,6 +3141,7 @@ name|bool
 name|isDocNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3169,6 +3202,7 @@ name|QString
 name|imageFileName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|imageFileName_
@@ -3180,6 +3214,7 @@ name|setImageFileName
 argument_list|(
 argument|const QString& ifn
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|imageFileName_
 operator|=
@@ -3358,6 +3393,7 @@ name|bool
 name|isQmlNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3368,6 +3404,7 @@ name|bool
 name|isQmlType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3378,6 +3415,7 @@ name|bool
 name|isQtQuickNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -3396,6 +3434,7 @@ name|ClassNode
 operator|*
 name|classNode
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|cnode_
@@ -3407,6 +3446,7 @@ name|setClassNode
 argument_list|(
 argument|ClassNode* cn
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|cnode_
 operator|=
@@ -3417,6 +3457,7 @@ name|bool
 name|isAbstract
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|abstract_
@@ -3427,6 +3468,7 @@ name|bool
 name|isWrapper
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|wrapper_
@@ -3438,6 +3480,7 @@ name|setAbstract
 argument_list|(
 argument|bool b
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|abstract_
 operator|=
@@ -3447,6 +3490,7 @@ name|virtual
 name|void
 name|setWrapper
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|wrapper_
 operator|=
@@ -3457,6 +3501,7 @@ name|bool
 name|isInternal
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -3472,12 +3517,14 @@ name|QString
 name|qmlFullBaseName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|obsoleteLink
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|obsoleteLink_
@@ -3489,6 +3536,7 @@ name|setObsoleteLink
 argument_list|(
 argument|const QString& t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|obsoleteLink_
 operator|=
@@ -3500,18 +3548,21 @@ name|QString
 name|qmlModuleName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|qmlModuleVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|qmlModuleIdentifier
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QmlModuleNode
@@ -3519,6 +3570,7 @@ operator|*
 name|qmlModule
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qmlModule_
@@ -3530,6 +3582,7 @@ name|setQmlModule
 argument_list|(
 argument|QmlModuleNode* t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|qmlModule_
 operator|=
@@ -3542,6 +3595,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -3750,6 +3804,7 @@ name|bool
 name|isQmlNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3760,6 +3815,7 @@ name|bool
 name|isQmlBasicType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3772,6 +3828,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -3811,6 +3868,7 @@ name|bool
 name|isQmlNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3821,6 +3879,7 @@ name|bool
 name|isQtQuickNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -3835,6 +3894,7 @@ name|QString
 name|qmlTypeName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -3849,6 +3909,7 @@ name|QString
 name|qmlModuleName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -3863,6 +3924,7 @@ name|QString
 name|qmlModuleVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -3877,6 +3939,7 @@ name|QString
 name|qmlModuleIdentifier
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -3890,12 +3953,14 @@ name|virtual
 name|QString
 name|idNumber
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|isQmlPropertyGroup
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -3908,6 +3973,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -3920,6 +3986,7 @@ name|QString
 name|element
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -3970,6 +4037,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -3983,6 +4051,7 @@ name|setDataType
 argument_list|(
 argument|const QString& dataType
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|type_
 operator|=
@@ -4020,6 +4089,7 @@ name|setReadOnly
 argument_list|(
 argument|bool ro
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|readOnly_
 operator|=
@@ -4106,6 +4176,7 @@ name|bool
 name|isDefault
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|isdefault_
@@ -4116,6 +4187,7 @@ name|bool
 name|isReadOnly
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|fromFlagValue
@@ -4131,6 +4203,7 @@ name|bool
 name|isAlias
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|isAlias_
@@ -4141,6 +4214,7 @@ name|bool
 name|isAttached
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|attached_
@@ -4151,6 +4225,7 @@ name|bool
 name|isQmlNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -4161,6 +4236,7 @@ name|bool
 name|isQtQuickNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -4175,6 +4251,7 @@ name|QString
 name|qmlTypeName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -4189,6 +4266,7 @@ name|QString
 name|qmlModuleName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -4203,6 +4281,7 @@ name|QString
 name|qmlModuleVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -4217,6 +4296,7 @@ name|QString
 name|qmlModuleIdentifier
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -4231,6 +4311,7 @@ name|QString
 name|element
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -4357,6 +4438,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -4369,6 +4451,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -4498,6 +4581,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -4510,6 +4594,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -4969,6 +5054,7 @@ name|bool
 name|isReimp
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|reimp
@@ -4978,6 +5064,7 @@ name|bool
 name|isFunction
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -5083,6 +5170,7 @@ name|QString
 name|element
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -5097,6 +5185,7 @@ name|bool
 name|isAttached
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|attached_
@@ -5107,6 +5196,7 @@ name|bool
 name|isQmlNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -5138,6 +5228,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|!
@@ -5152,6 +5243,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -5173,6 +5265,7 @@ name|bool
 name|isQtQuickNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -5187,6 +5280,7 @@ name|QString
 name|qmlTypeName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -5201,6 +5295,7 @@ name|QString
 name|qmlModuleName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -5215,6 +5310,7 @@ name|QString
 name|qmlModuleVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -5229,6 +5325,7 @@ name|QString
 name|qmlModuleIdentifier
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|parent
@@ -5374,6 +5471,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -5386,6 +5484,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -5397,6 +5496,7 @@ name|setDataType
 argument_list|(
 argument|const QString& dataType
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|type_
 operator|=
@@ -6000,6 +6100,7 @@ name|Genus
 name|genus
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Node
@@ -6012,6 +6113,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6237,6 +6339,7 @@ name|bool
 name|isCollectionNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6246,52 +6349,53 @@ name|virtual
 name|void
 name|addMember
 argument_list|(
-name|Node
-operator|*
-name|node
+argument|Node* node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|hasMembers
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|hasNamespaces
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|hasClasses
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|getMemberNamespaces
 argument_list|(
-name|NodeMap
-operator|&
-name|out
+argument|NodeMap& out
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|getMemberClasses
 argument_list|(
-name|NodeMap
-operator|&
-name|out
+argument|NodeMap& out
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|wasSeen
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|seen_
@@ -6302,6 +6406,7 @@ name|QString
 name|title
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|title_
@@ -6312,6 +6417,7 @@ name|QString
 name|subTitle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|subtitle_
@@ -6322,6 +6428,7 @@ name|QString
 name|fullTitle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|title_
@@ -6332,6 +6439,7 @@ name|QString
 name|nameForLists
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|title_
@@ -6341,11 +6449,9 @@ name|virtual
 name|void
 name|setTitle
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|title
+argument|const QString&title
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -6353,6 +6459,7 @@ name|setSubTitle
 argument_list|(
 argument|const QString&subTitle
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|subtitle_
 operator|=
@@ -6450,6 +6557,7 @@ name|bool
 name|isGroup
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6496,6 +6604,7 @@ name|bool
 name|isModule
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6506,6 +6615,7 @@ name|bool
 name|isCppNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6517,6 +6627,7 @@ name|setQtVariable
 argument_list|(
 argument|const QString& v
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|qtVariable_
 operator|=
@@ -6527,6 +6638,7 @@ name|QString
 name|qtVariable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qtVariable_
@@ -6577,6 +6689,7 @@ name|bool
 name|isQmlNode
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6587,6 +6700,7 @@ name|bool
 name|isQmlModule
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -6597,6 +6711,7 @@ name|QString
 name|qmlModuleName
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qmlModuleName_
@@ -6607,6 +6722,7 @@ name|QString
 name|qmlModuleVersion
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qmlModuleVersionMajor_
@@ -6621,6 +6737,7 @@ name|QString
 name|qmlModuleIdentifier
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qmlModuleName_
@@ -6632,10 +6749,9 @@ name|virtual
 name|void
 name|setQmlModuleInfo
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -6643,6 +6759,7 @@ name|setQtVariable
 argument_list|(
 argument|const QString& v
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|qtVariable_
 operator|=
@@ -6653,6 +6770,7 @@ name|QString
 name|qtVariable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qtVariable_

@@ -125,10 +125,9 @@ block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:
@@ -219,20 +218,16 @@ operator|:
 name|void
 name|connectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|disconnectNotify
 argument_list|(
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// called from setFuture() implemented in template sub-classes
 name|void
@@ -589,6 +584,7 @@ operator|&
 name|futureInterface
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_future
@@ -602,6 +598,7 @@ name|QFutureInterfaceBase
 modifier|&
 name|futureInterface
 parameter_list|()
+function|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_future
@@ -730,6 +727,7 @@ operator|&
 name|futureInterface
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_future
@@ -743,6 +741,7 @@ name|QFutureInterfaceBase
 modifier|&
 name|futureInterface
 parameter_list|()
+function|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_future

@@ -91,6 +91,7 @@ argument_list|,
 argument|qreal *bottom
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|activate
@@ -110,6 +111,7 @@ name|virtual
 name|void
 name|updateGeometry
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

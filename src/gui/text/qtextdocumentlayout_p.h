@@ -116,15 +116,11 @@ comment|// from the abstract layout
 name|void
 name|draw
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|PaintContext
-operator|&
-name|context
+argument|const PaintContext&context
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|hitTest
@@ -134,16 +130,19 @@ argument_list|,
 argument|Qt::HitTestAccuracy accuracy
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|pageCount
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSizeF
 name|documentSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setCursorWidth
@@ -180,6 +179,7 @@ argument_list|(
 argument|QTextFrame *frame
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QRectF
@@ -188,6 +188,7 @@ argument_list|(
 argument|const QTextBlock&block
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRectF
 name|tableBoundingRect
@@ -248,6 +249,7 @@ argument|int oldLength
 argument_list|,
 argument|int length
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeInlineObject
@@ -258,6 +260,7 @@ argument|int posInDocument
 argument_list|,
 argument|const QTextFormat&format
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|positionInlineObject
@@ -268,6 +271,7 @@ argument|int posInDocument
 argument_list|,
 argument|const QTextFormat&format
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawInlineObject
@@ -282,15 +286,15 @@ argument|int posInDocument
 argument_list|,
 argument|const QTextFormat&format
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|e
+argument|QTimerEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

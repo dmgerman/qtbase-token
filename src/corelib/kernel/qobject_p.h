@@ -1966,7 +1966,6 @@ decl_stmt|,
 name|public
 name|QMetaObject
 block|{
-DECL|function|toDynamicMetaObject
 name|virtual
 name|QAbstractDynamicMetaObject
 modifier|*
@@ -1975,6 +1974,7 @@ parameter_list|(
 name|QObject
 modifier|*
 parameter_list|)
+function|Q_DECL_OVERRIDE
 block|{
 return|return
 name|this
@@ -1999,7 +1999,6 @@ operator|-
 literal|1
 return|;
 block|}
-DECL|function|metaCall
 name|virtual
 name|int
 name|metaCall
@@ -2020,6 +2019,7 @@ operator|*
 operator|*
 name|a
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|metaCall

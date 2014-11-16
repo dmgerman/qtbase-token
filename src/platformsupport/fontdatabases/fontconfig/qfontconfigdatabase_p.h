@@ -72,6 +72,7 @@ operator|:
 name|void
 name|populateFontDatabase
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QFontEngineMulti
 operator|*
@@ -81,20 +82,17 @@ argument|QFontEngine *fontEngine
 argument_list|,
 argument|QChar::Script script
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QFontEngine
 operator|*
 name|fontEngine
 argument_list|(
-specifier|const
-name|QFontDef
-operator|&
-name|fontDef
+argument|const QFontDef&fontDef
 argument_list|,
-name|void
-operator|*
-name|handle
+argument|void *handle
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QFontEngine
 operator|*
@@ -106,6 +104,7 @@ argument|qreal pixelSize
 argument_list|,
 argument|QFont::HintingPreference hintingPreference
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|fallbacksForFamily
@@ -119,20 +118,16 @@ argument_list|,
 argument|QChar::Script script
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|addApplicationFont
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|fontData
+argument|const QByteArray&fontData
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|fileName
+argument|const QString&fileName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|resolveFontFamilyAlias
@@ -140,11 +135,13 @@ argument_list|(
 argument|const QString&family
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFont
 name|defaultFont
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

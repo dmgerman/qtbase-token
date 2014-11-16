@@ -91,6 +91,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawControl
@@ -105,6 +106,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawComplexControl
@@ -119,6 +121,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawItemText
@@ -138,6 +141,7 @@ argument_list|,
 argument|QPalette::ColorRole textRole = QPalette::NoRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -152,6 +156,7 @@ argument_list|,
 argument|const QPixmap&pixmap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeFromContents
@@ -165,6 +170,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|subElementRect
@@ -176,6 +182,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|subControlRect
@@ -189,6 +196,7 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|itemTextRect
@@ -204,6 +212,7 @@ argument_list|,
 argument|const QString&text
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|itemPixmapRect
@@ -215,6 +224,7 @@ argument_list|,
 argument|const QPixmap&pixmap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|SubControl
 name|hitTestComplexControl
@@ -229,6 +239,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|styleHint
@@ -245,6 +256,7 @@ argument|QStyleHintReturn *returnData =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|pixelMetric
@@ -258,6 +270,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|layoutSpacing
@@ -275,6 +288,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QIcon
 name|standardIcon
@@ -288,6 +302,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|standardPixmap
@@ -300,6 +315,7 @@ argument|const QWidget *widget =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|generatedIconPixmap
@@ -311,61 +327,57 @@ argument_list|,
 argument|const QStyleOption *opt
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPalette
 name|standardPalette
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QPalette
-operator|&
-name|pal
+argument|QPalette&pal
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QApplication
-operator|*
-name|app
+argument|QApplication *app
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|unpolish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|unpolish
 argument_list|(
-name|QApplication
-operator|*
-name|app
+argument|QApplication *app
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

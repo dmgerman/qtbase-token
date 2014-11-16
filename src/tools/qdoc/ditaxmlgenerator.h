@@ -561,36 +561,35 @@ name|virtual
 name|void
 name|initializeGenerator
 argument_list|(
-specifier|const
-name|Config
-operator|&
-name|config
+argument|const Config& config
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|terminateGenerator
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|format
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|canHandleFormat
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|format
+argument|const QString& format
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|generateDocs
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|protectEnc
@@ -648,78 +647,60 @@ name|virtual
 name|int
 name|generateAtom
 argument_list|(
-specifier|const
-name|Atom
-operator|*
-name|atom
+argument|const Atom* atom
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node* relative
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|generateClassLikeNode
 argument_list|(
-name|InnerNode
-operator|*
-name|inner
+argument|InnerNode* inner
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|generateQmlBasicTypePage
 argument_list|(
-name|QmlBasicTypeNode
-operator|*
-name|qbtn
+argument|QmlBasicTypeNode* qbtn
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|generateDocNode
 argument_list|(
-name|DocNode
-operator|*
-name|dn
+argument|DocNode* dn
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|generateCollectionNode
 argument_list|(
-name|CollectionNode
-operator|*
-name|cn
+argument|CollectionNode* cn
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|fileExtension
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
@@ -1321,27 +1302,20 @@ block|;
 name|void
 name|generateQmlInherits
 argument_list|(
-name|QmlClassNode
-operator|*
-name|qcn
+argument|QmlClassNode* qcn
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|generateQmlInheritedBy
 argument_list|(
-specifier|const
-name|QmlClassNode
-operator|*
-name|qcn
+argument|const QmlClassNode* qcn
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker* marker
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|generateQmlInstantiates
@@ -1539,6 +1513,7 @@ argument_list|(
 argument|const Node *node
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|fileName
@@ -1648,30 +1623,25 @@ name|virtual
 name|void
 name|beginSubPage
 argument_list|(
-specifier|const
-name|InnerNode
-operator|*
-name|node
+argument|const InnerNode* node
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|fileName
+argument|const QString& fileName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|endSubPage
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|generateInnerNode
 argument_list|(
-name|InnerNode
-operator|*
-name|node
+argument|InnerNode* node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QXmlStreamWriter
 operator|&

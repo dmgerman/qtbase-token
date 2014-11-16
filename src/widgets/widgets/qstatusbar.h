@@ -154,23 +154,23 @@ operator|:
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
+argument|QShowEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
+argument|QPaintEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
+argument|QResizeEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// ### Qt 6: consider making reformat() and hideOrShow() private
 name|void
@@ -184,9 +184,9 @@ block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

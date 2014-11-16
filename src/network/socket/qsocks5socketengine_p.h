@@ -94,6 +94,7 @@ argument|QAbstractSocket::SocketType type
 argument_list|,
 argument|QAbstractSocket::NetworkLayerProtocol protocol = QAbstractSocket::IPv4Protocol
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|initialize
@@ -102,6 +103,7 @@ argument|qintptr socketDescriptor
 argument_list|,
 argument|QAbstractSocket::SocketState socketState = QAbstractSocket::ConnectedState
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setProxy
@@ -116,11 +118,13 @@ name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|connectInternal
@@ -133,6 +137,7 @@ argument|const QHostAddress&address
 argument_list|,
 argument|quint16 port
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|connectToHostByName
@@ -141,6 +146,7 @@ argument|const QString&name
 argument_list|,
 argument|quint16 port
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|bind
@@ -149,23 +155,28 @@ argument|const QHostAddress&address
 argument_list|,
 argument|quint16 port
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|listen
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|accept
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|bytesAvailable
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|read
@@ -174,6 +185,7 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|write
@@ -182,6 +194,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -192,44 +205,33 @@ name|QT_NO_NETWORKINTERFACE
 name|bool
 name|joinMulticastGroup
 argument_list|(
-specifier|const
-name|QHostAddress
-operator|&
-name|groupAddress
+argument|const QHostAddress&groupAddress
 argument_list|,
-specifier|const
-name|QNetworkInterface
-operator|&
-name|interface
+argument|const QNetworkInterface&interface
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|leaveMulticastGroup
 argument_list|(
-specifier|const
-name|QHostAddress
-operator|&
-name|groupAddress
+argument|const QHostAddress&groupAddress
 argument_list|,
-specifier|const
-name|QNetworkInterface
-operator|&
-name|interface
+argument|const QNetworkInterface&interface
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QNetworkInterface
 name|multicastInterface
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setMulticastInterface
 argument_list|(
-specifier|const
-name|QNetworkInterface
-operator|&
-name|iface
+argument|const QNetworkInterface&iface
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -247,6 +249,7 @@ argument_list|,
 argument|quint16 *port =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|writeDatagram
@@ -259,16 +262,19 @@ argument|const QHostAddress&addr
 argument_list|,
 argument|quint16 port
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasPendingDatagrams
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|pendingDatagramSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -277,6 +283,7 @@ name|qint64
 name|bytesToWrite
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|option
@@ -284,6 +291,7 @@ argument_list|(
 argument|SocketOption option
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setOption
@@ -292,6 +300,7 @@ argument|SocketOption option
 argument_list|,
 argument|int value
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForRead
@@ -302,6 +311,7 @@ argument_list|,
 argument|bool *timedOut =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForWrite
@@ -312,6 +322,7 @@ argument_list|,
 argument|bool *timedOut =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|waitForReadOrWrite
@@ -330,39 +341,46 @@ argument_list|,
 argument|bool *timedOut =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isReadNotificationEnabled
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setReadNotificationEnabled
 argument_list|(
 argument|bool enable
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isWriteNotificationEnabled
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setWriteNotificationEnabled
 argument_list|(
 argument|bool enable
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isExceptionNotificationEnabled
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExceptionNotificationEnabled
 argument_list|(
 argument|bool enable
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -572,34 +590,30 @@ block|;
 name|char
 name|methodId
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|beginAuthenticate
 argument_list|(
-name|QTcpSocket
-operator|*
-name|socket
+argument|QTcpSocket *socket
 argument_list|,
-name|bool
-operator|*
-name|completed
+argument|bool *completed
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|continueAuthenticate
 argument_list|(
-name|QTcpSocket
-operator|*
-name|socket
+argument|QTcpSocket *socket
 argument_list|,
-name|bool
-operator|*
-name|completed
+argument|bool *completed
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|errorString
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -944,6 +958,7 @@ argument|const QNetworkProxy&
 argument_list|,
 argument|QObject *parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QAbstractSocketEngine
@@ -954,6 +969,7 @@ argument|qintptr socketDescriptor
 argument_list|,
 argument|QObject *parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

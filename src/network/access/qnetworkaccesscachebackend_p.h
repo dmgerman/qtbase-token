@@ -78,10 +78,12 @@ block|;
 name|void
 name|open
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|closeDownstreamChannel
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|closeUpstreamChannel
@@ -94,6 +96,7 @@ block|;
 name|void
 name|downstreamReadyWrite
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

@@ -113,11 +113,13 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setWidget
@@ -249,134 +251,116 @@ operator|:
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showEvent
 argument_list|(
-name|QShowEvent
-operator|*
-name|showEvent
+argument|QShowEvent *showEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hideEvent
 argument_list|(
-name|QHideEvent
-operator|*
-name|hideEvent
+argument|QHideEvent *hideEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|changeEvent
 argument_list|(
-name|QEvent
-operator|*
-name|changeEvent
+argument|QEvent *changeEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|closeEvent
 argument_list|(
-name|QCloseEvent
-operator|*
-name|closeEvent
+argument|QCloseEvent *closeEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|leaveEvent
 argument_list|(
-name|QEvent
-operator|*
-name|leaveEvent
+argument|QEvent *leaveEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resizeEvent
 argument_list|(
-name|QResizeEvent
-operator|*
-name|resizeEvent
+argument|QResizeEvent *resizeEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|timerEvent
+argument|QTimerEvent *timerEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|moveEvent
 argument_list|(
-name|QMoveEvent
-operator|*
-name|moveEvent
+argument|QMoveEvent *moveEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|paintEvent
+argument|QPaintEvent *paintEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|mouseEvent
+argument|QMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|mouseEvent
+argument|QMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|mouseEvent
+argument|QMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|mouseEvent
+argument|QMouseEvent *mouseEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|keyEvent
+argument|QKeyEvent *keyEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -384,36 +368,32 @@ name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QContextMenuEvent
-operator|*
-name|contextMenuEvent
+argument|QContextMenuEvent *contextMenuEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|focusInEvent
+argument|QFocusEvent *focusInEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|focusOutEvent
+argument|QFocusEvent *focusOutEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|childEvent
 argument_list|(
-name|QChildEvent
-operator|*
-name|childEvent
+argument|QChildEvent *childEvent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

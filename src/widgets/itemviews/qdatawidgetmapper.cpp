@@ -990,13 +990,13 @@ specifier|public
 name|QWidget
 block|{
 public|public:
-DECL|function|focusNextPrevChild
 name|bool
 name|focusNextPrevChild
 parameter_list|(
 name|bool
 name|next
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QWidget

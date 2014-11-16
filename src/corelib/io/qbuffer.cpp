@@ -80,6 +80,7 @@ DECL|member|defaultBuf
 name|QByteArray
 name|defaultBuf
 decl_stmt|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|qint64
 name|peek
@@ -91,7 +92,9 @@ parameter_list|,
 name|qint64
 name|maxSize
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|QByteArray
 name|peek
@@ -99,6 +102,7 @@ parameter_list|(
 name|qint64
 name|maxSize
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 ifndef|#
 directive|ifndef

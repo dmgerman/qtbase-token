@@ -106,27 +106,23 @@ block|;
 name|void
 name|setModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|model
+argument|QAbstractItemModel *model
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setRootIndex
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|index
+argument|const QModelIndex&index
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSelectionModel
 argument_list|(
-name|QItemSelectionModel
-operator|*
-name|selectionModel
+argument|QItemSelectionModel *selectionModel
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QHeaderView
 operator|*
@@ -378,11 +374,9 @@ block|;
 name|void
 name|keyboardSearch
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|search
+argument|const QString&search
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|visualRect
@@ -390,6 +384,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|scrollTo
@@ -398,6 +393,7 @@ argument|const QModelIndex&index
 argument_list|,
 argument|ScrollHint hint = EnsureVisible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|indexAt
@@ -405,6 +401,7 @@ argument_list|(
 argument|const QPoint&p
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|indexAbove
@@ -423,10 +420,12 @@ block|;
 name|void
 name|doItemsLayout
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|sortByColumn
@@ -439,35 +438,18 @@ block|;
 name|void
 name|dataChanged
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|topLeft
+argument|const QModelIndex&topLeft
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
-name|bottomRight
+argument|const QModelIndex&bottomRight
 argument_list|,
-specifier|const
-name|QVector
-operator|<
-name|int
-operator|>
-operator|&
-name|roles
-operator|=
-name|QVector
-operator|<
-name|int
-operator|>
-operator|(
-operator|)
+argument|const QVector<int>&roles = QVector<int>()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|selectAll
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_SIGNALS
 operator|:
@@ -609,6 +591,7 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|rowsInserted
@@ -619,6 +602,7 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|rowsAboutToBeRemoved
@@ -629,6 +613,7 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|moveCursor
@@ -637,16 +622,19 @@ argument|CursorAction cursorAction
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|horizontalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|verticalOffset
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSelection
@@ -655,6 +643,7 @@ argument|const QRect&rect
 argument_list|,
 argument|QItemSelectionModel::SelectionFlags command
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QRegion
 name|visualRegionForSelection
@@ -662,27 +651,27 @@ argument_list|(
 argument|const QItemSelection&selection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndexList
 name|selectedIndexes
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|timerEvent
 argument_list|(
-name|QTimerEvent
-operator|*
-name|event
+argument|QTimerEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|event
+argument|QPaintEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTree
@@ -720,42 +709,37 @@ block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QMouseEvent
-operator|*
-name|event
+argument|QMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -763,24 +747,23 @@ name|QT_NO_DRAGANDDROP
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QDragMoveEvent
-operator|*
-name|event
+argument|QDragMoveEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
 name|bool
 name|viewportEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateGeometries
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|viewportSizeHint
@@ -794,6 +777,7 @@ argument_list|(
 argument|int column
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|indexRowSizeHint
@@ -814,6 +798,7 @@ name|horizontalScrollbarAction
 argument_list|(
 argument|int action
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isIndexHidden
@@ -821,34 +806,25 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|selectionChanged
 argument_list|(
-specifier|const
-name|QItemSelection
-operator|&
-name|selected
+argument|const QItemSelection&selected
 argument_list|,
-specifier|const
-name|QItemSelection
-operator|&
-name|deselected
+argument|const QItemSelection&deselected
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|currentChanged
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|current
+argument|const QModelIndex&current
 argument_list|,
-specifier|const
-name|QModelIndex
-operator|&
-name|previous
+argument|const QModelIndex&previous
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

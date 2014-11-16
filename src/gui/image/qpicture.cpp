@@ -1275,18 +1275,17 @@ operator|=
 name|dpi
 expr_stmt|;
 block|}
-DECL|function|paintEngine
 name|QPaintEngine
 modifier|*
 name|paintEngine
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
 return|;
 block|}
-DECL|function|metric
 name|int
 name|metric
 parameter_list|(
@@ -1294,6 +1293,7 @@ name|PaintDeviceMetric
 name|m
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 switch|switch
 condition|(

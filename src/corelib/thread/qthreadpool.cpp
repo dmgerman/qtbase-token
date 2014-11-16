@@ -52,9 +52,11 @@ operator|*
 name|manager
 argument_list|)
 block|;
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|run
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|registerThreadInactive

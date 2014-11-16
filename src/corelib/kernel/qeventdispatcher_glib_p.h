@@ -121,10 +121,12 @@ name|processEvents
 argument_list|(
 argument|QEventLoop::ProcessEventsFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasPendingEvents
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|registerSocketNotifier

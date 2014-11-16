@@ -131,6 +131,7 @@ argument|QChar type
 argument_list|,
 argument|uint fragment
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fragmentRemoved
@@ -139,6 +140,7 @@ argument|QChar type
 argument_list|,
 argument|uint fragment
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|update

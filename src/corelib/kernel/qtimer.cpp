@@ -358,12 +358,14 @@ name|timeout
 parameter_list|()
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 name|void
 name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;

@@ -337,6 +337,7 @@ argument|const QRect *rects
 argument_list|,
 argument|int rectCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -346,6 +347,7 @@ argument|const QRectF *rects
 argument_list|,
 argument|int rectCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -355,6 +357,7 @@ argument|const QLine *lines
 argument_list|,
 argument|int lineCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -364,36 +367,31 @@ argument|const QLineF *lines
 argument_list|,
 argument|int lineCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|drawEllipse
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|drawEllipse
 argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|r
+argument|const QRect&r
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|drawPath
 argument_list|(
-specifier|const
-name|QPainterPath
-operator|&
-name|path
+argument|const QPainterPath&path
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -403,6 +401,7 @@ argument|const QPointF *points
 argument_list|,
 argument|int pointCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -412,6 +411,7 @@ argument|const QPoint *points
 argument_list|,
 argument|int pointCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -423,6 +423,7 @@ argument|int pointCount
 argument_list|,
 argument|PolygonDrawMode mode
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -434,6 +435,7 @@ argument|int pointCount
 argument_list|,
 argument|PolygonDrawMode mode
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -506,21 +508,13 @@ name|virtual
 name|void
 name|drawTiledPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|const QPixmap&pixmap
 argument_list|,
-specifier|const
-name|QPointF
-operator|&
-name|s
+argument|const QPointF&s
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
@@ -539,11 +533,9 @@ name|virtual
 name|void
 name|updateState
 argument_list|(
-specifier|const
-name|QPaintEngineState
-operator|&
-name|state
+argument|const QPaintEngineState&state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

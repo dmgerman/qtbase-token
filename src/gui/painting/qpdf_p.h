@@ -614,14 +614,14 @@ comment|// reimplementations QPaintEngine
 name|bool
 name|begin
 argument_list|(
-name|QPaintDevice
-operator|*
-name|pdev
+argument|QPaintDevice *pdev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|end
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPoints
@@ -630,6 +630,7 @@ argument|const QPointF *points
 argument_list|,
 argument|int pointCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawLines
@@ -638,6 +639,7 @@ argument|const QLineF *lines
 argument_list|,
 argument|int lineCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawRects
@@ -646,6 +648,7 @@ argument|const QRectF *rects
 argument_list|,
 argument|int rectCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPolygon
@@ -656,48 +659,34 @@ argument|int pointCount
 argument_list|,
 argument|PolygonDrawMode mode
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPath
 argument_list|(
-specifier|const
-name|QPainterPath
-operator|&
-name|path
+argument|const QPainterPath& path
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTextItem
 argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
+argument|const QPointF&p
 argument_list|,
-specifier|const
-name|QTextItem
-operator|&
-name|textItem
+argument|const QTextItem&textItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rectangle
+argument|const QRectF& rectangle
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|const QPixmap& pixmap
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|sr
+argument|const QRectF& sr
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawImage
@@ -710,34 +699,25 @@ argument|const QRectF&sr
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTiledPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rectangle
+argument|const QRectF& rectangle
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|const QPixmap& pixmap
 argument_list|,
-specifier|const
-name|QPointF
-operator|&
-name|point
+argument|const QPointF& point
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|updateState
 argument_list|(
-specifier|const
-name|QPaintEngineState
-operator|&
-name|state
+argument|const QPaintEngineState&state
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|metric
@@ -750,6 +730,7 @@ name|Type
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// end reimplementations QPaintEngine
 comment|// Printer stuff...

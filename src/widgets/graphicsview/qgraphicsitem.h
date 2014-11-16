@@ -3947,12 +3947,13 @@ argument_list|)
 expr_stmt|;
 name|bool
 name|event
-parameter_list|(
+argument_list|(
 name|QEvent
-modifier|*
+operator|*
 name|ev
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|private
 label|:
 name|friend
@@ -4032,11 +4033,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -4127,11 +4130,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -4139,25 +4144,19 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -4165,11 +4164,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -4181,6 +4182,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -4190,6 +4192,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -4198,6 +4201,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -4205,6 +4209,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -4310,11 +4315,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -4322,25 +4329,19 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -4348,11 +4349,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -4364,6 +4367,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -4373,6 +4377,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -4381,6 +4386,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -4388,6 +4394,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -4545,11 +4552,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -4557,25 +4566,19 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -4583,11 +4586,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -4599,6 +4604,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -4608,6 +4614,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -4616,6 +4623,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -4623,6 +4631,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -4743,11 +4752,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -4755,25 +4766,19 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -4781,11 +4786,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -4797,6 +4804,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -4806,6 +4814,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -4814,6 +4823,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -4821,6 +4831,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -4954,11 +4965,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -4966,25 +4979,19 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -4992,11 +4999,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -5008,6 +5017,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -5017,6 +5027,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -5025,6 +5036,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -5032,6 +5044,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -5155,11 +5168,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -5167,23 +5182,18 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -5191,11 +5201,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -5207,6 +5219,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|ShapeMode
 name|shapeMode
@@ -5227,6 +5240,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -5235,6 +5249,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -5242,6 +5257,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -5404,11 +5420,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -5416,23 +5434,18 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -5440,11 +5453,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -5456,6 +5471,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setTextWidth
@@ -5558,146 +5574,128 @@ operator|:
 name|bool
 name|sceneEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mousePressEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseReleaseEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|mouseDoubleClickEvent
 argument_list|(
-name|QGraphicsSceneMouseEvent
-operator|*
-name|event
+argument|QGraphicsSceneMouseEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|contextMenuEvent
 argument_list|(
-name|QGraphicsSceneContextMenuEvent
-operator|*
-name|event
+argument|QGraphicsSceneContextMenuEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyPressEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|keyReleaseEvent
 argument_list|(
-name|QKeyEvent
-operator|*
-name|event
+argument|QKeyEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusOutEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragLeaveEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dragMoveEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dropEvent
 argument_list|(
-name|QGraphicsSceneDragDropEvent
-operator|*
-name|event
+argument|QGraphicsSceneDragDropEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|inputMethodEvent
 argument_list|(
-name|QInputMethodEvent
-operator|*
-name|event
+argument|QInputMethodEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hoverEnterEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hoverMoveEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hoverLeaveEvent
 argument_list|(
-name|QGraphicsSceneHoverEvent
-operator|*
-name|event
+argument|QGraphicsSceneHoverEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|inputMethodQuery
@@ -5705,6 +5703,7 @@ argument_list|(
 argument|Qt::InputMethodQuery query
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|supportsExtension
@@ -5712,6 +5711,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -5720,6 +5720,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -5727,6 +5728,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -5839,11 +5841,13 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|shape
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|contains
@@ -5851,23 +5855,18 @@ argument_list|(
 argument|const QPointF&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -5875,11 +5874,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -5891,6 +5892,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -5900,6 +5902,7 @@ argument_list|(
 argument|Extension extension
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setExtension
@@ -5908,6 +5911,7 @@ argument|Extension extension
 argument_list|,
 argument|const QVariant&variant
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|extension
@@ -5915,6 +5919,7 @@ argument_list|(
 argument|const QVariant&variant
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
@@ -5979,25 +5984,19 @@ name|QRectF
 name|boundingRect
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|paint
 argument_list|(
-name|QPainter
-operator|*
-name|painter
+argument|QPainter *painter
 argument_list|,
-specifier|const
-name|QStyleOptionGraphicsItem
-operator|*
-name|option
+argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-name|QWidget
-operator|*
-name|widget
-operator|=
+argument|QWidget *widget =
 literal|0
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isObscuredBy
@@ -6005,11 +6004,13 @@ argument_list|(
 argument|const QGraphicsItem *item
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterPath
 name|opaqueArea
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;      enum
 block|{
 name|Type
@@ -6021,6 +6022,7 @@ name|int
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

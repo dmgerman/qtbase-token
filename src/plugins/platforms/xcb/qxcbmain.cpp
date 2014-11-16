@@ -33,25 +33,20 @@ literal|"xcb.json"
 argument_list|)
 decl|public
 range|:
+DECL|member|Q_DECL_OVERRIDE
 name|QPlatformIntegration
 operator|*
 name|create
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&
 argument_list|,
-specifier|const
-name|QStringList
-operator|&
+argument|const QStringList&
 argument_list|,
-name|int
-operator|&
+argument|int&
 argument_list|,
-name|char
-operator|*
-operator|*
+argument|char **
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 block|}
 class|;

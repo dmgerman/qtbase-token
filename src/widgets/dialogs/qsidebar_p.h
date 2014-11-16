@@ -106,6 +106,7 @@ argument_list|,
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -153,6 +154,7 @@ name|QStringList
 name|mimeTypes
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QMimeData
 operator|*
@@ -161,6 +163,7 @@ argument_list|(
 argument|const QModelIndexList&indexes
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -186,6 +189,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -197,6 +201,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setData
@@ -207,6 +212,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role=Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setUrls
@@ -393,6 +399,7 @@ name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setUrls
@@ -453,18 +460,16 @@ operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
-name|e
+argument|QEvent * e
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|focusInEvent
 argument_list|(
-name|QFocusEvent
-operator|*
-name|event
+argument|QFocusEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -472,10 +477,9 @@ name|QT_NO_DRAGANDDROP
 name|void
 name|dragEnterEvent
 argument_list|(
-name|QDragEnterEvent
-operator|*
-name|event
+argument|QDragEnterEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

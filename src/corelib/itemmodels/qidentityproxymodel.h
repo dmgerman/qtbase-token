@@ -61,6 +61,7 @@ argument_list|(
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|index
@@ -72,6 +73,7 @@ argument_list|,
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|mapFromSource
@@ -79,6 +81,7 @@ argument_list|(
 argument|const QModelIndex& sourceIndex
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|mapToSource
@@ -86,6 +89,7 @@ argument_list|(
 argument|const QModelIndex& proxyIndex
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|parent
@@ -93,6 +97,7 @@ argument_list|(
 argument|const QModelIndex& child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
@@ -100,6 +105,7 @@ argument_list|(
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|headerData
@@ -111,6 +117,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|dropMimeData
@@ -125,6 +132,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex& parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|sibling
@@ -136,6 +144,7 @@ argument_list|,
 argument|const QModelIndex&idx
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QItemSelection
 name|mapSelectionFromSource
@@ -143,6 +152,7 @@ argument_list|(
 argument|const QItemSelection& selection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QItemSelection
 name|mapSelectionToSource
@@ -150,6 +160,7 @@ argument_list|(
 argument|const QItemSelection& selection
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndexList
 name|match
@@ -166,14 +177,14 @@ argument_list|,
 argument|Qt::MatchFlags flags = Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setSourceModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|sourceModel
+argument|QAbstractItemModel* sourceModel
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertColumns
@@ -184,6 +195,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|insertRows
@@ -194,6 +206,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeColumns
@@ -204,6 +217,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|removeRows
@@ -214,6 +228,7 @@ argument|int count
 argument_list|,
 argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

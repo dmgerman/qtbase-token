@@ -227,7 +227,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|addFile
 specifier|virtual
 name|void
 name|addFile
@@ -244,6 +243,7 @@ specifier|const
 name|QByteArray
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 comment|// we ignore this...
 block|}
@@ -509,7 +509,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|addFile
 specifier|virtual
 name|void
 name|addFile
@@ -529,6 +528,7 @@ name|QByteArray
 modifier|&
 name|bytes
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|zip
 operator|.

@@ -858,6 +858,7 @@ operator|::
 name|WindowFlags
 name|windowFlags
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|void
 name|setVisible

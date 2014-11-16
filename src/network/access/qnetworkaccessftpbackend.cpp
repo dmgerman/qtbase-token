@@ -229,10 +229,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|dispose
 name|void
 name|dispose
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|connect
 argument_list|(

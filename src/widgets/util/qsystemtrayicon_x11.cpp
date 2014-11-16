@@ -194,6 +194,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 protected|protected:
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|mousePressEvent
@@ -202,7 +203,9 @@ name|QMouseEvent
 modifier|*
 name|ev
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|mouseDoubleClickEvent
@@ -211,7 +214,9 @@ name|QMouseEvent
 modifier|*
 name|ev
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|bool
 name|event
@@ -219,7 +224,9 @@ parameter_list|(
 name|QEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|paintEvent
@@ -227,7 +234,9 @@ parameter_list|(
 name|QPaintEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|resizeEvent
@@ -235,7 +244,9 @@ parameter_list|(
 name|QResizeEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 specifier|virtual
 name|void
 name|moveEvent
@@ -243,6 +254,7 @@ parameter_list|(
 name|QMoveEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private
 name|slots

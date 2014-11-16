@@ -954,7 +954,6 @@ argument_list|(
 literal|false
 argument_list|)
 block|{ }
-DECL|function|fieldSerial
 name|QString
 name|fieldSerial
 parameter_list|(
@@ -962,6 +961,7 @@ name|int
 name|i
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QLatin1Char

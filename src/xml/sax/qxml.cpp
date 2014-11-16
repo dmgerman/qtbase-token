@@ -1595,11 +1595,11 @@ name|~
 name|QXmlSimpleReaderLocator
 parameter_list|()
 block|{     }
-DECL|function|columnNumber
 name|int
 name|columnNumber
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
@@ -1625,11 +1625,11 @@ literal|1
 operator|)
 return|;
 block|}
-DECL|function|lineNumber
 name|int
 name|lineNumber
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(

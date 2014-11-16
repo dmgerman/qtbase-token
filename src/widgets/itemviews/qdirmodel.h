@@ -117,6 +117,7 @@ argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QModelIndex
 name|parent
@@ -124,6 +125,7 @@ argument_list|(
 argument|const QModelIndex&child
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|rowCount
@@ -131,6 +133,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|columnCount
@@ -138,6 +141,7 @@ argument_list|(
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|data
@@ -147,6 +151,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|setData
@@ -157,6 +162,7 @@ argument|const QVariant&value
 argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|headerData
@@ -168,6 +174,7 @@ argument_list|,
 argument|int role = Qt::DisplayRole
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|hasChildren
@@ -175,6 +182,7 @@ argument_list|(
 argument|const QModelIndex&index = QModelIndex()
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -184,6 +192,7 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|sort
@@ -192,11 +201,13 @@ argument|int column
 argument_list|,
 argument|Qt::SortOrder order = Qt::AscendingOrder
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|mimeTypes
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QMimeData
 operator|*
@@ -205,6 +216,7 @@ argument_list|(
 argument|const QModelIndexList&indexes
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|dropMimeData
@@ -219,6 +231,7 @@ argument|int column
 argument_list|,
 argument|const QModelIndex&parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -226,6 +239,7 @@ name|DropActions
 name|supportedDropActions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|// QDirModel specific API
 name|void

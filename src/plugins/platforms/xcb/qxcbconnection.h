@@ -571,6 +571,7 @@ block|;
 name|void
 name|run
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QXcbEventArray
 operator|*

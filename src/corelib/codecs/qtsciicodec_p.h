@@ -81,11 +81,13 @@ name|QByteArray
 name|name
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|mibEnum
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|convertToUnicode
@@ -97,6 +99,7 @@ argument_list|,
 argument|ConverterState *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QByteArray
 name|convertFromUnicode
@@ -108,6 +111,7 @@ argument_list|,
 argument|ConverterState *
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

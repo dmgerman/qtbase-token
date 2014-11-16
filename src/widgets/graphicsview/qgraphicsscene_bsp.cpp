@@ -39,7 +39,6 @@ name|QGraphicsItem
 modifier|*
 name|item
 decl_stmt|;
-DECL|function|visit
 name|void
 name|visit
 parameter_list|(
@@ -51,6 +50,7 @@ argument_list|>
 modifier|*
 name|items
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|items
 operator|->
@@ -77,7 +77,6 @@ name|QGraphicsItem
 modifier|*
 name|item
 decl_stmt|;
-DECL|function|visit
 name|void
 name|visit
 parameter_list|(
@@ -89,6 +88,7 @@ argument_list|>
 modifier|*
 name|items
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|items
 operator|->
@@ -123,7 +123,6 @@ DECL|member|onlyTopLevelItems
 name|bool
 name|onlyTopLevelItems
 decl_stmt|;
-DECL|function|visit
 name|void
 name|visit
 parameter_list|(
@@ -135,6 +134,7 @@ argument_list|>
 modifier|*
 name|items
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 for|for
 control|(

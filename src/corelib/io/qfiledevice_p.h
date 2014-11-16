@@ -104,6 +104,7 @@ name|putCharHelper
 argument_list|(
 argument|char c
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setError

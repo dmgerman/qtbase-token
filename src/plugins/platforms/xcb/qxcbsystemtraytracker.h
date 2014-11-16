@@ -90,12 +90,13 @@ parameter_list|)
 function_decl|;
 name|void
 name|handleDestroyNotifyEvent
-parameter_list|(
+argument_list|(
 specifier|const
 name|xcb_destroy_notify_event_t
-modifier|*
-parameter_list|)
-function_decl|;
+operator|*
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|signals
 label|:
 name|void

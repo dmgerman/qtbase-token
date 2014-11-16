@@ -543,6 +543,7 @@ name|ExpressionNode
 operator|*
 name|expressionCast
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 name|class
@@ -562,6 +563,7 @@ name|Statement
 operator|*
 name|statementCast
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 name|class
@@ -597,16 +599,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|lparenToken
@@ -617,6 +619,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rparenToken
@@ -658,16 +661,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|thisToken
@@ -678,6 +681,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|thisToken
@@ -722,16 +726,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -742,6 +746,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -779,16 +784,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|nullToken
@@ -799,6 +804,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|nullToken
@@ -833,16 +839,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|trueToken
@@ -853,6 +859,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|trueToken
@@ -887,16 +894,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|falseToken
@@ -907,6 +914,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|falseToken
@@ -948,16 +956,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|literalToken
@@ -968,6 +976,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|literalToken
@@ -1015,16 +1024,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|literalToken
@@ -1035,6 +1044,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|literalToken
@@ -1086,16 +1096,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|literalToken
@@ -1106,6 +1116,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|literalToken
@@ -1206,16 +1217,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|lbracketToken
@@ -1226,6 +1237,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbracketToken
@@ -1295,16 +1307,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|lbraceToken
@@ -1315,6 +1327,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbraceToken
@@ -1382,16 +1395,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|commaToken
@@ -1402,6 +1415,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -1551,16 +1565,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -1584,6 +1598,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -1656,6 +1671,7 @@ name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|propertyNameToken
@@ -1666,6 +1682,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|propertyNameToken
@@ -1784,16 +1801,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|assignment
@@ -1807,6 +1824,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -1879,16 +1897,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|name
@@ -1902,6 +1920,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|value
@@ -2027,16 +2046,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|getSetToken
@@ -2047,6 +2066,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbraceToken
@@ -2120,10 +2140,9 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// attributes
 name|QStringRef
@@ -2166,10 +2185,9 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// attributes
 name|QStringRef
@@ -2209,10 +2227,9 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// attributes
 name|double
@@ -2263,16 +2280,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|base
@@ -2286,6 +2303,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbracketToken
@@ -2352,16 +2370,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|base
@@ -2375,6 +2393,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -2439,16 +2458,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|newToken
@@ -2459,6 +2478,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rparenToken
@@ -2518,16 +2538,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|newToken
@@ -2538,6 +2558,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -2599,16 +2620,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|base
@@ -2622,6 +2643,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rparenToken
@@ -2715,16 +2737,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -2738,6 +2760,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -2834,16 +2857,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|base
@@ -2857,6 +2880,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|incrementToken
@@ -2906,16 +2930,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|base
@@ -2929,6 +2953,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|decrementToken
@@ -2978,16 +3003,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|deleteToken
@@ -2998,6 +3023,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3050,16 +3076,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|voidToken
@@ -3070,6 +3096,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3122,16 +3149,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|typeofToken
@@ -3142,6 +3169,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3194,16 +3222,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|incrementToken
@@ -3214,6 +3242,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3266,16 +3295,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|decrementToken
@@ -3286,6 +3315,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3338,16 +3368,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|plusToken
@@ -3358,6 +3388,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3410,16 +3441,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|minusToken
@@ -3430,6 +3461,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3482,16 +3514,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|tildeToken
@@ -3502,6 +3534,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3554,16 +3587,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|notToken
@@ -3574,6 +3607,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3639,21 +3673,22 @@ name|BinaryExpression
 operator|*
 name|binaryExpressionCast
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|left
@@ -3667,6 +3702,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|right
@@ -3744,16 +3780,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -3767,6 +3803,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|ko
@@ -3840,16 +3877,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|left
@@ -3863,6 +3900,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|right
@@ -3919,16 +3957,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|lbraceToken
@@ -3939,6 +3977,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbraceToken
@@ -4028,16 +4067,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -4051,6 +4090,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -4131,16 +4171,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|declarationKindToken
@@ -4151,6 +4191,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -4218,16 +4259,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -4238,6 +4279,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -4337,16 +4379,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|declaration
@@ -4360,6 +4402,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -4484,16 +4527,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -4504,6 +4547,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -4549,16 +4593,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|expression
@@ -4572,6 +4616,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -4641,16 +4686,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|ifToken
@@ -4661,6 +4706,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -4765,16 +4811,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|doToken
@@ -4785,6 +4831,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -4859,16 +4906,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|whileToken
@@ -4879,6 +4926,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -4968,16 +5016,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|forToken
@@ -4988,6 +5036,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -5091,16 +5140,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|forToken
@@ -5111,6 +5160,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -5208,16 +5258,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|forToken
@@ -5228,6 +5278,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -5315,16 +5366,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|forToken
@@ -5335,6 +5386,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -5411,16 +5463,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|continueToken
@@ -5431,6 +5483,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -5486,16 +5539,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|breakToken
@@ -5506,6 +5559,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -5560,16 +5614,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|returnToken
@@ -5580,6 +5634,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -5641,16 +5696,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|withToken
@@ -5661,6 +5716,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -5745,16 +5801,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|lbraceToken
@@ -5765,6 +5821,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbraceToken
@@ -5834,16 +5891,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|switchToken
@@ -5854,6 +5911,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|block
@@ -5924,16 +5982,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|caseToken
@@ -5944,6 +6002,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statements
@@ -6044,16 +6103,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|clause
@@ -6067,6 +6126,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -6147,16 +6207,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|defaultToken
@@ -6167,6 +6227,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statements
@@ -6236,16 +6297,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -6256,6 +6317,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -6314,16 +6376,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|throwToken
@@ -6334,6 +6396,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -6396,16 +6459,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|catchToken
@@ -6416,6 +6479,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -6480,16 +6544,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|finallyToken
@@ -6500,6 +6564,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -6634,16 +6699,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|tryToken
@@ -6654,6 +6719,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -6766,16 +6832,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|functionToken
@@ -6786,6 +6852,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbraceToken
@@ -6870,10 +6937,9 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -6950,16 +7016,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -6970,6 +7036,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -7114,16 +7181,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|element
@@ -7137,6 +7204,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -7217,16 +7285,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|elements
@@ -7245,6 +7313,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|elements
@@ -7299,16 +7368,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|elements
@@ -7327,6 +7396,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|elements
@@ -7381,16 +7451,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|declaration
@@ -7404,6 +7474,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|declaration
@@ -7453,16 +7524,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -7476,6 +7547,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -7516,16 +7588,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|debuggerToken
@@ -7536,6 +7608,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -7642,16 +7715,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -7662,6 +7735,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -7743,16 +7817,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|importToken
@@ -7763,6 +7837,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -7830,6 +7905,7 @@ name|UiObjectMember
 operator|*
 name|uiObjectMemberCast
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -7904,16 +7980,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|member
@@ -7927,6 +8003,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -8064,16 +8141,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|identifierToken
@@ -8084,6 +8161,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -8143,16 +8221,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|pragmaToken
@@ -8163,6 +8241,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|semicolonToken
@@ -8324,16 +8403,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|headerItem
@@ -8347,6 +8426,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -8416,16 +8496,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -8460,6 +8540,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -8577,16 +8658,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|member
@@ -8600,6 +8681,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -8682,16 +8764,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|lbraceToken
@@ -8702,6 +8784,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbraceToken
@@ -8813,15 +8896,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
+argument|Visitor *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|propertyTypeToken
@@ -8832,6 +8916,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|next
@@ -9022,16 +9107,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9065,6 +9150,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9243,16 +9329,16 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qualifiedTypeNameId
@@ -9265,6 +9351,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|initializer
@@ -9318,6 +9405,7 @@ name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9374,6 +9462,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9425,17 +9514,18 @@ name|SourceLocation
 argument_list|()
 return|;
 end_return
-begin_function_decl
+begin_decl_stmt
 unit|}      virtual
 name|void
 name|accept0
-parameter_list|(
+argument_list|(
 name|Visitor
-modifier|*
+operator|*
 name|visitor
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// attributes
 end_comment
@@ -9504,6 +9594,7 @@ name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -9529,6 +9620,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|initializer
@@ -9537,17 +9629,18 @@ name|rbraceToken
 return|;
 block|}
 end_expr_stmt
-begin_function_decl
+begin_decl_stmt
 name|virtual
 name|void
 name|accept0
-parameter_list|(
+argument_list|(
 name|Visitor
-modifier|*
+operator|*
 name|visitor
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// attributes
 end_comment
@@ -9624,6 +9717,7 @@ name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qualifiedId
@@ -9636,6 +9730,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|statement
@@ -9648,10 +9743,9 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// attributes
 name|UiQualifiedId
@@ -9711,6 +9805,7 @@ name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|qualifiedId
@@ -9723,6 +9818,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|rbracketToken
@@ -9732,10 +9828,9 @@ name|virtual
 name|void
 name|accept0
 argument_list|(
-name|Visitor
-operator|*
-name|visitor
+argument|Visitor *visitor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|// attributes
 name|UiQualifiedId

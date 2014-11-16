@@ -51,31 +51,25 @@ name|virtual
 name|bool
 name|recognizeCode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|code
+argument|const QString&code
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|recognizeExtension
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|ext
+argument|const QString&ext
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|recognizeLanguage
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|language
+argument|const QString&language
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|Atom
@@ -84,81 +78,61 @@ name|Type
 name|atomType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|markedUpCode
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|code
+argument|const QString&code
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node *relative
 argument_list|,
-specifier|const
-name|Location
-operator|&
-name|location
+argument|const Location&location
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|markedUpName
 argument_list|(
-specifier|const
-name|Node
-operator|*
-name|node
+argument|const Node *node
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|markedUpFullName
 argument_list|(
-specifier|const
-name|Node
-operator|*
-name|node
+argument|const Node *node
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|relative
+argument|const Node *relative
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|markedUpIncludes
 argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|includes
+argument|const QStringList&includes
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|functionBeginRegExp
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|funcName
+argument|const QString&funcName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|QString
 name|functionEndRegExp
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|funcName
+argument|const QString&funcName
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 comment|/* Copied from src/declarative/qml/qdeclarativescriptparser.cpp */
 name|QList

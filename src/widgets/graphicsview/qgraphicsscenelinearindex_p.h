@@ -118,6 +118,7 @@ argument_list|(
 argument|Qt::SortOrder order = Qt::DescendingOrder
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -141,6 +142,7 @@ argument_list|,
 argument|Qt::SortOrder order
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -162,6 +164,7 @@ name|virtual
 name|void
 name|clear
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 name|m_items
 operator|.
@@ -178,6 +181,7 @@ name|addItem
 argument_list|(
 argument|QGraphicsItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_items
 operator|<<
@@ -189,6 +193,7 @@ name|removeItem
 argument_list|(
 argument|QGraphicsItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 comment|// Sort m_items if needed
 if|if

@@ -110,6 +110,7 @@ operator|*
 name|accessibleRoot
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -118,15 +119,16 @@ operator|*
 name|focusObject
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
 name|bool
 name|event
 argument_list|(
-name|QEvent
-operator|*
+argument|QEvent *
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|handleCloseEvent
@@ -247,19 +249,13 @@ block|;
 name|bool
 name|nativeEvent
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|eventType
+argument|const QByteArray&eventType
 argument_list|,
-name|void
-operator|*
-name|message
+argument|void *message
 argument_list|,
-name|long
-operator|*
-name|result
+argument|long *result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef

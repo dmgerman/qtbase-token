@@ -92,6 +92,7 @@ name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|&
@@ -102,35 +103,23 @@ name|virtual
 name|void
 name|flush
 argument_list|(
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|offset
+argument|const QPoint&offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
 name|resize
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
+argument|const QSize&size
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|const
 name|QImage

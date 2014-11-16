@@ -80,6 +80,7 @@ name|SurfaceType
 name|surfaceType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|void
 name|create
@@ -107,6 +108,7 @@ name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QSurfaceFormat
 name|requestedFormat
@@ -117,6 +119,7 @@ name|QSize
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|QScreen
 operator|*
@@ -166,6 +169,7 @@ operator|*
 name|surfaceHandle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|Q_DISABLE_COPY
 argument_list|(

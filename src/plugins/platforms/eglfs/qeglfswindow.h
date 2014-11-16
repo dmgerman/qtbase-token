@@ -175,6 +175,7 @@ name|virtual
 name|void
 name|invalidateSurface
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void

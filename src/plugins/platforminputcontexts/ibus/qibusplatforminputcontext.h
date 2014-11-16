@@ -52,14 +52,14 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setFocusObject
 argument_list|(
-name|QObject
-operator|*
-name|object
+argument|QObject *object
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|invokeAction
@@ -68,22 +68,24 @@ argument|QInputMethod::Action a
 argument_list|,
 argument|int x
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|reset
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|commit
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|update
 argument_list|(
-name|Qt
-operator|::
-name|InputMethodQueries
+argument|Qt::InputMethodQueries
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|Q_INVOKABLE
 name|bool

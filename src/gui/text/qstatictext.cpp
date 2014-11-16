@@ -907,7 +907,6 @@ operator|::
 name|black
 argument_list|)
 block|{         }
-DECL|function|updateState
 specifier|virtual
 name|void
 name|updateState
@@ -917,6 +916,7 @@ name|QPaintEngineState
 modifier|&
 name|newState
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -956,7 +956,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|function|drawTextItem
 specifier|virtual
 name|void
 name|drawTextItem
@@ -971,6 +970,7 @@ name|QTextItem
 modifier|&
 name|textItem
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 specifier|const
 name|QTextItemInt
@@ -1285,7 +1285,6 @@ name|currentItem
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|drawPolygon
 specifier|virtual
 name|void
 name|drawPolygon
@@ -1298,10 +1297,10 @@ name|int
 parameter_list|,
 name|PolygonDrawMode
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 comment|/* intentionally empty */
 block|}
-DECL|function|begin
 specifier|virtual
 name|bool
 name|begin
@@ -1309,22 +1308,22 @@ parameter_list|(
 name|QPaintDevice
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|true
 return|;
 block|}
-DECL|function|end
 specifier|virtual
 name|bool
 name|end
 parameter_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|true
 return|;
 block|}
-DECL|function|drawPixmap
 specifier|virtual
 name|void
 name|drawPixmap
@@ -1341,13 +1340,14 @@ specifier|const
 name|QRectF
 modifier|&
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{}
-DECL|function|type
 specifier|virtual
 name|Type
 name|type
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|User
@@ -1490,7 +1490,6 @@ operator|delete
 name|m_paintEngine
 expr_stmt|;
 block|}
-DECL|function|metric
 name|int
 name|metric
 parameter_list|(
@@ -1498,6 +1497,7 @@ name|PaintDeviceMetric
 name|m
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 name|int
 name|val
@@ -1587,13 +1587,13 @@ return|return
 name|val
 return|;
 block|}
-DECL|function|paintEngine
 specifier|virtual
 name|QPaintEngine
 modifier|*
 name|paintEngine
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_paintEngine
