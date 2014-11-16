@@ -1274,6 +1274,7 @@ return|return
 name|ucs
 return|;
 block|}
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|ushort
 modifier|&
@@ -1658,6 +1659,7 @@ literal|0xff
 argument_list|)
 return|;
 block|}
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setCell
@@ -1681,6 +1683,7 @@ name|acell
 argument_list|)
 expr_stmt|;
 block|}
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setRow
