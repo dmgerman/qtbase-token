@@ -133,6 +133,7 @@ name|typename
 name|TT2
 operator|>
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QPair
 operator|&
 name|operator
@@ -222,6 +223,7 @@ name|typename
 name|TT2
 operator|>
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QPair
 operator|&
 name|operator
