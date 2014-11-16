@@ -452,6 +452,7 @@ name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|bool
 name|operator
 operator|==
@@ -463,9 +464,6 @@ name|orig
 operator|)
 specifier|const
 block|{
-name|uint
-name|i
-block|;
 if|if
 condition|(
 name|data1
@@ -491,8 +489,9 @@ name|false
 return|;
 for|for
 control|(
+name|uint
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|i
@@ -525,6 +524,7 @@ return|;
 block|}
 end_decl_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 name|bool
 name|operator
 operator|!=
@@ -751,6 +751,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QUuid
 modifier|&
 name|operator
@@ -777,6 +778,7 @@ return|;
 block|}
 end_decl_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 name|operator
 name|GUID
 argument_list|()
@@ -841,6 +843,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 name|bool
 name|operator
 operator|==
@@ -864,6 +867,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 name|bool
 name|operator
 operator|!=
