@@ -76,6 +76,7 @@ name|bottom
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setLeft
 parameter_list|(
@@ -83,6 +84,7 @@ name|int
 name|left
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setTop
 parameter_list|(
@@ -90,6 +92,7 @@ name|int
 name|top
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setRight
 parameter_list|(
@@ -97,6 +100,7 @@ name|int
 name|right
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setBottom
 parameter_list|(
@@ -104,6 +108,7 @@ name|int
 name|bottom
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -115,6 +120,7 @@ operator|&
 name|margins
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -126,6 +132,7 @@ operator|&
 name|margins
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -134,6 +141,7 @@ operator|(
 name|int
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -142,6 +150,7 @@ operator|(
 name|int
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -150,6 +159,7 @@ operator|(
 name|int
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -158,6 +168,7 @@ operator|(
 name|int
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -166,6 +177,7 @@ operator|(
 name|qreal
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
 name|operator
@@ -440,6 +452,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMargins
@@ -454,6 +467,7 @@ operator|=
 name|aleft
 block|; }
 DECL|function|setTop
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMargins
@@ -468,6 +482,7 @@ operator|=
 name|atop
 block|; }
 DECL|function|setRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMargins
@@ -482,6 +497,7 @@ operator|=
 name|aright
 block|; }
 DECL|function|setBottom
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMargins
@@ -1225,6 +1241,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1251,6 +1268,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1277,6 +1295,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1312,6 +1331,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1347,6 +1367,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1371,6 +1392,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1395,6 +1417,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1419,6 +1442,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|&
@@ -1594,6 +1618,7 @@ name|bottom
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setLeft
 parameter_list|(
@@ -1601,6 +1626,7 @@ name|qreal
 name|left
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setTop
 parameter_list|(
@@ -1608,6 +1634,7 @@ name|qreal
 name|top
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setRight
 parameter_list|(
@@ -1615,6 +1642,7 @@ name|qreal
 name|right
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setBottom
 parameter_list|(
@@ -1622,6 +1650,7 @@ name|qreal
 name|bottom
 parameter_list|)
 function_decl|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
 name|operator
@@ -1633,6 +1662,7 @@ operator|&
 name|margins
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
 name|operator
@@ -1644,6 +1674,7 @@ operator|&
 name|margins
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
 name|operator
@@ -1653,6 +1684,7 @@ name|qreal
 name|addend
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
 name|operator
@@ -1662,6 +1694,7 @@ name|qreal
 name|subtrahend
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
 name|operator
@@ -1671,6 +1704,7 @@ name|qreal
 name|factor
 operator|)
 expr_stmt|;
+name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
 name|operator
@@ -1967,6 +2001,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setLeft
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMarginsF
@@ -1981,6 +2016,7 @@ operator|=
 name|aleft
 block|; }
 DECL|function|setTop
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMarginsF
@@ -1995,6 +2031,7 @@ operator|=
 name|atop
 block|; }
 DECL|function|setRight
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMarginsF
@@ -2009,6 +2046,7 @@ operator|=
 name|aright
 block|; }
 DECL|function|setBottom
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|QMarginsF
@@ -2562,6 +2600,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|member|operator
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|&
@@ -2588,6 +2627,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|&
@@ -2614,6 +2654,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|&
@@ -2649,6 +2690,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|&
@@ -2684,6 +2726,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|&
@@ -2708,6 +2751,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|&
