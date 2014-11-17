@@ -318,6 +318,49 @@ name|QWindowsInputContext
 parameter_list|()
 block|{ }
 end_destructor
+begin_function
+DECL|function|hasCapability
+name|bool
+name|QWindowsInputContext
+operator|::
+name|hasCapability
+parameter_list|(
+name|Capability
+name|capability
+parameter_list|)
+specifier|const
+block|{
+switch|switch
+condition|(
+name|capability
+condition|)
+block|{
+case|case
+name|QPlatformInputContext
+operator|::
+name|HiddenTextCapability
+case|:
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+return|return
+literal|false
+return|;
+comment|// QTBUG-40691, do not show IME on desktop for password entry fields.
+else|#
+directive|else
+break|break;
+comment|// Windows CE: Show software keyboard.
+endif|#
+directive|endif
+default|default:
+break|break;
+block|}
+return|return
+literal|true
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \brief Cancels a composition. */
 end_comment

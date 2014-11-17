@@ -81,6 +81,14 @@ operator|~
 name|QWindowsInputContext
 argument_list|()
 block|;
+name|bool
+name|hasCapability
+argument_list|(
+argument|Capability capability
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|void
 name|reset
 argument_list|()

@@ -83,6 +83,30 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns whether the implementation supports \a capability.     \internal     \since 5.4  */
+end_comment
+begin_function
+DECL|function|hasCapability
+name|bool
+name|QPlatformInputContext
+operator|::
+name|hasCapability
+parameter_list|(
+name|Capability
+name|capability
+parameter_list|)
+specifier|const
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|capability
+argument_list|)
+return|return
+literal|true
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Method to be called when input method needs to be reset. Called by QInputMethod::reset().     No further QInputMethodEvents should be sent as response.  */
 end_comment
 begin_function
