@@ -2592,6 +2592,15 @@ modifier|&
 name|c
 parameter_list|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|color
+operator|==
+name|c
+condition|)
+return|return;
 name|detach
 argument_list|(
 name|d
