@@ -820,7 +820,7 @@ operator|=
 name|STRING_LITERAL
 expr_stmt|;
 comment|// concatenate multi-line strings for easier
-comment|// STRING_LITERAAL handling in moc
+comment|// STRING_LITERAL handling in moc
 if|if
 condition|(
 operator|!
