@@ -107,6 +107,8 @@ operator|>
 endif|#
 directive|endif
 block|{
+name|public
+operator|:
 specifier|inline
 name|QByteArray
 name|join
