@@ -6817,6 +6817,66 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+specifier|static
+name|QString
+DECL|function|qv
+name|qv
+parameter_list|(
+specifier|const
+name|ProString
+modifier|&
+name|val
+parameter_list|)
+block|{
+return|return
+literal|' '
+operator|+
+name|QMakeEvaluator
+operator|::
+name|quoteValue
+argument_list|(
+name|val
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
+specifier|static
+name|QString
+DECL|function|qv
+name|qv
+parameter_list|(
+specifier|const
+name|ProStringList
+modifier|&
+name|val
+parameter_list|)
+block|{
+name|QString
+name|ret
+decl_stmt|;
+foreach|foreach
+control|(
+specifier|const
+name|ProString
+modifier|&
+name|v
+decl|,
+name|val
+control|)
+name|ret
+operator|+=
+name|qv
+argument_list|(
+name|v
+argument_list|)
+expr_stmt|;
+return|return
+name|ret
+return|;
+block|}
+end_function
+begin_function
 name|void
 DECL|function|writePrlFile
 name|MakefileGenerator
@@ -6887,16 +6947,21 @@ argument_list|()
 expr_stmt|;
 name|t
 operator|<<
-literal|"QMAKE_PRL_BUILD_DIR = "
+literal|"QMAKE_PRL_BUILD_DIR ="
 operator|<<
+name|qv
+argument_list|(
 name|bdir
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"QMAKE_PRO_INPUT = "
+literal|"QMAKE_PRO_INPUT ="
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|projectFile
@@ -6909,6 +6974,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -6924,22 +6990,28 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"QMAKE_PRL_SOURCE_DIR = "
+literal|"QMAKE_PRL_SOURCE_DIR ="
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_ABSOLUTE_SOURCE_PATH"
 argument_list|)
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
 name|t
 operator|<<
-literal|"QMAKE_PRL_TARGET = "
+literal|"QMAKE_PRL_TARGET ="
 operator|<<
+name|qv
+argument_list|(
 name|target
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -6955,18 +7027,16 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"QMAKE_PRL_DEFINES = "
+literal|"QMAKE_PRL_DEFINES ="
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"PRL_EXPORT_DEFINES"
 argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -6983,18 +7053,16 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"QMAKE_PRL_CFLAGS = "
+literal|"QMAKE_PRL_CFLAGS ="
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"PRL_EXPORT_CFLAGS"
 argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7011,18 +7079,16 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"QMAKE_PRL_CXXFLAGS = "
+literal|"QMAKE_PRL_CXXFLAGS ="
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"PRL_EXPORT_CXXFLAGS"
 argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7039,18 +7105,16 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"QMAKE_PRL_CONFIG = "
+literal|"QMAKE_PRL_CONFIG ="
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"CONFIG"
 argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -7162,7 +7226,7 @@ literal|"QMAKE_LIBS_PRIVATE"
 expr_stmt|;
 name|t
 operator|<<
-literal|"QMAKE_PRL_LIBS = "
+literal|"QMAKE_PRL_LIBS ="
 expr_stmt|;
 for|for
 control|(
@@ -7188,6 +7252,8 @@ name|it
 control|)
 name|t
 operator|<<
+name|qv
+argument_list|(
 name|project
 operator|->
 name|values
@@ -7200,20 +7266,7 @@ operator|.
 name|toKey
 argument_list|()
 argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
 argument_list|)
-operator|.
-name|replace
-argument_list|(
-literal|'\\'
-argument_list|,
-literal|"\\\\"
-argument_list|)
-operator|<<
-literal|" "
 expr_stmt|;
 name|t
 operator|<<

@@ -1199,9 +1199,10 @@ endif|#
 directive|endif
 end_endif
 begin_function
-specifier|static
 name|QString
 DECL|function|quoteValue
+name|QMakeEvaluator
+operator|::
 name|quoteValue
 parameter_list|(
 specifier|const

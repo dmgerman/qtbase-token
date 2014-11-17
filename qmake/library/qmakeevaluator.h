@@ -1212,6 +1212,16 @@ block|}
 block|;
 endif|#
 directive|endif
+specifier|static
+name|QString
+name|quoteValue
+argument_list|(
+specifier|const
+name|ProString
+operator|&
+name|val
+argument_list|)
+block|;
 ifdef|#
 directive|ifdef
 name|PROEVALUATOR_DEBUG
