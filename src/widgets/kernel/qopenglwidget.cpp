@@ -676,6 +676,21 @@ operator|::
 name|reset
 parameter_list|()
 block|{
+name|Q_Q
+argument_list|(
+name|QOpenGLWidget
+argument_list|)
+expr_stmt|;
+comment|// Destroy the OpenGL resources first. These need the context to be current.
+if|if
+condition|(
+name|initialized
+condition|)
+name|q
+operator|->
+name|makeCurrent
+argument_list|()
+expr_stmt|;
 operator|delete
 name|paintDevice
 expr_stmt|;
@@ -696,6 +711,15 @@ expr_stmt|;
 name|resolvedFbo
 operator|=
 literal|0
+expr_stmt|;
+if|if
+condition|(
+name|initialized
+condition|)
+name|q
+operator|->
+name|doneCurrent
+argument_list|()
 expr_stmt|;
 comment|// Delete the context first, then the surface. Slots connected to
 comment|// the context's aboutToBeDestroyed() may still call makeCurrent()
