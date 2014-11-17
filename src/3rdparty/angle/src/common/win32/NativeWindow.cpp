@@ -127,7 +127,9 @@ name|NativeWindow
 operator|::
 name|createSwapChain
 parameter_list|(
-name|ID3D11Device
+name|NativeWindow
+operator|::
+name|Device
 modifier|*
 name|device
 parameter_list|,

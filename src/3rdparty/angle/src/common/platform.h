@@ -289,6 +289,11 @@ include|#
 directive|include
 file|<d3d9.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<dxgi.h>
+end_include
 begin_if
 if|#
 directive|if
