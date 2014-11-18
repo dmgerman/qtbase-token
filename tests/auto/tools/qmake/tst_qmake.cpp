@@ -451,6 +451,13 @@ name|base_path
 operator|+
 literal|"/testdata/simple_app"
 decl_stmt|;
+name|QString
+name|destDir
+init|=
+name|workDir
+operator|+
+literal|"/dest dir"
+decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|test_compiler
@@ -479,9 +486,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -505,9 +512,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -533,9 +540,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -578,6 +585,13 @@ name|base_path
 operator|+
 literal|"/testdata/simple_app_build"
 decl_stmt|;
+name|QString
+name|destDir
+init|=
+name|buildDir
+operator|+
+literal|"/dest dir"
+decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|test_compiler
@@ -608,9 +622,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|buildDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -634,9 +648,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|buildDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -662,9 +676,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|buildDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -707,6 +721,13 @@ name|base_path
 operator|+
 literal|"/testdata/simple_app/build"
 decl_stmt|;
+name|QString
+name|destDir
+init|=
+name|buildDir
+operator|+
+literal|"/dest dir"
+decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|test_compiler
@@ -737,9 +758,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|buildDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -763,9 +784,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|buildDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -791,9 +812,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|buildDir
+name|destDir
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -829,6 +850,13 @@ name|base_path
 operator|+
 literal|"/testdata/simple_dll"
 decl_stmt|;
+name|QString
+name|destDir
+init|=
+name|workDir
+operator|+
+literal|"/dest dir"
+decl_stmt|;
 name|QDir
 name|D
 decl_stmt|;
@@ -869,9 +897,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_dll"
+literal|"simple dll"
 argument_list|,
 name|Dll
 argument_list|,
@@ -895,9 +923,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_dll"
+literal|"simple dll"
 argument_list|,
 name|Dll
 argument_list|,
@@ -923,9 +951,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_dll"
+literal|"simple dll"
 argument_list|,
 name|Dll
 argument_list|,
@@ -961,6 +989,13 @@ name|base_path
 operator|+
 literal|"/testdata/simple_lib"
 decl_stmt|;
+name|QString
+name|destDir
+init|=
+name|workDir
+operator|+
+literal|"/dest dir"
+decl_stmt|;
 name|QDir
 name|D
 decl_stmt|;
@@ -1001,9 +1036,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_lib"
+literal|"simple lib"
 argument_list|,
 name|Lib
 argument_list|,
@@ -1027,9 +1062,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_lib"
+literal|"simple lib"
 argument_list|,
 name|Lib
 argument_list|,
@@ -1055,9 +1090,9 @@ name|test_compiler
 operator|.
 name|exists
 argument_list|(
-name|workDir
+name|destDir
 argument_list|,
-literal|"simple_lib"
+literal|"simple lib"
 argument_list|,
 name|Lib
 argument_list|,
@@ -1144,9 +1179,9 @@ name|exists
 argument_list|(
 name|workDir
 operator|+
-literal|"/simple_app"
+literal|"/simple_app/dest dir"
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -1162,9 +1197,9 @@ name|exists
 argument_list|(
 name|workDir
 operator|+
-literal|"/simple_dll"
+literal|"/simple_dll/dest dir"
 argument_list|,
-literal|"simple_dll"
+literal|"simple dll"
 argument_list|,
 name|Dll
 argument_list|,
@@ -1191,9 +1226,9 @@ name|exists
 argument_list|(
 name|workDir
 operator|+
-literal|"/simple_app"
+literal|"/simple_app/dest dir"
 argument_list|,
-literal|"simple_app"
+literal|"simple app"
 argument_list|,
 name|Exe
 argument_list|,
@@ -1209,9 +1244,9 @@ name|exists
 argument_list|(
 name|workDir
 operator|+
-literal|"/simple_dll"
+literal|"/simple_dll/dest dir"
 argument_list|,
-literal|"simple_dll"
+literal|"simple dll"
 argument_list|,
 name|Dll
 argument_list|,
