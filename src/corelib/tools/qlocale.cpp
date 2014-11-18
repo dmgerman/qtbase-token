@@ -13478,6 +13478,9 @@ name|buff
 parameter_list|,
 name|int
 name|decDigits
+parameter_list|,
+name|bool
+name|rejectGroupSeparators
 parameter_list|)
 specifier|const
 block|{
@@ -13704,6 +13707,8 @@ case|:
 comment|//it can only be placed after a digit which is before the decimal point
 if|if
 condition|(
+name|rejectGroupSeparators
+operator|||
 operator|!
 name|lastWasDigit
 operator|||

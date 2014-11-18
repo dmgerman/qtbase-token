@@ -1076,6 +1076,11 @@ name|decDigits
 operator|=
 operator|-
 literal|1
+argument_list|,
+name|bool
+name|rejectGroupSeparators
+operator|=
+name|false
 argument_list|)
 decl|const
 decl_stmt|;
