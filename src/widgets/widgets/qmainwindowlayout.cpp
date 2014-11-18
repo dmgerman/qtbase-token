@@ -6725,7 +6725,10 @@ name|sbr
 argument_list|(
 name|QPoint
 argument_list|(
-literal|0
+name|r
+operator|.
+name|left
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
