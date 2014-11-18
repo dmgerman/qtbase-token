@@ -52,6 +52,8 @@ block|,
 name|Rsa
 block|,
 name|Dsa
+block|,
+name|Ec
 block|}
 enum|;
 enum|enum

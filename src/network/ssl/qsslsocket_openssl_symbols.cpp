@@ -452,6 +452,49 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|const EC_GROUP*
+argument_list|,
+argument|EC_KEY_get0_group
+argument_list|,
+argument|const EC_KEY* k
+argument_list|,
+argument|k
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|EC_GROUP_get_degree
+argument_list|,
+argument|const EC_GROUP* g
+argument_list|,
+argument|g
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -756,6 +799,36 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|EVP_PKEY_set1_EC_KEY
+argument_list|,
+argument|EVP_PKEY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|EC_KEY *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -806,6 +879,32 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|EC_KEY *
+argument_list|,
+argument|EVP_PKEY_get1_EC_KEY
+argument_list|,
+argument|EVP_PKEY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -1122,6 +1221,44 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC4
+argument_list|(
+argument|EC_KEY *
+argument_list|,
+argument|PEM_read_bio_ECPrivateKey
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|EC_KEY **b
+argument_list|,
+argument|b
+argument_list|,
+argument|pem_password_cb *c
+argument_list|,
+argument|c
+argument_list|,
+argument|void *d
+argument_list|,
+argument|d
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC7
 argument_list|(
@@ -1204,6 +1341,56 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC7
+argument_list|(
+argument|int
+argument_list|,
+argument|PEM_write_bio_ECPrivateKey
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|EC_KEY *b
+argument_list|,
+argument|b
+argument_list|,
+argument|const EVP_CIPHER *c
+argument_list|,
+argument|c
+argument_list|,
+argument|unsigned char *d
+argument_list|,
+argument|d
+argument_list|,
+argument|int e
+argument_list|,
+argument|e
+argument_list|,
+argument|pem_password_cb *f
+argument_list|,
+argument|f
+argument_list|,
+argument|void *g
+argument_list|,
+argument|g
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -1266,6 +1453,44 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC4
+argument_list|(
+argument|EC_KEY *
+argument_list|,
+argument|PEM_read_bio_EC_PUBKEY
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|EC_KEY **b
+argument_list|,
+argument|b
+argument_list|,
+argument|pem_password_cb *c
+argument_list|,
+argument|c
+argument_list|,
+argument|void *d
+argument_list|,
+argument|d
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC2
 argument_list|(
@@ -1308,6 +1533,36 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|PEM_write_bio_EC_PUBKEY
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|EC_KEY *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC2
 argument_list|(
@@ -3686,6 +3941,36 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|i2d_ECPrivateKey
+argument_list|,
+argument|const EC_KEY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|unsigned char **b
+argument_list|,
+argument|b
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|DEFINEFUNC3
 argument_list|(
@@ -3736,6 +4021,40 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+end_ifndef
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|EC_KEY *
+argument_list|,
+argument|d2i_ECPrivateKey
+argument_list|,
+argument|EC_KEY **a
+argument_list|,
+argument|a
+argument_list|,
+argument|unsigned char **b
+argument_list|,
+argument|b
+argument_list|,
+argument|long c
+argument_list|,
+argument|c
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -4051,6 +4370,23 @@ ifndef|#
 directive|ifndef
 name|OPENSSL_NO_EC
 end_ifndef
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|EC_KEY *
+argument_list|,
+argument|EC_KEY_dup
+argument_list|,
+argument|const EC_KEY *ec
+argument_list|,
+argument|ec
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -5819,6 +6155,19 @@ name|RESOLVEFUNC
 argument_list|(
 argument|BIO_write
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|EC_KEY_get0_group
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|EC_GROUP_get_degree
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|BN_num_bits
@@ -5875,6 +6224,15 @@ name|RESOLVEFUNC
 argument_list|(
 argument|EVP_PKEY_set1_DSA
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|EVP_PKEY_set1_EC_KEY
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|EVP_PKEY_free
@@ -5887,6 +6245,15 @@ name|RESOLVEFUNC
 argument_list|(
 argument|EVP_PKEY_get1_RSA
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|EVP_PKEY_get1_EC_KEY
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|EVP_PKEY_new
@@ -5937,6 +6304,15 @@ name|RESOLVEFUNC
 argument_list|(
 argument|PEM_read_bio_RSAPrivateKey
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|PEM_read_bio_ECPrivateKey
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|PEM_write_bio_DSAPrivateKey
@@ -5945,6 +6321,15 @@ name|RESOLVEFUNC
 argument_list|(
 argument|PEM_write_bio_RSAPrivateKey
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|PEM_write_bio_ECPrivateKey
+argument_list|)
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|RESOLVEFUNC
@@ -5955,6 +6340,15 @@ name|RESOLVEFUNC
 argument_list|(
 argument|PEM_read_bio_RSA_PUBKEY
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|PEM_read_bio_EC_PUBKEY
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|PEM_write_bio_DSA_PUBKEY
@@ -5963,6 +6357,15 @@ name|RESOLVEFUNC
 argument_list|(
 argument|PEM_write_bio_RSA_PUBKEY
 argument_list|)
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|PEM_write_bio_EC_PUBKEY
+argument_list|)
+endif|#
+directive|endif
 name|RESOLVEFUNC
 argument_list|(
 argument|RAND_seed
@@ -6497,6 +6900,10 @@ argument_list|)
 ifndef|#
 directive|ifndef
 name|OPENSSL_NO_EC
+name|RESOLVEFUNC
+argument_list|(
+argument|EC_KEY_dup
+argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|EC_KEY_new_by_curve_name
