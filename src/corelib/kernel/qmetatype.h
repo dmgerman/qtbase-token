@@ -118,6 +118,9 @@ end_expr_stmt
 begin_comment
 comment|// F is a tuple: (QMetaType::TypeName, QMetaType::TypeNameID, RealType)
 end_comment
+begin_comment
+comment|// ### Qt6: reorder the types to match the C++ integral type ranking
+end_comment
 begin_define
 DECL|macro|QT_FOR_EACH_STATIC_PRIMITIVE_TYPE
 define|#
