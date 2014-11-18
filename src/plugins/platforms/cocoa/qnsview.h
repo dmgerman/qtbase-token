@@ -162,6 +162,9 @@ name|m_mouseMoveHelper
 block|;
 name|bool
 name|m_resendKeyEvent
+block|;
+name|bool
+name|m_scrolling
 block|; }
 operator|-
 operator|(
