@@ -26483,7 +26483,9 @@ name|endl
 operator|<<
 literal|"    \"qt_prfxpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26497,7 +26499,9 @@ name|endl
 operator|<<
 literal|"    \"qt_docspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26511,7 +26515,9 @@ name|endl
 operator|<<
 literal|"    \"qt_hdrspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26525,7 +26531,9 @@ name|endl
 operator|<<
 literal|"    \"qt_libspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26539,7 +26547,9 @@ name|endl
 operator|<<
 literal|"    \"qt_lbexpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26553,7 +26563,9 @@ name|endl
 operator|<<
 literal|"    \"qt_binspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26567,7 +26579,9 @@ name|endl
 operator|<<
 literal|"    \"qt_plugpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26581,7 +26595,9 @@ name|endl
 operator|<<
 literal|"    \"qt_impspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26595,7 +26611,9 @@ name|endl
 operator|<<
 literal|"    \"qt_qml2path="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26609,7 +26627,9 @@ name|endl
 operator|<<
 literal|"    \"qt_adatpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26623,7 +26643,9 @@ name|endl
 operator|<<
 literal|"    \"qt_datapath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26637,7 +26659,9 @@ name|endl
 operator|<<
 literal|"    \"qt_trnspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26651,7 +26675,9 @@ name|endl
 operator|<<
 literal|"    \"qt_xmplpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26665,7 +26691,9 @@ name|endl
 operator|<<
 literal|"    \"qt_tstspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26683,7 +26711,9 @@ name|endl
 operator|<<
 literal|"    \"qt_prfxpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26697,7 +26727,9 @@ name|endl
 operator|<<
 literal|"    \"qt_docspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26711,7 +26743,9 @@ name|endl
 operator|<<
 literal|"    \"qt_hdrspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26725,7 +26759,9 @@ name|endl
 operator|<<
 literal|"    \"qt_libspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26739,7 +26775,9 @@ name|endl
 operator|<<
 literal|"    \"qt_lbexpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26753,7 +26791,9 @@ name|endl
 operator|<<
 literal|"    \"qt_binspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26767,7 +26807,9 @@ name|endl
 operator|<<
 literal|"    \"qt_plugpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26781,7 +26823,9 @@ name|endl
 operator|<<
 literal|"    \"qt_impspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26795,7 +26839,9 @@ name|endl
 operator|<<
 literal|"    \"qt_qml2path="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26809,7 +26855,9 @@ name|endl
 operator|<<
 literal|"    \"qt_adatpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26823,7 +26871,9 @@ name|endl
 operator|<<
 literal|"    \"qt_datapath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26837,7 +26887,9 @@ name|endl
 operator|<<
 literal|"    \"qt_trnspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26851,7 +26903,9 @@ name|endl
 operator|<<
 literal|"    \"qt_xmplpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26865,7 +26919,9 @@ name|endl
 operator|<<
 literal|"    \"qt_tstspath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26879,7 +26935,9 @@ name|endl
 operator|<<
 literal|"    \"qt_ssrtpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26893,7 +26951,9 @@ name|endl
 operator|<<
 literal|"    \"qt_hpfxpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26907,7 +26967,9 @@ name|endl
 operator|<<
 literal|"    \"qt_hbinpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26921,7 +26983,9 @@ name|endl
 operator|<<
 literal|"    \"qt_hlibpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26935,7 +26999,9 @@ name|endl
 operator|<<
 literal|"    \"qt_hdatpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
@@ -26998,7 +27064,9 @@ name|tmpStream
 operator|<<
 literal|"static const char qt_configure_settings_path_str [256 + 12] = \"qt_stngpath="
 operator|<<
-name|formatPath
+name|QDir
+operator|::
+name|cleanPath
 argument_list|(
 name|dictionary
 index|[
