@@ -12140,6 +12140,12 @@ name|QMetaType
 operator|::
 name|Float
 operator|)
+operator|||
+name|tp
+operator|==
+name|QMetaType
+operator|::
+name|SChar
 return|;
 block|}
 end_function
