@@ -80,6 +80,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qtools_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtTest/private/qtestlog_p.h>
 end_include
 begin_include
@@ -239,96 +244,281 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_using
+using|using
+name|QtMiscUtils
+operator|::
+name|toHexUpper
+using|;
+end_using
+begin_comment
 comment|/*!    \namespace QTest    \inmodule QtTest     \brief The QTest namespace contains all the functions and    declarations that are related to Qt Test.     See the \l{Qt Test Overview} for information about how to write unit tests. */
+end_comment
+begin_comment
 comment|/*! \macro QVERIFY(condition)     \relates QTest     The QVERIFY() macro checks whether the \a condition is true or not. If it is    true, execution continues. If not, a failure is recorded in the test log    and the test won't be executed further.     \b {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet code/src_qtestlib_qtestcase.cpp 0     \sa QCOMPARE(), QTRY_VERIFY() */
+end_comment
+begin_comment
 comment|/*! \macro QVERIFY2(condition, message)      \relates QTest      The QVERIFY2() macro behaves exactly like QVERIFY(), except that it outputs     a verbose \a message when \a condition is false. The \a message is a plain     C string.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 1      \sa QVERIFY(), QCOMPARE() */
+end_comment
+begin_comment
 comment|/*! \macro QCOMPARE(actual, expected)     \relates QTest     The QCOMPARE macro compares an \a actual value to an \a expected value using    the equals operator. If \a actual and \a expected are identical, execution    continues. If not, a failure is recorded in the test log and the test    won't be executed further.     In the case of comparing floats and doubles, qFuzzyCompare() is used for    comparing. This means that comparing to 0 will likely fail. One solution    to this is to compare to 1, and add 1 to the produced output.     QCOMPARE tries to output the contents of the values if the comparison fails,    so it is visible from the test log why the comparison failed.     QCOMPARE is very strict on the data types. Both \a actual and \a expected    have to be of the same type, otherwise the test won't compile. This prohibits    unspecified behavior from being introduced; that is behavior that usually    occurs when the compiler implicitly casts the argument.     For your own classes, you can use \l QTest::toString() to format values for    outputting into the test log.     \note This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet code/src_qtestlib_qtestcase.cpp 2     \sa QVERIFY(), QTRY_COMPARE(), QTest::toString() */
+end_comment
+begin_comment
 comment|/*! \macro QVERIFY_EXCEPTION_THROWN(expression, exceptiontype)    \since 5.3     \relates QTest     The QVERIFY_EXCEPTION_THROWN macro executes an \a expression and tries    to catch an exception thrown from the \a expression. If the \a expression    throws an exception and its type is the same as \a exceptiontype    or \a exceptiontype is substitutable with the type of thrown exception    (i.e. usually the type of thrown exception is publically derived    from \a exceptiontype) then execution will be continued. If not-substitutable    type of exception is thrown or the \a expression doesn't throw an exception    at all, then a failure will be recorded in the test log and    the test won't be executed further.     \note This macro can only be used in a test function that is invoked    by the test framework. */
+end_comment
+begin_comment
 comment|/*! \macro QTRY_VERIFY_WITH_TIMEOUT(condition, timeout)    \since 5.0     \relates QTest     The QTRY_VERIFY_WITH_TIMEOUT() macro is similar to QVERIFY(), but checks the \a condition    repeatedly, until either the condition becomes true or the \a timeout is    reached.  Between each evaluation, events will be processed.  If the timeout    is reached, a failure is recorded in the test log and the test won't be    executed further.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_VERIFY(), QVERIFY(), QCOMPARE(), QTRY_COMPARE() */
+end_comment
+begin_comment
 comment|/*! \macro QTRY_VERIFY(condition)    \since 5.0     \relates QTest     Checks the \a condition by invoking QTRY_VERIFY_WITH_TIMEOUT() with a timeout of five seconds.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_VERIFY_WITH_TIMEOUT(), QVERIFY(), QCOMPARE(), QTRY_COMPARE() */
+end_comment
+begin_comment
 comment|/*! \macro QTRY_COMPARE_WITH_TIMEOUT(actual, expected, timeout)    \since 5.0     \relates QTest     The QTRY_COMPARE_WITH_TIMEOUT() macro is similar to QCOMPARE(), but performs the comparison    of the \a actual and \a expected values repeatedly, until either the two values    are equal or the \a timeout is reached.  Between each comparison, events    will be processed.  If the timeout is reached, a failure is recorded in the    test log and the test won't be executed further.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_COMPARE(), QCOMPARE(), QVERIFY(), QTRY_VERIFY() */
+end_comment
+begin_comment
 comment|/*! \macro QTRY_COMPARE(actual, expected)    \since 5.0     \relates QTest     Performs a comparison of the \a actual and \a expected values by    invoking QTRY_COMPARE_WITH_TIMEOUT() with a timeout of five seconds.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_COMPARE_WITH_TIMEOUT(), QCOMPARE(), QVERIFY(), QTRY_VERIFY() */
+end_comment
+begin_comment
 comment|/*! \macro QFETCH(type, name)     \relates QTest     The fetch macro creates a local variable named \a name with the type \a type    on the stack. \a name has to match the element name from the test's data.    If no such element exists, the test will assert.     Assuming a test has the following data:     \snippet code/src_qtestlib_qtestcase.cpp 3     The test data has two elements, a QString called \c aString and an integer    called \c expected. To fetch these values in the actual test:     \snippet code/src_qtestlib_qtestcase.cpp 4     \c aString and \c expected are variables on the stack that are initialized with    the current test data.     \b {Note:} This macro can only be used in a test function that is invoked    by the test framework. The test function must have a _data function. */
+end_comment
+begin_comment
 comment|/*! \macro QWARN(message)     \relates QTest    \threadsafe     Appends \a message as a warning to the test log. This macro can be used anywhere    in your tests. */
+end_comment
+begin_comment
 comment|/*! \macro QFAIL(message)     \relates QTest     This macro can be used to force a test failure. The test stops    executing and the failure \a message is appended to the test log.     \b {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:     \snippet code/src_qtestlib_qtestcase.cpp 5 */
+end_comment
+begin_comment
 comment|/*! \macro QTEST(actual, testElement)     \relates QTest     QTEST() is a convenience macro for \l QCOMPARE() that compares    the value \a actual with the element \a testElement from the test's data.    If there is no such element, the test asserts.     Apart from that, QTEST() behaves exactly as \l QCOMPARE().     Instead of writing:     \snippet code/src_qtestlib_qtestcase.cpp 6     you can write:     \snippet code/src_qtestlib_qtestcase.cpp 7     \sa QCOMPARE() */
+end_comment
+begin_comment
 comment|/*! \macro QSKIP(description)     \relates QTest     If called from a test function, the QSKIP() macro stops execution of the test    without adding a failure to the test log. You can use it to skip tests that    wouldn't make sense in the current configuration. The text \a description is    appended to the test log and should contain an explanation of why the test    couldn't be executed.     If the test is data-driven, each call to QSKIP() will skip only the current    row of test data, so an unconditional call to QSKIP will produce one skip    message in the test log for each row of test data.     If called from an _data function, the QSKIP() macro will stop execution of    the _data function and will prevent execution of the associated test    function.     If called from initTestCase() or initTestCase_data(), the QSKIP() macro will    skip all test and _data functions.     \b {Note:} This macro can only be used in a test function or _data    function that is invoked by the test framework.     Example:    \snippet code/src_qtestlib_qtestcase.cpp 8 */
+end_comment
+begin_comment
 comment|/*! \macro QEXPECT_FAIL(dataIndex, comment, mode)     \relates QTest     The QEXPECT_FAIL() macro marks the next \l QCOMPARE() or \l QVERIFY() as an    expected failure. Instead of adding a failure to the test log, an expected    failure will be reported.     If a \l QVERIFY() or \l QCOMPARE() is marked as an expected failure,    but passes instead, an unexpected pass (XPASS) is written to the test log.     The parameter \a dataIndex describes for which entry in the test data the    failure is expected. Pass an empty string (\c{""}) if the failure    is expected for all entries or if no test data exists.     \a comment will be appended to the test log for the expected failure.     \a mode is a \l QTest::TestFailMode and sets whether the test should    continue to execute or not.     \b {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example 1:    \snippet code/src_qtestlib_qtestcase.cpp 9     In the example above, an expected fail will be written into the test output    if the variable \c i is not 42. If the variable \c i is 42, an unexpected pass    is written instead. The QEXPECT_FAIL() has no influence on the second QCOMPARE()    statement in the example.     Example 2:    \snippet code/src_qtestlib_qtestcase.cpp 10     The above testfunction will not continue executing for the test data    entry \c{data27}.     \sa QTest::TestFailMode, QVERIFY(), QCOMPARE() */
+end_comment
+begin_comment
 comment|/*! \macro QFINDTESTDATA(filename)    \since 5.0     \relates QTest     Returns a QString for the testdata file referred to by \a filename, or an    empty QString if the testdata file could not be found.     This macro allows the test to load data from an external file without    hardcoding an absolute filename into the test, or using relative paths    which may be error prone.     The returned path will be the first path from the following list which    resolves to an existing file or directory:     \list    \li \a filename relative to QCoreApplication::applicationDirPath()       (only if a QCoreApplication or QApplication object has been created).    \li \a filename relative to the test's standard install directory       (QLibraryInfo::TestsPath with the lowercased testcase name appended).    \li \a filename relative to the directory containing the source file from which       QFINDTESTDATA is invoked.    \endlist     If the named file/directory does not exist at any of these locations,    a warning is printed to the test log.     For example, in this code:    \snippet code/src_qtestlib_qtestcase.cpp 26     The testdata file will be resolved as the first existing file from:     \list    \li \c{/home/user/build/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \li \c{/usr/local/Qt-5.0.0/tests/tst_myxmlparser/testxml/simple1.xml}    \li \c{/home/user/sources/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \endlist     This allows the test to find its testdata regardless of whether the    test has been installed, and regardless of whether the test's build tree    is equal to the test's source tree.     \b {Note:} reliable detection of testdata from the source directory requires    either that qmake is used, or the \c{QT_TESTCASE_BUILDDIR} macro is defined to    point to the working directory from which the compiler is invoked, or only    absolute paths to the source files are passed to the compiler. Otherwise, the    absolute path of the source directory cannot be determined.     \b {Note:} For tests that use the \l QTEST_APPLESS_MAIN() macro to generate a    \c{main()} function, \c{QFINDTESTDATA} will not attempt to find test data    relative to QCoreApplication::applicationDirPath().  In practice, this means that    tests using \c{QTEST_APPLESS_MAIN()} will fail to find their test data    if run from a shadow build tree. */
+end_comment
+begin_comment
 comment|/*! \macro QTEST_MAIN(TestClass)      \relates QTest      Implements a main() function that instantiates an application object and     the \a TestClass, and executes all tests in the order they were defined.     Use this macro to build stand-alone executables.      If \c QT_WIDGETS_LIB is defined, the application object will be a QApplication,     if \c QT_GUI_LIB is defined, the application object will be a QGuiApplication,     otherwise it will be a QCoreApplication.  If qmake is used and the configuration     includes \c{QT += widgets}, then \c QT_WIDGETS_LIB will be defined automatically.     Similarly, if qmake is used and the configuration includes \c{QT += gui}, then     \c QT_GUI_LIB will be defined automatically.      \b {Note:} On platforms that have keypad navigation enabled by default,     this macro will forcefully disable it if \c QT_WIDGETS_LIB is defined.  This is done     to simplify the usage of key events when writing autotests. If you wish to write a     test case that uses keypad navigation, you should enable it either in the     \c {initTestCase()} or \c {init()} functions of your test case by calling     \l {QApplication::setNavigationMode()}.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 11      \sa QTEST_APPLESS_MAIN(), QTEST_GUILESS_MAIN(), QTest::qExec(),     QApplication::setNavigationMode() */
+end_comment
+begin_comment
 comment|/*! \macro QTEST_APPLESS_MAIN(TestClass)      \relates QTest      Implements a main() function that executes all tests in \a TestClass.      Behaves like \l QTEST_MAIN(), but doesn't instantiate a QApplication     object. Use this macro for really simple stand-alone non-GUI tests.      \sa QTEST_MAIN() */
+end_comment
+begin_comment
 comment|/*! \macro QTEST_GUILESS_MAIN(TestClass)     \since 5.0      \relates QTest      Implements a main() function that instantiates a QCoreApplication object     and the \a TestClass, and executes all tests in the order they were     defined.  Use this macro to build stand-alone executables.      Behaves like \l QTEST_MAIN(), but instantiates a QCoreApplication instead     of the QApplication object. Use this macro if your test case doesn't need     functionality offered by QApplication, but the event loop is still necessary.      \sa QTEST_MAIN() */
+end_comment
+begin_comment
 comment|/*!     \macro QBENCHMARK      \relates QTest      This macro is used to measure the performance of code within a test.     The code to be benchmarked is contained within a code block following     this macro.      For example:      \snippet code/src_qtestlib_qtestcase.cpp 27      \sa {Qt Test Overview#Creating a Benchmark}{Creating a Benchmark},         {Chapter 5: Writing a Benchmark}{Writing a Benchmark} */
+end_comment
+begin_comment
 comment|/*!     \macro QBENCHMARK_ONCE     \since 4.6      \relates QTest      \brief The QBENCHMARK_ONCE macro is for measuring performance of a     code block by running it once.      This macro is used to measure the performance of code within a test.     The code to be benchmarked is contained within a code block following     this macro.      Unlike QBENCHMARK, the contents of the contained code block is only run     once. The elapsed time will be reported as "0" if it's to short to     be measured by the selected backend. (Use)      \sa {Qt Test Overview#Creating a Benchmark}{Creating a Benchmark},     {Chapter 5: Writing a Benchmark}{Writing a Benchmark} */
+end_comment
+begin_comment
 comment|/*! \enum QTest::TestFailMode      This enum describes the modes for handling an expected failure of the     \l QVERIFY() or \l QCOMPARE() macros.      \value Abort Aborts the execution of the test. Use this mode when it            doesn't make sense to execute the test any further after the            expected failure.      \value Continue Continues execution of the test after the expected failure.      \sa QEXPECT_FAIL() */
+end_comment
+begin_comment
 comment|/*! \enum QTest::KeyAction      This enum describes possible actions for key handling.      \value Press    The key is pressed.     \value Release  The key is released.     \value Click    The key is clicked (pressed and released). */
+end_comment
+begin_comment
 comment|/*! \enum QTest::MouseAction      This enum describes possible actions for mouse handling.      \value MousePress    A mouse button is pressed.     \value MouseRelease  A mouse button is released.     \value MouseClick    A mouse button is clicked (pressed and released).     \value MouseDClick   A mouse button is double clicked (pressed and released twice).     \value MouseMove     The mouse pointer has moved. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyClick(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates clicking of \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before clicking the key.      Examples:     \snippet code/src_qtestlib_qtestcase.cpp 14      The first example above simulates clicking the \c escape key on \c     myWidget without any keyboard modifiers and without delay. The     second example simulates clicking \c shift-escape on \c myWidget     following a 200 ms delay of the test.      \sa QTest::keyClicks() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyClick(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload      Simulates clicking of \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before clicking the key.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 13      The example above simulates clicking \c a on \c myWidget without     any keyboard modifiers and without delay of the test.      \sa QTest::keyClicks() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyClick(QWindow *window, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Simulates clicking of \a key with an optional \a modifier on a \a window.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before clicking the key.      Examples:     \snippet code/src_qtestlib_qtestcase.cpp 29      The first example above simulates clicking the \c escape key on \c     myWindow without any keyboard modifiers and without delay. The     second example simulates clicking \c shift-escape on \c myWindow     following a 200 ms delay of the test.      \sa QTest::keyClicks() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyClick(QWindow *window, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Simulates clicking of \a key with an optional \a modifier on a \a window.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before clicking the key.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 28      The example above simulates clicking \c a on \c myWindow without     any keyboard modifiers and without delay of the test.      \sa QTest::keyClicks() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyEvent(KeyAction action, QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Sends a Qt key event to \a widget with the given \a key and an associated \a action.     Optionally, a keyboard \a modifier can be specified, as well as a \a delay     (in milliseconds) of the test before sending the event. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyEvent(KeyAction action, QWidget *widget, char ascii, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload      Sends a Qt key event to \a widget with the given key \a ascii and an associated \a action.     Optionally, a keyboard \a modifier can be specified, as well as a \a delay     (in milliseconds) of the test before sending the event. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyEvent(KeyAction action, QWindow *window, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Sends a Qt key event to \a window with the given \a key and an associated \a action.     Optionally, a keyboard \a modifier can be specified, as well as a \a delay     (in milliseconds) of the test before sending the event. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyEvent(KeyAction action, QWindow *window, char ascii, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Sends a Qt key event to \a window with the given key \a ascii and an associated \a action.     Optionally, a keyboard \a modifier can be specified, as well as a \a delay     (in milliseconds) of the test before sending the event. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyPress(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates pressing a \a key with an optional \a modifier on a \a widget. If \a delay     is larger than 0, the test will wait for \a delay milliseconds before pressing the key.      \b {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyPress(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload      Simulates pressing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before pressing the key.      \b {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyPress(QWindow *window, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Simulates pressing a \a key with an optional \a modifier on a \a window. If \a delay     is larger than 0, the test will wait for \a delay milliseconds before pressing the key.      \b {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyPress(QWindow *window, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Simulates pressing a \a key with an optional \a modifier on a \a window.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before pressing the key.      \b {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyRelease(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates releasing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before releasing the key.      \sa QTest::keyPress(), QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyRelease(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload      Simulates releasing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before releasing the key.      \sa QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyRelease(QWindow *window, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Simulates releasing a \a key with an optional \a modifier on a \a window.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before releasing the key.      \sa QTest::keyPress(), QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyRelease(QWindow *window, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)     \overload     \since 5.0      Simulates releasing a \a key with an optional \a modifier on a \a window.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before releasing the key.      \sa QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::keyClicks(QWidget *widget, const QString&sequence, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates clicking a \a sequence of keys on a \a     widget. Optionally, a keyboard \a modifier can be specified as     well as a \a delay (in milliseconds) of the test before each key     click.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 15      The example above simulates clicking the sequence of keys     representing "hello world" on \c myWidget without any keyboard     modifiers and without delay of the test.      \sa QTest::keyClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::waitForEvents()     \internal */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseEvent(MouseAction action, QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers stateKey, QPoint pos, int delay=-1)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseEvent(MouseAction action, QWindow *window, Qt::MouseButton button, Qt::KeyboardModifiers stateKey, QPoint pos, int delay=-1)     \internal */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mousePress(QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers modifier = 0, QPoint pos = QPoint(), int delay=-1)      Simulates pressing a mouse \a button with an optional \a modifier     on a \a widget.  The position is defined by \a pos; the default     position is the center of the widget. If \a delay is specified,     the test will wait for the specified amount of milliseconds before     the press.      \sa QTest::mouseRelease(), QTest::mouseClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mousePress(QWindow *window, Qt::MouseButton button, Qt::KeyboardModifiers stateKey = 0, QPoint pos = QPoint(), int delay=-1)     \overload     \since 5.0      Simulates pressing a mouse \a button with an optional \a stateKey modifier     on a \a window.  The position is defined by \a pos; the default     position is the center of the window. If \a delay is specified,     the test will wait for the specified amount of milliseconds before     the press.      \sa QTest::mouseRelease(), QTest::mouseClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseRelease(QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers modifier = 0, QPoint pos = QPoint(), int delay=-1)      Simulates releasing a mouse \a button with an optional \a modifier     on a \a widget.  The position of the release is defined by \a pos;     the default position is the center of the widget. If \a delay is     specified, the test will wait for the specified amount of     milliseconds before releasing the button.      \sa QTest::mousePress(), QTest::mouseClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseRelease(QWindow *window, Qt::MouseButton button, Qt::KeyboardModifiers stateKey = 0, QPoint pos = QPoint(), int delay=-1)     \overload     \since 5.0      Simulates releasing a mouse \a button with an optional \a stateKey modifier     on a \a window.  The position of the release is defined by \a pos;     the default position is the center of the window. If \a delay is     specified, the test will wait for the specified amount of     milliseconds before releasing the button.      \sa QTest::mousePress(), QTest::mouseClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseClick(QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers modifier = 0, QPoint pos = QPoint(), int delay=-1)      Simulates clicking a mouse \a button with an optional \a modifier     on a \a widget.  The position of the click is defined by \a pos;     the default position is the center of the widget. If \a delay is     specified, the test will wait for the specified amount of     milliseconds before pressing and before releasing the button.      \sa QTest::mousePress(), QTest::mouseRelease() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseClick(QWindow *window, Qt::MouseButton button, Qt::KeyboardModifiers stateKey = 0, QPoint pos = QPoint(), int delay=-1)     \overload     \since 5.0      Simulates clicking a mouse \a button with an optional \a stateKey modifier     on a \a window.  The position of the click is defined by \a pos;     the default position is the center of the window. If \a delay is     specified, the test will wait for the specified amount of     milliseconds before pressing and before releasing the button.      \sa QTest::mousePress(), QTest::mouseRelease() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseDClick(QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers modifier = 0, QPoint pos = QPoint(), int delay=-1)      Simulates double clicking a mouse \a button with an optional \a     modifier on a \a widget.  The position of the click is defined by     \a pos; the default position is the center of the widget. If \a     delay is specified, the test will wait for the specified amount of     milliseconds before each press and release.      \sa QTest::mouseClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseDClick(QWindow *window, Qt::MouseButton button, Qt::KeyboardModifiers stateKey = 0, QPoint pos = QPoint(), int delay=-1)     \overload     \since 5.0      Simulates double clicking a mouse \a button with an optional \a stateKey     modifier on a \a window.  The position of the click is defined by     \a pos; the default position is the center of the window. If \a     delay is specified, the test will wait for the specified amount of     milliseconds before each press and release.      \sa QTest::mouseClick() */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseMove(QWidget *widget, QPoint pos = QPoint(), int delay=-1)      Moves the mouse pointer to a \a widget. If \a pos is not     specified, the mouse pointer moves to the center of the widget. If     a \a delay (in milliseconds) is given, the test will wait before     moving the mouse pointer. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::mouseMove(QWindow *window, QPoint pos = QPoint(), int delay=-1)     \overload     \since 5.0      Moves the mouse pointer to a \a window. If \a pos is not     specified, the mouse pointer moves to the center of the window. If     a \a delay (in milliseconds) is given, the test will wait before     moving the mouse pointer. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const T&value)      Returns a textual representation of \a value. This function is used by     \l QCOMPARE() to output verbose information in case of a test failure.      You can add specializations of this function to your test to enable     verbose output.      \b {Note:} The caller of toString() must delete the returned data     using \c{delete[]}.  Your implementation should return a string     created with \c{new[]} or qstrdup().      Example:      \snippet code/src_qtestlib_qtestcase.cpp 16      The example above defines a toString() specialization for a class     called \c MyPoint. Whenever a comparison of two instances of \c     MyPoint fails, \l QCOMPARE() will call this function to output the     contents of \c MyPoint to the test log.      \sa QCOMPARE() */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QLatin1String&string)     \overload      Returns a textual representation of the given \a string. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QString&string)     \overload      Returns a textual representation of the given \a string. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QByteArray&ba)     \overload      Returns a textual representation of the byte array \a ba.      \sa QTest::toHexRepresentation() */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QTime&time)     \overload      Returns a textual representation of the given \a time. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QDate&date)     \overload      Returns a textual representation of the given \a date. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QDateTime&dateTime)     \overload      Returns a textual representation of the date and time specified by     \a dateTime. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QChar&character)     \overload      Returns a textual representation of the given \a character. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QPoint&point)     \overload      Returns a textual representation of the given \a point. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QSize&size)     \overload      Returns a textual representation of the given \a size. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QRect&rectangle)     \overload      Returns a textual representation of the given \a rectangle. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QUrl&url)     \since 4.4     \overload      Returns a textual representation of the given \a url. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QPointF&point)     \overload      Returns a textual representation of the given \a point. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QSizeF&size)     \overload      Returns a textual representation of the given \a size. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QRectF&rectangle)     \overload      Returns a textual representation of the given \a rectangle. */
+end_comment
+begin_comment
 comment|/*!     \fn char *QTest::toString(const QVariant&variant)     \overload      Returns a textual representation of the given \a variant. */
+end_comment
+begin_comment
 comment|/*! \fn void QTest::qWait(int ms)      Waits for \a ms milliseconds. While waiting, events will be processed and     your test will stay responsive to user interface events or network communication.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 17      The code above will wait until the network server is responding for a     maximum of about 12.5 seconds.      \sa QTest::qSleep(), QSignalSpy::wait() */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qWaitForWindowExposed(QWindow *window, int timeout)     \since 5.0      Waits for \a timeout milliseconds or until the \a window is exposed.     Returns \c true if \c window is exposed within \a timeout milliseconds, otherwise returns \c false.      This is mainly useful for asynchronous systems like X11, where a window will be mapped to screen some     time after being asked to show itself on the screen.      \sa QTest::qWaitForWindowActive(), QWindow::isExposed() */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qWaitForWindowActive(QWindow *window, int timeout)     \since 5.0      Waits for \a timeout milliseconds or until the \a window is active.      Returns \c true if \c window is active within \a timeout milliseconds, otherwise returns \c false.      \sa QTest::qWaitForWindowExposed(), QWindow::isActive() */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qWaitForWindowExposed(QWidget *widget, int timeout)     \since 5.0      Waits for \a timeout milliseconds or until the \a widget's window is exposed.     Returns \c true if \c widget's window is exposed within \a timeout milliseconds, otherwise returns \c false.      This is mainly useful for asynchronous systems like X11, where a window will be mapped to screen some     time after being asked to show itself on the screen.      \sa QTest::qWaitForWindowActive() */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qWaitForWindowActive(QWidget *widget, int timeout)     \since 5.0      Waits for \a timeout milliseconds or until the \a widget's window is active.      Returns \c true if \c widget's window is active within \a timeout milliseconds, otherwise returns \c false.      \sa QTest::qWaitForWindowExposed(), QWidget::isActiveWindow() */
+end_comment
+begin_comment
 comment|/*! \fn bool QTest::qWaitForWindowShown(QWidget *widget, int timeout)     \since 5.0     \deprecated      Waits for \a timeout milliseconds or until the \a widget's window is exposed.     Returns \c true if \c widget's window is exposed within \a timeout milliseconds, otherwise returns \c false.      This function does the same as qWaitForWindowExposed().      Example:     \snippet code/src_qtestlib_qtestcase.cpp 24      \sa QTest::qWaitForWindowActive(), QTest::qWaitForWindowExposed() */
+end_comment
+begin_comment
 comment|/*!     \class QTest::QTouchEventSequence     \inmodule QtTest     \since 4.6      \brief The QTouchEventSequence class is used to simulate a sequence of touch events.      To simulate a sequence of touch events on a specific device for a window or widget, call     QTest::touchEvent to create a QTouchEventSequence instance. Add touch events to     the sequence by calling press(), move(), release() and stationary(), and let the     instance run out of scope to commit the sequence to the event system.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 25 */
+end_comment
+begin_comment
 comment|/*!     \fn QTest::QTouchEventSequence::~QTouchEventSequence()      Commits this sequence of touch events, unless autoCommit was disabled, and frees allocated resources. */
+end_comment
+begin_comment
 comment|/*!   \fn void QTest::QTouchEventSequence::commit(bool processEvents)     Commits this sequence of touch events to the event system. Normally there is no need to call this    function because it is called from the destructor. However, if autoCommit is disabled, the events    only get committed upon explicitly calling this function.     In special cases tests may want to disable the processing of the events. This can be achieved by    setting \a processEvents to false. This results in merely queuing the events, the event loop will    not be forced to process them. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::press(int touchId, const QPoint&pt, QWindow *window)     \since 5.0      Adds a press event for touchpoint \a touchId at position \a pt to this sequence and returns     a reference to this QTouchEventSequence.      The position \a pt is interpreted as relative to \a window. If \a window is the null pointer, then     \a pt is interpreted as relative to the window provided when instantiating this QTouchEventSequence.      Simulates that the user pressed the touch screen or pad with the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::press(int touchId, const QPoint&pt, QWidget *widget)      Adds a press event for touchpoint \a touchId at position \a pt to this sequence and returns     a reference to this QTouchEventSequence.      The position \a pt is interpreted as relative to \a widget. If \a widget is the null pointer, then     \a pt is interpreted as relative to the widget provided when instantiating this QTouchEventSequence.      Simulates that the user pressed the touch screen or pad with the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::move(int touchId, const QPoint&pt, QWindow *window)     \since 5.0      Adds a move event for touchpoint \a touchId at position \a pt to this sequence and returns     a reference to this QTouchEventSequence.      The position \a pt is interpreted as relative to \a window. If \a window is the null pointer, then     \a pt is interpreted as relative to the window provided when instantiating this QTouchEventSequence.      Simulates that the user moved the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::move(int touchId, const QPoint&pt, QWidget *widget)      Adds a move event for touchpoint \a touchId at position \a pt to this sequence and returns     a reference to this QTouchEventSequence.      The position \a pt is interpreted as relative to \a widget. If \a widget is the null pointer, then     \a pt is interpreted as relative to the widget provided when instantiating this QTouchEventSequence.      Simulates that the user moved the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::release(int touchId, const QPoint&pt, QWindow *window)     \since 5.0      Adds a release event for touchpoint \a touchId at position \a pt to this sequence and returns     a reference to this QTouchEventSequence.      The position \a pt is interpreted as relative to \a window. If \a window is the null pointer, then     \a pt is interpreted as relative to the window provided when instantiating this QTouchEventSequence.      Simulates that the user lifted the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::release(int touchId, const QPoint&pt, QWidget *widget)      Adds a release event for touchpoint \a touchId at position \a pt to this sequence and returns     a reference to this QTouchEventSequence.      The position \a pt is interpreted as relative to \a widget. If \a widget is the null pointer, then     \a pt is interpreted as relative to the widget provided when instantiating this QTouchEventSequence.      Simulates that the user lifted the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::stationary(int touchId)      Adds a stationary event for touchpoint \a touchId to this sequence and returns     a reference to this QTouchEventSequence.      Simulates that the user did not move the finger identified by \a touchId. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence QTest::touchEvent(QWindow *window, QTouchDevice *device, bool autoCommit = true)     \since 5.0      Creates and returns a QTouchEventSequence for the \a device to     simulate events for \a window.      When adding touch events to the sequence, \a window will also be used to translate     the position provided to screen coordinates, unless another window is provided in the     respective calls to press(), move() etc.      The touch events are committed to the event system when the destructor of the     QTouchEventSequence is called (ie when the object returned runs out of scope), unless     \a autoCommit is set to false. When \a autoCommit is false, commit() has to be called     manually. */
+end_comment
+begin_comment
 comment|/*!     \fn QTouchEventSequence QTest::touchEvent(QWidget *widget, QTouchDevice *device, bool autoCommit = true)      Creates and returns a QTouchEventSequence for the \a device to     simulate events for \a widget.      When adding touch events to the sequence, \a widget will also be used to translate     the position provided to screen coordinates, unless another widget is provided in the     respective calls to press(), move() etc.      The touch events are committed to the event system when the destructor of the     QTouchEventSequence is called (ie when the object returned runs out of scope), unless     \a autoCommit is set to false. When \a autoCommit is false, commit() has to be called     manually. */
+end_comment
+begin_function
 DECL|function|installCoverageTool
 specifier|static
 name|bool
@@ -4825,32 +5015,6 @@ name|idx
 argument_list|)
 return|;
 block|}
-DECL|function|toHex
-specifier|static
-name|char
-name|toHex
-parameter_list|(
-name|ushort
-name|value
-parameter_list|)
-block|{
-specifier|static
-specifier|const
-name|char
-name|hexdigits
-index|[]
-init|=
-literal|"0123456789ABCDEF"
-decl_stmt|;
-return|return
-name|hexdigits
-index|[
-name|value
-operator|&
-literal|0xF
-index|]
-return|;
-block|}
 comment|/*!   \fn char* QTest::toHexRepresentation(const char *ba, int length)    Returns a pointer to a string that is the string \a ba represented   as a space-separated sequence of hex characters. If the input is   considered too long, it is truncated. A trucation is indicated in   the returned string as an ellipsis at the end.    \a length is the length of the string \a ba.  */
 DECL|function|toHexRepresentation
 name|char
@@ -5033,7 +5197,7 @@ index|[
 name|o
 index|]
 operator|=
-name|toHex
+name|toHexUpper
 argument_list|(
 name|at
 operator|>>
@@ -5048,7 +5212,7 @@ index|[
 name|o
 index|]
 operator|=
-name|toHex
+name|toHexUpper
 argument_list|(
 name|at
 argument_list|)
@@ -5296,7 +5460,7 @@ operator|*
 name|dst
 operator|++
 operator|=
-name|toHex
+name|toHexUpper
 argument_list|(
 operator|*
 name|p
@@ -5308,7 +5472,7 @@ operator|*
 name|dst
 operator|++
 operator|=
-name|toHex
+name|toHexUpper
 argument_list|(
 operator|*
 name|p
@@ -5320,7 +5484,7 @@ operator|*
 name|dst
 operator|++
 operator|=
-name|toHex
+name|toHexUpper
 argument_list|(
 operator|*
 name|p
@@ -5332,7 +5496,7 @@ operator|*
 name|dst
 operator|++
 operator|=
-name|toHex
+name|toHexUpper
 argument_list|(
 operator|*
 name|p
