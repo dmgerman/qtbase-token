@@ -5250,7 +5250,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/*!     \internal     Returns the same QString but with only the ASCII characters still shown;     everything else is replaced with \c {\uXXXX}. */
+comment|/*!     \internal     Returns the same QString but with only the ASCII characters still shown;     everything else is replaced with \c {\uXXXX}.      Similar to QDebug::putString(). */
 DECL|function|toPrettyUnicode
 name|char
 modifier|*

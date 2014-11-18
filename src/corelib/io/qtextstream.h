@@ -822,6 +822,10 @@ name|friend
 name|class
 name|QDebugStateSaverPrivate
 decl_stmt|;
+name|friend
+name|class
+name|QDebug
+decl_stmt|;
 name|QScopedPointer
 operator|<
 name|QTextStreamPrivate

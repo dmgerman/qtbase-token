@@ -2497,7 +2497,6 @@ comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|write
-specifier|inline
 name|void
 name|QTextStreamPrivate
 operator|::
@@ -2798,7 +2797,6 @@ comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|putString
-specifier|inline
 name|void
 name|QTextStreamPrivate
 operator|::
