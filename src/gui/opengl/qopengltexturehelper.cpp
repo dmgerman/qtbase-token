@@ -2097,6 +2097,21 @@ operator|=
 literal|0
 expr_stmt|;
 comment|// OpenGL 4.2
+ifdef|#
+directive|ifdef
+name|QT_OPENGL_ES_3
+name|TexStorage3D
+operator|=
+operator|::
+name|glTexStorage3D
+expr_stmt|;
+name|TexStorage2D
+operator|=
+operator|::
+name|glTexStorage2D
+expr_stmt|;
+else|#
+directive|else
 name|TexStorage3D
 operator|=
 literal|0
@@ -2105,6 +2120,8 @@ name|TexStorage2D
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|TexStorage1D
 operator|=
 literal|0
