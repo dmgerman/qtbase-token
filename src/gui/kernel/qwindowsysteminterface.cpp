@@ -1735,6 +1735,8 @@ if|if
 condition|(
 name|tryShortcutOverride
 operator|&&
+name|tlw
+operator|&&
 name|type
 operator|==
 name|QEvent
