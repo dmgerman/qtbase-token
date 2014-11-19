@@ -577,7 +577,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"\"\""
+literal|"''"
 argument_list|)
 return|;
 name|QString
