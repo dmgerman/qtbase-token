@@ -49,16 +49,6 @@ name|m_cursor
 argument_list|(
 literal|0
 argument_list|)
-member_init_list|,
-name|m_rootWindow
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
-name|m_rootContext
-argument_list|(
-literal|0
-argument_list|)
 block|{
 name|m_cursor
 operator|=

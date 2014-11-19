@@ -123,46 +123,6 @@ return|return
 name|m_surface
 return|;
 block|}
-name|QEGLPlatformWindow
-operator|*
-name|compositingWindow
-argument_list|()
-name|Q_DECL_OVERRIDE
-block|{
-return|return
-name|m_rootWindow
-return|;
-block|}
-name|QOpenGLContext
-operator|*
-name|compositingContext
-argument_list|()
-name|Q_DECL_OVERRIDE
-block|{
-return|return
-name|m_rootContext
-return|;
-block|}
-name|void
-name|setRootWindow
-argument_list|(
-argument|QEGLPlatformWindow *window
-argument_list|)
-block|{
-name|m_rootWindow
-operator|=
-name|window
-block|; }
-name|void
-name|setRootContext
-argument_list|(
-argument|QOpenGLContext *context
-argument_list|)
-block|{
-name|m_rootContext
-operator|=
-name|context
-block|; }
 name|protected
 operator|:
 name|void
@@ -183,14 +143,6 @@ block|;
 name|QPlatformCursor
 operator|*
 name|m_cursor
-block|;
-name|QEGLPlatformWindow
-operator|*
-name|m_rootWindow
-block|;
-name|QOpenGLContext
-operator|*
-name|m_rootContext
 block|; }
 decl_stmt|;
 end_decl_stmt
