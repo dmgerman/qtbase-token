@@ -5188,6 +5188,11 @@ operator|*
 name|p
 operator|!=
 literal|'\\'
+operator|&&
+operator|*
+name|p
+operator|!=
+literal|'"'
 condition|)
 block|{
 operator|*
