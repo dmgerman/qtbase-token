@@ -8705,7 +8705,6 @@ operator|::
 name|PartiallyChecked
 return|;
 block|}
-block|}
 if|if
 condition|(
 name|uncheckedChildren
@@ -8717,6 +8716,7 @@ name|Qt
 operator|::
 name|PartiallyChecked
 return|;
+block|}
 if|if
 condition|(
 name|uncheckedChildren
