@@ -3741,6 +3741,45 @@ argument_list|)
 block|}
 block|,
 block|{
+name|Qt
+operator|::
+name|Key_TouchpadToggle
+block|,
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QShortcut"
+argument_list|,
+literal|"Touchpad Toggle"
+argument_list|)
+block|}
+block|,
+block|{
+name|Qt
+operator|::
+name|Key_TouchpadOn
+block|,
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QShortcut"
+argument_list|,
+literal|"Touchpad On"
+argument_list|)
+block|}
+block|,
+block|{
+name|Qt
+operator|::
+name|Key_TouchpadOff
+block|,
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QShortcut"
+argument_list|,
+literal|"Touchpad Off"
+argument_list|)
+block|}
+block|,
+block|{
 literal|0
 block|,
 literal|0
