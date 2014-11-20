@@ -160,28 +160,6 @@ block|}
 block|,
 comment|// xilink.exe, xilink5.exe, xilink6.exe, xilib.exe
 block|{
-name|CC_NET2003
-block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2003 (7.1)"
-block|,
-literal|"Software\\Microsoft\\VisualStudio\\7.1\\Setup\\VC\\ProductDir"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_NET2003
-block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2003 (7.1)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\7.1\\Setup\\VC\\ProductDir"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
 name|CC_NET2005
 block|,
 literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2005 (8.0)"
@@ -431,14 +409,6 @@ literal|"win32-msvc2005"
 expr_stmt|;
 break|break;
 case|case
-name|CC_NET2003
-case|:
-name|spec
-operator|=
-literal|"win32-msvc2003"
-expr_stmt|;
-break|break;
-case|case
 name|CC_INTEL
 case|:
 name|spec
@@ -542,18 +512,6 @@ argument_list|)
 condition|)
 return|return
 name|CC_NET2005
-return|;
-if|if
-condition|(
-name|qmakeSpec
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"win32-msvc2003"
-argument_list|)
-condition|)
-return|return
-name|CC_NET2003
 return|;
 if|if
 condition|(

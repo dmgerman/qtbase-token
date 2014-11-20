@@ -33,11 +33,6 @@ name|CC_INTEL
 operator|=
 literal|0x03
 operator|,
-DECL|enumerator|CC_NET2003
-name|CC_NET2003
-operator|=
-literal|0x71
-operator|,
 DECL|enumerator|CC_NET2005
 name|CC_NET2005
 operator|=
