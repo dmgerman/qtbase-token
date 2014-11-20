@@ -97,7 +97,7 @@ argument_list|)
 block|,
 name|dbmsType
 argument_list|(
-argument|QSqlDriver::UnknownDBMS
+argument|QSqlDriver::UnknownDbms
 argument_list|)
 block|{ }
 name|uint
@@ -116,7 +116,7 @@ name|precisionPolicy
 block|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbmsType
 block|; }
 decl_stmt|;

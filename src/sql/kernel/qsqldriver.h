@@ -168,9 +168,9 @@ block|,
 name|OtherSource
 block|}
 block|;      enum
-name|DBMSType
+name|DbmsType
 block|{
-name|UnknownDBMS
+name|UnknownDbms
 block|,
 name|MSSqlServer
 block|,
@@ -403,7 +403,7 @@ name|numericalPrecisionPolicy
 argument_list|()
 specifier|const
 block|;
-name|DBMSType
+name|DbmsType
 name|dbmsType
 argument_list|()
 specifier|const
