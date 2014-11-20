@@ -277,7 +277,12 @@ argument_list|)
 block|,
 name|ok
 argument_list|(
-argument|true
+name|true
+argument_list|)
+block|,
+name|skipSignature
+argument_list|(
+argument|false
 argument_list|)
 block|{
 name|direction
@@ -540,6 +545,9 @@ name|closeCode
 block|;
 name|bool
 name|ok
+block|;
+name|bool
+name|skipSignature
 block|;
 name|private
 operator|:
