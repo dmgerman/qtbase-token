@@ -766,7 +766,7 @@ specifier|const
 block|;
 specifier|inline
 name|bool
-name|canDecode
+name|canDrop
 argument_list|(
 argument|QDropEvent *event
 argument_list|)
