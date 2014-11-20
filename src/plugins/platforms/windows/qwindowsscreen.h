@@ -452,6 +452,16 @@ decl|const
 name|Q_DECL_OVERRIDE
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QPlatformScreen
+operator|::
+name|SubpixelAntialiasingType
+name|subpixelAntialiasingTypeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 specifier|inline
 name|void

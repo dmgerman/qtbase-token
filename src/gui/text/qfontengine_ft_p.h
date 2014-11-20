@@ -1309,6 +1309,10 @@ name|QFontconfigDatabase
 block|;
 name|friend
 name|class
+name|QBasicFontDatabase
+block|;
+name|friend
+name|class
 name|QFontEngineMultiFontConfig
 block|;
 name|int

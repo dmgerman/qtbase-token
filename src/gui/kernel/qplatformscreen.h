@@ -154,6 +154,21 @@ argument|QPlatformScreen
 argument_list|)
 name|public
 label|:
+enum|enum
+name|SubpixelAntialiasingType
+block|{
+comment|// copied from qfontengine_p.h since we can't include private headers
+name|Subpixel_None
+block|,
+name|Subpixel_RGB
+block|,
+name|Subpixel_BGR
+block|,
+name|Subpixel_VRGB
+block|,
+name|Subpixel_VBGR
+block|}
+enum|;
 name|QPlatformScreen
 argument_list|()
 expr_stmt|;
@@ -326,6 +341,12 @@ name|virtual
 name|QPlatformCursor
 operator|*
 name|cursor
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|SubpixelAntialiasingType
+name|subpixelAntialiasingTypeHint
 argument_list|()
 specifier|const
 expr_stmt|;

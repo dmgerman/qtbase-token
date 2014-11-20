@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qfontengine_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/private/qfont_p.h>
 end_include
 begin_decl_stmt
@@ -400,6 +405,13 @@ operator|<
 name|int
 operator|>
 name|standardSizes
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QFontEngine
+operator|::
+name|SubpixelAntialiasingType
+name|subpixelAntialiasingTypeHint
 argument_list|()
 specifier|const
 expr_stmt|;
