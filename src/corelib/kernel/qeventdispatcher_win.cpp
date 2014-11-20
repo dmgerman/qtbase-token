@@ -1403,6 +1403,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|closingDown
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|internalHwnd
 argument_list|(
 literal|0
@@ -4801,6 +4806,15 @@ argument_list|(
 name|QEventDispatcherWin32
 argument_list|)
 expr_stmt|;
+comment|// exiting ... do not register new timers
+comment|// (QCoreApplication::closingDown() is set too late to be used here)
+if|if
+condition|(
+name|d
+operator|->
+name|closingDown
+condition|)
+return|return;
 name|WinTimerInfo
 modifier|*
 name|t
@@ -6016,6 +6030,12 @@ name|timerDict
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|closingDown
+operator|=
+literal|true
 expr_stmt|;
 name|uninstallMessageHook
 argument_list|()

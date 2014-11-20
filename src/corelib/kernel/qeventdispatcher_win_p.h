@@ -480,6 +480,9 @@ block|;
 name|bool
 name|interrupt
 block|;
+name|bool
+name|closingDown
+block|;
 comment|// internal window handle used for socketnotifiers/timers/etc
 name|HWND
 name|internalHwnd
