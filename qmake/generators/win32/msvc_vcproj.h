@@ -180,6 +180,11 @@ argument_list|(
 literal|"GENERATED_SOURCES"
 argument_list|)
 block|; }
+name|using
+name|MakefileGenerator
+operator|::
+name|ReplaceFor
+block|;
 name|virtual
 name|QString
 name|replaceExtraCompilerVariables
@@ -195,6 +200,8 @@ argument_list|,
 specifier|const
 name|QStringList
 operator|&
+argument_list|,
+name|ReplaceFor
 argument_list|)
 block|;
 specifier|inline
@@ -206,6 +213,8 @@ argument_list|,
 argument|const QString&in
 argument_list|,
 argument|const QString&out
+argument_list|,
+argument|ReplaceFor forShell
 argument_list|)
 block|{
 return|return
@@ -218,6 +227,8 @@ argument_list|,
 name|in
 argument_list|,
 name|out
+argument_list|,
+name|forShell
 argument_list|)
 return|;
 block|}

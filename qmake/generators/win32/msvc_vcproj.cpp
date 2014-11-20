@@ -5993,6 +5993,8 @@ name|file
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|,
 literal|false
@@ -10070,7 +10072,10 @@ operator|.
 name|toQString
 argument_list|()
 argument_list|,
-literal|""
+name|QString
+argument_list|()
+argument_list|,
+name|LocalShell
 argument_list|)
 decl_stmt|;
 name|dep_cmd
@@ -10546,6 +10551,8 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|,
 literal|false
@@ -10640,6 +10647,8 @@ name|tmp_out
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|,
 literal|false
@@ -10768,6 +10777,8 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|,
 literal|false
@@ -10849,6 +10860,9 @@ specifier|const
 name|QStringList
 modifier|&
 name|out
+parameter_list|,
+name|ReplaceFor
+name|forShell
 parameter_list|)
 block|{
 name|QString
@@ -10863,6 +10877,8 @@ argument_list|,
 name|in
 argument_list|,
 name|out
+argument_list|,
+name|forShell
 argument_list|)
 decl_stmt|;
 name|ProStringList

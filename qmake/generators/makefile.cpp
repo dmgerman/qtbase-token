@@ -123,8 +123,16 @@ include|#
 directive|include
 file|<sys/stat.h>
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_using
+using|using
+namespace|namespace
+name|QMakeInternal
+namespace|;
+end_using
+begin_function
 DECL|function|canExecute
 name|bool
 name|MakefileGenerator
@@ -1244,8 +1252,6 @@ expr_stmt|;
 name|QString
 name|path
 init|=
-name|unescapeFilePath
-argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
@@ -1254,7 +1260,8 @@ name|finp
 argument_list|,
 name|QString
 argument_list|()
-argument_list|)
+argument_list|,
+name|NoShell
 argument_list|)
 decl_stmt|;
 name|path
@@ -5056,6 +5063,8 @@ name|inpf
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 decl_stmt|;
 name|out
@@ -11185,6 +11194,11 @@ specifier|const
 name|QStringList
 modifier|&
 name|o
+parameter_list|,
+name|MakefileGenerator
+operator|::
+name|ReplaceFor
+name|s
 parameter_list|)
 block|{
 specifier|static
@@ -11251,6 +11265,10 @@ name|doubleColon
 argument_list|)
 expr_stmt|;
 block|}
+name|forShell
+operator|=
+name|s
+expr_stmt|;
 block|}
 end_constructor
 begin_function
@@ -11277,6 +11295,12 @@ name|f
 operator|.
 name|hashCode
 argument_list|()
+operator|&&
+name|f
+operator|.
+name|forShell
+operator|==
+name|forShell
 operator|&&
 name|f
 operator|.
@@ -11326,6 +11350,9 @@ specifier|const
 name|QStringList
 modifier|&
 name|out
+parameter_list|,
+name|ReplaceFor
+name|forShell
 parameter_list|)
 block|{
 comment|//lazy cache
@@ -11337,6 +11364,8 @@ argument_list|,
 name|in
 argument_list|,
 name|out
+argument_list|,
+name|forShell
 argument_list|)
 decl_stmt|;
 name|QString
@@ -12165,6 +12194,10 @@ decl_stmt|;
 if|if
 condition|(
 name|filePath
+operator|&&
+name|forShell
+operator|!=
+name|NoShell
 condition|)
 block|{
 for|for
@@ -12185,10 +12218,53 @@ operator|++
 name|i
 control|)
 block|{
-specifier|const
-name|QString
-name|file
-init|=
+if|if
+condition|(
+operator|!
+name|fullVal
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|fullVal
+operator|+=
+literal|" "
+expr_stmt|;
+if|if
+condition|(
+name|forShell
+operator|==
+name|LocalShell
+condition|)
+name|fullVal
+operator|+=
+name|IoUtils
+operator|::
+name|shellQuote
+argument_list|(
+name|Option
+operator|::
+name|fixPathToLocalOS
+argument_list|(
+name|unescapeFilePath
+argument_list|(
+name|val
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|else
+name|fullVal
+operator|+=
+name|escapeFilePath
+argument_list|(
 name|Option
 operator|::
 name|fixPathToTargetOS
@@ -12205,24 +12281,6 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|fullVal
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|fullVal
-operator|+=
-literal|" "
-expr_stmt|;
-name|fullVal
-operator|+=
-name|escapeFilePath
-argument_list|(
-name|file
 argument_list|)
 expr_stmt|;
 block|}
@@ -12748,6 +12806,8 @@ name|inpf
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|)
 operator|<<
@@ -12868,6 +12928,8 @@ name|QString
 argument_list|()
 argument_list|,
 name|tmp_out
+argument_list|,
+name|LocalShell
 argument_list|)
 decl_stmt|;
 if|if
@@ -13025,6 +13087,8 @@ name|inpf
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 decl_stmt|;
 name|QString
@@ -13037,6 +13101,8 @@ argument_list|,
 name|in
 argument_list|,
 name|out
+argument_list|,
+name|LocalShell
 argument_list|)
 decl_stmt|;
 if|if
@@ -13726,7 +13792,7 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|escapeDependencyPath
 argument_list|(
@@ -13742,6 +13808,8 @@ name|input
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|)
 argument_list|)
@@ -13774,7 +13842,7 @@ control|)
 block|{
 name|t
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|escapeDependencyPath
 argument_list|(
@@ -13796,6 +13864,8 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14069,7 +14139,11 @@ name|tinp
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
+argument_list|,
+name|TargetShell
 argument_list|)
 argument_list|)
 argument_list|)
@@ -14139,7 +14213,11 @@ name|tinp
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
+argument_list|,
+name|TargetShell
 argument_list|)
 expr_stmt|;
 if|if
@@ -14296,7 +14374,11 @@ name|tinp
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
+argument_list|,
+name|TargetShell
 argument_list|)
 expr_stmt|;
 block|}
@@ -14480,6 +14562,8 @@ argument_list|,
 name|inpf
 argument_list|,
 name|tmp_out
+argument_list|,
+name|LocalShell
 argument_list|)
 decl_stmt|;
 name|dep_cmd
@@ -14897,6 +14981,8 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 decl_stmt|;
 name|QString
@@ -14906,15 +14992,14 @@ name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_cmd
 argument_list|,
-name|escapeFilePaths
-argument_list|(
 name|inputs
-argument_list|)
 argument_list|,
 name|QStringList
 argument_list|()
 operator|<<
 name|out
+argument_list|,
+name|TargetShell
 argument_list|)
 decl_stmt|;
 name|t
@@ -15070,8 +15155,6 @@ expr_stmt|;
 name|QString
 name|out
 init|=
-name|unescapeFilePath
-argument_list|(
 name|Option
 operator|::
 name|fixPathToTargetOS
@@ -15084,7 +15167,8 @@ name|inpf
 argument_list|,
 name|QString
 argument_list|()
-argument_list|)
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -15131,7 +15215,7 @@ operator|++
 name|i
 control|)
 name|deps
-operator|+=
+operator|<<
 name|replaceExtraCompilerVariables
 argument_list|(
 name|pre_deps
@@ -15144,6 +15228,8 @@ argument_list|,
 name|inpf
 argument_list|,
 name|out
+argument_list|,
+name|NoShell
 argument_list|)
 expr_stmt|;
 block|}
@@ -15157,6 +15243,8 @@ argument_list|,
 name|inpf
 argument_list|,
 name|out
+argument_list|,
+name|LocalShell
 argument_list|)
 decl_stmt|;
 comment|// NOTE: The var -> QMAKE_COMP_var replace feature is unsupported, do not use!
@@ -15233,6 +15321,8 @@ argument_list|,
 name|inpf
 argument_list|,
 name|out
+argument_list|,
+name|LocalShell
 argument_list|)
 decl_stmt|;
 name|dep_cmd
@@ -22567,8 +22657,6 @@ name|Option
 operator|::
 name|fixPathToTargetOS
 argument_list|(
-name|unescapeFilePath
-argument_list|(
 name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
@@ -22586,7 +22674,8 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
-argument_list|)
+argument_list|,
+name|NoShell
 argument_list|)
 argument_list|)
 decl_stmt|;
