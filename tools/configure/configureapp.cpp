@@ -13670,7 +13670,7 @@ if|if
 condition|(
 name|compiler
 operator|<
-name|CC_NET2012
+name|CC_MSVC2012
 operator|&&
 name|directXSdk
 operator|.

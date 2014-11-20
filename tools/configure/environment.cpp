@@ -160,9 +160,9 @@ block|}
 block|,
 comment|// xilink.exe, xilink5.exe, xilink6.exe, xilib.exe
 block|{
-name|CC_NET2005
+name|CC_MSVC2005
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2005 (8.0)"
+literal|"Microsoft (R) Visual Studio 2005 C/C++ Compiler (8.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
 block|,
@@ -171,9 +171,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2005
+name|CC_MSVC2005
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2005 (8.0)"
+literal|"Microsoft (R) Visual Studio 2005 C/C++ Compiler (8.0)"
 block|,
 literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
 block|,
@@ -182,9 +182,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2008
+name|CC_MSVC2008
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2008 (9.0)"
+literal|"Microsoft (R) Visual Studio 2008 C/C++ Compiler (9.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
 block|,
@@ -193,9 +193,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2008
+name|CC_MSVC2008
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2008 (9.0)"
+literal|"Microsoft (R) Visual Studio 2008 C/C++ Compiler (9.0)"
 block|,
 literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
 block|,
@@ -204,9 +204,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2010
+name|CC_MSVC2010
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2010 (10.0)"
+literal|"Microsoft (R) Visual Studio 2010 C/C++ Compiler (10.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
 block|,
@@ -215,9 +215,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2010
+name|CC_MSVC2010
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2010 (10.0)"
+literal|"Microsoft (R) Visual Studio 2010 C/C++ Compiler (10.0)"
 block|,
 literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
 block|,
@@ -226,9 +226,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2012
+name|CC_MSVC2012
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2012 (11.0)"
+literal|"Microsoft (R) Visual Studio 2012 C/C++ Compiler (11.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
 block|,
@@ -237,9 +237,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2012
+name|CC_MSVC2012
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2012 (11.0)"
+literal|"Microsoft (R) Visual Studio 2012 C/C++ Compiler (11.0)"
 block|,
 literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
 block|,
@@ -248,9 +248,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2013
+name|CC_MSVC2013
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2013 (12.0)"
+literal|"Microsoft (R) Visual Studio 2013 C/C++ Compiler (12.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\12.0"
 block|,
@@ -259,9 +259,9 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_NET2013
+name|CC_MSVC2013
 block|,
-literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2013 (12.0)"
+literal|"Microsoft (R) Visual Studio 2013 C/C++ Compiler (12.0)"
 block|,
 literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\12.0"
 block|,
@@ -369,7 +369,7 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|CC_NET2013
+name|CC_MSVC2013
 case|:
 name|spec
 operator|=
@@ -377,7 +377,7 @@ literal|"win32-msvc2013"
 expr_stmt|;
 break|break;
 case|case
-name|CC_NET2012
+name|CC_MSVC2012
 case|:
 name|spec
 operator|=
@@ -385,7 +385,7 @@ literal|"win32-msvc2012"
 expr_stmt|;
 break|break;
 case|case
-name|CC_NET2010
+name|CC_MSVC2010
 case|:
 name|spec
 operator|=
@@ -393,7 +393,7 @@ literal|"win32-msvc2010"
 expr_stmt|;
 break|break;
 case|case
-name|CC_NET2008
+name|CC_MSVC2008
 case|:
 name|spec
 operator|=
@@ -401,7 +401,7 @@ literal|"win32-msvc2008"
 expr_stmt|;
 break|break;
 case|case
-name|CC_NET2005
+name|CC_MSVC2005
 case|:
 name|spec
 operator|=
@@ -463,7 +463,7 @@ literal|"win32-msvc2013"
 argument_list|)
 condition|)
 return|return
-name|CC_NET2013
+name|CC_MSVC2013
 return|;
 if|if
 condition|(
@@ -475,7 +475,7 @@ literal|"win32-msvc2012"
 argument_list|)
 condition|)
 return|return
-name|CC_NET2012
+name|CC_MSVC2012
 return|;
 if|if
 condition|(
@@ -487,7 +487,7 @@ literal|"win32-msvc2010"
 argument_list|)
 condition|)
 return|return
-name|CC_NET2010
+name|CC_MSVC2010
 return|;
 if|if
 condition|(
@@ -499,7 +499,7 @@ literal|"win32-msvc2008"
 argument_list|)
 condition|)
 return|return
-name|CC_NET2008
+name|CC_MSVC2008
 return|;
 if|if
 condition|(
@@ -511,7 +511,7 @@ literal|"win32-msvc2005"
 argument_list|)
 condition|)
 return|return
-name|CC_NET2005
+name|CC_MSVC2005
 return|;
 if|if
 condition|(
