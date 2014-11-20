@@ -7789,14 +7789,26 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
 name|project
 operator|->
 name|isActiveConfig
 argument_list|(
 literal|"staticlib"
 argument_list|)
-operator|&&
+condition|)
+block|{
+name|t
+operator|<<
+literal|"\t-$(DEL_FILE) "
+operator|<<
+name|destdir
+operator|<<
+literal|"$(TARGET) \n"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|project
 operator|->
 name|values
@@ -7864,11 +7876,7 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"\t-$(DEL_FILE) "
-operator|<<
-name|destdir
-operator|<<
-literal|"$(TARGET) \n"
+literal|"\t-$(DEL_FILE) $(TARGET) \n"
 expr_stmt|;
 block|}
 name|t
