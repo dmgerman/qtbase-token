@@ -3059,6 +3059,15 @@ name|jint
 name|newCursorPosition
 parameter_list|)
 block|{
+name|bool
+name|updateSelectionWasBlocked
+init|=
+name|m_blockUpdateSelection
+decl_stmt|;
+name|m_blockUpdateSelection
+operator|=
+literal|true
+expr_stmt|;
 name|QInputMethodEvent
 name|event
 decl_stmt|;
@@ -3175,6 +3184,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|m_blockUpdateSelection
+operator|=
+name|updateSelectionWasBlocked
+expr_stmt|;
 name|updateCursorPosition
 argument_list|()
 expr_stmt|;
