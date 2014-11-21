@@ -388,7 +388,7 @@ name|QString
 name|glInfo
 parameter_list|(
 specifier|const
-name|QWidget
+name|QObject
 modifier|*
 parameter_list|)
 block|{
