@@ -60,6 +60,20 @@ argument_list|)
 specifier|const
 block|;
 name|bool
+name|canDropMimeData
+argument_list|(
+argument|const QMimeData *data
+argument_list|,
+argument|Qt::DropAction action
+argument_list|,
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&parent
+argument_list|)
+block|;
+name|bool
 name|dropMimeData
 argument_list|(
 argument|const QMimeData *data
