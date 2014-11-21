@@ -658,6 +658,36 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"method-name"
+argument_list|)
+operator|<<
+literal|"<method name=\"Method\">"
+literal|"<arg type=\"s\" direction=\"in\"/>"
+literal|"<annotation name=\"org.qtproject.QtDBus.MethodName\" value=\"MethodRenamed\" />"
+literal|"</method>"
+operator|<<
+name|QRegularExpression
+argument_list|(
+literal|"Q_SLOTS:.*QDBusPendingReply<> MethodRenamed\\(const QString&\\w*"
+argument_list|,
+name|QRegularExpression
+operator|::
+name|DotMatchesEverythingOption
+argument_list|)
+operator|<<
+name|QRegularExpression
+argument_list|(
+literal|"Q_SLOTS:.*void MethodRenamed\\(const QString&\\w*"
+argument_list|,
+name|QRegularExpression
+operator|::
+name|DotMatchesEverythingOption
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"method-complex"
 argument_list|)
 operator|<<
