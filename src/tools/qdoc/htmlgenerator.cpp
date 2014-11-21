@@ -376,11 +376,12 @@ block|,
 block|{
 name|ATOM_FORMATTING_TELETYPE
 block|,
-literal|"<tt>"
+literal|"<code>"
 block|,
-literal|"</tt>"
+literal|"</code>"
 block|}
 block|,
+comment|//<tt> tag is not supported in HTML5
 block|{
 name|ATOM_FORMATTING_UICONTROL
 block|,
@@ -565,6 +566,24 @@ operator|::
 name|dot
 operator|+
 name|HTMLGENERATOR_POSTPOSTHEADER
+argument_list|)
+expr_stmt|;
+name|prologue
+operator|=
+name|config
+operator|.
+name|getString
+argument_list|(
+name|HtmlGenerator
+operator|::
+name|format
+argument_list|()
+operator|+
+name|Config
+operator|::
+name|dot
+operator|+
+name|HTMLGENERATOR_PROLOGUE
 argument_list|)
 expr_stmt|;
 name|footer
@@ -4734,7 +4753,7 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"valuelist\">"
+literal|"<div class=\"table\"><table class=\"valuelist\">"
 expr_stmt|;
 name|threeColumnEnumValueTable_
 operator|=
@@ -4991,11 +5010,11 @@ decl_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<tr><td class=\"topAlign\"><tt>"
+literal|"<tr><td class=\"topAlign\"><code>"
 operator|<<
 name|t
 operator|<<
-literal|"</tt>"
+literal|"</code>"
 expr_stmt|;
 if|if
 condition|(
@@ -5061,14 +5080,14 @@ else|else
 name|out
 argument_list|()
 operator|<<
-literal|"<tt>"
+literal|"<code>"
 operator|<<
 name|protectEnc
 argument_list|(
 name|itemValue
 argument_list|)
 operator|<<
-literal|"</tt>"
+literal|"</code>"
 expr_stmt|;
 block|}
 name|skipAhead
@@ -5280,7 +5299,7 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"</table>\n"
+literal|"</table></div>\n"
 expr_stmt|;
 block|}
 else|else
@@ -5722,7 +5741,7 @@ block|}
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\""
+literal|"<div class=\"table\"><table class=\""
 operator|<<
 name|attr
 operator|<<
@@ -5764,7 +5783,7 @@ case|:
 name|out
 argument_list|()
 operator|<<
-literal|"</table>\n"
+literal|"</table></div>\n"
 expr_stmt|;
 break|break;
 case|case
@@ -8227,21 +8246,9 @@ operator|->
 name|name
 argument_list|()
 operator|!=
-name|QString
+name|QStringLiteral
 argument_list|(
 literal|"index.html"
-argument_list|)
-operator|)
-operator|&&
-operator|(
-name|dn
-operator|->
-name|name
-argument_list|()
-operator|!=
-name|QString
-argument_list|(
-literal|"qtexamplesandtutorials.html"
 argument_list|)
 operator|)
 condition|)
@@ -9801,14 +9808,14 @@ directive|endif
 name|out
 argument_list|()
 operator|<<
-literal|"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+literal|"<!DOCTYPE html>\n"
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
 name|QString
 argument_list|(
-literal|"<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"%1\" lang=\"%1\">\n"
+literal|"<html lang=\"%1\">\n"
 argument_list|)
 operator|.
 name|arg
@@ -10126,10 +10133,18 @@ argument_list|,
 name|marker
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|buildversion
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"<li id=\"buildversion\">\n"
+literal|"<li id=\"buildversion\">"
 operator|<<
 name|buildversion
 operator|<<
@@ -10655,6 +10670,26 @@ modifier|*
 name|marker
 parameter_list|)
 block|{
+name|out
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+name|prologue
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|"\\"
+operator|+
+name|COMMAND_VERSION
+argument_list|,
+name|qdb_
+operator|->
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -10893,18 +10928,6 @@ argument_list|()
 expr_stmt|;
 name|text
 operator|<<
-name|formattingRightMap
-argument_list|()
-index|[
-name|ATOM_FORMATTING_BOLD
-index|]
-operator|<<
-name|formattingLeftMap
-argument_list|()
-index|[
-name|ATOM_FORMATTING_TELETYPE
-index|]
-operator|<<
 name|highlightedCode
 argument_list|(
 name|indent
@@ -10924,12 +10947,6 @@ argument_list|)
 argument_list|,
 name|inner
 argument_list|)
-operator|<<
-name|formattingRightMap
-argument_list|()
-index|[
-name|ATOM_FORMATTING_TELETYPE
-index|]
 expr_stmt|;
 name|requisites
 operator|.
@@ -11114,30 +11131,12 @@ argument_list|()
 expr_stmt|;
 name|text
 operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|FormattingLeft
-argument_list|,
-name|ATOM_FORMATTING_TELETYPE
-argument_list|)
-operator|<<
 literal|"QT += "
 operator|+
 name|moduleNode
 operator|->
 name|qtVariable
 argument_list|()
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|FormattingRight
-argument_list|,
-name|ATOM_FORMATTING_TELETYPE
-argument_list|)
 expr_stmt|;
 name|requisites
 operator|.
@@ -11523,7 +11522,7 @@ comment|//generate the table
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"alignedsummary\">\n"
+literal|"<div class=\"table\"><table class=\"alignedsummary\">\n"
 expr_stmt|;
 name|QStringList
 operator|::
@@ -11622,7 +11621,7 @@ block|}
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 block|}
 block|}
@@ -11753,18 +11752,6 @@ argument_list|()
 expr_stmt|;
 name|text
 operator|<<
-name|formattingRightMap
-argument_list|()
-index|[
-name|ATOM_FORMATTING_BOLD
-index|]
-operator|<<
-name|formattingLeftMap
-argument_list|()
-index|[
-name|ATOM_FORMATTING_TELETYPE
-index|]
-operator|<<
 literal|"import "
 operator|+
 name|qcn
@@ -11775,12 +11762,6 @@ operator|+
 literal|" "
 operator|+
 name|qmlModuleVersion
-operator|<<
-name|formattingRightMap
-argument_list|()
-index|[
-name|ATOM_FORMATTING_TELETYPE
-index|]
 expr_stmt|;
 name|requisites
 operator|.
@@ -12173,7 +12154,7 @@ comment|//generate the table
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"alignedsummary\">\n"
+literal|"<div class=\"table\"><table class=\"alignedsummary\">\n"
 expr_stmt|;
 name|QStringList
 operator|::
@@ -12270,7 +12251,7 @@ block|}
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 block|}
 block|}
@@ -12505,6 +12486,11 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|tocDepth
+operator|==
+literal|0
+operator|||
+operator|(
 name|toc
 operator|.
 name|isEmpty
@@ -12518,16 +12504,14 @@ name|node
 operator|->
 name|isModule
 argument_list|()
+operator|)
 condition|)
+block|{
+name|generateSidebar
+argument_list|()
+expr_stmt|;
 return|return;
-comment|//turn off table of contents if HTML.tocdepth is set to 0
-if|if
-condition|(
-name|tocDepth
-operator|==
-literal|0
-condition|)
-return|return;
+block|}
 name|QStringList
 name|sectionNumber
 decl_stmt|;
@@ -12544,6 +12528,11 @@ expr_stmt|;
 name|inLink_
 operator|=
 literal|true
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<div class=\"sidebar\">\n"
 expr_stmt|;
 name|out
 argument_list|()
@@ -13093,6 +13082,16 @@ argument_list|()
 operator|<<
 literal|"</div>\n"
 expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<div class=\"sidebar-content\" id=\"sidebar-content\"></div>"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"</div>\n"
+expr_stmt|;
 name|inContents_
 operator|=
 literal|false
@@ -13100,6 +13099,34 @@ expr_stmt|;
 name|inLink_
 operator|=
 literal|false
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!   Outputs a placeholder div where the style can add customized sidebar content.  */
+end_comment
+begin_function
+DECL|function|generateSidebar
+name|void
+name|HtmlGenerator
+operator|::
+name|generateSidebar
+parameter_list|()
+block|{
+name|out
+argument_list|()
+operator|<<
+literal|"<div class=\"sidebar\">"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<div class=\"sidebar-content\" id=\"sidebar-content\"></div>"
+expr_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"</div>\n"
 expr_stmt|;
 block|}
 end_function
@@ -13200,6 +13227,9 @@ name|inner
 argument_list|,
 name|marker
 argument_list|)
+expr_stmt|;
+name|generateSidebar
+argument_list|()
 expr_stmt|;
 name|generateTitle
 argument_list|(
@@ -13359,6 +13389,9 @@ name|qml_cn
 argument_list|,
 name|marker
 argument_list|)
+expr_stmt|;
+name|generateSidebar
+argument_list|()
 expr_stmt|;
 name|generateTitle
 argument_list|(
@@ -13886,6 +13919,9 @@ argument_list|,
 name|marker
 argument_list|)
 expr_stmt|;
+name|generateSidebar
+argument_list|()
+expr_stmt|;
 name|generateTitle
 argument_list|(
 name|title
@@ -14340,6 +14376,9 @@ name|qcn
 argument_list|,
 name|marker
 argument_list|)
+expr_stmt|;
+name|generateSidebar
+argument_list|()
 expr_stmt|;
 name|generateTitle
 argument_list|(
@@ -15045,7 +15084,7 @@ return|return;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"annotated\">\n"
+literal|"<div class=\"table\"><table class=\"annotated\">\n"
 expr_stmt|;
 name|int
 name|row
@@ -15255,7 +15294,7 @@ block|}
 name|out
 argument_list|()
 operator|<<
-literal|"</table>\n"
+literal|"</table></div>\n"
 expr_stmt|;
 block|}
 end_function
@@ -16645,7 +16684,7 @@ name|replace
 argument_list|(
 literal|"<@extra>"
 argument_list|,
-literal|"<tt>"
+literal|"<code>"
 argument_list|)
 expr_stmt|;
 name|marked
@@ -16654,7 +16693,7 @@ name|replace
 argument_list|(
 literal|"</@extra>"
 argument_list|,
-literal|"</tt>"
+literal|"</code>"
 argument_list|)
 expr_stmt|;
 if|if
@@ -17160,7 +17199,7 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"alignedsummary\">\n"
+literal|"<div class=\"table\"><table class=\"alignedsummary\">\n"
 expr_stmt|;
 block|}
 else|else
@@ -17172,7 +17211,7 @@ condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"propsummary\">\n"
+literal|"<div class=\"table\"><table class=\"propsummary\">\n"
 operator|<<
 literal|"<tr><td class=\"topAlign\">"
 expr_stmt|;
@@ -17314,7 +17353,7 @@ condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"</table>\n"
+literal|"</table></div>\n"
 expr_stmt|;
 else|else
 block|{
@@ -17330,7 +17369,7 @@ condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"</td></tr>\n</table>\n"
+literal|"</td></tr>\n</table></div>\n"
 expr_stmt|;
 block|}
 block|}
@@ -17455,7 +17494,7 @@ block|{
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"alignedsummary\">\n"
+literal|"<div class=\"table\"><table class=\"alignedsummary\">\n"
 expr_stmt|;
 block|}
 else|else
@@ -17467,7 +17506,7 @@ condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"propsummary\">\n"
+literal|"<div class=\"table\"><table class=\"propsummary\">\n"
 operator|<<
 literal|"<tr><td class=\"topAlign\">"
 expr_stmt|;
@@ -17672,7 +17711,7 @@ condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"</table>\n"
+literal|"</table></div>\n"
 expr_stmt|;
 else|else
 block|{
@@ -17688,7 +17727,7 @@ condition|)
 name|out
 argument_list|()
 operator|<<
-literal|"</td></tr>\n</table>\n"
+literal|"</td></tr>\n</table></div>\n"
 expr_stmt|;
 block|}
 block|}
@@ -18108,7 +18147,7 @@ name|replace
 argument_list|(
 literal|"<@extra>"
 argument_list|,
-literal|"<tt>"
+literal|"<code>"
 argument_list|)
 expr_stmt|;
 name|marked
@@ -18117,7 +18156,7 @@ name|replace
 argument_list|(
 literal|"</@extra>"
 argument_list|,
-literal|"</tt>"
+literal|"</code>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -22738,7 +22777,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"qmlname\">"
+literal|"<div class=\"table\"><table class=\"qmlname\">"
 expr_stmt|;
 name|QString
 name|heading
@@ -22906,7 +22945,7 @@ block|}
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 name|out
 argument_list|()
@@ -22946,7 +22985,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"qmlname\">"
+literal|"<div class=\"table\"><table class=\"qmlname\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23045,7 +23084,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23089,7 +23128,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"qmlname\">"
+literal|"<div class=\"table\"><table class=\"qmlname\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23140,7 +23179,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23184,7 +23223,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"qmlname\">"
+literal|"<div class=\"table\"><table class=\"qmlname\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23235,7 +23274,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23279,7 +23318,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<table class=\"qmlname\">"
+literal|"<div class=\"table\"><table class=\"qmlname\">"
 expr_stmt|;
 name|out
 argument_list|()
@@ -23330,7 +23369,7 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"</table>"
+literal|"</table></div>"
 expr_stmt|;
 name|out
 argument_list|()

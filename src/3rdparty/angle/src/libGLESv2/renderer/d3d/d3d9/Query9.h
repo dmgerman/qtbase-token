@@ -50,7 +50,7 @@ name|public
 operator|:
 name|Query9
 argument_list|(
-argument|rx::Renderer9 *renderer
+argument|Renderer9 *renderer
 argument_list|,
 argument|GLenum type
 argument_list|)
@@ -115,8 +115,6 @@ block|;
 name|bool
 name|mQueryFinished
 block|;
-name|rx
-operator|::
 name|Renderer9
 operator|*
 name|mRenderer

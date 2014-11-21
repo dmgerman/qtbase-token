@@ -75,7 +75,7 @@ name|EGLSyncKHR
 typedef|;
 DECL|typedef|EGLAttribKHR
 typedef|typedef
-name|khronos_intptr_t
+name|intptr_t
 name|EGLAttribKHR
 typedef|;
 DECL|typedef|PFNEGLCREATESYNC64KHRPROC
@@ -2208,11 +2208,21 @@ define|#
 directive|define
 name|EGL_PLATFORM_ANGLE_TYPE_ANGLE
 value|0x3202
+DECL|macro|EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE
+define|#
+directive|define
+name|EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE
+value|0x3203
+DECL|macro|EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE
+define|#
+directive|define
+name|EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE
+value|0x3204
 DECL|macro|EGL_PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
 define|#
 directive|define
 name|EGL_PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
-value|0x3203
+value|0x3205
 endif|#
 directive|endif
 comment|/* EGL_ANGLE_platform_angle */
@@ -2228,17 +2238,17 @@ DECL|macro|EGL_PLATFORM_ANGLE_TYPE_D3D9_ANGLE
 define|#
 directive|define
 name|EGL_PLATFORM_ANGLE_TYPE_D3D9_ANGLE
-value|0x3204
+value|0x3206
 DECL|macro|EGL_PLATFORM_ANGLE_TYPE_D3D11_ANGLE
 define|#
 directive|define
 name|EGL_PLATFORM_ANGLE_TYPE_D3D11_ANGLE
-value|0x3205
-DECL|macro|EGL_PLATFORM_ANGLE_TYPE_D3D11_WARP_ANGLE
+value|0x3207
+DECL|macro|EGL_PLATFORM_ANGLE_USE_WARP_ANGLE
 define|#
 directive|define
-name|EGL_PLATFORM_ANGLE_TYPE_D3D11_WARP_ANGLE
-value|0x3206
+name|EGL_PLATFORM_ANGLE_USE_WARP_ANGLE
+value|0x3208
 endif|#
 directive|endif
 comment|/* EGL_ANGLE_platform_angle_d3d */
@@ -2254,12 +2264,12 @@ DECL|macro|EGL_PLATFORM_ANGLE_TYPE_OPENGL_ANGLE
 define|#
 directive|define
 name|EGL_PLATFORM_ANGLE_TYPE_OPENGL_ANGLE
-value|0x3207
+value|0x3209
 DECL|macro|EGL_PLATFORM_ANGLE_TYPE_OPENGLES_ANGLE
 define|#
 directive|define
 name|EGL_PLATFORM_ANGLE_TYPE_OPENGLES_ANGLE
-value|0x3208
+value|0x320A
 endif|#
 directive|endif
 comment|/* EGL_ANGLE_platform_angle_opengl */

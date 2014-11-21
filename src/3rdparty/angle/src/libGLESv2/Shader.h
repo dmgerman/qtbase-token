@@ -88,6 +88,9 @@ block|{
 name|class
 name|ResourceManager
 decl_stmt|;
+struct_decl|struct
+name|Data
+struct_decl|;
 name|struct
 name|PackedVarying
 range|:
@@ -296,8 +299,26 @@ argument_list|)
 specifier|const
 block|;
 name|void
+name|getTranslatedSourceWithDebugInfo
+argument_list|(
+argument|GLsizei bufSize
+argument_list|,
+argument|GLsizei *length
+argument_list|,
+argument|char *buffer
+argument_list|)
+specifier|const
+block|;
+name|void
 name|compile
-argument_list|()
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|)
 block|;
 name|bool
 name|isCompiled

@@ -34,6 +34,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/debug.h"
 end_include
 begin_include
@@ -96,13 +101,16 @@ name|mDevice
 operator|=
 name|device
 block|;     }
-name|ShaderObject
-operator|*
+name|gl
+operator|::
+name|Error
 name|create
 argument_list|(
 argument|const DWORD *function
 argument_list|,
 argument|size_t length
+argument_list|,
+argument|ShaderObject **outShaderObject
 argument_list|)
 block|{
 name|std
@@ -153,10 +161,20 @@ operator|->
 name|AddRef
 argument_list|()
 expr_stmt|;
-return|return
+operator|*
+name|outShaderObject
+operator|=
 name|it
 operator|->
 name|second
+expr_stmt|;
+return|return
+name|gl
+operator|::
+name|Error
+argument_list|(
+name|GL_NO_ERROR
+argument_list|)
 return|;
 block|}
 name|ShaderObject
@@ -183,7 +201,16 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|NULL
+name|gl
+operator|::
+name|Error
+argument_list|(
+name|GL_OUT_OF_MEMORY
+argument_list|,
+literal|"Failed to create shader, result: 0x%X."
+argument_list|,
+name|result
+argument_list|)
 return|;
 block|}
 comment|// Random eviction policy.
@@ -230,8 +257,18 @@ index|]
 operator|=
 name|shader
 expr_stmt|;
-return|return
+operator|*
+name|outShaderObject
+operator|=
 name|shader
+expr_stmt|;
+return|return
+name|gl
+operator|::
+name|Error
+argument_list|(
+name|GL_NO_ERROR
+argument_list|)
 return|;
 block|}
 end_decl_stmt

@@ -57,7 +57,7 @@ name|SwapChain11
 argument_list|(
 argument|Renderer11 *renderer
 argument_list|,
-argument|EGLNativeWindowType window
+argument|NativeWindow nativeWindow
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
@@ -101,8 +101,6 @@ argument_list|,
 argument|EGLint width
 argument_list|,
 argument|EGLint height
-argument_list|,
-argument|EGLint flags
 argument_list|)
 block|;
 name|virtual
@@ -211,11 +209,11 @@ block|;
 name|EGLint
 name|mWidth
 block|;
-name|EGLint
-name|mViewportWidth
+name|bool
+name|mRotateL
 block|;
-name|EGLint
-name|mViewportHeight
+name|bool
+name|mRotateR
 block|;
 name|bool
 name|mAppCreatedShareHandle
@@ -227,7 +225,7 @@ block|;
 name|bool
 name|mPassThroughResourcesInit
 block|;
-name|IDXGISwapChain
+name|DXGISwapChain
 operator|*
 name|mSwapChain
 block|;

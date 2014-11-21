@@ -11427,6 +11427,10 @@ name|hasCustomBuildStep
 operator|||
 name|filter
 operator|.
+name|useCustomBuildTool
+operator|||
+name|filter
+operator|.
 name|useCompilerTool
 operator|||
 operator|!
@@ -11447,6 +11451,10 @@ block|{
 if|if
 condition|(
 name|hasCustomBuildStep
+operator|||
+name|filter
+operator|.
+name|useCustomBuildTool
 condition|)
 block|{
 if|if

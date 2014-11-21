@@ -123,6 +123,14 @@ name|void
 name|createInternalHwnd
 argument_list|()
 block|;
+name|void
+name|installMessageHook
+argument_list|()
+block|;
+name|void
+name|uninstallMessageHook
+argument_list|()
+block|;
 name|public
 operator|:
 name|explicit
@@ -471,6 +479,9 @@ name|threadId
 block|;
 name|bool
 name|interrupt
+block|;
+name|bool
+name|closingDown
 block|;
 comment|// internal window handle used for socketnotifiers/timers/etc
 name|HWND

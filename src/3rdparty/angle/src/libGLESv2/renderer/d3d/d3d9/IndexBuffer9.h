@@ -154,8 +154,6 @@ argument_list|(
 name|IndexBuffer9
 argument_list|)
 block|;
-name|rx
-operator|::
 name|Renderer9
 operator|*
 specifier|const

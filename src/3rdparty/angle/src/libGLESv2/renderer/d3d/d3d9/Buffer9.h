@@ -60,8 +60,6 @@ name|public
 operator|:
 name|Buffer9
 argument_list|(
-name|rx
-operator|::
 name|Renderer9
 operator|*
 name|renderer
@@ -103,11 +101,11 @@ return|return
 name|false
 return|;
 block|}
-name|virtual
-name|Renderer
+name|RendererD3D
 operator|*
 name|getRenderer
 argument_list|()
+name|override
 block|;
 comment|// BufferImpl implementation
 name|virtual
@@ -123,11 +121,14 @@ argument_list|,
 argument|GLenum usage
 argument_list|)
 block|;
-name|virtual
-name|void
-operator|*
+name|gl
+operator|::
+name|Error
 name|getData
-argument_list|()
+argument_list|(
+argument|const uint8_t **outData
+argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -191,8 +192,6 @@ argument_list|(
 name|Buffer9
 argument_list|)
 block|;
-name|rx
-operator|::
 name|Renderer9
 operator|*
 name|mRenderer

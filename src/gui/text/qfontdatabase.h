@@ -558,11 +558,6 @@ name|bool
 name|multi
 init|=
 name|false
-parameter_list|,
-name|bool
-name|fallback
-init|=
-name|false
 parameter_list|)
 function_decl|;
 specifier|static

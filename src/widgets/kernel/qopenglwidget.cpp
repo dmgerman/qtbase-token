@@ -161,6 +161,7 @@ parameter_list|)
 member_init_list|:
 name|QOpenGLPaintDevice
 argument_list|(
+operator|*
 operator|new
 name|QOpenGLWidgetPaintDevicePrivate
 argument_list|(

@@ -1243,7 +1243,7 @@ name|EGLSync
 typedef|;
 DECL|typedef|EGLAttrib
 typedef|typedef
-name|khronos_intptr_t
+name|intptr_t
 name|EGLAttrib
 typedef|;
 DECL|typedef|EGLTime

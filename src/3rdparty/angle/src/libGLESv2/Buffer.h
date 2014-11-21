@@ -59,9 +59,6 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
-decl_stmt|;
-name|class
 name|BufferImpl
 decl_stmt|;
 block|}

@@ -148,12 +148,13 @@ operator|::
 name|QOpenGLPaintDevice
 parameter_list|(
 name|QOpenGLPaintDevicePrivate
-modifier|*
+modifier|&
 name|dd
 parameter_list|)
 member_init_list|:
 name|d_ptr
 argument_list|(
+operator|&
 name|dd
 argument_list|)
 block|{ }

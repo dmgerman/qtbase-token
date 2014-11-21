@@ -4362,7 +4362,7 @@ name|EGLint
 name|anglePlatformAttributes
 index|[]
 index|[
-literal|3
+literal|5
 index|]
 init|=
 block|{
@@ -4385,7 +4385,11 @@ block|,
 block|{
 name|EGL_PLATFORM_ANGLE_TYPE_ANGLE
 block|,
-name|EGL_PLATFORM_ANGLE_TYPE_D3D11_WARP_ANGLE
+name|EGL_PLATFORM_ANGLE_TYPE_D3D11_ANGLE
+block|,
+name|EGL_PLATFORM_ANGLE_USE_WARP_ANGLE
+block|,
+name|EGL_TRUE
 block|,
 name|EGL_NONE
 block|}

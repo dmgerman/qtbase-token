@@ -462,6 +462,9 @@ name|QVariant
 operator|>
 name|valueCache
 block|;
+name|uint
+name|embedFonts
+block|;
 name|QMacPrintEnginePrivate
 argument_list|()
 operator|:
@@ -515,6 +518,11 @@ block|,
 name|paintEngine
 argument_list|(
 literal|0
+argument_list|)
+block|,
+name|embedFonts
+argument_list|(
+argument|true
 argument_list|)
 block|{}
 operator|~

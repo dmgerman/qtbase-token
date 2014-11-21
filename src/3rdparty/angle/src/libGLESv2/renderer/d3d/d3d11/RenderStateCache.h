@@ -73,7 +73,11 @@ block|{
 name|public
 label|:
 name|RenderStateCache
-argument_list|()
+argument_list|(
+name|Renderer11
+operator|*
+name|renderer
+argument_list|)
 expr_stmt|;
 name|virtual
 operator|~
@@ -172,6 +176,10 @@ argument_list|(
 name|RenderStateCache
 argument_list|)
 expr_stmt|;
+name|Renderer11
+modifier|*
+name|mRenderer
+decl_stmt|;
 name|unsigned
 name|long
 name|long

@@ -96,6 +96,12 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
+DECL|variable|TSymbolTable
+name|class
+name|TSymbolTable
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|namespace
 name|sh
 block|{
@@ -160,8 +166,13 @@ block|{
 name|public
 label|:
 name|GetVariableTraverser
-argument_list|()
-block|{}
+argument_list|(
+specifier|const
+name|TSymbolTable
+operator|&
+name|symbolTable
+argument_list|)
+expr_stmt|;
 name|template
 operator|<
 name|typename
@@ -204,6 +215,28 @@ parameter_list|)
 block|{}
 name|private
 label|:
+comment|// Helper function called by traverse() to fill specific fields
+comment|// for attributes/varyings/uniforms.
+name|template
+operator|<
+name|typename
+name|VarT
+operator|>
+name|void
+name|setTypeSpecificInfo
+argument_list|(
+argument|const TType&type
+argument_list|,
+argument|const TString&name
+argument_list|,
+argument|VarT *variable
+argument_list|)
+block|{}
+specifier|const
+name|TSymbolTable
+operator|&
+name|mSymbolTable
+expr_stmt|;
 name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|GetVariableTraverser

@@ -30,6 +30,11 @@ include|#
 directive|include
 file|"compiler/translator/IntermNode.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"compiler/translator/Pragma.h"
+end_include
 begin_comment
 comment|// Traverses the intermediate tree to return the minimum GLSL version
 end_comment
@@ -87,6 +92,8 @@ operator|:
 name|TVersionGLSL
 argument_list|(
 argument|sh::GLenum type
+argument_list|,
+argument|const TPragma&pragma
 argument_list|)
 block|;
 comment|// Returns 120 if the following is used the shader:

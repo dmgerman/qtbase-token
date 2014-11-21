@@ -234,7 +234,7 @@ argument_list|()
 expr_stmt|;
 name|memcpy
 argument_list|(
-name|rsa
+name|dsa
 argument_list|,
 name|q_EVP_PKEY_get1_DSA
 argument_list|(

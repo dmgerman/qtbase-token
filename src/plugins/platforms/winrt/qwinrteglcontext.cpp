@@ -30,6 +30,9 @@ name|display
 parameter_list|,
 name|EGLSurface
 name|surface
+parameter_list|,
+name|EGLConfig
+name|config
 parameter_list|)
 member_init_list|:
 name|QEGLPlatformContext
@@ -39,6 +42,9 @@ argument_list|,
 name|share
 argument_list|,
 name|display
+argument_list|,
+operator|&
+name|config
 argument_list|)
 member_init_list|,
 name|m_eglSurface

@@ -3171,7 +3171,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.1    Enabled or disables font embedding depending on \a enable.    Currently this option is only supported on X11.    \sa fontEmbeddingEnabled() */
+comment|/*!   \since 4.1    Enabled or disables font embedding depending on \a enable.    \sa fontEmbeddingEnabled() */
 end_comment
 begin_function
 DECL|function|setFontEmbeddingEnabled
@@ -3203,7 +3203,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.1    Returns \c true if font embedding is enabled.    Currently this option is only supported on X11.    \sa setFontEmbeddingEnabled() */
+comment|/*!   \since 4.1    Returns \c true if font embedding is enabled.    \sa setFontEmbeddingEnabled() */
 end_comment
 begin_function
 DECL|function|fontEmbeddingEnabled

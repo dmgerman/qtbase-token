@@ -41,10 +41,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
-decl_stmt|;
-name|class
-name|Renderer11
+name|SwapChain11
 decl_stmt|;
 name|class
 name|RenderTarget11
@@ -54,59 +51,14 @@ name|RenderTarget
 block|{
 name|public
 operator|:
-comment|// RenderTarget11 takes ownership of any D3D11 resources it is given and will AddRef them
 name|RenderTarget11
-argument_list|(
-argument|Renderer *renderer
-argument_list|,
-argument|ID3D11RenderTargetView *rtv
-argument_list|,
-argument|ID3D11Resource *resource
-argument_list|,
-argument|ID3D11ShaderResourceView *srv
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|)
-block|;
-name|RenderTarget11
-argument_list|(
-argument|Renderer *renderer
-argument_list|,
-argument|ID3D11DepthStencilView *dsv
-argument_list|,
-argument|ID3D11Resource *resource
-argument_list|,
-argument|ID3D11ShaderResourceView *srv
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei depth
-argument_list|)
-block|;
-name|RenderTarget11
-argument_list|(
-argument|Renderer *renderer
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum internalFormat
-argument_list|,
-argument|GLsizei samples
-argument_list|)
-block|;
+argument_list|()
+block|{ }
 name|virtual
 operator|~
 name|RenderTarget11
 argument_list|()
-block|;
+block|{ }
 specifier|static
 name|RenderTarget11
 operator|*
@@ -117,7 +69,6 @@ operator|*
 name|renderTarget
 argument_list|)
 block|;
-name|virtual
 name|void
 name|invalidate
 argument_list|(
@@ -129,36 +80,52 @@ argument|GLsizei width
 argument_list|,
 argument|GLsizei height
 argument_list|)
+name|override
 block|;
+name|virtual
 name|ID3D11Resource
 operator|*
 name|getTexture
 argument_list|()
 specifier|const
+operator|=
+literal|0
 block|;
+name|virtual
 name|ID3D11RenderTargetView
 operator|*
 name|getRenderTargetView
 argument_list|()
 specifier|const
+operator|=
+literal|0
 block|;
+name|virtual
 name|ID3D11DepthStencilView
 operator|*
 name|getDepthStencilView
 argument_list|()
 specifier|const
+operator|=
+literal|0
 block|;
+name|virtual
 name|ID3D11ShaderResourceView
 operator|*
 name|getShaderResourceView
 argument_list|()
 specifier|const
+operator|=
+literal|0
 block|;
+name|virtual
 name|unsigned
 name|int
 name|getSubresourceIndex
 argument_list|()
 specifier|const
+operator|=
+literal|0
 block|;
 name|private
 operator|:
@@ -166,6 +133,155 @@ name|DISALLOW_COPY_AND_ASSIGN
 argument_list|(
 name|RenderTarget11
 argument_list|)
+block|; }
+decl_stmt|;
+name|class
+name|TextureRenderTarget11
+range|:
+name|public
+name|RenderTarget11
+block|{
+name|public
+operator|:
+comment|// TextureRenderTarget11 takes ownership of any D3D11 resources it is given and will AddRef them
+name|TextureRenderTarget11
+argument_list|(
+argument|ID3D11RenderTargetView *rtv
+argument_list|,
+argument|ID3D11Resource *resource
+argument_list|,
+argument|ID3D11ShaderResourceView *srv
+argument_list|,
+argument|GLenum internalFormat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei samples
+argument_list|)
+block|;
+name|TextureRenderTarget11
+argument_list|(
+argument|ID3D11DepthStencilView *dsv
+argument_list|,
+argument|ID3D11Resource *resource
+argument_list|,
+argument|ID3D11ShaderResourceView *srv
+argument_list|,
+argument|GLenum internalFormat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei samples
+argument_list|)
+block|;
+name|virtual
+operator|~
+name|TextureRenderTarget11
+argument_list|()
+block|;
+name|GLsizei
+name|getWidth
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLsizei
+name|getHeight
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLsizei
+name|getDepth
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLenum
+name|getInternalFormat
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLenum
+name|getActualFormat
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLsizei
+name|getSamples
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11Resource
+operator|*
+name|getTexture
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11RenderTargetView
+operator|*
+name|getRenderTargetView
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11DepthStencilView
+operator|*
+name|getDepthStencilView
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11ShaderResourceView
+operator|*
+name|getShaderResourceView
+argument_list|()
+specifier|const
+name|override
+block|;
+name|unsigned
+name|int
+name|getSubresourceIndex
+argument_list|()
+specifier|const
+name|override
+block|;
+name|private
+operator|:
+name|DISALLOW_COPY_AND_ASSIGN
+argument_list|(
+name|TextureRenderTarget11
+argument_list|)
+block|;
+name|GLsizei
+name|mWidth
+block|;
+name|GLsizei
+name|mHeight
+block|;
+name|GLsizei
+name|mDepth
+block|;
+name|GLenum
+name|mInternalFormat
+block|;
+name|GLenum
+name|mActualFormat
+block|;
+name|GLsizei
+name|mSamples
 block|;
 name|unsigned
 name|int
@@ -186,10 +302,112 @@ block|;
 name|ID3D11ShaderResourceView
 operator|*
 name|mShaderResource
+block|; }
+decl_stmt|;
+name|class
+name|SurfaceRenderTarget11
+range|:
+name|public
+name|RenderTarget11
+block|{
+name|public
+operator|:
+name|SurfaceRenderTarget11
+argument_list|(
+argument|SwapChain11 *swapChain
+argument_list|,
+argument|bool depth
+argument_list|)
 block|;
-name|Renderer11
+name|virtual
+operator|~
+name|SurfaceRenderTarget11
+argument_list|()
+block|;
+name|GLsizei
+name|getWidth
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLsizei
+name|getHeight
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLsizei
+name|getDepth
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLenum
+name|getInternalFormat
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLenum
+name|getActualFormat
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GLsizei
+name|getSamples
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11Resource
 operator|*
-name|mRenderer
+name|getTexture
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11RenderTargetView
+operator|*
+name|getRenderTargetView
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11DepthStencilView
+operator|*
+name|getDepthStencilView
+argument_list|()
+specifier|const
+name|override
+block|;
+name|ID3D11ShaderResourceView
+operator|*
+name|getShaderResourceView
+argument_list|()
+specifier|const
+name|override
+block|;
+name|unsigned
+name|int
+name|getSubresourceIndex
+argument_list|()
+specifier|const
+name|override
+block|;
+name|private
+operator|:
+name|DISALLOW_COPY_AND_ASSIGN
+argument_list|(
+name|SurfaceRenderTarget11
+argument_list|)
+block|;
+name|SwapChain11
+operator|*
+name|mSwapChain
+block|;
+name|bool
+name|mDepth
 block|; }
 decl_stmt|;
 block|}

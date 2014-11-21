@@ -55,14 +55,6 @@ block|{
 name|class
 name|Renderer11
 decl_stmt|;
-enum|enum
-name|Filter
-block|{
-name|Point
-block|,
-name|Linear
-block|, }
-enum|;
 name|class
 name|Blit11
 block|{
@@ -100,115 +92,57 @@ argument_list|,
 argument|GLenum swizzleAlpha
 argument_list|)
 expr_stmt|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyTexture
 argument_list|(
-name|ID3D11ShaderResourceView
-operator|*
-name|source
+argument|ID3D11ShaderResourceView *source
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|sourceArea
+argument|const gl::Box&sourceArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|sourceSize
+argument|const gl::Extents&sourceSize
 argument_list|,
-name|ID3D11RenderTargetView
-operator|*
-name|dest
+argument|ID3D11RenderTargetView *dest
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|destArea
+argument|const gl::Box&destArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|destSize
+argument|const gl::Extents&destSize
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Rectangle
-operator|*
-name|scissor
+argument|const gl::Rectangle *scissor
 argument_list|,
-name|GLenum
-name|destFormat
+argument|GLenum destFormat
 argument_list|,
-name|GLenum
-name|filter
+argument|GLenum filter
 argument_list|)
-decl_stmt|;
-name|bool
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|copyStencil
 argument_list|(
-name|ID3D11Resource
-operator|*
-name|source
+argument|ID3D11Resource *source
 argument_list|,
-name|unsigned
-name|int
-name|sourceSubresource
+argument|unsigned int sourceSubresource
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|sourceArea
+argument|const gl::Box&sourceArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|sourceSize
+argument|const gl::Extents&sourceSize
 argument_list|,
-name|ID3D11Resource
-operator|*
-name|dest
+argument|ID3D11Resource *dest
 argument_list|,
-name|unsigned
-name|int
-name|destSubresource
+argument|unsigned int destSubresource
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|destArea
+argument|const gl::Box&destArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|destSize
+argument|const gl::Extents&destSize
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Rectangle
-operator|*
-name|scissor
+argument|const gl::Rectangle *scissor
 argument_list|)
-decl_stmt|;
-name|bool
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|copyDepth
 argument_list|(
 name|ID3D11ShaderResourceView
@@ -254,70 +188,37 @@ name|Rectangle
 operator|*
 name|scissor
 argument_list|)
-decl_stmt|;
-name|bool
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|copyDepthStencil
 argument_list|(
-name|ID3D11Resource
-operator|*
-name|source
+argument|ID3D11Resource *source
 argument_list|,
-name|unsigned
-name|int
-name|sourceSubresource
+argument|unsigned int sourceSubresource
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|sourceArea
+argument|const gl::Box&sourceArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|sourceSize
+argument|const gl::Extents&sourceSize
 argument_list|,
-name|ID3D11Resource
-operator|*
-name|dest
+argument|ID3D11Resource *dest
 argument_list|,
-name|unsigned
-name|int
-name|destSubresource
+argument|unsigned int destSubresource
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|destArea
+argument|const gl::Box&destArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|destSize
+argument|const gl::Extents&destSize
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Rectangle
-operator|*
-name|scissor
+argument|const gl::Rectangle *scissor
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|private
 label|:
-name|rx
-operator|::
 name|Renderer11
-operator|*
+modifier|*
 name|mRenderer
-expr_stmt|;
+decl_stmt|;
 struct|struct
 name|BlitParameters
 block|{
@@ -332,64 +233,32 @@ name|m3DBlit
 decl_stmt|;
 block|}
 struct|;
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyDepthStencil
 argument_list|(
-name|ID3D11Resource
-operator|*
-name|source
+argument|ID3D11Resource *source
 argument_list|,
-name|unsigned
-name|int
-name|sourceSubresource
+argument|unsigned int sourceSubresource
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|sourceArea
+argument|const gl::Box&sourceArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|sourceSize
+argument|const gl::Extents&sourceSize
 argument_list|,
-name|ID3D11Resource
-operator|*
-name|dest
+argument|ID3D11Resource *dest
 argument_list|,
-name|unsigned
-name|int
-name|destSubresource
+argument|unsigned int destSubresource
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|destArea
+argument|const gl::Box&destArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Extents
-operator|&
-name|destSize
+argument|const gl::Extents&destSize
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Rectangle
-operator|*
-name|scissor
+argument|const gl::Rectangle *scissor
 argument_list|,
-name|bool
-name|stencilOnly
+argument|bool stencilOnly
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 specifier|static
 name|bool
 name|compareBlitParameters

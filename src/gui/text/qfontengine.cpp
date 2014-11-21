@@ -2004,11 +2004,6 @@ name|script_index
 argument_list|)
 expr_stmt|;
 block|}
-name|hb_face_destroy
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|ret
@@ -12546,8 +12541,6 @@ name|request
 argument_list|,
 comment|/*multi = */
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT

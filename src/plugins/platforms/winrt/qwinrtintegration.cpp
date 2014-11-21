@@ -380,6 +380,11 @@ name|screen
 operator|->
 name|eglSurface
 argument_list|()
+argument_list|,
+name|screen
+operator|->
+name|eglConfig
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -122,26 +122,13 @@ name|virtual
 name|void
 name|handlePragma
 argument_list|(
-specifier|const
-name|pp
-operator|::
-name|SourceLocation
-operator|&
-name|loc
+argument|const pp::SourceLocation& loc
 argument_list|,
-specifier|const
-name|std
-operator|::
-name|string
-operator|&
-name|name
+argument|const std::string& name
 argument_list|,
-specifier|const
-name|std
-operator|::
-name|string
-operator|&
-name|value
+argument|const std::string& value
+argument_list|,
+argument|bool stdgl
 argument_list|)
 block|;
 name|virtual

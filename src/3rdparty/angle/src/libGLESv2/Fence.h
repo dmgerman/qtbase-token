@@ -15,7 +15,10 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Fence.h: Defines the gl::Fence class, which supports the GL_NV_fence extension.
+comment|// Fence.h: Defines the gl::FenceNV and gl::FenceSync classes, which support the GL_NV_fence
+end_comment
+begin_comment
+comment|// extension and GLES3 sync objects.
 end_comment
 begin_ifndef
 ifndef|#
@@ -31,6 +34,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/angleutils.h"
 end_include
 begin_include
@@ -43,10 +51,10 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
+name|FenceNVImpl
 decl_stmt|;
 name|class
-name|FenceImpl
+name|FenceSyncImpl
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -64,9 +72,9 @@ name|FenceNV
 argument_list|(
 name|rx
 operator|::
-name|Renderer
+name|FenceNVImpl
 operator|*
-name|renderer
+name|impl
 argument_list|)
 decl_stmt|;
 name|virtual
@@ -79,27 +87,24 @@ name|isFence
 argument_list|()
 specifier|const
 expr_stmt|;
-name|void
+name|Error
 name|setFence
 parameter_list|(
 name|GLenum
 name|condition
 parameter_list|)
 function_decl|;
-name|GLboolean
+name|Error
 name|testFence
-parameter_list|()
+parameter_list|(
+name|GLboolean
+modifier|*
+name|outResult
+parameter_list|)
 function_decl|;
-name|void
+name|Error
 name|finishFence
 parameter_list|()
-function_decl|;
-name|GLint
-name|getFencei
-parameter_list|(
-name|GLenum
-name|pname
-parameter_list|)
 function_decl|;
 name|GLboolean
 name|getStatus
@@ -128,10 +133,13 @@ argument_list|)
 expr_stmt|;
 name|rx
 operator|::
-name|FenceImpl
+name|FenceNVImpl
 operator|*
 name|mFence
 expr_stmt|;
+name|bool
+name|mIsSet
+decl_stmt|;
 name|GLboolean
 name|mStatus
 decl_stmt|;
@@ -151,7 +159,7 @@ operator|:
 name|explicit
 name|FenceSync
 argument_list|(
-argument|rx::Renderer *renderer
+argument|rx::FenceSyncImpl *impl
 argument_list|,
 argument|GLuint id
 argument_list|)
@@ -161,27 +169,35 @@ operator|~
 name|FenceSync
 argument_list|()
 block|;
-name|void
+name|Error
 name|set
 argument_list|(
 argument|GLenum condition
 argument_list|)
 block|;
-name|GLenum
+name|Error
 name|clientWait
+argument_list|(
+argument|GLbitfield flags
+argument_list|,
+argument|GLuint64 timeout
+argument_list|,
+argument|GLenum *outResult
+argument_list|)
+block|;
+name|Error
+name|serverWait
 argument_list|(
 argument|GLbitfield flags
 argument_list|,
 argument|GLuint64 timeout
 argument_list|)
 block|;
-name|void
-name|serverWait
-argument_list|()
-block|;
-name|GLenum
+name|Error
 name|getStatus
-argument_list|()
+argument_list|(
+argument|GLint *outResult
+argument_list|)
 specifier|const
 block|;
 name|GLuint
@@ -202,12 +218,9 @@ argument_list|)
 block|;
 name|rx
 operator|::
-name|FenceImpl
+name|FenceSyncImpl
 operator|*
 name|mFence
-block|;
-name|LONGLONG
-name|mCounterFrequency
 block|;
 name|GLenum
 name|mCondition

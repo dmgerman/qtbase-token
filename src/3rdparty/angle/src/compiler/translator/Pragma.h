@@ -30,6 +30,25 @@ DECL|struct|TPragma
 struct|struct
 name|TPragma
 block|{
+DECL|struct|STDGL
+struct|struct
+name|STDGL
+block|{
+DECL|function|STDGL
+name|STDGL
+argument_list|()
+operator|:
+name|invariantAll
+argument_list|(
+argument|false
+argument_list|)
+block|{ }
+DECL|member|invariantAll
+name|bool
+name|invariantAll
+expr_stmt|;
+block|}
+struct|;
 comment|// By default optimization is turned on and debug is turned off.
 DECL|function|TPragma
 name|TPragma
@@ -70,6 +89,10 @@ expr_stmt|;
 DECL|member|debug
 name|bool
 name|debug
+decl_stmt|;
+DECL|member|stdgl
+name|STDGL
+name|stdgl
 decl_stmt|;
 block|}
 struct|;

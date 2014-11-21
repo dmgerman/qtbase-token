@@ -52,8 +52,6 @@ name|Query9
 operator|::
 name|Query9
 parameter_list|(
-name|rx
-operator|::
 name|Renderer9
 modifier|*
 name|renderer

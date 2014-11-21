@@ -154,8 +154,6 @@ argument_list|(
 name|IndexBuffer11
 argument_list|)
 block|;
-name|rx
-operator|::
 name|Renderer11
 operator|*
 specifier|const

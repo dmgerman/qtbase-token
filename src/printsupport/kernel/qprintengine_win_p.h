@@ -458,7 +458,12 @@ argument_list|)
 block|,
 name|reinit
 argument_list|(
-argument|false
+name|false
+argument_list|)
+block|,
+name|embed_fonts
+argument_list|(
+argument|true
 argument_list|)
 block|{     }
 operator|~
@@ -699,6 +704,11 @@ literal|1
 block|;
 name|uint
 name|has_custom_paper_size
+operator|:
+literal|1
+block|;
+name|uint
+name|embed_fonts
 operator|:
 literal|1
 block|;
