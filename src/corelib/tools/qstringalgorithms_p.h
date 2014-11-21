@@ -628,9 +628,7 @@ name|result
 operator|.
 name|resize
 argument_list|(
-name|ptr
-operator|-
-name|dst
+name|newlen
 argument_list|)
 expr_stmt|;
 return|return
