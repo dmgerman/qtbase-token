@@ -4820,7 +4820,17 @@ name|condition
 operator|=
 name|TRUE
 expr_stmt|;
-comment|/* Advance ecode past the assertion to the start of the first branch,         but adjust it so that the general choosing code below works. */
+comment|/* Advance ecode past the assertion to the start of the first branch,         but adjust it so that the general choosing code below works. If the          assertion has a quantifier that allows zero repeats we must skip over          the BRAZERO. This is a lunatic thing to do, but somebody did! */
+if|if
+condition|(
+operator|*
+name|ecode
+operator|==
+name|OP_BRAZERO
+condition|)
+name|ecode
+operator|++
+expr_stmt|;
 name|ecode
 operator|+=
 name|GET
