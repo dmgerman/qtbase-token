@@ -950,11 +950,11 @@ begin_comment
 comment|/*!   \since 5.4    Imports a PKCS#12 (pfx) file from the specified \a device. A PKCS#12   file is a bundle that can contain a number of certificates and keys.   This method reads a single \a key, its \a certificate and any   associated \a caCertificates from the bundle. If a \a passPhrase is   specified then this will be used to decrypt the bundle. Returns   \c true if the PKCS#12 file was successfully loaded.    \note The \a device must be open and ready to be read from.  */
 end_comment
 begin_function
-DECL|function|importPKCS12
+DECL|function|importPkcs12
 name|bool
 name|QSslCertificate
 operator|::
-name|importPKCS12
+name|importPkcs12
 parameter_list|(
 name|QIODevice
 modifier|*
@@ -984,7 +984,7 @@ block|{
 return|return
 name|QSslSocketBackendPrivate
 operator|::
-name|importPKCS12
+name|importPkcs12
 argument_list|(
 name|device
 argument_list|,

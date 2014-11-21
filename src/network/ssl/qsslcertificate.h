@@ -563,7 +563,7 @@ argument_list|)
 expr_stmt|;
 specifier|static
 name|bool
-name|importPKCS12
+name|importPkcs12
 argument_list|(
 name|QIODevice
 operator|*
