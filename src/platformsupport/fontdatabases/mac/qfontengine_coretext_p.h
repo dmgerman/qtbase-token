@@ -83,12 +83,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QRawFontPrivate
-name|class
-name|QRawFontPrivate
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QCoreTextFontEngine
 range|:
@@ -503,12 +497,6 @@ begin_label
 name|private
 label|:
 end_label
-begin_decl_stmt
-name|friend
-name|class
-name|QRawFontPrivate
-decl_stmt|;
-end_decl_stmt
 begin_function_decl
 name|void
 name|init
