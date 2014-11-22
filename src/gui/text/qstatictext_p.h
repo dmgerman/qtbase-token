@@ -114,16 +114,6 @@ label|:
 name|QStaticTextItem
 argument_list|()
 operator|:
-name|chars
-argument_list|(
-literal|0
-argument_list|)
-operator|,
-name|numChars
-argument_list|(
-literal|0
-argument_list|)
-operator|,
 name|useBackendOptimizations
 argument_list|(
 name|false
@@ -182,23 +172,11 @@ name|other
 operator|.
 name|glyphs
 block|;
-name|chars
-operator|=
-name|other
-operator|.
-name|chars
-block|;
 name|numGlyphs
 operator|=
 name|other
 operator|.
 name|numGlyphs
-block|;
-name|numChars
-operator|=
-name|other
-operator|.
-name|numChars
 block|;
 name|font
 operator|=
@@ -360,27 +338,11 @@ name|glyphOffset
 decl_stmt|;
 block|}
 union|;
-union|union
-block|{
-name|QChar
-modifier|*
-name|chars
-decl_stmt|;
-comment|// 2 bytes per glyph
-name|int
-name|charOffset
-decl_stmt|;
-block|}
-union|;
 comment|// =================
-comment|// 14 bytes per glyph
-comment|// 12 bytes for pointers
+comment|// 12 bytes per glyph
+comment|// 8 bytes for pointers
 name|int
 name|numGlyphs
-decl_stmt|;
-comment|// 4 bytes per item
-name|int
-name|numChars
 decl_stmt|;
 comment|// 4 bytes per item
 name|QFont
@@ -409,8 +371,6 @@ range|:
 literal|1
 decl_stmt|;
 comment|//
-comment|// ================
-comment|// 51 bytes per item
 name|private
 label|:
 comment|// Needs special handling in setters, so private to avoid abuse
@@ -424,6 +384,8 @@ modifier|*
 name|m_userData
 decl_stmt|;
 comment|// 8 bytes per item
+comment|// ================
+comment|// 43 bytes per item
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -530,11 +492,6 @@ modifier|*
 name|positionPool
 decl_stmt|;
 comment|// 4 bytes per text
-name|QChar
-modifier|*
-name|charPool
-decl_stmt|;
-comment|// 4 bytes per text
 name|QTextOption
 name|textOption
 decl_stmt|;
@@ -565,7 +522,7 @@ range|:
 literal|1
 decl_stmt|;
 comment|// ================
-comment|// 195 bytes per text
+comment|// 191 bytes per text
 specifier|static
 name|QStaticTextPrivate
 modifier|*
