@@ -514,7 +514,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 specifier|static
-name|void
+name|bool
 name|handleKeyEvent
 argument_list|(
 name|QWindow
@@ -554,7 +554,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 specifier|static
-name|void
+name|bool
 name|handleKeyEvent
 argument_list|(
 name|QWindow
