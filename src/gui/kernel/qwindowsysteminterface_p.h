@@ -279,6 +279,11 @@ name|flags
 argument_list|(
 literal|0
 argument_list|)
+operator|,
+name|eventAccepted
+argument_list|(
+argument|true
+argument_list|)
 block|{ }
 name|virtual
 operator|~
@@ -312,6 +317,9 @@ name|type
 decl_stmt|;
 name|int
 name|flags
+decl_stmt|;
+name|bool
+name|eventAccepted
 decl_stmt|;
 block|}
 empty_stmt|;
@@ -2476,7 +2484,7 @@ name|event
 parameter_list|)
 function_decl|;
 specifier|static
-name|void
+name|bool
 name|handleWindowSystemEvent
 parameter_list|(
 name|WindowSystemEvent

@@ -2672,7 +2672,7 @@ block|}
 end_function
 begin_function
 DECL|function|handleWindowSystemEvent
-name|void
+name|bool
 name|QWindowSystemInterfacePrivate
 operator|::
 name|handleWindowSystemEvent
@@ -2684,6 +2684,11 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
+name|bool
+name|accepted
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
 name|synchronousWindowSystemEvents
@@ -2695,6 +2700,12 @@ name|processWindowSystemEvent
 argument_list|(
 name|ev
 argument_list|)
+expr_stmt|;
+name|accepted
+operator|=
+name|ev
+operator|->
+name|eventAccepted
 expr_stmt|;
 operator|delete
 name|ev
@@ -2728,6 +2739,9 @@ name|wakeUp
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|accepted
+return|;
 block|}
 end_function
 begin_function
