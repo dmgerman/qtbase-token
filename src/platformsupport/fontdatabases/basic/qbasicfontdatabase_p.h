@@ -163,16 +163,6 @@ name|supportedWritingSystems
 operator|=
 literal|0
 argument_list|)
-block|;
-specifier|static
-name|QString
-name|fontNameFromTTFile
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|filename
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
