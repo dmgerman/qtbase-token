@@ -2222,20 +2222,11 @@ name|QFontEngineBox
 block|{
 name|public
 operator|:
-specifier|inline
 name|QTestFontEngine
 argument_list|(
 argument|int size
 argument_list|)
-operator|:
-name|QFontEngineBox
-argument_list|(
-argument|TestFontEngine
-argument_list|,
-argument|size
-argument_list|)
-block|{}
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
