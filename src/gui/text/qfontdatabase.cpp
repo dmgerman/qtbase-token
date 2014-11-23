@@ -88,11 +88,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<limits.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<algorithm>
 end_include
 begin_comment
@@ -8389,7 +8384,7 @@ name|size
 operator|->
 name|pixelSize
 operator|!=
-name|USHRT_MAX
+name|SMOOTH_SCALABLE
 condition|)
 block|{
 specifier|const
@@ -8963,7 +8958,7 @@ name|size
 operator|->
 name|pixelSize
 operator|!=
-name|USHRT_MAX
+name|SMOOTH_SCALABLE
 condition|)
 block|{
 specifier|const
