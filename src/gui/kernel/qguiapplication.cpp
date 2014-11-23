@@ -3896,6 +3896,14 @@ argument_list|(
 name|plugin
 argument_list|)
 expr_stmt|;
+else|else
+name|qWarning
+argument_list|()
+operator|<<
+literal|"No such plugin for spec "
+operator|<<
+name|pluginSpec
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -4799,6 +4807,23 @@ name|j
 expr_stmt|;
 block|}
 comment|// Load environment exported generic plugins
+name|QByteArray
+name|envPlugins
+init|=
+name|qgetenv
+argument_list|(
+literal|"QT_QPA_GENERIC_PLUGINS"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|envPlugins
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 foreach|foreach
 control|(
 specifier|const
@@ -4806,10 +4831,7 @@ name|QByteArray
 modifier|&
 name|plugin
 decl|,
-name|qgetenv
-argument_list|(
-literal|"QT_QPA_GENERIC_PLUGINS"
-argument_list|)
+name|envPlugins
 operator|.
 name|split
 argument_list|(
@@ -4820,6 +4842,7 @@ name|pluginList
 operator|<<
 name|plugin
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|platform_integration
