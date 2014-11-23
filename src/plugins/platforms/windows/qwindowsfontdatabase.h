@@ -246,8 +246,6 @@ argument|HDC fontHdc
 argument_list|,
 argument|int dpi
 argument_list|,
-argument|bool rawMode
-argument_list|,
 argument|const QSharedPointer<QWindowsFontEngineData>&data
 argument_list|)
 block|;

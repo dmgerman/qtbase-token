@@ -7319,8 +7319,6 @@ operator|->
 name|defaultDPI
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|m_fontEngineData
 argument_list|)
 decl_stmt|;
