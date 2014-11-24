@@ -4522,8 +4522,8 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
-comment|// On Mac, only line edits and list views always get tab focus. It's only
+name|Q_OS_OSX
+comment|// On OS X, only line edits and list views always get tab focus. It's only
 comment|// when we enable full keyboard access that other controls can get tab focus.
 comment|// When it's not editable, a combobox looks like a button, and it behaves as
 comment|// such in this respect.
