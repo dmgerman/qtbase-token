@@ -1644,6 +1644,9 @@ begin_comment
 comment|/*! \typedef QJsonArray::iterator::reference      \internal */
 end_comment
 begin_comment
+comment|/*! \typedef QJsonArray::iterator::pointer      \internal */
+end_comment
+begin_comment
 comment|/*! \fn QJsonArray::iterator::iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called     on an uninitialized iterator. Use operator=() to assign a value     to it before using it.      \sa QJsonArray::begin(), QJsonArray::end() */
 end_comment
 begin_comment
@@ -1723,6 +1726,9 @@ comment|/*! \typedef QJsonArray::const_iterator::value_type      \internal */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonArray::const_iterator::reference      \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QJsonArray::const_iterator::pointer      \internal */
 end_comment
 begin_comment
 comment|/*! \fn QJsonArray::const_iterator::const_iterator(const const_iterator&other)      Constructs a copy of \a other. */
