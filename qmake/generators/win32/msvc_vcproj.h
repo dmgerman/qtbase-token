@@ -263,13 +263,6 @@ name|void
 name|outputVariables
 argument_list|()
 block|;
-name|QString
-name|fixFilename
-argument_list|(
-argument|QString ofile
-argument_list|)
-specifier|const
-block|;
 name|void
 name|initOld
 argument_list|()
