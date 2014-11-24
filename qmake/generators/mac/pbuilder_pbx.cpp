@@ -5804,15 +5804,15 @@ argument_list|)
 decl_stmt|;
 name|mkt
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|escapeDependencyPath
-argument_list|(
-name|replaceExtraCompilerVariables
 argument_list|(
 name|Option
 operator|::
 name|fixPathToTargetOS
+argument_list|(
+name|replaceExtraCompilerVariables
 argument_list|(
 name|tmp_out
 operator|.
@@ -5822,15 +5822,13 @@ operator|.
 name|toQString
 argument_list|()
 argument_list|,
-literal|false
-argument_list|)
-argument_list|,
 name|file_name
 argument_list|,
 name|QString
 argument_list|()
 argument_list|,
 name|NoShell
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
