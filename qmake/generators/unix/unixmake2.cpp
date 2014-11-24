@@ -7998,10 +7998,6 @@ block|{
 name|QString
 name|ofile
 init|=
-name|Option
-operator|::
-name|fixPathToTargetOS
-argument_list|(
 name|fileFixify
 argument_list|(
 name|Option
@@ -8010,7 +8006,6 @@ name|output
 operator|.
 name|fileName
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
