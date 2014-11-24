@@ -96,24 +96,13 @@ name|public
 operator|:
 name|QWindowsFontEngine
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|name
+argument|const QString&name
 argument_list|,
-name|HFONT
+argument|HFONT hfont
 argument_list|,
-name|bool
+argument|LOGFONT lf
 argument_list|,
-name|LOGFONT
-argument_list|,
-specifier|const
-name|QSharedPointer
-operator|<
-name|QWindowsFontEngineData
-operator|>
-operator|&
-name|fontEngineData
+argument|const QSharedPointer<QWindowsFontEngineData>&fontEngineData
 argument_list|)
 block|;
 operator|~
@@ -530,11 +519,6 @@ block|;
 specifier|const
 name|LOGFONT
 name|m_logfont
-block|;
-name|uint
-name|stockFont
-operator|:
-literal|1
 block|;
 name|uint
 name|ttf

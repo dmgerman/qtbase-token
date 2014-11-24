@@ -8689,11 +8689,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|bool
-name|stockFont
-init|=
-literal|false
-decl_stmt|;
-name|bool
 name|preferClearTypeAA
 init|=
 literal|false
@@ -8783,14 +8778,6 @@ literal|"%s: CreateFontIndirect failed"
 argument_list|,
 name|__FUNCTION__
 argument_list|)
-expr_stmt|;
-name|stockFont
-operator|=
-operator|(
-name|hfont
-operator|==
-literal|0
-operator|)
 expr_stmt|;
 name|bool
 name|ttf
@@ -8934,7 +8921,6 @@ name|hfont
 operator|==
 literal|0
 condition|)
-block|{
 name|hfont
 operator|=
 operator|(
@@ -8945,11 +8931,6 @@ argument_list|(
 name|ANSI_VAR_FONT
 argument_list|)
 expr_stmt|;
-name|stockFont
-operator|=
-literal|true
-expr_stmt|;
-block|}
 else|#
 directive|else
 if|if
@@ -8958,7 +8939,6 @@ name|hfont
 operator|==
 literal|0
 condition|)
-block|{
 name|hfont
 operator|=
 operator|(
@@ -8969,11 +8949,6 @@ argument_list|(
 name|SYSTEM_FONT
 argument_list|)
 expr_stmt|;
-name|stockFont
-operator|=
-literal|true
-expr_stmt|;
-block|}
 endif|#
 directive|endif
 block|}
@@ -9152,8 +9127,6 @@ operator|.
 name|family
 argument_list|,
 name|hfont
-argument_list|,
-name|stockFont
 argument_list|,
 name|lf
 argument_list|,

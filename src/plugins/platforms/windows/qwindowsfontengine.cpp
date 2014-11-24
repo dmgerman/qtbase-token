@@ -1212,9 +1212,6 @@ parameter_list|,
 name|HFONT
 name|_hfont
 parameter_list|,
-name|bool
-name|stockFontIn
-parameter_list|,
 name|LOGFONT
 name|lf
 parameter_list|,
@@ -1250,11 +1247,6 @@ member_init_list|,
 name|m_logfont
 argument_list|(
 name|lf
-argument_list|)
-member_init_list|,
-name|stockFont
-argument_list|(
-name|stockFontIn
 argument_list|)
 member_init_list|,
 name|ttf
@@ -1548,12 +1540,6 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|stockFont
-condition|)
-block|{
-if|if
-condition|(
-operator|!
 name|DeleteObject
 argument_list|(
 name|hfont
@@ -1561,12 +1547,11 @@ argument_list|)
 condition|)
 name|qErrnoWarning
 argument_list|(
-literal|"%s: QFontEngineWin: failed to delete non-stock font... failed"
+literal|"%s: QFontEngineWin: failed to delete font..."
 argument_list|,
 name|__FUNCTION__
 argument_list|)
 expr_stmt|;
-block|}
 name|qCDebug
 argument_list|(
 name|lcQpaFonts
@@ -7894,18 +7879,12 @@ operator|&
 name|lf
 argument_list|)
 decl_stmt|;
-name|bool
-name|stockFont
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|hfont
 operator|==
 literal|0
 condition|)
-block|{
 name|hfont
 operator|=
 operator|(
@@ -7916,11 +7895,6 @@ argument_list|(
 name|ANSI_VAR_FONT
 argument_list|)
 expr_stmt|;
-name|stockFont
-operator|=
-literal|true
-expr_stmt|;
-block|}
 return|return
 operator|new
 name|QWindowsFontEngine
@@ -7928,8 +7902,6 @@ argument_list|(
 name|fam
 argument_list|,
 name|hfont
-argument_list|,
-name|stockFont
 argument_list|,
 name|lf
 argument_list|,
