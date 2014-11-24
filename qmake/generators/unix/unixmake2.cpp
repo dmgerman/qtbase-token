@@ -6182,22 +6182,6 @@ operator|)
 operator|<<
 literal|",g\" "
 expr_stmt|;
-if|if
-condition|(
-name|isApp
-condition|)
-block|{
-name|QString
-name|icon
-init|=
-name|fileFixify
-argument_list|(
-name|var
-argument_list|(
-literal|"ICON"
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|QString
 name|bundlePrefix
 init|=
@@ -6266,6 +6250,46 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|bundleIdentifier
+operator|.
+name|endsWith
+argument_list|(
+literal|".framework"
+argument_list|)
+condition|)
+name|bundleIdentifier
+operator|.
+name|chop
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+name|commonSedArgs
+operator|<<
+literal|"-e \"s,@BUNDLEIDENTIFIER@,"
+operator|<<
+name|bundleIdentifier
+operator|<<
+literal|",g\" "
+expr_stmt|;
+if|if
+condition|(
+name|isApp
+condition|)
+block|{
+name|QString
+name|icon
+init|=
+name|fileFixify
+argument_list|(
+name|var
+argument_list|(
+literal|"ICON"
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|t
 operator|<<
 literal|"@$(DEL_FILE) "
@@ -6304,12 +6328,6 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
-operator|<<
-literal|",g\" "
-operator|<<
-literal|"-e \"s,@BUNDLEIDENTIFIER@,"
-operator|<<
-name|bundleIdentifier
 operator|<<
 literal|",g\" "
 operator|<<

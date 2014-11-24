@@ -172,6 +172,11 @@ name|yVelocity
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|pointCount
+argument_list|(
+literal|2
+argument_list|)
 block|{     }
 name|qreal
 name|horizontalVelocity
@@ -228,7 +233,12 @@ name|xVelocity
 block|;
 name|qreal
 name|yVelocity
-block|; }
+block|;
+name|int
+name|pointCount
+block|;
+comment|// ### fixme Qt 5.5: Add accessor to QPanGesture.
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -353,6 +363,16 @@ argument|QSwipeGesture
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|State
+block|{
+name|NoGesture
+block|,
+name|Started
+block|,
+name|ThreePointsReached
+block|}
+block|;
 name|QSwipeGesturePrivate
 argument_list|()
 operator|:
@@ -375,9 +395,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|started
+name|state
 argument_list|(
-name|false
+name|NoGesture
 argument_list|)
 block|,
 name|velocityValue
@@ -423,8 +443,8 @@ index|[
 literal|3
 index|]
 block|;
-name|bool
-name|started
+name|State
+name|state
 block|;
 name|qreal
 name|velocityValue

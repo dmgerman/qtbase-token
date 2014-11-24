@@ -51,8 +51,6 @@ operator|:
 name|explicit
 name|VertexBuffer11
 argument_list|(
-name|rx
-operator|::
 name|Renderer11
 operator|*
 specifier|const
@@ -156,8 +154,6 @@ argument_list|(
 name|VertexBuffer11
 argument_list|)
 block|;
-name|rx
-operator|::
 name|Renderer11
 operator|*
 specifier|const

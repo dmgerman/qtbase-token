@@ -953,7 +953,6 @@ parameter_list|(
 name|QAbstractSocket
 operator|::
 name|SocketError
-name|error
 parameter_list|)
 block|{
 name|QMessageBox

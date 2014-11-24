@@ -38,6 +38,11 @@ include|#
 directive|include
 file|"libGLESv2/Buffer.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<cstdint>
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -67,14 +72,6 @@ argument_list|)
 operator|=
 literal|0
 expr_stmt|;
-name|virtual
-name|void
-modifier|*
-name|getData
-parameter_list|()
-init|=
-literal|0
-function_decl|;
 name|virtual
 name|gl
 operator|::

@@ -1582,6 +1582,10 @@ else|else
 name|updateStateFromActiveConfig
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|engine
+condition|)
 name|startTime
 operator|=
 name|engine

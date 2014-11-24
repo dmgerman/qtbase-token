@@ -339,6 +339,9 @@ specifier|const
 name|char
 operator|*
 name|m_instanceName
+block|;
+name|bool
+name|m_canGrab
 block|; }
 decl_stmt|;
 end_decl_stmt

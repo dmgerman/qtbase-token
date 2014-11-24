@@ -2004,11 +2004,6 @@ name|script_index
 argument_list|)
 expr_stmt|;
 block|}
-name|hb_face_destroy
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|ret
@@ -12435,8 +12430,6 @@ name|request
 argument_list|,
 comment|/*multi = */
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT
@@ -12885,6 +12878,24 @@ name|engine
 return|;
 block|}
 end_function
+begin_constructor
+DECL|function|QTestFontEngine
+name|QTestFontEngine
+operator|::
+name|QTestFontEngine
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+member_init_list|:
+name|QFontEngineBox
+argument_list|(
+name|TestFontEngine
+argument_list|,
+name|size
+argument_list|)
+block|{}
+end_constructor
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

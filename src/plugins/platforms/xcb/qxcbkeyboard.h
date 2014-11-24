@@ -240,6 +240,17 @@ name|void
 name|updateVModToRModMapping
 argument_list|()
 block|;
+name|xkb_keysym_t
+name|lookupLatinKeysym
+argument_list|(
+argument|xkb_keycode_t keycode
+argument_list|)
+specifier|const
+block|;
+name|void
+name|checkForLatinLayout
+argument_list|()
+block|;
 name|private
 operator|:
 name|bool
@@ -262,6 +273,12 @@ name|xkb_state
 block|;     struct
 name|xkb_rule_names
 name|xkb_names
+block|;
+name|mutable
+expr|struct
+name|xkb_keymap
+operator|*
+name|latin_keymap
 block|;      struct
 name|_mod_masks
 block|{
@@ -331,7 +348,9 @@ name|core_device_id
 block|;
 endif|#
 directive|endif
-block|}
+name|bool
+name|m_hasLatinLayout
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

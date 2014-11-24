@@ -211,6 +211,14 @@ name|~
 name|QGtk2Dialog
 parameter_list|()
 block|{
+name|gtk_clipboard_store
+argument_list|(
+name|gtk_clipboard_get
+argument_list|(
+name|GDK_SELECTION_CLIPBOARD
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|gtk_widget_destroy
 argument_list|(
 name|gtkWidget

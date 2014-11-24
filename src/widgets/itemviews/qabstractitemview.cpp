@@ -6813,7 +6813,7 @@ condition|(
 name|d_func
 argument_list|()
 operator|->
-name|canDecode
+name|canDrop
 argument_list|(
 name|event
 argument_list|)
@@ -6926,7 +6926,7 @@ argument_list|)
 operator|&&
 name|d
 operator|->
-name|canDecode
+name|canDrop
 argument_list|(
 name|event
 argument_list|)
@@ -7200,7 +7200,7 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
-comment|// can decode
+comment|// can drop
 if|if
 condition|(
 name|d

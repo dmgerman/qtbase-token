@@ -1062,14 +1062,6 @@ argument_list|,
 name|message
 argument_list|)
 decl_stmt|;
-name|msg
-operator|.
-name|chop
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// remove trailing newline
 if|if
 condition|(
 name|type

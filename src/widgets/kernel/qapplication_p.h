@@ -603,6 +603,18 @@ argument|bool *wrappingOccurred =
 literal|0
 argument_list|)
 block|;
+specifier|static
+name|Qt
+operator|::
+name|MouseEventSource
+name|mouseEventSource
+argument_list|(
+specifier|const
+name|QEvent
+operator|*
+name|e
+argument_list|)
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_GRAPHICSVIEW
@@ -1104,7 +1116,7 @@ directive|endif
 end_endif
 begin_function_decl
 specifier|static
-name|void
+name|bool
 name|updateTouchPointsForWidget
 parameter_list|(
 name|QWidget

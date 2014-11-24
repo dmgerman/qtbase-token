@@ -93,6 +93,9 @@ operator|::
 name|string
 operator|&
 name|value
+argument_list|,
+name|bool
+name|stdgl
 argument_list|)
 init|=
 literal|0

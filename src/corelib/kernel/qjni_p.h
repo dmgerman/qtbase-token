@@ -739,22 +739,51 @@ name|friend
 name|class
 name|QAndroidJniObject
 decl_stmt|;
+struct|struct
+name|QVaListPrivate
+block|{
+name|operator
+name|va_list
+operator|&
+operator|(
+operator|)
+specifier|const
+block|{
+return|return
+name|m_args
+return|;
+block|}
+name|va_list
+modifier|&
+name|m_args
+decl_stmt|;
+block|}
+struct|;
 name|QJNIObjectPrivate
 argument_list|(
-argument|const char *className
+specifier|const
+name|char
+operator|*
+name|className
 argument_list|,
-argument|const char *sig
+specifier|const
+name|char
+operator|*
+name|sig
 argument_list|,
-argument|va_list args
+specifier|const
+name|QVaListPrivate
+operator|&
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|QJNIObjectPrivate
 argument_list|(
 argument|jclass clazz
 argument_list|,
 argument|const char *sig
 argument_list|,
-argument|va_list args
+argument|const QVaListPrivate&args
 argument_list|)
 empty_stmt|;
 name|template
@@ -763,7 +792,7 @@ name|typename
 name|T
 operator|>
 name|T
-name|callMethod
+name|callMethodV
 argument_list|(
 argument|const char *methodName
 argument_list|,
@@ -774,7 +803,7 @@ argument_list|)
 specifier|const
 expr_stmt|;
 name|QJNIObjectPrivate
-name|callObjectMethod
+name|callObjectMethodV
 argument_list|(
 specifier|const
 name|char
@@ -798,7 +827,7 @@ name|T
 operator|>
 specifier|static
 name|T
-name|callStaticMethod
+name|callStaticMethodV
 argument_list|(
 argument|const char *className
 argument_list|,
@@ -816,7 +845,7 @@ name|T
 operator|>
 specifier|static
 name|T
-name|callStaticMethod
+name|callStaticMethodV
 argument_list|(
 argument|jclass clazz
 argument_list|,
@@ -829,7 +858,7 @@ argument_list|)
 expr_stmt|;
 specifier|static
 name|QJNIObjectPrivate
-name|callStaticObjectMethod
+name|callStaticObjectMethodV
 parameter_list|(
 specifier|const
 name|char
@@ -852,7 +881,7 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|QJNIObjectPrivate
-name|callStaticObjectMethod
+name|callStaticObjectMethodV
 parameter_list|(
 name|jclass
 name|clazz

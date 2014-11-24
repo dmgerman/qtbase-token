@@ -78,13 +78,6 @@ argument_list|,
 argument|int height
 argument_list|)
 block|;
-name|QOpenGLPaintDevice
-argument_list|(
-name|QOpenGLPaintDevicePrivate
-operator|*
-name|dd
-argument_list|)
-block|;
 name|virtual
 operator|~
 name|QOpenGLPaintDevice
@@ -173,6 +166,13 @@ argument_list|()
 block|;
 name|protected
 operator|:
+name|QOpenGLPaintDevice
+argument_list|(
+name|QOpenGLPaintDevicePrivate
+operator|&
+name|dd
+argument_list|)
+block|;
 name|int
 name|metric
 argument_list|(

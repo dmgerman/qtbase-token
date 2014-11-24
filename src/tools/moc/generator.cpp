@@ -2788,7 +2788,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    0\n};\n\n"
+literal|"    Q_NULLPTR\n};\n\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2829,7 +2829,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    { 0, "
+literal|"    { Q_NULLPTR, "
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2859,7 +2859,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    { 0, "
+literal|"    { Q_NULLPTR, "
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -2896,7 +2896,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|" 0, "
+literal|" Q_NULLPTR, "
 argument_list|)
 expr_stmt|;
 if|if
@@ -2910,7 +2910,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"0, "
+literal|"Q_NULLPTR, "
 argument_list|)
 expr_stmt|;
 else|else
@@ -2930,7 +2930,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"0}\n};\n\n"
+literal|"Q_NULLPTR}\n};\n\n"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2981,7 +2981,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    if (!_clname) return 0;\n"
+literal|"    if (!_clname) return Q_NULLPTR;\n"
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -3254,7 +3254,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    return 0;\n"
+literal|"    return Q_NULLPTR;\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -9316,7 +9316,7 @@ argument_list|(
 name|out
 argument_list|,
 literal|")%s\n{\n"
-literal|"    QMetaObject::activate(%s,&staticMetaObject, %d, 0);\n"
+literal|"    QMetaObject::activate(%s,&staticMetaObject, %d, Q_NULLPTR);\n"
 literal|"}\n"
 argument_list|,
 name|constQualifier
@@ -9541,7 +9541,7 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"0"
+literal|"Q_NULLPTR"
 argument_list|)
 expr_stmt|;
 block|}

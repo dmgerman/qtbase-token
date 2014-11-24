@@ -2430,6 +2430,7 @@ if|if
 condition|(
 name|ppdFile
 condition|)
+block|{
 name|m_ppd
 operator|=
 name|ppdOpenFile
@@ -2442,6 +2443,7 @@ argument_list|(
 name|ppdFile
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|m_ppd

@@ -1179,7 +1179,6 @@ name|fileName
 argument_list|()
 specifier|const
 block|;
-specifier|static
 name|bool
 name|readIniFile
 argument_list|(

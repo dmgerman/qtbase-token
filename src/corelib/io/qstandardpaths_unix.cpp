@@ -546,6 +546,7 @@ argument_list|()
 return|;
 block|}
 comment|// "and he MUST be the only one having read and write access to it. Its Unix access mode MUST be 0700."
+comment|// since the current user is the owner, set both xxxUser and xxxOwner
 name|QFile
 name|file
 argument_list|(
@@ -569,6 +570,18 @@ operator||
 name|QFile
 operator|::
 name|ExeUser
+operator||
+name|QFile
+operator|::
+name|ReadOwner
+operator||
+name|QFile
+operator|::
+name|WriteOwner
+operator||
+name|QFile
+operator|::
+name|ExeOwner
 decl_stmt|;
 if|if
 condition|(
@@ -590,11 +603,19 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QStandardPaths: wrong permissions on runtime directory %s"
+literal|"QStandardPaths: could not set correct permissions on runtime directory %s: %s"
 argument_list|,
 name|qPrintable
 argument_list|(
 name|xdgRuntimeDir
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|file
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

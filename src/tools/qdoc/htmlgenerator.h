@@ -564,6 +564,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|void
+name|generateSidebar
+argument_list|()
+block|;
 name|QString
 name|generateListOfAllMemberFile
 argument_list|(
@@ -1168,6 +1172,9 @@ name|QString
 name|postPostHeader
 block|;
 name|QString
+name|prologue
+block|;
+name|QString
 name|footer
 block|;
 name|QString
@@ -1294,6 +1301,13 @@ define|#
 directive|define
 name|HTMLGENERATOR_POSTPOSTHEADER
 value|"postpostheader"
+end_define
+begin_define
+DECL|macro|HTMLGENERATOR_PROLOGUE
+define|#
+directive|define
+name|HTMLGENERATOR_PROLOGUE
+value|"prologue"
 end_define
 begin_define
 DECL|macro|HTMLGENERATOR_NONAVIGATIONBAR

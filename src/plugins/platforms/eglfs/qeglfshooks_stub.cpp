@@ -137,6 +137,9 @@ name|fbIndex
 init|=
 literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGULAREXPRESSION
 name|QRegularExpression
 name|fbIndexRx
 argument_list|(
@@ -176,6 +179,8 @@ operator|.
 name|toInt
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|fbIndex
 return|;

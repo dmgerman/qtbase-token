@@ -43,25 +43,6 @@ include|#
 directive|include
 file|<EGL/egl.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Sleep
-end_ifndef
-begin_define
-DECL|macro|Sleep
-define|#
-directive|define
-name|Sleep
-parameter_list|(
-name|ms
-parameter_list|)
-value|WaitForSingleObjectEx(GetCurrentThread(), ms, FALSE)
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|namespace
 name|egl
@@ -71,6 +52,9 @@ name|Display
 decl_stmt|;
 name|class
 name|Surface
+decl_stmt|;
+name|class
+name|AttributeMap
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -133,37 +117,6 @@ operator|*
 name|getDisplay
 argument_list|()
 expr_stmt|;
-name|void
-name|error
-parameter_list|(
-name|GLenum
-name|errorCode
-parameter_list|)
-function_decl|;
-name|template
-operator|<
-name|class
-name|T
-operator|>
-specifier|const
-name|T
-operator|&
-name|error
-argument_list|(
-argument|GLenum errorCode
-argument_list|,
-argument|const T&returnValue
-argument_list|)
-block|{
-name|error
-argument_list|(
-name|errorCode
-argument_list|)
-block|;
-return|return
-name|returnValue
-return|;
-block|}
 block|}
 end_decl_stmt
 begin_decl_stmt
@@ -246,7 +199,7 @@ argument|egl::Display *display
 argument_list|,
 argument|EGLNativeDisplayType nativeDisplay
 argument_list|,
-argument|EGLint requestedDisplayType
+argument|const egl::AttributeMap&attribMap
 argument_list|)
 expr_stmt|;
 name|void
@@ -260,7 +213,7 @@ name|renderer
 argument_list|)
 decl_stmt|;
 name|__eglMustCastToProperFunctionPointerType
-name|__stdcall
+name|EGLAPIENTRY
 name|glGetProcAddress
 parameter_list|(
 specifier|const
@@ -270,7 +223,7 @@ name|procname
 parameter_list|)
 function_decl|;
 name|bool
-name|__stdcall
+name|EGLAPIENTRY
 name|glBindTexImage
 argument_list|(
 name|egl

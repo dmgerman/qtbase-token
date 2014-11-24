@@ -280,6 +280,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_define
+DECL|macro|HASH_SIGN
+define|#
+directive|define
+name|HASH_SIGN
+value|#
+end_define
 begin_decl_stmt
 name|PD_BEGIN_NAMESPACE
 name|class

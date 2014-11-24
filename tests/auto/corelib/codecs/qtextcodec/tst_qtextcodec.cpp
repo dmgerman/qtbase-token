@@ -12592,6 +12592,25 @@ literal|106
 operator|<<
 literal|106
 expr_stmt|;
+name|html
+operator|=
+literal|"<!DOCTYPE html><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=unicode\">"
+literal|"<head/><body><p>bla</p></body></html>"
+expr_stmt|;
+comment|// QTBUG-41998, ICU will return UTF-16.
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"legacy unicode UTF-8"
+argument_list|)
+operator|<<
+name|html
+operator|<<
+literal|106
+operator|<<
+literal|106
+expr_stmt|;
 block|}
 end_function
 begin_function

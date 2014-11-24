@@ -3002,6 +3002,15 @@ name|httpReply
 condition|)
 return|return;
 emit|emit
+name|sslConfigurationChanged
+argument_list|(
+name|httpReply
+operator|->
+name|sslConfiguration
+argument_list|()
+argument_list|)
+emit|;
+emit|emit
 name|encrypted
 argument_list|()
 emit|;

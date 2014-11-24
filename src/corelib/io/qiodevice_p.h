@@ -240,7 +240,7 @@ return|return
 name|ch
 return|;
 block|}
-name|int
+name|qint64
 name|read
 parameter_list|(
 name|char
@@ -251,7 +251,7 @@ name|qint64
 name|size
 parameter_list|)
 block|{
-name|int
+name|qint64
 name|r
 init|=
 name|qMin
@@ -282,7 +282,7 @@ return|return
 name|r
 return|;
 block|}
-name|int
+name|qint64
 name|peek
 parameter_list|(
 name|char
@@ -293,7 +293,7 @@ name|qint64
 name|size
 parameter_list|)
 block|{
-name|int
+name|qint64
 name|r
 init|=
 name|qMin
@@ -320,7 +320,7 @@ name|char
 modifier|*
 name|reserve
 parameter_list|(
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
@@ -394,7 +394,7 @@ return|return
 name|retVal
 return|;
 block|}
-name|int
+name|qint64
 name|readLine
 parameter_list|(
 name|char
@@ -405,7 +405,7 @@ name|qint64
 name|size
 parameter_list|)
 block|{
-name|int
+name|qint64
 name|r
 init|=
 name|qMin
@@ -467,10 +467,7 @@ operator|+=
 name|r
 expr_stmt|;
 return|return
-name|int
-argument_list|(
 name|r
-argument_list|)
 return|;
 block|}
 name|bool

@@ -15,16 +15,13 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|// Renderbuffer.h: Defines the wrapper class gl::Renderbuffer, as well as the
+comment|// Renderbuffer.h: Defines the renderer-agnostic container class gl::Renderbuffer.
 end_comment
 begin_comment
-comment|// class hierarchy used to store its contents: RenderbufferStorage, Colorbuffer,
+comment|// Implements GL renderbuffer objects and related functionality.
 end_comment
 begin_comment
-comment|// DepthStencilbuffer, Depthbuffer and Stencilbuffer. Implements GL renderbuffer
-end_comment
-begin_comment
-comment|// objects and related functionality. [OpenGL ES 2.0.24] section 4.4.3 page 108.
+comment|// [OpenGL ES 2.0.24] section 4.4.3 page 108.
 end_comment
 begin_ifndef
 ifndef|#
@@ -45,6 +42,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/angleutils.h"
 end_include
 begin_include
@@ -57,16 +59,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
-decl_stmt|;
-name|class
-name|SwapChain
-decl_stmt|;
-name|class
-name|RenderTarget
-decl_stmt|;
-name|class
-name|TextureStorage
+name|RenderbufferImpl
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -74,9 +67,6 @@ begin_decl_stmt
 name|namespace
 name|gl
 block|{
-name|class
-name|RenderbufferStorage
-decl_stmt|;
 name|class
 name|FramebufferAttachment
 decl_stmt|;
@@ -94,9 +84,9 @@ name|public
 operator|:
 name|Renderbuffer
 argument_list|(
-argument|GLuint id
+argument|rx::RenderbufferImpl *impl
 argument_list|,
-argument|RenderbufferStorage *newStorage
+argument|GLuint id
 argument_list|)
 block|;
 name|virtual
@@ -104,17 +94,23 @@ operator|~
 name|Renderbuffer
 argument_list|()
 block|;
-name|void
+name|Error
 name|setStorage
 argument_list|(
-name|RenderbufferStorage
-operator|*
-name|newStorage
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei samples
 argument_list|)
 block|;
-name|RenderbufferStorage
+name|rx
+operator|::
+name|RenderbufferImpl
 operator|*
-name|getStorage
+name|getImplementation
 argument_list|()
 block|;
 name|GLsizei
@@ -174,320 +170,31 @@ specifier|const
 block|;
 name|private
 operator|:
-name|RenderbufferStorage
-operator|*
-name|mStorage
-block|; }
-decl_stmt|;
-comment|// A class derived from RenderbufferStorage is created whenever glRenderbufferStorage
-comment|// is called. The specific concrete type depends on whether the internal format is
-comment|// colour depth, stencil or packed depth/stencil.
-name|class
-name|RenderbufferStorage
-block|{
-name|public
-label|:
-name|RenderbufferStorage
-argument_list|()
-expr_stmt|;
-name|virtual
-operator|~
-name|RenderbufferStorage
-argument_list|()
-operator|=
-literal|0
-expr_stmt|;
-name|virtual
+name|DISALLOW_COPY_AND_ASSIGN
+argument_list|(
+name|Renderbuffer
+argument_list|)
+block|;
 name|rx
 operator|::
-name|RenderTarget
+name|RenderbufferImpl
 operator|*
-name|getRenderTarget
-argument_list|()
-expr_stmt|;
-name|virtual
-name|GLsizei
-name|getWidth
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|GLsizei
-name|getHeight
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|GLenum
-name|getInternalFormat
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|GLenum
-name|getActualFormat
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|GLsizei
-name|getSamples
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|unsigned
-name|int
-name|getSerial
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|bool
-name|isTexture
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
-name|unsigned
-name|int
-name|getTextureSerial
-argument_list|()
-specifier|const
-expr_stmt|;
-specifier|static
-name|unsigned
-name|int
-name|issueSerials
-parameter_list|(
-name|unsigned
-name|int
-name|count
-parameter_list|)
-function_decl|;
-name|protected
-label|:
+name|mRenderbuffer
+block|;
 name|GLsizei
 name|mWidth
-decl_stmt|;
+block|;
 name|GLsizei
 name|mHeight
-decl_stmt|;
+block|;
 name|GLenum
 name|mInternalFormat
-decl_stmt|;
+block|;
 name|GLenum
 name|mActualFormat
-decl_stmt|;
+block|;
 name|GLsizei
 name|mSamples
-decl_stmt|;
-name|private
-label|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|RenderbufferStorage
-argument_list|)
-expr_stmt|;
-specifier|const
-name|unsigned
-name|int
-name|mSerial
-decl_stmt|;
-specifier|static
-name|unsigned
-name|int
-name|mCurrentSerial
-decl_stmt|;
-block|}
-empty_stmt|;
-name|class
-name|Colorbuffer
-range|:
-name|public
-name|RenderbufferStorage
-block|{
-name|public
-operator|:
-name|Colorbuffer
-argument_list|(
-name|rx
-operator|::
-name|Renderer
-operator|*
-name|renderer
-argument_list|,
-name|rx
-operator|::
-name|SwapChain
-operator|*
-name|swapChain
-argument_list|)
-block|;
-name|Colorbuffer
-argument_list|(
-argument|rx::Renderer *renderer
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLsizei samples
-argument_list|)
-block|;
-name|virtual
-operator|~
-name|Colorbuffer
-argument_list|()
-block|;
-name|virtual
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
-argument_list|()
-block|;
-name|private
-operator|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|Colorbuffer
-argument_list|)
-block|;
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|mRenderTarget
-block|; }
-decl_stmt|;
-name|class
-name|DepthStencilbuffer
-range|:
-name|public
-name|RenderbufferStorage
-block|{
-name|public
-operator|:
-name|DepthStencilbuffer
-argument_list|(
-name|rx
-operator|::
-name|Renderer
-operator|*
-name|renderer
-argument_list|,
-name|rx
-operator|::
-name|SwapChain
-operator|*
-name|swapChain
-argument_list|)
-block|;
-name|DepthStencilbuffer
-argument_list|(
-argument|rx::Renderer *renderer
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei samples
-argument_list|)
-block|;
-operator|~
-name|DepthStencilbuffer
-argument_list|()
-block|;
-name|virtual
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|getRenderTarget
-argument_list|()
-block|;
-name|protected
-operator|:
-name|rx
-operator|::
-name|RenderTarget
-operator|*
-name|mDepthStencil
-block|;
-name|private
-operator|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|DepthStencilbuffer
-argument_list|)
-block|; }
-decl_stmt|;
-name|class
-name|Depthbuffer
-range|:
-name|public
-name|DepthStencilbuffer
-block|{
-name|public
-operator|:
-name|Depthbuffer
-argument_list|(
-argument|rx::Renderer *renderer
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei samples
-argument_list|)
-block|;
-name|virtual
-operator|~
-name|Depthbuffer
-argument_list|()
-block|;
-name|private
-operator|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|Depthbuffer
-argument_list|)
-block|; }
-decl_stmt|;
-name|class
-name|Stencilbuffer
-range|:
-name|public
-name|DepthStencilbuffer
-block|{
-name|public
-operator|:
-name|Stencilbuffer
-argument_list|(
-argument|rx::Renderer *renderer
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLsizei samples
-argument_list|)
-block|;
-name|virtual
-operator|~
-name|Stencilbuffer
-argument_list|()
-block|;
-name|private
-operator|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|Stencilbuffer
-argument_list|)
 block|; }
 decl_stmt|;
 block|}

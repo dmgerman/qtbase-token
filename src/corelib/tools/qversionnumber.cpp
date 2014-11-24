@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/qversionnumber.h>
+file|<QtCore/private/qversionnumber_p.h>
 end_include
 begin_include
 include|#
@@ -62,7 +62,7 @@ file|<limits>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QVersionNumber     \inmodule QtCore     \since 5.4     \brief The QVersionNumber class contains a version number with an arbitrary            number of segments.      \snippet qversionnumber/main.cpp 0 */
+comment|/*!     \class QVersionNumber     \inmodule QtCore     \internal     \since 5.4     \brief The QVersionNumber class contains a version number with an arbitrary            number of segments.      \snippet qversionnumber/main.cpp 0 */
 comment|/*!     \fn QVersionNumber::QVersionNumber()      Produces a null version.      \sa isNull() */
 comment|/*!     \fn QVersionNumber::QVersionNumber(int maj)      Constructs a QVersionNumber consisting of just the major version number \a maj. */
 comment|/*!     \fn QVersionNumber::QVersionNumber(int maj, int min)      Constructs a QVersionNumber consisting of the major and minor     version numbers \a maj and \a min, respectively. */

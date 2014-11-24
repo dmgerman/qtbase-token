@@ -691,6 +691,10 @@ name|void
 name|resetGLState
 parameter_list|()
 function_decl|;
+name|bool
+name|resetOpenGLContextActiveEngine
+parameter_list|()
+function_decl|;
 comment|// fill, stroke, drawTexture, drawPixmaps& drawCachedGlyphs are the main rendering entry-points,
 comment|// however writeClip can also be thought of as en entry point as it does similar things.
 name|void

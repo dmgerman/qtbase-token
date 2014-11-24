@@ -1511,16 +1511,11 @@ name|QXcbScreen
 modifier|*
 name|screen
 init|=
-name|screens
-operator|.
-name|at
-argument_list|(
 name|connection
 argument_list|()
 operator|->
 name|primaryScreen
 argument_list|()
-argument_list|)
 decl_stmt|;
 for|for
 control|(

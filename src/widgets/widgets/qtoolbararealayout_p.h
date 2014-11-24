@@ -1252,9 +1252,6 @@ name|uchar
 name|tmarker
 argument_list|,
 name|bool
-name|pre43
-argument_list|,
-name|bool
 name|testing
 operator|=
 name|false

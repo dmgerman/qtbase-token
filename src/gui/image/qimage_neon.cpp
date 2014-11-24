@@ -17,11 +17,20 @@ include|#
 directive|include
 file|<private/qsimd_p.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|__ARM_NEON__
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_64
+argument_list|)
+end_if
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|qt_convert_rgb888_to_rgb32_neon
@@ -383,6 +392,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// __ARM_NEON__
+comment|// defined(__ARM_NEON__)&& !defined(Q_PROCESSOR_ARM_64)
 end_comment
 end_unit

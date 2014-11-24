@@ -612,6 +612,7 @@ return|;
 block|}
 name|private
 label|:
+comment|// using extra parentheses around min to avoid expanding it if it is a macro
 specifier|static
 specifier|inline
 name|qint64
@@ -619,6 +620,7 @@ name|nullJd
 parameter_list|()
 block|{
 return|return
+operator|(
 name|std
 operator|::
 name|numeric_limits
@@ -627,7 +629,9 @@ name|qint64
 operator|>
 operator|::
 name|min
-argument_list|()
+operator|)
+operator|(
+operator|)
 return|;
 block|}
 specifier|static

@@ -41,11 +41,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/renderer/d3d/HLSLCompiler.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"libGLESv2/renderer/d3d/d3d9/ShaderCache.h"
 end_include
 begin_include
@@ -56,7 +51,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/renderer/Renderer.h"
+file|"libGLESv2/renderer/d3d/HLSLCompiler.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libGLESv2/renderer/d3d/RendererD3D.h"
 end_include
 begin_include
 include|#
@@ -69,6 +69,15 @@ name|gl
 block|{
 name|class
 name|FramebufferAttachment
+decl_stmt|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|namespace
+name|egl
+block|{
+name|class
+name|AttributeMap
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -98,7 +107,7 @@ name|class
 name|Renderer9
 range|:
 name|public
-name|Renderer
+name|RendererD3D
 block|{
 name|public
 operator|:
@@ -108,7 +117,7 @@ argument|egl::Display *display
 argument_list|,
 argument|EGLNativeDisplayType hDc
 argument_list|,
-argument|EGLint requestedDisplay
+argument|const egl::AttributeMap&attributes
 argument_list|)
 block|;
 name|virtual
@@ -164,7 +173,9 @@ name|endScene
 argument_list|()
 block|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|sync
 argument_list|(
 argument|bool block
@@ -175,7 +186,7 @@ name|SwapChain
 operator|*
 name|createSwapChain
 argument_list|(
-argument|HWND window
+argument|NativeWindow nativeWindow
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
@@ -184,10 +195,16 @@ argument_list|,
 argument|GLenum depthBufferFormat
 argument_list|)
 block|;
+name|gl
+operator|::
+name|Error
+name|allocateEventQuery
+argument_list|(
 name|IDirect3DQuery9
 operator|*
-name|allocateEventQuery
-argument_list|()
+operator|*
+name|outQuery
+argument_list|)
 block|;
 name|void
 name|freeEventQuery
@@ -198,22 +215,28 @@ name|query
 argument_list|)
 block|;
 comment|// resource creation
-name|IDirect3DVertexShader9
-operator|*
+name|gl
+operator|::
+name|Error
 name|createVertexShader
 argument_list|(
 argument|const DWORD *function
 argument_list|,
 argument|size_t length
+argument_list|,
+argument|IDirect3DVertexShader9 **outShader
 argument_list|)
 block|;
-name|IDirect3DPixelShader9
-operator|*
+name|gl
+operator|::
+name|Error
 name|createPixelShader
 argument_list|(
 argument|const DWORD *function
 argument_list|,
 argument|size_t length
+argument_list|,
+argument|IDirect3DPixelShader9 **outShader
 argument_list|)
 block|;
 name|HRESULT
@@ -260,6 +283,8 @@ argument_list|(
 argument|gl::SamplerType type
 argument_list|,
 argument|int index
+argument_list|,
+argument|gl::Texture *texture
 argument_list|,
 argument|const gl::SamplerState&sampler
 argument_list|)
@@ -314,13 +339,12 @@ operator|&
 name|rasterState
 argument_list|)
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
 name|setBlendState
 argument_list|(
-argument|gl::Framebuffer *framebuffer
+argument|const gl::Framebuffer *framebuffer
 argument_list|,
 argument|const gl::BlendState&blendState
 argument_list|,
@@ -328,6 +352,7 @@ argument|const gl::ColorF&blendColor
 argument_list|,
 argument|unsigned int sampleMask
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -370,18 +395,14 @@ argument_list|,
 argument|bool ignoreViewport
 argument_list|)
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
 name|applyRenderTarget
 argument_list|(
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|frameBuffer
+argument|const gl::Framebuffer *frameBuffer
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -407,11 +428,22 @@ name|Error
 name|applyUniforms
 argument_list|(
 specifier|const
+name|ProgramImpl
+operator|&
+name|program
+argument_list|,
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
 name|gl
 operator|::
-name|ProgramBinary
+name|LinkedUniform
+operator|*
+operator|>
 operator|&
-name|programBinary
+name|uniformArray
 argument_list|)
 block|;
 name|virtual
@@ -429,11 +461,7 @@ operator|::
 name|Error
 name|applyVertexBuffer
 argument_list|(
-argument|gl::ProgramBinary *programBinary
-argument_list|,
-argument|const gl::VertexAttribute vertexAttributes[]
-argument_list|,
-argument|const gl::VertexAttribCurrentValueData currentValues[]
+argument|const gl::State&state
 argument_list|,
 argument|GLint first
 argument_list|,
@@ -465,9 +493,12 @@ name|virtual
 name|void
 name|applyTransformFeedbackBuffers
 argument_list|(
-argument|gl::Buffer *transformFeedbackBuffers[]
-argument_list|,
-argument|GLintptr offsets[]
+specifier|const
+name|gl
+operator|::
+name|State
+operator|&
+name|state
 argument_list|)
 block|;
 name|virtual
@@ -506,25 +537,16 @@ argument_list|,
 argument|GLsizei instances
 argument_list|)
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
 name|clear
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ClearParameters
-operator|&
-name|clearParams
+argument|const gl::ClearParameters&clearParams
 argument_list|,
-name|gl
-operator|::
-name|Framebuffer
-operator|*
-name|frameBuffer
+argument|const gl::Framebuffer *frameBuffer
 argument_list|)
+name|override
 block|;
 name|virtual
 name|void
@@ -535,23 +557,44 @@ comment|// lost device
 name|void
 name|notifyDeviceLost
 argument_list|()
+name|override
 block|;
-name|virtual
 name|bool
 name|isDeviceLost
 argument_list|()
+name|override
 block|;
-name|virtual
 name|bool
 name|testDeviceLost
 argument_list|(
 argument|bool notify
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|testDeviceResettable
 argument_list|()
+name|override
+block|;
+name|DWORD
+name|getAdapterVendor
+argument_list|()
+specifier|const
+name|override
+block|;
+name|std
+operator|::
+name|string
+name|getRendererDescription
+argument_list|()
+specifier|const
+name|override
+block|;
+name|GUID
+name|getAdapterIdentifier
+argument_list|()
+specifier|const
+name|override
 block|;
 name|IDirect3DDevice9
 operator|*
@@ -562,26 +605,6 @@ return|return
 name|mDevice
 return|;
 block|}
-name|virtual
-name|DWORD
-name|getAdapterVendor
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|std
-operator|::
-name|string
-name|getRendererDescription
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|GUID
-name|getAdapterIdentifier
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|unsigned
 name|int
@@ -647,59 +670,9 @@ specifier|const
 block|;
 comment|// Pixel operations
 name|virtual
-name|bool
-name|copyToRenderTarget2D
-argument_list|(
-name|TextureStorage
-operator|*
-name|dest
-argument_list|,
-name|TextureStorage
-operator|*
-name|source
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|copyToRenderTargetCube
-argument_list|(
-name|TextureStorage
-operator|*
-name|dest
-argument_list|,
-name|TextureStorage
-operator|*
-name|source
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|copyToRenderTarget3D
-argument_list|(
-name|TextureStorage
-operator|*
-name|dest
-argument_list|,
-name|TextureStorage
-operator|*
-name|source
-argument_list|)
-block|;
-name|virtual
-name|bool
-name|copyToRenderTarget2DArray
-argument_list|(
-name|TextureStorage
-operator|*
-name|dest
-argument_list|,
-name|TextureStorage
-operator|*
-name|source
-argument_list|)
-block|;
-name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyImage2D
 argument_list|(
 argument|gl::Framebuffer *framebuffer
@@ -718,7 +691,9 @@ argument|GLint level
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyImageCube
 argument_list|(
 argument|gl::Framebuffer *framebuffer
@@ -739,7 +714,9 @@ argument|GLint level
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyImage3D
 argument_list|(
 argument|gl::Framebuffer *framebuffer
@@ -760,7 +737,9 @@ argument|GLint level
 argument_list|)
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyImage2DArray
 argument_list|(
 argument|gl::Framebuffer *framebuffer
@@ -780,15 +759,16 @@ argument_list|,
 argument|GLint level
 argument_list|)
 block|;
-name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|blitRect
 argument_list|(
-argument|gl::Framebuffer *readTarget
+argument|const gl::Framebuffer *readTarget
 argument_list|,
 argument|const gl::Rectangle&readRect
 argument_list|,
-argument|gl::Framebuffer *drawTarget
+argument|const gl::Framebuffer *drawTarget
 argument_list|,
 argument|const gl::Rectangle&drawRect
 argument_list|,
@@ -802,6 +782,7 @@ argument|bool blitStencil
 argument_list|,
 argument|GLenum filter
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -809,7 +790,7 @@ operator|::
 name|Error
 name|readPixels
 argument_list|(
-argument|gl::Framebuffer *framebuffer
+argument|const gl::Framebuffer *framebuffer
 argument_list|,
 argument|GLint x
 argument_list|,
@@ -832,18 +813,22 @@ argument_list|)
 block|;
 comment|// RenderTarget creation
 name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|createRenderTarget
 argument_list|(
 argument|SwapChain *swapChain
 argument_list|,
 argument|bool depth
+argument_list|,
+argument|RenderTarget **outRT
 argument_list|)
 block|;
 name|virtual
-name|RenderTarget
-operator|*
+name|gl
+operator|::
+name|Error
 name|createRenderTarget
 argument_list|(
 argument|int width
@@ -853,6 +838,8 @@ argument_list|,
 argument|GLenum format
 argument_list|,
 argument|GLsizei samples
+argument_list|,
+argument|RenderTarget **outRT
 argument_list|)
 block|;
 comment|// Shader creation
@@ -861,6 +848,8 @@ name|ShaderImpl
 operator|*
 name|createShader
 argument_list|(
+argument|const gl::Data&data
+argument_list|,
 argument|GLenum type
 argument_list|)
 block|;
@@ -871,43 +860,49 @@ name|createProgram
 argument_list|()
 block|;
 comment|// Shader operations
-name|virtual
 name|void
 name|releaseShaderCompiler
 argument_list|()
+name|override
 block|;
 name|virtual
-name|ShaderExecutable
-operator|*
+name|gl
+operator|::
+name|Error
 name|loadExecutable
 argument_list|(
 argument|const void *function
 argument_list|,
 argument|size_t length
 argument_list|,
-argument|rx::ShaderType type
+argument|ShaderType type
 argument_list|,
 argument|const std::vector<gl::LinkedVarying>&transformFeedbackVaryings
 argument_list|,
 argument|bool separatedOutputBuffers
+argument_list|,
+argument|ShaderExecutable **outExecutable
 argument_list|)
 block|;
 name|virtual
-name|ShaderExecutable
-operator|*
+name|gl
+operator|::
+name|Error
 name|compileToExecutable
 argument_list|(
 argument|gl::InfoLog&infoLog
 argument_list|,
-argument|const char *shaderHLSL
+argument|const std::string&shaderHLSL
 argument_list|,
-argument|rx::ShaderType type
+argument|ShaderType type
 argument_list|,
 argument|const std::vector<gl::LinkedVarying>&transformFeedbackVaryings
 argument_list|,
 argument|bool separatedOutputBuffers
 argument_list|,
 argument|D3DWorkaroundType workaround
+argument_list|,
+argument|ShaderExecutable **outExectuable
 argument_list|)
 block|;
 name|virtual
@@ -925,18 +920,16 @@ operator|*
 name|createImage
 argument_list|()
 block|;
-name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|generateMipmap
 argument_list|(
-name|Image
-operator|*
-name|dest
+argument|Image *dest
 argument_list|,
-name|Image
-operator|*
-name|source
+argument|Image *source
 argument_list|)
+name|override
 block|;
 name|virtual
 name|TextureStorage
@@ -1023,6 +1016,23 @@ argument_list|(
 argument|GLenum target
 argument_list|)
 block|;
+comment|// Renderbuffer creation
+name|virtual
+name|RenderbufferImpl
+operator|*
+name|createRenderbuffer
+argument_list|()
+block|;
+name|virtual
+name|RenderbufferImpl
+operator|*
+name|createRenderbuffer
+argument_list|(
+argument|SwapChain *swapChain
+argument_list|,
+argument|bool depth
+argument_list|)
+block|;
 comment|// Buffer creation
 name|virtual
 name|BufferImpl
@@ -1059,9 +1069,15 @@ argument|GLenum type
 argument_list|)
 block|;
 name|virtual
-name|FenceImpl
+name|FenceNVImpl
 operator|*
-name|createFence
+name|createFenceNV
+argument_list|()
+block|;
+name|virtual
+name|FenceSyncImpl
+operator|*
+name|createFenceSync
 argument_list|()
 block|;
 comment|// Transform Feedback creation
@@ -1081,7 +1097,9 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|bool
+name|gl
+operator|::
+name|Error
 name|fastCopyBufferToTexture
 argument_list|(
 argument|const gl::PixelUnpackState&unpack
@@ -1098,7 +1116,9 @@ argument|const gl::Box&destArea
 argument_list|)
 block|;
 comment|// D3D9-renderer specific methods
-name|bool
+name|gl
+operator|::
+name|Error
 name|boxFilter
 argument_list|(
 name|IDirect3DSurface9
@@ -1126,8 +1146,6 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|rx
-operator|::
 name|VertexConversionType
 name|getVertexConversionType
 argument_list|(
@@ -1143,6 +1161,18 @@ argument|const gl::VertexFormat&vertexFormat
 argument_list|)
 specifier|const
 block|;
+name|gl
+operator|::
+name|Error
+name|copyToRenderTarget
+argument_list|(
+argument|IDirect3DSurface9 *dest
+argument_list|,
+argument|IDirect3DSurface9 *source
+argument_list|,
+argument|bool fromManaged
+argument_list|)
+block|;
 name|private
 operator|:
 name|DISALLOW_COPY_AND_ASSIGN
@@ -1150,7 +1180,6 @@ argument_list|(
 name|Renderer9
 argument_list|)
 block|;
-name|virtual
 name|void
 name|generateCaps
 argument_list|(
@@ -1161,6 +1190,13 @@ argument_list|,
 argument|gl::Extensions *outExtensions
 argument_list|)
 specifier|const
+name|override
+block|;
+name|Workarounds
+name|generateWorkarounds
+argument_list|()
+specifier|const
+name|override
 block|;
 name|void
 name|release
@@ -1253,20 +1289,9 @@ argument_list|,
 argument|StaticIndexBufferInterface **outIB
 argument_list|)
 block|;
-name|bool
-name|copyToRenderTarget
-argument_list|(
-argument|IDirect3DSurface9 *dest
-argument_list|,
-argument|IDirect3DSurface9 *source
-argument_list|,
-argument|bool fromManaged
-argument_list|)
-block|;
 name|gl
 operator|::
-name|FramebufferAttachment
-operator|*
+name|Error
 name|getNullColorbuffer
 argument_list|(
 name|gl
@@ -1274,6 +1299,13 @@ operator|::
 name|FramebufferAttachment
 operator|*
 name|depthbuffer
+argument_list|,
+name|gl
+operator|::
+name|FramebufferAttachment
+operator|*
+operator|*
+name|outColorBuffer
 argument_list|)
 block|;
 name|D3DPOOL
@@ -1398,8 +1430,6 @@ block|;
 name|bool
 name|mRenderTargetDescInitialized
 block|;
-name|rx
-operator|::
 name|RenderTarget
 operator|::
 name|Desc
@@ -1559,13 +1589,9 @@ name|unsigned
 name|int
 name|mAppliedProgramSerial
 block|;
-name|rx
-operator|::
 name|dx_VertexConstants
 name|mVertexConstants
 block|;
-name|rx
-operator|::
 name|dx_PixelConstants
 name|mPixelConstants
 block|;

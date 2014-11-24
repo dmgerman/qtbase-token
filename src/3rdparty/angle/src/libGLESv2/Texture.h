@@ -52,7 +52,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/constants.h"
+file|"libGLESv2/Constants.h"
 end_include
 begin_include
 include|#
@@ -167,14 +167,6 @@ name|mSamplerState
 return|;
 block|}
 name|void
-name|getSamplerStateWithNativeOffset
-argument_list|(
-name|SamplerState
-operator|*
-name|sampler
-argument_list|)
-block|;
-name|void
 name|setUsage
 argument_list|(
 argument|GLenum usage
@@ -249,20 +241,13 @@ specifier|const
 operator|=
 literal|0
 block|;
-name|rx
-operator|::
-name|TextureStorage
-operator|*
-name|getNativeTexture
-argument_list|()
-block|;
 name|virtual
-name|void
+name|Error
 name|generateMipmaps
 argument_list|()
 block|;
 name|virtual
-name|void
+name|Error
 name|copySubImage
 argument_list|(
 argument|GLenum target
@@ -286,17 +271,20 @@ argument_list|,
 argument|Framebuffer *source
 argument_list|)
 block|;
+comment|// Texture serials provide a unique way of identifying a Texture that isn't a raw pointer.
+comment|// "id" is not good enough, as Textures can be deleted, then re-allocated with the same id.
 name|unsigned
 name|int
 name|getTextureSerial
 argument_list|()
+specifier|const
 block|;
 name|bool
 name|isImmutable
 argument_list|()
 specifier|const
 block|;
-name|int
+name|GLsizei
 name|immutableLevelCount
 argument_list|()
 block|;
@@ -346,6 +334,21 @@ name|mipLevels
 argument_list|()
 specifier|const
 block|;
+specifier|const
+name|rx
+operator|::
+name|Image
+operator|*
+name|getBaseLevelImage
+argument_list|()
+specifier|const
+block|;
+specifier|static
+name|unsigned
+name|int
+name|issueTextureSerial
+argument_list|()
+block|;
 name|rx
 operator|::
 name|TextureImpl
@@ -358,20 +361,21 @@ block|;
 name|GLenum
 name|mUsage
 block|;
-name|bool
-name|mImmutable
+name|GLsizei
+name|mImmutableLevelCount
 block|;
 name|GLenum
 name|mTarget
 block|;
 specifier|const
-name|rx
-operator|::
-name|Image
-operator|*
-name|getBaseLevelImage
-argument_list|()
-specifier|const
+name|unsigned
+name|int
+name|mTextureSerial
+block|;
+specifier|static
+name|unsigned
+name|int
+name|mCurrentTextureSerial
 block|;
 name|private
 operator|:
@@ -443,7 +447,7 @@ argument|GLint level
 argument_list|)
 specifier|const
 block|;
-name|void
+name|Error
 name|setImage
 argument_list|(
 argument|GLint level
@@ -463,7 +467,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLint level
@@ -476,10 +480,12 @@ argument|GLsizei height
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImage
 argument_list|(
 argument|GLint level
@@ -501,7 +507,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLint level
@@ -518,10 +524,12 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|copyImage
 argument_list|(
 argument|GLint level
@@ -539,7 +547,7 @@ argument_list|,
 argument|Framebuffer *source
 argument_list|)
 block|;
-name|void
+name|Error
 name|storage
 argument_list|(
 argument|GLsizei levels
@@ -582,7 +590,7 @@ name|releaseTexImage
 argument_list|()
 block|;
 name|virtual
-name|void
+name|Error
 name|generateMipmaps
 argument_list|()
 block|;
@@ -686,9 +694,11 @@ argument|GLint level
 argument_list|)
 specifier|const
 block|;
-name|void
-name|setImagePosX
+name|Error
+name|setImage
 argument_list|(
+argument|GLenum target
+argument_list|,
 argument|GLint level
 argument_list|,
 argument|GLsizei width
@@ -706,107 +716,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
-name|setImageNegX
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum internalFormat
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const PixelUnpackState&unpack
-argument_list|,
-argument|const void *pixels
-argument_list|)
-block|;
-name|void
-name|setImagePosY
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum internalFormat
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const PixelUnpackState&unpack
-argument_list|,
-argument|const void *pixels
-argument_list|)
-block|;
-name|void
-name|setImageNegY
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum internalFormat
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const PixelUnpackState&unpack
-argument_list|,
-argument|const void *pixels
-argument_list|)
-block|;
-name|void
-name|setImagePosZ
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum internalFormat
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const PixelUnpackState&unpack
-argument_list|,
-argument|const void *pixels
-argument_list|)
-block|;
-name|void
-name|setImageNegZ
-argument_list|(
-argument|GLint level
-argument_list|,
-argument|GLsizei width
-argument_list|,
-argument|GLsizei height
-argument_list|,
-argument|GLenum internalFormat
-argument_list|,
-argument|GLenum format
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const PixelUnpackState&unpack
-argument_list|,
-argument|const void *pixels
-argument_list|)
-block|;
-name|void
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLenum target
@@ -821,10 +731,12 @@ argument|GLsizei height
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImage
 argument_list|(
 argument|GLenum target
@@ -848,7 +760,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLenum target
@@ -867,10 +779,12 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|copyImage
 argument_list|(
 argument|GLenum target
@@ -890,7 +804,7 @@ argument_list|,
 argument|Framebuffer *source
 argument_list|)
 block|;
-name|void
+name|Error
 name|storage
 argument_list|(
 argument|GLsizei levels
@@ -1024,7 +938,7 @@ argument|GLint level
 argument_list|)
 specifier|const
 block|;
-name|void
+name|Error
 name|setImage
 argument_list|(
 argument|GLint level
@@ -1046,7 +960,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLint level
@@ -1061,10 +975,12 @@ argument|GLsizei depth
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImage
 argument_list|(
 argument|GLint level
@@ -1090,7 +1006,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLint level
@@ -1111,10 +1027,12 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|storage
 argument_list|(
 argument|GLsizei levels
@@ -1231,7 +1149,7 @@ argument|GLint level
 argument_list|)
 specifier|const
 block|;
-name|void
+name|Error
 name|setImage
 argument_list|(
 argument|GLint level
@@ -1253,7 +1171,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|setCompressedImage
 argument_list|(
 argument|GLint level
@@ -1268,10 +1186,12 @@ argument|GLsizei depth
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImage
 argument_list|(
 argument|GLint level
@@ -1297,7 +1217,7 @@ argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|subImageCompressed
 argument_list|(
 argument|GLint level
@@ -1318,10 +1238,12 @@ argument|GLenum format
 argument_list|,
 argument|GLsizei imageSize
 argument_list|,
+argument|const PixelUnpackState&unpack
+argument_list|,
 argument|const void *pixels
 argument_list|)
 block|;
-name|void
+name|Error
 name|storage
 argument_list|(
 argument|GLsizei levels

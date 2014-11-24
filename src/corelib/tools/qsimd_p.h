@@ -660,11 +660,7 @@ name|Q_CC_GNU
 argument_list|)
 operator|&&
 operator|(
-name|__GNUC__
-operator|*
-literal|100
-operator|+
-name|__GNUC_MINOR__
+name|Q_CC_GNU
 operator|>=
 literal|404
 operator|)
@@ -678,11 +674,7 @@ name|Q_CC_CLANG
 argument_list|)
 operator|&&
 operator|(
-name|__clang_major__
-operator|*
-literal|100
-operator|+
-name|__clang_minor__
+name|Q_CC_CLANG
 operator|>=
 literal|208
 operator|)
@@ -1039,11 +1031,20 @@ end_ifdef
 begin_comment
 comment|// Bit scan functions for x86
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_CC_MSVC
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_if
 begin_comment
 comment|// MSVC calls it _BitScanReverse and returns the carry flag, which we don't need
 end_comment
@@ -1120,11 +1121,7 @@ argument_list|(
 name|Q_CC_GNU
 argument_list|)
 operator|&&
-name|__GNUC__
-operator|*
-literal|100
-operator|+
-name|__GNUC_MINOR__
+name|Q_CC_GNU
 operator|<
 literal|405
 operator|)

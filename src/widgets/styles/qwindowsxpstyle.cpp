@@ -5467,14 +5467,18 @@ name|haveCachedPixmap
 condition|)
 block|{
 comment|// If the pixmap is not cached, generate it! -------------------------
+if|if
+condition|(
+operator|!
 name|buffer
 argument_list|(
 name|w
 argument_list|,
 name|h
 argument_list|)
-expr_stmt|;
+condition|)
 comment|// Ensure a buffer of at least (w, h) in size
+return|return;
 name|HDC
 name|dc
 init|=
@@ -15917,6 +15921,7 @@ specifier|const
 name|bool
 name|sufficientSpace
 init|=
+operator|(
 name|horizontal
 operator|&&
 name|hSpace
@@ -15931,6 +15936,7 @@ name|contentsMargin
 operator|.
 name|right
 argument_list|()
+operator|)
 operator|)
 operator|||
 name|vSpace

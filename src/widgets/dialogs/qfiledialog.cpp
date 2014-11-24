@@ -918,6 +918,7 @@ argument_list|()
 operator|>=
 literal|2
 operator|&&
+operator|(
 name|list
 operator|.
 name|at
@@ -926,7 +927,7 @@ literal|0
 argument_list|)
 operator|==
 literal|0
-operator|&&
+operator|||
 name|list
 operator|.
 name|at
@@ -935,6 +936,7 @@ literal|1
 argument_list|)
 operator|==
 literal|0
+operator|)
 condition|)
 block|{
 for|for

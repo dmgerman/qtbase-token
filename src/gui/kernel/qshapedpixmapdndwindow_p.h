@@ -72,6 +72,10 @@ operator|:
 name|QShapedPixmapWindow
 argument_list|()
 block|;
+operator|~
+name|QShapedPixmapWindow
+argument_list|()
+block|;
 name|void
 name|render
 argument_list|()

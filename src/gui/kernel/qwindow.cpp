@@ -2865,7 +2865,7 @@ begin_comment
 comment|/*!     \fn QWindow::windowStateChanged(Qt::WindowState windowState)      This signal is emitted when the \a windowState changes, either     by being set explicitly with setWindowState(), or automatically when     the user clicks one of the titlebar buttons or by other means. */
 end_comment
 begin_comment
-comment|/*!     Sets the transient \a parent      This is a hint to the window manager that this window is a dialog or pop-up     on behalf of the given window.      \sa transientParent(), parent() */
+comment|/*!     Sets the transient \a parent      This is a hint to the window manager that this window is a dialog or pop-up     on behalf of the given window.      In order to cause the window to be centered above its transient parent by     default, depending on the window manager, it may also be necessary to call     setFlags() with a suitable \l Qt::WindowType (such as \c Qt::Dialog).      \sa transientParent(), parent() */
 end_comment
 begin_function
 DECL|function|setTransientParent
@@ -4744,17 +4744,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|grab
-operator|&&
-name|QGuiApplicationPrivate
-operator|::
-name|noGrab
-condition|)
-return|return
-literal|false
-return|;
-if|if
-condition|(
 name|d
 operator|->
 name|platformWindow
@@ -4793,17 +4782,6 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|grab
-operator|&&
-name|QGuiApplicationPrivate
-operator|::
-name|noGrab
-condition|)
-return|return
-literal|false
-return|;
 if|if
 condition|(
 name|d
@@ -6757,7 +6735,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Causes an alert to be shown for \a msec miliseconds. If \a msec is \c 0 (the     default), then the alert is shown indefinitely until the window becomes     active again.      In alert state, the window indicates that it demands attention, for example by     flashing or bouncing the taskbar entry.      \since 5.1 */
+comment|/*!     Causes an alert to be shown for \a msec miliseconds. If \a msec is \c 0 (the     default), then the alert is shown indefinitely until the window becomes     active again. This function has no effect on an active window.      In alert state, the window indicates that it demands attention, for example by     flashing or bouncing the taskbar entry.      \since 5.1 */
 end_comment
 begin_function
 DECL|function|alert
@@ -6787,6 +6765,9 @@ operator|->
 name|platformWindow
 operator|->
 name|isAlertState
+argument_list|()
+operator|||
+name|isActive
 argument_list|()
 condition|)
 return|return;

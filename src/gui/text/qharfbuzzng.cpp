@@ -2511,8 +2511,6 @@ name|_hb_qt_face_release
 expr_stmt|;
 block|}
 return|return
-name|hb_face_reference
-argument_list|(
 operator|(
 name|hb_face_t
 operator|*
@@ -2520,7 +2518,6 @@ operator|)
 name|fe
 operator|->
 name|face_
-argument_list|)
 return|;
 block|}
 end_function
@@ -2566,12 +2563,6 @@ argument_list|(
 name|face
 argument_list|)
 decl_stmt|;
-name|hb_face_destroy
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-comment|// ref-ed in hb_qt_face_get_for_engine()
 if|if
 condition|(
 name|Q_UNLIKELY
@@ -2797,8 +2788,6 @@ name|_hb_qt_font_release
 expr_stmt|;
 block|}
 return|return
-name|hb_font_reference
-argument_list|(
 operator|(
 name|hb_font_t
 operator|*
@@ -2806,7 +2795,6 @@ operator|)
 name|fe
 operator|->
 name|font_
-argument_list|)
 return|;
 block|}
 end_function

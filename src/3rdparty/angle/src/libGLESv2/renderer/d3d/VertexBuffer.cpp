@@ -33,7 +33,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/renderer/Renderer.h"
+file|"libGLESv2/renderer/d3d/RendererD3D.h"
 end_include
 begin_include
 include|#
@@ -107,9 +107,7 @@ name|VertexBufferInterface
 operator|::
 name|VertexBufferInterface
 parameter_list|(
-name|rx
-operator|::
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|,
@@ -445,8 +443,6 @@ expr_stmt|;
 comment|// Align to 16-byte boundary
 name|mWritePosition
 operator|=
-name|rx
-operator|::
 name|roundUp
 argument_list|(
 name|mWritePosition
@@ -556,8 +552,6 @@ expr_stmt|;
 comment|// Align to 16-byte boundary
 name|mReservedSpace
 operator|=
-name|rx
-operator|::
 name|roundUp
 argument_list|(
 name|mReservedSpace
@@ -787,9 +781,7 @@ name|StreamingVertexBufferInterface
 operator|::
 name|StreamingVertexBufferInterface
 parameter_list|(
-name|rx
-operator|::
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|,
@@ -936,9 +928,7 @@ name|StaticVertexBufferInterface
 operator|::
 name|StaticVertexBufferInterface
 parameter_list|(
-name|rx
-operator|::
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|)

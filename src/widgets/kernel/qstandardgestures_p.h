@@ -68,9 +68,18 @@ name|QGestureRecognizer
 block|{
 name|public
 operator|:
+name|explicit
 name|QPanGestureRecognizer
-argument_list|()
-block|;
+argument_list|(
+argument|int pointCount =
+literal|2
+argument_list|)
+operator|:
+name|m_pointCount
+argument_list|(
+argument|pointCount
+argument_list|)
+block|{}
 name|QGesture
 operator|*
 name|create
@@ -105,6 +114,12 @@ name|QGesture
 operator|*
 name|state
 argument_list|)
+block|;
+name|private
+operator|:
+specifier|const
+name|int
+name|m_pointCount
 block|; }
 decl_stmt|;
 end_decl_stmt

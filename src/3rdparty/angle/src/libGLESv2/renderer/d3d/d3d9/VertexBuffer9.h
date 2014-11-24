@@ -51,8 +51,6 @@ operator|:
 name|explicit
 name|VertexBuffer9
 argument_list|(
-name|rx
-operator|::
 name|Renderer9
 operator|*
 name|renderer
@@ -155,8 +153,6 @@ argument_list|(
 name|VertexBuffer9
 argument_list|)
 block|;
-name|rx
-operator|::
 name|Renderer9
 operator|*
 name|mRenderer

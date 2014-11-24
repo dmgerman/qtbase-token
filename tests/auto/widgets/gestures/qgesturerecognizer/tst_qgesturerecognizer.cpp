@@ -149,7 +149,16 @@ argument_list|(
 operator|new
 name|QTouchDevice
 argument_list|)
-block|{ }
+block|{
+name|qputenv
+argument_list|(
+literal|"QT_PAN_TOUCHPOINTS"
+argument_list|,
+literal|"2"
+argument_list|)
+expr_stmt|;
+comment|// Prevent device detection of pan touch point count.
+block|}
 end_constructor
 begin_function
 DECL|function|initTestCase

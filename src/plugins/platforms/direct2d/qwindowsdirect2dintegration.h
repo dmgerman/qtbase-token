@@ -101,6 +101,13 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QAbstractEventDispatcher
+operator|*
+name|createEventDispatcher
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QWindowsDirect2DContext
 operator|*
 name|direct2DContext

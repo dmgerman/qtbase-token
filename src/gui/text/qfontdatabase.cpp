@@ -3117,9 +3117,6 @@ name|int
 argument_list|>
 modifier|&
 name|blacklisted
-parameter_list|,
-name|bool
-name|fallback
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -6024,11 +6021,6 @@ name|int
 argument_list|>
 modifier|&
 name|blacklistedFamilies
-parameter_list|,
-name|bool
-name|fallback
-init|=
-literal|false
 parameter_list|)
 block|{
 name|Q_UNUSED
@@ -6316,9 +6308,6 @@ expr_stmt|;
 comment|// Check if family is supported in the script we want
 if|if
 condition|(
-operator|!
-name|fallback
-operator|&&
 name|script
 operator|!=
 name|QChar
@@ -12146,9 +12135,6 @@ name|request
 parameter_list|,
 name|bool
 name|multi
-parameter_list|,
-name|bool
-name|fallback
 parameter_list|)
 block|{
 name|QMutexLocker
@@ -12297,8 +12283,6 @@ operator|&
 name|desc
 argument_list|,
 name|blackListed
-argument_list|,
-name|fallback
 argument_list|)
 decl_stmt|;
 if|if

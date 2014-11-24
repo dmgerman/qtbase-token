@@ -9944,7 +9944,7 @@ argument_list|)
 operator|&&
 name|dd
 operator|->
-name|canDecode
+name|canDrop
 argument_list|(
 name|event
 argument_list|)
@@ -10243,7 +10243,7 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
-comment|// can decode
+comment|// can drop
 if|if
 condition|(
 name|dd
@@ -15277,7 +15277,7 @@ operator|||
 operator|!
 name|dd
 operator|->
-name|canDecode
+name|canDrop
 argument_list|(
 name|e
 argument_list|)

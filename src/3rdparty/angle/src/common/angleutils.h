@@ -63,6 +63,11 @@ include|#
 directive|include
 file|<cstdarg>
 end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_comment
 comment|// A macro to disallow the copy constructor and operator= functions
 end_comment
@@ -371,14 +376,47 @@ name|T
 argument_list|)
 argument_list|)
 block|; }
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+DECL|function|IsMaskFlagSet
+specifier|inline
+name|bool
+name|IsMaskFlagSet
+argument_list|(
+argument|T mask
+argument_list|,
+argument|T flag
+argument_list|)
+block|{
+comment|// Handles multibit flags as well
+return|return
+operator|(
+name|mask
+operator|&
+name|flag
+operator|)
+operator|==
+name|flag
+return|;
+block|}
+end_expr_stmt
+begin_decl_stmt
 DECL|function|MakeStaticString
 specifier|inline
 specifier|const
 name|char
-operator|*
+modifier|*
 name|MakeStaticString
 argument_list|(
-argument|const std::string&str
+specifier|const
+name|std
+operator|::
+name|string
+operator|&
+name|str
 argument_list|)
 block|{
 specifier|static
@@ -391,7 +429,7 @@ operator|::
 name|string
 operator|>
 name|strings
-block|;
+expr_stmt|;
 name|std
 operator|::
 name|set
@@ -410,7 +448,7 @@ name|find
 argument_list|(
 name|str
 argument_list|)
-block|;
+expr_stmt|;
 if|if
 condition|(
 name|it
@@ -428,8 +466,6 @@ name|c_str
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_return
 return|return
 name|strings
 operator|.
@@ -443,10 +479,11 @@ operator|->
 name|c_str
 argument_list|()
 return|;
-end_return
+block|}
+end_decl_stmt
 begin_expr_stmt
-unit|}  inline
 DECL|function|ArrayString
+specifier|inline
 name|std
 operator|::
 name|string
@@ -528,6 +565,29 @@ argument_list|()
 return|;
 block|}
 end_expr_stmt
+begin_decl_stmt
+name|size_t
+name|FormatStringIntoVector
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|fmt
+argument_list|,
+name|va_list
+name|vararg
+argument_list|,
+name|std
+operator|::
+name|vector
+operator|<
+name|char
+operator|>
+operator|&
+name|buffer
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|std
 operator|::
@@ -555,6 +615,9 @@ operator|...
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// snprintf is not defined with MSVC prior to to msvc14
+end_comment
 begin_if
 if|#
 directive|if

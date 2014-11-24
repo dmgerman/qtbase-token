@@ -4599,6 +4599,11 @@ argument_list|(
 name|engine
 argument_list|)
 decl_stmt|;
+name|icon
+operator|=
+operator|*
+name|cachedIcon
+expr_stmt|;
 name|qtIconCache
 argument_list|()
 operator|->
@@ -4608,11 +4613,6 @@ name|name
 argument_list|,
 name|cachedIcon
 argument_list|)
-expr_stmt|;
-name|icon
-operator|=
-operator|*
-name|cachedIcon
 expr_stmt|;
 block|}
 comment|// Note the qapp check is to allow lazy loading of static icons

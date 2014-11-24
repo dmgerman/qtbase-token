@@ -1746,6 +1746,9 @@ operator|->
 name|text
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_TEXTHTMLPARSER
 if|if
 condition|(
 name|label
@@ -1794,6 +1797,8 @@ name|toPlainText
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|label

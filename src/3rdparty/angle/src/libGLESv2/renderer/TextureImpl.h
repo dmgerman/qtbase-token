@@ -36,6 +36,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"angle_gl.h"
 end_include
 begin_include
@@ -75,12 +80,6 @@ name|class
 name|Image
 decl_stmt|;
 name|class
-name|Renderer
-decl_stmt|;
-name|class
-name|TextureStorage
-decl_stmt|;
-name|class
 name|TextureImpl
 block|{
 name|public
@@ -91,17 +90,6 @@ name|TextureImpl
 argument_list|()
 block|{}
 expr_stmt|;
-comment|// TODO: If this methods could go away that would be ideal;
-comment|// TextureStorage should only be necessary for the D3D backend, and as such
-comment|// higher level code should not rely on it.
-name|virtual
-name|TextureStorage
-modifier|*
-name|getNativeTexture
-parameter_list|()
-init|=
-literal|0
-function_decl|;
 comment|// Deprecated in favour of the ImageIndex method
 name|virtual
 name|Image
@@ -156,278 +144,211 @@ init|=
 literal|0
 function_decl|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|setImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|GLsizei
-name|depth
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|internalFormat
+argument|GLenum internalFormat
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum format
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum type
 argument_list|,
-specifier|const
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
+name|virtual
 name|gl
 operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
-argument_list|)
-init|=
-literal|0
-decl_stmt|;
-name|virtual
-name|void
+name|Error
 name|setCompressedImage
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-init|=
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|subImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint zoffset
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
-name|GLsizei
-name|depth
+argument|GLsizei depth
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum format
 argument_list|,
-name|GLenum
-name|type
+argument|GLenum type
 argument_list|,
-specifier|const
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
+name|virtual
 name|gl
 operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|pixels
-argument_list|)
-init|=
-literal|0
-decl_stmt|;
-name|virtual
-name|void
+name|Error
 name|subImageCompressed
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLint
-name|level
-parameter_list|,
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLenum
-name|format
-parameter_list|,
-name|GLsizei
-name|imageSize
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|pixels
-parameter_list|)
-init|=
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLsizei imageSize
+argument_list|,
+argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|const void *pixels
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|copyImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLenum
-name|format
+argument|GLenum format
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
+argument|gl::Framebuffer *source
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
+name|virtual
 name|gl
 operator|::
-name|Framebuffer
-operator|*
-name|source
-argument_list|)
-init|=
-literal|0
-decl_stmt|;
-name|virtual
-name|void
+name|Error
 name|copySubImage
 argument_list|(
-name|GLenum
-name|target
+argument|GLenum target
 argument_list|,
-name|GLint
-name|level
+argument|GLint level
 argument_list|,
-name|GLint
-name|xoffset
+argument|GLint xoffset
 argument_list|,
-name|GLint
-name|yoffset
+argument|GLint yoffset
 argument_list|,
-name|GLint
-name|zoffset
+argument|GLint zoffset
 argument_list|,
-name|GLint
-name|x
+argument|GLint x
 argument_list|,
-name|GLint
-name|y
+argument|GLint y
 argument_list|,
-name|GLsizei
-name|width
+argument|GLsizei width
 argument_list|,
-name|GLsizei
-name|height
+argument|GLsizei height
 argument_list|,
+argument|gl::Framebuffer *source
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
+name|virtual
 name|gl
 operator|::
-name|Framebuffer
-operator|*
-name|source
-argument_list|)
-init|=
-literal|0
-decl_stmt|;
-name|virtual
-name|void
+name|Error
 name|storage
-parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLsizei
-name|levels
-parameter_list|,
-name|GLenum
-name|internalformat
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|)
-init|=
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei levels
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|)
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
-name|void
+name|gl
+operator|::
+name|Error
 name|generateMipmaps
-parameter_list|()
-init|=
+argument_list|()
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
 name|void
 name|bindTexImage

@@ -99,7 +99,7 @@ name|class
 name|BufferD3D
 decl_stmt|;
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 struct|struct
 name|TranslatedIndexData
@@ -141,7 +141,7 @@ label|:
 name|explicit
 name|IndexDataManager
 parameter_list|(
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|)
@@ -184,7 +184,7 @@ argument_list|(
 name|IndexDataManager
 argument_list|)
 expr_stmt|;
-name|Renderer
+name|RendererD3D
 modifier|*
 specifier|const
 name|mRenderer

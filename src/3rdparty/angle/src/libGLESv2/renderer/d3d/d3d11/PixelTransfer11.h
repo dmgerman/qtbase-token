@@ -37,6 +37,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/platform.h"
 end_include
 begin_include
@@ -94,51 +99,29 @@ operator|~
 name|PixelTransfer11
 argument_list|()
 expr_stmt|;
-specifier|static
-name|bool
-name|supportsBufferToTextureCopy
-parameter_list|(
-name|GLenum
-name|internalFormat
-parameter_list|)
-function_decl|;
 comment|// unpack: the source buffer is stored in the unpack state, and buffer strides
 comment|// offset: the start of the data within the unpack buffer
 comment|// destRenderTarget: individual slice/layer of a target texture
 comment|// destinationFormat/sourcePixelsType: determines shaders + shader parameters
 comment|// destArea: the sub-section of destRenderTarget to copy to
-name|bool
+name|gl
+operator|::
+name|Error
 name|copyBufferToTexture
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|PixelUnpackState
-operator|&
-name|unpack
+argument|const gl::PixelUnpackState&unpack
 argument_list|,
-name|unsigned
-name|int
-name|offset
+argument|unsigned int offset
 argument_list|,
-name|RenderTarget
-operator|*
-name|destRenderTarget
+argument|RenderTarget *destRenderTarget
 argument_list|,
-name|GLenum
-name|destinationFormat
+argument|GLenum destinationFormat
 argument_list|,
-name|GLenum
-name|sourcePixelsType
+argument|GLenum sourcePixelsType
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|destArea
+argument|const gl::Box&destArea
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|private
 label|:
 struct|struct
@@ -223,10 +206,18 @@ operator|*
 name|parametersOut
 argument_list|)
 decl_stmt|;
-name|void
+name|gl
+operator|::
+name|Error
+name|loadResources
+argument_list|()
+expr_stmt|;
+name|gl
+operator|::
+name|Error
 name|buildShaderMap
-parameter_list|()
-function_decl|;
+argument_list|()
+expr_stmt|;
 name|ID3D11PixelShader
 modifier|*
 name|findBufferToTexturePS
@@ -239,6 +230,9 @@ decl_stmt|;
 name|Renderer11
 modifier|*
 name|mRenderer
+decl_stmt|;
+name|bool
+name|mResourcesLoaded
 decl_stmt|;
 name|std
 operator|::

@@ -1773,7 +1773,7 @@ argument_list|>
 argument_list|(
 name|defaultConnection
 operator|->
-name|primaryScreen
+name|primaryScreenNumber
 argument_list|()
 argument_list|)
 return|;

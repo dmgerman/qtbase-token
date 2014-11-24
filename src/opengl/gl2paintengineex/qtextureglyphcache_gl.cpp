@@ -804,6 +804,13 @@ return|return;
 block|}
 comment|// ### the QTextureGlyphCache API needs to be reworked to allow
 comment|// ### resizeTextureData to fail
+name|ctx
+operator|->
+name|d_ptr
+operator|->
+name|refreshCurrentFbo
+argument_list|()
+expr_stmt|;
 name|funcs
 operator|->
 name|glBindFramebuffer

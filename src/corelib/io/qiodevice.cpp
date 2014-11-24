@@ -1800,7 +1800,7 @@ decl_stmt|;
 forever|forever
 block|{
 comment|// Try reading from the buffer.
-name|int
+name|qint64
 name|bufferReadChunkSize
 init|=
 name|d

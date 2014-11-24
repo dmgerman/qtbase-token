@@ -88,6 +88,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_DARWIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"private/qcore_mac_p.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -99,6 +113,11 @@ end_macro
 begin_comment
 comment|/*     Note to maintainer:     -------------------      We load OpenSSL symbols dynamically. Because symbols are known to     disappear, and signatures sometimes change, between releases, we need to     be careful about how this is done. To ensure we don't end up dereferencing     null function pointers, and continue running even if certain functions are     missing, we define helper functions for each of the symbols we load from     OpenSSL, all prefixed with "q_" (declared in     qsslsocket_openssl_symbols_p.h). So instead of calling SSL_connect     directly, we call q_SSL_connect, which is a function that checks if the     actual SSL_connect fptr is null, and returns a failure if it is, or calls     SSL_connect if it isn't.      This requires a somewhat tedious process of declaring each function we     want to call in OpenSSL thrice: once with the q_, in _p.h, once using the     DEFINEFUNC macros below, and once in the function that actually resolves     the symbols, below the DEFINEFUNC declarations below.      There's one DEFINEFUNC macro declared for every number of arguments     exposed by OpenSSL (feel free to extend when needed). The easiest thing to     do is to find an existing entry that matches the arg count of the function     you want to import, and do the same.      The first macro arg is the function return type. The second is the     verbatim name of the function/symbol. Then follows a list of N pairs of     argument types with a variable name, and just the variable name (char *a,     a, char *b, b, etc). Finally there's two arguments - a suitable return     statement for the error case (for an int function, return 0 or return -1     is usually right). Then either just "return" or DUMMYARG, the latter being     for void functions.      Note: Take into account that these macros and declarations are processed     at compile-time, and the result depends on the OpenSSL headers the     compiling host has installed, but the symbols are resolved at run-time,     possibly with a different version of OpenSSL. */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_LINKED_OPENSSL
+end_ifndef
 begin_namespace
 namespace|namespace
 block|{
@@ -140,6 +159,13 @@ expr_stmt|;
 block|}
 block|}
 end_namespace
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_LINKED_OPENSSL
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -4533,6 +4559,84 @@ operator|::
 name|SkipEmptyParts
 argument_list|)
 expr_stmt|;
+comment|// search in .app/Contents/Frameworks
+name|UInt32
+name|packageType
+decl_stmt|;
+name|CFBundleGetPackageInfo
+argument_list|(
+name|CFBundleGetMainBundle
+argument_list|()
+argument_list|,
+operator|&
+name|packageType
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|packageType
+operator|==
+name|FOUR_CHAR_CODE
+argument_list|(
+literal|'APPL'
+argument_list|)
+condition|)
+block|{
+name|QUrl
+name|bundleUrl
+init|=
+name|QUrl
+operator|::
+name|fromCFURL
+argument_list|(
+name|QCFType
+argument_list|<
+name|CFURLRef
+argument_list|>
+argument_list|(
+name|CFBundleCopyBundleURL
+argument_list|(
+name|CFBundleGetMainBundle
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QUrl
+name|frameworksUrl
+init|=
+name|QUrl
+operator|::
+name|fromCFURL
+argument_list|(
+name|QCFType
+argument_list|<
+name|CFURLRef
+argument_list|>
+argument_list|(
+name|CFBundleCopyPrivateFrameworksURL
+argument_list|(
+name|CFBundleGetMainBundle
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|paths
+operator|<<
+name|bundleUrl
+operator|.
+name|resolved
+argument_list|(
+name|frameworksUrl
+argument_list|)
+operator|.
+name|path
+argument_list|()
+expr_stmt|;
+block|}
 else|#
 directive|else
 name|paths
@@ -5262,7 +5366,15 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|Q_OS_DARWIN
 comment|// second attempt: find the development files libssl.so and libcrypto.so
+comment|//
+comment|// disabled on OS X/iOS:
+comment|//  OS X's /usr/lib/libssl.dylib, /usr/lib/libcrypto.dylib will be picked up in the third
+comment|//    attempt, _after_<bundle>/Contents/Frameworks has been searched.
+comment|//  iOS does not ship a system libssl.dylib, libcrypto.dylib in the first place.
 name|libssl
 operator|->
 name|setFileNameAndVersion
@@ -5320,6 +5432,8 @@ name|unload
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 comment|// third attempt: loop on the most common library paths and find libssl
 name|QStringList
 name|sslList

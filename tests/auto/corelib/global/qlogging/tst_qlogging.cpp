@@ -4172,7 +4172,7 @@ argument_list|)
 operator|<<
 literal|"%{type} %{file} %{line} %{function} %{message}"
 operator|<<
-literal|"debug main.cpp 1 func msg\n"
+literal|"debug main.cpp 1 func msg"
 operator|<<
 name|QtDebugMsg
 operator|<<
@@ -4210,7 +4210,7 @@ argument_list|)
 operator|<<
 name|format
 operator|<<
-literal|"[D] msg\n"
+literal|"[D] msg"
 operator|<<
 name|QtDebugMsg
 operator|<<
@@ -4240,7 +4240,7 @@ argument_list|)
 operator|<<
 name|format
 operator|<<
-literal|"[W] msg\n"
+literal|"[W] msg"
 operator|<<
 name|QtWarningMsg
 operator|<<
@@ -4270,7 +4270,7 @@ argument_list|)
 operator|<<
 name|format
 operator|<<
-literal|"[C] msg\n"
+literal|"[C] msg"
 operator|<<
 name|QtCriticalMsg
 operator|<<
@@ -4300,7 +4300,7 @@ argument_list|)
 operator|<<
 name|format
 operator|<<
-literal|"[F] msg\n"
+literal|"[F] msg"
 operator|<<
 name|QtFatalMsg
 operator|<<
@@ -4330,7 +4330,7 @@ argument_list|)
 operator|<<
 name|format
 operator|<<
-literal|"[F] cat: msg\n"
+literal|"[F] cat: msg"
 operator|<<
 name|QtFatalMsg
 operator|<<

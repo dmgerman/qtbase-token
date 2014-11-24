@@ -45,6 +45,10 @@ operator|*
 name|screen
 argument_list|)
 block|;
+operator|~
+name|QXcbXSettings
+argument_list|()
+block|;
 name|bool
 name|initialized
 argument_list|()

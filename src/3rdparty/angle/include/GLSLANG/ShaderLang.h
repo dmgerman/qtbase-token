@@ -130,6 +130,21 @@ include|#
 directive|include
 file|"KHR/khrplatform.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
+begin_include
+include|#
+directive|include
+file|<string>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_comment
 comment|//
 end_comment
@@ -165,24 +180,20 @@ include|#
 directive|include
 file|"ShaderVars.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__cplusplus
-end_ifdef
-begin_extern
-extern|extern
-literal|"C"
-block|{
-endif|#
-directive|endif
+begin_comment
 comment|// Version number for shader translation API.
+end_comment
+begin_comment
 comment|// It is incremented every time the API changes.
+end_comment
+begin_define
 DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
 name|ANGLE_SH_VERSION
-value|130
+value|132
+end_define
+begin_typedef
 typedef|typedef
 enum|enum
 block|{
@@ -195,6 +206,16 @@ DECL|enumerator|SH_WEBGL_SPEC
 name|SH_WEBGL_SPEC
 init|=
 literal|0x8B41
+block|,
+DECL|enumerator|SH_GLES3_SPEC
+name|SH_GLES3_SPEC
+init|=
+literal|0x8B86
+block|,
+DECL|enumerator|SH_WEBGL2_SPEC
+name|SH_WEBGL2_SPEC
+init|=
+literal|0x8B87
 block|,
 comment|// The CSS Shaders spec is a subset of the WebGL spec.
 comment|//
@@ -224,6 +245,8 @@ block|}
 DECL|typedef|ShShaderSpec
 name|ShShaderSpec
 typedef|;
+end_typedef
+begin_typedef
 typedef|typedef
 enum|enum
 block|{
@@ -255,115 +278,11 @@ block|}
 DECL|typedef|ShShaderOutput
 name|ShShaderOutput
 typedef|;
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|SH_PRECISION_HIGHP
-name|SH_PRECISION_HIGHP
-init|=
-literal|0x5001
-block|,
-DECL|enumerator|SH_PRECISION_MEDIUMP
-name|SH_PRECISION_MEDIUMP
-init|=
-literal|0x5002
-block|,
-DECL|enumerator|SH_PRECISION_LOWP
-name|SH_PRECISION_LOWP
-init|=
-literal|0x5003
-block|,
-DECL|enumerator|SH_PRECISION_UNDEFINED
-name|SH_PRECISION_UNDEFINED
-init|=
-literal|0
-block|}
-DECL|typedef|ShPrecisionType
-name|ShPrecisionType
-typedef|;
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|SH_INFO_LOG_LENGTH
-name|SH_INFO_LOG_LENGTH
-init|=
-literal|0x8B84
-block|,
-DECL|enumerator|SH_OBJECT_CODE_LENGTH
-name|SH_OBJECT_CODE_LENGTH
-init|=
-literal|0x8B88
-block|,
-comment|// GL_SHADER_SOURCE_LENGTH
-DECL|enumerator|SH_ACTIVE_UNIFORMS
-name|SH_ACTIVE_UNIFORMS
-init|=
-literal|0x8B86
-block|,
-DECL|enumerator|SH_ACTIVE_UNIFORM_MAX_LENGTH
-name|SH_ACTIVE_UNIFORM_MAX_LENGTH
-init|=
-literal|0x8B87
-block|,
-DECL|enumerator|SH_ACTIVE_ATTRIBUTES
-name|SH_ACTIVE_ATTRIBUTES
-init|=
-literal|0x8B89
-block|,
-DECL|enumerator|SH_ACTIVE_ATTRIBUTE_MAX_LENGTH
-name|SH_ACTIVE_ATTRIBUTE_MAX_LENGTH
-init|=
-literal|0x8B8A
-block|,
-DECL|enumerator|SH_VARYINGS
-name|SH_VARYINGS
-init|=
-literal|0x8BBB
-block|,
-DECL|enumerator|SH_VARYING_MAX_LENGTH
-name|SH_VARYING_MAX_LENGTH
-init|=
-literal|0x8BBC
-block|,
-DECL|enumerator|SH_MAPPED_NAME_MAX_LENGTH
-name|SH_MAPPED_NAME_MAX_LENGTH
-init|=
-literal|0x6000
-block|,
-DECL|enumerator|SH_NAME_MAX_LENGTH
-name|SH_NAME_MAX_LENGTH
-init|=
-literal|0x6001
-block|,
-DECL|enumerator|SH_HASHED_NAME_MAX_LENGTH
-name|SH_HASHED_NAME_MAX_LENGTH
-init|=
-literal|0x6002
-block|,
-DECL|enumerator|SH_HASHED_NAMES_COUNT
-name|SH_HASHED_NAMES_COUNT
-init|=
-literal|0x6003
-block|,
-DECL|enumerator|SH_SHADER_VERSION
-name|SH_SHADER_VERSION
-init|=
-literal|0x6004
-block|,
-DECL|enumerator|SH_RESOURCES_STRING_LENGTH
-name|SH_RESOURCES_STRING_LENGTH
-init|=
-literal|0x6005
-block|,
-DECL|enumerator|SH_OUTPUT_TYPE
-name|SH_OUTPUT_TYPE
-init|=
-literal|0x6006
-block|}
-DECL|typedef|ShShaderInfo
-name|ShShaderInfo
-typedef|;
+end_typedef
+begin_comment
 comment|// Compile options.
+end_comment
+begin_typedef
 typedef|typedef
 enum|enum
 block|{
@@ -524,7 +443,11 @@ block|, }
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions
 typedef|;
+end_typedef
+begin_comment
 comment|// Defines alternate strategies for implementing array index clamping.
+end_comment
+begin_typedef
 typedef|typedef
 enum|enum
 block|{
@@ -541,27 +464,55 @@ block|}
 DECL|typedef|ShArrayIndexClampingStrategy
 name|ShArrayIndexClampingStrategy
 typedef|;
+end_typedef
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Driver must call this first, once, before doing any other
+end_comment
+begin_comment
 comment|// compiler operations.
-comment|// If the function succeeds, the return value is nonzero, else zero.
+end_comment
+begin_comment
+comment|// If the function succeeds, the return value is true, else false.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_function_decl
 name|COMPILER_EXPORT
-name|int
+name|bool
 name|ShInitialize
 parameter_list|()
 function_decl|;
+end_function_decl
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Driver should call this at shutdown.
-comment|// If the function succeeds, the return value is nonzero, else zero.
+end_comment
+begin_comment
+comment|// If the function succeeds, the return value is true, else false.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_function_decl
 name|COMPILER_EXPORT
-name|int
+name|bool
 name|ShFinalize
 parameter_list|()
 function_decl|;
+end_function_decl
+begin_comment
 comment|// The 64 bits hash function. The first parameter is the input string; the
+end_comment
+begin_comment
 comment|// second parameter is the string length.
+end_comment
+begin_typedef
 DECL|typedef|ShHashFunction64
 typedef|typedef
 name|khronos_uint64_t
@@ -577,10 +528,20 @@ parameter_list|,
 name|size_t
 parameter_list|)
 function_decl|;
+end_typedef
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Implementation dependent built-in resources (constants and extensions).
+end_comment
+begin_comment
 comment|// The names for these resources has been obtained by stripping gl_/GL_.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_typedef
 typedef|typedef
 struct|struct
 block|{
@@ -643,6 +604,14 @@ DECL|member|EXT_shader_texture_lod
 name|int
 name|EXT_shader_texture_lod
 decl_stmt|;
+comment|// Set to 1 to enable replacing GL_EXT_draw_buffers #extension directives
+comment|// with GL_NV_draw_buffers in ESSL output. This flag can be used to emulate
+comment|// EXT_draw_buffers by using it in combination with GLES3.0 glDrawBuffers
+comment|// function. This applies to Tegra K1 devices.
+DECL|member|NV_draw_buffers
+name|int
+name|NV_draw_buffers
+decl_stmt|;
 comment|// Set to 1 if highp precision is supported in the fragment language.
 comment|// Default is 0.
 DECL|member|FragmentPrecisionHigh
@@ -693,9 +662,23 @@ block|}
 DECL|typedef|ShBuiltInResources
 name|ShBuiltInResources
 typedef|;
+end_typedef
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Initialize built-in resources with minimum expected values.
+end_comment
+begin_comment
+comment|// Parameters:
+end_comment
+begin_comment
+comment|// resources: The object to initialize. Will be comparable with memcmp.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_function_decl
 name|COMPILER_EXPORT
 name|void
 name|ShInitBuiltInResources
@@ -705,56 +688,104 @@ modifier|*
 name|resources
 parameter_list|)
 function_decl|;
+end_function_decl
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// ShHandle held by but opaque to the driver.  It is allocated,
+end_comment
+begin_comment
 comment|// managed, and de-allocated by the compiler. Its contents
+end_comment
+begin_comment
 comment|// are defined by and used by the compiler.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// If handle creation fails, 0 will be returned.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_typedef
 DECL|typedef|ShHandle
 typedef|typedef
 name|void
 modifier|*
 name|ShHandle
 typedef|;
+end_typedef
+begin_comment
 comment|//
-comment|// Returns the a concatenated list of the items in ShBuiltInResources as a string.
+end_comment
+begin_comment
+comment|// Returns the a concatenated list of the items in ShBuiltInResources as a
+end_comment
+begin_comment
+comment|// null-terminated string.
+end_comment
+begin_comment
 comment|// This function must be updated whenever ShBuiltInResources is changed.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// handle: Specifies the handle of the compiler to be used.
-comment|// outStringLen: Specifies the size of the buffer, in number of characters. The size
-comment|//               of the buffer required to store the resources string can be obtained
-comment|//               by calling ShGetInfo with SH_RESOURCES_STRING_LENGTH.
-comment|// outStr: Returns a null-terminated string representing all the built-in resources.
+end_comment
+begin_expr_stmt
 name|COMPILER_EXPORT
-name|void
-name|ShGetBuiltInResourcesString
-parameter_list|(
 specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|size_t
-name|outStringLen
-parameter_list|,
-name|char
-modifier|*
-name|outStr
-parameter_list|)
-function_decl|;
+name|std
+operator|::
+name|string
+operator|&
+name|ShGetBuiltInResourcesString
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Driver calls these to create and destroy compiler objects.
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Returns the handle of constructed compiler, null if the requested compiler is
+end_comment
+begin_comment
 comment|// not supported.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// type: Specifies the type of shader - GL_FRAGMENT_SHADER or GL_VERTEX_SHADER.
+end_comment
+begin_comment
 comment|// spec: Specifies the language spec the compiler must conform to -
+end_comment
+begin_comment
 comment|//       SH_GLES2_SPEC or SH_WEBGL_SPEC.
+end_comment
+begin_comment
 comment|// output: Specifies the output code type - SH_ESSL_OUTPUT, SH_GLSL_OUTPUT,
+end_comment
+begin_comment
 comment|//         SH_HLSL9_OUTPUT or SH_HLSL11_OUTPUT.
+end_comment
+begin_comment
 comment|// resources: Specifies the built-in resources.
+end_comment
+begin_decl_stmt
 name|COMPILER_EXPORT
 name|ShHandle
 name|ShConstructCompiler
@@ -776,6 +807,8 @@ operator|*
 name|resources
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+begin_function_decl
 name|COMPILER_EXPORT
 name|void
 name|ShDestruct
@@ -784,32 +817,82 @@ name|ShHandle
 name|handle
 parameter_list|)
 function_decl|;
+end_function_decl
+begin_comment
 comment|//
+end_comment
+begin_comment
 comment|// Compiles the given shader source.
-comment|// If the function succeeds, the return value is nonzero, else zero.
+end_comment
+begin_comment
+comment|// If the function succeeds, the return value is true, else false.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// handle: Specifies the handle of compiler to be used.
+end_comment
+begin_comment
 comment|// shaderStrings: Specifies an array of pointers to null-terminated strings
+end_comment
+begin_comment
 comment|//                containing the shader source code.
+end_comment
+begin_comment
 comment|// numStrings: Specifies the number of elements in shaderStrings array.
+end_comment
+begin_comment
 comment|// compileOptions: A mask containing the following parameters:
+end_comment
+begin_comment
 comment|// SH_VALIDATE: Validates shader to ensure that it conforms to the spec
+end_comment
+begin_comment
 comment|//              specified during compiler construction.
+end_comment
+begin_comment
 comment|// SH_VALIDATE_LOOP_INDEXING: Validates loop and indexing in the shader to
+end_comment
+begin_comment
 comment|//                            ensure that they do not exceed the minimum
+end_comment
+begin_comment
 comment|//                            functionality mandated in GLSL 1.0 spec,
+end_comment
+begin_comment
 comment|//                            Appendix A, Section 4 and 5.
+end_comment
+begin_comment
 comment|//                            There is no need to specify this parameter when
+end_comment
+begin_comment
 comment|//                            compiling for WebGL - it is implied.
+end_comment
+begin_comment
 comment|// SH_INTERMEDIATE_TREE: Writes intermediate tree to info log.
+end_comment
+begin_comment
 comment|//                       Can be queried by calling ShGetInfoLog().
+end_comment
+begin_comment
 comment|// SH_OBJECT_CODE: Translates intermediate tree to glsl or hlsl shader.
+end_comment
+begin_comment
 comment|//                 Can be queried by calling ShGetObjectCode().
+end_comment
+begin_comment
 comment|// SH_VARIABLES: Extracts attributes, uniforms, and varyings.
+end_comment
+begin_comment
 comment|//               Can be queried by calling ShGetVariableInfo().
+end_comment
+begin_comment
 comment|//
+end_comment
+begin_function_decl
 name|COMPILER_EXPORT
-name|int
+name|bool
 name|ShCompile
 parameter_list|(
 specifier|const
@@ -830,206 +913,136 @@ name|int
 name|compileOptions
 parameter_list|)
 function_decl|;
-comment|// Returns a parameter from a compiled shader.
-comment|// Parameters:
-comment|// handle: Specifies the compiler
-comment|// pname: Specifies the parameter to query.
-comment|// The following parameters are defined:
-comment|// SH_INFO_LOG_LENGTH: the number of characters in the information log
-comment|//                     including the null termination character.
-comment|// SH_OBJECT_CODE_LENGTH: the number of characters in the object code
-comment|//                        including the null termination character.
-comment|// SH_ACTIVE_ATTRIBUTES: the number of active attribute variables.
-comment|// SH_ACTIVE_ATTRIBUTE_MAX_LENGTH: the length of the longest active attribute
-comment|//                                 variable name including the null
-comment|//                                 termination character.
-comment|// SH_ACTIVE_UNIFORMS: the number of active uniform variables.
-comment|// SH_ACTIVE_UNIFORM_MAX_LENGTH: the length of the longest active uniform
-comment|//                               variable name including the null
-comment|//                               termination character.
-comment|// SH_VARYINGS: the number of varying variables.
-comment|// SH_VARYING_MAX_LENGTH: the length of the longest varying variable name
-comment|//                        including the null termination character.
-comment|// SH_MAPPED_NAME_MAX_LENGTH: the length of the mapped variable name including
-comment|//                            the null termination character.
-comment|// SH_NAME_MAX_LENGTH: the max length of a user-defined name including the
-comment|//                     null termination character.
-comment|// SH_HASHED_NAME_MAX_LENGTH: the max length of a hashed name including the
-comment|//                            null termination character.
-comment|// SH_HASHED_NAMES_COUNT: the number of hashed names from the latest compile.
-comment|// SH_SHADER_VERSION: the version of the shader language
-comment|// SH_OUTPUT_TYPE: the currently set language output type
-comment|//
-comment|// params: Requested parameter
+end_function_decl
+begin_comment
+comment|// Return the version of the shader language.
+end_comment
+begin_function_decl
 name|COMPILER_EXPORT
-name|void
-name|ShGetInfo
-parameter_list|(
-specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|ShShaderInfo
-name|pname
-parameter_list|,
-name|size_t
-modifier|*
-name|params
-parameter_list|)
-function_decl|;
-comment|// Returns nul-terminated information log for a compiled shader.
-comment|// Parameters:
-comment|// handle: Specifies the compiler
-comment|// infoLog: Specifies an array of characters that is used to return
-comment|//          the information log. It is assumed that infoLog has enough memory
-comment|//          to accomodate the information log. The size of the buffer required
-comment|//          to store the returned information log can be obtained by calling
-comment|//          ShGetInfo with SH_INFO_LOG_LENGTH.
-name|COMPILER_EXPORT
-name|void
-name|ShGetInfoLog
-parameter_list|(
-specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|char
-modifier|*
-name|infoLog
-parameter_list|)
-function_decl|;
-comment|// Returns null-terminated object code for a compiled shader.
-comment|// Parameters:
-comment|// handle: Specifies the compiler
-comment|// infoLog: Specifies an array of characters that is used to return
-comment|//          the object code. It is assumed that infoLog has enough memory to
-comment|//          accomodate the object code. The size of the buffer required to
-comment|//          store the returned object code can be obtained by calling
-comment|//          ShGetInfo with SH_OBJECT_CODE_LENGTH.
-name|COMPILER_EXPORT
-name|void
-name|ShGetObjectCode
-parameter_list|(
-specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|char
-modifier|*
-name|objCode
-parameter_list|)
-function_decl|;
-comment|// Returns information about a shader variable.
-comment|// Parameters:
-comment|// handle: Specifies the compiler
-comment|// variableType: Specifies the variable type; options include
-comment|//               SH_ACTIVE_ATTRIBUTES, SH_ACTIVE_UNIFORMS, SH_VARYINGS.
-comment|// index: Specifies the index of the variable to be queried.
-comment|// length: Returns the number of characters actually written in the string
-comment|//         indicated by name (excluding the null terminator) if a value other
-comment|//         than NULL is passed.
-comment|// size: Returns the size of the variable.
-comment|// type: Returns the data type of the variable.
-comment|// precision: Returns the precision of the variable.
-comment|// staticUse: Returns 1 if the variable is accessed in a statement after
-comment|//            pre-processing, whether or not run-time flow of control will
-comment|//            cause that statement to be executed.
-comment|//            Returns 0 otherwise.
-comment|// name: Returns a null terminated string containing the name of the
-comment|//       variable. It is assumed that name has enough memory to accormodate
-comment|//       the variable name. The size of the buffer required to store the
-comment|//       variable name can be obtained by calling ShGetInfo with
-comment|//       SH_ACTIVE_ATTRIBUTE_MAX_LENGTH, SH_ACTIVE_UNIFORM_MAX_LENGTH,
-comment|//       SH_VARYING_MAX_LENGTH.
-comment|// mappedName: Returns a null terminated string containing the mapped name of
-comment|//             the variable, It is assumed that mappedName has enough memory
-comment|//             (SH_MAPPED_NAME_MAX_LENGTH), or NULL if don't care about the
-comment|//             mapped name. If the name is not mapped, then name and mappedName
-comment|//             are the same.
-name|COMPILER_EXPORT
-name|void
-name|ShGetVariableInfo
-argument_list|(
-specifier|const
-name|ShHandle
-name|handle
-argument_list|,
-name|ShShaderInfo
-name|variableType
-argument_list|,
 name|int
-name|index
-argument_list|,
-name|size_t
-operator|*
-name|length
-argument_list|,
-name|int
-operator|*
-name|size
-argument_list|,
-name|sh
+name|ShGetShaderVersion
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|// Return the currently set language output type.
+end_comment
+begin_function_decl
+name|COMPILER_EXPORT
+name|ShShaderOutput
+name|ShGetShaderOutputType
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|// Returns null-terminated information log for a compiled shader.
+end_comment
+begin_comment
+comment|// Parameters:
+end_comment
+begin_comment
+comment|// handle: Specifies the compiler
+end_comment
+begin_expr_stmt
+name|COMPILER_EXPORT
+specifier|const
+name|std
 operator|::
-name|GLenum
-operator|*
-name|type
-argument_list|,
-name|ShPrecisionType
-operator|*
-name|precision
-argument_list|,
-name|int
-operator|*
-name|staticUse
-argument_list|,
-name|char
-operator|*
-name|name
-argument_list|,
-name|char
-operator|*
-name|mappedName
+name|string
+operator|&
+name|ShGetInfoLog
+argument_list|(
+argument|const ShHandle handle
 argument_list|)
-decl_stmt|;
-comment|// Returns information about a name hashing entry from the latest compile.
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// Returns null-terminated object code for a compiled shader.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// handle: Specifies the compiler
-comment|// index: Specifies the index of the name hashing entry to be queried.
-comment|// name: Returns a null terminated string containing the user defined name.
-comment|//       It is assumed that name has enough memory to accomodate the name.
-comment|//       The size of the buffer required to store the user defined name can
-comment|//       be obtained by calling ShGetInfo with SH_NAME_MAX_LENGTH.
-comment|// hashedName: Returns a null terminated string containing the hashed name of
-comment|//             the uniform variable, It is assumed that hashedName has enough
-comment|//             memory to accomodate the name. The size of the buffer required
-comment|//             to store the name can be obtained by calling ShGetInfo with
-comment|//             SH_HASHED_NAME_MAX_LENGTH.
+end_comment
+begin_expr_stmt
 name|COMPILER_EXPORT
-name|void
-name|ShGetNameHashingEntry
-parameter_list|(
 specifier|const
-name|ShHandle
-name|handle
-parameter_list|,
-name|int
-name|index
-parameter_list|,
-name|char
-modifier|*
-name|name
-parameter_list|,
-name|char
-modifier|*
-name|hashedName
-parameter_list|)
-function_decl|;
-comment|// Shader variable inspection.
-comment|// Returns a pointer to a list of variables of the designated type.
-comment|// (See ShaderVars.h for type definitions, included above)
-comment|// Returns NULL on failure.
+name|std
+operator|::
+name|string
+operator|&
+name|ShGetObjectCode
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// Returns a (original_name, hash) map containing all the user defined
+end_comment
+begin_comment
+comment|// names in the shader, including variable names, function names, struct
+end_comment
+begin_comment
+comment|// names, and struct field names.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// handle: Specifies the compiler
+end_comment
+begin_expr_stmt
+DECL|member|string
+name|COMPILER_EXPORT
+specifier|const
+name|std
+operator|::
+name|map
+operator|<
+name|std
+operator|::
+name|string
+operator|,
+name|std
+operator|::
+name|string
+operator|>
+operator|*
+name|ShGetNameHashingMap
+argument_list|(
+argument|const ShHandle handle
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// Shader variable inspection.
+end_comment
+begin_comment
+comment|// Returns a pointer to a list of variables of the designated type.
+end_comment
+begin_comment
+comment|// (See ShaderVars.h for type definitions, included above)
+end_comment
+begin_comment
+comment|// Returns NULL on failure.
+end_comment
+begin_comment
+comment|// Parameters:
+end_comment
+begin_comment
+comment|// handle: Specifies the compiler
+end_comment
+begin_expr_stmt
 name|COMPILER_EXPORT
 specifier|const
 name|std
@@ -1046,6 +1059,8 @@ argument_list|(
 argument|const ShHandle handle
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|COMPILER_EXPORT
 specifier|const
 name|std
@@ -1062,6 +1077,8 @@ argument_list|(
 argument|const ShHandle handle
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|COMPILER_EXPORT
 specifier|const
 name|std
@@ -1078,6 +1095,8 @@ argument_list|(
 argument|const ShHandle handle
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|COMPILER_EXPORT
 specifier|const
 name|std
@@ -1094,6 +1113,8 @@ argument_list|(
 argument|const ShHandle handle
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|COMPILER_EXPORT
 specifier|const
 name|std
@@ -1110,6 +1131,8 @@ argument_list|(
 argument|const ShHandle handle
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_typedef
 typedef|typedef
 struct|struct
 block|{
@@ -1127,16 +1150,34 @@ block|}
 DECL|typedef|ShVariableInfo
 name|ShVariableInfo
 typedef|;
-comment|// Returns 1 if the passed in variables pack in maxVectors following
+end_typedef
+begin_comment
+comment|// Returns true if the passed in variables pack in maxVectors following
+end_comment
+begin_comment
 comment|// the packing rules from the GLSL 1.017 spec, Appendix A, section 7.
-comment|// Returns 0 otherwise. Also look at the SH_ENFORCE_PACKING_RESTRICTIONS
+end_comment
+begin_comment
+comment|// Returns false otherwise. Also look at the SH_ENFORCE_PACKING_RESTRICTIONS
+end_comment
+begin_comment
 comment|// flag above.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// maxVectors: the available rows of registers.
+end_comment
+begin_comment
 comment|// varInfoArray: an array of variable info (types and sizes).
+end_comment
+begin_comment
 comment|// varInfoArraySize: the size of the variable array.
+end_comment
+begin_function_decl
 name|COMPILER_EXPORT
-name|int
+name|bool
 name|ShCheckVariablesWithinPackingLimits
 parameter_list|(
 name|int
@@ -1150,68 +1191,98 @@ name|size_t
 name|varInfoArraySize
 parameter_list|)
 function_decl|;
+end_function_decl
+begin_comment
 comment|// Gives the compiler-assigned register for an interface block.
+end_comment
+begin_comment
 comment|// The method writes the value to the output variable "indexOut".
+end_comment
+begin_comment
 comment|// Returns true if it found a valid interface block, false otherwise.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// handle: Specifies the compiler
+end_comment
+begin_comment
 comment|// interfaceBlockName: Specifies the interface block
+end_comment
+begin_comment
 comment|// indexOut: output variable that stores the assigned register
+end_comment
+begin_decl_stmt
 name|COMPILER_EXPORT
 name|bool
 name|ShGetInterfaceBlockRegister
-parameter_list|(
+argument_list|(
 specifier|const
 name|ShHandle
 name|handle
-parameter_list|,
+argument_list|,
 specifier|const
-name|char
-modifier|*
+name|std
+operator|::
+name|string
+operator|&
 name|interfaceBlockName
-parameter_list|,
+argument_list|,
 name|unsigned
 name|int
-modifier|*
+operator|*
 name|indexOut
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|// Gives the compiler-assigned register for uniforms in the default
+end_comment
+begin_comment
 comment|// interface block.
+end_comment
+begin_comment
 comment|// The method writes the value to the output variable "indexOut".
+end_comment
+begin_comment
 comment|// Returns true if it found a valid default uniform, false otherwise.
+end_comment
+begin_comment
 comment|// Parameters:
+end_comment
+begin_comment
 comment|// handle: Specifies the compiler
+end_comment
+begin_comment
 comment|// interfaceBlockName: Specifies the uniform
+end_comment
+begin_comment
 comment|// indexOut: output variable that stores the assigned register
+end_comment
+begin_decl_stmt
 name|COMPILER_EXPORT
 name|bool
 name|ShGetUniformRegister
-parameter_list|(
+argument_list|(
 specifier|const
 name|ShHandle
 name|handle
-parameter_list|,
+argument_list|,
 specifier|const
-name|char
-modifier|*
+name|std
+operator|::
+name|string
+operator|&
 name|uniformName
-parameter_list|,
+argument_list|,
 name|unsigned
 name|int
-modifier|*
+operator|*
 name|indexOut
-parameter_list|)
-function_decl|;
-ifdef|#
-directive|ifdef
-name|__cplusplus
-block|}
-end_extern
-begin_endif
-endif|#
-directive|endif
-end_endif
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

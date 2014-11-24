@@ -523,6 +523,9 @@ name|bool
 name|mContainsLoopDiscontinuity
 decl_stmt|;
 name|bool
+name|mContainsAnyLoop
+decl_stmt|;
+name|bool
 name|mOutputLod0Function
 decl_stmt|;
 name|bool

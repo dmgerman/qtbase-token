@@ -790,6 +790,9 @@ case|:
 case|case
 name|EOpNegative
 case|:
+case|case
+name|EOpPositive
+case|:
 if|if
 condition|(
 name|child

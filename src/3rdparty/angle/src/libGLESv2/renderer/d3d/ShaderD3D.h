@@ -36,6 +36,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/renderer/Workarounds.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libGLESv2/Shader.h"
 end_include
 begin_include
@@ -51,7 +56,7 @@ name|class
 name|DynamicHLSL
 decl_stmt|;
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 name|class
 name|ShaderD3D
@@ -67,9 +72,11 @@ name|public
 operator|:
 name|ShaderD3D
 argument_list|(
+argument|const gl::Data&data
+argument_list|,
 argument|GLenum type
 argument_list|,
-argument|rx::Renderer *renderer
+argument|RendererD3D *renderer
 argument_list|)
 block|;
 name|virtual
@@ -100,6 +107,7 @@ name|impl
 argument_list|)
 block|;
 comment|// ShaderImpl implementation
+name|virtual
 specifier|const
 name|std
 operator|::
@@ -113,6 +121,7 @@ return|return
 name|mInfoLog
 return|;
 block|}
+name|virtual
 specifier|const
 name|std
 operator|::
@@ -126,6 +135,14 @@ return|return
 name|mHlsl
 return|;
 block|}
+name|virtual
+name|std
+operator|::
+name|string
+name|getDebugInfo
+argument_list|()
+specifier|const
+block|;
 comment|// D3D-specific methods
 name|virtual
 name|void
@@ -159,8 +176,16 @@ argument|const std::string&attributeName
 argument_list|)
 specifier|const
 block|;
-name|rx
-operator|::
+name|void
+name|appendDebugInfo
+argument_list|(
+argument|const std::string&info
+argument_list|)
+block|{
+name|mDebugInfo
+operator|+=
+name|info
+block|; }
 name|D3DWorkaroundType
 name|getD3DWorkarounds
 argument_list|()
@@ -210,6 +235,13 @@ name|bool
 name|compile
 argument_list|(
 specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|,
+specifier|const
 name|std
 operator|::
 name|string
@@ -227,6 +259,13 @@ block|;
 name|void
 name|compileToHLSL
 argument_list|(
+specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|,
 name|void
 operator|*
 name|compiler
@@ -249,7 +288,14 @@ argument_list|)
 block|;
 name|void
 name|initializeCompiler
-argument_list|()
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|)
 block|;
 name|void
 name|parseAttributes
@@ -296,9 +342,7 @@ block|;
 name|GLenum
 name|mType
 block|;
-name|rx
-operator|::
-name|Renderer
+name|RendererD3D
 operator|*
 name|mRenderer
 block|;
@@ -347,6 +391,11 @@ name|std
 operator|::
 name|string
 name|mInfoLog
+block|;
+name|std
+operator|::
+name|string
+name|mDebugInfo
 block|;
 name|std
 operator|::

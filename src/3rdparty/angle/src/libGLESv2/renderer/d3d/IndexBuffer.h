@@ -51,7 +51,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 name|class
 name|IndexBuffer
@@ -181,7 +181,7 @@ name|public
 label|:
 name|IndexBufferInterface
 argument_list|(
-argument|Renderer *renderer
+argument|RendererD3D *renderer
 argument_list|,
 argument|bool dynamic
 argument_list|)
@@ -284,13 +284,11 @@ argument_list|(
 name|IndexBufferInterface
 argument_list|)
 expr_stmt|;
-name|rx
-operator|::
-name|Renderer
-operator|*
+name|RendererD3D
+modifier|*
 specifier|const
 name|mRenderer
-expr_stmt|;
+decl_stmt|;
 name|IndexBuffer
 modifier|*
 name|mIndexBuffer
@@ -314,7 +312,7 @@ name|public
 operator|:
 name|StreamingIndexBufferInterface
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -346,7 +344,7 @@ operator|:
 name|explicit
 name|StaticIndexBufferInterface
 argument_list|(
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)

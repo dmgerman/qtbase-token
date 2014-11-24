@@ -7460,9 +7460,7 @@ parameter_list|()
 block|{
 comment|// fontEmbeddingEnabled() / setFontEmbeddingEnabled() / PPK_FontEmbedding
 comment|// PdfFormat: Supported, default true
-comment|// NativeFormat, Cups: Supported, default true
-comment|// NativeFormat, Win: Unsupported, always false
-comment|// NativeFormat, Mac: Unsupported, always false
+comment|// NativeFormat: Supported, default true
 name|QPrinter
 name|pdf
 decl_stmt|;
@@ -7518,25 +7516,6 @@ name|NativeFormat
 condition|)
 block|{
 comment|// Test default
-if|#
-directive|if
-name|defined
-name|Q_OS_MAC
-operator|||
-name|defined
-name|Q_OS_WIN
-name|QCOMPARE
-argument_list|(
-name|native
-operator|.
-name|fontEmbeddingEnabled
-argument_list|()
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QCOMPARE
 argument_list|(
 name|native
@@ -7547,36 +7526,14 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC || Q_OS_WIN
 comment|// Test set/get
-name|bool
-name|expected
-init|=
-literal|true
-decl_stmt|;
 name|native
 operator|.
 name|setFontEmbeddingEnabled
 argument_list|(
-name|expected
+literal|true
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|Q_OS_MAC
-operator|||
-name|defined
-name|Q_OS_WIN
-name|expected
-operator|=
-literal|false
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC || Q_OS_WIN
 name|QCOMPARE
 argument_list|(
 name|native
@@ -7584,7 +7541,7 @@ operator|.
 name|fontEmbeddingEnabled
 argument_list|()
 argument_list|,
-name|expected
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Test value preservation
@@ -7604,7 +7561,7 @@ operator|.
 name|fontEmbeddingEnabled
 argument_list|()
 argument_list|,
-name|expected
+literal|true
 argument_list|)
 expr_stmt|;
 name|native
@@ -7623,7 +7580,7 @@ operator|.
 name|fontEmbeddingEnabled
 argument_list|()
 argument_list|,
-name|expected
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

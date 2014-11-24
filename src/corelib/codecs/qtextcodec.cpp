@@ -1067,26 +1067,21 @@ name|void
 name|setup
 parameter_list|()
 block|{
-name|QCoreGlobalData
-modifier|*
-name|globalData
+specifier|static
+name|bool
+name|initialized
 init|=
-name|QCoreGlobalData
-operator|::
-name|instance
-argument_list|()
+literal|false
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|globalData
-operator|->
-name|allCodecs
-operator|.
-name|isEmpty
-argument_list|()
+name|initialized
 condition|)
 return|return;
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 if|#
 directive|if
 operator|!
@@ -1393,7 +1388,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \class QTextCodec     \inmodule QtCore     \brief The QTextCodec class provides conversions between text encodings.     \reentrant     \ingroup i18n      Qt uses Unicode to store, draw and manipulate strings. In many     situations you may wish to deal with data that uses a different     encoding. For example, most Japanese documents are still stored     in Shift-JIS or ISO 2022-JP, while Russian users often have their     documents in KOI8-R or Windows-1251.      Qt provides a set of QTextCodec classes to help with converting     non-Unicode formats to and from Unicode. You can also create your     own codec classes.      The supported encodings are:      \list     \li \l{Big5 Text Codec}{Big5}     \li \l{Big5-HKSCS Text Codec}{Big5-HKSCS}     \li CP949     \li \l{EUC-JP Text Codec}{EUC-JP}     \li \l{EUC-KR Text Codec}{EUC-KR}     \li \l{GBK Text Codec}{GB18030}     \li HP-ROMAN8     \li IBM 850     \li IBM 866     \li IBM 874     \li \l{ISO 2022-JP (JIS) Text Codec}{ISO 2022-JP}     \li ISO 8859-1 to 10     \li ISO 8859-13 to 16     \li Iscii-Bng, Dev, Gjr, Knd, Mlm, Ori, Pnj, Tlg, and Tml     \li KOI8-R     \li KOI8-U     \li Macintosh     \li \l{Shift-JIS Text Codec}{Shift-JIS}     \li TIS-620     \li \l{TSCII Text Codec}{TSCII}     \li UTF-8     \li UTF-16     \li UTF-16BE     \li UTF-16LE     \li UTF-32     \li UTF-32BE     \li UTF-32LE     \li Windows-1250 to 1258     \endlist      If Qt is compiled with ICU support enabled, most codecs supported by     ICU will also be available to the application.      QTextCodecs can be used as follows to convert some locally encoded     string to Unicode. Suppose you have some string encoded in Russian     KOI8-R encoding, and want to convert it to Unicode. The simple way     to do it is like this:      \snippet code/src_corelib_codecs_qtextcodec.cpp 0      After this, \c string holds the text converted to Unicode.     Converting a string from Unicode to the local encoding is just as     easy:      \snippet code/src_corelib_codecs_qtextcodec.cpp 1      To read or write files in various encodings, use QTextStream and     its \l{QTextStream::setCodec()}{setCodec()} function. See the     \l{tools/codecs}{Codecs} example for an application of QTextCodec     to file I/O.      Some care must be taken when trying to convert the data in chunks,     for example, when receiving it over a network. In such cases it is     possible that a multi-byte character will be split over two     chunks. At best this might result in the loss of a character and     at worst cause the entire conversion to fail.      The approach to use in these situations is to create a QTextDecoder     object for the codec and use this QTextDecoder for the whole     decoding process, as shown below:      \snippet code/src_corelib_codecs_qtextcodec.cpp 2      The QTextDecoder object maintains state between chunks and therefore     works correctly even if a multi-byte character is split between     chunks.      \section1 Creating Your Own Codec Class      Support for new text encodings can be added to Qt by creating     QTextCodec subclasses.      The pure virtual functions describe the encoder to the system and     the coder is used as required in the different text file formats     supported by QTextStream, and under X11, for the locale-specific     character input and output.      To add support for another encoding to Qt, make a subclass of     QTextCodec and implement the functions listed in the table below.      \table     \header \li Function \li Description      \row \li name()          \li Returns the official name for the encoding. If the             encoding is listed in the             \l{IANA character-sets encoding file}, the name             should be the preferred MIME name for the encoding.      \row \li aliases()          \li Returns a list of alternative names for the encoding.             QTextCodec provides a default implementation that returns             an empty list. For example, "ISO-8859-1" has "latin1",             "CP819", "IBM819", and "iso-ir-100" as aliases.      \row \li mibEnum()          \li Return the MIB enum for the encoding if it is listed in             the \l{IANA character-sets encoding file}.      \row \li convertToUnicode()          \li Converts an 8-bit character string to Unicode.      \row \li convertFromUnicode()          \li Converts a Unicode string to an 8-bit character string.     \endtable      \sa QTextStream, QTextDecoder, QTextEncoder, {Codecs Example} */
+comment|/*!     \class QTextCodec     \inmodule QtCore     \brief The QTextCodec class provides conversions between text encodings.     \reentrant     \ingroup i18n      Qt uses Unicode to store, draw and manipulate strings. In many     situations you may wish to deal with data that uses a different     encoding. For example, most Japanese documents are still stored     in Shift-JIS or ISO 2022-JP, while Russian users often have their     documents in KOI8-R or Windows-1251.      Qt provides a set of QTextCodec classes to help with converting     non-Unicode formats to and from Unicode. You can also create your     own codec classes.      The supported encodings are:      \list     \li \l{Big5 Text Codec}{Big5}     \li \l{Big5-HKSCS Text Codec}{Big5-HKSCS}     \li CP949     \li \l{EUC-JP Text Codec}{EUC-JP}     \li \l{EUC-KR Text Codec}{EUC-KR}     \li \l{GBK Text Codec}{GB18030}     \li HP-ROMAN8     \li IBM 850     \li IBM 866     \li IBM 874     \li \l{ISO 2022-JP (JIS) Text Codec}{ISO 2022-JP}     \li ISO 8859-1 to 10     \li ISO 8859-13 to 16     \li Iscii-Bng, Dev, Gjr, Knd, Mlm, Ori, Pnj, Tlg, and Tml     \li KOI8-R     \li KOI8-U     \li Macintosh     \li \l{Shift-JIS Text Codec}{Shift-JIS}     \li TIS-620     \li \l{TSCII Text Codec}{TSCII}     \li UTF-8     \li UTF-16     \li UTF-16BE     \li UTF-16LE     \li UTF-32     \li UTF-32BE     \li UTF-32LE     \li Windows-1250 to 1258     \endlist      If Qt is compiled with ICU support enabled, most codecs supported by     ICU will also be available to the application.      QTextCodecs can be used as follows to convert some locally encoded     string to Unicode. Suppose you have some string encoded in Russian     KOI8-R encoding, and want to convert it to Unicode. The simple way     to do it is like this:      \snippet code/src_corelib_codecs_qtextcodec.cpp 0      After this, \c string holds the text converted to Unicode.     Converting a string from Unicode to the local encoding is just as     easy:      \snippet code/src_corelib_codecs_qtextcodec.cpp 1      To read or write files in various encodings, use QTextStream and     its \l{QTextStream::setCodec()}{setCodec()} function. See the     \l{tools/codecs}{Codecs} example for an application of QTextCodec     to file I/O.      Some care must be taken when trying to convert the data in chunks,     for example, when receiving it over a network. In such cases it is     possible that a multi-byte character will be split over two     chunks. At best this might result in the loss of a character and     at worst cause the entire conversion to fail.      The approach to use in these situations is to create a QTextDecoder     object for the codec and use this QTextDecoder for the whole     decoding process, as shown below:      \snippet code/src_corelib_codecs_qtextcodec.cpp 2      The QTextDecoder object maintains state between chunks and therefore     works correctly even if a multi-byte character is split between     chunks.      \section1 Creating Your Own Codec Class      Support for new text encodings can be added to Qt by creating     QTextCodec subclasses.      The pure virtual functions describe the encoder to the system and     the coder is used as required in the different text file formats     supported by QTextStream, and under X11, for the locale-specific     character input and output.      To add support for another encoding to Qt, make a subclass of     QTextCodec and implement the functions listed in the table below.      \table     \header \li Function \li Description      \row \li name()          \li Returns the official name for the encoding. If the             encoding is listed in the             \l{IANA character-sets encoding file}, the name             should be the preferred MIME name for the encoding.      \row \li aliases()          \li Returns a list of alternative names for the encoding.             QTextCodec provides a default implementation that returns             an empty list. For example, "ISO-8859-1" has "latin1",             "CP819", "IBM819", and "iso-ir-100" as aliases.      \row \li \l{QTextCodec::mibEnum()}{mibEnum()}          \li Return the MIB enum for the encoding if it is listed in             the \l{IANA character-sets encoding file}.      \row \li convertToUnicode()          \li Converts an 8-bit character string to Unicode.      \row \li convertFromUnicode()          \li Converts a Unicode string to an 8-bit character string.     \endtable      \sa QTextStream, QTextDecoder, QTextEncoder, {Codecs Example} */
 end_comment
 begin_comment
 comment|/*!     Constructs a QTextCodec, and gives it the highest precedence. The     QTextCodec should always be constructed on the heap (i.e. with \c     new). Qt takes ownership and will delete it when the application     terminates. */
@@ -1413,9 +1408,27 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|QCoreGlobalData
+modifier|*
+name|globalInstance
+init|=
+name|QCoreGlobalData
 operator|::
 name|instance
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|globalInstance
+operator|->
+name|allCodecs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|setup
+argument_list|()
+expr_stmt|;
+name|globalInstance
 operator|->
 name|allCodecs
 operator|.
@@ -2192,7 +2205,7 @@ begin_comment
 comment|/*!     \fn QByteArray QTextCodec::name() const      QTextCodec subclasses must reimplement this function. It returns     the name of the encoding supported by the subclass.      If the codec is registered as a character set in the     \l{IANA character-sets encoding file} this method should     return the preferred mime name for the codec if defined,     otherwise its name. */
 end_comment
 begin_comment
-comment|/*!     \fn int QTextCodec::mibEnum() const      Subclasses of QTextCodec must reimplement this function. It     returns the MIBenum (see \l{IANA character-sets encoding file}     for more information). It is important that each QTextCodec     subclass returns the correct unique value for this function. */
+comment|/*!     \fn int QTextCodec::mibEnum() const      Subclasses of QTextCodec must reimplement this function. It     returns the \l{QTextCodec::mibEnum()}{MIBenum} (see \l{IANA character-sets encoding file}     for more information). It is important that each QTextCodec     subclass returns the correct unique value for this function. */
 end_comment
 begin_comment
 comment|/*!   Subclasses can return a number of aliases for the codec in question.    Standard aliases for codecs can be found in the   \l{IANA character-sets encoding file}. */
@@ -2219,10 +2232,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QTextCodec::convertToUnicode(const char *chars, int len,                                              ConverterState *state) const      QTextCodec subclasses must reimplement this function.      Converts the first \a len characters of \a chars from the     encoding of the subclass to Unicode, and returns the result in a     QString.      \a state can be 0, in which case the conversion is stateless and     default conversion rules should be used. If state is not 0, the     codec should save the state after the conversion in \a state, and     adjust the remainingChars and invalidChars members of the struct. */
+comment|/*!     \fn QString QTextCodec::convertToUnicode(const char *chars, int len,                                              ConverterState *state) const      QTextCodec subclasses must reimplement this function.      Converts the first \a len characters of \a chars from the     encoding of the subclass to Unicode, and returns the result in a     QString.      \a state can be 0, in which case the conversion is stateless and     default conversion rules should be used. If state is not 0, the     codec should save the state after the conversion in \a state, and     adjust the \c remainingChars and \c invalidChars members of the struct. */
 end_comment
 begin_comment
-comment|/*!     \fn QByteArray QTextCodec::convertFromUnicode(const QChar *input, int number,                                                   ConverterState *state) const      QTextCodec subclasses must reimplement this function.      Converts the first \a number of characters from the \a input array     from Unicode to the encoding of the subclass, and returns the result     in a QByteArray.      \a state can be 0 in which case the conversion is stateless and     default conversion rules should be used. If state is not 0, the     codec should save the state after the conversion in \a state, and     adjust the remainingChars and invalidChars members of the struct. */
+comment|/*!     \fn QByteArray QTextCodec::convertFromUnicode(const QChar *input, int number,                                                   ConverterState *state) const      QTextCodec subclasses must reimplement this function.      Converts the first \a number of characters from the \a input array     from Unicode to the encoding of the subclass, and returns the result     in a QByteArray.      \a state can be 0 in which case the conversion is stateless and     default conversion rules should be used. If state is not 0, the     codec should save the state after the conversion in \a state, and     adjust the \c remainingChars and \c invalidChars members of the struct. */
 end_comment
 begin_comment
 comment|/*!     Creates a QTextDecoder with a specified \a flags to decode chunks     of \c{char *} data to create chunks of Unicode data.      The caller is responsible for deleting the returned object.      \since 4.7 */
@@ -3047,12 +3060,9 @@ operator|==
 literal|'>'
 condition|)
 block|{
-name|c
-operator|=
-name|QTextCodec
-operator|::
-name|codecForName
-argument_list|(
+name|QByteArray
+name|name
+init|=
 name|header
 operator|.
 name|mid
@@ -3063,6 +3073,28 @@ name|pos2
 operator|-
 name|pos
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|==
+literal|"unicode"
+condition|)
+comment|// QTBUG-41998, ICU will return UTF-16.
+name|name
+operator|=
+name|QByteArrayLiteral
+argument_list|(
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+name|c
+operator|=
+name|QTextCodec
+operator|::
+name|codecForName
+argument_list|(
+name|name
 argument_list|)
 expr_stmt|;
 return|return

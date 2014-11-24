@@ -38,6 +38,8 @@ argument_list|,
 argument|EGLDisplay display
 argument_list|,
 argument|EGLSurface surface
+argument_list|,
+argument|EGLConfig config
 argument_list|)
 block|;
 name|QFunctionPointer

@@ -42,6 +42,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libGLESv2/Error.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<GLES2/gl2.h>
 end_include
 begin_decl_stmt
@@ -51,6 +56,12 @@ block|{
 name|class
 name|Framebuffer
 decl_stmt|;
+struct_decl|struct
+name|Rectangle
+struct_decl|;
+struct_decl|struct
+name|ImageIndex
+struct_decl|;
 block|}
 end_decl_stmt
 begin_decl_stmt
@@ -58,7 +69,13 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
+name|RendererD3D
+decl_stmt|;
+name|class
+name|RenderTarget
+decl_stmt|;
+name|class
+name|TextureStorage
 decl_stmt|;
 name|class
 name|Image
@@ -167,7 +184,7 @@ name|virtual
 name|bool
 name|redefine
 parameter_list|(
-name|Renderer
+name|RendererD3D
 modifier|*
 name|renderer
 parameter_list|,
@@ -193,105 +210,111 @@ init|=
 literal|0
 function_decl|;
 name|virtual
-name|void
-name|loadData
-parameter_list|(
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-name|GLint
-name|unpackAlignment
-parameter_list|,
-name|GLenum
-name|type
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|input
-parameter_list|)
-init|=
-literal|0
-function_decl|;
-name|virtual
-name|void
-name|loadCompressedData
-parameter_list|(
-name|GLint
-name|xoffset
-parameter_list|,
-name|GLint
-name|yoffset
-parameter_list|,
-name|GLint
-name|zoffset
-parameter_list|,
-name|GLsizei
-name|width
-parameter_list|,
-name|GLsizei
-name|height
-parameter_list|,
-name|GLsizei
-name|depth
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|input
-parameter_list|)
-init|=
-literal|0
-function_decl|;
-name|virtual
-name|void
-name|copy
-argument_list|(
-name|GLint
-name|xoffset
-argument_list|,
-name|GLint
-name|yoffset
-argument_list|,
-name|GLint
-name|zoffset
-argument_list|,
-name|GLint
-name|x
-argument_list|,
-name|GLint
-name|y
-argument_list|,
-name|GLsizei
-name|width
-argument_list|,
-name|GLsizei
-name|height
-argument_list|,
 name|gl
 operator|::
-name|Framebuffer
-operator|*
-name|source
+name|Error
+name|loadData
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|GLint unpackAlignment
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const void *input
 argument_list|)
-init|=
+operator|=
 literal|0
-decl_stmt|;
+expr_stmt|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|loadCompressedData
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLsizei depth
+argument_list|,
+argument|const void *input
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
+name|gl
+operator|::
+name|Error
+name|copy
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|const gl::Rectangle&sourceArea
+argument_list|,
+argument|gl::Framebuffer *source
+argument_list|)
+expr_stmt|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|copy
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|const gl::Rectangle&sourceArea
+argument_list|,
+argument|RenderTarget *source
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|copy
+argument_list|(
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|const gl::Rectangle&sourceArea
+argument_list|,
+argument|const gl::ImageIndex&sourceIndex
+argument_list|,
+argument|TextureStorage *source
+argument_list|)
+operator|=
+literal|0
+expr_stmt|;
 name|protected
 label|:
 name|GLsizei

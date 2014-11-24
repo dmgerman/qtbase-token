@@ -39,7 +39,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libGLESv2/constants.h"
+file|"libGLESv2/Constants.h"
 end_include
 begin_include
 include|#
@@ -56,15 +56,6 @@ include|#
 directive|include
 file|<map>
 end_include
-begin_decl_stmt
-name|namespace
-name|rx
-block|{
-name|class
-name|Renderer
-decl_stmt|;
-block|}
-end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|sh
@@ -99,6 +90,9 @@ struct_decl|;
 struct_decl|struct
 name|PackedVarying
 struct_decl|;
+struct_decl|struct
+name|Data
+struct_decl|;
 block|}
 end_decl_stmt
 begin_decl_stmt
@@ -106,7 +100,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 name|class
 name|ShaderD3D
@@ -155,15 +149,13 @@ name|public
 label|:
 name|explicit
 name|DynamicHLSL
-argument_list|(
-name|rx
-operator|::
-name|Renderer
-operator|*
+parameter_list|(
+name|RendererD3D
+modifier|*
 specifier|const
 name|renderer
-argument_list|)
-decl_stmt|;
+parameter_list|)
+function_decl|;
 name|int
 name|packVaryings
 argument_list|(
@@ -176,14 +168,10 @@ argument_list|,
 name|VaryingPacking
 name|packing
 argument_list|,
-name|rx
-operator|::
 name|ShaderD3D
 operator|*
 name|fragmentShader
 argument_list|,
-name|rx
-operator|::
 name|ShaderD3D
 operator|*
 name|vertexShader
@@ -232,6 +220,13 @@ expr_stmt|;
 name|bool
 name|generateShaderLinkHLSL
 argument_list|(
+specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|,
 name|gl
 operator|::
 name|InfoLog
@@ -257,14 +252,10 @@ name|string
 operator|&
 name|vertexHLSL
 argument_list|,
-name|rx
-operator|::
 name|ShaderD3D
 operator|*
 name|fragmentShader
 argument_list|,
-name|rx
-operator|::
 name|ShaderD3D
 operator|*
 name|vertexShader
@@ -327,9 +318,9 @@ name|generateGeometryShaderHLSL
 argument_list|(
 argument|int registers
 argument_list|,
-argument|rx::ShaderD3D *fragmentShader
+argument|ShaderD3D *fragmentShader
 argument_list|,
-argument|rx::ShaderD3D *vertexShader
+argument|ShaderD3D *vertexShader
 argument_list|)
 specifier|const
 expr_stmt|;
@@ -356,13 +347,11 @@ argument_list|(
 name|DynamicHLSL
 argument_list|)
 expr_stmt|;
-name|rx
-operator|::
-name|Renderer
-operator|*
+name|RendererD3D
+modifier|*
 specifier|const
 name|mRenderer
-expr_stmt|;
+decl_stmt|;
 struct_decl|struct
 name|SemanticInfo
 struct_decl|;
@@ -419,8 +408,6 @@ name|void
 name|storeUserLinkedVaryings
 argument_list|(
 specifier|const
-name|rx
-operator|::
 name|ShaderD3D
 operator|*
 name|vertexShader
@@ -462,8 +449,6 @@ decl_stmt|;
 name|void
 name|defineOutputVariables
 argument_list|(
-name|rx
-operator|::
 name|ShaderD3D
 operator|*
 name|fragmentShader
@@ -490,9 +475,9 @@ name|generatePointSpriteHLSL
 argument_list|(
 argument|int registers
 argument_list|,
-argument|rx::ShaderD3D *fragmentShader
+argument|ShaderD3D *fragmentShader
 argument_list|,
-argument|rx::ShaderD3D *vertexShader
+argument|ShaderD3D *vertexShader
 argument_list|)
 specifier|const
 expr_stmt|;

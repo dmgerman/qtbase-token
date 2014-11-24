@@ -90,33 +90,6 @@ end_comment
 begin_comment
 comment|//
 end_comment
-begin_comment
-comment|// TODO(alokp): The following two cases of invariant decalaration get lost
-end_comment
-begin_comment
-comment|// during parsing - they do not get carried over to the intermediate tree.
-end_comment
-begin_comment
-comment|// Handle these cases:
-end_comment
-begin_comment
-comment|// 1. When a pragma is used to force all output variables to be invariant:
-end_comment
-begin_comment
-comment|//    - #pragma STDGL invariant(all)
-end_comment
-begin_comment
-comment|// 2. When a previously decalared or built-in variable is marked invariant:
-end_comment
-begin_comment
-comment|//    - invariant gl_Position;
-end_comment
-begin_comment
-comment|//    - varying vec3 color; invariant color;
-end_comment
-begin_comment
-comment|//
-end_comment
 begin_constructor
 DECL|function|TVersionGLSL
 name|TVersionGLSL
@@ -127,13 +100,31 @@ name|sh
 operator|::
 name|GLenum
 name|type
+parameter_list|,
+specifier|const
+name|TPragma
+modifier|&
+name|pragma
 parameter_list|)
-member_init_list|:
+block|{
+if|if
+condition|(
+name|pragma
+operator|.
+name|stdgl
+operator|.
+name|invariantAll
+condition|)
 name|mVersion
-argument_list|(
+operator|=
+name|GLSL_VERSION_120
+expr_stmt|;
+else|else
+name|mVersion
+operator|=
 name|GLSL_VERSION_110
-argument_list|)
-block|{ }
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|visitSymbol

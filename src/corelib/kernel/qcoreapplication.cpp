@@ -2715,9 +2715,6 @@ name|self
 operator|=
 name|this
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
 name|QLoggingRegistry
 operator|::
 name|instance
@@ -2726,8 +2723,6 @@ operator|->
 name|init
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_QOBJECT

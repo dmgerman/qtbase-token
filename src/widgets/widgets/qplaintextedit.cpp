@@ -9647,6 +9647,19 @@ name|LeftButton
 operator|)
 condition|)
 return|return;
+if|if
+condition|(
+name|e
+operator|->
+name|source
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|MouseEventNotSynthesized
+condition|)
+block|{
+specifier|const
 name|QRect
 name|visible
 init|=
@@ -9696,6 +9709,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 end_function
 begin_comment
 comment|/*! \reimp */
@@ -9726,6 +9740,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|e
+operator|->
+name|source
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|MouseEventNotSynthesized
+operator|&&
 name|d
 operator|->
 name|autoScrollTimer

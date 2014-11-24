@@ -90,6 +90,23 @@ name|virtual
 name|void
 name|_q_sourceModelDestroyed
 argument_list|()
+block|;
+name|void
+name|mapDropCoordinatesToSource
+argument_list|(
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&parent
+argument_list|,
+argument|int *source_row
+argument_list|,
+argument|int *source_column
+argument_list|,
+argument|QModelIndex *source_parent
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

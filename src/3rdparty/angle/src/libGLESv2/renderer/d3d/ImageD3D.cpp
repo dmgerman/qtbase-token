@@ -55,8 +55,6 @@ name|ASSERT
 argument_list|(
 name|HAS_DYNAMIC_TYPE
 argument_list|(
-name|rx
-operator|::
 name|ImageD3D
 operator|*
 argument_list|,
@@ -67,8 +65,6 @@ expr_stmt|;
 return|return
 cast|static_cast
 argument_list|<
-name|rx
-operator|::
 name|ImageD3D
 operator|*
 argument_list|>

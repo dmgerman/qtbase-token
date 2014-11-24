@@ -495,11 +495,6 @@ name|pidLine
 operator|.
 name|isEmpty
 argument_list|()
-operator|||
-name|appNameLine
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 return|return
 literal|false

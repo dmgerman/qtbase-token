@@ -1744,7 +1744,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|currentChanged
+name|slotCurrentChanged
 argument_list|(
 name|QModelIndex
 argument_list|,
@@ -2017,9 +2017,9 @@ decl_stmt|;
 public|public
 name|slots
 public|:
-DECL|function|currentChanged
+DECL|function|slotCurrentChanged
 name|void
-name|currentChanged
+name|slotCurrentChanged
 parameter_list|(
 name|QModelIndex
 parameter_list|,

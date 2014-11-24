@@ -50,12 +50,15 @@ begin_decl_stmt
 name|namespace
 name|gl
 block|{
-struct_decl|struct
-name|VertexAttribute
-struct_decl|;
 name|class
 name|ProgramBinary
 decl_stmt|;
+name|class
+name|State
+decl_stmt|;
+struct_decl|struct
+name|VertexAttribute
+struct_decl|;
 struct_decl|struct
 name|VertexAttribCurrentValueData
 struct_decl|;
@@ -75,7 +78,7 @@ name|class
 name|VertexBuffer
 decl_stmt|;
 name|class
-name|Renderer
+name|RendererD3D
 decl_stmt|;
 struct|struct
 name|TranslatedAttribute
@@ -176,9 +179,7 @@ name|public
 label|:
 name|VertexDataManager
 argument_list|(
-name|rx
-operator|::
-name|Renderer
+name|RendererD3D
 operator|*
 name|renderer
 argument_list|)
@@ -193,11 +194,7 @@ operator|::
 name|Error
 name|prepareVertexData
 argument_list|(
-argument|const gl::VertexAttribute attribs[]
-argument_list|,
-argument|const gl::VertexAttribCurrentValueData currentValues[]
-argument_list|,
-argument|gl::ProgramBinary *programBinary
+argument|const gl::State&state
 argument_list|,
 argument|GLint start
 argument_list|,
@@ -305,13 +302,11 @@ operator|*
 name|buffer
 argument_list|)
 expr_stmt|;
-name|rx
-operator|::
-name|Renderer
-operator|*
+name|RendererD3D
+modifier|*
 specifier|const
 name|mRenderer
-expr_stmt|;
+decl_stmt|;
 name|StreamingVertexBufferInterface
 modifier|*
 name|mStreamingBuffer

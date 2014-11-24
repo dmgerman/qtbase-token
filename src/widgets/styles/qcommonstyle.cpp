@@ -8752,7 +8752,7 @@ argument_list|()
 argument_list|,
 name|iconSize
 operator|.
-name|width
+name|height
 argument_list|()
 argument_list|)
 argument_list|)

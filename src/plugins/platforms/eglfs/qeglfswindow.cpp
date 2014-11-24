@@ -325,11 +325,7 @@ name|context
 operator|->
 name|setFormat
 argument_list|(
-name|window
-argument_list|()
-operator|->
-name|requestedFormat
-argument_list|()
+name|m_format
 argument_list|)
 expr_stmt|;
 name|context

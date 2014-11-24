@@ -27559,17 +27559,27 @@ block|}
 block|}
 struct|;
 end_struct
-begin_comment
-comment|// We have no built-in defines to check the stdlib features.
-end_comment
-begin_comment
-comment|// #define TEST_FORWARD_LIST
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|TEST_FORWARD_LIST
+name|__has_include
 end_ifdef
+begin_if
+if|#
+directive|if
+name|__has_include
+argument_list|(
+operator|<
+name|forward_list
+operator|>
+argument_list|)
+end_if
+begin_define
+DECL|macro|TEST_FORWARD_LIST
+define|#
+directive|define
+name|TEST_FORWARD_LIST
+end_define
 begin_include
 include|#
 directive|include
@@ -27851,6 +27861,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// __has_include(<forward_list>)
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// __has_include
+end_comment
 begin_struct
 template|template
 parameter_list|<

@@ -82,9 +82,11 @@ operator|<
 name|NSTextInputClient
 operator|>
 block|{
-name|QCocoaBackingStore
-operator|*
+name|QImage
 name|m_backingStore
+block|;
+name|qreal
+name|m_pixelRatio
 block|;
 name|QPoint
 name|m_backingStoreOffset

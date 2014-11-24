@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QDBusArgument>
 end_include
+begin_include
+include|#
+directive|include
+file|<QTextCharFormat>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -118,7 +123,7 @@ operator|~
 name|QIBusAttribute
 argument_list|()
 block|;
-name|QTextFormat
+name|QTextCharFormat
 name|format
 argument_list|()
 specifier|const

@@ -1017,6 +1017,9 @@ specifier|const
 name|char
 modifier|*
 name|value
+parameter_list|,
+name|bool
+name|stdgl
 parameter_list|)
 function_decl|;
 name|bool

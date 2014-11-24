@@ -75,6 +75,9 @@ argument_list|()
 operator|.
 name|obj
 decl_stmt|;
+name|writePragma
+argument_list|()
+expr_stmt|;
 comment|// Write built-in extension behaviors.
 name|writeExtensionBehavior
 argument_list|()
@@ -191,6 +194,36 @@ operator|!=
 name|EBhUndefined
 condition|)
 block|{
+if|if
+condition|(
+name|getResources
+argument_list|()
+operator|.
+name|NV_draw_buffers
+operator|&&
+name|iter
+operator|->
+name|first
+operator|==
+literal|"GL_EXT_draw_buffers"
+condition|)
+block|{
+name|sink
+operator|<<
+literal|"#extension GL_NV_draw_buffers : "
+operator|<<
+name|getBehaviorString
+argument_list|(
+name|iter
+operator|->
+name|second
+argument_list|)
+operator|<<
+literal|"\n"
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sink
 operator|<<
 literal|"#extension "
@@ -210,6 +243,7 @@ argument_list|)
 operator|<<
 literal|"\n"
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

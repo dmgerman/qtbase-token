@@ -2855,39 +2855,6 @@ operator|::
 name|sprintfFunction
 parameter_list|()
 block|{
-comment|//! [63]
-name|size_t
-name|BufSize
-decl_stmt|;
-name|char
-name|buf
-index|[
-name|BufSize
-index|]
-decl_stmt|;
-operator|::
-name|snprintf
-argument_list|(
-name|buf
-argument_list|,
-name|BufSize
-argument_list|,
-literal|"%lld"
-argument_list|,
-literal|123456789LL
-argument_list|)
-expr_stmt|;
-name|QString
-name|str
-init|=
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
-name|buf
-argument_list|)
-decl_stmt|;
-comment|//! [63]
 comment|//! [64]
 name|QString
 name|result

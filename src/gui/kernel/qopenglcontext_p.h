@@ -656,6 +656,11 @@ name|active_engine
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|qgl_current_fbo_invalid
+argument_list|(
+argument|false
+argument_list|)
 block|{
 name|requestedFormat
 operator|=
@@ -760,6 +765,9 @@ block|;
 name|QPaintEngineEx
 operator|*
 name|active_engine
+block|;
+name|bool
+name|qgl_current_fbo_invalid
 block|;
 name|QVariant
 name|nativeHandle

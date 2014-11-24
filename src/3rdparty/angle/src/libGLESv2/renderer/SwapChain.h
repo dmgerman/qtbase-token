@@ -39,6 +39,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"common/NativeWindow.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/platform.h"
 end_include
 begin_include
@@ -51,37 +56,30 @@ include|#
 directive|include
 file|<EGL/egl.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<EGL/eglplatform.h>
-end_include
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_FORCE_VSYNC_OFF
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_FORCE_VSYNC_OFF
+define|#
+directive|define
+name|ANGLE_FORCE_VSYNC_OFF
+value|0
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|namespace
 name|rx
 block|{
-enum|enum
-name|SwapFlags
-block|{
-name|SWAP_NORMAL
-init|=
-literal|0
-block|,
-name|SWAP_ROTATE_90
-init|=
-literal|1
-block|,
-name|SWAP_ROTATE_270
-init|=
-literal|2
-block|,
-name|SWAP_ROTATE_180
-init|=
-name|SWAP_ROTATE_90
-operator||
-name|SWAP_ROTATE_270
-block|, }
-enum|;
 name|class
 name|SwapChain
 block|{
@@ -89,7 +87,7 @@ name|public
 label|:
 name|SwapChain
 argument_list|(
-argument|EGLNativeWindowType window
+argument|rx::NativeWindow nativeWindow
 argument_list|,
 argument|HANDLE shareHandle
 argument_list|,
@@ -98,9 +96,9 @@ argument_list|,
 argument|GLenum depthBufferFormat
 argument_list|)
 block|:
-name|mWindow
+name|mNativeWindow
 argument_list|(
-name|window
+name|nativeWindow
 argument_list|)
 operator|,
 name|mShareHandle
@@ -168,9 +166,6 @@ name|width
 parameter_list|,
 name|EGLint
 name|height
-parameter_list|,
-name|EGLint
-name|flags
 parameter_list|)
 init|=
 literal|0
@@ -182,6 +177,24 @@ parameter_list|()
 init|=
 literal|0
 function_decl|;
+name|GLenum
+name|GetBackBufferInternalFormat
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mBackBufferFormat
+return|;
+block|}
+name|GLenum
+name|GetDepthBufferInternalFormat
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mDepthBufferFormat
+return|;
+block|}
 name|virtual
 name|HANDLE
 name|getShareHandle
@@ -194,11 +207,12 @@ block|}
 empty_stmt|;
 name|protected
 label|:
-specifier|const
-name|EGLNativeWindowType
-name|mWindow
-decl_stmt|;
-comment|// Window that the surface is created for.
+name|rx
+operator|::
+name|NativeWindow
+name|mNativeWindow
+expr_stmt|;
+comment|// Handler for the Window that the surface is created for.
 specifier|const
 name|GLenum
 name|mBackBufferFormat

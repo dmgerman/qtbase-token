@@ -746,19 +746,21 @@ operator|*
 name|cocoaControl
 argument_list|(
 argument|QCocoaWidget widget
-argument_list|,
-argument|QPoint *offset
 argument_list|)
 specifier|const
 block|;
 name|void
 name|drawNSViewInRect
 argument_list|(
+argument|QCocoaWidget widget
+argument_list|,
 argument|NSView *view
 argument_list|,
 argument|const QRect&rect
 argument_list|,
 argument|QPainter *p
+argument_list|,
+argument|bool isQWidget = true
 argument_list|,
 argument|QCocoaDrawRectBlock drawRectBlock = nil
 argument_list|)
@@ -832,11 +834,6 @@ block|;
 name|bool
 name|mouseDown
 block|;
-if|#
-directive|if
-name|MAC_OS_X_VERSION_MAX_ALLOWED
-operator|>=
-name|MAC_OS_X_VERSION_10_7
 name|void
 operator|*
 name|receiver
@@ -845,8 +842,6 @@ name|void
 operator|*
 name|nsscroller
 block|;
-endif|#
-directive|endif
 name|void
 operator|*
 name|indicatorBranchButtonCell

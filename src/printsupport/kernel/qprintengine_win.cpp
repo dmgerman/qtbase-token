@@ -1140,6 +1140,11 @@ operator|!=
 name|QFontEngine
 operator|::
 name|Win
+operator|||
+operator|!
+name|d
+operator|->
+name|embed_fonts
 decl_stmt|;
 if|if
 condition|(
@@ -4064,11 +4069,6 @@ name|qreal
 name|penWidth
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QWin32PrintEngine
-argument_list|)
-expr_stmt|;
 name|composeGdiPath
 argument_list|(
 name|path
@@ -5436,10 +5436,6 @@ name|PPK_CustomBase
 case|:
 break|break;
 case|case
-name|PPK_FontEmbedding
-case|:
-break|break;
-case|case
 name|PPK_PageOrder
 case|:
 break|break;
@@ -5452,6 +5448,19 @@ name|PPK_SelectionOption
 case|:
 break|break;
 comment|// The following keys are properties and settings that are supported by the Windows PrintEngine
+case|case
+name|PPK_FontEmbedding
+case|:
+name|d
+operator|->
+name|embed_fonts
+operator|=
+name|value
+operator|.
+name|toBool
+argument_list|()
+expr_stmt|;
+break|break;
 case|case
 name|PPK_CollateCopies
 case|:
@@ -6889,14 +6898,6 @@ block|{
 comment|// The following keys are settings that are unsupported by the Windows PrintEngine
 comment|// Return sensible default values to ensure consistent behavior across platforms
 case|case
-name|PPK_FontEmbedding
-case|:
-name|value
-operator|=
-literal|false
-expr_stmt|;
-break|break;
-case|case
 name|PPK_PageOrder
 case|:
 name|value
@@ -6925,6 +6926,16 @@ argument_list|()
 expr_stmt|;
 break|break;
 comment|// The following keys are properties and settings that are supported by the Windows PrintEngine
+case|case
+name|PPK_FontEmbedding
+case|:
+name|value
+operator|=
+name|d
+operator|->
+name|embed_fonts
+expr_stmt|;
+break|break;
 case|case
 name|PPK_CollateCopies
 case|:
