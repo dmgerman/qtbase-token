@@ -751,11 +751,9 @@ name|fileInfo
 argument_list|(
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|normalizePath
 argument_list|(
 name|tmp
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8286,7 +8284,7 @@ name|fileInfo
 argument_list|(
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|normalizePath
 argument_list|(
 name|destDir
 argument_list|)

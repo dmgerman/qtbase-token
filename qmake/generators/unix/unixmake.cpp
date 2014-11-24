@@ -4005,9 +4005,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|project
 operator|->
@@ -4140,9 +4138,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|project
 operator|->
@@ -4585,9 +4581,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|project
 operator|->
@@ -4618,11 +4612,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
-operator|+
-literal|".libs"
+literal|"/.libs"
 argument_list|)
 condition|)
 block|{
@@ -4672,9 +4662,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|project
 operator|->

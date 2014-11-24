@@ -99,11 +99,9 @@ name|bd
 init|=
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|normalizePath
 argument_list|(
 name|d
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -133,9 +131,7 @@ name|readLib
 argument_list|(
 name|bd
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|stem
 argument_list|)
@@ -892,9 +888,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|lib
 argument_list|)
@@ -909,9 +903,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|lib
 operator|+
@@ -970,7 +962,7 @@ name|exists
 argument_list|(
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|normalizePath
 argument_list|(
 name|opt
 argument_list|)
@@ -1548,9 +1540,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|tmp
 decl_stmt|;

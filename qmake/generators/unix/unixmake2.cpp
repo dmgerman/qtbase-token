@@ -6030,7 +6030,7 @@ name|exists
 argument_list|(
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|normalizePath
 argument_list|(
 name|info_plist
 argument_list|)
@@ -6814,7 +6814,7 @@ name|symlinks
 index|[
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|path
 operator|+
@@ -6854,7 +6854,7 @@ name|path
 operator|=
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|path
 argument_list|)
@@ -11196,10 +11196,6 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|=
-name|Option
-operator|::
-name|fixPathToLocalOS
-argument_list|(
 name|fileFixify
 argument_list|(
 name|ret
@@ -11210,7 +11206,6 @@ argument_list|,
 name|Option
 operator|::
 name|output_dir
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

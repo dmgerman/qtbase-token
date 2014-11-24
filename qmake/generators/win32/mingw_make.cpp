@@ -414,9 +414,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|steam
 argument_list|)
@@ -431,9 +429,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|steam
 operator|+
@@ -452,9 +448,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|steam
 operator|+

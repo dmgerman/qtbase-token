@@ -16260,7 +16260,7 @@ name|_RelativePath
 argument_list|,
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|info
 operator|.
@@ -16628,7 +16628,7 @@ name|_RelativePath
 argument_list|,
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|info
 operator|.
