@@ -1050,6 +1050,17 @@ condition|(
 name|QGuiApplicationPrivate
 operator|::
 name|displayName
+operator|&&
+operator|!
+name|title
+operator|.
+name|endsWith
+argument_list|(
+operator|*
+name|QGuiApplicationPrivate
+operator|::
+name|displayName
+argument_list|)
 condition|)
 block|{
 comment|// Append display name, if set.
