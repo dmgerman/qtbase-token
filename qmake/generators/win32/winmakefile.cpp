@@ -1017,7 +1017,12 @@ decl_stmt|;
 name|QString
 name|file
 init|=
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|opt
+argument_list|)
 decl_stmt|;
 name|int
 name|slsh
