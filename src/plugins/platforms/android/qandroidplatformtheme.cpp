@@ -2275,6 +2275,24 @@ name|m_androidStyle
 operator|=
 name|m_androidStyleData
 expr_stmt|;
+comment|// default in case the style has not set a font
+name|m_systemFont
+operator|=
+name|QFont
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Roboto"
+argument_list|)
+argument_list|,
+literal|14.0
+operator|*
+literal|100
+operator|/
+literal|72
+argument_list|)
+expr_stmt|;
+comment|// keep default size the same after changing from 100 dpi to 72 dpi
 block|}
 end_constructor
 begin_function
@@ -2598,21 +2616,6 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|// default in case the style has not set a font
-specifier|static
-name|QFont
-name|systemFont
-argument_list|(
-literal|"Roboto"
-argument_list|,
-literal|14.0
-operator|*
-literal|100
-operator|/
-literal|72
-argument_list|)
-decl_stmt|;
-comment|// keep default size the same after changing from 100 dpi to 72 dpi
 if|if
 condition|(
 name|type
@@ -2623,7 +2626,7 @@ name|SystemFont
 condition|)
 return|return
 operator|&
-name|systemFont
+name|m_systemFont
 return|;
 return|return
 literal|0
