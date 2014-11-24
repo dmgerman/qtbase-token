@@ -9421,6 +9421,11 @@ operator|::
 name|release
 parameter_list|()
 block|{
+name|RendererD3D
+operator|::
+name|cleanup
+argument_list|()
+expr_stmt|;
 name|releaseShaderCompiler
 argument_list|()
 expr_stmt|;
