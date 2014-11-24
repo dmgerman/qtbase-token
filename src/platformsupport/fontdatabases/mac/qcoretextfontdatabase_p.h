@@ -258,6 +258,12 @@ name|defaultFont
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|fontsAlwaysScalable
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QList
 operator|<
 name|int
