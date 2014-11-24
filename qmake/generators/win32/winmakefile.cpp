@@ -1102,16 +1102,6 @@ literal|"QMAKE_"
 operator|+
 name|file
 operator|.
-name|section
-argument_list|(
-name|Option
-operator|::
-name|dir_sep
-argument_list|,
-operator|-
-literal|1
-argument_list|)
-operator|.
 name|toUpper
 argument_list|()
 operator|+
