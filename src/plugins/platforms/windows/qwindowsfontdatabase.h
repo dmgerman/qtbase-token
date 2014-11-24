@@ -242,8 +242,6 @@ name|createEngine
 argument_list|(
 argument|const QFontDef&request
 argument_list|,
-argument|HDC fontHdc
-argument_list|,
 argument|int dpi
 argument_list|,
 argument|const QSharedPointer<QWindowsFontEngineData>&data
