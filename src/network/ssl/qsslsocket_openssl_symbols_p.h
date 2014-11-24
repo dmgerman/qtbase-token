@@ -1171,6 +1171,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|int
+name|q_OBJ_ln2nid
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|int
 name|q_i2t_ASN1_OBJECT
 parameter_list|(
 name|char

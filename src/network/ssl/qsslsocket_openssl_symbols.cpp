@@ -1011,6 +1011,23 @@ argument|return
 argument_list|)
 end_macro
 begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|OBJ_ln2nid
+argument_list|,
+argument|const char *s
+argument_list|,
+argument|s
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
 argument|int
@@ -6273,6 +6290,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|OBJ_sn2nid
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|OBJ_ln2nid
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(

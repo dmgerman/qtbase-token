@@ -96,6 +96,17 @@ name|name
 argument_list|)
 expr_stmt|;
 name|Q_NETWORK_EXPORT
+specifier|static
+name|QSslEllipticCurve
+name|fromLongName
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|)
+function_decl|;
+name|Q_NETWORK_EXPORT
 name|QString
 name|shortName
 argument_list|()
