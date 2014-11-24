@@ -3013,7 +3013,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the primary (or default) screen of the application.      This will be the screen where QWindows are shown, unless otherwise specified. */
+comment|/*!     Returns the primary (or default) screen of the application.      This will be the screen where QWindows are initially shown, unless otherwise specified. */
 end_comment
 begin_function
 DECL|function|primaryScreen
