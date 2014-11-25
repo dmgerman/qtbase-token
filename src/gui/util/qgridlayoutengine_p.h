@@ -816,6 +816,9 @@ specifier|const
 name|QGridLayoutRowInfo
 modifier|&
 name|rowInfo
+parameter_list|,
+name|bool
+name|snapToPixelGrid
 parameter_list|)
 function_decl|;
 name|void
@@ -851,6 +854,9 @@ specifier|const
 name|QGridLayoutRowInfo
 modifier|&
 name|rowInfo
+parameter_list|,
+name|bool
+name|snapToPixelGrid
 parameter_list|)
 function_decl|;
 name|QGridLayoutBox
@@ -1479,6 +1485,8 @@ argument_list|(
 argument|Qt::Alignment defaultAlignment = Qt::Alignment(
 literal|0
 argument|)
+argument_list|,
+argument|bool snapToPixelGrid = false
 argument_list|)
 empty_stmt|;
 specifier|inline
@@ -2306,11 +2314,17 @@ operator|::
 name|LayoutDirection
 name|m_visualDirection
 expr_stmt|;
+comment|// Configuration
 name|Qt
 operator|::
 name|Alignment
 name|m_defaultAlignment
 expr_stmt|;
+name|unsigned
+name|m_snapToPixelGrid
+range|:
+literal|1
+decl_stmt|;
 comment|// Lazily computed from the above user input
 name|mutable
 name|int
