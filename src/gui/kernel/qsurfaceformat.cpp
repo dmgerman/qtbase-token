@@ -697,6 +697,16 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
+end_if
 begin_comment
 comment|/*!     \obsolete     \overload      Use setOption(QSurfaceFormat::FormatOption, bool) or setOptions() instead.      Sets the format options to the OR combination of \a opt and the     current format options.      \sa options(), testOption() */
 end_comment
@@ -778,6 +788,13 @@ name|opt
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_DEPRECATED_SINCE(5, 2)
+end_comment
 begin_comment
 comment|/*!     \since 5.3      Sets the format options to \a options.      \sa options(), testOption() */
 end_comment

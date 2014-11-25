@@ -320,6 +320,14 @@ name|bool
 name|enable
 parameter_list|)
 function_decl|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
 name|QT_DEPRECATED
 name|void
 name|setOption
@@ -341,6 +349,8 @@ name|opt
 argument_list|)
 decl|const
 decl_stmt|;
+endif|#
+directive|endif
 name|void
 name|setOptions
 argument_list|(

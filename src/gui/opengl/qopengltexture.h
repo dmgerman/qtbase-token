@@ -1210,6 +1210,14 @@ block|}
 enum|;
 comment|// Pixel transfer
 comment|// ### Qt 6: remove the non-const void * overloads
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 name|QT_DEPRECATED
 name|void
 name|setData
@@ -1320,6 +1328,9 @@ init|=
 literal|0
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 3)
 name|void
 name|setData
 parameter_list|(
@@ -1432,6 +1443,14 @@ parameter_list|)
 function_decl|;
 comment|// Compressed data upload
 comment|// ### Qt 6: remove the non-const void * overloads
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
 name|QT_DEPRECATED
 name|void
 name|setCompressedData
@@ -1530,6 +1549,9 @@ init|=
 literal|0
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 3)
 name|void
 name|setCompressedData
 parameter_list|(
