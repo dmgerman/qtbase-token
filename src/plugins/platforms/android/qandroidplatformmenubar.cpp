@@ -82,7 +82,9 @@ name|m_menus
 operator|.
 name|insert
 argument_list|(
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|m_menus
 operator|.
@@ -139,7 +141,9 @@ name|m_menus
 operator|.
 name|erase
 argument_list|(
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|m_menus
 operator|.
