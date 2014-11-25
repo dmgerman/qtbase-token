@@ -59,7 +59,7 @@ name|class
 name|QFontEngineMultiFontConfig
 range|:
 name|public
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 block|{
 name|public
 operator|:

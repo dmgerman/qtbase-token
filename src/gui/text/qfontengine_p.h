@@ -1785,7 +1785,11 @@ operator|:
 name|explicit
 name|QFontEngineMulti
 argument_list|(
-argument|int engineCount
+argument|QFontEngine *engine
+argument_list|,
+argument|int script
+argument_list|,
+argument|const QStringList&fallbackFamilies = QStringList()
 argument_list|)
 block|;
 operator|~
@@ -2001,6 +2005,46 @@ argument|int len
 argument_list|)
 specifier|const
 block|;
+specifier|inline
+name|int
+name|fallbackFamilyCount
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_fallbackFamilies
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+specifier|inline
+name|QString
+name|fallbackFamilyAt
+argument_list|(
+argument|int at
+argument_list|)
+specifier|const
+block|{
+return|return
+name|m_fallbackFamilies
+operator|.
+name|at
+argument_list|(
+name|at
+argument_list|)
+return|;
+block|}
+name|void
+name|setFallbackFamiliesList
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|fallbackFamilies
+argument_list|)
+block|;
+specifier|inline
 name|QFontEngine
 operator|*
 name|engine
@@ -2013,14 +2057,14 @@ name|Q_ASSERT
 argument_list|(
 name|at
 operator|<
-name|engines
+name|m_engines
 operator|.
 name|size
 argument_list|()
 argument_list|)
 block|;
 return|return
-name|engines
+name|m_engines
 operator|.
 name|at
 argument_list|(
@@ -2028,111 +2072,8 @@ name|at
 argument_list|)
 return|;
 block|}
-specifier|inline
 name|void
 name|ensureEngineAt
-argument_list|(
-argument|int at
-argument_list|)
-block|{
-if|if
-condition|(
-name|at
-operator|>=
-name|engines
-operator|.
-name|size
-argument_list|()
-operator|||
-name|engines
-operator|.
-name|at
-argument_list|(
-name|at
-argument_list|)
-operator|==
-literal|0
-condition|)
-name|loadEngine
-argument_list|(
-name|at
-argument_list|)
-expr_stmt|;
-block|}
-name|virtual
-name|bool
-name|shouldLoadFontEngineForCharacter
-argument_list|(
-argument|int at
-argument_list|,
-argument|uint ucs4
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|void
-name|setFallbackFamiliesList
-argument_list|(
-argument|const QStringList&
-argument_list|)
-block|{}
-name|protected
-operator|:
-name|friend
-name|class
-name|QRawFont
-block|;
-name|virtual
-name|void
-name|loadEngine
-argument_list|(
-argument|int at
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|ensureFallbackFamiliesQueried
-argument_list|()
-block|{}
-name|QVector
-operator|<
-name|QFontEngine
-operator|*
-operator|>
-name|engines
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|Q_GUI_EXPORT
-name|QFontEngineMultiBasicImpl
-range|:
-name|public
-name|QFontEngineMulti
-block|{
-name|public
-operator|:
-name|QFontEngineMultiBasicImpl
-argument_list|(
-argument|QFontEngine *fe
-argument_list|,
-argument|int script
-argument_list|,
-argument|const QStringList&fallbacks
-argument_list|)
-block|;
-name|QFontEngineMultiBasicImpl
-argument_list|(
-argument|QFontEngine *fe
-argument_list|,
-argument|int script
-argument_list|)
-block|;
-name|void
-name|loadEngine
 argument_list|(
 argument|int at
 argument_list|)
@@ -2147,69 +2088,49 @@ argument_list|,
 argument|int script
 argument_list|)
 block|;
-name|int
-name|fallbackFamilyCount
-argument_list|()
-specifier|const
-block|{
-return|return
-name|fallbackFamilies
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
-name|QString
-name|fallbackFamilyAt
-argument_list|(
-argument|int at
-argument_list|)
-specifier|const
-block|{
-return|return
-name|fallbackFamilies
-operator|.
-name|at
-argument_list|(
-name|at
-argument_list|)
-return|;
-block|}
+name|protected
+operator|:
 name|virtual
 name|void
 name|ensureFallbackFamiliesQueried
 argument_list|()
 block|;
 name|virtual
-name|void
-name|setFallbackFamiliesList
+name|bool
+name|shouldLoadFontEngineForCharacter
 argument_list|(
+argument|int at
+argument_list|,
+argument|uint ucs4
+argument_list|)
 specifier|const
-name|QStringList
-operator|&
-name|fallbacks
+block|;
+name|virtual
+name|QFontEngine
+operator|*
+name|loadEngine
+argument_list|(
+argument|int at
 argument_list|)
 block|;
 name|private
 operator|:
-name|void
-name|init
-argument_list|(
+name|QVector
+operator|<
 name|QFontEngine
 operator|*
-name|fe
-argument_list|)
+operator|>
+name|m_engines
 block|;
-name|mutable
 name|QStringList
-name|fallbackFamilies
+name|m_fallbackFamilies
 block|;
+specifier|const
 name|int
-name|script
+name|m_script
 block|;
-name|mutable
 name|bool
-name|fallbacksQueried
+name|m_fallbackFamiliesQueried
 block|; }
 decl_stmt|;
 end_decl_stmt

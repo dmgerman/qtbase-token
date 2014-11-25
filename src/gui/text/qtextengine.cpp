@@ -11599,7 +11599,7 @@ else|else
 block|{
 name|engine
 operator|=
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 operator|::
 name|createMultiFontEngine
 argument_list|(
@@ -11711,7 +11711,7 @@ parameter_list|()
 constructor_decl|;
 name|scaledEngine
 operator|=
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 operator|::
 name|createMultiFontEngine
 argument_list|(

@@ -29,7 +29,7 @@ name|int
 name|script
 parameter_list|)
 member_init_list|:
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 argument_list|(
 name|fe
 argument_list|,
@@ -156,12 +156,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|engines
-operator|.
-name|size
+name|fallbackFamilyCount
 argument_list|()
-operator|-
-literal|1
 operator|>
 name|cachedMatchPatterns
 operator|.
@@ -172,12 +168,8 @@ name|cachedMatchPatterns
 operator|.
 name|resize
 argument_list|(
-name|engines
-operator|.
-name|size
+name|fallbackFamilyCount
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 name|FcPattern

@@ -1110,7 +1110,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 argument_list|(
 name|fontEngine
 argument_list|,

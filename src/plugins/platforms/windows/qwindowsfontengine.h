@@ -627,7 +627,7 @@ name|class
 name|QWindowsMultiFontEngine
 range|:
 name|public
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 block|{
 name|public
 operator|:
@@ -639,11 +639,13 @@ argument_list|,
 argument|int script
 argument_list|)
 block|;
-name|void
+name|QFontEngine
+operator|*
 name|loadEngine
 argument_list|(
 argument|int at
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

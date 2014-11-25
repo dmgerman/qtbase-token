@@ -591,7 +591,7 @@ name|QFontDialogPrivate
 decl_stmt|;
 name|friend
 name|class
-name|QFontEngineMultiBasicImpl
+name|QFontEngineMulti
 decl_stmt|;
 name|QFontDatabasePrivate
 modifier|*
