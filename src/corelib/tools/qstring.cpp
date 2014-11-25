@@ -4969,7 +4969,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QString::clear()      Clears the contents of the string and makes it empty.      \sa resize(), isEmpty() */
+comment|/*! \fn void QString::clear()      Clears the contents of the string and makes it null.      \sa resize(), isNull() */
 end_comment
 begin_comment
 comment|/*! \fn QString&QString::operator=(const QString&other)      Assigns \a other to this string and returns a reference to this     string. */
