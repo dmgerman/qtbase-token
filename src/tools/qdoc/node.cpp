@@ -2685,12 +2685,6 @@ name|node
 operator|->
 name|genus
 argument_list|()
-operator|||
-name|genus
-operator|==
-name|Node
-operator|::
-name|DontCare
 condition|)
 return|return
 name|node
