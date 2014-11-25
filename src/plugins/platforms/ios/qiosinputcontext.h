@@ -79,6 +79,14 @@ name|class
 name|QIOSTextInputResponder
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QIOSTextInputResponder
+unit|@
+DECL|variable|KeyboardState
+name|protocol
+name|KeyboardState
+decl_stmt|;
+end_decl_stmt
 begin_struct
 DECL|struct|ImeState
 struct|struct
@@ -240,9 +248,18 @@ argument_list|()
 block|;
 name|private
 operator|:
+expr|union
+block|{
 name|QIOSKeyboardListener
 operator|*
-name|m_keyboardListener
+name|m_keyboardHideGesture
+block|;
+name|id
+operator|<
+name|KeyboardState
+operator|>
+name|m_keyboardState
+block|;     }
 block|;
 name|QIOSTextInputResponder
 operator|*
