@@ -248,6 +248,11 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|UIView
+operator|*
+name|scrollableRootView
+argument_list|()
+block|;
 expr|union
 block|{
 name|QIOSKeyboardListener
