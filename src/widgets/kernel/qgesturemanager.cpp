@@ -136,6 +136,13 @@ name|QT_NO_GESTURES
 end_ifndef
 begin_function
 name|QT_BEGIN_NAMESPACE
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
 DECL|function|panTouchPoints
 specifier|static
 specifier|inline
@@ -206,6 +213,10 @@ literal|2
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QGestureManager
 name|QGestureManager
