@@ -156,9 +156,9 @@ block|;
 name|void
 name|showMessage_sys
 argument_list|(
-argument|const QString&msg
-argument_list|,
 argument|const QString&title
+argument_list|,
+argument|const QString&msg
 argument_list|,
 argument|QSystemTrayIcon::MessageIcon icon
 argument_list|,
@@ -234,9 +234,9 @@ block|;
 name|void
 name|showMessage_sys_qpa
 argument_list|(
-argument|const QString&msg
-argument_list|,
 argument|const QString&title
+argument_list|,
+argument|const QString&msg
 argument_list|,
 argument|QSystemTrayIcon::MessageIcon icon
 argument_list|,

@@ -107,9 +107,9 @@ name|virtual
 name|void
 name|showMessage
 argument_list|(
-argument|const QString&msg
-argument_list|,
 argument|const QString&title
+argument_list|,
+argument|const QString&msg
 argument_list|,
 argument|const QIcon& icon
 argument_list|,

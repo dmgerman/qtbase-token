@@ -1454,12 +1454,12 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|message
+name|title
 parameter_list|,
 specifier|const
 name|QString
 modifier|&
-name|title
+name|message
 parameter_list|,
 name|QSystemTrayIcon
 operator|::
@@ -1477,9 +1477,9 @@ condition|)
 block|{
 name|showMessage_sys_qpa
 argument_list|(
-name|message
-argument_list|,
 name|title
+argument_list|,
+name|message
 argument_list|,
 name|icon
 argument_list|,
