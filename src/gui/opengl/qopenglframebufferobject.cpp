@@ -1192,9 +1192,6 @@ operator|==
 name|GL_RGBA
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|GL_RGBA8_OES
 if|if
 condition|(
 name|funcs
@@ -1208,11 +1205,9 @@ argument_list|)
 condition|)
 name|storageFormat
 operator|=
-name|GL_RGBA8_OES
+name|GL_RGBA8
 expr_stmt|;
 else|else
-endif|#
-directive|endif
 name|storageFormat
 operator|=
 name|GL_RGBA4
