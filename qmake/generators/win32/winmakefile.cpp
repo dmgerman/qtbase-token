@@ -4198,14 +4198,22 @@ literal|"\n\t"
 operator|<<
 name|del_statement
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|escapeFilePath
+argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
 argument_list|(
 operator|(
 operator|*
 name|it
 operator|)
+operator|.
+name|toQString
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4248,14 +4256,22 @@ control|)
 block|{
 name|file
 operator|=
-literal|" "
+literal|' '
 operator|+
 name|escapeFilePath
+argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
 argument_list|(
 operator|(
 operator|*
 name|it
 operator|)
+operator|.
+name|toQString
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
