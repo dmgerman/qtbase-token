@@ -4786,7 +4786,7 @@ name|tmp_out
 init|=
 name|project
 operator|->
-name|values
+name|first
 argument_list|(
 name|ProKey
 argument_list|(
@@ -4796,9 +4796,6 @@ operator|+
 literal|".output"
 argument_list|)
 argument_list|)
-operator|.
-name|first
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -12618,7 +12615,7 @@ name|tmp_out
 init|=
 name|project
 operator|->
-name|values
+name|first
 argument_list|(
 name|ProKey
 argument_list|(
@@ -12627,9 +12624,6 @@ operator|+
 literal|".output"
 argument_list|)
 argument_list|)
-operator|.
-name|first
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -12998,7 +12992,7 @@ name|tmp_out
 init|=
 name|project
 operator|->
-name|values
+name|first
 argument_list|(
 name|ProKey
 argument_list|(
@@ -13007,9 +13001,6 @@ operator|+
 literal|".output"
 argument_list|)
 argument_list|)
-operator|.
-name|first
-argument_list|()
 operator|.
 name|toQString
 argument_list|()
