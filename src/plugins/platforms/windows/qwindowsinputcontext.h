@@ -81,6 +81,14 @@ operator|~
 name|QWindowsInputContext
 argument_list|()
 block|;
+name|bool
+name|hasCapability
+argument_list|(
+argument|Capability capability
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|void
 name|reset
 argument_list|()
@@ -185,6 +193,10 @@ block|;
 specifier|const
 name|DWORD
 name|m_WM_MSIME_MOUSE
+block|;
+specifier|static
+name|HIMC
+name|m_defaultContext
 block|;
 name|CompositionContext
 name|m_compositionContext

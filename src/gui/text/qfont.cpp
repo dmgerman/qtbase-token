@@ -5459,6 +5459,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
+end_if
 begin_comment
 comment|/*!     \fn QString QFont::rawName() const     \deprecated      Returns the name of the font within the underlying window system.      On X11, this function will return an empty string.      Using the return value of this function is usually \e not \e     portable.      \sa setRawName() */
 end_comment
@@ -5495,6 +5505,10 @@ modifier|&
 parameter_list|)
 block|{ }
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns the font's key, a textual representation of a font. It is     typically used as the key for a cache or dictionary of fonts.      \sa QMap */
 end_comment

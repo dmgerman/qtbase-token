@@ -64,6 +64,14 @@ argument|QPlatformInputContext
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|Capability
+block|{
+name|HiddenTextCapability
+operator|=
+literal|0x1
+block|}
+block|;
 name|QPlatformInputContext
 argument_list|()
 block|;
@@ -76,6 +84,14 @@ name|virtual
 name|bool
 name|isValid
 argument_list|()
+specifier|const
+block|;
+name|virtual
+name|bool
+name|hasCapability
+argument_list|(
+argument|Capability capability
+argument_list|)
 specifier|const
 block|;
 name|virtual

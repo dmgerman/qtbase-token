@@ -12106,9 +12106,16 @@ end_function
 begin_comment
 comment|/*!     \fn bool QFontDatabase::supportsThreadedFontRendering()     \since 4.4     \deprecated      Returns \c true if font rendering is supported outside the GUI     thread, false otherwise. In other words, a return value of false     means that all QPainter::drawText() calls outside the GUI thread     will not produce readable output.      As of 5.0, always returns \c true.      \sa {Thread-Support in Qt Modules#Painting In Threads}{Painting In Threads} */
 end_comment
-begin_comment
-comment|// QT_DEPRECATED_SINCE(5, 2)
-end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|2
+argument_list|)
+end_if
 begin_function
 DECL|function|supportsThreadedFontRendering
 name|bool
@@ -12122,6 +12129,10 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \internal */
 end_comment

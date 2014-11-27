@@ -130,6 +130,11 @@ specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
 name|void
+name|propagateSizeHints
+parameter_list|()
+function|Q_DECL_OVERRIDE
+block|{}
+name|void
 name|raise
 parameter_list|()
 block|{

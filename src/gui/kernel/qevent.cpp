@@ -257,6 +257,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|s
 operator|=
 name|QCursor
@@ -264,6 +267,8 @@ operator|::
 name|pos
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_comment
@@ -2051,6 +2056,9 @@ argument_list|(
 name|reason
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|gp
 operator|=
 name|QCursor
@@ -2058,6 +2066,8 @@ operator|::
 name|pos
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_comment

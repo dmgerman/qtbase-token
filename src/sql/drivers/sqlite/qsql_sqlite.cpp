@@ -405,7 +405,12 @@ argument_list|)
 argument_list|,
 name|type
 argument_list|,
+name|QString
+operator|::
+name|number
+argument_list|(
 name|errorCode
+argument_list|)
 argument_list|)
 return|;
 block|}

@@ -4959,6 +4959,22 @@ argument_list|,
 name|result
 argument_list|)
 return|;
+case|case
+name|QtWindows
+operator|::
+name|GeometryChangingEvent
+case|:
+return|return
+name|platformWindow
+operator|->
+name|QWindowsWindow
+operator|::
+name|handleGeometryChanging
+argument_list|(
+operator|&
+name|msg
+argument_list|)
+return|;
 endif|#
 directive|endif
 comment|// !Q_OS_WINCE

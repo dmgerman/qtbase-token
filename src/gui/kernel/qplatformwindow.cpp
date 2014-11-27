@@ -1288,6 +1288,9 @@ operator|->
 name|virtualSiblings
 argument_list|()
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 if|if
 condition|(
 name|siblings
@@ -1348,6 +1351,8 @@ return|return
 name|sibling
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|screen
 return|;

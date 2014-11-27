@@ -6318,11 +6318,13 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|option
 operator|->
 name|state
 operator|&
 name|State_Selected
+operator|)
 condition|)
 block|{
 break|break;
@@ -24766,6 +24768,9 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|d
 operator|->
 name|stopAnimation
@@ -24775,6 +24780,8 @@ operator|->
 name|styleObject
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -24807,6 +24814,9 @@ name|step
 init|=
 literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 if|if
 condition|(
 name|QProgressStyleAnimation
@@ -24856,6 +24866,8 @@ name|styleObject
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|progressBar
 operator|.
 name|setRect

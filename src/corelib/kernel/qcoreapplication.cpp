@@ -8789,6 +8789,16 @@ end_function
 begin_comment
 comment|/*!     \deprecated      This function returns \c true if there are pending events; otherwise     returns \c false. Pending events can be either from the window     system or posted events using postEvent().      \note this function is not thread-safe. It may only be called in the main     thread and only if there are no other threads running in the application     (including threads Qt starts for its own purposes).      \sa QAbstractEventDispatcher::hasPendingEvents() */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|3
+argument_list|)
+end_if
 begin_function
 DECL|function|hasPendingEvents
 name|bool
@@ -8821,6 +8831,10 @@ literal|false
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns a pointer to the event dispatcher object for the main thread. If no     event dispatcher exists for the thread, this function returns 0. */
 end_comment

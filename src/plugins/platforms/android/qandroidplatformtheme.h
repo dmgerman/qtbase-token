@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qfont.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qpalette.h>
 end_include
 begin_include
@@ -203,6 +208,9 @@ name|m_androidStyleData
 block|;
 name|QPalette
 name|m_defaultPalette
+block|;
+name|QFont
+name|m_systemFont
 block|; }
 decl_stmt|;
 end_decl_stmt

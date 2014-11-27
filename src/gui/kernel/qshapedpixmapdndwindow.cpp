@@ -229,6 +229,9 @@ operator|::
 name|updateGeometry
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|QRect
 name|rect
 argument_list|(
@@ -292,6 +295,8 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

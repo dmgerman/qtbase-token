@@ -95,7 +95,9 @@ name|m_menuItems
 operator|.
 name|insert
 argument_list|(
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|m_menuItems
 operator|.
@@ -153,7 +155,9 @@ operator|::
 name|iterator
 name|it
 init|=
-name|qFind
+name|std
+operator|::
+name|find
 argument_list|(
 name|m_menuItems
 operator|.

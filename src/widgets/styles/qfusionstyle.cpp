@@ -10752,6 +10752,9 @@ operator|!
 name|indeterminate
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 operator|(
 cast|const_cast
 argument_list|<
@@ -10770,6 +10773,8 @@ operator|->
 name|styleObject
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -20073,6 +20078,9 @@ name|activeSubControls
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|QScrollbarStyleAnimation
 modifier|*
 name|anim
@@ -20169,7 +20177,13 @@ name|styleObject
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_ANIMATION
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
 name|QScrollbarStyleAnimation
 modifier|*
 name|anim
@@ -20336,6 +20350,9 @@ argument_list|(
 name|opacity
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_ANIMATION
 block|}
 name|bool
 name|transient

@@ -35926,7 +35926,10 @@ condition|)
 name|update
 argument_list|()
 expr_stmt|;
-comment|// automatically hide the SIP
+ifndef|#
+directive|ifndef
+name|Q_OS_IOS
+comment|// FIXME: revisit autoSIP logic, QTBUG-42906
 if|if
 condition|(
 name|qApp
@@ -35949,6 +35952,8 @@ operator|->
 name|hide
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 comment|/*!     \fn void QWidget::enterEvent(QEvent *event)      This event handler can be reimplemented in a subclass to receive     widget enter events which are passed in the \a event parameter.      An event is sent to the widget when the mouse cursor enters the     widget.      \sa leaveEvent(), mouseMoveEvent(), event() */
 DECL|function|enterEvent

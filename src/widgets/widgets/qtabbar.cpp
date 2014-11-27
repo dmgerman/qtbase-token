@@ -12901,6 +12901,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ANIMATION
+end_ifndef
 begin_function
 DECL|function|updateCurrentValue
 name|void
@@ -12984,6 +12989,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
