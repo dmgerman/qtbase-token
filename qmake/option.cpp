@@ -3113,8 +3113,6 @@ name|FixPathToNormalSeparators
 condition|)
 block|{
 name|string
-operator|=
-name|string
 operator|.
 name|replace
 argument_list|(
@@ -3141,8 +3139,6 @@ argument_list|(
 name|Q_OS_WIN32
 argument_list|)
 name|string
-operator|=
-name|string
 operator|.
 name|replace
 argument_list|(
@@ -3153,8 +3149,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|string
-operator|=
 name|string
 operator|.
 name|replace
@@ -3177,8 +3171,6 @@ operator|::
 name|FixPathToTargetSeparators
 condition|)
 block|{
-name|string
-operator|=
 name|string
 operator|.
 name|replace

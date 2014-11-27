@@ -6879,8 +6879,6 @@ argument_list|()
 condition|)
 block|{
 name|library
-operator|=
-name|library
 operator|.
 name|replace
 argument_list|(
@@ -6889,8 +6887,6 @@ argument_list|,
 name|suffixSetting
 argument_list|)
 expr_stmt|;
-name|name
-operator|=
 name|name
 operator|.
 name|remove
@@ -6901,8 +6897,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|library
-operator|=
 name|library
 operator|.
 name|replace
@@ -11763,8 +11757,6 @@ name|readAll
 argument_list|()
 decl_stmt|;
 name|plist_in_text
-operator|=
-name|plist_in_text
 operator|.
 name|replace
 argument_list|(
@@ -11818,8 +11810,6 @@ literal|"app"
 condition|)
 block|{
 name|plist_in_text
-operator|=
-name|plist_in_text
 operator|.
 name|replace
 argument_list|(
@@ -11839,8 +11829,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|plist_in_text
-operator|=
 name|plist_in_text
 operator|.
 name|replace
@@ -11884,8 +11872,6 @@ operator|=
 literal|"com.yourcompany"
 expr_stmt|;
 name|plist_in_text
-operator|=
-name|plist_in_text
 operator|.
 name|replace
 argument_list|(
@@ -11893,7 +11879,7 @@ literal|"@BUNDLEIDENTIFIER@"
 argument_list|,
 name|bundlePrefix
 operator|+
-literal|"."
+literal|'.'
 operator|+
 name|QLatin1String
 argument_list|(
@@ -11915,8 +11901,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|plist_in_text
-operator|=
 name|plist_in_text
 operator|.
 name|replace
@@ -11941,8 +11925,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|plist_in_text
-operator|=
 name|plist_in_text
 operator|.
 name|replace
@@ -14528,8 +14510,6 @@ directive|endif
 block|}
 else|else
 block|{
-name|version_plist
-operator|=
 name|version_plist
 operator|.
 name|replace

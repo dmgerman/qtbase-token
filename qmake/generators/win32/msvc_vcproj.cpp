@@ -11210,8 +11210,6 @@ literal|1
 condition|)
 block|{
 name|ofile
-operator|=
-name|ofile
 operator|.
 name|replace
 argument_list|(
@@ -11247,8 +11245,6 @@ operator|<
 name|hyphenfind
 condition|)
 block|{
-name|ofile
-operator|=
 name|ofile
 operator|.
 name|replace

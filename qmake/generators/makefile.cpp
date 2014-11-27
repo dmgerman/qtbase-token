@@ -17230,8 +17230,6 @@ init|=
 name|oname
 decl_stmt|;
 name|fixedSubdir
-operator|=
-name|fixedSubdir
 operator|.
 name|replace
 argument_list|(
@@ -17797,8 +17795,6 @@ init|=
 name|subName
 decl_stmt|;
 name|fixedSubDep
-operator|=
-name|fixedSubDep
 operator|.
 name|replace
 argument_list|(
@@ -18030,10 +18026,6 @@ literal|"sub-"
 operator|+
 name|file
 expr_stmt|;
-name|st
-operator|->
-name|target
-operator|=
 name|st
 operator|->
 name|target
@@ -23736,8 +23728,6 @@ argument_list|(
 name|prefix
 argument_list|)
 condition|)
-name|path
-operator|=
 name|path
 operator|.
 name|replace

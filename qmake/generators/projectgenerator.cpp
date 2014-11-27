@@ -3540,8 +3540,6 @@ literal|"/"
 argument_list|)
 condition|)
 name|ret
-operator|=
-name|ret
 operator|.
 name|replace
 argument_list|(

@@ -5315,8 +5315,6 @@ name|toQString
 argument_list|()
 expr_stmt|;
 name|ar
-operator|=
-name|ar
 operator|.
 name|replace
 argument_list|(
@@ -8212,8 +8210,6 @@ operator|<<
 name|pchOutput
 expr_stmt|;
 name|pchFlags
-operator|=
-name|pchFlags
 operator|.
 name|replace
 argument_list|(
@@ -8392,8 +8388,6 @@ name|pchOutputDir
 argument_list|)
 expr_stmt|;
 block|}
-name|pchFlags
-operator|=
 name|pchFlags
 operator|.
 name|replace

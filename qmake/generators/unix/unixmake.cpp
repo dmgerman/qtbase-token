@@ -1503,8 +1503,6 @@ argument_list|()
 expr_stmt|;
 comment|// replace place holders
 name|pchFlags
-operator|=
-name|pchFlags
 operator|.
 name|replace
 argument_list|(
@@ -1521,8 +1519,6 @@ name|toQString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|pchFlags
-operator|=
 name|pchFlags
 operator|.
 name|replace
@@ -1543,8 +1539,6 @@ argument_list|)
 condition|)
 block|{
 comment|// icc style
-name|pchFlags
-operator|=
 name|pchFlags
 operator|.
 name|replace
@@ -1690,8 +1684,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|pchFlags
-operator|=
 name|pchFlags
 operator|.
 name|replace
