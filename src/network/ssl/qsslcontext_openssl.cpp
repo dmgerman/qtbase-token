@@ -1908,6 +1908,37 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|OPENSSL_NO_EC
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10002000L
+if|if
+condition|(
+name|q_SSLeay
+argument_list|()
+operator|>=
+literal|0x10002000L
+condition|)
+block|{
+name|q_SSL_CTX_ctrl
+argument_list|(
+name|sslContext
+operator|->
+name|ctx
+argument_list|,
+name|SSL_CTRL_SET_ECDH_AUTO
+argument_list|,
+literal|1
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+endif|#
+directive|endif
+block|{
 comment|// Set temp ECDH params
 name|EC_KEY
 modifier|*
@@ -1936,6 +1967,7 @@ argument_list|(
 name|ecdh
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 comment|// OPENSSL_NO_EC
