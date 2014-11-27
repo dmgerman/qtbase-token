@@ -75,9 +75,15 @@ block|;
 name|void
 name|setArguments
 argument_list|(
-argument|QString makeArgs
+specifier|const
+name|QStringList
+operator|&
+name|makeArgs
 argument_list|,
-argument|QString qmakeArgs
+specifier|const
+name|QStringList
+operator|&
+name|qmakeArgs
 argument_list|)
 block|;
 name|void
@@ -228,7 +234,9 @@ operator|:
 name|bool
 name|runCommand
 argument_list|(
-argument|QString cmdLine
+argument|const QString&cmd
+argument_list|,
+argument|const QStringList&args
 argument_list|,
 argument|bool expectFail = false
 argument_list|)
@@ -239,12 +247,14 @@ argument_list|()
 block|;
 name|QString
 name|makeCmd_
-block|,
+block|;
+name|QStringList
 name|makeArgs_
 block|;
 name|QString
 name|qmakeCmd_
-block|,
+block|;
+name|QStringList
 name|qmakeArgs_
 block|;
 name|QStringList

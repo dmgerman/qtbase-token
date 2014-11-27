@@ -2652,9 +2652,17 @@ name|test_compiler
 operator|.
 name|setArguments
 argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
 literal|"-n"
 argument_list|,
-literal|"-spec macx-clang"
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-spec"
+operator|<<
+literal|"macx-clang"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
