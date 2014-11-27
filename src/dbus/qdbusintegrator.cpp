@@ -6443,6 +6443,7 @@ argument_list|(
 literal|"OUT OF MEM"
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 operator|++
 name|it
@@ -6539,6 +6540,7 @@ argument_list|(
 literal|"OUT OF MEM"
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 operator|++
 name|it
