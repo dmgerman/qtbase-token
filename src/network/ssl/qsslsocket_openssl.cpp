@@ -8250,13 +8250,13 @@ return|;
 end_return
 begin_macro
 unit|}  bool
-DECL|function|importPKCS12
+DECL|function|importPkcs12
 name|QSslSocketBackendPrivate
 end_macro
 begin_expr_stmt
-DECL|function|importPKCS12
+DECL|function|importPkcs12
 operator|::
-name|importPKCS12
+name|importPkcs12
 operator|(
 name|QIODevice
 operator|*

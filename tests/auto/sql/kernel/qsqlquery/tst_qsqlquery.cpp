@@ -1449,7 +1449,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -1630,7 +1630,7 @@ parameter_list|)
 block|{
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -2112,7 +2112,7 @@ argument_list|)
 decl_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -2552,7 +2552,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -2656,7 +2656,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -3706,7 +3706,7 @@ argument_list|)
 decl_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -5546,7 +5546,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -6169,7 +6169,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -10387,7 +10387,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -10843,7 +10843,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -11332,7 +11332,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -12028,7 +12028,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -12196,7 +12196,7 @@ name|createQuery
 decl_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -15081,7 +15081,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -15351,7 +15351,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -17387,7 +17387,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -18251,7 +18251,7 @@ expr_stmt|;
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -19642,7 +19642,7 @@ comment|// In PostgreSQL a BLOB is not called a BLOB, but a BYTEA! :-)
 comment|// ... and in SQL Server it can be called a lot, but IMAGE will do.
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -21668,7 +21668,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -22360,7 +22360,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -23064,7 +23064,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -26271,7 +26271,7 @@ argument_list|)
 expr_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases
@@ -26632,7 +26632,7 @@ comment|// QPSQL uses LongLong for manipulation of integers
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 init|=
 name|tst_Databases

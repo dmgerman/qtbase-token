@@ -235,7 +235,7 @@ begin_comment
 comment|/*!     \enum QSqlDriver::NotificationSource      This enum contains a list of SQL notification sources.      \value UnknownSource The notification source is unknown     \value SelfSource The notification source is this connection     \value OtherSource The notification source is another connection */
 end_comment
 begin_comment
-comment|/*!     \enum QSqlDriver::DBMSType      This enum contains DBMS types.      \value UnknownDBMS     \value MSSqlServer     \value MySqlServer     \value PostgreSQL     \value Oracle     \value Sybase     \value SQLite     \value Interbase     \value DB2 */
+comment|/*!     \enum QSqlDriver::DbmsType      This enum contains DBMS types.      \value UnknownDbms     \value MSSqlServer     \value MySqlServer     \value PostgreSQL     \value Oracle     \value Sybase     \value SQLite     \value Interbase     \value DB2 */
 end_comment
 begin_comment
 comment|/*!     \fn bool QSqlDriver::hasFeature(DriverFeature feature) const      Returns \c true if the driver supports feature \a feature; otherwise     returns \c false.      Note that some databases need to be open() before this can be     determined.      \sa DriverFeature */
@@ -1979,7 +1979,7 @@ begin_function
 DECL|function|dbmsType
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|QSqlDriver
 operator|::
 name|dbmsType

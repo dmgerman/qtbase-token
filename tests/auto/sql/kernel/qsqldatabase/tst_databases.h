@@ -1715,7 +1715,7 @@ argument_list|()
 decl_stmt|;
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 operator|=
 name|getDatabaseType
@@ -2186,7 +2186,7 @@ block|{
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 operator|=
 name|getDatabaseType
@@ -2313,7 +2313,7 @@ block|{
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 operator|=
 name|tst_Databases
@@ -2376,7 +2376,7 @@ block|{
 specifier|const
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|dbType
 operator|=
 name|tst_Databases
@@ -2588,7 +2588,7 @@ block|}
 specifier|static
 name|QSqlDriver
 operator|::
-name|DBMSType
+name|DbmsType
 name|getDatabaseType
 argument_list|(
 argument|QSqlDatabase db

@@ -8663,7 +8663,7 @@ name|ok
 operator|=
 name|QSslCertificate
 operator|::
-name|importPKCS12
+name|importPkcs12
 argument_list|(
 operator|&
 name|f

@@ -958,6 +958,7 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
 name|Build
 operator|.
 name|VERSION
@@ -973,6 +974,15 @@ operator|.
 name|SDK_INT
 operator|<=
 literal|13
+operator|)
+operator|||
+name|Build
+operator|.
+name|VERSION
+operator|.
+name|SDK_INT
+operator|==
+literal|21
 condition|)
 block|{
 name|QT_ANDROID_THEMES

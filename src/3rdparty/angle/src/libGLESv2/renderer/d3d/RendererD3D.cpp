@@ -91,6 +91,17 @@ name|~
 name|RendererD3D
 parameter_list|()
 block|{
+name|cleanup
+argument_list|()
+expr_stmt|;
+block|}
+DECL|function|cleanup
+name|void
+name|RendererD3D
+operator|::
+name|cleanup
+parameter_list|()
+block|{
 for|for
 control|(
 name|gl
