@@ -10234,10 +10234,34 @@ name|FrameDirty
 argument_list|)
 condition|)
 block|{
+comment|// Always skip calculating style-dependent margins for windows claimed to be frameless.
+comment|// This allows users to remove the margins by handling WM_NCCALCSIZE with WS_THICKFRAME set
+comment|// to ensure Areo snap still works (QTBUG-40578).
 name|m_data
 operator|.
 name|frame
 operator|=
+name|window
+argument_list|()
+operator|->
+name|flags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|FramelessWindowHint
+condition|?
+name|QMargins
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+else|:
 name|QWindowsGeometryHint
 operator|::
 name|frame
