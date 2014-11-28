@@ -27096,11 +27096,11 @@ literal|"/* strlen( \"qt_lcnsxxxx\") == 12 */"
 operator|<<
 name|endl
 operator|<<
-literal|"#define QT_CONFIGURE_LICENSEE qt_configure_licensee_str + 12;"
+literal|"#define QT_CONFIGURE_LICENSEE qt_configure_licensee_str + 12"
 operator|<<
 name|endl
 operator|<<
-literal|"#define QT_CONFIGURE_LICENSED_PRODUCTS qt_configure_licensed_products_str + 12;"
+literal|"#define QT_CONFIGURE_LICENSED_PRODUCTS qt_configure_licensed_products_str + 12"
 operator|<<
 name|endl
 expr_stmt|;
@@ -27129,7 +27129,7 @@ operator|)
 condition|)
 name|tmpStream
 operator|<<
-literal|"#define QT_CONFIGURE_SETTINGS_PATH qt_configure_settings_path_str + 12;"
+literal|"#define QT_CONFIGURE_SETTINGS_PATH qt_configure_settings_path_str + 12"
 operator|<<
 name|endl
 expr_stmt|;
