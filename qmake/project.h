@@ -304,6 +304,11 @@ block|;
 name|using
 name|QMakeEvaluator
 operator|::
+name|propertyValue
+block|;
+name|using
+name|QMakeEvaluator
+operator|::
 name|values
 block|;
 name|using

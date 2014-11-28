@@ -48,11 +48,6 @@ include|#
 directive|include
 file|<qfile.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qlibraryinfo.h>
-end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 DECL|macro|QMAKE_VERSION_STR
