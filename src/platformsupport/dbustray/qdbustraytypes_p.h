@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QDBUSTRAYTYPES_P_H
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SYSTEMTRAYICON
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -43,6 +48,9 @@ include|#
 directive|include
 file|<QPixmap>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_comment
 comment|// Custom message type to send icons across D-Bus
 end_comment
@@ -150,12 +158,6 @@ name|icon
 operator|)
 expr_stmt|;
 end_expr_stmt
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QXdgDBusImageStruct
-argument_list|)
-end_macro
 begin_expr_stmt
 specifier|const
 name|QDBusArgument
@@ -175,7 +177,6 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|operator
 specifier|const
 name|QDBusArgument
 operator|&
@@ -193,12 +194,6 @@ name|iconVector
 operator|)
 expr_stmt|;
 end_expr_stmt
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QXdgDBusImageVector
-argument_list|)
-end_macro
 begin_expr_stmt
 specifier|const
 name|QDBusArgument
@@ -218,7 +213,6 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|operator
 specifier|const
 name|QDBusArgument
 operator|&
@@ -236,12 +230,28 @@ name|toolTip
 operator|)
 expr_stmt|;
 end_expr_stmt
-begin_macro
+begin_decl_stmt
+name|QT_END_NAMESPACE
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QXdgDBusToolTipStruct
+name|QXdgDBusImageStruct
 argument_list|)
-end_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QXdgDBusImageVector
+argument_list|)
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QXdgDBusToolTipStruct
+argument_list|)
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SYSTEMTRAYICON
+end_comment
 begin_endif
 endif|#
 directive|endif
