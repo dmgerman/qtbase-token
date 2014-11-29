@@ -80,6 +80,10 @@ literal|0
 decl_stmt|;
 while|while
 condition|(
+name|chunk
+operator|<
+name|tldChunkCount
+operator|&&
 name|tldIndices
 index|[
 name|index
@@ -89,10 +93,6 @@ name|tldChunks
 index|[
 name|chunk
 index|]
-operator|&&
-name|chunk
-operator|<
-name|tldChunkCount
 condition|)
 block|{
 name|chunkIndex
