@@ -20,6 +20,15 @@ file|<QtCore/qglobal.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+name|QT_WARNING_PUSH
+name|QT_WARNING_DISABLE_GCC
+argument_list|(
+literal|"-Wdeprecated-declarations"
+argument_list|)
+name|QT_WARNING_DISABLE_CLANG
+argument_list|(
+literal|"-Wdeprecated-declarations"
+argument_list|)
 comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the public Qt API     and may be changed from version to version or even be completely removed. */
 name|namespace
 name|QAlgorithmsPrivate
@@ -3251,9 +3260,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
+begin_expr_stmt
+name|QT_WARNING_POP
 name|QT_END_NAMESPACE
-end_macro
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
