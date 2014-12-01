@@ -11158,22 +11158,25 @@ name|desc
 argument_list|(
 literal|"-prefix<dir>"
 argument_list|,
-literal|"This will install everything relative to<dir> (default $QT_INSTALL_PREFIX)\n"
+literal|"The deployment directory, as seen on the target device.\n"
+literal|"(default %CD%)\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-extprefix<dir>"
 argument_list|,
-literal|"When -sysroot is used, install everything to<dir>, rather than into SYSROOT/PREFIX.\n"
+literal|"The installation directory, as seen on the host machine.\n"
+literal|"(default SYSROOT/PREFIX)\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"-hostprefix [dir]"
 argument_list|,
-literal|"Tools and libraries needed when developing applications are installed in [dir]. "
-literal|"If [dir] is not given, the current build directory will be used. (default EXTPREFIX)\n"
+literal|"The installation directory for build tools running on the\n"
+literal|"host machine. If [dir] is not given, the current build\n"
+literal|"directory will be used. (default EXTPREFIX)\n"
 argument_list|)
 expr_stmt|;
 name|desc
