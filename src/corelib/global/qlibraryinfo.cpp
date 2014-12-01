@@ -438,15 +438,10 @@ directive|else
 block|}
 else|else
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BOOTSTRAPPED
 name|haveEffectiveSourcePaths
 operator|=
 literal|false
 expr_stmt|;
-endif|#
-directive|endif
 name|haveEffectivePaths
 operator|=
 literal|false
