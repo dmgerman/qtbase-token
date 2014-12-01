@@ -182,10 +182,6 @@ return|;
 block|}
 name|friend
 name|class
-name|QSslContext
-decl_stmt|;
-name|friend
-name|class
 name|QSslSocketPrivate
 decl_stmt|;
 name|friend
