@@ -2013,11 +2013,6 @@ argument_list|)
 expr_stmt|;
 name|m_editText
 operator|.
-name|bringToFront
-argument_list|()
-expr_stmt|;
-name|m_editText
-operator|.
 name|requestFocus
 argument_list|()
 expr_stmt|;
