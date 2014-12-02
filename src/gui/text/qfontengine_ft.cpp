@@ -5495,6 +5495,41 @@ name|load_flags
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|err
+operator|==
+name|FT_Err_Execution_Too_Long
+condition|)
+block|{
+comment|// This is an error in the bytecode, probably a web font made by someone who
+comment|// didn't test bytecode hinting at all so disable for it for all glyphs.
+name|qWarning
+argument_list|(
+literal|"load glyph failed due to broken hinting bytecode in font, switching to auto hinting"
+argument_list|)
+expr_stmt|;
+name|default_load_flags
+operator||=
+name|FT_LOAD_FORCE_AUTOHINT
+expr_stmt|;
+name|load_flags
+operator||=
+name|FT_LOAD_FORCE_AUTOHINT
+expr_stmt|;
+name|err
+operator|=
+name|FT_Load_Glyph
+argument_list|(
+name|face
+argument_list|,
+name|glyph
+argument_list|,
+name|load_flags
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|err
