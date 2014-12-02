@@ -254,24 +254,6 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
-name|drawLines
-argument_list|(
-argument|const QLine *lines
-argument_list|,
-argument|int lineCount
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
-name|drawLines
-argument_list|(
-argument|const QLineF *lines
-argument_list|,
-argument|int lineCount
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|void
 name|drawEllipse
 argument_list|(
 argument|const QRectF&r
