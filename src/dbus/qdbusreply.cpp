@@ -296,7 +296,7 @@ argument_list|()
 condition|)
 name|receivedSignature
 operator|=
-literal|"no signature"
+literal|"<empty signature>"
 expr_stmt|;
 name|QString
 name|errorMsg
