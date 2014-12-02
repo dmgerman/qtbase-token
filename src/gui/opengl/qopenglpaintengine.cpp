@@ -224,9 +224,6 @@ operator|::
 name|updateTextureFilter
 parameter_list|(
 name|GLenum
-name|target
-parameter_list|,
-name|GLenum
 name|wrapMode
 parameter_list|,
 name|bool
@@ -256,6 +253,13 @@ name|lastTextureUsed
 operator|=
 name|id
 expr_stmt|;
+specifier|static
+specifier|const
+name|GLenum
+name|target
+init|=
+name|GL_TEXTURE_2D
+decl_stmt|;
 if|if
 condition|(
 name|smoothPixmapTransform
@@ -642,8 +646,6 @@ argument_list|)
 expr_stmt|;
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_REPEAT
 argument_list|,
 name|q
@@ -746,8 +748,6 @@ name|ConicalGradient
 condition|)
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_REPEAT
 argument_list|,
 name|q
@@ -776,8 +776,6 @@ name|ReflectSpread
 condition|)
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_MIRRORED_REPEAT
 argument_list|,
 name|q
@@ -795,8 +793,6 @@ expr_stmt|;
 else|else
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|,
 name|q
@@ -920,8 +916,6 @@ argument_list|)
 expr_stmt|;
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|wrapMode
 argument_list|,
 name|q
@@ -8118,8 +8112,6 @@ name|d
 operator|->
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|,
 name|state
@@ -8409,8 +8401,6 @@ name|d
 operator|->
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|,
 name|state
@@ -8703,8 +8693,6 @@ name|d
 operator|->
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|,
 name|state
@@ -10594,8 +10582,6 @@ argument_list|)
 expr_stmt|;
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_REPEAT
 argument_list|,
 literal|false
@@ -11812,8 +11798,6 @@ name|allOpaque
 decl_stmt|;
 name|updateTextureFilter
 argument_list|(
-name|GL_TEXTURE_2D
-argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|,
 name|q
