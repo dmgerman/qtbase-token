@@ -11653,10 +11653,6 @@ name|x
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|face
-condition|)
 name|unlockFace
 argument_list|()
 expr_stmt|;
