@@ -7646,6 +7646,12 @@ literal|"_DEBUG"
 expr_stmt|;
 if|if
 condition|(
+name|conf
+operator|.
+name|CompilerVersion
+operator|<
+name|NET2010
+operator|&&
 name|project
 operator|->
 name|isActiveConfig
