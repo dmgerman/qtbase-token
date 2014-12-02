@@ -668,17 +668,45 @@ block|;
 name|void
 name|updateCompositionMode
 argument_list|()
+block|;      enum
+name|TextureUpdateMode
+block|{
+name|UpdateIfNeeded
+block|,
+name|ForceUpdate
+block|}
 block|;
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 name|void
-name|updateTextureFilter
+name|updateTexture
 argument_list|(
+argument|GLenum textureUnit
+argument_list|,
+argument|const T&texture
+argument_list|,
 argument|GLenum wrapMode
 argument_list|,
-argument|bool smoothPixmapTransform
+argument|GLenum filterMode
 argument_list|,
-argument|GLuint id = GLuint(-
-literal|1
-argument|)
+argument|TextureUpdateMode updateMode = UpdateIfNeeded
+argument_list|)
+block|;
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|GLuint
+name|bindTexture
+argument_list|(
+specifier|const
+name|T
+operator|&
+name|texture
 argument_list|)
 block|;
 name|void
