@@ -1497,6 +1497,11 @@ return|;
 block|}
 name|private
 label|:
+name|int
+name|registerPropertyType
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|const
 name|QMetaObject
 modifier|*
