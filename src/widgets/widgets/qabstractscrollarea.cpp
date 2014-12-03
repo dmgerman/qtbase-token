@@ -4120,7 +4120,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the margins around the scrolling area to \a left, \a top, \a     right and \a bottom. This is useful for applications such as     spreadsheets with "locked" rows and columns. The marginal space is     is left blank; put widgets in the unused area.      Note that this function is frequently called by QTreeView and     QTableView, so margins must be implemented by QAbstractScrollArea     subclasses. Also, if the subclasses are to be used in item views,     they should not call this function.      By default all margins are zero.  */
+comment|/*!     Sets the margins around the scrolling area to \a left, \a top, \a     right and \a bottom. This is useful for applications such as     spreadsheets with "locked" rows and columns. The marginal space is     is left blank; put widgets in the unused area.      Note that this function is frequently called by QTreeView and     QTableView, so margins must be implemented by QAbstractScrollArea     subclasses. Also, if the subclasses are to be used in item views,     they should not call this function.      By default all margins are zero.     \sa viewportMargins() */
 end_comment
 begin_function
 DECL|function|setViewportMargins
@@ -4179,7 +4179,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Sets \a margins around the scrolling area. This is useful for     applications such as spreadsheets with "locked" rows and columns.     The marginal space is is left blank; put widgets in the unused     area.      By default all margins are zero.  */
+comment|/*!     \since 4.6     Sets \a margins around the scrolling area. This is useful for     applications such as spreadsheets with "locked" rows and columns.     The marginal space is is left blank; put widgets in the unused     area.      By default all margins are zero.     \sa viewportMargins() */
 end_comment
 begin_function
 DECL|function|setViewportMargins
@@ -4217,6 +4217,46 @@ name|bottom
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.5     Returns the margins around the scrolling area.     By default all the margins are zero.      \sa setViewportMargins() */
+end_comment
+begin_function
+DECL|function|viewportMargins
+name|QMargins
+name|QAbstractScrollArea
+operator|::
+name|viewportMargins
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QAbstractScrollArea
+argument_list|)
+expr_stmt|;
+return|return
+name|QMargins
+argument_list|(
+name|d
+operator|->
+name|left
+argument_list|,
+name|d
+operator|->
+name|top
+argument_list|,
+name|d
+operator|->
+name|right
+argument_list|,
+name|d
+operator|->
+name|bottom
+argument_list|)
+return|;
 block|}
 end_function
 begin_comment

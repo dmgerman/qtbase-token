@@ -263,6 +263,11 @@ operator|&
 name|margins
 argument_list|)
 block|;
+name|QMargins
+name|viewportMargins
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|eventFilter
 argument_list|(
