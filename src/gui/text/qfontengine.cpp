@@ -9848,7 +9848,12 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-return|return
+if|if
+condition|(
+name|QFontEngine
+modifier|*
+name|engine
+init|=
 name|QFontDatabase
 operator|::
 name|findFont
@@ -9863,6 +9868,20 @@ argument_list|,
 comment|/*multi = */
 literal|false
 argument_list|)
+condition|)
+block|{
+name|engine
+operator|->
+name|fontDef
+operator|=
+name|request
+expr_stmt|;
+return|return
+name|engine
+return|;
+block|}
+return|return
+literal|0
 return|;
 block|}
 end_function
