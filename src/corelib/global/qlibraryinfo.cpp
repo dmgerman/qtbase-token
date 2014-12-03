@@ -1471,6 +1471,11 @@ comment|// and qt.conf with that section is present, use it, otherwise fall back
 comment|// FinalPaths. For FinalPaths, use qt.conf if present and contains not only
 comment|// [EffectivePaths], otherwise fall back to builtins.
 comment|// EffectiveSourcePaths falls back to EffectivePaths.
+name|PathGroup
+name|orig_group
+init|=
+name|group
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1519,6 +1524,14 @@ argument_list|(
 name|group
 argument_list|)
 operator|)
+operator|)
+operator|&&
+operator|(
+name|group
+operator|=
+name|orig_group
+operator|,
+literal|true
 operator|)
 condition|)
 elif|#
