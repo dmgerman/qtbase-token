@@ -639,11 +639,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|tailBuffer
-operator|==
-literal|0
-operator|&&
-name|tail
+name|bufferSize
 operator|==
 literal|0
 return|;
