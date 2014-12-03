@@ -629,7 +629,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_sourceDataChanged(const QModelIndex&source_top_left, const QModelIndex&source_bottom_right)
+argument|void _q_sourceDataChanged(const QModelIndex&source_top_left, const QModelIndex&source_bottom_right, const QVector<int>&roles)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
