@@ -26886,10 +26886,6 @@ literal|"/* Installation Info */"
 operator|<<
 name|endl
 operator|<<
-literal|"#ifndef QT_BUILD_QMAKE"
-operator|<<
-name|endl
-operator|<<
 literal|"static const char qt_configure_prefix_path_str       [512 + 12] = \"qt_prfxpath="
 operator|<<
 name|dictionary
@@ -26901,11 +26897,11 @@ literal|"\";"
 operator|<<
 name|endl
 operator|<<
-literal|"#else"
+literal|"#ifdef QT_BUILD_QMAKE"
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_prefix_path_str       [512 + 12] = \"qt_prfxpath="
+literal|"static const char qt_configure_ext_prefix_path_str   [512 + 12] = \"qt_epfxpath="
 operator|<<
 name|dictionary
 index|[
@@ -27057,6 +27053,8 @@ operator|<<
 literal|"#define QT_CONFIGURE_PREFIX_PATH qt_configure_prefix_path_str + 12\n"
 operator|<<
 literal|"#ifdef QT_BUILD_QMAKE\n"
+operator|<<
+literal|"# define QT_CONFIGURE_EXT_PREFIX_PATH qt_configure_ext_prefix_path_str + 12\n"
 operator|<<
 literal|"# define QT_CONFIGURE_HOST_PREFIX_PATH qt_configure_host_prefix_path_str + 12\n"
 operator|<<

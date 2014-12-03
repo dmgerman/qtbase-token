@@ -154,6 +154,8 @@ block|,
 name|EffectivePaths
 block|,
 name|EffectiveSourcePaths
+block|,
+name|DevicePaths
 block|}
 enum|;
 specifier|static

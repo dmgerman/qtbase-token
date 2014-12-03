@@ -101,6 +101,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_BUILD_QMAKE
+DECL|member|haveDevicePaths
+name|bool
+name|haveDevicePaths
+decl_stmt|;
 DECL|member|haveEffectiveSourcePaths
 name|bool
 name|haveEffectiveSourcePaths
@@ -183,6 +187,16 @@ name|ls
 operator|->
 name|haveEffectivePaths
 else|:
+name|group
+operator|==
+name|QLibraryInfo
+operator|::
+name|DevicePaths
+condition|?
+name|ls
+operator|->
+name|haveDevicePaths
+else|:
 name|ls
 operator|->
 name|havePaths
@@ -253,6 +267,9 @@ ifndef|#
 directive|ifndef
 name|QT_BUILD_QMAKE
 name|bool
+name|haveDevicePaths
+decl_stmt|;
+name|bool
 name|haveEffectivePaths
 decl_stmt|;
 name|bool
@@ -275,6 +292,18 @@ operator|->
 name|childGroups
 argument_list|()
 decl_stmt|;
+name|haveDevicePaths
+operator|=
+name|children
+operator|.
+name|contains
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"DevicePaths"
+argument_list|)
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_BUILD_QMAKE
@@ -318,6 +347,9 @@ comment|// Backwards compat: an existing but empty file is claimed to contain th
 name|havePaths
 operator|=
 operator|(
+operator|!
+name|haveDevicePaths
+operator|&&
 operator|!
 name|haveEffectivePaths
 operator|&&
@@ -363,6 +395,10 @@ directive|else
 block|}
 else|else
 block|{
+name|haveDevicePaths
+operator|=
+literal|false
+expr_stmt|;
 name|haveEffectiveSourcePaths
 operator|=
 literal|false
@@ -1466,6 +1502,7 @@ comment|// and qt.conf with that section is present, use it, otherwise fall back
 comment|// FinalPaths. For FinalPaths, use qt.conf if present and contains not only
 comment|// [EffectivePaths], otherwise fall back to builtins.
 comment|// EffectiveSourcePaths falls back to EffectivePaths.
+comment|// DevicePaths falls back to FinalPaths.
 name|PathGroup
 name|orig_group
 init|=
@@ -1503,9 +1540,15 @@ operator|)
 operator|&&
 operator|!
 operator|(
+operator|(
 name|group
 operator|==
 name|EffectivePaths
+operator|||
+name|group
+operator|==
+name|DevicePaths
+operator|)
 operator|&&
 operator|(
 name|group
@@ -1563,6 +1606,19 @@ condition|)
 block|{
 name|path
 operator|=
+ifdef|#
+directive|ifdef
+name|QT_BUILD_QMAKE
+operator|(
+name|group
+operator|!=
+name|DevicePaths
+operator|)
+condition|?
+name|QT_CONFIGURE_EXT_PREFIX_PATH
+else|:
+endif|#
+directive|endif
 name|QT_CONFIGURE_PREFIX_PATH
 expr_stmt|;
 block|}
@@ -1620,7 +1676,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 block|}
 elseif|else
 if|if
@@ -1755,6 +1811,12 @@ argument_list|(
 ifdef|#
 directive|ifdef
 name|QT_BUILD_QMAKE
+name|group
+operator|==
+name|DevicePaths
+condition|?
+literal|"DevicePaths"
+else|:
 name|group
 operator|==
 name|EffectiveSourcePaths
