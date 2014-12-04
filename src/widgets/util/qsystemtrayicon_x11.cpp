@@ -382,8 +382,10 @@ comment|// (a) exists and (b) supports an alpha channel, i.e. is 32 bits.
 comment|// If we have a visual that has an alpha channel, we can paint this widget with a transparent
 comment|// background and it will work.
 comment|// However, if there's no alpha channel visual, in order for transparent tray icons to work,
-comment|// we do not have a transparent background on the widget, but call xcb_clear_region before
-comment|// painting the icon
+comment|// we do not have a transparent background on the widget, but set the BackPixmap property of our
+comment|// window to ParentRelative (so that it inherits the background of its X11 parent window), call
+comment|// xcb_clear_region before painting (so that the inherited background is visible) and then grab
+comment|// the just-drawn background from the X11 server.
 name|bool
 name|hasAlphaChannel
 init|=
@@ -421,6 +423,48 @@ argument_list|,
 name|hasAlphaChannel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hasAlphaChannel
+condition|)
+block|{
+name|createWinId
+argument_list|()
+expr_stmt|;
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|QGuiApplication
+operator|::
+name|platformNativeInterface
+argument_list|()
+argument_list|,
+literal|"setParentRelativeBackPixmap"
+argument_list|,
+name|Qt
+operator|::
+name|DirectConnection
+argument_list|,
+name|Q_ARG
+argument_list|(
+specifier|const
+name|QWindow
+operator|*
+argument_list|,
+name|windowHandle
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// XXX: This is actually required, but breaks things ("QWidget::paintEngine: Should no
+comment|// longer be called"). Why is this needed? When the widget is drawn, we use tricks to grab
+comment|// the tray icon's background from the server. If the tray icon isn't visible (because
+comment|// another window is on top of it), the trick fails and instead uses the content of that
+comment|// other window as the background.
+comment|// setAttribute(Qt::WA_PaintOnScreen);
+block|}
 name|addToTray
 argument_list|()
 expr_stmt|;
@@ -913,6 +957,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Without Qt::WA_TranslucentBackground, we use a ParentRelative BackPixmap and jump through
+comment|// some hops to draw this background below our icon. This clears the whole tray icon to its
+comment|// background color and thus causes flickering (you can see that the icon is being
+comment|// repainted). However, we can't really do much about this.
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -945,6 +993,49 @@ name|QRect
 operator|&
 argument_list|,
 name|rect
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|painter
+operator|.
+name|drawPixmap
+argument_list|(
+name|QPoint
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+operator|->
+name|grabWindow
+argument_list|(
+name|winId
+argument_list|()
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|rect
+operator|.
+name|size
+argument_list|()
+operator|.
+name|width
+argument_list|()
+argument_list|,
+name|rect
+operator|.
+name|size
+argument_list|()
+operator|.
+name|height
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

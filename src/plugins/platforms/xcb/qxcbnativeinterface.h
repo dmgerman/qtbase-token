@@ -356,6 +356,16 @@ name|rect
 argument_list|)
 block|;
 name|Q_INVOKABLE
+name|void
+name|setParentRelativeBackPixmap
+argument_list|(
+specifier|const
+name|QWindow
+operator|*
+name|window
+argument_list|)
+block|;
+name|Q_INVOKABLE
 name|bool
 name|systrayVisualHasAlphaChannel
 argument_list|()
