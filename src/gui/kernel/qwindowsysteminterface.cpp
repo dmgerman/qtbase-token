@@ -3819,7 +3819,7 @@ operator|::
 name|flushEventMutex
 argument_list|)
 decl_stmt|;
-name|flushWindowSystemEvents
+name|sendWindowSystemEvents
 argument_list|(
 name|flags
 argument_list|)
