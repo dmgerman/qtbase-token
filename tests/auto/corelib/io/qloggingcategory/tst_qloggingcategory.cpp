@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2015 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -140,6 +140,17 @@ operator|.
 name|append
 argument_list|(
 literal|".debug"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|QtInfoMsg
+case|:
+name|message
+operator|.
+name|append
+argument_list|(
+literal|".info"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1708,6 +1719,28 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
+comment|// Check default info
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"default.info: Check info with no filter active"
+argument_list|)
+expr_stmt|;
+name|qInfo
+argument_list|(
+literal|"%s"
+argument_list|,
+literal|"Check info with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
 comment|// Check default warning
 name|buf
 operator|=
@@ -2044,6 +2077,42 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
+comment|// Check default info
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"default.info: Check info with no filter active"
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|defaultCategory
+argument_list|)
+operator|<<
+literal|"Check info with no filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|defaultCategory
+argument_list|,
+literal|"Check info with no filter active"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
 comment|// Check default warning
 name|buf
 operator|=
@@ -2155,6 +2224,28 @@ name|customCategory
 argument_list|)
 operator|<<
 literal|"Check debug with no filter active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|logMessage
+argument_list|,
+name|buf
+argument_list|)
+expr_stmt|;
+comment|// Check custom info
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"custom.info: Check info with no filter active"
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|customCategory
+argument_list|)
+operator|<<
+literal|"Check info with no filter active"
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -2483,7 +2574,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|// Check the Debug, Warning and critical without having category active. should be active.
+comment|// Check the Debug, Info, Warning and critical without having category active. should be active.
 DECL|function|checkNoCategoryLogActive
 name|void
 name|checkNoCategoryLogActive
@@ -2502,6 +2593,32 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"Check default Debug with no log active"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Check default info
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"default.info: Check default Info with no log active"
+argument_list|)
+expr_stmt|;
+name|qInfo
+argument_list|()
+operator|<<
+literal|"Check default Info with no log active"
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -2582,6 +2699,21 @@ name|TST_LOG
 argument_list|)
 operator|<<
 literal|"Check category Debug with no log active"
+expr_stmt|;
+comment|// Check category info
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"tst.log.info: Check category Info with no log active"
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|TST_LOG
+argument_list|)
+operator|<<
+literal|"Check category Info with no log active"
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -2783,6 +2915,33 @@ name|buf
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|qCInfo
+argument_list|(
+name|TST_LOG
+argument_list|)
+operator|<<
+literal|"InfoType"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"tst.log.info: InfoType"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|qCWarning
 argument_list|(
 name|TST_LOG
@@ -2847,6 +3006,7 @@ name|logMessage
 operator|=
 literal|""
 expr_stmt|;
+comment|// all are on by default
 name|qDebug
 argument_list|()
 operator|<<
@@ -2873,7 +3033,31 @@ name|buf
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// debug off by default, warning and critical are on
+name|qInfo
+argument_list|()
+operator|<<
+literal|"DefaultInfo"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"default.info: DefaultInfo"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -2924,14 +3108,14 @@ name|buf
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Enable debug
+comment|// Disable debug
 name|_config
 operator|->
 name|addKey
 argument_list|(
 literal|"default.debug"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|QLoggingCategory
@@ -2944,6 +3128,10 @@ name|array
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|logMessage
+operator|=
+literal|"no change"
+expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
@@ -2953,7 +3141,32 @@ name|buf
 operator|=
 name|QStringLiteral
 argument_list|(
-literal|"default.debug: DefaultDebug1"
+literal|"no change"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qInfo
+argument_list|()
+operator|<<
+literal|"DefaultInfo1"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"default.info: DefaultInfo1"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -3019,7 +3232,31 @@ name|buf
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Disable warning
+name|_config
+operator|->
+name|clear
+argument_list|()
+expr_stmt|;
+name|QLoggingCategory
+operator|::
+name|setFilterRules
+argument_list|(
+name|_config
+operator|->
+name|array
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Disable info, warning
+name|_config
+operator|->
+name|addKey
+argument_list|(
+literal|"default.info"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|_config
 operator|->
 name|addKey
@@ -3067,6 +3304,31 @@ expr_stmt|;
 name|logMessage
 operator|=
 literal|"no change"
+expr_stmt|;
+name|qInfo
+argument_list|()
+operator|<<
+literal|"DefaultInfo2"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"no change"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|qWarning
 argument_list|()
@@ -3176,6 +3438,24 @@ name|buf
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|qInfo
+argument_list|()
+operator|<<
+literal|"DefaultInfo3"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
@@ -3235,6 +3515,15 @@ name|_config
 operator|->
 name|addKey
 argument_list|(
+literal|"default.info"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|_config
+operator|->
+name|addKey
+argument_list|(
 literal|"default.debug"
 argument_list|,
 literal|true
@@ -3261,6 +3550,31 @@ operator|=
 name|QStringLiteral
 argument_list|(
 literal|"default.debug: DefaultDebug4"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qInfo
+argument_list|()
+operator|<<
+literal|"DefaultInfo4"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"default.info: DefaultInfo4"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -3362,6 +3676,24 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"DefaultDebug5"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qDebug
+argument_list|()
+operator|<<
+literal|"DefaultInfo5"
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -3848,6 +4180,13 @@ argument_list|(
 literal|"no change"
 argument_list|)
 expr_stmt|;
+name|qCInfo
+argument_list|(
+name|Digia_Oulu_Office_com
+argument_list|)
+operator|<<
+literal|"Info: Digia.Oulu.Office.com 4"
+expr_stmt|;
 name|qCWarning
 argument_list|(
 name|Digia_Oulu_Office_com
@@ -3916,6 +4255,33 @@ operator|=
 name|QStringLiteral
 argument_list|(
 literal|"Digia.Oslo.Office.com.debug: Debug: Digia.Oslo.Office.com 5"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|Digia_Oulu_Office_com
+argument_list|)
+operator|<<
+literal|"Info: Digia.Oulu.Office.com 5"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"Digia.Oulu.Office.com.info: Info: Digia.Oulu.Office.com 5"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -4023,6 +4389,13 @@ argument_list|)
 operator|<<
 literal|"Debug: Digia.Oslo.Office.com 6"
 expr_stmt|;
+name|qCInfo
+argument_list|(
+name|Digia_Oslo_Office_com
+argument_list|)
+operator|<<
+literal|"Info: Digia.Oslo.Office.com 6"
+expr_stmt|;
 name|qCWarning
 argument_list|(
 name|Digia_Oulu_Office_com
@@ -4081,6 +4454,33 @@ operator|=
 name|QStringLiteral
 argument_list|(
 literal|"Digia.Oslo.Office.com.debug: Debug: Digia.Oslo.Office.com 7"
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|Digia_Oulu_Office_com
+argument_list|)
+operator|<<
+literal|"Info: Digia.Oulu.Office.com 7"
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"Digia.Oulu.Office.com.info: Info: Digia.Oulu.Office.com 7"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -4234,6 +4634,33 @@ name|buf
 operator|=
 name|QStringLiteral
 argument_list|(
+literal|"LoggingCategoryObject.info: My Category Object"
+argument_list|)
+expr_stmt|;
+name|qCInfo
+argument_list|(
+name|mycategoryobject
+argument_list|)
+operator|<<
+literal|"My Category Object"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
 literal|"LoggingCategoryObject.warning: My Category Object"
 argument_list|)
 expr_stmt|;
@@ -4325,6 +4752,33 @@ literal|"LoggingCategoryObject.warning: My Category Object"
 argument_list|)
 expr_stmt|;
 name|qCWarning
+argument_list|(
+name|mycategoryobject
+argument_list|)
+operator|<<
+literal|"My Category Object"
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|cleanLogLine
+argument_list|(
+name|logMessage
+argument_list|)
+argument_list|,
+name|cleanLogLine
+argument_list|(
+name|buf
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|buf
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"LoggingCategoryObject.info: My Category Object"
+argument_list|)
+expr_stmt|;
+name|qCInfo
 argument_list|(
 name|mycategoryobject
 argument_list|)
