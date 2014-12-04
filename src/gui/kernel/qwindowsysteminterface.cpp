@@ -2002,6 +2002,11 @@ name|Qt
 operator|::
 name|ScrollPhase
 name|phase
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|unsigned
@@ -2032,6 +2037,8 @@ argument_list|,
 name|mods
 argument_list|,
 name|phase
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}
@@ -2075,6 +2082,11 @@ name|Qt
 operator|::
 name|ScrollPhase
 name|phase
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 comment|// Qt 4 sends two separate wheel events for horizontal and vertical
@@ -2155,6 +2167,8 @@ argument_list|,
 name|mods
 argument_list|,
 name|phase
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -2215,6 +2229,8 @@ argument_list|,
 name|mods
 argument_list|,
 name|phase
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -2260,6 +2276,8 @@ argument_list|,
 name|mods
 argument_list|,
 name|phase
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -2304,6 +2322,8 @@ argument_list|,
 name|mods
 argument_list|,
 name|phase
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterfacePrivate

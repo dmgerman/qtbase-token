@@ -730,6 +730,15 @@ operator|=
 name|Qt
 operator|::
 name|ScrollUpdate
+argument_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
+operator|=
+name|Qt
+operator|::
+name|MouseEventNotSynthesized
 argument_list|)
 decl_stmt|;
 specifier|static
@@ -776,6 +785,15 @@ operator|=
 name|Qt
 operator|::
 name|ScrollUpdate
+argument_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
+operator|=
+name|Qt
+operator|::
+name|MouseEventNotSynthesized
 argument_list|)
 decl_stmt|;
 comment|// Wheel event compatibility functions. Will be removed: do not use.

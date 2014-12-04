@@ -953,6 +953,8 @@ argument_list|,
 argument|Qt::KeyboardModifiers mods
 argument_list|,
 argument|Qt::ScrollPhase phase = Qt::ScrollUpdate
+argument_list|,
+argument|Qt::MouseEventSource src = Qt::MouseEventNotSynthesized
 argument_list|)
 operator|:
 name|InputEvent
@@ -998,7 +1000,12 @@ argument_list|)
 block|,
 name|phase
 argument_list|(
-argument|phase
+name|phase
+argument_list|)
+block|,
+name|source
+argument_list|(
+argument|src
 argument_list|)
 block|{ }
 name|QPoint
@@ -1025,6 +1032,11 @@ name|Qt
 operator|::
 name|ScrollPhase
 name|phase
+block|;
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 block|;     }
 decl_stmt|;
 name|class
