@@ -112,8 +112,6 @@ name|QT_BUILD_QMAKE
 comment|// These are not subject to binary compatibility constraints
 name|SysrootPath
 block|,
-name|HostPrefixPath
-block|,
 name|HostBinariesPath
 block|,
 name|HostLibrariesPath
@@ -124,9 +122,11 @@ name|TargetSpecPath
 block|,
 name|HostSpecPath
 block|,
+name|HostPrefixPath
+block|,
 name|LastHostPath
 init|=
-name|HostSpecPath
+name|HostPrefixPath
 block|,
 endif|#
 directive|endif
