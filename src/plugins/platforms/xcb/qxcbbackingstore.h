@@ -117,14 +117,14 @@ name|translucentBackground
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
-endif|#
-directive|endif
 name|QImage
 name|toImage
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+endif|#
+directive|endif
 name|void
 name|resize
 argument_list|(

@@ -1354,6 +1354,11 @@ block|}
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_function
 DECL|function|toImage
 name|QImage
@@ -1382,6 +1387,10 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|flush
 name|void
