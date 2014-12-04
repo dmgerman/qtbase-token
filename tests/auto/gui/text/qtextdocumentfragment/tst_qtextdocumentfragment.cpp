@@ -4050,7 +4050,7 @@ argument_list|()
 operator|==
 name|QTextListFormat
 operator|::
-name|ListCircle
+name|ListDisc
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -4058,7 +4058,7 @@ name|char
 name|html2
 index|[]
 init|=
-literal|"<ul><ul><ul type=disc><li>Blah</li></ul></ul>"
+literal|"<ul><ul><ul type=circle><li>Blah</li></ul></ul>"
 decl_stmt|;
 name|setHtml
 argument_list|(
@@ -4102,7 +4102,7 @@ argument_list|()
 operator|==
 name|QTextListFormat
 operator|::
-name|ListDisc
+name|ListCircle
 argument_list|)
 expr_stmt|;
 block|}
