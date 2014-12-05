@@ -2419,6 +2419,14 @@ init|=
 literal|500
 decl_stmt|;
 comment|// default threshold
+name|QElapsedTimer
+name|time
+decl_stmt|;
+name|time
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|activateControl
@@ -2429,14 +2437,6 @@ name|pressedControl
 argument_list|,
 name|initialDelay
 argument_list|)
-expr_stmt|;
-name|QElapsedTimer
-name|time
-decl_stmt|;
-name|time
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|repaint
 argument_list|(
@@ -2477,8 +2477,9 @@ name|isActive
 argument_list|()
 condition|)
 block|{
-comment|// It took more than 500ms (the initial timer delay) to process the repaint(), we
-comment|// therefore need to restart the timer in case we have a pending mouse release event;
+comment|// It took more than 500ms (the initial timer delay) to process
+comment|// the control activation and repaint(), we therefore need
+comment|// to restart the timer in case we have a pending mouse release event;
 comment|// otherwise we'll get a timer event right before the release event,
 comment|// causing the repeat action to be invoked twice on a single mouse click.
 comment|// 50ms is the default repeat time (see activateControl/setRepeatAction).
