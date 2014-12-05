@@ -1637,6 +1637,9 @@ block|{
 comment|// Extract palette information
 name|QPalette
 name|palette
+init|=
+operator|*
+name|defaultPalette
 decl_stmt|;
 name|attributeIterator
 operator|=
