@@ -475,6 +475,18 @@ argument|QMouseEvent *e
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+name|void
+name|wheelEvent
+argument_list|(
+argument|QWheelEvent *e
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+endif|#
+directive|endif
 name|void
 name|timerEvent
 argument_list|(
