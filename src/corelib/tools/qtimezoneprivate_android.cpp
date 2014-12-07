@@ -825,6 +825,184 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|// Since Android does not provide an API to access transitions,
+end_comment
+begin_comment
+comment|// dataForLocalTime needs to be reimplemented without direct use of transitions
+end_comment
+begin_function
+DECL|function|dataForLocalTime
+name|QTimeZonePrivate
+operator|::
+name|Data
+name|QAndroidTimeZonePrivate
+operator|::
+name|dataForLocalTime
+parameter_list|(
+name|qint64
+name|forLocalMSecs
+parameter_list|)
+specifier|const
+block|{
+if|if
+condition|(
+operator|!
+name|androidTimeZone
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+return|return
+name|invalidData
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+name|qint64
+name|UTCepochMSecs
+decl_stmt|;
+comment|// compare the UTC time with standard offset against normal daylight offset of one hour
+name|qint64
+name|standardUTCMSecs
+argument_list|(
+name|forLocalMSecs
+operator|-
+operator|(
+name|standardTimeOffset
+argument_list|(
+name|forLocalMSecs
+argument_list|)
+operator|*
+literal|1000
+operator|)
+argument_list|)
+decl_stmt|;
+name|qint64
+name|daylightUTCMsecs
+decl_stmt|;
+comment|// Check if daylight time does apply,
+comment|// checking also for daylight time boundaries
+if|if
+condition|(
+name|isDaylightTime
+argument_list|(
+name|standardUTCMSecs
+argument_list|)
+condition|)
+block|{
+comment|// If daylight does apply, then standardUTCMSecs will be an hour or so ahead of the real epoch time
+comment|// so check that time
+name|daylightUTCMsecs
+operator|=
+name|standardUTCMSecs
+operator|-
+name|daylightTimeOffset
+argument_list|(
+name|standardUTCMSecs
+argument_list|)
+operator|*
+literal|1000
+expr_stmt|;
+if|if
+condition|(
+name|isDaylightTime
+argument_list|(
+name|daylightUTCMsecs
+argument_list|)
+condition|)
+block|{
+comment|// daylight time confirmed
+name|UTCepochMSecs
+operator|=
+name|daylightUTCMsecs
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// daylight time has just finished
+name|UTCepochMSecs
+operator|=
+name|standardUTCMSecs
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// Standard time indicated, but check for a false negative.
+comment|// Would a standard one-hour daylight offset indicate daylight time?
+name|daylightUTCMsecs
+operator|=
+name|standardUTCMSecs
+operator|-
+literal|3600000
+expr_stmt|;
+comment|// 3600000 MSECS_PER_HOUR
+if|if
+condition|(
+name|isDaylightTime
+argument_list|(
+name|daylightUTCMsecs
+argument_list|)
+condition|)
+block|{
+comment|// daylight time may have just started,
+comment|// but double check against timezone's own daylight offset
+comment|// (don't necessarily assume a one-hour offset)
+name|daylightUTCMsecs
+operator|=
+name|standardUTCMSecs
+operator|-
+name|daylightTimeOffset
+argument_list|(
+name|daylightUTCMsecs
+argument_list|)
+operator|*
+literal|1000
+expr_stmt|;
+if|if
+condition|(
+name|isDaylightTime
+argument_list|(
+name|daylightUTCMsecs
+argument_list|)
+condition|)
+block|{
+comment|// daylight time confirmed
+name|UTCepochMSecs
+operator|=
+name|daylightUTCMsecs
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// false positive, apply standard time after all
+name|UTCepochMSecs
+operator|=
+name|standardUTCMSecs
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// confirmed standard time
+name|UTCepochMSecs
+operator|=
+name|standardUTCMSecs
+expr_stmt|;
+block|}
+block|}
+return|return
+name|data
+argument_list|(
+name|UTCepochMSecs
+argument_list|)
+return|;
+block|}
+block|}
+end_function
 begin_function
 DECL|function|systemTimeZoneId
 name|QByteArray

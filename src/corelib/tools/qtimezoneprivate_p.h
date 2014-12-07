@@ -1994,6 +1994,14 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|Data
+name|dataForLocalTime
+argument_list|(
+argument|qint64 forLocalMSecs
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QByteArray
 name|systemTimeZoneId
 argument_list|()
