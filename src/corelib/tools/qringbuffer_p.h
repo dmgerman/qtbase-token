@@ -136,12 +136,11 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|buffers
-operator|.
-name|isEmpty
-argument_list|()
-operator|?
+name|bufferSize
+operator|==
 literal|0
+operator|?
+name|Q_NULLPTR
 operator|:
 operator|(
 name|buffers
