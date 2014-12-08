@@ -622,7 +622,12 @@ argument_list|)
 expr_stmt|;
 name|name
 operator|=
+name|QString
+operator|::
+name|fromLocal8Bit
+argument_list|(
 name|displayName
+argument_list|)
 operator|+
 name|QLatin1Char
 argument_list|(
