@@ -32,6 +32,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslsocket.h"
 end_include
 begin_include
@@ -222,8 +227,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::QSslSocket("
 operator|<<
@@ -271,8 +278,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::~QSslSocket(), this ="
 operator|<<
@@ -369,8 +378,10 @@ operator|==
 name|ConnectingState
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::connectToHostEncrypted() called when already connecting/connected"
 argument_list|)
 expr_stmt|;
@@ -458,8 +469,10 @@ operator|==
 name|ConnectingState
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::connectToHostEncrypted() called when already connecting/connected"
 argument_list|)
 expr_stmt|;
@@ -531,8 +544,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::setSocketDescriptor("
 operator|<<
@@ -980,8 +995,10 @@ operator|<
 literal|0
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::setPeerVerifyDepth: cannot set negative depth of %d"
 argument_list|,
 name|depth
@@ -1303,8 +1320,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::close()"
 expr_stmt|;
@@ -1434,8 +1453,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::flush()"
 expr_stmt|;
@@ -1532,8 +1553,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::abort()"
 expr_stmt|;
@@ -3386,8 +3409,10 @@ operator|==
 name|UnconnectedState
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::waitForDisconnected() is not allowed in UnconnectedState"
 argument_list|)
 expr_stmt|;
@@ -3662,8 +3687,10 @@ operator|!=
 name|UnencryptedMode
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::startClientEncryption: cannot start handshake on non-plain connection"
 argument_list|)
 expr_stmt|;
@@ -3677,8 +3704,10 @@ operator|!=
 name|ConnectedState
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::startClientEncryption: cannot start handshake when not connected"
 argument_list|)
 expr_stmt|;
@@ -3687,8 +3716,10 @@ block|}
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::startClientEncryption()"
 expr_stmt|;
@@ -3740,8 +3771,10 @@ operator|!=
 name|UnencryptedMode
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket::startServerEncryption: cannot start handshake on non-plain connection"
 argument_list|)
 expr_stmt|;
@@ -3750,8 +3783,10 @@ block|}
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::startServerEncryption()"
 expr_stmt|;
@@ -3891,8 +3926,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::connectToHost("
 operator|<<
@@ -3921,8 +3958,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tcreating internal plain socket"
 expr_stmt|;
@@ -4007,8 +4046,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::disconnectFromHost()"
 expr_stmt|;
@@ -4200,8 +4241,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::readData("
 operator|<<
@@ -4280,8 +4323,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::writeData("
 operator|<<
@@ -5791,13 +5836,17 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_connectedSlot()"
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tstate ="
 operator|<<
@@ -5806,8 +5855,10 @@ operator|->
 name|state
 argument_list|()
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tpeer ="
 operator|<<
@@ -5826,8 +5877,10 @@ operator|->
 name|peerPort
 argument_list|()
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tlocal ="
 operator|<<
@@ -5913,13 +5966,17 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_hostFoundSlot()"
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tstate ="
 operator|<<
@@ -5957,13 +6014,17 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_disconnectedSlot()"
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tstate ="
 operator|<<
@@ -6009,8 +6070,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_stateChangedSlot("
 operator|<<
@@ -6061,8 +6124,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_errorSlot("
 operator|<<
@@ -6070,8 +6135,10 @@ name|error
 operator|<<
 literal|')'
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\tstate ="
 operator|<<
@@ -6080,8 +6147,10 @@ operator|->
 name|state
 argument_list|()
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"\terrorString ="
 operator|<<
@@ -6141,8 +6210,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_readyReadSlot() -"
 operator|<<
@@ -6208,8 +6279,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocket::_q_bytesWrittenSlot("
 operator|<<

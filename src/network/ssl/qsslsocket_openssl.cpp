@@ -14,6 +14,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslsocket_openssl_p.h"
 end_include
 begin_include
@@ -1076,13 +1081,17 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"verification error: dumping bad certificate"
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|QSslCertificatePrivate
 operator|::
@@ -1097,8 +1106,10 @@ operator|.
 name|toPem
 argument_list|()
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"dumping chain"
 expr_stmt|;
@@ -1127,8 +1138,10 @@ literal|"O=%1 CN=%2 L=%3 OU=%4 C=%5 ST=%6"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Issuer:"
 operator|<<
@@ -1198,8 +1211,10 @@ operator|::
 name|StateOrProvinceName
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Subject:"
 operator|<<
@@ -1269,8 +1284,10 @@ operator|::
 name|StateOrProvinceName
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Valid:"
 operator|<<
@@ -1764,8 +1781,10 @@ name|data
 argument_list|()
 argument_list|)
 condition|)
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not set SSL_CTRL_SET_TLSEXT_HOSTNAME, Server Name Indication disabled"
 argument_list|)
 expr_stmt|;
@@ -2240,8 +2259,10 @@ condition|(
 operator|!
 name|ptrSecCertificateCopyData
 condition|)
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not resolve symbols in security library"
 argument_list|)
 expr_stmt|;
@@ -2282,8 +2303,10 @@ condition|(
 operator|!
 name|ptrSecTrustCopyAnchorCertificates
 condition|)
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not resolve symbols in security library"
 argument_list|)
 expr_stmt|;
@@ -2292,8 +2315,10 @@ block|}
 block|}
 else|else
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not load security library"
 argument_list|)
 expr_stmt|;
@@ -2410,8 +2435,10 @@ operator|||
 operator|!
 name|ptrCertCloseStore
 condition|)
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not resolve symbols in crypt32 library"
 argument_list|)
 expr_stmt|;
@@ -2419,8 +2446,10 @@ comment|// should never happen
 block|}
 else|else
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not load crypt32 library"
 argument_list|)
 expr_stmt|;
@@ -3013,8 +3042,10 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"error retrieving a CA certificate from the system store"
 argument_list|)
 expr_stmt|;
@@ -3076,8 +3107,10 @@ block|}
 else|else
 block|{
 comment|// no detailed error handling here
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not retrieve system CA certificates"
 argument_list|)
 expr_stmt|;
@@ -3539,8 +3572,10 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"systemCaCertificates retrieval time "
 operator|<<
@@ -3551,8 +3586,10 @@ argument_list|()
 operator|<<
 literal|"ms"
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"imported "
 operator|<<
@@ -3882,8 +3919,10 @@ block|}
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: encrypted"
 operator|<<
@@ -4025,8 +4064,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: wrote"
 operator|<<
@@ -4143,8 +4184,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: read"
 operator|<<
@@ -4250,8 +4293,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: testing encryption"
 expr_stmt|;
@@ -4266,8 +4311,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: encryption established"
 expr_stmt|;
@@ -4298,8 +4345,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: connection lost"
 expr_stmt|;
@@ -4321,8 +4370,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: encryption not done yet"
 expr_stmt|;
@@ -4400,8 +4451,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: decrypted"
 operator|<<
@@ -4482,8 +4535,10 @@ comment|// The remote host closed the connection.
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::transmit: remote disconnect"
 expr_stmt|;
@@ -5204,8 +5259,10 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::startHandshake: error!"
 operator|<<
@@ -5709,8 +5766,10 @@ default|default:
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|sslErrors
 operator|.
@@ -6332,8 +6391,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
+name|qCDebug
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QWindowsCaRootFetcher failed to convert certificate to windows form"
 argument_list|)
 expr_stmt|;
@@ -6474,8 +6535,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QWindowsCaRootFetcher"
 operator|<<
@@ -6499,8 +6562,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QWindowsCaRootFetcher - examining windows chains"
 expr_stmt|;
@@ -6514,14 +6579,18 @@ name|dwErrorStatus
 operator|==
 name|CERT_TRUST_NO_ERROR
 condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|" - TRUSTED"
 expr_stmt|;
 else|else
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|" - NOT TRUSTED"
 operator|<<
@@ -6541,13 +6610,17 @@ name|dwInfoStatus
 operator|&
 name|CERT_TRUST_IS_SELF_SIGNED
 condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|" - SELF SIGNED"
 expr_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"QSslSocketBackendPrivate::fetchCaRootForCert - dumping simple chains"
 expr_stmt|;
@@ -6584,16 +6657,20 @@ name|dwErrorStatus
 operator|==
 name|CERT_TRUST_NO_ERROR
 condition|)
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|" - TRUSTED SIMPLE CHAIN"
 operator|<<
 name|i
 expr_stmt|;
 else|else
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|" - UNTRUSTED SIMPLE CHAIN"
 operator|<<
@@ -6683,8 +6760,10 @@ operator|::
 name|Der
 argument_list|)
 decl_stmt|;
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"   - "
 operator|<<
@@ -6692,8 +6771,10 @@ name|foundCert
 expr_stmt|;
 block|}
 block|}
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|" - and"
 operator|<<
@@ -7266,8 +7347,10 @@ operator|::
 name|Append
 argument_list|)
 condition|)
-name|qWarning
-argument_list|()
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"could not open file"
 operator|<<
@@ -7285,8 +7368,10 @@ argument_list|(
 name|debugLineClientRandom
 argument_list|)
 condition|)
-name|qWarning
-argument_list|()
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"could not write to file"
 operator|<<
@@ -7300,8 +7385,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not decrypt SSL traffic"
 argument_list|)
 expr_stmt|;
@@ -7634,8 +7721,10 @@ operator|!
 name|certStore
 condition|)
 block|{
-name|qWarning
-argument_list|()
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Unable to create certificate store"
 expr_stmt|;
@@ -8389,8 +8478,10 @@ operator|!
 name|p12
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"Unable to read PKCS#12 structure, %s"
 argument_list|,
 name|q_ERR_error_string
@@ -8462,8 +8553,10 @@ name|ca
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"Unable to parse PKCS#12 structure, %s"
 argument_list|,
 name|q_ERR_error_string
@@ -8507,8 +8600,10 @@ name|pkey
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"Unable to convert private key"
 argument_list|)
 expr_stmt|;

@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslkey.h"
 end_include
 begin_include
@@ -748,8 +753,10 @@ operator|-=
 name|padding
 expr_stmt|;
 else|else
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"Invalid padding length of %u; decryption likely failed."
 argument_list|,
 name|padding

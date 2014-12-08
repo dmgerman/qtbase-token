@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qsslcontext_openssl_p.h"
 end_include
 begin_include
@@ -2086,8 +2091,10 @@ name|NextProtocolNegotiationUnsupported
 expr_stmt|;
 break|break;
 default|default:
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"OpenSSL sent unknown NPN status"
 argument_list|)
 expr_stmt|;
@@ -2223,8 +2230,10 @@ name|session
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not set SSL session"
 argument_list|)
 expr_stmt|;
@@ -2315,8 +2324,10 @@ operator|>
 literal|255
 condition|)
 block|{
-name|qWarning
-argument_list|()
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"TLS NPN extension"
 operator|<<
@@ -2543,8 +2554,10 @@ operator|&
 name|data
 argument_list|)
 condition|)
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"could not store persistent version of SSL session"
 argument_list|)
 expr_stmt|;

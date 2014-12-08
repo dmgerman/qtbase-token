@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslcertificate.h"
 end_include
 begin_include
@@ -176,8 +181,10 @@ condition|)
 return|return
 literal|false
 return|;
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslCertificate::isSelfSigned: This function does not check, whether the certificate "
 literal|"is actually signed. It just checks whether issuer and subject are identical"
 argument_list|)
