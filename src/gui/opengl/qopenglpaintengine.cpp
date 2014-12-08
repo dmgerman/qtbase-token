@@ -705,6 +705,52 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_function
+template|template
+parameter_list|<>
+DECL|function|bindTexture
+name|GLuint
+name|QOpenGL2PaintEngineExPrivate
+operator|::
+name|bindTexture
+parameter_list|(
+specifier|const
+name|QGradient
+modifier|&
+name|gradient
+parameter_list|)
+block|{
+comment|// We apply global opacity in the fragment shaders, so we always pass 1.0
+comment|// for opacity to the cache.
+name|GLuint
+name|textureId
+init|=
+name|QOpenGL2GradientCache
+operator|::
+name|cacheForContext
+argument_list|(
+name|ctx
+argument_list|)
+operator|->
+name|getBuffer
+argument_list|(
+name|gradient
+argument_list|,
+literal|1.0
+argument_list|)
+decl_stmt|;
+comment|// QOpenGL2GradientCache::getBuffer() may bind and generate a new texture if it
+comment|// hasn't been cached yet, but will otherwise return an unbound texture id. To
+comment|// be sure that the texture is bound, we unfortunately have to bind again,
+comment|// which results in the initial generation of the texture doing two binds.
+return|return
+name|bindTexture
+argument_list|(
+name|textureId
+argument_list|)
+return|;
+block|}
+end_function
 begin_struct
 DECL|struct|ImageWithBindOptions
 struct|struct
@@ -874,32 +920,12 @@ comment|// Gradiant brush: All the gradiants use the same texture
 specifier|const
 name|QGradient
 modifier|*
-name|g
+name|gradient
 init|=
 name|currentBrush
 operator|.
 name|gradient
 argument_list|()
-decl_stmt|;
-comment|// We apply global opacity in the fragment shaders, so we always pass 1.0
-comment|// for opacity to the cache.
-name|GLuint
-name|textureId
-init|=
-name|QOpenGL2GradientCache
-operator|::
-name|cacheForContext
-argument_list|(
-name|ctx
-argument_list|)
-operator|->
-name|getBuffer
-argument_list|(
-operator|*
-name|g
-argument_list|,
-literal|1.0
-argument_list|)
 decl_stmt|;
 name|GLenum
 name|wrapMode
@@ -908,7 +934,7 @@ name|GL_CLAMP_TO_EDGE
 decl_stmt|;
 if|if
 condition|(
-name|g
+name|gradient
 operator|->
 name|spread
 argument_list|()
@@ -917,7 +943,7 @@ name|QGradient
 operator|::
 name|RepeatSpread
 operator|||
-name|g
+name|gradient
 operator|->
 name|type
 argument_list|()
@@ -933,7 +959,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|g
+name|gradient
 operator|->
 name|spread
 argument_list|()
@@ -950,7 +976,8 @@ name|updateTexture
 argument_list|(
 name|QT_BRUSH_TEXTURE_UNIT
 argument_list|,
-name|textureId
+operator|*
+name|gradient
 argument_list|,
 name|wrapMode
 argument_list|,
