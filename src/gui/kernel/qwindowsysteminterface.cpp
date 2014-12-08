@@ -4802,6 +4802,12 @@ literal|" @"
 operator|<<
 name|p
 operator|.
+name|area
+operator|<<
+literal|" normalized "
+operator|<<
+name|p
+operator|.
 name|normalPosition
 operator|<<
 literal|" press "
