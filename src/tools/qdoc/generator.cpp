@@ -28,11 +28,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"ditaxmlgenerator.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"doc.h"
 end_include
 begin_include

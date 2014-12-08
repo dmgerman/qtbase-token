@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"ditaxmlgenerator.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"doc.h"
 end_include
 begin_include
@@ -3168,9 +3163,7 @@ decl_stmt|;
 name|HtmlGenerator
 name|htmlGenerator
 decl_stmt|;
-name|DitaXmlGenerator
-name|ditaxmlGenerator
-decl_stmt|;
+comment|//DitaXmlGenerator ditaxmlGenerator;
 name|QCommandLineParser
 name|parser
 decl_stmt|;
