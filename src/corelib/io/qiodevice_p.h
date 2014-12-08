@@ -82,7 +82,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -94,7 +94,22 @@ name|QIODEVICE_BUFFERSIZE
 value|Q_INT64_C(16384)
 endif|#
 directive|endif
+name|Q_CORE_EXPORT
+name|int
+name|qt_subtract_from_timeout
+parameter_list|(
+name|int
+name|timeout
+parameter_list|,
+name|int
+name|elapsed
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
 comment|// This is QIODevice's read buffer, optimized for read(), isEmpty() and getChar()
+end_comment
+begin_decl_stmt
 name|class
 name|QIODevicePrivateLinearBuffer
 block|{
