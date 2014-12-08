@@ -117,6 +117,16 @@ define|#
 directive|define
 name|GL_STENCIL_HIGH_BIT
 value|GLuint(0x80)
+DECL|macro|QT_UNKNOWN_TEXTURE_UNIT
+define|#
+directive|define
+name|QT_UNKNOWN_TEXTURE_UNIT
+value|GLuint(-1)
+DECL|macro|QT_DEFAULT_TEXTURE_UNIT
+define|#
+directive|define
+name|QT_DEFAULT_TEXTURE_UNIT
+value|GLuint(0)
 DECL|macro|QT_BRUSH_TEXTURE_UNIT
 define|#
 directive|define
@@ -644,6 +654,11 @@ argument_list|(
 literal|1
 argument_list|)
 block|,
+name|lastTextureUnitUsed
+argument_list|(
+name|QT_UNKNOWN_TEXTURE_UNIT
+argument_list|)
+block|,
 name|lastMaskTextureUsed
 argument_list|(
 literal|0
@@ -707,6 +722,12 @@ specifier|const
 name|T
 operator|&
 name|texture
+argument_list|)
+block|;
+name|void
+name|activateTextureUnit
+argument_list|(
+argument|GLenum textureUnit
 argument_list|)
 block|;
 name|void
@@ -1182,6 +1203,9 @@ index|]
 block|;
 name|GLfloat
 name|inverseScale
+block|;
+name|GLenum
+name|lastTextureUnitUsed
 block|;
 name|GLuint
 name|lastTextureUsed

@@ -446,6 +446,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*     Single entry-point for activating, binding, and setting properties.      Allows keeping track of (caching) the latest texture unit and bound     texture in a central place, so that we can skip re-binding unless     needed.      \note Any code or Qt API that internally activates or binds will     not affect the cache used by this function, which means they will     lead to inconsisent state. QPainter::beginNativePainting() takes     care of resetting the cache, so for userâcode this is fine, but     internally in the paint engine care must be taken to not call     functions that may activate or bind under our feet. */
+end_comment
 begin_function
 template|template
 parameter_list|<
@@ -483,12 +486,8 @@ name|target
 init|=
 name|GL_TEXTURE_2D
 decl_stmt|;
-name|funcs
-operator|.
-name|glActiveTexture
+name|activateTextureUnit
 argument_list|(
-name|GL_TEXTURE0
-operator|+
 name|textureUnit
 argument_list|)
 expr_stmt|;
@@ -559,6 +558,52 @@ argument_list|,
 name|filterMode
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|activateTextureUnit
+name|void
+name|QOpenGL2PaintEngineExPrivate
+operator|::
+name|activateTextureUnit
+parameter_list|(
+name|GLenum
+name|textureUnit
+parameter_list|)
+block|{
+if|if
+condition|(
+name|textureUnit
+operator|!=
+name|lastTextureUnitUsed
+condition|)
+block|{
+name|funcs
+operator|.
+name|glActiveTexture
+argument_list|(
+name|GL_TEXTURE0
+operator|+
+name|textureUnit
+argument_list|)
+expr_stmt|;
+name|lastTextureUnitUsed
+operator|=
+name|textureUnit
+expr_stmt|;
+comment|// We simplify things by keeping a single cached value of the last
+comment|// texture that was bound, instead of one per texture unit. This
+comment|// means that switching texture units could potentially mean we
+comment|// need a re-bind and corresponding parameter updates.
+name|lastTextureUsed
+operator|=
+name|GLuint
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -3321,6 +3366,20 @@ directive|endif
 comment|// QT_OPENGL_ES_2
 name|d
 operator|->
+name|resetGLState
+argument_list|()
+expr_stmt|;
+comment|// We don't know what texture units and textures the native painting
+comment|// will activate and bind, so we can't assume anything when we return
+comment|// from the native painting.
+name|d
+operator|->
+name|lastTextureUnitUsed
+operator|=
+name|QT_UNKNOWN_TEXTURE_UNIT
+expr_stmt|;
+name|d
+operator|->
 name|lastTextureUsed
 operator|=
 name|GLuint
@@ -3350,11 +3409,6 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|resetGLState
-argument_list|()
-expr_stmt|;
-name|d
-operator|->
 name|shaderManager
 operator|->
 name|setDirty
@@ -3376,18 +3430,16 @@ operator|::
 name|resetGLState
 parameter_list|()
 block|{
+name|activateTextureUnit
+argument_list|(
+name|QT_DEFAULT_TEXTURE_UNIT
+argument_list|)
+expr_stmt|;
 name|funcs
 operator|.
 name|glDisable
 argument_list|(
 name|GL_BLEND
-argument_list|)
-expr_stmt|;
-name|funcs
-operator|.
-name|glActiveTexture
-argument_list|(
-name|GL_TEXTURE0
 argument_list|)
 expr_stmt|;
 name|funcs
@@ -7840,6 +7892,9 @@ argument_list|(
 name|QOpenGL2PaintEngineEx
 argument_list|)
 expr_stmt|;
+comment|// This is a somewhat sneaky way of conceptually making the next call to
+comment|// updateTexture() use FoceUpdate for the TextureUpdateMode. We need this
+comment|// as new render hints may require updating the filter mode.
 name|d
 operator|->
 name|lastTextureUsed
@@ -9644,12 +9699,8 @@ name|glypchCacheTextureUnit
 init|=
 name|QT_IMAGE_TEXTURE_UNIT
 decl_stmt|;
-name|funcs
-operator|.
-name|glActiveTexture
+name|activateTextureUnit
 argument_list|(
-name|GL_TEXTURE0
-operator|+
 name|glypchCacheTextureUnit
 argument_list|)
 expr_stmt|;
@@ -10927,6 +10978,12 @@ name|GL_TEXTURE0
 operator|+
 name|QT_MASK_TEXTURE_UNIT
 argument_list|)
+expr_stmt|;
+comment|// Need to reset the unit here, until we've made drawCachedGlyphs
+comment|// use the shared code-path for activating and binding.
+name|lastTextureUnitUsed
+operator|=
+name|QT_UNKNOWN_TEXTURE_UNIT
 expr_stmt|;
 if|if
 condition|(
