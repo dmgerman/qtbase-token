@@ -1332,7 +1332,7 @@ argument_list|()
 decl_stmt|;
 comment|// create an instance
 name|Method
-name|perpareAppMethod
+name|prepareAppMethod
 init|=
 name|qtLoader
 operator|.
@@ -1362,7 +1362,7 @@ operator|!
 operator|(
 name|Boolean
 operator|)
-name|perpareAppMethod
+name|prepareAppMethod
 operator|.
 name|invoke
 argument_list|(
