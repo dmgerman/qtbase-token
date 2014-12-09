@@ -1336,11 +1336,6 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
-name|has_touch_without_mouse_emulation
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|has_xkb
 argument_list|(
 literal|false

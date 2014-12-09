@@ -627,12 +627,6 @@ literal|false
 argument_list|)
 return|;
 case|case
-name|SynthesizeMouseFromTouchEvents
-case|:
-return|return
-literal|true
-return|;
-case|case
 name|SetFocusOnTouchRelease
 case|:
 return|return

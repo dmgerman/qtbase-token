@@ -1602,6 +1602,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// If we select for touch events on the master pointer, XInput2
+comment|// will not synthesize mouse events. This means Qt must do it,
+comment|// which is also preferable, since Qt can control better when
+comment|// to do so.
 name|mask
 operator|.
 name|deviceid
@@ -1623,19 +1627,22 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// If we select for touch events on the master pointer, XInput2
-comment|// will not synthesize mouse events. This means Qt must do it,
-comment|// which is also preferable, since Qt can control better when
-comment|// to do so.
 if|if
 condition|(
 name|result
-operator|==
+operator|!=
 name|Success
 condition|)
-name|has_touch_without_mouse_emulation
-operator|=
-literal|true
+name|qCDebug
+argument_list|(
+name|lcQpaXInput
+argument_list|,
+literal|"XInput 2.2: failed to select touch events, window %x, result %d"
+argument_list|,
+name|window
+argument_list|,
+name|result
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2550,6 +2557,24 @@ literal|110
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|isUsingXInput22
+argument_list|()
+operator|||
+name|type
+operator|==
+name|QTouchDevice
+operator|::
+name|TouchPad
+condition|)
+name|caps
+operator||=
+name|QTouchDevice
+operator|::
+name|MouseEmulation
+expr_stmt|;
 if|if
 condition|(
 name|type

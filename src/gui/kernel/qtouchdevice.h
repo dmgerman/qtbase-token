@@ -66,6 +66,10 @@ block|,
 name|NormalizedPosition
 init|=
 literal|0x0020
+block|,
+name|MouseEmulation
+init|=
+literal|0x0040
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

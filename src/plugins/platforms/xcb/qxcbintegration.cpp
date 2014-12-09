@@ -1794,23 +1794,6 @@ comment|// window manager could prevent it (e.g. matchbox)
 return|return
 literal|false
 return|;
-case|case
-name|QPlatformIntegration
-operator|::
-name|SynthesizeMouseFromTouchEvents
-case|:
-comment|// We do not want Qt to synthesize mouse events if X11 already does it.
-return|return
-name|m_connections
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|->
-name|hasTouchWithoutMouseEmulation
-argument_list|()
-return|;
 default|default:
 break|break;
 block|}

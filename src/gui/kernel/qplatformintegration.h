@@ -422,8 +422,6 @@ name|StartDragVelocity
 block|,
 name|UseRtlExtensions
 block|,
-name|SynthesizeMouseFromTouchEvents
-block|,
 name|PasswordMaskCharacter
 block|,
 name|SetFocusOnTouchRelease

@@ -146,6 +146,12 @@ name|class
 name|QKeyEvent
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QTouchDevice
+name|class
+name|QTouchDevice
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -910,6 +916,12 @@ name|bool
 name|value
 parameter_list|)
 function_decl|;
+name|QTouchDevice
+operator|*
+name|touchDevice
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 name|void
