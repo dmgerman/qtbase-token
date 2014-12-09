@@ -8700,7 +8700,7 @@ name|qMakePair
 argument_list|(
 name|row
 argument_list|,
-name|effectiveRowSpan
+name|itemRowSpan
 argument_list|)
 index|]
 decl_stmt|;
