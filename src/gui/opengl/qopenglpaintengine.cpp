@@ -9561,11 +9561,59 @@ name|glyphPositions
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|cache
+operator|->
+name|hasPendingGlyphs
+argument_list|()
+condition|)
+block|{
+comment|// Filling in the glyphs binds and sets parameters, so we need to
+comment|// ensure that the glyph cache doesn't mess with whatever unit
+comment|// is currently active. Note that the glyph cache internally
+comment|// uses the image texture unit for blitting to the cache, while
+comment|// we switch between image and mask units when drawing.
+specifier|static
+specifier|const
+name|GLenum
+name|glypchCacheTextureUnit
+init|=
+name|QT_IMAGE_TEXTURE_UNIT
+decl_stmt|;
+name|funcs
+operator|.
+name|glActiveTexture
+argument_list|(
+name|GL_TEXTURE0
+operator|+
+name|glypchCacheTextureUnit
+argument_list|)
+expr_stmt|;
 name|cache
 operator|->
 name|fillInPendingGlyphs
 argument_list|()
 expr_stmt|;
+comment|// We assume the cache can be trusted on which texture was bound
+name|lastTextureUsed
+operator|=
+name|cache
+operator|->
+name|texture
+argument_list|()
+expr_stmt|;
+comment|// But since the brush and image texture units are possibly shared
+comment|// we may have to re-bind brush textures after filling in the cache.
+name|brushTextureDirty
+operator|=
+operator|(
+name|QT_BRUSH_TEXTURE_UNIT
+operator|==
+name|glypchCacheTextureUnit
+operator|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

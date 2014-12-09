@@ -264,6 +264,20 @@ argument_list|,
 argument|const QFixedPoint *positions
 argument_list|)
 block|;
+name|bool
+name|hasPendingGlyphs
+argument_list|()
+specifier|const
+block|{
+return|return
+operator|!
+name|m_pendingGlyphs
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
+block|;
 name|void
 name|fillInPendingGlyphs
 argument_list|()
