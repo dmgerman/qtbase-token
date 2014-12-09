@@ -1506,15 +1506,8 @@ operator|->
 name|availableGeometry
 argument_list|()
 operator|.
-name|topLeft
+name|center
 argument_list|()
-operator|+
-name|QPoint
-argument_list|(
-literal|40
-argument_list|,
-literal|40
-argument_list|)
 decl_stmt|;
 name|window
 operator|.
