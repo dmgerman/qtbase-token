@@ -17,10 +17,13 @@ include|#
 directive|include
 file|<QtCore/QRegularExpression>
 end_include
+begin_comment
+comment|// We just need the DBUS_TYPE_* constants, so use our own copy
+end_comment
 begin_include
 include|#
 directive|include
-file|<dbus/dbus.h>
+file|"../../../../src/dbus/dbus_minimal_p.h"
 end_include
 begin_class
 DECL|class|tst_qdbusxml2cpp

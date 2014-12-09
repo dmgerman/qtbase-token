@@ -20,8 +20,22 @@ end_include
 begin_include
 include|#
 directive|include
-file|<dbus/dbus.h>
+file|<QtDBus/private/qdbus_symbols_p.h>
 end_include
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|dbus_bool_t
+argument_list|,
+argument|dbus_signature_validate
+argument_list|,
+argument|(const char       *signature,                                                 DBusError        *error)
+argument_list|,
+argument|(signature, error)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_class
 DECL|class|tst_QDBusType
 class|class
@@ -265,7 +279,7 @@ condition|(
 name|useNative
 condition|)
 block|{
-name|dbus_signature_validate
+name|q_dbus_signature_validate
 argument_list|(
 name|data
 operator|.
@@ -279,7 +293,7 @@ name|QBENCHMARK
 block|{
 name|result
 operator|=
-name|dbus_signature_validate
+name|q_dbus_signature_validate
 argument_list|(
 name|data
 operator|.

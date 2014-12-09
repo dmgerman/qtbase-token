@@ -20,8 +20,64 @@ end_include
 begin_include
 include|#
 directive|include
-file|<dbus/dbus.h>
+file|<QtDBus/private/qdbus_symbols_p.h>
 end_include
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|dbus_bool_t
+argument_list|,
+argument|dbus_signature_validate
+argument_list|,
+argument|(const char       *signature,                                                 DBusError        *error)
+argument_list|,
+argument|(signature, error)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|dbus_bool_t
+argument_list|,
+argument|dbus_signature_validate_single
+argument_list|,
+argument|(const char       *signature,                                                          DBusError        *error)
+argument_list|,
+argument|(signature, error)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|dbus_bool_t
+argument_list|,
+argument|dbus_type_is_basic
+argument_list|,
+argument|(int            typecode)
+argument_list|,
+argument|(typecode)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|dbus_bool_t
+argument_list|,
+argument|dbus_type_is_fixed
+argument_list|,
+argument|(int            typecode)
+argument_list|,
+argument|(typecode)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_class
 DECL|class|tst_QDBusType
 class|class
@@ -1005,7 +1061,7 @@ name|QCOMPARE
 argument_list|(
 name|bool
 argument_list|(
-name|dbus_type_is_fixed
+name|q_dbus_type_is_fixed
 argument_list|(
 name|type
 argument_list|)
@@ -1129,7 +1185,7 @@ name|QCOMPARE
 argument_list|(
 name|bool
 argument_list|(
-name|dbus_type_is_basic
+name|q_dbus_type_is_basic
 argument_list|(
 name|type
 argument_list|)
@@ -1197,7 +1253,7 @@ name|QCOMPARE
 argument_list|(
 name|bool
 argument_list|(
-name|dbus_signature_validate_single
+name|q_dbus_signature_validate_single
 argument_list|(
 name|data
 operator|.
@@ -1274,7 +1330,7 @@ name|QCOMPARE
 argument_list|(
 name|bool
 argument_list|(
-name|dbus_signature_validate_single
+name|q_dbus_signature_validate_single
 argument_list|(
 name|data
 operator|.
@@ -1311,7 +1367,7 @@ name|QCOMPARE
 argument_list|(
 name|bool
 argument_list|(
-name|dbus_signature_validate_single
+name|q_dbus_signature_validate_single
 argument_list|(
 name|data
 operator|.
@@ -1397,7 +1453,7 @@ name|QCOMPARE
 argument_list|(
 name|bool
 argument_list|(
-name|dbus_signature_validate
+name|q_dbus_signature_validate
 argument_list|(
 name|data
 operator|.
