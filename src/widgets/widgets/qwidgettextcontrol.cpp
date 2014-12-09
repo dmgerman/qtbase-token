@@ -372,6 +372,10 @@ argument_list|(
 name|Qt
 operator|::
 name|TextEditable
+operator||
+name|Qt
+operator|::
+name|TextSelectableByKeyboard
 argument_list|)
 member_init_list|,
 endif|#
