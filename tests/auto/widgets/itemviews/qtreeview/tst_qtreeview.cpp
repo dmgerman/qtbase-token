@@ -5611,20 +5611,6 @@ default|default:
 break|break;
 block|}
 comment|// Check if we got an editor
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|"EditKeyPressed 4"
-argument_list|,
-literal|"QTBUG-23696"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|view

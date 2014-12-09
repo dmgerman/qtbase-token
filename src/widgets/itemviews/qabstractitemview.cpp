@@ -9401,7 +9401,7 @@ directive|endif
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 case|case
 name|Qt
 operator|::
@@ -9537,7 +9537,7 @@ break|break;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|event
