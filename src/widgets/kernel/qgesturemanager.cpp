@@ -99,43 +99,24 @@ include|#
 directive|include
 file|"qdebug.h"
 end_include
-begin_comment
-comment|// #define GESTURE_DEBUG
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|GESTURE_DEBUG
-end_ifndef
-begin_define
-DECL|macro|DEBUG
-define|#
-directive|define
-name|DEBUG
-value|if (0) qDebug
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|DEBUG
-define|#
-directive|define
-name|DEBUG
-value|qDebug
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_include
+include|#
+directive|include
+file|<QtCore/QLoggingCategory>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
 end_ifndef
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+name|Q_LOGGING_CATEGORY
+argument_list|(
+name|lcGestureManager
+argument_list|,
+literal|"qt.widgets.gestures"
+argument_list|)
 if|#
 directive|if
 operator|!
@@ -143,12 +124,13 @@ name|defined
 argument_list|(
 name|Q_OS_OSX
 argument_list|)
+decl|static
 DECL|function|panTouchPoints
-specifier|static
 specifier|inline
-name|int
+namespace|int
 name|panTouchPoints
-parameter_list|()
+namespace|(
+decl_stmt|)
 block|{
 comment|// Override by environment variable for testing.
 specifier|static
@@ -212,7 +194,7 @@ return|return
 literal|2
 return|;
 block|}
-end_function
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
@@ -1128,12 +1110,14 @@ name|gestureType
 operator|=
 name|type
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|GESTURE_DEBUG
-argument_list|)
+if|if
+condition|(
+name|lcGestureManager
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
 name|state
 operator|->
 name|setObjectName
@@ -1149,8 +1133,6 @@ name|type
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 name|m_objectGestures
 index|[
@@ -1438,12 +1420,16 @@ operator|::
 name|TriggerGesture
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager:Recognizer: gesture triggered: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 name|triggeredGestures
 operator|<<
@@ -1460,12 +1446,16 @@ operator|::
 name|FinishGesture
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager:Recognizer: gesture finished: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 name|finishedGestures
 operator|<<
@@ -1482,12 +1472,16 @@ operator|::
 name|MayBeGesture
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager:Recognizer: maybe gesture: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 name|newMaybeGestures
 operator|<<
@@ -1504,12 +1498,16 @@ operator|::
 name|CancelGesture
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager:Recognizer: not gesture: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 name|notGestures
 operator|<<
@@ -1526,24 +1524,32 @@ operator|::
 name|Ignore
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager:Recognizer: ignored the event: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 block|}
 else|else
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager:Recognizer: hm, lets assume the recognizer"
 operator|<<
 literal|"ignored the event: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 block|}
 if|if
@@ -1555,12 +1561,16 @@ operator|::
 name|ConsumeEventHint
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager: we were asked to consume the event: "
 operator|<<
 name|state
+operator|<<
+name|event
 expr_stmt|;
 name|consumeEventHint
 operator|=
@@ -1979,8 +1989,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager::filterEventThroughContexts:"
 operator|<<
@@ -2065,8 +2077,10 @@ operator|::
 name|CancelAllInContext
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"lets try to cancel some"
 expr_stmt|;
@@ -2234,8 +2248,10 @@ name|widget
 argument_list|)
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"  found a gesture to cancel"
 operator|<<
@@ -3792,8 +3808,10 @@ block|}
 block|}
 else|else
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager::deliverEvent: could not find the target for gesture"
 operator|<<
@@ -3827,8 +3845,10 @@ operator|&
 name|normalStartedGestures
 argument_list|)
 expr_stmt|;
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager::deliverEvents:"
 operator|<<
@@ -3895,8 +3915,10 @@ operator|.
 name|value
 argument_list|()
 decl_stmt|;
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager::deliverEvents: sending GestureOverride to"
 operator|<<
@@ -4008,8 +4030,10 @@ argument_list|(
 name|w
 argument_list|)
 expr_stmt|;
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"override event: gesture was accepted:"
 operator|<<
@@ -4048,8 +4072,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"override event: gesture wasn't accepted. putting back:"
 operator|<<
@@ -4118,8 +4144,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"QGestureManager::deliverEvents: sending to"
 operator|<<
@@ -4223,8 +4251,10 @@ argument_list|(
 name|w
 argument_list|)
 expr_stmt|;
-name|DEBUG
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcGestureManager
+argument_list|)
 operator|<<
 literal|"started gesture was delivered and accepted by"
 operator|<<
