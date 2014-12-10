@@ -1018,46 +1018,6 @@ begin_comment
 comment|//! [17]
 end_comment
 begin_comment
-comment|//! [QGraphicsItem type]
-end_comment
-begin_class
-DECL|class|CustomItem
-class|class
-name|CustomItem
-super|:
-specifier|public
-name|QGraphicsItem
-block|{
-operator|...
-expr|enum
-DECL|enumerator|Type
-block|{
-name|Type
-operator|=
-name|UserType
-operator|+
-literal|1
-block|}
-expr_stmt|;
-DECL|function|type
-name|int
-name|type
-parameter_list|()
-specifier|const
-block|{
-comment|// Enable the use of qgraphicsitem_cast with this item.
-return|return
-name|Type
-return|;
-block|}
-operator|...
-block|}
-class|;
-end_class
-begin_comment
-comment|//! [QGraphicsItem type]
-end_comment
-begin_comment
 comment|//! [18]
 end_comment
 begin_class
