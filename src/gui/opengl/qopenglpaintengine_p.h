@@ -656,12 +656,7 @@ argument_list|)
 block|,
 name|lastTextureUnitUsed
 argument_list|(
-name|QT_UNKNOWN_TEXTURE_UNIT
-argument_list|)
-block|,
-name|lastMaskTextureUsed
-argument_list|(
-literal|0
+argument|QT_UNKNOWN_TEXTURE_UNIT
 argument_list|)
 block|{ }
 operator|~
@@ -1209,9 +1204,6 @@ name|lastTextureUnitUsed
 block|;
 name|GLuint
 name|lastTextureUsed
-block|;
-name|GLuint
-name|lastMaskTextureUsed
 block|;
 name|bool
 name|needsSync
