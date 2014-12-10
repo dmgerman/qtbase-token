@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/qlist.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qmetaobject.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -149,6 +154,69 @@ operator|*
 name|target
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+name|QSignalTransition
+operator|*
+name|addTransition
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|PointerToMemberFunction signal
+argument_list|,
+argument|QAbstractState *target
+argument_list|)
+block|;
+else|#
+directive|else
+name|template
+operator|<
+name|typename
+name|Func
+operator|>
+name|QSignalTransition
+operator|*
+name|addTransition
+argument_list|(
+argument|const typename QtPrivate::FunctionPointer<Func>::Object *obj
+argument_list|,
+argument|Func signal
+argument_list|,
+argument|QAbstractState *target
+argument_list|)
+block|{
+specifier|const
+name|QMetaMethod
+name|signalMetaMethod
+operator|=
+name|QMetaMethod
+operator|::
+name|fromSignal
+argument_list|(
+name|signal
+argument_list|)
+block|;
+return|return
+name|addTransition
+argument_list|(
+name|obj
+argument_list|,
+name|signalMetaMethod
+operator|.
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|target
+argument_list|)
+return|;
+block|}
+endif|#
+directive|endif
+comment|// Q_QDOC
 name|QAbstractTransition
 operator|*
 name|addTransition
