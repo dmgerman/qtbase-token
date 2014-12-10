@@ -1145,7 +1145,7 @@ begin_comment
 comment|/*!     \fn void QFileSystemWatcher::fileChanged(const QString&path)      This signal is emitted when the file at the specified \a path is     modified, renamed or removed from disk.      \sa directoryChanged() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFileSystemWatcher::directoryChanged(const QString&path)      This signal is emitted when the directory at a specified \a path,     is modified (e.g., when a file is added, modified or deleted) or     removed from disk. Note that if there are several changes during a     short period of time, some of the changes might not emit this     signal. However, the last change in the sequence of changes will     always generate this signal.      \sa fileChanged() */
+comment|/*!     \fn void QFileSystemWatcher::directoryChanged(const QString&path)      This signal is emitted when the directory at a specified \a path     is modified (e.g., when a file is added or deleted) or removed     from disk. Note that if there are several changes during a short     period of time, some of the changes might not emit this signal.     However, the last change in the sequence of changes will always     generate this signal.      \sa fileChanged() */
 end_comment
 begin_comment
 comment|/*!     \fn QStringList QFileSystemWatcher::directories() const      Returns a list of paths to directories that are being watched.      \sa files() */

@@ -2335,29 +2335,17 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|//according to Qt 4 documentation:
-comment|//void QFileSystemWatcher::directoryChanged ( const QString& path )   [signal]
-comment|//This signal is emitted when the directory at a specified path, is modified
-comment|//(e.g., when a file is added, -->modified<-- or deleted) or removed from disk.
-comment|//Note that if there are several changes during a short period of time, some
-comment|//of the changes might not emit this signal. However, the last change in the
-comment|//sequence of changes will always generate this signal.
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|dirChangedSpy
 operator|.
 name|count
 argument_list|()
-operator|<
-literal|2
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|fileChangedSpy
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|dirChangedSpy
 operator|.
 name|clear
 argument_list|()
