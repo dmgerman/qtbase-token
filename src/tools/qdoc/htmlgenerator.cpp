@@ -6702,12 +6702,9 @@ operator|)
 operator|.
 name|name
 decl_stmt|;
-comment|//  out()<< "<hr />\n";
-name|out
-argument_list|()
-operator|<<
-literal|"<a name=\""
-operator|<<
+name|QString
+name|ref
+init|=
 name|registerRef
 argument_list|(
 name|name
@@ -6715,6 +6712,14 @@ operator|.
 name|toLower
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|//  out()<< "<hr />\n";
+name|out
+argument_list|()
+operator|<<
+literal|"<a name=\""
+operator|<<
+name|ref
 operator|<<
 literal|"\"></a>"
 operator|<<
@@ -6725,7 +6730,11 @@ expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"<h2>"
+literal|"<h2 id=\""
+operator|<<
+name|ref
+operator|<<
+literal|"\">"
 operator|<<
 name|protectEnc
 argument_list|(
@@ -12738,14 +12747,6 @@ name|members
 operator|.
 name|isEmpty
 argument_list|()
-operator|||
-operator|!
-name|s
-operator|->
-name|reimpMembers
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 name|out
@@ -12772,6 +12773,69 @@ argument_list|)
 operator|<<
 literal|"\">"
 operator|<<
+operator|(
+operator|*
+name|s
+operator|)
+operator|.
+name|name
+operator|<<
+literal|"</a></li>\n"
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|s
+operator|->
+name|reimpMembers
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|QString
+name|ref
+init|=
+name|QString
+argument_list|(
+literal|"Reimplemented "
+argument_list|)
+operator|+
+operator|(
+operator|*
+name|s
+operator|)
+operator|.
+name|pluralMember
+decl_stmt|;
+name|out
+argument_list|()
+operator|<<
+literal|"<li class=\"level"
+operator|<<
+name|sectionNumber
+operator|.
+name|size
+argument_list|()
+operator|<<
+literal|"\"><a href=\"#"
+operator|<<
+name|registerRef
+argument_list|(
+name|ref
+operator|.
+name|toLower
+argument_list|()
+argument_list|)
+operator|<<
+literal|"\">"
+operator|<<
+name|QString
+argument_list|(
+literal|"Reimplemented "
+argument_list|)
+operator|+
 operator|(
 operator|*
 name|s
