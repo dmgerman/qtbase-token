@@ -1320,6 +1320,10 @@ name|QBasicFontDatabase
 block|;
 name|friend
 name|class
+name|QCoreTextFontDatabase
+block|;
+name|friend
+name|class
 name|QFontEngineMultiFontConfig
 block|;
 name|int

@@ -237,6 +237,14 @@ return|return
 name|m_siblings
 return|;
 block|}
+name|QPlatformScreen
+operator|::
+name|SubpixelAntialiasingType
+name|subpixelAntialiasingTypeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 comment|// ----------------------------------------------------
 comment|// Additional methods
 name|void
