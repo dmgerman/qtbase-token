@@ -38,6 +38,78 @@ include|#
 directive|include
 file|<QtCore/qt_windows.h>
 end_include
+begin_comment
+comment|// Convenience macros for handling HRESULT values
+end_comment
+begin_define
+DECL|macro|RETURN_IF_FAILED
+define|#
+directive|define
+name|RETURN_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|,
+name|ret
+parameter_list|)
+define|\
+value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
+end_define
+begin_define
+DECL|macro|RETURN_HR_IF_FAILED
+define|#
+directive|define
+name|RETURN_HR_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return hr)
+end_define
+begin_define
+DECL|macro|RETURN_OK_IF_FAILED
+define|#
+directive|define
+name|RETURN_OK_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return S_OK)
+end_define
+begin_define
+DECL|macro|RETURN_FALSE_IF_FAILED
+define|#
+directive|define
+name|RETURN_FALSE_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return false)
+end_define
+begin_define
+DECL|macro|RETURN_VOID_IF_FAILED
+define|#
+directive|define
+name|RETURN_VOID_IF_FAILED
+parameter_list|(
+name|msg
+parameter_list|)
+value|RETURN_IF_FAILED(msg, return)
+end_define
+begin_define
+DECL|macro|Q_ASSERT_SUCCEEDED
+define|#
+directive|define
+name|Q_ASSERT_SUCCEEDED
+parameter_list|(
+name|hr
+parameter_list|)
+define|\
+value|Q_ASSERT_X(SUCCEEDED(hr), Q_FUNC_INFO, qPrintable(qt_error_string(hr)));
+end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifdef|#
@@ -45,10 +117,6 @@ directive|ifdef
 name|QT_BUILD_CORE_LIB
 endif|#
 directive|endif
-name|QT_END_NAMESPACE
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
 comment|// Environment ------------------------------------------------------
 name|errno_t
 name|qt_winrt_getenv_s
@@ -93,6 +161,9 @@ name|qt_winrt__tzset
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_comment
 comment|// As Windows Runtime lacks some standard functions used in Qt, these got
 end_comment
@@ -128,7 +199,7 @@ parameter_list|,
 name|returntype
 parameter_list|)
 define|\
-value|inline returntype funcname() \         { \             return qt_winrt_##funcname(); \         }
+value|inline returntype funcname() \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func1
@@ -143,7 +214,7 @@ parameter_list|,
 name|param1
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1) \         { \             return qt_winrt_##funcname(p1); \         }
+value|inline returntype funcname(param1 p1) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func2
@@ -160,7 +231,7 @@ parameter_list|,
 name|param2
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2) \         { \             return qt_winrt_##funcname(p1,  p2); \         }
+value|inline returntype funcname(param1 p1, param2 p2) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func3
@@ -179,7 +250,7 @@ parameter_list|,
 name|param3
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3) \         { \             return qt_winrt_##funcname(p1,  p2, p3); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func4
@@ -200,7 +271,7 @@ parameter_list|,
 name|param4
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func5
@@ -223,7 +294,7 @@ parameter_list|,
 name|param5
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4, p5); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4, p5); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func6
@@ -248,7 +319,7 @@ parameter_list|,
 name|param6
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4, p5, p6); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4, p5, p6); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func7
@@ -275,7 +346,7 @@ parameter_list|,
 name|param7
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6, param7 p7) \         { \             return qt_winrt_##funcname(p1,  p2, p3, p4, p5, p6, p7); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4, param5 p5, param6 p6, param7 p7) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4, p5, p6, p7); \         }
 end_define
 begin_typedef
 DECL|typedef|StartAdressExFunc
@@ -370,81 +441,8 @@ argument_list|,
 argument|void
 argument_list|)
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_WINRT
-end_comment
-begin_comment
-comment|// Convenience macros for handling HRESULT values
-end_comment
-begin_define
-DECL|macro|RETURN_IF_FAILED
-define|#
-directive|define
-name|RETURN_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|,
-name|ret
-parameter_list|)
-define|\
-value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
-end_define
-begin_define
-DECL|macro|RETURN_HR_IF_FAILED
-define|#
-directive|define
-name|RETURN_HR_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return hr)
-end_define
-begin_define
-DECL|macro|RETURN_OK_IF_FAILED
-define|#
-directive|define
-name|RETURN_OK_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return S_OK)
-end_define
-begin_define
-DECL|macro|RETURN_FALSE_IF_FAILED
-define|#
-directive|define
-name|RETURN_FALSE_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return false)
-end_define
-begin_define
-DECL|macro|RETURN_VOID_IF_FAILED
-define|#
-directive|define
-name|RETURN_VOID_IF_FAILED
-parameter_list|(
-name|msg
-parameter_list|)
-value|RETURN_IF_FAILED(msg, return)
-end_define
-begin_define
-DECL|macro|Q_ASSERT_SUCCEEDED
-define|#
-directive|define
-name|Q_ASSERT_SUCCEEDED
-parameter_list|(
-name|hr
-parameter_list|)
-define|\
-value|Q_ASSERT_X(SUCCEEDED(hr), Q_FUNC_INFO, qPrintable(qt_error_string(hr)));
-end_define
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|namespace
 name|Microsoft
 block|{
@@ -788,6 +786,16 @@ end_return
 begin_comment
 unit|}  }
 comment|// QWinRTFunctions
+end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_WINRT
 end_comment
 begin_endif
 endif|#

@@ -372,6 +372,10 @@ argument_list|(
 name|Qt
 operator|::
 name|TextEditable
+operator||
+name|Qt
+operator|::
+name|TextSelectableByKeyboard
 argument_list|)
 member_init_list|,
 endif|#
@@ -8800,7 +8804,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// Do not start selection on a mouse event synthesized from a touch event.
 if|if
 condition|(
 operator|!
@@ -8830,17 +8833,6 @@ operator|::
 name|TextEditable
 operator|)
 operator|)
-operator|||
-name|QApplicationPrivate
-operator|::
-name|mouseEventSource
-argument_list|(
-name|e
-argument_list|)
-operator|!=
-name|Qt
-operator|::
-name|MouseEventNotSynthesized
 condition|)
 block|{
 name|e
@@ -9707,28 +9699,6 @@ argument_list|(
 name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QApplicationPrivate
-operator|::
-name|mouseEventSource
-argument_list|(
-name|e
-argument_list|)
-operator|!=
-name|Qt
-operator|::
-name|MouseEventNotSynthesized
-condition|)
-block|{
-name|setCursorPosition
-argument_list|(
-name|pos
-argument_list|)
-expr_stmt|;
-comment|// Emulate Tap to set cursor for events synthesized from touch.
-return|return;
-block|}
 specifier|const
 name|QTextCursor
 name|oldSelection

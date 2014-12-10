@@ -664,8 +664,6 @@ block|;
 name|void
 name|updateTextureFilter
 argument_list|(
-argument|GLenum target
-argument_list|,
 argument|GLenum wrapMode
 argument_list|,
 argument|bool smoothPixmapTransform

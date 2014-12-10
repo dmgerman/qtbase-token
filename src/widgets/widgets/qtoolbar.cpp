@@ -944,17 +944,6 @@ operator|->
 name|restore
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
 name|setWindowState
 argument_list|(
 literal|true
@@ -962,8 +951,6 @@ argument_list|)
 expr_stmt|;
 comment|// gets rid of the X11BypassWindowManager window flag
 comment|// and activates the resizer
-endif|#
-directive|endif
 name|q
 operator|->
 name|activateWindow

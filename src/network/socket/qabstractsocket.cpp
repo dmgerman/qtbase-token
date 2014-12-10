@@ -5568,7 +5568,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Sets the given \a option to the value described by \a value.      \sa socketOption() */
+comment|/*!     \since 4.6     Sets the given \a option to the value described by \a value.      \note On Windows Runtime, QAbstractSocket::KeepAliveOption must be set     before the socket is connected.      \sa socketOption() */
 end_comment
 begin_function
 DECL|function|setSocketOption

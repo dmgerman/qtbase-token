@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QTouchDevice>
-end_include
-begin_include
-include|#
-directive|include
 file|"qdebug.h"
 end_include
 begin_ifndef
@@ -237,102 +232,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|// ### fixme: Remove this
-end_comment
-begin_comment
-comment|// Use single finger pan to scroll QPlainTextEdit/QTextEdit
-end_comment
-begin_comment
-comment|// by changing the number of pan points to 1 for these classes.
-end_comment
-begin_comment
-comment|// This used to be Qt 4's behavior on Windows which was achieved using native
-end_comment
-begin_comment
-comment|// Windows gesture recognizers for these classes.
-end_comment
-begin_comment
-comment|// The other classes inheriting QScrollArea still use standard 2 finger pan.
-end_comment
-begin_comment
-comment|// In the long run, they should also use single finger pan to
-end_comment
-begin_comment
-comment|// scroll on touch screens, however, this requires a distinct Tap&Hold-followed-by-pan
-end_comment
-begin_comment
-comment|// type gesture to avoid clashes with item view selection and DnD.
-end_comment
-begin_function
-DECL|function|panTouchPoints
-specifier|static
-specifier|inline
-name|int
-name|panTouchPoints
-parameter_list|(
-specifier|const
-name|QTouchEvent
-modifier|*
-name|event
-parameter_list|,
-specifier|const
-name|QObject
-modifier|*
-name|object
-parameter_list|,
-name|int
-name|defaultTouchPoints
-parameter_list|)
-block|{
-return|return
-name|event
-operator|->
-name|device
-argument_list|()
-operator|->
-name|type
-argument_list|()
-operator|==
-name|QTouchDevice
-operator|::
-name|TouchScreen
-operator|&&
-name|object
-operator|&&
-name|object
-operator|->
-name|parent
-argument_list|()
-operator|&&
-operator|(
-name|object
-operator|->
-name|parent
-argument_list|()
-operator|->
-name|inherits
-argument_list|(
-literal|"QPlainTextEdit"
-argument_list|)
-operator|||
-name|object
-operator|->
-name|parent
-argument_list|()
-operator|->
-name|inherits
-argument_list|(
-literal|"QTextEdit"
-argument_list|)
-operator|)
-condition|?
-literal|1
-else|:
-name|defaultTouchPoints
-return|;
-block|}
-end_function
 begin_function
 DECL|function|recognize
 name|QGestureRecognizer
@@ -348,7 +247,6 @@ name|state
 parameter_list|,
 name|QObject
 modifier|*
-name|object
 parameter_list|,
 name|QEvent
 modifier|*
@@ -451,14 +349,7 @@ name|d
 operator|->
 name|pointCount
 operator|=
-name|panTouchPoints
-argument_list|(
-name|ev
-argument_list|,
-name|object
-argument_list|,
 name|m_pointCount
-argument_list|)
 expr_stmt|;
 break|break;
 block|}

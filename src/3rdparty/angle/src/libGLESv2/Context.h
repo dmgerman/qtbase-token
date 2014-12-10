@@ -1312,9 +1312,6 @@ decl_stmt|;
 name|TextureMap
 name|mZeroTextures
 decl_stmt|;
-name|TextureMap
-name|mIncompleteTextures
-decl_stmt|;
 typedef|typedef
 name|std
 operator|::

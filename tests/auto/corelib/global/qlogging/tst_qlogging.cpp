@@ -3597,10 +3597,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"time"
+literal|"time-process"
 argument_list|)
 operator|<<
-literal|"<%{time}>%{message}"
+literal|"<%{time process}>%{message}"
 operator|<<
 literal|true
 operator|<<

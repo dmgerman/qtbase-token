@@ -2603,6 +2603,13 @@ name|incomingErrorDetail
 operator|=
 name|detail
 expr_stmt|;
+name|synchronousDownloadData
+operator|=
+name|httpReply
+operator|->
+name|readAll
+argument_list|()
+expr_stmt|;
 name|QMetaObject
 operator|::
 name|invokeMethod

@@ -1277,6 +1277,7 @@ name|QFreetypeFace
 operator|*
 name|freetype
 block|;
+name|mutable
 name|int
 name|default_load_flags
 block|;

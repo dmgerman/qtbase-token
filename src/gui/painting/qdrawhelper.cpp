@@ -43880,6 +43880,15 @@ argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 end_if
+begin_decl_stmt
+DECL|variable|qt_needs_a8_gamma_correction
+name|Q_GUI_EXPORT
+name|bool
+name|qt_needs_a8_gamma_correction
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|grayBlendPixel
 specifier|static
@@ -44212,6 +44221,13 @@ operator|==
 literal|255
 operator|)
 decl_stmt|;
+name|bool
+name|doGrayBlendPixel
+init|=
+name|opaque_src
+operator|&&
+name|qt_needs_a8_gamma_correction
+decl_stmt|;
 endif|#
 directive|endif
 if|if
@@ -44319,7 +44335,7 @@ name|QSysInfo
 operator|::
 name|WV_XP
 operator|&&
-name|opaque_src
+name|doGrayBlendPixel
 operator|&&
 name|qAlpha
 argument_list|(
@@ -44631,7 +44647,7 @@ name|QSysInfo
 operator|::
 name|WV_XP
 operator|&&
-name|opaque_src
+name|doGrayBlendPixel
 operator|&&
 name|qAlpha
 argument_list|(

@@ -5259,6 +5259,15 @@ operator|->
 name|isFloating
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|wasFloating
+condition|)
+comment|// Prevent repetitive unplugging from nested invocations (QTBUG-42818)
+name|unplug
+operator|=
+literal|false
+expr_stmt|;
 name|bool
 name|hidden
 init|=

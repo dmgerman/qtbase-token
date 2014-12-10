@@ -1137,6 +1137,10 @@ argument_list|)
 operator|=
 literal|0
 block|;
+name|void
+name|cleanup
+argument_list|()
+block|;
 name|egl
 operator|::
 name|Display

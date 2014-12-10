@@ -3138,11 +3138,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|importPKCS12
+DECL|function|importPkcs12
 name|bool
 name|QSslSocketBackendPrivate
 operator|::
-name|importPKCS12
+name|importPkcs12
 parameter_list|(
 name|QIODevice
 modifier|*

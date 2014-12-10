@@ -28,7 +28,7 @@ directive|include
 file|"qhash.h"
 end_include
 begin_function
-name|QT_USE_NAMESPACE
+name|QT_BEGIN_NAMESPACE
 comment|// Environment ------------------------------------------------------
 DECL|function|qt_app_environment
 specifier|inline
@@ -278,6 +278,9 @@ name|qt_winrt__tzset
 parameter_list|()
 block|{ }
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

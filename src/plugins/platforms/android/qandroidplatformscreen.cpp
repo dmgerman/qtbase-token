@@ -1277,9 +1277,9 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-comment|// Stop if there no visible raster windows. This is important because if we only have
-comment|// RasterGLSurface windows that have renderToTexture children (i.e. they need the
-comment|// OpenGL path) then we must bail out right now.
+comment|// Stop if there are no visible raster windows. If we only have RasterGLSurface
+comment|// windows that have renderToTexture children (i.e. they need the OpenGL path) then
+comment|// we do not need an overlay surface.
 name|bool
 name|hasVisibleRasterWindows
 init|=
@@ -1333,7 +1333,30 @@ condition|(
 operator|!
 name|hasVisibleRasterWindows
 condition|)
+block|{
+if|if
+condition|(
+name|m_id
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|QtAndroid
+operator|::
+name|destroySurface
+argument_list|(
+name|m_id
+argument_list|)
+expr_stmt|;
+name|m_id
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 return|return;
+block|}
 name|QMutexLocker
 name|lock
 argument_list|(
@@ -1579,6 +1602,16 @@ argument_list|()
 operator|->
 name|isVisible
 argument_list|()
+operator|||
+name|qt_window_private
+argument_list|(
+name|window
+operator|->
+name|window
+argument_list|()
+argument_list|)
+operator|->
+name|compositing
 operator|||
 operator|!
 name|window

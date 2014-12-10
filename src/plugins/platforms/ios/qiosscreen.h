@@ -122,6 +122,12 @@ name|uiScreen
 argument_list|()
 specifier|const
 expr_stmt|;
+name|UIWindow
+operator|*
+name|uiWindow
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|updateProperties
 parameter_list|()

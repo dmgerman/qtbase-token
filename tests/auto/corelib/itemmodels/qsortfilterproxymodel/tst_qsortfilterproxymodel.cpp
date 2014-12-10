@@ -21304,11 +21304,6 @@ argument_list|(
 name|parent
 argument_list|)
 member_init_list|,
-name|m_model
-argument_list|(
-name|model
-argument_list|)
-member_init_list|,
 name|m_proxy
 argument_list|(
 name|proxy
@@ -21710,11 +21705,6 @@ argument_list|)
 expr_stmt|;
 block|}
 private|private:
-DECL|member|m_model
-name|QAbstractItemModel
-modifier|*
-name|m_model
-decl_stmt|;
 DECL|member|m_proxy
 name|QAbstractProxyModel
 modifier|*
