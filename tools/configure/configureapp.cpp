@@ -5867,7 +5867,7 @@ index|[
 literal|"DBUS"
 index|]
 operator|=
-literal|"yes"
+literal|"auto"
 expr_stmt|;
 block|}
 elseif|else
@@ -5909,7 +5909,7 @@ index|[
 literal|"DBUS"
 index|]
 operator|=
-literal|"yes"
+literal|"auto"
 expr_stmt|;
 block|}
 elseif|else
@@ -5931,6 +5931,27 @@ literal|"DBUS"
 index|]
 operator|=
 literal|"linked"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-dbus-runtime"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"DBUS"
+index|]
+operator|=
+literal|"runtime"
 expr_stmt|;
 block|}
 elseif|else
@@ -13326,22 +13347,22 @@ name|desc
 argument_list|(
 literal|"DBUS"
 argument_list|,
-literal|"yes"
+literal|"linked"
 argument_list|,
-literal|"-dbus"
+literal|"-dbus-linked"
 argument_list|,
-literal|"Compile in D-Bus support and load libdbus-1\ndynamically."
+literal|"Compile in D-Bus support and link to libdbus-1.\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"DBUS"
 argument_list|,
-literal|"linked"
+literal|"runtime"
 argument_list|,
-literal|"-dbus-linked"
+literal|"-dbus-runtime"
 argument_list|,
-literal|"Compile in D-Bus support and link to libdbus-1.\n"
+literal|"Compile in D-Bus support and load libdbus-1\ndynamically."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -16672,9 +16693,9 @@ argument_list|(
 literal|"DBUS"
 argument_list|)
 condition|?
-literal|"yes"
+literal|"linked"
 else|:
-literal|"no"
+literal|"runtime"
 expr_stmt|;
 if|if
 condition|(
@@ -19279,7 +19300,7 @@ index|[
 literal|"DBUS"
 index|]
 operator|==
-literal|"yes"
+literal|"runtime"
 condition|)
 name|qtConfig
 operator|+=
@@ -19836,8 +19857,8 @@ name|dictionary
 index|[
 literal|"DBUS"
 index|]
-operator|!=
-literal|"no"
+operator|==
+literal|"linked"
 condition|)
 block|{
 if|if
