@@ -43,7 +43,7 @@ name|staticsInitialization
 parameter_list|()
 block|{
 comment|// This code should not crash. The test was introduced as
-comment|// a fix for https://bugreports.qt-project.org/browse/QTBUG-36897
+comment|// a fix for QTBUG-36897
 for|for
 control|(
 name|int

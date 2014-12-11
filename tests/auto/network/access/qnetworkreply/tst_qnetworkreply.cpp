@@ -45414,7 +45414,7 @@ name|QT_NO_SSL
 comment|// workaround for HTTPS requests: add self-signed server cert to list of CA certs,
 comment|// since we cannot react to the sslErrors() signal
 comment|// to fix this properly we would need to have an ignoreSslErrors() method in the
-comment|// QNetworkRequest, see http://bugreports.qt-project.org/browse/QTBUG-14774
+comment|// QNetworkRequest, see QTBUG-14774
 if|if
 condition|(
 name|url
