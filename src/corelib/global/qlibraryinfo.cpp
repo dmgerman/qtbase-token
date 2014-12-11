@@ -1051,6 +1051,20 @@ directive|define
 name|COMPILER_STRING
 value|"MSVC 2013"
 end_define
+begin_elif
+elif|#
+directive|elif
+name|_MSC_VER
+operator|<
+literal|2000
+end_elif
+begin_define
+DECL|macro|COMPILER_STRING
+define|#
+directive|define
+name|COMPILER_STRING
+value|"MSVC 2015"
+end_define
 begin_else
 else|#
 directive|else
