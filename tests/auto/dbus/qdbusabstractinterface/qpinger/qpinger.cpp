@@ -62,17 +62,15 @@ range|:
 DECL|function|PingerServer
 name|PingerServer
 argument_list|(
-argument|QString addr =
-literal|"unix:tmpdir=/tmp"
-argument_list|,
-argument|QObject* parent =
+name|QObject
+operator|*
+name|parent
+operator|=
 literal|0
 argument_list|)
 operator|:
 name|QDBusServer
 argument_list|(
-name|addr
-argument_list|,
 name|parent
 argument_list|)
 decl_stmt|,
