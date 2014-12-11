@@ -340,8 +340,22 @@ specifier|const
 block|{
 return|return
 name|d
+condition|?
+name|d
 operator|->
 name|lastError
+else|:
+name|QDBusError
+argument_list|(
+name|QDBusError
+operator|::
+name|Disconnected
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Not connected."
+argument_list|)
+argument_list|)
 return|;
 block|}
 end_function

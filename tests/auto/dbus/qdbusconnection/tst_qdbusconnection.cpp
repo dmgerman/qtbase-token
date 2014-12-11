@@ -1110,7 +1110,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|con2
 operator|.
 name|lastError
@@ -1253,7 +1252,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|con
 operator|.
 name|lastError
@@ -1455,7 +1453,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|con2
 operator|.
 name|lastError
@@ -1598,7 +1595,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|con
 operator|.
 name|lastError
