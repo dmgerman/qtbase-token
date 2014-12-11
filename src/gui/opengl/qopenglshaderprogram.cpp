@@ -1456,6 +1456,16 @@ argument_list|(
 literal|'_'
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|*
+name|c
+operator|!=
+name|QLatin1Char
+argument_list|(
+literal|'*'
+argument_list|)
+condition|)
 name|state
 operator|=
 name|MultiLineComment
