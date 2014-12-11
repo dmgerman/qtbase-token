@@ -4957,6 +4957,7 @@ directive|ifndef
 name|Q_OS_WINCE
 if|if
 condition|(
+operator|(
 name|QWindowsContext
 operator|::
 name|instance
@@ -4968,6 +4969,16 @@ operator|&
 name|QWindowsContext
 operator|::
 name|SI_SupportsTouch
+operator|)
+operator|&&
+name|aWindow
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|ForeignWindow
 condition|)
 block|{
 if|if
