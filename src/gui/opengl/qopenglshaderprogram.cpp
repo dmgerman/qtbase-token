@@ -1482,7 +1482,7 @@ name|pattern
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"^#\\s*version.*(\\n)?"
+literal|"^\\s*#\\s*version.*(\\n)?"
 argument_list|)
 argument_list|,
 name|QRegularExpression
