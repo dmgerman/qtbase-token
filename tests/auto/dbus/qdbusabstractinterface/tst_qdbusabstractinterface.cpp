@@ -817,6 +817,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|proc
+operator|.
+name|waitForReadyRead
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// verify service is now registered
 name|QTRY_VERIFY
 argument_list|(

@@ -451,6 +451,11 @@ argument_list|(
 literal|"ready.\n"
 argument_list|)
 expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
 return|return
 name|app
 operator|.

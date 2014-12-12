@@ -1747,6 +1747,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|proc
+operator|.
+name|waitForReadyRead
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|WaitForQMyServer
 name|w
 decl_stmt|;
