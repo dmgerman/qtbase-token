@@ -1806,6 +1806,14 @@ name|ImhSensitiveData
 operator|)
 operator|!=
 literal|0
+operator|||
+operator|(
+name|inputHints
+operator|&
+name|ImhNoPredictiveText
+operator|)
+operator|!=
+literal|0
 condition|)
 block|{
 name|inputType
