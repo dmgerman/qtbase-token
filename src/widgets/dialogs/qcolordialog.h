@@ -342,6 +342,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_pickScreenColor()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_updateColorPicking()
+argument_list|)
 name|friend
 name|class
 name|QColorShower
