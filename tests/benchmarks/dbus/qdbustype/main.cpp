@@ -63,6 +63,11 @@ modifier|*
 name|data
 parameter_list|)
 block|{
+if|if
+condition|(
+name|qdbus_loadLibDBus
+argument_list|()
+condition|)
 name|QTest
 operator|::
 name|newRow
