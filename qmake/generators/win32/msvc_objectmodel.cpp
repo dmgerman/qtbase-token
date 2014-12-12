@@ -10731,11 +10731,6 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
-name|WinPhone80
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|ATLMinimizesCRunTimeLibraryUsage
 argument_list|(
 name|unset

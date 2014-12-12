@@ -2850,8 +2850,6 @@ name|bool
 name|WinRT
 decl_stmt|,
 name|WinPhone
-decl_stmt|,
-name|WinPhone80
 decl_stmt|;
 comment|// Variables
 name|triState

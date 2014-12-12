@@ -762,18 +762,6 @@ condition|(
 name|isPhone
 condition|)
 block|{
-if|if
-condition|(
-name|targetVer
-operator|==
-literal|"WP80"
-condition|)
-comment|// ### Windows Phone 8.0, remove in Qt 5.4
-name|windowsPath
-operator|=
-literal|"Microsoft\\Microsoft SDKs\\WindowsPhone\\v"
-expr_stmt|;
-else|else
 name|windowsPath
 operator|=
 literal|"Microsoft\\Microsoft SDKs\\WindowsPhoneApp\\v"
@@ -865,21 +853,6 @@ name|sdkDir
 init|=
 name|vcInstallDir
 decl_stmt|;
-if|if
-condition|(
-name|targetVer
-operator|==
-literal|"WP80"
-condition|)
-name|sdkDir
-operator|+=
-name|QStringLiteral
-argument_list|(
-literal|"/WPSDK/"
-argument_list|)
-operator|+
-name|targetVer
-expr_stmt|;
 if|if
 condition|(
 operator|!

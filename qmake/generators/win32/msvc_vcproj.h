@@ -375,10 +375,6 @@ name|initExtraCompilerOutputs
 argument_list|()
 block|;
 name|void
-name|initWMAppManifest
-argument_list|()
-block|;
-name|void
 name|writeSubDirs
 argument_list|(
 name|QTextStream
