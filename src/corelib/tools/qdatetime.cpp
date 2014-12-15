@@ -1374,7 +1374,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Parse offset in [+-]HH[:]MM format
+comment|// Parse offset in [+-]HH[[:]MM] format
 end_comment
 begin_function
 DECL|function|fromOffsetString
@@ -1496,7 +1496,7 @@ operator|==
 literal|1
 condition|)
 block|{
-comment|// [+-]HHMM format
+comment|// [+-]HHMM or [+-]HH format
 name|parts
 operator|.
 name|append
@@ -1566,6 +1566,20 @@ specifier|const
 name|int
 name|minute
 init|=
+operator|(
+name|parts
+operator|.
+name|at
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+operator|)
+condition|?
+literal|0
+else|:
 name|parts
 operator|.
 name|at
@@ -13382,12 +13396,6 @@ else|else
 block|{
 comment|// the loop below is faster but functionally equal to:
 comment|// const int signIndex = isoString.indexOf(QRegExp(QStringLiteral("[+-]")));
-specifier|const
-name|int
-name|sizeOfTimeZoneString
-init|=
-literal|4
-decl_stmt|;
 name|int
 name|signIndex
 init|=
@@ -13395,8 +13403,6 @@ name|isoString
 operator|.
 name|size
 argument_list|()
-operator|-
-name|sizeOfTimeZoneString
 operator|-
 literal|1
 decl_stmt|;
