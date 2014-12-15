@@ -1581,10 +1581,17 @@ name|displayMode
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// Screen shouldn't really return 0 but it does so default to 60 or things break.
 if|if
 condition|(
 name|result
 operator|!=
+literal|0
+operator|||
+name|displayMode
+operator|.
+name|refresh
+operator|==
 literal|0
 condition|)
 block|{
