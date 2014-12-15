@@ -8127,7 +8127,7 @@ argument_list|)
 decl_stmt|;
 specifier|const
 name|int
-name|row
+name|column
 init|=
 name|index
 operator|/
@@ -8135,7 +8135,7 @@ name|standardColorRows
 decl_stmt|;
 specifier|const
 name|int
-name|column
+name|row
 init|=
 name|index
 operator|%
@@ -8239,7 +8239,7 @@ argument_list|)
 decl_stmt|;
 specifier|const
 name|int
-name|row
+name|column
 init|=
 name|index
 operator|/
@@ -8247,7 +8247,7 @@ name|customColorRows
 decl_stmt|;
 specifier|const
 name|int
-name|column
+name|row
 init|=
 name|index
 operator|%
