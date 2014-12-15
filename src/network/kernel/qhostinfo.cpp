@@ -2254,14 +2254,6 @@ literal|false
 expr_stmt|;
 if|if
 condition|(
-name|cache
-operator|.
-name|contains
-argument_list|(
-name|name
-argument_list|)
-condition|)
-block|{
 name|QHostInfoCacheElement
 modifier|*
 name|element
@@ -2272,7 +2264,8 @@ name|object
 argument_list|(
 name|name
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
 if|if
 condition|(
 name|element
