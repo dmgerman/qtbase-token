@@ -1886,6 +1886,7 @@ argument_list|(
 literal|"\n"
 literal|" QmlTest options:\n"
 literal|" -import dir         : Specify an import directory.\n"
+literal|" -plugins dir        : Specify a directory where to search for plugins.\n"
 literal|" -input dir/file     : Specify the root directory for test cases or a single test case file.\n"
 literal|" -qtquick1           : Run with QtQuick 1 rather than QtQuick 2.\n"
 literal|" -translation file   : Specify the translation file.\n"
@@ -3337,6 +3338,7 @@ name|stderr
 argument_list|,
 literal|"\nqmltest related options:\n"
 literal|" -import    : Specify an import directory.\n"
+literal|" -plugins   : Specify a directory where to search for plugins.\n"
 literal|" -input     : Specify the root directory for test cases.\n"
 literal|" -qtquick1  : Run with QtQuick 1 rather than QtQuick 2.\n"
 argument_list|)
