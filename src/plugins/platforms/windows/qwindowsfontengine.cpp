@@ -5768,6 +5768,7 @@ name|lf
 operator|.
 name|lfHeight
 operator|=
+operator|-
 name|unitsPerEm
 expr_stmt|;
 name|int
