@@ -1511,33 +1511,36 @@ condition|)
 block|{
 specifier|const
 name|int
-name|gl_color_ext
+name|gl_color_attachment0
 init|=
-literal|0x1800
+literal|0x8CE0
 decl_stmt|;
+comment|// GL_COLOR_ATTACHMENT0
 specifier|const
 name|int
-name|gl_depth_ext
+name|gl_depth_attachment
 init|=
-literal|0x1801
+literal|0x8D00
 decl_stmt|;
+comment|// GL_DEPTH_ATTACHMENT
 specifier|const
 name|int
-name|gl_stencil_ext
+name|gl_stencil_attachment
 init|=
-literal|0x1802
+literal|0x8D20
 decl_stmt|;
+comment|// GL_STENCIL_ATTACHMENT
 specifier|const
 name|GLenum
 name|attachments
 index|[]
 init|=
 block|{
-name|gl_color_ext
+name|gl_color_attachment0
 block|,
-name|gl_depth_ext
+name|gl_depth_attachment
 block|,
-name|gl_stencil_ext
+name|gl_stencil_attachment
 block|}
 decl_stmt|;
 name|f
