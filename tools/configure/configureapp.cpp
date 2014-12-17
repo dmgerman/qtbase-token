@@ -22825,7 +22825,7 @@ literal|"no"
 condition|)
 name|qconfigList
 operator|+=
-literal|"QT_QML_NO_DEBUGGER"
+literal|"QT_NO_QML_DEBUGGER"
 expr_stmt|;
 if|if
 condition|(
