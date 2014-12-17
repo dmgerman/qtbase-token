@@ -8658,9 +8658,6 @@ begin_comment
 comment|/*!     \class QXmlStreamAttributes     \inmodule QtCore     \since 4.3     \reentrant     \brief The QXmlStreamAttributes class represents a vector of QXmlStreamAttribute.      Attributes are returned by a QXmlStreamReader in     \l{QXmlStreamReader::attributes()} {attributes()} when the reader     reports a \l {QXmlStreamReader::StartElement}{start element}. The     class can also be used with a QXmlStreamWriter as an argument to     \l {QXmlStreamWriter::writeAttributes()}{writeAttributes()}.      The convenience function value() loops over the vector and returns     an attribute value for a given namespaceUri and an attribute's     name.      New attributes can be added with append().      \ingroup xml-tools */
 end_comment
 begin_comment
-comment|/*!     \fn void QXmlStreamAttributes::append(const QXmlStreamAttribute&attribute)      Appends the given \a attribute to the end of the vector.      \sa QVector::append() */
-end_comment
-begin_comment
 comment|/*!     \typedef QXmlStreamNotationDeclarations     \relates QXmlStreamNotationDeclaration      Synonym for QVector<QXmlStreamNotationDeclaration>. */
 end_comment
 begin_comment

@@ -11066,9 +11066,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QColorDialog::open()      \since 4.5     Shows the dialog as a \l{QDialog#Modal Dialogs}{window modal dialog},     returning immediately.      \sa QDialog::open() */
-end_comment
-begin_comment
 comment|/*!     \since 4.5      Pops up a modal color dialog with the given window \a title (or "Select Color" if none is     specified), lets the user choose a color, and returns that color. The color is initially set     to \a initial. The dialog is a child of \a parent. It returns an invalid (see     QColor::isValid()) color if the user cancels the dialog.      The \a options argument allows you to customize the dialog. */
 end_comment
 begin_function

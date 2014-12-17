@@ -23843,9 +23843,6 @@ begin_comment
 comment|/*!   \fn QGraphicsObject::visibleChanged()    This signal gets emitted whenever the visibility of the item changes    \sa visible */
 end_comment
 begin_comment
-comment|/*!   \fn const QObjectList&QGraphicsObject::children() const   \internal    This function returns the same value as QObject::children(). It's   provided to differentiate between the obsolete member   QGraphicsItem::children() and QObject::children(). QGraphicsItem now   provides childItems() instead. */
-end_comment
-begin_comment
 comment|/*!   \property QGraphicsObject::transformOriginPoint   \brief the transformation origin    This property sets a specific point in the items coordiante system as the   origin for scale and rotation.    \sa scale, rotation, QGraphicsItem::transformOriginPoint() */
 end_comment
 begin_comment

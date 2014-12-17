@@ -18362,9 +18362,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QMenu::addAction(QAction *action)     \overload      Appends the action \a action to the menu's list of actions.      \sa QMenuBar::addAction(), QWidget::addAction() */
-end_comment
-begin_comment
 comment|/*!     \fn void QMenu::aboutToHide()     \since 4.2      This signal is emitted just before the menu is hidden from the user.      \sa aboutToShow(), hide() */
 end_comment
 begin_comment

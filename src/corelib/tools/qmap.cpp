@@ -2457,40 +2457,19 @@ begin_comment
 comment|/*!     \fn bool QMultiMap::contains(const Key&key, const T&value) const     \since 4.3      Returns \c true if the map contains an item with key \a key and     value \a value; otherwise returns \c false.      \sa QMap::contains() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMultiMap::contains(const Key&key) const     \overload     \sa QMap::contains() */
-end_comment
-begin_comment
 comment|/*!     \fn int QMultiMap::remove(const Key&key, const T&value)     \since 4.3      Removes all the items that have the key \a key and the value \a     value from the map. Returns the number of items removed.      \sa QMap::remove() */
-end_comment
-begin_comment
-comment|/*!     \fn int QMultiMap::remove(const Key&key)     \overload     \sa QMap::remove() */
 end_comment
 begin_comment
 comment|/*!     \fn int QMultiMap::count(const Key&key, const T&value) const     \since 4.3      Returns the number of items with key \a key and value \a value.      \sa QMap::count() */
 end_comment
 begin_comment
-comment|/*!     \fn int QMultiMap::count(const Key&key) const     \overload     \sa QMap::count() */
-end_comment
-begin_comment
-comment|/*!     \fn int QMultiMap::count() const     \overload     \sa QMap::count() */
-end_comment
-begin_comment
 comment|/*!     \fn typename QMap<Key, T>::iterator QMultiMap::find(const Key&key, const T&value)     \since 4.3      Returns an iterator pointing to the item with key \a key and     value \a value in the map.      If the map contains no such item, the function returns end().      If the map contains multiple items with key \a key, this     function returns an iterator that points to the most recently     inserted value.      \sa QMap::find() */
-end_comment
-begin_comment
-comment|/*!     \fn typename QMap<Key, T>::iterator QMultiMap::find(const Key&key)     \overload     \sa QMap::find() */
 end_comment
 begin_comment
 comment|/*!     \fn typename QMap<Key, T>::const_iterator QMultiMap::find(const Key&key, const T&value) const     \since 4.3     \overload      Returns a const iterator pointing to the item with the given \a key and     \a value in the map.      If the map contains no such item, the function returns end().      If the map contains multiple items with the specified \a key, this     function returns a const iterator that points to the most recently     inserted value.      \sa QMap::find() */
 end_comment
 begin_comment
-comment|/*!     \fn typename QMap<Key, T>::const_iterator QMultiMap::find(const Key&key) const     \since 4.3     \overload     \sa QMap::find() */
-end_comment
-begin_comment
 comment|/*!     \fn typename QMap<Key, T>::const_iterator QMultiMap::constFind(const Key&key, const T&value) const     \since 4.3      Returns an iterator pointing to the item with key \a key and the     value \a value in the map.      If the map contains no such item, the function returns     constEnd().      \sa QMap::constFind() */
-end_comment
-begin_comment
-comment|/*!     \fn typename QMap<Key, T>::const_iterator QMultiMap::constFind(const Key&key) const     \overload     \sa QMap::constFind() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

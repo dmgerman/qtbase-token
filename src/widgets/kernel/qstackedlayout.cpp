@@ -208,9 +208,6 @@ begin_comment
 comment|/*!     \fn void QStackedLayout::widgetRemoved(int index)      This signal is emitted whenever a widget is removed from the     layout. The widget's \a index is passed as parameter.      \sa removeWidget() */
 end_comment
 begin_comment
-comment|/*!     \fn QWidget *QStackedLayout::widget()     \internal */
-end_comment
-begin_comment
 comment|/*!     Constructs a QStackedLayout with no parent.      This QStackedLayout must be installed on a widget later on to     become effective.      \sa addWidget(), insertWidget() */
 end_comment
 begin_constructor

@@ -917,9 +917,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QLayout::setAlignment(Qt::Alignment alignment)      Sets the alignment of this item to \a alignment.      \sa QLayoutItem::setAlignment() */
-end_comment
-begin_comment
 comment|/*!     \property QLayout::margin     \brief the width of the outside border of the layout     \obsolete      Use setContentsMargins() and getContentsMargins() instead.      \sa contentsRect(), spacing */
 end_comment
 begin_comment

@@ -1516,12 +1516,6 @@ begin_comment
 comment|// QT_BOOTSTRAPPED
 end_comment
 begin_comment
-comment|/*!     \fn int QStringList::indexOf(const QString&value, int from = 0) const      Returns the index position of the first occurrence of \a value in     the list, searching forward from index position \a from. Returns     -1 if no item matched.      \sa lastIndexOf(), contains(), QList::indexOf() */
-end_comment
-begin_comment
-comment|/*!     \fn int QStringList::lastIndexOf(const QString&value, int from = -1) const      Returns the index position of the last occurrence of \a value in     the list, searching backward from index position \a from. If \a     from is -1 (the default), the search starts at the last item.     Returns -1 if no item matched.      By default, this function is case sensitive.      \sa indexOf(), QList::lastIndexOf() */
-end_comment
-begin_comment
 comment|/*!     \fn int QStringList::removeDuplicates()      \since  4.5      This function removes duplicate entries from a list.     The entries do not have to be sorted. They will retain their     original order.      Returns the number of removed entries. */
 end_comment
 begin_function

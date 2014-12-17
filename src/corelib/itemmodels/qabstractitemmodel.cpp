@@ -4205,9 +4205,6 @@ begin_comment
 comment|/*!     \fn bool QAbstractItemModel::insertRow(int row, const QModelIndex&parent)      Inserts a single row before the given \a row in the child items of the     \a parent specified.      \note This function calls the virtual method insertRows.      Returns \c{true} if the row is inserted; otherwise returns \c{false}.      \sa insertRows(), insertColumn(), removeRow() */
 end_comment
 begin_comment
-comment|/*!     \fn QObject *QAbstractItemModel::parent() const     \internal */
-end_comment
-begin_comment
 comment|/*!     \fn QModelIndex QAbstractItemModel::parent(const QModelIndex&index) const = 0      Returns the parent of the model item with the given \a index. If the item     has no parent, an invalid QModelIndex is returned.      A common convention used in models that expose tree data structures is that     only items in the first column have children. For that case, when     reimplementing this function in a subclass the column of the returned     QModelIndex would be 0.      When reimplementing this function in a subclass, be careful to avoid     calling QModelIndex member functions, such as QModelIndex::parent(), since     indexes belonging to your model will simply call your implementation,     leading to infinite recursion.      \sa createIndex() */
 end_comment
 begin_comment

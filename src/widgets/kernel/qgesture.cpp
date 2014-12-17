@@ -2108,30 +2108,6 @@ end_endif
 begin_comment
 comment|//QT_NO_GRAPHICSVIEW
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-end_ifdef
-begin_comment
-comment|/*!     \fn void QGestureEvent::setAccepted(bool accepted)      Sets or clears the event's internal flag that determines whether it should     be delivered to other objects.      Calling this function with a value of true for \a accepted indicates that the     caller has accepted the event and that it should not be propagated further.     Calling this function with a value of false indicates that the caller has     ignored the event and that it should be delivered to other objects.      For convenience, the accept flag can also be set with accept(), and cleared     with ignore().      \sa QEvent::accepted */
-end_comment
-begin_comment
-comment|/*!     \fn bool QGestureEvent::isAccepted() const      Returns \c true is the event has been accepted; otherwise returns \c false.      \sa QEvent::accepted */
-end_comment
-begin_comment
-comment|/*!     \fn void QGestureEvent::accept()      Accepts the event, the equivalent of calling setAccepted(true).      \sa QEvent::accept() */
-end_comment
-begin_comment
-comment|/*!     \fn void QGestureEvent::ignore()      Ignores the event, the equivalent of calling setAccepted(false).      \sa QEvent::ignore() */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_NO_USING_KEYWORD
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

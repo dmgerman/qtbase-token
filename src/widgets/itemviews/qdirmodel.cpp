@@ -4943,9 +4943,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn QObject *QDirModel::parent() const   \internal */
-end_comment
-begin_comment
 comment|/*   The root node is never seen outside the model. */
 end_comment
 begin_function

@@ -1766,9 +1766,6 @@ begin_comment
 comment|/*!     \fn bool QToolBar::isAreaAllowed(Qt::ToolBarArea area) const      Returns \c true if this toolbar is dockable in the given \a area;     otherwise returns \c false. */
 end_comment
 begin_comment
-comment|/*!     \fn void QToolBar::addAction(QAction *action)     \overload      Appends the \a action to the toolbar's list of actions.      \sa QMenu::addAction(), QWidget::addAction() */
-end_comment
-begin_comment
 comment|/*!     \fn void QToolBar::actionTriggered(QAction *action)      This signal is emitted when an action in this toolbar is triggered.     This happens when the action's tool button is pressed, or when the     action is triggered in some other way outside the toolbar. The parameter     holds the triggered \a action. */
 end_comment
 begin_comment

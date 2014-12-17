@@ -155,32 +155,11 @@ operator|~
 name|QMenu
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-specifier|inline
-name|void
-name|addAction
-argument_list|(
-argument|QAction *action
-argument_list|)
-block|{
-name|QWidget
-operator|::
-name|addAction
-argument_list|(
-name|action
-argument_list|)
-block|; }
-else|#
-directive|else
 name|using
 name|QWidget
 operator|::
 name|addAction
 block|;
-endif|#
-directive|endif
 name|QAction
 operator|*
 name|addAction

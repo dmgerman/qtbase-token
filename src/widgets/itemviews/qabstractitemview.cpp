@@ -1065,9 +1065,6 @@ begin_comment
 comment|/*!     \fn QRegion QAbstractItemView::visualRegionForSelection(const QItemSelection&selection) const = 0      Returns the region from the viewport of the items in the given     \a selection.      In the base class this is a pure virtual function.      \sa visualRect(), selectedIndexes() */
 end_comment
 begin_comment
-comment|/*!     \fn void QAbstractItemView::update()     \internal */
-end_comment
-begin_comment
 comment|/*!     Constructs an abstract item view with the given \a parent. */
 end_comment
 begin_constructor

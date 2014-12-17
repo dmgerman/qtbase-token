@@ -9475,9 +9475,6 @@ begin_comment
 comment|/*!     \fn void QMenuBar::hovered(QAction *action)      This signal is emitted when a menu action is highlighted; \a action     is the action that caused the event to be sent.      Often this is used to update status information.      \sa triggered(), QAction::hovered() */
 end_comment
 begin_comment
-comment|/*!     \fn void QMenuBar::addAction(QAction *action)     \overload      Appends the action \a action to the menu bar's list of actions.      \sa QMenu::addAction(), QWidget::addAction(), QWidget::actions() */
-end_comment
-begin_comment
 comment|// for private slots
 end_comment
 begin_macro

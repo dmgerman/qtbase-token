@@ -9990,9 +9990,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn QObject *QStandardItemModel::parent() const   \internal */
-end_comment
-begin_comment
 comment|/*!   \reimp */
 end_comment
 begin_function

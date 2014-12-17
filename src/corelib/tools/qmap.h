@@ -8359,12 +8359,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_NO_USING_KEYWORD
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_CC_RVCT
 argument_list|)
 end_if

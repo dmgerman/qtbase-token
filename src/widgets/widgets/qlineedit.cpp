@@ -720,9 +720,6 @@ begin_comment
 comment|/*!     \enum QLineEdit::ActionPosition      This enum type describes how a line edit should display the action widgets to be     added.      \value LeadingPosition  The widget is displayed to the left of the text                             when using layout direction \c Qt::LeftToRight or to                             the right when using \c Qt::RightToLeft, respectively.      \value TrailingPosition The widget is displayed to the right of the text                             when using layout direction \c Qt::LeftToRight or to                             the left when using \c Qt::RightToLeft, respectively.      \sa addAction(), removeAction(), QWidget::layoutDirection      \since 5.2 */
 end_comment
 begin_comment
-comment|/*!     \fn void QLineEdit::addAction(QAction *action)     \overload     \internal */
-end_comment
-begin_comment
 comment|/*!     \overload      Adds the \a action to the list of actions at the \a position.      \since 5.2 */
 end_comment
 begin_function

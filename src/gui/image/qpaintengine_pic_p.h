@@ -226,40 +226,11 @@ argument|PolygonDrawMode mode
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-specifier|inline
-name|void
-name|drawPolygon
-argument_list|(
-argument|const QPoint *points
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-block|{
-name|QPaintEngine
-operator|::
-name|drawPolygon
-argument_list|(
-name|points
-argument_list|,
-name|pointCount
-argument_list|,
-name|mode
-argument_list|)
-block|; }
-else|#
-directive|else
 name|using
 name|QPaintEngine
 operator|::
 name|drawPolygon
 block|;
-endif|#
-directive|endif
 name|void
 name|drawPixmap
 argument_list|(

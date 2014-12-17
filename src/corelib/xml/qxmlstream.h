@@ -643,13 +643,6 @@ name|isNull
 argument_list|()
 return|;
 block|}
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_NO_USING_KEYWORD
-argument_list|)
 name|using
 name|QVector
 operator|<
@@ -657,29 +650,7 @@ name|QXmlStreamAttribute
 operator|>
 operator|::
 name|append
-block|;
-else|#
-directive|else
-specifier|inline
-name|void
-name|append
-argument_list|(
-argument|const QXmlStreamAttribute&attribute
-argument_list|)
-block|{
-name|QVector
-operator|<
-name|QXmlStreamAttribute
-operator|>
-operator|::
-name|append
-argument_list|(
-name|attribute
-argument_list|)
 block|; }
-endif|#
-directive|endif
-block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

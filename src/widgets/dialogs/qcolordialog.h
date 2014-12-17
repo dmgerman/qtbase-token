@@ -151,27 +151,11 @@ name|options
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-name|void
-name|open
-argument_list|()
-block|{
-name|QDialog
-operator|::
-name|open
-argument_list|()
-block|; }
-else|#
-directive|else
 name|using
 name|QDialog
 operator|::
 name|open
 block|;
-endif|#
-directive|endif
 name|void
 name|open
 argument_list|(

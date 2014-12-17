@@ -887,58 +887,6 @@ name|canceledGestures
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-specifier|inline
-name|void
-name|setAccepted
-argument_list|(
-argument|bool accepted
-argument_list|)
-block|{
-name|QEvent
-operator|::
-name|setAccepted
-argument_list|(
-name|accepted
-argument_list|)
-block|; }
-specifier|inline
-name|bool
-name|isAccepted
-argument_list|()
-specifier|const
-block|{
-return|return
-name|QEvent
-operator|::
-name|isAccepted
-argument_list|()
-return|;
-block|}
-specifier|inline
-name|void
-name|accept
-argument_list|()
-block|{
-name|QEvent
-operator|::
-name|accept
-argument_list|()
-block|; }
-specifier|inline
-name|void
-name|ignore
-argument_list|()
-block|{
-name|QEvent
-operator|::
-name|ignore
-argument_list|()
-block|; }
-else|#
-directive|else
 name|using
 name|QEvent
 operator|::
@@ -959,8 +907,6 @@ name|QEvent
 operator|::
 name|ignore
 block|;
-endif|#
-directive|endif
 name|void
 name|setAccepted
 argument_list|(

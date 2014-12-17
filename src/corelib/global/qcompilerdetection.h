@@ -76,12 +76,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
 begin_elif
 elif|#
 directive|elif
@@ -306,12 +300,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
 begin_elif
 elif|#
 directive|elif
@@ -1156,12 +1144,6 @@ end_endif
 begin_comment
 comment|/* Spurious (?) error messages observed on Compaq C++ V6.5-014. */
 end_comment
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
 begin_comment
 comment|/* Apply to all versions prior to Compaq C++ V6.0-000 - observed on    DEC C++ V5.5-004. */
 end_comment
@@ -1324,12 +1306,6 @@ define|#
 directive|define
 name|Q_CC_KAI
 end_define
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
 begin_comment
 comment|/* Using the `using' keyword avoids Intel C++ for Linux warnings */
 end_comment
@@ -1448,16 +1424,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
-begin_comment
-DECL|macro|Q_NO_USING_KEYWORD
-comment|/* ### check "using" status */
-end_comment
 begin_comment
 comment|/* Never tested! */
 end_comment
@@ -1480,12 +1446,6 @@ define|#
 directive|define
 name|Q_CC_OC
 end_define
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
 begin_comment
 comment|/* CDS++ defines __EDG__ although this is not documented in the Reliant    documentation. It also follows conventions like _BOOL and this documented */
 end_comment
@@ -1502,12 +1462,6 @@ DECL|macro|Q_CC_CDS
 define|#
 directive|define
 name|Q_CC_CDS
-end_define
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
 end_define
 begin_comment
 comment|/* The MIPSpro compiler defines __EDG */
@@ -1526,16 +1480,6 @@ define|#
 directive|define
 name|Q_CC_MIPS
 end_define
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
-begin_comment
-DECL|macro|Q_NO_USING_KEYWORD
-comment|/* ### check "using" status */
-end_comment
 begin_define
 DECL|macro|Q_NO_TEMPLATE_FRIENDS
 define|#
@@ -1764,30 +1708,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__SUNPRO_CC_COMPAT
-argument_list|)
-operator|&&
-operator|(
-name|__SUNPRO_CC_COMPAT
-operator|<=
-literal|4
-operator|)
-end_if
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|Q_C_CALLBACKS
 define|#
@@ -2002,16 +1922,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|Q_NO_USING_KEYWORD
-end_define
-begin_comment
-DECL|macro|Q_NO_USING_KEYWORD
-comment|/* ### check "using" status */
-end_comment
 begin_else
 else|#
 directive|else

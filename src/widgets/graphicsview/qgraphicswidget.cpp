@@ -7415,18 +7415,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-end_ifdef
-begin_comment
-comment|/*!     \fn const QObjectList&QGraphicsWidget::children() const     \internal      This function returns the same value as QObject::children(). It's     provided to differentiate between the obsolete member     QGraphicsItem::children() and QObject::children(). QGraphicsItem now     provides childItems() instead. */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_if
 if|#
 directive|if

@@ -3441,40 +3441,19 @@ begin_comment
 comment|/*!     \fn bool QMultiHash::contains(const Key&key, const T&value) const     \since 4.3      Returns \c true if the hash contains an item with the \a key and     \a value; otherwise returns \c false.      \sa QHash::contains() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMultiHash::contains(const Key&key) const     \overload     \sa QHash::contains() */
-end_comment
-begin_comment
 comment|/*!     \fn int QMultiHash::remove(const Key&key, const T&value)     \since 4.3      Removes all the items that have the \a key and the value \a     value from the hash. Returns the number of items removed.      \sa QHash::remove() */
-end_comment
-begin_comment
-comment|/*!     \fn int QMultiHash::remove(const Key&key)     \overload     \sa QHash::remove() */
 end_comment
 begin_comment
 comment|/*!     \fn int QMultiHash::count(const Key&key, const T&value) const     \since 4.3      Returns the number of items with the \a key and \a value.      \sa QHash::count() */
 end_comment
 begin_comment
-comment|/*!     \fn int QMultiHash::count(const Key&key) const     \overload     \sa QHash::count() */
-end_comment
-begin_comment
-comment|/*!     \fn int QMultiHash::count() const     \overload     \sa QHash::count() */
-end_comment
-begin_comment
 comment|/*!     \fn typename QHash<Key, T>::iterator QMultiHash::find(const Key&key, const T&value)     \since 4.3      Returns an iterator pointing to the item with the \a key and \a value.     If the hash contains no such item, the function returns end().      If the hash contains multiple items with the \a key and \a value, the     iterator returned points to the most recently inserted item.      \sa QHash::find() */
-end_comment
-begin_comment
-comment|/*!     \fn typename QHash<Key, T>::iterator QMultiHash::find(const Key&key)     \overload     \sa QHash::find() */
 end_comment
 begin_comment
 comment|/*!     \fn typename QHash<Key, T>::const_iterator QMultiHash::find(const Key&key, const T&value) const     \since 4.3     \overload */
 end_comment
 begin_comment
-comment|/*!     \fn typename QHash<Key, T>::const_iterator QMultiHash::find(const Key&key) const     \overload     \sa QHash::find() */
-end_comment
-begin_comment
 comment|/*!     \fn typename QHash<Key, T>::const_iterator QMultiHash::constFind(const Key&key, const T&value) const     \since 4.3      Returns an iterator pointing to the item with the \a key and the     \a value in the hash.      If the hash contains no such item, the function returns     constEnd().      \sa QHash::constFind() */
-end_comment
-begin_comment
-comment|/*!     \fn typename QHash<Key, T>::const_iterator QMultiHash::constFind(const Key&key) const     \overload     \sa QHash::constFind() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
