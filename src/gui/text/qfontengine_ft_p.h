@@ -1131,20 +1131,6 @@ operator|&
 name|matrix
 argument_list|)
 block|;
-name|bool
-name|loadGlyphs
-argument_list|(
-argument|QGlyphSet *gs
-argument_list|,
-argument|const glyph_t *glyphs
-argument_list|,
-argument|int num_glyphs
-argument_list|,
-argument|const QFixedPoint *positions
-argument_list|,
-argument|GlyphFormat format = Format_Render
-argument_list|)
-block|;
 name|QFontEngineFT
 argument_list|(
 specifier|const
