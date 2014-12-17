@@ -25,6 +25,10 @@ private|private
 name|Q_SLOTS
 private|:
 name|void
+name|defaultValues
+parameter_list|()
+function_decl|;
+name|void
 name|getSetCheck
 parameter_list|()
 function_decl|;
@@ -43,19 +47,16 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_comment
-comment|// Testing get/set functions
-end_comment
 begin_function
-DECL|function|getSetCheck
+DECL|function|defaultValues
 name|void
 name|tst_QSizePolicy
 operator|::
-name|getSetCheck
+name|defaultValues
 parameter_list|()
 block|{
 block|{
-comment|// check values of a default constructed QSizePolicy
+comment|// check values of a default-constructed QSizePolicy
 name|QSizePolicy
 name|sp
 decl_stmt|;
@@ -146,6 +147,19 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_comment
+comment|// Testing get/set functions
+end_comment
+begin_function
+DECL|function|getSetCheck
+name|void
+name|tst_QSizePolicy
+operator|::
+name|getSetCheck
+parameter_list|()
+block|{
 block|{
 specifier|static
 specifier|const
