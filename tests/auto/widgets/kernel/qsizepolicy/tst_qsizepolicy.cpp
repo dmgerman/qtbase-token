@@ -759,6 +759,10 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+DECL|macro|ITEMCOUNT
+undef|#
+directive|undef
+name|ITEMCOUNT
 block|}
 block|}
 end_function
