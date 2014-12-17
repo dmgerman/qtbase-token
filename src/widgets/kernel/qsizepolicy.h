@@ -35,6 +35,10 @@ name|Q_ENUMS
 argument_list|(
 name|Policy
 argument_list|)
+name|Q_FLAGS
+argument_list|(
+name|ControlTypes
+argument_list|)
 name|public
 range|:     enum
 name|PolicyFlag
