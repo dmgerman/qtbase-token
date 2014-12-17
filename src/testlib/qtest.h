@@ -1639,7 +1639,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtTest/qtest_gui.h>
+file|<QtTest/qtest_widgets.h>
 end_include
 begin_ifdef
 ifdef|#
