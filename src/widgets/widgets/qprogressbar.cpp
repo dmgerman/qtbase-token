@@ -1390,8 +1390,10 @@ operator|::
 name|Vertical
 condition|)
 name|size
+operator|=
+name|size
 operator|.
-name|transpose
+name|transposed
 argument_list|()
 expr_stmt|;
 return|return

@@ -23822,8 +23822,10 @@ condition|(
 name|verticalTitleBar
 condition|)
 name|sz
+operator|=
+name|sz
 operator|.
-name|transpose
+name|transposed
 argument_list|()
 expr_stmt|;
 name|closeRect
@@ -23935,8 +23937,10 @@ condition|(
 name|verticalTitleBar
 condition|)
 name|sz
+operator|=
+name|sz
 operator|.
-name|transpose
+name|transposed
 argument_list|()
 expr_stmt|;
 name|floatRect
@@ -24085,8 +24089,10 @@ condition|(
 name|verticalTitleBar
 condition|)
 name|sz
+operator|=
+name|sz
 operator|.
-name|transpose
+name|transposed
 argument_list|()
 expr_stmt|;
 name|iconRect
