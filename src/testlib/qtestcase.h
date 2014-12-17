@@ -986,20 +986,14 @@ argument_list|,
 literal|"Compared values are not the same"
 argument_list|,
 name|toString
-operator|<
-name|T
-operator|>
-operator|(
+argument_list|(
 name|t1
-operator|)
+argument_list|)
 argument_list|,
 name|toString
-operator|<
-name|T
-operator|>
-operator|(
+argument_list|(
 name|t2
-operator|)
+argument_list|)
 argument_list|,
 name|actual
 argument_list|,
