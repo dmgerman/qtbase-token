@@ -258,6 +258,9 @@ begin_comment
 comment|/*!    \namespace QTest    \inmodule QtTest     \brief The QTest namespace contains all the functions and    declarations that are related to Qt Test.     See the \l{Qt Test Overview} for information about how to write unit tests. */
 end_comment
 begin_comment
+comment|/*!    \namespace QTest::Internal    \internal */
+end_comment
+begin_comment
 comment|/*! \macro QVERIFY(condition)     \relates QTest     The QVERIFY() macro checks whether the \a condition is true or not. If it is    true, execution continues. If not, a failure is recorded in the test log    and the test won't be executed further.     \b {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet code/src_qtestlib_qtestcase.cpp 0     \sa QCOMPARE(), QTRY_VERIFY() */
 end_comment
 begin_comment
@@ -463,6 +466,18 @@ comment|/*!     \fn char *QTest::toString(const QRectF&rectangle)     \overload 
 end_comment
 begin_comment
 comment|/*!     \fn char *QTest::toString(const QVariant&variant)     \overload      Returns a textual representation of the given \a variant. */
+end_comment
+begin_comment
+comment|/*!     \fn char *QTest::toString(QSizePolicy::ControlType ct)     \overload     \since 5.5      Returns a textual representation of control type \a ct. */
+end_comment
+begin_comment
+comment|/*!     \fn char *QTest::toString(QSizePolicy::ControlTypes cts)     \overload     \since 5.5      Returns a textual representation of control types \a cts. */
+end_comment
+begin_comment
+comment|/*!     \fn char *QTest::toString(QSizePolicy::Policy p)     \overload     \since 5.5      Returns a textual representation of policy \a p. */
+end_comment
+begin_comment
+comment|/*!     \fn char *QTest::toString(QSizePolicy sp)     \overload     \since 5.5      Returns a textual representation of size policy \a sp. */
 end_comment
 begin_comment
 comment|/*! \fn void QTest::qWait(int ms)      Waits for \a ms milliseconds. While waiting, events will be processed and     your test will stay responsive to user interface events or network communication.      Example:     \snippet code/src_qtestlib_qtestcase.cpp 17      The code above will wait until the network server is responding for a     maximum of about 12.5 seconds.      \sa QTest::qSleep(), QSignalSpy::wait() */
