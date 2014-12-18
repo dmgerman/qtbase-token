@@ -70,11 +70,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qfunctions_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<limits.h>
 end_include
 begin_include
@@ -1210,7 +1205,7 @@ struct|;
 end_struct
 begin_function
 DECL|function|operator ==
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|==

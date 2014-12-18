@@ -104,20 +104,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_STATIC_GLOBAL_OPERATOR
-define|#
-directive|define
-name|Q_STATIC_GLOBAL_OPERATOR
-value|static
-end_define
-begin_define
-DECL|macro|Q_STATIC_GLOBAL_INLINE_OPERATOR
-define|#
-directive|define
-name|Q_STATIC_GLOBAL_INLINE_OPERATOR
-value|static inline
-end_define
 begin_endif
 endif|#
 directive|endif

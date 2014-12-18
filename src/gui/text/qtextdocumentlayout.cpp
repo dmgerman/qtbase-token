@@ -1634,7 +1634,7 @@ expr_stmt|;
 end_expr_stmt
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -1659,7 +1659,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -1699,7 +1699,7 @@ comment|//The STL implementation of MSVC 2008 requires the definitions
 end_comment
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -1728,7 +1728,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -1753,7 +1753,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<

@@ -65,11 +65,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qfunctions_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<algorithm>
 end_include
 begin_ifndef
@@ -1710,7 +1705,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -1740,7 +1735,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -2577,7 +2572,7 @@ literal|1600
 end_if
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -2616,7 +2611,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -2646,7 +2641,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<

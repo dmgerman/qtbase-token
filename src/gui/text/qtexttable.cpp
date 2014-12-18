@@ -35,11 +35,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qfunctions_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<algorithm>
 end_include
 begin_include
@@ -1109,7 +1104,8 @@ struct|;
 end_struct
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_INLINE_OPERATOR
+specifier|static
+specifier|inline
 name|bool
 name|operator
 name|<
@@ -1141,7 +1137,8 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_INLINE_OPERATOR
+specifier|static
+specifier|inline
 name|bool
 name|operator
 name|<

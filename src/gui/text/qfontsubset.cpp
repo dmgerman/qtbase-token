@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qfunctions_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qfontsubset_agl.cpp"
 end_include
 begin_include
@@ -5929,7 +5924,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
@@ -6474,7 +6469,7 @@ block|}
 end_function
 begin_function
 DECL|function|operator <
-name|Q_STATIC_GLOBAL_OPERATOR
+specifier|static
 name|bool
 name|operator
 name|<
