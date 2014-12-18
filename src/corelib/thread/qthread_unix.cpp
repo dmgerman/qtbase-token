@@ -1710,7 +1710,6 @@ block|{
 name|int
 name|cores
 init|=
-operator|-
 literal|1
 decl_stmt|;
 if|#
@@ -1749,11 +1748,6 @@ name|perror
 argument_list|(
 literal|"pstat_getdynamic"
 argument_list|)
-expr_stmt|;
-name|cores
-operator|=
-operator|-
-literal|1
 expr_stmt|;
 block|}
 else|else
@@ -1829,11 +1823,6 @@ name|perror
 argument_list|(
 literal|"sysctl"
 argument_list|)
-expr_stmt|;
-name|cores
-operator|=
-operator|-
-literal|1
 expr_stmt|;
 block|}
 elif|#
@@ -1984,8 +1973,6 @@ argument_list|(
 name|_SC_NPROCESSORS_ONLN
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|cores
@@ -1996,6 +1983,8 @@ condition|)
 return|return
 literal|1
 return|;
+endif|#
+directive|endif
 return|return
 name|cores
 return|;
