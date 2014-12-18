@@ -5417,7 +5417,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"Paper Name mismatch: please report this failure at bugreports.qt-project.org"
+literal|"Paper Name mismatch: please report this failure at bugreports.qt.io"
 argument_list|,
 name|Continue
 argument_list|)

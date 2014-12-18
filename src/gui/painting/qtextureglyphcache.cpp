@@ -966,9 +966,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|m_pendingGlyphs
-operator|.
-name|isEmpty
+operator|!
+name|hasPendingGlyphs
 argument_list|()
 condition|)
 return|return;

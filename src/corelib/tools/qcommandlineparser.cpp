@@ -525,7 +525,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Adds the options \a options to look for while parsing.      Returns \c false if adding any of the options failed; otherwise returns \c false.      Cf. addOption() for when it may fail. */
+comment|/*!     \since 5.4      Adds the options to look for while parsing. The options are specified by     the parameter \a options.      Returns \c true if adding all of the options was successful; otherwise     returns \c false.      See the documentation for addOption() for when this function may fail. */
 end_comment
 begin_function
 DECL|function|addOptions

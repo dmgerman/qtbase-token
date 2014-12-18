@@ -275,10 +275,6 @@ name|focusWindow
 argument_list|)
 block|;
 name|void
-name|cursorRectangleChanged
-argument_list|()
-block|;
-name|void
 name|scrollToCursor
 argument_list|()
 block|;

@@ -728,7 +728,7 @@ operator|::
 name|QTBUG_27308
 parameter_list|()
 block|{
-comment|// https://bugreports.qt-project.org/browse/QTBUG-27308
+comment|// QTBUG-27308
 comment|// Check that a disabled scrollbar doesn't react on wheel events anymore
 name|QScrollBar
 name|testWidget

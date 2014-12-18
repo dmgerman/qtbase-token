@@ -128,6 +128,10 @@ name|NonClientAreaMouseButtonDblClick
 operator|<<
 name|QEvent
 operator|::
+name|Wheel
+operator|<<
+name|QEvent
+operator|::
 name|Enter
 operator|<<
 name|QEvent

@@ -39,6 +39,11 @@ end_endif
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslcertificate.h"
 end_include
 begin_include
@@ -834,8 +839,10 @@ operator|!
 name|device
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslCertificate::fromDevice: cannot read from a null device"
 argument_list|)
 expr_stmt|;

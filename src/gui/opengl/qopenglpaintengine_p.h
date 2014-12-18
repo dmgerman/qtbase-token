@@ -117,6 +117,16 @@ define|#
 directive|define
 name|GL_STENCIL_HIGH_BIT
 value|GLuint(0x80)
+DECL|macro|QT_UNKNOWN_TEXTURE_UNIT
+define|#
+directive|define
+name|QT_UNKNOWN_TEXTURE_UNIT
+value|GLuint(-1)
+DECL|macro|QT_DEFAULT_TEXTURE_UNIT
+define|#
+directive|define
+name|QT_DEFAULT_TEXTURE_UNIT
+value|GLuint(0)
 DECL|macro|QT_BRUSH_TEXTURE_UNIT
 define|#
 directive|define
@@ -636,9 +646,9 @@ argument_list|(
 literal|1
 argument_list|)
 block|,
-name|lastMaskTextureUsed
+name|lastTextureUnitUsed
 argument_list|(
-literal|0
+argument|QT_UNKNOWN_TEXTURE_UNIT
 argument_list|)
 block|{ }
 operator|~
@@ -660,17 +670,51 @@ block|;
 name|void
 name|updateCompositionMode
 argument_list|()
+block|;      enum
+name|TextureUpdateMode
+block|{
+name|UpdateIfNeeded
+block|,
+name|ForceUpdate
+block|}
 block|;
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 name|void
-name|updateTextureFilter
+name|updateTexture
 argument_list|(
+argument|GLenum textureUnit
+argument_list|,
+argument|const T&texture
+argument_list|,
 argument|GLenum wrapMode
 argument_list|,
-argument|bool smoothPixmapTransform
+argument|GLenum filterMode
 argument_list|,
-argument|GLuint id = GLuint(-
-literal|1
-argument|)
+argument|TextureUpdateMode updateMode = UpdateIfNeeded
+argument_list|)
+block|;
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|GLuint
+name|bindTexture
+argument_list|(
+specifier|const
+name|T
+operator|&
+name|texture
+argument_list|)
+block|;
+name|void
+name|activateTextureUnit
+argument_list|(
+argument|GLenum textureUnit
 argument_list|)
 block|;
 name|void
@@ -1148,11 +1192,11 @@ block|;
 name|GLfloat
 name|inverseScale
 block|;
-name|GLuint
-name|lastTextureUsed
+name|GLenum
+name|lastTextureUnitUsed
 block|;
 name|GLuint
-name|lastMaskTextureUsed
+name|lastTextureUsed
 block|;
 name|bool
 name|needsSync

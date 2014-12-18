@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslconfiguration.h"
 end_include
 begin_include
@@ -677,8 +682,10 @@ operator|<
 literal|0
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslConfiguration::setPeerVerifyDepth: cannot set negative depth of %d"
 argument_list|,
 name|depth

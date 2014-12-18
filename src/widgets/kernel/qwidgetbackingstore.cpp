@@ -5166,10 +5166,37 @@ name|wd
 operator|->
 name|renderToTexture
 condition|)
+block|{
+name|QPlatformTextureList
+operator|::
+name|Flags
+name|flags
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|widget
+operator|->
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_AlwaysStackOnTop
+argument_list|)
+condition|)
+name|flags
+operator||=
+name|QPlatformTextureList
+operator|::
+name|StacksOnTop
+expr_stmt|;
 name|widgetTextures
 operator|->
 name|appendTexture
 argument_list|(
+name|widget
+argument_list|,
 name|wd
 operator|->
 name|textureId
@@ -5193,16 +5220,10 @@ name|size
 argument_list|()
 argument_list|)
 argument_list|,
-name|widget
-operator|->
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_AlwaysStackOnTop
-argument_list|)
+name|flags
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -6235,8 +6256,6 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
-comment|// There is something other dirty than the renderToTexture widgets.
-comment|// Now it is time to include the renderToTexture ones among the others.
 if|if
 condition|(
 name|widgetTextures
@@ -6265,6 +6284,27 @@ operator|++
 name|i
 control|)
 block|{
+name|QWidget
+modifier|*
+name|w
+init|=
+name|widgetTextures
+operator|->
+name|widget
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|dirtyRenderToTextureWidgets
+operator|.
+name|contains
+argument_list|(
+name|w
+argument_list|)
+condition|)
+block|{
 specifier|const
 name|QRect
 name|rect
@@ -6287,16 +6327,7 @@ name|rect
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
-comment|// The dirtyRenderToTextureWidgets list is useless here, so just reset. As
-comment|// unintuitive as it is, we need to send paint events to renderToTexture
-comment|// widgets always when something (any widget) needs to be updated, even if
-comment|// the renderToTexture widget itself is clean, i.e. there was no update()
-comment|// call for it. This is because changing any widget will cause a flush and
-comment|// so a potentially blocking buffer swap for the window, and skipping paints
-comment|// for the renderToTexture widgets would make it impossible to have smoothly
-comment|// animated content in them.
+block|}
 for|for
 control|(
 name|int
@@ -6329,6 +6360,8 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_GRAPHICSVIEW

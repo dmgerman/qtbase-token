@@ -1719,7 +1719,7 @@ directive|ifdef
 name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-29950"
+literal|"Flakey test - QTBUG-29950"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1898,7 +1898,7 @@ directive|ifdef
 name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-30133"
+literal|"Flakey test - QTBUG-30133"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2209,7 +2209,7 @@ directive|ifdef
 name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"Flakey test - https://bugreports.qt-project.org/browse/QTBUG-29950"
+literal|"Flakey test - QTBUG-29950"
 argument_list|)
 expr_stmt|;
 endif|#
