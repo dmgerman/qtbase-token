@@ -390,7 +390,7 @@ name|PE_FrameMenu
 block|,
 name|PE_FrameStatusBar
 block|,
-comment|// obsolete
+comment|// ### Qt 6: remove
 name|PE_FrameStatusBarItem
 operator|=
 name|PE_FrameStatusBar
@@ -431,6 +431,7 @@ name|PE_IndicatorButtonDropDown
 block|,
 name|PE_IndicatorViewItemCheck
 block|,
+comment|// ### Qt 6: remove
 name|PE_IndicatorItemViewItemCheck
 operator|=
 name|PE_IndicatorViewItemCheck
@@ -680,6 +681,7 @@ name|SE_TabWidgetRightCorner
 block|,
 name|SE_ViewItemCheckIndicator
 block|,
+comment|// ### Qt 6: remove
 name|SE_ItemViewItemCheckIndicator
 operator|=
 name|SE_ViewItemCheckIndicator
@@ -1134,14 +1136,14 @@ name|PM_MDIFrameWidth
 operator|=
 name|PM_MdiSubWindowFrameWidth
 block|,
-comment|//obsolete
+comment|// ### Qt 6: remove
 name|PM_MdiSubWindowMinimizedWidth
 block|,
 name|PM_MDIMinimizedWidth
 operator|=
 name|PM_MdiSubWindowMinimizedWidth
 block|,
-comment|//obsolete
+comment|// ### Qt 6: remove
 name|PM_HeaderMargin
 block|,
 name|PM_HeaderMarkSize
@@ -1170,10 +1172,13 @@ name|PM_SpinBoxSliderHeight
 block|,
 name|PM_DefaultTopLevelMargin
 block|,
+comment|// ### Qt 6: remove
 name|PM_DefaultChildMargin
 block|,
+comment|// ### Qt 6: remove
 name|PM_DefaultLayoutSpacing
 block|,
+comment|// ### Qt 6: remove
 name|PM_ToolBarIconSize
 block|,
 name|PM_ListViewIconSize
@@ -1410,7 +1415,7 @@ name|SH_ScrollBar_StopMouseOverSlider
 operator|=
 name|SH_Slider_StopMouseOverSlider
 block|,
-comment|// obsolete
+comment|// ### Qt 6: remove
 name|SH_BlinkCursorWhenTextSelected
 block|,
 name|SH_RichText_FullWidthSelection
