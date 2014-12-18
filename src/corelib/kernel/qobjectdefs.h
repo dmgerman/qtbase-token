@@ -440,13 +440,36 @@ name|Q_DECL_HIDDEN_STATIC_METACALL
 value|Q_DECL_HIDDEN
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|&&
+name|Q_CC_CLANG
+operator|>=
+literal|306
+DECL|macro|Q_OBJECT_NO_OVERRIDE_WARNING
+define|#
+directive|define
+name|Q_OBJECT_NO_OVERRIDE_WARNING
+value|QT_WARNING_DISABLE_CLANG("-Winconsistent-missing-override")
+else|#
+directive|else
+DECL|macro|Q_OBJECT_NO_OVERRIDE_WARNING
+define|#
+directive|define
+name|Q_OBJECT_NO_OVERRIDE_WARNING
+endif|#
+directive|endif
 comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT
 define|#
 directive|define
 name|Q_OBJECT
 define|\
-value|public: \     Q_OBJECT_CHECK \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     QT_TR_FUNCTIONS \     virtual int qt_metacall(QMetaObject::Call, int, void **); \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     struct QPrivateSignal {};
+value|public: \     Q_OBJECT_CHECK \     QT_WARNING_PUSH \     Q_OBJECT_NO_OVERRIDE_WARNING \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     virtual int qt_metacall(QMetaObject::Call, int, void **); \     QT_WARNING_POP \     QT_TR_FUNCTIONS \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     struct QPrivateSignal {};
 comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#
