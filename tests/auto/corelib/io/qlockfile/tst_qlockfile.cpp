@@ -129,9 +129,29 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"This test requires deploying and running external console applications"
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|QT_NO_PROCESS
+argument_list|)
 name|QSKIP
 argument_list|(
 literal|"This test requires QProcess support"
