@@ -8656,6 +8656,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|model
+operator|==
+name|d
+operator|->
+name|model
+condition|)
+return|return;
 ifndef|#
 directive|ifndef
 name|QT_NO_COMPLETER
