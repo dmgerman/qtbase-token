@@ -1463,6 +1463,13 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
 name|originalPos
