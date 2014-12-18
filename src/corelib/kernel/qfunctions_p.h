@@ -104,32 +104,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-end_ifdef
-begin_comment
-comment|// rvct doesn't see static operators when using our qalgorithms
-end_comment
-begin_define
-DECL|macro|Q_STATIC_GLOBAL_OPERATOR
-define|#
-directive|define
-name|Q_STATIC_GLOBAL_OPERATOR
-value|inline
-end_define
-begin_define
-DECL|macro|Q_STATIC_GLOBAL_INLINE_OPERATOR
-define|#
-directive|define
-name|Q_STATIC_GLOBAL_INLINE_OPERATOR
-value|inline
-end_define
-begin_else
-else|#
-directive|else
-end_else
 begin_define
 DECL|macro|Q_STATIC_GLOBAL_OPERATOR
 define|#
@@ -144,10 +118,6 @@ directive|define
 name|Q_STATIC_GLOBAL_INLINE_OPERATOR
 value|static inline
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif

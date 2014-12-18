@@ -1565,28 +1565,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-end_ifdef
-begin_comment
-comment|// arm mode makes the 64-bit integer operations much faster in RVCT 2.2
-end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|push
-end_pragma
-begin_pragma
-pragma|#
-directive|pragma
-name|arm
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     Reads at most \a maxSize bytes from the device into \a data, and     returns the number of bytes read. If an error occurs, such as when     attempting to read from a device opened in WriteOnly mode, this     function returns -1.      0 is returned when no more data is available for reading. However,     reading past the end of the stream is considered an error, so this     function returns -1 in those cases (that is, reading on a closed     socket or after a process has died).      \sa readData(), readLine(), write() */
 end_comment
@@ -2341,20 +2319,6 @@ name|readSoFar
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-end_ifdef
-begin_pragma
-pragma|#
-directive|pragma
-name|pop
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \overload      Reads at most \a maxSize bytes from the device, and returns the     data read as a QByteArray.      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for reading, or that an error occurred. */
 end_comment
@@ -2873,28 +2837,6 @@ name|result
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-end_ifdef
-begin_comment
-comment|// arm mode makes the 64-bit integer operations much faster in RVCT 2.2
-end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|push
-end_pragma
-begin_pragma
-pragma|#
-directive|pragma
-name|arm
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     This function reads a line of ASCII characters from the device, up     to a maximum of \a maxSize - 1 bytes, stores the characters in \a     data, and returns the number of bytes read. If a line could not be     read but no error ocurred, this function returns 0. If an error     occurs, this function returns the length of what could be read, or     -1 if nothing was read.      A terminating '\\0' byte is always appended to \a data, so \a     maxSize must be larger than 1.      Data is read until either of the following conditions are met:      \list     \li The first '\\n' character is read.     \li \a maxSize - 1 bytes are read.     \li The end of the device data is detected.     \endlist      For example, the following code reads a line of characters from a     file:      \snippet code/src_corelib_io_qiodevice.cpp 2      The newline character ('\\n') is included in the buffer. If a     newline is not encountered before maxSize - 1 bytes are read, a     newline will not be inserted into the buffer. On windows newline     characters are replaced with '\\n'.      This function calls readLineData(), which is implemented using     repeated calls to getChar(). You can provide a more efficient     implementation by reimplementing readLineData() in your own     subclass.      \sa getChar(), read(), write() */
 end_comment
@@ -3813,20 +3755,6 @@ name|readSoFar
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-end_ifdef
-begin_pragma
-pragma|#
-directive|pragma
-name|pop
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     Returns \c true if a complete line of data can be read from the device;     otherwise returns \c false.      Note that unbuffered devices, which have no way of determining what     can be read, always return false.      This function is often called in conjunction with the readyRead()     signal.      Subclasses that reimplement this function must call the base     implementation in order to include the contents of the QIODevice's buffer. Example:      \snippet code/src_corelib_io_qiodevice.cpp 3      \sa readyRead(), readLine() */
 end_comment

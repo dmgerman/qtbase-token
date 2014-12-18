@@ -167,18 +167,6 @@ operator|::
 name|CaseSensitivity
 name|q_cs
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-comment|// explicitly allow anonymous unions for RVCT to prevent compiler warnings
-pragma|#
-directive|pragma
-name|push
-pragma|#
-directive|pragma
-name|anon_unions
-endif|#
-directive|endif
 struct|struct
 name|Data
 block|{
@@ -211,14 +199,6 @@ name|p
 decl_stmt|;
 block|}
 union|;
-ifdef|#
-directive|ifdef
-name|Q_CC_RVCT
-pragma|#
-directive|pragma
-name|pop
-endif|#
-directive|endif
 block|}
 end_decl_stmt
 begin_empty_stmt

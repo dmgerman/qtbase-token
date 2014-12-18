@@ -1705,22 +1705,6 @@ name|flags
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_RVCT
-argument_list|)
-comment|// RVCT gets confused with<< networkInterface.addressEntries(), reason unknown.
-name|debug
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-literal|")\n"
-expr_stmt|;
-else|#
-directive|else
 name|debug
 operator|.
 name|nospace
@@ -1735,8 +1719,6 @@ argument_list|()
 operator|<<
 literal|")\n"
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|debug
 operator|.
