@@ -560,11 +560,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"using blocking call!"
-expr_stmt|;
+comment|//qWarning()<< "using blocking call!";
 name|QDBusReply
 argument_list|<
 name|QList
@@ -3701,11 +3697,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"Using blocking call!"
-expr_stmt|;
+comment|//qWarning()<< "Using blocking call!";
 name|QDBusReply
 argument_list|<
 name|QList
@@ -4749,11 +4741,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"Using blocking call!"
-expr_stmt|;
+comment|//qWarning()<< "Using blocking call!";
 name|QDBusReply
 argument_list|<
 name|QList
@@ -5239,11 +5227,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"Using blocking call!"
-expr_stmt|;
+comment|//qWarning()<< "Using blocking call!";
 name|QDBusReply
 argument_list|<
 name|QNmSettingsMap
