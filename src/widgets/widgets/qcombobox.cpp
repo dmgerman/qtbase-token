@@ -9214,12 +9214,13 @@ name|currentReset
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
+specifier|const
+name|int
+name|rowCount
+init|=
 name|count
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -9229,8 +9230,7 @@ literal|0
 init|;
 name|pos
 operator|<
-name|count
-argument_list|()
+name|rowCount
 condition|;
 name|pos
 operator|++
@@ -9273,7 +9273,6 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 if|if
