@@ -27,20 +27,43 @@ include|#
 directive|include
 file|<private/qabstractanimation_p.h>
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+end_if
+begin_define
+DECL|macro|BAD_TIMER_RESOLUTION
+define|#
+directive|define
+name|BAD_TIMER_RESOLUTION
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 end_ifdef
 begin_decl_stmt
-DECL|variable|winTimerError
+DECL|variable|timerError
 specifier|static
 specifier|const
 name|char
-name|winTimerError
+name|timerError
 index|[]
 init|=
-literal|"On windows, consistent timing is not working properly due to bad timer resolution"
+literal|"On this platform, consistent timing is not working properly due to bad timer resolution"
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -463,7 +486,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation
@@ -479,7 +502,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -508,7 +531,7 @@ name|loopCount
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation
@@ -521,7 +544,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -594,7 +617,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation
@@ -610,7 +633,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -631,7 +654,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation2
@@ -647,7 +670,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -668,7 +691,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation
@@ -681,7 +704,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -699,7 +722,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation2
@@ -712,7 +735,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -737,7 +760,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation2
@@ -753,7 +776,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -774,7 +797,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation2
@@ -787,7 +810,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -918,7 +941,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation
@@ -934,7 +957,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -1054,7 +1077,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|animation
@@ -1067,7 +1090,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -2031,7 +2054,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|group
@@ -2047,7 +2070,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -2068,7 +2091,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|subgroup1
@@ -2084,7 +2107,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -2105,7 +2128,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|subgroup2
@@ -2121,7 +2144,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -2142,7 +2165,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|subgroup3
@@ -2158,7 +2181,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -2179,7 +2202,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|subgroup4
@@ -2195,7 +2218,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
@@ -2216,7 +2239,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|BAD_TIMER_RESOLUTION
 if|if
 condition|(
 name|pause5
@@ -2229,7 +2252,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-name|winTimerError
+name|timerError
 argument_list|,
 name|Abort
 argument_list|)
