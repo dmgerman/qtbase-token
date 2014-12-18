@@ -483,6 +483,25 @@ directive|define
 name|Q_CC_INTEL
 value|(__INTEL_COMPILER)
 end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__clang__
+end_ifdef
+begin_comment
+comment|/* Intel C++ masquerades as Clang masquerading as GCC */
+end_comment
+begin_define
+DECL|macro|Q_CC_CLANG
+define|#
+directive|define
+name|Q_CC_CLANG
+value|305
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_ASSUME_IMPL
 define|#
