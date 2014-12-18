@@ -2017,6 +2017,11 @@ directive|if
 name|__cplusplus
 operator|>=
 literal|201103L
+operator|||
+name|defined
+argument_list|(
+name|__INTEL_CXX11_MODE__
+argument_list|)
 end_if
 begin_if
 if|#
@@ -2120,12 +2125,24 @@ define|#
 directive|define
 name|Q_COMPILER_TEMPLATE_ALIAS
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_CHAR16T
+end_ifndef
+begin_comment
+comment|// MSVC headers
+end_comment
 begin_define
 DECL|macro|Q_COMPILER_UNICODE_STRINGS
 define|#
 directive|define
 name|Q_COMPILER_UNICODE_STRINGS
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_COMPILER_VARIADIC_TEMPLATES
 define|#
