@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<qpa/qplatformwindow.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformHeaders/qwindowswindowfunctions.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWindowsOleDropTarget
@@ -1288,6 +1293,21 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+specifier|static
+name|void
+name|setTouchWindowTouchTypeStatic
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|QWindowsWindowFunctions::TouchWindowTouchTypes touchTypes
+argument_list|)
+block|;
+name|void
+name|registerTouchWindow
+argument_list|(
+argument|QWindowsWindowFunctions::TouchWindowTouchTypes touchTypes = QWindowsWindowFunctions::NormalTouch
+argument_list|)
+block|;
 name|private
 operator|:
 specifier|inline

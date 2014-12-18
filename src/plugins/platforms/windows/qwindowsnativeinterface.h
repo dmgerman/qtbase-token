@@ -185,6 +185,14 @@ argument_list|,
 argument|const QVariant&value
 argument_list|)
 name|Q_DECL_OVERRIDE
+block|;
+name|QFunctionPointer
+name|platformFunction
+argument_list|(
+argument|const QByteArray&function
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
