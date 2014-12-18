@@ -31,6 +31,10 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
+public|public:
+name|tst_qmessagehandler
+parameter_list|()
+constructor_decl|;
 public|public
 name|slots
 public|:
@@ -230,6 +234,23 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_constructor
+DECL|function|tst_qmessagehandler
+name|tst_qmessagehandler
+operator|::
+name|tst_qmessagehandler
+parameter_list|()
+block|{
+comment|// ensure it's unset, otherwise we'll have trouble
+name|qputenv
+argument_list|(
+literal|"QT_MESSAGE_PATTERN"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
 begin_function
 DECL|function|initTestCase
 name|void
