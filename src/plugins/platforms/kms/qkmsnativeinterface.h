@@ -42,6 +42,14 @@ block|}
 block|;
 name|void
 operator|*
+name|nativeResourceForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+operator|*
 name|nativeResourceForWindow
 argument_list|(
 argument|const QByteArray&resourceString
@@ -56,6 +64,11 @@ argument_list|(
 argument|const QByteArray&resource
 argument_list|)
 name|Q_DECL_OVERRIDE
+block|;
+name|void
+operator|*
+name|eglDisplay
+argument_list|()
 block|;
 name|void
 operator|*

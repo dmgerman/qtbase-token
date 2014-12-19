@@ -47,6 +47,16 @@ argument_list|)
 block|;
 name|QPlatformNativeInterface
 operator|::
+name|NativeResourceForIntegrationFunction
+name|nativeResourceFunctionForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QPlatformNativeInterface
+operator|::
 name|NativeResourceForContextFunction
 name|nativeResourceFunctionForContext
 argument_list|(
@@ -67,6 +77,12 @@ name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
+specifier|static
+name|void
+operator|*
+name|eglDisplay
+argument_list|()
+block|;
 specifier|static
 name|void
 operator|*

@@ -277,6 +277,11 @@ operator|*
 name|rootWindow
 argument_list|()
 block|;
+name|void
+operator|*
+name|display
+argument_list|()
+block|;
 specifier|static
 name|void
 name|setStartupId
