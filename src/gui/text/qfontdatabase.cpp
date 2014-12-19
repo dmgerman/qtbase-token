@@ -6507,6 +6507,12 @@ operator|.
 name|foundry
 operator|==
 literal|0
+operator|&&
+operator|!
+name|foundry_name
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 comment|// the specific foundry was not found, so look for
