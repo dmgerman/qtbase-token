@@ -2994,6 +2994,11 @@ name|QVERIFY
 argument_list|(
 name|loc
 operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|loc
+operator|.
 name|contains
 argument_list|(
 name|QLatin1Char
