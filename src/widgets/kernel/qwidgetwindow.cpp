@@ -772,10 +772,12 @@ block|{
 comment|// \a event is uninteresting for QWidgetWindow, the event was probably
 comment|// generated before WA_DontShowOnScreen was set
 return|return
-name|m_widget
-operator|->
-name|event
+name|QCoreApplication
+operator|::
+name|sendEvent
 argument_list|(
+name|m_widget
+argument_list|,
 name|event
 argument_list|)
 return|;
@@ -1409,10 +1411,12 @@ break|break;
 block|}
 if|if
 condition|(
-name|m_widget
-operator|->
-name|event
+name|QCoreApplication
+operator|::
+name|sendEvent
 argument_list|(
+name|m_widget
+argument_list|,
 name|event
 argument_list|)
 operator|&&

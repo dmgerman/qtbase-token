@@ -23268,6 +23268,11 @@ operator|::
 name|setWindowIcon_helper
 parameter_list|()
 block|{
+name|Q_Q
+argument_list|(
+name|QWidget
+argument_list|)
+expr_stmt|;
 name|QEvent
 name|e
 argument_list|(
@@ -23276,12 +23281,23 @@ operator|::
 name|WindowIconChange
 argument_list|)
 decl_stmt|;
+comment|// Do not send the event if the widget is a top level.
+comment|// In that case, setWindowIcon_sys does it, and event propagation from
+comment|// QWidgetWindow to the top level QWidget ensures that the event reaches
+comment|// the top level anyhow
+if|if
+condition|(
+operator|!
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+condition|)
 name|QApplication
 operator|::
 name|sendEvent
 argument_list|(
-name|q_func
-argument_list|()
+name|q
 argument_list|,
 operator|&
 name|e
