@@ -6590,11 +6590,11 @@ expr_stmt|;
 comment|// Check if family is supported in the script we want
 if|if
 condition|(
-name|script
+name|writingSystem
 operator|!=
-name|QChar
+name|QFontDatabase
 operator|::
-name|Script_Common
+name|Any
 operator|&&
 operator|!
 operator|(
