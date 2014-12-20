@@ -11100,6 +11100,13 @@ index|]
 operator|=
 literal|"yes"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"STYLE_ANDROID"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -17733,6 +17740,19 @@ condition|)
 name|qmakeStyles
 operator|+=
 literal|"windowsmobile"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"STYLE_ANDROID"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qmakeStyles
+operator|+=
+literal|"android"
 expr_stmt|;
 comment|// Databases ----------------------------------------------------
 if|if

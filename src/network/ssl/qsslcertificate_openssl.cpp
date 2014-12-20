@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslsocket_openssl_symbols_p.h"
 end_include
 begin_include
@@ -1565,7 +1570,7 @@ operator|&&
 name|ext_internal
 condition|)
 block|{
-comment|//qDebug()<< meth->i2s(meth, ext_internal);
+comment|//qCDebug(lcSsl)<< meth->i2s(meth, ext_internal);
 name|QVariant
 name|result
 argument_list|(
@@ -1936,8 +1941,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|()
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Strange location type"
 operator|<<
@@ -2652,8 +2659,10 @@ operator|!
 name|x509
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocketBackendPrivate::X509_to_QByteArray: null X509"
 argument_list|)
 expr_stmt|;
@@ -2861,8 +2870,10 @@ operator|!
 name|x509
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocketBackendPrivate::text_from_X509: null X509"
 argument_list|)
 expr_stmt|;

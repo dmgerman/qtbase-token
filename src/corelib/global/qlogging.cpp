@@ -5883,7 +5883,13 @@ name|__android_log_print
 argument_list|(
 name|priority
 argument_list|,
-literal|"Qt"
+name|qPrintable
+argument_list|(
+name|QCoreApplication
+operator|::
+name|applicationName
+argument_list|()
+argument_list|)
 argument_list|,
 literal|"%s:%d (%s): %s\n"
 argument_list|,

@@ -211,7 +211,7 @@ name|chosenVisualInfo
 condition|)
 block|{
 comment|// Skip size checks if implementation supports non-matching visual
-comment|// and config (http://bugreports.qt-project.org/browse/QTBUG-9444).
+comment|// and config (QTBUG-9444).
 if|if
 condition|(
 name|q_hasEglExtension

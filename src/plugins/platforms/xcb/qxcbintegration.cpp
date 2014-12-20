@@ -611,6 +611,7 @@ operator|(
 operator|!
 name|underDebugger
 operator|&&
+operator|!
 name|noGrabArg
 operator|)
 operator|||

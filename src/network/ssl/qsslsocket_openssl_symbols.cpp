@@ -8,6 +8,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslsocket_openssl_symbols_p.h"
 end_include
 begin_ifdef
@@ -131,8 +136,10 @@ modifier|*
 name|functionName
 parameter_list|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket: cannot call unresolved function %s"
 argument_list|,
 name|functionName
@@ -149,8 +156,10 @@ modifier|*
 name|functionName
 parameter_list|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket: cannot resolve %s"
 argument_list|,
 name|functionName
@@ -4239,15 +4248,19 @@ name|bool
 name|q_resolveOpenSslSymbols
 parameter_list|()
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"QSslSocket: unable to resolve symbols. "
 literal|"QT_NO_LIBRARY is defined which means runtime resolving of "
 literal|"libraries won't work."
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"Either compile Qt statically or with support for runtime resolving "
 literal|"of libraries."
 argument_list|)
@@ -7387,8 +7400,10 @@ return|;
 block|}
 else|else
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"unsupported date format detected"
 argument_list|)
 expr_stmt|;

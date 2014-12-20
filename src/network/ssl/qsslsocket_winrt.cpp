@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslsocket_winrt_p.h"
 end_include
 begin_include
@@ -2103,8 +2108,10 @@ condition|(
 name|wasDeleted
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"SSL upgrade callback received after the delegate was deleted. "
 literal|"This may be indicative of an internal bug in the WinRT SSL implementation."
 argument_list|)
@@ -2218,8 +2225,10 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qWarning
+name|qCWarning
 argument_list|(
+name|lcSsl
+argument_list|,
 literal|"The underlying TCP socket used by the SSL socket is invalid. "
 literal|"This may be indicative of an internal bug in the WinRT SSL implementation."
 argument_list|)

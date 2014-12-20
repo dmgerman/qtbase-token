@@ -4419,8 +4419,34 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-43343: Make sure to return false if Qt does not handle the key, otherwise,
+comment|// the keys are not passed to the active media player.
+specifier|const
+name|QKeySequence
+name|sequence
+argument_list|(
+name|Qt
+operator|::
+name|Modifier
+argument_list|(
+name|state
+argument_list|)
+operator|+
+name|qtKey
+argument_list|)
+decl_stmt|;
 return|return
-literal|true
+name|QGuiApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|shortcutMap
+operator|.
+name|hasShortcutForKeySequence
+argument_list|(
+name|sequence
+argument_list|)
 return|;
 else|#
 directive|else

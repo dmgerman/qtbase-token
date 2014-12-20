@@ -221,8 +221,6 @@ index|[
 name|i
 index|]
 argument_list|,
-name|std
-operator|::
 name|strlen
 argument_list|(
 name|string

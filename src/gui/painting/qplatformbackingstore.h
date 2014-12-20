@@ -137,6 +137,20 @@ argument|QPlatformTextureList
 argument_list|)
 name|public
 operator|:
+expr|enum
+name|Flag
+block|{
+name|StacksOnTop
+operator|=
+literal|0x01
+block|}
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|Flags
+argument_list|,
+argument|Flag
+argument_list|)
 name|explicit
 name|QPlatformTextureList
 argument_list|(
@@ -182,8 +196,15 @@ argument|int index
 argument_list|)
 specifier|const
 block|;
-name|bool
-name|stacksOnTop
+name|QWidget
+operator|*
+name|widget
+argument_list|(
+argument|int index
+argument_list|)
+block|;
+name|Flags
+name|flags
 argument_list|(
 argument|int index
 argument_list|)
@@ -203,11 +224,14 @@ block|;
 name|void
 name|appendTexture
 argument_list|(
+argument|QWidget *widget
+argument_list|,
 argument|GLuint textureId
 argument_list|,
 argument|const QRect&geometry
 argument_list|,
-argument|bool stacksOnTop = false
+argument|Flags flags =
+literal|0
 argument_list|)
 block|;
 name|void
@@ -224,6 +248,12 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QPlatformTextureList::Flags
+argument_list|)
+end_macro
 begin_endif
 endif|#
 directive|endif

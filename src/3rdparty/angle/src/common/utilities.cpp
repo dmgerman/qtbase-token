@@ -1565,6 +1565,10 @@ name|defined
 argument_list|(
 name|ANGLE_ENABLE_WINDOWS_STORE
 argument_list|)
+operator|&&
+name|_MSC_FULL_VER
+operator|<
+literal|180031101
 end_if
 begin_function
 DECL|function|Sleep

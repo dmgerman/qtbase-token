@@ -3963,7 +3963,7 @@ modifier|&
 name|url
 parameter_list|)
 block|{
-comment|// don't do path checking. See http://bugreports.qt-project.org/browse/QTBUG-5815
+comment|// don't do path checking. See QTBUG-5815
 if|if
 condition|(
 name|d

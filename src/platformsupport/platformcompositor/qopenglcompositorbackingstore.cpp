@@ -496,6 +496,8 @@ name|m_textures
 operator|->
 name|appendTexture
 argument_list|(
+name|Q_NULLPTR
+argument_list|,
 name|m_bsTexture
 argument_list|,
 name|window
@@ -633,6 +635,13 @@ name|appendTexture
 argument_list|(
 name|textures
 operator|->
+name|widget
+argument_list|(
+name|i
+argument_list|)
+argument_list|,
+name|textures
+operator|->
 name|textureId
 argument_list|(
 name|i
@@ -647,7 +656,7 @@ argument_list|)
 argument_list|,
 name|textures
 operator|->
-name|stacksOnTop
+name|flags
 argument_list|(
 name|i
 argument_list|)
@@ -660,6 +669,8 @@ name|m_textures
 operator|->
 name|appendTexture
 argument_list|(
+name|Q_NULLPTR
+argument_list|,
 name|m_bsTexture
 argument_list|,
 name|window

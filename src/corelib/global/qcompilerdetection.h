@@ -556,7 +556,7 @@ if|#
 directive|if
 name|__apple_build_version__
 operator|>=
-literal|600051
+literal|6000051
 end_if
 begin_define
 DECL|macro|Q_CC_CLANG
@@ -570,7 +570,7 @@ elif|#
 directive|elif
 name|__apple_build_version__
 operator|>=
-literal|503038
+literal|5030038
 end_elif
 begin_define
 DECL|macro|Q_CC_CLANG
@@ -584,7 +584,7 @@ elif|#
 directive|elif
 name|__apple_build_version__
 operator|>=
-literal|500275
+literal|5000275
 end_elif
 begin_define
 DECL|macro|Q_CC_CLANG
@@ -598,7 +598,7 @@ elif|#
 directive|elif
 name|__apple_build_version__
 operator|>=
-literal|425024
+literal|4250024
 end_elif
 begin_define
 DECL|macro|Q_CC_CLANG
@@ -612,7 +612,7 @@ elif|#
 directive|elif
 name|__apple_build_version__
 operator|>=
-literal|318045
+literal|3180045
 end_elif
 begin_define
 DECL|macro|Q_CC_CLANG
@@ -626,7 +626,7 @@ elif|#
 directive|elif
 name|__apple_build_version__
 operator|>=
-literal|211101
+literal|2111001
 end_elif
 begin_define
 DECL|macro|Q_CC_CLANG
