@@ -92,6 +92,11 @@ name|void
 name|init
 argument_list|()
 block|;
+specifier|static
+name|QStringList
+name|sourceFilesForImplicitRulesFilter
+argument_list|()
+block|;
 name|protected
 operator|:
 name|virtual
