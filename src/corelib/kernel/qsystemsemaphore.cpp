@@ -134,6 +134,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_POSIX_IPC
+argument_list|)
 comment|// optimization to not destroy/create the file& semaphore
 if|if
 condition|(
