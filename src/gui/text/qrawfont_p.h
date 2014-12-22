@@ -135,6 +135,9 @@ argument_list|(
 argument|other.thread
 argument_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|fontEngine
@@ -149,6 +152,8 @@ name|currentThread
 argument_list|()
 argument_list|)
 block|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|fontEngine
@@ -167,6 +172,9 @@ operator|~
 name|QRawFontPrivate
 argument_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|ref
@@ -177,6 +185,8 @@ operator|==
 literal|0
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|cleanUp
 argument_list|()
 block|;     }
@@ -202,6 +212,9 @@ name|isValid
 argument_list|()
 specifier|const
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|fontEngine
@@ -216,6 +229,8 @@ name|currentThread
 argument_list|()
 argument_list|)
 block|;
+endif|#
+directive|endif
 return|return
 name|fontEngine
 operator|!=
@@ -231,6 +246,9 @@ modifier|*
 name|engine
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|fontEngine
@@ -245,6 +263,8 @@ name|currentThread
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|fontEngine
@@ -272,10 +292,15 @@ condition|)
 name|delete
 name|fontEngine
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|thread
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|fontEngine
 operator|=
@@ -295,17 +320,23 @@ operator|.
 name|ref
 argument_list|()
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|thread
 operator|=
 name|QThread
 operator|::
 name|currentThread
 argument_list|()
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|thread
 argument_list|)
 expr_stmt|;
-comment|// set only if assertions enabled
+endif|#
+directive|endif
 block|}
 block|}
 name|void
