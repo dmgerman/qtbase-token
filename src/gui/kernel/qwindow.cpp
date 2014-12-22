@@ -6856,12 +6856,20 @@ literal|false
 expr_stmt|;
 block|}
 comment|// Only attempt to set cursor and emit signal if there is an actual platform cursor
-if|if
-condition|(
+name|QScreen
+modifier|*
+name|screen
+init|=
 name|q
 operator|->
 name|screen
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|screen
+operator|&&
+name|screen
 operator|->
 name|handle
 argument_list|()
