@@ -5426,6 +5426,11 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+end_ifdef
 begin_function
 DECL|function|xlib_display
 name|void
@@ -5441,6 +5446,10 @@ name|m_xlib_display
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|processXcbEvents
 name|void

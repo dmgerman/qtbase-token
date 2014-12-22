@@ -1523,6 +1523,9 @@ block|}
 name|resolveFormat
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
 if|if
 condition|(
 name|QGuiApplicationPrivate
@@ -1771,6 +1774,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!

@@ -88,6 +88,9 @@ name|m_connection
 operator|=
 name|connection
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|USE_XCB_XLIB
 name|Display
 modifier|*
 name|dpy
@@ -101,6 +104,15 @@ operator|->
 name|xlib_display
 argument_list|()
 decl_stmt|;
+else|#
+directive|else
+name|EGLNativeDisplayType
+name|dpy
+init|=
+name|EGL_DEFAULT_DISPLAY
+decl_stmt|;
+endif|#
+directive|endif
 name|m_egl_display
 operator|=
 name|eglGetDisplay
