@@ -15148,14 +15148,12 @@ end_function
 begin_function
 DECL|function|find
 name|void
-name|find
-parameter_list|(
 name|QAssociativeIterable
 operator|::
 name|const_iterator
-modifier|&
-name|it
-parameter_list|,
+operator|::
+name|find
+parameter_list|(
 specifier|const
 name|QVariant
 modifier|&
@@ -15169,8 +15167,6 @@ operator|.
 name|userType
 argument_list|()
 operator|==
-name|it
-operator|.
 name|m_impl
 operator|.
 name|_metaType_id_key
@@ -15196,8 +15192,6 @@ literal|0
 comment|/*key.flags()*/
 argument_list|)
 decl_stmt|;
-name|it
-operator|.
 name|m_impl
 operator|.
 name|find
@@ -15282,32 +15276,29 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Returns a QAssociativeIterable::const_iterator for the given key \a key     in the container, if the types are convertible.      If the key is not found, returns end().      This can be used in stl-style iteration.      \sa begin(), end(), value() */
+comment|/*!     \since 5.5      Returns a QAssociativeIterable::const_iterator for the given key \a key     in the container, if the types are convertible.      If the key is not found, returns end().      This can be used in stl-style iteration.      \sa begin(), end(), value() */
 end_comment
 begin_function
 DECL|function|find
 name|QAssociativeIterable
 operator|::
 name|const_iterator
+name|QAssociativeIterable
+operator|::
 name|find
 parameter_list|(
-specifier|const
-name|QAssociativeIterable
-modifier|&
-name|iterable
-parameter_list|,
 specifier|const
 name|QVariant
 modifier|&
 name|key
 parameter_list|)
+specifier|const
 block|{
-name|QAssociativeIterable
-operator|::
 name|const_iterator
 name|it
 argument_list|(
-name|iterable
+operator|*
+name|this
 argument_list|,
 operator|new
 name|QAtomicInt
@@ -15327,8 +15318,6 @@ name|key_
 operator|.
 name|canConvert
 argument_list|(
-name|iterable
-operator|.
 name|m_impl
 operator|.
 name|_metaType_id_key
@@ -15338,17 +15327,15 @@ name|key_
 operator|.
 name|convert
 argument_list|(
-name|iterable
-operator|.
 name|m_impl
 operator|.
 name|_metaType_id_key
 argument_list|)
 condition|)
+name|it
+operator|.
 name|find
 argument_list|(
-name|it
-argument_list|,
 name|key_
 argument_list|)
 expr_stmt|;
@@ -15364,7 +15351,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value for the given \a key in the container, if the types are convertible. */
+comment|/*!     Returns the value for the given \a key in the container, if the types are convertible.      \sa find() */
 end_comment
 begin_function
 DECL|function|value
@@ -15386,9 +15373,6 @@ name|it
 init|=
 name|find
 argument_list|(
-operator|*
-name|this
-argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
