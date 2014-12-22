@@ -9170,7 +9170,7 @@ name|QColorDialog
 operator|::
 name|tr
 argument_list|(
-literal|"Pick Screen Color"
+literal|"&Pick Screen Color"
 argument_list|)
 argument_list|)
 expr_stmt|;
