@@ -9165,14 +9165,7 @@ name|screenColorPickerButton
 operator|=
 operator|new
 name|QPushButton
-argument_list|(
-name|QColorDialog
-operator|::
-name|tr
-argument_list|(
-literal|"&Pick Screen Color"
-argument_list|)
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|leftLay
 operator|->
@@ -10152,6 +10145,18 @@ operator|::
 name|tr
 argument_list|(
 literal|"&Add to Custom Colors"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|screenColorPickerButton
+operator|->
+name|setText
+argument_list|(
+name|QColorDialog
+operator|::
+name|tr
+argument_list|(
+literal|"&Pick Screen Color"
 argument_list|)
 argument_list|)
 expr_stmt|;
