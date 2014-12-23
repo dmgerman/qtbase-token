@@ -185,7 +185,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \relates QByteArray      A portable snprintf() function, calls qvsnprintf.      \a fmt is the \c printf() format string. The result is put into     \a str, which is a buffer of at least \a n bytes.      \warning Call this function only when you know what you are doing     since it shows different behavior on certain platforms.     Use QString::sprintf() to format a string instead.      \sa qvsnprintf(), QString::sprintf() */
+comment|/*!     \target bytearray-qsnprintf     \relates QByteArray      A portable snprintf() function, calls qvsnprintf.      \a fmt is the \c printf() format string. The result is put into     \a str, which is a buffer of at least \a n bytes.      \warning Call this function only when you know what you are doing     since it shows different behavior on certain platforms.     Use QString::sprintf() to format a string instead.      \sa qvsnprintf(), QString::sprintf() */
 end_comment
 begin_function
 DECL|function|qsnprintf
