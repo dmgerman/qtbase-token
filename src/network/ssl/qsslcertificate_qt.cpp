@@ -42,6 +42,11 @@ include|#
 directive|include
 file|"qasn1element_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qdatastream.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|enum|GeneralNameType
