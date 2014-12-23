@@ -8894,6 +8894,12 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|IPv6Protocol
+operator|&&
+operator|!
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
 condition|)
 name|QSKIP
 argument_list|(
