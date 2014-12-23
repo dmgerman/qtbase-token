@@ -8181,7 +8181,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"valid ipv4 group address"
+literal|"ipv4"
 argument_list|)
 operator|<<
 name|QHostAddress
@@ -8193,7 +8193,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"valid ipv6 group address"
+literal|"ipv6"
 argument_list|)
 operator|<<
 name|QHostAddress
@@ -8278,13 +8278,37 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|QHostAddress
+name|bindAddress
+init|=
+name|QHostAddress
+operator|::
+name|AnyIPv4
+decl_stmt|;
+if|if
+condition|(
+name|groupAddress
+operator|.
+name|protocol
+argument_list|()
+operator|==
+name|QAbstractSocket
+operator|::
+name|IPv6Protocol
+condition|)
+name|bindAddress
+operator|=
+name|QHostAddress
+operator|::
+name|AnyIPv6
+expr_stmt|;
 name|QVERIFY2
 argument_list|(
 name|udpSocket
 operator|.
 name|bind
 argument_list|(
-name|groupAddress
+name|bindAddress
 argument_list|,
 literal|0
 argument_list|)
