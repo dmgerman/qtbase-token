@@ -756,6 +756,17 @@ name|isPaused
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|bind
+argument_list|(
+argument|const QHostAddress&address
+argument_list|,
+argument|quint16
+argument_list|,
+argument|QAbstractSocket::BindMode
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|void
 name|_q_connectedSlot
 argument_list|()

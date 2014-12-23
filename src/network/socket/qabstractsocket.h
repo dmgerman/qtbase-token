@@ -305,6 +305,7 @@ argument_list|(
 argument|PauseModes pauseMode
 argument_list|)
 block|;
+comment|// ### Qt6: make the first one virtual
 name|bool
 name|bind
 argument_list|(
@@ -325,6 +326,7 @@ argument_list|,
 argument|BindMode mode = DefaultForPlatform
 argument_list|)
 block|;
+comment|// ### Qt6: de-virtualize connectToHost(QHostAddress) overload
 name|virtual
 name|void
 name|connectToHost
