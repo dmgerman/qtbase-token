@@ -1445,7 +1445,7 @@ literal|0
 init|;
 name|j
 operator|<
-literal|100
+literal|10
 condition|;
 operator|++
 name|j
