@@ -40646,7 +40646,7 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT_X
+name|Q_STATIC_ASSERT_X
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -40670,8 +40670,7 @@ operator|*
 literal|8
 operator|)
 argument_list|,
-literal|"QWidget::setAttribute(WidgetAttribute, bool)"
-argument_list|,
+literal|"QWidget::setAttribute(WidgetAttribute, bool): "
 literal|"QWidgetPrivate::high_attributes[] too small to contain all attributes in WidgetAttribute"
 argument_list|)
 expr_stmt|;
