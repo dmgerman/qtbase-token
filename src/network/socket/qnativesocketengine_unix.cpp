@@ -2476,14 +2476,6 @@ return|return
 literal|false
 return|;
 block|}
-name|localPort
-operator|=
-name|port
-expr_stmt|;
-name|localAddress
-operator|=
-name|address
-expr_stmt|;
 if|#
 directive|if
 name|defined
