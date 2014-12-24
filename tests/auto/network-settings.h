@@ -334,6 +334,12 @@ name|false
 return|;
 block|}
 block|}
+operator|::
+name|close
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 return|return
