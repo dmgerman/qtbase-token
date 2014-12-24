@@ -5059,6 +5059,11 @@ name|ret
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DATASTREAM
+end_ifndef
 begin_comment
 comment|/*  \internal     Internal function. Converts boolean font settings to an unsigned     8-bit number. Used for serialization etc. */
 end_comment
@@ -5247,11 +5252,6 @@ name|bits
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_DATASTREAM
-end_ifndef
 begin_comment
 comment|/*  \internal     Internal function. Sets boolean font settings from an unsigned     8-bit number. Used for serialization etc. */
 end_comment
