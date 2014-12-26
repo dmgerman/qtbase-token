@@ -317,6 +317,14 @@ name|_q_pickScreenColor
 argument_list|()
 block|;
 name|void
+name|updateColorLabelText
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+argument_list|)
+block|;
+name|void
 name|releaseColorPicking
 argument_list|()
 block|;
