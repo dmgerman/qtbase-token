@@ -61,6 +61,7 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QModelIndex
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|r
 argument_list|(
@@ -91,6 +92,7 @@ name|int
 name|row
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|r
@@ -102,6 +104,7 @@ name|int
 name|column
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|c
@@ -113,6 +116,7 @@ name|quintptr
 name|internalId
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -124,6 +128,7 @@ operator|*
 name|internalPointer
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -195,6 +200,7 @@ operator|*
 name|model
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m
@@ -206,6 +212,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -239,6 +246,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -286,6 +294,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -309,6 +318,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|r
@@ -377,6 +387,7 @@ argument|void *ptr
 argument_list|,
 argument|const QAbstractItemModel *amodel
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|r
 argument_list|(
@@ -416,6 +427,7 @@ argument|quintptr id
 argument_list|,
 argument|const QAbstractItemModel *amodel
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|r
 argument_list|(
@@ -2706,7 +2718,6 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|qHash
 specifier|inline
 name|uint
 name|qHash
@@ -2716,6 +2727,7 @@ name|QModelIndex
 modifier|&
 name|index
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|uint
