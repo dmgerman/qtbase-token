@@ -56,9 +56,11 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlag
 argument_list|(
-argument|int ai
+name|int
+name|ai
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+range|:
 name|i
 argument_list|(
 argument|ai
@@ -70,6 +72,7 @@ name|operator
 name|int
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -102,9 +105,11 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlag
 argument_list|(
-argument|long ai
+name|long
+name|ai
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+range|:
 name|i
 argument_list|(
 argument|int(ai)
@@ -116,6 +121,7 @@ name|QFlag
 argument_list|(
 argument|ulong ai
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -130,6 +136,7 @@ name|QFlag
 argument_list|(
 argument|uint ai
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -142,6 +149,7 @@ name|QFlag
 argument_list|(
 argument|short ai
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -154,6 +162,7 @@ name|QFlag
 argument_list|(
 argument|ushort ai
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -166,6 +175,7 @@ name|operator
 name|uint
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|uint
@@ -203,17 +213,19 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|explicit
 name|QIncompatibleFlag
-parameter_list|(
+argument_list|(
 name|int
 name|i
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|operator
 name|int
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -234,7 +246,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|function|QIncompatibleFlag
+DECL|function|i
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QIncompatibleFlag
@@ -243,6 +255,7 @@ name|QIncompatibleFlag
 argument_list|(
 argument|int ai
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -395,16 +408,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
+begin_decl_stmt
 name|Q_DECL_CONSTEXPR
-end_macro
-begin_expr_stmt
 specifier|inline
 name|QFlags
 argument_list|(
-argument|Enum f
+name|Enum
+name|f
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+range|:
 name|i
 argument_list|(
 argument|Int(f)
@@ -414,10 +427,10 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlags
 argument_list|(
-name|Zero
-operator|=
+argument|Zero =
 literal|0
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -430,6 +443,7 @@ name|QFlags
 argument_list|(
 argument|QFlag f
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -443,14 +457,9 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlags
 argument_list|(
-name|std
-operator|::
-name|initializer_list
-operator|<
-name|Enum
-operator|>
-name|flags
+argument|std::initializer_list<Enum> flags
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -469,6 +478,7 @@ operator|(
 name|int
 name|mask
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator|&=
@@ -479,7 +489,7 @@ operator|*
 name|this
 return|;
 block|}
-end_expr_stmt
+end_decl_stmt
 begin_expr_stmt
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
@@ -491,6 +501,7 @@ operator|(
 name|uint
 name|mask
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator|&=
@@ -513,6 +524,7 @@ operator|(
 name|Enum
 name|mask
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator|&=
@@ -538,6 +550,7 @@ operator|(
 name|QFlags
 name|f
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator||=
@@ -562,6 +575,7 @@ operator|(
 name|Enum
 name|f
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator||=
@@ -587,6 +601,7 @@ operator|(
 name|QFlags
 name|f
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator|^=
@@ -611,6 +626,7 @@ operator|(
 name|Enum
 name|f
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|i
 operator|^=
@@ -632,6 +648,7 @@ name|operator
 name|Int
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -649,6 +666,7 @@ name|QFlags
 name|f
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -676,6 +694,7 @@ name|Enum
 name|f
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -704,6 +723,7 @@ name|QFlags
 name|f
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -731,6 +751,7 @@ name|Enum
 name|f
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -759,6 +780,7 @@ name|int
 name|mask
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -784,6 +806,7 @@ name|uint
 name|mask
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -809,6 +832,7 @@ name|Enum
 name|f
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -835,6 +859,7 @@ operator|~
 operator|(
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QFlags
@@ -857,6 +882,7 @@ operator|!
 operator|(
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -874,6 +900,7 @@ name|Enum
 name|f
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -946,6 +973,7 @@ operator|::
 name|const_iterator
 name|end
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1010,7 +1038,7 @@ parameter_list|(
 name|Flags
 parameter_list|)
 define|\
-value|Q_DECL_CONSTEXPR inline QIncompatibleFlag operator|(Flags::enum_type f1, int f2) \ { return QIncompatibleFlag(int(f1) | f2); }
+value|Q_DECL_CONSTEXPR inline QIncompatibleFlag operator|(Flags::enum_type f1, int f2) Q_DECL_NOTHROW \ { return QIncompatibleFlag(int(f1) | f2); }
 end_define
 begin_define
 DECL|macro|Q_DECLARE_OPERATORS_FOR_FLAGS
@@ -1021,7 +1049,7 @@ parameter_list|(
 name|Flags
 parameter_list|)
 define|\
-value|Q_DECL_CONSTEXPR inline QFlags<Flags::enum_type> operator|(Flags::enum_type f1, Flags::enum_type f2) \ { return QFlags<Flags::enum_type>(f1) | f2; } \ Q_DECL_CONSTEXPR inline QFlags<Flags::enum_type> operator|(Flags::enum_type f1, QFlags<Flags::enum_type> f2) \ { return f2 | f1; } Q_DECLARE_INCOMPATIBLE_FLAGS(Flags)
+value|Q_DECL_CONSTEXPR inline QFlags<Flags::enum_type> operator|(Flags::enum_type f1, Flags::enum_type f2) Q_DECL_NOTHROW \ { return QFlags<Flags::enum_type>(f1) | f2; } \ Q_DECL_CONSTEXPR inline QFlags<Flags::enum_type> operator|(Flags::enum_type f1, QFlags<Flags::enum_type> f2) Q_DECL_NOTHROW \ { return f2 | f1; } Q_DECLARE_INCOMPATIBLE_FLAGS(Flags)
 end_define
 begin_else
 else|#
