@@ -73,7 +73,6 @@ comment|/*!     \enum QColor::NameFormat      How to format the output of the na
 comment|/*!     \fn Spec QColor::spec() const      Returns how the color was specified.      \sa Spec, convertTo() */
 comment|/*!     \fn QColor::QColor()      Constructs an invalid color with the RGB value (0, 0, 0). An     invalid color is a color that is not properly set up for the     underlying window system.      The alpha value of an invalid color is unspecified.      \sa isValid() */
 comment|/*!     \overload      Constructs a new color with a color value of \a color.      \sa isValid(), {QColor#Predefined Colors}{Predefined Colors}  */
-DECL|function|QColor
 name|QColor
 operator|::
 name|QColor
@@ -83,6 +82,7 @@ operator|::
 name|GlobalColor
 name|color
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 DECL|macro|QRGB
 define|#
@@ -375,7 +375,6 @@ begin_comment
 comment|/*!     Constructs a color with the value \a color. The alpha component is     ignored and set to solid.      \sa fromRgb(), isValid() */
 end_comment
 begin_constructor
-DECL|function|QColor
 name|QColor
 operator|::
 name|QColor
@@ -383,6 +382,7 @@ parameter_list|(
 name|QRgb
 name|color
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|cspec
 operator|=
@@ -449,7 +449,6 @@ begin_comment
 comment|/*!     \since 5.6      Constructs a color with the value \a rgba64.      \sa fromRgba64() */
 end_comment
 begin_constructor
-DECL|function|QColor
 name|QColor
 operator|::
 name|QColor
@@ -457,6 +456,7 @@ parameter_list|(
 name|QRgba64
 name|rgba64
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|setRgba64
 argument_list|(
@@ -469,7 +469,6 @@ begin_comment
 comment|/*!     \internal      Constructs a color with the given \a spec.      This function is primarly present to avoid that QColor::Invalid     becomes a valid color by accident. */
 end_comment
 begin_constructor
-DECL|function|QColor
 name|QColor
 operator|::
 name|QColor
@@ -477,6 +476,7 @@ parameter_list|(
 name|Spec
 name|spec
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 switch|switch
 condition|(
@@ -2570,13 +2570,13 @@ begin_comment
 comment|/*!     \fn QRgb QColor::rgba() const      Returns the RGB value of the color, including its alpha.      For an invalid color, the alpha value of the returned color is unspecified.      \sa setRgba(), rgb(), rgba64() */
 end_comment
 begin_function
-DECL|function|rgba
 name|QRgb
 name|QColor
 operator|::
 name|rgba
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2637,7 +2637,6 @@ begin_comment
 comment|/*!     Sets the RGB value to \a rgba, including its alpha.      \sa rgba(), rgb(), setRgba64() */
 end_comment
 begin_function
-DECL|function|setRgba
 name|void
 name|QColor
 operator|::
@@ -2646,6 +2645,7 @@ parameter_list|(
 name|QRgb
 name|rgba
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|cspec
 operator|=
@@ -2717,13 +2717,13 @@ begin_comment
 comment|/*!     \since 5.6      Returns the RGB64 value of the color, including its alpha.      For an invalid color, the alpha value of the returned color is unspecified.      \sa setRgba64(), rgba(), rgb() */
 end_comment
 begin_function
-DECL|function|rgba64
 name|QRgba64
 name|QColor
 operator|::
 name|rgba64
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2776,7 +2776,6 @@ begin_comment
 comment|/*!     \since 5.6      Sets the RGB64 value to \a rgba, including its alpha.      \sa \setRgba(), rgba64() */
 end_comment
 begin_function
-DECL|function|setRgba64
 name|void
 name|QColor
 operator|::
@@ -2785,6 +2784,7 @@ parameter_list|(
 name|QRgba64
 name|rgba
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|cspec
 operator|=
@@ -2848,13 +2848,13 @@ begin_comment
 comment|/*!     \fn QRgb QColor::rgb() const      Returns the RGB value of the color. The alpha value is opaque.      \sa getRgb(), rgba() */
 end_comment
 begin_function
-DECL|function|rgb
 name|QRgb
 name|QColor
 operator|::
 name|rgb
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2907,7 +2907,6 @@ begin_comment
 comment|/*!     \overload      Sets the RGB value to \a rgb. The alpha value is set to opaque. */
 end_comment
 begin_function
-DECL|function|setRgb
 name|void
 name|QColor
 operator|::
@@ -2916,6 +2915,7 @@ parameter_list|(
 name|QRgb
 name|rgb
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|cspec
 operator|=
@@ -2982,13 +2982,13 @@ begin_comment
 comment|/*!     Returns the alpha color component of this color.      \sa setAlpha(), alphaF(), {QColor#Alpha-Blended Drawing}{Alpha-Blended Drawing} */
 end_comment
 begin_function
-DECL|function|alpha
 name|int
 name|QColor
 operator|::
 name|alpha
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ct
@@ -3038,13 +3038,13 @@ begin_comment
 comment|/*!     Returns the alpha color component of this color.      \sa setAlphaF(), alpha(), {QColor#Alpha-Blended Drawing}{Alpha-Blended Drawing} */
 end_comment
 begin_function
-DECL|function|alphaF
 name|qreal
 name|QColor
 operator|::
 name|alphaF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ct
@@ -3105,13 +3105,13 @@ begin_comment
 comment|/*!     Returns the red color component of this color.      \sa setRed(), redF(), getRgb() */
 end_comment
 begin_function
-DECL|function|red
 name|int
 name|QColor
 operator|::
 name|red
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3199,13 +3199,13 @@ begin_comment
 comment|/*!     Returns the green color component of this color.      \sa setGreen(), greenF(), getRgb() */
 end_comment
 begin_function
-DECL|function|green
 name|int
 name|QColor
 operator|::
 name|green
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3293,13 +3293,13 @@ begin_comment
 comment|/*!     Returns the blue color component of this color.      \sa setBlue(), blueF(), getRgb() */
 end_comment
 begin_function
-DECL|function|blue
 name|int
 name|QColor
 operator|::
 name|blue
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3387,13 +3387,13 @@ begin_comment
 comment|/*!     Returns the red color component of this color.      \sa setRedF(), red(), getRgbF() */
 end_comment
 begin_function
-DECL|function|redF
 name|qreal
 name|QColor
 operator|::
 name|redF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3487,13 +3487,13 @@ begin_comment
 comment|/*!     Returns the green color component of this color.      \sa setGreenF(), green(), getRgbF() */
 end_comment
 begin_function
-DECL|function|greenF
 name|qreal
 name|QColor
 operator|::
 name|greenF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3587,13 +3587,13 @@ begin_comment
 comment|/*!     Returns the blue color component of this color.       \sa setBlueF(), blue(), getRgbF() */
 end_comment
 begin_function
-DECL|function|blueF
 name|qreal
 name|QColor
 operator|::
 name|blueF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3687,13 +3687,13 @@ begin_comment
 comment|/*!     Returns the hue color component of this color.      The color is implicitly converted to HSV.      \sa hsvHue(), hueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|hue
 name|int
 name|QColor
 operator|::
 name|hue
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hsvHue
@@ -3705,13 +3705,13 @@ begin_comment
 comment|/*!     Returns the hue color component of this color.      \sa hueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|hsvHue
 name|int
 name|QColor
 operator|::
 name|hsvHue
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3756,13 +3756,13 @@ begin_comment
 comment|/*!     Returns the saturation color component of this color.      The color is implicitly converted to HSV.      \sa hsvSaturation(), saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color     Model} */
 end_comment
 begin_function
-DECL|function|saturation
 name|int
 name|QColor
 operator|::
 name|saturation
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hsvSaturation
@@ -3774,13 +3774,13 @@ begin_comment
 comment|/*!     Returns the saturation color component of this color.      \sa saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|hsvSaturation
 name|int
 name|QColor
 operator|::
 name|hsvSaturation
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3814,13 +3814,13 @@ begin_comment
 comment|/*!     Returns the value color component of this color.      \sa valueF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|value
 name|int
 name|QColor
 operator|::
 name|value
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3854,13 +3854,13 @@ begin_comment
 comment|/*!     Returns the hue color component of this color.      The color is implicitly converted to HSV.      \sa hsvHueF(), hue(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|hueF
 name|qreal
 name|QColor
 operator|::
 name|hueF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hsvHueF
@@ -3872,13 +3872,13 @@ begin_comment
 comment|/*!     Returns the hue color component of this color.      \sa hue(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
 end_comment
 begin_function
-DECL|function|hsvHueF
 name|qreal
 name|QColor
 operator|::
 name|hsvHueF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3929,13 +3929,13 @@ begin_comment
 comment|/*!     Returns the saturation color component of this color.       The color is implicitly converted to HSV.      \sa hsvSaturationF(), saturation(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color     Model} */
 end_comment
 begin_function
-DECL|function|saturationF
 name|qreal
 name|QColor
 operator|::
 name|saturationF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|hsvSaturationF
@@ -3947,13 +3947,13 @@ begin_comment
 comment|/*!     Returns the saturation color component of this color.      \sa saturation(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|hsvSaturationF
 name|qreal
 name|QColor
 operator|::
 name|hsvSaturationF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -3990,13 +3990,13 @@ begin_comment
 comment|/*!     Returns the value color component of this color.      \sa value(), getHsvF(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|valueF
 name|qreal
 name|QColor
 operator|::
 name|valueF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4033,13 +4033,13 @@ begin_comment
 comment|/*!     \since 4.6      Returns the hue color component of this color.      \sa getHslF(), getHsl() */
 end_comment
 begin_function
-DECL|function|hslHue
 name|int
 name|QColor
 operator|::
 name|hslHue
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4084,13 +4084,13 @@ begin_comment
 comment|/*!     \since 4.6      Returns the saturation color component of this color.      \sa saturationF(), getHsv(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|hslSaturation
 name|int
 name|QColor
 operator|::
 name|hslSaturation
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4124,13 +4124,13 @@ begin_comment
 comment|/*!     \since 4.6      Returns the lightness color component of this color.      \sa lightnessF(), getHsl() */
 end_comment
 begin_function
-DECL|function|lightness
 name|int
 name|QColor
 operator|::
 name|lightness
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4164,13 +4164,13 @@ begin_comment
 comment|/*!     \since 4.6      Returns the hue color component of this color.      \sa hue(), getHslF() */
 end_comment
 begin_function
-DECL|function|hslHueF
 name|qreal
 name|QColor
 operator|::
 name|hslHueF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4221,13 +4221,13 @@ begin_comment
 comment|/*!     \since 4.6      Returns the saturation color component of this color.      \sa saturationF(), getHslF() */
 end_comment
 begin_function
-DECL|function|hslSaturationF
 name|qreal
 name|QColor
 operator|::
 name|hslSaturationF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4264,13 +4264,13 @@ begin_comment
 comment|/*!     \since 4.6      Returns the lightness color component of this color.      \sa value(), getHslF() */
 end_comment
 begin_function
-DECL|function|lightnessF
 name|qreal
 name|QColor
 operator|::
 name|lightnessF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4307,13 +4307,13 @@ begin_comment
 comment|/*!     Returns the cyan color component of this color.      \sa cyanF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|cyan
 name|int
 name|QColor
 operator|::
 name|cyan
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4347,13 +4347,13 @@ begin_comment
 comment|/*!     Returns the magenta color component of this color.      \sa magentaF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|magenta
 name|int
 name|QColor
 operator|::
 name|magenta
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4387,13 +4387,13 @@ begin_comment
 comment|/*!     Returns the yellow color component of this color.      \sa yellowF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|yellow
 name|int
 name|QColor
 operator|::
 name|yellow
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4427,13 +4427,13 @@ begin_comment
 comment|/*!     Returns the black color component of this color.      \sa blackF(), getCmyk(), {QColor#The CMYK Color Model}{The CMYK Color Model}  */
 end_comment
 begin_function
-DECL|function|black
 name|int
 name|QColor
 operator|::
 name|black
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4467,13 +4467,13 @@ begin_comment
 comment|/*!     Returns the cyan color component of this color.      \sa cyan(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|cyanF
 name|qreal
 name|QColor
 operator|::
 name|cyanF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4510,13 +4510,13 @@ begin_comment
 comment|/*!     Returns the magenta color component of this color.      \sa magenta(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|magentaF
 name|qreal
 name|QColor
 operator|::
 name|magentaF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4553,13 +4553,13 @@ begin_comment
 comment|/*!     Returns the yellow color component of this color.       \sa yellow(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|yellowF
 name|qreal
 name|QColor
 operator|::
 name|yellowF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4596,13 +4596,13 @@ begin_comment
 comment|/*!     Returns the black color component of this color.      \sa black(), getCmykF(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|blackF
 name|qreal
 name|QColor
 operator|::
 name|blackF
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -4639,13 +4639,13 @@ begin_comment
 comment|/*!     Create and returns an RGB QColor based on this color.      \sa fromRgb(), convertTo(), isValid() */
 end_comment
 begin_function
-DECL|function|toRgb
 name|QColor
 name|QColor
 operator|::
 name|toRgb
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -5980,13 +5980,13 @@ begin_comment
 comment|/*!     Creates and returns an HSV QColor based on this color.      \sa fromHsv(), convertTo(), isValid(), {QColor#The HSV Color Model}{The HSV Color Model} */
 end_comment
 begin_function
-DECL|function|toHsv
 name|QColor
 name|QColor
 operator|::
 name|toHsv
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -6340,13 +6340,13 @@ begin_comment
 comment|/*!     Creates and returns an HSL QColor based on this color.      \sa fromHsl(), convertTo(), isValid() */
 end_comment
 begin_function
-DECL|function|toHsl
 name|QColor
 name|QColor
 operator|::
 name|toHsl
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -6755,13 +6755,13 @@ begin_comment
 comment|/*!     Creates and returns a CMYK QColor based on this color.      \sa fromCmyk(), convertTo(), isValid(), {QColor#The CMYK Color Model}{The CMYK Color Model} */
 end_comment
 begin_function
-DECL|function|toCmyk
 name|QColor
 name|QColor
 operator|::
 name|toCmyk
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -7035,7 +7035,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|convertTo
 name|QColor
 name|QColor
 operator|::
@@ -7047,6 +7046,7 @@ name|Spec
 name|colorSpec
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -7107,7 +7107,6 @@ begin_comment
 comment|/*!     Static convenience function that returns a QColor constructed from the     given QRgb value \a rgb.      The alpha component of \a rgb is ignored (i.e. it is automatically set to     255), use the fromRgba() function to include the alpha-channel specified by     the given QRgb value.      \sa fromRgba(), fromRgbF(), toRgb(), isValid() */
 end_comment
 begin_function
-DECL|function|fromRgb
 name|QColor
 name|QColor
 operator|::
@@ -7116,6 +7115,7 @@ parameter_list|(
 name|QRgb
 name|rgb
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|fromRgb
@@ -7142,7 +7142,6 @@ begin_comment
 comment|/*!     Static convenience function that returns a QColor constructed from the     given QRgb value \a rgba.      Unlike the fromRgb() function, the alpha-channel specified by the given     QRgb value is included.      \sa fromRgb(), fromRgba64(), isValid() */
 end_comment
 begin_function
-DECL|function|fromRgba
 name|QColor
 name|QColor
 operator|::
@@ -7151,6 +7150,7 @@ parameter_list|(
 name|QRgb
 name|rgba
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|fromRgb
@@ -7498,7 +7498,6 @@ begin_comment
 comment|/*!     \since 5.6      Static convenience function that returns a QColor constructed from the RGBA64     color values, \a r (red), \a g (green), \a b (blue), and \a a     (alpha-channel, i.e. transparency).      \sa fromRgb(), fromRgbF(), toRgb(), isValid() */
 end_comment
 begin_function
-DECL|function|fromRgba64
 name|QColor
 name|QColor
 operator|::
@@ -7516,6 +7515,7 @@ parameter_list|,
 name|ushort
 name|a
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QColor
 name|color
@@ -7545,7 +7545,6 @@ begin_comment
 comment|/*!     \since 5.6      Static convenience function that returns a QColor constructed from the     given QRgba64 value \a rgba64.      \sa fromRgb(), fromRgbF(), toRgb(), isValid() */
 end_comment
 begin_function
-DECL|function|fromRgba64
 name|QColor
 name|QColor
 operator|::
@@ -7554,6 +7553,7 @@ parameter_list|(
 name|QRgba64
 name|rgba64
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QColor
 name|color
@@ -9276,7 +9276,6 @@ begin_comment
 comment|/*!     \obsolete      Use lighter(\a factor) instead. */
 end_comment
 begin_function
-DECL|function|light
 name|QColor
 name|QColor
 operator|::
@@ -9286,6 +9285,7 @@ name|int
 name|factor
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -9419,7 +9419,6 @@ begin_comment
 comment|/*!     \obsolete      Use darker(\a factor) instead. */
 end_comment
 begin_function
-DECL|function|dark
 name|QColor
 name|QColor
 operator|::
@@ -9429,6 +9428,7 @@ name|int
 name|factor
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -9514,7 +9514,6 @@ begin_comment
 comment|/*!     Assigns a copy of \a color to this color, and returns a reference to it. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QColor
 modifier|&
 name|QColor
@@ -9527,6 +9526,7 @@ name|QColor
 modifier|&
 name|color
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|cspec
 operator|=
@@ -9558,7 +9558,6 @@ begin_comment
 comment|/*! \overload     Assigns a copy of \a color and returns a reference to this color.  */
 end_comment
 begin_function
-DECL|function|operator =
 name|QColor
 modifier|&
 name|QColor
@@ -9571,6 +9570,7 @@ operator|::
 name|GlobalColor
 name|color
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|operator
@@ -9588,7 +9588,6 @@ begin_comment
 comment|/*!     Returns \c true if this color has the same RGB and alpha values as \a color;     otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|operator ==
 name|bool
 name|QColor
 operator|::
@@ -9601,6 +9600,7 @@ modifier|&
 name|color
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -9855,7 +9855,6 @@ begin_comment
 comment|/*!     Returns \c true if this color has a different RGB and alpha values from     \a color; otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|operator !=
 name|bool
 name|QColor
 operator|::
@@ -9868,6 +9867,7 @@ modifier|&
 name|color
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -9907,12 +9907,12 @@ begin_comment
 comment|/*! \internal      Marks the color as invalid and sets all components to zero (alpha is set     to fully opaque for compatibility with Qt 3). */
 end_comment
 begin_function
-DECL|function|invalidate
 name|void
 name|QColor
 operator|::
 name|invalidate
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|cspec
 operator|=
