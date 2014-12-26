@@ -28,86 +28,97 @@ name|public
 label|:
 name|Q_DECL_CONSTEXPR
 name|QMargins
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|QMargins
-parameter_list|(
+argument_list|(
 name|int
 name|left
-parameter_list|,
+argument_list|,
 name|int
 name|top
-parameter_list|,
+argument_list|,
 name|int
 name|right
-parameter_list|,
+argument_list|,
 name|int
 name|bottom
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_CONSTEXPR
 name|bool
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|int
 name|left
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|int
 name|top
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|int
 name|right
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|int
 name|bottom
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setLeft
-parameter_list|(
+argument_list|(
 name|int
 name|left
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setTop
-parameter_list|(
+argument_list|(
 name|int
 name|top
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setRight
-parameter_list|(
+argument_list|(
 name|int
 name|right
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setBottom
-parameter_list|(
+argument_list|(
 name|int
 name|bottom
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
 operator|&
@@ -119,6 +130,7 @@ name|QMargins
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
@@ -131,6 +143,7 @@ name|QMargins
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
@@ -140,6 +153,7 @@ operator|+=
 operator|(
 name|int
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
@@ -149,6 +163,7 @@ operator|-=
 operator|(
 name|int
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
@@ -158,6 +173,7 @@ operator|*=
 operator|(
 name|int
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
@@ -176,6 +192,7 @@ operator|*=
 operator|(
 name|qreal
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMargins
@@ -215,6 +232,7 @@ specifier|const
 name|QMargins
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 name|Q_DECL_CONSTEXPR
@@ -231,6 +249,7 @@ specifier|const
 name|QMargins
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 block|}
 end_decl_stmt
@@ -293,13 +312,13 @@ begin_comment
 comment|/*****************************************************************************   QMargins inline functions  *****************************************************************************/
 end_comment
 begin_expr_stmt
-DECL|function|QMargins
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
 operator|::
 name|QMargins
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|m_left
 argument_list|(
@@ -321,7 +340,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-DECL|function|QMargins
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
@@ -336,6 +354,8 @@ argument|int aright
 argument_list|,
 argument|int abottom
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|function|m_bottom
 operator|:
 name|m_left
 argument_list|(
@@ -357,7 +377,6 @@ argument_list|(
 argument|abottom
 argument_list|)
 block|{}
-DECL|function|isNull
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -366,6 +385,7 @@ operator|::
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_left
@@ -387,7 +407,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|left
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
@@ -396,6 +415,7 @@ operator|::
 name|left
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_left
@@ -403,7 +423,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|top
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
@@ -412,6 +431,7 @@ operator|::
 name|top
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_top
@@ -419,7 +439,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|right
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
@@ -428,6 +447,7 @@ operator|::
 name|right
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_right
@@ -435,7 +455,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|bottom
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
@@ -444,6 +463,7 @@ operator|::
 name|bottom
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_bottom
@@ -451,7 +471,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|setLeft
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -461,12 +480,12 @@ name|setLeft
 argument_list|(
 argument|int aleft
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_left
 operator|=
 name|aleft
 block|; }
-DECL|function|setTop
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -476,12 +495,12 @@ name|setTop
 argument_list|(
 argument|int atop
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_top
 operator|=
 name|atop
 block|; }
-DECL|function|setRight
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -491,12 +510,12 @@ name|setRight
 argument_list|(
 argument|int aright
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_right
 operator|=
 name|aright
 block|; }
-DECL|function|setBottom
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -506,12 +525,12 @@ name|setBottom
 argument_list|(
 argument|int abottom
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_bottom
 operator|=
 name|abottom
 block|; }
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -528,6 +547,7 @@ name|QMargins
 operator|&
 name|m2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m1
@@ -565,7 +585,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -582,6 +601,7 @@ name|QMargins
 operator|&
 name|m2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m1
@@ -619,7 +639,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
@@ -636,6 +655,7 @@ name|QMargins
 operator|&
 name|m2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -684,7 +704,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
@@ -701,6 +720,7 @@ name|QMargins
 operator|&
 name|m2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -749,7 +769,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
@@ -764,6 +783,7 @@ operator|,
 name|int
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -800,7 +820,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
@@ -815,6 +834,7 @@ name|QMargins
 operator|&
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -851,7 +871,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMargins
@@ -866,6 +885,7 @@ operator|,
 name|int
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -916,6 +936,7 @@ parameter_list|,
 name|int
 name|factor
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -966,6 +987,7 @@ name|QMargins
 modifier|&
 name|margins
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -1016,6 +1038,7 @@ parameter_list|,
 name|qreal
 name|factor
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -1078,6 +1101,7 @@ name|QMargins
 modifier|&
 name|margins
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -1255,6 +1279,7 @@ name|QMargins
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -1282,6 +1307,7 @@ name|QMargins
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -1307,6 +1333,7 @@ operator|(
 name|int
 name|margin
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_left
 operator|+=
@@ -1343,6 +1370,7 @@ operator|(
 name|int
 name|margin
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_left
 operator|-=
@@ -1379,6 +1407,7 @@ operator|(
 name|int
 name|factor
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -1429,6 +1458,7 @@ operator|(
 name|qreal
 name|factor
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -1478,6 +1508,7 @@ name|QMargins
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|margins
@@ -1496,6 +1527,7 @@ name|QMargins
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
@@ -1561,95 +1593,107 @@ name|public
 label|:
 name|Q_DECL_CONSTEXPR
 name|QMarginsF
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|QMarginsF
-parameter_list|(
+argument_list|(
 name|qreal
 name|left
-parameter_list|,
+argument_list|,
 name|qreal
 name|top
-parameter_list|,
+argument_list|,
 name|qreal
 name|right
-parameter_list|,
+argument_list|,
 name|qreal
 name|bottom
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_CONSTEXPR
 name|QMarginsF
-parameter_list|(
+argument_list|(
 specifier|const
 name|QMargins
-modifier|&
+operator|&
 name|margins
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_CONSTEXPR
 name|bool
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|qreal
 name|left
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|qreal
 name|top
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|qreal
 name|right
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|qreal
 name|bottom
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setLeft
-parameter_list|(
+argument_list|(
 name|qreal
 name|left
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setTop
-parameter_list|(
+argument_list|(
 name|qreal
 name|top
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setRight
-parameter_list|(
+argument_list|(
 name|qreal
 name|right
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|void
 name|setBottom
-parameter_list|(
+argument_list|(
 name|qreal
 name|bottom
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
 operator|&
@@ -1661,6 +1705,7 @@ name|QMarginsF
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
@@ -1673,6 +1718,7 @@ name|QMarginsF
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
@@ -1683,6 +1729,7 @@ operator|(
 name|qreal
 name|addend
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
@@ -1693,6 +1740,7 @@ operator|(
 name|qreal
 name|subtrahend
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
@@ -1703,6 +1751,7 @@ operator|(
 name|qreal
 name|factor
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 name|QMarginsF
@@ -1720,6 +1769,7 @@ name|QMargins
 name|toMargins
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|private
 label|:
@@ -1796,13 +1846,13 @@ begin_comment
 comment|/*****************************************************************************   QMarginsF inline functions  *****************************************************************************/
 end_comment
 begin_expr_stmt
-DECL|function|QMarginsF
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|::
 name|QMarginsF
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|m_left
 argument_list|(
@@ -1824,7 +1874,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-DECL|function|QMarginsF
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
@@ -1839,6 +1888,8 @@ argument|qreal aright
 argument_list|,
 argument|qreal abottom
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|function|m_bottom
 operator|:
 name|m_left
 argument_list|(
@@ -1860,18 +1911,16 @@ argument_list|(
 argument|abottom
 argument_list|)
 block|{}
-DECL|function|QMarginsF
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
 operator|::
 name|QMarginsF
 argument_list|(
-specifier|const
-name|QMargins
-operator|&
-name|margins
+argument|const QMargins&margins
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|function|m_bottom
 operator|:
 name|m_left
 argument_list|(
@@ -1902,7 +1951,6 @@ argument_list|(
 argument|margins.bottom()
 argument_list|)
 block|{}
-DECL|function|isNull
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -1911,6 +1959,7 @@ operator|::
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qFuzzyIsNull
@@ -1936,7 +1985,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|left
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1945,6 +1993,7 @@ operator|::
 name|left
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_left
@@ -1952,7 +2001,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|top
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1961,6 +2009,7 @@ operator|::
 name|top
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_top
@@ -1968,7 +2017,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|right
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1977,6 +2025,7 @@ operator|::
 name|right
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_right
@@ -1984,7 +2033,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|bottom
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1993,6 +2041,7 @@ operator|::
 name|bottom
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_bottom
@@ -2000,7 +2049,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|setLeft
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -2010,12 +2058,12 @@ name|setLeft
 argument_list|(
 argument|qreal aleft
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_left
 operator|=
 name|aleft
 block|; }
-DECL|function|setTop
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -2025,12 +2073,12 @@ name|setTop
 argument_list|(
 argument|qreal atop
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_top
 operator|=
 name|atop
 block|; }
-DECL|function|setRight
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -2040,12 +2088,12 @@ name|setRight
 argument_list|(
 argument|qreal aright
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_right
 operator|=
 name|aright
 block|; }
-DECL|function|setBottom
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -2055,12 +2103,12 @@ name|setBottom
 argument_list|(
 argument|qreal abottom
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_bottom
 operator|=
 name|abottom
 block|; }
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2077,6 +2125,7 @@ name|QMarginsF
 operator|&
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qFuzzyCompare
@@ -2134,7 +2183,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2151,6 +2199,7 @@ name|QMarginsF
 operator|&
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -2165,7 +2214,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
@@ -2182,6 +2230,7 @@ name|QMarginsF
 operator|&
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2230,7 +2279,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
@@ -2247,6 +2295,7 @@ name|QMarginsF
 operator|&
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2295,7 +2344,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
@@ -2310,6 +2358,7 @@ operator|,
 name|qreal
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2346,7 +2395,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
@@ -2361,6 +2409,7 @@ name|QMarginsF
 operator|&
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2397,7 +2446,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QMarginsF
@@ -2412,6 +2460,7 @@ operator|,
 name|qreal
 name|rhs
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2462,6 +2511,7 @@ parameter_list|,
 name|qreal
 name|rhs
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2512,6 +2562,7 @@ name|QMarginsF
 modifier|&
 name|rhs
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2614,6 +2665,7 @@ name|QMarginsF
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -2641,6 +2693,7 @@ name|QMarginsF
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -2666,6 +2719,7 @@ operator|(
 name|qreal
 name|addend
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_left
 operator|+=
@@ -2702,6 +2756,7 @@ operator|(
 name|qreal
 name|subtrahend
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|m_left
 operator|-=
@@ -2738,6 +2793,7 @@ operator|(
 name|qreal
 name|factor
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|*
@@ -2787,6 +2843,7 @@ name|QMarginsF
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|margins
@@ -2805,6 +2862,7 @@ name|QMarginsF
 operator|&
 name|margins
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMarginsF
@@ -2845,6 +2903,7 @@ operator|::
 name|toMargins
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QMargins
