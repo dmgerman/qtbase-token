@@ -158742,7 +158742,6 @@ literal|0
 block|}
 block|}
 decl_stmt|;
-DECL|function|qGetProp
 name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
@@ -158754,6 +158753,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|int
@@ -158770,7 +158770,6 @@ operator|+
 name|index
 return|;
 block|}
-DECL|function|qGetProp
 name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
@@ -158782,6 +158781,7 @@ parameter_list|(
 name|ushort
 name|ucs2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|int
@@ -158798,7 +158798,6 @@ operator|+
 name|index
 return|;
 block|}
-DECL|function|properties
 name|Q_DECL_CONST_FUNCTION
 name|Q_CORE_EXPORT
 specifier|const
@@ -158810,6 +158809,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qGetProp
@@ -158818,7 +158818,6 @@ name|ucs4
 argument_list|)
 return|;
 block|}
-DECL|function|properties
 name|Q_DECL_CONST_FUNCTION
 name|Q_CORE_EXPORT
 specifier|const
@@ -158830,6 +158829,7 @@ parameter_list|(
 name|ushort
 name|ucs2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qGetProp
@@ -158838,7 +158838,6 @@ name|ucs2
 argument_list|)
 return|;
 block|}
-DECL|function|graphemeBreakClass
 name|Q_CORE_EXPORT
 name|GraphemeBreakClass
 name|QT_FASTCALL
@@ -158847,6 +158846,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -158860,7 +158860,6 @@ operator|->
 name|graphemeBreakClass
 return|;
 block|}
-DECL|function|wordBreakClass
 name|Q_CORE_EXPORT
 name|WordBreakClass
 name|QT_FASTCALL
@@ -158869,6 +158868,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -158882,7 +158882,6 @@ operator|->
 name|wordBreakClass
 return|;
 block|}
-DECL|function|sentenceBreakClass
 name|Q_CORE_EXPORT
 name|SentenceBreakClass
 name|QT_FASTCALL
@@ -158891,6 +158890,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -158904,7 +158904,6 @@ operator|->
 name|sentenceBreakClass
 return|;
 block|}
-DECL|function|lineBreakClass
 name|Q_CORE_EXPORT
 name|LineBreakClass
 name|QT_FASTCALL
@@ -158913,6 +158912,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
