@@ -38,9 +38,11 @@ specifier|inline
 name|explicit
 name|QLatin1Char
 argument_list|(
-argument|char c
+name|char
+name|c
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+range|:
 name|ch
 argument_list|(
 argument|c
@@ -52,18 +54,19 @@ name|char
 name|toLatin1
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ch
 return|;
 block|}
-DECL|function|unicode
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|ushort
 name|unicode
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ushort
@@ -154,6 +157,7 @@ enum|;
 name|Q_DECL_CONSTEXPR
 name|QChar
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -165,6 +169,7 @@ name|QChar
 argument_list|(
 argument|ushort rc
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -179,6 +184,7 @@ argument|uchar c
 argument_list|,
 argument|uchar r
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -192,6 +198,7 @@ name|QChar
 argument_list|(
 argument|short rc
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -204,6 +211,7 @@ name|QChar
 argument_list|(
 argument|uint rc
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -217,6 +225,7 @@ name|QChar
 argument_list|(
 argument|int rc
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -230,6 +239,7 @@ name|QChar
 argument_list|(
 argument|SpecialCharacter s
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -242,6 +252,7 @@ name|QChar
 argument_list|(
 argument|QLatin1Char ch
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -259,6 +270,7 @@ name|QChar
 argument_list|(
 argument|char c
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -275,6 +287,7 @@ name|QChar
 argument_list|(
 argument|uchar c
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|ucs
 argument_list|(
@@ -898,6 +911,7 @@ name|Category
 name|category
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -913,6 +927,7 @@ name|Direction
 name|direction
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -928,6 +943,7 @@ name|JoiningType
 name|joiningType
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -952,6 +968,7 @@ name|Joining
 name|joining
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 switch|switch
 condition|(
@@ -1024,6 +1041,7 @@ name|char
 name|combiningClass
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1039,6 +1057,7 @@ name|QChar
 name|mirroredChar
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1054,6 +1073,7 @@ name|bool
 name|hasMirrored
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1074,6 +1094,7 @@ name|Decomposition
 name|decompositionTag
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1089,6 +1110,7 @@ name|int
 name|digitValue
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1104,6 +1126,7 @@ name|QChar
 name|toLower
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1119,6 +1142,7 @@ name|QChar
 name|toUpper
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1134,6 +1158,7 @@ name|QChar
 name|toTitleCase
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1149,6 +1174,7 @@ name|QChar
 name|toCaseFolded
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1164,6 +1190,7 @@ name|Script
 name|script
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1179,6 +1206,7 @@ name|UnicodeVersion
 name|unicodeVersion
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1204,6 +1232,7 @@ name|char
 name|toAscii
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|toLatin1
@@ -1218,6 +1247,7 @@ name|char
 name|toLatin1
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucs
@@ -1238,6 +1268,7 @@ name|ushort
 name|unicode
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucs
@@ -1248,6 +1279,7 @@ name|ushort
 modifier|&
 name|unicode
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucs
@@ -1271,6 +1303,7 @@ parameter_list|(
 name|char
 name|c
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|fromLatin1
@@ -1290,6 +1323,7 @@ parameter_list|(
 name|char
 name|c
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1310,6 +1344,7 @@ name|bool
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucs
@@ -1322,6 +1357,7 @@ name|bool
 name|isPrint
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1338,6 +1374,7 @@ name|bool
 name|isSpace
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1353,6 +1390,7 @@ name|bool
 name|isMark
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1368,6 +1406,7 @@ name|bool
 name|isPunct
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1383,6 +1422,7 @@ name|bool
 name|isSymbol
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1399,6 +1439,7 @@ name|bool
 name|isLetter
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1415,6 +1456,7 @@ name|bool
 name|isNumber
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1431,6 +1473,7 @@ name|bool
 name|isLetterOrNumber
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1447,6 +1490,7 @@ name|bool
 name|isDigit
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1463,6 +1507,7 @@ name|bool
 name|isLower
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1479,6 +1524,7 @@ name|bool
 name|isUpper
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1495,6 +1541,7 @@ name|bool
 name|isTitleCase
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1511,6 +1558,7 @@ name|bool
 name|isNonCharacter
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1527,6 +1575,7 @@ name|bool
 name|isHighSurrogate
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1543,6 +1592,7 @@ name|bool
 name|isLowSurrogate
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1559,6 +1609,7 @@ name|bool
 name|isSurrogate
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QChar
@@ -1575,6 +1626,7 @@ name|uchar
 name|cell
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|uchar
@@ -1591,6 +1643,7 @@ name|uchar
 name|row
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|uchar
@@ -1612,6 +1665,7 @@ parameter_list|(
 name|uchar
 name|acell
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|ucs
 operator|=
@@ -1634,6 +1688,7 @@ parameter_list|(
 name|uchar
 name|arow
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|ucs
 operator|=
@@ -1665,6 +1720,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucs4
@@ -1695,6 +1751,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1717,6 +1774,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1739,6 +1797,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1759,6 +1818,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1780,6 +1840,7 @@ parameter_list|,
 name|ushort
 name|low
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -1808,6 +1869,7 @@ parameter_list|,
 name|QChar
 name|low
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|surrogateToUcs4
@@ -1831,6 +1893,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|ushort
@@ -1854,6 +1917,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|ushort
@@ -1874,6 +1938,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1884,6 +1949,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1894,6 +1960,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 if|#
@@ -1913,6 +1980,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 endif|#
@@ -1926,6 +1994,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1936,6 +2005,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1946,6 +2016,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1965,6 +2036,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1975,6 +2047,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1985,6 +2058,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -1995,6 +2069,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -2005,6 +2080,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -2015,6 +2091,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -2025,6 +2102,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -2035,6 +2113,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -2042,6 +2121,7 @@ name|UnicodeVersion
 name|QT_FASTCALL
 name|currentUnicodeVersion
 argument_list|()
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 expr_stmt|;
 specifier|static
@@ -2052,6 +2132,7 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
 specifier|static
@@ -2063,25 +2144,14 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{
 comment|// note that [0x09..0x0d] + 0x85 are exceptional Cc-s and must be handled explicitly
-return|return
-name|ucs4
-operator|==
-literal|0x20
-operator|||
-operator|(
-name|ucs4
-operator|<=
-literal|0x0d
-operator|&&
-name|ucs4
-operator|>=
-literal|0x09
-operator|)
-operator|||
-operator|(
+decl_stmt|return ucs4 == 0x20 || (ucs4<= 0x0d&& ucs4>= 0x09
+block|)
+decl|||
+argument_list|(
 name|ucs4
 operator|>
 literal|127
@@ -2102,10 +2172,11 @@ argument_list|(
 name|ucs4
 argument_list|)
 operator|)
-operator|)
-return|;
-block|}
-specifier|static
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+unit|}     static
 name|bool
 name|QT_FASTCALL
 name|isMark
@@ -2113,8 +2184,11 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|bool
 name|QT_FASTCALL
@@ -2123,8 +2197,11 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|bool
 name|QT_FASTCALL
@@ -2133,8 +2210,11 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -2144,28 +2224,12 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-operator|(
-name|ucs4
-operator|>=
-literal|'A'
-operator|&&
-name|ucs4
-operator|<=
-literal|'z'
-operator|&&
-operator|(
-name|ucs4
-operator|>=
-literal|'a'
-operator|||
-name|ucs4
-operator|<=
-literal|'Z'
-operator|)
-operator|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{         return (ucs4>= 'A'&& ucs4<= 'z'&& (ucs4>= 'a' || ucs4<= 'Z'
+end_function
+begin_expr_stmt
+unit|))
 operator|||
 operator|(
 name|ucs4
@@ -2179,9 +2243,10 @@ argument_list|(
 name|ucs4
 argument_list|)
 operator|)
-return|;
-block|}
-specifier|static
+expr_stmt|;
+end_expr_stmt
+begin_function
+unit|}     static
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2190,18 +2255,12 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-operator|(
-name|ucs4
-operator|<=
-literal|'9'
-operator|&&
-name|ucs4
-operator|>=
-literal|'0'
-operator|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{ return (ucs4<= '9'&& ucs4>= '0'
+end_function
+begin_expr_stmt
+unit|)
 operator|||
 operator|(
 name|ucs4
@@ -2215,9 +2274,10 @@ argument_list|(
 name|ucs4
 argument_list|)
 operator|)
-return|;
-block|}
-specifier|static
+expr_stmt|;
+end_expr_stmt
+begin_function
+unit|}     static
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2226,28 +2286,12 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-operator|(
-name|ucs4
-operator|>=
-literal|'A'
-operator|&&
-name|ucs4
-operator|<=
-literal|'z'
-operator|&&
-operator|(
-name|ucs4
-operator|>=
-literal|'a'
-operator|||
-name|ucs4
-operator|<=
-literal|'Z'
-operator|)
-operator|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{         return (ucs4>= 'A'&& ucs4<= 'z'&& (ucs4>= 'a' || ucs4<= 'Z'
+end_function
+begin_expr_stmt
+unit|))
 operator|||
 operator|(
 name|ucs4
@@ -2271,9 +2315,10 @@ argument_list|(
 name|ucs4
 argument_list|)
 operator|)
-return|;
-block|}
-specifier|static
+expr_stmt|;
+end_expr_stmt
+begin_function
+unit|}     static
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2282,18 +2327,12 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-operator|(
-name|ucs4
-operator|<=
-literal|'9'
-operator|&&
-name|ucs4
-operator|>=
-literal|'0'
-operator|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{ return (ucs4<= '9'&& ucs4>= '0'
+end_function
+begin_expr_stmt
+unit|)
 operator|||
 operator|(
 name|ucs4
@@ -2309,9 +2348,10 @@ argument_list|)
 operator|==
 name|Number_DecimalDigit
 operator|)
-return|;
-block|}
-specifier|static
+expr_stmt|;
+end_expr_stmt
+begin_function
+unit|}     static
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2320,18 +2360,12 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-operator|(
-name|ucs4
-operator|<=
-literal|'z'
-operator|&&
-name|ucs4
-operator|>=
-literal|'a'
-operator|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{ return (ucs4<= 'z'&& ucs4>= 'a'
+end_function
+begin_expr_stmt
+unit|)
 operator|||
 operator|(
 name|ucs4
@@ -2347,9 +2381,10 @@ argument_list|)
 operator|==
 name|Letter_Lowercase
 operator|)
-return|;
-block|}
-specifier|static
+expr_stmt|;
+end_expr_stmt
+begin_function
+unit|}     static
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2358,18 +2393,12 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-operator|(
-name|ucs4
-operator|<=
-literal|'Z'
-operator|&&
-name|ucs4
-operator|>=
-literal|'A'
-operator|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{ return (ucs4<= 'Z'&& ucs4>= 'A'
+end_function
+begin_expr_stmt
+unit|)
 operator|||
 operator|(
 name|ucs4
@@ -2385,9 +2414,10 @@ argument_list|)
 operator|==
 name|Letter_Uppercase
 operator|)
-return|;
-block|}
-specifier|static
+expr_stmt|;
+end_expr_stmt
+begin_function
+unit|}     static
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -2396,25 +2426,18 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
-function|Q_DECL_CONST_FUNCTION
-block|{
-return|return
-name|ucs4
-operator|>
-literal|127
-operator|&&
-name|QChar
-operator|::
-name|category
-argument_list|(
-name|ucs4
-argument_list|)
+name|Q_DECL_NOTHROW
+name|Q_DECL_CONST_FUNCTION
+decl_stmt|{ return ucs4> 127&& QChar::category(ucs4
+end_function
+begin_expr_stmt
+unit|)
 operator|==
 name|Letter_Titlecase
-return|;
-block|}
-name|private
-label|:
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
+unit|}  private:
 specifier|static
 name|bool
 name|QT_FASTCALL
@@ -2423,8 +2446,11 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|bool
 name|QT_FASTCALL
@@ -2433,8 +2459,11 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|bool
 name|QT_FASTCALL
@@ -2443,8 +2472,11 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|bool
 name|QT_FASTCALL
@@ -2453,23 +2485,40 @@ argument_list|(
 name|uint
 name|ucs4
 argument_list|)
+name|Q_DECL_NOTHROW
 name|Q_DECL_CONST_FUNCTION
 decl_stmt|;
+end_decl_stmt
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_NO_CAST_FROM_ASCII
+end_ifdef
+begin_macro
 name|QChar
 argument_list|(
 argument|char c
 argument_list|)
-empty_stmt|;
+end_macro
+begin_expr_stmt
+name|Q_DECL_NOTHROW
+expr_stmt|;
+end_expr_stmt
+begin_macro
 name|QChar
 argument_list|(
 argument|uchar c
 argument_list|)
-empty_stmt|;
+end_macro
+begin_expr_stmt
+name|Q_DECL_NOTHROW
+expr_stmt|;
+end_expr_stmt
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_expr_stmt
 name|friend
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -2480,7 +2529,10 @@ name|QChar
 operator|,
 name|QChar
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|friend
 name|Q_DECL_CONSTEXPR
 name|bool
@@ -2491,16 +2543,16 @@ name|QChar
 operator|,
 name|QChar
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
 name|ushort
 name|ucs
 decl_stmt|;
-block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
+unit|};
 name|Q_DECLARE_TYPEINFO
 argument_list|(
 name|QChar
@@ -2522,6 +2574,7 @@ operator|,
 name|QChar
 name|c2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|c1
@@ -2547,6 +2600,7 @@ operator|,
 name|QChar
 name|c2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|c1

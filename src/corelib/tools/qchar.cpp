@@ -114,7 +114,6 @@ comment|/*!     \fn uchar QChar::cell() const      Returns the cell (least signi
 comment|/*!     \fn uchar QChar::row() const      Returns the row (most significant byte) of the Unicode character.      \sa cell() */
 comment|/*!     \fn bool QChar::isPrint() const      Returns \c true if the character is a printable character; otherwise     returns \c false. This is any character not of category Other_*.      Note that this gives no indication of whether the character is     available in a particular font. */
 comment|/*!     \overload     \since 5.0      Returns \c true if the UCS-4-encoded character specified by \a ucs4 is     a printable character; otherwise returns \c false.     This is any character not of category Other_*.      Note that this gives no indication of whether the character is     available in a particular font. */
-DECL|function|isPrint
 name|bool
 name|QChar
 operator|::
@@ -123,6 +122,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -190,7 +190,6 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|isSpace_helper
 name|bool
 name|QT_FASTCALL
 name|QChar
@@ -200,6 +199,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -251,7 +251,6 @@ begin_comment
 comment|/*!     \overload     \since 5.0      Returns \c true if the UCS-4-encoded character specified by \a ucs4 is     a mark (Mark_* categories); otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|isMark
 name|bool
 name|QChar
 operator|::
@@ -260,6 +259,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -311,7 +311,6 @@ begin_comment
 comment|/*!     \overload     \since 5.0      Returns \c true if the UCS-4-encoded character specified by \a ucs4 is     a punctuation mark (Punctuation_* categories); otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|isPunct
 name|bool
 name|QChar
 operator|::
@@ -320,6 +319,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -391,7 +391,6 @@ begin_comment
 comment|/*!     \overload     \since 5.0      Returns \c true if the UCS-4-encoded character specified by \a ucs4 is     a symbol (Symbol_* categories); otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|isSymbol
 name|bool
 name|QChar
 operator|::
@@ -400,6 +399,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -459,7 +459,6 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|isLetter_helper
 name|bool
 name|QT_FASTCALL
 name|QChar
@@ -469,6 +468,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -533,7 +533,6 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|isNumber_helper
 name|bool
 name|QT_FASTCALL
 name|QChar
@@ -543,6 +542,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -597,7 +597,6 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|isLetterOrNumber_helper
 name|bool
 name|QT_FASTCALL
 name|QChar
@@ -607,6 +606,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -728,7 +728,6 @@ begin_comment
 comment|/*!     \overload     Returns the numeric value of the digit specified by the UCS-4-encoded     character, \a ucs4, or -1 if the character is not a digit. */
 end_comment
 begin_function
-DECL|function|digitValue
 name|int
 name|QChar
 operator|::
@@ -737,6 +736,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -765,7 +765,6 @@ begin_comment
 comment|/*!     \overload     Returns the category of the UCS-4-encoded character specified by \a ucs4. */
 end_comment
 begin_function
-DECL|function|category
 name|QChar
 operator|::
 name|Category
@@ -776,6 +775,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -810,7 +810,6 @@ begin_comment
 comment|/*!     \overload     Returns the direction of the UCS-4-encoded character specified by \a ucs4. */
 end_comment
 begin_function
-DECL|function|direction
 name|QChar
 operator|::
 name|Direction
@@ -821,6 +820,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -855,7 +855,6 @@ begin_comment
 comment|/*!     \overload     \since 5.3      Returns information about the joining type attributes of the UCS-4-encoded     character specified by \a ucs4     (needed for certain languages such as Arabic or Syriac). */
 end_comment
 begin_function
-DECL|function|joiningType
 name|QChar
 operator|::
 name|JoiningType
@@ -866,6 +865,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -910,7 +910,6 @@ begin_comment
 comment|/*!     \overload     \deprecated in 5.3, use joiningType() instead.      Returns information about the joining properties of the UCS-4-encoded     character specified by \a ucs4 (needed for certain languages such as Arabic). */
 end_comment
 begin_function
-DECL|function|joining
 name|QChar
 operator|::
 name|Joining
@@ -921,6 +920,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -994,7 +994,6 @@ begin_comment
 comment|/*!     \overload     \since 5.0      Returns \c true if the UCS-4-encoded character specified by \a ucs4     should be reversed if the text direction is reversed; otherwise returns \c false.      A bit faster equivalent of (QChar::mirroredChar(ucs4) != ucs4).      \sa mirroredChar() */
 end_comment
 begin_function
-DECL|function|hasMirrored
 name|bool
 name|QChar
 operator|::
@@ -1003,6 +1002,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1050,7 +1050,6 @@ begin_comment
 comment|/*!     \overload     Returns the mirrored character if the UCS-4-encoded character specified     by \a ucs4 is a mirrored character; otherwise returns the character itself.      \sa hasMirrored() */
 end_comment
 begin_function
-DECL|function|mirroredChar
 name|uint
 name|QChar
 operator|::
@@ -1059,6 +1058,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1418,7 +1418,6 @@ begin_comment
 comment|/*!     \overload     Returns the tag defining the composition of the UCS-4-encoded character     specified by \a ucs4. Returns QChar::NoDecomposition if no decomposition exists. */
 end_comment
 begin_function
-DECL|function|decompositionTag
 name|QChar
 operator|::
 name|Decomposition
@@ -1429,6 +1428,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1492,7 +1492,6 @@ begin_comment
 comment|/*!     \overload     Returns the combining class for the UCS-4-encoded character specified by     \a ucs4, as defined in the Unicode standard. */
 end_comment
 begin_function
-DECL|function|combiningClass
 name|unsigned
 name|char
 name|QChar
@@ -1502,6 +1501,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1533,7 +1533,6 @@ begin_comment
 comment|/*!     \overload     \since 5.1      Returns the Unicode script property value for the character specified in     its UCS-4-encoded form as \a ucs4. */
 end_comment
 begin_function
-DECL|function|script
 name|QChar
 operator|::
 name|Script
@@ -1544,6 +1543,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1578,7 +1578,6 @@ begin_comment
 comment|/*!     \overload     Returns the Unicode version that introduced the character specified in     its UCS-4-encoded form as \a ucs4. */
 end_comment
 begin_function
-DECL|function|unicodeVersion
 name|QChar
 operator|::
 name|UnicodeVersion
@@ -1589,6 +1588,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1620,7 +1620,6 @@ begin_comment
 comment|/*!     Returns the most recent supported Unicode version. */
 end_comment
 begin_function
-DECL|function|currentUnicodeVersion
 name|QChar
 operator|::
 name|UnicodeVersion
@@ -1628,6 +1627,7 @@ name|QChar
 operator|::
 name|currentUnicodeVersion
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|UNICODE_DATA_VERSION
@@ -1640,7 +1640,6 @@ parameter_list|<
 name|typename
 name|T
 parameter_list|>
-DECL|function|toLowerCase_helper
 name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
@@ -1650,6 +1649,7 @@ parameter_list|(
 name|T
 name|uc
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|QUnicodeTables
@@ -1712,7 +1712,6 @@ parameter_list|<
 name|typename
 name|T
 parameter_list|>
-DECL|function|toUpperCase_helper
 name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
@@ -1722,6 +1721,7 @@ parameter_list|(
 name|T
 name|uc
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|QUnicodeTables
@@ -1784,7 +1784,6 @@ parameter_list|<
 name|typename
 name|T
 parameter_list|>
-DECL|function|toTitleCase_helper
 name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
@@ -1794,6 +1793,7 @@ parameter_list|(
 name|T
 name|uc
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|QUnicodeTables
@@ -1856,7 +1856,6 @@ parameter_list|<
 name|typename
 name|T
 parameter_list|>
-DECL|function|toCaseFolded_helper
 name|Q_DECL_CONST_FUNCTION
 specifier|static
 specifier|inline
@@ -1866,6 +1865,7 @@ parameter_list|(
 name|T
 name|uc
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|QUnicodeTables
@@ -1929,7 +1929,6 @@ begin_comment
 comment|/*!     \overload     Returns the lowercase equivalent of the UCS-4-encoded character specified     by \a ucs4 if the character is uppercase or titlecase; otherwise returns     the character itself. */
 end_comment
 begin_function
-DECL|function|toLower
 name|uint
 name|QChar
 operator|::
@@ -1938,6 +1937,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1966,7 +1966,6 @@ begin_comment
 comment|/*!     \overload     Returns the uppercase equivalent of the UCS-4-encoded character specified     by \a ucs4 if the character is lowercase or titlecase; otherwise returns     the character itself. */
 end_comment
 begin_function
-DECL|function|toUpper
 name|uint
 name|QChar
 operator|::
@@ -1975,6 +1974,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2003,7 +2003,6 @@ begin_comment
 comment|/*!     \overload     Returns the title case equivalent of the UCS-4-encoded character specified     by \a ucs4 if the character is lowercase or uppercase; otherwise returns     the character itself. */
 end_comment
 begin_function
-DECL|function|toTitleCase
 name|uint
 name|QChar
 operator|::
@@ -2012,6 +2011,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2112,7 +2112,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|foldCase
 specifier|static
 specifier|inline
 name|uint
@@ -2125,6 +2124,7 @@ name|uint
 modifier|&
 name|last
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|uint
 name|c
@@ -2176,7 +2176,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|foldCase
 specifier|static
 specifier|inline
 name|ushort
@@ -2185,6 +2184,7 @@ parameter_list|(
 name|ushort
 name|ch
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|toCaseFolded_helper
@@ -2204,7 +2204,6 @@ begin_comment
 comment|/*!     \overload     Returns the case folded equivalent of the UCS-4-encoded character specified     by \a ucs4. For most Unicode characters this is the same as toLower(). */
 end_comment
 begin_function
-DECL|function|toCaseFolded
 name|uint
 name|QChar
 operator|::
@@ -2213,6 +2212,7 @@ parameter_list|(
 name|uint
 name|ucs4
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
