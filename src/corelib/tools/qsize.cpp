@@ -31,12 +31,12 @@ comment|/*!     \fn int QSize::height() const      Returns the height.      \sa 
 comment|/*!     \fn void QSize::setWidth(int width)      Sets the width to the given \a width.      \sa rwidth(), width(), setHeight() */
 comment|/*!     \fn void QSize::setHeight(int height)      Sets the height to the given \a height.      \sa rheight(), height(), setWidth() */
 comment|/*!     Swaps the width and height values.      \sa setWidth(), setHeight(), transposed() */
-DECL|function|transpose
 name|void
 name|QSize
 operator|::
 name|transpose
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|tmp
@@ -69,7 +69,6 @@ begin_comment
 comment|/*!     \overload     \since 5.0      Return a size scaled to a rectangle with the given size \a s,     according to the specified \a mode. */
 end_comment
 begin_function
-DECL|function|scaled
 name|QSize
 name|QSize
 operator|::
@@ -86,6 +85,7 @@ name|AspectRatioMode
 name|mode
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -539,12 +539,12 @@ begin_comment
 comment|/*!     Swaps the width and height values.      \sa setWidth(), setHeight(), transposed() */
 end_comment
 begin_function
-DECL|function|transpose
 name|void
 name|QSizeF
 operator|::
 name|transpose
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 name|qreal
 name|tmp
@@ -577,7 +577,6 @@ begin_comment
 comment|/*!     \overload     \since 5.0      Returns a size scaled to a rectangle with the given size \a s,     according to the specified \a mode. */
 end_comment
 begin_function
-DECL|function|scaled
 name|QSizeF
 name|QSizeF
 operator|::
@@ -594,6 +593,7 @@ name|AspectRatioMode
 name|mode
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(

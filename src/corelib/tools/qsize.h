@@ -28,24 +28,27 @@ name|public
 label|:
 name|Q_DECL_CONSTEXPR
 name|QSize
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|QSize
-parameter_list|(
+argument_list|(
 name|int
 name|w
-parameter_list|,
+argument_list|,
 name|int
 name|h
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -53,6 +56,7 @@ name|bool
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -60,6 +64,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -67,6 +72,7 @@ name|int
 name|width
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -74,35 +80,40 @@ name|int
 name|height
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setWidth
-parameter_list|(
+argument_list|(
 name|int
 name|w
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setHeight
-parameter_list|(
+argument_list|(
 name|int
 name|h
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|void
 name|transpose
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSize
 name|transposed
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|void
@@ -119,6 +130,7 @@ operator|::
 name|AspectRatioMode
 name|mode
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 specifier|inline
 name|void
@@ -134,6 +146,7 @@ operator|::
 name|AspectRatioMode
 name|mode
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|QSize
 name|scaled
@@ -150,6 +163,7 @@ name|AspectRatioMode
 name|mode
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|QSize
 name|scaled
@@ -165,6 +179,7 @@ name|AspectRatioMode
 name|mode
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -176,6 +191,7 @@ name|QSize
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -187,21 +203,24 @@ name|QSize
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
-modifier|&
+operator|&
 name|rwidth
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
-modifier|&
+operator|&
 name|rheight
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSize
@@ -213,6 +232,7 @@ specifier|const
 name|QSize
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
@@ -225,6 +245,7 @@ specifier|const
 name|QSize
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
@@ -236,6 +257,7 @@ operator|(
 name|qreal
 name|c
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|QSize
@@ -262,6 +284,7 @@ specifier|const
 name|QSize
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 specifier|inline
@@ -278,6 +301,7 @@ specifier|const
 name|QSize
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 specifier|inline
@@ -295,6 +319,7 @@ specifier|const
 name|QSize
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 specifier|inline
@@ -312,6 +337,7 @@ specifier|const
 name|QSize
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 specifier|inline
@@ -320,14 +346,15 @@ specifier|const
 name|QSize
 name|operator
 modifier|*
-parameter_list|(
+argument_list|(
 specifier|const
 name|QSize
-modifier|&
-parameter_list|,
+operator|&
+argument_list|,
 name|qreal
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|friend
 specifier|inline
 name|Q_DECL_CONSTEXPR
@@ -335,14 +362,15 @@ specifier|const
 name|QSize
 name|operator
 modifier|*
-parameter_list|(
+argument_list|(
 name|qreal
-parameter_list|,
+argument_list|,
 specifier|const
 name|QSize
-modifier|&
-parameter_list|)
-function_decl|;
+operator|&
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|friend
 specifier|inline
 specifier|const
@@ -426,13 +454,13 @@ begin_comment
 comment|/*****************************************************************************   QSize inline functions  *****************************************************************************/
 end_comment
 begin_expr_stmt
-DECL|function|QSize
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSize
 operator|::
 name|QSize
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|wd
 argument_list|(
@@ -446,7 +474,7 @@ argument|-
 literal|1
 argument_list|)
 block|{}
-DECL|function|QSize
+DECL|function|ht
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSize
@@ -457,6 +485,7 @@ argument|int w
 argument_list|,
 argument|int h
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|wd
 argument_list|(
@@ -468,7 +497,6 @@ argument_list|(
 argument|h
 argument_list|)
 block|{}
-DECL|function|isNull
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -477,6 +505,7 @@ operator|::
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -490,7 +519,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|isEmpty
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -499,6 +527,7 @@ operator|::
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -512,7 +541,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|isValid
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -521,6 +549,7 @@ operator|::
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -534,7 +563,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|width
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
@@ -543,6 +571,7 @@ operator|::
 name|width
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -550,7 +579,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|height
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
@@ -559,6 +587,7 @@ operator|::
 name|height
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ht
@@ -566,7 +595,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|setWidth
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -576,12 +604,12 @@ name|setWidth
 argument_list|(
 argument|int w
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|=
 name|w
 block|; }
-DECL|function|setHeight
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -591,12 +619,12 @@ name|setHeight
 argument_list|(
 argument|int h
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|ht
 operator|=
 name|h
 block|; }
-DECL|function|transposed
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSize
@@ -605,6 +633,7 @@ operator|::
 name|transposed
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -617,7 +646,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|scale
 specifier|inline
 name|void
 name|QSize
@@ -630,6 +658,7 @@ argument|int h
 argument_list|,
 argument|Qt::AspectRatioMode mode
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|scale
 argument_list|(
@@ -643,7 +672,6 @@ argument_list|,
 name|mode
 argument_list|)
 block|; }
-DECL|function|scale
 specifier|inline
 name|void
 name|QSize
@@ -654,6 +682,7 @@ argument|const QSize&s
 argument_list|,
 argument|Qt::AspectRatioMode mode
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 operator|*
 name|this
@@ -665,7 +694,6 @@ argument_list|,
 name|mode
 argument_list|)
 block|; }
-DECL|function|scaled
 specifier|inline
 name|QSize
 name|QSize
@@ -679,6 +707,7 @@ argument_list|,
 argument|Qt::AspectRatioMode mode
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|scaled
@@ -696,7 +725,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|rwidth
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
@@ -705,6 +733,7 @@ name|QSize
 operator|::
 name|rwidth
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -712,7 +741,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|rheight
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|int
@@ -721,6 +749,7 @@ name|QSize
 operator|::
 name|rheight
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ht
@@ -743,6 +772,7 @@ name|QSize
 operator|&
 name|s
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|+=
@@ -777,6 +807,7 @@ name|QSize
 operator|&
 name|s
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|-=
@@ -809,6 +840,7 @@ operator|(
 name|qreal
 name|c
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|=
@@ -851,6 +883,7 @@ name|QSize
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s1
@@ -888,6 +921,7 @@ name|QSize
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s1
@@ -926,6 +960,7 @@ name|QSize
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -967,6 +1002,7 @@ name|QSize
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -1006,6 +1042,7 @@ parameter_list|,
 name|qreal
 name|c
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -1047,6 +1084,7 @@ name|QSize
 modifier|&
 name|s
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -1178,6 +1216,7 @@ argument_list|(
 argument|const QSize& otherSize
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -1214,6 +1253,7 @@ argument_list|(
 argument|const QSize& otherSize
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
@@ -1271,32 +1311,36 @@ name|public
 label|:
 name|Q_DECL_CONSTEXPR
 name|QSizeF
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 name|QSizeF
-parameter_list|(
+argument_list|(
 specifier|const
 name|QSize
-modifier|&
+operator|&
 name|sz
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_CONSTEXPR
 name|QSizeF
-parameter_list|(
+argument_list|(
 name|qreal
 name|w
-parameter_list|,
+argument_list|,
 name|qreal
 name|h
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 specifier|inline
 name|bool
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1304,6 +1348,7 @@ name|bool
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1311,6 +1356,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1318,6 +1364,7 @@ name|qreal
 name|width
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1325,35 +1372,40 @@ name|qreal
 name|height
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setWidth
-parameter_list|(
+argument_list|(
 name|qreal
 name|w
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
 name|setHeight
-parameter_list|(
+argument_list|(
 name|qreal
 name|h
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|void
 name|transpose
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSizeF
 name|transposed
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|void
@@ -1370,6 +1422,7 @@ operator|::
 name|AspectRatioMode
 name|mode
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 specifier|inline
 name|void
@@ -1385,6 +1438,7 @@ operator|::
 name|AspectRatioMode
 name|mode
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|QSizeF
 name|scaled
@@ -1401,6 +1455,7 @@ name|AspectRatioMode
 name|mode
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|QSizeF
 name|scaled
@@ -1416,6 +1471,7 @@ name|AspectRatioMode
 name|mode
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1427,6 +1483,7 @@ name|QSizeF
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1438,21 +1495,24 @@ name|QSizeF
 operator|&
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
-modifier|&
+operator|&
 name|rwidth
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
-modifier|&
+operator|&
 name|rheight
-parameter_list|()
-function_decl|;
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|QSizeF
@@ -1464,6 +1524,7 @@ specifier|const
 name|QSizeF
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
@@ -1476,6 +1537,7 @@ specifier|const
 name|QSizeF
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
@@ -1487,6 +1549,7 @@ operator|(
 name|qreal
 name|c
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|QSizeF
@@ -1513,6 +1576,7 @@ specifier|const
 name|QSizeF
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 name|Q_DECL_CONSTEXPR
@@ -1529,6 +1593,7 @@ specifier|const
 name|QSizeF
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 name|Q_DECL_CONSTEXPR
@@ -1546,6 +1611,7 @@ specifier|const
 name|QSizeF
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 name|Q_DECL_CONSTEXPR
@@ -1563,6 +1629,7 @@ specifier|const
 name|QSizeF
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|friend
 name|Q_DECL_CONSTEXPR
@@ -1571,14 +1638,15 @@ specifier|const
 name|QSizeF
 name|operator
 modifier|*
-parameter_list|(
+argument_list|(
 specifier|const
 name|QSizeF
-modifier|&
-parameter_list|,
+operator|&
+argument_list|,
 name|qreal
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|friend
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1586,14 +1654,15 @@ specifier|const
 name|QSizeF
 name|operator
 modifier|*
-parameter_list|(
+argument_list|(
 name|qreal
-parameter_list|,
+argument_list|,
 specifier|const
 name|QSizeF
-modifier|&
-parameter_list|)
-function_decl|;
+operator|&
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
 name|friend
 specifier|inline
 specifier|const
@@ -1614,6 +1683,7 @@ name|QSize
 name|toSize
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|private
 label|:
@@ -1684,13 +1754,13 @@ begin_comment
 comment|/*****************************************************************************   QSizeF inline functions  *****************************************************************************/
 end_comment
 begin_expr_stmt
-DECL|function|QSizeF
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|::
 name|QSizeF
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|wd
 argument_list|(
@@ -1704,18 +1774,16 @@ argument|-
 literal|1.
 argument_list|)
 block|{}
-DECL|function|QSizeF
+DECL|function|ht
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSizeF
 operator|::
 name|QSizeF
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|sz
+argument|const QSize&sz
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|wd
 argument_list|(
@@ -1730,7 +1798,7 @@ argument_list|(
 argument|sz.height()
 argument_list|)
 block|{}
-DECL|function|QSizeF
+DECL|function|ht
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSizeF
@@ -1741,6 +1809,7 @@ argument|qreal w
 argument_list|,
 argument|qreal h
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|wd
 argument_list|(
@@ -1752,7 +1821,6 @@ argument_list|(
 argument|h
 argument_list|)
 block|{}
-DECL|function|isNull
 specifier|inline
 name|bool
 name|QSizeF
@@ -1760,6 +1828,7 @@ operator|::
 name|isNull
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qIsNull
@@ -1775,7 +1844,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|isEmpty
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -1784,6 +1852,7 @@ operator|::
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -1797,7 +1866,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|isValid
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
@@ -1806,6 +1874,7 @@ operator|::
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -1819,7 +1888,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|width
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1828,6 +1896,7 @@ operator|::
 name|width
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -1835,7 +1904,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|height
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1844,6 +1912,7 @@ operator|::
 name|height
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ht
@@ -1851,7 +1920,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|setWidth
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -1861,12 +1929,12 @@ name|setWidth
 argument_list|(
 argument|qreal w
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|=
 name|w
 block|; }
-DECL|function|setHeight
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|void
@@ -1876,12 +1944,12 @@ name|setHeight
 argument_list|(
 argument|qreal h
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|ht
 operator|=
 name|h
 block|; }
-DECL|function|transposed
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QSizeF
@@ -1890,6 +1958,7 @@ operator|::
 name|transposed
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -1902,7 +1971,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|scale
 specifier|inline
 name|void
 name|QSizeF
@@ -1915,6 +1983,7 @@ argument|qreal h
 argument_list|,
 argument|Qt::AspectRatioMode mode
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|scale
 argument_list|(
@@ -1928,7 +1997,6 @@ argument_list|,
 name|mode
 argument_list|)
 block|; }
-DECL|function|scale
 specifier|inline
 name|void
 name|QSizeF
@@ -1939,6 +2007,7 @@ argument|const QSizeF&s
 argument_list|,
 argument|Qt::AspectRatioMode mode
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 operator|*
 name|this
@@ -1950,7 +2019,6 @@ argument_list|,
 name|mode
 argument_list|)
 block|; }
-DECL|function|scaled
 specifier|inline
 name|QSizeF
 name|QSizeF
@@ -1964,6 +2032,7 @@ argument_list|,
 argument|Qt::AspectRatioMode mode
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|scaled
@@ -1981,7 +2050,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|rwidth
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
@@ -1990,6 +2058,7 @@ name|QSizeF
 operator|::
 name|rwidth
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|wd
@@ -1997,7 +2066,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|rheight
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|qreal
@@ -2006,6 +2074,7 @@ name|QSizeF
 operator|::
 name|rheight
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ht
@@ -2028,6 +2097,7 @@ name|QSizeF
 operator|&
 name|s
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|+=
@@ -2062,6 +2132,7 @@ name|QSizeF
 operator|&
 name|s
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|-=
@@ -2094,6 +2165,7 @@ operator|(
 name|qreal
 name|c
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|wd
 operator|*=
@@ -2126,6 +2198,7 @@ name|QSizeF
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qFuzzyCompare
@@ -2169,6 +2242,7 @@ name|QSizeF
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -2215,6 +2289,7 @@ name|QSizeF
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -2256,6 +2331,7 @@ name|QSizeF
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -2295,6 +2371,7 @@ parameter_list|,
 name|qreal
 name|c
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -2330,6 +2407,7 @@ name|QSizeF
 modifier|&
 name|s
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -2443,6 +2521,7 @@ argument_list|(
 argument|const QSizeF& otherSize
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -2479,6 +2558,7 @@ argument_list|(
 argument|const QSizeF& otherSize
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSizeF
@@ -2513,6 +2593,7 @@ operator|::
 name|toSize
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QSize
