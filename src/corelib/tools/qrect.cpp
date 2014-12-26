@@ -39,13 +39,13 @@ comment|/*!     \fn bool QRect::isNull() const      Returns \c true if the recta
 comment|/*!     \fn bool QRect::isEmpty() const      Returns \c true if the rectangle is empty, otherwise returns \c false.      An empty rectangle has a left()> right() or top()> bottom(). An     empty rectangle is not valid (i.e., isEmpty() == !isValid()).      Use the normalized() function to retrieve a rectangle where the     corners are swapped.      \sa isNull(), isValid(), normalized() */
 comment|/*!     \fn bool QRect::isValid() const      Returns \c true if the rectangle is valid, otherwise returns \c false.      A valid rectangle has a left()<= right() and top()<=     bottom(). Note that non-trivial operations like intersections are     not defined for invalid rectangles. A valid rectangle is not empty     (i.e., isValid() == !isEmpty()).      \sa isNull(), isEmpty(), normalized() */
 comment|/*!     Returns a normalized rectangle; i.e., a rectangle that has a     non-negative width and height.      If width()< 0 the function swaps the left and right corners, and     it swaps the top and bottom corners if height()< 0.      \sa isValid(), isEmpty() */
-DECL|function|normalized
 name|QRect
 name|QRect
 operator|::
 name|normalized
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|QRect
 name|r
@@ -279,7 +279,6 @@ begin_comment
 comment|/*!     \fn bool QRect::contains(const QPoint&point, bool proper) const      Returns \c true if the given \a point is inside or on the edge of     the rectangle, otherwise returns \c false. If \a proper is true, this     function only returns \c true if the given \a point is \e inside the     rectangle (i.e., not on the edge).      \sa intersects() */
 end_comment
 begin_function
-DECL|function|contains
 name|bool
 name|QRect
 operator|::
@@ -294,6 +293,7 @@ name|bool
 name|proper
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|l
@@ -472,7 +472,6 @@ begin_comment
 comment|/*!     \fn bool QRect::contains(const QRect&rectangle, bool proper) const     \overload      Returns \c true if the given \a rectangle is inside this rectangle.     otherwise returns \c false. If \a proper is true, this function only     returns \c true if the \a rectangle is entirely inside this     rectangle (not on the edge). */
 end_comment
 begin_function
-DECL|function|contains
 name|bool
 name|QRect
 operator|::
@@ -487,6 +486,7 @@ name|bool
 name|proper
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -726,7 +726,6 @@ begin_comment
 comment|/*!     \fn QRect QRect::operator|(const QRect&rectangle) const      Returns the bounding rectangle of this rectangle and the given \a     rectangle.      \sa operator|=(), united() */
 end_comment
 begin_function
-DECL|function|operator |
 name|QRect
 name|QRect
 operator|::
@@ -739,6 +738,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -961,7 +961,6 @@ begin_comment
 comment|/*!     \fn QRect QRect::operator&(const QRect&rectangle) const      Returns the intersection of this rectangle and the given \a     rectangle. Returns an empty rectangle if there is no intersection.      \sa operator&=(), intersected() */
 end_comment
 begin_function
-DECL|function|operator &
 name|QRect
 name|QRect
 operator|::
@@ -974,6 +973,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1219,7 +1219,6 @@ begin_comment
 comment|/*!     \fn bool QRect::intersects(const QRect&rectangle) const      Returns \c true if this rectangle intersects with the given \a     rectangle (i.e., there is at least one pixel that is within both     rectangles), otherwise returns \c false.      The intersection rectangle can be retrieved using the intersected()     function.      \sa contains() */
 end_comment
 begin_function
-DECL|function|intersects
 name|bool
 name|QRect
 operator|::
@@ -1231,6 +1230,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -1779,13 +1779,13 @@ begin_comment
 comment|/*!     Returns a normalized rectangle; i.e., a rectangle that has a     non-negative width and height.      If width()< 0 the function swaps the left and right corners, and     it swaps the top and bottom corners if height()< 0.      \sa isValid(), isEmpty() */
 end_comment
 begin_function
-DECL|function|normalized
 name|QRectF
 name|QRectF
 operator|::
 name|normalized
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|QRectF
 name|r
@@ -1973,7 +1973,6 @@ begin_comment
 comment|/*!     \fn bool QRectF::contains(const QPointF&point) const      Returns \c true if the given \a point is inside or on the edge of the     rectangle; otherwise returns \c false.      \sa intersects() */
 end_comment
 begin_function
-DECL|function|contains
 name|bool
 name|QRectF
 operator|::
@@ -1985,6 +1984,7 @@ modifier|&
 name|p
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qreal
 name|l
@@ -2106,7 +2106,6 @@ begin_comment
 comment|/*!     \fn bool QRectF::contains(const QRectF&rectangle) const     \overload      Returns \c true if the given \a rectangle is inside this rectangle;     otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|contains
 name|bool
 name|QRectF
 operator|::
@@ -2118,6 +2117,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qreal
 name|l1
@@ -2344,7 +2344,6 @@ begin_comment
 comment|/*!     \fn QRectF QRectF::operator|(const QRectF&rectangle) const      Returns the bounding rectangle of this rectangle and the given \a rectangle.      \sa united(), operator|=() */
 end_comment
 begin_function
-DECL|function|operator |
 name|QRectF
 name|QRectF
 operator|::
@@ -2357,6 +2356,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2585,7 +2585,6 @@ begin_comment
 comment|/*!     \fn QRectF QRectF::operator&(const QRectF&rectangle) const      Returns the intersection of this rectangle and the given \a     rectangle. Returns an empty rectangle if there is no intersection.      \sa operator&=(), intersected() */
 end_comment
 begin_function
-DECL|function|operator &
 name|QRectF
 name|QRectF
 operator|::
@@ -2598,6 +2597,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qreal
 name|l1
@@ -2861,7 +2861,6 @@ begin_comment
 comment|/*!     \fn bool QRectF::intersects(const QRectF&rectangle) const      Returns \c true if this rectangle intersects with the given \a     rectangle (i.e. there is a non-empty area of overlap between     them), otherwise returns \c false.      The intersection rectangle can be retrieved using the intersected()     function.      \sa contains() */
 end_comment
 begin_function
-DECL|function|intersects
 name|bool
 name|QRectF
 operator|::
@@ -2873,6 +2872,7 @@ modifier|&
 name|r
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|qreal
 name|l1
@@ -3072,13 +3072,13 @@ begin_comment
 comment|/*!     \fn QRect QRectF::toAlignedRect() const     \since 4.3      Returns a QRect based on the values of this rectangle that is the     smallest possible integer rectangle that completely contains this     rectangle.      \sa toRect() */
 end_comment
 begin_function
-DECL|function|toAlignedRect
 name|QRect
 name|QRectF
 operator|::
 name|toAlignedRect
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|xmin
