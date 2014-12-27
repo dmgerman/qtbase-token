@@ -473,7 +473,10 @@ block|{
 name|asm
 specifier|volatile
 operator|(
-literal|"sync 0"
+literal|".set push\n"
+literal|".set mips32\n"
+literal|"sync 0\n"
+literal|".set pop\n"
 operator|::
 operator|:
 literal|"memory"
