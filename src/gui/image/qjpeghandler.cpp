@@ -4672,8 +4672,11 @@ decl_stmt|;
 name|quint32
 name|components
 decl_stmt|;
-name|quint32
+name|quint16
 name|value
+decl_stmt|;
+name|quint16
+name|dummy
 decl_stmt|;
 name|stream
 operator|>>
@@ -4684,6 +4687,8 @@ operator|>>
 name|components
 operator|>>
 name|value
+operator|>>
+name|dummy
 expr_stmt|;
 if|if
 condition|(
