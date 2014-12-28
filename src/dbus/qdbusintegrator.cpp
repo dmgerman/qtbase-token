@@ -5507,13 +5507,6 @@ operator|&
 name|context
 argument_list|)
 decl_stmt|;
-name|QDBusConnectionPrivate
-operator|::
-name|setSender
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|QPointer
 argument_list|<
 name|QObject
@@ -5541,13 +5534,6 @@ argument_list|()
 argument_list|)
 operator|>=
 literal|0
-expr_stmt|;
-name|QDBusConnectionPrivate
-operator|::
-name|setSender
-argument_list|(
-literal|0
-argument_list|)
 expr_stmt|;
 comment|// the object might be deleted in the slot
 if|if
