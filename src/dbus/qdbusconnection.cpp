@@ -1190,10 +1190,10 @@ name|QDBusError
 operator|::
 name|Disconnected
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"Not connected to D-BUS server"
-argument_list|)
+name|QDBusUtil
+operator|::
+name|disconnectedErrorMessage
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1276,10 +1276,10 @@ name|QDBusError
 operator|::
 name|Disconnected
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"Not connected to D-BUS server"
-argument_list|)
+name|QDBusUtil
+operator|::
+name|disconnectedErrorMessage
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1406,10 +1406,10 @@ name|QDBusError
 operator|::
 name|Disconnected
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"Not connected to D-Bus server"
-argument_list|)
+name|QDBusUtil
+operator|::
+name|disconnectedErrorMessage
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -3035,10 +3035,10 @@ name|QDBusError
 operator|::
 name|Disconnected
 argument_list|,
-name|QStringLiteral
-argument_list|(
-literal|"Not connected."
-argument_list|)
+name|QDBusUtil
+operator|::
+name|disconnectedErrorMessage
+argument_list|()
 argument_list|)
 return|;
 block|}

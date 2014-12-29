@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"qdbusconnectionmanager_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qdbusutil_p.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -356,10 +361,10 @@ name|QDBusError
 operator|::
 name|Disconnected
 argument_list|,
-name|QStringLiteral
-argument_list|(
-literal|"Not connected."
-argument_list|)
+name|QDBusUtil
+operator|::
+name|disconnectedErrorMessage
+argument_list|()
 argument_list|)
 return|;
 block|}
