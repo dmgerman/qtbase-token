@@ -877,7 +877,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|int
+name|bool
 name|send
 parameter_list|(
 specifier|const

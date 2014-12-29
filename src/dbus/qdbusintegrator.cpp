@@ -10284,7 +10284,7 @@ block|}
 end_function
 begin_function
 DECL|function|send
-name|int
+name|bool
 name|QDBusConnectionPrivate
 operator|::
 name|send
@@ -10305,8 +10305,7 @@ name|message
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+literal|true
 return|;
 comment|// don't send; the reply will be retrieved by the caller
 comment|// through the d_ptr->localReply link
@@ -10499,7 +10498,7 @@ operator|=
 name|error
 expr_stmt|;
 return|return
-literal|0
+literal|false
 return|;
 block|}
 name|q_dbus_message_set_no_reply
@@ -10522,10 +10521,6 @@ expr_stmt|;
 name|checkThread
 argument_list|()
 expr_stmt|;
-name|bool
-name|isOk
-decl_stmt|;
-block|{
 name|QDBusDispatchLocker
 name|locker
 argument_list|(
@@ -10534,8 +10529,9 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|bool
 name|isOk
-operator|=
+init|=
 name|q_dbus_connection_send
 argument_list|(
 name|connection
@@ -10544,31 +10540,14 @@ name|msg
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-block|}
-name|int
-name|serial
-init|=
-literal|0
 decl_stmt|;
-if|if
-condition|(
-name|isOk
-condition|)
-name|serial
-operator|=
-name|q_dbus_message_get_serial
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
 name|q_dbus_message_unref
 argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
 return|return
-name|serial
+name|isOk
 return|;
 block|}
 end_function
