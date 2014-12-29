@@ -233,11 +233,7 @@ name|DoDispatchAction
 operator|=
 literal|24
 operator|,
-DECL|enumerator|SendWithReplyAsyncAction
-name|SendWithReplyAsyncAction
-operator|=
-literal|25
-operator|,
+comment|// unused: 25,
 DECL|enumerator|MessageResultReceivedAction
 name|MessageResultReceivedAction
 operator|=

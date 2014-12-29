@@ -1608,6 +1608,9 @@ name|msg
 parameter_list|,
 name|int
 name|timeout
+init|=
+operator|-
+literal|1
 parameter_list|)
 function_decl|;
 end_function_decl
