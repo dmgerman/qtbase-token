@@ -2280,7 +2280,7 @@ argument_list|)
 argument_list|,
 name|length
 argument_list|,
-name|HB_MEMORY_MODE_WRITABLE
+name|HB_MEMORY_MODE_READONLY
 argument_list|,
 name|buffer
 argument_list|,
