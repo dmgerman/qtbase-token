@@ -2947,6 +2947,14 @@ if|if
 condition|(
 operator|!
 name|d
+operator|||
+name|d
+operator|->
+name|mode
+operator|!=
+name|QDBusConnectionPrivate
+operator|::
+name|ClientMode
 condition|)
 return|return
 literal|0
