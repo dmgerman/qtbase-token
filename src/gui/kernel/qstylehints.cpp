@@ -188,7 +188,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QStyleHints     \since 5.0     \brief The QStyleHints class contains platform specific hints and settings.     \inmodule QtGui      An object of this class, obtained from QGuiApplication, provides access to certain global     user interface parameters of the current platform.      Access is read only; typically the platform itself provides the user a way to tune these     parameters.      Access to these parameters are useful when implementing custom user interface components, in that     they allow the components to exhibit the same behaviour and feel as other components.      \sa QGuiApplication::styleHints(), QPlatformTheme  */
+comment|/*!     \class QStyleHints     \since 5.0     \brief The QStyleHints class contains platform specific hints and settings.     \inmodule QtGui      An object of this class, obtained from QGuiApplication, provides access to certain global     user interface parameters of the current platform.      Access is read only; typically the platform itself provides the user a way to tune these     parameters.      Access to these parameters are useful when implementing custom user interface components, in that     they allow the components to exhibit the same behaviour and feel as other components.      \sa QGuiApplication::styleHints()  */
 end_comment
 begin_constructor
 DECL|function|QStyleHints

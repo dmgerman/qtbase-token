@@ -132,7 +132,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a QDBusServer with the given \a parent. The server will listen     for connections in \c {/tmp}. */
+comment|/*!     Constructs a QDBusServer with the given \a parent. The server will listen     for connections in \c {/tmp} (on Unix systems) or on a TCP port bound to     localhost (elsewhere). */
 end_comment
 begin_constructor
 DECL|function|QDBusServer
@@ -150,15 +150,30 @@ argument_list|(
 name|parent
 argument_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
+comment|// Use Unix sockets on Unix systems only
+specifier|static
 specifier|const
-name|QString
+name|char
 name|address
+index|[]
 init|=
-name|QLatin1String
-argument_list|(
 literal|"unix:tmpdir=/tmp"
-argument_list|)
 decl_stmt|;
+else|#
+directive|else
+specifier|static
+specifier|const
+name|char
+name|address
+index|[]
+init|=
+literal|"tcp:"
+decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -215,12 +230,6 @@ argument_list|(
 name|q_dbus_server_listen
 argument_list|(
 name|address
-operator|.
-name|toUtf8
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
 name|error
 argument_list|)

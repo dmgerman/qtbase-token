@@ -1986,6 +1986,16 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|cores
+operator|==
+operator|-
+literal|1
+condition|)
+return|return
+literal|1
+return|;
 return|return
 name|cores
 return|;

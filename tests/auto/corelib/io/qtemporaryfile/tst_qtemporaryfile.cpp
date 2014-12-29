@@ -1331,6 +1331,27 @@ name|currentPath
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QDir
+operator|::
+name|setCurrent
+argument_list|(
+literal|"/data"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QDir
 operator|::
 name|setCurrent
@@ -1338,6 +1359,8 @@ argument_list|(
 literal|"/home"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// QTemporaryFile("tempXXXXXX") is probably a bad idea in any app
 comment|// where the current dir could anything...
 name|QTemporaryFile

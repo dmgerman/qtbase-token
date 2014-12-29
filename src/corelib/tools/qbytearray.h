@@ -702,6 +702,23 @@ name|Data
 expr_stmt|;
 name|public
 label|:
+comment|// undocumented:
+specifier|static
+specifier|const
+name|quint64
+name|MaxSize
+init|=
+operator|(
+literal|1
+operator|<<
+literal|30
+operator|)
+operator|-
+sizeof|sizeof
+argument_list|(
+name|Data
+argument_list|)
+decl_stmt|;
 enum|enum
 name|Base64Option
 block|{

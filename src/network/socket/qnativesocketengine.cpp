@@ -1886,12 +1886,8 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QAbstractSocket: cannot bind to QHostAddress::Any (or an IPv6 address) and join an IPv4 multicast group"
-argument_list|)
-expr_stmt|;
-name|qWarning
-argument_list|(
-literal|"QAbstractSocket: bind to QHostAddress::AnyIPv4 instead if you want to do this"
+literal|"QAbstractSocket: cannot bind to QHostAddress::Any (or an IPv6 address) and join an IPv4 multicast group;"
+literal|" bind to QHostAddress::AnyIPv4 instead if you want to do this"
 argument_list|)
 expr_stmt|;
 return|return
