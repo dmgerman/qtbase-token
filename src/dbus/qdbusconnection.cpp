@@ -1288,8 +1288,6 @@ name|send
 argument_list|(
 name|message
 argument_list|)
-operator|!=
-literal|0
 return|;
 block|}
 end_function
