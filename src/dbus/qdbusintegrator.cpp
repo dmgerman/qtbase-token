@@ -269,6 +269,26 @@ operator|->
 name|objectName
 argument_list|()
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|th
+condition|)
+name|dbg
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|", name="
+operator|<<
+name|th
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
+expr_stmt|;
 name|dbg
 operator|.
 name|nospace
@@ -2086,6 +2106,8 @@ argument_list|>
 argument_list|(
 name|newConnection
 argument_list|)
+argument_list|,
+literal|16
 argument_list|)
 argument_list|,
 name|newConnection
