@@ -20554,7 +20554,21 @@ condition|)
 block|{
 name|cout
 operator|<<
-literal|"Could not find output file: "
+literal|"Could not find output file '"
+operator|<<
+name|qPrintable
+argument_list|(
+name|arch_exe
+argument_list|)
+operator|<<
+literal|"' or 'arch' in "
+operator|<<
+name|qPrintable
+argument_list|(
+name|newpwd
+argument_list|)
+operator|<<
+literal|" : "
 operator|<<
 name|qPrintable
 argument_list|(
