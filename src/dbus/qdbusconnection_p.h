@@ -1455,17 +1455,6 @@ label|:
 end_label
 begin_decl_stmt
 name|void
-name|customEvent
-argument_list|(
-name|QEvent
-operator|*
-name|e
-argument_list|)
-name|Q_DECL_OVERRIDE
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|void
 name|timerEvent
 argument_list|(
 name|QTimerEvent
