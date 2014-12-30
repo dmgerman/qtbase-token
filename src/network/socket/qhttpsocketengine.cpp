@@ -491,7 +491,8 @@ operator|->
 name|socketDescriptor
 argument_list|()
 else|:
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function

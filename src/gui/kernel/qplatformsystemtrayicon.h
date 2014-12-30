@@ -160,7 +160,7 @@ argument|const QIcon&icon
 argument_list|,
 argument|MessageIcon iconType
 argument_list|,
-argument|int secs
+argument|int msecs
 argument_list|)
 operator|=
 literal|0

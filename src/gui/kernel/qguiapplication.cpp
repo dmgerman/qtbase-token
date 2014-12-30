@@ -9546,6 +9546,16 @@ modifier|*
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|e
+operator|->
+name|window
+operator|.
+name|isNull
+argument_list|()
+condition|)
+return|return;
 name|QNativeGestureEvent
 name|ev
 argument_list|(

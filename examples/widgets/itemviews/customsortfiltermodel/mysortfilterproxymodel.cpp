@@ -284,14 +284,11 @@ return|;
 block|}
 else|else
 block|{
+specifier|static
 name|QRegExp
-modifier|*
 name|emailPattern
-init|=
-operator|new
-name|QRegExp
 argument_list|(
-literal|"([\\w\\.]*@[\\w\\.]*)"
+literal|"[\\w\\.]*@[\\w\\.]*)"
 argument_list|)
 decl_stmt|;
 name|QString
@@ -312,7 +309,7 @@ operator|==
 literal|1
 operator|&&
 name|emailPattern
-operator|->
+operator|.
 name|indexIn
 argument_list|(
 name|leftString
@@ -324,7 +321,7 @@ condition|)
 name|leftString
 operator|=
 name|emailPattern
-operator|->
+operator|.
 name|cap
 argument_list|(
 literal|1
@@ -348,7 +345,7 @@ operator|==
 literal|1
 operator|&&
 name|emailPattern
-operator|->
+operator|.
 name|indexIn
 argument_list|(
 name|rightString
@@ -360,7 +357,7 @@ condition|)
 name|rightString
 operator|=
 name|emailPattern
-operator|->
+operator|.
 name|cap
 argument_list|(
 literal|1

@@ -38,6 +38,8 @@ decl_stmt|;
 name|GPollFD
 modifier|*
 name|pollfd
+init|=
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -54,6 +56,11 @@ name|context
 operator|=
 name|g_main_context_default
 argument_list|()
+expr_stmt|;
+operator|(
+name|void
+operator|)
+name|context
 expr_stmt|;
 name|source
 operator|=

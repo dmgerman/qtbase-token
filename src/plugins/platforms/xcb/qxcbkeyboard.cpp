@@ -5230,6 +5230,10 @@ name|keycode
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|baseQtKey
+condition|)
 name|result
 operator|+=
 operator|(
@@ -5238,7 +5242,6 @@ operator|+
 name|modifiers
 operator|)
 expr_stmt|;
-comment|// The base key is _always_ valid, of course
 name|xkb_mod_index_t
 name|shiftMod
 init|=

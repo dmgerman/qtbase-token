@@ -2791,6 +2791,8 @@ comment|// Read it all in one go.
 comment|// If resize fails, don't read anything.
 if|if
 condition|(
+name|quint64
+argument_list|(
 name|readBytes
 operator|+
 name|theSize
@@ -2798,8 +2800,11 @@ operator|-
 name|d
 operator|->
 name|pos
+argument_list|)
 operator|>
-name|INT_MAX
+name|QByteArray
+operator|::
+name|MaxSize
 condition|)
 return|return
 name|QByteArray
