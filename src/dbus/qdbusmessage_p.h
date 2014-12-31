@@ -122,9 +122,11 @@ name|DBusMessage
 modifier|*
 name|reply
 decl_stmt|;
-name|int
+name|QDBusMessage
+operator|::
+name|MessageType
 name|type
-decl_stmt|;
+expr_stmt|;
 name|int
 name|timeout
 decl_stmt|;
