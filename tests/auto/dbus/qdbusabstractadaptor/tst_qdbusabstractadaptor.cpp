@@ -1722,6 +1722,15 @@ endif|#
 directive|endif
 name|proc
 operator|.
+name|setProcessChannelMode
+argument_list|(
+name|QProcess
+operator|::
+name|ForwardedErrorChannel
+argument_list|)
+expr_stmt|;
+name|proc
+operator|.
 name|start
 argument_list|(
 name|QFINDTESTDATA

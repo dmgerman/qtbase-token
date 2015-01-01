@@ -251,19 +251,7 @@ DECL|function|callArgs
 name|QVariantList
 name|callArgs
 argument_list|()
-argument_list|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"callArgs"
-operator|<<
-name|MyObject
-operator|::
-name|callArgs
-operator|.
-name|count
-argument_list|()
-argument_list|;         return
+argument_list|{         return
 name|MyObject
 operator|::
 name|callArgs
