@@ -3681,6 +3681,16 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
+name|QFont
+argument_list|>
+argument_list|(
+literal|"defaultFont"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
 name|QString
 argument_list|>
 argument_list|(
@@ -3728,12 +3738,75 @@ literal|"attributeResult"
 argument_list|)
 expr_stmt|;
 specifier|static
+name|QFont
+name|defaultFont
+decl_stmt|;
+name|defaultFont
+operator|.
+name|setFamily
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|defaultFont
+operator|.
+name|setPointSize
+argument_list|(
+literal|13
+argument_list|)
+expr_stmt|;
+specifier|static
+name|QFont
+name|defaultComplexFont
+init|=
+name|defaultFont
+decl_stmt|;
+name|defaultComplexFont
+operator|.
+name|setFamily
+argument_list|(
+literal|"Arial"
+argument_list|)
+expr_stmt|;
+name|defaultComplexFont
+operator|.
+name|setPointSize
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
+name|defaultComplexFont
+operator|.
+name|setWeight
+argument_list|(
+name|QFont
+operator|::
+name|Bold
+argument_list|)
+expr_stmt|;
+name|defaultComplexFont
+operator|.
+name|setStyle
+argument_list|(
+name|QFont
+operator|::
+name|StyleItalic
+argument_list|)
+expr_stmt|;
+name|defaultComplexFont
+operator|.
+name|setUnderline
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+specifier|static
 name|QStringList
 name|defaults
 init|=
 name|QString
 argument_list|(
-literal|"font-style:normal;font-weight:normal;text-align:left;text-position:baseline;text-underline-style:none"
+literal|"font-style:normal;font-weight:normal;text-align:left;text-position:baseline;text-underline-style:none;font-size:13pt"
 argument_list|)
 operator|.
 name|split
@@ -3830,14 +3903,16 @@ init|=
 name|defaults
 decl_stmt|;
 name|font8pt
-operator|.
-name|append
-argument_list|(
+index|[
+literal|5
+index|]
+operator|=
+operator|(
 name|QLatin1String
 argument_list|(
 literal|"font-size:8pt"
 argument_list|)
-argument_list|)
+operator|)
 expr_stmt|;
 specifier|static
 name|QStringList
@@ -3873,12 +3948,159 @@ argument_list|(
 literal|"text-align:right"
 argument_list|)
 expr_stmt|;
+specifier|static
+name|QStringList
+name|defaultFontDifferent
+init|=
+name|defaults
+decl_stmt|;
+name|defaultFontDifferent
+index|[
+literal|0
+index|]
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"font-style:italic"
+argument_list|)
+expr_stmt|;
+name|defaultFontDifferent
+index|[
+literal|1
+index|]
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"font-weight:bold"
+argument_list|)
+expr_stmt|;
+name|defaultFontDifferent
+index|[
+literal|4
+index|]
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"text-underline-style:solid"
+argument_list|)
+expr_stmt|;
+name|defaultFontDifferent
+index|[
+literal|5
+index|]
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"font-size:20pt"
+argument_list|)
+expr_stmt|;
+name|defaultFontDifferent
+operator|.
+name|append
+argument_list|(
+literal|"font-family:\"Arial\""
+argument_list|)
+expr_stmt|;
+specifier|static
+name|QStringList
+name|defaultFontDifferentBoldItalic
+init|=
+name|defaultFontDifferent
+decl_stmt|;
+name|defaultFontDifferentBoldItalic
+index|[
+literal|0
+index|]
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"font-style:italic"
+argument_list|)
+expr_stmt|;
+name|defaultFontDifferentBoldItalic
+index|[
+literal|1
+index|]
+operator|=
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"font-weight:bold"
+argument_list|)
+expr_stmt|;
+specifier|static
+name|QStringList
+name|defaultFontDifferentMonospace
+init|=
+name|defaultFontDifferent
+decl_stmt|;
+name|defaultFontDifferentMonospace
+index|[
+literal|6
+index|]
+operator|=
+operator|(
+name|QLatin1String
+argument_list|(
+literal|"font-family:\"monospace\""
+argument_list|)
+operator|)
+expr_stmt|;
+specifier|static
+name|QStringList
+name|defaultFontDifferentFont8pt
+init|=
+name|defaultFontDifferent
+decl_stmt|;
+name|defaultFontDifferentFont8pt
+index|[
+literal|5
+index|]
+operator|=
+operator|(
+name|QLatin1String
+argument_list|(
+literal|"font-size:8pt"
+argument_list|)
+operator|)
+expr_stmt|;
+specifier|static
+name|QStringList
+name|defaultFontDifferentColor
+init|=
+name|defaultFontDifferent
+decl_stmt|;
+name|defaultFontDifferentColor
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|"color:rgb(240,241,242)"
+argument_list|)
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|"background-color:rgb(20,240,30)"
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
 literal|"defaults 1"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 literal|"hello"
 operator|<<
@@ -3897,6 +4119,8 @@ argument_list|(
 literal|"defaults 2"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 literal|"hello"
 operator|<<
 literal|1
@@ -3913,6 +4137,8 @@ name|newRow
 argument_list|(
 literal|"defaults 3"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 literal|"hello"
 operator|<<
@@ -3931,6 +4157,8 @@ argument_list|(
 literal|"defaults 4"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 literal|"hello"
 operator|<<
 literal|5
@@ -3947,6 +4175,8 @@ name|newRow
 argument_list|(
 literal|"offset -1 length"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 literal|"hello"
 operator|<<
@@ -3966,6 +4196,8 @@ argument_list|(
 literal|"offset -2 cursor pos"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 literal|"hello"
 operator|<<
 operator|-
@@ -3983,6 +4215,8 @@ name|newRow
 argument_list|(
 literal|"offset -3"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 literal|"hello"
 operator|<<
@@ -4005,6 +4239,8 @@ argument_list|(
 literal|"invalid offset 2"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 literal|"hello"
 operator|<<
 literal|6
@@ -4024,6 +4260,8 @@ name|newRow
 argument_list|(
 literal|"invalid offset 3"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 literal|""
 operator|<<
@@ -4053,6 +4291,8 @@ argument_list|(
 literal|"bold 0"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|boldText
 operator|<<
 literal|0
@@ -4069,6 +4309,8 @@ name|newRow
 argument_list|(
 literal|"bold 2"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|boldText
 operator|<<
@@ -4087,6 +4329,8 @@ argument_list|(
 literal|"bold 3"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|boldText
 operator|<<
 literal|3
@@ -4104,6 +4348,8 @@ argument_list|(
 literal|"bold 4"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|boldText
 operator|<<
 literal|4
@@ -4120,6 +4366,8 @@ name|newRow
 argument_list|(
 literal|"bold 6"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|boldText
 operator|<<
@@ -4150,6 +4398,8 @@ argument_list|(
 literal|"default 5"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|longText
 operator|<<
 literal|6
@@ -4166,6 +4416,8 @@ name|newRow
 argument_list|(
 literal|"default 6"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|longText
 operator|<<
@@ -4184,6 +4436,8 @@ argument_list|(
 literal|"bold 7"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|longText
 operator|<<
 literal|10
@@ -4200,6 +4454,8 @@ name|newRow
 argument_list|(
 literal|"bold 8"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|longText
 operator|<<
@@ -4218,6 +4474,8 @@ argument_list|(
 literal|"bold italic"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|longText
 operator|<<
 literal|18
@@ -4234,6 +4492,8 @@ name|newRow
 argument_list|(
 literal|"monospace"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|longText
 operator|<<
@@ -4252,6 +4512,8 @@ argument_list|(
 literal|"8pt"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|longText
 operator|<<
 literal|65
@@ -4269,6 +4531,8 @@ argument_list|(
 literal|"color"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|longText
 operator|<<
 literal|110
@@ -4278,6 +4542,159 @@ operator|<<
 literal|111
 operator|<<
 name|color
+expr_stmt|;
+comment|// make sure unset font properties default to those of document's default font
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont default 5"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|6
+operator|<<
+literal|0
+operator|<<
+literal|7
+operator|<<
+name|defaultFontDifferent
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont default 6"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|7
+operator|<<
+literal|7
+operator|<<
+literal|11
+operator|<<
+name|defaultFontDifferent
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont bold 7"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|10
+operator|<<
+literal|7
+operator|<<
+literal|11
+operator|<<
+name|defaultFontDifferent
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont bold 8"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|10
+operator|<<
+literal|7
+operator|<<
+literal|11
+operator|<<
+name|defaultFontDifferent
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont bold italic"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|18
+operator|<<
+literal|18
+operator|<<
+literal|25
+operator|<<
+name|defaultFontDifferentBoldItalic
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont monospace"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|34
+operator|<<
+literal|31
+operator|<<
+literal|55
+operator|<<
+name|defaultFontDifferentMonospace
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont 8pt"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|65
+operator|<<
+literal|64
+operator|<<
+literal|74
+operator|<<
+name|defaultFontDifferentFont8pt
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"defaultFont color"
+argument_list|)
+operator|<<
+name|defaultComplexFont
+operator|<<
+name|longText
+operator|<<
+literal|110
+operator|<<
+literal|109
+operator|<<
+literal|111
+operator|<<
+name|defaultFontDifferentColor
 expr_stmt|;
 name|QString
 name|rightAligned
@@ -4293,6 +4710,8 @@ name|newRow
 argument_list|(
 literal|"right aligned 1"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|rightAligned
 operator|<<
@@ -4311,6 +4730,8 @@ argument_list|(
 literal|"right aligned 2"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|rightAligned
 operator|<<
 literal|1
@@ -4327,6 +4748,8 @@ name|newRow
 argument_list|(
 literal|"right aligned 3"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|rightAligned
 operator|<<
@@ -4354,6 +4777,8 @@ argument_list|(
 literal|"left right left aligned 1"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|leftRightLeftAligned
 operator|<<
 literal|1
@@ -4370,6 +4795,8 @@ name|newRow
 argument_list|(
 literal|"left right left aligned 3"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|leftRightLeftAligned
 operator|<<
@@ -4388,6 +4815,8 @@ argument_list|(
 literal|"left right left aligned 4"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|leftRightLeftAligned
 operator|<<
 literal|4
@@ -4404,6 +4833,8 @@ name|newRow
 argument_list|(
 literal|"left right left aligned 5"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|leftRightLeftAligned
 operator|<<
@@ -4422,6 +4853,8 @@ argument_list|(
 literal|"left right left aligned 8"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|leftRightLeftAligned
 operator|<<
 literal|8
@@ -4438,6 +4871,8 @@ name|newRow
 argument_list|(
 literal|"left right left aligned 9"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|leftRightLeftAligned
 operator|<<
@@ -4456,6 +4891,8 @@ argument_list|(
 literal|"left right left aligned 10"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|leftRightLeftAligned
 operator|<<
 literal|10
@@ -4473,6 +4910,8 @@ argument_list|(
 literal|"left right left aligned 11"
 argument_list|)
 operator|<<
+name|defaultFont
+operator|<<
 name|leftRightLeftAligned
 operator|<<
 literal|11
@@ -4489,6 +4928,8 @@ name|newRow
 argument_list|(
 literal|"left right left aligned 15"
 argument_list|)
+operator|<<
+name|defaultFont
 operator|<<
 name|leftRightLeftAligned
 operator|<<
@@ -4511,6 +4952,13 @@ name|textAttributes
 parameter_list|()
 block|{
 block|{
+name|QFETCH
+argument_list|(
+name|QFont
+argument_list|,
+name|defaultFont
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|QString
@@ -4549,6 +4997,16 @@ expr_stmt|;
 name|QTextEdit
 name|textEdit
 decl_stmt|;
+name|textEdit
+operator|.
+name|document
+argument_list|()
+operator|->
+name|setDefaultFont
+argument_list|(
+name|defaultFont
+argument_list|)
+expr_stmt|;
 name|textEdit
 operator|.
 name|setText

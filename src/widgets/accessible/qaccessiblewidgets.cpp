@@ -3846,7 +3846,10 @@ name|family
 init|=
 name|charFormat
 operator|.
-name|fontFamily
+name|font
+argument_list|()
+operator|.
+name|family
 argument_list|()
 decl_stmt|;
 if|if
@@ -3967,7 +3970,10 @@ name|int
 argument_list|(
 name|charFormat
 operator|.
-name|fontPointSize
+name|font
+argument_list|()
+operator|.
+name|pointSize
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4004,7 +4010,10 @@ name|fromLatin1
 argument_list|(
 name|charFormat
 operator|.
-name|fontWeight
+name|font
+argument_list|()
+operator|.
+name|weight
 argument_list|()
 operator|>
 name|QFont
