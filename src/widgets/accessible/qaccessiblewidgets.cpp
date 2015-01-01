@@ -4347,7 +4347,7 @@ index|]
 operator|=
 name|QStringLiteral
 argument_list|(
-literal|"left"
+literal|"justify"
 argument_list|)
 expr_stmt|;
 break|break;
