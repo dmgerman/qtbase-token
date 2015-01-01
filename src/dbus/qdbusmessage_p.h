@@ -122,14 +122,6 @@ name|DBusMessage
 modifier|*
 name|reply
 decl_stmt|;
-name|QDBusMessage
-operator|::
-name|MessageType
-name|type
-expr_stmt|;
-name|int
-name|timeout
-decl_stmt|;
 name|mutable
 name|QDBusMessage
 modifier|*
@@ -138,6 +130,11 @@ decl_stmt|;
 name|QAtomicInt
 name|ref
 decl_stmt|;
+name|QDBusMessage
+operator|::
+name|MessageType
+name|type
+expr_stmt|;
 name|mutable
 name|uint
 name|delayedReply
