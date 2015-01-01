@@ -320,6 +320,16 @@ name|obj
 operator|.
 name|m_complexProp
 argument_list|;     }
+DECL|function|quit
+name|void
+name|quit
+argument_list|()
+argument_list|{
+name|qApp
+operator|->
+name|quit
+argument_list|()
+argument_list|;     }
 decl|private
 name|slots
 range|:

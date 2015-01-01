@@ -476,6 +476,16 @@ operator|.
 name|clear
 argument_list|()
 argument_list|;     }
+DECL|function|quit
+name|void
+name|quit
+argument_list|()
+argument_list|{
+name|qApp
+operator|->
+name|quit
+argument_list|()
+argument_list|;     }
 name|signals
 range|:
 name|Q_SCRIPTABLE
