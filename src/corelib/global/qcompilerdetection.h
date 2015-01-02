@@ -2340,6 +2340,12 @@ operator|>=
 literal|1500
 end_if
 begin_define
+DECL|macro|Q_COMPILER_CONSTEXPR
+define|#
+directive|define
+name|Q_COMPILER_CONSTEXPR
+end_define
+begin_define
 DECL|macro|Q_COMPILER_ALIGNAS
 define|#
 directive|define
