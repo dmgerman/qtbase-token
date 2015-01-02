@@ -190,6 +190,10 @@ block|,
 name|ImageFormat
 block|,
 name|SupportedSubTypes
+block|,
+name|OptimizedWrite
+block|,
+name|ProgressiveScanWrite
 block|}
 enum|;
 name|virtual
