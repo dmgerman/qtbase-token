@@ -7525,7 +7525,7 @@ begin_comment
 comment|// QT_NO_TEXTDATE
 end_comment
 begin_comment
-comment|/*!   \internal    returns   0 if str == QDateTimeEdit::tr("AM")   1 if str == QDateTimeEdit::tr("PM")   2 if str can become QDateTimeEdit::tr("AM")   3 if str can become QDateTimeEdit::tr("PM")   4 if str can become QDateTimeEdit::tr("PM") and can become QDateTimeEdit::tr("AM")   -1 can't become anything sensible  */
+comment|/*!   \internal    returns   0 if str == tr("AM")   1 if str == tr("PM")   2 if str can become tr("AM")   3 if str can become tr("PM")   4 if str can become tr("PM") and can become tr("AM")   -1 can't become anything sensible  */
 end_comment
 begin_function
 DECL|function|findAmPm
@@ -9718,12 +9718,12 @@ name|cs
 operator|==
 name|UpperCase
 condition|?
-name|QLatin1String
+name|tr
 argument_list|(
 literal|"AM"
 argument_list|)
 else|:
-name|QLatin1String
+name|tr
 argument_list|(
 literal|"am"
 argument_list|)
@@ -9738,12 +9738,12 @@ name|cs
 operator|==
 name|UpperCase
 condition|?
-name|QLatin1String
+name|tr
 argument_list|(
 literal|"PM"
 argument_list|)
 else|:
-name|QLatin1String
+name|tr
 argument_list|(
 literal|"pm"
 argument_list|)

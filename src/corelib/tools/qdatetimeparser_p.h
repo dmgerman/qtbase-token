@@ -87,6 +87,11 @@ include|#
 directive|include
 file|"QtCore/qvector.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"QtCore/qcoreapplication.h"
+end_include
 begin_define
 DECL|macro|QDATETIMEEDIT_TIME_MIN
 define|#
@@ -159,6 +164,10 @@ name|class
 name|Q_CORE_EXPORT
 name|QDateTimeParser
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QDateTimeParser
+argument_list|)
 name|public
 label|:
 enum|enum
