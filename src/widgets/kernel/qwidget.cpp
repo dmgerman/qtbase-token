@@ -27519,7 +27519,7 @@ return|return
 name|array
 return|;
 block|}
-comment|/*!     \since 4.2      Restores the geometry and state top-level widgets stored in the     byte array \a geometry. Returns \c true on success; otherwise     returns \c false.      If the restored geometry is off-screen, it will be modified to be     inside the available screen geometry.      To restore geometry saved using QSettings, you can use code like     this:      \snippet code/src_gui_kernel_qwidget.cpp 12      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      Use QMainWindow::restoreState() to restore the geometry and the     state of toolbars and dock widgets.      \sa saveGeometry(), QSettings, QMainWindow::saveState(), QMainWindow::restoreState() */
+comment|/*!     \since 4.2      Restores the geometry and state of top-level widgets stored in the     byte array \a geometry. Returns \c true on success; otherwise     returns \c false.      If the restored geometry is off-screen, it will be modified to be     inside the available screen geometry.      To restore geometry saved using QSettings, you can use code like     this:      \snippet code/src_gui_kernel_qwidget.cpp 12      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      Use QMainWindow::restoreState() to restore the geometry and the     state of toolbars and dock widgets.      \sa saveGeometry(), QSettings, QMainWindow::saveState(), QMainWindow::restoreState() */
 DECL|function|restoreGeometry
 name|bool
 name|QWidget

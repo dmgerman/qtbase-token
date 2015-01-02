@@ -10425,7 +10425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7      Resets the QByteArray to use the first \a size bytes of the     \a data array. The bytes are \e not copied. The QByteArray will     contain the \a data pointer. The caller guarantees that \a data     will not be deleted or modified as long as this QByteArray and any     copies of it exist that have not been modified.      This function can be used instead of fromRawData() to re-use     existings QByteArray objects to save memory re-allocations.      \sa fromRawData(), data(), constData() */
+comment|/*!     \since 4.7      Resets the QByteArray to use the first \a size bytes of the     \a data array. The bytes are \e not copied. The QByteArray will     contain the \a data pointer. The caller guarantees that \a data     will not be deleted or modified as long as this QByteArray and any     copies of it exist that have not been modified.      This function can be used instead of fromRawData() to re-use     existing QByteArray objects to save memory re-allocations.      \sa fromRawData(), data(), constData() */
 end_comment
 begin_function
 DECL|function|setRawData

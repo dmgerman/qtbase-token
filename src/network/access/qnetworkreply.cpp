@@ -581,7 +581,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the attribute associated with the code \a code. If the     attribute has not been set, it returns an invalid QVariant (type QMetaType::Unknown).      You can expect the default values listed in     QNetworkRequest::Attribute to be applied to the values returned by     this function.      \sa setAttribute(), QNetworkRequest::Attribute */
+comment|/*!     Returns the attribute associated with the code \a code. If the     attribute has not been set, it returns an invalid QVariant (type QMetaType::UnknownType).      You can expect the default values listed in     QNetworkRequest::Attribute to be applied to the values returned by     this function.      \sa setAttribute(), QNetworkRequest::Attribute */
 end_comment
 begin_function
 DECL|function|attribute
