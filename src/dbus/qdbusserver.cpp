@@ -296,6 +296,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|d
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
 block|}
 end_destructor
 begin_comment

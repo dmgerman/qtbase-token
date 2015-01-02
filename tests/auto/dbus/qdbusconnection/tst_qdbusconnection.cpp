@@ -1362,6 +1362,13 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QDBusConnection
+operator|::
+name|disconnectFromPeer
+argument_list|(
+literal|"newconn"
+argument_list|)
+expr_stmt|;
 block|}
 name|QDBusServer
 name|server
@@ -1397,6 +1404,13 @@ argument_list|()
 operator|.
 name|isValid
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|QDBusConnection
+operator|::
+name|disconnectFromPeer
+argument_list|(
+literal|"newconn2"
 argument_list|)
 expr_stmt|;
 block|}
