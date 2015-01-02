@@ -227,16 +227,31 @@ argument_list|(
 name|QStyleHints
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|m_mouseDoubleClickInterval
+operator|==
+name|mouseDoubleClickInterval
+condition|)
+return|return;
 name|d
 operator|->
 name|m_mouseDoubleClickInterval
 operator|=
 name|mouseDoubleClickInterval
 expr_stmt|;
+emit|emit
+name|mouseDoubleClickIntervalChanged
+argument_list|(
+name|mouseDoubleClickInterval
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time limit in milliseconds that distinguishes a double click     from two consecutive mouse clicks. */
+comment|/*!     \property QStyleHints::mouseDoubleClickInterval     \brief the time limit in milliseconds that distinguishes a double click     from two consecutive mouse clicks. */
 end_comment
 begin_function
 DECL|function|mouseDoubleClickInterval
@@ -281,7 +296,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time limit in milliseconds that activates     a press and hold.      \since 5.3 */
+comment|/*!     \property QStyleHints::mousePressAndHoldInterval     \brief the time limit in milliseconds that activates     a press and hold.      \since 5.3 */
 end_comment
 begin_function
 DECL|function|mousePressAndHoldInterval
@@ -328,16 +343,31 @@ argument_list|(
 name|QStyleHints
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|m_startDragDistance
+operator|==
+name|startDragDistance
+condition|)
+return|return;
 name|d
 operator|->
 name|m_startDragDistance
 operator|=
 name|startDragDistance
 expr_stmt|;
+emit|emit
+name|startDragDistanceChanged
+argument_list|(
+name|startDragDistance
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the distance, in pixels, that the mouse must be moved with a button     held down before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qapplication.cpp 6      \sa startDragTime(), QPoint::manhattanLength(), {Drag and Drop} */
+comment|/*!     \property QStyleHints::startDragDistance     \brief the distance, in pixels, that the mouse must be moved with a button     held down before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has moved the cursor a certain distance     with a button held down, you should use this property's value as the     minimum distance required.      For example, if the mouse position of the click is stored in \c startPos     and the current position (e.g. in the mouse move event) is \c currentPos,     you can find out if a drag should be started with code like this:      \snippet code/src_gui_kernel_qapplication.cpp 6      \sa startDragTime, QPoint::manhattanLength(), {Drag and Drop} */
 end_comment
 begin_function
 DECL|function|startDragDistance
@@ -400,16 +430,31 @@ argument_list|(
 name|QStyleHints
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|m_startDragTime
+operator|==
+name|startDragTime
+condition|)
+return|return;
 name|d
 operator|->
 name|m_startDragTime
 operator|=
 name|startDragTime
 expr_stmt|;
+emit|emit
+name|startDragTimeChanged
+argument_list|(
+name|startDragTime
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time, in milliseconds, that a mouse button must be held down     before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has held down a mouse button for a     certain amount of time, you should use this property's value as the delay.      \sa startDragDistance(), {Drag and Drop} */
+comment|/*!     \property QStyleHints::startDragTime     \brief the time, in milliseconds, that a mouse button must be held down     before a drag and drop operation will begin.      If you support drag and drop in your application, and want to start a drag     and drop operation after the user has held down a mouse button for a     certain amount of time, you should use this property's value as the delay.      \sa startDragDistance, {Drag and Drop} */
 end_comment
 begin_function
 DECL|function|startDragTime
@@ -454,7 +499,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the limit for the velocity, in pixels per second, that the mouse may     be moved, with a button held down, for a drag and drop operation to begin.     A value of 0 means there is no such limit.      \sa startDragDistance(), {Drag and Drop} */
+comment|/*!     \property QStyleHints::startDragVelocity     \brief the limit for the velocity, in pixels per second, that the mouse may     be moved, with a button held down, for a drag and drop operation to begin.     A value of 0 means there is no such limit.      \sa startDragDistance, {Drag and Drop} */
 end_comment
 begin_function
 DECL|function|startDragVelocity
@@ -501,16 +546,31 @@ argument_list|(
 name|QStyleHints
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|m_keyboardInputInterval
+operator|==
+name|keyboardInputInterval
+condition|)
+return|return;
 name|d
 operator|->
 name|m_keyboardInputInterval
 operator|=
 name|keyboardInputInterval
 expr_stmt|;
+emit|emit
+name|keyboardInputIntervalChanged
+argument_list|(
+name|keyboardInputInterval
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time limit, in milliseconds, that distinguishes a key press     from two consecutive key presses. */
+comment|/*!     \property QStyleHints::keyboardInputInterval     \brief the time limit, in milliseconds, that distinguishes a key press     from two consecutive key presses. */
 end_comment
 begin_function
 DECL|function|keyboardInputInterval
@@ -555,7 +615,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the rate, in events per second,  in which additional repeated key     presses will automatically be generated if a key is being held down. */
+comment|/*!     \property QStyleHints::keyboardAutoRepeatRate     \brief the rate, in events per second,  in which additional repeated key     presses will automatically be generated if a key is being held down. */
 end_comment
 begin_function
 DECL|function|keyboardAutoRepeatRate
@@ -602,16 +662,31 @@ argument_list|(
 name|QStyleHints
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|m_cursorFlashTime
+operator|==
+name|cursorFlashTime
+condition|)
+return|return;
 name|d
 operator|->
 name|m_cursorFlashTime
 operator|=
 name|cursorFlashTime
 expr_stmt|;
+emit|emit
+name|cursorFlashTimeChanged
+argument_list|(
+name|cursorFlashTime
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text cursor's flash (blink) time in milliseconds.      The flash time is the time used to display, invert and restore the     caret display. Usually the text cursor is displayed for half the cursor     flash time, then hidden for the same amount of time. */
+comment|/*!     \property QStyleHints::cursorFlashTime     \brief the text cursor's flash (blink) time in milliseconds.      The flash time is the time used to display, invert and restore the     caret display. Usually the text cursor is displayed for half the cursor     flash time, then hidden for the same amount of time. */
 end_comment
 begin_function
 DECL|function|cursorFlashTime
@@ -656,7 +731,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the platform defaults to windows being fullscreen,     otherwise \c false.      \note The platform may still choose to show certain windows non-fullscreen,     such as popups or dialogs. This method only returns the default behavior.      \sa QWindow::show() */
+comment|/*!     \property QStyleHints::showIsFullScreen     \brief \c true if the platform defaults to windows being fullscreen,     otherwise \c false.      \note The platform may still choose to show certain windows non-fullscreen,     such as popups or dialogs. This property only reports the default behavior.      \sa QWindow::show() */
 end_comment
 begin_function
 DECL|function|showIsFullScreen
@@ -681,7 +756,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the time, in milliseconds, a typed letter is displayed unshrouded     in a text input field in password mode. */
+comment|/*!     \property QStyleHints::passwordMaskDelay     \brief the time, in milliseconds, a typed letter is displayed unshrouded     in a text input field in password mode. */
 end_comment
 begin_function
 DECL|function|passwordMaskDelay
@@ -710,7 +785,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the character used to mask the characters typed into text input     fields in password mode. */
+comment|/*!     \property QStyleHints::passwordMaskCharacter     \brief the character used to mask the characters typed into text input     fields in password mode. */
 end_comment
 begin_function
 DECL|function|passwordMaskCharacter
@@ -739,7 +814,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the gamma value used in font smoothing. */
+comment|/*!     \property QStyleHints::fontSmoothingGamma     \brief the gamma value used in font smoothing. */
 end_comment
 begin_function
 DECL|function|fontSmoothingGamma
@@ -764,7 +839,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if right-to-left writing direction is enabled,     otherwise \c false. */
+comment|/*!     \property QStyleHints::useRtlExtensions     \brief \c true if right-to-left writing direction is enabled,     otherwise \c false. */
 end_comment
 begin_function
 DECL|function|useRtlExtensions
@@ -789,7 +864,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if focus objects (line edits etc) should receive     input focus after a touch/mouse release. This is normal behavior on     touch platforms. On desktop platforms, the standard is to set     focus already on touch/mouse press. */
+comment|/*!     \property QStyleHints::setFocusOnTouchRelease     \brief \c true if focus objects (line edits etc) should receive     input focus after a touch/mouse release. This is normal behavior on     touch platforms. On desktop platforms, the standard is to set     focus already on touch/mouse press. */
 end_comment
 begin_function
 DECL|function|setFocusOnTouchRelease

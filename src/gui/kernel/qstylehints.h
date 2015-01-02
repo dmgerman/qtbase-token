@@ -44,6 +44,62 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QStyleHints
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int cursorFlashTime READ cursorFlashTime NOTIFY cursorFlashTimeChanged FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal fontSmoothingGamma READ fontSmoothingGamma STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int keyboardAutoRepeatRate READ keyboardAutoRepeatRate STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int keyboardInputInterval READ keyboardInputInterval NOTIFY keyboardInputIntervalChanged FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int mouseDoubleClickInterval READ mouseDoubleClickInterval NOTIFY mouseDoubleClickIntervalChanged FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int mousePressAndHoldInterval READ mousePressAndHoldInterval STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QChar passwordMaskCharacter READ passwordMaskCharacter STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int passwordMaskDelay READ passwordMaskDelay STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool setFocusOnTouchRelease READ setFocusOnTouchRelease STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool showIsFullScreen READ showIsFullScreen STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int startDragDistance READ startDragDistance NOTIFY startDragDistanceChanged FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int startDragTime READ startDragTime NOTIFY startDragTimeChanged FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int startDragVelocity READ startDragVelocity STORED false FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool useRtlExtensions READ useRtlExtensions STORED false FINAL
+argument_list|)
 name|public
 operator|:
 name|void
@@ -145,6 +201,38 @@ name|bool
 name|setFocusOnTouchRelease
 argument_list|()
 specifier|const
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|cursorFlashTimeChanged
+argument_list|(
+argument|int cursorFlashTime
+argument_list|)
+block|;
+name|void
+name|keyboardInputIntervalChanged
+argument_list|(
+argument|int keyboardInputInterval
+argument_list|)
+block|;
+name|void
+name|mouseDoubleClickIntervalChanged
+argument_list|(
+argument|int mouseDoubleClickInterval
+argument_list|)
+block|;
+name|void
+name|startDragDistanceChanged
+argument_list|(
+argument|int startDragDistance
+argument_list|)
+block|;
+name|void
+name|startDragTimeChanged
+argument_list|(
+argument|int startDragTime
+argument_list|)
 block|;
 name|private
 operator|:
