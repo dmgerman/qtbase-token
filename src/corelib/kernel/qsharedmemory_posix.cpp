@@ -705,6 +705,23 @@ return|return
 literal|false
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|F_ADD_SEALS
+comment|// Make sure the shared memory region will not shrink
+comment|// otherwise someone could cause SIGBUS on us.
+comment|// (see http://lwn.net/Articles/594919/)
+name|fcntl
+argument_list|(
+name|hand
+argument_list|,
+name|F_ADD_SEALS
+argument_list|,
+name|F_SEAL_SHRINK
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|true
 return|;
