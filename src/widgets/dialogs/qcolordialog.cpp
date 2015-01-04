@@ -9120,13 +9120,6 @@ argument_list|(
 name|leftLay
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|smallDisplay
-condition|)
-block|{
 name|standard
 operator|=
 operator|new
