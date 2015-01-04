@@ -510,6 +510,16 @@ operator|*
 name|createStandardContextMenu
 argument_list|()
 block|;
+name|QMenu
+operator|*
+name|createStandardContextMenu
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|position
+argument_list|)
+block|;
 endif|#
 directive|endif
 name|QTextCursor

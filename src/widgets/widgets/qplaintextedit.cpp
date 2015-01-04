@@ -10946,7 +10946,7 @@ directive|ifndef
 name|QT_NO_CONTEXTMENU
 end_ifndef
 begin_comment
-comment|/*!  This function creates the standard context menu which is shown   when the user clicks on the line edit with the right mouse   button. It is called from the default contextMenuEvent() handler.   The popup menu's ownership is transferred to the caller. */
+comment|/*!  This function creates the standard context menu which is shown   when the user clicks on the text edit with the right mouse   button. It is called from the default contextMenuEvent() handler.   The popup menu's ownership is transferred to the caller.    We recommend that you use the createStandardContextMenu(QPoint) version instead   which will enable the actions that are sensitive to where the user clicked. */
 end_comment
 begin_function
 DECL|function|createStandardContextMenu
@@ -10971,6 +10971,42 @@ name|createStandardContextMenu
 argument_list|(
 name|QPointF
 argument_list|()
+argument_list|,
+name|this
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   \since 5.5   This function creates the standard context menu which is shown   when the user clicks on the text edit with the right mouse   button. It is called from the default contextMenuEvent() handler   and it takes the \a position in document coordinates where the mouse click was.   This can enable actions that are sensitive to the position where the user clicked.   The popup menu's ownership is transferred to the caller. */
+end_comment
+begin_function
+DECL|function|createStandardContextMenu
+name|QMenu
+modifier|*
+name|QPlainTextEdit
+operator|::
+name|createStandardContextMenu
+parameter_list|(
+specifier|const
+name|QPoint
+modifier|&
+name|position
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QPlainTextEdit
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|control
+operator|->
+name|createStandardContextMenu
+argument_list|(
+name|position
 argument_list|,
 name|this
 argument_list|)
