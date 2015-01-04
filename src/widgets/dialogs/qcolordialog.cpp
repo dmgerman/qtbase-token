@@ -9930,6 +9930,10 @@ argument_list|(
 name|cs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|leftLay
+condition|)
 name|leftLay
 operator|->
 name|addSpacing
