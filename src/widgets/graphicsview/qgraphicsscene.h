@@ -903,6 +903,19 @@ argument_list|,
 argument|const QTransform&deviceTransform = QTransform()
 argument_list|)
 block|;
+name|void
+name|setSelectionArea
+argument_list|(
+argument|const QPainterPath&path
+argument_list|,
+argument|Qt::ItemSelectionOperation selectionOperation
+argument_list|,
+argument|Qt::ItemSelectionMode mode = Qt::IntersectsItemShape
+argument_list|,
+argument|const QTransform&deviceTransform = QTransform()
+argument_list|)
+block|;
+comment|// ### Qt6 merge the last 2 functions and add a default: Qt::ItemSelectionOperation selectionOperation = Qt::ReplaceSelection
 name|QGraphicsItemGroup
 operator|*
 name|createItemGroup

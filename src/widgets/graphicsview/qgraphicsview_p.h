@@ -371,6 +371,11 @@ operator|::
 name|ItemSelectionMode
 name|rubberBandSelectionMode
 block|;
+name|Qt
+operator|::
+name|ItemSelectionOperation
+name|rubberBandSelectionOperation
+block|;
 endif|#
 directive|endif
 name|int

@@ -166,6 +166,10 @@ name|Q_ENUMS
 argument_list|(
 name|ItemSelectionMode
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+name|ItemSelectionOperation
+argument_list|)
 name|Q_FLAGS
 argument_list|(
 name|ItemFlags
@@ -4123,6 +4127,14 @@ block|,
 name|IntersectsItemBoundingRect
 init|=
 literal|0x3
+block|}
+enum|;
+enum|enum
+name|ItemSelectionOperation
+block|{
+name|ReplaceSelection
+block|,
+name|AddToSelection
 block|}
 enum|;
 enum|enum
