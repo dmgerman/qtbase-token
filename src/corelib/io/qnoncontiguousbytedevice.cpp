@@ -38,10 +38,7 @@ begin_comment
 comment|/*!     \fn virtual bool QNonContiguousByteDevice::atEnd()       Returns \c true if everything has been read and the read      pointer cannot be advanced anymore.      \sa readPointer(), advanceReadPointer(), reset()      \internal */
 end_comment
 begin_comment
-comment|/*!     \fn virtual bool QNonContiguousByteDevice::reset()      Moves the internal read pointer back to the beginning.     Returns \c false if this was not possible.      \sa atEnd(), disableReset()      \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QNonContiguousByteDevice::disableReset()      Disable the reset() call, e.g. it will always     do nothing and return false.      \sa reset()      \internal */
+comment|/*!     \fn virtual bool QNonContiguousByteDevice::reset()      Moves the internal read pointer back to the beginning.     Returns \c false if this was not possible.      \sa atEnd()      \internal */
 end_comment
 begin_comment
 comment|/*!     \fn virtual qint64 QNonContiguousByteDevice::size()      Returns the size of the complete device or -1 if unknown.     May also return less/more than what can be actually read with readPointer()      \internal */
@@ -67,11 +64,6 @@ operator|*
 operator|)
 literal|0
 argument_list|)
-member_init_list|,
-name|resetDisabled
-argument_list|(
-literal|false
-argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -83,20 +75,6 @@ name|QNonContiguousByteDevice
 parameter_list|()
 block|{ }
 end_destructor
-begin_function
-DECL|function|disableReset
-name|void
-name|QNonContiguousByteDevice
-operator|::
-name|disableReset
-parameter_list|()
-block|{
-name|resetDisabled
-operator|=
-literal|true
-expr_stmt|;
-block|}
-end_function
 begin_comment
 comment|// FIXME we should scrap this whole implementation and instead change the ByteArrayImpl to be able to cope with sub-arrays?
 end_comment
@@ -291,13 +269,6 @@ operator|::
 name|reset
 parameter_list|()
 block|{
-if|if
-condition|(
-name|resetDisabled
-condition|)
-return|return
-literal|false
-return|;
 return|return
 name|arrayImpl
 operator|->
@@ -478,13 +449,6 @@ operator|::
 name|reset
 parameter_list|()
 block|{
-if|if
-condition|(
-name|resetDisabled
-condition|)
-return|return
-literal|false
-return|;
 name|currentPosition
 operator|=
 literal|0
@@ -666,13 +630,6 @@ operator|::
 name|reset
 parameter_list|()
 block|{
-if|if
-condition|(
-name|resetDisabled
-condition|)
-return|return
-literal|false
-return|;
 name|currentPosition
 operator|=
 literal|0
@@ -1135,13 +1092,6 @@ operator|::
 name|reset
 parameter_list|()
 block|{
-if|if
-condition|(
-name|resetDisabled
-condition|)
-return|return
-literal|false
-return|;
 name|bool
 name|reset
 init|=
