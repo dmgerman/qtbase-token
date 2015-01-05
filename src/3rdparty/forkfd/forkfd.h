@@ -33,12 +33,12 @@ DECL|macro|FFD_CLOEXEC
 define|#
 directive|define
 name|FFD_CLOEXEC
-value|O_CLOEXEC
+value|1
 DECL|macro|FFD_NONBLOCK
 define|#
 directive|define
 name|FFD_NONBLOCK
-value|O_NONBLOCK
+value|2
 DECL|macro|FFD_CHILD_PROCESS
 define|#
 directive|define

@@ -1591,7 +1591,7 @@ name|create_pipe
 argument_list|(
 name|sync_pipe
 argument_list|,
-name|O_CLOEXEC
+name|FFD_CLOEXEC
 argument_list|)
 operator|==
 operator|-
