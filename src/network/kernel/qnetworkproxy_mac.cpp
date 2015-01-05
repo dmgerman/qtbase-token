@@ -866,8 +866,10 @@ name|enabled
 condition|)
 block|{
 comment|// PAC is enabled
+comment|// kSCPropNetProxiesProxyAutoConfigURLString returns the URL string
+comment|// as entered in the system proxy configuration dialog
 name|CFStringRef
-name|cfPacLocation
+name|pacLocationSetting
 init|=
 operator|(
 name|CFStringRef
@@ -877,6 +879,25 @@ argument_list|(
 name|dict
 argument_list|,
 name|kSCPropNetProxiesProxyAutoConfigURLString
+argument_list|)
+decl_stmt|;
+name|QCFType
+argument_list|<
+name|CFStringRef
+argument_list|>
+name|cfPacLocation
+init|=
+name|CFURLCreateStringByAddingPercentEscapes
+argument_list|(
+name|kCFAllocatorDefault
+argument_list|,
+name|pacLocationSetting
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|,
+name|kCFStringEncodingUTF8
 argument_list|)
 decl_stmt|;
 if|if
