@@ -4203,7 +4203,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.3      Sets the text format's \a font.      If \a behavior is QTextCharFormat::FontPropertiesAll, the font property that     has not been explicitly set is treated like as it were set with default value;     If \a behavior is QTextCharFormat::FontPropertiesAll, the font property that     has not been explicitly set is ignored and the respective property value     remains unchanged.      \sa font() */
+comment|/*!     \since 5.3      Sets the text format's \a font.      If \a behavior is QTextCharFormat::FontPropertiesAll, the font property that     has not been explicitly set is treated like as it were set with default value;     If \a behavior is QTextCharFormat::FontPropertiesSpecifiedOnly, the font property that     has not been explicitly set is ignored and the respective property value     remains unchanged.      \sa font() */
 end_comment
 begin_function
 DECL|function|setFont
