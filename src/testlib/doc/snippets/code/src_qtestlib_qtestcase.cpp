@@ -390,6 +390,60 @@ return|;
 block|}
 block|}
 comment|//! [16]
+comment|//! [toString-overload]
+namespace|namespace
+name|MyNamespace
+block|{
+name|char
+modifier|*
+name|toString
+parameter_list|(
+specifier|const
+name|MyPoint
+modifier|&
+name|point
+parameter_list|)
+block|{
+comment|// bring QTest::toString overloads into scope:
+using|using
+name|QTest
+operator|::
+name|toString
+using|;
+comment|// delegate char* handling to QTest::toString(QByteArray):
+return|return
+name|toString
+argument_list|(
+literal|"MyPoint("
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|point
+operator|.
+name|x
+argument_list|()
+argument_list|)
+operator|+
+literal|", "
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|point
+operator|.
+name|y
+argument_list|()
+argument_list|)
+operator|+
+literal|')'
+argument_list|)
+return|;
+block|}
+block|}
+comment|//! [toString-overload]
 comment|//! [17]
 name|int
 name|i
