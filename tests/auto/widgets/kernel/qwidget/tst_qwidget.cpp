@@ -190,6 +190,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qtimer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"../../../qtest-config.h"
 end_include
 begin_if
@@ -215,7 +220,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QtTest/QtTest>
+file|<QtTest/QTest>
 end_include
 begin_ifdef
 ifdef|#
