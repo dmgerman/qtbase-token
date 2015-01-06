@@ -9885,6 +9885,14 @@ argument_list|(
 name|BlockedByModal
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasMouseCapture
+argument_list|()
+condition|)
+name|ReleaseCapture
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 name|QEvent
