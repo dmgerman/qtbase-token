@@ -61,6 +61,11 @@ include|#
 directive|include
 file|"qsharedpointer.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qwindow.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -167,7 +172,7 @@ argument|new QColorDialogOptions
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_OS_WIN32
 block|,
 name|updateTimer
 argument_list|(
@@ -470,10 +475,13 @@ name|memberToDisconnectOnClose
 block|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_OS_WIN32
 name|QTimer
 operator|*
 name|updateTimer
+block|;
+name|QWindow
+name|dummyTransparentWindow
 block|;
 endif|#
 directive|endif
