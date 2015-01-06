@@ -239,7 +239,7 @@ argument_list|)
 member_init_list|,
 name|m_fragment_toy
 argument_list|(
-literal|"background.frag"
+literal|"./background.frag"
 argument_list|)
 member_init_list|,
 name|m_text_layout
