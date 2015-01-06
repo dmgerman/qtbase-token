@@ -69,6 +69,8 @@ name|GenericConfigLocation
 block|,
 name|AppDataLocation
 block|,
+name|AppConfigLocation
+block|,
 name|AppLocalDataLocation
 init|=
 name|DataLocation

@@ -160,6 +160,9 @@ case|:
 case|case
 name|GenericConfigLocation
 case|:
+case|case
+name|AppConfigLocation
+case|:
 return|return
 name|QDir
 operator|::

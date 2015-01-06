@@ -870,6 +870,11 @@ name|QStandardPaths
 operator|::
 name|ConfigLocation
 case|:
+case|case
+name|QStandardPaths
+operator|::
+name|AppConfigLocation
+case|:
 return|return
 name|getFilesDir
 argument_list|()

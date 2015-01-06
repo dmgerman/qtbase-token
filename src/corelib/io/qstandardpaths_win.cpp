@@ -330,6 +330,9 @@ name|GenericConfigLocation
 case|:
 comment|// same as GenericDataLocation on Windows
 case|case
+name|AppConfigLocation
+case|:
+case|case
 name|AppDataLocation
 case|:
 case|case
@@ -758,6 +761,10 @@ case|case
 name|GenericConfigLocation
 case|:
 comment|// same as GenericDataLocation, on Windows
+case|case
+name|AppConfigLocation
+case|:
+comment|// same as AppLocalDataLocation, that one on purpose
 case|case
 name|AppDataLocation
 case|:

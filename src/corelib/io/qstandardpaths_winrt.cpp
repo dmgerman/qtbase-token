@@ -161,6 +161,9 @@ name|GenericConfigLocation
 case|:
 comment|// same as GenericDataLocation, on Windows
 case|case
+name|AppConfigLocation
+case|:
+case|case
 name|AppDataLocation
 case|:
 case|case
