@@ -443,7 +443,6 @@ operator|,
 name|class
 name|T2
 operator|>
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -470,6 +469,11 @@ operator|>
 operator|&
 name|p2
 operator|)
+DECL|function|noexcept
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(p1.first == p2.first&& p1.second == p2.second)
+argument_list|)
 block|{
 return|return
 name|p1
@@ -500,7 +504,6 @@ operator|,
 name|class
 name|T2
 operator|>
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -527,6 +530,10 @@ operator|>
 operator|&
 name|p2
 operator|)
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(!(p1 == p2))
+argument_list|)
 block|{
 return|return
 operator|!
@@ -548,7 +555,6 @@ operator|,
 name|class
 name|T2
 operator|>
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -575,6 +581,11 @@ operator|>
 operator|&
 name|p2
 operator|)
+DECL|function|noexcept
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(p1.first< p2.first || (!(p2.first< p1.first)&& p1.second< p2.second))
+argument_list|)
 block|{
 return|return
 name|p1
@@ -618,7 +629,6 @@ operator|,
 name|class
 name|T2
 operator|>
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -645,6 +655,11 @@ operator|>
 operator|&
 name|p2
 operator|)
+DECL|function|noexcept
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(p2< p1)
+argument_list|)
 block|{
 return|return
 name|p2
@@ -690,6 +705,10 @@ operator|>
 operator|&
 name|p2
 operator|)
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(!(p2< p1))
+argument_list|)
 block|{
 return|return
 operator|!
@@ -710,7 +729,6 @@ operator|,
 name|class
 name|T2
 operator|>
-DECL|function|operator
 name|Q_DECL_CONSTEXPR
 name|Q_INLINE_TEMPLATE
 name|bool
@@ -737,6 +755,10 @@ operator|>
 operator|&
 name|p2
 operator|)
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(!(p1< p2))
+argument_list|)
 block|{
 return|return
 operator|!
@@ -759,7 +781,6 @@ name|class
 name|T2
 operator|>
 DECL|variable|T1
-DECL|function|qMakePair
 name|Q_DECL_CONSTEXPR
 name|Q_OUTOFLINE_TEMPLATE
 name|QPair
@@ -773,6 +794,11 @@ argument_list|(
 argument|const T1&x
 argument_list|,
 argument|const T2&y
+argument_list|)
+DECL|function|noexcept
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(QPair<T1, T2>(x, y))
 argument_list|)
 block|{
 return|return
