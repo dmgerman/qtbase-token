@@ -883,6 +883,23 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \since 5.4     \brief Returns bool indicating whether QPlatformDrag takes ownership     and therefore responsibility of deleting the QDrag object passed in     from QPlatformDrag::drag. This can be useful on platforms where QDrag     object has to be kept around.  */
+end_comment
+begin_function
+DECL|function|ownsDragObject
+name|bool
+name|QPlatformDrag
+operator|::
+name|ownsDragObject
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
 begin_endif
 endif|#
 directive|endif
