@@ -105,6 +105,16 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|bool
+name|supportsThreadedOpenGL
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|true
+return|;
+block|}
 name|EGLDisplay
 name|eglDisplay
 argument_list|()
