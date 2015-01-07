@@ -84,6 +84,13 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|virtual
+name|bool
+name|supportsThreadedOpenGL
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|QXcbConnection

@@ -910,6 +910,23 @@ return|;
 comment|// trigger fallback to hidden QWindow
 block|}
 end_function
+begin_function
+DECL|function|supportsThreadedOpenGL
+name|bool
+name|QXcbGlxIntegration
+operator|::
+name|supportsThreadedOpenGL
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QGLXContext
+operator|::
+name|supportsThreading
+argument_list|()
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
