@@ -661,11 +661,6 @@ name|shmseg
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|xcb_image_destroy
-argument_list|(
-name|m_xcb_image
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|segmentSize
@@ -708,6 +703,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|xcb_image_destroy
+argument_list|(
+name|m_xcb_image
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|m_gc
