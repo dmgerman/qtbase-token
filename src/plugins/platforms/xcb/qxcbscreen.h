@@ -425,6 +425,9 @@ name|QString
 name|m_outputName
 decl_stmt|;
 name|QSizeF
+name|m_outputSizeMillimeters
+decl_stmt|;
+name|QSizeF
 name|m_sizeMillimeters
 decl_stmt|;
 name|QRect
