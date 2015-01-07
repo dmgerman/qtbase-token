@@ -820,13 +820,6 @@ directive|define
 name|QT_NO_QDEBUG_MACRO
 value|while (false) QMessageLogger().noDebug
 end_define
-begin_define
-DECL|macro|QT_NO_QWARNING_MACRO
-define|#
-directive|define
-name|QT_NO_QWARNING_MACRO
-value|while (false) QMessageLogger().noDebug
-end_define
 begin_if
 if|#
 directive|if
@@ -896,7 +889,7 @@ DECL|macro|qWarning
 define|#
 directive|define
 name|qWarning
-value|QT_NO_QWARNING_MACRO
+value|QT_NO_QDEBUG_MACRO
 end_define
 begin_endif
 endif|#

@@ -628,7 +628,7 @@ name|qCWarning
 parameter_list|(
 name|category
 parameter_list|)
-value|QT_NO_QWARNING_MACRO()
+value|QT_NO_QDEBUG_MACRO()
 end_define
 begin_endif
 endif|#
