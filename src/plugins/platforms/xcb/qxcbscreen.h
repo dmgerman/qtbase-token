@@ -133,6 +133,15 @@ name|m_geometry
 return|;
 block|}
 name|QRect
+name|nativeGeometry
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_nativeGeometry
+return|;
+block|}
+name|QRect
 name|availableGeometry
 argument_list|()
 specifier|const
@@ -432,6 +441,9 @@ name|m_sizeMillimeters
 decl_stmt|;
 name|QRect
 name|m_geometry
+decl_stmt|;
+name|QRect
+name|m_nativeGeometry
 decl_stmt|;
 name|QRect
 name|m_availableGeometry
