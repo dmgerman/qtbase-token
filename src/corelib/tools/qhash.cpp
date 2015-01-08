@@ -1664,6 +1664,7 @@ condition|)
 name|qt_initialize_qhash_seed
 argument_list|()
 expr_stmt|;
+comment|// may throw
 name|d
 operator|=
 operator|new
@@ -1722,6 +1723,13 @@ name|d
 operator|->
 name|seed
 operator|=
+operator|(
+name|this
+operator|==
+operator|&
+name|shared_null
+operator|)
+condition|?
 name|uint
 argument_list|(
 name|qt_qhash_seed
@@ -1729,6 +1737,8 @@ operator|.
 name|load
 argument_list|()
 argument_list|)
+else|:
+name|seed
 expr_stmt|;
 name|d
 operator|->
