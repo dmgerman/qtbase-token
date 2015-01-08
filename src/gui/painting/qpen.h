@@ -128,11 +128,9 @@ argument_list|)
 empty_stmt|;
 name|QPen
 argument_list|(
-specifier|const
-name|QPen
-operator|&
-name|pen
+argument|const QPen&pen
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 operator|~
 name|QPen
@@ -148,18 +146,17 @@ name|QPen
 operator|&
 name|pen
 operator|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
-specifier|inline
 name|QPen
 argument_list|(
-name|QPen
-operator|&&
-name|other
+argument|QPen&&other
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+label|:
 name|d
 argument_list|(
 argument|other.d
@@ -170,17 +167,18 @@ operator|.
 name|d
 operator|=
 literal|0
-block|; }
-specifier|inline
+expr_stmt|;
+block|}
 name|QPen
-operator|&
+modifier|&
 name|operator
-operator|=
+init|=
 operator|(
 name|QPen
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -198,7 +196,6 @@ return|;
 block|}
 endif|#
 directive|endif
-specifier|inline
 name|void
 name|swap
 parameter_list|(
@@ -206,6 +203,7 @@ name|QPen
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(

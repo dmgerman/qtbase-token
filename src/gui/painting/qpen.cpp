@@ -442,7 +442,6 @@ begin_comment
 comment|/*!     \fn QPen::QPen(const QPen&pen)      Constructs a pen that is a copy of the given \a pen. */
 end_comment
 begin_constructor
-DECL|function|QPen
 name|QPen
 operator|::
 name|QPen
@@ -452,6 +451,7 @@ name|QPen
 modifier|&
 name|p
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|d
 operator|=
@@ -576,7 +576,6 @@ begin_comment
 comment|/*!     \fn QPen&QPen::operator=(const QPen&pen)      Assigns the given \a pen to this pen and returns a reference to     this pen. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QPen
 modifier|&
 name|QPen
@@ -589,6 +588,7 @@ name|QPen
 modifier|&
 name|p
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QPen
 argument_list|(
