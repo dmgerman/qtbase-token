@@ -88,7 +88,7 @@ name|format
 argument_list|()
 specifier|const
 expr_stmt|;
-name|void
+name|bool
 name|checkNativeSurface
 parameter_list|(
 name|EGLConfig
@@ -148,6 +148,8 @@ name|private
 label|:
 name|EGLDisplay
 name|m_eglDisplay
+init|=
+name|EGL_NO_DISPLAY
 decl_stmt|;
 name|EGLSurface
 name|m_eglSurface
