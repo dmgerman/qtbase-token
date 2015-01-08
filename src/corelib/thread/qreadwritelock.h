@@ -565,6 +565,7 @@ name|QReadWriteLock
 argument_list|(
 argument|RecursionMode = NonRecursive
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|inline
 operator|~
@@ -576,12 +577,14 @@ specifier|inline
 name|void
 name|lockForRead
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
 name|bool
 name|tryLockForRead
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -594,6 +597,7 @@ name|tryLockForRead
 argument_list|(
 argument|int timeout
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -611,6 +615,7 @@ specifier|inline
 name|void
 name|lockForWrite
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{ }
 end_function
 begin_function
@@ -619,6 +624,7 @@ specifier|inline
 name|bool
 name|tryLockForWrite
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
@@ -634,6 +640,7 @@ parameter_list|(
 name|int
 name|timeout
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -651,6 +658,7 @@ specifier|inline
 name|void
 name|unlock
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{ }
 end_function
 begin_label
@@ -676,23 +684,27 @@ name|QReadLocker
 argument_list|(
 argument|QReadWriteLock *
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|inline
 operator|~
 name|QReadLocker
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
 name|void
 name|unlock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
 name|void
 name|relock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
@@ -700,9 +712,10 @@ name|QReadWriteLock
 operator|*
 name|readWriteLock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|private
@@ -730,23 +743,27 @@ parameter_list|(
 name|QReadWriteLock
 modifier|*
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{ }
 specifier|inline
 operator|~
 name|QWriteLocker
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
 name|void
 name|unlock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
 name|void
 name|relock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|static
 specifier|inline
@@ -754,9 +771,10 @@ name|QReadWriteLock
 operator|*
 name|readWriteLock
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|private
