@@ -333,7 +333,6 @@ block|; }
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|qHash
 specifier|inline
 name|uint
 name|qHash
@@ -343,6 +342,7 @@ name|QProcEnvKey
 modifier|&
 name|key
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|key

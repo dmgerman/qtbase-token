@@ -113,6 +113,7 @@ begin_expr_stmt
 specifier|inline
 name|QVector
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(

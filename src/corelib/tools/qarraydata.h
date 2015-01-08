@@ -322,12 +322,12 @@ index|]
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|sharedNull
 specifier|static
 name|QArrayData
 modifier|*
 name|sharedNull
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_cast
@@ -342,7 +342,6 @@ return|;
 block|}
 end_function
 begin_macro
-DECL|function|sharedNull
 unit|};
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
@@ -1724,12 +1723,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|sharedNull
 specifier|static
 name|QTypedArrayData
 modifier|*
 name|sharedNull
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|Q_STATIC_ASSERT
 argument_list|(

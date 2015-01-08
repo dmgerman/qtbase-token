@@ -1871,6 +1871,7 @@ begin_expr_stmt
 specifier|inline
 name|QHash
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -2061,15 +2062,11 @@ begin_expr_stmt
 specifier|inline
 name|QHash
 argument_list|(
-name|QHash
-operator|<
-name|Key
+argument|QHash<Key
 argument_list|,
-name|T
-operator|>
-operator|&&
-name|other
+argument|T>&&other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -2112,6 +2109,7 @@ operator|>
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -2146,6 +2144,7 @@ operator|>
 operator|&
 name|other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(

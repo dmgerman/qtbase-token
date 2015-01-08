@@ -363,16 +363,17 @@ name|d
 decl_stmt|;
 block|}
 end_expr_stmt
-begin_function_decl
+begin_decl_stmt
 name|explicit
 name|QSharedDataPointer
-parameter_list|(
+argument_list|(
 name|T
-modifier|*
+operator|*
 name|data
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 specifier|inline
 name|QSharedDataPointer
@@ -549,25 +550,33 @@ ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 end_ifdef
-begin_expr_stmt
+begin_macro
 name|QSharedDataPointer
 argument_list|(
-name|QSharedDataPointer
-operator|&&
-name|o
+argument|QSharedDataPointer&&o
 argument_list|)
-operator|:
+end_macro
+begin_label
+name|Q_DECL_NOTHROW
+label|:
+end_label
+begin_macro
 name|d
 argument_list|(
 argument|o.d
 argument_list|)
+end_macro
+begin_block
 block|{
 name|o
 operator|.
 name|d
 operator|=
-literal|0
-block|; }
+name|Q_NULLPTR
+expr_stmt|;
+block|}
+end_block
+begin_expr_stmt
 specifier|inline
 name|QSharedDataPointer
 operator|<
@@ -584,6 +593,7 @@ operator|>
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -628,6 +638,7 @@ name|QSharedDataPointer
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -953,16 +964,17 @@ name|d
 decl_stmt|;
 block|}
 end_expr_stmt
-begin_function_decl
+begin_decl_stmt
 name|explicit
 name|QExplicitlySharedDataPointer
-parameter_list|(
+argument_list|(
 name|T
-modifier|*
+operator|*
 name|data
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 specifier|inline
 name|QExplicitlySharedDataPointer
@@ -1201,10 +1213,9 @@ begin_expr_stmt
 specifier|inline
 name|QExplicitlySharedDataPointer
 argument_list|(
-name|QExplicitlySharedDataPointer
-operator|&&
-name|o
+argument|QExplicitlySharedDataPointer&&o
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -1215,7 +1226,7 @@ name|o
 operator|.
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 specifier|inline
 name|QExplicitlySharedDataPointer
@@ -1233,6 +1244,7 @@ operator|>
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -1277,6 +1289,7 @@ name|QExplicitlySharedDataPointer
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -1323,7 +1336,6 @@ operator|<
 name|class
 name|T
 operator|>
-DECL|function|QSharedDataPointer
 name|Q_INLINE_TEMPLATE
 name|QSharedDataPointer
 operator|<
@@ -1332,10 +1344,10 @@ operator|>
 operator|::
 name|QSharedDataPointer
 argument_list|(
-name|T
-operator|*
-name|adata
+argument|T *adata
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|function|d
 operator|:
 name|d
 argument_list|(
@@ -1515,7 +1527,6 @@ operator|<
 name|class
 name|T
 operator|>
-DECL|function|QExplicitlySharedDataPointer
 name|Q_INLINE_TEMPLATE
 name|QExplicitlySharedDataPointer
 operator|<
@@ -1524,10 +1535,10 @@ operator|>
 operator|::
 name|QExplicitlySharedDataPointer
 argument_list|(
-name|T
-operator|*
-name|adata
+argument|T *adata
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|function|d
 operator|:
 name|d
 argument_list|(
@@ -1652,6 +1663,7 @@ argument_list|,
 argument|uint seed =
 literal|0
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qHash
@@ -1681,6 +1693,7 @@ argument_list|,
 argument|uint seed =
 literal|0
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qHash

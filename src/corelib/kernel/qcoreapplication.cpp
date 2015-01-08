@@ -1341,9 +1341,9 @@ DECL|struct|QCoreApplicationData
 struct|struct
 name|QCoreApplicationData
 block|{
-DECL|function|QCoreApplicationData
 name|QCoreApplicationData
 parameter_list|()
+name|Q_DECL_NOTHROW
 block|{
 ifndef|#
 directive|ifndef

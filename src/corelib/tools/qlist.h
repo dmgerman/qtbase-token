@@ -546,6 +546,7 @@ begin_expr_stmt
 specifier|inline
 name|QList
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(

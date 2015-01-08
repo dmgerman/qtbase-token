@@ -175,6 +175,7 @@ name|QTimeZone
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|swap
 argument_list|(
@@ -195,6 +196,7 @@ name|QTimeZone
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|d
 operator|.

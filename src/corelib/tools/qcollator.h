@@ -88,6 +88,7 @@ name|QCollatorSortKey
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|swap
 argument_list|(
@@ -108,6 +109,7 @@ name|QCollatorSortKey
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|d
 operator|.
@@ -228,11 +230,10 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 name|QCollator
 argument_list|(
-name|QCollator
-operator|&&
-name|other
+argument|QCollator&&other
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+label|:
 name|d
 argument_list|(
 argument|other.d
@@ -243,16 +244,18 @@ operator|.
 name|d
 operator|=
 literal|0
-block|; }
+expr_stmt|;
+block|}
 name|QCollator
-operator|&
+modifier|&
 name|operator
-operator|=
+init|=
 operator|(
 name|QCollator
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|swap
 argument_list|(
@@ -273,6 +276,7 @@ name|QCollator
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(

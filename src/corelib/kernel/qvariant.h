@@ -1197,10 +1197,9 @@ name|Q_COMPILER_RVALUE_REFS
 specifier|inline
 name|QVariant
 argument_list|(
-name|QVariant
-operator|&&
-name|other
+argument|QVariant&&other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -1224,6 +1223,7 @@ name|QVariant
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -1247,6 +1247,7 @@ name|swap
 argument_list|(
 argument|QVariant&other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -1741,6 +1742,7 @@ block|{
 specifier|inline
 name|Private
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|type
 argument_list|(
@@ -1770,6 +1772,7 @@ name|Private
 argument_list|(
 argument|uint variantType
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|type
 argument_list|(
@@ -1789,11 +1792,9 @@ block|{}
 specifier|inline
 name|Private
 argument_list|(
-specifier|const
-name|Private
-operator|&
-name|other
+argument|const Private&other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|data
 argument_list|(

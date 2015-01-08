@@ -262,6 +262,7 @@ operator|:
 specifier|inline
 name|QStringList
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{ }
 specifier|inline
 name|explicit
@@ -301,13 +302,9 @@ name|Q_COMPILER_RVALUE_REFS
 specifier|inline
 name|QStringList
 argument_list|(
-name|QList
-operator|<
-name|QString
-operator|>
-operator|&&
-name|l
+argument|QList<QString>&&l
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|QList
 operator|<
@@ -394,6 +391,7 @@ operator|>
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|QList
 operator|<

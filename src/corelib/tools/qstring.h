@@ -963,6 +963,7 @@ typedef|;
 specifier|inline
 name|QString
 argument_list|()
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|explicit
 name|QString
@@ -1045,10 +1046,9 @@ name|Q_COMPILER_RVALUE_REFS
 specifier|inline
 name|QString
 argument_list|(
-name|QString
-operator|&&
-name|other
+argument|QString&& other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -1074,6 +1074,7 @@ name|QString
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -1099,6 +1100,7 @@ name|QString
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -10461,12 +10463,13 @@ argument_list|(
 name|acell
 argument_list|)
 block|; }
-DECL|function|QString
+DECL|function|sharedNull
 specifier|inline
 name|QString
 operator|::
 name|QString
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(

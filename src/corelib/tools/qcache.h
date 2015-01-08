@@ -376,18 +376,19 @@ begin_label
 name|public
 label|:
 end_label
-begin_function_decl
+begin_decl_stmt
 specifier|inline
 name|explicit
 name|QCache
-parameter_list|(
+argument_list|(
 name|int
 name|maxCost
-init|=
+operator|=
 literal|100
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 specifier|inline
 operator|~
@@ -615,7 +616,6 @@ name|class
 name|T
 operator|>
 DECL|variable|Key
-DECL|function|QCache
 specifier|inline
 name|QCache
 operator|<
@@ -628,6 +628,8 @@ name|QCache
 argument_list|(
 argument|int amaxCost
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|variable|amaxCost
 operator|:
 name|f
 argument_list|(

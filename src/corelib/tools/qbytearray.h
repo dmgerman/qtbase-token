@@ -811,10 +811,9 @@ name|Q_COMPILER_RVALUE_REFS
 specifier|inline
 name|QByteArray
 argument_list|(
-name|QByteArray
-operator|&&
-name|other
+argument|QByteArray&& other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -840,6 +839,7 @@ name|QByteArray
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -865,6 +865,7 @@ name|QByteArray
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
