@@ -485,6 +485,16 @@ name|void
 name|buildRegExpData
 parameter_list|()
 function_decl|;
+specifier|static
+name|QString
+name|cssFontSizeString
+parameter_list|(
+specifier|const
+name|QFont
+modifier|&
+name|font
+parameter_list|)
+function_decl|;
 DECL|member|doc
 name|QTextDocument
 modifier|*
@@ -625,6 +635,55 @@ block|{}
 block|}
 class|;
 end_class
+begin_function
+DECL|function|cssFontSizeString
+name|QString
+name|tst_QTextDocument
+operator|::
+name|cssFontSizeString
+parameter_list|(
+specifier|const
+name|QFont
+modifier|&
+name|font
+parameter_list|)
+block|{
+return|return
+name|font
+operator|.
+name|pointSize
+argument_list|()
+operator|>=
+literal|0
+condition|?
+name|QStringLiteral
+argument_list|(
+literal|"%1pt"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|font
+operator|.
+name|pointSizeF
+argument_list|()
+argument_list|)
+else|:
+name|QStringLiteral
+argument_list|(
+literal|"%1px"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|font
+operator|.
+name|pixelSize
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|// Testing get/set functions
 end_comment
@@ -813,7 +872,7 @@ literal|"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 literal|"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 literal|"p, li { white-space: pre-wrap; }\n"
 literal|"</style></head>"
-literal|"<body style=\" font-family:'%1'; font-size:%2pt; font-weight:%3; font-style:%4;\">\n"
+literal|"<body style=\" font-family:'%1'; font-size:%2; font-weight:%3; font-style:%4;\">\n"
 argument_list|)
 expr_stmt|;
 name|htmlHead
@@ -830,10 +889,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|cssFontSizeString
+argument_list|(
 name|defaultFont
-operator|.
-name|pointSizeF
-argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -8535,7 +8594,7 @@ literal|"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 literal|"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 literal|"p, li { white-space: pre-wrap; }\n"
 literal|"</style></head>"
-literal|"<body style=\" font-family:'%1'; font-size:%2pt; font-weight:%3; font-style:%4;\""
+literal|"<body style=\" font-family:'%1'; font-size:%2; font-weight:%3; font-style:%4;\""
 literal|" bgcolor=\"#0000ff\">\n"
 literal|"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Blah</p>"
 literal|"</body></html>"
@@ -8555,10 +8614,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|cssFontSizeString
+argument_list|(
 name|defaultFont
-operator|.
-name|pointSizeF
-argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -8660,7 +8719,7 @@ literal|"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 literal|"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 literal|"p, li { white-space: pre-wrap; }\n"
 literal|"</style></head>"
-literal|"<body style=\" font-family:'%1'; font-size:%2pt; font-weight:%3; font-style:%4;\""
+literal|"<body style=\" font-family:'%1'; font-size:%2; font-weight:%3; font-style:%4;\""
 literal|" bgcolor=\"rgba(255,0,0,0.2)\">\n"
 literal|"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Blah</p>"
 literal|"</body></html>"
@@ -8680,10 +8739,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|cssFontSizeString
+argument_list|(
 name|defaultFont
-operator|.
-name|pointSizeF
-argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -8785,7 +8844,7 @@ literal|"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 literal|"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 literal|"p, li { white-space: pre-wrap; }\n"
 literal|"</style></head>"
-literal|"<body style=\" font-family:'%1'; font-size:%2pt; font-weight:%3; font-style:%4;\""
+literal|"<body style=\" font-family:'%1'; font-size:%2; font-weight:%3; font-style:%4;\""
 literal|" bgcolor=\"transparent\">\n"
 literal|"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Blah</p>"
 literal|"</body></html>"
@@ -8805,10 +8864,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|cssFontSizeString
+argument_list|(
 name|defaultFont
-operator|.
-name|pointSizeF
-argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -12502,7 +12561,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"<body style=\" font-family:'%1'; font-size:%2pt; font-weight:%3; font-style:italic;\">"
+literal|"<body style=\" font-family:'%1'; font-size:%2; font-weight:%3; font-style:italic;\">"
 argument_list|)
 operator|.
 name|arg
@@ -12515,10 +12574,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|cssFontSizeString
+argument_list|(
 name|f
-operator|.
-name|pointSizeF
-argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -13274,7 +13333,7 @@ literal|"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 literal|"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 literal|"p, li { white-space: pre-wrap; }\n"
 literal|"</style></head>"
-literal|"<body style=\" font-family:'%1'; font-size:%2pt; font-weight:%3; font-style:%4;\">\n"
+literal|"<body style=\" font-family:'%1'; font-size:%2; font-weight:%3; font-style:%4;\">\n"
 literal|"<table border=\"0\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;\" cellspacing=\"2\" cellpadding=\"0\">"
 literal|"\n<tr>\n<td background=\"foo.png\">"
 literal|"\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Blah</p>"
@@ -13295,10 +13354,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
+name|cssFontSizeString
+argument_list|(
 name|defaultFont
-operator|.
-name|pointSizeF
-argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|arg
