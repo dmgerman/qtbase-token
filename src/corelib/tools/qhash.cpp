@@ -3105,34 +3105,34 @@ begin_comment
 comment|/*! \fn QHash::QHash()      Constructs an empty hash.      \sa clear() */
 end_comment
 begin_comment
-comment|/*!     \fn QHash::QHash(QHash<Key, T>&&other)      Move-constructs a QHash instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
+comment|/*!     \fn QHash::QHash(QHash&&other)      Move-constructs a QHash instance, making it point at the same     object that \a other was pointing to.      \since 5.2 */
 end_comment
 begin_comment
 comment|/*! \fn QHash::QHash(std::initializer_list<std::pair<Key,T>> list)     \since 5.1      Constructs a hash with a copy of each of the elements in the     initializer list \a list.      This function is only available if the program is being     compiled in C++11 mode. */
 end_comment
 begin_comment
-comment|/*! \fn QHash::QHash(const QHash<Key, T>&other)      Constructs a copy of \a other.      This operation occurs in \l{constant time}, because QHash is     \l{implicitly shared}. This makes returning a QHash from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and this takes \l{linear time}.      \sa operator=() */
+comment|/*! \fn QHash::QHash(const QHash&other)      Constructs a copy of \a other.      This operation occurs in \l{constant time}, because QHash is     \l{implicitly shared}. This makes returning a QHash from a     function very fast. If a shared instance is modified, it will be     copied (copy-on-write), and this takes \l{linear time}.      \sa operator=() */
 end_comment
 begin_comment
 comment|/*! \fn QHash::~QHash()      Destroys the hash. References to the values in the hash and all     iterators of this hash become invalid. */
 end_comment
 begin_comment
-comment|/*! \fn QHash<Key, T>&QHash::operator=(const QHash<Key, T>&other)      Assigns \a other to this hash and returns a reference to this hash. */
+comment|/*! \fn QHash&QHash::operator=(const QHash&other)      Assigns \a other to this hash and returns a reference to this hash. */
 end_comment
 begin_comment
-comment|/*!     \fn QHash<Key, T>&QHash::operator=(QHash<Key, T>&&other)      Move-assigns \a other to this QHash instance.      \since 5.2 */
+comment|/*!     \fn QHash&QHash::operator=(QHash&&other)      Move-assigns \a other to this QHash instance.      \since 5.2 */
 end_comment
 begin_comment
-comment|/*! \fn void QHash::swap(QHash<Key, T>&other)     \since 4.8      Swaps hash \a other with this hash. This operation is very     fast and never fails. */
+comment|/*! \fn void QHash::swap(QHash&other)     \since 4.8      Swaps hash \a other with this hash. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn void QMultiHash::swap(QMultiHash<Key, T>&other)     \since 4.8      Swaps hash \a other with this hash. This operation is very     fast and never fails. */
+comment|/*! \fn void QMultiHash::swap(QMultiHash&other)     \since 4.8      Swaps hash \a other with this hash. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::operator==(const QHash<Key, T>&other) const      Returns \c true if \a other is equal to this hash; otherwise returns     false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator!=() */
+comment|/*! \fn bool QHash::operator==(const QHash&other) const      Returns \c true if \a other is equal to this hash; otherwise returns     false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::operator!=(const QHash<Key, T>&other) const      Returns \c true if \a other is not equal to this hash; otherwise     returns \c false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator==() */
+comment|/*! \fn bool QHash::operator!=(const QHash&other) const      Returns \c true if \a other is not equal to this hash; otherwise     returns \c false.      Two hashes are considered equal if they contain the same (key,     value) pairs.      This function requires the value type to implement \c operator==().      \sa operator==() */
 end_comment
 begin_comment
 comment|/*! \fn int QHash::size() const      Returns the number of items in the hash.      \sa isEmpty(), count() */
@@ -3159,7 +3159,7 @@ begin_comment
 comment|/*! \fn void QHash::setSharable(bool sharable)      \internal */
 end_comment
 begin_comment
-comment|/*! \fn bool QHash::isSharedWith(const QHash<Key, T>&other) const      \internal */
+comment|/*! \fn bool QHash::isSharedWith(const QHash&other) const      \internal */
 end_comment
 begin_comment
 comment|/*! \fn void QHash::clear()      Removes all items from the hash.      \sa remove() */
@@ -3255,7 +3255,7 @@ begin_comment
 comment|/*! \fn QHash::iterator QHash::insertMulti(const Key&key, const T&value)      Inserts a new item with the \a key and a value of \a value.      If there is already an item with the same key in the hash, this     function will simply create a new one. (This behavior is     different from insert(), which overwrites the value of an     existing item.)      \sa insert(), values() */
 end_comment
 begin_comment
-comment|/*! \fn QHash<Key, T>&QHash::unite(const QHash<Key, T>&other)      Inserts all the items in the \a other hash into this hash. If a     key is common to both hashes, the resulting hash will contain the     key multiple times.      \sa insertMulti() */
+comment|/*! \fn QHash&QHash::unite(const QHash&other)      Inserts all the items in the \a other hash into this hash. If a     key is common to both hashes, the resulting hash will contain the     key multiple times.      \sa insertMulti() */
 end_comment
 begin_comment
 comment|/*! \fn bool QHash::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning true if the hash is empty; otherwise     returns \c false. */
