@@ -411,17 +411,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// "QCoreApplication::arguments() always parses arguments from actual command line on Windows
-end_comment
-begin_comment
-comment|// making this test invalid."
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-end_ifndef
 begin_function
 DECL|function|argc
 name|void
@@ -430,6 +419,24 @@ operator|::
 name|argc
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QCoreApplication::arguments() parses arguments from actual command line on this platform."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|{
 name|int
 name|argc
@@ -672,10 +679,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|EventGenerator
 class|class

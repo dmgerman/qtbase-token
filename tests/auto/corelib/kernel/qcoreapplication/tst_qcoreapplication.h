@@ -42,15 +42,10 @@ name|void
 name|qAppName
 argument_list|()
 block|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
 name|void
 name|argc
 argument_list|()
 block|;
-endif|#
-directive|endif
 name|void
 name|postEvent
 argument_list|()
