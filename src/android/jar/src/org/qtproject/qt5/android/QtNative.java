@@ -2944,6 +2944,17 @@ name|Intent
 name|data
 parameter_list|)
 function_decl|;
+DECL|method|onNewIntent
+specifier|public
+specifier|static
+specifier|native
+name|void
+name|onNewIntent
+parameter_list|(
+name|Intent
+name|data
+parameter_list|)
+function_decl|;
 DECL|method|onAndroidUiThread
 specifier|public
 specifier|static
