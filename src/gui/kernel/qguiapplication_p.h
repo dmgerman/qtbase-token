@@ -126,6 +126,12 @@ begin_comment
 comment|// QT_NO_DRAGANDDROP
 end_comment
 begin_decl_stmt
+DECL|variable|QInputDeviceManager
+name|class
+name|QInputDeviceManager
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QGuiApplicationPrivate
@@ -1342,6 +1348,14 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_function_decl
+specifier|static
+name|QInputDeviceManager
+modifier|*
+name|inputDeviceManager
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
 specifier|const
 name|QDrawHelperGammaTables
 modifier|*
@@ -1504,6 +1518,13 @@ end_expr_stmt
 begin_decl_stmt
 name|bool
 name|ownGlobalShareContext
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
+name|QInputDeviceManager
+modifier|*
+name|m_inputDeviceManager
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

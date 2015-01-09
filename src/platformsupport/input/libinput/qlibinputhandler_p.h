@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/QScopedPointer>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QMap>
+end_include
 begin_comment
 comment|//
 end_comment
@@ -201,6 +206,14 @@ operator|<
 name|QLibInputTouch
 operator|>
 name|m_touch
+block|;
+name|QMap
+operator|<
+name|int
+block|,
+name|int
+operator|>
+name|m_devCount
 block|; }
 decl_stmt|;
 end_decl_stmt

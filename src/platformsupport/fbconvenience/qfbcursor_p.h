@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<qpa/qplatformcursor.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/private/qinputdevicemanager_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QFbScreen
@@ -56,9 +61,53 @@ name|QFbScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QDeviceDiscovery
+DECL|variable|QFbCursor
 name|class
-name|QDeviceDiscovery
+name|QFbCursor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QFbCursorDeviceListener
+range|:
+name|public
+name|QObject
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|QFbCursorDeviceListener
+argument_list|(
+name|QFbCursor
+operator|*
+name|cursor
+argument_list|)
+operator|:
+name|m_cursor
+argument_list|(
+argument|cursor
+argument_list|)
+block|{ }
+name|bool
+name|hasMouse
+argument_list|()
+specifier|const
+block|;
+name|public
+name|slots
+operator|:
+name|void
+name|onDeviceListChanged
+argument_list|(
+argument|QInputDeviceManager::DeviceType type
+argument_list|)
+block|;
+name|private
+operator|:
+name|QFbCursor
+operator|*
+name|m_cursor
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -77,6 +126,10 @@ name|QFbScreen
 operator|*
 name|screen
 argument_list|)
+block|;
+operator|~
+name|QFbCursor
+argument_list|()
 block|;
 comment|// output methods
 name|QRect
@@ -152,12 +205,8 @@ name|mPrevRect
 return|;
 block|}
 name|void
-name|setMouseDeviceDiscovery
-argument_list|(
-name|QDeviceDiscovery
-operator|*
-name|dd
-argument_list|)
+name|updateMouseStatus
+argument_list|()
 block|;
 name|private
 operator|:
@@ -197,6 +246,9 @@ name|QRect
 name|getCurrentRect
 argument_list|()
 block|;
+name|bool
+name|mVisible
+block|;
 name|QFbScreen
 operator|*
 name|mScreen
@@ -218,6 +270,10 @@ block|;
 name|QPlatformCursorImage
 operator|*
 name|mGraphic
+block|;
+name|QFbCursorDeviceListener
+operator|*
+name|mDeviceListener
 block|; }
 decl_stmt|;
 end_decl_stmt
