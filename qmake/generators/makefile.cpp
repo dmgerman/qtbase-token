@@ -5572,17 +5572,6 @@ init|=
 name|qmake_getpwd
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|pwd
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|pwd
-operator|=
-literal|"."
-expr_stmt|;
 name|incDirs
 operator|+=
 name|pwd

@@ -5589,17 +5589,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|pwd
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|pwd
-operator|=
-literal|"."
-expr_stmt|;
 name|mkt
 operator|<<
 literal|" -I"
