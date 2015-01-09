@@ -13196,7 +13196,7 @@ if|if
 condition|(
 name|QMetaType
 operator|::
-name|compare
+name|equals
 argument_list|(
 name|QT_PREPEND_NAMESPACE
 argument_list|(
