@@ -2776,6 +2776,77 @@ literal|"QMAKE_DEFAULT_INCDIRS"
 index|]
 argument_list|)
 expr_stmt|;
+name|ProStringList
+modifier|&
+name|incs
+init|=
+name|project
+operator|->
+name|values
+argument_list|(
+literal|"INCLUDEPATH"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"no_include_pwd"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|Option
+operator|::
+name|output_dir
+operator|!=
+name|qmake_getpwd
+argument_list|()
+condition|)
+block|{
+comment|// Pretend that the build dir is the source dir for #include purposes,
+comment|// consistently with the "transparent shadow builds" strategy. This is
+comment|// also consistent with #include "foo.h" falling back to #include<foo.h>
+comment|// behavior if it doesn't find the file in the source dir.
+name|incs
+operator|.
+name|prepend
+argument_list|(
+name|Option
+operator|::
+name|output_dir
+argument_list|)
+expr_stmt|;
+block|}
+comment|// This makes #include<foo.h> work if the header lives in the source dir.
+comment|// The benefit of that is questionable, as generally the user should use the
+comment|// correct include style, and extra compilers that put stuff in the source dir
+comment|// should add the dir themselves.
+comment|// More importantly, it makes #include "foo.h" work with MSVC when shadow-building,
+comment|// as this compiler looks files up relative to %CD%, not the source file's parent.
+name|incs
+operator|.
+name|prepend
+argument_list|(
+name|qmake_getpwd
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|incs
+operator|.
+name|append
+argument_list|(
+name|project
+operator|->
+name|specDir
+argument_list|()
+argument_list|)
+expr_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -5555,28 +5626,6 @@ index|[
 literal|"INCLUDEPATH"
 index|]
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_include_pwd"
-argument_list|)
-condition|)
-block|{
-name|QString
-name|pwd
-init|=
-name|qmake_getpwd
-argument_list|()
-decl_stmt|;
-name|incDirs
-operator|+=
-name|pwd
-expr_stmt|;
-block|}
 name|QList
 argument_list|<
 name|QMakeLocalFileName
@@ -5993,40 +6042,6 @@ operator|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_include_pwd"
-argument_list|)
-condition|)
-block|{
-comment|//get the output_dir into the pwd
-if|if
-condition|(
-name|Option
-operator|::
-name|output_dir
-operator|!=
-name|qmake_getpwd
-argument_list|()
-condition|)
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"INCLUDEPATH"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"."
 argument_list|)
 expr_stmt|;
 block|}

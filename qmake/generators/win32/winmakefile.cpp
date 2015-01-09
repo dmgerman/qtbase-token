@@ -4740,13 +4740,6 @@ expr_stmt|;
 block|}
 name|t
 operator|<<
-literal|"-I\""
-operator|<<
-name|specdir
-argument_list|()
-operator|<<
-literal|"\""
-operator|<<
 name|endl
 expr_stmt|;
 block|}

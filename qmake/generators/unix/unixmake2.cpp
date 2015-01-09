@@ -1053,41 +1053,8 @@ literal|" $(DEFINES)\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"INCPATH       = -I"
-operator|<<
-name|specdir
-argument_list|()
+literal|"INCPATH       ="
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_include_pwd"
-argument_list|)
-condition|)
-block|{
-name|QString
-name|pwd
-init|=
-name|escapeFilePath
-argument_list|(
-name|fileFixify
-argument_list|(
-name|qmake_getpwd
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|t
-operator|<<
-literal|" -I"
-operator|<<
-name|pwd
-expr_stmt|;
-block|}
 block|{
 name|QString
 name|isystem
