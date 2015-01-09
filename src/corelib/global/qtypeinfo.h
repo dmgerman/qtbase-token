@@ -464,7 +464,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|Q_DECLARE_TYPEINFO(TYPE, Q_MOVABLE_TYPE); \ template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { value1.swap(value2); } \ inline void swap(TYPE&value1, TYPE&value2) \     Q_DECL_NOEXCEPT_EXPR(noexcept(value1.swap(value2))) \ { value1.swap(value2); }
+value|Q_DECLARE_TYPEINFO(TYPE, Q_MOVABLE_TYPE); \ inline void swap(TYPE&value1, TYPE&value2) \     Q_DECL_NOEXCEPT_EXPR(noexcept(value1.swap(value2))) \ { value1.swap(value2); }
 end_define
 begin_comment
 comment|/*    QTypeInfo primitive specializations */
