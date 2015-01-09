@@ -56,6 +56,14 @@ name|screen
 argument_list|)
 block|;
 name|void
+name|removeScreen
+argument_list|(
+name|QPlatformScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+name|void
 name|initialize
 argument_list|()
 name|Q_DECL_OVERRIDE
