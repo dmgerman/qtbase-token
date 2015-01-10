@@ -1721,9 +1721,12 @@ name|value
 decl_stmt|;
 name|position
 operator|=
+name|bound
+argument_list|(
 name|overflowSafeAdd
 argument_list|(
 name|stepsToScroll
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// value will be updated by triggerAction()
