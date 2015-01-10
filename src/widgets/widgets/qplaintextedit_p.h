@@ -174,6 +174,14 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QString
+name|anchorAt
+argument_list|(
+argument|const QPointF&pos
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 specifier|inline
 name|QRectF
 name|cursorRect

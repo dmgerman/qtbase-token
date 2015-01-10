@@ -400,6 +400,7 @@ name|selectionRect
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|QString
 name|anchorAt
 argument_list|(
