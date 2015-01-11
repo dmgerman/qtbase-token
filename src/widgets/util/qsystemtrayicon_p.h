@@ -242,6 +242,13 @@ argument|QSystemTrayIcon::MessageIcon icon
 argument_list|,
 argument|int secs
 argument_list|)
+block|;
+name|void
+name|addPlatformMenu
+argument_list|(
+argument|QMenu *menu
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
