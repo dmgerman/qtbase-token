@@ -2812,7 +2812,7 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|parametersOffset
-operator|=
+operator|==
 name|header
 operator|->
 name|propertyData
