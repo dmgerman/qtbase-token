@@ -221,28 +221,12 @@ comment|/*!   \fn void QFileDialog::directoryEntered(const QString&directory)   
 comment|/*!   \fn void QFileDialog::directoryUrlEntered(const QUrl&directory)    This signal is emitted when the user enters a \a directory.    \since 5.2 */
 comment|/*!   \fn void QFileDialog::filterSelected(const QString&filter)   \since 4.3    This signal is emitted when the user selects a \a filter. */
 name|QT_BEGIN_INCLUDE_NAMESPACE
-ifdef|#
-directive|ifdef
-name|Q_DEAD_CODE_FROM_QT4_WIN
-include|#
-directive|include
-file|<qwindowsstyle_p.h>
-endif|#
-directive|endif
 include|#
 directive|include
 file|<QMetaEnum>
 include|#
 directive|include
 file|<qshortcut.h>
-ifdef|#
-directive|ifdef
-name|Q_DEAD_CODE_FROM_QT4_MAC
-include|#
-directive|include
-file|<qmacstyle_mac_p.h>
-endif|#
-directive|endif
 name|QT_END_INCLUDE_NAMESPACE
 comment|/*!     \fn QFileDialog::QFileDialog(QWidget *parent, Qt::WindowFlags flags)      Constructs a file dialog with the given \a parent and widget \a flags. */
 DECL|function|QFileDialog
