@@ -5274,6 +5274,8 @@ name|QCOMPARE
 argument_list|(
 name|quintptr
 argument_list|(
+name|quintptr
+argument_list|(
 name|data
 operator|->
 name|data
@@ -5281,6 +5283,7 @@ argument_list|()
 argument_list|)
 operator|%
 name|alignment
+argument_list|)
 argument_list|,
 name|quintptr
 argument_list|(
