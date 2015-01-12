@@ -196,6 +196,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+comment|// Called from Objective-C class QIOSScreenTracker, which can't be friended
 name|void
 name|addScreen
 parameter_list|(
@@ -205,6 +206,22 @@ name|screen
 parameter_list|)
 block|{
 name|screenAdded
+argument_list|(
+name|screen
+argument_list|)
+expr_stmt|;
+block|}
+name|void
+name|destroyScreen
+parameter_list|(
+name|QPlatformScreen
+modifier|*
+name|screen
+parameter_list|)
+block|{
+name|QPlatformIntegration
+operator|::
+name|destroyScreen
 argument_list|(
 name|screen
 argument_list|)
