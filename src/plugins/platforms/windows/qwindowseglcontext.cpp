@@ -5697,20 +5697,57 @@ block|}
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|(
-literal|"QWindowsEGLContext::makeCurrent: eglError: %x, this: %p \n"
-argument_list|,
+name|int
+name|err
+init|=
 name|QWindowsEGLStaticContext
 operator|::
 name|libEGL
 operator|.
 name|eglGetError
 argument_list|()
+decl_stmt|;
+comment|// EGL_CONTEXT_LOST (loss of the D3D device) is not necessarily fatal.
+comment|// Qt Quick is able to recover for example.
+if|if
+condition|(
+name|err
+operator|==
+name|EGL_CONTEXT_LOST
+condition|)
+block|{
+name|m_eglContext
+operator|=
+name|EGL_NO_CONTEXT
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|lcQpaGl
+argument_list|)
+operator|<<
+literal|"Got EGL context lost in makeCurrent() for context"
+operator|<<
+name|this
+expr_stmt|;
+comment|// Drop the surface. Will recreate on the next makeCurrent.
+name|window
+operator|->
+name|invalidateSurface
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"QWindowsEGLContext::makeCurrent: eglError: %x, this: %p \n"
+argument_list|,
+name|err
 argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|ok

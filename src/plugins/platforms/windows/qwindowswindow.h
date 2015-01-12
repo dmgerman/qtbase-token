@@ -1259,6 +1259,11 @@ operator|*
 name|nativeConfig
 argument_list|)
 block|;
+name|void
+name|invalidateSurface
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE

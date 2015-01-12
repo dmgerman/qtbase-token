@@ -1365,18 +1365,19 @@ operator|::
 name|create
 parameter_list|()
 block|{
-if|if
-condition|(
-name|isValid
-argument_list|()
-condition|)
-name|destroy
-argument_list|()
-expr_stmt|;
 name|Q_D
 argument_list|(
 name|QOpenGLContext
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|platformGLContext
+condition|)
+name|destroy
+argument_list|()
 expr_stmt|;
 name|d
 operator|->
@@ -1637,7 +1638,7 @@ directive|endif
 block|}
 end_destructor
 begin_comment
-comment|/*!     Returns if this context is valid, i.e. has been successfully created.      \sa create() */
+comment|/*!     Returns if this context is valid, i.e. has been successfully created.      On some platforms the return value of \c false for a context that was     successfully created previously indicates that the OpenGL context was lost.      The typical way to handle context loss scenarios in applications is to     check via this function whenever makeCurrent() fails and returns \c false.     If this function then returns \c false, recreate the underlying native     OpenGL context by calling create(), call makeCurrent() again and then     reinitialize all OpenGL resources.      \sa create() */
 end_comment
 begin_function
 DECL|function|isValid
