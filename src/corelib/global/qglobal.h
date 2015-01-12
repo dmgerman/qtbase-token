@@ -5583,33 +5583,6 @@ parameter_list|(
 name|x
 parameter_list|)
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_QNX
-end_ifdef
-begin_comment
-comment|// QNX doesn't have SYSV style shared memory. Multiprocess QWS apps,
-end_comment
-begin_comment
-comment|// shared fonts and QSystemSemaphore + QSharedMemory are not available
-end_comment
-begin_define
-DECL|macro|QT_NO_SYSTEMSEMAPHORE
-define|#
-directive|define
-name|QT_NO_SYSTEMSEMAPHORE
-end_define
-begin_define
-DECL|macro|QT_NO_SHAREDMEMORY
-define|#
-directive|define
-name|QT_NO_SHAREDMEMORY
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_if
 if|#
 directive|if
