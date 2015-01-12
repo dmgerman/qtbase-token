@@ -18778,11 +18778,6 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
-name|strlen
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|mobj
