@@ -44,6 +44,25 @@ operator|::
 name|waitForAndEventLoop
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Not supported on Android"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// based on testcase provided in QTBUG-39488
 name|QByteArray
 name|msg
