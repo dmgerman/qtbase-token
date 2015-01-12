@@ -552,7 +552,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// When converting native rects to Qt rects: round top/left towards the origin and
+comment|// When mapping expose events to Qt rects: round top/left towards the origin and
 end_comment
 begin_comment
 comment|// bottom/right away from the origin, making sure that we cover the whole widget
@@ -642,11 +642,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|mapFromNative
+DECL|function|mapExposeFromNative
 specifier|static
 specifier|inline
 name|QRect
-name|mapFromNative
+name|mapExposeFromNative
 parameter_list|(
 specifier|const
 name|QRect
@@ -679,6 +679,42 @@ argument_list|()
 argument_list|,
 name|dpr
 argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
+DECL|function|mapGeometryFromNative
+specifier|static
+specifier|inline
+name|QRect
+name|mapGeometryFromNative
+parameter_list|(
+specifier|const
+name|QRect
+modifier|&
+name|xRect
+parameter_list|,
+name|int
+name|dpr
+parameter_list|)
+block|{
+return|return
+name|QRect
+argument_list|(
+name|xRect
+operator|.
+name|topLeft
+argument_list|()
+operator|/
+name|dpr
+argument_list|,
+name|xRect
+operator|.
+name|bottomRight
+argument_list|()
+operator|/
+name|dpr
 argument_list|)
 return|;
 block|}
@@ -9502,7 +9538,7 @@ expr_stmt|;
 operator|*
 name|m_region
 operator||=
-name|mapFromNative
+name|mapExposeFromNative
 argument_list|(
 name|QRect
 argument_list|(
@@ -9643,7 +9679,7 @@ decl_stmt|;
 name|QRect
 name|rect
 init|=
-name|mapFromNative
+name|mapExposeFromNative
 argument_list|(
 name|x_rect
 argument_list|,
@@ -10542,7 +10578,7 @@ specifier|const
 name|QRect
 name|rect
 init|=
-name|mapFromNative
+name|mapGeometryFromNative
 argument_list|(
 name|nativeRect
 argument_list|,
@@ -10622,7 +10658,7 @@ block|{
 name|QRect
 name|newRect
 init|=
-name|mapFromNative
+name|mapGeometryFromNative
 argument_list|(
 name|nativeRect
 argument_list|,
