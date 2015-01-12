@@ -12584,10 +12584,7 @@ name|image
 init|=
 name|brush
 operator|.
-name|texture
-argument_list|()
-operator|.
-name|toImage
+name|textureImage
 argument_list|()
 decl_stmt|;
 name|bool
@@ -12604,10 +12601,7 @@ argument_list|,
 operator|&
 name|bitmap
 argument_list|,
-name|brush
-operator|.
-name|texture
-argument_list|()
+name|image
 operator|.
 name|cacheKey
 argument_list|()
