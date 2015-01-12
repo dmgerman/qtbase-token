@@ -2252,16 +2252,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-ifdef|#
-directive|ifdef
-name|Q_DEAD_CODE_FROM_QT4_MAC
-name|QApplication
-operator|::
-name|flush
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 if|if
 condition|(
