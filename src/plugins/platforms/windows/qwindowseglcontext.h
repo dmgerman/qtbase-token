@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindowsopengltester.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<EGL/egl.h>
 end_include
 begin_macro
@@ -3059,7 +3064,9 @@ specifier|static
 name|QWindowsEGLStaticContext
 operator|*
 name|create
-argument_list|()
+argument_list|(
+argument|QWindowsOpenGLTester::Renderers preferredType
+argument_list|)
 block|;
 operator|~
 name|QWindowsEGLStaticContext
