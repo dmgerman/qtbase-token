@@ -2542,11 +2542,16 @@ name|qtTouchDevice
 operator|->
 name|setName
 argument_list|(
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
 name|dev
 operator|->
 name|xiDeviceInfo
 operator|->
 name|name
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|dev
