@@ -44,6 +44,9 @@ decl_stmt|;
 name|BOOL
 name|m_inSendEventToFocusObject
 decl_stmt|;
+name|BOOL
+name|m_inSelectionChange
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_expr_stmt
