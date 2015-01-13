@@ -2603,17 +2603,32 @@ condition|(
 name|dialog
 condition|)
 block|{
+comment|// QTBUG-2027, dialogs without system menu.
 name|style
 operator||=
 name|WS_SYSMENU
-operator||
+expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|Qt
+operator|::
+name|FramelessWindowHint
+operator|)
+condition|)
+block|{
+name|style
+operator||=
 name|WS_BORDER
 expr_stmt|;
-comment|// QTBUG-2027, dialogs without system menu.
 name|exStyle
 operator||=
 name|WS_EX_DLGMODALFRAME
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
