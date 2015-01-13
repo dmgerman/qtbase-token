@@ -57,6 +57,10 @@ block|,
 name|DeprecatedFunctions
 init|=
 literal|0x0004
+block|,
+name|ResetNotification
+init|=
+literal|0x0008
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
