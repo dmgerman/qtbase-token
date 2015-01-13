@@ -366,6 +366,15 @@ return|return
 name|m_hintStyle
 return|;
 block|}
+name|bool
+name|noFontHinting
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_noFontHinting
+return|;
+block|}
 name|QFontEngine
 operator|::
 name|SubpixelAntialiasingType
@@ -512,6 +521,9 @@ operator|::
 name|HintStyle
 name|m_hintStyle
 expr_stmt|;
+name|bool
+name|m_noFontHinting
+decl_stmt|;
 name|QFontEngine
 operator|::
 name|SubpixelAntialiasingType
