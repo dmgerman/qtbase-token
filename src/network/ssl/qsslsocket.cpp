@@ -4528,6 +4528,10 @@ name|shutdown
 operator|=
 literal|false
 expr_stmt|;
+name|pendingClose
+operator|=
+literal|false
+expr_stmt|;
 comment|// we don't want to clear the ignoreErrorsList, so
 comment|// that it is possible setting it before connecting
 comment|//    ignoreErrorsList.clear();
