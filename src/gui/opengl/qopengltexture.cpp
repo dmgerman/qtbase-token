@@ -12635,7 +12635,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If using a texture that has a combined depth/stencil format this function sets     which component of the texture is accessed to \a mode.      When the parameter is set to DepthMode, then accessing it from the     shader will access the depth component as a single float, as normal. But when     the parameter is set to StencilMode, the shader will access the stencil component.      \note This function has no effect on Mac and Qt built for OpenGL ES 2.     \sa depthStencilMode() */
+comment|/*!     \enum QOpenGLTexture::DepthStencilMode     \since 5.4     This enum specifies which component of a depth/stencil texture is     accessed when the texture is sampled.      \value DepthMode Equivalent to GL_DEPTH_COMPONENT.     \value StencilMode Equivalent to GL_STENCIL_INDEX. */
+end_comment
+begin_comment
+comment|/*!     If using a texture that has a combined depth/stencil format this function sets     which component of the texture is accessed to \a mode.      When the parameter is set to DepthMode, then accessing it from the     shader will access the depth component as a single float, as normal. But when     the parameter is set to StencilMode, the shader will access the stencil component.      \note This function has no effect on Mac and Qt built for OpenGL ES 2.     \since 5.4     \sa depthStencilMode() */
 end_comment
 begin_function
 DECL|function|setDepthStencilMode
@@ -12767,7 +12770,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the depth stencil mode for textures using a combined depth/stencil format.      \sa setDepthStencilMode() */
+comment|/*!     Returns the depth stencil mode for textures using a combined depth/stencil format.      \since 5.4     \sa setDepthStencilMode() */
 end_comment
 begin_function
 DECL|function|depthStencilMode
