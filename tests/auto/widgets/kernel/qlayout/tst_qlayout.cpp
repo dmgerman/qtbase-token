@@ -1863,6 +1863,25 @@ operator|::
 name|testRetainSizeWhenHidden
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Test does not work on platforms which default to showMaximized()"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QWidget
 name|widget
 decl_stmt|;
