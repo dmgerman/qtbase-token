@@ -927,9 +927,24 @@ comment|/*       The help file write should be allocated once and only once     
 if|if
 condition|(
 name|helpProjectWriter
-operator|==
-literal|0
 condition|)
+name|helpProjectWriter
+operator|->
+name|reset
+argument_list|(
+name|config
+argument_list|,
+name|project
+operator|.
+name|toLower
+argument_list|()
+operator|+
+literal|".qhp"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+else|else
 name|helpProjectWriter
 operator|=
 operator|new
@@ -17907,7 +17922,7 @@ name|replace
 argument_list|(
 literal|"<@param>"
 argument_list|,
-literal|"<i>"
+literal|"<i> "
 argument_list|)
 expr_stmt|;
 name|marked
