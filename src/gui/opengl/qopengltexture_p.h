@@ -515,6 +515,16 @@ name|depthStencilMode
 expr_stmt|;
 name|QOpenGLTexture
 operator|::
+name|ComparisonFunction
+name|comparisonFunction
+expr_stmt|;
+name|QOpenGLTexture
+operator|::
+name|ComparisonMode
+name|comparisonMode
+expr_stmt|;
+name|QOpenGLTexture
+operator|::
 name|Filter
 name|minFilter
 expr_stmt|;

@@ -1165,12 +1165,16 @@ name|Texture1D
 init|=
 literal|0x00002000
 block|,
+name|TextureComparisonOperators
+init|=
+literal|0x00004000
+block|,
 ifndef|#
 directive|ifndef
 name|Q_QDOC
 name|MaxFeatureFlag
 init|=
-literal|0x00004000
+literal|0x00008000
 endif|#
 directive|endif
 block|}
@@ -2040,6 +2044,88 @@ parameter_list|)
 function_decl|;
 name|DepthStencilMode
 name|depthStencilMode
+argument_list|()
+specifier|const
+expr_stmt|;
+enum|enum
+name|ComparisonFunction
+block|{
+name|CompareLessEqual
+init|=
+literal|0x0203
+block|,
+comment|// GL_LEQUAL
+name|CompareGreaterEqual
+init|=
+literal|0x0206
+block|,
+comment|// GL_GEQUAL
+name|CompareLess
+init|=
+literal|0x0201
+block|,
+comment|// GL_LESS
+name|CompareGreater
+init|=
+literal|0x0204
+block|,
+comment|// GL_GREATER
+name|CompareEqual
+init|=
+literal|0x0202
+block|,
+comment|// GL_EQUAL
+name|CommpareNotEqual
+init|=
+literal|0x0205
+block|,
+comment|// GL_NOTEQUAL
+name|CompareAlways
+init|=
+literal|0x0207
+block|,
+comment|// GL_ALWAYS
+name|CompareNever
+init|=
+literal|0x0200
+comment|// GL_NEVER
+block|}
+enum|;
+name|void
+name|setComparisonFunction
+parameter_list|(
+name|ComparisonFunction
+name|function
+parameter_list|)
+function_decl|;
+name|ComparisonFunction
+name|comparisonFunction
+argument_list|()
+specifier|const
+expr_stmt|;
+enum|enum
+name|ComparisonMode
+block|{
+name|CompareRefToTexture
+init|=
+literal|0x884E
+block|,
+comment|// GL_COMPARE_REF_TO_TEXTURE
+name|CompareNone
+init|=
+literal|0x0000
+comment|// GL_NONE
+block|}
+enum|;
+name|void
+name|setComparisonMode
+parameter_list|(
+name|ComparisonMode
+name|mode
+parameter_list|)
+function_decl|;
+name|ComparisonMode
+name|comparisonMode
 argument_list|()
 specifier|const
 expr_stmt|;
