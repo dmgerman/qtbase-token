@@ -10012,7 +10012,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the date part of this datetime to \a date.     If no time is set, it is set to midnight.      \sa date(), setTime(), setTimeSpec() */
+comment|/*!     Sets the date part of this datetime to \a date. If no time is set yet, it     is set to midnight. If \a date is invalid, this QDateTime becomes invalid.      \sa date(), setTime(), setTimeSpec() */
 end_comment
 begin_function
 DECL|function|setDate
@@ -10043,7 +10043,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the time part of this datetime to \a time.      \sa time(), setDate(), setTimeSpec() */
+comment|/*!     Sets the time part of this datetime to \a time. If \a time is not valid,     this function sets it to midnight. Therefore, it's possible to clear any     set time in a QDateTime by setting it to a default QTime:      \code         QDateTime dt = QDateTime::currentDateTime();         dt.setTime(QTime());     \endcode      \sa time(), setDate(), setTimeSpec() */
 end_comment
 begin_function
 DECL|function|setTime
