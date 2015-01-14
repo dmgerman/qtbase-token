@@ -4007,13 +4007,13 @@ begin_comment
 comment|/*! \fn QString QString::fromStdString(const std::string&str)      Returns a copy of the \a str string. The given string is converted     to Unicode using the fromUtf8() function.      \sa fromLatin1(), fromLocal8Bit(), fromUtf8(), QByteArray::fromStdString() */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::fromStdWString(const std::wstring&str)      Returns a copy of the \a str string. The given string is assumed     to be encoded in utf16 if the size of wchar_t is 2 bytes (e.g. on     windows) and ucs4 if the size of wchar_t is 4 bytes (most Unix     systems).      \sa fromUtf16(), fromLatin1(), fromLocal8Bit(), fromUtf8(), fromUcs4() */
+comment|/*! \fn QString QString::fromStdWString(const std::wstring&str)      Returns a copy of the \a str string. The given string is assumed     to be encoded in utf16 if the size of wchar_t is 2 bytes (e.g. on     windows) and ucs4 if the size of wchar_t is 4 bytes (most Unix     systems).      \sa fromUtf16(), fromLatin1(), fromLocal8Bit(), fromUtf8(), fromUcs4(), fromStdU16String(), fromStdU32String() */
 end_comment
 begin_comment
 comment|/*! \fn QString QString::fromWCharArray(const wchar_t *string, int size)     \since 4.2      Returns a copy of the \a string, where the encoding of \a string depends on     the size of wchar. If wchar is 4 bytes, the \a string is interpreted as UCS-4,     if wchar is 2 bytes it is interpreted as UTF-16.      If \a size is -1 (default), the \a string has to be 0 terminated.      \sa fromUtf16(), fromLatin1(), fromLocal8Bit(), fromUtf8(), fromUcs4(), fromStdWString() */
 end_comment
 begin_comment
-comment|/*! \fn std::wstring QString::toStdWString() const      Returns a std::wstring object with the data contained in this     QString. The std::wstring is encoded in utf16 on platforms where     wchar_t is 2 bytes wide (e.g. windows) and in ucs4 on platforms     where wchar_t is 4 bytes wide (most Unix systems).      This method is mostly useful to pass a QString to a function     that accepts a std::wstring object.      \sa utf16(), toLatin1(), toUtf8(), toLocal8Bit() */
+comment|/*! \fn std::wstring QString::toStdWString() const      Returns a std::wstring object with the data contained in this     QString. The std::wstring is encoded in utf16 on platforms where     wchar_t is 2 bytes wide (e.g. windows) and in ucs4 on platforms     where wchar_t is 4 bytes wide (most Unix systems).      This method is mostly useful to pass a QString to a function     that accepts a std::wstring object.      \sa utf16(), toLatin1(), toUtf8(), toLocal8Bit(), toStdU16String(), toStdU32String() */
 end_comment
 begin_function
 DECL|function|toUcs4_helper
@@ -15069,7 +15069,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     of the Unicode string \a unicode (ISO-10646-UTF-16 encoded).      If \a size is -1 (default), \a unicode must be terminated     with a 0.      This function checks for a Byte Order Mark (BOM). If it is missing,     host byte order is assumed.      This function is slow compared to the other Unicode conversions.     Use QString(const QChar *, int) or QString(const QChar *) if possible.      QString makes a deep copy of the Unicode data.      \sa utf16(), setUtf16() */
+comment|/*!     Returns a QString initialized with the first \a size characters     of the Unicode string \a unicode (ISO-10646-UTF-16 encoded).      If \a size is -1 (default), \a unicode must be terminated     with a 0.      This function checks for a Byte Order Mark (BOM). If it is missing,     host byte order is assumed.      This function is slow compared to the other Unicode conversions.     Use QString(const QChar *, int) or QString(const QChar *) if possible.      QString makes a deep copy of the Unicode data.      \sa utf16(), setUtf16(), fromStdU16String() */
 end_comment
 begin_function
 DECL|function|fromUtf16
@@ -15142,7 +15142,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns a QString initialized with the first \a size characters     of the Unicode string \a unicode (ISO-10646-UCS-4 encoded).      If \a size is -1 (default), \a unicode must be terminated     with a 0.      \sa toUcs4(), fromUtf16(), utf16(), setUtf16(), fromWCharArray() */
+comment|/*!     \since 4.2      Returns a QString initialized with the first \a size characters     of the Unicode string \a unicode (ISO-10646-UCS-4 encoded).      If \a size is -1 (default), \a unicode must be terminated     with a 0.      \sa toUcs4(), fromUtf16(), utf16(), setUtf16(), fromWCharArray(), fromStdU32String() */
 end_comment
 begin_function
 DECL|function|fromUcs4
@@ -24736,6 +24736,18 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \fn QString QString::fromStdU16String(const std::u16string&str)     \since 5.5      Returns a copy of the \a str string. The given string is assumed     to be encoded in UTF-16.      \sa fromUtf16(), fromStdWString(), fromStdU32String() */
+end_comment
+begin_comment
+comment|/*!     \fn std::u16string QString::toStdU16String() const     \since 5.5      Returns a std::u16string object with the data contained in this     QString. The Unicode data is the same as returned by the utf16()     method.      \sa utf16(), toStdWString(), toStdU32String() */
+end_comment
+begin_comment
+comment|/*! \fn QString QString::fromStdU32String(const std::u32string&str)     \since 5.5      Returns a copy of the \a str string. The given string is assumed     to be encoded in UCS-4.      \sa fromUcs4(), fromStdWString(), fromStdU16String() */
+end_comment
+begin_comment
+comment|/*!     \fn std::u32string QString::toStdU32String() const     \since 5.5      Returns a std::u32string object with the data contained in this     QString. The Unicode data is the same as returned by the toUcs4()     method.      \sa toUcs4(), toStdWString(), toStdU16String() */
+end_comment
 begin_comment
 comment|/*! \class QLatin1String     \inmodule QtCore     \brief The QLatin1String class provides a thin wrapper around an US-ASCII/Latin-1 encoded string literal.      \ingroup string-processing     \reentrant      Many of QString's member functions are overloaded to accept     \c{const char *} instead of QString. This includes the copy     constructor, the assignment operator, the comparison operators,     and various other functions such as \l{QString::insert()}{insert()}, \l{QString::replace()}{replace()},     and \l{QString::indexOf()}{indexOf()}. These functions     are usually optimized to avoid constructing a QString object for     the \c{const char *} data. For example, assuming \c str is a     QString,      \snippet code/src_corelib_tools_qstring.cpp 3      is much faster than      \snippet code/src_corelib_tools_qstring.cpp 4      because it doesn't construct four temporary QString objects and     make a deep copy of the character data.      Applications that define \c QT_NO_CAST_FROM_ASCII (as explained     in the QString documentation) don't have access to QString's     \c{const char *} API. To provide an efficient way of specifying     constant Latin-1 strings, Qt provides the QLatin1String, which is     just a very thin wrapper around a \c{const char *}. Using     QLatin1String, the example code above becomes      \snippet code/src_corelib_tools_qstring.cpp 5      This is a bit longer to type, but it provides exactly the same     benefits as the first version of the code, and is faster than     converting the Latin-1 strings using QString::fromLatin1().      Thanks to the QString(QLatin1String) constructor,     QLatin1String can be used everywhere a QString is expected. For     example:      \snippet code/src_corelib_tools_qstring.cpp 6      \sa QString, QLatin1Char, {QStringLiteral()}{QStringLiteral} */
 end_comment
