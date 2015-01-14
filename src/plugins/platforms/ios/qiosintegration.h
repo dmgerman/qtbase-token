@@ -33,6 +33,11 @@ include|#
 directive|include
 file|"qiosapplicationstate.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qiosfileenginefactory.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QIOSServices
@@ -262,6 +267,9 @@ name|mutable
 name|QPlatformAccessibility
 modifier|*
 name|m_accessibility
+decl_stmt|;
+name|QIOSFileEngineFactory
+name|m_fileEngineFactory
 decl_stmt|;
 block|}
 end_decl_stmt
