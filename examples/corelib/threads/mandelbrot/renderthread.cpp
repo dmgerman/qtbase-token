@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<cmath>
 end_include
 begin_comment
 comment|//! [0]
@@ -919,6 +919,8 @@ operator|)
 expr_stmt|;
 name|r
 operator|=
+name|std
+operator|::
 name|pow
 argument_list|(
 name|r
@@ -930,6 +932,8 @@ argument_list|)
 expr_stmt|;
 name|g
 operator|=
+name|std
+operator|::
 name|pow
 argument_list|(
 name|g
@@ -941,6 +945,8 @@ argument_list|)
 expr_stmt|;
 name|b
 operator|=
+name|std
+operator|::
 name|pow
 argument_list|(
 name|b

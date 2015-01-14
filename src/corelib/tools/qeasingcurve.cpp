@@ -2100,6 +2100,8 @@ name|x
 parameter_list|)
 block|{
 return|return
+name|std
+operator|::
 name|sqrt
 argument_list|(
 literal|1
@@ -2373,7 +2375,7 @@ specifier|const
 name|qreal
 name|x_plus_one_sqrt
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 literal|1.0
 operator|+
@@ -2384,7 +2386,7 @@ specifier|const
 name|qreal
 name|one_minus_x_sqrt
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 literal|1.0
 operator|-
@@ -2566,7 +2568,7 @@ specifier|const
 name|qreal
 name|D_sqrt
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 name|D
 argument_list|)
@@ -2645,7 +2647,7 @@ specifier|const
 name|qreal
 name|p_minus_sqrt
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 operator|-
 name|p
@@ -2656,7 +2658,7 @@ specifier|const
 name|qreal
 name|f
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 literal|4.0
 operator|/
@@ -2673,7 +2675,7 @@ init|=
 operator|-
 literal|3.0
 operator|*
-name|sqrt
+name|qSqrt
 argument_list|(
 literal|3.0
 argument_list|)

@@ -5197,7 +5197,7 @@ name|rotation
 argument_list|(
 name|qRound
 argument_list|(
-name|cos
+name|qCos
 argument_list|(
 name|angleStep
 argument_list|)
@@ -5207,7 +5207,7 @@ argument_list|)
 argument_list|,
 name|qRound
 argument_list|(
-name|sin
+name|qSin
 argument_list|(
 name|angleStep
 argument_list|)
@@ -5445,7 +5445,7 @@ operator|<<
 literal|16
 operator|)
 operator|/
-name|sqrt
+name|qSqrt
 argument_list|(
 name|qreal
 argument_list|(

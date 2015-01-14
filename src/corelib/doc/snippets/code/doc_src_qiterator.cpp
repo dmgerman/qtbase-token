@@ -1123,6 +1123,8 @@ name|i
 operator|.
 name|setValue
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|val
@@ -1169,6 +1171,8 @@ name|i
 operator|.
 name|setValue
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|val
@@ -1215,6 +1219,8 @@ name|i
 operator|.
 name|setValue
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|val

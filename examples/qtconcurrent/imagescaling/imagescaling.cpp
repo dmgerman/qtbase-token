@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"math.h"
+file|<qmath.h>
 end_include
 begin_decl_stmt
 DECL|variable|imageSize
@@ -414,7 +414,7 @@ expr_stmt|;
 name|int
 name|dim
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 name|qreal
 argument_list|(

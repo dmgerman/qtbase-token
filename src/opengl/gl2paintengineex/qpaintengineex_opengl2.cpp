@@ -2110,7 +2110,9 @@ block|{
 comment|// 0.50 needs to rounded down to 0.0 for consistency with raster engine:
 name|dx
 operator|=
-name|ceilf
+name|std
+operator|::
+name|ceil
 argument_list|(
 name|dx
 operator|-
@@ -2119,7 +2121,9 @@ argument_list|)
 expr_stmt|;
 name|dy
 operator|=
-name|ceilf
+name|std
+operator|::
+name|ceil
 argument_list|(
 name|dy
 operator|-

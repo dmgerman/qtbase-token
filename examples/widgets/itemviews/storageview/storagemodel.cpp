@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qmath.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<cmath>
+end_include
 begin_function
 DECL|function|sizeToString
 specifier|static
@@ -72,6 +77,8 @@ return|;
 name|double
 name|power
 init|=
+name|std
+operator|::
 name|log
 argument_list|(
 operator|(
@@ -80,6 +87,8 @@ operator|)
 name|size
 argument_list|)
 operator|/
+name|std
+operator|::
 name|log
 argument_list|(
 literal|1024.0
@@ -110,6 +119,8 @@ name|normSize
 init|=
 name|size
 operator|/
+name|std
+operator|::
 name|pow
 argument_list|(
 literal|1024.0

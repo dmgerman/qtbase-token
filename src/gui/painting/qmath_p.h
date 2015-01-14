@@ -46,11 +46,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<math.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qmath.h>
 end_include
 begin_decl_stmt
@@ -63,7 +58,7 @@ name|Q_PI
 init|=
 name|qreal
 argument_list|(
-literal|3.14159265358979323846
+name|M_PI
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -80,7 +75,9 @@ name|Q_2PI
 init|=
 name|qreal
 argument_list|(
-literal|6.28318530717958647693
+literal|2
+operator|*
+name|M_PI
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -97,7 +94,7 @@ name|Q_PI2
 init|=
 name|qreal
 argument_list|(
-literal|1.57079632679489661923
+name|M_PI_2
 argument_list|)
 decl_stmt|;
 end_decl_stmt
