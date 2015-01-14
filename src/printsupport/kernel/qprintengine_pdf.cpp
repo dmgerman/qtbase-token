@@ -42,16 +42,6 @@ include|#
 directive|include
 file|<QtGui/qpagelayout.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<limits.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<math.h>
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

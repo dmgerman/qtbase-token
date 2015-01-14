@@ -27,11 +27,6 @@ include|#
 directive|include
 file|"qfontengine_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<math.h>
-end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern

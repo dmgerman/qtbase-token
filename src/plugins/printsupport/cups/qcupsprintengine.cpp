@@ -63,16 +63,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<limits.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<math.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qcore_unix_p.h"
 end_include
 begin_comment

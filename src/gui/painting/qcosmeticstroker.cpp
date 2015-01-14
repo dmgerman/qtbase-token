@@ -17,11 +17,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<math.h>
-end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 if|#

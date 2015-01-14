@@ -196,11 +196,6 @@ include|#
 directive|include
 file|<private/qgesturemanager_p.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<math.h>
-end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|_q_adjustRect

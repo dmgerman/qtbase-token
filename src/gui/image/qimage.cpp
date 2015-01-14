@@ -85,11 +85,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpa/qplatformpixmap.h>
 end_include
 begin_include
