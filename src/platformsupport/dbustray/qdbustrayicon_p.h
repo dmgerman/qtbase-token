@@ -93,6 +93,12 @@ name|QDBusPlatformMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXdgNotificationInterface
+name|class
+name|QXdgNotificationInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QDBusTrayIcon
 range|:
@@ -408,6 +414,22 @@ name|void
 name|attentionTimerExpired
 argument_list|()
 block|;
+name|void
+name|actionInvoked
+argument_list|(
+argument|uint id
+argument_list|,
+argument|const QString&action
+argument_list|)
+block|;
+name|void
+name|notificationClosed
+argument_list|(
+argument|uint id
+argument_list|,
+argument|uint reason
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
@@ -446,6 +468,10 @@ block|;
 name|QDBusPlatformMenu
 operator|*
 name|m_menu
+block|;
+name|QXdgNotificationInterface
+operator|*
+name|m_notifier
 block|;
 name|QString
 name|m_instanceId
