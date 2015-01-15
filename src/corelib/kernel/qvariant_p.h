@@ -68,18 +68,18 @@ include|#
 directive|include
 file|"qmetatypeswitcher_p.h"
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
-name|namespace
-block|{
 name|template
 operator|<
 name|typename
 name|T
 operator|>
 expr|struct
+DECL|struct|QVariantIntegrator
 name|QVariantIntegrator
 block|{
+DECL|member|CanUseInternalSpace
 specifier|static
 specifier|const
 name|bool
@@ -117,6 +117,8 @@ argument_list|)
 operator|)
 block|; }
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|Q_STATIC_ASSERT
 argument_list|(
 name|QVariantIntegrator
@@ -127,11 +129,17 @@ operator|::
 name|CanUseInternalSpace
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_macro
 name|Q_STATIC_ASSERT
 argument_list|(
 argument|QVariantIntegrator<long int>::CanUseInternalSpace
 argument_list|)
+end_macro
+begin_empty_stmt
 empty_stmt|;
+end_empty_stmt
+begin_expr_stmt
 name|Q_STATIC_ASSERT
 argument_list|(
 name|QVariantIntegrator
@@ -142,11 +150,7 @@ operator|::
 name|CanUseInternalSpace
 argument_list|)
 expr_stmt|;
-block|}
-end_decl_stmt
-begin_comment
-comment|// namespace
-end_comment
+end_expr_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -414,8 +418,12 @@ name|QVariant
 operator|::
 name|PrivateShared
 argument_list|(
-argument|&m_t
+operator|&
+name|m_t
 argument_list|)
+block|,
+name|m_t
+argument_list|()
 block|{ }
 name|QVariantPrivateSharedEx
 argument_list|(
