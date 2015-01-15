@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QOpenGLFunctions>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QMatrix4x4>
 end_include
 begin_include
@@ -167,6 +172,17 @@ name|dHeight
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|functions
+init|=
+name|m_context
+operator|->
+name|functions
+argument_list|()
+decl_stmt|;
+name|functions
+operator|->
 name|glViewport
 argument_list|(
 literal|0
@@ -180,6 +196,8 @@ name|dHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|functions
+operator|->
 name|glClearColor
 argument_list|(
 literal|0.f
@@ -191,6 +209,8 @@ argument_list|,
 literal|0.f
 argument_list|)
 expr_stmt|;
+name|functions
+operator|->
 name|glClear
 argument_list|(
 name|GL_COLOR_BUFFER_BIT
