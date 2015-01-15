@@ -2327,7 +2327,7 @@ name|flags
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsUserTristate
 condition|)
 name|state
 operator|=
