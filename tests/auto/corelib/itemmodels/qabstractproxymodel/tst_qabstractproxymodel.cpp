@@ -894,12 +894,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_macro
-name|Q_DECLARE_METATYPE
-argument_list|(
-argument|QItemSelection
-argument_list|)
-end_macro
 begin_function
 DECL|function|mapSelectionFromSource_data
 name|void

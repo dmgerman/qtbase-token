@@ -751,6 +751,18 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
+name|Q_PROPERTY
+argument_list|(
+argument|QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool hasSelection READ hasSelection NOTIFY selectionChanged STORED false DESIGNABLE false
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QModelIndex currentIndex READ currentIndex NOTIFY currentChanged STORED false DESIGNABLE false
+argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QItemSelectionModel
@@ -827,6 +839,8 @@ argument_list|(
 name|QAbstractItemModel
 operator|*
 name|model
+operator|=
+literal|0
 argument_list|)
 block|;
 name|explicit
@@ -851,6 +865,7 @@ name|currentIndex
 argument_list|()
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|bool
 name|isSelected
 argument_list|(
@@ -858,6 +873,7 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|bool
 name|isRowSelected
 argument_list|(
@@ -867,6 +883,7 @@ argument|const QModelIndex&parent
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|bool
 name|isColumnSelected
 argument_list|(
@@ -876,6 +893,7 @@ argument|const QModelIndex&parent
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|bool
 name|rowIntersectsSelection
 argument_list|(
@@ -885,6 +903,7 @@ argument|const QModelIndex&parent
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|bool
 name|columnIntersectsSelection
 argument_list|(
@@ -899,11 +918,13 @@ name|hasSelection
 argument_list|()
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|QModelIndexList
 name|selectedIndexes
 argument_list|()
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|QModelIndexList
 name|selectedRows
 argument_list|(
@@ -912,6 +933,7 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|QModelIndexList
 name|selectedColumns
 argument_list|(
@@ -920,18 +942,33 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 specifier|const
 name|QItemSelection
 name|selection
 argument_list|()
 specifier|const
 block|;
+comment|// ### Qt 6: Merge these two as "QAbstractItemModel *model() const"
 specifier|const
 name|QAbstractItemModel
 operator|*
 name|model
 argument_list|()
 specifier|const
+block|;
+name|QAbstractItemModel
+operator|*
+name|model
+argument_list|()
+block|;
+name|void
+name|setModel
+argument_list|(
+name|QAbstractItemModel
+operator|*
+name|model
+argument_list|)
 block|;
 name|public
 name|Q_SLOTS
@@ -1038,6 +1075,14 @@ specifier|const
 name|QModelIndex
 operator|&
 name|previous
+argument_list|)
+block|;
+name|void
+name|modelChanged
+argument_list|(
+name|QAbstractItemModel
+operator|*
+name|model
 argument_list|)
 block|;
 name|protected
@@ -1251,9 +1296,17 @@ end_endif
 begin_comment
 comment|// QT_NO_ITEMVIEWS
 end_comment
-begin_macro
+begin_decl_stmt
 name|QT_END_NAMESPACE
-end_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QItemSelectionRange
+argument_list|)
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QItemSelection
+argument_list|)
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
