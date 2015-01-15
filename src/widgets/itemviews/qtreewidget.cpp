@@ -11111,7 +11111,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns the widget displayed in the cell specified by \a item and the given \a column.      \note The tree takes ownership of the widget.  */
+comment|/*!     \since 4.1      Returns the widget displayed in the cell specified by \a item and the given \a column.  */
 end_comment
 begin_function
 DECL|function|itemWidget
