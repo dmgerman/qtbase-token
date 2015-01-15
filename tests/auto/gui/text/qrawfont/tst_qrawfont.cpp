@@ -5176,7 +5176,10 @@ name|invalidData
 operator|.
 name|fill
 argument_list|(
+name|char
+argument_list|(
 literal|255
+argument_list|)
 argument_list|,
 literal|1024
 argument_list|)

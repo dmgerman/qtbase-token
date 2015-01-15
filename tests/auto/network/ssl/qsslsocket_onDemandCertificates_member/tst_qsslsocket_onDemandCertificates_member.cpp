@@ -882,6 +882,10 @@ operator|=
 literal|false
 expr_stmt|;
 comment|// on Windows, this won't work even though we use on demand loading
+name|Q_UNUSED
+argument_list|(
+argument|rootCertLoadingAllowed
+argument_list|)
 else|#
 directive|else
 name|works

@@ -836,6 +836,12 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|rootCertLoadingAllowed
+argument_list|)
 endif|#
 directive|endif
 comment|// other platforms: undecided (Windows: depends on the version)

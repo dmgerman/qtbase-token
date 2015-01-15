@@ -457,7 +457,6 @@ name|eventFilter
 operator|(
 name|QObject
 operator|*
-name|o
 operator|,
 name|QEvent
 operator|*

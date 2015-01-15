@@ -708,7 +708,6 @@ name|sslErrors
 parameter_list|(
 name|QNetworkReply
 modifier|*
-name|reply
 parameter_list|,
 specifier|const
 name|QList

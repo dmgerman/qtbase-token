@@ -22,16 +22,10 @@ include|#
 directive|include
 file|<qpen.h>
 end_include
-begin_define
-DECL|macro|_USE_MATH_DEFINES
-define|#
-directive|define
-name|_USE_MATH_DEFINES
-end_define
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<qmath.h>
 end_include
 begin_class
 DECL|class|tst_QPainterPath

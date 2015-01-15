@@ -21307,7 +21307,7 @@ name|QVERIFY_TYPE
 parameter_list|(
 name|Type
 parameter_list|)
-value|QVERIFY(sizeof(Type))
+value|QVERIFY(sizeof(Type)> 0)
 end_define
 begin_function
 template|template
