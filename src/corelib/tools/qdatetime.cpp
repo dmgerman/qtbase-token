@@ -9777,9 +9777,6 @@ modifier|&
 name|date
 parameter_list|)
 block|{
-name|detach
-argument_list|()
-expr_stmt|;
 name|d
 operator|->
 name|setDateTime
@@ -9808,9 +9805,6 @@ modifier|&
 name|time
 parameter_list|)
 block|{
-name|detach
-argument_list|()
-expr_stmt|;
 name|d
 operator|->
 name|setDateTime
@@ -9839,9 +9833,18 @@ name|TimeSpec
 name|spec
 parameter_list|)
 block|{
-name|detach
+name|QDateTimePrivate
+modifier|*
+name|d
+init|=
+name|this
+operator|->
+name|d
+operator|.
+name|data
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+comment|// detaches (and shadows d)
 name|d
 operator|->
 name|setTimeSpec
@@ -9872,9 +9875,18 @@ name|int
 name|offsetSeconds
 parameter_list|)
 block|{
-name|detach
+name|QDateTimePrivate
+modifier|*
+name|d
+init|=
+name|this
+operator|->
+name|d
+operator|.
+name|data
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+comment|// detaches (and shadows d)
 name|d
 operator|->
 name|setTimeSpec
@@ -9914,9 +9926,18 @@ modifier|&
 name|toZone
 parameter_list|)
 block|{
-name|detach
+name|QDateTimePrivate
+modifier|*
+name|d
+init|=
+name|this
+operator|->
+name|d
+operator|.
+name|data
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+comment|// detaches (and shadows d)
 name|d
 operator|->
 name|m_spec
@@ -10047,9 +10068,18 @@ name|qint64
 name|msecs
 parameter_list|)
 block|{
-name|detach
+name|QDateTimePrivate
+modifier|*
+name|d
+init|=
+name|this
+operator|->
+name|d
+operator|.
+name|data
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+comment|// detaches (and shadows d)
 name|d
 operator|->
 name|m_status
@@ -10821,11 +10851,6 @@ operator|*
 name|this
 argument_list|)
 decl_stmt|;
-name|dt
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|QPair
 argument_list|<
 name|QDate
@@ -10986,11 +11011,6 @@ operator|*
 name|this
 argument_list|)
 decl_stmt|;
-name|dt
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|QPair
 argument_list|<
 name|QDate
@@ -11151,11 +11171,6 @@ operator|*
 name|this
 argument_list|)
 decl_stmt|;
-name|dt
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|QPair
 argument_list|<
 name|QDate
@@ -11351,11 +11366,6 @@ operator|*
 name|this
 argument_list|)
 decl_stmt|;
-name|dt
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|d
@@ -12704,11 +12714,6 @@ block|{
 name|QDateTime
 name|dt
 decl_stmt|;
-name|dt
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|dt
 operator|.
 name|d
@@ -14153,24 +14158,6 @@ begin_comment
 comment|/*!     \fn QDateTime QDateTime::toUTC() const      Returns a datetime containing the date and time information in     this datetime, but specified using the Qt::UTC definition.      Example:      \snippet code/src_corelib_tools_qdatetime.cpp 18      \sa toTimeSpec() */
 end_comment
 begin_comment
-comment|/*!     \internal  */
-end_comment
-begin_function
-DECL|function|detach
-name|void
-name|QDateTime
-operator|::
-name|detach
-parameter_list|()
-block|{
-name|d
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*****************************************************************************   Date/time stream functions  *****************************************************************************/
 end_comment
 begin_ifndef
@@ -14700,11 +14687,6 @@ modifier|&
 name|dateTime
 parameter_list|)
 block|{
-name|dateTime
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|QDate
 name|dt
 decl_stmt|;
