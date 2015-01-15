@@ -391,19 +391,6 @@ DECL|member|embedded
 name|bool
 name|embedded
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_OPENGL
-DECL|member|staticOpenGLContext
-name|QSharedPointer
-operator|<
-name|QWindowsStaticOpenGLContext
-operator|>
-name|staticOpenGLContext
-expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_OPENGL
 specifier|static
 name|QWindowsWindowData
 name|create
