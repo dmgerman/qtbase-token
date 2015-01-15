@@ -417,6 +417,16 @@ name|systemTimeZoneId
 parameter_list|()
 function_decl|;
 specifier|static
+name|QTimeZone
+name|systemTimeZone
+parameter_list|()
+function_decl|;
+specifier|static
+name|QTimeZone
+name|utc
+parameter_list|()
+function_decl|;
+specifier|static
 name|bool
 name|isTimeZoneIdAvailable
 parameter_list|(
