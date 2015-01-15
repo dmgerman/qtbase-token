@@ -764,13 +764,24 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|context
 operator|->
 name|makeCurrent
 argument_list|(
 name|window
 argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"composeAndFlush: makeCurrent() failed"
+argument_list|)
 expr_stmt|;
+return|return;
+block|}
 name|QOpenGLFunctions
 modifier|*
 name|funcs
