@@ -388,6 +388,17 @@ init|=
 literal|true
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|member|qmlTypeContext_
+name|QmlClassNode
+modifier|*
+name|Generator
+operator|::
+name|qmlTypeContext_
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|startDebugging
 name|void
