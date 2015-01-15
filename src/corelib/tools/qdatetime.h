@@ -2008,7 +2008,7 @@ function_decl|;
 comment|// ### Qt6: Using a private here has high impact on runtime
 comment|// on users such as QFileInfo. In Qt 6, the data members
 comment|// should be inlined.
-name|QExplicitlySharedDataPointer
+name|QSharedDataPointer
 operator|<
 name|QDateTimePrivate
 operator|>

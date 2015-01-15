@@ -143,18 +143,17 @@ name|ValidDate
 operator|=
 literal|0x04
 block|,
+comment|// just the date field
 name|ValidTime
 operator|=
 literal|0x08
 block|,
+comment|// just the time field
 name|ValidDateTime
 operator|=
 literal|0x10
 block|,
-name|TimeZoneCached
-operator|=
-literal|0x20
-block|,
+comment|// the whole object (including timezone)
 name|SetToStandardTime
 operator|=
 literal|0x40
@@ -303,19 +302,7 @@ name|qint64
 name|toMSecsSinceEpoch
 argument_list|()
 specifier|const
-block|{
-return|return
-operator|(
-name|m_msecs
-operator|-
-operator|(
-name|m_offsetFromUtc
-operator|*
-literal|1000
-operator|)
-operator|)
-return|;
-block|}
+block|;
 name|void
 name|checkValidDateTime
 argument_list|()
@@ -405,37 +392,6 @@ operator|~
 name|ValidDateTime
 block|; }
 specifier|inline
-name|bool
-name|isTimeZoneCached
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_status
-operator|&
-name|TimeZoneCached
-return|;
-block|}
-specifier|inline
-name|void
-name|setTimeZoneCached
-argument_list|()
-block|{
-name|m_status
-operator||=
-name|TimeZoneCached
-block|; }
-specifier|inline
-name|void
-name|clearTimeZoneCached
-argument_list|()
-block|{
-name|m_status
-operator|&=
-operator|~
-name|TimeZoneCached
-block|; }
-specifier|inline
 name|void
 name|clearSetToDaylightStatus
 argument_list|()
@@ -460,9 +416,11 @@ argument|qint64 msecs
 argument_list|,
 argument|const QTimeZone&zone
 argument_list|,
-argument|QDate *localDate
+argument|QDate *localDate =
+literal|0
 argument_list|,
-argument|QTime *localTime
+argument|QTime *localTime =
+literal|0
 argument_list|)
 block|;
 endif|#
