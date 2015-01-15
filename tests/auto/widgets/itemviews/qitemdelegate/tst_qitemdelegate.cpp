@@ -6162,16 +6162,6 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|QRect
-argument_list|>
-argument_list|(
-literal|"rect"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|addColumn
-argument_list|<
 name|int
 argument_list|>
 argument_list|(
@@ -6278,17 +6268,6 @@ argument_list|(
 literal|"unchecked, checkable, release"
 argument_list|)
 operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-operator|<<
 call|(
 name|int
 call|)
@@ -6336,17 +6315,6 @@ operator|::
 name|newRow
 argument_list|(
 literal|"checked, checkable, release"
-argument_list|)
-operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
 argument_list|)
 operator|<<
 call|(
@@ -6398,17 +6366,6 @@ argument_list|(
 literal|"unchecked, checkable, release"
 argument_list|)
 operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-operator|<<
 call|(
 name|int
 call|)
@@ -6456,17 +6413,6 @@ operator|::
 name|newRow
 argument_list|(
 literal|"unchecked, checkable, release, right button"
-argument_list|)
-operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
 argument_list|)
 operator|<<
 call|(
@@ -6518,17 +6464,6 @@ argument_list|(
 literal|"unchecked, checkable, release outside"
 argument_list|)
 operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-operator|<<
 call|(
 name|int
 call|)
@@ -6578,17 +6513,6 @@ argument_list|(
 literal|"unchecked, checkable, dblclick"
 argument_list|)
 operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-operator|<<
 call|(
 name|int
 call|)
@@ -6636,17 +6560,6 @@ operator|::
 name|newRow
 argument_list|(
 literal|"unchecked, tristate, release"
-argument_list|)
-operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
 argument_list|)
 operator|<<
 call|(
@@ -6707,17 +6620,6 @@ argument_list|(
 literal|"partially checked, tristate, release"
 argument_list|)
 operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
-argument_list|)
-operator|<<
 call|(
 name|int
 call|)
@@ -6774,17 +6676,6 @@ operator|::
 name|newRow
 argument_list|(
 literal|"checked, tristate, release"
-argument_list|)
-operator|<<
-name|QRect
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|20
-argument_list|,
-literal|20
 argument_list|)
 operator|<<
 call|(
@@ -6848,13 +6739,6 @@ operator|::
 name|editorEvent
 parameter_list|()
 block|{
-name|QFETCH
-argument_list|(
-name|QRect
-argument_list|,
-name|rect
-argument_list|)
-expr_stmt|;
 name|QFETCH
 argument_list|(
 name|int
@@ -6981,7 +6865,16 @@ name|option
 operator|.
 name|rect
 operator|=
-name|rect
+name|QRect
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|20
+argument_list|,
+literal|20
+argument_list|)
 expr_stmt|;
 name|option
 operator|.
