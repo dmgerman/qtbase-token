@@ -11088,8 +11088,8 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
-name|d
-operator|->
+name|QDateTimePrivate
+operator|::
 name|zoneMSecsToEpochMSecs
 argument_list|(
 name|timeToMSecs
@@ -11224,8 +11224,8 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
-name|d
-operator|->
+name|QDateTimePrivate
+operator|::
 name|zoneMSecsToEpochMSecs
 argument_list|(
 name|timeToMSecs
@@ -11360,8 +11360,8 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
-name|d
-operator|->
+name|QDateTimePrivate
+operator|::
 name|zoneMSecsToEpochMSecs
 argument_list|(
 name|timeToMSecs
