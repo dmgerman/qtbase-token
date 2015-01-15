@@ -520,6 +520,10 @@ block|,
 name|InputMethodDisabled
 operator|=
 literal|0x100000
+block|,
+name|Compositing
+operator|=
+literal|0x200000
 block|}
 block|;
 name|QWindowsWindow
@@ -1253,6 +1257,10 @@ name|void
 operator|*
 name|nativeConfig
 argument_list|)
+block|;
+name|void
+name|aboutToMakeCurrent
+argument_list|()
 block|;
 ifndef|#
 directive|ifndef

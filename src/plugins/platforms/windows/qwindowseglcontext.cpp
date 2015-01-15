@@ -5559,6 +5559,11 @@ argument_list|(
 name|surface
 argument_list|)
 decl_stmt|;
+name|window
+operator|->
+name|aboutToMakeCurrent
+argument_list|()
+expr_stmt|;
 name|EGLSurface
 name|eglSurface
 init|=

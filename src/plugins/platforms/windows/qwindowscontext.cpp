@@ -1992,9 +1992,6 @@ specifier|const
 name|QWindow
 modifier|*
 name|w
-parameter_list|,
-name|bool
-name|isGL
 parameter_list|)
 block|{
 name|Q_ASSERT
@@ -2036,9 +2033,18 @@ name|icon
 init|=
 literal|true
 decl_stmt|;
+comment|// The following will not set CS_OWNDC for any widget window, even if it contains a
+comment|// QOpenGLWidget or QQuickWidget later on. That cannot be detected at this stage.
 if|if
 condition|(
-name|isGL
+name|w
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|OpenGLSurface
 operator|||
 operator|(
 name|flags
@@ -2206,17 +2212,6 @@ break|break;
 default|default:
 break|break;
 block|}
-if|if
-condition|(
-name|isGL
-condition|)
-name|cname
-operator|+=
-name|QStringLiteral
-argument_list|(
-literal|"GL"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|style

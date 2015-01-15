@@ -624,9 +624,6 @@ specifier|const
 name|QWindow
 modifier|*
 name|w
-parameter_list|,
-name|bool
-name|isGL
 parameter_list|)
 function_decl|;
 name|QString
