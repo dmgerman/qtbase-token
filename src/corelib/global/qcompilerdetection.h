@@ -2230,12 +2230,6 @@ directive|define
 name|Q_COMPILER_TEMPLATE_ALIAS
 end_define
 begin_define
-DECL|macro|Q_COMPILER_UNICODE_STRINGS
-define|#
-directive|define
-name|Q_COMPILER_UNICODE_STRINGS
-end_define
-begin_define
 DECL|macro|Q_COMPILER_VARIADIC_TEMPLATES
 define|#
 directive|define
@@ -2340,6 +2334,12 @@ DECL|macro|Q_COMPILER_REF_QUALIFIERS
 define|#
 directive|define
 name|Q_COMPILER_REF_QUALIFIERS
+end_define
+begin_define
+DECL|macro|Q_COMPILER_UNICODE_STRINGS
+define|#
+directive|define
+name|Q_COMPILER_UNICODE_STRINGS
 end_define
 begin_define
 DECL|macro|Q_COMPILER_UNRESTRICTED_UNIONS
