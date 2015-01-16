@@ -231,14 +231,14 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"dbus-1"
 argument_list|)
 block|,
 endif|#
 directive|endif
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"libdbus-1"
 argument_list|)

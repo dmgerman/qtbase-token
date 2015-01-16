@@ -1282,6 +1282,20 @@ name|DEFINEFUNC
 argument_list|(
 argument|void
 argument_list|,
+argument|dbus_server_free_data_slot
+argument_list|,
+argument|(dbus_int32_t     *slot_p)
+argument_list|,
+argument|(slot_p)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
 argument|dbus_server_disconnect
 argument_list|,
 argument|(DBusServer     *server)

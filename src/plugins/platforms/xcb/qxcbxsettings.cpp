@@ -17,11 +17,23 @@ include|#
 directive|include
 file|<QtCore/QtEndian>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+end_ifdef
 begin_include
 include|#
 directive|include
 file|<X11/extensions/XIproto.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//XCB_USE_XLIB
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/* Implementation of http://standards.freedesktop.org/xsettings-spec/xsettings-0.5.html */
@@ -427,6 +439,9 @@ operator|-
 name|remainder
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
 DECL|function|populateSettings
 name|void
 name|populateSettings
@@ -915,6 +930,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
+comment|//XCB_USE_XLIB
 DECL|member|screen
 name|QXcbScreen
 modifier|*
@@ -1149,6 +1167,9 @@ argument_list|,
 name|event_mask
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
 name|d_ptr
 operator|->
 name|populateSettings
@@ -1165,6 +1186,9 @@ name|initialized
 operator|=
 literal|true
 expr_stmt|;
+endif|#
+directive|endif
+comment|//XCB_USE_XLIB
 block|}
 end_constructor
 begin_destructor
@@ -1235,6 +1259,9 @@ operator|->
 name|x_settings_window
 condition|)
 return|return;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
 name|d
 operator|->
 name|populateSettings
@@ -1245,6 +1272,9 @@ name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|//XCB_USE_XLIB
 block|}
 end_function
 begin_function

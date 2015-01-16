@@ -3931,6 +3931,11 @@ argument_list|(
 name|pal
 argument_list|)
 expr_stmt|;
+name|widget
+operator|->
+name|show
+argument_list|()
+expr_stmt|;
 name|QFont
 name|font
 init|=

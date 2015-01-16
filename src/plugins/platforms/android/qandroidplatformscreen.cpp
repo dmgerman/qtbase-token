@@ -1866,8 +1866,12 @@ condition|(
 name|surface
 operator|&&
 name|w
+operator|>
+literal|0
 operator|&&
 name|h
+operator|>
+literal|0
 condition|)
 block|{
 name|releaseSurface

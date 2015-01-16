@@ -5,10 +5,10 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<qmath.h>
 end_include
 begin_comment
-comment|// isnan
+comment|// qIsNan
 end_comment
 begin_include
 include|#
@@ -1792,12 +1792,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|isnan
+name|qIsNaN
 argument_list|(
 name|d1
 argument_list|)
 operator|&&
-name|isnan
+name|qIsNaN
 argument_list|(
 name|d2
 argument_list|)

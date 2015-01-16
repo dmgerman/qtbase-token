@@ -1053,52 +1053,8 @@ literal|" $(DEFINES)\n"
 expr_stmt|;
 name|t
 operator|<<
-literal|"INCPATH       = -I"
-operator|<<
-name|specdir
-argument_list|()
+literal|"INCPATH       ="
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_include_pwd"
-argument_list|)
-condition|)
-block|{
-name|QString
-name|pwd
-init|=
-name|escapeFilePath
-argument_list|(
-name|fileFixify
-argument_list|(
-name|qmake_getpwd
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|pwd
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|pwd
-operator|=
-literal|"."
-expr_stmt|;
-name|t
-operator|<<
-literal|" -I"
-operator|<<
-name|pwd
-expr_stmt|;
-block|}
 block|{
 name|QString
 name|isystem
@@ -7789,14 +7745,26 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
 name|project
 operator|->
 name|isActiveConfig
 argument_list|(
 literal|"staticlib"
 argument_list|)
-operator|&&
+condition|)
+block|{
+name|t
+operator|<<
+literal|"\t-$(DEL_FILE) "
+operator|<<
+name|destdir
+operator|<<
+literal|"$(TARGET) \n"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|project
 operator|->
 name|values
@@ -7864,11 +7832,7 @@ else|else
 block|{
 name|t
 operator|<<
-literal|"\t-$(DEL_FILE) "
-operator|<<
-name|destdir
-operator|<<
-literal|"$(TARGET) \n"
+literal|"\t-$(DEL_FILE) $(TARGET) \n"
 expr_stmt|;
 block|}
 name|t

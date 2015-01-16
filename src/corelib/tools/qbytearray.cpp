@@ -60,6 +60,11 @@ end_ifndef
 begin_include
 include|#
 directive|include
+file|<zconf.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<zlib.h>
 end_include
 begin_endif

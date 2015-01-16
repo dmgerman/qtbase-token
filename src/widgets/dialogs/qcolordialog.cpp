@@ -8683,7 +8683,8 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_OS_WIN32
+comment|// excludes WinCE and WinRT
 comment|// On Windows mouse tracking doesn't work over other processes's windows
 name|updateTimer
 operator|->
@@ -8692,6 +8693,14 @@ argument_list|(
 literal|30
 argument_list|)
 expr_stmt|;
+comment|// HACK: Because mouse grabbing doesn't work across processes, we have to have a dummy,
+comment|// invisible window to catch the mouse click, otherwise we will click whatever we clicked
+comment|// and loose focus.
+name|dummyTransparentWindow
+operator|.
+name|show
+argument_list|()
+expr_stmt|;
 endif|#
 directive|endif
 name|q
@@ -8699,7 +8708,7 @@ operator|->
 name|grabKeyboard
 argument_list|()
 expr_stmt|;
-comment|/* With setMouseTracking(true) the desired color can be more precisedly picked up,      * and continuously pushing the mouse button is not necessary.      */
+comment|/* With setMouseTracking(true) the desired color can be more precisely picked up,      * and continuously pushing the mouse button is not necessary.      */
 name|q
 operator|->
 name|setMouseTracking
@@ -8822,11 +8831,18 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_OS_WIN32
 name|updateTimer
 operator|->
 name|stop
 argument_list|()
+expr_stmt|;
+name|dummyTransparentWindow
+operator|.
+name|setVisible
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -8944,6 +8960,33 @@ name|Q_WS_MAC
 name|delegate
 operator|=
 literal|0
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN32
+name|dummyTransparentWindow
+operator|.
+name|resize
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|dummyTransparentWindow
+operator|.
+name|setFlags
+argument_list|(
+name|Qt
+operator|::
+name|Tool
+operator||
+name|Qt
+operator|::
+name|FramelessWindowHint
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -10014,7 +10057,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_OS_WIN32
 name|updateTimer
 operator|=
 operator|new
@@ -11460,12 +11503,26 @@ name|newGlobalPos
 argument_list|)
 argument_list|)
 condition|)
+block|{
 comment|// Inside the dialog mouse tracking works, handleColorPickingMouseMove will be called
 name|updateColorPicking
 argument_list|(
 name|newGlobalPos
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN32
+name|dummyTransparentWindow
+operator|.
+name|setPosition
+argument_list|(
+name|newGlobalPos
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 endif|#
 directive|endif
 comment|// ! QT_NO_CURSOR
