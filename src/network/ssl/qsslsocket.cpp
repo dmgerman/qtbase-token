@@ -1297,6 +1297,14 @@ if|if
 condition|(
 name|encryptedBytesToWrite
 argument_list|()
+operator|||
+operator|!
+name|d
+operator|->
+name|writeBuffer
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 name|flush
 argument_list|()
