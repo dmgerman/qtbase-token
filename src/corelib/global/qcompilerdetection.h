@@ -429,12 +429,6 @@ directive|define
 name|Q_CC_GNU
 value|(__GNUC__ * 100 + __GNUC_MINOR__)
 end_define
-begin_define
-DECL|macro|Q_C_CALLBACKS
-define|#
-directive|define
-name|Q_C_CALLBACKS
-end_define
 begin_if
 if|#
 directive|if
@@ -1283,12 +1277,6 @@ define|#
 directive|define
 name|Q_CC_COMEAU
 end_define
-begin_define
-DECL|macro|Q_C_CALLBACKS
-define|#
-directive|define
-name|Q_C_CALLBACKS
-end_define
 begin_comment
 comment|/* The `using' keyword was introduced to avoid KAI C++ warnings    but it's now causing KAI C++ errors instead. The standard is    unclear about the use of this keyword, and in practice every    compiler is using its own set of rules. Forget it. */
 end_comment
@@ -1708,12 +1696,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_C_CALLBACKS
-define|#
-directive|define
-name|Q_C_CALLBACKS
-end_define
 begin_comment
 comment|/* 4.2 compiler or older */
 end_comment
