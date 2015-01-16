@@ -2308,6 +2308,13 @@ name|BatchExecutionMode
 name|mode
 parameter_list|)
 block|{
+name|d
+operator|->
+name|sqlResult
+operator|->
+name|resetBindCount
+argument_list|()
+expr_stmt|;
 return|return
 name|d
 operator|->
