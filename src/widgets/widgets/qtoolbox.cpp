@@ -1191,14 +1191,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|QString
-name|text
-init|=
-name|QAbstractButton
-operator|::
-name|text
-argument_list|()
-decl_stmt|;
 name|QPainter
 modifier|*
 name|p
