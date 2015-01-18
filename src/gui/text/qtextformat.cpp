@@ -1147,9 +1147,15 @@ control|)
 name|hashValue
 operator|+=
 operator|(
+cast|static_cast
+argument_list|<
+name|quint32
+argument_list|>
+argument_list|(
 name|it
 operator|->
 name|key
+argument_list|)
 operator|<<
 literal|16
 operator|)
