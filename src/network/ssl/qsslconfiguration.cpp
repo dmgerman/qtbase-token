@@ -863,7 +863,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the socket's SSL/TLS protocol or UnknownProtocol if the     connection isn't encrypted. The socket's protocol for the session     is set during the handshake phase.      \sa protocol(), setProtocol() */
+comment|/*!     Returns the socket's SSL/TLS protocol or UnknownProtocol if the     connection isn't encrypted. The socket's protocol for the session     is set during the handshake phase.      \sa protocol(), setProtocol()     \since 5.4 */
 end_comment
 begin_function
 DECL|function|sessionProtocol
