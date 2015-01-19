@@ -2849,6 +2849,14 @@ argument_list|,
 name|rotation
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|arrow
+operator|.
+name|isNull
+argument_list|()
+condition|)
+break|break;
 name|QRect
 name|rect
 init|=

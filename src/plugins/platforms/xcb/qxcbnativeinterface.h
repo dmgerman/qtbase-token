@@ -97,6 +97,8 @@ block|,
 name|ScreenSubpixelType
 block|,
 name|ScreenAntialiasingEnabled
+block|,
+name|NoFontHinting
 block|}
 block|;
 name|QXcbNativeInterface

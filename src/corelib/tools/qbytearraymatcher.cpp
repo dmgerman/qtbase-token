@@ -947,7 +947,7 @@ parameter_list|(
 name|a
 parameter_list|)
 define|\
-value|if (sl_minus_1< sizeof(uint) * CHAR_BIT) \         hashHaystack -= (a)<< sl_minus_1; \     hashHaystack<<= 1
+value|if (sl_minus_1< sizeof(uint) * CHAR_BIT) \         hashHaystack -= uint(a)<< sl_minus_1; \     hashHaystack<<= 1
 end_define
 begin_comment
 comment|/*!     \internal  */

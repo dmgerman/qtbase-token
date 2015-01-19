@@ -110,7 +110,10 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|LocalTime
+name|OffsetFromUTC
+argument_list|,
+literal|120
+comment|/* 2 minutes */
 argument_list|)
 decl_stmt|;
 name|QCOMPARE

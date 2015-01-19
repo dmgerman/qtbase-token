@@ -185,6 +185,18 @@ argument_list|(
 argument|glyph_t g
 argument_list|)
 block|;
+name|glyph_metrics_t
+name|alphaMapBoundingBox
+argument_list|(
+argument|glyph_t glyph
+argument_list|,
+argument|QFixed
+argument_list|,
+argument|const QTransform&matrix
+argument_list|,
+argument|GlyphFormat
+argument_list|)
+block|;
 name|QFixed
 name|ascent
 argument_list|()

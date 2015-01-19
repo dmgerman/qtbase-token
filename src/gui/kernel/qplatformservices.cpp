@@ -25,6 +25,14 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPlatformServices     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformServices provides the backend for desktop-related functionality. */
+DECL|function|QPlatformServices
+name|QPlatformServices
+operator|::
+name|QPlatformServices
+parameter_list|()
+block|{ }
+end_function
+begin_function
 DECL|function|openUrl
 name|bool
 name|QPlatformServices

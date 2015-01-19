@@ -27496,7 +27496,7 @@ return|return
 name|array
 return|;
 block|}
-comment|/*!     \since 4.2      Restores the geometry and state top-level widgets stored in the     byte array \a geometry. Returns \c true on success; otherwise     returns \c false.      If the restored geometry is off-screen, it will be modified to be     inside the available screen geometry.      To restore geometry saved using QSettings, you can use code like     this:      \snippet code/src_gui_kernel_qwidget.cpp 12      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      Use QMainWindow::restoreState() to restore the geometry and the     state of toolbars and dock widgets.      \sa saveGeometry(), QSettings, QMainWindow::saveState(), QMainWindow::restoreState() */
+comment|/*!     \since 4.2      Restores the geometry and state of top-level widgets stored in the     byte array \a geometry. Returns \c true on success; otherwise     returns \c false.      If the restored geometry is off-screen, it will be modified to be     inside the available screen geometry.      To restore geometry saved using QSettings, you can use code like     this:      \snippet code/src_gui_kernel_qwidget.cpp 12      See the \l{Window Geometry} documentation for an overview of geometry     issues with windows.      Use QMainWindow::restoreState() to restore the geometry and the     state of toolbars and dock widgets.      \sa saveGeometry(), QSettings, QMainWindow::saveState(), QMainWindow::restoreState() */
 DECL|function|restoreGeometry
 name|bool
 name|QWidget
@@ -46493,7 +46493,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QWidget::grabMouse()      Grabs the mouse input.      This widget receives all mouse events until releaseMouse() is     called; other widgets get no mouse events at all. Keyboard     events are not affected. Use grabKeyboard() if you want to grab     that.      \warning Bugs in mouse-grabbing applications very often lock the     terminal. Use this function with extreme caution, and consider     using the \c -nograb command line option while debugging.      It is almost never necessary to grab the mouse when using Qt, as     Qt grabs and releases it sensibly. In particular, Qt grabs the     mouse when a mouse button is pressed and keeps it until the last     button is released.      \note Only visible widgets can grab mouse input. If isVisible()     returns \c false for a widget, that widget cannot call grabMouse().      \note \b{(Mac OS X developers)} For \e Cocoa, calling     grabMouse() on a widget only works when the mouse is inside the     frame of that widget.  For \e Carbon, it works outside the widget's     frame as well, like for Windows and X11.      \sa releaseMouse(), grabKeyboard(), releaseKeyboard() */
+comment|/*!     \fn void QWidget::grabMouse()      Grabs the mouse input.      This widget receives all mouse events until releaseMouse() is     called; other widgets get no mouse events at all. Keyboard     events are not affected. Use grabKeyboard() if you want to grab     that.      \warning Bugs in mouse-grabbing applications very often lock the     terminal. Use this function with extreme caution, and consider     using the \c -nograb command line option while debugging.      It is almost never necessary to grab the mouse when using Qt, as     Qt grabs and releases it sensibly. In particular, Qt grabs the     mouse when a mouse button is pressed and keeps it until the last     button is released.      \note Only visible widgets can grab mouse input. If isVisible()     returns \c false for a widget, that widget cannot call grabMouse().      \note On Windows, grabMouse() only works when the mouse is inside a window     owned by the process.     On OS X, grabMouse() only works when the mouse is inside the frame of that widget.      \sa releaseMouse(), grabKeyboard(), releaseKeyboard() */
 end_comment
 begin_function
 DECL|function|grabMouse
@@ -46511,7 +46511,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QWidget::grabMouse(const QCursor&cursor)     \overload grabMouse()      Grabs the mouse input and changes the cursor shape.      The cursor will assume shape \a cursor (for as long as the mouse     focus is grabbed) and this widget will be the only one to receive     mouse events until releaseMouse() is called().      \warning Grabbing the mouse might lock the terminal.      \note \b{(Mac OS X developers)} See the note in QWidget::grabMouse().      \sa releaseMouse(), grabKeyboard(), releaseKeyboard(), setCursor() */
+comment|/*!     \fn void QWidget::grabMouse(const QCursor&cursor)     \overload grabMouse()      Grabs the mouse input and changes the cursor shape.      The cursor will assume shape \a cursor (for as long as the mouse     focus is grabbed) and this widget will be the only one to receive     mouse events until releaseMouse() is called().      \warning Grabbing the mouse might lock the terminal.      \note See the note in QWidget::grabMouse().      \sa releaseMouse(), grabKeyboard(), releaseKeyboard(), setCursor() */
 end_comment
 begin_ifndef
 ifndef|#

@@ -359,6 +359,16 @@ literal|"EffectiveSourcePaths"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// EffectiveSourcePaths is for the Qt build only, so needs no backwards compat trickery.
+name|bool
+name|haveEffectiveSourcePaths
+init|=
+literal|false
+decl_stmt|;
+endif|#
+directive|endif
 name|haveEffectivePaths
 operator|=
 name|haveEffectiveSourcePaths
@@ -373,22 +383,6 @@ literal|"EffectivePaths"
 argument_list|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|haveEffectivePaths
-operator|=
-name|children
-operator|.
-name|contains
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"EffectivePaths"
-argument_list|)
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// Backwards compat: an existing but empty file is claimed to contain the Paths section.
 name|havePaths
 operator|=
@@ -438,15 +432,10 @@ directive|else
 block|}
 else|else
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BOOTSTRAPPED
 name|haveEffectiveSourcePaths
 operator|=
 literal|false
 expr_stmt|;
-endif|#
-directive|endif
 name|haveEffectivePaths
 operator|=
 literal|false

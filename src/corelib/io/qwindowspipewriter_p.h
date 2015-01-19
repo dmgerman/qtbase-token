@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qdatetime.h>
+file|<qelapsedtimer.h>
 end_include
 begin_include
 include|#
@@ -174,12 +174,15 @@ begin_return
 return|return
 name|qMax
 argument_list|(
+name|int
+argument_list|(
 name|totalTimeOut
 operator|-
 name|timer
 operator|.
 name|elapsed
 argument_list|()
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -238,7 +241,7 @@ name|private
 label|:
 end_label
 begin_decl_stmt
-name|QTime
+name|QElapsedTimer
 name|timer
 decl_stmt|;
 end_decl_stmt

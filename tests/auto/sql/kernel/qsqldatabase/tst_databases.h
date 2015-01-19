@@ -2334,7 +2334,7 @@ condition|)
 return|return
 name|QLatin1String
 argument_list|(
-literal|"timestamp"
+literal|"timestamptz"
 argument_list|)
 return|;
 if|if

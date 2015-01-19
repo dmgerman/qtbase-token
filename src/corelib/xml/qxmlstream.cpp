@@ -1146,7 +1146,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \property  QXmlStreamReader::namespaceProcessing     the namespace-processing flag of the stream reader      This property controls whether or not the stream reader processes     namespaces. If enabled, the reader processes namespaces, otherwise     it does not.      By default, namespace-processing is enabled. */
+comment|/*!     \property  QXmlStreamReader::namespaceProcessing     The namespace-processing flag of the stream reader      This property controls whether or not the stream reader processes     namespaces. If enabled, the reader processes namespaces, otherwise     it does not.      By default, namespace-processing is enabled. */
 end_comment
 begin_function
 DECL|function|setNamespaceProcessing
@@ -11347,7 +11347,7 @@ begin_comment
 comment|// QT_NO_TEXTCODEC
 end_comment
 begin_comment
-comment|/*!     \property  QXmlStreamWriter::autoFormatting     \since 4.4     the auto-formatting flag of the stream writer      This property controls whether or not the stream writer     automatically formats the generated XML data. If enabled, the     writer automatically adds line-breaks and indentation to empty     sections between elements (ignorable whitespace). The main purpose     of auto-formatting is to split the data into several lines, and to     increase readability for a human reader. The indentation depth can     be controlled through the \l autoFormattingIndent property.      By default, auto-formatting is disabled. */
+comment|/*!     \property  QXmlStreamWriter::autoFormatting     \since 4.4     The auto-formatting flag of the stream writer      This property controls whether or not the stream writer     automatically formats the generated XML data. If enabled, the     writer automatically adds line-breaks and indentation to empty     sections between elements (ignorable whitespace). The main purpose     of auto-formatting is to split the data into several lines, and to     increase readability for a human reader. The indentation depth can     be controlled through the \l autoFormattingIndent property.      By default, auto-formatting is disabled. */
 end_comment
 begin_comment
 comment|/*!  \since 4.4   Enables auto formatting if \a enable is \c true, otherwise  disables it.   The default value is \c false.  */

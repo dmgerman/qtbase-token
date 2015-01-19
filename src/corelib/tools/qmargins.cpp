@@ -270,7 +270,7 @@ begin_comment
 comment|/*!     \fn QMarginsF::QMarginsF(const QMargins&margins)      Constructs margins copied from the given \a margins */
 end_comment
 begin_comment
-comment|/*!     \fn bool QMarginsF::isNull() const      Returns \c true if all margins are is 0; otherwise returns     false. */
+comment|/*!     \fn bool QMarginsF::isNull() const      Returns \c true if all margins are 0; otherwise returns     false. */
 end_comment
 begin_comment
 comment|/*!     \fn qreal QMarginsF::left() const      Returns the left margin.      \sa setLeft() */

@@ -1633,17 +1633,6 @@ argument_list|(
 name|surfaceId
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|m_surfaces
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|m_surfaceId
-operator|=
-literal|1
-expr_stmt|;
 name|QJNIEnvironmentPrivate
 name|env
 decl_stmt|;

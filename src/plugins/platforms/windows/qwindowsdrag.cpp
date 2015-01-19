@@ -3130,8 +3130,7 @@ argument_list|()
 argument_list|,
 name|translateToQDragDropActions
 argument_list|(
-operator|*
-name|pdwEffect
+name|m_chosenEffect
 argument_list|)
 argument_list|)
 decl_stmt|;

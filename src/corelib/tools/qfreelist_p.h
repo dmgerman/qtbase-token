@@ -415,8 +415,13 @@ name|n
 parameter_list|)
 block|{
 return|return
+name|int
+argument_list|(
 operator|(
+name|uint
+argument_list|(
 name|n
+argument_list|)
 operator|&
 name|ConstantsType
 operator|::
@@ -425,7 +430,10 @@ operator|)
 operator||
 operator|(
 operator|(
+name|uint
+argument_list|(
 name|o
+argument_list|)
 operator|+
 name|ConstantsType
 operator|::
@@ -436,6 +444,7 @@ name|ConstantsType
 operator|::
 name|SerialMask
 operator|)
+argument_list|)
 return|;
 block|}
 end_function

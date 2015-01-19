@@ -312,9 +312,6 @@ block|}
 struct|;
 block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_struct
 DECL|struct|InputSlotMap
 struct|struct

@@ -489,11 +489,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|activeConnection
-operator|->
-name|setConnections
-argument_list|()
-expr_stmt|;
 name|QStringList
 name|devices
 init|=
@@ -743,9 +738,6 @@ name|QString
 name|settingsPath
 init|=
 name|connection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -1343,11 +1335,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|activeConnection
-operator|->
-name|setConnections
-argument_list|()
-expr_stmt|;
 block|}
 specifier|const
 name|QString
@@ -1879,9 +1866,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 argument_list|)
@@ -1897,9 +1881,6 @@ name|at
 argument_list|(
 name|i
 argument_list|)
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -2025,11 +2006,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|iDevice
-operator|->
-name|setConnections
-argument_list|()
-expr_stmt|;
 name|interfaceDevices
 operator|.
 name|insert
@@ -2060,9 +2036,6 @@ operator|new
 name|QNetworkManagerInterfaceDeviceWireless
 argument_list|(
 name|iDevice
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -2172,9 +2145,6 @@ name|QNetworkManagerInterfaceDeviceWired
 argument_list|(
 name|iDevice
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 argument_list|,
@@ -2209,9 +2179,6 @@ operator|.
 name|insert
 argument_list|(
 name|iDevice
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -2445,9 +2412,6 @@ argument_list|()
 operator|==
 name|connection
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 condition|)
@@ -2581,9 +2545,6 @@ name|QNetworkManagerSettingsConnection
 argument_list|(
 name|settings
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|service
 argument_list|()
 argument_list|,
@@ -2600,9 +2561,6 @@ name|QString
 name|settingsPath
 init|=
 name|connection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -2736,9 +2694,6 @@ name|at
 argument_list|(
 name|i
 argument_list|)
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -2883,9 +2838,6 @@ argument_list|(
 name|i
 operator|.
 name|value
-argument_list|()
-operator|->
-name|connectionInterface
 argument_list|()
 operator|->
 name|path
@@ -3052,9 +3004,6 @@ return|return
 name|isActiveContext
 argument_list|(
 name|settingsConnection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -3253,9 +3202,6 @@ name|QString
 name|settingsPath
 init|=
 name|connection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -3629,9 +3575,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 operator|==
@@ -3655,11 +3598,6 @@ name|append
 argument_list|(
 name|accessPoint
 argument_list|)
-expr_stmt|;
-name|accessPoint
-operator|->
-name|setConnections
-argument_list|()
 expr_stmt|;
 block|}
 comment|// Check if configuration exists for connection.
@@ -3709,9 +3647,6 @@ name|QString
 name|settingsPath
 init|=
 name|connection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -3967,9 +3902,6 @@ if|if
 condition|(
 name|accessPoint
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 operator|==
@@ -3991,9 +3923,6 @@ name|contains
 argument_list|(
 name|accessPoint
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 argument_list|)
@@ -4005,9 +3934,6 @@ operator|.
 name|remove
 argument_list|(
 name|accessPoint
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -4061,9 +3987,6 @@ name|QString
 name|settingsPath
 init|=
 name|connection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -4338,9 +4261,6 @@ name|value
 argument_list|(
 name|device
 operator|.
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 argument_list|)
@@ -4487,9 +4407,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|->
-name|connectionInterface
-argument_list|()
-operator|->
 name|path
 argument_list|()
 argument_list|)
@@ -4505,9 +4422,6 @@ name|at
 argument_list|(
 name|i
 argument_list|)
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -4525,9 +4439,6 @@ name|at
 argument_list|(
 name|i
 argument_list|)
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
@@ -4895,9 +4806,6 @@ condition|(
 name|id
 operator|==
 name|connection
-operator|->
-name|connectionInterface
-argument_list|()
 operator|->
 name|path
 argument_list|()
