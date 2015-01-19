@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QGuiApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformmenu.h>
 end_include
 begin_include
@@ -75,7 +80,12 @@ specifier|const
 name|int
 name|IconSizeLimit
 init|=
-literal|32
+literal|64
+operator|*
+name|qGuiApp
+operator|->
+name|devicePixelRatio
+argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -86,6 +96,26 @@ name|int
 name|IconNormalSmallSize
 init|=
 literal|22
+operator|*
+name|qGuiApp
+operator|->
+name|devicePixelRatio
+argument_list|()
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|IconNormalMediumSize
+specifier|static
+specifier|const
+name|int
+name|IconNormalMediumSize
+init|=
+literal|64
+operator|*
+name|qGuiApp
+operator|->
+name|devicePixelRatio
+argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -113,10 +143,16 @@ operator|.
 name|availableSizes
 argument_list|()
 decl_stmt|;
-comment|// Omit any size larger than 32 px, to save D-Bus bandwidth;
-comment|// and ensure that 22px or smaller exists, because it's a common size.
+comment|// Omit any size larger than 64 px, to save D-Bus bandwidth;
+comment|// ensure that 22px or smaller exists, because it's a common size;
+comment|// and ensure that something between 22px and 64px exists, for better scaling to other sizes.
 name|bool
 name|hasSmallIcon
+init|=
+literal|false
+decl_stmt|;
+name|bool
+name|hasMediumIcon
 init|=
 literal|false
 decl_stmt|;
@@ -163,6 +199,17 @@ elseif|else
 if|if
 condition|(
 name|maxSize
+operator|<=
+name|IconNormalMediumSize
+condition|)
+name|hasMediumIcon
+operator|=
+literal|true
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|maxSize
 operator|>
 name|IconSizeLimit
 condition|)
@@ -198,6 +245,23 @@ argument_list|(
 name|IconNormalSmallSize
 argument_list|,
 name|IconNormalSmallSize
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hasMediumIcon
+condition|)
+name|sizes
+operator|.
+name|append
+argument_list|(
+name|QSize
+argument_list|(
+name|IconNormalMediumSize
+argument_list|,
+name|IconNormalMediumSize
 argument_list|)
 argument_list|)
 expr_stmt|;
