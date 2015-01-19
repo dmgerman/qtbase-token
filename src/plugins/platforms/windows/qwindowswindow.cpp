@@ -7738,7 +7738,7 @@ name|geometry
 operator|.
 name|width
 argument_list|()
-operator|>
+operator|>=
 name|previousGeometry
 operator|.
 name|width
@@ -7750,7 +7750,7 @@ name|geometry
 operator|.
 name|height
 argument_list|()
-operator|>
+operator|>=
 name|previousGeometry
 operator|.
 name|height
