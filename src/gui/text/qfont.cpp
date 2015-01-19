@@ -548,11 +548,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|rawMode
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|underline
 argument_list|(
 literal|false
@@ -625,13 +620,6 @@ argument_list|(
 name|other
 operator|.
 name|screen
-argument_list|)
-member_init_list|,
-name|rawMode
-argument_list|(
-name|other
-operator|.
-name|rawMode
 argument_list|)
 member_init_list|,
 name|underline
@@ -3819,8 +3807,18 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+end_if
 begin_comment
-comment|/*!     If \a enable is true, turns raw mode on; otherwise turns raw mode     off. This function only has an effect under X11.      If raw mode is enabled, Qt will search for an X font with a     complete font name matching the family name, ignoring all other     values set for the QFont. If the font name matches several fonts,     Qt will use the first font returned by X. QFontInfo \e cannot be     used to fetch information about a QFont using raw mode (it will     return the values set in the QFont for all parameters, including     the family name).      \warning Do not use raw mode unless you really, really need it!      \sa rawMode() */
+comment|/*!     \fn void QFont::setRawMode(bool enable)     \deprecated      If \a enable is true, turns raw mode on; otherwise turns raw mode     off. This function only has an effect under X11.      If raw mode is enabled, Qt will search for an X font with a     complete font name matching the family name, ignoring all other     values set for the QFont. If the font name matches several fonts,     Qt will use the first font returned by X. QFontInfo \e cannot be     used to fetch information about a QFont using raw mode (it will     return the values set in the QFont for all parameters, including     the family name).      \warning Enabling raw mode has no effect since Qt 5.0.      \sa rawMode() */
 end_comment
 begin_function
 DECL|function|setRawMode
@@ -3830,33 +3828,13 @@ operator|::
 name|setRawMode
 parameter_list|(
 name|bool
-name|enable
 parameter_list|)
-block|{
-if|if
-condition|(
-operator|(
-name|bool
-operator|)
-name|d
-operator|->
-name|rawMode
-operator|==
-name|enable
-condition|)
-return|return;
-comment|// might change behavior, thus destroy engine data
-name|detach
-argument_list|()
-expr_stmt|;
-name|d
-operator|->
-name|rawMode
-operator|=
-name|enable
-expr_stmt|;
-block|}
+block|{ }
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns \c true if a window system font exactly matching the settings     of this font is available.      \sa QFontInfo */
 end_comment
@@ -3890,20 +3868,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|d
-operator|->
-name|rawMode
-condition|?
-name|engine
-operator|->
-name|type
-argument_list|()
-operator|!=
-name|QFontEngine
-operator|::
-name|Box
-else|:
 name|d
 operator|->
 name|request
@@ -3914,12 +3878,11 @@ name|engine
 operator|->
 name|fontDef
 argument_list|)
-operator|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if this font is equal to \a f; otherwise returns     false.      Two QFonts are considered equal if their font attributes are     equal. If rawMode() is enabled for both fonts, only the family     fields are compared.      \sa operator!=(), isCopyOf() */
+comment|/*!     Returns \c true if this font is equal to \a f; otherwise returns     false.      Two QFonts are considered equal if their font attributes are     equal.      \sa operator!=(), isCopyOf() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -4423,7 +4386,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if this font is different from \a f; otherwise     returns \c false.      Two QFonts are considered to be different if their font attributes     are different. If rawMode() is enabled for both fonts, only the     family fields are compared.      \sa operator==() */
+comment|/*!     Returns \c true if this font is different from \a f; otherwise     returns \c false.      Two QFonts are considered to be different if their font attributes     are different.      \sa operator==() */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -4502,8 +4465,18 @@ name|d
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+end_if
 begin_comment
-comment|/*!     Returns \c true if raw mode is used for font name matching; otherwise     returns \c false.      \sa setRawMode() */
+comment|/*!     \deprecated      Returns \c true if raw mode is used for font name matching; otherwise     returns \c false.      \sa setRawMode() */
 end_comment
 begin_function
 DECL|function|rawMode
@@ -4515,12 +4488,14 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|d
-operator|->
-name|rawMode
+literal|false
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns a new QFont that has attributes copied from \a other that     have not been previously set on this font. */
 end_comment
@@ -5152,16 +5127,6 @@ comment|// if (f.hintSetByUser)
 comment|// bits |= 0x10;
 if|if
 condition|(
-name|f
-operator|->
-name|rawMode
-condition|)
-name|bits
-operator||=
-literal|0x20
-expr_stmt|;
-if|if
-condition|(
 name|version
 operator|>=
 name|QDataStream
@@ -5352,18 +5317,6 @@ operator|!=
 literal|0
 expr_stmt|;
 comment|// f->hintSetByUser      = (bits& 0x10) != 0;
-name|f
-operator|->
-name|rawMode
-operator|=
-operator|(
-name|bits
-operator|&
-literal|0x20
-operator|)
-operator|!=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|version
@@ -5490,7 +5443,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QFont::setRawName(const QString&name)     \deprecated      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setRawMode(), setFamily() */
+comment|/*!     \fn void QFont::setRawName(const QString&name)     \deprecated      Sets a font by its system specific name.      A font set with setRawName() is still a full-featured QFont. It can     be queried (for example with italic()) or modified (for example with     setItalic()) and is therefore also suitable for rendering rich text.      If Qt's internal font database cannot resolve the raw name, the     font becomes a raw font with \a name as its family.      \sa rawName(), setFamily() */
 end_comment
 begin_function
 DECL|function|setRawName
@@ -5657,8 +5610,7 @@ argument_list|(
 operator|(
 name|int
 operator|)
-name|rawMode
-argument_list|()
+literal|false
 argument_list|)
 return|;
 block|}
@@ -5900,17 +5852,6 @@ name|toInt
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setRawMode
-argument_list|(
-name|l
-index|[
-literal|8
-index|]
-operator|.
-name|toInt
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -6021,17 +5962,6 @@ argument_list|(
 name|l
 index|[
 literal|8
-index|]
-operator|.
-name|toInt
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|setRawMode
-argument_list|(
-name|l
-index|[
-literal|9
 index|]
 operator|.
 name|toInt
@@ -7842,8 +7772,18 @@ name|styleHint
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+end_if
 begin_comment
-comment|/*!     Returns \c true if the font is a raw mode font; otherwise returns     false.      If it is a raw mode font, all other functions in QFontInfo will     return the same values set in the QFont, regardless of the font     actually used.      \sa QFont::rawMode() */
+comment|/*!     \deprecated      Returns \c true if the font is a raw mode font; otherwise returns     false.      If it is a raw mode font, all other functions in QFontInfo will     return the same values set in the QFont, regardless of the font     actually used.      \sa QFont::rawMode() */
 end_comment
 begin_function
 DECL|function|rawMode
@@ -7855,12 +7795,14 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|d
-operator|->
-name|rawMode
+literal|false
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns \c true if the matched window system font is exactly the same     as the one specified by the font; otherwise returns \c false.      \sa QFont::exactMatch() */
 end_comment
@@ -7894,20 +7836,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|d
-operator|->
-name|rawMode
-condition|?
-name|engine
-operator|->
-name|type
-argument_list|()
-operator|!=
-name|QFontEngine
-operator|::
-name|Box
-else|:
 name|d
 operator|->
 name|request
@@ -7918,7 +7846,6 @@ name|engine
 operator|->
 name|fontDef
 argument_list|)
-operator|)
 return|;
 block|}
 end_function

@@ -761,11 +761,6 @@ name|int
 name|screen
 decl_stmt|;
 name|uint
-name|rawMode
-range|:
-literal|1
-decl_stmt|;
-name|uint
 name|underline
 range|:
 literal|1

@@ -696,7 +696,14 @@ name|hintingPreference
 argument_list|()
 specifier|const
 expr_stmt|;
-comment|// is raw mode still needed?
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
 name|bool
 name|rawMode
 argument_list|()
@@ -708,6 +715,8 @@ parameter_list|(
 name|bool
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 comment|// dupicated from QFontInfo
 name|bool
 name|exactMatch
