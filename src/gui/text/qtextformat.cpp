@@ -4442,7 +4442,7 @@ name|mask
 operator|&
 name|QFont
 operator|::
-name|LetterSpacingResolved
+name|WordSpacingResolved
 condition|)
 name|setFontWordSpacing
 argument_list|(
