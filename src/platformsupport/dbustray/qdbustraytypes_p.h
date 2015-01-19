@@ -59,10 +59,40 @@ DECL|struct|QXdgDBusImageStruct
 struct|struct
 name|QXdgDBusImageStruct
 block|{
+DECL|function|QXdgDBusImageStruct
+name|QXdgDBusImageStruct
+argument_list|()
+block|{ }
+DECL|function|QXdgDBusImageStruct
+name|QXdgDBusImageStruct
+argument_list|(
+argument|int w
+argument_list|,
+argument|int h
+argument_list|)
+block|:
+name|width
+argument_list|(
+name|w
+argument_list|)
+operator|,
+name|height
+argument_list|(
+name|h
+argument_list|)
+operator|,
+name|data
+argument_list|(
+argument|width * height *
+literal|4
+argument_list|,
+literal|0
+argument_list|)
+block|{ }
 DECL|member|width
 name|int
 name|width
-decl_stmt|;
+expr_stmt|;
 DECL|member|height
 name|int
 name|height
