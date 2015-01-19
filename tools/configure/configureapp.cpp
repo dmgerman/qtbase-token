@@ -129,6 +129,9 @@ name|BLACKBERRY
 argument_list|,
 DECL|enumerator|ANDROID
 name|ANDROID
+argument_list|,
+DECL|enumerator|OTHER
+name|OTHER
 argument_list|}
 decl_stmt|;
 end_decl_stmt
@@ -29128,6 +29131,15 @@ argument_list|(
 literal|"Qt for Android"
 argument_list|)
 return|;
+case|case
+name|OTHER
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"Qt for ???"
+argument_list|)
+return|;
 block|}
 block|}
 end_function
@@ -29193,6 +29205,15 @@ return|return
 name|QStringLiteral
 argument_list|(
 literal|"android"
+argument_list|)
+return|;
+case|case
+name|OTHER
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"xcb"
 argument_list|)
 return|;
 block|}
@@ -29306,6 +29327,17 @@ argument_list|)
 condition|)
 return|return
 name|ANDROID
+return|;
+if|if
+condition|(
+operator|!
+name|xQMakeSpec
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|OTHER
 return|;
 return|return
 name|WINDOWS
