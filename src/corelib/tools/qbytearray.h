@@ -748,6 +748,7 @@ argument_list|)
 specifier|inline
 name|QByteArray
 argument_list|()
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|QByteArray
 argument_list|(
@@ -774,10 +775,9 @@ empty_stmt|;
 specifier|inline
 name|QByteArray
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
+argument|const QByteArray&
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 operator|~
@@ -793,6 +793,7 @@ specifier|const
 name|QByteArray
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 name|QByteArray
 modifier|&
@@ -2993,12 +2994,13 @@ argument|QByteArray::Base64Options
 argument_list|)
 end_macro
 begin_expr_stmt
-DECL|function|QByteArray
+DECL|function|sharedNull
 specifier|inline
 name|QByteArray
 operator|::
 name|QByteArray
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -3360,17 +3362,15 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|QByteArray
+DECL|function|d
 specifier|inline
 name|QByteArray
 operator|::
 name|QByteArray
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|a
+argument|const QByteArray&a
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(

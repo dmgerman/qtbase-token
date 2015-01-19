@@ -3079,7 +3079,6 @@ begin_comment
 comment|/*!     Assigns \a other to this byte array and returns a reference to     this byte array. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QByteArray
 modifier|&
 name|QByteArray
@@ -3092,6 +3091,7 @@ name|QByteArray
 modifier|&
 name|other
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|other
 operator|.

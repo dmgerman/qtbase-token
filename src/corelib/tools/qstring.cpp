@@ -5009,7 +5009,6 @@ begin_comment
 comment|/*! \fn QString&QString::operator=(const QString&other)      Assigns \a other to this string and returns a reference to this     string. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QString
 modifier|&
 name|QString
@@ -5022,6 +5021,7 @@ name|QString
 modifier|&
 name|other
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|other
 operator|.

@@ -1001,10 +1001,9 @@ expr_stmt|;
 specifier|inline
 name|QString
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&
 argument_list|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 operator|~
@@ -1029,6 +1028,7 @@ specifier|const
 name|QString
 operator|&
 operator|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 specifier|inline
 name|QString
@@ -8317,11 +8317,9 @@ name|QString
 operator|::
 name|QString
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|other
+argument|const QString&other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(

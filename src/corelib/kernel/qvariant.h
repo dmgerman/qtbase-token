@@ -804,10 +804,13 @@ literal|0xffffffff
 comment|// need this so that gcc>= 3.4 allocates 32 bits for Type
 block|}
 block|;
-specifier|inline
 name|QVariant
 argument_list|()
-block|;
+name|Q_DECL_NOTHROW
+operator|:
+name|d
+argument_list|()
+block|{}
 operator|~
 name|QVariant
 argument_list|()
@@ -2683,13 +2686,6 @@ name|v
 operator|=
 name|t
 block|; }
-DECL|function|QVariant
-specifier|inline
-name|QVariant
-operator|::
-name|QVariant
-argument_list|()
-block|{}
 DECL|function|isValid
 specifier|inline
 name|bool
