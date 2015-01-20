@@ -632,6 +632,22 @@ end_endif
 begin_comment
 comment|// if defined(Q_CC_MINGW) || !defined(TOUCHEVENTF_MOVE)
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|WM_GESTURE
+end_ifndef
+begin_define
+DECL|macro|WM_GESTURE
+define|#
+directive|define
+name|WM_GESTURE
+value|0x0119
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
