@@ -871,15 +871,6 @@ argument_list|()
 operator|->
 name|screen
 expr_stmt|;
-name|screen
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|screen
-operator|=
-name|Q_NULLPTR
-expr_stmt|;
 operator|delete
 name|screen
 expr_stmt|;

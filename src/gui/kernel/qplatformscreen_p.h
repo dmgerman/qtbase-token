@@ -56,10 +56,12 @@ name|QPlatformScreenPrivate
 block|{
 name|public
 label|:
+name|QPointer
+operator|<
 name|QScreen
-modifier|*
+operator|>
 name|screen
-decl_stmt|;
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
