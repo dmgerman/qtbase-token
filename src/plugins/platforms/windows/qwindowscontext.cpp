@@ -3289,11 +3289,8 @@ specifier|const
 name|HWND
 name|child
 init|=
-name|ChildWindowFromPoint
+name|WindowFromPoint
 argument_list|(
-operator|*
-name|hwnd
-argument_list|,
 name|point
 argument_list|)
 decl_stmt|;
