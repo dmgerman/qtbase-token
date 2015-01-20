@@ -68,6 +68,7 @@ label|:
 name|Q_DECL_CONSTEXPR
 name|QSslEllipticCurve
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|id
 argument_list|(
@@ -115,6 +116,7 @@ name|bool
 name|isValid
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|id
@@ -127,6 +129,7 @@ name|bool
 name|isTlsNamedCurve
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|private
 label|:
