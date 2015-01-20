@@ -52,11 +52,6 @@ return|return
 name|QString
 argument_list|()
 return|;
-name|QSslSocketPrivate
-operator|::
-name|ensureInitialized
-argument_list|()
-expr_stmt|;
 name|QString
 name|result
 decl_stmt|;
@@ -101,11 +96,6 @@ return|return
 name|QString
 argument_list|()
 return|;
-name|QSslSocketPrivate
-operator|::
-name|ensureInitialized
-argument_list|()
-expr_stmt|;
 name|QString
 name|result
 decl_stmt|;
