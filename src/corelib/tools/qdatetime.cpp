@@ -738,6 +738,8 @@ name|qt_shortMonthNames
 index|[
 name|i
 index|]
+argument_list|,
+literal|3
 argument_list|)
 condition|)
 return|return
