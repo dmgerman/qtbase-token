@@ -26,17 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QStringList>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QMetaType>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/QVector>
 end_include
 begin_include
 include|#
