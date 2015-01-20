@@ -657,10 +657,11 @@ DECL|variable|qt_shortMonthNames
 specifier|static
 specifier|const
 name|char
-modifier|*
-specifier|const
 name|qt_shortMonthNames
 index|[]
+index|[
+literal|4
+index|]
 init|=
 block|{
 literal|"Jan"
