@@ -58,13 +58,13 @@ DECL|typedef|MemberMap
 comment|// the string is the member signature
 end_comment
 begin_typedef
-DECL|typedef|QmlClassNode
+DECL|typedef|QmlTypeNode
 DECL|typedef|ClassMap
 typedef|typedef
 name|QPair
 operator|<
 specifier|const
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 operator|,
 name|MemberMap
@@ -73,7 +73,7 @@ name|ClassMap
 expr_stmt|;
 end_typedef
 begin_comment
-DECL|typedef|QmlClassNode
+DECL|typedef|QmlTypeNode
 DECL|typedef|ClassMap
 comment|// the node is the QML type
 end_comment
@@ -102,13 +102,13 @@ name|KeysAndNodes
 expr_stmt|;
 end_typedef
 begin_typedef
-DECL|typedef|QmlClassNode
+DECL|typedef|QmlTypeNode
 DECL|typedef|ClassKeysNodes
 typedef|typedef
 name|QPair
 operator|<
 specifier|const
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 operator|,
 name|KeysAndNodes
@@ -687,7 +687,7 @@ name|Section
 operator|>
 name|qmlSections
 argument_list|(
-argument|QmlClassNode* qmlClassNode
+argument|QmlTypeNode* qmlClassNode
 argument_list|,
 argument|SynopsisStyle style
 argument_list|,

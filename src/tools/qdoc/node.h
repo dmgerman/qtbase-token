@@ -87,9 +87,9 @@ name|TypedefNode
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QmlClassNode
+DECL|variable|QmlTypeNode
 name|class
-name|QmlClassNode
+name|QmlTypeNode
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1690,7 +1690,7 @@ return|return
 literal|"0"
 return|;
 block|}
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qmlClassNode
 parameter_list|()
@@ -2864,7 +2864,7 @@ name|sname
 operator|=
 name|value
 block|; }
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qmlElement
 argument_list|()
@@ -2876,7 +2876,7 @@ block|}
 name|void
 name|setQmlElement
 argument_list|(
-argument|QmlClassNode* qcn
+argument|QmlTypeNode* qcn
 argument_list|)
 block|{
 name|qmlelement
@@ -2916,7 +2916,7 @@ operator|&
 name|name
 argument_list|)
 block|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|findQmlBaseNode
 argument_list|()
@@ -2953,7 +2953,7 @@ block|;
 name|QString
 name|obsoleteLink_
 block|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qmlelement
 block|; }
@@ -3381,14 +3381,14 @@ expr_stmt|;
 end_typedef
 begin_decl_stmt
 name|class
-name|QmlClassNode
+name|QmlTypeNode
 range|:
 name|public
 name|InnerNode
 block|{
 name|public
 operator|:
-name|QmlClassNode
+name|QmlTypeNode
 argument_list|(
 name|InnerNode
 operator|*
@@ -3402,7 +3402,7 @@ argument_list|)
 block|;
 name|virtual
 operator|~
-name|QmlClassNode
+name|QmlTypeNode
 argument_list|()
 block|;
 name|virtual
@@ -3675,7 +3675,7 @@ literal|0
 operator|)
 return|;
 block|}
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qmlBaseNode
 argument_list|()
@@ -3683,7 +3683,7 @@ block|;
 name|void
 name|setQmlBaseNode
 argument_list|(
-argument|QmlClassNode* b
+argument|QmlTypeNode* b
 argument_list|)
 block|{
 name|qmlBaseNode_
@@ -3781,7 +3781,7 @@ name|QmlModuleNode
 operator|*
 name|qmlModule_
 block|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qmlBaseNode_
 block|;
@@ -3865,7 +3865,7 @@ name|public
 operator|:
 name|QmlPropertyGroupNode
 argument_list|(
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|parent
 argument_list|,

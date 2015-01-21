@@ -15867,7 +15867,7 @@ argument_list|(
 name|CONFIG_QUOTINGINFORMATION
 argument_list|)
 expr_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlOnly
 operator|=

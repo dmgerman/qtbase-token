@@ -8644,7 +8644,7 @@ name|HtmlGenerator
 operator|::
 name|generateQmlTypePage
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -12832,7 +12832,7 @@ name|HtmlGenerator
 operator|::
 name|generateQmlRequisites
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -13175,7 +13175,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//add the inherits to the map
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|base
 init|=
@@ -13280,7 +13280,7 @@ comment|//add the inherited-by to the map
 name|NodeList
 name|subs
 decl_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|subclasses
 argument_list|(
@@ -14555,7 +14555,7 @@ name|HtmlGenerator
 operator|::
 name|generateAllQmlMembersFile
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qml_cn
 parameter_list|,
@@ -14723,7 +14723,7 @@ name|i
 index|]
 decl_stmt|;
 specifier|const
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -15453,7 +15453,7 @@ name|HtmlGenerator
 operator|::
 name|generateQmlMemberFile
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -24616,7 +24616,7 @@ name|HtmlGenerator
 operator|::
 name|generateQmlInherits
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -24631,7 +24631,7 @@ operator|!
 name|qcn
 condition|)
 return|return;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|base
 init|=
@@ -24754,7 +24754,7 @@ name|HtmlGenerator
 operator|::
 name|generateQmlInstantiates
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -24992,7 +24992,7 @@ literal|0
 condition|)
 block|{
 specifier|const
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=

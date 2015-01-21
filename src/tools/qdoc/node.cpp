@@ -2263,7 +2263,7 @@ comment|/*!   If this node is a QML class node, return a pointer to it.   If it 
 end_comment
 begin_function
 DECL|function|qmlClassNode
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|Node
 operator|::
@@ -2311,7 +2311,7 @@ condition|)
 return|return
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -2336,7 +2336,7 @@ operator|::
 name|declarativeCppNode
 parameter_list|()
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -6324,14 +6324,14 @@ comment|/*!   This function does a recursive search of this class node's   base 
 end_comment
 begin_function
 DECL|function|findQmlBaseNode
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|ClassNode
 operator|::
 name|findQmlBaseNode
 parameter_list|()
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|result
 init|=
@@ -8359,7 +8359,7 @@ end_function
 begin_decl_stmt
 DECL|member|qmlOnly
 name|bool
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlOnly
 init|=
@@ -8375,7 +8375,7 @@ argument_list|,
 name|Node
 modifier|*
 argument_list|>
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|inheritedBy
 decl_stmt|;
@@ -8384,10 +8384,10 @@ begin_comment
 comment|/*!   Constructs a Qml class node. The new node has the given   \a parent and \a name.  */
 end_comment
 begin_constructor
-DECL|function|QmlClassNode
-name|QmlClassNode
+DECL|function|QmlTypeNode
+name|QmlTypeNode
 operator|::
-name|QmlClassNode
+name|QmlTypeNode
 parameter_list|(
 name|InnerNode
 modifier|*
@@ -8488,11 +8488,11 @@ begin_comment
 comment|/*!   Needed for printing a debug messages.  */
 end_comment
 begin_destructor
-DECL|function|~QmlClassNode
-name|QmlClassNode
+DECL|function|~QmlTypeNode
+name|QmlTypeNode
 operator|::
 name|~
-name|QmlClassNode
+name|QmlTypeNode
 parameter_list|()
 block|{
 comment|// nothing.
@@ -8504,7 +8504,7 @@ end_comment
 begin_function
 DECL|function|terminate
 name|void
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|terminate
 parameter_list|()
@@ -8522,7 +8522,7 @@ end_comment
 begin_function
 DECL|function|addInheritedBy
 name|void
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|addInheritedBy
 parameter_list|(
@@ -8571,7 +8571,7 @@ end_comment
 begin_function
 DECL|function|subclasses
 name|void
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|subclasses
 parameter_list|(
@@ -8709,9 +8709,9 @@ block|}
 end_function
 begin_function
 DECL|function|qmlBaseNode
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlBaseNode
 parameter_list|()
@@ -8752,7 +8752,7 @@ end_comment
 begin_function
 DECL|function|qmlFullBaseName
 name|QString
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlFullBaseName
 parameter_list|()
@@ -8792,7 +8792,7 @@ end_comment
 begin_function
 DECL|function|qmlModuleName
 name|QString
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlModuleName
 parameter_list|()
@@ -8819,7 +8819,7 @@ end_comment
 begin_function
 DECL|function|qmlModuleVersion
 name|QString
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlModuleVersion
 parameter_list|()
@@ -8846,7 +8846,7 @@ end_comment
 begin_function
 DECL|function|qmlModuleIdentifier
 name|QString
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|qmlModuleIdentifier
 parameter_list|()
@@ -8903,7 +8903,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!   Constructor for the Qml property group node. \a parent is   always a QmlClassNode.  */
+comment|/*!   Constructor for the Qml property group node. \a parent is   always a QmlTypeNode.  */
 end_comment
 begin_constructor
 DECL|function|QmlPropertyGroupNode
@@ -8911,7 +8911,7 @@ name|QmlPropertyGroupNode
 operator|::
 name|QmlPropertyGroupNode
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|parent
 parameter_list|,
@@ -9102,7 +9102,7 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -9264,13 +9264,13 @@ condition|(
 name|n
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(

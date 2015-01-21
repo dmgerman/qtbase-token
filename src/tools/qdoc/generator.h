@@ -481,7 +481,7 @@ specifier|static
 name|void
 name|setQmlTypeContext
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|t
 parameter_list|)
@@ -492,7 +492,7 @@ name|t
 expr_stmt|;
 block|}
 specifier|static
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qmlTypeContext
 parameter_list|()
@@ -611,7 +611,7 @@ name|virtual
 name|void
 name|generateQmlTypePage
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 parameter_list|,
 name|CodeMarker
@@ -711,7 +711,7 @@ name|void
 name|generateQmlInheritedBy
 parameter_list|(
 specifier|const
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -724,7 +724,7 @@ name|virtual
 name|void
 name|generateQmlInherits
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -1431,7 +1431,7 @@ name|bool
 name|useOutputSubdirs_
 decl_stmt|;
 specifier|static
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qmlTypeContext_
 decl_stmt|;

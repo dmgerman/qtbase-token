@@ -780,7 +780,7 @@ return|return
 literal|0
 return|;
 block|}
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|lookupQmlType
 parameter_list|(
@@ -797,7 +797,7 @@ argument_list|,
 argument|searchOrder()
 argument_list|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -1337,7 +1337,7 @@ name|exampleNodeMap
 argument_list|()
 return|;
 block|}
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|findQmlType
 parameter_list|(
@@ -1347,7 +1347,7 @@ modifier|&
 name|name
 parameter_list|)
 function_decl|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|findQmlType
 parameter_list|(
@@ -1362,7 +1362,7 @@ modifier|&
 name|name
 parameter_list|)
 function_decl|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|findQmlType
 parameter_list|(

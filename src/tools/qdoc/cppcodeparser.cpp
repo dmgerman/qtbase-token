@@ -2425,12 +2425,12 @@ literal|0
 block|const Node* n = qdb_->checkForCollision(names[0]);         if (n) {             QString other = n->doc().location().fileName();             doc.location().warning(tr("Name/title collision detected: '%1' in '\\%2'")                                    .arg(names[0]).arg(command),                                    tr("Also used here: %1").arg(other));         }
 endif|#
 directive|endif
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
 operator|new
-name|QmlClassNode
+name|QmlTypeNode
 argument_list|(
 name|qdb_
 operator|->
@@ -2556,7 +2556,7 @@ name|qmlType
 argument_list|)
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qmlClass
 init|=
@@ -3246,7 +3246,7 @@ name|qpn
 init|=
 literal|0
 decl_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qmlClass
 init|=
@@ -4395,13 +4395,13 @@ name|isQmlType
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qmlClass
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -4415,7 +4415,7 @@ argument_list|(
 name|arg
 argument_list|)
 expr_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|addInheritedBy
 argument_list|(

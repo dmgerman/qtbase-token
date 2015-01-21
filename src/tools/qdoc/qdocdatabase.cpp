@@ -2829,7 +2829,7 @@ comment|/*!   Looks up the QML type node identified by the qualified Qml   type 
 end_comment
 begin_function
 DECL|function|findQmlType
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|QDocDatabase
 operator|::
@@ -2841,7 +2841,7 @@ modifier|&
 name|name
 parameter_list|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -2869,7 +2869,7 @@ comment|/*!   Looks up the QML type node identified by the Qml module id   \a qm
 end_comment
 begin_function
 DECL|function|findQmlType
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|QDocDatabase
 operator|::
@@ -2904,7 +2904,7 @@ literal|"::"
 operator|+
 name|name
 decl_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -2956,7 +2956,7 @@ condition|)
 return|return
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -2973,7 +2973,7 @@ comment|/*!   Looks up the QML type node identified by the Qml module id   const
 end_comment
 begin_function
 DECL|function|findQmlType
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|QDocDatabase
 operator|::
@@ -3069,7 +3069,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -6444,13 +6444,13 @@ name|isQmlType
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -6474,13 +6474,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|bqcn
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(

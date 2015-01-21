@@ -69,6 +69,11 @@ define|#
 directive|define
 name|COMMAND_INQMLMODULE
 value|Doc::alias(QLatin1String("inqmlmodule"))
+DECL|macro|COMMAND_INJSMODULE
+define|#
+directive|define
+name|COMMAND_INJSMODULE
+value|Doc::alias(QLatin1String("injsmodule"))
 DECL|macro|COMMAND_INTERNAL
 define|#
 directive|define

@@ -527,7 +527,7 @@ comment|/*!   Find the Qml type node named \a path. Begin the search at the   \a
 end_comment
 begin_function
 DECL|function|findQmlTypeNode
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|Tree
 operator|::
@@ -559,7 +559,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -589,7 +589,7 @@ block|}
 return|return
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -679,7 +679,7 @@ operator|)
 operator|)
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -742,7 +742,7 @@ name|qcn
 operator|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -2123,13 +2123,13 @@ name|isQmlType
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -3274,7 +3274,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -3962,7 +3962,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
@@ -6644,13 +6644,13 @@ name|isQmlType
 argument_list|()
 condition|)
 block|{
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|n
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -6719,7 +6719,7 @@ name|QString
 modifier|&
 name|key
 parameter_list|,
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|n
 parameter_list|)
@@ -6746,7 +6746,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Split \a target on "::" and find the function node with that   path.    Called in HtmlGenerator, DitaXmlGenerator, and QdocDatabase.  */
+comment|/*!   Split \a target on "::" and find the function node with that   path.  */
 end_comment
 begin_function
 DECL|function|findFunctionNode

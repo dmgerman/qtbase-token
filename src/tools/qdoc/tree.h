@@ -243,7 +243,7 @@ name|QMap
 operator|<
 name|QString
 operator|,
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 operator|>
 name|QmlTypeMap
@@ -557,7 +557,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 comment|// = Node::DontCare) const;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|findQmlTypeNode
 parameter_list|(
@@ -1026,7 +1026,7 @@ modifier|*
 name|node
 parameter_list|)
 function_decl|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|lookupQmlType
 argument_list|(
@@ -1054,7 +1054,7 @@ name|QString
 modifier|&
 name|key
 parameter_list|,
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|n
 parameter_list|)

@@ -385,7 +385,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|member|qmlTypeContext_
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|Generator
 operator|::
@@ -5509,7 +5509,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Recursive writing of HTML files from the root \a node.    \note DitaXmlGenerator overrides this function, but   HtmlGenerator does not.  */
+comment|/*!   Recursive writing of HTML files from the root \a node.  */
 end_comment
 begin_function
 DECL|function|generateInnerNode
@@ -5724,13 +5724,13 @@ name|node
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
 cast|static_cast
 argument_list|<
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 argument_list|>
 argument_list|(
@@ -6087,7 +6087,7 @@ operator|::
 name|generateQmlInheritedBy
 parameter_list|(
 specifier|const
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 name|qcn
 parameter_list|,
@@ -6104,7 +6104,7 @@ block|{
 name|NodeList
 name|subs
 decl_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|subclasses
 argument_list|(
@@ -6174,7 +6174,7 @@ name|Generator
 operator|::
 name|generateQmlInherits
 parameter_list|(
-name|QmlClassNode
+name|QmlTypeNode
 modifier|*
 parameter_list|,
 name|CodeMarker
@@ -10667,7 +10667,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|QmlClassNode
+name|QmlTypeNode
 operator|::
 name|terminate
 argument_list|()

@@ -250,7 +250,7 @@ name|virtual
 name|void
 name|generateQmlTypePage
 argument_list|(
-argument|QmlClassNode* qcn
+argument|QmlTypeNode* qcn
 argument_list|,
 argument|CodeMarker* marker
 argument_list|)
@@ -481,7 +481,7 @@ block|;
 name|void
 name|generateQmlRequisites
 argument_list|(
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qcn
 argument_list|,
@@ -565,7 +565,7 @@ block|;
 name|QString
 name|generateAllQmlMembersFile
 argument_list|(
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qml_cn
 argument_list|,
@@ -587,7 +587,7 @@ block|;
 name|QString
 name|generateQmlMemberFile
 argument_list|(
-argument|QmlClassNode* qcn
+argument|QmlTypeNode* qcn
 argument_list|,
 argument|CodeMarker *marker
 argument_list|,
@@ -759,7 +759,7 @@ block|;
 name|void
 name|generateQmlInherits
 argument_list|(
-argument|QmlClassNode* qcn
+argument|QmlTypeNode* qcn
 argument_list|,
 argument|CodeMarker* marker
 argument_list|)
@@ -768,7 +768,7 @@ block|;
 name|void
 name|generateQmlInstantiates
 argument_list|(
-name|QmlClassNode
+name|QmlTypeNode
 operator|*
 name|qcn
 argument_list|,
