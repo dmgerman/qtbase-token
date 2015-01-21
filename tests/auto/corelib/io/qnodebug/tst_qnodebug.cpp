@@ -172,6 +172,7 @@ literal|6
 argument_list|)
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QString
 name|debugString
 init|=
@@ -184,11 +185,6 @@ argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss.zzz t"
 argument_list|)
 argument_list|)
-operator|+
-name|QStringLiteral
-argument_list|(
-literal|" Qt::LocalTime"
-argument_list|)
 decl_stmt|;
 name|QTest
 operator|::
@@ -200,9 +196,9 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromLatin1
+name|asprintf
 argument_list|(
-literal|"QDateTime(\"%1\")"
+literal|"QDateTime(\"%1\" Qt::TimeSpec(LocalTime))"
 argument_list|)
 operator|.
 name|arg
