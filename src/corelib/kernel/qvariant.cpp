@@ -5971,10 +5971,10 @@ begin_comment
 comment|/*!   \fn QVariant::QVariant(const QStringList&val)      Constructs a new variant with a string list value, \a val. */
 end_comment
 begin_comment
-comment|/*!   \fn QVariant::QVariant(const QMap<QString, QVariant>&val)      Constructs a new variant with a map of QVariants, \a val. */
+comment|/*!   \fn QVariant::QVariant(const QMap<QString, QVariant>&val)      Constructs a new variant with a map of \l {QVariant}s, \a val. */
 end_comment
 begin_comment
-comment|/*!   \fn QVariant::QVariant(const QHash<QString, QVariant>&val)      Constructs a new variant with a hash of QVariants, \a val. */
+comment|/*!   \fn QVariant::QVariant(const QHash<QString, QVariant>&val)      Constructs a new variant with a hash of \l {QVariant}s, \a val. */
 end_comment
 begin_comment
 comment|/*!   \fn QVariant::QVariant(const QDate&val)      Constructs a new variant with a date value, \a val. */
@@ -13121,7 +13121,7 @@ begin_comment
 comment|/*! \fn void QVariant::setValue(const T&value)      Stores a copy of \a value. If \c{T} is a type that QVariant     doesn't support, QMetaType is used to store the value. A compile     error will occur if QMetaType doesn't handle the type.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 4      \sa value(), fromValue(), canConvert()  */
 end_comment
 begin_comment
-comment|/*! \fn T QVariant::value() const      Returns the stored value converted to the template type \c{T}.     Call canConvert() to find out whether a type can be converted.     If the value cannot be converted, a \l{default-constructed value}     will be returned.      If the type \c{T} is supported by QVariant, this function behaves     exactly as toString(), toInt() etc.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 5      If the QVariant contains a pointer to a type derived from QObject then     \c{T} may be any QObject type. If the pointer stored in the QVariant can be     qobject_cast to T, then that result is returned. Otherwise a null pointer is     returned. Note that this only works for QObject subclasses which use the     Q_OBJECT macro.      If the QVariant contains a sequential container and \c{T} is QVariantList, the     elements of the container will be converted into QVariants and returned as a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa setValue(), fromValue(), canConvert(), Q_DECLARE_SEQUENTIAL_CONTAINER_METATYPE() */
+comment|/*! \fn T QVariant::value() const      Returns the stored value converted to the template type \c{T}.     Call canConvert() to find out whether a type can be converted.     If the value cannot be converted, a \l{default-constructed value}     will be returned.      If the type \c{T} is supported by QVariant, this function behaves     exactly as toString(), toInt() etc.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 5      If the QVariant contains a pointer to a type derived from QObject then     \c{T} may be any QObject type. If the pointer stored in the QVariant can be     qobject_cast to T, then that result is returned. Otherwise a null pointer is     returned. Note that this only works for QObject subclasses which use the     Q_OBJECT macro.      If the QVariant contains a sequential container and \c{T} is QVariantList, the     elements of the container will be converted into \l {QVariant}s and returned as a QVariantList.      \snippet code/src_corelib_kernel_qvariant.cpp 9      \sa setValue(), fromValue(), canConvert(), Q_DECLARE_SEQUENTIAL_CONTAINER_METATYPE() */
 end_comment
 begin_comment
 comment|/*! \fn bool QVariant::canConvert() const      Returns \c true if the variant can be converted to the template type \c{T},     otherwise false.      Example:      \snippet code/src_corelib_kernel_qvariant.cpp 6      A QVariant containing a pointer to a type derived from QObject will also return true for this     function if a qobject_cast to the template type \c{T} would succeed. Note that this only works     for QObject subclasses which use the Q_OBJECT macro.      \sa convert() */
