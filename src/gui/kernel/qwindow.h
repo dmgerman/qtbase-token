@@ -1400,17 +1400,6 @@ name|qreal
 name|opacity
 parameter_list|)
 function_decl|;
-name|private
-name|Q_SLOTS
-range|:
-name|void
-name|screenDestroyed
-argument_list|(
-name|QObject
-operator|*
-name|screen
-argument_list|)
-decl_stmt|;
 name|protected
 label|:
 name|virtual
