@@ -20,6 +20,12 @@ file|<qpa/qplatformbackingstore.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QOpenGLPaintDevice
+name|class
+name|QOpenGLPaintDevice
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QIOSBackingStore
 range|:
@@ -90,7 +96,7 @@ name|QOpenGLContext
 operator|*
 name|m_context
 block|;
-name|QPaintDevice
+name|QOpenGLPaintDevice
 operator|*
 name|m_device
 block|; }
