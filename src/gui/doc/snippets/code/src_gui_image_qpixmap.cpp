@@ -27,11 +27,11 @@ name|QPixmap
 name|myPixmap
 block|;
 name|myPixmap
-operator|->
+operator|.
 name|setMask
 argument_list|(
 name|myPixmap
-operator|->
+operator|.
 name|createHeuristicMask
 argument_list|()
 argument_list|)

@@ -3439,6 +3439,25 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Deploying executable applications to file system on Android not supported."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCoreApplication
 name|app
 argument_list|(
@@ -3690,6 +3709,25 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Reading and writing to a process is not supported on Qt/CE"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Deploying executable applications to file system on Android not supported."
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3949,6 +3987,23 @@ name|QT_NO_PROCESS
 name|QSKIP
 argument_list|(
 literal|"This test requires QProcess support"
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Deploying executable applications to file system on Android not supported."
 argument_list|)
 expr_stmt|;
 else|#

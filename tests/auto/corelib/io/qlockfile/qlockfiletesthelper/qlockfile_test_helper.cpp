@@ -97,24 +97,22 @@ literal|"-crash"
 condition|)
 block|{
 name|QLockFile
-modifier|*
 name|lockFile
-init|=
-operator|new
-name|QLockFile
 argument_list|(
 name|lockName
 argument_list|)
 decl_stmt|;
 name|lockFile
-operator|->
+operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-comment|// leak the lockFile on purpose, so that the lock remains!
-return|return
+comment|// exit on purpose, so that the lock remains!
+name|exit
+argument_list|(
 literal|0
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if

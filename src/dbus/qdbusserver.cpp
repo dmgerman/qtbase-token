@@ -296,6 +296,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|d
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
 block|}
 end_destructor
 begin_comment
@@ -340,8 +345,22 @@ specifier|const
 block|{
 return|return
 name|d
+condition|?
+name|d
 operator|->
 name|lastError
+else|:
+name|QDBusError
+argument_list|(
+name|QDBusError
+operator|::
+name|Disconnected
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|"Not connected."
+argument_list|)
+argument_list|)
 return|;
 block|}
 end_function

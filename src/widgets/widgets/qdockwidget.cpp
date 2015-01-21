@@ -4875,23 +4875,6 @@ operator|==
 literal|0
 condition|)
 break|break;
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-comment|// On Windows, NCA mouse events don't contain modifier info
-name|state
-operator|->
-name|ctrlDrag
-operator|=
-name|GetKeyState
-argument_list|(
-name|VK_CONTROL
-argument_list|)
-operator|&
-literal|0x8000
-expr_stmt|;
-else|#
-directive|else
 name|state
 operator|->
 name|ctrlDrag
@@ -4905,8 +4888,6 @@ name|Qt
 operator|::
 name|ControlModifier
 expr_stmt|;
-endif|#
-directive|endif
 name|startDrag
 argument_list|()
 expr_stmt|;

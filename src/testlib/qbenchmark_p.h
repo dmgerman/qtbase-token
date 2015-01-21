@@ -296,6 +296,13 @@ operator|-
 literal|1
 argument_list|)
 operator|,
+name|metric
+argument_list|(
+name|QTest
+operator|::
+name|FramesPerSecond
+argument_list|)
+operator|,
 name|setByMacro
 argument_list|(
 name|true

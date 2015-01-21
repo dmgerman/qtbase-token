@@ -96,6 +96,17 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+DECL|function|quit
+name|void
+name|quit
+parameter_list|()
+block|{
+name|qApp
+operator|->
+name|quit
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 class|;
 end_class

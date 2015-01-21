@@ -139,6 +139,17 @@ name|QT_NO_DBUS
 end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// used with dbus_server_allocate_data_slot
+DECL|variable|server_slot
+specifier|static
+name|dbus_int32_t
+name|server_slot
+init|=
+operator|-
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|isDebugging
 specifier|static
 name|QBasicAtomicInt
@@ -5938,11 +5949,19 @@ if|if
 condition|(
 name|server
 condition|)
+block|{
 name|q_dbus_server_disconnect
 argument_list|(
 name|server
 argument_list|)
 expr_stmt|;
+name|q_dbus_server_free_data_slot
+argument_list|(
+operator|&
+name|server_slot
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|oldMode
@@ -9160,16 +9179,6 @@ expr_stmt|;
 comment|// third try
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|server_slot
-specifier|static
-name|dbus_int32_t
-name|server_slot
-init|=
-operator|-
-literal|1
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|setServer
 name|void

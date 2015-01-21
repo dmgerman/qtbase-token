@@ -533,7 +533,7 @@ block|}
 end_function
 begin_function
 DECL|function|checkNativeSurface
-name|void
+name|bool
 name|QAndroidPlatformOpenGLWindow
 operator|::
 name|checkNativeSurface
@@ -562,7 +562,10 @@ operator|.
 name|isValid
 argument_list|()
 condition|)
-return|return;
+return|return
+literal|false
+return|;
+comment|// makeCurrent is NOT needed.
 name|createEgl
 argument_list|(
 name|config
@@ -633,6 +636,10 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
+comment|// makeCurrent is needed!
 block|}
 end_function
 begin_function
@@ -918,6 +925,11 @@ name|m_androidSurfaceObject
 operator|=
 name|surface
 expr_stmt|;
+if|if
+condition|(
+name|surface
+condition|)
+comment|// wait until we have a valid surface to draw into
 name|m_surfaceWaitCondition
 operator|.
 name|wakeOne
@@ -926,7 +938,12 @@ expr_stmt|;
 name|unlockSurface
 argument_list|()
 expr_stmt|;
-comment|// repaint the window
+if|if
+condition|(
+name|surface
+condition|)
+block|{
+comment|// repaint the window, when we have a valid surface
 name|QRect
 name|availableGeometry
 init|=
@@ -991,6 +1008,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_macro

@@ -205,6 +205,10 @@ DECL|member|prefix
 name|QString
 name|prefix
 decl_stmt|;
+DECL|member|writePrefix
+name|QString
+name|writePrefix
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -332,6 +336,33 @@ argument_list|(
 literal|"Can't find images directory!"
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID_NO_SDK
+argument_list|)
+name|writePrefix
+operator|=
+name|QDir
+operator|::
+name|homePath
+argument_list|()
+expr_stmt|;
+else|#
+directive|else
+name|writePrefix
+operator|=
+name|prefix
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -904,7 +935,7 @@ block|{
 name|QImageWriter
 name|writer
 argument_list|(
-name|prefix
+name|writePrefix
 operator|+
 literal|"gen-"
 operator|+
@@ -960,7 +991,7 @@ comment|// Shouldn't be able to write to read-only file
 name|QFile
 name|sourceFile
 argument_list|(
-name|prefix
+name|writePrefix
 operator|+
 literal|"gen-"
 operator|+
@@ -1004,7 +1035,7 @@ expr_stmt|;
 name|QImageWriter
 name|writer
 argument_list|(
-name|prefix
+name|writePrefix
 operator|+
 literal|"gen-"
 operator|+
@@ -1043,7 +1074,7 @@ block|{
 name|QImageReader
 name|reader
 argument_list|(
-name|prefix
+name|writePrefix
 operator|+
 literal|"gen-"
 operator|+
@@ -2229,7 +2260,7 @@ expr_stmt|;
 name|QImageWriter
 name|writer
 argument_list|(
-name|prefix
+name|writePrefix
 operator|+
 name|fileName
 argument_list|)
@@ -2359,7 +2390,7 @@ argument_list|(
 literal|"garble"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(
@@ -2382,7 +2413,7 @@ argument_list|(
 literal|"bmp"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(
@@ -2408,7 +2439,7 @@ argument_list|(
 literal|"xbm"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(
@@ -2434,7 +2465,7 @@ argument_list|(
 literal|"xpm"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(
@@ -2460,7 +2491,7 @@ argument_list|(
 literal|"png"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(
@@ -2486,7 +2517,7 @@ argument_list|(
 literal|"ppm"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(
@@ -2512,7 +2543,7 @@ argument_list|(
 literal|"pbm"
 argument_list|)
 operator|<<
-name|prefix
+name|writePrefix
 operator|+
 name|QString
 argument_list|(

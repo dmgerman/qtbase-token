@@ -281,30 +281,9 @@ name|toString
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"yyyy/MM/dd hh:mm:ss.zzz"
+literal|"yyyy/MM/dd hh:mm:ss.zzz[t]"
 argument_list|)
 argument_list|)
-operator|+
-operator|(
-name|dateTime
-operator|.
-name|timeSpec
-argument_list|()
-operator|==
-name|Qt
-operator|::
-name|LocalTime
-operator|?
-name|QLatin1String
-argument_list|(
-literal|"[local time]"
-argument_list|)
-operator|:
-name|QLatin1String
-argument_list|(
-literal|"[UTC]"
-argument_list|)
-operator|)
 argument_list|)
 argument_list|)
 operator|:

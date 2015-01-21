@@ -145,12 +145,12 @@ block|}
 ifdef|#
 directive|ifdef
 name|Q_QDOC
-name|int
+name|T
 name|load
 argument_list|()
 specifier|const
 block|;
-name|int
+name|T
 name|loadAcquire
 argument_list|()
 specifier|const
@@ -158,17 +158,17 @@ block|;
 name|void
 name|store
 argument_list|(
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 name|void
 name|storeRelease
 argument_list|(
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 name|operator
-name|int
+name|T
 argument_list|()
 specifier|const
 block|;
@@ -177,7 +177,7 @@ operator|&
 name|operator
 operator|=
 operator|(
-name|int
+name|T
 operator|)
 block|;
 specifier|static
@@ -215,33 +215,33 @@ block|;
 name|bool
 name|testAndSetRelaxed
 argument_list|(
-argument|int expectedValue
+argument|T expectedValue
 argument_list|,
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 name|bool
 name|testAndSetAcquire
 argument_list|(
-argument|int expectedValue
+argument|T expectedValue
 argument_list|,
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 name|bool
 name|testAndSetRelease
 argument_list|(
-argument|int expectedValue
+argument|T expectedValue
 argument_list|,
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 name|bool
 name|testAndSetOrdered
 argument_list|(
-argument|int expectedValue
+argument|T expectedValue
 argument_list|,
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 specifier|static
@@ -256,28 +256,28 @@ name|bool
 name|isFetchAndStoreWaitFree
 argument_list|()
 block|;
-name|int
+name|T
 name|fetchAndStoreRelaxed
 argument_list|(
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndStoreAcquire
 argument_list|(
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndStoreRelease
 argument_list|(
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndStoreOrdered
 argument_list|(
-argument|int newValue
+argument|T newValue
 argument_list|)
 block|;
 specifier|static
@@ -292,189 +292,189 @@ name|bool
 name|isFetchAndAddWaitFree
 argument_list|()
 block|;
-name|int
+name|T
 name|fetchAndAddRelaxed
 argument_list|(
-argument|int valueToAdd
+argument|T valueToAdd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAddAcquire
 argument_list|(
-argument|int valueToAdd
+argument|T valueToAdd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAddRelease
 argument_list|(
-argument|int valueToAdd
+argument|T valueToAdd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAddOrdered
 argument_list|(
-argument|int valueToAdd
+argument|T valueToAdd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndSubRelaxed
 argument_list|(
-argument|int valueToSub
+argument|T valueToSub
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndSubAcquire
 argument_list|(
-argument|int valueToSub
+argument|T valueToSub
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndSubRelease
 argument_list|(
-argument|int valueToSub
+argument|T valueToSub
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndSubOrdered
 argument_list|(
-argument|int valueToSub
+argument|T valueToSub
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndOrRelaxed
 argument_list|(
-argument|int valueToOr
+argument|T valueToOr
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndOrAcquire
 argument_list|(
-argument|int valueToOr
+argument|T valueToOr
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndOrRelease
 argument_list|(
-argument|int valueToOr
+argument|T valueToOr
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndOrOrdered
 argument_list|(
-argument|int valueToOr
+argument|T valueToOr
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAndRelaxed
 argument_list|(
-argument|int valueToAnd
+argument|T valueToAnd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAndAcquire
 argument_list|(
-argument|int valueToAnd
+argument|T valueToAnd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAndRelease
 argument_list|(
-argument|int valueToAnd
+argument|T valueToAnd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndAndOrdered
 argument_list|(
-argument|int valueToAnd
+argument|T valueToAnd
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndXorRelaxed
 argument_list|(
-argument|int valueToXor
+argument|T valueToXor
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndXorAcquire
 argument_list|(
-argument|int valueToXor
+argument|T valueToXor
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndXorRelease
 argument_list|(
-argument|int valueToXor
+argument|T valueToXor
 argument_list|)
 block|;
-name|int
+name|T
 name|fetchAndXorOrdered
 argument_list|(
-argument|int valueToXor
+argument|T valueToXor
 argument_list|)
 block|;
-name|int
+name|T
 name|operator
 operator|++
 operator|(
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|++
 operator|(
 name|int
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|--
 operator|(
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|--
 operator|(
 name|int
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|+=
 operator|(
-name|int
+name|T
 name|value
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|-=
 operator|(
-name|int
+name|T
 name|value
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator||=
 operator|(
-name|int
+name|T
 name|value
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|&=
 operator|(
-name|int
+name|T
 name|value
 operator|)
 block|;
-name|int
+name|T
 name|operator
 operator|^=
 operator|(
-name|int
+name|T
 name|value
 operator|)
 block|;

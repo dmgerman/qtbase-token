@@ -13686,6 +13686,33 @@ decl_stmt|;
 if|if
 condition|(
 name|compiler
+operator|>=
+name|CC_MSVC2005
+operator|&&
+name|compiler
+operator|<=
+name|CC_MSVC2008
+condition|)
+block|{
+if|if
+condition|(
+name|errorMessage
+condition|)
+operator|*
+name|errorMessage
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"ANGLE is no longer supported for this compiler."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|compiler
 operator|<
 name|CC_MSVC2012
 operator|&&
@@ -20564,7 +20591,21 @@ condition|)
 block|{
 name|cout
 operator|<<
-literal|"Could not find output file: "
+literal|"Could not find output file '"
+operator|<<
+name|qPrintable
+argument_list|(
+name|arch_exe
+argument_list|)
+operator|<<
+literal|"' or 'arch' in "
+operator|<<
+name|qPrintable
+argument_list|(
+name|newpwd
+argument_list|)
+operator|<<
+literal|" : "
 operator|<<
 name|qPrintable
 argument_list|(

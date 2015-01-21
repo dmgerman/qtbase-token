@@ -2291,7 +2291,10 @@ argument_list|(
 operator|!
 name|ascii_isspace
 argument_list|(
+name|uchar
+argument_list|(
 literal|'\200'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2301,10 +2304,13 @@ name|Q_STATIC_ASSERT
 argument_list|(
 operator|!
 name|ascii_isspace
+argument_list|(
+name|uchar
 argument_list|(
 literal|'\xA0'
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -2313,7 +2319,10 @@ argument_list|(
 operator|!
 name|ascii_isspace
 argument_list|(
+name|uchar
+argument_list|(
 literal|'\377'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

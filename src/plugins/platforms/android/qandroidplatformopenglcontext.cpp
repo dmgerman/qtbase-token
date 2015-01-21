@@ -89,7 +89,7 @@ operator|==
 name|QSurface
 operator|::
 name|Window
-condition|)
+operator|&&
 cast|static_cast
 argument_list|<
 name|QAndroidPlatformOpenGLWindow
@@ -104,7 +104,16 @@ argument_list|(
 name|eglConfig
 argument_list|()
 argument_list|)
+condition|)
+block|{
+name|QEGLPlatformContext
+operator|::
+name|makeCurrent
+argument_list|(
+name|surface
+argument_list|)
 expr_stmt|;
+block|}
 name|QEGLPlatformContext
 operator|::
 name|swapBuffers

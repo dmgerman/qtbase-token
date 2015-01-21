@@ -95,6 +95,9 @@ block|;
 specifier|const
 name|QMetaProperty
 name|m_prop
+block|;
+name|QBrush
+name|m_defaultBrush
 block|; }
 decl_stmt|;
 end_decl_stmt

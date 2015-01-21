@@ -56,6 +56,9 @@ name|QPlatformServices
 block|{
 name|public
 label|:
+name|QPlatformServices
+argument_list|()
+expr_stmt|;
 name|virtual
 operator|~
 name|QPlatformServices
