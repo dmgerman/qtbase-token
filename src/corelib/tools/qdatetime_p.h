@@ -391,9 +391,7 @@ name|setValidDateTime
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator||
+operator||=
 name|ValidDateTime
 block|; }
 specifier|inline
@@ -402,9 +400,7 @@ name|clearValidDateTime
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator|&
+operator|&=
 operator|~
 name|ValidDateTime
 block|; }
@@ -426,9 +422,7 @@ name|setTimeZoneCached
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator||
+operator||=
 name|TimeZoneCached
 block|; }
 specifier|inline
@@ -437,9 +431,7 @@ name|clearTimeZoneCached
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator|&
+operator|&=
 operator|~
 name|TimeZoneCached
 block|; }
@@ -449,14 +441,13 @@ name|clearSetToDaylightStatus
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator|&
+operator|&=
 operator|~
+operator|(
 name|SetToStandardTime
-operator|&
-operator|~
+operator||
 name|SetToDaylightTime
+operator|)
 block|; }
 ifndef|#
 directive|ifndef
