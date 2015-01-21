@@ -1099,6 +1099,17 @@ control|)
 block|{
 if|if
 condition|(
+name|file
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"-"
+argument_list|)
+condition|)
+continue|continue;
+elseif|else
+if|if
+condition|(
 operator|!
 name|QFile
 operator|::
