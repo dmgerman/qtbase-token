@@ -755,6 +755,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_monthNumberFromShortName
+specifier|static
 name|int
 name|qt_monthNumberFromShortName
 parameter_list|(
