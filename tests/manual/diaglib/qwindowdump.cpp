@@ -818,6 +818,11 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x050400
 name|qDebug
 argument_list|()
 operator|.
@@ -826,6 +831,15 @@ argument_list|()
 operator|<<
 name|d
 expr_stmt|;
+else|#
+directive|else
+name|qDebug
+argument_list|()
+operator|<<
+name|d
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|#
 directive|else
