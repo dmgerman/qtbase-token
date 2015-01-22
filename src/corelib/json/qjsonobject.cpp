@@ -448,7 +448,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of all keys in this object.  */
+comment|/*!     Returns a list of all keys in this object.      The list is sorted lexographically.  */
 end_comment
 begin_function
 DECL|function|keys
