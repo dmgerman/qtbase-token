@@ -434,7 +434,11 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// prevent this function from being inlined into all 10 users
+end_comment
 begin_function
+name|Q_NEVER_INLINE
 DECL|function|getDateFromJulianDay
 specifier|static
 name|ParsedDate
