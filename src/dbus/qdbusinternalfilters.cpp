@@ -397,8 +397,9 @@ name|xml_data
 operator|+=
 name|qDBusGenerateMetaObjectXml
 argument_list|(
-name|QString
-argument_list|()
+name|node
+operator|.
+name|interfaceName
 argument_list|,
 name|mo
 argument_list|,

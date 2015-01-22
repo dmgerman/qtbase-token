@@ -607,6 +607,9 @@ block|}
 name|QString
 name|name
 block|;
+name|QString
+name|interfaceName
+block|;
 expr|union
 block|{
 name|QObject
