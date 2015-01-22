@@ -8524,11 +8524,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// Reset the status
-name|m_status
-operator|=
-literal|0
-expr_stmt|;
+name|StatusFlags
+name|newStatus
+decl_stmt|;
 comment|// Set date value and status
 name|qint64
 name|days
@@ -8552,7 +8550,7 @@ argument_list|()
 operator|-
 name|JULIAN_DAY_FOR_EPOCH
 expr_stmt|;
-name|m_status
+name|newStatus
 operator|=
 name|ValidDate
 expr_stmt|;
@@ -8566,7 +8564,7 @@ name|isNull
 argument_list|()
 condition|)
 block|{
-name|m_status
+name|newStatus
 operator|=
 name|NullDate
 expr_stmt|;
@@ -8592,10 +8590,8 @@ operator|.
 name|msecsSinceStartOfDay
 argument_list|()
 expr_stmt|;
-name|m_status
-operator|=
-name|m_status
-operator||
+name|newStatus
+operator||=
 name|ValidTime
 expr_stmt|;
 block|}
@@ -8608,10 +8604,8 @@ name|isNull
 argument_list|()
 condition|)
 block|{
-name|m_status
-operator|=
-name|m_status
-operator||
+name|newStatus
+operator||=
 name|NullTime
 expr_stmt|;
 block|}
@@ -8625,6 +8619,10 @@ name|MSECS_PER_DAY
 operator|)
 operator|+
 name|ds
+expr_stmt|;
+name|m_status
+operator|=
+name|newStatus
 expr_stmt|;
 comment|// Set if date and time are valid
 name|checkValidDateTime
