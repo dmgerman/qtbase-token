@@ -41,102 +41,33 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern
 name|QString
-name|qt_libraryInfoFile
+name|qmake_libraryInfoFile
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_function
+begin_function_decl
 name|QT_END_NAMESPACE
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|QT_BOOTSTRAPPED
-argument_list|)
-name|QString
-name|qt_libraryInfoFile
-parameter_list|()
-block|{
-name|QString
-name|qmakeAbsoluteLocation
-init|=
-name|QLatin1String
-argument_list|(
-name|QT_QMAKE_LOCATION
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|qmakeAbsoluteLocation
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-return|return
-name|QDir
-argument_list|(
-name|QFileInfo
-argument_list|(
-name|qmakeAbsoluteLocation
-argument_list|)
-operator|.
-name|absolutePath
-argument_list|()
-argument_list|)
-operator|.
-name|filePath
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"qt.conf"
-argument_list|)
-argument_list|)
-return|;
-return|return
-name|QString
-argument_list|()
-return|;
-block|}
-end_function
-begin_else
 else|#
 directive|else
-end_else
-begin_include
 include|#
 directive|include
 file|"qcoreapplication.h"
-end_include
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-end_ifdef
-begin_include
 include|#
 directive|include
 file|"private/qcore_mac_p.h"
-end_include
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_include
 include|#
 directive|include
 file|"qconfig.cpp"
-end_include
-begin_include
 include|#
 directive|include
 file|"archdetect.cpp"
-end_include
-begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern
 name|void
@@ -169,7 +100,7 @@ name|settings
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 DECL|member|haveEffectiveSourcePaths
 name|bool
 name|haveEffectiveSourcePaths
@@ -209,7 +140,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 DECL|function|haveGroup
 specifier|static
 name|bool
@@ -320,7 +251,7 @@ argument_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 name|bool
 name|haveEffectivePaths
 decl_stmt|;
@@ -346,7 +277,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 name|haveEffectiveSourcePaths
 operator|=
 name|children
@@ -414,7 +345,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 if|if
 condition|(
 operator|!
@@ -468,7 +399,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 if|if
 condition|(
 operator|!
@@ -481,7 +412,7 @@ argument_list|)
 condition|)
 name|qtconfig
 operator|=
-name|qt_libraryInfoFile
+name|qmake_libraryInfoFile
 argument_list|()
 expr_stmt|;
 else|#
@@ -639,7 +570,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 end_ifndef
 begin_comment
 comment|/*!     \internal     You cannot create a QLibraryInfo, instead only the static functions are available to query    information. */
@@ -1194,7 +1125,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_BOOTSTRAPPED
+comment|// QT_BUILD_QMAKE
 end_comment
 begin_comment
 comment|/*  * To add a new entry in QLibrary::LibraryLocation, add it to the enum above the bootstrapped values and:  * - add its relative path in the qtConfEntries[] array below  *   (the key is what appears in a qt.conf file)  * - add a property name in qmake/property.cpp propList[] array  *   (it's used with qmake -query)  * - add to qt_config.prf, qt_module.prf, qt_module_fwdpri.prf  */
@@ -1328,7 +1259,7 @@ block|}
 block|,
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 block|{
 literal|"Sysroot"
 block|,
@@ -1392,7 +1323,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 name|QString
 name|ret
 init|=
@@ -1549,7 +1480,7 @@ name|ret
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 comment|// Logic for choosing the right data source: if EffectivePaths are requested
 comment|// and qt.conf with that section is present, use it, otherwise fall back to
 comment|// FinalPaths. For FinalPaths, use qt.conf if present and contains not only
@@ -1793,7 +1724,7 @@ name|QLatin1String
 argument_list|(
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 name|group
 operator|==
 name|EffectiveSourcePaths
@@ -1828,7 +1759,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 if|if
 condition|(
 name|ret
@@ -2005,7 +1936,7 @@ comment|// QT_NO_SETTINGS
 block|}
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 comment|// The specs need to be returned verbatim.
 if|if
 condition|(
@@ -2043,7 +1974,7 @@ name|baseDir
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 if|if
 condition|(
 name|loc
@@ -2066,7 +1997,7 @@ name|baseDir
 operator|=
 name|QFileInfo
 argument_list|(
-name|qt_libraryInfoFile
+name|qmake_libraryInfoFile
 argument_list|()
 argument_list|)
 operator|.
@@ -2290,7 +2221,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 argument_list|)
 operator|&&
 operator|!
@@ -2360,7 +2291,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|// !QT_BOOTSTRAPPED&& !QT_NO_SETTINGS
+comment|// !QT_BUILD_QMAKE&& !QT_NO_SETTINGS
 return|return
 name|QStringList
 argument_list|()

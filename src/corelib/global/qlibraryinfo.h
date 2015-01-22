@@ -108,7 +108,7 @@ comment|// Insert new values above this line
 comment|// Please read the comments in qlibraryinfo.cpp before adding
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 comment|// These are not subject to binary compatibility constraints
 name|SysrootPath
 block|,
@@ -145,7 +145,7 @@ function_decl|;
 comment|// ### Qt 6: consider renaming it to path()
 ifdef|#
 directive|ifdef
-name|QT_BOOTSTRAPPED
+name|QT_BUILD_QMAKE
 enum|enum
 name|PathGroup
 block|{
