@@ -2151,8 +2151,6 @@ operator|::
 name|ShortFormat
 argument_list|)
 return|;
-default|default:
-break|break;
 block|}
 return|return
 name|QString
@@ -2236,8 +2234,6 @@ operator|::
 name|LongFormat
 argument_list|)
 return|;
-default|default:
-break|break;
 block|}
 return|return
 name|QString
@@ -2321,8 +2317,6 @@ operator|::
 name|ShortFormat
 argument_list|)
 return|;
-default|default:
-break|break;
 block|}
 return|return
 name|QString
@@ -2406,8 +2400,6 @@ operator|::
 name|LongFormat
 argument_list|)
 return|;
-default|default:
-break|break;
 block|}
 return|return
 name|QLocale
