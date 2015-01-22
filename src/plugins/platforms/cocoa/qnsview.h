@@ -171,6 +171,9 @@ name|m_resendKeyEvent
 block|;
 name|bool
 name|m_scrolling
+block|;
+name|bool
+name|m_exposedOnMoveToWindow
 block|; }
 operator|-
 operator|(
