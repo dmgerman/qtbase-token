@@ -549,6 +549,7 @@ name|fileName
 parameter_list|,
 specifier|const
 name|QString
+modifier|&
 name|newFileName
 parameter_list|,
 name|IStorageItem

@@ -7110,7 +7110,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|key
 decl|,
 name|keys

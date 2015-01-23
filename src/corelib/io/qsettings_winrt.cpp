@@ -1466,7 +1466,9 @@ parameter_list|)
 constructor_decl|;
 name|QWinRTSettingsPrivate
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|rKey
 parameter_list|)
 constructor_decl|;
@@ -1674,7 +1676,9 @@ name|QWinRTSettingsPrivate
 operator|::
 name|QWinRTSettingsPrivate
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|rPath
 parameter_list|)
 member_init_list|:

@@ -1206,7 +1206,9 @@ name|TableGenerator
 operator|::
 name|processFile
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|composeFileName
 parameter_list|)
 block|{

@@ -647,7 +647,9 @@ operator|::
 name|Command
 name|cmd
 parameter_list|,
+specifier|const
 name|QStringList
+modifier|&
 name|raw
 parameter_list|,
 specifier|const
@@ -663,7 +665,9 @@ operator|::
 name|Command
 name|cmd
 parameter_list|,
+specifier|const
 name|QStringList
+modifier|&
 name|raw
 parameter_list|,
 name|QIODevice
@@ -745,7 +749,9 @@ operator|::
 name|Command
 name|cmd
 parameter_list|,
+specifier|const
 name|QStringList
+modifier|&
 name|raw
 parameter_list|,
 specifier|const
@@ -801,7 +807,9 @@ operator|::
 name|Command
 name|cmd
 parameter_list|,
+specifier|const
 name|QStringList
+modifier|&
 name|raw
 parameter_list|,
 name|QIODevice

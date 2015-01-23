@@ -9621,7 +9621,9 @@ name|Node
 operator|::
 name|cleanId
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|str
 parameter_list|)
 block|{

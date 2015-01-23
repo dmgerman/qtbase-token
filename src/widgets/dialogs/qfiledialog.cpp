@@ -4804,6 +4804,7 @@ name|addDefaultSuffixToFiles
 parameter_list|(
 specifier|const
 name|QStringList
+modifier|&
 name|filesToFix
 parameter_list|)
 specifier|const
@@ -16183,10 +16184,12 @@ name|path
 parameter_list|,
 specifier|const
 name|QString
+modifier|&
 name|oldName
 parameter_list|,
 specifier|const
 name|QString
+modifier|&
 name|newName
 parameter_list|)
 block|{

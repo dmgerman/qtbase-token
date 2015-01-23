@@ -3647,7 +3647,9 @@ argument_list|)
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QByteArray
+modifier|&
 name|xkbRoot
 decl|,
 name|xkbRootList
@@ -5748,7 +5750,9 @@ name|KeyboardModifiers
 modifier|&
 name|modifiers
 parameter_list|,
+specifier|const
 name|QString
+modifier|&
 name|text
 parameter_list|)
 specifier|const

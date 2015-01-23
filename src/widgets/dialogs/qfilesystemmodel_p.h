@@ -882,7 +882,9 @@ specifier|inline
 name|int
 name|visibleLocation
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|childName
 parameter_list|)
 block|{

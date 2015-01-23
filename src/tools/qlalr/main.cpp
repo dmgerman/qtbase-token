@@ -179,7 +179,9 @@ argument_list|()
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|arg
 decl|,
 name|args

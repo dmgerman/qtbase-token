@@ -368,7 +368,7 @@ name|tryLocker
 argument_list|(
 argument|QSharedMemoryLocker *locker
 argument_list|,
-argument|const QString function
+argument|const QString&function
 argument_list|)
 block|{
 if|if

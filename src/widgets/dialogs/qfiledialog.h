@@ -1115,7 +1115,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_fileRenamed(const QString&path,                 const QString oldName, const QString newName)
+argument|void _q_fileRenamed(const QString&path,                                                  const QString&oldName,                                                  const QString&newName)
 argument_list|)
 name|friend
 name|class

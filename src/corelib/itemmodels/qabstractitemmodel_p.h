@@ -177,7 +177,7 @@ block|;
 name|void
 name|movePersistentIndexes
 argument_list|(
-argument|QVector<QPersistentModelIndexData *> indexes
+argument|const QVector<QPersistentModelIndexData *>&indexes
 argument_list|,
 argument|int change
 argument_list|,

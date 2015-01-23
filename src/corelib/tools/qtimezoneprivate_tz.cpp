@@ -1666,6 +1666,7 @@ name|calculatePosixDate
 parameter_list|(
 specifier|const
 name|QByteArray
+modifier|&
 name|dateRule
 parameter_list|,
 name|int

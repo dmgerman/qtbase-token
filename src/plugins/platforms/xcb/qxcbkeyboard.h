@@ -207,7 +207,7 @@ argument|xcb_keysym_t keysym
 argument_list|,
 argument|Qt::KeyboardModifiers&modifiers
 argument_list|,
-argument|QString text
+argument|const QString&text
 argument_list|)
 specifier|const
 block|;

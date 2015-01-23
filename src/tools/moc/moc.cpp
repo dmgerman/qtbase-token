@@ -4224,6 +4224,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QByteArray
+modifier|&
 name|candidate
 decl|,
 name|candidates
@@ -4315,6 +4316,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QByteArray
+modifier|&
 name|candidate
 decl|,
 name|candidates

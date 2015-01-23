@@ -489,6 +489,7 @@ operator|<
 name|QSimplexConstraint
 operator|*
 operator|>
+operator|&
 name|constraints
 argument_list|)
 decl_stmt|;

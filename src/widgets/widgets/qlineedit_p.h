@@ -704,7 +704,9 @@ begin_function_decl
 name|void
 name|_q_completionHighlighted
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 parameter_list|)
 function_decl|;
 end_function_decl

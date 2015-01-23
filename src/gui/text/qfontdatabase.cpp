@@ -5546,7 +5546,9 @@ parameter_list|,
 name|int
 name|force_encoding_id
 parameter_list|,
+specifier|const
 name|QString
+modifier|&
 name|styleName
 init|=
 name|QString

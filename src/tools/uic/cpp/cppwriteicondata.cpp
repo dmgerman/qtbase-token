@@ -40,7 +40,9 @@ specifier|static
 name|QByteArray
 name|transformImageData
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|data
 parameter_list|)
 block|{
@@ -201,7 +203,9 @@ specifier|static
 name|QByteArray
 name|unzipXPM
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|data
 parameter_list|,
 name|ulong

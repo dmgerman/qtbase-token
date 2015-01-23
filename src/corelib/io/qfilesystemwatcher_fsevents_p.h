@@ -166,7 +166,7 @@ operator|:
 name|void
 name|emitFileChanged
 argument_list|(
-argument|const QString path
+argument|const QString&path
 argument_list|,
 argument|bool removed
 argument_list|)
@@ -174,7 +174,7 @@ block|;
 name|void
 name|emitDirectoryChanged
 argument_list|(
-argument|const QString path
+argument|const QString&path
 argument_list|,
 argument|bool removed
 argument_list|)
@@ -189,7 +189,7 @@ operator|:
 name|void
 name|doEmitFileChanged
 argument_list|(
-argument|const QString path
+argument|const QString&path
 argument_list|,
 argument|bool removed
 argument_list|)
@@ -197,7 +197,7 @@ block|;
 name|void
 name|doEmitDirectoryChanged
 argument_list|(
-argument|const QString path
+argument|const QString&path
 argument_list|,
 argument|bool removed
 argument_list|)

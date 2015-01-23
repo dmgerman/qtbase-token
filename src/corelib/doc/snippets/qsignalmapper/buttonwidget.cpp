@@ -21,7 +21,9 @@ name|ButtonWidget
 operator|::
 name|ButtonWidget
 parameter_list|(
+specifier|const
 name|QStringList
+modifier|&
 name|texts
 parameter_list|,
 name|QWidget

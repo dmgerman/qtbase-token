@@ -277,6 +277,7 @@ name|stateForName
 parameter_list|(
 specifier|const
 name|QString
+modifier|&
 name|stateName
 parameter_list|)
 block|{

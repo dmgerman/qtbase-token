@@ -8954,11 +8954,13 @@ modifier|*
 argument_list|>
 name|getVariables
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|QSimplexConstraint
 modifier|*
 argument_list|>
+modifier|&
 name|constraints
 parameter_list|)
 block|{

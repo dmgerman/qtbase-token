@@ -73,7 +73,9 @@ name|xcb_randr_get_output_info_reply_t
 modifier|*
 name|output
 parameter_list|,
+specifier|const
 name|QString
+modifier|&
 name|outputName
 parameter_list|,
 name|int

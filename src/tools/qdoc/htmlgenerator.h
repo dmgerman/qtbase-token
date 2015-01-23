@@ -321,9 +321,15 @@ block|;
 name|void
 name|generateManifestFile
 argument_list|(
-argument|QString manifest
+specifier|const
+name|QString
+operator|&
+name|manifest
 argument_list|,
-argument|QString element
+specifier|const
+name|QString
+operator|&
+name|element
 argument_list|)
 block|;
 name|void

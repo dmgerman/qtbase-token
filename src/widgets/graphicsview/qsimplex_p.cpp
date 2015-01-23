@@ -197,6 +197,7 @@ argument_list|<
 name|QSimplexConstraint
 modifier|*
 argument_list|>
+modifier|&
 name|newConstraints
 parameter_list|)
 block|{

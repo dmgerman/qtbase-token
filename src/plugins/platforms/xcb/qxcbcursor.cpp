@@ -5260,6 +5260,7 @@ name|dpy
 parameter_list|,
 specifier|const
 name|QByteArray
+modifier|&
 name|theme
 parameter_list|)
 block|{

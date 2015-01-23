@@ -148,11 +148,16 @@ block|{ }
 DECL|function|Topic
 name|Topic
 argument_list|(
-argument|QString& t
+name|QString
+operator|&
+name|t
 argument_list|,
-argument|QString a
+specifier|const
+name|QString
+operator|&
+name|a
 argument_list|)
-block|:
+operator|:
 name|topic
 argument_list|(
 name|t

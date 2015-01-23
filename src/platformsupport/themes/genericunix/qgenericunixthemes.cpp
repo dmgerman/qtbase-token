@@ -3282,7 +3282,9 @@ DECL|function|configureFonts
 name|void
 name|configureFonts
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|gtkFontName
 parameter_list|)
 specifier|const

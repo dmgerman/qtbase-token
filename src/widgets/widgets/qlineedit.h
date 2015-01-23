@@ -902,7 +902,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_completionHighlighted(QString)
+argument|void _q_completionHighlighted(const QString&)
 argument_list|)
 endif|#
 directive|endif

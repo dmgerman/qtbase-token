@@ -234,7 +234,7 @@ comment|// Additional methods
 name|void
 name|setVirtualSiblings
 argument_list|(
-argument|QList<QPlatformScreen *> siblings
+argument|const QList<QPlatformScreen *>&siblings
 argument_list|)
 block|{
 name|m_siblings

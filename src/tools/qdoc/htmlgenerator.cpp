@@ -18343,13 +18343,13 @@ block|}
 if|#
 directive|if
 literal|0
-block|QStringList keys = groups.uniqueKeys();     foreach (QString key, keys) {         GroupNode* gn = static_cast<GroupNode*>(groups.value(key));         if (gn) {             out()<< QString("<h3><a href=\"%1\">%2</a></h3>\n").arg(                          linkForNode(gn, relative)).arg(                          protectEnc(gn->fullTitle()));
+block|QStringList keys = groups.uniqueKeys();     foreach (const QString&key, keys) {         GroupNode* gn = static_cast<GroupNode*>(groups.value(key));         if (gn) {             out()<< QString("<h3><a href=\"%1\">%2</a></h3>\n").arg(                          linkForNode(gn, relative)).arg(                          protectEnc(gn->fullTitle()));
 if|#
 directive|if
 literal|0
 block|if (gn->members().isEmpty())                 continue;              NodeMap nm;             foreach (Node* member, gn->members()) {                 if (member->isInternal() || member->isExample() || member->isExternalPage() ||                     member->isObsolete())                     continue;
 comment|// not interested either in individual (Qt Designer etc.) manual chapters
-block|if (member->links().contains(Node::ContentsLink))                     continue;                 QString sortKey = member->fullTitle().toLower();                 if (sortKey.startsWith("the "))                     sortKey.remove(0, 4);                 sortKey.replace(singleDigit, "0\\1");                 nm.insert(sortKey, member);             }              out()<< "<ul>\n";             QStringList titles = nm.keys();             foreach (QString t, titles) {                 Node* member = nm.value(t);                 QString title = member->fullTitle();                 if (title.startsWith("The "))                     title.remove(0, 4);                 out()<< "<li><a href=\""<< linkForNode(member, relative)<< "\">"<< protectEnc(title)<< "</a></li>\n";             }             out()<< "</ul>\n";
+block|if (member->links().contains(Node::ContentsLink))                     continue;                 QString sortKey = member->fullTitle().toLower();                 if (sortKey.startsWith("the "))                     sortKey.remove(0, 4);                 sortKey.replace(singleDigit, "0\\1");                 nm.insert(sortKey, member);             }              out()<< "<ul>\n";             QStringList titles = nm.keys();             foreach (const QString&t, titles) {                 Node* member = nm.value(t);                 QString title = member->fullTitle();                 if (title.startsWith("The "))                     title.remove(0, 4);                 out()<< "<li><a href=\""<< linkForNode(member, relative)<< "\">"<< protectEnc(title)<< "</a></li>\n";             }             out()<< "</ul>\n";
 endif|#
 directive|endif
 block|}     }
@@ -25519,10 +25519,14 @@ name|HtmlGenerator
 operator|::
 name|generateManifestFile
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|manifest
 parameter_list|,
+specifier|const
 name|QString
+modifier|&
 name|element
 parameter_list|)
 block|{

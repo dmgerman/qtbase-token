@@ -2980,6 +2980,7 @@ name|QVector
 argument_list|<
 name|QVariant
 argument_list|>
+modifier|&
 name|boundValues
 parameter_list|,
 specifier|const

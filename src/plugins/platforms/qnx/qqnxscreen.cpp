@@ -443,6 +443,7 @@ argument_list|<
 name|QQnxWindow
 modifier|*
 argument_list|>
+modifier|&
 name|windows
 parameter_list|,
 specifier|const
@@ -510,6 +511,7 @@ argument_list|<
 name|QQnxWindow
 modifier|*
 argument_list|>
+modifier|&
 name|windows
 parameter_list|,
 name|screen_window_t

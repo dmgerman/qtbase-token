@@ -102,7 +102,7 @@ name|Employee
 argument_list|(
 argument|int id
 argument_list|,
-argument|QString name
+argument|const QString&name
 argument_list|)
 block|{
 name|d
@@ -153,7 +153,7 @@ comment|//! [3] //! [4]
 name|void
 name|setName
 argument_list|(
-argument|QString name
+argument|const QString&name
 argument_list|)
 block|{
 name|d

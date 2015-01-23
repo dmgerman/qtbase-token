@@ -281,10 +281,12 @@ argument_list|)
 block|{ }
 name|QIndexMapper
 argument_list|(
+specifier|const
 name|QVector
 operator|<
 name|int
 operator|>
+operator|&
 name|vec
 argument_list|)
 operator|:

@@ -89,7 +89,7 @@ argument|xcb_screen_t *screen
 argument_list|,
 argument|xcb_randr_get_output_info_reply_t *output
 argument_list|,
-argument|QString outputName
+argument|const QString&outputName
 argument_list|,
 argument|int number
 argument_list|)

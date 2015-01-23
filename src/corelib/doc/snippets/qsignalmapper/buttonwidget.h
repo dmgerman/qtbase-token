@@ -51,9 +51,15 @@ name|public
 operator|:
 name|ButtonWidget
 argument_list|(
-argument|QStringList texts
+specifier|const
+name|QStringList
+operator|&
+name|texts
 argument_list|,
-argument|QWidget *parent =
+name|QWidget
+operator|*
+name|parent
+operator|=
 literal|0
 argument_list|)
 block|;

@@ -409,7 +409,7 @@ block|;
 name|QStringList
 name|addDefaultSuffixToFiles
 argument_list|(
-argument|const QStringList filesToFix
+argument|const QStringList&filesToFix
 argument_list|)
 specifier|const
 block|;
@@ -1021,10 +1021,12 @@ name|path
 parameter_list|,
 specifier|const
 name|QString
+modifier|&
 name|oldName
 parameter_list|,
 specifier|const
 name|QString
+modifier|&
 name|newName
 parameter_list|)
 function_decl|;

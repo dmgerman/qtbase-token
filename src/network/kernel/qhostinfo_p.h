@@ -444,7 +444,7 @@ name|public
 operator|:
 name|QHostInfoRunnable
 argument_list|(
-argument|QString hn
+argument|const QString&hn
 argument_list|,
 argument|int i
 argument_list|)

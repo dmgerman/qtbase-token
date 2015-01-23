@@ -418,7 +418,9 @@ argument_list|)
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QByteArray
+modifier|&
 name|format
 decl|,
 name|QImageWriter

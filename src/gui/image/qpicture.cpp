@@ -4720,6 +4720,7 @@ name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
+modifier|&
 name|arr
 parameter_list|)
 block|{

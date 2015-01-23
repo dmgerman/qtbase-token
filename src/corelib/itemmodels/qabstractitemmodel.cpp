@@ -2542,11 +2542,13 @@ name|QAbstractItemModelPrivate
 operator|::
 name|movePersistentIndexes
 parameter_list|(
+specifier|const
 name|QVector
 argument_list|<
 name|QPersistentModelIndexData
 modifier|*
 argument_list|>
+modifier|&
 name|indexes
 parameter_list|,
 name|int

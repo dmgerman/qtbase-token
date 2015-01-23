@@ -245,7 +245,9 @@ name|QLineEditPrivate
 operator|::
 name|_q_completionHighlighted
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|newText
 parameter_list|)
 block|{

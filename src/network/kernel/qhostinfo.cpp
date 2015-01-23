@@ -996,7 +996,9 @@ name|QHostInfoRunnable
 operator|::
 name|QHostInfoRunnable
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|hn
 parameter_list|,
 name|int

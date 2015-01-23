@@ -517,6 +517,7 @@ name|seal
 parameter_list|(
 specifier|const
 name|QByteArray
+modifier|&
 name|buf
 parameter_list|,
 name|QByteArray
@@ -530,6 +531,7 @@ name|unSeal
 parameter_list|(
 specifier|const
 name|QByteArray
+modifier|&
 name|sealedBuf
 parameter_list|,
 name|QByteArray

@@ -1736,7 +1736,9 @@ specifier|static
 name|QString
 name|cleanId
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|str
 parameter_list|)
 function_decl|;

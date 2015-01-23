@@ -189,7 +189,9 @@ specifier|inline
 name|bool
 name|detectWebBrowser
 parameter_list|(
+specifier|const
 name|QByteArray
+modifier|&
 name|desktop
 parameter_list|,
 name|bool
