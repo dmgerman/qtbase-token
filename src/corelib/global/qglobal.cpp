@@ -5763,6 +5763,7 @@ literal|0
 return|;
 elif|#
 directive|elif
+operator|(
 name|defined
 argument_list|(
 name|_POSIX_VERSION
@@ -5775,6 +5776,12 @@ literal|0
 operator|)
 operator|>=
 literal|200112L
+operator|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_HAIKU
+argument_list|)
 comment|// POSIX.1-2001 has setenv
 return|return
 name|setenv
@@ -5902,7 +5909,12 @@ name|defined
 argument_list|(
 name|Q_OS_BSD4
 argument_list|)
-comment|// POSIX.1-2001 and BSD have unsetenv
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_HAIKU
+argument_list|)
+comment|// POSIX.1-2001, BSD and Haiku have unsetenv
 return|return
 name|unsetenv
 argument_list|(
