@@ -8198,10 +8198,12 @@ name|QSslSocketBackendPrivate
 operator|::
 name|verify
 operator|(
+specifier|const
 name|QList
 argument_list|<
 name|QSslCertificate
 argument_list|>
+operator|&
 name|certificateChain
 operator|,
 specifier|const

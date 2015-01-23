@@ -174,10 +174,12 @@ name|QSslError
 operator|>
 name|verify
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|QSslCertificate
 operator|>
+operator|&
 name|certificateChain
 argument_list|,
 specifier|const

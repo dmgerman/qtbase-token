@@ -3112,10 +3112,12 @@ name|QSslSocketBackendPrivate
 operator|::
 name|verify
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|QSslCertificate
 argument_list|>
+modifier|&
 name|certificateChain
 parameter_list|,
 specifier|const
