@@ -3281,6 +3281,8 @@ argument_list|)
 decl_stmt|;
 else|#
 directive|else
+comment|//  Under Windows CE we don't use ChildWindowFromPointEx as it's not available
+comment|//  and ChildWindowFromPoint does not work properly.
 name|Q_UNUSED
 argument_list|(
 argument|cwexFlags
@@ -3333,9 +3335,21 @@ name|hwnd
 operator|=
 name|child
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 return|return
 literal|true
 return|;
+else|#
+directive|else
+comment|//      WindowFromPoint does not return same handle in two sequential calls, which leads
+comment|//      to an endless loop, but calling WindowFromPoint once is good enough.
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
 block|}
 ifndef|#
 directive|ifndef
