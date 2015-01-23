@@ -22766,10 +22766,7 @@ operator|.
 name|x
 argument_list|()
 operator|+
-name|qFloor
-argument_list|(
 name|width
-argument_list|)
 argument_list|,
 name|pos
 operator|.
