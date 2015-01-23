@@ -2601,8 +2601,10 @@ name|testSender
 parameter_list|()
 block|{
 name|slotResult
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%p"
 argument_list|,

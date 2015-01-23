@@ -334,9 +334,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"'\\%d' (op) '\\%d'"
 argument_list|,

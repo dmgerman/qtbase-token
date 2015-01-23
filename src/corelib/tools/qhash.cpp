@@ -2683,9 +2683,6 @@ operator|++
 name|i
 control|)
 block|{
-name|QString
-name|line
-decl_stmt|;
 name|Node
 modifier|*
 name|n
@@ -2709,15 +2706,18 @@ name|this
 argument_list|)
 condition|)
 block|{
+name|QString
 name|line
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%d:"
 argument_list|,
 name|i
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 while|while
 condition|(
 name|n
@@ -2735,9 +2735,8 @@ block|{
 name|line
 operator|+=
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|" -> [%p]"
 argument_list|,

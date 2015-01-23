@@ -523,9 +523,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"INT_MAX, base %d"
 argument_list|,
@@ -555,9 +554,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"INT_MAX+1, base %d"
 argument_list|,
@@ -592,9 +590,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"INT_MIN, base %d"
 argument_list|,
@@ -624,9 +621,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"INT_MIN-1, base %d"
 argument_list|,

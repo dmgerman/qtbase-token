@@ -3114,12 +3114,13 @@ name|j
 operator|++
 control|)
 block|{
+specifier|const
 name|QString
 name|name
-decl_stmt|;
-name|name
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"square%.1d%.2d"
 argument_list|,
@@ -3127,7 +3128,7 @@ name|ii
 argument_list|,
 name|j
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QString
 name|target
 init|=

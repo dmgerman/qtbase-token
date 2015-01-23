@@ -6968,12 +6968,13 @@ name|QStateMachine
 name|machine2
 decl_stmt|;
 block|{
+specifier|const
 name|QString
 name|warning
-decl_stmt|;
-name|warning
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"QStateMachine::removeState: state %p's machine (%p) is different from this machine (%p)"
 argument_list|,
@@ -6989,7 +6990,7 @@ argument_list|,
 operator|&
 name|machine
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
@@ -7470,12 +7471,13 @@ name|s3
 argument_list|)
 expr_stmt|;
 block|{
+specifier|const
 name|QString
 name|warning
-decl_stmt|;
-name|warning
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"QState::removeTransition: transition %p's source state (%p) is different from this state (%p)"
 argument_list|,
@@ -7485,7 +7487,7 @@ name|s2
 argument_list|,
 name|s1
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
@@ -7667,10 +7669,10 @@ expr_stmt|;
 block|{
 name|QString
 name|warning
-decl_stmt|;
-name|warning
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"QState::setInitialState: state %p is not a child of this state (%p)"
 argument_list|,
@@ -7680,7 +7682,7 @@ argument_list|,
 operator|&
 name|machine
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
@@ -13233,18 +13235,19 @@ name|s1_2_1
 argument_list|)
 expr_stmt|;
 block|{
+specifier|const
 name|QString
 name|warning
-decl_stmt|;
-name|warning
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"QState::setInitialState: ignoring attempt to set initial state of parallel state group %p"
 argument_list|,
 name|s1
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
@@ -20809,12 +20812,13 @@ operator|)
 name|s00
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QString
 name|warning
-decl_stmt|;
-name|warning
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"QHistoryState::setDefaultState: state %p does not belong to this history state's group (%p)"
 argument_list|,
@@ -20822,7 +20826,7 @@ name|s0
 argument_list|,
 name|s0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage

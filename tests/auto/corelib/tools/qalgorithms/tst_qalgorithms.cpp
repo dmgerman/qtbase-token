@@ -6383,9 +6383,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"0x%016llx"
 argument_list|,
@@ -6444,9 +6443,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"0x%016llx"
 argument_list|,
@@ -6503,9 +6501,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"0x%08x"
 argument_list|,
@@ -6530,9 +6527,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"0x%04x"
 argument_list|,
