@@ -42,9 +42,6 @@ name|qint64
 name|number
 parameter_list|)
 block|{
-name|QString
-name|tmp
-decl_stmt|;
 if|if
 condition|(
 name|number
@@ -57,9 +54,10 @@ operator|*
 literal|1024
 operator|)
 condition|)
-name|tmp
-operator|.
-name|sprintf
+return|return
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%.2fGB"
 argument_list|,
@@ -73,7 +71,7 @@ operator|*
 literal|1024.0
 operator|)
 argument_list|)
-expr_stmt|;
+return|;
 elseif|else
 if|if
 condition|(
@@ -85,9 +83,10 @@ operator|*
 literal|1024
 operator|)
 condition|)
-name|tmp
-operator|.
-name|sprintf
+return|return
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%.2fMB"
 argument_list|,
@@ -99,7 +98,7 @@ operator|*
 literal|1024.0
 operator|)
 argument_list|)
-expr_stmt|;
+return|;
 elseif|else
 if|if
 condition|(
@@ -109,9 +108,10 @@ operator|(
 literal|1024
 operator|)
 condition|)
-name|tmp
-operator|.
-name|sprintf
+return|return
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%.2fKB"
 argument_list|,
@@ -121,11 +121,12 @@ operator|(
 literal|1024.0
 operator|)
 argument_list|)
-expr_stmt|;
+return|;
 else|else
-name|tmp
-operator|.
-name|sprintf
+return|return
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%d bytes"
 argument_list|,
@@ -134,9 +135,6 @@ argument_list|(
 name|number
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-name|tmp
 return|;
 block|}
 end_function

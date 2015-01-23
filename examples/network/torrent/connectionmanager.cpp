@@ -156,12 +156,11 @@ name|toTime_t
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|id
+operator|+=
 name|QString
-name|s
-decl_stmt|;
-name|s
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"-QT%04x-"
 argument_list|,
@@ -173,10 +172,6 @@ operator|)
 operator|>>
 literal|8
 argument_list|)
-expr_stmt|;
-name|id
-operator|+=
-name|s
 operator|.
 name|toLatin1
 argument_list|()

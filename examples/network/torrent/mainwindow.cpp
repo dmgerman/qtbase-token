@@ -265,9 +265,8 @@ operator|.
 name|text
 operator|=
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"%d%%"
 argument_list|,
@@ -3241,12 +3240,13 @@ argument_list|(
 name|client
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QString
 name|num
-decl_stmt|;
-name|num
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%.1f KB/s"
 argument_list|,
@@ -3254,7 +3254,7 @@ name|bytesPerSecond
 operator|/
 literal|1024.0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|torrentView
 operator|->
 name|topLevelItem
@@ -3331,12 +3331,13 @@ argument_list|(
 name|client
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QString
 name|num
-decl_stmt|;
-name|num
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%.1f KB/s"
 argument_list|,
@@ -3344,7 +3345,7 @@ name|bytesPerSecond
 operator|/
 literal|1024.0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|torrentView
 operator|->
 name|topLevelItem
@@ -3770,9 +3771,8 @@ operator|.
 name|arg
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"%4d"
 argument_list|,
@@ -3826,9 +3826,8 @@ operator|.
 name|arg
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"%4d"
 argument_list|,

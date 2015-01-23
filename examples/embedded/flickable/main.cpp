@@ -285,6 +285,7 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QString
 name|c
 init|=
@@ -293,12 +294,13 @@ index|[
 name|i
 index|]
 decl_stmt|;
+specifier|const
 name|QString
 name|str
-decl_stmt|;
-name|str
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%4d"
 argument_list|,
@@ -306,7 +308,7 @@ name|i
 operator|+
 literal|1
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|m_colorNames
 operator|<<
 operator|(
