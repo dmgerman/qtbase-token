@@ -3123,12 +3123,13 @@ operator|.
 name|message
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QString
 name|rawParameters
-decl_stmt|;
-name|rawParameters
-operator|.
-name|sprintf
+init|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"hwnd(0x%p) "
 argument_list|,
@@ -3140,7 +3141,7 @@ name|msg
 operator|.
 name|hwnd
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Custom WM_'s
 if|if
 condition|(
@@ -3245,8 +3246,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%s Hwnd (0x%p)"
 argument_list|,
@@ -3278,8 +3281,10 @@ case|case
 name|WM_CAPTURECHANGED
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Hwnd gaining capture (0x%p)"
 argument_list|,
@@ -3795,8 +3800,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"x,y(%4d,%4d) w,h(%4d,%4d) className(%s) windowName(%s) parent(0x%p) style(%s) exStyle(%s)"
 argument_list|,
@@ -3868,8 +3875,10 @@ case|case
 name|WM_DESTROY
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Destroy hwnd (0x%p)"
 argument_list|,
@@ -3969,8 +3978,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Command(%s : 0x%p)"
 argument_list|,
@@ -4084,8 +4095,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Input context(%s) Show flags(%s)"
 argument_list|,
@@ -4117,8 +4130,10 @@ case|case
 name|WM_KILLFOCUS
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Hwnd gaining keyboard focus (0x%p)"
 argument_list|,
@@ -4238,8 +4253,10 @@ operator|)
 decl_stmt|;
 comment|// Bit 31
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Virual-key(0x%x) Scancode(%d) Rep(%d) Contextcode(%d), Prev state(%d), Trans state(%d)"
 argument_list|,
@@ -4330,8 +4347,10 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"TLW(0x%p) HittestCode(0x%x) MouseMsg(%s)"
 argument_list|,
@@ -4529,8 +4548,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"x,y(%4d,%4d) Virtual Keys(%s)"
 argument_list|,
@@ -4564,8 +4585,10 @@ case|case
 name|WM_MOVE
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"x,y(%4d,%4d)"
 argument_list|,
@@ -4601,8 +4624,10 @@ case|case
 name|WM_PAINT
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"hdc(0x%p)"
 argument_list|,
@@ -4650,8 +4675,10 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"HitTestCode(0x%x) MouseMsg(%s)"
 argument_list|,
@@ -4680,8 +4707,10 @@ case|case
 name|WM_SETFOCUS
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Lost Focus (0x%p)"
 argument_list|,
@@ -4702,8 +4731,10 @@ case|case
 name|WM_SETTEXT
 case|:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"Set Text (%s)"
 argument_list|,
@@ -4787,8 +4818,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"w,h(%4d,%4d) showmode(%s)"
 argument_list|,
@@ -5004,8 +5037,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"x,y(%4d,%4d) w,h(%4d,%4d) flags(%s) hwndAfter(%s)"
 argument_list|,
@@ -5106,19 +5141,13 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QLatin1String
 argument_list|(
-literal|"End session: %s"
-argument_list|,
-name|logoffOption
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|data
-argument_list|()
+literal|"End session: "
 argument_list|)
+operator|+
+name|logoffOption
 expr_stmt|;
 block|}
 break|break;
@@ -5126,8 +5155,10 @@ endif|#
 directive|endif
 default|default:
 name|parameters
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"wParam(0x%p) lParam(0x%p)"
 argument_list|,
