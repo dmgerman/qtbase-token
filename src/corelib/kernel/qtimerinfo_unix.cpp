@@ -757,6 +757,12 @@ name|timeval
 name|tv
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|s
+argument_list|)
+decl_stmt|;
 name|s
 operator|.
 name|nospace
@@ -789,9 +795,6 @@ name|reset
 expr_stmt|;
 return|return
 name|s
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function
@@ -810,6 +813,12 @@ name|TimerType
 name|t
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|s
+argument_list|)
+decl_stmt|;
 name|s
 operator|<<
 operator|(

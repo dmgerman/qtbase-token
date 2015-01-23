@@ -15177,7 +15177,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(array, QJsonArray([1,\"foo\"]) )"
+literal|"QJsonValue(array, QJsonArray([1,\"foo\"]))"
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -15217,7 +15217,7 @@ name|ignoreMessage
 argument_list|(
 name|QtDebugMsg
 argument_list|,
-literal|"QJsonValue(object, QJsonObject({\"foo\":\"bar\"}) )"
+literal|"QJsonValue(object, QJsonObject({\"foo\":\"bar\"}))"
 argument_list|)
 expr_stmt|;
 name|qDebug

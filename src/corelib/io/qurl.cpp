@@ -12210,9 +12210,15 @@ modifier|&
 name|url
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
-name|maybeSpace
+name|nospace
 argument_list|()
 operator|<<
 literal|"QUrl("
@@ -12226,9 +12232,6 @@ literal|')'
 expr_stmt|;
 return|return
 name|d
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function

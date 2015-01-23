@@ -1841,6 +1841,12 @@ modifier|&
 name|o
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1954,9 +1960,6 @@ literal|")"
 expr_stmt|;
 return|return
 name|dbg
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function

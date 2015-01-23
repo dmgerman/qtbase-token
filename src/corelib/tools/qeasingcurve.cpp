@@ -5611,6 +5611,12 @@ modifier|&
 name|item
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|debug
+argument_list|)
+decl_stmt|;
 name|debug
 operator|<<
 literal|"type:"

@@ -15540,15 +15540,22 @@ modifier|&
 name|l
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
 name|dbg
 operator|.
 name|nospace
 argument_list|()
+operator|.
+name|noquote
+argument_list|()
 operator|<<
 literal|"QLocale("
 operator|<<
-name|qPrintable
-argument_list|(
 name|QLocale
 operator|::
 name|languageToString
@@ -15558,12 +15565,9 @@ operator|.
 name|language
 argument_list|()
 argument_list|)
-argument_list|)
 operator|<<
 literal|", "
 operator|<<
-name|qPrintable
-argument_list|(
 name|QLocale
 operator|::
 name|scriptToString
@@ -15573,12 +15577,9 @@ operator|.
 name|script
 argument_list|()
 argument_list|)
-argument_list|)
 operator|<<
 literal|", "
 operator|<<
-name|qPrintable
-argument_list|(
 name|QLocale
 operator|::
 name|countryToString
@@ -15588,15 +15589,11 @@ operator|.
 name|country
 argument_list|()
 argument_list|)
-argument_list|)
 operator|<<
 literal|')'
 expr_stmt|;
 return|return
 name|dbg
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function

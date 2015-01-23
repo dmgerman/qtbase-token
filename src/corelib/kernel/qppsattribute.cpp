@@ -1023,7 +1023,16 @@ modifier|&
 name|attribute
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
 name|dbg
+argument_list|)
+decl_stmt|;
+name|dbg
+operator|.
+name|nospace
+argument_list|()
 operator|<<
 literal|"QPpsAttribute("
 expr_stmt|;

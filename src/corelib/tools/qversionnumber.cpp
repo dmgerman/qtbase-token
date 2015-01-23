@@ -862,6 +862,12 @@ modifier|&
 name|version
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|debug
+argument_list|)
+decl_stmt|;
 name|debug
 operator|.
 name|noquote
@@ -874,9 +880,6 @@ argument_list|()
 expr_stmt|;
 return|return
 name|debug
-operator|.
-name|quote
-argument_list|()
 return|;
 block|}
 end_function
