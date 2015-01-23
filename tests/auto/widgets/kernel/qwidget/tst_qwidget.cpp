@@ -17312,8 +17312,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|actualFocusWidget
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%p %s %s"
 argument_list|,
@@ -17349,8 +17351,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|expectedFocusWidget
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%p %s %s"
 argument_list|,
@@ -17394,8 +17398,10 @@ name|processEvents
 argument_list|()
 expr_stmt|;
 name|actualFocusWidget
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%p %s %s"
 argument_list|,
@@ -17431,8 +17437,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|expectedFocusWidget
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"%p %s %s"
 argument_list|,

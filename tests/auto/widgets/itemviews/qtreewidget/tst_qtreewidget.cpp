@@ -3644,9 +3644,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"%d"
 argument_list|,
@@ -3661,9 +3660,8 @@ argument_list|(
 literal|1
 argument_list|,
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"Item %d"
 argument_list|,

@@ -38788,9 +38788,8 @@ name|QString
 name|tag
 init|=
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"xpm:0x%p"
 argument_list|,

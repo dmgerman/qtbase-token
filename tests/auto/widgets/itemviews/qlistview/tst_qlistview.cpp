@@ -12289,9 +12289,8 @@ control|)
 name|list
 operator|<<
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"item %d"
 argument_list|,

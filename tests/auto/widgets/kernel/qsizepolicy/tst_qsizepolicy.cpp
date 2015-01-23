@@ -600,9 +600,8 @@ argument_list|(
 name|qPrintable
 argument_list|(
 name|QString
-argument_list|()
-operator|.
-name|sprintf
+operator|::
+name|asprintf
 argument_list|(
 literal|"%s-%s-%d-%d-%s-%s-%s"
 argument_list|,
