@@ -90,6 +90,10 @@ argument|QWindow *parent =
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QOpenGLWindow
+argument_list|()
+block|;
 name|UpdateBehavior
 name|updateBehavior
 argument_list|()

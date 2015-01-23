@@ -1786,7 +1786,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!   Destroys the widget  */
+comment|/*!   The QOpenGLWidget's context is made current in the destructor, allowing for   safe destruction of any child object that may need to release OpenGL   resources belonging to the context provided by this widget.    \warning if you have objects wrapping OpenGL resources (such as   QOpenGLBuffer, QOpenGLShaderProgram, etc.), as members of a OpenGLWidget   subclass, you may need to add a call to makeCurrent() in that subclass'   destructor as well. Due to the rules of C++ object destruction, those objects   will be destroyed \e{before} calling this function (but after that the   destructor of the subclass has run), therefore making the OpenGL context   current in this function happens too late for their safe disposal.    \sa makeCurrent */
 end_comment
 begin_destructor
 DECL|function|~QOpenGLWidget
@@ -1795,7 +1795,11 @@ operator|::
 name|~
 name|QOpenGLWidget
 parameter_list|()
-block|{ }
+block|{
+name|makeCurrent
+argument_list|()
+expr_stmt|;
+block|}
 end_destructor
 begin_comment
 comment|/*!   Sets this widget's update behavior to \a updateBehavior.   \since 5.5 */
