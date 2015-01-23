@@ -8040,9 +8040,7 @@ name|newScreen
 init|=
 name|screenForGeometry
 argument_list|(
-name|m_data
-operator|.
-name|geometry
+name|geometryDip
 argument_list|)
 decl_stmt|;
 if|if
