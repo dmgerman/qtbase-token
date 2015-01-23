@@ -1090,7 +1090,7 @@ operator|||
 operator|(
 name|base
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|==
 name|subs
@@ -1098,7 +1098,7 @@ index|[
 name|i
 index|]
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|)
 condition|)
@@ -1627,7 +1627,7 @@ name|modPrefix
 argument_list|(
 name|node
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1706,7 +1706,7 @@ condition|(
 operator|!
 name|node
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -1719,7 +1719,7 @@ name|prepend
 argument_list|(
 name|node
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|+
 name|QLatin1Char
@@ -2359,7 +2359,7 @@ condition|(
 operator|!
 name|node
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -2370,7 +2370,7 @@ name|mq
 operator|=
 name|node
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|.
 name|replace

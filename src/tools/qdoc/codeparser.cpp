@@ -1686,7 +1686,7 @@ if|if
 condition|(
 name|n
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -1695,7 +1695,7 @@ condition|)
 block|{
 name|n
 operator|->
-name|setModuleName
+name|setPhysicalModuleName
 argument_list|(
 name|Generator
 operator|::

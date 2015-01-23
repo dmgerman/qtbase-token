@@ -3643,7 +3643,7 @@ argument_list|)
 condition|)
 block|{
 name|QString
-name|moduleName
+name|physicalModuleName
 init|=
 name|atom
 operator|->
@@ -3685,7 +3685,7 @@ name|qdb
 operator|->
 name|findModule
 argument_list|(
-name|moduleName
+name|physicalModuleName
 argument_list|)
 decl_stmt|;
 if|if
@@ -10647,7 +10647,7 @@ name|name
 init|=
 name|node
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 decl_stmt|;
 if|if
@@ -12300,7 +12300,7 @@ condition|(
 operator|!
 name|inner
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 operator|.
 name|isEmpty
@@ -12317,7 +12317,7 @@ name|findModule
 argument_list|(
 name|inner
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -12921,7 +12921,7 @@ name|inheritedBytext
 expr_stmt|;
 comment|//add the module name and version to the map
 name|QString
-name|qmlModuleVersion
+name|logicalModuleVersion
 decl_stmt|;
 name|QmlModuleNode
 modifier|*
@@ -12933,7 +12933,7 @@ name|findQmlModule
 argument_list|(
 name|qcn
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -12941,19 +12941,19 @@ if|if
 condition|(
 name|qmn
 condition|)
-name|qmlModuleVersion
+name|logicalModuleVersion
 operator|=
 name|qmn
 operator|->
-name|qmlModuleVersion
+name|logicalModuleVersion
 argument_list|()
 expr_stmt|;
 else|else
-name|qmlModuleVersion
+name|logicalModuleVersion
 operator|=
 name|qcn
 operator|->
-name|qmlModuleVersion
+name|logicalModuleVersion
 argument_list|()
 expr_stmt|;
 name|text
@@ -12967,12 +12967,12 @@ literal|"import "
 operator|+
 name|qcn
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|+
 literal|" "
 operator|+
-name|qmlModuleVersion
+name|logicalModuleVersion
 expr_stmt|;
 name|requisites
 operator|.

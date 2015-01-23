@@ -698,7 +698,7 @@ name|Metaness
 name|metaness
 block|;
 name|QString
-name|moduleName
+name|physicalModuleName
 block|;
 name|QStringList
 name|lastPath_

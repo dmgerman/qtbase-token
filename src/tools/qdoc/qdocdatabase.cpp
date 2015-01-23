@@ -390,7 +390,7 @@ init|=
 name|primaryTree
 argument_list|()
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 decl_stmt|;
 name|searchOrder_
@@ -1068,7 +1068,7 @@ argument_list|()
 argument_list|,
 name|t
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1275,7 +1275,7 @@ argument_list|()
 argument_list|,
 name|t
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4772,7 +4772,7 @@ operator|*
 name|c
 operator|)
 operator|->
-name|qmlModuleName
+name|logicalModuleName
 argument_list|()
 operator|+
 literal|"::"
@@ -7598,12 +7598,12 @@ operator|->
 name|tree
 argument_list|()
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 operator|!=
 name|domain
 operator|->
-name|moduleName
+name|physicalModuleName
 argument_list|()
 condition|)
 name|relative

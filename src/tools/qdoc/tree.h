@@ -1202,12 +1202,12 @@ label|:
 specifier|const
 name|QString
 operator|&
-name|moduleName
+name|physicalModuleName
 argument_list|()
 specifier|const
 block|{
 return|return
-name|module_
+name|physicalModuleName_
 return|;
 block|}
 specifier|const
@@ -1260,7 +1260,7 @@ name|long
 name|linkCount_
 decl_stmt|;
 name|QString
-name|module_
+name|physicalModuleName_
 decl_stmt|;
 name|QString
 name|indexFileName_
