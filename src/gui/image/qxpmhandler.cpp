@@ -11299,8 +11299,10 @@ name|color
 argument_list|)
 condition|)
 name|line
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"\"%s c None\""
 argument_list|,
@@ -11315,8 +11317,10 @@ argument_list|)
 expr_stmt|;
 else|else
 name|line
-operator|.
-name|sprintf
+operator|=
+name|QString
+operator|::
+name|asprintf
 argument_list|(
 literal|"\"%s c #%02x%02x%02x\""
 argument_list|,
