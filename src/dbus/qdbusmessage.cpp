@@ -1811,27 +1811,61 @@ end_function
 begin_comment
 comment|/*!     Constructs a new DBus message representing an error reply message,     with the given \a name and \a msg. */
 end_comment
-begin_function
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
+begin_decl_stmt
 DECL|function|createErrorReply
 name|QDBusMessage
 name|QDBusMessage
 operator|::
 name|createErrorReply
-parameter_list|(
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|msg
+argument_list|)
+decl|const
+else|#
+directive|else
+name|QDBusMessage
+name|QDBusMessage
+operator|::
+name|createErrorReply
+argument_list|(
 specifier|const
 name|QString
 name|name
-parameter_list|,
+argument_list|,
 specifier|const
 name|QString
-modifier|&
+operator|&
 name|msg
-parameter_list|)
-specifier|const
-block|{
+argument_list|)
+decl|const
+endif|#
+directive|endif
+argument_list|{
 name|QDBusMessage
 name|reply
-init|=
+operator|=
 name|QDBusMessage
 operator|::
 name|createError
@@ -1840,13 +1874,12 @@ name|name
 argument_list|,
 name|msg
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
+argument_list|;     if
+operator|(
 name|d_ptr
 operator|->
 name|msg
-condition|)
+operator|)
 name|reply
 operator|.
 name|d_ptr
@@ -1859,13 +1892,12 @@ name|d_ptr
 operator|->
 name|msg
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
+argument_list|;     if
+operator|(
 name|d_ptr
 operator|->
 name|localMessage
-condition|)
+operator|)
 block|{
 name|reply
 operator|.
@@ -1874,7 +1906,7 @@ operator|->
 name|localMessage
 operator|=
 literal|true
-expr_stmt|;
+block|;
 name|d_ptr
 operator|->
 name|localReply
@@ -1884,7 +1916,7 @@ name|QDBusMessage
 argument_list|(
 name|reply
 argument_list|)
-expr_stmt|;
+block|;
 comment|// keep an internal copy
 block|}
 comment|// the reply must have a msg or be a local-loop optimization
@@ -1902,43 +1934,33 @@ name|d_ptr
 operator|->
 name|localMessage
 argument_list|)
-expr_stmt|;
-return|return
+argument_list|;     return
 name|reply
-return|;
-block|}
-end_function
-begin_comment
+argument_list|; }
 comment|/*!    \fn QDBusMessage QDBusMessage::createReply(const QVariant&argument) const      Constructs a new DBus message representing a reply, with the     given \a argument. */
-end_comment
-begin_comment
 comment|/*!     \fn QDBusMessage QDBusMessage::createErrorReply(const QDBusError&error) const      Constructs a new DBus message representing an error reply message,     from the given \a error object. */
-end_comment
-begin_comment
 comment|/*!   \fn QDBusMessage QDBusMessage::createErrorReply(QDBusError::ErrorType type, const QString&msg) const    Constructs a new DBus reply message for the error type \a type using   the message \a msg. Returns the DBus message. */
-end_comment
-begin_function
 DECL|function|createErrorReply
 name|QDBusMessage
 name|QDBusMessage
 operator|::
 name|createErrorReply
-parameter_list|(
+argument_list|(
 name|QDBusError
 operator|::
 name|ErrorType
 name|atype
-parameter_list|,
+argument_list|,
 specifier|const
 name|QString
-modifier|&
+operator|&
 name|amsg
-parameter_list|)
-specifier|const
-block|{
+argument_list|)
+decl|const
+argument_list|{
 name|QDBusMessage
 name|msg
-init|=
+operator|=
 name|createErrorReply
 argument_list|(
 name|QDBusError
@@ -1950,7 +1972,7 @@ argument_list|)
 argument_list|,
 name|amsg
 argument_list|)
-decl_stmt|;
+argument_list|;
 name|msg
 operator|.
 name|d_ptr
@@ -1958,72 +1980,55 @@ operator|->
 name|parametersValidated
 operator|=
 literal|true
-expr_stmt|;
-return|return
+argument_list|;     return
 name|msg
-return|;
-block|}
-end_function
-begin_comment
+argument_list|; }
 comment|/*!     Constructs an empty, invalid QDBusMessage object.      \sa createError(), createMethodCall(), createSignal() */
-end_comment
-begin_constructor
 DECL|function|QDBusMessage
 name|QDBusMessage
 operator|::
 name|QDBusMessage
-parameter_list|()
-block|{
+argument_list|()
+argument_list|{
 name|d_ptr
 operator|=
 operator|new
 name|QDBusMessagePrivate
-expr_stmt|;
-block|}
-end_constructor
-begin_comment
+argument_list|; }
 comment|/*!     Constructs a copy of the object given by \a other.      Note: QDBusMessage objects are shared. Modifications made to the     copy will affect the original one as well. See setDelayedReply()     for more information. */
-end_comment
-begin_constructor
 DECL|function|QDBusMessage
 name|QDBusMessage
 operator|::
 name|QDBusMessage
-parameter_list|(
+argument_list|(
 specifier|const
 name|QDBusMessage
-modifier|&
+operator|&
 name|other
-parameter_list|)
-block|{
+argument_list|)
+argument_list|{
 name|d_ptr
 operator|=
 name|other
 operator|.
 name|d_ptr
-expr_stmt|;
+argument_list|;
 name|d_ptr
 operator|->
 name|ref
 operator|.
 name|ref
-parameter_list|()
-constructor_decl|;
-block|}
-end_constructor
-begin_comment
+argument_list|()
+argument_list|; }
 comment|/*!     Disposes of the object and frees any resources that were being held. */
-end_comment
-begin_destructor
 DECL|function|~QDBusMessage
 name|QDBusMessage
 operator|::
 name|~
 name|QDBusMessage
-parameter_list|()
-block|{
-if|if
-condition|(
+argument_list|()
+argument_list|{     if
+operator|(
 operator|!
 name|d_ptr
 operator|->
@@ -2031,16 +2036,11 @@ name|ref
 operator|.
 name|deref
 argument_list|()
-condition|)
+operator|)
 operator|delete
 name|d_ptr
-expr_stmt|;
-block|}
-end_destructor
-begin_comment
+argument_list|; }
 comment|/*!     Copies the contents of the object given by \a other.      Note: QDBusMessage objects are shared. Modifications made to the     copy will affect the original one as well. See setDelayedReply()     for more information. */
-end_comment
-begin_function
 DECL|function|operator =
 name|QDBusMessage
 modifier|&
@@ -2048,13 +2048,13 @@ name|QDBusMessage
 operator|::
 name|operator
 name|=
-parameter_list|(
+argument_list|(
 specifier|const
 name|QDBusMessage
-modifier|&
+operator|&
 name|other
-parameter_list|)
-block|{
+argument_list|)
+argument_list|{
 name|qAtomicAssign
 argument_list|(
 name|d_ptr
@@ -2063,111 +2063,92 @@ name|other
 operator|.
 name|d_ptr
 argument_list|)
-expr_stmt|;
-return|return
+argument_list|;     return
 operator|*
 name|this
-return|;
-block|}
-end_function
-begin_comment
+argument_list|; }
 comment|/*!     Returns the name of the service or the bus address of the remote method call. */
-end_comment
-begin_function
 DECL|function|service
 name|QString
 name|QDBusMessage
 operator|::
 name|service
-parameter_list|()
-specifier|const
-block|{
-return|return
+argument_list|()
+decl|const
+argument_list|{     return
 name|d_ptr
 operator|->
 name|service
-return|;
-block|}
-end_function
-begin_comment
+argument_list|; }
 comment|/*!     Returns the path of the object that this message is being sent to (in the case of a     method call) or being received from (for a signal). */
-end_comment
-begin_function
 DECL|function|path
 name|QString
 name|QDBusMessage
 operator|::
 name|path
-parameter_list|()
-specifier|const
-block|{
-return|return
+argument_list|()
+decl|const
+argument_list|{     return
 name|d_ptr
 operator|->
 name|path
-return|;
-block|}
-end_function
-begin_comment
+argument_list|; }
 comment|/*!     Returns the interface of the method being called (in the case of a method call) or of     the signal being received from. */
-end_comment
-begin_function
 DECL|function|interface
 name|QString
 name|QDBusMessage
 operator|::
 name|interface
-parameter_list|()
-specifier|const
-block|{
-return|return
+argument_list|()
+decl|const
+argument_list|{     return
 name|d_ptr
 operator|->
 name|interface
-return|;
-block|}
-end_function
-begin_comment
+argument_list|; }
 comment|/*!     Returns the name of the signal that was emitted or the name of the method that was called. */
-end_comment
-begin_function
 DECL|function|member
 name|QString
 name|QDBusMessage
 operator|::
 name|member
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
+argument_list|()
+decl|const
+argument_list|{     if
+operator|(
 name|d_ptr
 operator|->
 name|type
 operator|!=
 name|ErrorMessage
-condition|)
+operator|)
 return|return
 name|d_ptr
 operator|->
 name|name
 return|;
+end_decl_stmt
+begin_return
 return|return
 name|QString
 argument_list|()
 return|;
-block|}
-end_function
+end_return
 begin_comment
+unit|}
 comment|/*!     Returns the name of the error that was received. */
 end_comment
-begin_function
+begin_macro
+unit|QString
 DECL|function|errorName
-name|QString
 name|QDBusMessage
+end_macro
+begin_expr_stmt
+DECL|function|errorName
 operator|::
 name|errorName
-parameter_list|()
+operator|(
+operator|)
 specifier|const
 block|{
 if|if
@@ -2183,22 +2164,28 @@ name|d_ptr
 operator|->
 name|name
 return|;
+end_expr_stmt
+begin_return
 return|return
 name|QString
 argument_list|()
 return|;
-block|}
-end_function
+end_return
 begin_comment
+unit|}
 comment|/*!     Returns the signature of the signal that was received or for the output arguments     of a method call. */
 end_comment
-begin_function
+begin_macro
+unit|QString
 DECL|function|signature
-name|QString
 name|QDBusMessage
+end_macro
+begin_expr_stmt
+DECL|function|signature
 operator|::
 name|signature
-parameter_list|()
+operator|(
+operator|)
 specifier|const
 block|{
 return|return
@@ -2207,7 +2194,7 @@ operator|->
 name|signature
 return|;
 block|}
-end_function
+end_expr_stmt
 begin_comment
 comment|/*!     Returns the flag that indicates if this message should see a reply     or not. This is only meaningful for \l {MethodCallMessage}{method     call messages}: any other kind of message cannot have replies and     this function will always return false for them. */
 end_comment
