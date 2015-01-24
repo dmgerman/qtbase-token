@@ -849,7 +849,7 @@ begin_function
 name|Q_NEVER_INLINE
 DECL|function|qt_message
 specifier|static
-name|void
+name|QString
 name|qt_message
 parameter_list|(
 name|QtMsgType
@@ -867,14 +867,11 @@ name|msg
 parameter_list|,
 name|va_list
 name|ap
-parameter_list|,
-name|QString
-modifier|&
-name|buf
 parameter_list|)
 block|{
+name|QString
 name|buf
-operator|=
+init|=
 name|QString
 operator|::
 name|vasprintf
@@ -883,7 +880,7 @@ name|msg
 argument_list|,
 name|ap
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|qt_message_print
 argument_list|(
 name|msgType
@@ -893,6 +890,9 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
+return|return
+name|buf
+return|;
 block|}
 end_function
 begin_undef
@@ -920,9 +920,6 @@ modifier|...
 parameter_list|)
 specifier|const
 block|{
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -934,6 +931,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtDebugMsg
@@ -943,10 +944,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -995,9 +994,6 @@ modifier|...
 parameter_list|)
 specifier|const
 block|{
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1009,6 +1005,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtInfoMsg
@@ -1018,10 +1018,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -1100,9 +1098,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1114,6 +1109,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtDebugMsg
@@ -1123,10 +1122,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -1213,9 +1210,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1227,6 +1221,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtDebugMsg
@@ -1236,10 +1234,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -1485,9 +1481,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1499,6 +1492,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtInfoMsg
@@ -1508,10 +1505,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -1598,9 +1593,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1612,6 +1604,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtInfoMsg
@@ -1621,10 +1617,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -1825,9 +1819,6 @@ modifier|...
 parameter_list|)
 specifier|const
 block|{
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1839,6 +1830,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtWarningMsg
@@ -1848,10 +1843,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -1927,9 +1920,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -1941,6 +1931,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtWarningMsg
@@ -1950,10 +1944,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -2040,9 +2032,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -2054,6 +2043,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtWarningMsg
@@ -2063,10 +2056,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -2267,9 +2258,6 @@ modifier|...
 parameter_list|)
 specifier|const
 block|{
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -2281,6 +2269,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtCriticalMsg
@@ -2290,10 +2282,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -2369,9 +2359,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -2383,6 +2370,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtCriticalMsg
@@ -2392,10 +2383,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -2482,9 +2471,6 @@ operator|.
 name|categoryName
 argument_list|()
 expr_stmt|;
-name|QString
-name|message
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -2496,6 +2482,10 @@ name|msg
 argument_list|)
 expr_stmt|;
 comment|// use variable arg list
+specifier|const
+name|QString
+name|message
+init|=
 name|qt_message
 argument_list|(
 name|QtCriticalMsg
@@ -2505,10 +2495,8 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -2725,6 +2713,8 @@ expr_stmt|;
 comment|// use variable arg list
 name|QT_TERMINATE_ON_EXCEPTION
 argument_list|(
+name|message
+operator|=
 name|qt_message
 argument_list|(
 name|QtFatalMsg
@@ -2734,8 +2724,6 @@ argument_list|,
 name|msg
 argument_list|,
 name|ap
-argument_list|,
-name|message
 argument_list|)
 argument_list|)
 expr_stmt|;
