@@ -48,12 +48,12 @@ DECL|macro|HB_VERSION_MICRO
 define|#
 directive|define
 name|HB_VERSION_MICRO
-value|32
+value|38
 DECL|macro|HB_VERSION_STRING
 define|#
 directive|define
 name|HB_VERSION_STRING
-value|"0.9.32"
+value|"0.9.38"
 DECL|macro|HB_VERSION_ATLEAST
 define|#
 directive|define

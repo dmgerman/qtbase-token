@@ -373,6 +373,13 @@ directive|define
 name|HB_TAG_MAX
 value|HB_TAG(0xff,0xff,0xff,0xff)
 end_define
+begin_define
+DECL|macro|HB_TAG_MAX_SIGNED
+define|#
+directive|define
+name|HB_TAG_MAX_SIGNED
+value|HB_TAG(0x7f,0xff,0xff,0xff)
+end_define
 begin_comment
 comment|/* len=-1 means str is NUL-terminated. */
 end_comment
@@ -465,6 +472,19 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_define
+DECL|macro|HB_DIRECTION_IS_VALID
+define|#
+directive|define
+name|HB_DIRECTION_IS_VALID
+parameter_list|(
+name|dir
+parameter_list|)
+value|((((unsigned int) (dir))& ~3U) == 4)
+end_define
+begin_comment
+comment|/* Direction must be valid for the following */
+end_comment
+begin_define
 DECL|macro|HB_DIRECTION_IS_HORIZONTAL
 define|#
 directive|define
@@ -505,16 +525,6 @@ parameter_list|)
 value|((((unsigned int) (dir))& ~2U) == 5)
 end_define
 begin_define
-DECL|macro|HB_DIRECTION_IS_VALID
-define|#
-directive|define
-name|HB_DIRECTION_IS_VALID
-parameter_list|(
-name|dir
-parameter_list|)
-value|((((unsigned int) (dir))& ~3U) == 4)
-end_define
-begin_define
 DECL|macro|HB_DIRECTION_REVERSE
 define|#
 directive|define
@@ -524,10 +534,6 @@ name|dir
 parameter_list|)
 value|((hb_direction_t) (((unsigned int) (dir)) ^ 1))
 end_define
-begin_comment
-DECL|macro|HB_DIRECTION_REVERSE
-comment|/* Direction must be valid */
-end_comment
 begin_comment
 comment|/* hb_language_t */
 end_comment
@@ -2492,17 +2498,22 @@ argument_list|)
 block|,
 comment|/* No script set. */
 DECL|enumerator|HB_SCRIPT_INVALID
-comment|/*---*/
 name|HB_SCRIPT_INVALID
 init|=
 name|HB_TAG_NONE
 block|,
-comment|/* Dummy value to ensure any hb_tag_t value can be passed/stored as hb_script_t    * without risking undefined behavior. */
+comment|/* Dummy values to ensure any hb_tag_t value can be passed/stored as hb_script_t    * without risking undefined behavior.  Include both a signed and unsigned max,    * since technically enums are int, and indeed, hb_script_t ends up being signed.    * See this thread for technicalities:    *    *   http://lists.freedesktop.org/archives/harfbuzz/2014-March/004150.html    */
 DECL|enumerator|_HB_SCRIPT_MAX_VALUE
-comment|/*---*/
 name|_HB_SCRIPT_MAX_VALUE
 init|=
 name|HB_TAG_MAX
+block|,
+comment|/*< skip>*/
+DECL|enumerator|_HB_SCRIPT_MAX_VALUE_SIGNED
+name|_HB_SCRIPT_MAX_VALUE_SIGNED
+init|=
+name|HB_TAG_MAX_SIGNED
+comment|/*< skip>*/
 block|}
 DECL|typedef|hb_script_t
 name|hb_script_t
@@ -2521,7 +2532,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* suger for tag_from_string() then script_from_iso15924_tag */
+comment|/* sugar for tag_from_string() then script_from_iso15924_tag */
 end_comment
 begin_comment
 comment|/* len=-1 means s is NUL-terminated */
