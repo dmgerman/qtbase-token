@@ -872,10 +872,6 @@ modifier|&
 name|buf
 parameter_list|)
 block|{
-if|if
-condition|(
-name|msg
-condition|)
 name|buf
 operator|=
 name|QString
@@ -7368,9 +7364,6 @@ parameter_list|)
 block|{
 comment|// qt_error_string() will allocate anyway, so we don't have
 comment|// to be careful here (like we do in plain qWarning())
-name|QString
-name|buf
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -7381,12 +7374,9 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|msg
-condition|)
+name|QString
 name|buf
-operator|=
+init|=
 name|QString
 operator|::
 name|vasprintf
@@ -7395,7 +7385,7 @@ name|msg
 argument_list|,
 name|ap
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
@@ -7451,9 +7441,6 @@ parameter_list|)
 block|{
 comment|// qt_error_string() will allocate anyway, so we don't have
 comment|// to be careful here (like we do in plain qWarning())
-name|QString
-name|buf
-decl_stmt|;
 name|va_list
 name|ap
 decl_stmt|;
@@ -7464,12 +7451,9 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|msg
-condition|)
+name|QString
 name|buf
-operator|=
+init|=
 name|QString
 operator|::
 name|vasprintf
@@ -7478,7 +7462,7 @@ name|msg
 argument_list|,
 name|ap
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|va_end
 argument_list|(
 name|ap
