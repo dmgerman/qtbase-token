@@ -2050,12 +2050,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WIN32
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_WINCE
+name|Q_OS_WIN
 argument_list|)
 return|return
 name|fileName
