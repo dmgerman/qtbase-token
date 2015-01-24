@@ -8694,7 +8694,7 @@ begin_comment
 comment|/*!     \fn QByteArray QByteArray::toLower() const      Returns a lowercase copy of the byte array. The bytearray is     interpreted as a Latin-1 encoded string.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 30      \sa toUpper(), {8-bit Character Comparisons} */
 end_comment
 begin_comment
-comment|// noinline so that the compiler won't inline the function in each of
+comment|// prevent the compiler from inlining the function in each of
 end_comment
 begin_comment
 comment|// toLower and toUpper when the only difference is the table being used
@@ -8702,31 +8702,13 @@ end_comment
 begin_comment
 comment|// (even with constant propagation, there's no gain in performance).
 end_comment
-begin_template
+begin_function
 template|template
 parameter_list|<
 name|typename
 name|T
 parameter_list|>
-ifdef|#
-directive|ifdef
-name|Q_CC_MSVC
-name|__declspec
-argument_list|(
-argument|noinline
-argument_list|)
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-name|__attribute__
-argument_list|(
-argument|(noinline)
-argument_list|)
-endif|#
-directive|endif
+name|Q_NEVER_INLINE
 DECL|function|toCase_template
 specifier|static
 name|QByteArray
@@ -8893,7 +8875,7 @@ return|return
 name|s
 return|;
 block|}
-end_template
+end_function
 begin_function
 DECL|function|toLower_helper
 name|QByteArray
