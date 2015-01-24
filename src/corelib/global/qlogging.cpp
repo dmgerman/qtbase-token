@@ -846,6 +846,7 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
+name|Q_NEVER_INLINE
 DECL|function|qt_message
 specifier|static
 name|void
