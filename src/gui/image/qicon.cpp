@@ -4259,6 +4259,11 @@ operator|>
 literal|1.0
 condition|)
 block|{
+name|QString
+name|at2xfileName
+init|=
+name|fileName
+decl_stmt|;
 name|int
 name|dotIndex
 init|=
@@ -4275,16 +4280,19 @@ decl_stmt|;
 if|if
 condition|(
 name|dotIndex
-operator|!=
+operator|==
 operator|-
 literal|1
 condition|)
-block|{
-name|QString
-name|at2xfileName
-init|=
+comment|/* no dot */
+name|dotIndex
+operator|=
 name|fileName
-decl_stmt|;
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+comment|/* append */
 name|at2xfileName
 operator|.
 name|insert
@@ -4321,7 +4329,6 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
