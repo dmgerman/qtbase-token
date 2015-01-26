@@ -445,6 +445,9 @@ begin_comment
 comment|/*!     \fn QVector3D&QVector3D::operator/=(float divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
 end_comment
 begin_comment
+comment|/*!     \fn QVector3D&QVector3D::operator/=(const QVector3D&vector)     \since 5.5      Divides the components of this vector by the corresponding     components in \a vector.      \sa operator*=() */
+end_comment
+begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
 begin_function
@@ -1157,6 +1160,9 @@ comment|/*!     \fn const QVector3D operator-(const QVector3D&vector)     \relat
 end_comment
 begin_comment
 comment|/*!     \fn const QVector3D operator/(const QVector3D&vector, float divisor)     \relates QVector3D      Returns the QVector3D object formed by dividing all three components of     the given \a vector by the given \a divisor.      \sa QVector3D::operator/=() */
+end_comment
+begin_comment
+comment|/*!     \fn const QVector3D operator/(const QVector3D&vector, const QVector3D&divisor)     \relates QVector3D     \since 5.5      Returns the QVector3D object formed by dividing components of the given     \a vector by a respective components of the given \a divisor.      \sa QVector3D::operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QVector3D& v1, const QVector3D& v2)     \relates QVector3D      Returns \c true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */

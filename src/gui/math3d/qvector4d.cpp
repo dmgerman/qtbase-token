@@ -638,6 +638,9 @@ begin_comment
 comment|/*!     \fn QVector4D&QVector4D::operator/=(float divisor)      Divides this vector's coordinates by the given \a divisor, and     returns a reference to this vector.      \sa operator*=() */
 end_comment
 begin_comment
+comment|/*!     \fn QVector4D&QVector4D::operator/=(const QVector4D&vector)     \since 5.5      Divides the components of this vector by the corresponding     components in \a vector.      \sa operator*=() */
+end_comment
+begin_comment
 comment|/*!     Returns the dot product of \a v1 and \a v2. */
 end_comment
 begin_function
@@ -719,6 +722,9 @@ comment|/*!     \fn const QVector4D operator-(const QVector4D&vector)     \relat
 end_comment
 begin_comment
 comment|/*!     \fn const QVector4D operator/(const QVector4D&vector, float divisor)     \relates QVector4D      Returns the QVector4D object formed by dividing all four components of     the given \a vector by the given \a divisor.      \sa QVector4D::operator/=() */
+end_comment
+begin_comment
+comment|/*!     \fn const QVector4D operator/(const QVector4D&vector, const QVector4D&divisor)     \relates QVector4D     \since 5.5      Returns the QVector4D object formed by dividing components of the given     \a vector by a respective components of the given \a divisor.      \sa QVector4D::operator/=() */
 end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QVector4D& v1, const QVector4D& v2)     \relates QVector4D      Returns \c true if \a v1 and \a v2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
