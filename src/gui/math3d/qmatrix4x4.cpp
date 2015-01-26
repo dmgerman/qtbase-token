@@ -677,6 +677,9 @@ begin_comment
 comment|/*!     \fn void QMatrix4x4::setRow(int index, const QVector4D& value)      Sets the elements of row \a index to the components of \a value.      \sa row(), setColumn() */
 end_comment
 begin_comment
+comment|/*!     \fn bool QMatrix4x4::isAffine() const     \since 5.5      Returns \c true if this matrix is affine matrix; false otherwise.      An affine matrix is a 4x4 matrix with row 3 equal to (0, 0, 0, 1),     e.g. no projective coefficients.      \sa isIdentity() */
+end_comment
+begin_comment
 comment|/*!     \fn bool QMatrix4x4::isIdentity() const      Returns \c true if this matrix is the identity; false otherwise.      \sa setToIdentity() */
 end_comment
 begin_comment
