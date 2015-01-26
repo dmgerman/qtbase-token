@@ -326,6 +326,9 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QQuaternion QQuaternion::inverted() const     \since 5.5      Returns the inverse of this quaternion.     If this quaternion is null, then a null quaternion is returned.      \sa isNull(), length() */
+end_comment
+begin_comment
 comment|/*!     \fn QQuaternion QQuaternion::conjugate() const      Returns the conjugate of this quaternion, which is     (-x, -y, -z, scalar). */
 end_comment
 begin_comment
