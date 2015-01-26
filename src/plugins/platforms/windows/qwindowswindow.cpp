@@ -7561,12 +7561,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|m_windowState
+operator|==
+name|Qt
+operator|::
+name|WindowMinimized
+condition|)
 name|m_data
 operator|.
 name|geometry
 operator|=
 name|rect
 expr_stmt|;
+comment|// Otherwise set by handleGeometryChange() triggered by event.
 if|if
 condition|(
 name|m_data
