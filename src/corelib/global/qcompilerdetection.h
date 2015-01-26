@@ -4180,27 +4180,34 @@ argument_list|(
 name|Q_OS_QNX
 argument_list|)
 end_if
+begin_comment
+comment|// QNX: test if we are using libcpp (Dinkumware-based).
+end_comment
+begin_comment
+comment|// Older versions (QNX 650) do not support C++11 features
+end_comment
+begin_comment
+comment|// _HAS_CPP0X is defined by toolchains that actually include
+end_comment
+begin_comment
+comment|// Dinkum C++11 libcpp.
+end_comment
 begin_if
 if|#
 directive|if
 name|defined
 argument_list|(
-name|_YVALS
+name|_HAS_DINKUM_CLIB
 argument_list|)
-operator|||
+operator|&&
+operator|!
 name|defined
 argument_list|(
-name|_LIBCPP_VER
+name|_HAS_CPP0X
 argument_list|)
 end_if
 begin_comment
-comment|// QNX: libcpp (Dinkumware-based) doesn't have the<initializer_list>
-end_comment
-begin_comment
-comment|// header, so the feature is useless, even if the compiler supports
-end_comment
-begin_comment
-comment|// it. Disable.
+comment|// Disable C++11 features that depend on library support
 end_comment
 begin_undef
 DECL|macro|Q_COMPILER_INITIALIZER_LISTS
@@ -4208,12 +4215,6 @@ undef|#
 directive|undef
 name|Q_COMPILER_INITIALIZER_LISTS
 end_undef
-begin_comment
-comment|// That libcpp doesn't have std::move either, so disable everything
-end_comment
-begin_comment
-comment|// related to rvalue refs.
-end_comment
 begin_undef
 DECL|macro|Q_COMPILER_RVALUE_REFS
 undef|#
@@ -4225,6 +4226,18 @@ DECL|macro|Q_COMPILER_REF_QUALIFIERS
 undef|#
 directive|undef
 name|Q_COMPILER_REF_QUALIFIERS
+end_undef
+begin_undef
+DECL|macro|Q_COMPILER_UNICODE_STRINGS
+undef|#
+directive|undef
+name|Q_COMPILER_UNICODE_STRINGS
+end_undef
+begin_undef
+DECL|macro|Q_COMPILER_NOEXCEPT
+undef|#
+directive|undef
+name|Q_COMPILER_NOEXCEPT
 end_undef
 begin_endif
 endif|#
