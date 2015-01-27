@@ -1552,7 +1552,7 @@ condition|)
 block|{
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 cast|static_cast
 argument_list|<
@@ -1563,7 +1563,7 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
-name|qmlClass
+name|qmlType
 operator|->
 name|setQmlBaseName
 argument_list|(
@@ -2402,7 +2402,7 @@ condition|)
 block|{
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 cast|static_cast
 argument_list|<
@@ -2415,7 +2415,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 condition|)
 block|{
 name|QString
@@ -2580,7 +2580,7 @@ condition|)
 block|{
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 cast|static_cast
 argument_list|<
@@ -2593,7 +2593,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 condition|)
 block|{
 name|QString
@@ -2610,7 +2610,7 @@ name|QmlPropertyNode
 modifier|*
 name|qmlPropNode
 init|=
-name|qmlClass
+name|qmlType
 operator|->
 name|hasQmlProperty
 argument_list|(
@@ -2628,7 +2628,7 @@ operator|=
 operator|new
 name|QmlPropertyNode
 argument_list|(
-name|qmlClass
+name|qmlType
 argument_list|,
 name|name
 argument_list|,
@@ -2772,7 +2772,7 @@ condition|)
 block|{
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 cast|static_cast
 argument_list|<
@@ -2785,7 +2785,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 condition|)
 block|{
 name|QString
@@ -3028,7 +3028,7 @@ block|{
 if|#
 directive|if
 literal|0
-block|if (nestingLevel> 1) {         return true;     }     if (current->isQmlType()) {         QString handler = sb->qualifiedId->name.toString();         if (handler.length()> 2&& handler.startsWith("on")&& handler.at(2).isUpper()) {             QmlTypeNode* qmlClass = static_cast<QmlTypeNode*>(current);             if (qmlClass) {                 FunctionNode* qmlSH = new FunctionNode(Node::QmlSignalHandler,current,handler,false);                 applyDocumentation(sb->firstSourceLocation(), qmlSH);             }         }     }
+block|if (nestingLevel> 1) {         return true;     }     if (current->isQmlType()) {         QString handler = sb->qualifiedId->name.toString();         if (handler.length()> 2&& handler.startsWith("on")&& handler.at(2).isUpper()) {             QmlTypeNode* qmlType = static_cast<QmlTypeNode*>(current);             if (qmlType) {                 FunctionNode* qmlSH = new FunctionNode(Node::QmlSignalHandler,current,handler,false);                 applyDocumentation(sb->firstSourceLocation(), qmlSH);             }         }     }
 endif|#
 directive|endif
 return|return

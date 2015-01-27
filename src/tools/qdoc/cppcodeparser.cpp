@@ -2535,7 +2535,7 @@ name|QString
 name|module
 decl_stmt|;
 name|QString
-name|qmlType
+name|qmlTypeName
 decl_stmt|;
 name|QString
 name|type
@@ -2552,13 +2552,13 @@ name|type
 argument_list|,
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|)
 condition|)
 block|{
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 name|qdb_
 operator|->
@@ -2566,12 +2566,12 @@ name|findQmlType
 argument_list|(
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 condition|)
 block|{
 name|bool
@@ -2657,7 +2657,7 @@ name|arg
 operator|.
 name|first
 argument_list|,
-name|qmlClass
+name|qmlType
 argument_list|,
 name|nodeType
 argument_list|,
@@ -2692,7 +2692,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   A QML property group argument has the form...<QML-module>::<QML-type>::<name>    This function splits the argument into those parts.   A<QML-module> is the QML equivalent of a C++ namespace.   So this function splits \a arg on "::" and stores the   parts in \a module, \a qmlType, and \a name, and returns   true. If any part is not found, a qdoc warning is emitted   and false is returned.  */
+comment|/*!   A QML property group argument has the form...<QML-module>::<QML-type>::<name>    This function splits the argument into those parts.   A<QML-module> is the QML equivalent of a C++ namespace.   So this function splits \a arg on "::" and stores the   parts in \a module, \a qmlTypeName, and \a name, and returns   true. If any part is not found, a qdoc warning is emitted   and false is returned.  */
 end_comment
 begin_function
 DECL|function|splitQmlPropertyGroupArg
@@ -2712,7 +2712,7 @@ name|module
 parameter_list|,
 name|QString
 modifier|&
-name|qmlType
+name|qmlTypeName
 parameter_list|,
 name|QString
 modifier|&
@@ -2746,7 +2746,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|colonSplit
 index|[
@@ -2794,7 +2794,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   A QML property argument has the form...<type><QML-type>::<name><type><QML-module>::<QML-type>::<name>    This function splits the argument into one of those   two forms. The three part form is the old form, which   was used before the creation of Qt Quick 2 and Qt   Components. A<QML-module> is the QML equivalent of a   C++ namespace. So this function splits \a arg on "::"   and stores the parts in \a type, \a module, \a qmlType,   and \a name, and returns \c true. If any part other than   \a module is not found, a qdoc warning is emitted and   false is returned.    \note The two QML types \e{Component} and \e{QtObject}   never have a module qualifier.  */
+comment|/*!   A QML property argument has the form...<type><QML-type>::<name><type><QML-module>::<QML-type>::<name>    This function splits the argument into one of those   two forms. The three part form is the old form, which   was used before the creation of Qt Quick 2 and Qt   Components. A<QML-module> is the QML equivalent of a   C++ namespace. So this function splits \a arg on "::"   and stores the parts in \a type, \a module, \a qmlTypeName,   and \a name, and returns \c true. If any part other than   \a module is not found, a qdoc warning is emitted and   false is returned.    \note The two QML types \e{Component} and \e{QtObject}   never have a module qualifier.  */
 end_comment
 begin_function
 DECL|function|splitQmlPropertyArg
@@ -2818,7 +2818,7 @@ name|module
 parameter_list|,
 name|QString
 modifier|&
-name|qmlType
+name|qmlTypeName
 parameter_list|,
 name|QString
 modifier|&
@@ -2886,7 +2886,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|colonSplit
 index|[
@@ -2919,7 +2919,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|colonSplit
 index|[
@@ -2995,7 +2995,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   A QML signal or method argument has the form...<type><QML-type>::<name>(<param>,<param>, ...)<type><QML-module>::<QML-type>::<name>(<param>,<param>, ...)    This function splits the argument into one of those two   forms, sets \a module, \a qmlType, and \a name, and returns   true. If the argument doesn't match either form, an error   message is emitted and false is returned.    \note The two QML types \e{Component} and \e{QtObject} never   have a module qualifier.  */
+comment|/*!   A QML signal or method argument has the form...<type><QML-type>::<name>(<param>,<param>, ...)<type><QML-module>::<QML-type>::<name>(<param>,<param>, ...)    This function splits the argument into one of those two   forms, sets \a module, \a qmlTypeName, and \a name, and returns   true. If the argument doesn't match either form, an error   message is emitted and false is returned.    \note The two QML types \e{Component} and \e{QtObject} never   have a module qualifier.  */
 end_comment
 begin_function
 DECL|function|splitQmlMethodArg
@@ -3019,7 +3019,7 @@ name|module
 parameter_list|,
 name|QString
 modifier|&
-name|qmlType
+name|qmlTypeName
 parameter_list|)
 block|{
 name|QStringList
@@ -3093,7 +3093,7 @@ index|[
 literal|1
 index|]
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|colonSplit
 index|[
@@ -3108,7 +3108,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|blankSplit
 index|[
@@ -3141,7 +3141,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|colonSplit
 index|[
@@ -3156,7 +3156,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|qmlType
+name|qmlTypeName
 operator|=
 name|colonSplit
 index|[
@@ -3235,7 +3235,7 @@ name|QString
 name|module
 decl_stmt|;
 name|QString
-name|qmlType
+name|qmlTypeName
 decl_stmt|;
 name|QString
 name|property
@@ -3248,7 +3248,7 @@ literal|0
 decl_stmt|;
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 literal|0
 decl_stmt|;
@@ -3361,7 +3361,7 @@ name|type
 argument_list|,
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|,
 name|property
 argument_list|)
@@ -3402,7 +3402,7 @@ name|module
 operator|+
 literal|"::"
 operator|+
-name|qmlType
+name|qmlTypeName
 operator|+
 literal|"::"
 operator|+
@@ -3468,13 +3468,13 @@ name|arg
 argument_list|,
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|,
 name|property
 argument_list|)
 condition|)
 block|{
-name|qmlClass
+name|qmlType
 operator|=
 name|qdb_
 operator|->
@@ -3482,12 +3482,12 @@ name|findQmlType
 argument_list|(
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 condition|)
 block|{
 name|qpgn
@@ -3495,7 +3495,7 @@ operator|=
 operator|new
 name|QmlPropertyGroupNode
 argument_list|(
-name|qmlClass
+name|qmlType
 argument_list|,
 name|property
 argument_list|)
@@ -3617,13 +3617,13 @@ name|type
 argument_list|,
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|,
 name|property
 argument_list|)
 condition|)
 block|{
-name|qmlClass
+name|qmlType
 operator|=
 name|qdb_
 operator|->
@@ -3631,17 +3631,17 @@ name|findQmlType
 argument_list|(
 name|module
 argument_list|,
-name|qmlType
+name|qmlTypeName
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 condition|)
 block|{
 if|if
 condition|(
-name|qmlClass
+name|qmlType
 operator|->
 name|hasQmlProperty
 argument_list|(
@@ -3715,7 +3715,7 @@ operator|=
 operator|new
 name|QmlPropertyNode
 argument_list|(
-name|qmlClass
+name|qmlType
 argument_list|,
 name|property
 argument_list|,
@@ -4397,7 +4397,7 @@ condition|)
 block|{
 name|QmlTypeNode
 modifier|*
-name|qmlClass
+name|qmlType
 init|=
 cast|static_cast
 argument_list|<
@@ -4408,7 +4408,7 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
-name|qmlClass
+name|qmlType
 operator|->
 name|setQmlBaseName
 argument_list|(

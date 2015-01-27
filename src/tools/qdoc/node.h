@@ -300,6 +300,8 @@ name|DontCare
 block|,
 name|CPP
 block|,
+name|JS
+block|,
 name|QML
 block|,
 name|DOC
@@ -1692,7 +1694,7 @@ return|;
 block|}
 name|QmlTypeNode
 modifier|*
-name|qmlClassNode
+name|qmlTypeNode
 parameter_list|()
 function_decl|;
 name|ClassNode

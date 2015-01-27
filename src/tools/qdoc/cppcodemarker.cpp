@@ -6262,7 +6262,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   This function is for documenting QML properties. It returns   the list of documentation sections for the children of the   \a qmlClassNode.  */
+comment|/*!   This function is for documenting QML properties. It returns   the list of documentation sections for the children of the   \a qmlTypeNode.  */
 end_comment
 begin_function
 DECL|function|qmlSections
@@ -6276,7 +6276,7 @@ name|qmlSections
 parameter_list|(
 name|QmlTypeNode
 modifier|*
-name|qmlClassNode
+name|qmlTypeNode
 parameter_list|,
 name|SynopsisStyle
 name|style
@@ -6293,7 +6293,7 @@ name|sections
 decl_stmt|;
 if|if
 condition|(
-name|qmlClassNode
+name|qmlTypeNode
 condition|)
 block|{
 if|if
@@ -6306,7 +6306,7 @@ block|{
 name|FastSection
 name|qmlproperties
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Properties"
 argument_list|,
@@ -6321,7 +6321,7 @@ decl_stmt|;
 name|FastSection
 name|qmlattachedproperties
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Attached Properties"
 argument_list|,
@@ -6336,7 +6336,7 @@ decl_stmt|;
 name|FastSection
 name|qmlsignals
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Signals"
 argument_list|,
@@ -6351,7 +6351,7 @@ decl_stmt|;
 name|FastSection
 name|qmlsignalhandlers
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Signal Handlers"
 argument_list|,
@@ -6366,7 +6366,7 @@ decl_stmt|;
 name|FastSection
 name|qmlattachedsignals
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Attached Signals"
 argument_list|,
@@ -6381,7 +6381,7 @@ decl_stmt|;
 name|FastSection
 name|qmlmethods
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Methods"
 argument_list|,
@@ -6396,7 +6396,7 @@ decl_stmt|;
 name|FastSection
 name|qmlattachedmethods
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Attached Methods"
 argument_list|,
@@ -6412,7 +6412,7 @@ name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
-name|qmlClassNode
+name|qmlTypeNode
 decl_stmt|;
 while|while
 condition|(
@@ -6829,7 +6829,7 @@ block|{
 name|FastSection
 name|qmlproperties
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Property Documentation"
 argument_list|,
@@ -6843,7 +6843,7 @@ decl_stmt|;
 name|FastSection
 name|qmlattachedproperties
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Attached Property Documentation"
 argument_list|,
@@ -6857,7 +6857,7 @@ decl_stmt|;
 name|FastSection
 name|qmlsignals
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Signal Documentation"
 argument_list|,
@@ -6871,7 +6871,7 @@ decl_stmt|;
 name|FastSection
 name|qmlsignalhandlers
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Signal Handler Documentation"
 argument_list|,
@@ -6885,7 +6885,7 @@ decl_stmt|;
 name|FastSection
 name|qmlattachedsignals
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Attached Signal Documentation"
 argument_list|,
@@ -6899,7 +6899,7 @@ decl_stmt|;
 name|FastSection
 name|qmlmethods
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Method Documentation"
 argument_list|,
@@ -6913,7 +6913,7 @@ decl_stmt|;
 name|FastSection
 name|qmlattachedmethods
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 literal|"Attached Method Documentation"
 argument_list|,
@@ -6928,7 +6928,7 @@ name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
-name|qmlClassNode
+name|qmlTypeNode
 decl_stmt|;
 while|while
 condition|(
@@ -7344,7 +7344,7 @@ decl_stmt|;
 name|FastSection
 name|all
 argument_list|(
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|,
 name|QString
 argument_list|()
@@ -7361,7 +7361,7 @@ name|QmlTypeNode
 modifier|*
 name|current
 init|=
-name|qmlClassNode
+name|qmlTypeNode
 decl_stmt|;
 while|while
 condition|(

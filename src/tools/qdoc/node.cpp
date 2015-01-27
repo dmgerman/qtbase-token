@@ -2262,12 +2262,12 @@ begin_comment
 comment|/*!   If this node is a QML class node, return a pointer to it.   If it is a child of a QML class node, return a pointer to   the QML class node. Otherwise, return 0;  */
 end_comment
 begin_function
-DECL|function|qmlClassNode
+DECL|function|qmlTypeNode
 name|QmlTypeNode
 modifier|*
 name|Node
 operator|::
-name|qmlClassNode
+name|qmlTypeNode
 parameter_list|()
 block|{
 if|if
@@ -2340,7 +2340,7 @@ name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|()
 decl_stmt|;
 if|if
@@ -9106,7 +9106,7 @@ name|QmlTypeNode
 modifier|*
 name|qcn
 init|=
-name|qmlClassNode
+name|qmlTypeNode
 argument_list|()
 decl_stmt|;
 if|if

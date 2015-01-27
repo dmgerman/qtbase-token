@@ -183,7 +183,7 @@ name|Section
 operator|>
 name|qmlSections
 argument_list|(
-argument|QmlTypeNode* qmlClassNode
+argument|QmlTypeNode* qmlTypeNode
 argument_list|,
 argument|SynopsisStyle style
 argument_list|,
