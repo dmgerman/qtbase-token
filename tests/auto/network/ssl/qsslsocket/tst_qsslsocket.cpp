@@ -4571,7 +4571,7 @@ name|socket
 operator|->
 name|connectToHostEncrypted
 argument_list|(
-literal|"qt-project.org"
+literal|"www.qt.io"
 argument_list|,
 literal|443
 argument_list|)
