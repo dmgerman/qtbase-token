@@ -599,6 +599,19 @@ name|QImage
 operator|::
 name|Format_ARGB4444_Premultiplied
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"argb32 -> argb32pm"
+argument_list|)
+operator|<<
+name|argb32
+operator|<<
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+expr_stmt|;
 block|}
 end_function
 begin_function
