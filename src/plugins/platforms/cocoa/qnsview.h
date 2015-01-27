@@ -203,6 +203,14 @@ operator|)
 name|platformWindow
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|clearQWindowPointers
+expr_stmt|;
+end_expr_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
