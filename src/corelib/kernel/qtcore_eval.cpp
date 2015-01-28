@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2015 Digia Plc and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/legal ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and Digia. For licensing terms and ** conditions see http://qt.digia.com/licensing. For further information ** use the contact form at http://qt.digia.com/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Digia gives you certain additional ** rights. These rights are described in the Digia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2015 The Qt Company Ltd. ** Contact: http://www.qt.io/licensing/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see http://www.qt.io/terms-conditions. For further ** information use the contact form at http://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** As a special exception, The Qt Company gives you certain additional ** rights. These rights are described in The Qt Company LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -55,13 +55,13 @@ name|boilerplate_supported_but_time_limited
 index|[]
 init|=
 literal|"\nQt %1 Evaluation License\n"
-literal|"Copyright (C) 2015 Digia Plc and/or its subsidiary(-ies).\n"
+literal|"Copyright (C) 2015 The Qt Company Ltd.\n"
 literal|"This trial version may only be used for evaluation purposes\n"
 literal|"and will shut down after 120 minutes.\n"
 literal|"Registered to:\n"
 literal|"   Licensee: %2\n\n"
 literal|"The evaluation expires in %4 days\n\n"
-literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://www.qt.io/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -73,12 +73,12 @@ name|boilerplate_supported
 index|[]
 init|=
 literal|"\nQt %1 Evaluation License\n"
-literal|"Copyright (C) 2015 Digia Plc and/or its subsidiary(-ies).\n"
+literal|"Copyright (C) 2015 The Qt Company Ltd.\n"
 literal|"This trial version may only be used for evaluation purposes\n"
 literal|"Registered to:\n"
 literal|"   Licensee: %2\n\n"
 literal|"The evaluation expires in %4 days\n\n"
-literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://www.qt.io/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -92,7 +92,7 @@ init|=
 literal|"This software is using the trial version of the Qt GUI toolkit.\n"
 literal|"The trial period has expired. If you need more time to\n"
 literal|"evaluate Qt, or if you have any questions about Qt, contact us\n"
-literal|"at: http://qt.digia.com/contact-us.\n\n"
+literal|"at: http://www.qt.io/contact-us.\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -104,7 +104,7 @@ name|will_shutdown_1min
 index|[]
 init|=
 literal|"\nThe evaluation of Qt will SHUT DOWN in 1 minute.\n"
-literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://www.qt.io/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -117,7 +117,7 @@ index|[]
 init|=
 literal|"\nThe evaluation of Qt has now reached its automatic\n"
 literal|"timeout and will shut down.\n"
-literal|"Contact http://qt.digia.com/contact-us for pricing and purchasing information.\n"
+literal|"Contact http://www.qt.io/contact-us for pricing and purchasing information.\n"
 decl_stmt|;
 end_decl_stmt
 begin_enum
