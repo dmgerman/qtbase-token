@@ -3543,7 +3543,14 @@ name|toLocalFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-else|else
+elseif|else
+if|if
+condition|(
+name|d
+operator|->
+name|usingWidgets
+argument_list|()
+condition|)
 name|qWarning
 argument_list|()
 operator|<<
