@@ -6266,7 +6266,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable at \a location in the current context to \a value.     This function should be used when setting sampler values.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable at \a location in the current context to \a value.     This function should be used when setting sampler values.      \note This function is not aware of unsigned int support in modern OpenGL     versions and therefore treats \a value as a GLint and calls glUniform1i.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -6313,7 +6313,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to \a value.  This function should be used when setting sampler values.      \sa setAttributeValue() */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to \a value.  This function should be used when setting sampler values.      \note This function is not aware of unsigned int support in modern OpenGL     versions and therefore treats \a value as a GLint and calls glUniform1i.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -8796,7 +8796,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the uniform variable array at \a location in the current     context to the \a count elements of \a values.  This overload     should be used when setting an array of sampler values.      \sa setAttributeValue() */
+comment|/*!     Sets the uniform variable array at \a location in the current     context to the \a count elements of \a values.  This overload     should be used when setting an array of sampler values.      \note This function is not aware of unsigned int support in modern OpenGL     versions and therefore treats \a value as a GLint and calls glUniform1iv.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValueArray
