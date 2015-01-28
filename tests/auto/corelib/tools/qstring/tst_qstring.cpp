@@ -45816,10 +45816,6 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
-ifndef|#
-directive|ifndef
-name|QT_QLOCALE_USES_FCVT
-comment|//In case we use glibc this tests will fail
 name|CHECK_NAN
 argument_list|(
 literal|"-nan"
@@ -45836,8 +45832,6 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
-endif|#
-directive|endif
 name|CHECK_NAN
 argument_list|(
 literal|"NaN"
