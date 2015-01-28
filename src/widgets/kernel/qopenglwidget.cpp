@@ -1994,14 +1994,7 @@ name|d
 operator|->
 name|initialized
 condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QOpenGLWidget: Cannot make uninitialized widget current"
-argument_list|)
-expr_stmt|;
 return|return;
-block|}
 name|d
 operator|->
 name|context
