@@ -282,8 +282,8 @@ specifier|const
 block|{
 return|return
 name|val
-operator|/
-literal|64
+operator|>>
+literal|6
 return|;
 block|}
 name|Q_DECL_CONSTEXPR
