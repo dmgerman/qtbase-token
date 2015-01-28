@@ -76,6 +76,23 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|bool
+name|usePlatformNativeDialog
+argument_list|(
+argument|DialogType type
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QPlatformDialogHelper
+operator|*
+name|createPlatformDialogHelper
+argument_list|(
+argument|DialogType type
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 specifier|const
 name|QFont
 operator|*
