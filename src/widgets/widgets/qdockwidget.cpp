@@ -802,6 +802,10 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|floating
+argument_list|)
 return|return
 literal|false
 return|;

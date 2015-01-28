@@ -32,6 +32,12 @@ operator|::
 name|QSystemSemaphorePrivate
 parameter_list|()
 member_init_list|:
+name|unix_key
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+member_init_list|,
 name|semaphore
 argument_list|(
 operator|-
@@ -46,12 +52,6 @@ member_init_list|,
 name|createdSemaphore
 argument_list|(
 literal|false
-argument_list|)
-member_init_list|,
-name|unix_key
-argument_list|(
-operator|-
-literal|1
 argument_list|)
 member_init_list|,
 name|error
