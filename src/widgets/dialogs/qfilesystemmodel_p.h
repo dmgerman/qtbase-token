@@ -1398,6 +1398,11 @@ specifier|const
 name|QString
 modifier|&
 name|path
+parameter_list|,
+name|int
+name|column
+init|=
+literal|0
 parameter_list|)
 block|{
 return|return
@@ -1407,6 +1412,8 @@ name|node
 argument_list|(
 name|path
 argument_list|)
+argument_list|,
+name|column
 argument_list|)
 return|;
 block|}
@@ -1419,6 +1426,11 @@ specifier|const
 name|QFileSystemNode
 operator|*
 name|node
+argument_list|,
+name|int
+name|column
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;
