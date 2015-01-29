@@ -875,6 +875,9 @@ name|QSsl
 operator|::
 name|SslV3
 case|:
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL3_METHOD
 name|sslContext
 operator|->
 name|ctx
@@ -890,6 +893,21 @@ name|q_SSLv3_server_method
 argument_list|()
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+comment|// SSL 3 not supported by the system, but chosen deliberately -> error
+name|sslContext
+operator|->
+name|ctx
+operator|=
+literal|0
+expr_stmt|;
+name|unsupportedProtocol
+operator|=
+literal|true
+expr_stmt|;
+endif|#
+directive|endif
 break|break;
 case|case
 name|QSsl

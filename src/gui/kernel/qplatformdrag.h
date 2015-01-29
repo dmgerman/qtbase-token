@@ -231,6 +231,12 @@ name|QPixmap
 name|defaultPixmap
 parameter_list|()
 function_decl|;
+name|virtual
+name|bool
+name|ownsDragObject
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 name|QPlatformDragPrivate

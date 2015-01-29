@@ -85,48 +85,71 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 include|#
 directive|include
 file|"qxmlstream_p.h"
+DECL|enumerator|StreamEOF
+name|enum
+type|{
+name|StreamEOF
+init|=
+operator|~
+literal|0U
+end_decl_stmt
+begin_comment
+unit|};
 comment|/*!     \enum QXmlStreamReader::TokenType      This enum specifies the type of token the reader just read.      \value NoToken The reader has not yet read anything.      \value Invalid An error has occurred, reported in error() and     errorString().      \value StartDocument The reader reports the XML version number in     documentVersion(), and the encoding as specified in the XML     document in documentEncoding().  If the document is declared     standalone, isStandaloneDocument() returns \c true; otherwise it     returns \c false.      \value EndDocument The reader reports the end of the document.      \value StartElement The reader reports the start of an element     with namespaceUri() and name(). Empty elements are also reported     as StartElement, followed directly by EndElement. The convenience     function readElementText() can be called to concatenate all     content until the corresponding EndElement. Attributes are     reported in attributes(), namespace declarations in     namespaceDeclarations().      \value EndElement The reader reports the end of an element with     namespaceUri() and name().      \value Characters The reader reports characters in text(). If the     characters are all white-space, isWhitespace() returns \c true. If     the characters stem from a CDATA section, isCDATA() returns \c true.      \value Comment The reader reports a comment in text().      \value DTD The reader reports a DTD in text(), notation     declarations in notationDeclarations(), and entity declarations in     entityDeclarations(). Details of the DTD declaration are reported     in in dtdName(), dtdPublicId(), and dtdSystemId().      \value EntityReference The reader reports an entity reference that     could not be resolved.  The name of the reference is reported in     name(), the replacement text in text().      \value ProcessingInstruction The reader reports a processing     instruction in processingInstructionTarget() and     processingInstructionData(). */
+end_comment
+begin_comment
 comment|/*!     \enum QXmlStreamReader::ReadElementTextBehaviour      This enum specifies the different behaviours of readElementText().      \value ErrorOnUnexpectedElement Raise an UnexpectedElementError and return     what was read so far when a child element is encountered.      \value IncludeChildElements Recursively include the text from child elements.      \value SkipChildElements Skip child elements.      \since 4.6 */
+end_comment
+begin_comment
 comment|/*!     \enum QXmlStreamReader::Error      This enum specifies different error cases      \value NoError No error has occurred.      \value CustomError A custom error has been raised with     raiseError()      \value NotWellFormedError The parser internally raised an error     due to the read XML not being well-formed.      \value PrematureEndOfDocumentError The input stream ended before a     well-formed XML document was parsed. Recovery from this error is     possible if more XML arrives in the stream, either by calling     addData() or by waiting for it to arrive on the device().      \value UnexpectedElementError The parser encountered an element     that was different to those it expected.  */
+end_comment
+begin_comment
 comment|/*!   \class QXmlStreamEntityResolver   \inmodule QtCore   \reentrant   \since 4.4    \brief The QXmlStreamEntityResolver class provides an entity   resolver for a QXmlStreamReader.    \ingroup xml-tools  */
+end_comment
+begin_comment
 comment|/*!   Destroys the entity resolver.  */
+end_comment
+begin_destructor
 DECL|function|~QXmlStreamEntityResolver
 name|QXmlStreamEntityResolver
 operator|::
 name|~
 name|QXmlStreamEntityResolver
-operator|(
-operator|)
+parameter_list|()
 block|{ }
+end_destructor
+begin_comment
 comment|/*!   \internal  This function is a stub for later functionality. */
+end_comment
+begin_function
 DECL|function|resolveEntity
 name|QString
 name|QXmlStreamEntityResolver
 operator|::
 name|resolveEntity
-operator|(
+parameter_list|(
 specifier|const
 name|QString
-operator|&
+modifier|&
 comment|/*publicId*/
-operator|,
+parameter_list|,
 specifier|const
 name|QString
-operator|&
+modifier|&
 comment|/*systemId*/
-operator|)
+parameter_list|)
 block|{
 return|return
 name|QString
 argument_list|()
 return|;
 block|}
-end_expr_stmt
+end_function
 begin_comment
 comment|/*!   Resolves the undeclared entity \a name and returns its replacement   text. If the entity is also unknown to the entity resolver, it   returns an empty string.    The default implementation always returns an empty string. */
 end_comment
@@ -1952,7 +1975,7 @@ if|if
 condition|(
 name|peekc
 operator|==
-literal|0
+name|StreamEOF
 condition|)
 block|{
 name|putChar
@@ -1970,7 +1993,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  \internal  If the end of the file is encountered, 0 is returned.  */
+comment|/*!  \internal  If the end of the file is encountered, ~0 is returned.  */
 end_comment
 begin_function
 DECL|function|getChar
@@ -1996,7 +2019,7 @@ name|c
 operator|=
 name|atEnd
 condition|?
-literal|0
+name|StreamEOF
 else|:
 name|putStack
 operator|.
@@ -2102,6 +2125,8 @@ operator|=
 name|getChar_helper
 argument_list|()
 operator|)
+operator|!=
+name|StreamEOF
 condition|)
 operator|--
 name|readBufferPos
@@ -2144,13 +2169,19 @@ name|oldLineNumber
 init|=
 name|lineNumber
 decl_stmt|;
-while|while
-condition|(
 name|uint
 name|c
-init|=
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|c
+operator|=
 name|getChar
 argument_list|()
+operator|)
+operator|!=
+name|StreamEOF
 condition|)
 block|{
 comment|/* First, we do the validation& normalization. */
@@ -2363,7 +2394,7 @@ name|n
 index|]
 condition|)
 block|{
-name|ushort
+name|uint
 name|c
 init|=
 name|getChar
@@ -2385,6 +2416,8 @@ block|{
 if|if
 condition|(
 name|c
+operator|!=
+name|StreamEOF
 condition|)
 name|putChar
 argument_list|(
@@ -2961,6 +2994,8 @@ operator|=
 name|getChar
 argument_list|()
 operator|)
+operator|!=
+name|StreamEOF
 condition|)
 block|{
 switch|switch
@@ -3109,7 +3144,7 @@ name|n
 init|=
 literal|0
 decl_stmt|;
-name|ushort
+name|uint
 name|c
 decl_stmt|;
 while|while
@@ -3120,6 +3155,8 @@ operator|=
 name|getChar
 argument_list|()
 operator|)
+operator|!=
+name|StreamEOF
 condition|)
 block|{
 switch|switch
@@ -3219,6 +3256,8 @@ operator|=
 name|getChar
 argument_list|()
 operator|)
+operator|!=
+name|StreamEOF
 condition|)
 block|{
 switch|switch
@@ -3509,7 +3548,7 @@ name|n
 init|=
 literal|0
 decl_stmt|;
-name|ushort
+name|uint
 name|c
 decl_stmt|;
 while|while
@@ -3520,6 +3559,8 @@ operator|=
 name|getChar
 argument_list|()
 operator|)
+operator|!=
+name|StreamEOF
 condition|)
 block|{
 switch|switch
@@ -4218,6 +4259,8 @@ operator|=
 name|getChar
 argument_list|()
 operator|)
+operator|!=
+name|StreamEOF
 condition|)
 block|{
 if|if
@@ -4615,7 +4658,7 @@ block|}
 end_function
 begin_function
 DECL|function|getChar_helper
-name|ushort
+name|uint
 name|QXmlStreamReaderPrivate
 operator|::
 name|getChar_helper
@@ -4735,7 +4778,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-literal|0
+name|StreamEOF
 return|;
 block|}
 ifndef|#
@@ -4761,7 +4804,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-literal|0
+name|StreamEOF
 return|;
 block|}
 name|int
@@ -5025,7 +5068,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 return|return
-literal|0
+name|StreamEOF
 return|;
 block|}
 else|#
@@ -5088,7 +5131,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-literal|0
+name|StreamEOF
 return|;
 block|}
 end_function

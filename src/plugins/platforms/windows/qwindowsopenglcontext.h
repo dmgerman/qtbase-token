@@ -120,6 +120,14 @@ modifier|*
 comment|/*nativeSurface*/
 parameter_list|)
 block|{ }
+name|private
+label|:
+specifier|static
+name|QWindowsStaticOpenGLContext
+modifier|*
+name|doCreate
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

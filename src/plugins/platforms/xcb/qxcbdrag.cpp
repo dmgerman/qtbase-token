@@ -5213,6 +5213,19 @@ argument_list|(
 name|at
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|t
+operator|.
+name|drag
+condition|)
+name|t
+operator|.
+name|drag
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
 comment|//            QDragManager *manager = QDragManager::self();
 comment|//            Window target = current_target;
 comment|//            Window proxy_target = current_proxy_target;
@@ -6023,6 +6036,20 @@ return|return
 literal|true
 return|;
 block|}
+block|}
+end_function
+begin_function
+DECL|function|ownsDragObject
+name|bool
+name|QXcbDrag
+operator|::
+name|ownsDragObject
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_constructor

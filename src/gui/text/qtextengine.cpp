@@ -5004,12 +5004,13 @@ ifdef|#
 directive|ifdef
 name|QT_ENABLE_HARFBUZZ_NG
 end_ifdef
-begin_decl_stmt
+begin_function_decl
 specifier|extern
 name|bool
-name|useHarfbuzzNG
-decl_stmt|;
-end_decl_stmt
+name|qt_useHarfbuzzNG
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|// defined in qfontengine.cpp
 end_comment
@@ -5784,7 +5785,8 @@ directive|ifdef
 name|QT_ENABLE_HARFBUZZ_NG
 if|if
 condition|(
-name|useHarfbuzzNG
+name|qt_useHarfbuzzNG
+argument_list|()
 condition|)
 name|si
 operator|.
@@ -5864,7 +5866,8 @@ directive|ifdef
 name|QT_ENABLE_HARFBUZZ_NG
 if|if
 condition|(
-name|useHarfbuzzNG
+name|qt_useHarfbuzzNG
+argument_list|()
 condition|)
 name|qt_getJustificationOpportunities
 argument_list|(
@@ -9407,7 +9410,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|useHarfbuzzNG
+name|qt_useHarfbuzzNG
+argument_list|()
 condition|)
 block|{
 comment|// ### pretend HB-old behavior for now
