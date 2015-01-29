@@ -2369,6 +2369,18 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QModelIndex
+name|sibling
+argument_list|(
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&idx
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|bool
 name|dropMimeData
 argument_list|(
@@ -2470,6 +2482,18 @@ argument|int column =
 literal|0
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|QModelIndex
+name|sibling
+argument_list|(
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&idx
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
