@@ -1114,12 +1114,29 @@ argument_list|(
 name|EGL_READ
 argument_list|)
 decl_stmt|;
+comment|// Rely on the surfaceless extension, if available. This is beneficial since we can
+comment|// avoid creating an extra pbuffer surface which is apparently troublesome with some
+comment|// drivers (Mesa) when certain attributes are present (multisampling).
 name|EGLSurface
 name|tempSurface
 init|=
+name|EGL_NO_SURFACE
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|q_hasEglExtension
+argument_list|(
+name|m_eglDisplay
+argument_list|,
+literal|"EGL_KHR_surfaceless_context"
+argument_list|)
+condition|)
+name|tempSurface
+operator|=
 name|createTemporaryOffscreenSurface
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|eglMakeCurrent
@@ -1395,6 +1412,20 @@ name|prevContext
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"QEGLPlatformContext: Failed to make temporary surface current, format not updated"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|tempSurface
+operator|!=
+name|EGL_NO_SURFACE
+condition|)
 name|destroyTemporaryOffscreenSurface
 argument_list|(
 name|tempSurface
@@ -1577,6 +1608,13 @@ name|m_swapInterval
 operator|=
 name|requestedSwapInterval
 expr_stmt|;
+if|if
+condition|(
+name|eglSurface
+operator|!=
+name|EGL_NO_SURFACE
+condition|)
+comment|// skip if using surfaceless context
 name|eglSwapInterval
 argument_list|(
 name|eglDisplay
@@ -1699,6 +1737,14 @@ argument_list|(
 name|surface
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|eglSurface
+operator|!=
+name|EGL_NO_SURFACE
+condition|)
+block|{
+comment|// skip if using surfaceless context
 name|bool
 name|ok
 init|=
@@ -1722,6 +1768,7 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_macro
