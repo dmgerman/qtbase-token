@@ -1381,6 +1381,8 @@ return|return
 literal|false
 return|;
 case|case
+name|QPlatformIntegration
+operator|::
 name|MousePressAndHoldInterval
 case|:
 return|return
