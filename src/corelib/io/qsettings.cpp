@@ -5327,14 +5327,6 @@ name|pathHashFunc
 argument_list|()
 decl_stmt|;
 name|QString
-name|homePath
-init|=
-name|QDir
-operator|::
-name|homePath
-argument_list|()
-decl_stmt|;
-name|QString
 name|systemPath
 decl_stmt|;
 name|locker
@@ -5467,7 +5459,10 @@ condition|)
 block|{
 name|userPath
 operator|=
+name|QDir
+operator|::
 name|homePath
+argument_list|()
 expr_stmt|;
 name|userPath
 operator|+=
@@ -5507,7 +5502,10 @@ else|else
 block|{
 name|userPath
 operator|=
+name|QDir
+operator|::
 name|homePath
+argument_list|()
 expr_stmt|;
 name|userPath
 operator|+=
