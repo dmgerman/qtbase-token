@@ -4138,10 +4138,13 @@ name|qDebug
 argument_list|(
 literal|"QProcessPrivate::bytesAvailableInChannel(%d) == %lld"
 argument_list|,
+name|int
+argument_list|(
 name|channel
 operator|-
 operator|&
 name|stdinChannel
+argument_list|)
 argument_list|,
 name|available
 argument_list|)
@@ -4215,10 +4218,13 @@ name|qDebug
 argument_list|(
 literal|"QProcessPrivate::readFromChannel(%d, %p \"%s\", %lld) == %lld"
 argument_list|,
+name|int
+argument_list|(
 name|channel
 operator|-
 operator|&
 name|stdinChannel
+argument_list|)
 argument_list|,
 name|data
 argument_list|,
