@@ -988,9 +988,12 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
+name|int
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|buf
+argument_list|)
 argument_list|)
 argument_list|,
 name|int
