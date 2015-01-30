@@ -913,11 +913,11 @@ name|y
 argument_list|()
 return|;
 block|}
-specifier|inline
 name|QSize
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|geometry

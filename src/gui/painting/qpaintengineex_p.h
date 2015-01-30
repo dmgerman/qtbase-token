@@ -441,21 +441,13 @@ name|virtual
 name|void
 name|drawPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pm
+argument|const QPixmap&pm
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|sr
+argument|const QRectF&sr
 argument_list|)
+name|Q_DECL_OVERRIDE
 operator|=
 literal|0
 block|;
@@ -486,6 +478,7 @@ argument|const QRectF&sr
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
+name|Q_DECL_OVERRIDE
 operator|=
 literal|0
 block|;

@@ -827,6 +827,7 @@ name|QTimeZonePrivate
 operator|*
 name|clone
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QLocale
 operator|::
@@ -1014,6 +1015,7 @@ name|QTimeZonePrivate
 operator|*
 name|clone
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|displayName
@@ -1218,6 +1220,7 @@ name|QTimeZonePrivate
 operator|*
 name|clone
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QLocale
 operator|::
@@ -1511,6 +1514,7 @@ name|QTimeZonePrivate
 operator|*
 name|clone
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|comment
@@ -1701,6 +1705,7 @@ name|QTimeZonePrivate
 operator|*
 name|clone
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|comment
@@ -1905,6 +1910,7 @@ name|QTimeZonePrivate
 operator|*
 name|clone
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|displayName

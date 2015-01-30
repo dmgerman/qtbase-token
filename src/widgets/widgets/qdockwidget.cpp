@@ -244,12 +244,11 @@ parameter_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 function_decl|;
-DECL|function|minimumSizeHint
-specifier|inline
 name|QSize
 name|minimumSizeHint
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|sizeHint

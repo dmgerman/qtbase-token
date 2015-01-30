@@ -158,12 +158,11 @@ name|DeviceCoordinateCache
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|boundingRect
-specifier|inline
 name|QRectF
 name|boundingRect
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|brect

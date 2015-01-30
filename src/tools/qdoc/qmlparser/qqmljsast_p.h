@@ -7889,6 +7889,7 @@ name|SourceLocation
 name|firstSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 operator|=
 literal|0
 block|;
@@ -7897,6 +7898,7 @@ name|SourceLocation
 name|lastSourceLocation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 operator|=
 literal|0
 block|;

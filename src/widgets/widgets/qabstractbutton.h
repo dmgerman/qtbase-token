@@ -306,14 +306,12 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|virtual
 name|void
 name|paintEvent
 argument_list|(
-name|QPaintEvent
-operator|*
-name|e
+argument|QPaintEvent *e
 argument_list|)
+name|Q_DECL_OVERRIDE
 operator|=
 literal|0
 block|;

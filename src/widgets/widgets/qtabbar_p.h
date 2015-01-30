@@ -1217,11 +1217,11 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-specifier|inline
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|sizeHint
