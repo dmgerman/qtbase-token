@@ -475,11 +475,26 @@ block|}
 comment|// Launch
 specifier|const
 name|QString
+name|binpath
+init|=
+name|QLibraryInfo
+operator|::
+name|location
+argument_list|(
+name|QLibraryInfo
+operator|::
+name|BinariesPath
+argument_list|)
+decl_stmt|;
+specifier|const
+name|QString
 name|command
 init|=
+name|binpath
+operator|+
 name|QLatin1String
 argument_list|(
-literal|"qdbuscpp2xml"
+literal|"/qdbuscpp2xml"
 argument_list|)
 decl_stmt|;
 name|QProcess
