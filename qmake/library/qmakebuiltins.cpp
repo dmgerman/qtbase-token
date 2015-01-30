@@ -12257,11 +12257,10 @@ operator|+=
 name|diffval
 expr_stmt|;
 else|else
+name|newval
+operator|.
 name|removeEach
 argument_list|(
-operator|&
-name|newval
-argument_list|,
 name|diffval
 argument_list|)
 expr_stmt|;

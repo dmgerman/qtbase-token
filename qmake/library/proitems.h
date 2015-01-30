@@ -2334,6 +2334,15 @@ argument_list|)
 specifier|const
 block|;
 name|void
+name|insertUnique
+argument_list|(
+specifier|const
+name|ProStringList
+operator|&
+name|value
+argument_list|)
+block|;
+name|void
 name|removeAll
 argument_list|(
 specifier|const
@@ -2352,6 +2361,15 @@ name|str
 argument_list|)
 block|;
 name|void
+name|removeEach
+argument_list|(
+specifier|const
+name|ProStringList
+operator|&
+name|value
+argument_list|)
+block|;
+name|void
 name|removeAt
 argument_list|(
 argument|int idx
@@ -2362,6 +2380,10 @@ argument_list|(
 name|idx
 argument_list|)
 block|; }
+name|void
+name|removeEmpty
+argument_list|()
+block|;
 name|void
 name|removeDuplicates
 argument_list|()
