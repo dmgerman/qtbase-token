@@ -100,6 +100,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool useRtlExtensions READ useRtlExtensions STORED false CONSTANT FINAL
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|Qt::TabFocusBehavior tabFocusBehavior READ tabFocusBehavior STORED false CONSTANT FINAL
+argument_list|)
 name|public
 operator|:
 name|void
@@ -199,6 +203,13 @@ specifier|const
 block|;
 name|bool
 name|setFocusOnTouchRelease
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|TabFocusBehavior
+name|tabFocusBehavior
 argument_list|()
 specifier|const
 block|;

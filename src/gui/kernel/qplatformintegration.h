@@ -431,6 +431,8 @@ block|,
 name|ShowIsMaximized
 block|,
 name|MousePressAndHoldInterval
+block|,
+name|TabFocusBehavior
 block|}
 enum|;
 name|virtual
