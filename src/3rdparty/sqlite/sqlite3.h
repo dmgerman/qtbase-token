@@ -88,7 +88,7 @@ DECL|macro|SQLITE_VERSION
 define|#
 directive|define
 name|SQLITE_VERSION
-value|"3.8.8.1"
+value|"3.8.8.2"
 DECL|macro|SQLITE_VERSION_NUMBER
 define|#
 directive|define
@@ -98,7 +98,7 @@ DECL|macro|SQLITE_SOURCE_ID
 define|#
 directive|define
 name|SQLITE_SOURCE_ID
-value|"2015-01-20 16:51:25 f73337e3e289915a76ca96e7a05a1a8d4e890d55"
+value|"2015-01-30 14:30:45 7757fc721220e136620a89c9d28247f28bbbc098"
 comment|/* ** CAPI3REF: Run-Time Library Version Numbers ** KEYWORDS: sqlite3_version, sqlite3_sourceid ** ** These interfaces provide the same information as the [SQLITE_VERSION], ** [SQLITE_VERSION_NUMBER], and [SQLITE_SOURCE_ID] C preprocessor macros ** but are associated with the library instead of the header file.  ^(Cautious ** programmers might include assert() statements in their application to ** verify that values returned by these interfaces match the macros in ** the header, and thus insure that the application is ** compiled with matching library and header files. ** **<blockquote><pre> ** assert( sqlite3_libversion_number()==SQLITE_VERSION_NUMBER ); ** assert( strcmp(sqlite3_sourceid(),SQLITE_SOURCE_ID)==0 ); ** assert( strcmp(sqlite3_libversion(),SQLITE_VERSION)==0 ); **</pre></blockquote>)^ ** ** ^The sqlite3_version[] string constant contains the text of [SQLITE_VERSION] ** macro.  ^The sqlite3_libversion() function returns a pointer to the ** to the sqlite3_version[] string constant.  The sqlite3_libversion() ** function is provided for use in DLLs since DLL users usually do not have ** direct access to string constants within the DLL.  ^The ** sqlite3_libversion_number() function returns an integer equal to ** [SQLITE_VERSION_NUMBER].  ^The sqlite3_sourceid() function returns  ** a pointer to a string constant whose value is the same as the  ** [SQLITE_SOURCE_ID] C preprocessor macro. ** ** See also: [sqlite_version()] and [sqlite_source_id()]. */
 DECL|variable|sqlite3_version
 name|SQLITE_API
