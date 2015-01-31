@@ -696,6 +696,11 @@ name|isOpenGLES
 argument_list|()
 specifier|const
 block|;
+specifier|static
+name|bool
+name|supportsThreadedOpenGL
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
