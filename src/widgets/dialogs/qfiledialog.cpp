@@ -3230,12 +3230,6 @@ name|newDirectory
 init|=
 name|directory
 decl_stmt|;
-name|QFileInfo
-name|info
-argument_list|(
-name|directory
-argument_list|)
-decl_stmt|;
 comment|//we remove .. and . from the given path if exist
 if|if
 condition|(
