@@ -1300,62 +1300,43 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-if|if
-condition|(
-name|index
-argument_list|(
-name|j
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|data
-argument_list|(
-name|UrlRole
-argument_list|)
-operator|.
-name|toUrl
-argument_list|()
-operator|.
-name|toLocalFile
-argument_list|()
-operator|.
-name|toLower
-argument_list|()
-operator|==
-name|cleanUrl
-operator|.
-name|toLower
-argument_list|()
-condition|)
-block|{
+specifier|const
+name|Qt
+operator|::
+name|CaseSensitivity
+name|cs
+init|=
+name|Qt
+operator|::
+name|CaseInsensitive
+decl_stmt|;
 else|#
 directive|else
-if|if
-condition|(
-name|index
-argument_list|(
-name|j
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|data
-argument_list|(
-name|UrlRole
-argument_list|)
-operator|.
-name|toUrl
-argument_list|()
-operator|.
-name|toLocalFile
-argument_list|()
-operator|==
-name|cleanUrl
-condition|)
-block|{
+specifier|const
+name|Qt
+operator|::
+name|CaseSensitivity
+name|cs
+init|=
+name|Qt
+operator|::
+name|CaseSensitive
+decl_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+operator|!
+name|cleanUrl
+operator|.
+name|compare
+argument_list|(
+name|local
+argument_list|,
+name|cs
+argument_list|)
+condition|)
+block|{
 name|removeRow
 argument_list|(
 name|j
@@ -1438,7 +1419,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!     Return the complete list of urls in a QList. */
+end_comment
+begin_function
 DECL|function|urls
 name|QList
 argument_list|<
@@ -1495,7 +1480,11 @@ return|return
 name|list
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     QFileSystemModel to get index's from, clears existing rows */
+end_comment
+begin_function
 DECL|function|setFileSystemModel
 name|void
 name|QUrlModel
@@ -1687,7 +1676,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*     If one of the index's we are watching has changed update our internal data */
+end_comment
+begin_function
 DECL|function|dataChanged
 name|void
 name|QUrlModel
@@ -1835,7 +1828,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!     Re-get all of our data, anything could have changed!  */
+end_comment
+begin_function
 DECL|function|layoutChanged
 name|void
 name|QUrlModel
@@ -1951,7 +1948,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/*!     The following path changed data update our copy of that data      \sa layoutChanged(), dataChanged() */
+end_comment
+begin_function
 DECL|function|changed
 name|void
 name|QUrlModel
@@ -2026,6 +2027,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+begin_constructor
 DECL|function|QSidebar
 name|QSidebar
 operator|::
@@ -2041,6 +2044,8 @@ argument_list|(
 name|parent
 argument_list|)
 block|{ }
+end_constructor
+begin_function
 DECL|function|setModelAndUrls
 name|void
 name|QSidebar
@@ -2196,6 +2201,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_destructor
 DECL|function|~QSidebar
 name|QSidebar
 operator|::
@@ -2203,9 +2210,13 @@ name|~
 name|QSidebar
 parameter_list|()
 block|{ }
+end_destructor
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
+end_ifndef
+begin_function
 DECL|function|dragEnterEvent
 name|void
 name|QSidebar
@@ -2234,9 +2245,15 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// QT_NO_DRAGANDDROP
+end_comment
+begin_function
 DECL|function|sizeHint
 name|QSize
 name|QSidebar
@@ -2286,6 +2303,8 @@ name|sizeHint
 argument_list|()
 return|;
 block|}
+end_function
+begin_function
 DECL|function|selectUrl
 name|void
 name|QSidebar
@@ -2424,10 +2443,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_MENU
+end_ifndef
+begin_comment
 comment|/*!     \internal      \sa removeEntry() */
+end_comment
+begin_function
 DECL|function|showContextMenu
 name|void
 name|QSidebar
@@ -2554,10 +2579,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// QT_NO_MENU
+end_comment
+begin_comment
 comment|/*!     \internal      \sa showContextMenu() */
+end_comment
+begin_function
 DECL|function|removeEntry
 name|void
 name|QSidebar
@@ -2672,7 +2705,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \internal      \sa goToUrl() */
+end_comment
+begin_function
 DECL|function|clicked
 name|void
 name|QSidebar
@@ -2723,7 +2760,11 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \reimp     Don't automatically select something  */
+end_comment
+begin_function
 DECL|function|focusInEvent
 name|void
 name|QSidebar
@@ -2749,7 +2790,11 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/*!     \reimp  */
+end_comment
+begin_function
 DECL|function|event
 name|bool
 name|QSidebar
@@ -2812,8 +2857,10 @@ name|event
 argument_list|)
 return|;
 block|}
-name|QT_END_NAMESPACE
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
