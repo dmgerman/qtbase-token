@@ -127,6 +127,19 @@ name|SetType
 init|=
 literal|0x31
 block|,
+comment|// GeneralNameTypes
+name|Rfc822NameType
+init|=
+literal|0x81
+block|,
+name|DnsNameType
+init|=
+literal|0x82
+block|,
+name|UniformResourceIdentifierType
+init|=
+literal|0x86
+block|,
 comment|// context specific
 name|Context0Type
 init|=
