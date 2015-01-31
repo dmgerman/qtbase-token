@@ -2089,6 +2089,26 @@ name|toString
 parameter_list|()
 specifier|const
 block|{
+comment|// Detect embedded NULs and reject
+if|if
+condition|(
+name|qstrlen
+argument_list|(
+name|mValue
+argument_list|)
+operator|<
+name|uint
+argument_list|(
+name|mValue
+operator|.
+name|size
+argument_list|()
+argument_list|)
+condition|)
+return|return
+name|QString
+argument_list|()
+return|;
 if|if
 condition|(
 name|mType
