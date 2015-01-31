@@ -4700,6 +4700,9 @@ argument_list|()
 condition|)
 block|{
 comment|// if splash screen is defined, then show it
+comment|// Note: QtActivityDelegate handles updating the splash screen
+comment|// in onConfigurationChanged, change that too if you are changing
+comment|// how the splash screen should be displayed
 if|if
 condition|(
 name|m_activityInfo
