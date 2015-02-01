@@ -179,6 +179,10 @@ DECL|member|minimumSize
 name|int
 name|minimumSize
 decl_stmt|;
+DECL|member|spacing
+name|int
+name|spacing
+decl_stmt|;
 DECL|member|expansive
 name|bool
 name|expansive
@@ -186,10 +190,6 @@ decl_stmt|;
 DECL|member|empty
 name|bool
 name|empty
-decl_stmt|;
-DECL|member|spacing
-name|int
-name|spacing
 decl_stmt|;
 comment|// temporary storage
 DECL|member|done
