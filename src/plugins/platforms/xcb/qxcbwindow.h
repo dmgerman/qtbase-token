@@ -627,6 +627,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+name|QXcbScreen
+operator|*
+name|xcbScreen
+argument_list|()
+specifier|const
+expr_stmt|;
 name|virtual
 name|void
 name|create
@@ -823,10 +829,6 @@ name|void
 name|doFocusOut
 parameter_list|()
 function_decl|;
-name|QXcbScreen
-modifier|*
-name|m_screen
-decl_stmt|;
 name|xcb_window_t
 name|m_window
 decl_stmt|;
