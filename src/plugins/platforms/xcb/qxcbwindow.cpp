@@ -8333,7 +8333,6 @@ name|format
 parameter_list|()
 specifier|const
 block|{
-comment|// ### return actual format
 return|return
 name|m_format
 return|;
