@@ -15773,7 +15773,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
+name|convert_RGBA_to_ARGB_inplace
 block|,
 name|convert_RGBA_to_ARGB_inplace
 block|,
@@ -15834,11 +15834,11 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
-block|,
 name|convert_RGBA_to_ARGB_inplace
 block|,
 name|convert_RGBA_to_ARGB_PM_inplace
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -15885,9 +15885,9 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
-block|,
 name|convert_RGBA_to_ARGB_inplace
+block|,
+literal|0
 block|,
 literal|0
 block|,
