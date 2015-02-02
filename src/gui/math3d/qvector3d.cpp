@@ -54,6 +54,7 @@ directive|ifndef
 name|QT_NO_VECTOR3D
 comment|/*!     \class QVector3D     \brief The QVector3D class represents a vector or vertex in 3D space.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      Vectors are one of the main building blocks of 3D representation and     drawing.  They consist of three coordinates, traditionally called     x, y, and z.      The QVector3D class can also be used to represent vertices in 3D space.     We therefore do not need to provide a separate vertex class.      \sa QVector2D, QVector4D, QQuaternion */
 comment|/*!     \fn QVector3D::QVector3D()      Constructs a null vector, i.e. with coordinates (0, 0, 0). */
+comment|/*!     \fn QVector3D::QVector3D(Qt::Initialization)     \since 5.5     \internal      Constructs a vector without initializing the contents. */
 comment|/*!     \fn QVector3D::QVector3D(float xpos, float ypos, float zpos)      Constructs a vector with coordinates (\a xpos, \a ypos, \a zpos). */
 comment|/*!     \fn QVector3D::QVector3D(const QPoint& point)      Constructs a vector with x and y coordinates from a 2D \a point, and a     z coordinate of 0. */
 comment|/*!     \fn QVector3D::QVector3D(const QPointF& point)      Constructs a vector with x and y coordinates from a 2D \a point, and a     z coordinate of 0. */

@@ -44,6 +44,7 @@ directive|ifndef
 name|QT_NO_VECTOR4D
 comment|/*!     \class QVector4D     \brief The QVector4D class represents a vector or vertex in 4D space.     \since 4.6     \ingroup painting-3D     \inmodule QtGui      The QVector4D class can also be used to represent vertices in 4D space.     We therefore do not need to provide a separate vertex class.      \sa QQuaternion, QVector2D, QVector3D */
 comment|/*!     \fn QVector4D::QVector4D()      Constructs a null vector, i.e. with coordinates (0, 0, 0, 0). */
+comment|/*!     \fn QVector4D::QVector4D(Qt::Initialization)     \since 5.5     \internal      Constructs a vector without initializing the contents. */
 comment|/*!     \fn QVector4D::QVector4D(float xpos, float ypos, float zpos, float wpos)      Constructs a vector with coordinates (\a xpos, \a ypos, \a zpos, \a wpos). */
 comment|/*!     \fn QVector4D::QVector4D(const QPoint& point)      Constructs a vector with x and y coordinates from a 2D \a point, and     z and w coordinates of 0. */
 comment|/*!     \fn QVector4D::QVector4D(const QPointF& point)      Constructs a vector with x and y coordinates from a 2D \a point, and     z and w coordinates of 0. */

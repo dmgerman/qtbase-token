@@ -51,6 +51,12 @@ operator|:
 name|QGenericMatrix
 argument_list|()
 block|;
+name|explicit
+name|QGenericMatrix
+argument_list|(
+argument|Qt::Initialization
+argument_list|)
+block|{}
 name|QGenericMatrix
 argument_list|(
 specifier|const

@@ -58,6 +58,14 @@ name|Q_DECL_CONSTEXPR
 name|QVector4D
 parameter_list|()
 function_decl|;
+name|explicit
+name|QVector4D
+argument_list|(
+name|Qt
+operator|::
+name|Initialization
+argument_list|)
+block|{}
 name|Q_DECL_CONSTEXPR
 name|QVector4D
 parameter_list|(

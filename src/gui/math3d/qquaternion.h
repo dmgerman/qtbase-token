@@ -49,6 +49,14 @@ label|:
 name|QQuaternion
 argument_list|()
 expr_stmt|;
+name|explicit
+name|QQuaternion
+argument_list|(
+name|Qt
+operator|::
+name|Initialization
+argument_list|)
+block|{}
 name|QQuaternion
 argument_list|(
 argument|float scalar

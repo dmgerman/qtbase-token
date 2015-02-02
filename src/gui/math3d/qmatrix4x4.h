@@ -77,6 +77,12 @@ block|; }
 name|explicit
 name|QMatrix4x4
 argument_list|(
+argument|Qt::Initialization
+argument_list|)
+block|{}
+name|explicit
+name|QMatrix4x4
+argument_list|(
 specifier|const
 name|float
 operator|*

@@ -64,6 +64,14 @@ name|Q_DECL_CONSTEXPR
 name|QVector3D
 parameter_list|()
 function_decl|;
+name|explicit
+name|QVector3D
+argument_list|(
+name|Qt
+operator|::
+name|Initialization
+argument_list|)
+block|{}
 name|Q_DECL_CONSTEXPR
 name|QVector3D
 argument_list|(

@@ -53,6 +53,9 @@ begin_comment
 comment|/*!     \fn QMatrix4x4::QMatrix4x4()      Constructs an identity matrix. */
 end_comment
 begin_comment
+comment|/*!     \fn QMatrix4x4::QMatrix4x4(Qt::Initialization)     \since 5.5     \internal      Constructs a matrix without initializing the contents. */
+end_comment
+begin_comment
 comment|/*!     Constructs a matrix from the given 16 floating-point \a values.     The contents of the array \a values is assumed to be in     row-major order.      If the matrix has a special type (identity, translate, scale, etc),     the programmer should follow this constructor with a call to     optimize() if they wish QMatrix4x4 to optimize further     calls to translate(), scale(), etc.      \sa copyDataTo(), optimize() */
 end_comment
 begin_constructor
