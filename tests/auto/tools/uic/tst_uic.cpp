@@ -313,18 +313,11 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"uic test built %1 running in '%2' using: "
+literal|"uic test running in '%1' using: "
 argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|__DATE__
-argument_list|)
-argument_list|,
 name|QDir
 operator|::
 name|currentPath
