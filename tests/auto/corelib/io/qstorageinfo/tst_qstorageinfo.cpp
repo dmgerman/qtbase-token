@@ -355,6 +355,9 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_HAIKU
 name|QVERIFY
 argument_list|(
 name|storage
@@ -385,6 +388,8 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
