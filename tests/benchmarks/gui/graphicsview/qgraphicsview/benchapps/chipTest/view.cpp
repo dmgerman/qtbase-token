@@ -15,7 +15,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 end_ifdef
 begin_define
 DECL|macro|CALLGRIND_START_INSTRUMENTATION

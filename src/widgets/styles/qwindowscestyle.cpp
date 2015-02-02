@@ -18679,7 +18679,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 comment|//    case PM_DockWidgetFrameWidth:
 comment|//        ret = GetSystemMetrics(SM_CXFRAME);
@@ -18696,7 +18696,7 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_DEAD_CODE_FROM_QT4_WIN
 break|break;
 endif|#
 directive|endif
@@ -18740,7 +18740,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 case|case
 name|PM_MDIFrameWidth

@@ -10771,7 +10771,7 @@ literal|false
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// drawer support
 specifier|extern
 name|bool
@@ -10850,7 +10850,7 @@ name|h
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// drawer support
 if|if
 condition|(
@@ -11436,7 +11436,7 @@ operator|++
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|sepWidget
 operator|->
 name|raise
@@ -18297,7 +18297,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 if|if
 condition|(
 name|placeHolder
@@ -19412,7 +19412,7 @@ operator|++
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|sepWidget
 operator|->
 name|raise

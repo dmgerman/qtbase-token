@@ -8871,7 +8871,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|delegate
 operator|=
 literal|0
@@ -10692,7 +10692,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_comment
 comment|// can only have one Cocoa color panel active
@@ -10790,7 +10790,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 if|if
 condition|(
@@ -11175,7 +11175,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 name|Q_D
 argument_list|(

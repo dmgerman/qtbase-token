@@ -2100,7 +2100,7 @@ name|QStyle
 operator|::
 name|State_Window
 expr_stmt|;
-comment|/*       ### #ifdef Q_WS_MAC     extern bool qt_mac_can_clickThrough(const QGraphicsWidget *w); //qwidget_mac.cpp     if (!(option->state& QStyle::State_Active)&& !qt_mac_can_clickThrough(widget))         option->state&= ~QStyle::State_Enabled;      switch (QMacStyle::widgetSizePolicy(widget)) {     case QMacStyle::SizeSmall:         option->state |= QStyle::State_Small;         break;     case QMacStyle::SizeMini:         option->state |= QStyle::State_Mini;         break;     default:         ;     } #endif #ifdef QT_KEYPAD_NAVIGATION     if (widget->hasEditFocus())         state |= QStyle::State_HasEditFocus; #endif     */
+comment|/*       ### #ifdef Q_DEAD_CODE_FROM_QT4_MAC     extern bool qt_mac_can_clickThrough(const QGraphicsWidget *w); //qwidget_mac.cpp     if (!(option->state& QStyle::State_Active)&& !qt_mac_can_clickThrough(widget))         option->state&= ~QStyle::State_Enabled;      switch (QMacStyle::widgetSizePolicy(widget)) {     case QMacStyle::SizeSmall:         option->state |= QStyle::State_Small;         break;     case QMacStyle::SizeMini:         option->state |= QStyle::State_Mini;         break;     default:         ;     } #endif #ifdef QT_KEYPAD_NAVIGATION     if (widget->hasEditFocus())         state |= QStyle::State_HasEditFocus; #endif     */
 name|option
 operator|->
 name|direction

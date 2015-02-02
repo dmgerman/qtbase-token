@@ -390,7 +390,7 @@ name|QMacStyle
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|style
@@ -857,7 +857,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_expr_stmt
 name|mstyle

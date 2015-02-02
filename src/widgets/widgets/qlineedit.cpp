@@ -228,7 +228,7 @@ begin_function_decl
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|extern
 name|void
 name|qt_mac_secure_keyboard
@@ -1167,7 +1167,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|hasFocus
@@ -5520,7 +5520,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|d
@@ -5804,7 +5804,7 @@ emit|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|d

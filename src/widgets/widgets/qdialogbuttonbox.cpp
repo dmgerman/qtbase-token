@@ -1539,7 +1539,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// Since mnemonics is off by default on Mac, we add a Cmd-D
 comment|// shortcut here to e.g. make the "Don't Save" button work nativly:
 if|if

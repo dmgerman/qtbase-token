@@ -9404,7 +9404,7 @@ directive|endif
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 case|case
 name|Qt
 operator|::
@@ -9540,7 +9540,7 @@ break|break;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|event
@@ -15021,7 +15021,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// On mac the focus appearance follows window activation
 comment|// not widget activation
 if|if

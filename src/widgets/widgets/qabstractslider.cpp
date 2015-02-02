@@ -1657,7 +1657,7 @@ name|stepsToScrollF
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// Don't scroll more than one page in any case:
 name|stepsToScroll
 operator|=

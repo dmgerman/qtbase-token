@@ -14021,7 +14021,7 @@ name|CacheBackground
 operator|)
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 operator|&&
 name|X11
 operator|->
@@ -15166,7 +15166,7 @@ name|CacheBackground
 operator|)
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 operator|&&
 name|X11
 operator|->

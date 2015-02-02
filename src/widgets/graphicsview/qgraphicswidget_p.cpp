@@ -72,7 +72,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -3949,7 +3949,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// On mac we should hover if we are in the 'area' of the buttons
 name|windowData
 operator|->

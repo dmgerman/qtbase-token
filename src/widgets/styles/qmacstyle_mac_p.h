@@ -450,7 +450,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

@@ -2254,7 +2254,7 @@ block|}
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|QApplication
 operator|::
 name|flush

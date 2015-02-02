@@ -527,7 +527,7 @@ argument_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// QWidget::update() works slightly different on the Mac without the raster engine;
 comment|// it's not part of our backing store so it needs special threatment.
 if|if
@@ -566,7 +566,7 @@ block|}
 else|else
 endif|#
 directive|endif
-comment|// !Q_WS_MAC
+comment|// !Q_DEAD_CODE_FROM_QT4_MAC
 block|{
 if|if
 condition|(

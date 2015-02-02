@@ -118,7 +118,7 @@ end_ifndef
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -9770,7 +9770,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d
 operator|->
 name|previousPressedIndex
@@ -10304,7 +10304,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 block|}
 elseif|else
 if|if
@@ -10953,7 +10953,7 @@ return|return;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d
 operator|->
 name|previousPressedIndex

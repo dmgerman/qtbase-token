@@ -150,7 +150,7 @@ return|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|bool
 name|hitButton
 argument_list|(

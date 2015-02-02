@@ -2616,7 +2616,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 operator|&&
 operator|!
@@ -2677,7 +2677,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 operator|&&
 operator|!
@@ -2708,7 +2708,7 @@ argument_list|)
 argument_list|)
 endif|#
 directive|endif
-comment|// Q_WS_X11
+comment|// Q_DEAD_CODE_FROM_QT4_X11
 operator|)
 decl_stmt|;
 name|QRect

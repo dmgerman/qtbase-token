@@ -5520,7 +5520,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 name|QCursor
 operator|::
 name|setPos

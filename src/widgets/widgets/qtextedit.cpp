@@ -956,7 +956,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 name|setSingleFingerPanEnabled
 argument_list|(
 literal|true

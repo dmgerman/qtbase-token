@@ -7927,7 +7927,7 @@ argument|e
 argument_list|)
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|QStyleOptionToolButton
 name|opt
 decl_stmt|;

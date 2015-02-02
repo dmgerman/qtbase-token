@@ -197,7 +197,7 @@ name|savedStrut
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 DECL|member|dragStart
 name|QPoint
 name|dragStart
@@ -2714,7 +2714,7 @@ comment|// On Mac OS X Leopard it is possible to drag the window by clicking
 comment|// on the tool bar on most applications.
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 return|return
 name|QWidget
 operator|::

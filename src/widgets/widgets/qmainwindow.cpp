@@ -97,7 +97,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -175,7 +175,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 block|,
 name|useHIToolBar
 argument_list|(
@@ -244,7 +244,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 DECL|member|useHIToolBar
 name|bool
 name|useHIToolBar
@@ -3017,7 +3017,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|//drawer support
 name|QMacCocoaAutoReleasePool
 name|pool
@@ -4488,7 +4488,7 @@ expr_stmt|;
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 case|case
 name|QEvent
 operator|::
@@ -4586,7 +4586,7 @@ block|}
 break|break;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 if|#
 directive|if
 operator|!
@@ -4783,7 +4783,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|Q_D
 argument_list|(
 name|QMainWindow
@@ -4923,7 +4923,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 return|return
 name|d_func
 argument_list|()

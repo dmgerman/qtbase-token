@@ -117,7 +117,7 @@ expr_stmt|;
 block|}
 ifndef|#
 directive|ifndef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 if|if
 condition|(
 name|printer

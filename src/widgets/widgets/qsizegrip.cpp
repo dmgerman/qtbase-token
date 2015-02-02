@@ -65,7 +65,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -190,7 +190,7 @@ name|tlw
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|void
 name|updateMacSizer
 parameter_list|(
@@ -358,7 +358,7 @@ name|WindowFullScreen
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|sizeGripNotVisibleState
 operator||=
 name|Qt
@@ -436,7 +436,7 @@ end_constructor
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_function
 DECL|function|updateMacSizer
@@ -701,7 +701,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 name|q
 operator|->
@@ -1836,7 +1836,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 name|setCursor
 argument_list|(
@@ -1886,7 +1886,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d_func
 argument_list|()
 operator|->
@@ -1923,7 +1923,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d_func
 argument_list|()
 operator|->
@@ -2042,7 +2042,7 @@ name|WindowFullScreen
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|sizeGripNotVisibleState
 operator||=
 name|Qt

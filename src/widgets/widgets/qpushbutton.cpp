@@ -100,7 +100,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -117,7 +117,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 end_comment
 begin_ifndef
 ifndef|#
@@ -2259,7 +2259,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_comment
 comment|/*! \reimp */
@@ -2425,7 +2425,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

@@ -142,7 +142,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -2307,7 +2307,7 @@ comment|// On Mac using the Mac style we want to clear the selection
 comment|// when the mouse moves outside the popup.
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|QStyleOptionComboBox
 name|opt
 init|=

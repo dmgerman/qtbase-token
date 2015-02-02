@@ -293,7 +293,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 block|,
 name|m_threadChecks
@@ -2227,7 +2227,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 if|if
 condition|(
@@ -2260,7 +2260,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 end_if
 begin_macro
@@ -2999,7 +2999,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 end_if
 begin_decl_stmt

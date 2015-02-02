@@ -728,7 +728,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 end_if
 begin_function
@@ -9245,7 +9245,7 @@ literal|false
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 comment|// ask system properties on windows
 ifndef|#
 directive|ifndef
@@ -9496,7 +9496,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_DEAD_CODE_FROM_QT4_WIN
 if|if
 condition|(
 operator|!

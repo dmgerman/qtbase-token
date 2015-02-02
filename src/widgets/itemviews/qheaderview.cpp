@@ -9604,7 +9604,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 comment|// Under Cocoa, when the mouse button is released, may include an extra
 comment|// simulated mouse moved event. The state of the buttons when this event

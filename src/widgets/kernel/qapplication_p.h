@@ -375,7 +375,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -484,7 +484,7 @@ argument_list|)
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|static
 name|QWidget
 operator|*
@@ -529,7 +529,7 @@ name|construct
 argument_list|(
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument|Display *dpy =
 literal|0
 argument_list|,
@@ -554,7 +554,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 specifier|static
 name|void
@@ -786,7 +786,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 specifier|static
 name|void
@@ -833,12 +833,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 name|void
 name|_q_alertTimeOut
@@ -1057,12 +1057,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 end_if
 begin_decl_stmt
@@ -1092,7 +1092,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 end_if
 begin_decl_stmt
@@ -1314,7 +1314,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 end_if
 begin_function_decl
@@ -1334,7 +1334,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 end_elif
 begin_function_decl

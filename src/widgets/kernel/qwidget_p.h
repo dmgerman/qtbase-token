@@ -512,7 +512,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 comment|//<----------------------------------------------------------- X11
 DECL|member|spont_unmapped
@@ -582,7 +582,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 comment|//<--------------------------------------------------------- WIN
 DECL|member|hotkeyRegistered
@@ -606,7 +606,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 comment|//<--------------------------------------------------------- MAC
 DECL|member|resizer
@@ -820,7 +820,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 comment|//<----------------------------------------------------------- WIN
 ifndef|#
@@ -848,7 +848,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 comment|//<--------------------------------------------------------- X11
 DECL|member|compress_events
@@ -866,7 +866,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 comment|//<------------------------------------------------------ MAC
 comment|// Cocoa Mask stuff
@@ -3711,7 +3711,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 end_if
 begin_comment
@@ -3810,7 +3810,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 end_elif
 begin_comment
@@ -3924,7 +3924,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 end_elif
 begin_comment

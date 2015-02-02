@@ -104,7 +104,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 specifier|extern
 name|bool

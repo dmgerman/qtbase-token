@@ -220,13 +220,10 @@ comment|/*!     \fn void QFileDialog::currentUrlChanged(const QUrl&url)      Whe
 comment|/*!   \fn void QFileDialog::directoryEntered(const QString&directory)   \since 4.3    This signal is emitted for local operations when the user enters   a \a directory. */
 comment|/*!   \fn void QFileDialog::directoryUrlEntered(const QUrl&directory)    This signal is emitted when the user enters a \a directory.    \since 5.2 */
 comment|/*!   \fn void QFileDialog::filterSelected(const QString&filter)   \since 4.3    This signal is emitted when the user selects a \a filter. */
-comment|//#if defined(Q_WS_WIN) || defined(Q_WS_MAC)
-comment|//bool Q_WIDGETS_EXPORT qt_use_native_dialogs = true; // for the benefit of testing tools, until we have a proper API
-comment|//#endif
 name|QT_BEGIN_INCLUDE_NAMESPACE
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 include|#
 directive|include
 file|<qwindowsstyle_p.h>
@@ -237,7 +234,7 @@ directive|include
 file|<qshortcut.h>
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 include|#
 directive|include
 file|<qmacstyle_mac_p.h>

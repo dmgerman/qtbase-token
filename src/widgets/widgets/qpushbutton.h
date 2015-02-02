@@ -195,7 +195,7 @@ name|Q_DECL_OVERRIDE
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|bool
 name|hitButton
 argument_list|(
@@ -205,7 +205,7 @@ specifier|const
 block|;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 name|void
 name|paintEvent
 argument_list|(

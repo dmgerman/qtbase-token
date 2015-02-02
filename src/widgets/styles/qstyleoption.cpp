@@ -228,7 +228,7 @@ name|State_Window
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|extern
 name|bool
 name|qt_mac_can_clickThrough

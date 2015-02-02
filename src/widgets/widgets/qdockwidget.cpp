@@ -95,7 +95,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -4519,7 +4519,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 name|grabMouseWhileInWindow
 argument_list|()
 expr_stmt|;
@@ -4713,7 +4713,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 operator|(
@@ -6793,7 +6793,7 @@ return|;
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 case|case
 name|QEvent
 operator|::

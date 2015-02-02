@@ -435,7 +435,7 @@ expr_stmt|;
 comment|// The ifdef block is a workaround for the beta, TODO: remove when bug 238525 is fixed
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|dialog
 operator|.
 name|setOption

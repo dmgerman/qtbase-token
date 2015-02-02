@@ -90,7 +90,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -225,7 +225,7 @@ literal|0
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 member_init_list|,
 name|singleFingerPanEnabled
 argument_list|(
@@ -1293,7 +1293,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 end_ifdef
 begin_function
 DECL|function|setSingleFingerPanEnabled
@@ -1344,7 +1344,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_WIN
+comment|// Q_DEAD_CODE_FROM_QT4_WIN
 end_comment
 begin_function
 DECL|function|layoutChildren
@@ -1564,7 +1564,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|QWidget
 modifier|*
 specifier|const
@@ -1849,7 +1849,7 @@ comment|// If the scroll bars are at the very right and bottom of the window we
 comment|// move their positions to be aligned with the size grip.
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// Check if a native sizegrip is present.
 name|bool
 name|hasMacReverseSizeGrip
@@ -2277,7 +2277,7 @@ name|extPoint
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// Also move the scroll bars if they are covered by the native Mac size grip.
 if|if
 condition|(
@@ -2341,7 +2341,7 @@ name|needh
 operator|)
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 operator|&&
 name|hasMacSizeGrip
 endif|#
@@ -2382,7 +2382,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|hasMacReverseSizeGrip
@@ -2630,7 +2630,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|hasMacReverseSizeGrip
@@ -3186,7 +3186,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
@@ -4644,7 +4644,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|d
@@ -5137,7 +5137,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 typedef|typedef
 name|BOOL
 function_decl|(
@@ -6626,7 +6626,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 comment|// Need to re-subscribe to gestures as the content changes to make sure we
 comment|// enable/disable panning when needed.
 name|QWidgetPrivate
@@ -6658,7 +6658,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_DEAD_CODE_FROM_QT4_WIN
 block|}
 end_function
 begin_function

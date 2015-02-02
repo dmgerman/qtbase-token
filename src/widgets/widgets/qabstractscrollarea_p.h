@@ -147,7 +147,7 @@ name|cornerPaintingRect
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|QRect
 name|reverseCornerPaintingRect
 block|;
@@ -257,7 +257,7 @@ name|viewportFilter
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 name|bool
 name|singleFingerPanEnabled
 block|;

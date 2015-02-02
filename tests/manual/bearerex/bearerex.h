@@ -28,7 +28,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAEMO_6
+name|Q_DEAD_CODE_FROM_QT4_MAEMO_6
 argument_list|)
 end_if
 begin_include

@@ -114,7 +114,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -223,7 +223,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -341,7 +341,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 end_ifdef
 begin_comment
 comment|// for compatibility with Qt 4.0
@@ -369,7 +369,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_decl_stmt
 DECL|variable|qt_mac_clearDirtyOnWidgetInsideDrawWidget
@@ -474,7 +474,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_define
 DECL|macro|QT_NO_PAINT_DEBUG
@@ -990,7 +990,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 member_init_list|,
 name|picture
@@ -1001,7 +1001,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -1017,7 +1017,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 member_init_list|,
 name|needWindowChange
@@ -1079,7 +1079,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|drawRectOriginalAdded
 operator|=
 literal|false
@@ -1114,7 +1114,7 @@ literal|false
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 ifdef|#
 directive|ifdef
 name|QWIDGET_EXTRA_DEBUG
@@ -2338,7 +2338,7 @@ comment|// interpret WindowSystemMenuHint as a close button and we can't change 
 comment|// we can't just add this in.
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 operator|(
@@ -2701,7 +2701,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 if|if
 condition|(
@@ -2876,7 +2876,7 @@ name|WA_NativeWindow
 argument_list|)
 expr_stmt|;
 block|}
-comment|//#ifdef Q_WS_MAC
+comment|//#ifdef Q_DEAD_CODE_FROM_QT4_MAC
 comment|//    q->setAttribute(Qt::WA_NativeWindow);
 comment|//#endif
 name|q
@@ -3043,7 +3043,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 name|data
 operator|.
@@ -3059,7 +3059,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_X11
+comment|// Q_DEAD_CODE_FROM_QT4_X11
 name|q
 operator|->
 name|setAttribute
@@ -3153,7 +3153,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// If we add a child to the unified toolbar, we have to redirect the painting.
 if|if
 condition|(
@@ -3218,7 +3218,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 block|}
 DECL|function|createRecursively
 name|void
@@ -3579,7 +3579,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -3630,7 +3630,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// defined (Q_WS_WIN)&& !defined(QT_NO_DRAGANDDROP)
+comment|// defined (Q_DEAD_CODE_FROM_QT4_WIN)&& !defined(QT_NO_DRAGANDDROP)
 name|d
 operator|->
 name|updateIsOpaque
@@ -5272,17 +5272,17 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 elseif|else
 if|if
@@ -5481,7 +5481,7 @@ name|blocked
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// QCocoaView holds a pointer back to this widget. Clear it now
 comment|// to make sure it's not followed later on. The lifetime of the
 comment|// QCocoaView might exceed the lifetime of this widget in cases
@@ -5686,7 +5686,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 name|hd
 operator|=
@@ -5910,7 +5910,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|x
 operator|->
 name|wasMaximized
@@ -5919,7 +5919,7 @@ literal|false
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 ifdef|#
 directive|ifdef
 name|QWIDGET_EXTRA_DEBUG
@@ -7961,7 +7961,7 @@ condition|)
 return|return;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|q
@@ -7974,7 +7974,7 @@ condition|)
 return|return;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 name|QRect
 name|clipBoundingRect
 decl_stmt|;
@@ -8688,7 +8688,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 if|if
 condition|(
 name|q
@@ -9010,7 +9010,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// Optimize pattern filling on mac by using HITheme directly
 comment|// when filling with the standard widget background.
 comment|// Defined in qmacstyle_mac.cpp
@@ -9082,7 +9082,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 block|}
 elseif|else
 if|if
@@ -9519,7 +9519,7 @@ block|}
 comment|/*   \internal   This function is called when a widget is hidden or destroyed.   It resets some application global pointers that should only refer active,   visible widgets. */
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|extern
 name|QPointer
 argument_list|<
@@ -10423,7 +10423,7 @@ parameter_list|,
 name|bool
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|metalHack
 endif|#
 directive|endif
@@ -10456,7 +10456,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// the metalhack boolean allows Qt/Mac to do a proper re-polish depending
 comment|// on how the Qt::WA_MacBrushedMetal attribute is set. It is only ever
 comment|// set when changing that attribute and passes the widget's CURRENT style.
@@ -10520,7 +10520,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|metalHack
@@ -10542,7 +10542,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 block|}
 elseif|else
 if|if
@@ -11502,7 +11502,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// If the unified toolbar is enabled, we have to disable it before going fullscreen.
 name|QMainWindow
 modifier|*
@@ -11559,7 +11559,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 name|ensurePolished
 argument_list|()
 expr_stmt|;
@@ -11640,7 +11640,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// If the unified toolbar was enabled before going fullscreen, we have to enable it back.
 name|QMainWindow
 modifier|*
@@ -11700,7 +11700,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 name|setVisible
 argument_list|(
 literal|true
@@ -11741,7 +11741,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// If the unified toolbar was enabled before going fullscreen, we have to enable it back.
 name|QMainWindow
 modifier|*
@@ -11801,7 +11801,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 name|setVisible
 argument_list|(
 literal|true
@@ -12469,7 +12469,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 if|if
 condition|(
@@ -12534,7 +12534,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 name|setEnabled_helper_sys
 argument_list|(
@@ -15746,7 +15746,7 @@ else|else
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|extern
 name|bool
 name|qt_mac_can_clickThrough
@@ -16576,7 +16576,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 comment|// make sure the font set on this widget is associated with the correct screen
 name|data
@@ -17239,7 +17239,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 if|if
 condition|(
@@ -19051,7 +19051,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|const
 name|QTransform
 name|originalTransform
@@ -19202,7 +19202,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 block|}
 else|else
 block|{
@@ -19868,7 +19868,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// (Alien support) Special case for Mac when redirecting: If the paint device
 comment|// is of the Widget type we need to set WA_WState_InPaintEvent since painting
 comment|// outside the paint event is not supported on QWidgets. The attributeis
@@ -20272,7 +20272,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|pdev
@@ -20662,7 +20662,7 @@ condition|)
 return|return;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|QPainter
 modifier|*
 name|oldSharedPainter
@@ -23263,7 +23263,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 name|Q_D
 argument_list|(
@@ -23595,7 +23595,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|&&
 name|GetFocus
@@ -24507,7 +24507,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 if|if
 condition|(
@@ -27304,7 +27304,7 @@ specifier|const
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// We check if the window was maximized during this invocation. If so, we need to record the
 comment|// starting position as 0,0.
 name|Q_D
@@ -27367,7 +27367,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 name|QByteArray
 name|array
 decl_stmt|;
@@ -27433,7 +27433,7 @@ operator|<<
 name|minorVersion
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 operator|<<
 name|newFramePosition
 operator|<<
@@ -27448,7 +27448,7 @@ name|normalGeometry
 argument_list|()
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 operator|<<
 name|qint32
 argument_list|(
@@ -27837,7 +27837,7 @@ comment|// - (Mac only) The window is higher than the available geometry. It mus
 comment|//   be possible to bring the size grip on screen by moving the window.
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|restoredFrameGeometry
 operator|.
 name|setHeight
@@ -28187,7 +28187,7 @@ name|offset
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 if|if
 condition|(
 name|isFullScreen
@@ -29509,12 +29509,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 if|if
 condition|(
@@ -30130,7 +30130,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 if|if
 condition|(
@@ -31013,7 +31013,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 comment|// reset WS_DISABLED style in a Blocked window
 if|if
@@ -31490,7 +31490,7 @@ condition|)
 continue|continue;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// Before doing anything we need to make sure that we don't leave anything in a non-consistent state.
 comment|// When hiding a widget we need to make sure that no mouse_down events are active, because
 comment|// the mouse_up event will never be received by a hidden widget or one of its descendants.
@@ -31516,7 +31516,7 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|spontaneous
@@ -32292,7 +32292,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 name|QRect
 name|screen
@@ -32682,7 +32682,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 DECL|function|setDisabledStyle
 specifier|inline
@@ -34761,7 +34761,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 name|setDisabledStyle
 argument_list|(
@@ -34941,12 +34941,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 name|d
 operator|->
@@ -35078,7 +35078,7 @@ break|break;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 case|case
 name|QEvent
 operator|::
@@ -35578,7 +35578,7 @@ break|break;
 elif|#
 directive|elif
 name|defined
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 case|case
 name|QEvent
 operator|::
@@ -38324,7 +38324,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|||
 name|defined
@@ -38437,7 +38437,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//### already hidden above ---> must probably do something smart on the mac
-comment|// #ifdef Q_WS_MAC
+comment|// #ifdef Q_DEAD_CODE_FROM_QT4_MAC
 comment|//             extern bool qt_mac_is_macdrawer(const QWidget *); //qwidget_mac.cpp
 comment|//             if(!qt_mac_is_macdrawer(q)) //special case
 comment|//                 q->setAttribute(Qt::WA_WState_Hidden);
@@ -40988,7 +40988,7 @@ name|WA_MacBrushedMetal
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d
 operator|->
 name|setStyle_helper
@@ -41053,7 +41053,7 @@ name|WA_MacAlwaysShowToolWindow
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d
 operator|->
 name|macUpdateHideOnSuspend
@@ -41494,17 +41494,17 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 comment|// Recreate the widget if it's already created as an alien widget and
 comment|// WA_PaintOnScreen is enabled. Paint on screen widgets must have win id.
@@ -41570,7 +41570,7 @@ name|WA_TransparentForMouseEvents
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|d
 operator|->
 name|macUpdateIgnoreMouseEvents
@@ -41652,7 +41652,7 @@ expr_stmt|;
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 case|case
 name|Qt
 operator|::
@@ -41744,7 +41744,7 @@ break|break;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 case|case
 name|Qt
 operator|::
@@ -41898,12 +41898,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 if|if
 condition|(
@@ -43792,7 +43792,7 @@ operator|.
 name|fstrut_dirty
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 comment|// ### Fix properly for 4.3
 operator|&&
 name|q
@@ -47504,7 +47504,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 operator|!

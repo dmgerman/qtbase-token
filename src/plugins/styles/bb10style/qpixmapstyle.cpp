@@ -143,7 +143,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 argument_list|)
 name|QApplication
 operator|::
@@ -594,7 +594,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 comment|// FramelessWindowHint is needed on windows to make
 comment|// WA_TranslucentBackground work properly
 name|frame

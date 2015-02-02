@@ -101,7 +101,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_comment
 comment|// Forward defs to make avoid including Carbon.h (faster compile you know ;).
@@ -156,7 +156,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -1142,7 +1142,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|static
 name|OSStatus
 name|qtmacToolbarDelegate
@@ -1326,7 +1326,7 @@ argument_list|()
 block|;
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 block|}
 decl_stmt|;
 end_decl_stmt

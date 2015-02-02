@@ -15070,7 +15070,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// On Mac, ignore the event if the first item under the mouse is not the last opened
 comment|// popup (or one of its descendant)
 if|if
@@ -16353,7 +16353,7 @@ operator|::
 name|NoCache
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 operator|||
 operator|!
 name|X11

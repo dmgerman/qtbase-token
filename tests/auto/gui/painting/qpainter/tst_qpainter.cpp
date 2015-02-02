@@ -2203,7 +2203,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 if|if
 condition|(

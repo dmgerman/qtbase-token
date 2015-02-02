@@ -5,7 +5,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -99,7 +99,7 @@ end_ifndef
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -1050,7 +1050,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -1131,7 +1131,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 case|case
 name|QEvent
 operator|::
@@ -1555,7 +1555,7 @@ directive|endif
 comment|//QT_NO_STYLE_STYLESHEET
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|// When in full screen mode, there is no Dock nor Menu so we can use
 comment|// the whole screen for displaying the tooltip. However when not in
 comment|// full screen mode we need to save space for the dock, so we use
@@ -1642,7 +1642,7 @@ literal|2
 argument_list|,
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 literal|21
 else|#
 directive|else
@@ -2132,7 +2132,7 @@ block|{
 comment|// no tip can be reused, create new tip:
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 operator|new
 name|QTipLabel
 argument_list|(
@@ -2220,7 +2220,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 if|if
 condition|(

@@ -42,7 +42,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -11530,7 +11530,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 comment|// QWidgetPrivate::hide_helper activates another sub-window when closing a
 comment|// modal dialog on Windows (see activateWindow() inside the ifdef).
 case|case
@@ -11806,7 +11806,7 @@ decl_stmt|;
 comment|// Ingore key events without a Ctrl modifier (except for press/release on the modifier itself).
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 operator|!
@@ -11928,7 +11928,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 case|case
 name|Qt
 operator|::

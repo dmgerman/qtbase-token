@@ -4304,7 +4304,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 argument_list|)
 end_if
 begin_comment
@@ -4325,7 +4325,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 operator|&&
 operator|!
@@ -4582,7 +4582,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !Q_WS_MAC
+comment|// !Q_DEAD_CODE_FROM_QT4_MAC
 end_comment
 begin_comment
 comment|/*! \internal     Returns the resolution of the used screen. */

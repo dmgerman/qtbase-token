@@ -134,7 +134,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -3877,7 +3877,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|usesHIToolBar
@@ -3895,7 +3895,7 @@ block|}
 else|else
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 block|{
 name|removeWidget
 argument_list|(
@@ -3935,7 +3935,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 operator|(
@@ -4055,7 +4055,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|usesHIToolBar
@@ -4075,7 +4075,7 @@ block|}
 else|else
 endif|#
 directive|endif
-comment|// Q_WS_MAC
+comment|// Q_DEAD_CODE_FROM_QT4_MAC
 block|{
 name|addChildWidget
 argument_list|(
@@ -4257,7 +4257,7 @@ break|break;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|pos
@@ -4370,7 +4370,7 @@ literal|true
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|layoutState
@@ -7002,7 +7002,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 specifier|const
 name|QSize
 name|storedSize
@@ -8074,7 +8074,7 @@ directive|endif
 comment|//QT_NO_RUBBERBAND
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 member_init_list|,
 name|blockVisiblityCheck
 argument_list|(
@@ -8211,7 +8211,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|cleanUpMacToolbarItems
 argument_list|()
 expr_stmt|;
@@ -9398,7 +9398,7 @@ specifier|const
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|Q_UNUSED
 argument_list|(
 name|toolbar

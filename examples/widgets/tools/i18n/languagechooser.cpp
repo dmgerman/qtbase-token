@@ -20,7 +20,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
@@ -294,7 +294,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 name|qt_mac_set_menubar_merge
 argument_list|(
 literal|false

@@ -1682,7 +1682,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 name|QSKIP
 argument_list|(
 literal|"This test is X11-only."
@@ -1799,7 +1799,7 @@ comment|// Note the use of the , before window because we want the XGetInputFocu
 comment|//     in each iteration of the inside loop of the QTRY_COMPARE macro
 endif|#
 directive|endif
-comment|// Q_WS_X11
+comment|// Q_DEAD_CODE_FROM_QT4_X11
 block|}
 end_function
 begin_function

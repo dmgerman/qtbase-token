@@ -197,7 +197,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 name|void
 name|setallowX11ColorNames
 parameter_list|()
@@ -10069,7 +10069,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 end_ifdef
 begin_function
 DECL|function|setallowX11ColorNames

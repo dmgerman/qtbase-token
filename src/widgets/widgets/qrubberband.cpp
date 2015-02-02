@@ -45,7 +45,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 end_ifdef
 begin_include
 include|#
@@ -258,7 +258,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_DEAD_CODE_FROM_QT4_WIN
 name|setAttribute
 argument_list|(
 name|Qt
@@ -268,7 +268,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|//Q_WS_WIN
+comment|//Q_DEAD_CODE_FROM_QT4_WIN
 name|setAttribute
 argument_list|(
 name|Qt
@@ -283,7 +283,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_DEAD_CODE_FROM_QT4_MAC
 if|if
 condition|(
 name|isWindow

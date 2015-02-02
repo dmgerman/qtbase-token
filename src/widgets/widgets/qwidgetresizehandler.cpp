@@ -483,7 +483,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_DEAD_CODE_FROM_QT4_X11
 argument_list|)
 comment|/*                Implicit grabs do not stop the X server from changing                the cursor in children, which looks *really* bad when                doing resizingk, so we grab the cursor. Note that we do                not do this on Windows since double clicks are lost due                to the grab (see change 198463).             */
 if|if
@@ -522,7 +522,7 @@ directive|endif
 comment|// QT_NO_CURSOR
 endif|#
 directive|endif
-comment|// Q_WS_X11
+comment|// Q_DEAD_CODE_FROM_QT4_X11
 name|buttonDown
 operator|=
 literal|false
