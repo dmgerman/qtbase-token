@@ -10985,6 +10985,13 @@ literal|"auto"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"ANGLE"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"DECORATIONS"
 index|]
 operator|=
