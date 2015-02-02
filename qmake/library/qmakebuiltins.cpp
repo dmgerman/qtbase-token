@@ -8678,11 +8678,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|pro
-condition|)
-block|{
-if|if
-condition|(
 name|m_cumulative
 operator|||
 name|pro
@@ -8726,7 +8721,6 @@ operator|->
 name|deref
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|ret
 return|;

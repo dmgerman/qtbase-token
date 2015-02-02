@@ -567,8 +567,6 @@ block|{
 name|ProString
 name|ret
 decl_stmt|;
-if|if
-condition|(
 name|ProFile
 modifier|*
 name|pro
@@ -587,8 +585,7 @@ name|QMakeParser
 operator|::
 name|ValueGrammar
 argument_list|)
-condition|)
-block|{
+decl_stmt|;
 if|if
 condition|(
 name|pro
@@ -654,7 +651,6 @@ operator|->
 name|deref
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|ret
 return|;

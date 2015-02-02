@@ -7370,8 +7370,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
 name|ProFile
 modifier|*
 name|pro
@@ -7387,8 +7385,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
-condition|)
-block|{
+decl_stmt|;
 if|if
 condition|(
 name|pro
@@ -7427,7 +7424,6 @@ operator|->
 name|deref
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -10062,11 +10058,6 @@ decl_stmt|;
 if|if
 condition|(
 name|pro
-condition|)
-block|{
-if|if
-condition|(
-name|pro
 operator|->
 name|isOk
 argument_list|()
@@ -10106,7 +10097,6 @@ operator|->
 name|deref
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|ret
 return|;

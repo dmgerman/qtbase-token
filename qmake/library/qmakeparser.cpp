@@ -914,9 +914,6 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
 name|read
 argument_list|(
 name|pro
@@ -927,16 +924,7 @@ name|line
 argument_list|,
 name|grammar
 argument_list|)
-condition|)
-block|{
-operator|delete
-name|pro
 expr_stmt|;
-name|pro
-operator|=
-literal|0
-expr_stmt|;
-block|}
 return|return
 name|pro
 return|;
@@ -1059,7 +1047,6 @@ return|return
 literal|false
 return|;
 block|}
-return|return
 name|read
 argument_list|(
 name|pro
@@ -1070,6 +1057,9 @@ literal|1
 argument_list|,
 name|FullGrammar
 argument_list|)
+expr_stmt|;
+return|return
+literal|true
 return|;
 block|}
 end_function
@@ -1347,7 +1337,7 @@ block|}
 end_function
 begin_function
 DECL|function|read
-name|bool
+name|void
 name|QMakeParser
 operator|::
 name|read
@@ -3993,9 +3983,6 @@ argument_list|()
 operator|=
 name|tokBuff
 expr_stmt|;
-return|return
-literal|true
-return|;
 DECL|macro|FLUSH_VALUE_LIST
 undef|#
 directive|undef

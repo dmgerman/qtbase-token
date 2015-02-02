@@ -418,7 +418,7 @@ name|ParseFlags
 name|flags
 parameter_list|)
 function_decl|;
-name|bool
+name|void
 name|read
 parameter_list|(
 name|ProFile
