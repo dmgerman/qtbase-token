@@ -12,8 +12,10 @@ include|#
 directive|include
 file|"qxcbnativeinterface.h"
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_constructor
 DECL|function|QXcbNativeInterfaceHandler
 name|QXcbNativeInterfaceHandler
 operator|::
@@ -23,8 +25,13 @@ name|QXcbNativeInterface
 modifier|*
 name|nativeInterface
 parameter_list|)
-block|{
+member_init_list|:
+name|m_native_interface
+argument_list|(
 name|nativeInterface
+argument_list|)
+block|{
+name|m_native_interface
 operator|->
 name|addHandler
 argument_list|(
@@ -32,7 +39,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+end_constructor
 begin_destructor
 DECL|function|~QXcbNativeInterfaceHandler
 name|QXcbNativeInterfaceHandler

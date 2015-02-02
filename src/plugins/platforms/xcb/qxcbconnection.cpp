@@ -1834,6 +1834,9 @@ name|takeLast
 argument_list|()
 argument_list|)
 expr_stmt|;
+operator|delete
+name|m_glIntegration
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|XCB_USE_XLIB
