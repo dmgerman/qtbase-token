@@ -1211,14 +1211,13 @@ index|]
 operator|=
 name|XCB_CURRENT_TIME
 expr_stmt|;
-name|m_screen
-operator|=
-name|connection
+name|QXcbScreen
+modifier|*
+name|platformScreen
+init|=
+name|screen
 argument_list|()
-operator|->
-name|primaryScreen
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|int
 name|x
 init|=
@@ -1257,7 +1256,7 @@ comment|// depth -- same as root
 name|m_owner
 argument_list|,
 comment|// window id
-name|m_screen
+name|platformScreen
 operator|->
 name|screen
 argument_list|()
@@ -1279,7 +1278,7 @@ comment|// border width
 name|XCB_WINDOW_CLASS_INPUT_OUTPUT
 argument_list|,
 comment|// window class
-name|m_screen
+name|platformScreen
 operator|->
 name|screen
 argument_list|()
@@ -2210,6 +2209,25 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|screen
+name|QXcbScreen
+modifier|*
+name|QXcbClipboard
+operator|::
+name|screen
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|connection
+argument_list|()
+operator|->
+name|primaryScreen
+argument_list|()
+return|;
+block|}
+end_function
+begin_function
 DECL|function|requestor
 name|xcb_window_t
 name|QXcbClipboard
@@ -2218,10 +2236,19 @@ name|requestor
 parameter_list|()
 specifier|const
 block|{
+name|QXcbScreen
+modifier|*
+name|platformScreen
+init|=
+name|screen
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
 name|m_requestor
+operator|&&
+name|platformScreen
 condition|)
 block|{
 specifier|const
@@ -2277,7 +2304,7 @@ comment|// depth -- same as root
 name|window
 argument_list|,
 comment|// window id
-name|m_screen
+name|platformScreen
 operator|->
 name|screen
 argument_list|()
@@ -2299,7 +2326,7 @@ comment|// border width
 name|XCB_WINDOW_CLASS_INPUT_OUTPUT
 argument_list|,
 comment|// window class
-name|m_screen
+name|platformScreen
 operator|->
 name|screen
 argument_list|()

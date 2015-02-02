@@ -131,11 +131,7 @@ operator|*
 name|screen
 argument_list|()
 specifier|const
-block|{
-return|return
-name|m_screen
-return|;
-block|}
+expr_stmt|;
 name|xcb_window_t
 name|requestor
 argument_list|()
@@ -361,10 +357,6 @@ argument|xcb_atom_t atom
 argument_list|)
 specifier|const
 expr_stmt|;
-name|QXcbScreen
-modifier|*
-name|m_screen
-decl_stmt|;
 comment|// Selection and Clipboard
 name|QXcbClipboardMime
 modifier|*
