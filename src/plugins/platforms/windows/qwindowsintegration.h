@@ -280,11 +280,15 @@ name|void
 name|emitScreenAdded
 argument_list|(
 argument|QPlatformScreen *s
+argument_list|,
+argument|bool isPrimary = false
 argument_list|)
 block|{
 name|screenAdded
 argument_list|(
 name|s
+argument_list|,
+name|isPrimary
 argument_list|)
 block|; }
 specifier|inline

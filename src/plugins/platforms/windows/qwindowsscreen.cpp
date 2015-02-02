@@ -2954,6 +2954,14 @@ operator|->
 name|emitScreenAdded
 argument_list|(
 name|newScreen
+argument_list|,
+name|newData
+operator|.
+name|flags
+operator|&
+name|QWindowsScreenData
+operator|::
+name|PrimaryScreen
 argument_list|)
 expr_stmt|;
 name|qCDebug

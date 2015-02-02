@@ -549,6 +549,11 @@ parameter_list|(
 name|QPlatformScreen
 modifier|*
 name|screen
+parameter_list|,
+name|bool
+name|isPrimary
+init|=
+name|false
 parameter_list|)
 function_decl|;
 name|void

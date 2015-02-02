@@ -541,18 +541,12 @@ name|m_setup
 argument_list|)
 decl_stmt|;
 name|int
-name|screenNumber
-init|=
-literal|0
-decl_stmt|;
-comment|// index of this QScreen in QGuiApplication::screens()
-name|int
 name|xcbScreenNumber
 init|=
 literal|0
 decl_stmt|;
 comment|// screen number in the xcb sense
-name|QSet
+name|QList
 argument_list|<
 name|QXcbScreen
 modifier|*
@@ -600,6 +594,11 @@ name|siblings
 decl_stmt|;
 name|int
 name|outputCount
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|connectedOutputCount
 init|=
 literal|0
 decl_stmt|;
@@ -860,7 +859,7 @@ operator|<<
 name|screen
 expr_stmt|;
 operator|++
-name|screenNumber
+name|connectedOutputCount
 expr_stmt|;
 comment|// There can be multiple outputs per screen, use either
 comment|// the first or an exact match.  An exact match isn't
@@ -950,7 +949,7 @@ comment|// If there's no randr extension, or there was some error above, or the 
 comment|// doesn't have outputs for some other reason (e.g. on VNC or ssh -X), just assume there is one screen.
 if|if
 condition|(
-name|outputCount
+name|connectedOutputCount
 operator|==
 literal|0
 condition|)
@@ -995,9 +994,6 @@ name|primaryScreen
 operator|=
 name|screen
 expr_stmt|;
-operator|++
-name|screenNumber
-expr_stmt|;
 block|}
 foreach|foreach
 control|(
@@ -1040,8 +1036,19 @@ operator|::
 name|instance
 argument_list|()
 decl_stmt|;
-comment|// Now activeScreens is the complete set of screens which are active at this time.
-comment|// Delete any existing screens which are not in activeScreens
+comment|// Rebuild screen list, ensuring primary screen is always in front,
+comment|// both in the QXcbConnection::m_screens list as well as in the
+comment|// QGuiApplicationPrivate::screen_list list, which gets updated via
+comment|//  - screen added: integration->screenAdded()
+comment|//  - screen removed: integration->destroyScreen
+comment|// Gather screens to delete
+name|QList
+argument_list|<
+name|QXcbScreen
+modifier|*
+argument_list|>
+name|screensToDelete
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1076,29 +1083,56 @@ index|]
 argument_list|)
 condition|)
 block|{
+name|screensToDelete
+operator|.
+name|append
+argument_list|(
+name|m_screens
+operator|.
+name|takeAt
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// If there is a new primary screen, add that one first
+if|if
+condition|(
+name|newScreens
+operator|.
+name|contains
+argument_list|(
+name|primaryScreen
+argument_list|)
+condition|)
+block|{
+name|newScreens
+operator|.
+name|removeOne
+argument_list|(
+name|primaryScreen
+argument_list|)
+expr_stmt|;
+name|m_screens
+operator|.
+name|prepend
+argument_list|(
+name|primaryScreen
+argument_list|)
+expr_stmt|;
 name|integration
 operator|->
-name|destroyScreen
+name|screenAdded
 argument_list|(
-name|m_screens
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|m_screens
-operator|.
-name|removeAt
-argument_list|(
-name|i
+name|primaryScreen
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|// Add any new screens, and make sure the primary screen comes first
-comment|// since it is used by QGuiApplication::primaryScreen()
+comment|// Add the remaining new screens
 foreach|foreach
 control|(
 name|QXcbScreen
@@ -1108,20 +1142,6 @@ decl|,
 name|newScreens
 control|)
 block|{
-if|if
-condition|(
-name|screen
-operator|==
-name|primaryScreen
-condition|)
-name|m_screens
-operator|.
-name|prepend
-argument_list|(
-name|screen
-argument_list|)
-expr_stmt|;
-else|else
 name|m_screens
 operator|.
 name|append
@@ -1129,25 +1149,6 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
-block|}
-comment|// Now that they are in the right order, emit the added signals for new screens only
-foreach|foreach
-control|(
-name|QXcbScreen
-modifier|*
-name|screen
-decl|,
-name|m_screens
-control|)
-if|if
-condition|(
-name|newScreens
-operator|.
-name|contains
-argument_list|(
-name|screen
-argument_list|)
-condition|)
 name|integration
 operator|->
 name|screenAdded
@@ -1155,6 +1156,69 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
+block|}
+comment|// Delete the old screens, now that the new ones were added
+comment|// and we are sure that there is at least one screen available
+foreach|foreach
+control|(
+name|QXcbScreen
+modifier|*
+name|screen
+decl|,
+name|screensToDelete
+control|)
+block|{
+name|integration
+operator|->
+name|destroyScreen
+argument_list|(
+name|screen
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Ensure that the primary screen is first in m_screens too
+comment|// (in case the assignment of primary was the only change,
+comment|// without adding or removing screens)
+if|if
+condition|(
+name|primaryScreen
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|m_screens
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m_screens
+operator|.
+name|first
+argument_list|()
+operator|!=
+name|primaryScreen
+condition|)
+block|{
+name|m_screens
+operator|.
+name|removeOne
+argument_list|(
+name|primaryScreen
+argument_list|)
+expr_stmt|;
+name|m_screens
+operator|.
+name|prepend
+argument_list|(
+name|primaryScreen
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_function
 begin_constructor
