@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qeglfshooks.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtPlatformSupport/private/qeglplatformcursor_p.h>
 end_include
 begin_include
@@ -21,6 +16,11 @@ begin_include
 include|#
 directive|include
 file|<QtCore/QRegularExpression>
+end_include
+begin_include
+include|#
+directive|include
+file|"qeglfshooks.h"
 end_include
 begin_if
 if|#
