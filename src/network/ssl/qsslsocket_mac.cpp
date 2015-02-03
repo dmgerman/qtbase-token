@@ -3129,6 +3129,80 @@ return|return
 literal|false
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+if|if
+condition|(
+name|QSysInfo
+operator|::
+name|MacintoshVersion
+operator|<
+name|QSysInfo
+operator|::
+name|MV_10_8
+condition|)
+block|{
+comment|// Starting from OS X 10.8 SSLSetSessionOption with kSSLSessionOptionBreakOnServerAuth/
+comment|// kSSLSessionOptionBreakOnClientAuth disables automatic certificate validation.
+comment|// But for OS X versions below 10.8 we have to do it explicitly:
+specifier|const
+name|OSStatus
+name|err
+init|=
+name|SSLSetEnableCertVerify
+argument_list|(
+name|context
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|err
+operator|!=
+name|noErr
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"SSLSetEnableCertVerify failed:"
+operator|<<
+name|int
+argument_list|(
+name|err
+argument_list|)
+expr_stmt|;
+name|destroySslContext
+argument_list|()
+expr_stmt|;
+name|setError
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"SSLSetEnableCertVerify failed: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|err
+argument_list|)
+argument_list|,
+name|QSslSocket
+operator|::
+name|SslInternalError
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|mode
@@ -3281,7 +3355,7 @@ operator|::
 name|VerifyNone
 condition|)
 block|{
-comment|//            OSStatus err = SSLSetClientSideAuthenticate(context, kAlwaysAuthenticate);
+comment|// kAlwaysAuthenticate - always fails even if we set break on client auth.
 name|OSStatus
 name|err
 init|=
@@ -3307,7 +3381,7 @@ name|SSLSetSessionOption
 argument_list|(
 name|context
 argument_list|,
-name|kSSLSessionOptionBreakOnServerAuth
+name|kSSLSessionOptionBreakOnClientAuth
 argument_list|,
 literal|true
 argument_list|)
@@ -4994,16 +5068,6 @@ literal|false
 return|;
 block|}
 block|}
-comment|// TODO: right now we have nothing on server side?
-if|if
-condition|(
-name|mode
-operator|==
-name|QSslSocket
-operator|::
-name|SslClientMode
-condition|)
-block|{
 comment|// verify certificate chain
 name|QCFType
 argument_list|<
@@ -5140,7 +5204,6 @@ argument_list|(
 name|error
 argument_list|)
 emit|;
-block|}
 block|}
 block|}
 comment|// report errors
@@ -5377,12 +5440,12 @@ operator|==
 name|errSSLServerAuthCompleted
 condition|)
 block|{
-comment|// TODO: in client mode this happens _before_ ClientCertRequested,
-comment|// this is the point there we should test the server certificate chain,
-comment|// not sending any client certificate if the server's certificate validation
-comment|// fails.
+comment|// errSSLServerAuthCompleted is a define for errSSLPeerAuthCompleted,
+comment|// it works for both server/client modes.
+comment|// In future we'll evaluate peer's trust at this point,
+comment|// for now we just continue.
 comment|// if (!verifyPeerTrust())
-comment|//     ....
+comment|//      ...
 return|return
 name|startHandshake
 argument_list|()
@@ -5396,9 +5459,6 @@ operator|==
 name|errSSLClientCertRequested
 condition|)
 block|{
-comment|// TODO: If we are here, the server's trust must
-comment|// be evaluated and accepted already, otherwise,
-comment|// we can not send our certificate.
 name|Q_ASSERT
 argument_list|(
 name|mode
