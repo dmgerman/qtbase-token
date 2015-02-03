@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qdatetime.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qdebug.h>
 end_include
 begin_include
@@ -11104,15 +11099,7 @@ literal|") (Qt "
 operator|<<
 name|QT_VERSION_STR
 operator|<<
-literal|") on: "
-operator|<<
-name|QDateTime
-operator|::
-name|currentDateTime
-argument_list|()
-operator|.
-name|toString
-argument_list|()
+literal|")"
 expr_stmt|;
 name|t
 operator|<<
