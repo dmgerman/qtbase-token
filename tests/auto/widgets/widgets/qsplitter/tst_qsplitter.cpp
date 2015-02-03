@@ -5233,7 +5233,6 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
-comment|//100 is too fast for Maemo
 comment|//Make sure the minimimSizeHint is respected
 name|QCOMPARE
 argument_list|(

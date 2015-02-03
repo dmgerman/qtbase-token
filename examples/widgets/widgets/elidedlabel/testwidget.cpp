@@ -434,12 +434,8 @@ name|layout
 argument_list|)
 expr_stmt|;
 comment|//! [4]
-comment|//! [5]
 block|}
 end_constructor
-begin_comment
-comment|//! [5]
-end_comment
 begin_comment
 comment|//! [6]
 end_comment
