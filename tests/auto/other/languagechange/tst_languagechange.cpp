@@ -841,7 +841,7 @@ name|expected
 operator|.
 name|insert
 argument_list|(
-literal|"QCoreApplication::QT_LAYOUT_DIRECTION::Translate this string to the string 'LTR' in left-to-right "
+literal|"QGuiApplication::QT_LAYOUT_DIRECTION::Translate this string to the string 'LTR' in left-to-right "
 literal|"languages or to 'RTL' in right-to-left languages (such as Hebrew and Arabic) to "
 literal|"get proper widget layout."
 argument_list|)

@@ -792,7 +792,7 @@ return|return
 name|force_reverse
 operator|^
 operator|(
-name|QCoreApplication
+name|QGuiApplication
 operator|::
 name|tr
 argument_list|(
