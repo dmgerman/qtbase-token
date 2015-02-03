@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qtextstream.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformscreen.h>
 end_include
 begin_include
