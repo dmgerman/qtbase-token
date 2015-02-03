@@ -352,6 +352,10 @@ name|bool
 name|checkSslErrors
 argument_list|()
 block|;
+name|void
+name|storePeerCertificates
+argument_list|()
+block|;
 name|unsigned
 name|int
 name|tlsPskClientCallback
