@@ -20243,6 +20243,12 @@ operator|->
 name|internalWinId
 argument_list|()
 operator|||
+operator|(
+name|q
+operator|->
+name|nativeParentWidget
+argument_list|()
+operator|&&
 operator|!
 name|q
 operator|->
@@ -20251,6 +20257,7 @@ argument_list|()
 operator|->
 name|isWindow
 argument_list|()
+operator|)
 operator|)
 condition|)
 name|backingStore

@@ -1483,6 +1483,18 @@ expr_stmt|;
 name|updateScreens
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|m_screens
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"QXcbConnection: no screens available"
+argument_list|)
+expr_stmt|;
 name|initializeXFixes
 argument_list|()
 expr_stmt|;

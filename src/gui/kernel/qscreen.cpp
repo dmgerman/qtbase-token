@@ -117,6 +117,8 @@ name|bool
 name|movingFromVirtualSibling
 init|=
 name|primaryScreen
+operator|&&
+name|primaryScreen
 operator|->
 name|handle
 argument_list|()

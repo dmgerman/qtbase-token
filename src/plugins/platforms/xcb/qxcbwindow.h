@@ -643,6 +643,14 @@ name|void
 name|destroy
 parameter_list|()
 function_decl|;
+name|void
+name|maybeSetScreen
+parameter_list|(
+name|QXcbScreen
+modifier|*
+name|screen
+parameter_list|)
+function_decl|;
 name|QPlatformScreen
 modifier|*
 name|screenForNativeGeometry

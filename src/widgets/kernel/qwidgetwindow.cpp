@@ -3464,6 +3464,11 @@ name|m_widget
 argument_list|)
 expr_stmt|;
 comment|// Invalidate the backing store buffer and repaint immediately.
+if|if
+condition|(
+name|screen
+argument_list|()
+condition|)
 name|repaintWindow
 argument_list|()
 expr_stmt|;

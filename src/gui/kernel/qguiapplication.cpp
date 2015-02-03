@@ -12127,6 +12127,12 @@ operator|.
 name|data
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|window
+condition|)
+return|return;
 name|QWindowPrivate
 modifier|*
 name|p
@@ -12203,6 +12209,11 @@ operator|=
 name|e
 operator|->
 name|isExposed
+operator|&&
+name|window
+operator|->
+name|screen
+argument_list|()
 expr_stmt|;
 name|QExposeEvent
 name|exposeEvent

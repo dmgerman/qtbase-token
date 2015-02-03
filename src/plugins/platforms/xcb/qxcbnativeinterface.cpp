@@ -1172,6 +1172,21 @@ modifier|*
 name|screen
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|screen
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"nativeResourceForScreen: null screen"
+expr_stmt|;
+return|return
+name|Q_NULLPTR
+return|;
+block|}
 name|QByteArray
 name|lowerCaseResource
 init|=
