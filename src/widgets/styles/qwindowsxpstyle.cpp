@@ -2940,7 +2940,11 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"QWindowsXPStylePrivate::buffer(w,h), failed to create dibsection"
+literal|"QWindowsXPStylePrivate::buffer(%dx%d), CreateDIBSection() failed."
+argument_list|,
+name|w
+argument_list|,
+name|h
 argument_list|)
 expr_stmt|;
 name|bufferW
@@ -2963,7 +2967,11 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"QWindowsXPStylePrivate::buffer(w,h), did not allocate pixel data"
+literal|"QWindowsXPStylePrivate::buffer(%dx%d), CreateDIBSection() did not allocate pixel data."
+argument_list|,
+name|w
+argument_list|,
+name|h
 argument_list|)
 expr_stmt|;
 name|bufferW
