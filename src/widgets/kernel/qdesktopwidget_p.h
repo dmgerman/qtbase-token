@@ -118,14 +118,10 @@ operator|~
 name|QDesktopWidgetPrivate
 argument_list|()
 block|{
-name|foreach
+name|qDeleteAll
 argument_list|(
-argument|QDesktopScreenWidget *s
-argument_list|,
-argument|screens
+name|screens
 argument_list|)
-name|delete
-name|s
 block|; }
 name|void
 name|_q_updateScreens
