@@ -669,11 +669,11 @@ name|QOpenGLContext
 modifier|*
 name|shareContext
 decl_stmt|;
-DECL|member|screenIndex
-name|quint32
-name|screenIndex
+DECL|member|initialScreenIndex
+name|int
+name|initialScreenIndex
 decl_stmt|;
-comment|// index in qplatformscreenlist
+comment|// Screen number when passing a QDesktop[Screen]Widget as parent.
 block|}
 struct|;
 end_struct

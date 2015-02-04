@@ -65,14 +65,11 @@ name|Q_OBJECT
 name|public
 operator|:
 name|QDesktopScreenWidget
-argument_list|(
-argument|int screenNumber = -
-literal|1
-argument_list|)
+argument_list|()
 operator|:
 name|QWidget
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|,
 argument|Qt::Desktop
 argument_list|)
@@ -81,24 +78,12 @@ name|setVisible
 argument_list|(
 name|false
 argument_list|)
-block|;
-name|QTLWExtra
-operator|*
-name|topData
-operator|=
-name|d_func
-argument_list|()
-operator|->
-name|topData
-argument_list|()
-block|;
-name|topData
-operator|->
-name|screenIndex
-operator|=
-name|screenNumber
 block|;     }
-block|}
+name|int
+name|screenNumber
+argument_list|()
+specifier|const
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
