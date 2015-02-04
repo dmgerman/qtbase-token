@@ -1169,12 +1169,16 @@ name|TextureComparisonOperators
 init|=
 literal|0x00004000
 block|,
+name|TextureMipMapLevel
+init|=
+literal|0x00008000
+block|,
 ifndef|#
 directive|ifndef
 name|Q_QDOC
 name|MaxFeatureFlag
 init|=
-literal|0x00008000
+literal|0x00010000
 endif|#
 directive|endif
 block|}
