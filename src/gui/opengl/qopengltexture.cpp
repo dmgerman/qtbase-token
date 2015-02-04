@@ -13536,7 +13536,7 @@ name|features
 operator|.
 name|testFlag
 argument_list|(
-name|StencilTexturing
+name|AnisotropicFiltering
 argument_list|)
 condition|)
 block|{
