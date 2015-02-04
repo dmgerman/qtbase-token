@@ -2390,9 +2390,6 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-name|drainOutputPipes
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|processFinishedNotifier
@@ -2403,6 +2400,9 @@ name|setEnabled
 argument_list|(
 literal|false
 argument_list|)
+expr_stmt|;
+name|drainOutputPipes
+argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
