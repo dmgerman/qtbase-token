@@ -535,12 +535,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|proxy
 operator|.
 name|capabilities
 argument_list|()
 operator|&
 name|requiredCapabilities
+operator|)
 operator|==
 name|requiredCapabilities
 condition|)
