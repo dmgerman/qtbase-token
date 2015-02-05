@@ -17743,7 +17743,18 @@ operator|>
 name|QImage
 operator|::
 name|Format_Indexed8
+operator|&&
+operator|!
+name|qimage_converter_map
+index|[
+name|format
+index|]
+index|[
+name|newFormat
+index|]
 condition|)
+comment|// Convert inplace generic, but only if there are no direct converters,
+comment|// any direct ones are probably better even if not inplace.
 return|return
 name|convert_generic_inplace
 argument_list|(

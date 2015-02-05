@@ -56,6 +56,14 @@ operator|==
 name|QImage
 operator|::
 name|Format_ARGB32
+operator|||
+name|data
+operator|->
+name|format
+operator|==
+name|QImage
+operator|::
+name|Format_RGBA8888
 argument_list|)
 expr_stmt|;
 comment|// extra pixels on each line
@@ -381,6 +389,16 @@ name|pad
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|data
+operator|->
+name|format
+operator|==
+name|QImage
+operator|::
+name|Format_ARGB32
+condition|)
 name|data
 operator|->
 name|format
@@ -388,6 +406,15 @@ operator|=
 name|QImage
 operator|::
 name|Format_ARGB32_Premultiplied
+expr_stmt|;
+else|else
+name|data
+operator|->
+name|format
+operator|=
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
 expr_stmt|;
 return|return
 literal|true
