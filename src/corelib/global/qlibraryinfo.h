@@ -50,11 +50,23 @@ function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DATESTRING
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
 specifier|static
+name|QT_DEPRECATED
 name|QDate
 name|buildDate
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 5)
 endif|#
 directive|endif
 comment|//QT_NO_DATESTRING

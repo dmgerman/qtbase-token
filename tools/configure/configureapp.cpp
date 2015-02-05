@@ -29,11 +29,6 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<qdatetime.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qdir.h>
 end_include
 begin_include
@@ -27011,21 +27006,7 @@ literal|"/* Build date */"
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_installation          [11  + 12] = \"qt_instdate="
-operator|<<
-name|QDate
-operator|::
-name|currentDate
-argument_list|()
-operator|.
-name|toString
-argument_list|(
-name|Qt
-operator|::
-name|ISODate
-argument_list|)
-operator|<<
-literal|"\";"
+literal|"static const char qt_configure_installation          [11  + 12] = \"qt_instdate=2012-12-20\";"
 operator|<<
 name|endl
 operator|<<

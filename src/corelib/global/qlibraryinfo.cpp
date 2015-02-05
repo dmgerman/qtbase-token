@@ -678,13 +678,23 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     Returns the installation date for this build of Qt. The install date will     usually be the last time that Qt sources were configured. */
+comment|/*!     \since 4.6     \deprecated     This function used to return the the installation date for this build of Qt, but now returns an a constant date. */
 end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_DATESTRING
 end_ifndef
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+end_if
 begin_function
 name|QDate
 DECL|function|buildDate
@@ -714,6 +724,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
