@@ -20644,6 +20644,13 @@ name|contains
 argument_list|(
 literal|"nmake"
 argument_list|)
+operator|||
+name|command
+operator|.
+name|contains
+argument_list|(
+literal|"jom"
+argument_list|)
 condition|)
 name|command
 operator|+=
@@ -21252,6 +21259,13 @@ operator|.
 name|contains
 argument_list|(
 literal|"nmake"
+argument_list|)
+operator|||
+name|command
+operator|.
+name|contains
+argument_list|(
+literal|"jom"
 argument_list|)
 condition|)
 name|command
