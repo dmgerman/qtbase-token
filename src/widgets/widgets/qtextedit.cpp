@@ -6980,7 +6980,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.4   This function creates the standard context menu which is shown   when the user clicks on the text edit with the right mouse   button. It is called from the default contextMenuEvent() handler   and it takes the \a position of where the mouse click was.   This can enable actions that are sensitive to the position where the user clicked.   The popup menu's ownership is transferred to the caller. */
+comment|/*!   \since 4.4   This function creates the standard context menu which is shown   when the user clicks on the text edit with the right mouse   button. It is called from the default contextMenuEvent() handler   and it takes the \a position in document coordinates where the mouse click was.   This can enable actions that are sensitive to the position where the user clicked.   The popup menu's ownership is transferred to the caller. */
 end_comment
 begin_function
 DECL|function|createStandardContextMenu
