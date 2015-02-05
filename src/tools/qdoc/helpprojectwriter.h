@@ -191,12 +191,9 @@ name|QString
 operator|>
 name|excluded
 expr_stmt|;
-DECL|member|QString
 DECL|member|subprojects
-name|QMap
+name|QList
 operator|<
-name|QString
-operator|,
 name|SubProject
 operator|>
 name|subprojects
