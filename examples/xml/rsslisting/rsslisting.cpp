@@ -61,7 +61,7 @@ name|lineEdit
 operator|->
 name|setText
 argument_list|(
-literal|"http://blog.qt.digia.com/feed/"
+literal|"http://blog.qt.io/feed/"
 argument_list|)
 expr_stmt|;
 name|fetchButton
