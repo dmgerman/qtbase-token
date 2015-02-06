@@ -105,6 +105,13 @@ operator|::
 name|ParseAsCompactedShortOptions
 argument_list|)
 member_init_list|,
+name|optionsAfterPositionalArgumentsMode
+argument_list|(
+name|QCommandLineParser
+operator|::
+name|ParseAsOptions
+argument_list|)
+member_init_list|,
 name|builtinVersionOption
 argument_list|(
 literal|false
@@ -268,6 +275,13 @@ operator|::
 name|SingleDashWordOptionMode
 name|singleDashWordOptionMode
 decl_stmt|;
+comment|//! How to parse "arg -option"
+DECL|member|optionsAfterPositionalArgumentsMode
+name|QCommandLineParser
+operator|::
+name|OptionsAfterPositionalArgumentsMode
+name|optionsAfterPositionalArgumentsMode
+decl_stmt|;
 comment|//! Whether addVersionOption was called
 DECL|member|builtinVersionOption
 name|bool
@@ -412,6 +426,33 @@ operator|->
 name|singleDashWordOptionMode
 operator|=
 name|singleDashWordOptionMode
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \enum QCommandLineParser::OptionsAfterPositionalArgumentsMode      This enum describes the way the parser interprets options that     occur after positional arguments.      \value ParseAsOptions \c{application argument --opt -t} is interpreted as setting     the options \c{opt} and \c{t}, just like \c{application --opt -t argument} would do.     This is the default parsing mode. In order to specify that \c{--opt} and \c{-t}     are positional arguments instead, the user can use \c{--}, as in     \c{application argument -- --opt -t}.      \value ParseAsPositionalArguments \c{application argument --opt} is interpreted as     having two positional arguments, \c{argument} and \c{--opt}.     This mode is useful for executables that aim to launch other executables     (e.g. wrappers, debugging tools, etc.) or that support internal commands     followed by options for the command. \c{argument} is the name of the command,     and all options occurring after it can be collected and parsed by another     command line parser, possibly in another executable.      \sa setOptionsAfterPositionalArgumentsMode()      \since 5.5 */
+end_comment
+begin_comment
+comment|/*!     Sets the parsing mode to \a parsingMode.     This must be called before process() or parse().     \since 5.5 */
+end_comment
+begin_function
+DECL|function|setOptionsAfterPositionalArgumentsMode
+name|void
+name|QCommandLineParser
+operator|::
+name|setOptionsAfterPositionalArgumentsMode
+parameter_list|(
+name|QCommandLineParser
+operator|::
+name|OptionsAfterPositionalArgumentsMode
+name|parsingMode
+parameter_list|)
+block|{
+name|d
+operator|->
+name|optionsAfterPositionalArgumentsMode
+operator|=
+name|parsingMode
 expr_stmt|;
 block|}
 end_function
@@ -1671,7 +1712,7 @@ literal|'='
 argument_list|)
 decl_stmt|;
 name|bool
-name|doubleDashFound
+name|forcePositional
 init|=
 literal|false
 decl_stmt|;
@@ -1753,7 +1794,7 @@ name|argumentIterator
 decl_stmt|;
 if|if
 condition|(
-name|doubleDashFound
+name|forcePositional
 condition|)
 block|{
 name|positionalArgumentList
@@ -1845,7 +1886,7 @@ block|}
 block|}
 else|else
 block|{
-name|doubleDashFound
+name|forcePositional
 operator|=
 literal|true
 expr_stmt|;
@@ -2182,6 +2223,18 @@ name|append
 argument_list|(
 name|argument
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|optionsAfterPositionalArgumentsMode
+operator|==
+name|QCommandLineParser
+operator|::
+name|ParseAsPositionalArguments
+condition|)
+name|forcePositional
+operator|=
+literal|true
 expr_stmt|;
 block|}
 if|if
