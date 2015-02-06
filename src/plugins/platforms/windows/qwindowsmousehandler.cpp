@@ -1204,6 +1204,52 @@ argument_list|)
 else|:
 name|window
 decl_stmt|;
+comment|// QTBUG-44332: When Qt is running at low integrity level and
+comment|// a Qt Window is parented on a Window of a higher integrity process
+comment|// using QWindow::fromWinId() (for example, Qt running in a browser plugin)
+comment|// ChildWindowFromPointEx() may not find the Qt window (failing with ERROR_ACCESS_DENIED)
+if|if
+condition|(
+operator|!
+name|currentWindowUnderMouse
+condition|)
+block|{
+specifier|const
+name|QRect
+name|clientRect
+argument_list|(
+name|QPoint
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
+name|window
+operator|->
+name|size
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|clientRect
+operator|.
+name|contains
+argument_list|(
+name|winEventPosition
+operator|/
+name|QWindowsScaling
+operator|::
+name|factor
+argument_list|()
+argument_list|)
+condition|)
+name|currentWindowUnderMouse
+operator|=
+name|window
+expr_stmt|;
+block|}
 name|compressMouseMove
 argument_list|(
 operator|&
