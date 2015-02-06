@@ -2484,7 +2484,7 @@ name|eventTime
 decl_stmt|;
 specifier|static
 name|bool
-name|synchronousWindowsSystemEvents
+name|synchronousWindowSystemEvents
 decl_stmt|;
 specifier|static
 name|QWaitCondition

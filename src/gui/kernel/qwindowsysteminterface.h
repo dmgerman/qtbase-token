@@ -1865,7 +1865,7 @@ argument_list|)
 decl_stmt|;
 specifier|static
 name|void
-name|setSynchronousWindowsSystemEvents
+name|setSynchronousWindowSystemEvents
 parameter_list|(
 name|bool
 name|enable
