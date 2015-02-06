@@ -162,6 +162,10 @@ argument|qreal logicalDotsPerInch READ logicalDotsPerInch NOTIFY logicalDotsPerI
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|qreal devicePixelRatio READ devicePixelRatio NOTIFY physicalDotsPerInchChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|Qt::ScreenOrientation primaryOrientation READ primaryOrientation NOTIFY primaryOrientationChanged
 argument_list|)
 name|Q_PROPERTY
