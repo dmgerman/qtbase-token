@@ -2166,7 +2166,7 @@ end_function
 begin_function
 DECL|function|calculatePosixTransitions
 specifier|static
-name|QList
+name|QVector
 argument_list|<
 name|QTimeZonePrivate
 operator|::
@@ -2189,13 +2189,13 @@ name|int
 name|lastTranMSecs
 parameter_list|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTimeZonePrivate
 operator|::
 name|Data
 argument_list|>
-name|list
+name|result
 decl_stmt|;
 comment|// Limit year by qint64 max size for msecs
 if|if
@@ -2434,12 +2434,12 @@ name|abbreviation
 operator|=
 name|stdName
 expr_stmt|;
-name|list
+name|result
 operator|<<
 name|data
 expr_stmt|;
 return|return
-name|list
+name|result
 return|;
 block|}
 comment|// If not populated the total dst offset is 1 hour
@@ -2772,7 +2772,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|list
+name|result
 operator|<<
 name|dstData
 expr_stmt|;
@@ -2787,7 +2787,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|list
+name|result
 operator|<<
 name|stdData
 expr_stmt|;
@@ -2801,7 +2801,7 @@ operator|<
 name|std
 condition|)
 block|{
-name|list
+name|result
 operator|<<
 name|dstData
 operator|<<
@@ -2810,7 +2810,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|list
+name|result
 operator|<<
 name|stdData
 operator|<<
@@ -2819,7 +2819,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|list
+name|result
 return|;
 block|}
 end_function
@@ -4598,7 +4598,7 @@ name|atMSecsSinceEpoch
 else|:
 literal|0
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QTimeZonePrivate
 operator|::
@@ -4882,7 +4882,7 @@ name|atMSecsSinceEpoch
 else|:
 literal|0
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QTimeZonePrivate
 operator|::
@@ -5087,7 +5087,7 @@ name|atMSecsSinceEpoch
 else|:
 literal|0
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QTimeZonePrivate
 operator|::
