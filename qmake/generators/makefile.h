@@ -554,36 +554,6 @@ block|;
 comment|//escape
 name|virtual
 name|QString
-name|unescapeFilePath
-argument_list|(
-argument|const QString&path
-argument_list|)
-specifier|const
-block|;
-name|ProString
-name|unescapeFilePath
-argument_list|(
-argument|const ProString&path
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|QStringList
-name|unescapeFilePaths
-argument_list|(
-argument|const QStringList&path
-argument_list|)
-specifier|const
-block|;
-name|ProStringList
-name|unescapeFilePaths
-argument_list|(
-argument|const ProStringList&path
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|QString
 name|escapeFilePath
 argument_list|(
 argument|const QString&path
@@ -630,6 +600,13 @@ name|path
 argument_list|)
 return|;
 block|}
+name|ProString
+name|escapeDependencyPath
+argument_list|(
+argument|const ProString&path
+argument_list|)
+specifier|const
+block|;
 name|QStringList
 name|escapeDependencyPaths
 argument_list|(
@@ -947,6 +924,40 @@ argument_list|)
 specifier|const
 block|;
 name|QString
+name|fileVarList
+argument_list|(
+argument|const ProKey&var
+argument_list|)
+specifier|const
+block|;
+name|QString
+name|fileVarGlue
+argument_list|(
+argument|const ProKey&var
+argument_list|,
+argument|const QString&before
+argument_list|,
+argument|const QString&glue
+argument_list|,
+argument|const QString&after
+argument_list|)
+specifier|const
+block|;
+name|QString
+name|fileVar
+argument_list|(
+argument|const ProKey&var
+argument_list|)
+specifier|const
+block|;
+name|QString
+name|depVar
+argument_list|(
+argument|const ProKey&var
+argument_list|)
+specifier|const
+block|;
+name|QString
 name|val
 argument_list|(
 argument|const ProStringList&varList
@@ -1010,6 +1021,25 @@ argument_list|,
 specifier|const
 name|QString
 operator|&
+argument_list|)
+block|;
+name|ProStringList
+name|fixLibFlags
+argument_list|(
+specifier|const
+name|ProKey
+operator|&
+name|var
+argument_list|)
+block|;
+name|virtual
+name|ProString
+name|fixLibFlag
+argument_list|(
+specifier|const
+name|ProString
+operator|&
+name|lib
 argument_list|)
 block|;
 comment|//file fixification to unify all file names into a single pattern

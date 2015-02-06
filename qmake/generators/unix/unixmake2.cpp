@@ -364,7 +364,7 @@ name|t
 operator|<<
 literal|"DISTNAME      = "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"QMAKE_DISTNAME"
 argument_list|)
@@ -557,7 +557,7 @@ literal|"\n\t"
 operator|<<
 literal|"$(COPY_FILE) --parents "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"DISTFILES"
 argument_list|)
@@ -769,7 +769,10 @@ literal|"\n\t"
 else|:
 literal|"\n\tcd "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|out_directory
+argument_list|)
 operator|+
 literal|"&& "
 decl_stmt|;
@@ -778,13 +781,19 @@ name|makefilein
 init|=
 literal|" -e -f "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|subtarget
 operator|->
 name|makefile
+argument_list|)
 operator|+
 literal|" distdir DISTDIR=$(DISTDIR)"
 operator|+
+name|escapeFilePath
+argument_list|(
 name|dist_directory
+argument_list|)
 decl_stmt|;
 name|QString
 name|out
@@ -849,7 +858,10 @@ name|in
 argument_list|,
 name|out_directory
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|out
+argument_list|)
 argument_list|,
 name|out_directory_cdin
 argument_list|,
@@ -875,21 +887,6 @@ modifier|&
 name|t
 parameter_list|)
 block|{
-name|QString
-name|deps
-init|=
-name|fileFixify
-argument_list|(
-name|Option
-operator|::
-name|output
-operator|.
-name|fileName
-argument_list|()
-argument_list|)
-decl_stmt|,
-name|target_deps
-decl_stmt|;
 name|bool
 name|do_incremental
 init|=
@@ -1070,17 +1067,16 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|ProString
+modifier|&
 name|inc
 init|=
-name|escapeFilePath
-argument_list|(
 name|incs
 operator|.
 name|at
 argument_list|(
 name|i
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1114,15 +1110,18 @@ operator|<<
 name|isystem
 operator|<<
 literal|' '
-operator|<<
-name|inc
 expr_stmt|;
 else|else
 name|t
 operator|<<
 literal|" -I"
+expr_stmt|;
+name|t
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|inc
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1191,16 +1190,26 @@ name|t
 operator|<<
 literal|"LIBS          = $(SUBLIBS) "
 operator|<<
-name|var
+name|fixLibFlags
 argument_list|(
 literal|"QMAKE_LIBS"
 argument_list|)
+operator|.
+name|join
+argument_list|(
+literal|' '
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|fixLibFlags
 argument_list|(
 literal|"QMAKE_LIBS_PRIVATE"
+argument_list|)
+operator|.
+name|join
+argument_list|(
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -1278,6 +1287,7 @@ name|t
 operator|<<
 literal|"####### Output directory\n\n"
 expr_stmt|;
+comment|// This is used in commands by some .prf files.
 if|if
 condition|(
 operator|!
@@ -1295,7 +1305,7 @@ name|t
 operator|<<
 literal|"OBJECTS_DIR   = "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"OBJECTS_DIR"
 argument_list|)
@@ -1316,36 +1326,21 @@ name|t
 operator|<<
 literal|"####### Files\n\n"
 expr_stmt|;
+comment|// This is used by the dist target.
 name|t
 operator|<<
 literal|"SOURCES       = "
 operator|<<
-name|valList
-argument_list|(
-name|escapeFilePaths
-argument_list|(
-name|project
-operator|->
-name|values
+name|fileVarList
 argument_list|(
 literal|"SOURCES"
 argument_list|)
-argument_list|)
-argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|valList
-argument_list|(
-name|escapeFilePaths
-argument_list|(
-name|project
-operator|->
-name|values
+name|fileVarList
 argument_list|(
 literal|"GENERATED_SOURCES"
-argument_list|)
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1579,13 +1574,14 @@ block|}
 block|}
 else|else
 block|{
+comment|// Used all over the place in both deps and commands.
 name|t
 operator|<<
 literal|"OBJECTS       = "
 operator|<<
 name|valList
 argument_list|(
-name|escapeFilePaths
+name|escapeDependencyPaths
 argument_list|(
 name|project
 operator|->
@@ -1632,32 +1628,16 @@ argument_list|)
 operator|<<
 literal|" "
 operator|<<
-name|valList
-argument_list|(
-name|escapeFilePaths
-argument_list|(
-name|project
-operator|->
-name|values
+name|fileVarList
 argument_list|(
 literal|"HEADERS"
 argument_list|)
-argument_list|)
-argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|valList
-argument_list|(
-name|escapeFilePaths
-argument_list|(
-name|project
-operator|->
-name|values
+name|fileVarList
 argument_list|(
 literal|"SOURCES"
-argument_list|)
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1666,7 +1646,7 @@ name|t
 operator|<<
 literal|"QMAKE_TARGET  = "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"QMAKE_ORIG_TARGET"
 argument_list|)
@@ -1681,7 +1661,7 @@ name|t
 operator|<<
 literal|"DESTDIR       = "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"DESTDIR"
 argument_list|)
@@ -1701,7 +1681,7 @@ name|t
 operator|<<
 literal|"TARGETL       = "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_la"
 argument_list|)
@@ -1712,16 +1692,14 @@ name|t
 operator|<<
 literal|"TARGET        = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
+comment|// ### mixed use!
 if|if
 condition|(
 name|project
@@ -1736,12 +1714,9 @@ name|t
 operator|<<
 literal|"TARGETD       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1773,16 +1748,14 @@ name|t
 operator|<<
 literal|"TARGETA       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGETA"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
+comment|// ### mixed use!
 if|if
 condition|(
 operator|!
@@ -1798,12 +1771,9 @@ name|t
 operator|<<
 literal|"TARGETD       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x.y"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1812,12 +1782,9 @@ name|t
 operator|<<
 literal|"TARGET0       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1839,12 +1806,9 @@ name|t
 operator|<<
 literal|"TARGET0       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1863,12 +1827,9 @@ name|t
 operator|<<
 literal|"TARGETD       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x.y.z"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1877,12 +1838,9 @@ name|t
 operator|<<
 literal|"TARGET1       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1891,12 +1849,9 @@ name|t
 operator|<<
 literal|"TARGET2       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x.y"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1908,12 +1863,9 @@ name|t
 operator|<<
 literal|"TARGETD       = "
 operator|<<
-name|escapeFilePath
-argument_list|(
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x"
-argument_list|)
 argument_list|)
 operator|<<
 name|endl
@@ -1976,10 +1928,11 @@ name|t
 operator|<<
 literal|"include "
 operator|<<
-operator|(
+name|escapeDependencyPath
+argument_list|(
 operator|*
 name|it
-operator|)
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -2249,7 +2202,10 @@ name|t
 operator|<<
 literal|"-include "
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|d_file
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -2314,20 +2270,18 @@ name|cmd
 operator|+=
 literal|" -I"
 operator|+
-name|project
-operator|->
-name|first
+name|fileVar
 argument_list|(
 literal|"QMAKE_ABSOLUTE_SOURCE_PATH"
 argument_list|)
 operator|+
-literal|" "
+literal|' '
 expr_stmt|;
 name|cmd
 operator|+=
 literal|" $(INCPATH) "
 operator|+
-name|varGlue
+name|fileVarGlue
 argument_list|(
 literal|"DEPENDPATH"
 argument_list|,
@@ -2364,6 +2318,17 @@ literal|"OBJECTS_DIR"
 argument_list|)
 expr_stmt|;
 name|QString
+name|odird
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|odir
+operator|.
+name|toQString
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|QString
 name|pwd
 init|=
 name|escapeFilePath
@@ -2381,7 +2346,7 @@ literal|"###### Dependencies\n\n"
 expr_stmt|;
 name|t
 operator|<<
-name|odir
+name|odird
 operator|<<
 literal|".deps/%.d: "
 operator|<<
@@ -2425,7 +2390,7 @@ literal|"\\1:,g\">$@\n\n"
 expr_stmt|;
 name|t
 operator|<<
-name|odir
+name|odird
 operator|<<
 literal|".deps/%.d: "
 operator|<<
@@ -2739,6 +2704,14 @@ argument_list|)
 operator|+
 literal|".d"
 expr_stmt|;
+name|QString
+name|d_file_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|d_file
+argument_list|)
+decl_stmt|;
 name|QStringList
 name|deps
 init|=
@@ -2783,11 +2756,14 @@ argument_list|()
 condition|)
 name|t
 operator|<<
-name|d_file
+name|d_file_d
 operator|<<
 literal|": "
 operator|<<
+name|escapeDependencyPaths
+argument_list|(
 name|deps
+argument_list|)
 operator|.
 name|join
 argument_list|(
@@ -2800,7 +2776,7 @@ name|t
 operator|<<
 literal|"-include "
 operator|<<
-name|d_file
+name|d_file_d
 operator|<<
 name|endl
 expr_stmt|;
@@ -2901,30 +2877,33 @@ name|it
 control|)
 name|t
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|libdir
-operator|<<
+operator|+
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_PREFIX_STATICLIB"
 argument_list|)
-operator|<<
+operator|+
 operator|(
 operator|*
 name|it
 operator|)
-operator|<<
-literal|"."
-operator|<<
+operator|+
+literal|'.'
+operator|+
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_EXTENSION_STATICLIB"
 argument_list|)
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 name|t
 operator|<<
@@ -2933,6 +2912,9 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
+name|QString
+name|target_deps
+decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -3078,15 +3060,23 @@ argument_list|(
 literal|"QMAKE_PRL_TARGET"
 argument_list|)
 decl_stmt|;
+name|QString
+name|targ_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|targ
+argument_list|)
+decl_stmt|;
 name|target_deps
 operator|+=
-literal|" "
+literal|' '
 operator|+
-name|targ
+name|targ_d
 expr_stmt|;
 name|t
 operator|<<
-name|targ
+name|targ_d
 expr_stmt|;
 if|if
 condition|(
@@ -3114,20 +3104,39 @@ literal|"'\"\n\t"
 operator|<<
 literal|"(cd "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|libinfo
 operator|.
 name|first
 argument_list|(
 literal|"QMAKE_PRL_BUILD_DIR"
 argument_list|)
+argument_list|)
 operator|<<
-literal|";"
+literal|';'
 operator|<<
 literal|"$(MAKE))\n"
 expr_stmt|;
 block|}
 block|}
 block|}
+name|QString
+name|deps
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|fileFixify
+argument_list|(
+name|Option
+operator|::
+name|output
+operator|.
+name|fileName
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|QString
 name|allDeps
 decl_stmt|;
@@ -3326,16 +3335,32 @@ name|Option
 operator|::
 name|obj_ext
 decl_stmt|;
+name|QString
+name|incr_target_dir_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|incr_target_dir
+argument_list|)
+decl_stmt|;
+name|QString
+name|incr_target_dir_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|incr_target_dir
+argument_list|)
+decl_stmt|;
 comment|//actual target
 name|t
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_d
 operator|<<
 literal|": $(OBJECTS)\n\t"
 operator|<<
 literal|"ld -r  -o "
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_f
 operator|<<
 literal|" $(OBJECTS)\n"
 expr_stmt|;
@@ -3344,9 +3369,9 @@ name|deps
 operator|.
 name|prepend
 argument_list|(
-name|incr_target_dir
+name|incr_target_dir_d
 operator|+
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|incr_deps
@@ -3367,7 +3392,7 @@ literal|" "
 expr_stmt|;
 name|incr_objs
 operator|+=
-name|incr_target_dir
+name|incr_target_dir_f
 expr_stmt|;
 block|}
 else|else
@@ -3392,6 +3417,22 @@ operator|->
 name|first
 argument_list|(
 literal|"QMAKE_EXTENSION_SHLIB"
+argument_list|)
+decl_stmt|;
+name|QString
+name|incr_target_dir_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|incr_target_dir
+argument_list|)
+decl_stmt|;
+name|QString
+name|incr_target_dir_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|incr_target_dir
 argument_list|)
 decl_stmt|;
 name|QString
@@ -3447,7 +3488,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_d
 operator|<<
 literal|": $(INCREMENTAL_OBJECTS)\n\t"
 expr_stmt|;
@@ -3478,7 +3519,7 @@ name|incr_lflags
 operator|<<
 literal|" -o "
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_f
 operator|<<
 literal|" $(INCREMENTAL_OBJECTS)\n"
 expr_stmt|;
@@ -3508,7 +3549,10 @@ name|incr_objs
 operator|+=
 literal|"-L"
 operator|+
+name|escapeFilePath
+argument_list|(
 name|destdir
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -3529,8 +3573,11 @@ name|incr_objs
 operator|+=
 literal|"-L"
 operator|+
+name|escapeFilePath
+argument_list|(
 name|qmake_getpwd
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -3549,15 +3596,18 @@ name|incr_objs
 operator|+=
 literal|" -l"
 operator|+
+name|escapeFilePath
+argument_list|(
 name|incr_target
+argument_list|)
 expr_stmt|;
 name|deps
 operator|.
 name|prepend
 argument_list|(
-name|incr_target_dir
+name|incr_target_dir_d
 operator|+
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|incr_deps
@@ -3575,22 +3625,22 @@ argument_list|)
 operator|<<
 literal|": "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|incr_deps
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|target_deps
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -3686,7 +3736,7 @@ name|t
 operator|<<
 literal|"$(TARGET): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
@@ -3695,9 +3745,9 @@ literal|" $(OBJECTS) "
 operator|<<
 name|target_deps
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -3808,10 +3858,8 @@ argument_list|)
 condition|)
 block|{
 name|QString
-name|destdir
+name|destdir_r
 init|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -3821,7 +3869,6 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
 decl_stmt|,
 name|incr_deps
 decl_stmt|;
@@ -3886,7 +3933,7 @@ name|bundle_loc
 operator|+=
 literal|"/"
 expr_stmt|;
-name|destdir
+name|destdir_r
 operator|+=
 name|project
 operator|->
@@ -3898,13 +3945,22 @@ operator|+
 name|bundle_loc
 expr_stmt|;
 block|}
+name|QString
+name|destdir_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|destdir_r
+argument_list|)
+decl_stmt|;
+name|QString
 name|destdir
-operator|=
+init|=
 name|escapeFilePath
 argument_list|(
-name|destdir
+name|destdir_r
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|do_incremental
@@ -3991,13 +4047,6 @@ literal|1
 operator|)
 argument_list|)
 expr_stmt|;
-name|incr_target
-operator|=
-name|escapeFilePath
-argument_list|(
-name|incr_target
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|project
@@ -4013,8 +4062,6 @@ block|{
 name|QString
 name|incr_target_dir
 init|=
-name|escapeFilePath
-argument_list|(
 name|var
 argument_list|(
 literal|"OBJECTS_DIR"
@@ -4025,6 +4072,21 @@ operator|+
 name|Option
 operator|::
 name|obj_ext
+decl_stmt|;
+name|QString
+name|incr_target_dir_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|incr_target_dir
+argument_list|)
+decl_stmt|;
+name|QString
+name|incr_target_dir_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|incr_target_dir
 argument_list|)
 decl_stmt|;
 comment|//actual target
@@ -4036,7 +4098,7 @@ literal|"$(OBJECTS) "
 decl_stmt|;
 name|t
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_d
 operator|<<
 literal|": "
 operator|<<
@@ -4046,9 +4108,9 @@ literal|"\n\t"
 operator|<<
 literal|"ld -r  -o "
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_f
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|link_deps
 operator|<<
@@ -4093,16 +4155,16 @@ name|cmd
 operator|.
 name|append
 argument_list|(
-name|incr_target_dir
+name|incr_target_dir_f
 argument_list|)
 expr_stmt|;
 name|deps
 operator|.
 name|prepend
 argument_list|(
-name|incr_target_dir
+name|incr_target_dir_d
 operator|+
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|incr_deps
@@ -4116,17 +4178,30 @@ comment|//actual target
 name|QString
 name|incr_target_dir
 init|=
-name|escapeFilePath
-argument_list|(
-name|destdir
+name|destdir_r
 operator|+
 literal|"lib"
 operator|+
 name|incr_target
 operator|+
-literal|"."
+literal|'.'
 operator|+
 name|s_ext
+decl_stmt|;
+name|QString
+name|incr_target_dir_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|incr_target_dir
+argument_list|)
+decl_stmt|;
+name|QString
+name|incr_target_dir_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|incr_target_dir
 argument_list|)
 decl_stmt|;
 name|QString
@@ -4201,7 +4276,7 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_d
 operator|<<
 literal|": $(INCREMENTAL_OBJECTS)\n\t"
 expr_stmt|;
@@ -4230,14 +4305,14 @@ literal|"$(LINK) "
 operator|<<
 name|incr_lflags
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|var
 argument_list|(
 literal|"QMAKE_LINK_O_FLAG"
 argument_list|)
 operator|<<
-name|incr_target_dir
+name|incr_target_dir_f
 operator|<<
 literal|" $(INCREMENTAL_OBJECTS)\n"
 expr_stmt|;
@@ -4276,16 +4351,19 @@ name|append
 argument_list|(
 literal|" -l"
 operator|+
+name|escapeFilePath
+argument_list|(
 name|incr_target
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|deps
 operator|.
 name|prepend
 argument_list|(
-name|incr_target_dir
+name|incr_target_dir_d
 operator|+
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|incr_deps
@@ -4296,16 +4374,16 @@ block|}
 comment|//real target
 name|t
 operator|<<
-name|destdir
+name|destdir_d
 operator|<<
 literal|"$(TARGET): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|incr_deps
 operator|<<
@@ -4313,9 +4391,9 @@ literal|" $(SUBLIBS) "
 operator|<<
 name|target_deps
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -4325,11 +4403,11 @@ else|else
 block|{
 name|t
 operator|<<
-name|destdir
+name|destdir_d
 operator|<<
 literal|"$(TARGET): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
@@ -4338,9 +4416,9 @@ literal|" $(OBJECTS) $(SUBLIBS) $(OBJCOMP) "
 operator|<<
 name|target_deps
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -4350,7 +4428,7 @@ name|allDeps
 operator|=
 literal|' '
 operator|+
-name|destdir
+name|destdir_d
 operator|+
 literal|"$(TARGET)"
 expr_stmt|;
@@ -4493,15 +4571,23 @@ block|{
 name|QString
 name|currentLink
 init|=
-name|destdir
+name|destdir_r
 operator|+
 literal|"Versions/Current"
+decl_stmt|;
+name|QString
+name|currentLink_f
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|currentLink
+argument_list|)
 decl_stmt|;
 name|bundledFiles
 operator|<<
 name|currentLink
 operator|<<
-name|destdir
+name|destdir_r
 operator|+
 literal|"$(TARGET)"
 expr_stmt|;
@@ -4553,7 +4639,7 @@ literal|"\n\t"
 operator|<<
 literal|"-$(DEL_FILE) "
 operator|<<
-name|currentLink
+name|currentLink_f
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -4574,9 +4660,9 @@ argument_list|(
 literal|"QMAKE_FRAMEWORK_VERSION"
 argument_list|)
 operator|+
-literal|" "
+literal|' '
 operator|+
-name|currentLink
+name|currentLink_f
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -4922,7 +5008,7 @@ name|t
 operator|<<
 literal|"$(TARGETA): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
@@ -4939,9 +5025,9 @@ literal|" $(INCREMENTAL_OBJECTS)"
 expr_stmt|;
 name|t
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -4988,7 +5074,7 @@ block|}
 else|else
 block|{
 name|QString
-name|destdir
+name|destdir_r
 init|=
 name|project
 operator|->
@@ -5000,11 +5086,27 @@ operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
+name|QString
+name|destdir_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|destdir_r
+argument_list|)
+decl_stmt|;
+name|QString
+name|destdir
+init|=
+name|escapeFilePath
+argument_list|(
+name|destdir_r
+argument_list|)
+decl_stmt|;
 name|allDeps
 operator|=
 literal|' '
 operator|+
-name|destdir
+name|destdir_d
 operator|+
 literal|"$(TARGET)"
 operator|+
@@ -5014,11 +5116,11 @@ literal|"QMAKE_AR_SUBLIBS"
 argument_list|,
 literal|' '
 operator|+
-name|destdir
+name|destdir_d
 argument_list|,
 literal|' '
 operator|+
-name|destdir
+name|destdir_d
 argument_list|,
 literal|""
 argument_list|)
@@ -5027,7 +5129,7 @@ name|t
 operator|<<
 literal|"staticlib: "
 operator|<<
-name|destdir
+name|destdir_d
 operator|<<
 literal|"$(TARGET)\n\n"
 expr_stmt|;
@@ -5043,18 +5145,18 @@ condition|)
 block|{
 name|t
 operator|<<
-name|destdir
+name|destdir_d
 operator|<<
 literal|"$(TARGET): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
 operator|<<
 literal|" $(OBJECTS) $(OBJCOMP) "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -5074,6 +5176,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -5262,6 +5366,15 @@ expr_stmt|;
 name|QString
 name|ar
 decl_stmt|;
+name|ProString
+name|lib
+init|=
+name|escapeFilePath
+argument_list|(
+operator|*
+name|libit
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -5274,25 +5387,28 @@ condition|)
 block|{
 name|t
 operator|<<
-name|destdir
+name|destdir_d
 operator|<<
 literal|"$(TARGET): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
 operator|<<
 name|valList
 argument_list|(
+name|escapeDependencyPaths
+argument_list|(
 name|build
+argument_list|)
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -5315,7 +5431,10 @@ name|replace
 argument_list|(
 literal|"$(OBJECTS)"
 argument_list|,
+name|escapeFilePaths
+argument_list|(
 name|build
+argument_list|)
 operator|.
 name|join
 argument_list|(
@@ -5328,16 +5447,20 @@ else|else
 block|{
 name|t
 operator|<<
-operator|(
+name|escapeDependencyPath
+argument_list|(
 operator|*
 name|libit
-operator|)
+argument_list|)
 operator|<<
 literal|": "
 operator|<<
 name|valList
 argument_list|(
+name|escapeDependencyPaths
+argument_list|(
 name|build
+argument_list|)
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -5346,14 +5469,14 @@ name|ar
 operator|=
 literal|"$(AR) "
 operator|+
-operator|(
-operator|*
-name|libit
-operator|)
+name|lib
 operator|+
-literal|" "
+literal|' '
 operator|+
+name|escapeFilePaths
+argument_list|(
 name|build
+argument_list|)
 operator|.
 name|join
 argument_list|(
@@ -5374,6 +5497,8 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
+argument_list|,
+literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -5382,10 +5507,7 @@ name|t
 operator|<<
 literal|"-$(DEL_FILE) "
 operator|<<
-operator|(
-operator|*
-name|libit
-operator|)
+name|lib
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -5428,10 +5550,7 @@ name|t
 operator|<<
 literal|"\t$(RANLIB) "
 operator|<<
-operator|(
-operator|*
-name|libit
-operator|)
+name|lib
 operator|<<
 literal|"\n"
 expr_stmt|;
@@ -5449,21 +5568,15 @@ literal|"\t-$(DEL_FILE) "
 operator|<<
 name|destdir
 operator|<<
-operator|(
-operator|*
-name|libit
-operator|)
+name|lib
 operator|<<
 literal|"\n"
 operator|<<
 literal|"\t-$(MOVE) "
 operator|<<
-operator|(
-operator|*
-name|libit
-operator|)
+name|lib
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|destdir
 operator|<<
@@ -5591,12 +5704,15 @@ operator|<<
 name|buildArgs
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|project
 operator|->
 name|projectFile
 argument_list|()
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -5667,14 +5783,27 @@ block|{
 name|ProString
 name|pkginfo
 init|=
-name|escapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_PKGINFO"
 argument_list|)
+decl_stmt|;
+name|ProString
+name|pkginfo_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|pkginfo
+argument_list|)
+decl_stmt|;
+name|ProString
+name|pkginfo_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|pkginfo
 argument_list|)
 decl_stmt|;
 name|bundledFiles
@@ -5694,7 +5823,7 @@ literal|"Contents"
 decl_stmt|;
 name|t
 operator|<<
-name|pkginfo
+name|pkginfo_d
 operator|<<
 literal|": \n\t"
 expr_stmt|;
@@ -5719,7 +5848,7 @@ name|t
 operator|<<
 literal|"@$(DEL_FILE) "
 operator|<<
-name|pkginfo
+name|pkginfo_f
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -5753,9 +5882,9 @@ literal|4
 argument_list|)
 operator|)
 operator|<<
-literal|"\">"
+literal|"\"> "
 operator|<<
-name|pkginfo
+name|pkginfo_f
 operator|<<
 name|endl
 expr_stmt|;
@@ -5777,14 +5906,27 @@ block|{
 name|ProString
 name|resources
 init|=
-name|escapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_BUNDLE_RESOURCE_FILE"
 argument_list|)
+decl_stmt|;
+name|ProString
+name|resources_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|resources
+argument_list|)
+decl_stmt|;
+name|ProString
+name|resources_d
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|resources
 argument_list|)
 decl_stmt|;
 name|bundledFiles
@@ -5804,7 +5946,7 @@ literal|"Contents/Resources"
 decl_stmt|;
 name|t
 operator|<<
-name|resources
+name|resources_d
 operator|<<
 literal|": \n\t"
 expr_stmt|;
@@ -5821,7 +5963,7 @@ name|t
 operator|<<
 literal|"@touch "
 operator|<<
-name|resources
+name|resources_f
 operator|<<
 literal|"\n\t\n"
 expr_stmt|;
@@ -5842,8 +5984,6 @@ comment|// 'while' just to be able to 'break'
 name|QString
 name|info_plist
 init|=
-name|escapeFilePath
-argument_list|(
 name|fileFixify
 argument_list|(
 name|project
@@ -5855,7 +5995,6 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -5915,6 +6054,13 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+name|info_plist
+operator|=
+name|escapeFilePath
+argument_list|(
+name|info_plist
+argument_list|)
+expr_stmt|;
 name|bool
 name|isApp
 init|=
@@ -5932,8 +6078,6 @@ decl_stmt|;
 name|QString
 name|info_plist_out
 init|=
-name|escapeFilePath
-argument_list|(
 name|bundle_dir
 operator|+
 operator|(
@@ -5952,7 +6096,6 @@ argument_list|)
 operator|+
 literal|"/Resources/Info.plist"
 operator|)
-argument_list|)
 decl_stmt|;
 name|bundledFiles
 operator|<<
@@ -5981,9 +6124,19 @@ argument_list|)
 decl_stmt|;
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|info_plist_out
+argument_list|)
 operator|<<
 literal|": \n\t"
+expr_stmt|;
+name|info_plist_out
+operator|=
+name|escapeFilePath
+argument_list|(
+name|info_plist_out
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -6332,8 +6485,6 @@ specifier|const
 name|QString
 name|icon_path
 init|=
-name|escapeFilePath
-argument_list|(
 name|dir
 operator|+
 name|icon
@@ -6347,6 +6498,13 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
+decl_stmt|;
+name|QString
+name|icon_path_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|icon_path
 argument_list|)
 decl_stmt|;
 name|bundledFiles
@@ -6359,11 +6517,17 @@ name|icon_path
 expr_stmt|;
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|icon_path
+argument_list|)
 operator|<<
 literal|": "
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|icon
+argument_list|)
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -6376,7 +6540,7 @@ literal|"\n\t"
 operator|<<
 literal|"@$(DEL_FILE) "
 operator|<<
-name|icon_path
+name|icon_path_f
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -6387,9 +6551,9 @@ argument_list|(
 name|icon
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|icon_path
+name|icon_path_f
 operator|<<
 name|endl
 expr_stmt|;
@@ -6750,19 +6914,9 @@ name|src
 operator|=
 name|fn
 expr_stmt|;
-name|src
-operator|=
-name|escapeFilePath
-argument_list|(
-name|src
-argument_list|)
-expr_stmt|;
-specifier|const
 name|QString
 name|dst
 init|=
-name|escapeFilePath
-argument_list|(
 name|path
 operator|+
 name|Option
@@ -6776,7 +6930,6 @@ argument_list|)
 operator|.
 name|fileName
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|bundledFiles
 operator|<<
@@ -6788,11 +6941,17 @@ name|dst
 expr_stmt|;
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|dst
+argument_list|)
 operator|<<
 literal|": "
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|src
+argument_list|)
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -6802,6 +6961,20 @@ name|path
 argument_list|)
 operator|<<
 literal|"\n\t"
+expr_stmt|;
+name|src
+operator|=
+name|escapeFilePath
+argument_list|(
+name|src
+argument_list|)
+expr_stmt|;
+name|dst
+operator|=
+name|escapeFilePath
+argument_list|(
+name|dst
+argument_list|)
 expr_stmt|;
 name|QFileInfo
 name|fi
@@ -6859,6 +7032,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|QString
+name|bundle_dir_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|bundle_dir
+argument_list|)
+decl_stmt|;
 name|QHash
 argument_list|<
 name|QString
@@ -6908,10 +7089,13 @@ argument_list|()
 expr_stmt|;
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|symIt
 operator|.
 name|key
 argument_list|()
+argument_list|)
 operator|<<
 literal|":\n\t"
 operator|<<
@@ -6924,14 +7108,17 @@ literal|"\n\t"
 operator|<<
 literal|"@$(SYMLINK) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|symIt
 operator|.
 name|value
 argument_list|()
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|bundle_dir
+name|bundle_dir_f
 operator|<<
 name|endl
 expr_stmt|;
@@ -6943,10 +7130,7 @@ name|endl
 operator|<<
 literal|"all: "
 operator|<<
-name|escapeDependencyPath
-argument_list|(
 name|deps
-argument_list|)
 operator|<<
 name|valGlue
 argument_list|(
@@ -7133,7 +7317,10 @@ name|t
 operator|<<
 literal|"\t$(COPY_FILE) --parents "
 operator|<<
+name|escapeFilePaths
+argument_list|(
 name|val
+argument_list|)
 operator|.
 name|join
 argument_list|(
@@ -7165,7 +7352,7 @@ name|t
 operator|<<
 literal|"\t$(COPY_FILE) --parents "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"TRANSLATIONS"
 argument_list|)
@@ -7187,9 +7374,9 @@ expr_stmt|;
 name|QString
 name|clean_targets
 init|=
-literal|"compiler_clean "
+literal|" compiler_clean "
 operator|+
-name|var
+name|depVar
 argument_list|(
 literal|"CLEAN_DEPS"
 argument_list|)
@@ -7544,7 +7731,10 @@ name|t
 operator|<<
 literal|"-$(DEL_FILE) "
 operator|<<
+name|escapeFilePaths
+argument_list|(
 name|precomp_files
+argument_list|)
 operator|.
 name|join
 argument_list|(
@@ -7564,7 +7754,7 @@ literal|"-$(DEL_FILE) $(INCREMENTAL_OBJECTS)\n\t"
 expr_stmt|;
 name|t
 operator|<<
-name|varGlue
+name|fileVarGlue
 argument_list|(
 literal|"QMAKE_CLEAN"
 argument_list|,
@@ -7577,7 +7767,7 @@ argument_list|)
 operator|<<
 literal|"-$(DEL_FILE) *~ core *.core\n"
 operator|<<
-name|varGlue
+name|fileVarGlue
 argument_list|(
 literal|"CLEAN_FILES"
 argument_list|,
@@ -7630,7 +7820,7 @@ name|t
 operator|<<
 literal|"distclean: clean "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"DISTCLEAN_DEPS"
 argument_list|)
@@ -7703,7 +7893,10 @@ name|t
 operator|<<
 literal|"\t-$(DEL_FILE) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|destdir
+argument_list|)
 operator|<<
 literal|"$(TARGET) \n"
 expr_stmt|;
@@ -7730,6 +7923,13 @@ literal|"plugin"
 argument_list|)
 condition|)
 block|{
+name|destdir
+operator|=
+name|escapeFilePath
+argument_list|(
+name|destdir
+argument_list|)
+expr_stmt|;
 name|t
 operator|<<
 literal|"\t-$(DEL_FILE) "
@@ -7783,7 +7983,7 @@ expr_stmt|;
 block|}
 name|t
 operator|<<
-name|varGlue
+name|fileVarGlue
 argument_list|(
 literal|"QMAKE_DISTCLEAN"
 argument_list|,
@@ -7825,7 +8025,10 @@ name|t
 operator|<<
 literal|"\t-$(DEL_FILE) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|ofile
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -7911,27 +8114,30 @@ name|it
 control|)
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|libdir
-operator|<<
+operator|+
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_PREFIX_STATICLIB"
 argument_list|)
-operator|<<
+operator|+
 operator|(
 operator|*
 name|it
 operator|)
-operator|<<
-literal|"."
-operator|<<
+operator|+
+literal|'.'
+operator|+
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_EXTENSION_STATICLIB"
+argument_list|)
 argument_list|)
 operator|<<
 literal|":\n\t"
@@ -8160,6 +8366,14 @@ name|first
 argument_list|()
 decl_stmt|;
 name|QString
+name|sourceFile_f
+init|=
+name|escapeFilePath
+argument_list|(
+name|sourceFile
+argument_list|)
+decl_stmt|;
+name|QString
 name|objectFile
 init|=
 name|createObjectList
@@ -8178,17 +8392,26 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|pchOutput
+argument_list|)
 operator|<<
 literal|": "
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|pchInput
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
+name|escapeDependencyPaths
+argument_list|(
 name|findDependencies
 argument_list|(
 name|pchInput
+argument_list|)
 argument_list|)
 operator|.
 name|join
@@ -8198,11 +8421,14 @@ argument_list|)
 operator|<<
 literal|"\n\techo \"// Automatically generated, do not modify\"> "
 operator|<<
-name|sourceFile
+name|sourceFile_f
 operator|<<
 literal|"\n\trm -f "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|pchOutput
+argument_list|)
 expr_stmt|;
 name|pchFlags
 operator|.
@@ -8210,14 +8436,17 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_TEMP_SOURCE}"
 argument_list|,
-name|sourceFile
+name|sourceFile_f
 argument_list|)
 operator|.
 name|replace
 argument_list|(
 literal|"${QMAKE_PCH_TEMP_OBJECT}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|objectFile
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -8357,17 +8586,26 @@ name|header_suffix
 expr_stmt|;
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|pchOutput
+argument_list|)
 operator|<<
 literal|": "
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|pchInput
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
+name|escapeDependencyPaths
+argument_list|(
 name|findDependencies
 argument_list|(
 name|pchInput
+argument_list|)
 argument_list|)
 operator|.
 name|join
@@ -8389,27 +8627,36 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_INPUT}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|pchInput
+argument_list|)
 argument_list|)
 operator|.
 name|replace
 argument_list|(
 literal|"${QMAKE_PCH_OUTPUT_BASE}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|pchBaseName
 operator|.
 name|toQString
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|replace
 argument_list|(
 literal|"${QMAKE_PCH_OUTPUT}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|pchOutput
 operator|.
 name|toQString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QString
@@ -8982,14 +9229,11 @@ argument_list|)
 operator|+
 name|bundle_loc
 operator|+
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9020,14 +9264,11 @@ argument_list|)
 operator|+
 name|bundle_loc
 operator|+
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11111,7 +11352,7 @@ literal|"# The name that we can dlopen(3).\n"
 operator|<<
 literal|"dlname='"
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 name|project
 operator|->
@@ -11147,7 +11388,7 @@ condition|)
 block|{
 name|t
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET"
 argument_list|)
@@ -11166,23 +11407,23 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x.y.z"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 name|t
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_x"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"TARGET_"
 argument_list|)
@@ -11198,6 +11439,8 @@ literal|"# The name of the static archive.\n"
 operator|<<
 literal|"old_library='"
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|lname
 operator|.
 name|left
@@ -11213,6 +11456,7 @@ name|libtool_ext
 operator|.
 name|length
 argument_list|()
+argument_list|)
 argument_list|)
 operator|<<
 literal|".a'\n\n"
@@ -11277,9 +11521,7 @@ name|it
 control|)
 name|t
 operator|<<
-name|project
-operator|->
-name|values
+name|fixLibFlags
 argument_list|(
 operator|(
 operator|*
@@ -11295,7 +11537,7 @@ argument_list|(
 literal|' '
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 name|t
 operator|<<

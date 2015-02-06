@@ -3111,8 +3111,6 @@ comment|// We assume project filename is [QMAKE_PROJECT_NAME].vcproj
 name|QString
 name|vcproj
 init|=
-name|unescapeFilePath
-argument_list|(
 name|tmp_vcproj
 operator|.
 name|project
@@ -3127,7 +3125,6 @@ operator|->
 name|first
 argument_list|(
 literal|"VCPROJ_EXTENSION"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|QString
@@ -3336,14 +3333,11 @@ name|newDep
 operator|->
 name|orig_target
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|tmp_proj
 operator|.
 name|first
 argument_list|(
 literal|"QMAKE_ORIG_TARGET"
-argument_list|)
 argument_list|)
 operator|.
 name|toQString
@@ -4187,6 +4181,7 @@ operator|++
 name|it
 control|)
 block|{
+comment|// ### quoting rules?
 name|t
 operator|<<
 name|_slnProjectBeg
@@ -5225,37 +5220,6 @@ operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|inc
-operator|.
-name|startsWith
-argument_list|(
-literal|'"'
-argument_list|)
-operator|&&
-operator|!
-name|inc
-operator|.
-name|endsWith
-argument_list|(
-literal|'"'
-argument_list|)
-condition|)
-name|inc
-operator|=
-name|QString
-argument_list|(
-literal|"\"%1\""
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|inc
-argument_list|)
-expr_stmt|;
-comment|// Quote all paths if not quoted already
 name|project
 operator|->
 name|values
@@ -5267,7 +5231,10 @@ name|append
 argument_list|(
 literal|"-I"
 operator|+
+name|escapeFilePath
+argument_list|(
 name|inc
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5387,12 +5354,13 @@ literal|"&& "
 expr_stmt|;
 name|copydll
 operator|+=
-literal|"copy  \"$(TargetPath)\" \""
+literal|"copy \"$(TargetPath)\" "
 operator|+
+name|escapeFilePath
+argument_list|(
 operator|*
 name|dlldir
-operator|+
-literal|"\""
+argument_list|)
 expr_stmt|;
 block|}
 name|QString
@@ -5518,19 +5486,6 @@ literal|"staticlib"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"RES_FILE"
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|project
 operator|->
 name|values
@@ -5538,14 +5493,11 @@ argument_list|(
 literal|"QMAKE_LIBS"
 argument_list|)
 operator|+=
-name|escapeFilePaths
-argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"RES_FILE"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|projectTarget
@@ -5618,8 +5570,6 @@ comment|// Created files
 name|QString
 name|origTarget
 init|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -5629,7 +5579,6 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|precompObj
 operator|=
@@ -6170,8 +6119,6 @@ name|vcProject
 operator|.
 name|Name
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
@@ -6181,7 +6128,6 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
 expr_stmt|;
 switch|switch
 condition|(
@@ -7726,11 +7672,14 @@ operator|.
 name|linker
 operator|.
 name|AdditionalDependencies
-operator|+=
+operator|<<
+name|escapeFilePath
+argument_list|(
 name|libs
 operator|.
 name|toQString
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -8091,7 +8040,10 @@ argument_list|(
 literal|"signtool sign /F "
 argument_list|)
 operator|+
+name|escapeFilePath
+argument_list|(
 name|signature
+argument_list|)
 operator|+
 name|QLatin1String
 argument_list|(
@@ -11116,14 +11068,11 @@ expr_stmt|;
 name|ProString
 name|outputName
 init|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

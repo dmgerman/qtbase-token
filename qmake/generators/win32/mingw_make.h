@@ -44,6 +44,32 @@ argument|const QString&path
 argument_list|)
 specifier|const
 block|;
+name|ProString
+name|escapeDependencyPath
+argument_list|(
+argument|const ProString&path
+argument_list|)
+specifier|const
+block|{
+return|return
+name|MakefileGenerator
+operator|::
+name|escapeDependencyPath
+argument_list|(
+name|path
+argument_list|)
+return|;
+block|}
+name|virtual
+name|ProString
+name|fixLibFlag
+argument_list|(
+specifier|const
+name|ProString
+operator|&
+name|lib
+argument_list|)
+block|;
 name|QString
 name|getLibTarget
 argument_list|()
@@ -134,9 +160,6 @@ argument_list|()
 block|;
 name|QString
 name|objectsLinkLine
-block|;
-name|QString
-name|quote
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -336,33 +336,6 @@ argument_list|(
 literal|"ln -f -s"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"TARGET"
-argument_list|)
-condition|)
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"TARGET"
-argument_list|)
-operator|=
-name|escapeFilePaths
-argument_list|(
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"TARGET"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|project
 operator|->
 name|values
@@ -678,14 +651,11 @@ argument_list|(
 literal|"QMAKE_LIBS"
 argument_list|)
 operator|+=
-name|escapeFilePaths
-argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"LIBS"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|project
@@ -695,14 +665,11 @@ argument_list|(
 literal|"QMAKE_LIBS_PRIVATE"
 argument_list|)
 operator|+=
-name|escapeFilePaths
-argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"LIBS_PRIVATE"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1508,6 +1475,8 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_INPUT}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|project
 operator|->
 name|first
@@ -1518,6 +1487,7 @@ operator|.
 name|toQString
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|pchFlags
 operator|.
@@ -1525,7 +1495,10 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_OUTPUT_BASE}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|pchBaseName
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1545,6 +1518,8 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_OUTPUT}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|pchBaseName
 operator|+
 name|project
@@ -1552,6 +1527,7 @@ operator|->
 name|first
 argument_list|(
 literal|"QMAKE_PCH_OUTPUT_EXT"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1690,11 +1666,14 @@ name|replace
 argument_list|(
 literal|"${QMAKE_PCH_OUTPUT}"
 argument_list|,
+name|escapeFilePath
+argument_list|(
 name|pchBaseName
 operator|+
 name|pchOutputFile
 operator|+
 name|headerSuffix
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1933,14 +1912,11 @@ condition|)
 block|{
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1955,14 +1931,11 @@ argument_list|)
 condition|)
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_BUNDLE_NAME"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2012,14 +1985,11 @@ condition|)
 block|{
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2034,14 +2004,11 @@ argument_list|)
 condition|)
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_APPLICATION_BUNDLE_NAME"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2180,14 +2147,11 @@ condition|)
 block|{
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"TARGET"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2212,14 +2176,11 @@ argument_list|)
 condition|)
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_PLUGIN_BUNDLE_NAME"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2303,14 +2264,11 @@ argument_list|)
 condition|)
 name|bundle
 operator|=
-name|unescapeFilePath
-argument_list|(
 name|project
 operator|->
 name|first
 argument_list|(
 literal|"QMAKE_FRAMEWORK_BUNDLE_NAME"
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2889,6 +2847,8 @@ name|comp_flags
 operator|+=
 literal|" -rpath "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|Option
 operator|::
 name|fixPathToTargetOS
@@ -2896,6 +2856,7 @@ argument_list|(
 name|rpath
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3436,6 +3397,27 @@ return|;
 block|}
 end_function
 begin_function
+name|ProString
+DECL|function|fixLibFlag
+name|UnixMakefileGenerator
+operator|::
+name|fixLibFlag
+parameter_list|(
+specifier|const
+name|ProString
+modifier|&
+name|lib
+parameter_list|)
+block|{
+return|return
+name|escapeFilePath
+argument_list|(
+name|lib
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 name|bool
 DECL|function|findLibraries
 name|UnixMakefileGenerator
@@ -3680,7 +3662,10 @@ name|it
 operator|=
 name|libArg
 operator|+
-name|lib
+name|f
+operator|.
+name|real
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -5023,8 +5008,6 @@ name|prl
 operator|+
 literal|1
 argument_list|,
-name|escapeFilePath
-argument_list|(
 name|prl_libs
 operator|.
 name|at
@@ -5034,7 +5017,6 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|prl_libs
@@ -5954,6 +5936,8 @@ argument_list|()
 decl_stmt|,
 name|dst
 init|=
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -5968,6 +5952,7 @@ literal|'/'
 argument_list|,
 operator|-
 literal|1
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5985,15 +5970,16 @@ literal|"\n\t"
 expr_stmt|;
 name|ret
 operator|+=
-literal|"-$(INSTALL_FILE) \""
+literal|"-$(INSTALL_FILE) "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|src
+argument_list|)
 operator|+
-literal|"\" \""
+literal|' '
 operator|+
 name|dst
-operator|+
-literal|"\""
 expr_stmt|;
 if|if
 condition|(
@@ -6014,11 +6000,9 @@ name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(DEL_FILE) \""
+literal|"-$(DEL_FILE) "
 operator|+
 name|dst
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -6039,7 +6023,10 @@ block|{
 name|QString
 name|src_targ
 init|=
+name|escapeFilePath
+argument_list|(
 name|target
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -6089,30 +6076,29 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|=
-literal|"-$(LIBTOOL) --mode=install cp \""
+literal|"-$(LIBTOOL) --mode=install cp "
 operator|+
 name|src_targ
 operator|+
-literal|"\" \""
+literal|' '
 operator|+
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
 argument_list|,
 name|dst_dir
 argument_list|)
-operator|+
-literal|"\""
+argument_list|)
 expr_stmt|;
 name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(LIBTOOL) --mode=uninstall \""
+literal|"-$(LIBTOOL) --mode=uninstall "
 operator|+
 name|src_targ
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -6166,6 +6152,13 @@ name|dst_targ
 init|=
 name|plain_targ
 decl_stmt|;
+name|plain_targ
+operator|=
+name|escapeFilePath
+argument_list|(
+name|plain_targ
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|bundle
@@ -6239,11 +6232,11 @@ literal|"\n\t"
 expr_stmt|;
 name|ret
 operator|+=
-literal|"$(DEL_FILE) -r \""
+literal|"$(DEL_FILE) -r "
 operator|+
 name|plain_targ
 operator|+
-literal|"\"\n\t"
+literal|"\n\t"
 expr_stmt|;
 block|}
 else|else
@@ -6254,6 +6247,20 @@ name|suffix
 expr_stmt|;
 block|}
 block|}
+name|src_targ
+operator|=
+name|escapeFilePath
+argument_list|(
+name|src_targ
+argument_list|)
+expr_stmt|;
+name|dst_targ
+operator|=
+name|escapeFilePath
+argument_list|(
+name|dst_targ
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -6281,15 +6288,13 @@ condition|)
 block|{
 name|copy_cmd
 operator|+=
-literal|"$(INSTALL_DIR) \""
+literal|"$(INSTALL_DIR) "
 operator|+
 name|src_targ
 operator|+
-literal|"\" \""
+literal|' '
 operator|+
 name|plain_targ
-operator|+
-literal|"\""
 expr_stmt|;
 block|}
 elseif|else
@@ -6314,15 +6319,13 @@ condition|)
 block|{
 name|copy_cmd
 operator|+=
-literal|"$(INSTALL_FILE) \""
+literal|"$(INSTALL_FILE) "
 operator|+
 name|src_targ
 operator|+
-literal|"\" \""
+literal|' '
 operator|+
 name|dst_targ
-operator|+
-literal|"\""
 expr_stmt|;
 block|}
 else|else
@@ -6337,11 +6340,11 @@ name|ret
 operator|+=
 name|mkdir_p_asstring
 argument_list|(
-literal|"\"`dirname \""
+literal|"\"`dirname "
 operator|+
 name|dst_targ
 operator|+
-literal|"\"`\""
+literal|"`\""
 argument_list|,
 literal|false
 argument_list|)
@@ -6350,15 +6353,13 @@ literal|"\n\t"
 expr_stmt|;
 name|copy_cmd
 operator|+=
-literal|"$(INSTALL_PROGRAM) \""
+literal|"$(INSTALL_PROGRAM) "
 operator|+
 name|src_targ
 operator|+
-literal|"\" \""
+literal|' '
 operator|+
 name|dst_targ
-operator|+
-literal|"\""
 expr_stmt|;
 block|}
 if|if
@@ -6425,15 +6426,13 @@ argument_list|(
 literal|"QMAKE_FIX_RPATH"
 argument_list|)
 operator|+
-literal|" \""
+literal|' '
 operator|+
 name|dst_targ
 operator|+
-literal|"\" \""
+literal|' '
 operator|+
 name|dst_targ
-operator|+
-literal|"\""
 expr_stmt|;
 block|}
 elseif|else
@@ -6459,11 +6458,11 @@ argument_list|)
 operator|+
 name|targetdir
 operator|+
-literal|" -o \""
+literal|" -o "
 operator|+
 name|dst_targ
 operator|+
-literal|"\" $(OBJECTS) $(LIBS) $(OBJCOMP)"
+literal|" $(OBJECTS) $(LIBS) $(OBJCOMP)"
 expr_stmt|;
 block|}
 else|else
@@ -6514,12 +6513,10 @@ name|ret
 operator|+=
 name|QString
 argument_list|(
-literal|"\n\t$(RANLIB) \""
+literal|"\n\t$(RANLIB) "
 argument_list|)
 operator|+
 name|dst_targ
-operator|+
-literal|"\""
 expr_stmt|;
 block|}
 elseif|else
@@ -6621,11 +6618,9 @@ expr_stmt|;
 block|}
 name|ret
 operator|+=
-literal|" \""
+literal|' '
 operator|+
 name|dst_targ
-operator|+
-literal|"\""
 expr_stmt|;
 block|}
 if|if
@@ -6653,11 +6648,9 @@ name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(DEL_FILE) -r \""
+literal|"-$(DEL_FILE) -r "
 operator|+
 name|plain_targ
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 else|else
@@ -6665,11 +6658,9 @@ name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(DEL_FILE) \""
+literal|"-$(DEL_FILE) "
 operator|+
 name|dst_targ
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 if|if
@@ -6707,16 +6698,10 @@ literal|"QMAKE_BUNDLED_FILES"
 argument_list|)
 control|)
 block|{
-name|QString
+name|ProString
 name|file
 init|=
-name|unescapeFilePath
-argument_list|(
 name|src
-operator|.
-name|toQString
-argument_list|()
-argument_list|)
 operator|.
 name|mid
 argument_list|(
@@ -6726,6 +6711,8 @@ decl_stmt|;
 name|QString
 name|dst
 init|=
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -6737,6 +6724,7 @@ operator|+
 name|file
 argument_list|,
 name|FileFixifyAbsolute
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -6756,11 +6744,11 @@ name|ret
 operator|+=
 name|mkdir_p_asstring
 argument_list|(
-literal|"\"`dirname \""
+literal|"\"`dirname "
 operator|+
 name|dst
 operator|+
-literal|"\"`\""
+literal|"`\""
 argument_list|,
 literal|false
 argument_list|)
@@ -6769,24 +6757,25 @@ literal|"\n\t"
 expr_stmt|;
 name|ret
 operator|+=
-literal|"-$(DEL_FILE) \""
+literal|"-$(DEL_FILE) "
 operator|+
 name|dst
 operator|+
-literal|"\"\n\t"
+literal|"\n\t"
 expr_stmt|;
 comment|// Can't overwrite symlinks to directories
 name|ret
 operator|+=
 literal|"-$(INSTALL_DIR) "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|src
+argument_list|)
 operator|+
-literal|" \""
+literal|" "
 operator|+
 name|dst
-operator|+
-literal|"\""
 expr_stmt|;
 comment|// Use cp -R to copy symlinks
 if|if
@@ -6808,11 +6797,9 @@ name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(DEL_FILE) \""
+literal|"-$(DEL_FILE) "
 operator|+
 name|dst
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -6912,6 +6899,8 @@ expr_stmt|;
 name|QString
 name|dst_link
 init|=
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -6925,14 +6914,13 @@ argument_list|,
 name|FileFixifyAbsolute
 argument_list|)
 argument_list|)
+argument_list|)
 decl_stmt|;
 name|ret
 operator|+=
-literal|"\n\t-$(SYMLINK) \"$(TARGET)\" \""
+literal|"\n\t-$(SYMLINK) $(TARGET) "
 operator|+
 name|dst_link
-operator|+
-literal|"\""
 expr_stmt|;
 if|if
 condition|(
@@ -6953,11 +6941,9 @@ name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(DEL_FILE) \""
+literal|"-$(DEL_FILE) "
 operator|+
 name|dst_link
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -7174,11 +7160,12 @@ name|uninst
 operator|.
 name|append
 argument_list|(
-literal|"-$(DEL_FILE) \""
+literal|"-$(DEL_FILE) "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|dst_meta
-operator|+
-literal|"\""
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -7294,11 +7281,6 @@ argument_list|()
 condition|)
 block|{
 name|ret
-operator|=
-name|unescapeFilePath
-argument_list|(
-name|ret
-argument_list|)
 operator|.
 name|replace
 argument_list|(

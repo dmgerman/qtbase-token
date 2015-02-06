@@ -12161,7 +12161,6 @@ name|deps
 expr_stmt|;
 comment|// input files themselves too..
 comment|// Replace variables for command w/all input files
-comment|// ### join gives path issues with directories containing spaces!
 name|cmd
 operator|=
 name|Project
@@ -12171,13 +12170,11 @@ argument_list|(
 name|tmp_cmd
 argument_list|,
 name|inputs
-operator|.
-name|join
-argument_list|(
-literal|' '
-argument_list|)
 argument_list|,
+name|QStringList
+argument_list|(
 name|out
+argument_list|)
 argument_list|,
 name|MakefileGenerator
 operator|::
@@ -12273,55 +12270,6 @@ else|else
 name|cmd_name
 operator|=
 name|cmd
-expr_stmt|;
-if|if
-condition|(
-operator|(
-name|cmd_name
-index|[
-literal|0
-index|]
-operator|==
-literal|'\''
-operator|||
-name|cmd_name
-index|[
-literal|0
-index|]
-operator|==
-literal|'"'
-operator|)
-operator|&&
-name|cmd_name
-index|[
-literal|0
-index|]
-operator|==
-name|cmd_name
-index|[
-name|cmd_name
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|1
-index|]
-condition|)
-name|cmd_name
-operator|=
-name|cmd_name
-operator|.
-name|mid
-argument_list|(
-literal|1
-argument_list|,
-name|cmd_name
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|2
-argument_list|)
 expr_stmt|;
 block|}
 comment|// Fixify paths

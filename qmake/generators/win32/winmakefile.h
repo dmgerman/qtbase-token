@@ -171,6 +171,16 @@ name|findLibraries
 argument_list|()
 block|;
 name|virtual
+name|ProString
+name|fixLibFlag
+argument_list|(
+specifier|const
+name|ProString
+operator|&
+name|lib
+argument_list|)
+block|;
+name|virtual
 name|void
 name|processPrlFiles
 argument_list|()
