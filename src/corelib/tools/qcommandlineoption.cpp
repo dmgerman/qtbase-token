@@ -28,6 +28,11 @@ DECL|function|QCommandLineOptionPrivate
 specifier|inline
 name|QCommandLineOptionPrivate
 parameter_list|()
+member_init_list|:
+name|hidden
+argument_list|(
+literal|false
+argument_list|)
 block|{ }
 name|void
 name|setNames
@@ -58,6 +63,11 @@ comment|//! The list of default values used for this option.
 DECL|member|defaultValues
 name|QStringList
 name|defaultValues
+decl_stmt|;
+comment|//! Show or hide in --help
+DECL|member|hidden
+name|bool
+name|hidden
 decl_stmt|;
 block|}
 class|;
@@ -661,6 +671,47 @@ return|return
 name|d
 operator|->
 name|defaultValues
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Sets whether to hide this option in the user-visible help output.      All options are visible by default. Setting \a hidden to true for     a particular option makes it internal, i.e. not listed in the help output.      \since 5.5     \sa isHidden  */
+end_comment
+begin_function
+DECL|function|setHidden
+name|void
+name|QCommandLineOption
+operator|::
+name|setHidden
+parameter_list|(
+name|bool
+name|hide
+parameter_list|)
+block|{
+name|d
+operator|->
+name|hidden
+operator|=
+name|hide
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns true if this option is omitted from the help output,     false if the option is listed.      \since 5.5     \sa setHidden()  */
+end_comment
+begin_function
+DECL|function|isHidden
+name|bool
+name|QCommandLineOption
+operator|::
+name|isHidden
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|hidden
 return|;
 block|}
 end_function

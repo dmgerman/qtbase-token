@@ -3340,6 +3340,14 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|option
+operator|.
+name|isHidden
+argument_list|()
+condition|)
+continue|continue;
 name|text
 operator|+=
 name|wrapText

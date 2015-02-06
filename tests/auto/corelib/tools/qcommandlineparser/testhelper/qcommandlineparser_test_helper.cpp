@@ -273,6 +273,43 @@ argument_list|(
 name|newlineOption
 argument_list|)
 expr_stmt|;
+comment|// A hidden option
+name|QCommandLineOption
+name|hiddenOption
+argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
+name|QStringLiteral
+argument_list|(
+literal|"hidden"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|hiddenOption
+operator|.
+name|setDescription
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"THIS SHOULD NEVER APPEAR"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|hiddenOption
+operator|.
+name|setHidden
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|addOption
+argument_list|(
+name|hiddenOption
+argument_list|)
+expr_stmt|;
 comment|// This program supports different options depending on the "command" (first argument).
 comment|// Call parse() to find out the positional arguments.
 name|parser
