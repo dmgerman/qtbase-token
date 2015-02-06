@@ -26153,7 +26153,7 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|int
+name|uint
 name|i
 init|=
 literal|0
