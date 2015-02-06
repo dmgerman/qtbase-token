@@ -2503,6 +2503,9 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
+operator|delete
+name|ev
+expr_stmt|;
 block|}
 else|else
 block|{
