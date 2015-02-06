@@ -235,7 +235,7 @@ name|sdkhandler
 decl_stmt|;
 name|sdkhandler
 operator|.
-name|parse
+name|retrieveAvailableSDKs
 argument_list|()
 expr_stmt|;
 specifier|const
