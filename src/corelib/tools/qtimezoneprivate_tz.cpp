@@ -902,7 +902,7 @@ end_function
 begin_function
 DECL|function|parseTzTypes
 specifier|static
-name|QList
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
@@ -916,11 +916,14 @@ name|int
 name|tzh_typecnt
 parameter_list|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
-name|typeList
+name|types
+argument_list|(
+name|tzh_typecnt
+argument_list|)
 decl_stmt|;
 comment|// Parse tzh_typecnt x transition types
 for|for
@@ -948,7 +951,13 @@ name|i
 control|)
 block|{
 name|QTzType
+modifier|&
 name|type
+init|=
+name|types
+index|[
+name|i
+index|]
 decl_stmt|;
 comment|// Parse UTC Offset, 4 bytes
 name|ds
@@ -1012,21 +1021,21 @@ name|ds
 operator|.
 name|status
 argument_list|()
-operator|==
+operator|!=
 name|QDataStream
 operator|::
 name|Ok
 condition|)
-name|typeList
+name|types
 operator|.
-name|append
+name|resize
 argument_list|(
-name|type
+name|i
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|typeList
+name|types
 return|;
 block|}
 end_function
@@ -1048,11 +1057,13 @@ parameter_list|,
 name|int
 name|tzh_charcnt
 parameter_list|,
-name|QList
+specifier|const
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
-name|typeList
+modifier|&
+name|types
 parameter_list|)
 block|{
 comment|// Parse the abbreviation list which is tzh_charcnt long with '\0' separated strings. The
@@ -1129,14 +1140,15 @@ return|return
 name|map
 return|;
 block|}
-comment|// Then extract all the substrings pointed to by typeList
+comment|// Then extract all the substrings pointed to by types
 foreach|foreach
 control|(
 specifier|const
 name|QTzType
+modifier|&
 name|type
 decl|,
-name|typeList
+name|types
 control|)
 block|{
 name|QByteArray
@@ -1322,7 +1334,7 @@ end_function
 begin_function
 DECL|function|parseTzIndicators
 specifier|static
-name|QList
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
@@ -1333,12 +1345,12 @@ modifier|&
 name|ds
 parameter_list|,
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
 modifier|&
-name|typeList
+name|types
 parameter_list|,
 name|int
 name|tzh_ttisstdcnt
@@ -1347,13 +1359,13 @@ name|int
 name|tzh_ttisgmtcnt
 parameter_list|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
-name|list
+name|result
 init|=
-name|typeList
+name|types
 decl_stmt|;
 name|bool
 name|temp
@@ -1398,7 +1410,7 @@ name|QDataStream
 operator|::
 name|Ok
 condition|)
-name|list
+name|result
 index|[
 name|i
 index|]
@@ -1448,7 +1460,7 @@ name|QDataStream
 operator|::
 name|Ok
 condition|)
-name|list
+name|result
 index|[
 name|i
 index|]
@@ -1459,7 +1471,7 @@ name|temp
 expr_stmt|;
 block|}
 return|return
-name|list
+name|result
 return|;
 block|}
 end_function
@@ -3142,7 +3154,7 @@ operator|::
 name|Ok
 condition|)
 return|return;
-name|QList
+name|QVector
 argument_list|<
 name|QTzType
 argument_list|>
