@@ -10248,27 +10248,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_LN_SHLIB"
-argument_list|)
-condition|)
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"QMAKE_LN_SHLIB"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"ln -s"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
 operator|!
 name|project
 operator|->
