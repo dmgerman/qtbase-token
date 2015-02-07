@@ -216,10 +216,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 name|QWindow
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-name|Visibility
-argument_list|)
 comment|// All properties which are declared here are inherited by QQuickWindow and therefore available in QML.
 comment|// So please think carefully about what it does to the QML namespace if you add any new ones,
 comment|// particularly the possible meanings these names might have in any specializations of Window.
@@ -431,6 +427,10 @@ block|,
 name|FullScreen
 block|}
 decl_stmt|;
+name|Q_ENUM
+argument_list|(
+argument|Visibility
+argument_list|)
 name|explicit
 name|QWindow
 parameter_list|(

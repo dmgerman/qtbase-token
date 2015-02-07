@@ -545,10 +545,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|LoggingMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|LoggingMode loggingMode READ loggingMode
@@ -563,6 +559,10 @@ block|,
 name|SynchronousLogging
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|LoggingMode
+argument_list|)
 name|explicit
 name|QOpenGLDebugLogger
 argument_list|(

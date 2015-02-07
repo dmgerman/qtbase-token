@@ -1104,14 +1104,6 @@ name|public
 name|QInputEvent
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-argument|TabletDevice
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|PointerType
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -1132,7 +1124,12 @@ comment|/*internal*/
 block|,
 name|RotationStylus
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|TabletDevice
+argument_list|)
+expr|enum
 name|PointerType
 block|{
 name|UnknownPointer
@@ -1144,6 +1141,10 @@ block|,
 name|Eraser
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|PointerType
+argument_list|)
 name|QTabletEvent
 argument_list|(
 argument|Type t

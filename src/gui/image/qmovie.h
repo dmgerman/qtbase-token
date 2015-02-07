@@ -100,10 +100,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QMovie
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|MovieState CacheMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|int speed READ speed WRITE setSpeed
@@ -123,7 +119,12 @@ name|Paused
 block|,
 name|Running
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|MovieState
+argument_list|)
+expr|enum
 name|CacheMode
 block|{
 name|CacheNone
@@ -131,6 +132,10 @@ block|,
 name|CacheAll
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|CacheMode
+argument_list|)
 name|explicit
 name|QMovie
 argument_list|(

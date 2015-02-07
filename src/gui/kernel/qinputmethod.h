@@ -86,10 +86,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|Qt::LayoutDirection inputDirection READ inputDirection NOTIFY inputDirectionChanged
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|Action
-argument_list|)
 name|public
 operator|:
 name|QTransform
@@ -140,6 +136,10 @@ block|,
 name|ContextMenu
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Action
+argument_list|)
 name|bool
 name|isVisible
 argument_list|()

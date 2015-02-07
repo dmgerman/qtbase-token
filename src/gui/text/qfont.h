@@ -57,10 +57,6 @@ name|Q_GUI_EXPORT
 name|QFont
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-name|StyleStrategy
-argument_list|)
 name|public
 range|:     enum
 name|StyleHint
@@ -156,26 +152,30 @@ init|=
 literal|0x8000
 block|}
 enum|;
-enum|enum
+name|Q_ENUM
+argument_list|(
+name|StyleStrategy
+argument_list|)
+expr|enum
 name|HintingPreference
 block|{
 name|PreferDefaultHinting
-init|=
+operator|=
 literal|0
 block|,
 name|PreferNoHinting
-init|=
+operator|=
 literal|1
 block|,
 name|PreferVerticalHinting
-init|=
+operator|=
 literal|2
 block|,
 name|PreferFullHinting
-init|=
+operator|=
 literal|3
 block|}
-enum|;
+expr_stmt|;
 comment|// Mapping OpenType weight value.
 enum|enum
 name|Weight

@@ -321,10 +321,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|int decimals READ decimals WRITE setDecimals NOTIFY decimalsChanged
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|Notation
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Notation notation READ notation WRITE setNotation NOTIFY notationChanged
@@ -364,6 +360,10 @@ block|,
 name|ScientificNotation
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Notation
+argument_list|)
 name|QValidator
 operator|::
 name|State

@@ -117,10 +117,6 @@ name|Q_GUI_EXPORT
 name|QKeySequence
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-name|StandardKey
-argument_list|)
 name|public
 range|:     enum
 name|StandardKey
@@ -266,14 +262,18 @@ block|,
 name|Backspace
 block|}
 decl_stmt|;
-enum|enum
+name|Q_ENUM
+argument_list|(
+name|StandardKey
+argument_list|)
+expr|enum
 name|SequenceFormat
 block|{
 name|NativeText
 block|,
 name|PortableText
 block|}
-enum|;
+expr_stmt|;
 name|QKeySequence
 argument_list|()
 expr_stmt|;

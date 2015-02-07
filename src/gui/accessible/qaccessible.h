@@ -109,11 +109,6 @@ name|Q_GUI_EXPORT
 name|QAccessible
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-name|Role
-name|Event
-argument_list|)
 name|public
 range|:      enum
 name|Event
@@ -395,6 +390,10 @@ block|,
 name|InvalidEvent
 block|}
 decl_stmt|;
+name|Q_ENUM
+argument_list|(
+argument|Event
+argument_list|)
 comment|// 64 bit enums seem hard on some platforms (windows...)
 comment|// which makes using a bit field a sensible alternative
 struct|struct
@@ -990,11 +989,15 @@ init|=
 literal|0x0000ffff
 block|}
 enum|;
-enum|enum
+name|Q_ENUM
+argument_list|(
+name|Role
+argument_list|)
+expr|enum
 name|Text
 block|{
 name|Name
-init|=
+operator|=
 literal|0
 block|,
 name|Description
@@ -1008,10 +1011,10 @@ block|,
 name|DebugDescription
 block|,
 name|UserText
-init|=
+operator|=
 literal|0x0000ffff
 block|}
-enum|;
+expr_stmt|;
 enum|enum
 name|RelationFlag
 block|{

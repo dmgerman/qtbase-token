@@ -277,7 +277,7 @@ name|defined
 argument_list|(
 name|QT_DEBUG
 argument_list|)
-name|Q_ENUMS
+name|Q_ENUM
 argument_list|(
 argument|SnippetName
 argument_list|)
