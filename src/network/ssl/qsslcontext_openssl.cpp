@@ -1320,11 +1320,12 @@ condition|)
 block|{
 name|q_X509_STORE_add_cert
 argument_list|(
+name|q_SSL_CTX_get_cert_store
+argument_list|(
 name|sslContext
 operator|->
 name|ctx
-operator|->
-name|cert_store
+argument_list|)
 argument_list|,
 operator|(
 name|X509

@@ -2291,6 +2291,23 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
+argument|X509_STORE *
+argument_list|,
+argument|SSL_CTX_get_cert_store
+argument_list|,
+argument|const SSL_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
 argument|void
 argument_list|,
 argument|SSL_free
@@ -6613,6 +6630,11 @@ name|RESOLVEFUNC
 argument_list|(
 argument|SSL_CTX_use_PrivateKey_file
 argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+name|SSL_CTX_get_cert_store
+argument_list|)
+expr_stmt|;
 name|RESOLVEFUNC
 argument_list|(
 argument|SSL_accept
