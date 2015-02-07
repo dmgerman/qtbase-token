@@ -38,10 +38,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QStackedLayout
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|StackingMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentChanged
@@ -64,6 +60,10 @@ block|,
 name|StackAll
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|StackingMode
+argument_list|)
 name|QStackedLayout
 argument_list|()
 block|;

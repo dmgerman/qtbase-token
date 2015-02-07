@@ -100,10 +100,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|ActionPosition EchoMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|QString inputMask READ inputMask WRITE setInputMask
@@ -190,6 +186,10 @@ block|,
 name|TrailingPosition
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ActionPosition
+argument_list|)
 name|explicit
 name|QLineEdit
 argument_list|(
@@ -285,6 +285,10 @@ block|,
 name|PasswordEchoOnEdit
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|EchoMode
+argument_list|)
 name|EchoMode
 name|echoMode
 argument_list|()

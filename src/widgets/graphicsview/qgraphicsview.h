@@ -84,10 +84,6 @@ name|Q_FLAGS
 argument_list|(
 argument|QPainter::RenderHints CacheMode OptimizationFlags
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|ViewportAnchor DragMode ViewportUpdateMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|QBrush backgroundBrush READ backgroundBrush WRITE setBackgroundBrush
@@ -156,7 +152,12 @@ name|AnchorViewCenter
 block|,
 name|AnchorUnderMouse
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ViewportAnchor
+argument_list|)
+expr|enum
 name|CacheModeFlag
 block|{
 name|CacheNone
@@ -183,7 +184,12 @@ name|ScrollHandDrag
 block|,
 name|RubberBandDrag
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|DragMode
+argument_list|)
+expr|enum
 name|ViewportUpdateMode
 block|{
 name|FullViewportUpdate
@@ -196,7 +202,12 @@ name|NoViewportUpdate
 block|,
 name|BoundingRectViewportUpdate
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ViewportUpdateMode
+argument_list|)
+expr|enum
 name|OptimizationFlag
 block|{
 name|DontClipPainter

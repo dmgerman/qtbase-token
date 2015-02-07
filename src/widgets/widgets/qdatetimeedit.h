@@ -59,10 +59,6 @@ name|public
 name|QAbstractSpinBox
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Section
-argument_list|)
 name|Q_FLAGS
 argument_list|(
 argument|Sections
@@ -193,6 +189,10 @@ operator||
 name|YearSection
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Section
+argument_list|)
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|Sections

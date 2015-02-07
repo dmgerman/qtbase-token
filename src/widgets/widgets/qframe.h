@@ -40,10 +40,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Shape Shadow
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Shape frameShape READ frameShape WRITE setFrameShape
@@ -143,7 +139,12 @@ operator|=
 literal|0x0006
 comment|// rectangular panel depending on the GUI style
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Shape
+argument_list|)
+expr|enum
 name|Shadow
 block|{
 name|Plain
@@ -161,7 +162,12 @@ operator|=
 literal|0x0030
 comment|// sunken shadow effect
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Shadow
+argument_list|)
+expr|enum
 name|StyleMask
 block|{
 name|Shadow_Mask

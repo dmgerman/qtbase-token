@@ -55,10 +55,6 @@ name|public
 name|QDialog
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Icon
-argument_list|)
 name|Q_FLAGS
 argument_list|(
 argument|StandardButtons
@@ -126,7 +122,12 @@ name|Question
 operator|=
 literal|4
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Icon
+argument_list|)
+expr|enum
 name|ButtonRole
 block|{
 comment|// keep this in sync with QDialogButtonBox::ButtonRole and QPlatformDialogHelper::ButtonRole

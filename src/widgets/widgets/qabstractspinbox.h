@@ -54,14 +54,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|ButtonSymbols
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|CorrectionMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|bool wrapping READ wrapping WRITE setWrapping
@@ -157,6 +149,10 @@ block|,
 name|NoButtons
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ButtonSymbols
+argument_list|)
 name|ButtonSymbols
 name|buttonSymbols
 argument_list|()
@@ -175,6 +171,10 @@ block|,
 name|CorrectToNearestValue
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|CorrectionMode
+argument_list|)
 name|void
 name|setCorrectionMode
 argument_list|(

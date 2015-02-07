@@ -75,10 +75,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|Qt::Alignment defaultAlignment READ defaultAlignment WRITE setDefaultAlignment
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|ResizeMode
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -97,6 +93,10 @@ operator|=
 name|Fixed
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ResizeMode
+argument_list|)
 name|explicit
 name|QHeaderView
 argument_list|(

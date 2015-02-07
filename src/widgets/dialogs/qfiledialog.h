@@ -87,10 +87,6 @@ name|public
 name|QDialog
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|ViewMode FileMode AcceptMode Option
-argument_list|)
 name|Q_FLAGS
 argument_list|(
 argument|Options
@@ -140,7 +136,12 @@ name|Detail
 block|,
 name|List
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ViewMode
+argument_list|)
+expr|enum
 name|FileMode
 block|{
 name|AnyFile
@@ -153,14 +154,24 @@ name|ExistingFiles
 block|,
 name|DirectoryOnly
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|FileMode
+argument_list|)
+expr|enum
 name|AcceptMode
 block|{
 name|AcceptOpen
 block|,
 name|AcceptSave
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|AcceptMode
+argument_list|)
+expr|enum
 name|DialogLabel
 block|{
 name|LookIn
@@ -209,6 +220,10 @@ operator|=
 literal|0x00000080
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Option
+argument_list|)
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|Options

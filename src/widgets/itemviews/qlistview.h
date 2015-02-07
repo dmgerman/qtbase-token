@@ -37,10 +37,6 @@ name|public
 name|QAbstractItemView
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Movement Flow ResizeMode LayoutMode ViewMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Movement movement READ movement WRITE setMovement
@@ -104,28 +100,48 @@ name|Free
 block|,
 name|Snap
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Movement
+argument_list|)
+expr|enum
 name|Flow
 block|{
 name|LeftToRight
 block|,
 name|TopToBottom
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Flow
+argument_list|)
+expr|enum
 name|ResizeMode
 block|{
 name|Fixed
 block|,
 name|Adjust
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ResizeMode
+argument_list|)
+expr|enum
 name|LayoutMode
 block|{
 name|SinglePass
 block|,
 name|Batched
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|LayoutMode
+argument_list|)
+expr|enum
 name|ViewMode
 block|{
 name|ListMode
@@ -133,6 +149,10 @@ block|,
 name|IconMode
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ViewMode
+argument_list|)
 name|explicit
 name|QListView
 argument_list|(

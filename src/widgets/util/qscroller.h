@@ -85,10 +85,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|QScrollerProperties scrollerProperties READ scrollerProperties WRITE setScrollerProperties NOTIFY scrollerPropertiesChanged
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|State
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -102,7 +98,12 @@ name|Dragging
 block|,
 name|Scrolling
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|State
+argument_list|)
+expr|enum
 name|ScrollerGestureType
 block|{
 name|TouchGesture

@@ -58,18 +58,6 @@ name|Q_ENUMS
 argument_list|(
 argument|Qt::DayOfWeek
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|HorizontalHeaderFormat
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|VerticalHeaderFormat
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|SelectionMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|QDate selectedDate READ selectedDate WRITE setSelectedDate
@@ -127,14 +115,24 @@ name|ShortDayNames
 block|,
 name|LongDayNames
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|HorizontalHeaderFormat
+argument_list|)
+expr|enum
 name|VerticalHeaderFormat
 block|{
 name|NoVerticalHeader
 block|,
 name|ISOWeekNumbers
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|VerticalHeaderFormat
+argument_list|)
+expr|enum
 name|SelectionMode
 block|{
 name|NoSelection
@@ -142,6 +140,10 @@ block|,
 name|SingleSelection
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SelectionMode
+argument_list|)
 name|explicit
 name|QCalendarWidget
 argument_list|(

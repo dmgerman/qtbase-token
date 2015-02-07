@@ -70,14 +70,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|InsertPolicy
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|SizeAdjustPolicy
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|bool editable READ isEditable WRITE setEditable
@@ -293,6 +285,10 @@ block|,
 name|InsertAlphabetically
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|InsertPolicy
+argument_list|)
 name|InsertPolicy
 name|insertPolicy
 argument_list|()
@@ -316,6 +312,10 @@ comment|// ### Qt 6: remove
 name|AdjustToMinimumContentsLengthWithIcon
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SizeAdjustPolicy
+argument_list|)
 name|SizeAdjustPolicy
 name|sizeAdjustPolicy
 argument_list|()

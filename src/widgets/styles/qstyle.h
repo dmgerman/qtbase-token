@@ -110,18 +110,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QStyle
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|StateFlag PrimitiveElement ControlElement SubElement ComplexControl
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|SubControl PixelMetric ContentsType RequestSoftwareInputPanel StyleHint
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|StandardPixmap
-argument_list|)
 name|protected
 operator|:
 name|QStyle
@@ -373,6 +361,10 @@ operator|=
 literal|0x08000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|StateFlag
+argument_list|)
 name|Q_DECLARE_FLAGS
 argument_list|(
 name|State
@@ -496,6 +488,10 @@ operator|=
 literal|0xf000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|PrimitiveElement
+argument_list|)
 name|virtual
 name|void
 name|drawPrimitive
@@ -615,6 +611,10 @@ operator|=
 literal|0xf0000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ControlElement
+argument_list|)
 name|virtual
 name|void
 name|drawControl
@@ -753,6 +753,10 @@ operator|=
 literal|0xf0000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SubElement
+argument_list|)
 name|virtual
 name|QRect
 name|subElementRect
@@ -793,7 +797,12 @@ name|CC_CustomBase
 operator|=
 literal|0xf0000000
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ComplexControl
+argument_list|)
+expr|enum
 name|SubControl
 block|{
 name|SC_None
@@ -969,6 +978,10 @@ operator|=
 literal|0xffffffff
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SubControl
+argument_list|)
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|SubControls
@@ -1237,6 +1250,10 @@ operator|=
 literal|0xf0000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|PixelMetric
+argument_list|)
 name|virtual
 name|int
 name|pixelMetric
@@ -1307,6 +1324,10 @@ operator|=
 literal|0xf0000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ContentsType
+argument_list|)
 name|virtual
 name|QSize
 name|sizeFromContents
@@ -1330,7 +1351,12 @@ name|RSIP_OnMouseClickAndAlreadyFocused
 block|,
 name|RSIP_OnMouseClick
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|RequestSoftwareInputPanel
+argument_list|)
+expr|enum
 name|StyleHint
 block|{
 name|SH_EtchDisabledText
@@ -1570,6 +1596,10 @@ operator|=
 literal|0xf0000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|StyleHint
+argument_list|)
 name|virtual
 name|int
 name|styleHint
@@ -1739,6 +1769,10 @@ operator|=
 literal|0xf0000000
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|StandardPixmap
+argument_list|)
 name|virtual
 name|QPixmap
 name|standardPixmap

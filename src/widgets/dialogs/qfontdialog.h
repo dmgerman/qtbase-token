@@ -51,10 +51,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QFontDialog
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|FontDialogOption
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|QFont currentFont READ currentFont WRITE setCurrentFont NOTIFY currentFontChanged
@@ -93,6 +89,10 @@ operator|=
 literal|0x00000020
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|FontDialogOption
+argument_list|)
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|FontDialogOptions

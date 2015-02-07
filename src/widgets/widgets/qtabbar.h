@@ -49,10 +49,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Shape
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Shape shape READ shape WRITE setShape
@@ -143,7 +139,12 @@ name|TriangularWest
 block|,
 name|TriangularEast
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Shape
+argument_list|)
+expr|enum
 name|ButtonPosition
 block|{
 name|LeftSide

@@ -43,10 +43,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Direction
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|int minimum READ minimum WRITE setMinimum
@@ -97,6 +93,10 @@ block|,
 name|BottomToTop
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Direction
+argument_list|)
 name|explicit
 name|QProgressBar
 argument_list|(

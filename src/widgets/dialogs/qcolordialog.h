@@ -41,10 +41,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QColorDialog
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|ColorDialogOption
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|QColor currentColor READ currentColor WRITE setCurrentColor                NOTIFY currentColorChanged
@@ -71,6 +67,10 @@ operator|=
 literal|0x00000004
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ColorDialogOption
+argument_list|)
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|ColorDialogOptions

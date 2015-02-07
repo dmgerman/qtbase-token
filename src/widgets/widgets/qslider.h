@@ -43,10 +43,6 @@ name|public
 name|QAbstractSlider
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|TickPosition
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|TickPosition tickPosition READ tickPosition WRITE setTickPosition
@@ -85,6 +81,10 @@ operator|=
 literal|3
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|TickPosition
+argument_list|)
 name|explicit
 name|QSlider
 argument_list|(

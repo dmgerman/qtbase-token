@@ -38,10 +38,6 @@ name|QFrame
 comment|// LCD number widget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Mode SegmentStyle
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|bool smallDecimalPoint READ smallDecimalPoint WRITE setSmallDecimalPoint
@@ -101,7 +97,12 @@ name|Oct
 block|,
 name|Bin
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Mode
+argument_list|)
+expr|enum
 name|SegmentStyle
 block|{
 name|Outline
@@ -111,6 +112,10 @@ block|,
 name|Flat
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SegmentStyle
+argument_list|)
 name|bool
 name|smallDecimalPoint
 argument_list|()

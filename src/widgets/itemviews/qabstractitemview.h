@@ -70,10 +70,6 @@ name|public
 name|QAbstractScrollArea
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|SelectionMode SelectionBehavior ScrollHint ScrollMode DragDropMode
-argument_list|)
 name|Q_FLAGS
 argument_list|(
 argument|EditTriggers
@@ -162,7 +158,12 @@ name|ExtendedSelection
 block|,
 name|ContiguousSelection
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|SelectionMode
+argument_list|)
+expr|enum
 name|SelectionBehavior
 block|{
 name|SelectItems
@@ -171,7 +172,12 @@ name|SelectRows
 block|,
 name|SelectColumns
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|SelectionBehavior
+argument_list|)
+expr|enum
 name|ScrollHint
 block|{
 name|EnsureVisible
@@ -182,7 +188,12 @@ name|PositionAtBottom
 block|,
 name|PositionAtCenter
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ScrollHint
+argument_list|)
+expr|enum
 name|EditTrigger
 block|{
 name|NoEditTriggers
@@ -228,6 +239,10 @@ block|,
 name|ScrollPerPixel
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ScrollMode
+argument_list|)
 name|explicit
 name|QAbstractItemView
 argument_list|(
@@ -437,6 +452,10 @@ block|,
 name|InternalMove
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|DragDropMode
+argument_list|)
 name|void
 name|setDragDropMode
 argument_list|(

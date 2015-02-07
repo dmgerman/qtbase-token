@@ -49,10 +49,6 @@ name|public
 name|QFrame
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|SizeAdjustPolicy
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Qt::ScrollBarPolicy verticalScrollBarPolicy READ verticalScrollBarPolicy WRITE setVerticalScrollBarPolicy
@@ -90,6 +86,10 @@ block|,
 name|AdjustToContents
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SizeAdjustPolicy
+argument_list|)
 name|Qt
 operator|::
 name|ScrollBarPolicy

@@ -51,7 +51,7 @@ block|{
 name|Q_OBJECT
 name|Q_ENUMS
 argument_list|(
-argument|Qt::ToolButtonStyle Qt::ArrowType ToolButtonPopupMode
+argument|Qt::ToolButtonStyle Qt::ArrowType
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -86,6 +86,10 @@ block|,
 name|InstantPopup
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ToolButtonPopupMode
+argument_list|)
 name|explicit
 name|QToolButton
 argument_list|(

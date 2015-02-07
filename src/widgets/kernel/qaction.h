@@ -79,14 +79,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QAction
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|MenuRole
-argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|Priority
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|bool checkable READ isCheckable WRITE setCheckable NOTIFY changed
@@ -182,7 +174,12 @@ name|PreferencesRole
 block|,
 name|QuitRole
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|MenuRole
+argument_list|)
+expr|enum
 name|Priority
 block|{
 name|LowPriority
@@ -198,6 +195,10 @@ operator|=
 literal|256
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Priority
+argument_list|)
 name|explicit
 name|QAction
 argument_list|(

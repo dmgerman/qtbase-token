@@ -79,10 +79,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 name|QLayout
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-name|SizeConstraint
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 name|int
@@ -127,6 +123,10 @@ block|,
 name|SetMinAndMaxSize
 block|}
 decl_stmt|;
+name|Q_ENUM
+argument_list|(
+argument|SizeConstraint
+argument_list|)
 name|QLayout
 argument_list|(
 name|QWidget

@@ -34,10 +34,6 @@ name|public
 name|QLayout
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|FieldGrowthPolicy RowWrapPolicy ItemRole
-argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QFormLayout
@@ -77,7 +73,12 @@ name|ExpandingFieldsGrow
 block|,
 name|AllNonFixedFieldsGrow
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|FieldGrowthPolicy
+argument_list|)
+expr|enum
 name|RowWrapPolicy
 block|{
 name|DontWrapRows
@@ -86,7 +87,12 @@ name|WrapLongRows
 block|,
 name|WrapAllRows
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|RowWrapPolicy
+argument_list|)
+expr|enum
 name|ItemRole
 block|{
 name|LabelRole
@@ -102,6 +108,10 @@ operator|=
 literal|2
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ItemRole
+argument_list|)
 name|explicit
 name|QFormLayout
 argument_list|(

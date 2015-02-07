@@ -57,10 +57,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|SubmitPolicy
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentIndexChanged
@@ -151,6 +147,10 @@ block|,
 name|ManualSubmit
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SubmitPolicy
+argument_list|)
 name|void
 name|setSubmitPolicy
 argument_list|(

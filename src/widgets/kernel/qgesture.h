@@ -604,10 +604,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QSwipeGesture
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|SwipeDirection
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|SwipeDirection horizontalDirection READ horizontalDirection STORED false
@@ -642,6 +638,10 @@ block|,
 name|Down
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|SwipeDirection
+argument_list|)
 name|explicit
 name|QSwipeGesture
 argument_list|(

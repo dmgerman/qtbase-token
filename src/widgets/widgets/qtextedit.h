@@ -97,10 +97,6 @@ name|Q_FLAGS
 argument_list|(
 argument|AutoFormatting
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|LineWrapMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|AutoFormatting autoFormatting READ autoFormatting WRITE setAutoFormatting
@@ -187,7 +183,12 @@ name|FixedPixelWidth
 block|,
 name|FixedColumnWidth
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|LineWrapMode
+argument_list|)
+expr|enum
 name|AutoFormattingFlag
 block|{
 name|AutoNone

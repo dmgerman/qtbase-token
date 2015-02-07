@@ -103,10 +103,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QPlainTextEdit
 argument_list|)
-name|Q_ENUMS
-argument_list|(
-argument|LineWrapMode
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|bool tabChangesFocus READ tabChangesFocus WRITE setTabChangesFocus
@@ -181,6 +177,10 @@ block|,
 name|WidgetWidth
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|LineWrapMode
+argument_list|)
 name|explicit
 name|QPlainTextEdit
 argument_list|(

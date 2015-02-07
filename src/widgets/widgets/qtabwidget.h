@@ -54,10 +54,6 @@ name|public
 name|QWidget
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|TabPosition TabShape
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|TabPosition tabPosition READ tabPosition WRITE setTabPosition
@@ -303,6 +299,10 @@ block|,
 name|East
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|TabPosition
+argument_list|)
 name|TabPosition
 name|tabPosition
 argument_list|()
@@ -343,6 +343,10 @@ block|,
 name|Triangular
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|TabShape
+argument_list|)
 name|TabShape
 name|tabShape
 argument_list|()
