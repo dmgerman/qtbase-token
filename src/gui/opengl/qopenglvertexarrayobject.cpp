@@ -816,13 +816,6 @@ name|vaoFuncs
 operator|.
 name|core_3_2
 operator|->
-name|initializeOpenGLFunctions
-argument_list|()
-expr_stmt|;
-name|vaoFuncs
-operator|.
-name|core_3_2
-operator|->
 name|glGenVertexArrays
 argument_list|(
 literal|1
@@ -858,13 +851,6 @@ expr_stmt|;
 name|vaoFuncsType
 operator|=
 name|Core_3_0
-expr_stmt|;
-name|vaoFuncs
-operator|.
-name|core_3_0
-operator|->
-name|initializeOpenGLFunctions
-argument_list|()
 expr_stmt|;
 name|vaoFuncs
 operator|.
