@@ -734,9 +734,10 @@ operator|.
 name|end
 argument_list|()
 condition|;
-name|it
 operator|++
+name|it
 control|)
+block|{
 if|if
 condition|(
 name|it
@@ -759,6 +760,7 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
 block|}
 return|return
 literal|false

@@ -1621,8 +1621,8 @@ operator|.
 name|atEnd
 argument_list|()
 condition|;
-name|frag
 operator|++
+name|frag
 control|)
 block|{
 name|writer

@@ -383,8 +383,8 @@ argument_list|()
 decl_stmt|;
 do|do
 block|{
-name|it
 operator|--
+name|it
 expr_stmt|;
 name|extra
 operator|+=

@@ -1896,9 +1896,10 @@ name|i
 operator|!=
 name|e
 condition|;
-name|i
 operator|++
+name|i
 control|)
+block|{
 if|if
 condition|(
 operator|!
@@ -1913,6 +1914,7 @@ condition|)
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;

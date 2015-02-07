@@ -4357,8 +4357,8 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-name|i
 operator|--
+name|i
 expr_stmt|;
 block|}
 block|}

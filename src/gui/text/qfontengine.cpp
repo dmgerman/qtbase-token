@@ -12747,8 +12747,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|it
 operator|++
+name|it
 expr_stmt|;
 block|}
 if|if
