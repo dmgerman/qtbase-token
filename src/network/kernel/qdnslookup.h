@@ -563,10 +563,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|Error Type
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Error error READ error NOTIFY finished
@@ -610,7 +606,12 @@ name|ServerRefusedError
 block|,
 name|NotFoundError
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|Error
+argument_list|)
+expr|enum
 name|Type
 block|{
 name|A
@@ -650,6 +651,10 @@ operator|=
 literal|16
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Type
+argument_list|)
 name|explicit
 name|QDnsLookup
 argument_list|(

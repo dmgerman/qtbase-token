@@ -80,10 +80,6 @@ name|public
 name|QIODevice
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|SocketType NetworkLayerProtocol SocketError SocketState SocketOption
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -98,7 +94,12 @@ operator|=
 operator|-
 literal|1
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|SocketType
+argument_list|)
+expr|enum
 name|NetworkLayerProtocol
 block|{
 name|IPv4Protocol
@@ -112,7 +113,12 @@ operator|=
 operator|-
 literal|1
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|NetworkLayerProtocol
+argument_list|)
+expr|enum
 name|SocketError
 block|{
 name|ConnectionRefusedError
@@ -170,7 +176,12 @@ operator|=
 operator|-
 literal|1
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|SocketError
+argument_list|)
+expr|enum
 name|SocketState
 block|{
 name|UnconnectedState
@@ -187,7 +198,12 @@ name|ListeningState
 block|,
 name|ClosingState
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|SocketState
+argument_list|)
+expr|enum
 name|SocketOption
 block|{
 name|LowDelayOption
@@ -211,7 +227,12 @@ comment|//SO_SNDBUF
 name|ReceiveBufferSizeSocketOption
 comment|//SO_RCVBUF
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|SocketOption
+argument_list|)
+expr|enum
 name|BindFlag
 block|{
 name|DefaultForPlatform

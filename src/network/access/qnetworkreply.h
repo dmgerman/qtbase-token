@@ -90,10 +90,6 @@ name|public
 name|QIODevice
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-argument|NetworkError
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -191,6 +187,10 @@ operator|=
 literal|499
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+name|NetworkError
+argument_list|)
 operator|~
 name|QNetworkReply
 argument_list|()
