@@ -3018,13 +3018,6 @@ name|i
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|cipher
-operator|->
-name|valid
-condition|)
-block|{
 name|QSslCipher
 name|ciph
 init|=
@@ -3081,7 +3074,6 @@ name|defaultCiphers
 operator|<<
 name|ciph
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
