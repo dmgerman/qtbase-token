@@ -2196,12 +2196,6 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|OPENSSL_NO_TLSEXT
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|OPENSSL_NO_NEXTPROTONEG
 argument_list|)
 end_if
@@ -2490,12 +2484,6 @@ directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x1000100fL
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|OPENSSL_NO_TLSEXT
-argument_list|)
 operator|&&
 operator|!
 name|defined
