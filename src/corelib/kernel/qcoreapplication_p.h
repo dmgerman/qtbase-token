@@ -325,9 +325,15 @@ name|defined
 argument_list|(
 name|Q_OS_WINRT
 argument_list|)
-name|bool
-name|modifiedArgv
+name|int
+name|origArgc
 block|;
+name|char
+operator|*
+operator|*
+name|origArgv
+block|;
+comment|// store unmodified arguments for QCoreApplication::arguments()
 endif|#
 directive|endif
 name|void
