@@ -648,7 +648,7 @@ block|}
 end_function
 begin_comment
 unit|}
-comment|/*!     \class QWindowsFontEngineDirectWrite     \brief Windows font engine using Direct Write.     \internal     \ingroup qt-lighthouse-win      Font engine for subpixel positioned text on Windows Vista     (with platform update) and Windows 7. If selected during     configuration, the engine will be selected only when the hinting     preference of a font is set to None or Vertical hinting. The font     database uses most of the same logic but creates a direct write     font based on the LOGFONT rather than a GDI handle.      The engine is currently regarded as experimental, meaning that code     using it should do substantial testing to make sure it covers their     use cases.      Will probably be superseded by a common Free Type font engine in Qt 5.X. */
+comment|/*!     \class QWindowsFontEngineDirectWrite     \brief Windows font engine using Direct Write.     \internal     \ingroup qt-lighthouse-win      Font engine for subpixel positioned text on Windows Vista     (with platform update) and Windows 7. If selected during     configuration, the engine will be selected only when the hinting     preference of a font is set to None or Vertical hinting. The font     database uses most of the same logic but creates a direct write     font based on the LOGFONT rather than a GDI handle.      Will probably be superseded by a common Free Type font engine in Qt 5.X. */
 end_comment
 begin_expr_stmt
 unit|QWindowsFontEngineDirectWrite

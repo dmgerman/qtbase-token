@@ -13132,7 +13132,7 @@ literal|"yes"
 argument_list|,
 literal|"-directwrite"
 argument_list|,
-literal|"Build support for DirectWrite font rendering (experimental, requires DirectWrite availability on target systems, e.g. Windows Vista with Platform Update, Windows 7, etc.)\n"
+literal|"Build support for DirectWrite font rendering (requires DirectWrite availability on target systems, e.g. Windows Vista with Platform Update, Windows 7, etc.)\n"
 argument_list|)
 expr_stmt|;
 name|desc
