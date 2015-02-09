@@ -2821,7 +2821,7 @@ endif|#
 directive|endif
 end_endif
 begin_function
-DECL|function|qPopulationCount
+name|Q_DECL_CONST_FUNCTION
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
@@ -2830,6 +2830,7 @@ parameter_list|(
 name|quint32
 name|v
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 ifdef|#
 directive|ifdef
@@ -2919,7 +2920,7 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|qPopulationCount
+name|Q_DECL_CONST_FUNCTION
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
@@ -2928,6 +2929,7 @@ parameter_list|(
 name|quint8
 name|v
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 ifdef|#
 directive|ifdef
@@ -2968,7 +2970,7 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|qPopulationCount
+name|Q_DECL_CONST_FUNCTION
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
@@ -2977,6 +2979,7 @@ parameter_list|(
 name|quint16
 name|v
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 ifdef|#
 directive|ifdef
@@ -3041,7 +3044,7 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|qPopulationCount
+name|Q_DECL_CONST_FUNCTION
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
@@ -3050,6 +3053,7 @@ parameter_list|(
 name|quint64
 name|v
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 ifdef|#
 directive|ifdef
@@ -3210,7 +3214,7 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|qPopulationCount
+name|Q_DECL_CONST_FUNCTION
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|uint
@@ -3221,6 +3225,7 @@ name|unsigned
 name|int
 name|v
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 return|return
 name|qPopulationCount
