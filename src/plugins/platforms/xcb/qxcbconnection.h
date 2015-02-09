@@ -1746,6 +1746,16 @@ name|event
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|handleMotionNotify
+parameter_list|(
+name|xcb_generic_event_t
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|bool
 name|m_xi2Enabled
