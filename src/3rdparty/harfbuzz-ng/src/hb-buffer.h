@@ -701,6 +701,34 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
+comment|/* Allows only access to first 256 Unicode codepoints. */
+end_comment
+begin_function_decl
+name|void
+name|hb_buffer_add_latin1
+parameter_list|(
+name|hb_buffer_t
+modifier|*
+name|buffer
+parameter_list|,
+specifier|const
+name|uint8_t
+modifier|*
+name|text
+parameter_list|,
+name|int
+name|text_length
+parameter_list|,
+name|unsigned
+name|int
+name|item_offset
+parameter_list|,
+name|int
+name|item_length
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
 comment|/* Like add_utf32 but does NOT check for invalid Unicode codepoints. */
 end_comment
 begin_function_decl
