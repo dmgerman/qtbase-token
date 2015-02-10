@@ -14227,9 +14227,10 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
-comment|// QTBUG-40656, combo and other popups should close when the main window gets a wheel event.
-while|while
+comment|// QTBUG-40656, QTBUG-42731: ignore wheel events when a popup (QComboBox) is open.
+if|if
 condition|(
+specifier|const
 name|QWidget
 modifier|*
 name|popup
@@ -14249,13 +14250,9 @@ argument_list|()
 operator|!=
 name|popup
 condition|)
-name|popup
-operator|->
-name|close
-argument_list|()
-expr_stmt|;
-else|else
-break|break;
+return|return
+literal|true
+return|;
 block|}
 name|QPoint
 name|relpos

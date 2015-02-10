@@ -10139,6 +10139,8 @@ operator|++
 name|i
 control|)
 block|{
+if|if
+condition|(
 name|QStandardItem
 modifier|*
 name|item
@@ -10152,7 +10154,8 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
 name|itemsSet
 operator|<<
 name|item
@@ -10164,6 +10167,18 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QStandardItemModel::mimeData: No item associated with invalid index"
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 block|}
 comment|//remove duplicates childrens
 block|{
@@ -10359,8 +10374,7 @@ argument_list|(
 name|item
 argument_list|)
 condition|)
-block|{
-comment|//if the item is selection 'top-level', strem its position
+comment|//if the item is selection 'top-level', stream its position
 name|stream
 operator|<<
 name|item
@@ -10373,12 +10387,6 @@ operator|->
 name|column
 argument_list|()
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|item
-condition|)
-block|{
 name|stream
 operator|<<
 operator|*
@@ -10406,21 +10414,6 @@ name|d_ptr
 operator|->
 name|children
 expr_stmt|;
-block|}
-else|else
-block|{
-name|QStandardItem
-name|dummy
-decl_stmt|;
-name|stream
-operator|<<
-name|dummy
-operator|<<
-literal|0
-operator|<<
-literal|0
-expr_stmt|;
-block|}
 block|}
 name|data
 operator|->

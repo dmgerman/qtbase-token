@@ -4006,6 +4006,11 @@ block|{
 name|DWORD
 name|theExitCode
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|pid
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|GetExitCodeProcess

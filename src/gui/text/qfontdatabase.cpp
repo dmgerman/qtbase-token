@@ -2257,9 +2257,16 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|Q_ASSERT_X
 argument_list|(
 name|populated
+argument_list|,
+name|Q_FUNC_INFO
+argument_list|,
+name|qPrintable
+argument_list|(
+name|name
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

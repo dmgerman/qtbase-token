@@ -4159,6 +4159,12 @@ name|QSslConfiguration
 operator|::
 name|NextProtocolNegotiationNegotiated
 case|:
+comment|/* fall through */
+case|case
+name|QSslConfiguration
+operator|::
+name|NextProtocolNegotiationUnsupported
+case|:
 block|{
 name|QByteArray
 name|nextProtocol
@@ -4258,21 +4264,6 @@ expr_stmt|;
 comment|// re-queue requests from SPDY queue to HTTP queue, if any
 name|requeueSpdyRequests
 argument_list|()
-expr_stmt|;
-break|break;
-case|case
-name|QSslConfiguration
-operator|::
-name|NextProtocolNegotiationUnsupported
-case|:
-name|emitFinishedWithError
-argument_list|(
-name|QNetworkReply
-operator|::
-name|SslHandshakeFailedError
-argument_list|,
-literal|"chosen Next Protocol Negotiation value unsupported"
-argument_list|)
 expr_stmt|;
 break|break;
 default|default:

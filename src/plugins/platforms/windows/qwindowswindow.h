@@ -396,19 +396,6 @@ DECL|member|embedded
 name|bool
 name|embedded
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_OPENGL
-DECL|member|staticOpenGLContext
-name|QSharedPointer
-operator|<
-name|QWindowsStaticOpenGLContext
-operator|>
-name|staticOpenGLContext
-expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_OPENGL
 specifier|static
 name|QWindowsWindowData
 name|create
@@ -525,6 +512,10 @@ block|,
 name|InputMethodDisabled
 operator|=
 literal|0x100000
+block|,
+name|Compositing
+operator|=
+literal|0x200000
 block|}
 block|;
 name|QWindowsWindow
@@ -1263,6 +1254,10 @@ name|void
 name|invalidateSurface
 argument_list|()
 name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|aboutToMakeCurrent
+argument_list|()
 block|;
 ifndef|#
 directive|ifndef
