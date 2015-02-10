@@ -17829,6 +17829,21 @@ operator|::
 name|verifyClientCertificate
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+comment|// We run both client and server on the same machine,
+comment|// this means, client can update keychain with client's certificates,
+comment|// and server later will use the same certificates from the same
+comment|// keychain thus making tests fail (wrong number of certificates,
+comment|// success instead of failure etc.).
+name|QSKIP
+argument_list|(
+literal|"This test can not work with Secure Transport"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
