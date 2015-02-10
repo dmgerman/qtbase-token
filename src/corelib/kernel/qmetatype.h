@@ -7075,7 +7075,11 @@ name|T
 operator|&
 name|declval
 argument_list|()
-block|;         enum
+block|;
+comment|// If the type was declared with Q_ENUM, the friend qt_getEnumMetaObject(T) declared in the
+comment|// Q_ENUM macro will be chosen by ADL, and the return type will be QMetaObject*.
+comment|// Otherwise the chosen overload will be qt_getEnumMetaObject(...) which returne 'char'
+block|enum
 block|{
 name|Value
 operator|=
