@@ -432,6 +432,14 @@ name|m_object
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_platformDrag
+operator|->
+name|ownsDragObject
+argument_list|()
+condition|)
 name|o
 operator|->
 name|deleteLater

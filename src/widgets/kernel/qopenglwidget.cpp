@@ -1648,6 +1648,16 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|res
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|q
+operator|->
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|res
 return|;

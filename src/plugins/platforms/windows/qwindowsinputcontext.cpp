@@ -507,6 +507,11 @@ condition|(
 name|object
 operator|&&
 name|window
+operator|&&
+name|window
+operator|->
+name|handle
+argument_list|()
 condition|)
 block|{
 name|QWindowsWindow

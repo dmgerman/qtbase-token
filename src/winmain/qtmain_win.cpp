@@ -327,6 +327,8 @@ name|char
 operator|*
 index|[
 name|argc
+operator|+
+literal|1
 index|]
 decl_stmt|;
 for|for
@@ -357,6 +359,13 @@ index|[
 name|i
 index|]
 argument_list|)
+expr_stmt|;
+name|argv
+index|[
+name|argc
+index|]
+operator|=
+name|Q_NULLPTR
 expr_stmt|;
 name|LocalFree
 argument_list|(

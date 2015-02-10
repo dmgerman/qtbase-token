@@ -1274,17 +1274,15 @@ return|;
 block|}
 if|if
 condition|(
-operator|(
-name|isBuffered
-operator|||
-name|socketType
-operator|!=
-name|QAbstractSocket
-operator|::
-name|TcpSocket
-operator|)
-operator|&&
 name|socketEngine
+condition|)
+block|{
+comment|// turn the socket engine off if we've either:
+comment|// - got pending datagrams
+comment|// - reached the buffer size limit
+if|if
+condition|(
+name|isBuffered
 condition|)
 name|socketEngine
 operator|->
@@ -1302,6 +1300,27 @@ name|bytesAvailable
 argument_list|()
 argument_list|)
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|socketType
+operator|!=
+name|QAbstractSocket
+operator|::
+name|TcpSocket
+condition|)
+name|socketEngine
+operator|->
+name|setReadNotificationEnabled
+argument_list|(
+operator|!
+name|socketEngine
+operator|->
+name|hasPendingDatagrams
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// reset the read socket notifier state if we reentered inside the
 comment|// readyRead() connected slot.
 if|if

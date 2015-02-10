@@ -285,6 +285,12 @@ name|bool
 name|on
 parameter_list|)
 function_decl|;
+name|bool
+name|ownsDragObject
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|void
 name|updatePixmap
 parameter_list|()

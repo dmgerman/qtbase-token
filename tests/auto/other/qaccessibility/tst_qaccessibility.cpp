@@ -20020,7 +20020,7 @@ name|listView
 argument_list|,
 name|QAccessible
 operator|::
-name|Selection
+name|SelectionAdd
 argument_list|)
 decl_stmt|;
 name|selectionEvent
@@ -20107,7 +20107,7 @@ name|listView
 argument_list|,
 name|QAccessible
 operator|::
-name|Selection
+name|SelectionAdd
 argument_list|)
 decl_stmt|;
 name|selectionEvent2
@@ -24208,7 +24208,7 @@ name|tableView
 argument_list|,
 name|QAccessible
 operator|::
-name|Selection
+name|SelectionAdd
 argument_list|)
 decl_stmt|;
 name|event

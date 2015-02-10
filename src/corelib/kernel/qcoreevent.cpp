@@ -626,7 +626,7 @@ begin_comment
 comment|/*!     \class QChildEvent     \inmodule QtCore     \brief The QChildEvent class contains event parameters for child object     events.      \ingroup events      Child events are sent immediately to objects when children are     added or removed.      In both cases you can only rely on the child being a QObject (or,     if QObject::isWidgetType() returns \c true, a QWidget). This is     because in the QEvent::ChildAdded case the child is not yet fully     constructed; in the QEvent::ChildRemoved case it might have     already been destructed.      The handler for these events is QObject::childEvent(). */
 end_comment
 begin_comment
-comment|/*!     Constructs a child event object of a particular \a type for the     \a child.      \a type can be QEvent::ChildAdded, QEvent::ChildRemoved,     QEvent::ChildPolished, or QEvent::ChildRemoved.      \sa child() */
+comment|/*!     Constructs a child event object of a particular \a type for the     \a child.      \a type can be QEvent::ChildAdded, QEvent::ChildRemoved,     or QEvent::ChildPolished.      \sa child() */
 end_comment
 begin_constructor
 DECL|function|QChildEvent

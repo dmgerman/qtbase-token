@@ -234,6 +234,15 @@ name|QWindow
 modifier|*
 name|m_previousCaptureWindow
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+comment|//This is required to send a touch up if we don't get a second touch position any more
+name|bool
+name|m_had2ndTouchPoint
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 end_decl_stmt
 begin_empty_stmt

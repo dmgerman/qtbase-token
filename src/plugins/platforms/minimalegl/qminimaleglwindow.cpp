@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qminimaleglwindow.h"
+file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qwindowsysteminterface.h>
+file|"qminimaleglwindow.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

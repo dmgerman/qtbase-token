@@ -2435,7 +2435,7 @@ modifier|&
 name|themeData
 parameter_list|)
 function_decl|;
-name|void
+name|bool
 name|drawBackground
 parameter_list|(
 name|XPThemeData
@@ -2443,7 +2443,7 @@ modifier|&
 name|themeData
 parameter_list|)
 function_decl|;
-name|void
+name|bool
 name|drawBackgroundThruNativeBuffer
 parameter_list|(
 name|XPThemeData
@@ -2451,7 +2451,7 @@ modifier|&
 name|themeData
 parameter_list|)
 function_decl|;
-name|void
+name|bool
 name|drawBackgroundDirectly
 parameter_list|(
 name|XPThemeData

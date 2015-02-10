@@ -287,6 +287,14 @@ name|void
 name|initializeCompositor
 parameter_list|()
 function_decl|;
+name|bool
+name|event
+parameter_list|(
+name|QEvent
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
 name|QList
 operator|<
 name|QFbWindow
@@ -297,8 +305,8 @@ expr_stmt|;
 name|QRegion
 name|mRepaintRegion
 decl_stmt|;
-name|QTimer
-name|mRedrawTimer
+name|bool
+name|mUpdatePending
 decl_stmt|;
 name|QFbCursor
 modifier|*

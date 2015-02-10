@@ -122,6 +122,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|q
+operator|->
+name|isWindow
+argument_list|()
+operator|&&
+operator|(
 name|q
 operator|->
 name|geometry
@@ -141,6 +148,7 @@ name|right
 argument_list|()
 operator|<=
 literal|0
+operator|)
 condition|)
 comment|/* Qt (e.g. QSplitter) sometimes prefer to hide a widget by *not* calling                setVisible(false). This is often done by setting its coordinates to a sufficiently                negative value so that its clipped outside the parent. Since a QWindow is not clipped                to widgets in general, it needs to be dealt with as a special case.             */
 name|window

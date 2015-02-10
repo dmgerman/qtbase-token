@@ -944,8 +944,8 @@ expr_stmt|;
 if|#
 directive|if
 name|QT_VERSION
-operator|>
-literal|0x050000
+operator|>=
+literal|0x050400
 name|qDebug
 argument_list|()
 operator|.

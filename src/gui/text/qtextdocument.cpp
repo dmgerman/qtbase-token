@@ -3342,7 +3342,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replaces the entire contents of the document with the given plain     \a text.      \sa setHtml() */
+comment|/*!     Replaces the entire contents of the document with the given plain     \a text. The undo/redo history is reset when this function is called.      \sa setHtml() */
 end_comment
 begin_function
 DECL|function|setPlainText
@@ -3412,7 +3412,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replaces the entire contents of the document with the given     HTML-formatted text in the \a html string.      The HTML formatting is respected as much as possible; for example,     "<b>bold</b> text" will produce text where the first word has a font     weight that gives it a bold appearance: "\b{bold} text".      \note It is the responsibility of the caller to make sure that the     text is correctly decoded when a QString containing HTML is created     and passed to setHtml().      \sa setPlainText(), {Supported HTML Subset} */
+comment|/*!     Replaces the entire contents of the document with the given     HTML-formatted text in the \a html string. The undo/redo history     is reset when this function is called.      The HTML formatting is respected as much as possible; for example,     "<b>bold</b> text" will produce text where the first word has a font     weight that gives it a bold appearance: "\b{bold} text".      \note It is the responsibility of the caller to make sure that the     text is correctly decoded when a QString containing HTML is created     and passed to setHtml().      \sa setPlainText(), {Supported HTML Subset} */
 end_comment
 begin_ifndef
 ifndef|#

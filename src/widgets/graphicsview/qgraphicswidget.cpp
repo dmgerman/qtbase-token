@@ -3879,7 +3879,7 @@ name|y
 operator|>=
 name|bottom
 operator|-
-name|windowFrameWidth
+name|cornerMargin
 operator|)
 condition|)
 block|{
@@ -3968,7 +3968,7 @@ name|y
 operator|>=
 name|bottom
 operator|-
-name|windowFrameWidth
+name|cornerMargin
 operator|)
 condition|)
 block|{

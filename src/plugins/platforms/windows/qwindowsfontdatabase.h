@@ -127,6 +127,13 @@ name|populateFontDatabase
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|populateFamily
+argument_list|(
+argument|const QString&familyName
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QFontEngineMulti
 operator|*
 name|fontEngineMulti
@@ -297,26 +304,8 @@ block|;
 name|private
 operator|:
 name|void
-name|populate
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|family
-operator|=
-name|QString
-argument_list|()
-argument_list|)
-block|;
-name|void
 name|removeApplicationFonts
 argument_list|()
-block|;
-name|QSet
-operator|<
-name|QString
-operator|>
-name|m_families
 block|;      struct
 name|WinApplicationFont
 block|{

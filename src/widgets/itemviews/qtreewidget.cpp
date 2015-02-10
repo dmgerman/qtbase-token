@@ -11119,7 +11119,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns the widget displayed in the cell specified by \a item and the given \a column.      \note The tree takes ownership of the widget.  */
+comment|/*!     \since 4.1      Returns the widget displayed in the cell specified by \a item and the given \a column.  */
 end_comment
 begin_function
 DECL|function|itemWidget
@@ -12390,6 +12390,21 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|item
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QTreeWidget::mimeData: Null-item passed"
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 for|for
 control|(
 name|int
@@ -12410,14 +12425,40 @@ operator|++
 name|c
 control|)
 block|{
-name|indexes
-operator|<<
+specifier|const
+name|QModelIndex
+name|index
+init|=
 name|indexFromItem
 argument_list|(
 name|item
 argument_list|,
 name|c
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|index
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QTreeWidget::mimeData: No index associated with item :"
+operator|<<
+name|item
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+name|indexes
+operator|<<
+name|index
 expr_stmt|;
 block|}
 block|}
