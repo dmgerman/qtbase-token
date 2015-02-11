@@ -82,6 +82,16 @@ block|,
 name|XunitXML
 block|,
 name|CSV
+block|,
+if|#
+directive|if
+name|defined
+argument_list|(
+name|HAVE_XCTEST
+argument_list|)
+name|XCTest
+endif|#
+directive|endif
 block|}
 enum|;
 specifier|static
