@@ -1492,9 +1492,6 @@ operator|::
 name|IsUp
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"IsUp "
 expr_stmt|;
@@ -1507,9 +1504,6 @@ operator|::
 name|IsRunning
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"IsRunning "
 expr_stmt|;
@@ -1522,9 +1516,6 @@ operator|::
 name|CanBroadcast
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"CanBroadcast "
 expr_stmt|;
@@ -1537,9 +1528,6 @@ operator|::
 name|IsLoopBack
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"IsLoopBack "
 expr_stmt|;
@@ -1552,9 +1540,6 @@ operator|::
 name|IsPointToPoint
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"IsPointToPoint "
 expr_stmt|;
@@ -1567,17 +1552,11 @@ operator|::
 name|CanMulticast
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"CanMulticast "
 expr_stmt|;
 return|return
 name|debug
-operator|.
-name|nospace
-argument_list|()
 return|;
 block|}
 end_function
@@ -1599,9 +1578,6 @@ name|entry
 parameter_list|)
 block|{
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|"(address = "
 operator|<<
@@ -1622,9 +1598,6 @@ name|isNull
 argument_list|()
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", netmask = "
 operator|<<
@@ -1645,9 +1618,6 @@ name|isNull
 argument_list|()
 condition|)
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", broadcast = "
 operator|<<
@@ -1657,17 +1627,11 @@ name|broadcast
 argument_list|()
 expr_stmt|;
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|')'
 expr_stmt|;
 return|return
 name|debug
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function
@@ -1686,10 +1650,21 @@ modifier|&
 name|networkInterface
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
 name|debug
+argument_list|)
+decl_stmt|;
+name|debug
+operator|.
+name|resetFormat
+argument_list|()
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|debug
 operator|<<
 literal|"QNetworkInterface(name = "
 operator|<<
@@ -1718,9 +1693,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|debug
-operator|.
-name|nospace
-argument_list|()
 operator|<<
 literal|", entries = "
 operator|<<
@@ -1733,9 +1705,6 @@ literal|")\n"
 expr_stmt|;
 return|return
 name|debug
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function

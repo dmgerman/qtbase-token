@@ -1519,6 +1519,20 @@ modifier|&
 name|certificate
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|debug
+argument_list|)
+decl_stmt|;
+name|debug
+operator|.
+name|resetFormat
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+expr_stmt|;
 name|debug
 operator|<<
 literal|"QSslCertificate("
@@ -1528,14 +1542,14 @@ operator|.
 name|version
 argument_list|()
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.
 name|serialNumber
 argument_list|()
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.
@@ -1545,7 +1559,7 @@ operator|.
 name|toBase64
 argument_list|()
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.
@@ -1556,7 +1570,7 @@ operator|::
 name|Organization
 argument_list|)
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.
@@ -1567,7 +1581,7 @@ operator|::
 name|Organization
 argument_list|)
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.
@@ -1577,14 +1591,14 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DATESTRING
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.
 name|effectiveDate
 argument_list|()
 operator|<<
-literal|','
+literal|", "
 operator|<<
 name|certificate
 operator|.

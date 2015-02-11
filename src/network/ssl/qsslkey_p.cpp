@@ -1469,11 +1469,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
-begin_class_decl
-class_decl|class
-name|QDebug
-class_decl|;
-end_class_decl
 begin_function
 DECL|function|operator <<
 name|QDebug
@@ -1489,6 +1484,20 @@ modifier|&
 name|key
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|debug
+argument_list|)
+decl_stmt|;
+name|debug
+operator|.
+name|resetFormat
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+expr_stmt|;
 name|debug
 operator|<<
 literal|"QSslKey("

@@ -58,8 +58,13 @@ argument_list|)
 decl_stmt|;
 name|debug
 operator|.
+name|resetFormat
+argument_list|()
+operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|debug
 operator|<<
 literal|"QSslEllipticCurve("
 operator|<<
