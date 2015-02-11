@@ -13242,6 +13242,44 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// Without Qt::WA_TranslucentBackground, we use a ParentRelative BackPixmap.
+comment|// Clear the whole tray icon window to its background color as early as possible
+comment|// so that we can get a clean result from grabWindow() later.
+name|Q_XCB_CALL
+argument_list|(
+name|xcb_clear_area
+argument_list|(
+name|xcb_connection
+argument_list|()
+argument_list|,
+literal|false
+argument_list|,
+name|m_window
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|geometry
+argument_list|()
+operator|.
+name|width
+argument_list|()
+argument_list|,
+name|geometry
+argument_list|()
+operator|.
+name|height
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|xcb_flush
+argument_list|(
+name|xcb_connection
+argument_list|()
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 name|XEMBED_FOCUS_IN
