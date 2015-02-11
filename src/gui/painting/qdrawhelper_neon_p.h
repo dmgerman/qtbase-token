@@ -237,7 +237,9 @@ parameter_list|,
 name|int
 name|y
 parameter_list|,
-name|quint32
+specifier|const
+name|QRgba64
+modifier|&
 name|color
 parameter_list|,
 specifier|const

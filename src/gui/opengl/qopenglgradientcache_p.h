@@ -68,6 +68,11 @@ include|#
 directive|include
 file|<QGradient>
 end_include
+begin_include
+include|#
+directive|include
+file|<qrgba64.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -224,7 +229,7 @@ name|QGradient
 operator|&
 name|gradient
 argument_list|,
-name|uint
+name|QRgba64
 operator|*
 name|colorTable
 argument_list|,

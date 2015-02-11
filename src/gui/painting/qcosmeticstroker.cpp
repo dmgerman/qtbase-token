@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qrgba64_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdebug.h>
 end_include
 begin_function
@@ -1580,7 +1585,7 @@ condition|)
 block|{
 name|color
 operator|=
-name|INTERPOLATE_PIXEL_256
+name|multiplyAlpha256
 argument_list|(
 name|state
 operator|->
@@ -1591,11 +1596,10 @@ operator|.
 name|color
 argument_list|,
 name|opacity
-argument_list|,
-literal|0
-argument_list|,
-literal|0
 argument_list|)
+operator|.
+name|toArgb32
+argument_list|()
 expr_stmt|;
 name|QRasterBuffer
 modifier|*

@@ -2750,7 +2750,9 @@ parameter_list|,
 name|int
 name|y
 parameter_list|,
-name|quint32
+specifier|const
+name|QRgba64
+modifier|&
 name|color
 parameter_list|,
 specifier|const
@@ -2819,6 +2821,15 @@ argument_list|(
 name|bitmap
 argument_list|)
 decl_stmt|;
+specifier|const
+name|uint
+name|c
+init|=
+name|color
+operator|.
+name|toArgb32
+argument_list|()
+decl_stmt|;
 name|pixman_composite_over_n_8_0565_asm_neon
 argument_list|(
 name|mapWidth
@@ -2829,7 +2840,7 @@ name|dest
 argument_list|,
 name|destStride
 argument_list|,
-name|color
+name|c
 argument_list|,
 literal|0
 argument_list|,
