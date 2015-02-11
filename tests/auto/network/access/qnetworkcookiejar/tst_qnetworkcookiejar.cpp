@@ -871,7 +871,7 @@ name|result
 operator|<<
 literal|true
 expr_stmt|;
-comment|// 2. anything .ar is an effective TLD ('*.ar'), but 'gobiernoelectronico.ar' is an exception
+comment|// 2. anything .mz is an effective TLD ('*.mz'), but 'teledata.mz' is an exception
 name|result
 operator|.
 name|clear
@@ -886,7 +886,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".farmacia.ar"
+literal|".farmacia.mz"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -900,7 +900,7 @@ name|preset
 operator|<<
 name|cookie
 operator|<<
-literal|"http://farmacia.ar"
+literal|"http://farmacia.mz"
 operator|<<
 name|result
 operator|<<
@@ -917,7 +917,7 @@ name|preset
 operator|<<
 name|cookie
 operator|<<
-literal|"http://www.farmacia.ar"
+literal|"http://www.farmacia.mz"
 operator|<<
 name|result
 operator|<<
@@ -934,7 +934,7 @@ name|preset
 operator|<<
 name|cookie
 operator|<<
-literal|"http://www.anything.farmacia.ar"
+literal|"http://www.anything.farmacia.mz"
 operator|<<
 name|result
 operator|<<
@@ -944,7 +944,7 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|".gobiernoelectronico.ar"
+literal|".teledata.mz"
 argument_list|)
 expr_stmt|;
 name|result
@@ -962,7 +962,7 @@ name|preset
 operator|<<
 name|cookie
 operator|<<
-literal|"http://www.gobiernoelectronico.ar"
+literal|"http://www.teledata.mz"
 operator|<<
 name|result
 operator|<<
@@ -2404,6 +2404,28 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"yes10"
+argument_list|)
+operator|<<
+literal|"hk.com"
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"yes11"
+argument_list|)
+operator|<<
+literal|"hk.org"
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"no1"
 argument_list|)
 operator|<<
@@ -2507,6 +2529,17 @@ literal|"no10"
 argument_list|)
 operator|<<
 literal|"bla.bla"
+operator|<<
+literal|false
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"no11"
+argument_list|)
+operator|<<
+literal|"mosreg.ru"
 operator|<<
 literal|false
 expr_stmt|;
@@ -3215,13 +3248,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"yes-wildcard3"
+literal|"no-wildcard3"
 argument_list|)
 operator|<<
 literal|"whatever.uk"
 operator|<<
-literal|true
+literal|false
 expr_stmt|;
+comment|// was changed at some point
 name|QTest
 operator|::
 name|newRow
@@ -3241,6 +3275,17 @@ literal|"yes-wildcard5"
 argument_list|)
 operator|<<
 literal|"foo.sch.uk"
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"yes-wildcard6"
+argument_list|)
+operator|<<
+literal|"something.platform.sh"
 operator|<<
 literal|true
 expr_stmt|;
