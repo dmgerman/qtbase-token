@@ -42,6 +42,13 @@ name|void
 name|populateFontDatabase
 argument_list|()
 block|;
+name|void
+name|populateFamily
+argument_list|(
+argument|const QString&familyName
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QFontEngine
 operator|*
 name|fontEngine
@@ -91,26 +98,6 @@ name|defaultFont
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
-block|;
-name|private
-operator|:
-name|void
-name|populate
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|family
-operator|=
-name|QString
-argument_list|()
-argument_list|)
-block|;
-name|QSet
-operator|<
-name|QString
-operator|>
-name|m_families
 block|; }
 decl_stmt|;
 end_decl_stmt
