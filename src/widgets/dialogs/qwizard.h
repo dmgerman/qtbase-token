@@ -115,12 +115,7 @@ name|NButtons
 operator|=
 literal|9
 block|}
-block|;
-name|Q_ENUM
-argument_list|(
-name|WizardButton
-argument_list|)
-expr|enum
+block|;      enum
 name|WizardPixmap
 block|{
 name|WatermarkPixmap
@@ -146,7 +141,12 @@ name|AeroStyle
 block|,
 name|NStyles
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|WizardStyle
+argument_list|)
+expr|enum
 name|WizardOption
 block|{
 name|IndependentPages
