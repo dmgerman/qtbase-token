@@ -701,6 +701,12 @@ name|bool
 name|supportsThreadedOpenGL
 argument_list|()
 block|;
+specifier|static
+name|QOpenGLContext
+operator|*
+name|globalShareContext
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
