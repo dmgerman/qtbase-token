@@ -15413,11 +15413,6 @@ operator|::
 name|resizeEvent
 parameter_list|()
 block|{
-name|QSKIP
-argument_list|(
-literal|"QTBUG-30744"
-argument_list|)
-expr_stmt|;
 block|{
 name|QWidget
 name|wParent
@@ -22310,13 +22305,6 @@ name|QStringLiteral
 argument_list|(
 literal|"xcb"
 argument_list|)
-operator|||
-name|m_platform
-operator|==
-name|QStringLiteral
-argument_list|(
-literal|"windows"
-argument_list|)
 condition|)
 name|QSKIP
 argument_list|(
@@ -25047,11 +25035,6 @@ operator|::
 name|optimizedResize_topLevel
 parameter_list|()
 block|{
-name|QSKIP
-argument_list|(
-literal|"We do not yet have static contents support, see QTBUG-28012"
-argument_list|)
-expr_stmt|;
 name|StaticWidget
 name|topLevel
 decl_stmt|;
