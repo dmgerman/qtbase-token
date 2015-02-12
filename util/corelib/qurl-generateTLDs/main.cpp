@@ -228,7 +228,7 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"       wget http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1 -O effective_tld_names.dat\n"
+literal|"       wget https://publicsuffix.org/list/effective_tld_names.dat -O effective_tld_names.dat\n"
 argument_list|)
 expr_stmt|;
 name|printf
