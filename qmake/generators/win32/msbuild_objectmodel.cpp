@@ -2666,11 +2666,6 @@ specifier|const
 name|QString
 modifier|&
 name|filter
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|filterId
 parameter_list|)
 block|{
 if|if
@@ -2814,8 +2809,6 @@ argument_list|,
 name|tool
 argument_list|,
 name|tempFilterName
-argument_list|,
-name|filterId
 argument_list|)
 expr_stmt|;
 else|else
@@ -2838,8 +2831,6 @@ argument_list|,
 name|tool
 argument_list|,
 name|filter
-argument_list|,
-name|filterId
 argument_list|)
 expr_stmt|;
 block|}
@@ -2901,8 +2892,6 @@ argument_list|,
 name|tool
 argument_list|,
 name|tempFilterName
-argument_list|,
-name|filterId
 argument_list|)
 expr_stmt|;
 else|else
@@ -2925,8 +2914,6 @@ argument_list|,
 name|tool
 argument_list|,
 name|filter
-argument_list|,
-name|filterId
 argument_list|)
 expr_stmt|;
 block|}
@@ -2961,8 +2948,6 @@ argument_list|,
 name|info
 argument_list|,
 name|filter
-argument_list|,
-name|filterId
 argument_list|)
 expr_stmt|;
 name|xmlFilter
@@ -3009,11 +2994,6 @@ specifier|const
 name|QString
 modifier|&
 name|filter
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|filterId
 parameter_list|)
 block|{
 if|if
@@ -3085,8 +3065,6 @@ name|it
 operator|)
 argument_list|,
 name|filter
-argument_list|,
-name|filterId
 argument_list|)
 expr_stmt|;
 block|}
@@ -10994,8 +10972,6 @@ argument_list|,
 name|project
 argument_list|,
 name|filtername
-argument_list|,
-name|filtername
 argument_list|)
 expr_stmt|;
 comment|// output root tree
@@ -11035,11 +11011,6 @@ specifier|const
 name|QString
 modifier|&
 name|filtername
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|filterId
 parameter_list|)
 block|{
 comment|// We need to check if the file has any custom build step.
@@ -11101,7 +11072,7 @@ argument_list|)
 operator|.
 name|filterByName
 argument_list|(
-name|filterId
+name|filtername
 argument_list|)
 expr_stmt|;
 if|if
@@ -11279,7 +11250,7 @@ argument_list|)
 operator|.
 name|filterByName
 argument_list|(
-name|filterId
+name|filtername
 argument_list|)
 decl_stmt|;
 if|if
