@@ -11201,6 +11201,15 @@ index|[
 name|i
 index|]
 operator|.
+name|info
+operator|=
+name|fileInFilter
+expr_stmt|;
+name|data
+index|[
+name|i
+index|]
+operator|.
 name|inBuild
 operator|&=
 operator|!
