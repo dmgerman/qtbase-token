@@ -10977,6 +10977,48 @@ expr_stmt|;
 comment|// output root tree
 block|}
 end_function
+begin_function
+DECL|function|stringBeforeFirstBackslash
+specifier|static
+name|QString
+name|stringBeforeFirstBackslash
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|str
+parameter_list|)
+block|{
+name|int
+name|idx
+init|=
+name|str
+operator|.
+name|indexOf
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\\'
+argument_list|)
+argument_list|)
+decl_stmt|;
+return|return
+name|idx
+operator|==
+operator|-
+literal|1
+condition|?
+name|str
+else|:
+name|str
+operator|.
+name|left
+argument_list|(
+name|idx
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|// Output all configurations (by filtername) for a file (by info)
 end_comment
@@ -11013,6 +11055,16 @@ modifier|&
 name|filtername
 parameter_list|)
 block|{
+comment|// In non-flat mode the filter names have directory suffixes, e.g. "Generated Files\subdir".
+specifier|const
+name|QString
+name|cleanFilterName
+init|=
+name|stringBeforeFirstBackslash
+argument_list|(
+name|filtername
+argument_list|)
+decl_stmt|;
 comment|// We need to check if the file has any custom build step.
 comment|// If there is one then it has to be included with "CustomBuild Include"
 name|bool
@@ -11072,7 +11124,7 @@ argument_list|)
 operator|.
 name|filterByName
 argument_list|(
-name|filtername
+name|cleanFilterName
 argument_list|)
 expr_stmt|;
 if|if
@@ -11250,7 +11302,7 @@ argument_list|)
 operator|.
 name|filterByName
 argument_list|(
-name|filtername
+name|cleanFilterName
 argument_list|)
 decl_stmt|;
 if|if
