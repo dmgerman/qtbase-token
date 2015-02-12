@@ -916,6 +916,8 @@ argument|XmlOutput&xmlFilter
 argument_list|,
 argument|const QString&filename
 argument_list|,
+argument|const QString&fullFilterName
+argument_list|,
 argument|bool fileAdded
 argument_list|,
 argument|bool hasCustomBuildStep
