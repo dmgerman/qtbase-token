@@ -1045,7 +1045,10 @@ argument_list|>
 operator|::
 name|exec
 argument_list|(
+name|int
+argument_list|(
 name|size
+argument_list|)
 argument_list|,
 capture|[
 modifier|=

@@ -999,7 +999,10 @@ name|putString
 argument_list|(
 name|begin
 argument_list|,
+name|int
+argument_list|(
 name|length
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1045,7 +1048,10 @@ argument_list|(
 name|begin
 argument_list|)
 argument_list|,
+name|int
+argument_list|(
 name|length
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1100,7 +1106,10 @@ name|fromLatin1
 argument_list|(
 name|begin
 argument_list|,
+name|int
+argument_list|(
 name|length
+argument_list|)
 argument_list|)
 else|:
 name|QString
@@ -1109,7 +1118,10 @@ name|fromUtf8
 argument_list|(
 name|begin
 argument_list|,
+name|int
+argument_list|(
 name|length
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|stream
@@ -1166,7 +1178,10 @@ argument_list|(
 name|begin
 argument_list|)
 argument_list|,
+name|int
+argument_list|(
 name|length
+argument_list|)
 argument_list|,
 name|content
 operator|==
