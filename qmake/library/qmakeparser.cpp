@@ -4913,6 +4913,17 @@ argument_list|(
 name|tokPtr
 argument_list|)
 expr_stmt|;
+operator|--
+name|ptr
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+operator|*
+name|ptr
+operator|==
+name|TokFuncTerminator
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|*
@@ -4942,10 +4953,9 @@ name|nlen
 expr_stmt|;
 if|if
 condition|(
-operator|*
 name|uc
 operator|==
-name|TokFuncTerminator
+name|ptr
 condition|)
 block|{
 comment|// for(literal) (only "ever" would be legal if qmake was sane)
