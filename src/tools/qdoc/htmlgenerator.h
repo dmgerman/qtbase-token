@@ -268,9 +268,9 @@ name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|void
-name|generateDocNode
+name|generateDocumentNode
 argument_list|(
-argument|DocNode* dn
+argument|DocumentNode* dn
 argument_list|,
 argument|CodeMarker* marker
 argument_list|)

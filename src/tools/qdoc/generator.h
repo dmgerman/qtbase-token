@@ -631,9 +631,9 @@ parameter_list|)
 block|{ }
 name|virtual
 name|void
-name|generateDocNode
+name|generateDocumentNode
 parameter_list|(
-name|DocNode
+name|DocumentNode
 modifier|*
 name|dn
 parameter_list|,
@@ -953,7 +953,7 @@ name|void
 name|generateExampleFiles
 parameter_list|(
 specifier|const
-name|DocNode
+name|DocumentNode
 modifier|*
 name|dn
 parameter_list|,
@@ -966,7 +966,7 @@ name|void
 name|generateFileList
 argument_list|(
 specifier|const
-name|DocNode
+name|DocumentNode
 operator|*
 name|dn
 argument_list|,

@@ -84,7 +84,7 @@ name|Type
 operator|,
 name|QSet
 operator|<
-name|DocNode
+name|DocumentNode
 operator|::
 name|SubType
 operator|>

@@ -266,18 +266,13 @@ block|;
 name|void
 name|processQmlProperties
 argument_list|(
-specifier|const
-name|Doc
-operator|&
-name|doc
+argument|const Doc& doc
 argument_list|,
-name|NodeList
-operator|&
-name|nodes
+argument|NodeList& nodes
 argument_list|,
-name|DocList
-operator|&
-name|docs
+argument|DocList& docs
+argument_list|,
+argument|bool jsProps
 argument_list|)
 block|;
 name|bool
@@ -663,7 +658,7 @@ block|;
 name|void
 name|createExampleFileNodes
 argument_list|(
-name|DocNode
+name|DocumentNode
 operator|*
 name|dn
 argument_list|)
@@ -952,13 +947,6 @@ define|#
 directive|define
 name|COMMAND_QMLABSTRACT
 value|Doc::alias("qmlabstract")
-end_define
-begin_define
-DECL|macro|COMMAND_QMLCLASS
-define|#
-directive|define
-name|COMMAND_QMLCLASS
-value|Doc::alias("qmlclass")
 end_define
 begin_define
 DECL|macro|COMMAND_QMLTYPE
