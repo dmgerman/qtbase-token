@@ -148,12 +148,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 name|void
 name|readOnly
 parameter_list|()
@@ -188,9 +182,6 @@ name|simpleThreadedProducerConsumer
 parameter_list|()
 function_decl|;
 comment|// with processes
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|simpleProcessProducerConsumer_data
 parameter_list|()
@@ -199,8 +190,6 @@ name|void
 name|simpleProcessProducerConsumer
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 comment|// extreme cases
 name|void
 name|useTooMuchMemory
@@ -2257,12 +2246,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 end_if
 begin_function
 DECL|function|readOnly
@@ -2272,6 +2255,18 @@ operator|::
 name|readOnly
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|rememberKey
 argument_list|(
 literal|"readonly_segfault"
@@ -2319,6 +2314,8 @@ operator|::
 name|Crashed
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif
@@ -3743,11 +3740,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
-end_ifndef
 begin_function
 DECL|function|simpleProcessProducerConsumer_data
 name|void
@@ -3756,6 +3748,9 @@ operator|::
 name|simpleProcessProducerConsumer_data
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|QTest
 operator|::
 name|addColumn
@@ -3805,6 +3800,8 @@ operator|<<
 literal|5
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -3818,6 +3815,18 @@ operator|::
 name|simpleProcessProducerConsumer
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QFETCH
 argument_list|(
 name|int
@@ -4079,12 +4088,10 @@ literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|uniqueKey_data
 name|void

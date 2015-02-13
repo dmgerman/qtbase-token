@@ -472,12 +472,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 name|void
 name|emptyCtor
 parameter_list|()
@@ -2540,6 +2534,19 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_if
 begin_function
 DECL|function|emptyCtor
 name|void
@@ -2548,7 +2555,18 @@ operator|::
 name|emptyCtor
 parameter_list|()
 block|{
-DECL|macro|TEST_CTOR
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 define|#
 directive|define
 name|TEST_CTOR
@@ -2895,10 +2913,11 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// Q_OS_BLACKBERRY
-DECL|macro|TEST_CTOR
 undef|#
 directive|undef
 name|TEST_CTOR
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif

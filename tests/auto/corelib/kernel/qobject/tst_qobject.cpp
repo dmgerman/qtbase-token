@@ -236,15 +236,10 @@ name|void
 name|property
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|recursiveSignalEmission
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|signalBlocking
 parameter_list|()
@@ -22628,9 +22623,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 block|; }
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 DECL|function|recursiveSignalEmission
 name|void
 name|tst_QObject
@@ -22639,6 +22631,18 @@ name|recursiveSignalEmission
 operator|(
 operator|)
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+block|;
+else|#
+directive|else
 name|QProcess
 name|proc
 block|;
@@ -22716,9 +22720,10 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
-block|; }
+block|;
 endif|#
 directive|endif
+block|}
 DECL|function|signalBlocking
 name|void
 name|tst_QObject

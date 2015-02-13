@@ -178,12 +178,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 name|void
 name|toLocal8Bit
 parameter_list|()
@@ -12943,12 +12937,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 end_if
 begin_function
 DECL|function|toLocal8Bit
@@ -12958,6 +12946,18 @@ operator|::
 name|toLocal8Bit
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QProcess
 name|process
 decl_stmt|;
@@ -13031,6 +13031,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif

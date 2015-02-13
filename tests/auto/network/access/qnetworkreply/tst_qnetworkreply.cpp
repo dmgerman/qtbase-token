@@ -1267,9 +1267,6 @@ name|void
 name|ioPutToFileFromLocalSocket
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|ioPutToFileFromProcess_data
 parameter_list|()
@@ -1278,8 +1275,6 @@ name|void
 name|ioPutToFileFromProcess
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|ioPutToFtpFromFile_data
 parameter_list|()
@@ -26300,11 +26295,6 @@ end_function
 begin_comment
 comment|// Currently no stdin/out supported for Windows CE.
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
-end_ifndef
 begin_function
 DECL|function|ioPutToFileFromProcess_data
 name|void
@@ -26313,9 +26303,14 @@ operator|::
 name|ioPutToFileFromProcess_data
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|putToFile_data
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -26326,6 +26321,18 @@ operator|::
 name|ioPutToFileFromProcess
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 if|#
 directive|if
 name|defined
@@ -26588,12 +26595,11 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+comment|// QT_NO_PROCESS
+block|}
+end_function
 begin_function
 DECL|function|ioPutToFtpFromFile_data
 name|void
