@@ -1705,6 +1705,8 @@ argument_list|()
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
+name|QT_OFF_T
+argument_list|(
 name|QT_LSEEK
 argument_list|(
 name|fd_
@@ -1716,6 +1718,7 @@ argument_list|)
 argument_list|,
 name|SEEK_SET
 argument_list|)
+argument_list|)
 argument_list|,
 name|QT_OFF_T
 argument_list|(
@@ -1724,6 +1727,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
+argument_list|(
+name|QT_OFF_T
 argument_list|(
 name|QT_LSEEK
 argument_list|(
@@ -1735,6 +1740,7 @@ name|position
 argument_list|)
 argument_list|,
 name|SEEK_SET
+argument_list|)
 argument_list|)
 argument_list|,
 name|QT_OFF_T
@@ -1759,6 +1765,8 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
+name|QT_OFF_T
+argument_list|(
 name|QT_LSEEK
 argument_list|(
 name|fd_
@@ -1769,6 +1777,7 @@ literal|0
 argument_list|)
 argument_list|,
 name|SEEK_CUR
+argument_list|)
 argument_list|)
 argument_list|,
 name|QT_OFF_T
@@ -1935,9 +1944,12 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
+name|QT_OFF_T
+argument_list|(
 name|QT_FTELL
 argument_list|(
 name|stream_
+argument_list|)
 argument_list|)
 argument_list|,
 name|QT_OFF_T
@@ -1964,9 +1976,12 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
+name|QT_OFF_T
+argument_list|(
 name|QT_FTELL
 argument_list|(
 name|stream_
+argument_list|)
 argument_list|)
 argument_list|,
 name|QT_OFF_T
@@ -1991,9 +2006,12 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
+name|QT_OFF_T
+argument_list|(
 name|QT_FTELL
 argument_list|(
 name|stream_
+argument_list|)
 argument_list|)
 argument_list|,
 name|QT_OFF_T
