@@ -3188,6 +3188,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|contact
+operator|.
+name|state
+condition|)
+continue|continue;
+if|if
+condition|(
 name|contact
 operator|.
 name|state
