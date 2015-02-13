@@ -556,6 +556,13 @@ name|QFixed
 name|avgCharWidth
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QFontEngine
+operator|::
+name|FaceId
+name|face_id
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 unit|};
 name|CGAffineTransform
