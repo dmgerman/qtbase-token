@@ -213,6 +213,12 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_HAIKU
+argument_list|)
 comment|/* We are only aware of specific unixes, and do not have test files for any of the others.        However those unixes can get a selector added from the result of a uname call, so this will        lead to a case where we don't have that file so we can't expect the concatenation of platform        selectors to work. It should just find the +unix/test file.*/
 name|expectedPlatform1File
 operator|=
