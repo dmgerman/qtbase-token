@@ -111,6 +111,12 @@ name|TlsV1SslV3
 block|,
 name|SecureProtocols
 block|,
+name|TlsV1_0OrLater
+block|,
+name|TlsV1_1OrLater
+block|,
+name|TlsV1_2OrLater
+block|,
 name|UnknownProtocol
 init|=
 operator|-
