@@ -734,6 +734,8 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
+name|m_canGrab
+argument_list|,
 name|display
 operator|.
 name|toLatin1
