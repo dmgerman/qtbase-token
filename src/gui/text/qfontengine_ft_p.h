@@ -305,10 +305,6 @@ parameter_list|,
 name|QPainterPath
 modifier|*
 name|path
-parameter_list|,
-name|bool
-init|=
-name|false
 parameter_list|)
 function_decl|;
 name|private
