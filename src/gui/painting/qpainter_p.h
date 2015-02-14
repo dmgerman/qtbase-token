@@ -1138,10 +1138,9 @@ parameter_list|,
 name|int
 name|glyphCount
 parameter_list|,
-specifier|const
-name|QRawFont
-modifier|&
-name|font
+name|QFontEngine
+modifier|*
+name|fontEngine
 parameter_list|,
 name|bool
 name|overline
