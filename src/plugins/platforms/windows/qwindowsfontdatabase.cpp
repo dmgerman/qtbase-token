@@ -8850,12 +8850,6 @@ name|CLEARTYPE_QUALITY
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|useDirectWrite
-condition|)
-block|{
-if|if
-condition|(
 name|request
 operator|.
 name|stretch
@@ -8958,7 +8952,6 @@ name|hfont
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 if|#
 directive|if
 operator|!
@@ -8966,7 +8959,10 @@ name|defined
 argument_list|(
 name|QT_NO_DIRECTWRITE
 argument_list|)
-else|else
+if|if
+condition|(
+name|useDirectWrite
+condition|)
 block|{
 comment|// Default to false for DirectWrite (and re-enable once/if everything turns out okay)
 name|useDirectWrite
