@@ -8882,11 +8882,6 @@ name|systemFont
 argument_list|()
 expr_stmt|;
 block|}
-name|bool
-name|ttf
-init|=
-literal|false
-decl_stmt|;
 name|int
 name|avWidth
 init|=
@@ -8928,14 +8923,6 @@ name|tm
 operator|.
 name|tmAveCharWidth
 expr_stmt|;
-name|ttf
-operator|=
-name|tm
-operator|.
-name|tmPitchAndFamily
-operator|&
-name|TMPF_TRUETYPE
-expr_stmt|;
 name|SelectObject
 argument_list|(
 name|data
@@ -8953,9 +8940,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|ttf
-operator|||
 name|request
 operator|.
 name|stretch
