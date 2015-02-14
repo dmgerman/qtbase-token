@@ -8755,6 +8755,7 @@ condition|(
 operator|!
 name|hfont
 condition|)
+block|{
 name|qErrnoWarning
 argument_list|(
 literal|"%s: CreateFontIndirect failed"
@@ -8762,6 +8763,14 @@ argument_list|,
 name|__FUNCTION__
 argument_list|)
 expr_stmt|;
+name|hfont
+operator|=
+name|QWindowsFontDatabase
+operator|::
+name|systemFont
+argument_list|()
+expr_stmt|;
+block|}
 name|bool
 name|ttf
 init|=
@@ -8833,9 +8842,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|hfont
-operator|&&
-operator|(
 operator|!
 name|ttf
 operator|||
@@ -8844,7 +8850,6 @@ operator|.
 name|stretch
 operator|!=
 literal|100
-operator|)
 condition|)
 block|{
 name|DeleteObject
@@ -8889,6 +8894,7 @@ condition|(
 operator|!
 name|hfont
 condition|)
+block|{
 name|qErrnoWarning
 argument_list|(
 literal|"%s: CreateFontIndirect with stretch failed"
@@ -8896,12 +8902,6 @@ argument_list|,
 name|__FUNCTION__
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|hfont
-condition|)
 name|hfont
 operator|=
 name|QWindowsFontDatabase
@@ -8909,6 +8909,8 @@ operator|::
 name|systemFont
 argument_list|()
 expr_stmt|;
+block|}
+block|}
 block|}
 if|#
 directive|if
