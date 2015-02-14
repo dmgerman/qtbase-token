@@ -8674,32 +8674,6 @@ modifier|&
 name|data
 parameter_list|)
 block|{
-name|LOGFONT
-name|lf
-decl_stmt|;
-name|memset
-argument_list|(
-operator|&
-name|lf
-argument_list|,
-literal|0
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|LOGFONT
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|bool
-name|preferClearTypeAA
-init|=
-literal|false
-decl_stmt|;
-name|HFONT
-name|hfont
-init|=
-literal|0
-decl_stmt|;
 if|#
 directive|if
 operator|!
@@ -8745,22 +8719,29 @@ literal|false
 decl_stmt|;
 endif|#
 directive|endif
-block|{
+name|LOGFONT
 name|lf
-operator|=
+init|=
 name|fontDefToLOGFONT
 argument_list|(
 name|request
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+specifier|const
+name|bool
 name|preferClearTypeAA
-operator|=
+init|=
 name|lf
 operator|.
 name|lfQuality
 operator|==
 name|CLEARTYPE_QUALITY
-expr_stmt|;
+decl_stmt|;
+name|HFONT
+name|hfont
+init|=
+literal|0
+decl_stmt|;
 name|hfont
 operator|=
 name|CreateFontIndirect
@@ -8878,7 +8859,9 @@ name|res
 condition|)
 name|qErrnoWarning
 argument_list|(
-literal|"QFontEngine::loadEngine: GetTextMetrics failed"
+literal|"%s: GetTextMetrics failed"
+argument_list|,
+name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 name|lf
@@ -8916,9 +8899,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|hfont
-operator|==
-literal|0
 condition|)
 name|hfont
 operator|=
@@ -8937,8 +8919,7 @@ name|QT_NO_DIRECTWRITE
 argument_list|)
 else|else
 block|{
-comment|// Default to false for DirectWrite (and re-enable once/if everything
-comment|// turns out okay)
+comment|// Default to false for DirectWrite (and re-enable once/if everything turns out okay)
 name|useDirectWrite
 operator|=
 literal|false
@@ -9078,7 +9059,6 @@ block|}
 block|}
 endif|#
 directive|endif
-block|}
 name|QFontEngine
 modifier|*
 name|fe
@@ -9211,18 +9191,12 @@ name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|directWriteFont
-operator|!=
-literal|0
-condition|)
 name|directWriteFont
 operator|->
 name|Release
 argument_list|()
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 return|return
