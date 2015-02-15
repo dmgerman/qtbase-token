@@ -5990,6 +5990,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
+end_ifndef
 begin_function
 DECL|function|nameFilterForMime
 specifier|static
@@ -6224,6 +6229,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_MIMETYPE
+end_comment
 begin_comment
 comment|/*!     \property QFileDialog::viewMode     \brief the way files and directories are displayed in the dialog      By default, the \c Detail mode is used to display information about     files and directories.      \sa ViewMode */
 end_comment
@@ -11561,6 +11573,9 @@ name|initialDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 if|if
 condition|(
 operator|!
@@ -11583,6 +11598,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 elseif|else
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!

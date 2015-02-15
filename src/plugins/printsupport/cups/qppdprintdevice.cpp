@@ -2218,6 +2218,11 @@ name|GrayScale
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
+end_ifndef
 begin_function
 DECL|function|loadMimeTypes
 name|void
@@ -2358,6 +2363,10 @@ literal|true
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|loadPrinter
 name|void

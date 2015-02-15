@@ -426,6 +426,9 @@ name|supportedColorModes
 argument_list|()
 specifier|const
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 name|QList
 operator|<
 name|QMimeType
@@ -434,6 +437,8 @@ name|supportedMimeTypes
 argument_list|()
 specifier|const
 expr_stmt|;
+endif|#
+directive|endif
 name|private
 label|:
 name|friend
