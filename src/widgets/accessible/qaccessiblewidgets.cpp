@@ -4397,6 +4397,27 @@ expr_stmt|;
 comment|// if underlineStyleValue is set, there is an underline, and Qt does not support other than single ones
 block|}
 comment|// else both are "none" which is the default - no need to set them
+if|if
+condition|(
+name|block
+operator|.
+name|textDirection
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|RightToLeft
+condition|)
+name|attrs
+index|[
+literal|"writing-mode"
+index|]
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"rl"
+argument_list|)
+expr_stmt|;
 name|QTextCharFormat
 operator|::
 name|VerticalAlignment
