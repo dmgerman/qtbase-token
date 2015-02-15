@@ -15116,6 +15116,11 @@ name|nospace
 argument_list|()
 operator|<<
 literal|"QDateTime("
+expr_stmt|;
+name|dbg
+operator|.
+name|noquote
+argument_list|()
 operator|<<
 name|date
 operator|.
