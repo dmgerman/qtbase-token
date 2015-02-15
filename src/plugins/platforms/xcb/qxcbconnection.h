@@ -2708,6 +2708,7 @@ name|Q_XCB_NOOP
 parameter_list|(
 name|c
 parameter_list|)
+value|(void)c;
 end_define
 begin_endif
 endif|#
