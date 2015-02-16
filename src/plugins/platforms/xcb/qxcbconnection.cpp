@@ -1035,17 +1035,10 @@ name|QXcbIntegration
 modifier|*
 name|integration
 init|=
-cast|static_cast
-argument_list|<
 name|QXcbIntegration
-operator|*
-argument_list|>
-argument_list|(
-name|QGuiApplicationPrivate
 operator|::
-name|platformIntegration
+name|instance
 argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// Now activeScreens is the complete set of screens which are active at this time.
 comment|// Delete any existing screens which are not in activeScreens
@@ -1815,17 +1808,10 @@ name|QXcbIntegration
 modifier|*
 name|integration
 init|=
-cast|static_cast
-argument_list|<
 name|QXcbIntegration
-operator|*
-argument_list|>
-argument_list|(
-name|QGuiApplicationPrivate
 operator|::
-name|platformIntegration
+name|instance
 argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// Delete screens in reverse order to avoid crash in case of multiple screens
 while|while

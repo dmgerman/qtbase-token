@@ -270,7 +270,11 @@ name|QWindowsIntegration
 operator|*
 name|instance
 argument_list|()
-block|;
+block|{
+return|return
+name|m_instance
+return|;
+block|}
 specifier|inline
 name|void
 name|emitScreenAdded
@@ -333,6 +337,11 @@ operator|<
 name|QWindowsIntegrationPrivate
 operator|>
 name|d
+block|;
+specifier|static
+name|QWindowsIntegration
+operator|*
+name|m_instance
 block|; }
 decl_stmt|;
 end_decl_stmt
