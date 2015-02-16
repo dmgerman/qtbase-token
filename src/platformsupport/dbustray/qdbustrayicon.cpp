@@ -251,6 +251,11 @@ name|m_tempAttentionIcon
 argument_list|(
 name|Q_NULLPTR
 argument_list|)
+member_init_list|,
+name|m_registered
+argument_list|(
+literal|false
+argument_list|)
 block|{
 name|qCDebug
 argument_list|(
@@ -442,6 +447,8 @@ literal|"registering"
 operator|<<
 name|m_instanceId
 expr_stmt|;
+name|m_registered
+operator|=
 name|dBusConnection
 argument_list|()
 operator|->
@@ -469,6 +476,10 @@ literal|"unregistering"
 operator|<<
 name|m_instanceId
 expr_stmt|;
+if|if
+condition|(
+name|m_registered
+condition|)
 name|dBusConnection
 argument_list|()
 operator|->
@@ -483,6 +494,10 @@ expr_stmt|;
 name|m_dbusConnection
 operator|=
 name|Q_NULLPTR
+expr_stmt|;
+name|m_registered
+operator|=
+literal|false
 expr_stmt|;
 block|}
 end_function

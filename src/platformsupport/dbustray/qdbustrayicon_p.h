@@ -522,6 +522,9 @@ name|m_isRequestingAttention
 block|;
 name|bool
 name|m_hasMenu
+block|;
+name|bool
+name|m_registered
 block|; }
 decl_stmt|;
 end_decl_stmt
