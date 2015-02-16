@@ -110,6 +110,10 @@ block|;
 name|private
 name|Q_SLOTS
 operator|:
+name|QString
+name|getAddressFromXCB
+argument_list|()
+block|;
 name|void
 name|serviceRegistered
 argument_list|()

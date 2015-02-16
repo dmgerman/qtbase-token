@@ -105,6 +105,8 @@ block|,
 name|ScreenAntialiasingEnabled
 block|,
 name|NoFontHinting
+block|,
+name|AtspiBus
 block|}
 block|;
 name|QXcbNativeInterface
@@ -288,6 +290,11 @@ block|;
 name|void
 operator|*
 name|display
+argument_list|()
+block|;
+name|void
+operator|*
+name|atspiBus
 argument_list|()
 block|;
 specifier|static
