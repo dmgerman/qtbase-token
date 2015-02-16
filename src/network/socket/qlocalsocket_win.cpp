@@ -1799,16 +1799,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|bytesAvailable
-argument_list|()
-operator|>
-literal|0
-condition|)
-return|return
-literal|true
-return|;
-if|if
-condition|(
 name|d
 operator|->
 name|state
