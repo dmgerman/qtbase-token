@@ -57,9 +57,22 @@ name|bool
 name|initialize
 argument_list|()
 block|;
-name|public
-name|slots
-operator|:
+name|QPixmap
+name|grabWindow
+argument_list|(
+argument|WId wid
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QRegion
 name|doRedraw
 argument_list|()

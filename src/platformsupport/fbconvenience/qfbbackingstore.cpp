@@ -90,7 +90,7 @@ argument_list|()
 argument_list|)
 operator|)
 operator|->
-name|addBackingStore
+name|addPendingBackingStore
 argument_list|(
 name|this
 argument_list|)
