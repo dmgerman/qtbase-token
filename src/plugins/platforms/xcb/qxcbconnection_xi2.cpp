@@ -1557,6 +1557,12 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|XCB_USE_XINPUT22
+if|if
+condition|(
+name|isUsingXInput22
+argument_list|()
+condition|)
+block|{
 name|bitMask
 operator||=
 name|XI_TouchBeginMask
@@ -1623,10 +1629,6 @@ comment|// which is also preferable, since Qt can control better when
 comment|// to do so.
 if|if
 condition|(
-name|m_xi2Minor
-operator|>=
-literal|2
-operator|&&
 name|result
 operator|==
 name|Success
@@ -1635,6 +1637,7 @@ name|has_touch_without_mouse_emulation
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif
