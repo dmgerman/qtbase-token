@@ -417,6 +417,30 @@ operator|*
 name|cache
 argument_list|)
 block|;
+name|virtual
+name|void
+name|noMicrostep
+argument_list|()
+block|;
+name|virtual
+name|void
+name|processedPendingEvents
+argument_list|(
+argument|bool didChange
+argument_list|)
+block|;
+name|virtual
+name|void
+name|beginMacrostep
+argument_list|()
+block|;
+name|virtual
+name|void
+name|endMacrostep
+argument_list|(
+argument|bool didChange
+argument_list|)
+block|;
 name|void
 name|exitStates
 argument_list|(
