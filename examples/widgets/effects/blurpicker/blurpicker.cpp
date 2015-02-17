@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qmath.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"blureffect.h"
 end_include
 begin_ifndef
@@ -206,7 +211,7 @@ name|xs
 init|=
 literal|170
 operator|*
-name|sin
+name|qSin
 argument_list|(
 name|a
 argument_list|)
@@ -216,7 +221,7 @@ name|ys
 init|=
 literal|100
 operator|*
-name|cos
+name|qCos
 argument_list|(
 name|a
 argument_list|)

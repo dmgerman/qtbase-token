@@ -1038,11 +1038,16 @@ name|f
 parameter_list|)
 block|{
 return|return
+name|std
+operator|::
 name|floor
 argument_list|(
 name|f
 operator|+
+name|qreal
+argument_list|(
 literal|0.5
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -2000,6 +2005,8 @@ name|box
 operator|.
 name|q_minimumSize
 argument_list|,
+name|std
+operator|::
 name|floor
 argument_list|(
 name|maxBoxSize

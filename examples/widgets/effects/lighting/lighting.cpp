@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qmath.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -488,7 +493,7 @@ name|xs
 init|=
 literal|200
 operator|*
-name|sin
+name|qSin
 argument_list|(
 name|angle
 argument_list|)
@@ -502,7 +507,7 @@ name|ys
 init|=
 literal|200
 operator|*
-name|cos
+name|qCos
 argument_list|(
 name|angle
 argument_list|)
@@ -624,7 +629,7 @@ decl_stmt|;
 name|qreal
 name|dd
 init|=
-name|sqrt
+name|qSqrt
 argument_list|(
 name|dx
 operator|*

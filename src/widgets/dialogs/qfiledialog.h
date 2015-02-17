@@ -392,6 +392,9 @@ name|selectedNameFilter
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 name|void
 name|setMimeTypeFilters
 argument_list|(
@@ -415,6 +418,8 @@ operator|&
 name|filter
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|QDir
 operator|::
 name|Filters

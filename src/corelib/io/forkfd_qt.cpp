@@ -35,6 +35,12 @@ name|defined
 argument_list|(
 name|__QNXNTO__
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|ANDROID
+argument_list|)
 end_if
 begin_define
 DECL|macro|_XOPEN_SOURCE

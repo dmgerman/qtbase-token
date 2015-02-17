@@ -1187,7 +1187,7 @@ name|int
 argument_list|(
 name|m_size
 operator|*
-name|exp
+name|qExp
 argument_list|(
 operator|-
 name|event
@@ -2447,7 +2447,7 @@ operator|*
 operator|(
 literal|1.0
 operator|-
-name|exp
+name|qExp
 argument_list|(
 operator|-
 literal|0.001
@@ -2474,7 +2474,7 @@ operator|*
 operator|(
 literal|1.0
 operator|-
-name|exp
+name|qExp
 argument_list|(
 operator|-
 literal|0.001
@@ -2501,7 +2501,7 @@ operator|*
 operator|(
 literal|1.0
 operator|-
-name|exp
+name|qExp
 argument_list|(
 operator|-
 literal|0.001
@@ -2528,7 +2528,7 @@ operator|*
 operator|(
 literal|1.0
 operator|-
-name|exp
+name|qExp
 argument_list|(
 operator|-
 literal|0.001

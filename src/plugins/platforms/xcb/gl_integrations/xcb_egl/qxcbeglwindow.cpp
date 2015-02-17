@@ -132,6 +132,9 @@ operator|::
 name|createVisual
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
 name|Display
 modifier|*
 name|xdpy
@@ -214,6 +217,16 @@ expr_stmt|;
 return|return
 name|visualInfo
 return|;
+else|#
+directive|else
+return|return
+name|QXcbWindow
+operator|::
+name|createVisual
+argument_list|()
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

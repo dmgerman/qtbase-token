@@ -14156,7 +14156,9 @@ literal|8
 operator|)
 operator|)
 operator|||
-name|fabs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|data
 operator|->
@@ -15275,7 +15277,9 @@ block|{
 comment|//rotation
 if|if
 condition|(
-name|fabs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|data
 operator|->
@@ -15284,7 +15288,9 @@ argument_list|)
 operator|>
 literal|8
 operator|||
-name|fabs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|data
 operator|->
@@ -18079,7 +18085,9 @@ literal|8
 operator|)
 operator|)
 operator|||
-name|fabs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|data
 operator|->
@@ -18596,7 +18604,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|fabs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|data
 operator|->
@@ -18605,7 +18615,9 @@ argument_list|)
 operator|>
 literal|8
 operator|||
-name|fabs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|data
 operator|->

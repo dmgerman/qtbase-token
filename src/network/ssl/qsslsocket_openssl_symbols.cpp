@@ -4403,6 +4403,34 @@ end_macro
 begin_macro
 name|DEFINEFUNC3
 argument_list|(
+argument|DH *
+argument_list|,
+argument|d2i_DHparams
+argument_list|,
+argument|DH**a
+argument_list|,
+argument|a
+argument_list|,
+argument|unsigned char **pp
+argument_list|,
+argument|pp
+argument_list|,
+argument|long length
+argument_list|,
+argument|length
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
 argument|BIGNUM *
 argument_list|,
 argument|BN_bin2bn
@@ -6988,6 +7016,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|DH_free
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|d2i_DHparams
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(

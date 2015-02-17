@@ -1296,6 +1296,11 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
+end_ifndef
 begin_function
 DECL|function|loadMimeTypes
 name|void
@@ -1334,6 +1339,13 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_MIMETYPE
+end_comment
 begin_function
 DECL|function|createPageSize
 name|QPageSize

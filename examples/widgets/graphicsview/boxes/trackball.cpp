@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"scene.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<cmath>
+end_include
 begin_comment
 comment|//============================================================================//
 end_comment
@@ -355,6 +360,8 @@ name|lastPos3D
 operator|.
 name|setZ
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|sqrZ
@@ -408,6 +415,8 @@ name|currentPos3D
 operator|.
 name|setZ
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|sqrZ
@@ -438,8 +447,12 @@ literal|180
 operator|/
 name|PI
 operator|*
+name|std
+operator|::
 name|asin
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|QVector3D

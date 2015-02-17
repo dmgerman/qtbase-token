@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<cmath>
+end_include
+begin_include
+include|#
+directive|include
 file|"3rdparty/fbm.h"
 end_include
 begin_function
@@ -5031,11 +5036,15 @@ name|rotatedVector
 argument_list|(
 name|QVector3D
 argument_list|(
+name|std
+operator|::
 name|cos
 argument_list|(
 name|angle
 argument_list|)
 argument_list|,
+name|std
+operator|::
 name|sin
 argument_list|(
 name|angle
@@ -5323,6 +5332,8 @@ argument_list|)
 operator|-=
 literal|2.0f
 operator|*
+name|std
+operator|::
 name|exp
 argument_list|(
 name|m_distExp

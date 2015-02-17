@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qmath.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qstate.h>
 end_include
 begin_class
@@ -869,7 +874,7 @@ literal|"pos"
 argument_list|,
 name|QPointF
 argument_list|(
-name|cos
+name|qCos
 argument_list|(
 operator|(
 name|i
@@ -882,7 +887,7 @@ argument_list|)
 operator|*
 literal|250
 argument_list|,
-name|sin
+name|qSin
 argument_list|(
 operator|(
 name|i
@@ -908,7 +913,7 @@ literal|"pos"
 argument_list|,
 name|QPointF
 argument_list|(
-name|sin
+name|qSin
 argument_list|(
 operator|(
 name|i
@@ -921,7 +926,7 @@ argument_list|)
 operator|*
 literal|250
 argument_list|,
-name|sin
+name|qSin
 argument_list|(
 operator|(
 operator|(

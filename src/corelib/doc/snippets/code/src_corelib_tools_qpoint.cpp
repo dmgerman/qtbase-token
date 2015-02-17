@@ -321,8 +321,12 @@ DECL|variable|trueLength
 name|double
 name|trueLength
 operator|=
+name|std
+operator|::
 name|sqrt
 argument_list|(
+name|std
+operator|::
 name|pow
 argument_list|(
 name|x
@@ -331,6 +335,8 @@ argument_list|,
 literal|2
 argument_list|)
 operator|+
+name|std
+operator|::
 name|pow
 argument_list|(
 name|y

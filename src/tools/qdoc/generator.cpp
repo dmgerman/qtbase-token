@@ -8174,6 +8174,11 @@ condition|)
 name|resetUseOutputSubdirs
 argument_list|()
 expr_stmt|;
+name|outFileNames_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|outputFormats
 operator|=
 name|config

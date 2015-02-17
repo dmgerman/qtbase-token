@@ -239,12 +239,17 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 name|void
 name|loadMimeTypes
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|void

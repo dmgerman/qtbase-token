@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<cmath>
 end_include
 begin_include
 include|#
@@ -691,6 +691,8 @@ literal|50
 operator|+
 literal|40
 operator|*
+name|std
+operator|::
 name|cos
 argument_list|(
 literal|0.8
@@ -704,6 +706,8 @@ literal|50
 operator|+
 literal|40
 operator|*
+name|std
+operator|::
 name|sin
 argument_list|(
 literal|0.8

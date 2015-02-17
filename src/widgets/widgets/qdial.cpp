@@ -498,9 +498,6 @@ expr_stmt|;
 name|double
 name|yy
 init|=
-operator|(
-name|double
-operator|)
 name|q
 operator|->
 name|height
@@ -516,9 +513,6 @@ decl_stmt|;
 name|double
 name|xx
 init|=
-operator|(
-name|double
-operator|)
 name|p
 operator|.
 name|x
@@ -540,7 +534,9 @@ operator|||
 name|yy
 operator|)
 condition|?
-name|qAtan2
+name|std
+operator|::
+name|atan2
 argument_list|(
 name|yy
 argument_list|,

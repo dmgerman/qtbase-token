@@ -360,6 +360,9 @@ name|supportedColorModes
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 name|virtual
 name|QList
 operator|<
@@ -369,6 +372,8 @@ name|supportedMimeTypes
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 specifier|static
 name|QPageSize
 name|createPageSize
@@ -438,12 +443,17 @@ name|loadColorModes
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 name|virtual
 name|void
 name|loadMimeTypes
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|QPageSize
 name|supportedPageSizeMatch
 argument_list|(
@@ -555,6 +565,9 @@ name|ColorMode
 operator|>
 name|m_colorModes
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPE
 name|mutable
 name|bool
 name|m_haveMimeTypes
@@ -565,7 +578,10 @@ operator|<
 name|QMimeType
 operator|>
 name|m_mimeTypes
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

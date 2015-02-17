@@ -314,6 +314,8 @@ decl_stmt|;
 return|return
 name|float
 argument_list|(
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|len
@@ -437,6 +439,8 @@ block|{
 name|double
 name|sqrtLen
 init|=
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|len
@@ -568,6 +572,8 @@ condition|)
 return|return;
 name|len
 operator|=
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|len

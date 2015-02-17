@@ -13246,6 +13246,8 @@ name|req
 operator|.
 name|pixelSize
 operator|=
+name|std
+operator|::
 name|floor
 argument_list|(
 operator|(

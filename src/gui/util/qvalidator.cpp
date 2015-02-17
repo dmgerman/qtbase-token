@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<cmath>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -328,6 +328,8 @@ return|return
 operator|(
 name|int
 operator|)
+name|std
+operator|::
 name|log10
 argument_list|(
 name|double

@@ -627,7 +627,9 @@ name|pw
 operator|=
 name|m_width
 operator|/
-name|qAbs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|dy
 argument_list|)
@@ -643,7 +645,9 @@ name|pw
 operator|=
 name|m_width
 operator|/
-name|qAbs
+name|std
+operator|::
+name|abs
 argument_list|(
 name|dx
 argument_list|)
@@ -653,6 +657,8 @@ name|pw
 operator|=
 name|m_width
 operator|/
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|dx

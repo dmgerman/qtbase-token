@@ -129,14 +129,7 @@ operator|*
 name|xlib_display
 argument_list|()
 specifier|const
-block|{
-return|return
-name|m_connection
-operator|->
-name|xlib_display
-argument_list|()
-return|;
-block|}
+block|;
 name|private
 operator|:
 name|QXcbConnection

@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<cmath>
 end_include
 begin_include
 include|#
@@ -949,6 +949,8 @@ return|return;
 block|}
 name|result
 operator|=
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|operand
@@ -968,6 +970,8 @@ condition|)
 block|{
 name|result
 operator|=
+name|std
+operator|::
 name|pow
 argument_list|(
 name|operand
