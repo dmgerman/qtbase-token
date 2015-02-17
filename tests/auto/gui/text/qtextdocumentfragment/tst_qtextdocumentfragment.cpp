@@ -7672,11 +7672,13 @@ block|{
 comment|// don't create a block for the<ul> element, even if there's some whitespace between
 comment|// it and the<li>
 specifier|const
-name|char
+name|QString
 name|html
-index|[]
 init|=
+name|QStringLiteral
+argument_list|(
 literal|"<ul><li>list item</li><ul>"
+argument_list|)
 decl_stmt|;
 name|cursor
 operator|.
@@ -7686,25 +7688,7 @@ name|QTextDocumentFragment
 operator|::
 name|fromHtml
 argument_list|(
-name|QByteArray
-operator|::
-name|fromRawData
-argument_list|(
 name|html
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|html
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-name|html
-index|[
-literal|0
-index|]
-argument_list|)
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7730,11 +7714,13 @@ parameter_list|()
 block|{
 comment|// unlike with html_listStart1 we want a block showing the 'buggy' text here
 specifier|const
-name|char
+name|QString
 name|html
-index|[]
 init|=
+name|QStringLiteral
+argument_list|(
 literal|"<ul>buggy, but text should appear<li>list item</li><ul>"
+argument_list|)
 decl_stmt|;
 name|cursor
 operator|.
@@ -7744,25 +7730,7 @@ name|QTextDocumentFragment
 operator|::
 name|fromHtml
 argument_list|(
-name|QByteArray
-operator|::
-name|fromRawData
-argument_list|(
 name|html
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|html
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-name|html
-index|[
-literal|0
-index|]
-argument_list|)
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
