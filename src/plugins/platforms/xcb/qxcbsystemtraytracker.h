@@ -97,6 +97,10 @@ operator|*
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
+name|bool
+name|visualHasAlphaChannel
+parameter_list|()
+function_decl|;
 name|signals
 label|:
 name|void
@@ -121,12 +125,6 @@ name|trayAtom
 parameter_list|,
 name|xcb_atom_t
 name|selection
-parameter_list|,
-name|QObject
-modifier|*
-name|parent
-init|=
-literal|0
 parameter_list|)
 function_decl|;
 specifier|static

@@ -412,9 +412,6 @@ block|;
 name|xcb_atom_t
 name|m_sysTraySelectionAtom
 block|;
-name|xcb_visualid_t
-name|m_systrayVisualId
-block|;
 specifier|static
 name|QXcbScreen
 operator|*
