@@ -4649,6 +4649,17 @@ operator|>
 name|class
 name|QForeachContainer
 block|{
+name|QForeachContainer
+operator|&
+name|operator
+operator|=
+operator|(
+specifier|const
+name|QForeachContainer
+operator|&
+operator|)
+name|Q_DECL_EQ_DELETE
+block|;
 name|public
 operator|:
 specifier|inline
