@@ -334,7 +334,6 @@ name|Q_INVOKABLE
 name|void
 name|setParentRelativeBackPixmap
 argument_list|(
-specifier|const
 name|QWindow
 operator|*
 name|window
