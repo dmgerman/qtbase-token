@@ -607,6 +607,15 @@ name|argc
 parameter_list|)
 function_decl|;
 name|void
+name|putOperator
+parameter_list|(
+name|ushort
+modifier|*
+modifier|&
+name|tokPtr
+parameter_list|)
+function_decl|;
+name|void
 name|finalizeTest
 parameter_list|(
 name|ushort
