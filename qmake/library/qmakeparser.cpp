@@ -3089,7 +3089,7 @@ name|parseError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"And operator without prior condition."
+literal|"AND operator without prior condition."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3140,7 +3140,7 @@ name|parseError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"Or operator without prior condition."
+literal|"OR operator without prior condition."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5222,7 +5222,7 @@ name|tokPtr
 argument_list|,
 name|fL1S
 argument_list|(
-literal|"Unexpected operator in front of function definition."
+literal|"Unexpected NOT operator in front of function definition."
 argument_list|)
 argument_list|)
 expr_stmt|;
