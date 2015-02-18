@@ -4243,6 +4243,36 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_HAS_DINKUM_CLIB
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|_HAS_CONSTEXPR
+argument_list|)
+end_if
+begin_comment
+comment|// The libcpp is missing constexpr keywords on important functions like std::numeric_limits<>::min()
+end_comment
+begin_comment
+comment|// Disable constexpr support on QNX even if the compiler supports it
+end_comment
+begin_undef
+DECL|macro|Q_COMPILER_CONSTEXPR
+undef|#
+directive|undef
+name|Q_COMPILER_CONSTEXPR
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
