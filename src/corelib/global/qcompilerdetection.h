@@ -4291,7 +4291,7 @@ literal|402
 operator|)
 end_if
 begin_comment
-comment|// Mac OS X: Apple has not updated libstdc++ since 2007, which means it does not have
+comment|// Apple has not updated libstdc++ since 2007, which means it does not have
 end_comment
 begin_comment
 comment|//<initializer_list> or std::move. Let's disable these features
@@ -4378,7 +4378,7 @@ name|Q_OS_MAC
 argument_list|)
 end_if
 begin_comment
-comment|// Mac OS X: Apple's low-level implementation of the C++ support library
+comment|// Apple's low-level implementation of the C++ support library
 end_comment
 begin_comment
 comment|// (libc++abi.dylib, shared between libstdc++ and libc++) has deadlocks. The

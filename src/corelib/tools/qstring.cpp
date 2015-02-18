@@ -16365,7 +16365,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QString::localeAwareCompare(const QString& s1, const QString& s2)      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      The comparison is performed in a locale- and also     platform-dependent manner. Use this function to present sorted     lists of strings to the user.      On Mac OS X since Qt 4.3, this function compares according the     "Order for sorted lists" setting in the International preferences panel.      \sa compare(), QLocale */
+comment|/*!     \fn int QString::localeAwareCompare(const QString& s1, const QString& s2)      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      The comparison is performed in a locale- and also     platform-dependent manner. Use this function to present sorted     lists of strings to the user.      On OS X and iOS this function compares according the     "Order for sorted lists" setting in the International preferences panel.      \sa compare(), QLocale */
 end_comment
 begin_comment
 comment|/*!     \fn int QString::localeAwareCompare(const QStringRef&other) const     \since 4.5     \overload localeAwareCompare()      Compares this string with the \a other string and returns an     integer less than, equal to, or greater than zero if this string     is less than, equal to, or greater than the \a other string.      The comparison is performed in a locale- and also     platform-dependent manner. Use this function to present sorted     lists of strings to the user.      Same as \c {localeAwareCompare(*this, other)}. */
@@ -25107,16 +25107,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QString QString::fromCFString(CFStringRef string)     \since 5.2      Constructs a new QString containing a copy of the \a string CFString.      \note this function is only available on Mac OS X and iOS. */
+comment|/*! \fn QString QString::fromCFString(CFStringRef string)     \since 5.2      Constructs a new QString containing a copy of the \a string CFString.      \note this function is only available on OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn CFStringRef QString::toCFString() const     \since 5.2      Creates a CFString from a QString. The caller owns the CFString and is     responsible for releasing it.      \note this function is only available on Mac OS X and iOS. */
+comment|/*! \fn CFStringRef QString::toCFString() const     \since 5.2      Creates a CFString from a QString. The caller owns the CFString and is     responsible for releasing it.      \note this function is only available on OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::fromNSString(const NSString *string)     \since 5.2      Constructs a new QString containing a copy of the \a string NSString.      \note this function is only available on Mac OS X and iOS. */
+comment|/*! \fn QString QString::fromNSString(const NSString *string)     \since 5.2      Constructs a new QString containing a copy of the \a string NSString.      \note this function is only available on OS X and iOS. */
 end_comment
 begin_comment
-comment|/*! \fn NSString QString::toNSString() const     \since 5.2      Creates a NSString from a QString. The NSString is autoreleased.      \note this function is only available on Mac OS X and iOS. */
+comment|/*! \fn NSString QString::toNSString() const     \since 5.2      Creates a NSString from a QString. The NSString is autoreleased.      \note this function is only available on OS X and iOS. */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::isSimpleText() const      \internal */
@@ -26705,7 +26705,7 @@ begin_comment
 comment|/*!     \overload     \fn int QStringRef::compare(QLatin1String other, Qt::CaseSensitivity cs = Qt::CaseSensitive) const     \since 4.5      Compares this string with the \a other string and returns an     integer less than, equal to, or greater than zero if this string     is less than, equal to, or greater than the \a other string.      If \a cs is Qt::CaseSensitive, the comparison is case sensitive;     otherwise the comparison is case insensitive.      Equivalent to \c {compare(*this, other, cs)}.      \sa QString::compare() */
 end_comment
 begin_comment
-comment|/*!     \fn int QStringRef::localeAwareCompare(const QStringRef&s1, const QString& s2)     \since 4.5      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      The comparison is performed in a locale- and also     platform-dependent manner. Use this function to present sorted     lists of strings to the user.      On Mac OS X, this function compares according the     "Order for sorted lists" setting in the International prefereces panel.      \sa compare(), QLocale */
+comment|/*!     \fn int QStringRef::localeAwareCompare(const QStringRef&s1, const QString& s2)     \since 4.5      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      The comparison is performed in a locale- and also     platform-dependent manner. Use this function to present sorted     lists of strings to the user.      On OS X and iOS, this function compares according the     "Order for sorted lists" setting in the International prefereces panel.      \sa compare(), QLocale */
 end_comment
 begin_comment
 comment|/*!     \fn int QStringRef::localeAwareCompare(const QStringRef&s1, const QStringRef& s2)     \since 4.5     \overload      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      The comparison is performed in a locale- and also     platform-dependent manner. Use this function to present sorted     lists of strings to the user.  */

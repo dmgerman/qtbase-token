@@ -5733,7 +5733,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the native directory separator: "/" under Unix (including     Mac OS X) and "\\" under Windows.      You do not need to use this function to build file paths. If you     always use "/", Qt will translate your paths to conform to the     underlying operating system. If you want to display paths to the     user using their operating system's separator use     toNativeSeparators(). */
+comment|/*!     Returns the native directory separator: "/" under Unix     and "\\" under Windows.      You do not need to use this function to build file paths. If you     always use "/", Qt will translate your paths to conform to the     underlying operating system. If you want to display paths to the     user using their operating system's separator use     toNativeSeparators(). */
 end_comment
 begin_function
 DECL|function|separator

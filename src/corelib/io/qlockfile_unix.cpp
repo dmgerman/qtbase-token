@@ -364,7 +364,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \internal   Checks that the OS isn't using POSIX locks to emulate flock().   Mac OS X is one of those. */
+comment|/*!   \internal   Checks that the OS isn't using POSIX locks to emulate flock().   OS X is one of those. */
 end_comment
 begin_function
 DECL|function|fcntlWorksAfterFlock

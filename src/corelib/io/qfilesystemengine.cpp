@@ -1494,7 +1494,7 @@ name|defined
 argument_list|(
 name|Q_OS_BSD4
 argument_list|)
-comment|// BSD4 includes Mac OS X
+comment|// BSD4 includes OS X and iOS
 comment|// ### This will clear all entry flags and knownFlagsMask
 switch|switch
 condition|(

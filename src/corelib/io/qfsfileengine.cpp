@@ -2285,7 +2285,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// On Mac OS, this is needed, e.g., if a file was written to
+comment|// On OS X, this is needed, e.g., if a file was written to
 comment|// through another stream since our last read. See test
 comment|// tst_QFile::appendAndRead
 name|QT_FSEEK
@@ -3435,7 +3435,7 @@ begin_comment
 comment|/*! \fn QString QFSFileEngine::currentPath(const QString&fileName)   For Unix, returns the current working directory for the file   engine.    For Windows, returns the canonicalized form of the current path used   by the file engine for the drive specified by \a fileName.  On   Windows, each drive has its own current directory, so a different   path is returned for file names that include different drive names   (e.g. A: or C:).    \sa setCurrentPath() */
 end_comment
 begin_comment
-comment|/*! \fn QFileInfoList QFSFileEngine::drives()   For Windows, returns the list of drives in the file system as a list   of QFileInfo objects. On unix, Mac OS X and Windows CE, only the   root path is returned.  On Windows, this function returns all drives   (A:\, C:\, D:\, etc.).    For Unix, the list contains just the root path "/". */
+comment|/*! \fn QFileInfoList QFSFileEngine::drives()   For Windows, returns the list of drives in the file system as a list   of QFileInfo objects. On Unix and Windows CE, only the   root path is returned.  On Windows, this function returns all drives   (A:\, C:\, D:\, etc.).    For Unix, the list contains just the root path "/". */
 end_comment
 begin_comment
 comment|/*! \fn QString QFSFileEngine::fileName(FileName file) const   \reimp */

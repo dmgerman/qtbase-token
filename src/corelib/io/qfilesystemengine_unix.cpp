@@ -2379,7 +2379,7 @@ operator|::
 name|HiddenAttribute
 condition|)
 block|{
-comment|// Mac OS>= 10.5: st_flags& UF_HIDDEN
+comment|// OS X>= 10.5: st_flags& UF_HIDDEN
 name|what
 operator||=
 name|QFileSystemMetaData
