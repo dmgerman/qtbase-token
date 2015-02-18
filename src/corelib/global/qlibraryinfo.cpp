@@ -678,7 +678,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     \deprecated     This function used to return the the installation date for this build of Qt, but now returns an a constant date. */
+comment|/*!     \since 4.6     \deprecated     This function used to return the installation date for this build of Qt, but now returns a constant date. */
 end_comment
 begin_ifndef
 ifndef|#
