@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformintegration.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qplatformnativeinterface.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractEventDispatcher
@@ -121,6 +126,13 @@ return|return
 name|m_inputContext
 return|;
 block|}
+name|QPlatformNativeInterface
+operator|*
+name|nativeInterface
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QList
 operator|<
 name|QPlatformScreen
@@ -157,6 +169,12 @@ operator|<
 name|QFbVtHandler
 operator|>
 name|m_vtHandler
+block|;
+name|QScopedPointer
+operator|<
+name|QPlatformNativeInterface
+operator|>
+name|m_nativeInterface
 block|; }
 decl_stmt|;
 end_decl_stmt
