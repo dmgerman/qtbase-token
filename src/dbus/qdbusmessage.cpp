@@ -2949,6 +2949,13 @@ name|msg
 operator|.
 name|member
 argument_list|()
+operator|<<
+literal|", serial="
+operator|<<
+name|msg
+operator|.
+name|serial
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -2978,6 +2985,51 @@ operator|<<
 name|msg
 operator|.
 name|errorMessage
+argument_list|()
+operator|<<
+literal|", serial="
+operator|<<
+name|msg
+operator|.
+name|serial
+argument_list|()
+operator|<<
+literal|", reply serial="
+operator|<<
+name|msg
+operator|.
+name|replySerial
+argument_list|()
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|msg
+operator|.
+name|type
+argument_list|()
+operator|==
+name|QDBusMessage
+operator|::
+name|ReplyMessage
+condition|)
+name|dbg
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|", serial="
+operator|<<
+name|msg
+operator|.
+name|serial
+argument_list|()
+operator|<<
+literal|", reply serial="
+operator|<<
+name|msg
+operator|.
+name|replySerial
 argument_list|()
 expr_stmt|;
 name|dbg
