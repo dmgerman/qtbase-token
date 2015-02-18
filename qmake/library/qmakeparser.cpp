@@ -3251,13 +3251,18 @@ argument_list|,
 name|wordCount
 argument_list|)
 expr_stmt|;
+name|m_state
+operator|=
+name|StNew
+expr_stmt|;
+comment|// De-facto newline
+name|closeScope
+label|:
 name|flushScopes
 argument_list|(
 name|tokPtr
 argument_list|)
 expr_stmt|;
-name|closeScope
-label|:
 if|if
 condition|(
 operator|!
