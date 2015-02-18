@@ -2563,13 +2563,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|pro
-operator|->
-name|setOk
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|m_inError
 operator|=
 literal|true
@@ -3024,13 +3017,6 @@ literal|"Opening parenthesis without prior test name."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|pro
-operator|->
-name|setOk
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|ptr
 operator|=
 name|buf
@@ -3208,7 +3194,6 @@ name|grammar
 operator|==
 name|TestGrammar
 condition|)
-block|{
 name|parseError
 argument_list|(
 name|fL1S
@@ -3217,14 +3202,6 @@ literal|"Opening scope not permitted in this context."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|pro
-operator|->
-name|setOk
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 goto|goto
 name|nextItem
 goto|;
@@ -3445,13 +3422,6 @@ literal|"Assignment not permitted in this context."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|pro
-operator|->
-name|setOk
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -3467,13 +3437,6 @@ name|fL1S
 argument_list|(
 literal|"Assignment needs exactly one word on the left hand side."
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|pro
-operator|->
-name|setOk
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// Put empty variable name.
@@ -3934,7 +3897,6 @@ argument_list|()
 operator|>
 literal|1
 condition|)
-block|{
 name|parseError
 argument_list|(
 name|fL1S
@@ -3943,14 +3905,6 @@ literal|"Missing closing brace(s)."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|pro
-operator|->
-name|setOk
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 while|while
 condition|(
 name|m_blockstack
@@ -4486,13 +4440,6 @@ expr_stmt|;
 name|m_canElse
 operator|=
 literal|true
-expr_stmt|;
-name|m_proFile
-operator|->
-name|setOk
-argument_list|(
-literal|false
-argument_list|)
 expr_stmt|;
 block|}
 end_function

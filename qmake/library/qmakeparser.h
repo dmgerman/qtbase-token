@@ -698,6 +698,13 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
+name|m_proFile
+operator|->
+name|setOk
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 block|}
 name|void
 name|languageWarning
