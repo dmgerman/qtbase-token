@@ -3952,6 +3952,13 @@ name|size
 argument_list|()
 operator|>
 literal|1
+operator|||
+name|m_blockstack
+operator|.
+name|top
+argument_list|()
+operator|.
+name|braceLevel
 condition|)
 name|parseError
 argument_list|(
