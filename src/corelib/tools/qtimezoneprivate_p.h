@@ -2120,7 +2120,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
