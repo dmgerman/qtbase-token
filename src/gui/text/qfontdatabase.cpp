@@ -735,6 +735,7 @@ operator|::
 name|ExtraBold
 return|;
 comment|// And now the contains() checks for the translated strings.
+comment|//: The word for "Extra" as in "Extra Bold, Extra Thin" used as a pattern for string searches
 specifier|const
 name|QString
 name|translatedExtra
@@ -761,6 +762,7 @@ name|translatedBold
 argument_list|)
 condition|)
 block|{
+comment|//: The word for "Demi" as in "Demi Bold" used as a pattern for string searches
 name|QString
 name|translatedDemi
 init|=
