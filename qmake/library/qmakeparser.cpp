@@ -3790,6 +3790,9 @@ block|{
 name|bogusTest
 argument_list|(
 name|tokPtr
+argument_list|,
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4418,8 +4421,26 @@ name|ushort
 modifier|*
 modifier|&
 name|tokPtr
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|msg
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|msg
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|parseError
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|flushScopes
 argument_list|(
 name|tokPtr
@@ -4478,21 +4499,16 @@ if|if
 condition|(
 name|wordCount
 condition|)
-block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"Extra characters after test expression."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
-argument_list|)
-expr_stmt|;
-block|}
 return|return;
 block|}
 comment|// Check for magic tokens
@@ -4840,17 +4856,14 @@ name|OrOperator
 condition|)
 block|{
 comment|// '|' could actually work reasonably, but qmake does nonsense here.
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"Unexpected operator in front of for()."
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5163,17 +5176,14 @@ condition|(
 name|m_invert
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"Unexpected operator in front of function definition."
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5331,17 +5341,14 @@ operator|>
 literal|1
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"return() requires zero or one argument."
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5357,17 +5364,14 @@ operator|!=
 name|TokFuncTerminator
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"Top-level return() requires zero arguments."
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5423,8 +5427,10 @@ operator|!=
 name|TokFuncTerminator
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"%1() requires zero arguments."
@@ -5434,11 +5440,6 @@ name|arg
 argument_list|(
 name|m_tmp
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5458,8 +5459,10 @@ name|NestLoop
 operator|)
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"Unexpected %1()."
@@ -5471,11 +5474,6 @@ name|m_tmp
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 name|ctrlstm2
@@ -5485,8 +5483,10 @@ condition|(
 name|m_invert
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"Unexpected NOT operator in front of %1()."
@@ -5496,11 +5496,6 @@ name|arg
 argument_list|(
 name|m_tmp
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5570,17 +5565,14 @@ operator|!=
 name|NoOperator
 condition|)
 block|{
-name|parseError
+name|bogusTest
 argument_list|(
+name|tokPtr
+argument_list|,
 name|fL1S
 argument_list|(
 literal|"option() must appear outside any control structures."
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|bogusTest
-argument_list|(
-name|tokPtr
 argument_list|)
 expr_stmt|;
 return|return;

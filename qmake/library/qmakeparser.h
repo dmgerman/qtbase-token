@@ -622,6 +622,11 @@ name|ushort
 modifier|*
 modifier|&
 name|tokPtr
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|msg
 parameter_list|)
 function_decl|;
 name|void
