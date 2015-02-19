@@ -397,10 +397,10 @@ directive|ifndef
 name|QT_NO_VECTOR3D
 end_ifndef
 begin_comment
-comment|/*!     \fn void QQuaternion::toAxisAndAngle(QVector3D *axis, float *angle) const     \since 5.5     \overload      Extracts a 3D axis \a axis and a rotating angle \a angle (in degrees)     that corresponds to this quaternion.      \sa fromAxisAndAngle() */
+comment|/*!     \fn void QQuaternion::getAxisAndAngle(QVector3D *axis, float *angle) const     \since 5.5     \overload      Extracts a 3D axis \a axis and a rotating angle \a angle (in degrees)     that corresponds to this quaternion.      \sa fromAxisAndAngle() */
 end_comment
 begin_comment
-comment|/*!     Creates a normalized quaternion that corresponds to rotating through     \a angle degrees about the specified 3D \a axis.      \sa toAxisAndAngle() */
+comment|/*!     Creates a normalized quaternion that corresponds to rotating through     \a angle degrees about the specified 3D \a axis.      \sa getAxisAndAngle() */
 end_comment
 begin_function
 DECL|function|fromAxisAndAngle
@@ -503,11 +503,11 @@ begin_comment
 comment|/*!     \since 5.5      Extracts a 3D axis (\a x, \a y, \a z) and a rotating angle \a angle (in degrees)     that corresponds to this quaternion.      \sa fromAxisAndAngle() */
 end_comment
 begin_function
-DECL|function|toAxisAndAngle
+DECL|function|getAxisAndAngle
 name|void
 name|QQuaternion
 operator|::
-name|toAxisAndAngle
+name|getAxisAndAngle
 parameter_list|(
 name|float
 modifier|*
@@ -658,7 +658,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a normalized quaternion that corresponds to rotating through     \a angle degrees about the 3D axis (\a x, \a y, \a z).      \sa toAxisAndAngle() */
+comment|/*!     Creates a normalized quaternion that corresponds to rotating through     \a angle degrees about the 3D axis (\a x, \a y, \a z).      \sa getAxisAndAngle() */
 end_comment
 begin_function
 DECL|function|fromAxisAndAngle
@@ -808,11 +808,11 @@ begin_comment
 comment|/*!     \since 5.5      Calculates \a roll, \a pitch, and \a yaw Euler angles (in degrees)     that corresponds to this quaternion.      \sa fromEulerAngles() */
 end_comment
 begin_function
-DECL|function|toEulerAngles
+DECL|function|getEulerAngles
 name|void
 name|QQuaternion
 operator|::
-name|toEulerAngles
+name|getEulerAngles
 parameter_list|(
 name|float
 modifier|*
@@ -1162,7 +1162,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Creates a quaternion that corresponds to a rotation of     \a roll degrees around the z axis, \a pitch degrees around the x axis,     and \a yaw degrees around the y axis (in that order).      \sa toEulerAngles() */
+comment|/*!     \since 5.5      Creates a quaternion that corresponds to a rotation of     \a roll degrees around the z axis, \a pitch degrees around the x axis,     and \a yaw degrees around the y axis (in that order).      \sa getEulerAngles() */
 end_comment
 begin_function
 DECL|function|fromEulerAngles

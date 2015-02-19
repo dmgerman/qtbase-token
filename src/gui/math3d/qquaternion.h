@@ -465,7 +465,7 @@ directive|ifndef
 name|QT_NO_VECTOR3D
 specifier|inline
 name|void
-name|toAxisAndAngle
+name|getAxisAndAngle
 argument_list|(
 name|QVector3D
 operator|*
@@ -493,7 +493,7 @@ function_decl|;
 endif|#
 directive|endif
 name|void
-name|toAxisAndAngle
+name|getAxisAndAngle
 argument_list|(
 name|float
 operator|*
@@ -553,7 +553,7 @@ function_decl|;
 endif|#
 directive|endif
 name|void
-name|toEulerAngles
+name|getEulerAngles
 argument_list|(
 name|float
 operator|*
@@ -2018,12 +2018,12 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|toAxisAndAngle
+DECL|function|getAxisAndAngle
 specifier|inline
 name|void
 name|QQuaternion
 operator|::
-name|toAxisAndAngle
+name|getAxisAndAngle
 argument_list|(
 argument|QVector3D *axis
 argument_list|,
@@ -2038,7 +2038,7 @@ name|aY
 block|,
 name|aZ
 block|;
-name|toAxisAndAngle
+name|getAxisAndAngle
 argument_list|(
 operator|&
 name|aX
@@ -2080,7 +2080,7 @@ name|yaw
 block|,
 name|roll
 block|;
-name|toEulerAngles
+name|getEulerAngles
 argument_list|(
 operator|&
 name|pitch

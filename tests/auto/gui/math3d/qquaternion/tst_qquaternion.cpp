@@ -4611,7 +4611,7 @@ name|answerAngle
 decl_stmt|;
 name|answer
 operator|.
-name|toAxisAndAngle
+name|getAxisAndAngle
 argument_list|(
 operator|&
 name|answerAxis
@@ -4771,7 +4771,7 @@ name|answerAngle
 decl_stmt|;
 name|answer
 operator|.
-name|toAxisAndAngle
+name|getAxisAndAngle
 argument_list|(
 operator|&
 name|answerAxisX
@@ -5617,7 +5617,7 @@ name|answerRoll
 decl_stmt|;
 name|answer
 operator|.
-name|toEulerAngles
+name|getEulerAngles
 argument_list|(
 operator|&
 name|answerPitch
