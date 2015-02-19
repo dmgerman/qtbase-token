@@ -1996,6 +1996,18 @@ end_comment
 begin_comment
 comment|/*!     \fn const QQuaternion operator/(const QQuaternion&quaternion, float divisor)     \relates QQuaternion      Returns the QQuaternion object formed by dividing all components of     the given \a quaternion by the given \a divisor.      \sa QQuaternion::operator/=() */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_VECTOR3D
+end_ifndef
+begin_comment
+comment|/*!     \fn QVector3D operator*(const QQuaternion&quaternion, const QVector3D&vec)     \since 5.5     \relates QQuaternion      Rotates a vector \a vec with a quaternion \a quaternion to produce a new vector in 3D space. */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QQuaternion& q1, const QQuaternion& q2)     \relates QQuaternion      Returns \c true if \a q1 and \a q2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
 end_comment
