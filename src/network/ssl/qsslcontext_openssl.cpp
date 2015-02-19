@@ -196,6 +196,34 @@ expr_stmt|;
 block|}
 end_destructor
 begin_function
+DECL|function|msgErrorSettingEllipticCurves
+specifier|static
+specifier|inline
+name|QString
+name|msgErrorSettingEllipticCurves
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|why
+parameter_list|)
+block|{
+return|return
+name|QSslSocket
+operator|::
+name|tr
+argument_list|(
+literal|"Error when setting the elliptic curves (%1)"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|why
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|fromConfiguration
 name|QSslContext
 modifier|*
@@ -1651,14 +1679,7 @@ name|sslContext
 operator|->
 name|errorStr
 operator|=
-name|QSslSocket
-operator|::
-name|tr
-argument_list|(
-literal|"Error when setting the elliptic curves (%1)"
-argument_list|)
-operator|.
-name|arg
+name|msgErrorSettingEllipticCurves
 argument_list|(
 name|QSslSocketBackendPrivate
 operator|::
@@ -1689,11 +1710,14 @@ name|sslContext
 operator|->
 name|errorStr
 operator|=
+name|msgErrorSettingEllipticCurves
+argument_list|(
 name|QSslSocket
 operator|::
 name|tr
 argument_list|(
-literal|"Error when setting the elliptic curves (OpenSSL version too old, need at least v1.0.2)"
+literal|"OpenSSL version too old, need at least v1.0.2"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|sslContext
