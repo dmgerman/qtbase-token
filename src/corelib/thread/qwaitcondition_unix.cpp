@@ -242,12 +242,6 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_HAIKU
-argument_list|)
 if|if
 condition|(
 name|QElapsedTimer
