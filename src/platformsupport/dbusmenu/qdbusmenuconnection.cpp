@@ -153,7 +153,7 @@ name|this
 argument_list|)
 argument_list|)
 member_init_list|,
-name|m_watcherRegistered
+name|m_statusNotifierHostRegistered
 argument_list|(
 literal|false
 argument_list|)
@@ -161,20 +161,36 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_SYSTEMTRAYICON
-comment|// Start monitoring if any known tray-related services are registered.
-if|if
-condition|(
-name|m_connection
-operator|.
-name|interface
-argument_list|()
-operator|->
-name|isServiceRegistered
+name|QDBusInterface
+name|systrayHost
 argument_list|(
 name|StatusNotifierWatcherService
+argument_list|,
+name|StatusNotifierWatcherPath
+argument_list|,
+name|StatusNotifierWatcherService
+argument_list|,
+name|m_connection
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|systrayHost
+operator|.
+name|isValid
+argument_list|()
+operator|&&
+name|systrayHost
+operator|.
+name|property
+argument_list|(
+literal|"IsStatusNotifierHostRegistered"
+argument_list|)
+operator|.
+name|toBool
+argument_list|()
 condition|)
-name|m_watcherRegistered
+name|m_statusNotifierHostRegistered
 operator|=
 literal|true
 expr_stmt|;
@@ -184,9 +200,7 @@ argument_list|(
 name|qLcMenu
 argument_list|)
 operator|<<
-literal|"failed to find service"
-operator|<<
-name|StatusNotifierWatcherService
+literal|"StatusNotifierHost is not registered"
 expr_stmt|;
 endif|#
 directive|endif
