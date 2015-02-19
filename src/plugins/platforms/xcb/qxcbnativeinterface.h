@@ -416,10 +416,6 @@ block|;
 name|xcb_visualid_t
 name|m_systrayVisualId
 block|;
-name|QDBusMenuConnection
-operator|*
-name|m_dbusTrayConnection
-block|;
 specifier|static
 name|QXcbScreen
 operator|*
