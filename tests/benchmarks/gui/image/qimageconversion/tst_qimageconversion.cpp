@@ -39,6 +39,14 @@ name|convertRgb888ToRgb32
 parameter_list|()
 function_decl|;
 name|void
+name|convertRgb888ToRgbx8888_data
+parameter_list|()
+function_decl|;
+name|void
+name|convertRgb888ToRgbx8888
+parameter_list|()
+function_decl|;
+name|void
 name|convertRgb32ToRgb888_data
 parameter_list|()
 function_decl|;
@@ -170,17 +178,17 @@ argument_list|,
 literal|5000
 argument_list|)
 expr_stmt|;
-comment|// 50 pixels, more realistic use case
+comment|// 200 pixels, more realistic use case
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"width: 50px; height: 5000px;"
+literal|"width: 200px; height: 5000px;"
 argument_list|)
 operator|<<
 name|generateImageRgb888
 argument_list|(
-literal|50
+literal|200
 argument_list|,
 literal|5000
 argument_list|)
@@ -230,6 +238,59 @@ argument_list|(
 name|QImage
 operator|::
 name|Format_RGB32
+argument_list|)
+decl_stmt|;
+comment|// we need the volatile and the following to make sure the compiler does not do
+comment|// anything stupid :)
+operator|(
+name|void
+operator|)
+name|output
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|convertRgb888ToRgbx8888_data
+name|void
+name|tst_QImageConversion
+operator|::
+name|convertRgb888ToRgbx8888_data
+parameter_list|()
+block|{
+name|convertRgb888ToRgb32_data
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|convertRgb888ToRgbx8888
+name|void
+name|tst_QImageConversion
+operator|::
+name|convertRgb888ToRgbx8888
+parameter_list|()
+block|{
+name|QFETCH
+argument_list|(
+name|QImage
+argument_list|,
+name|inputImage
+argument_list|)
+expr_stmt|;
+name|QBENCHMARK
+block|{
+specifier|volatile
+name|QImage
+name|output
+init|=
+name|inputImage
+operator|.
+name|convertToFormat
+argument_list|(
+name|QImage
+operator|::
+name|Format_RGBX8888
 argument_list|)
 decl_stmt|;
 comment|// we need the volatile and the following to make sure the compiler does not do
