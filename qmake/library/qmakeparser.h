@@ -816,7 +816,7 @@ name|bool
 name|m_canElse
 decl_stmt|;
 comment|// Conditionals met on previous line, but no scope was opened
-name|bool
+name|int
 name|m_invert
 decl_stmt|;
 comment|// Pending conditional is negated

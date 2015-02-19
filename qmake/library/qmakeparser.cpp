@@ -1505,7 +1505,7 @@ name|StNew
 expr_stmt|;
 name|m_invert
 operator|=
-literal|false
+literal|0
 expr_stmt|;
 name|m_operator
 operator|=
@@ -2706,8 +2706,7 @@ name|CtxTest
 condition|)
 block|{
 name|m_invert
-operator|^=
-literal|true
+operator|++
 expr_stmt|;
 goto|goto
 name|nextChr
@@ -3050,8 +3049,7 @@ name|xprPtr
 condition|)
 block|{
 name|m_invert
-operator|^=
-literal|true
+operator|++
 expr_stmt|;
 goto|goto
 name|nextChr
@@ -4424,7 +4422,7 @@ argument_list|)
 expr_stmt|;
 name|m_invert
 operator|=
-literal|false
+literal|0
 expr_stmt|;
 block|}
 if|if
@@ -4527,7 +4525,7 @@ argument_list|)
 expr_stmt|;
 name|m_invert
 operator|=
-literal|false
+literal|0
 expr_stmt|;
 name|fail
 operator|=
@@ -4729,8 +4727,9 @@ expr_stmt|;
 if|if
 condition|(
 name|m_invert
+operator|&
+literal|1
 condition|)
-block|{
 name|putTok
 argument_list|(
 name|tokPtr
@@ -4740,9 +4739,8 @@ argument_list|)
 expr_stmt|;
 name|m_invert
 operator|=
-literal|false
+literal|0
 expr_stmt|;
-block|}
 name|m_state
 operator|=
 name|StCond
@@ -4795,7 +4793,7 @@ name|NoOperator
 expr_stmt|;
 name|m_invert
 operator|=
-literal|false
+literal|0
 expr_stmt|;
 name|m_state
 operator|=
