@@ -118,6 +118,16 @@ name|message
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
+name|private
+label|:
+name|QMimeData
+modifier|*
+name|m_systemMimeData
+decl_stmt|;
+name|QMimeData
+modifier|*
+name|m_userMimeData
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
