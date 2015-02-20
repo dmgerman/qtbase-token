@@ -109,6 +109,11 @@ include|#
 directive|include
 file|<sys/mnttab.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<sys/statvfs.h>
+end_include
 begin_else
 else|#
 directive|else
@@ -760,7 +765,7 @@ operator|::
 name|decodeName
 argument_list|(
 name|mnt
-operator|->
+operator|.
 name|mnt_mountp
 argument_list|)
 return|;
@@ -780,7 +785,7 @@ return|return
 name|QByteArray
 argument_list|(
 name|mnt
-operator|->
+operator|.
 name|mnt_fstype
 argument_list|)
 return|;
@@ -800,7 +805,7 @@ return|return
 name|QByteArray
 argument_list|(
 name|mnt
-operator|->
+operator|.
 name|mnt_mntopts
 argument_list|)
 return|;
