@@ -792,10 +792,10 @@ directive|ifndef
 name|QT_NO_VECTOR3D
 end_ifndef
 begin_comment
-comment|/*!     \fn QVector3D QQuaternion::toEulerAngles() const     \since 5.5     \overload      Calculates \a roll, \a pitch, and \a yaw Euler angles (in degrees)     that corresponds to this quaternion.      \sa fromEulerAngles() */
+comment|/*!     \fn QVector3D QQuaternion::toEulerAngles() const     \since 5.5     \overload      Calculates roll, pitch, and yaw Euler angles (in degrees)     that corresponds to this quaternion.      \sa fromEulerAngles() */
 end_comment
 begin_comment
-comment|/*!     \fn QQuaternion QQuaternion::fromEulerAngles(const QVector3D&eulerAngles)     \since 5.5     \overload      Creates a quaternion that corresponds to a rotation of     \a eulerAngles.z() degrees around the z axis, \a eulerAngles.x() degrees around the x axis,     and \a eulerAngles.y() degrees around the y axis (in that order).      \sa toEulerAngles() */
+comment|/*!     \fn QQuaternion QQuaternion::fromEulerAngles(const QVector3D&eulerAngles)     \since 5.5     \overload      Creates a quaternion that corresponds to a rotation of \a eulerAngles:     eulerAngles.z() degrees around the z axis, eulerAngles.x() degrees around the x axis,     and eulerAngles.y() degrees around the y axis (in that order).      \sa toEulerAngles() */
 end_comment
 begin_endif
 endif|#
