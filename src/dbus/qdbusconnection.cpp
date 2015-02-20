@@ -3439,7 +3439,7 @@ literal|5
 argument_list|)
 end_if
 begin_comment
-comment|/*!   \deprecated    Always returns a disconnected, invalid QDBusConnection object. For the old   functionality of determining the sender connection, please use \ref QDBusContext.    \sa QDBusContext */
+comment|/*!   \deprecated    Always returns a disconnected, invalid QDBusConnection object. For the old   functionality of determining the sender connection, please use QDBusContext.    \sa QDBusContext */
 end_comment
 begin_function
 DECL|function|sender

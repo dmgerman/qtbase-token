@@ -10611,7 +10611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QMetaEnum QMetaEnum::fromType() const     \since 5.5      Returns the QMetaEnum corresponding to the type in the template parameter.     The enum needs to be declared with Q_ENUM. */
+comment|/*!     \fn QMetaEnum QMetaEnum::fromType()     \since 5.5      Returns the QMetaEnum corresponding to the type in the template parameter.     The enum needs to be declared with Q_ENUM. */
 end_comment
 begin_function
 DECL|function|qualifiedName
