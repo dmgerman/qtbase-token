@@ -269,6 +269,15 @@ argument_list|)
 empty_stmt|;
 name|QDistanceField
 argument_list|(
+argument|const QPainterPath&path
+argument_list|,
+argument|glyph_t glyph
+argument_list|,
+argument|bool doubleResolution = false
+argument_list|)
+empty_stmt|;
+name|QDistanceField
+argument_list|(
 specifier|const
 name|QDistanceField
 operator|&
