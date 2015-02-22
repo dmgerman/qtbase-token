@@ -814,6 +814,14 @@ operator|*
 name|clone
 argument_list|()
 block|;
+name|Data
+name|data
+argument_list|(
+argument|qint64 forMSecsSinceEpoch
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QLocale
 operator|::
 name|Country
