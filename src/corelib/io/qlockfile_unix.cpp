@@ -546,7 +546,9 @@ argument_list|)
 operator|%
 literal|'\n'
 operator|%
-name|qAppName
+name|QCoreApplication
+operator|::
+name|applicationName
 argument_list|()
 operator|.
 name|toUtf8
