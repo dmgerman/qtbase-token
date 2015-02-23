@@ -1235,6 +1235,15 @@ name|flags
 operator|=
 literal|0
 expr_stmt|;
+name|stream
+operator|->
+name|setVerbosity
+argument_list|(
+name|Stream
+operator|::
+name|defaultVerbosity
+argument_list|)
+expr_stmt|;
 return|return
 operator|*
 name|this
@@ -1264,6 +1273,12 @@ comment|/*!     \fn QDebug&QDebug::noquote()     \since 5.4      Disables automa
 end_comment
 begin_comment
 comment|/*!     \fn QDebug&QDebug::maybeQuote(char c)     \since 5.4      Writes a character \a c to the debug stream, depending on the     current setting for automatic insertion of quotes, and returns a reference to the stream.      The default character is a double quote \c{"}.      \sa quote(), noquote() */
+end_comment
+begin_comment
+comment|/*!     \fn int QDebug::verbosity() const     \since 5.6      Returns the verbosity of the debug stream.      Streaming operators can check the value to decide whether     verbose output is desired and print more information depending on the     level. Higher values indicate that more information is desired.      The allowed range is from 0 to 7. The default value is 2.      \sa setVerbosity() */
+end_comment
+begin_comment
+comment|/*!     \fn void QDebug::setVerbosity(int verbosityLevel)     \since 5.6      Sets the verbosity of the stream to \a verbosityLevel.      The allowed range is from 0 to 7. The default value is 2.      \sa verbosity() */
 end_comment
 begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(QChar t)      Writes the character, \a t, to the stream and returns a reference to the     stream. */
