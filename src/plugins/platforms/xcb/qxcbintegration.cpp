@@ -689,13 +689,12 @@ operator|+=
 literal|2
 control|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_XCB_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaScreen
+argument_list|)
 operator|<<
-literal|"QXcbIntegration: Connecting to additional display: "
+literal|"connecting to additional display: "
 operator|<<
 name|parameters
 operator|.
@@ -713,8 +712,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|display
 init|=

@@ -190,6 +190,10 @@ function|Q_DECLARE_LOGGING_CATEGORY
 parameter_list|(
 name|lcQpaXInputDevices
 parameter_list|)
+function|Q_DECLARE_LOGGING_CATEGORY
+parameter_list|(
+name|lcQpaScreen
+parameter_list|)
 name|class
 name|QXcbScreen
 decl_stmt|;
