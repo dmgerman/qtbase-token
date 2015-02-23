@@ -1003,6 +1003,7 @@ name|app_font
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|static
 name|QStyleHints
 modifier|*
 name|styleHints

@@ -12982,8 +12982,8 @@ operator|::
 name|TextEditable
 operator|)
 operator|&&
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->

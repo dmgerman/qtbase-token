@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<private/qguiapplication_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qdebug.h>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|hint
@@ -67,6 +72,25 @@ name|StyleHint
 name|ih
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Must construct a QGuiApplication before accessing a platform theme hint."
+expr_stmt|;
+return|return
+name|QVariant
+argument_list|()
+return|;
+block|}
 if|if
 condition|(
 specifier|const

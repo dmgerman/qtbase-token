@@ -12338,8 +12338,8 @@ name|startDragTime
 parameter_list|()
 block|{
 return|return
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->
@@ -12386,8 +12386,8 @@ name|startDragDistance
 parameter_list|()
 block|{
 return|return
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->
@@ -17746,8 +17746,8 @@ name|cursorFlashTime
 parameter_list|()
 block|{
 return|return
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->
@@ -17791,8 +17791,8 @@ name|doubleClickInterval
 parameter_list|()
 block|{
 return|return
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->
@@ -17839,8 +17839,8 @@ name|keyboardInputInterval
 parameter_list|()
 block|{
 return|return
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->
