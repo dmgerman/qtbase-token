@@ -1057,7 +1057,7 @@ block|}
 end_function
 begin_function
 DECL|function|availableTimeZoneIds
-name|QSet
+name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
@@ -1067,7 +1067,7 @@ name|availableTimeZoneIds
 parameter_list|()
 specifier|const
 block|{
-name|QSet
+name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
@@ -1158,7 +1158,7 @@ name|androidTZobject
 expr_stmt|;
 name|availableTimeZoneIdList
 operator|.
-name|insert
+name|append
 argument_list|(
 name|androidTZ
 operator|.

@@ -93,6 +93,7 @@ block|}
 enum|;
 name|private
 label|:
+name|Q_DECL_CONSTEXPR
 name|QDate
 argument_list|(
 argument|qint64 julianDay
@@ -105,15 +106,15 @@ argument_list|)
 block|{}
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 name|QDate
 argument_list|()
-block|{
+operator|:
 name|jd
-operator|=
-name|nullJd
-argument_list|()
-expr_stmt|;
-block|}
+argument_list|(
+argument|nullJd()
+argument_list|)
+block|{}
 name|QDate
 argument_list|(
 argument|int y
@@ -122,7 +123,8 @@ argument|int m
 argument_list|,
 argument|int d
 argument_list|)
-empty_stmt|;
+expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isNull
 argument_list|()
@@ -134,6 +136,7 @@ name|isValid
 argument_list|()
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isValid
 argument_list|()
@@ -398,6 +401,7 @@ operator|&
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|==
@@ -417,6 +421,7 @@ operator|.
 name|jd
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|!=
@@ -436,6 +441,7 @@ operator|.
 name|jd
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|<
@@ -455,6 +461,7 @@ operator|.
 name|jd
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|<=
@@ -474,6 +481,7 @@ operator|.
 name|jd
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|>
@@ -493,6 +501,7 @@ operator|.
 name|jd
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|>=
@@ -579,6 +588,7 @@ name|year
 parameter_list|)
 function_decl|;
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QDate
 name|fromJulianDay
@@ -607,6 +617,7 @@ name|QDate
 argument_list|()
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qint64
 name|toJulianDay
@@ -621,6 +632,7 @@ name|private
 label|:
 comment|// using extra parentheses around min to avoid expanding it if it is a macro
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qint64
 name|nullJd
@@ -642,6 +654,7 @@ operator|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qint64
 name|minJd
@@ -656,6 +669,7 @@ argument_list|)
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qint64
 name|maxJd
@@ -732,6 +746,7 @@ name|class
 name|Q_CORE_EXPORT
 name|QTime
 block|{
+name|Q_DECL_CONSTEXPR
 name|QTime
 argument_list|(
 argument|int ms
@@ -757,6 +772,7 @@ directive|endif
 block|{}
 name|public
 operator|:
+name|Q_DECL_CONSTEXPR
 name|QTime
 argument_list|()
 operator|:
@@ -791,6 +807,7 @@ argument|int ms =
 literal|0
 argument_list|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isNull
 argument_list|()
@@ -910,6 +927,7 @@ operator|&
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|==
@@ -929,6 +947,7 @@ operator|.
 name|mds
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|!=
@@ -948,6 +967,7 @@ operator|.
 name|mds
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|<
@@ -967,6 +987,7 @@ operator|.
 name|mds
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|<=
@@ -986,6 +1007,7 @@ operator|.
 name|mds
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|>
@@ -1005,6 +1027,7 @@ operator|.
 name|mds
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|bool
 name|operator
 operator|>=
@@ -1025,6 +1048,7 @@ name|mds
 return|;
 block|}
 specifier|static
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QTime
 name|fromMSecsSinceStartOfDay
@@ -1040,6 +1064,7 @@ name|msecs
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|msecsSinceStartOfDay
@@ -1143,6 +1168,7 @@ operator|-
 literal|1
 block|}
 enum|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|ds

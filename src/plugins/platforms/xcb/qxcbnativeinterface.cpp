@@ -267,11 +267,6 @@ name|m_systrayVisualId
 argument_list|(
 name|XCB_NONE
 argument_list|)
-member_init_list|,
-name|m_dbusTrayConnection
-argument_list|(
-name|Q_NULLPTR
-argument_list|)
 block|{ }
 end_constructor
 begin_function

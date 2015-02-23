@@ -445,7 +445,7 @@ name|arg
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"odd endianess"
+literal|"odd endianness"
 argument_list|)
 argument_list|)
 expr_stmt|;

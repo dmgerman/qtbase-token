@@ -112,12 +112,12 @@ name|m_connection
 return|;
 block|}
 name|bool
-name|isWatcherRegistered
+name|isStatusNotifierHostRegistered
 argument_list|()
 specifier|const
 block|{
 return|return
-name|m_watcherRegistered
+name|m_statusNotifierHostRegistered
 return|;
 block|}
 ifndef|#
@@ -176,7 +176,7 @@ operator|*
 name|m_dbusWatcher
 block|;
 name|bool
-name|m_watcherRegistered
+name|m_statusNotifierHostRegistered
 block|; }
 decl_stmt|;
 end_decl_stmt

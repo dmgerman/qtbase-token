@@ -266,18 +266,13 @@ block|;
 name|void
 name|processQmlProperties
 argument_list|(
-specifier|const
-name|Doc
-operator|&
-name|doc
+argument|const Doc& doc
 argument_list|,
-name|NodeList
-operator|&
-name|nodes
+argument|NodeList& nodes
 argument_list|,
-name|DocList
-operator|&
-name|docs
+argument|DocList& docs
+argument_list|,
+argument|bool jsProps
 argument_list|)
 block|;
 name|bool
@@ -663,7 +658,7 @@ block|;
 name|void
 name|createExampleFileNodes
 argument_list|(
-name|DocNode
+name|DocumentNode
 operator|*
 name|dn
 argument_list|)
@@ -954,13 +949,6 @@ name|COMMAND_QMLABSTRACT
 value|Doc::alias("qmlabstract")
 end_define
 begin_define
-DECL|macro|COMMAND_QMLCLASS
-define|#
-directive|define
-name|COMMAND_QMLCLASS
-value|Doc::alias("qmlclass")
-end_define
-begin_define
 DECL|macro|COMMAND_QMLTYPE
 define|#
 directive|define
@@ -1170,6 +1158,9 @@ directive|define
 name|COMMAND_QTVARIABLE
 value|Doc::alias("qtvariable")
 end_define
+begin_comment
+comment|// Some of these are not used currenmtly, but they are included now for completeness.
+end_comment
 begin_define
 DECL|macro|COMMAND_JSTYPE
 define|#
@@ -1185,11 +1176,18 @@ name|COMMAND_JSPROPERTY
 value|Doc::alias("jsproperty")
 end_define
 begin_define
-DECL|macro|COMMAND_JSMETHOD
+DECL|macro|COMMAND_JSPROPERTYGROUP
 define|#
 directive|define
-name|COMMAND_JSMETHOD
-value|Doc::alias("jsmethod")
+name|COMMAND_JSPROPERTYGROUP
+value|Doc::alias("jspropertygroup")
+end_define
+begin_define
+DECL|macro|COMMAND_JSATTACHEDPROPERTY
+define|#
+directive|define
+name|COMMAND_JSATTACHEDPROPERTY
+value|Doc::alias("jsattachedproperty")
 end_define
 begin_define
 DECL|macro|COMMAND_JSSIGNAL
@@ -1197,6 +1195,34 @@ define|#
 directive|define
 name|COMMAND_JSSIGNAL
 value|Doc::alias("jssignal")
+end_define
+begin_define
+DECL|macro|COMMAND_JSATTACHEDSIGNAL
+define|#
+directive|define
+name|COMMAND_JSATTACHEDSIGNAL
+value|Doc::alias("jsattachedsignal")
+end_define
+begin_define
+DECL|macro|COMMAND_JSMETHOD
+define|#
+directive|define
+name|COMMAND_JSMETHOD
+value|Doc::alias("jsmethod")
+end_define
+begin_define
+DECL|macro|COMMAND_JSATTACHEDMETHOD
+define|#
+directive|define
+name|COMMAND_JSATTACHEDMETHOD
+value|Doc::alias("jsattachedmethod")
+end_define
+begin_define
+DECL|macro|COMMAND_JSBASICTYPE
+define|#
+directive|define
+name|COMMAND_JSBASICTYPE
+value|Doc::alias("jsbasictype")
 end_define
 begin_define
 DECL|macro|COMMAND_JSMODULE

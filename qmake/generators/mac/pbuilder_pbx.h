@@ -276,30 +276,6 @@ specifier|const
 block|;
 name|protected
 operator|:
-name|virtual
-name|QString
-name|escapeFilePath
-argument_list|(
-argument|const QString&path
-argument_list|)
-specifier|const
-block|;
-name|ProString
-name|escapeFilePath
-argument_list|(
-argument|const ProString&path
-argument_list|)
-specifier|const
-block|{
-return|return
-name|MakefileGenerator
-operator|::
-name|escapeFilePath
-argument_list|(
-name|path
-argument_list|)
-return|;
-block|}
 name|bool
 name|doPrecompiledHeaders
 argument_list|()

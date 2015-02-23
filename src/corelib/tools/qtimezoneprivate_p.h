@@ -455,7 +455,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|virtual
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -466,7 +466,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|virtual
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -479,7 +479,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|virtual
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -890,7 +890,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -899,7 +899,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -910,7 +910,7 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1116,7 +1116,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1125,7 +1125,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1136,7 +1136,7 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1478,7 +1478,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1487,7 +1487,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1706,7 +1706,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -1905,7 +1905,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>
@@ -2120,7 +2120,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|QSet
+name|QList
 operator|<
 name|QByteArray
 operator|>

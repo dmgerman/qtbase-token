@@ -54,22 +54,7 @@ parameter_list|()
 member_init_list|:
 name|Win32MakefileGenerator
 argument_list|()
-block|{
-if|if
-condition|(
-name|isWindowsShell
-argument_list|()
-condition|)
-name|quote
-operator|=
-literal|"\""
-expr_stmt|;
-else|else
-name|quote
-operator|=
-literal|"'"
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_function
 DECL|function|escapeDependencyPath
@@ -92,13 +77,6 @@ name|path
 decl_stmt|;
 name|ret
 operator|.
-name|remove
-argument_list|(
-literal|'\"'
-argument_list|)
-expr_stmt|;
-name|ret
-operator|.
 name|replace
 argument_list|(
 literal|'\\'
@@ -106,6 +84,7 @@ argument_list|,
 literal|"/"
 argument_list|)
 expr_stmt|;
+comment|// ### this shouldn't be here
 name|ret
 operator|.
 name|replace
@@ -171,6 +150,52 @@ argument_list|)
 operator|.
 name|toQString
 argument_list|()
+return|;
+block|}
+end_function
+begin_function
+DECL|function|fixLibFlag
+name|ProString
+name|MingwMakefileGenerator
+operator|::
+name|fixLibFlag
+parameter_list|(
+specifier|const
+name|ProString
+modifier|&
+name|lib
+parameter_list|)
+block|{
+if|if
+condition|(
+name|lib
+operator|.
+name|startsWith
+argument_list|(
+literal|"lib"
+argument_list|)
+condition|)
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"-l"
+argument_list|)
+operator|+
+name|escapeFilePath
+argument_list|(
+name|lib
+operator|.
+name|mid
+argument_list|(
+literal|3
+argument_list|)
+argument_list|)
+return|;
+return|return
+name|escapeFilePath
+argument_list|(
+name|lib
+argument_list|)
 return|;
 block|}
 end_function
@@ -389,9 +414,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|steam
 argument_list|)
@@ -406,9 +429,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|steam
 operator|+
@@ -427,9 +448,7 @@ operator|.
 name|local
 argument_list|()
 operator|+
-name|Option
-operator|::
-name|dir_sep
+literal|'/'
 operator|+
 name|steam
 operator|+
@@ -480,11 +499,8 @@ literal|"-L"
 argument_list|)
 condition|)
 block|{
-name|dirs
-operator|.
-name|append
-argument_list|(
 name|QMakeLocalFileName
+name|f
 argument_list|(
 operator|(
 operator|*
@@ -499,7 +515,23 @@ operator|.
 name|toQString
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|dirs
+operator|.
+name|append
+argument_list|(
+name|f
 argument_list|)
+expr_stmt|;
+operator|*
+name|it
+operator|=
+literal|"-L"
+operator|+
+name|f
+operator|.
+name|real
+argument_list|()
 expr_stmt|;
 block|}
 operator|++
@@ -646,10 +678,13 @@ name|it
 control|)
 name|t
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 operator|*
 name|it
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 name|t
 operator|<<
@@ -808,6 +843,7 @@ operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
+comment|// ### quoting?
 if|if
 condition|(
 name|QDir
@@ -914,6 +950,7 @@ operator|&
 name|file
 argument_list|)
 decl_stmt|;
+comment|// ### quoting?
 name|t
 operator|<<
 literal|"CREATE "
@@ -1065,6 +1102,7 @@ operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
+comment|// ### quoting?
 if|if
 condition|(
 name|QDir
@@ -1191,11 +1229,17 @@ argument_list|)
 operator|<<
 literal|"\n\t$(CC) -x c-header -c $(CFLAGS) $(INCPATH) -o "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|cHeader
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|header
+argument_list|)
 operator|<<
 name|endl
 operator|<<
@@ -1250,11 +1294,17 @@ argument_list|)
 operator|<<
 literal|"\n\t$(CXX) -x c++-header -c $(CXXFLAGS) $(INCPATH) -o "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|cppHeader
+argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|header
+argument_list|)
 operator|<<
 name|endl
 operator|<<
@@ -1497,20 +1547,6 @@ expr_stmt|;
 name|processVars
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"RES_FILE"
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
 name|project
 operator|->
 name|values
@@ -1518,17 +1554,13 @@ argument_list|(
 literal|"QMAKE_LIBS"
 argument_list|)
 operator|+=
-name|escapeFilePaths
-argument_list|(
 name|project
 operator|->
 name|values
 argument_list|(
 literal|"RES_FILE"
 argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|project
@@ -1623,9 +1655,7 @@ argument_list|(
 literal|"-Wl,--out-implib,"
 argument_list|)
 operator|+
-name|project
-operator|->
-name|first
+name|fileVar
 argument_list|(
 literal|"MINGW_IMPORT_LIB"
 argument_list|)
@@ -1804,6 +1834,13 @@ operator|::
 name|dir_sep
 operator|+
 literal|"c++"
+argument_list|)
+expr_stmt|;
+name|preCompHeader
+operator|=
+name|escapeFilePath
+argument_list|(
+name|preCompHeader
 argument_list|)
 expr_stmt|;
 name|project
@@ -2051,18 +2088,6 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|inc
-operator|.
-name|replace
-argument_list|(
-name|QRegExp
-argument_list|(
-literal|"\""
-argument_list|)
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2089,13 +2114,12 @@ literal|"-I"
 expr_stmt|;
 name|t
 operator|<<
-name|quote
-operator|<<
+name|escapeFilePath
+argument_list|(
 name|inc
+argument_list|)
 operator|<<
-name|quote
-operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 block|}
 name|t
@@ -2175,36 +2199,26 @@ name|t
 operator|<<
 literal|"LIBS        =        "
 operator|<<
-name|var
+name|fixLibFlags
 argument_list|(
 literal|"QMAKE_LIBS"
 argument_list|)
 operator|.
-name|replace
+name|join
 argument_list|(
-name|QRegExp
-argument_list|(
-literal|"(\\slib|^lib)"
-argument_list|)
-argument_list|,
-literal|" -l"
+literal|' '
 argument_list|)
 operator|<<
 literal|' '
 operator|<<
-name|var
+name|fixLibFlags
 argument_list|(
 literal|"QMAKE_LIBS_PRIVATE"
 argument_list|)
 operator|.
-name|replace
+name|join
 argument_list|(
-name|QRegExp
-argument_list|(
-literal|"(\\slib|^lib)"
-argument_list|)
-argument_list|,
-literal|" -l"
+literal|' '
 argument_list|)
 operator|<<
 name|endl
@@ -2360,9 +2374,9 @@ name|objectsLinkLine
 operator|=
 name|ar_cmd
 operator|+
-literal|" "
+literal|' '
 operator|+
-name|var
+name|fileVar
 argument_list|(
 literal|"DEST_TARGET"
 argument_list|)
@@ -2578,25 +2592,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
-name|valGlue
-argument_list|(
-name|escapeDependencyPaths
-argument_list|(
-name|project
-operator|->
-name|values
+name|depVar
 argument_list|(
 literal|"ALL_DEPS"
-argument_list|)
-argument_list|)
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
 argument_list|)
 operator|<<
 literal|" $(DESTDIR_TARGET)\n\n"
@@ -2605,14 +2605,14 @@ name|t
 operator|<<
 literal|"$(DESTDIR_TARGET): "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"PRE_TARGETDEPS"
 argument_list|)
 operator|<<
 literal|" $(OBJECTS) "
 operator|<<
-name|var
+name|depVar
 argument_list|(
 literal|"POST_TARGETDEPS"
 argument_list|)
@@ -2900,7 +2900,10 @@ argument_list|)
 operator|<<
 literal|": "
 operator|<<
+name|escapeDependencyPath
+argument_list|(
 name|rc_file
+argument_list|)
 operator|<<
 literal|"\n\t"
 operator|<<
@@ -2911,11 +2914,14 @@ argument_list|)
 operator|<<
 literal|" -i "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|rc_file
+argument_list|)
 operator|<<
 literal|" -o "
 operator|<<
-name|var
+name|fileVar
 argument_list|(
 literal|"RES_FILE"
 argument_list|)

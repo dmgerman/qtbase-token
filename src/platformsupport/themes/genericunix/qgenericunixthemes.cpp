@@ -346,7 +346,7 @@ if|if
 condition|(
 name|conn
 operator|.
-name|isWatcherRegistered
+name|isStatusNotifierHostRegistered
 argument_list|()
 condition|)
 name|dbusTrayAvailable

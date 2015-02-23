@@ -2331,6 +2331,8 @@ argument_list|()
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+name|NoShell
 argument_list|)
 decl_stmt|;
 name|path

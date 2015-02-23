@@ -230,58 +230,6 @@ block|;
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
-name|QDateTimePrivate
-argument_list|(
-specifier|const
-name|QDateTimePrivate
-operator|&
-name|other
-argument_list|)
-operator|:
-name|QSharedData
-argument_list|(
-name|other
-argument_list|)
-block|,
-name|m_msecs
-argument_list|(
-name|other
-operator|.
-name|m_msecs
-argument_list|)
-block|,
-name|m_spec
-argument_list|(
-name|other
-operator|.
-name|m_spec
-argument_list|)
-block|,
-name|m_offsetFromUtc
-argument_list|(
-name|other
-operator|.
-name|m_offsetFromUtc
-argument_list|)
-block|,
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
-name|m_timeZone
-argument_list|(
-name|other
-operator|.
-name|m_timeZone
-argument_list|)
-block|,
-endif|#
-directive|endif
-comment|// QT_BOOTSTRAPPED
-name|m_status
-argument_list|(
-argument|other.m_status
-argument_list|)
-block|{}
 comment|// ### XXX: when the tooling situation improves, look at fixing the padding.
 comment|// 4 bytes padding
 name|qint64
@@ -384,12 +332,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|m_status
 operator|&
-name|NullDate
-operator|)
-operator|==
 name|NullDate
 return|;
 block|}
@@ -400,12 +344,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|m_status
 operator|&
-name|NullTime
-operator|)
-operator|==
 name|NullTime
 return|;
 block|}
@@ -416,12 +356,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|m_status
 operator|&
-name|ValidDate
-operator|)
-operator|==
 name|ValidDate
 return|;
 block|}
@@ -432,12 +368,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|m_status
 operator|&
-name|ValidTime
-operator|)
-operator|==
 name|ValidTime
 return|;
 block|}
@@ -448,12 +380,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|m_status
 operator|&
-name|ValidDateTime
-operator|)
-operator|==
 name|ValidDateTime
 return|;
 block|}
@@ -463,9 +391,7 @@ name|setValidDateTime
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator||
+operator||=
 name|ValidDateTime
 block|; }
 specifier|inline
@@ -474,9 +400,7 @@ name|clearValidDateTime
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator|&
+operator|&=
 operator|~
 name|ValidDateTime
 block|; }
@@ -487,12 +411,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|m_status
 operator|&
-name|TimeZoneCached
-operator|)
-operator|==
 name|TimeZoneCached
 return|;
 block|}
@@ -502,9 +422,7 @@ name|setTimeZoneCached
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator||
+operator||=
 name|TimeZoneCached
 block|; }
 specifier|inline
@@ -513,9 +431,7 @@ name|clearTimeZoneCached
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator|&
+operator|&=
 operator|~
 name|TimeZoneCached
 block|; }
@@ -525,14 +441,13 @@ name|clearSetToDaylightStatus
 argument_list|()
 block|{
 name|m_status
-operator|=
-name|m_status
-operator|&
+operator|&=
 operator|~
+operator|(
 name|SetToStandardTime
-operator|&
-operator|~
+operator||
 name|SetToDaylightTime
+operator|)
 block|; }
 ifndef|#
 directive|ifndef

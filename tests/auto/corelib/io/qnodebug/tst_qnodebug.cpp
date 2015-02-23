@@ -196,9 +196,9 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|asprintf
+name|fromLatin1
 argument_list|(
-literal|"QDateTime(\"%1\" Qt::TimeSpec(LocalTime))"
+literal|"QDateTime(%1 Qt::TimeSpec(LocalTime))"
 argument_list|)
 operator|.
 name|arg

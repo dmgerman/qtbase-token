@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<simple.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"test_file.h"
 end_include
 begin_include
@@ -33,6 +38,9 @@ name|argc
 argument_list|,
 name|argv
 argument_list|)
+decl_stmt|;
+name|Simple
+name|s
 decl_stmt|;
 name|SomeObject
 name|sc

@@ -11330,7 +11330,7 @@ literal|"Include"
 argument_list|,
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|filename
 argument_list|)
@@ -11358,7 +11358,7 @@ literal|"Include"
 argument_list|,
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|filename
 argument_list|)
@@ -11686,7 +11686,7 @@ name|nativeFilePath
 init|=
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|fixPathToTargetOS
 argument_list|(
 name|filePath
 argument_list|)

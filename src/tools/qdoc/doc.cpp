@@ -14195,20 +14195,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_define
-DECL|macro|COMMAND_BRIEF
-define|#
-directive|define
-name|COMMAND_BRIEF
-value|Doc::alias("brief")
-end_define
-begin_define
-DECL|macro|COMMAND_QMLBRIEF
-define|#
-directive|define
-name|COMMAND_QMLBRIEF
-value|Doc::alias("qmlbrief")
-end_define
 begin_comment
 comment|/*!   Parse the qdoc comment \a source. Build up a list of all the topic   commands found including their arguments.  This constructor is used   when there can be more than one topic command in theqdoc comment.   Normally, there is only one topic command in a qdoc comment, but in   QML documentation, there is the case where the qdoc \e{qmlproperty}   command can appear multiple times in a qdoc comment.  */
 end_comment

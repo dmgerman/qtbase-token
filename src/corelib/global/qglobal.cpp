@@ -3910,18 +3910,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_HAIKU
-argument_list|)
-return|return
-name|QStringLiteral
-argument_list|(
-literal|"haiku"
-argument_list|)
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|USE_ETC_OS_RELEASE
 argument_list|)
 comment|// Q_OS_UNIX

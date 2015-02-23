@@ -5,7 +5,7 @@ comment|'#######################################################################
 nl|'\n'
 comment|'##'
 nl|'\n'
-comment|'## Copyright (C) 2015 The Qt Company Ltd and/or its subsidiary(-ies).'
+comment|'## Copyright (C) 2015 The Qt Company Ltd.'
 nl|'\n'
 comment|'## Contact: http://www.qt.io/licensing/'
 nl|'\n'

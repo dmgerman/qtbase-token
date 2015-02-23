@@ -273,11 +273,9 @@ name|local_name
 operator|=
 name|Option
 operator|::
-name|fixPathToLocalOS
+name|normalizePath
 argument_list|(
 name|real_name
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 return|return
