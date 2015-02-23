@@ -3660,8 +3660,8 @@ name|QWidget
 modifier|*
 name|topLevel
 init|=
-name|qApp
-operator|->
+name|QApplication
+operator|::
 name|topLevelAt
 argument_list|(
 name|pt

@@ -9617,8 +9617,8 @@ if|if
 condition|(
 name|contextWidget
 condition|)
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -10396,8 +10396,8 @@ name|QEvent
 operator|::
 name|MouseButtonRelease
 condition|)
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -16185,8 +16185,8 @@ name|isPreediting
 argument_list|()
 condition|)
 return|return;
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

@@ -634,8 +634,8 @@ name|composeMode
 argument_list|()
 condition|)
 return|return;
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

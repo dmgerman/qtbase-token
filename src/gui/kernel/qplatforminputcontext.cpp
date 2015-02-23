@@ -236,8 +236,8 @@ name|emitKeyboardRectChanged
 parameter_list|()
 block|{
 emit|emit
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -275,8 +275,8 @@ name|emitAnimatingChanged
 parameter_list|()
 block|{
 emit|emit
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -338,8 +338,8 @@ name|emitInputPanelVisibleChanged
 parameter_list|()
 block|{
 emit|emit
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -374,8 +374,8 @@ name|emitLocaleChanged
 parameter_list|()
 block|{
 emit|emit
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -417,8 +417,8 @@ name|newDirection
 parameter_list|)
 block|{
 emit|emit
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

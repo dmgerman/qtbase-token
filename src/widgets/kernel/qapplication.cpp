@@ -8527,8 +8527,8 @@ operator|::
 name|WA_InputMethodEnabled
 argument_list|)
 condition|)
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
