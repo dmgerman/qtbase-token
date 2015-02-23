@@ -1026,7 +1026,7 @@ comment|// Bengali
 literal|"guru"
 block|,
 comment|// Gurmukhi
-literal|"gurj"
+literal|"gujr"
 block|,
 comment|// Gujarati
 literal|"orya"
