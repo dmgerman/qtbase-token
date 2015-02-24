@@ -114,9 +114,6 @@ operator|:
 name|QImage
 name|m_qImage
 block|;
-name|CGImageRef
-name|m_cgImage
-block|;
 name|QSize
 name|m_requestedSize
 block|; }
