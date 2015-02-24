@@ -1150,6 +1150,8 @@ argument_list|,
 argument|GlyphFormat format
 argument_list|,
 argument|const QTransform&t
+argument_list|,
+argument|bool fetchBoundingBox = false
 argument_list|)
 block|;
 name|QGlyphSet

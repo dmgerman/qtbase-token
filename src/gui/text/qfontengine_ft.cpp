@@ -11198,6 +11198,8 @@ argument_list|,
 name|format
 argument_list|,
 name|matrix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|glyph_metrics_t
@@ -12013,6 +12015,9 @@ specifier|const
 name|QTransform
 modifier|&
 name|t
+parameter_list|,
+name|bool
+name|fetchBoundingBox
 parameter_list|)
 block|{
 name|FT_Face
@@ -12087,6 +12092,9 @@ operator|&&
 name|glyphSet
 operator|->
 name|outline_drawing
+operator|&&
+operator|!
+name|fetchBoundingBox
 condition|)
 return|return
 literal|0

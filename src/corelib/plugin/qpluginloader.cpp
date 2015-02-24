@@ -912,7 +912,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of static plugin instances (root components) held     by the plugin loader.     \sa staticPlugins() */
+comment|/*!     Returns a list of static plugin instances (root components) held     by the plugin loader.     \sa staticPlugin() */
 end_comment
 begin_function
 DECL|function|staticInstances

@@ -3524,6 +3524,15 @@ name|m_widget
 operator|->
 name|updatesEnabled
 argument_list|()
+operator|||
+operator|!
+name|m_widget
+operator|->
+name|rect
+argument_list|()
+operator|.
+name|isValid
+argument_list|()
 condition|)
 return|return;
 name|QTLWExtra

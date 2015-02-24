@@ -3405,7 +3405,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Pipes the standard output stream of this process to the \a     destination process' standard input.      The following shell command:     \snippet code/src_corelib_io_qprocess.cpp 2      Can be accomplished with QProcesses with the following code:     \snippet code/src_corelib_io_qprocess.cpp 3 */
+comment|/*!     \since 4.2      Pipes the standard output stream of this process to the \a     destination process' standard input.      The following shell command:     \snippet code/src_corelib_io_qprocess.cpp 2      Can be accomplished with QProcess with the following code:     \snippet code/src_corelib_io_qprocess.cpp 3 */
 end_comment
 begin_function
 DECL|function|setStandardOutputProcess
