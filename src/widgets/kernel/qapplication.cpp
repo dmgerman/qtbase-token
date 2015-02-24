@@ -356,6 +356,16 @@ block|}
 end_function
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
+comment|// Helper macro for static functions to check on the existence of the application class.
+DECL|macro|CHECK_QAPP_INSTANCE
+define|#
+directive|define
+name|CHECK_QAPP_INSTANCE
+parameter_list|(
+modifier|...
+parameter_list|)
+define|\
+value|if (Q_LIKELY(QCoreApplication::instance())) { \     } else { \         qWarning("Must construct a QApplication first."); \         return __VA_ARGS__; \     }
 name|Q_CORE_EXPORT
 name|void
 name|qt_call_post_routines
@@ -12268,6 +12278,10 @@ operator|::
 name|desktop
 parameter_list|()
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
 if|if
 condition|(
 operator|!
@@ -18084,6 +18098,10 @@ name|UIEffect
 name|effect
 parameter_list|)
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|(
+literal|false
+argument_list|)
 return|return
 name|QColormap
 operator|::

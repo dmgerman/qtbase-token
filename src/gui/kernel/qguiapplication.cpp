@@ -314,6 +314,16 @@ file|<ctype.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// Helper macro for static functions to check on the existence of the application class.
+DECL|macro|CHECK_QAPP_INSTANCE
+define|#
+directive|define
+name|CHECK_QAPP_INSTANCE
+parameter_list|(
+modifier|...
+parameter_list|)
+define|\
+value|if (Q_LIKELY(QCoreApplication::instance())) { \     } else { \         qWarning("Must construct a QGuiApplication first."); \         return __VA_ARGS__; \     }
 DECL|variable|qt_is_gui_used
 name|Q_GUI_EXPORT
 name|bool
@@ -2071,6 +2081,10 @@ operator|::
 name|modalWindow
 parameter_list|()
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
 if|if
 condition|(
 name|QGuiApplicationPrivate
@@ -5293,6 +5307,12 @@ operator|::
 name|queryKeyboardModifiers
 parameter_list|()
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|(
+argument|Qt::KeyboardModifiers(
+literal|0
+argument|)
+argument_list|)
 name|QPlatformIntegration
 modifier|*
 name|pi
@@ -13956,6 +13976,10 @@ operator|::
 name|overrideCursor
 parameter_list|()
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
 return|return
 name|qGuiApp
 operator|->
@@ -13998,6 +14022,8 @@ modifier|&
 name|cursor
 parameter_list|)
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|()
 if|if
 condition|(
 name|qGuiApp
@@ -14328,6 +14354,8 @@ modifier|&
 name|cursor
 parameter_list|)
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|()
 name|qGuiApp
 operator|->
 name|d_func
@@ -14362,6 +14390,8 @@ operator|::
 name|restoreOverrideCursor
 parameter_list|()
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|()
 if|if
 condition|(
 name|qGuiApp
@@ -14531,6 +14561,10 @@ operator|::
 name|inputMethod
 parameter_list|()
 block|{
+name|CHECK_QAPP_INSTANCE
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
 if|if
 condition|(
 operator|!
