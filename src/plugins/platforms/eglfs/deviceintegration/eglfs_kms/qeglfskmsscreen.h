@@ -61,6 +61,12 @@ name|class
 name|QEglFSKmsCursor
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QEglFSKmsInterruptHandler
+name|class
+name|QEglFSKmsInterruptHandler
+decl_stmt|;
+end_decl_stmt
 begin_struct
 DECL|struct|QEglFSKmsOutput
 struct|struct
@@ -317,6 +323,10 @@ block|;
 specifier|static
 name|QMutex
 name|m_waitForFlipMutex
+block|;
+name|QEglFSKmsInterruptHandler
+operator|*
+name|m_interruptHandler
 block|; }
 decl_stmt|;
 end_decl_stmt
