@@ -7691,7 +7691,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* !     Extract a directory from resources to disk. The content is extracted     recursively to a temporary folder. The extracted content is not removed     automatically.      \a dirName is the name of the directory to extract from resources.      Returns the path where the data was extracted or an empty string in case of     errors.  */
+comment|/*!     Extract a directory from resources to disk. The content is extracted     recursively to a temporary folder. The extracted content is not removed     automatically.      \a dirName is the name of the directory to extract from resources.      Returns the path where the data was extracted or an empty string in case of     errors.  */
 end_comment
 begin_function
 DECL|function|qExtractTestData

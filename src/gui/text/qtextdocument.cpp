@@ -4502,7 +4502,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the position of the given \a from cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed. The FindCaseSensitively     option is ignored for this overload, use QRegExp::caseSensitivity instead.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a from cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
+comment|/*!     \overload      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the position of the given from \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed. The FindCaseSensitively     option is ignored for this overload, use QRegExp::caseSensitivity instead.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a from cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
 end_comment
 begin_function
 DECL|function|find
