@@ -43,6 +43,9 @@ end_define
 begin_comment
 comment|//#define DEBUG_GENERATOR
 end_comment
+begin_comment
+comment|/* Whenever QComposeTableElement gets modified supportedCacheVersion  from qtablegenerator.cpp must be bumped. */
+end_comment
 begin_struct
 DECL|struct|QComposeTableElement
 struct|struct
@@ -321,7 +324,7 @@ name|QString
 name|line
 parameter_list|)
 function_decl|;
-name|void
+name|QString
 name|findComposeFile
 parameter_list|()
 function_decl|;
