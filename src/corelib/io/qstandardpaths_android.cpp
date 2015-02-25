@@ -103,11 +103,12 @@ name|appCtx
 return|;
 name|QJNIObjectPrivate
 name|activity
-init|=
+argument_list|(
 name|QtAndroidPrivate
 operator|::
 name|activity
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -421,11 +422,12 @@ name|path
 return|;
 name|QJNIObjectPrivate
 name|activity
-init|=
+argument_list|(
 name|QtAndroidPrivate
 operator|::
 name|activity
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

@@ -6266,12 +6266,21 @@ specifier|const
 name|QWindow
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-43252, prefer platform implementation for foreign windows.
 if|if
 condition|(
 name|d
 operator|->
 name|platformWindow
 operator|&&
+operator|(
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|ForeignWindow
+operator|||
 name|d
 operator|->
 name|platformWindow
@@ -6280,7 +6289,9 @@ name|isEmbedded
 argument_list|(
 literal|0
 argument_list|)
+operator|)
 condition|)
+block|{
 return|return
 name|d
 operator|->
@@ -6291,7 +6302,7 @@ argument_list|(
 name|pos
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 name|pos
 operator|+
@@ -6326,12 +6337,21 @@ specifier|const
 name|QWindow
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-43252, prefer platform implementation for foreign windows.
 if|if
 condition|(
 name|d
 operator|->
 name|platformWindow
 operator|&&
+operator|(
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|ForeignWindow
+operator|||
 name|d
 operator|->
 name|platformWindow
@@ -6340,7 +6360,9 @@ name|isEmbedded
 argument_list|(
 literal|0
 argument_list|)
+operator|)
 condition|)
+block|{
 return|return
 name|d
 operator|->
@@ -6351,7 +6373,7 @@ argument_list|(
 name|pos
 argument_list|)
 return|;
-else|else
+block|}
 return|return
 name|pos
 operator|-

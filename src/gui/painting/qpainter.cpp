@@ -19732,6 +19732,21 @@ argument_list|(
 name|QPainter
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|engine
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QPainter::drawGlyphRun: Painter not active"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|QRawFont
 name|font
 init|=

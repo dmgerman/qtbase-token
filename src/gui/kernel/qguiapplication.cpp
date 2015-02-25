@@ -6438,12 +6438,17 @@ condition|)
 block|{
 comment|// A mouse event should not change both position and buttons at the same time. Instead we
 comment|// should first send a move event followed by a button changed event. Since this is not the case
-comment|// with the current event, we fake a move-only event that we recurse and process first. This
-comment|// will update the global mouse position and cause the second event to be a button only event.
+comment|// with the current event, we split it in two.
 name|QWindowSystemInterfacePrivate
 operator|::
 name|MouseEvent
-name|moveEvent
+modifier|*
+name|mouseButtonEvent
+init|=
+operator|new
+name|QWindowSystemInterfacePrivate
+operator|::
+name|MouseEvent
 argument_list|(
 name|e
 operator|->
@@ -6468,15 +6473,13 @@ name|e
 operator|->
 name|globalPos
 argument_list|,
+name|e
+operator|->
 name|buttons
 argument_list|,
 name|e
 operator|->
 name|modifiers
-argument_list|,
-name|e
-operator|->
-name|source
 argument_list|)
 decl_stmt|;
 if|if
@@ -6491,8 +6494,8 @@ name|WindowSystemEvent
 operator|::
 name|Synthetic
 condition|)
-name|moveEvent
-operator|.
+name|mouseButtonEvent
+operator|->
 name|flags
 operator||=
 name|QWindowSystemInterfacePrivate
@@ -6501,24 +6504,21 @@ name|WindowSystemEvent
 operator|::
 name|Synthetic
 expr_stmt|;
-name|processMouseEvent
-argument_list|(
-operator|&
-name|moveEvent
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|e
-operator|->
-name|globalPos
-operator|==
-name|QGuiApplicationPrivate
+name|QWindowSystemInterfacePrivate
 operator|::
-name|lastCursorPosition
+name|windowSystemEventQueue
+operator|.
+name|prepend
+argument_list|(
+name|mouseButtonEvent
 argument_list|)
 expr_stmt|;
-comment|// continue with processing mouse button change event
+name|stateChange
+operator|=
+name|Qt
+operator|::
+name|NoButton
+expr_stmt|;
 block|}
 name|QWindow
 modifier|*

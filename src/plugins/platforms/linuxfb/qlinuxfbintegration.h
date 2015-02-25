@@ -137,6 +137,13 @@ return|return
 name|m_inputContext
 return|;
 block|}
+name|QPlatformNativeInterface
+operator|*
+name|nativeInterface
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|QList
 operator|<
 name|QPlatformScreen
@@ -177,6 +184,12 @@ operator|<
 name|QFbVtHandler
 operator|>
 name|m_vtHandler
+expr_stmt|;
+name|QScopedPointer
+operator|<
+name|QPlatformNativeInterface
+operator|>
+name|m_nativeInterface
 expr_stmt|;
 block|}
 end_decl_stmt

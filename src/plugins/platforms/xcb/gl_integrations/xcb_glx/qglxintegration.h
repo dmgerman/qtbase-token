@@ -102,12 +102,11 @@ argument|QPlatformSurface *surface
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|void
+name|QFunctionPointer
+name|getProcAddress
 argument_list|(
-argument|*getProcAddress(const QByteArray&procName)
+argument|const QByteArray&procName
 argument_list|)
-operator|(
-operator|)
 name|Q_DECL_OVERRIDE
 block|;
 name|QSurfaceFormat

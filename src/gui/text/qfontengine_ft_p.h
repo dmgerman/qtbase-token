@@ -305,10 +305,6 @@ parameter_list|,
 name|QPainterPath
 modifier|*
 name|path
-parameter_list|,
-name|bool
-init|=
-name|false
 parameter_list|)
 function_decl|;
 name|private
@@ -1154,6 +1150,8 @@ argument_list|,
 argument|GlyphFormat format
 argument_list|,
 argument|const QTransform&t
+argument_list|,
+argument|bool fetchBoundingBox = false
 argument_list|)
 block|;
 name|QGlyphSet
