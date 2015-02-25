@@ -193,7 +193,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    This is a convenience version of select operating on QUrls. If the scheme is not file or qrc,    \a filePath is returned immediately. Otherwise selection is applied to the path of \a filePath    and a QUrl is returned with the selected path and other QUrl parts the same as \a filePath.     See the class overview for the selection algorithm. */
+comment|/*!    This is a convenience version of select operating on QUrl objects. If the scheme is not file or qrc,    \a filePath is returned immediately. Otherwise selection is applied to the path of \a filePath    and a QUrl is returned with the selected path and other QUrl parts the same as \a filePath.     See the class overview for the selection algorithm. */
 end_comment
 begin_function
 DECL|function|select

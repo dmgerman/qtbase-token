@@ -18832,7 +18832,7 @@ begin_comment
 comment|//QT_NO_GRAPHICSEFFECT
 end_comment
 begin_comment
-comment|/*!    \brief The setGraphicsEffect function is for setting the widget's graphics effect.      Sets \a effect as the widget's effect. If there already is an effect installed     on this widget, QWidget will delete the existing effect before installing     the new \a effect.      If \a effect is the installed effect on a different widget, setGraphicsEffect() will remove     the effect from the widget and install it on this widget.      QWidget takes ownership of \a effect.      \note This function will apply the effect on itself and all its children.      \since 4.6      \sa graphicsEffect() */
+comment|/*!    \brief The setGraphicsEffect function is for setting the widget's graphics effect.      Sets \a effect as the widget's effect. If there already is an effect installed     on this widget, QWidget will delete the existing effect before installing     the new \a effect.      If \a effect is the installed effect on a different widget, setGraphicsEffect() will remove     the effect from the widget and install it on this widget.      QWidget takes ownership of \a effect.      \note This function will apply the effect on itself and all its children.      \note Graphics effects are not supported for OpenGL-based widgets, such as QGLWidget,     QOpenGLWidget and QQuickWidget.      \since 4.6      \sa graphicsEffect() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -47085,6 +47085,15 @@ operator|->
 name|extra
 operator|->
 name|proxyWidget
+operator|&&
+name|d
+operator|->
+name|extra
+operator|->
+name|proxyWidget
+operator|->
+name|scene
+argument_list|()
 condition|)
 block|{
 specifier|const
@@ -47306,6 +47315,15 @@ operator|->
 name|extra
 operator|->
 name|proxyWidget
+operator|&&
+name|d
+operator|->
+name|extra
+operator|->
+name|proxyWidget
+operator|->
+name|scene
+argument_list|()
 condition|)
 block|{
 specifier|const

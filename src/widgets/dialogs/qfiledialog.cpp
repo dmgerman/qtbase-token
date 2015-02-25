@@ -10288,11 +10288,11 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
-name|options
+name|model
 operator|->
 name|setFilter
 argument_list|(
-name|model
+name|options
 operator|->
 name|filter
 argument_list|()

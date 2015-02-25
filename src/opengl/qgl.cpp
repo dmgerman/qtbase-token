@@ -537,6 +537,8 @@ if|if
 condition|(
 name|proxy
 operator|&&
+name|qApp
+operator|&&
 name|proxy
 operator|->
 name|thread

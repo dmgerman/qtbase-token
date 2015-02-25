@@ -209,11 +209,16 @@ argument_list|,
 argument|...
 argument_list|)
 empty_stmt|;
+comment|// In most cases you should never call this function with a local ref. unless you intend
+comment|// to manage the local ref. yourself.
+comment|// NOTE: see fromLocalRef() for converting a local ref. to QJNIObjectPrivate.
+name|explicit
 name|QJNIObjectPrivate
-argument_list|(
-argument|jobject obj
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|jobject
+name|globalRef
+parameter_list|)
+function_decl|;
 name|template
 operator|<
 name|typename
@@ -733,6 +738,15 @@ operator|*
 name|this
 return|;
 block|}
+comment|// This function takes ownership of the jobject and releases the local ref. before returning.
+specifier|static
+name|QJNIObjectPrivate
+name|fromLocalRef
+parameter_list|(
+name|jobject
+name|lref
+parameter_list|)
+function_decl|;
 name|private
 label|:
 name|friend

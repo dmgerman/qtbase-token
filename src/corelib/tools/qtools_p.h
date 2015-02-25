@@ -121,9 +121,12 @@ literal|'9'
 operator|)
 operator|)
 condition|?
+name|int
+argument_list|(
 name|c
 operator|-
 literal|'0'
+argument_list|)
 else|:
 operator|(
 operator|(
@@ -139,11 +142,14 @@ literal|'F'
 operator|)
 operator|)
 condition|?
+name|int
+argument_list|(
 name|c
 operator|-
 literal|'A'
 operator|+
 literal|10
+argument_list|)
 else|:
 operator|(
 operator|(
@@ -159,11 +165,14 @@ literal|'f'
 operator|)
 operator|)
 condition|?
+name|int
+argument_list|(
 name|c
 operator|-
 literal|'a'
 operator|+
 literal|10
+argument_list|)
 else|:
 comment|/* otherwise */
 operator|-
@@ -216,9 +225,12 @@ literal|'7'
 operator|)
 operator|)
 condition|?
+name|int
+argument_list|(
 name|c
 operator|-
 literal|'0'
+argument_list|)
 else|:
 operator|-
 literal|1

@@ -1471,7 +1471,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of bytes that are available for reading. This     function is commonly used with sequential devices to determine the     number of bytes to allocate in a buffer before reading.      Subclasses that reimplement this function must call the base     implementation in order to include the size of QIODevices' buffer. Example:      \snippet code/src_corelib_io_qiodevice.cpp 1      \sa bytesToWrite(), readyRead(), isSequential() */
+comment|/*!     Returns the number of bytes that are available for reading. This     function is commonly used with sequential devices to determine the     number of bytes to allocate in a buffer before reading.      Subclasses that reimplement this function must call the base     implementation in order to include the size of the buffer of QIODevice. Example:      \snippet code/src_corelib_io_qiodevice.cpp 1      \sa bytesToWrite(), readyRead(), isSequential() */
 end_comment
 begin_function
 DECL|function|bytesAvailable

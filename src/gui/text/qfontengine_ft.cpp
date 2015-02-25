@@ -3172,8 +3172,6 @@ parameter_list|,
 name|QPainterPath
 modifier|*
 name|path
-parameter_list|,
-name|bool
 parameter_list|)
 block|{
 if|if
@@ -9290,8 +9288,8 @@ argument_list|,
 name|FT_LOAD_TARGET_MONO
 argument_list|)
 expr_stmt|;
-name|freetype
-operator|->
+name|QFreetypeFace
+operator|::
 name|addBitmapToPath
 argument_list|(
 name|face
@@ -11200,6 +11198,8 @@ argument_list|,
 name|format
 argument_list|,
 name|matrix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|glyph_metrics_t
@@ -12015,6 +12015,9 @@ specifier|const
 name|QTransform
 modifier|&
 name|t
+parameter_list|,
+name|bool
+name|fetchBoundingBox
 parameter_list|)
 block|{
 name|FT_Face
@@ -12089,6 +12092,9 @@ operator|&&
 name|glyphSet
 operator|->
 name|outline_drawing
+operator|&&
+operator|!
+name|fetchBoundingBox
 condition|)
 return|return
 literal|0

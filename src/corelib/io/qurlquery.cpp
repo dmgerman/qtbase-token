@@ -1277,7 +1277,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if this QUrlQUery object contains no key-value pairs, such as     after being default-constructed or after parsing an empty query string.      \sa setQuery(), clear() */
+comment|/*!     Returns \c true if this QUrlQuery object contains no key-value pairs, such as     after being default-constructed or after parsing an empty query string.      \sa setQuery(), clear() */
 end_comment
 begin_function
 DECL|function|isEmpty

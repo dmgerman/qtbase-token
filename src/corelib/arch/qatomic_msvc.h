@@ -41,7 +41,6 @@ DECL|macro|QT_INTERLOCKED_PROTOTYPE
 define|#
 directive|define
 name|QT_INTERLOCKED_PROTOTYPE
-value|__cdecl
 end_define
 begin_define
 DECL|macro|QT_INTERLOCKED_DECLARE_PROTOTYPES

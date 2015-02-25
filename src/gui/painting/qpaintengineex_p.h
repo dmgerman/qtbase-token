@@ -119,12 +119,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-DECL|variable|QPixmapFilter
-name|class
-name|QPixmapFilter
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QPaintEngineEx
@@ -603,27 +597,6 @@ name|void
 name|endNativePainting
 argument_list|()
 block|{}
-comment|// Return a pixmap filter of "type" that can render the parameters
-comment|// in "prototype".  The returned filter is owned by the engine and
-comment|// will be destroyed when the engine is destroyed.  The "prototype"
-comment|// allows the engine to pick different filters based on the parameters
-comment|// that will be requested, and not just the "type".
-name|virtual
-name|QPixmapFilter
-operator|*
-name|pixmapFilter
-argument_list|(
-argument|int
-comment|/*type*/
-argument_list|,
-argument|const QPixmapFilter *
-comment|/*prototype*/
-argument_list|)
-block|{
-return|return
-literal|0
-return|;
-block|}
 comment|// These flags are needed in the implementation of paint buffers.
 expr|enum
 name|Flags

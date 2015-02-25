@@ -525,6 +525,8 @@ argument_list|,
 name|type
 argument_list|,
 literal|0
+argument_list|,
+name|O_NONBLOCK
 argument_list|)
 decl_stmt|;
 if|if
@@ -557,6 +559,8 @@ argument_list|,
 name|type
 argument_list|,
 literal|0
+argument_list|,
+name|O_NONBLOCK
 argument_list|)
 expr_stmt|;
 name|socketProtocol

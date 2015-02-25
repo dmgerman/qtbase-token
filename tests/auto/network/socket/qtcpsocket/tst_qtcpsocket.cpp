@@ -2057,7 +2057,7 @@ control|(
 specifier|const
 name|QNetworkInterface
 modifier|&
-name|interface
+name|netinterface
 decl|,
 name|interfaces
 control|)
@@ -2065,7 +2065,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|interface
+name|netinterface
 operator|.
 name|isValid
 argument_list|()
@@ -2078,7 +2078,7 @@ name|QNetworkAddressEntry
 modifier|&
 name|entry
 decl|,
-name|interface
+name|netinterface
 operator|.
 name|addressEntries
 argument_list|()
