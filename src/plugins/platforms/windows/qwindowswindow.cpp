@@ -2777,15 +2777,15 @@ elseif|else
 if|if
 condition|(
 name|dialog
-condition|)
-block|{
-comment|// QTBUG-2027, dialogs without system menu.
-name|style
-operator||=
-name|WS_SYSMENU
-expr_stmt|;
-if|if
-condition|(
+operator|&&
+operator|(
+name|flags
+operator|&
+name|Qt
+operator|::
+name|WindowCloseButtonHint
+operator|)
+operator|&&
 operator|!
 operator|(
 name|flags
@@ -2798,13 +2798,15 @@ condition|)
 block|{
 name|style
 operator||=
+name|WS_SYSMENU
+operator||
 name|WS_BORDER
 expr_stmt|;
+comment|// QTBUG-2027, dialogs without system menu.
 name|exStyle
 operator||=
 name|WS_EX_DLGMODALFRAME
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
