@@ -1744,6 +1744,7 @@ name|loc
 operator|==
 name|SettingsPath
 condition|)
+block|{
 name|key
 operator|=
 name|QLatin1String
@@ -1751,6 +1752,14 @@ argument_list|(
 literal|"Settings"
 argument_list|)
 expr_stmt|;
+name|defaultValue
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"."
+argument_list|)
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
