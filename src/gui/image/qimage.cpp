@@ -17596,6 +17596,8 @@ name|load
 argument_list|()
 operator|>
 literal|1
+operator|||
+name|ro_data
 condition|)
 return|return
 literal|false
