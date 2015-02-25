@@ -3564,19 +3564,13 @@ operator|->
 name|state
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|Q_UNLIKELY
+ifdef|#
+directive|ifdef
+name|Q_XCB_DEBUG
+name|qCDebug
 argument_list|(
 name|lcQpaXInput
-argument_list|()
-operator|.
-name|isDebugEnabled
-argument_list|()
-argument_list|)
-condition|)
-name|qDebug
-argument_list|(
+argument_list|,
 literal|"xcb: moved mouse to %4d, %4d; button state %X"
 argument_list|,
 name|event
@@ -3597,6 +3591,8 @@ name|m_buttons
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_ifndef
