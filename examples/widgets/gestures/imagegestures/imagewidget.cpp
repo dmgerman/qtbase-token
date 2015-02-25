@@ -172,6 +172,9 @@ end_function
 begin_comment
 comment|//! [event handler]
 end_comment
+begin_comment
+comment|//! [paint method]
+end_comment
 begin_function
 DECL|function|paintEvent
 name|void
@@ -291,6 +294,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|//! [paint method]
+end_comment
 begin_function
 DECL|function|mouseDoubleClickEvent
 name|void
@@ -536,6 +542,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|//! [pinch function]
+end_comment
 begin_function
 DECL|function|pinchTriggered
 name|void
@@ -567,8 +576,9 @@ operator|::
 name|RotationAngleChanged
 condition|)
 block|{
-name|rotationAngle
-operator|+=
+name|qreal
+name|rotationDelta
+init|=
 name|gesture
 operator|->
 name|rotationAngle
@@ -578,13 +588,21 @@ name|gesture
 operator|->
 name|lastRotationAngle
 argument_list|()
+decl_stmt|;
+name|rotationAngle
+operator|+=
+name|rotationDelta
 expr_stmt|;
 name|qCDebug
 argument_list|(
 name|lcExample
 argument_list|)
 operator|<<
-literal|"pinchTriggered(): rotate to"
+literal|"pinchTriggered(): rotate by"
+operator|<<
+name|rotationDelta
+operator|<<
+literal|"->"
 operator|<<
 name|rotationAngle
 expr_stmt|;
@@ -648,6 +666,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|//! [pinch function]
+end_comment
 begin_comment
 comment|//! [swipe function]
 end_comment
