@@ -983,6 +983,7 @@ operator|~
 name|QAbstractItemModel
 argument_list|()
 block|;
+name|Q_INVOKABLE
 name|bool
 name|hasIndex
 argument_list|(
@@ -994,6 +995,7 @@ argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QModelIndex
 name|index
@@ -1008,6 +1010,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QModelIndex
 name|parent
@@ -1018,6 +1021,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QModelIndex
 name|sibling
@@ -1030,6 +1034,7 @@ argument|const QModelIndex&idx
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|int
 name|rowCount
@@ -1040,6 +1045,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|int
 name|columnCount
@@ -1050,6 +1056,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|bool
 name|hasChildren
@@ -1058,6 +1065,7 @@ argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QVariant
 name|data
@@ -1070,6 +1078,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|bool
 name|setData
@@ -1081,6 +1090,7 @@ argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QVariant
 name|headerData
@@ -1359,6 +1369,7 @@ argument_list|,
 argument|int destinationChild
 argument_list|)
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|void
 name|fetchMore
@@ -1369,6 +1380,7 @@ operator|&
 name|parent
 argument_list|)
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|bool
 name|canFetchMore
@@ -1377,6 +1389,7 @@ argument|const QModelIndex&parent
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|Qt
 operator|::
