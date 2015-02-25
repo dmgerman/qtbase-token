@@ -27162,15 +27162,10 @@ name|tmpStream
 operator|<<
 literal|"#define QT_CONFIGURE_SETTINGS_PATH \""
 operator|<<
-name|QDir
-operator|::
-name|cleanPath
-argument_list|(
 name|dictionary
 index|[
-literal|"QT_INSTALL_SETTINGS"
+literal|"QT_REL_INSTALL_SETTINGS"
 index|]
-argument_list|)
 operator|<<
 literal|"\""
 operator|<<
