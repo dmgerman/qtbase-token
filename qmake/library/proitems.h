@@ -1567,6 +1567,15 @@ argument_list|)
 return|;
 block|}
 comment|// XXX optimize
+name|uint
+name|hash
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_hash
+return|;
+block|}
 specifier|static
 name|uint
 name|hash
