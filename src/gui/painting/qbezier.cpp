@@ -42,11 +42,6 @@ include|#
 directive|include
 file|<private/qnumeric_p.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qmath_p.h>
-end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|//#define QDEBUG_BEZIER
@@ -2463,8 +2458,11 @@ name|qAcos
 argument_list|(
 name|cos_a
 argument_list|)
-operator|/
-name|Q_PI
+operator|*
+name|qreal
+argument_list|(
+name|M_1_PI
+argument_list|)
 expr_stmt|;
 block|}
 if|if

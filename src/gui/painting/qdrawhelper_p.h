@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qmath.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtGui/qcolor.h"
 end_include
 begin_include
@@ -93,11 +98,6 @@ begin_include
 include|#
 directive|include
 file|<private/qsimd_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qmath_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
