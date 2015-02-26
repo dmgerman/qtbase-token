@@ -55,7 +55,7 @@ name|QBENCHMARK
 block|{
 for|for
 control|(
-name|int
+name|qint64
 name|i
 init|=
 literal|1
@@ -76,7 +76,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|int
+name|qint64
 name|i
 init|=
 literal|1

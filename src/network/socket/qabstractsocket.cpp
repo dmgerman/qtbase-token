@@ -1519,7 +1519,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|int
+name|qint64
 name|tmp
 init|=
 name|writeBuffer
@@ -1730,7 +1730,7 @@ return|return
 literal|false
 return|;
 block|}
-name|int
+name|qint64
 name|nextSize
 init|=
 name|writeBuffer
@@ -5003,7 +5003,7 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocket::bytesToWrite() == %i"
+literal|"QAbstractSocket::bytesToWrite() == %lld"
 argument_list|,
 name|d
 operator|->
@@ -5016,9 +5016,6 @@ expr_stmt|;
 endif|#
 directive|endif
 return|return
-operator|(
-name|qint64
-operator|)
 name|d
 operator|->
 name|writeBuffer

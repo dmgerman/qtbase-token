@@ -66,11 +66,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|readSequenceStarted
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|emitReadyReadTimer
 argument_list|(
 operator|new
@@ -78,6 +73,11 @@ name|QTimer
 argument_list|(
 name|this
 argument_list|)
+argument_list|)
+member_init_list|,
+name|readSequenceStarted
+argument_list|(
+literal|false
 argument_list|)
 member_init_list|,
 name|pipeBroken
@@ -454,10 +454,7 @@ name|bytesToRead
 init|=
 name|qMin
 argument_list|(
-name|qint64
-argument_list|(
 name|actualReadBufferSize
-argument_list|)
 argument_list|,
 name|maxlen
 argument_list|)
@@ -483,7 +480,7 @@ operator|.
 name|readPointer
 argument_list|()
 decl_stmt|;
-name|int
+name|qint64
 name|bytesToReadFromThisBlock
 init|=
 name|qMin
@@ -492,13 +489,10 @@ name|bytesToRead
 operator|-
 name|readSoFar
 argument_list|,
-name|qint64
-argument_list|(
 name|readBuffer
 operator|.
 name|nextDataBlockSize
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|memcpy

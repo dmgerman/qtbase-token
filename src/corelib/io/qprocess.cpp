@@ -4661,8 +4661,6 @@ block|}
 name|qint64
 name|bytesToRead
 init|=
-name|qint64
-argument_list|(
 name|qMin
 argument_list|(
 name|readBuffer
@@ -4670,11 +4668,7 @@ operator|->
 name|size
 argument_list|()
 argument_list|,
-operator|(
-name|int
-operator|)
 name|maxlen
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|qint64
@@ -4699,13 +4693,10 @@ operator|->
 name|readPointer
 argument_list|()
 decl_stmt|;
-name|int
+name|qint64
 name|bytesToReadFromThisBlock
 init|=
 name|qMin
-argument_list|<
-name|qint64
-argument_list|>
 argument_list|(
 name|bytesToRead
 operator|-

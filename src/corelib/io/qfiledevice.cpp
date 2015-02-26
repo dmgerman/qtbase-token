@@ -1265,7 +1265,7 @@ return|;
 else|#
 directive|else
 comment|// Cutoff for code that doesn't only touch the buffer.
-name|int
+name|qint64
 name|writeBufferSize
 init|=
 name|writeBuffer
