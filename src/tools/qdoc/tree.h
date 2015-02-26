@@ -718,6 +718,10 @@ name|resolveCppToQmlLinks
 parameter_list|()
 function_decl|;
 name|void
+name|resolveUsingClauses
+parameter_list|()
+function_decl|;
+name|void
 name|fixInheritance
 parameter_list|(
 name|NamespaceNode
