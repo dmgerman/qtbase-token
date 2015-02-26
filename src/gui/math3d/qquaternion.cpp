@@ -67,7 +67,8 @@ comment|/*!     \fn void QQuaternion::setX(float x)      Sets the x coordinate o
 comment|/*!     \fn void QQuaternion::setY(float y)      Sets the y coordinate of this quaternion's vector to the given     \a y coordinate.      \sa y(), setX(), setZ(), setScalar() */
 comment|/*!     \fn void QQuaternion::setZ(float z)      Sets the z coordinate of this quaternion's vector to the given     \a z coordinate.      \sa z(), setX(), setY(), setScalar() */
 comment|/*!     \fn void QQuaternion::setScalar(float scalar)      Sets the scalar component of this quaternion to \a scalar.      \sa scalar(), setX(), setY(), setZ() */
-comment|/*!     Returns the length of the quaternion.  This is also called the "norm".      \sa lengthSquared(), normalized() */
+comment|/*!     \fn float QQuaternion::dotProduct(const QQuaternion&q1, const QQuaternion&q2)     \since 5.5      Returns the dot product of \a q1 and \a q2.      \sa length() */
+comment|/*!     Returns the length of the quaternion.  This is also called the "norm".      \sa lengthSquared(), normalized(), dotProduct() */
 DECL|function|length
 name|float
 name|QQuaternion
@@ -101,7 +102,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the squared length of the quaternion.      \sa length() */
+comment|/*!     Returns the squared length of the quaternion.      \sa length(), dotProduct() */
 end_comment
 begin_function
 DECL|function|lengthSquared
@@ -132,7 +133,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the normalized unit form of this quaternion.      If this quaternion is null, then a null quaternion is returned.     If the length of the quaternion is very close to 1, then the quaternion     will be returned as-is.  Otherwise the normalized form of the     quaternion of length 1 will be returned.      \sa length(), normalize() */
+comment|/*!     Returns the normalized unit form of this quaternion.      If this quaternion is null, then a null quaternion is returned.     If the length of the quaternion is very close to 1, then the quaternion     will be returned as-is.  Otherwise the normalized form of the     quaternion of length 1 will be returned.      \sa normalize(), length(), dotProduct() */
 end_comment
 begin_function
 DECL|function|normalized
@@ -2052,62 +2053,33 @@ return|;
 comment|// Determine the angle between the two quaternions.
 name|QQuaternion
 name|q2b
+argument_list|(
+name|q2
+argument_list|)
 decl_stmt|;
 name|float
 name|dot
+init|=
+name|QQuaternion
+operator|::
+name|dotProduct
+argument_list|(
+name|q1
+argument_list|,
+name|q2
+argument_list|)
 decl_stmt|;
-name|dot
-operator|=
-name|q1
-operator|.
-name|xp
-operator|*
-name|q2
-operator|.
-name|xp
-operator|+
-name|q1
-operator|.
-name|yp
-operator|*
-name|q2
-operator|.
-name|yp
-operator|+
-name|q1
-operator|.
-name|zp
-operator|*
-name|q2
-operator|.
-name|zp
-operator|+
-name|q1
-operator|.
-name|wp
-operator|*
-name|q2
-operator|.
-name|wp
-expr_stmt|;
 if|if
 condition|(
 name|dot
-operator|>=
+operator|<
 literal|0.0f
 condition|)
 block|{
 name|q2b
 operator|=
-name|q2
-expr_stmt|;
-block|}
-else|else
-block|{
-name|q2b
-operator|=
 operator|-
-name|q2
+name|q2b
 expr_stmt|;
 name|dot
 operator|=
@@ -2258,59 +2230,32 @@ return|;
 comment|// Determine the angle between the two quaternions.
 name|QQuaternion
 name|q2b
+argument_list|(
+name|q2
+argument_list|)
 decl_stmt|;
 name|float
 name|dot
+init|=
+name|QQuaternion
+operator|::
+name|dotProduct
+argument_list|(
+name|q1
+argument_list|,
+name|q2
+argument_list|)
 decl_stmt|;
-name|dot
-operator|=
-name|q1
-operator|.
-name|xp
-operator|*
-name|q2
-operator|.
-name|xp
-operator|+
-name|q1
-operator|.
-name|yp
-operator|*
-name|q2
-operator|.
-name|yp
-operator|+
-name|q1
-operator|.
-name|zp
-operator|*
-name|q2
-operator|.
-name|zp
-operator|+
-name|q1
-operator|.
-name|wp
-operator|*
-name|q2
-operator|.
-name|wp
-expr_stmt|;
 if|if
 condition|(
 name|dot
-operator|>=
+operator|<
 literal|0.0f
 condition|)
 name|q2b
 operator|=
-name|q2
-expr_stmt|;
-else|else
-name|q2b
-operator|=
 operator|-
-name|q2
+name|q2b
 expr_stmt|;
 comment|// Perform the linear interpolation.
 return|return
