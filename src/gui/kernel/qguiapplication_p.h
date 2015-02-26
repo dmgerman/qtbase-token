@@ -1367,15 +1367,9 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|static
-name|QRect
-name|applyWindowGeometrySpecification
+name|void
+name|applyWindowGeometrySpecificationTo
 parameter_list|(
-specifier|const
-name|QRect
-modifier|&
-name|windowGeometry
-parameter_list|,
-specifier|const
 name|QWindow
 modifier|*
 name|window
