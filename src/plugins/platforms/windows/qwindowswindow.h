@@ -1166,13 +1166,6 @@ name|void
 name|applyCursor
 argument_list|()
 block|;
-specifier|static
-name|QByteArray
-name|debugWindowFlags
-argument_list|(
-argument|Qt::WindowFlags wf
-argument_list|)
-block|;
 specifier|inline
 name|bool
 name|testFlag

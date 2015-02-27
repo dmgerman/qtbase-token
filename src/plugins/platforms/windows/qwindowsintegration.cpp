@@ -1321,14 +1321,9 @@ argument_list|)
 operator|<<
 literal|" Flags="
 operator|<<
-name|QWindowsWindow
-operator|::
-name|debugWindowFlags
-argument_list|(
 name|requested
 operator|.
 name|flags
-argument_list|)
 operator|<<
 literal|"\n    Obtained : "
 operator|<<
@@ -1344,14 +1339,9 @@ name|frame
 operator|<<
 literal|" Flags="
 operator|<<
-name|QWindowsWindow
-operator|::
-name|debugWindowFlags
-argument_list|(
 name|obtained
 operator|.
 name|flags
-argument_list|)
 operator|<<
 literal|" Handle="
 operator|<<
