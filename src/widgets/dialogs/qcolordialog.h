@@ -333,10 +333,7 @@ argument|d_func()
 argument_list|,
 argument|void _q_updateColorPicking()
 argument_list|)
-name|friend
-name|class
-name|QColorShower
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
