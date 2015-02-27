@@ -470,6 +470,23 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the size policy of this item. */
+end_comment
+begin_function
+DECL|function|sizePolicy
+name|QSizePolicy
+name|QSpacerItem
+operator|::
+name|sizePolicy
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|sizeP
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     If this item is a QWidget, it is returned as a QWidget; otherwise     0 is returned. This function provides type-safe casting. */
 end_comment
 begin_function
