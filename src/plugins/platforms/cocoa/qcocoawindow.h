@@ -1026,6 +1026,9 @@ block|;
 name|bool
 name|m_inSetGeometry
 block|;
+name|bool
+name|m_inSetStyleMask
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
