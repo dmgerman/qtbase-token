@@ -235,7 +235,7 @@ DECL|macro|TEST_DOMAIN
 define|#
 directive|define
 name|TEST_DOMAIN
-value|".test.qt-project.org"
+value|".test.macieira.org"
 end_define
 begin_class
 DECL|class|tst_QHostInfo
