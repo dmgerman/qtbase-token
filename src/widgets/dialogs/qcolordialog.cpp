@@ -150,31 +150,29 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_class_decl
+begin_namespace
+namespace|namespace
+block|{
 class_decl|class
 name|QColorLuminancePicker
 class_decl|;
-end_class_decl
-begin_class_decl
 class_decl|class
 name|QColorPicker
 class_decl|;
-end_class_decl
-begin_class_decl
 class_decl|class
 name|QColorShower
 class_decl|;
-end_class_decl
-begin_class_decl
 class_decl|class
 name|QWellArray
 class_decl|;
-end_class_decl
-begin_class_decl
 class_decl|class
 name|QColorPickingEventFilter
 class_decl|;
-end_class_decl
+block|}
+end_namespace
+begin_comment
+comment|// unnamed namespace
+end_comment
 begin_class
 DECL|class|QColorDialogPrivate
 class|class
@@ -706,12 +704,12 @@ end_class
 begin_comment
 comment|//////////// QWellArray BEGIN
 end_comment
-begin_struct_decl
+begin_namespace
+namespace|namespace
+block|{
 struct_decl|struct
 name|QWellArrayData
 struct_decl|;
-end_struct_decl
-begin_class
 DECL|class|QWellArray
 class|class
 name|QWellArray
@@ -1250,8 +1248,6 @@ name|d
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|paintEvent
 name|void
 name|QWellArray
@@ -1505,8 +1501,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_struct
 DECL|struct|QWellArrayData
 struct|struct
 name|QWellArrayData
@@ -1518,8 +1512,6 @@ name|brush
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_constructor
 DECL|function|QWellArray
 name|QWellArray
 operator|::
@@ -1589,8 +1581,6 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-end_constructor
-begin_function
 DECL|function|sizeHint
 name|QSize
 name|QWellArray
@@ -1617,8 +1607,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|paintCell
 name|void
 name|QWellArray
@@ -1835,11 +1823,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*!   Reimplement this function to change the contents of the well array.  */
-end_comment
-begin_function
 DECL|function|paintCellContents
 name|void
 name|QWellArray
@@ -1941,8 +1925,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QWellArray
@@ -1983,8 +1965,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|mouseReleaseEvent
 name|void
 name|QWellArray
@@ -2005,11 +1985,7 @@ name|curCol
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*   Sets the cell currently having the focus. This is not necessarily   the same as the currently selected cell. */
-end_comment
-begin_function
 DECL|function|setCurrent
 name|void
 name|QWellArray
@@ -2096,11 +2072,7 @@ name|curCol
 argument_list|)
 emit|;
 block|}
-end_function
-begin_comment
 comment|/*   Sets the currently selected cell to \a row, \a column. If \a row or   \a column are less than zero, the current cell is unselected.    Does not set the position of the focus indicator. */
-end_comment
-begin_function
 DECL|function|setSelected
 name|void
 name|QWellArray
@@ -2204,8 +2176,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|focusInEvent
 name|void
 name|QWellArray
@@ -2232,8 +2202,6 @@ name|curCol
 argument_list|)
 emit|;
 block|}
-end_function
-begin_function
 DECL|function|setCellBrush
 name|void
 name|QWellArray
@@ -2318,11 +2286,7 @@ operator|=
 name|b
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*   Returns the brush set for the cell at \a row, \a column. If no brush is   set, Qt::NoBrush is returned. */
-end_comment
-begin_function
 DECL|function|cellBrush
 name|QBrush
 name|QWellArray
@@ -2377,11 +2341,7 @@ operator|::
 name|NoBrush
 return|;
 block|}
-end_function
-begin_comment
 comment|/*!\reimp */
-end_comment
-begin_function
 DECL|function|focusOutEvent
 name|void
 name|QWellArray
@@ -2400,11 +2360,7 @@ name|curCol
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*\reimp */
-end_comment
-begin_function
 DECL|function|keyPressEvent
 name|void
 name|QWellArray
@@ -2553,14 +2509,8 @@ comment|// we don't accept the event
 return|return;
 block|}
 block|}
-end_function
-begin_comment
 comment|//////////// QWellArray END
-end_comment
-begin_comment
 comment|// Event filter to be installed on the dialog while in color-picking mode.
-end_comment
-begin_class
 DECL|class|QColorPickingEventFilter
 class|class
 name|QColorPickingEventFilter
@@ -2689,7 +2639,11 @@ name|m_dp
 decl_stmt|;
 block|}
 class|;
-end_class
+block|}
+end_namespace
+begin_comment
+comment|// unnamed namespace
+end_comment
 begin_comment
 comment|/*!     Returns the number of custom colors supported by QColorDialog. All     color dialogs share the same custom colors. */
 end_comment
@@ -2874,7 +2828,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_class
+begin_namespace
+namespace|namespace
+block|{
 DECL|class|QColorWell
 class|class
 name|QColorWell
@@ -3059,8 +3015,6 @@ name|oldCurrent
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|paintCellContents
 name|void
 name|QColorWell
@@ -3109,8 +3063,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QColorWell
@@ -3152,8 +3104,6 @@ name|pos
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|mouseMoveEvent
 name|void
 name|QColorWell
@@ -3348,13 +3298,9 @@ block|}
 endif|#
 directive|endif
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-end_ifndef
-begin_function
 DECL|function|dragEnterEvent
 name|void
 name|QColorWell
@@ -3397,8 +3343,6 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|dragLeaveEvent
 name|void
 name|QColorWell
@@ -3421,8 +3365,6 @@ name|setFocus
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|dragMoveEvent
 name|void
 name|QColorWell
@@ -3494,8 +3436,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|dropEvent
 name|void
 name|QColorWell
@@ -3588,15 +3528,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_NO_DRAGANDDROP
-end_comment
-begin_function
 DECL|function|mouseReleaseEvent
 name|void
 name|QColorWell
@@ -3626,8 +3560,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|QColorPicker
 class|class
 name|QColorPicker
@@ -3773,26 +3705,20 @@ name|crossVisible
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_decl_stmt
-DECL|variable|pWidth
+DECL|member|pWidth
 specifier|static
 name|int
 name|pWidth
 init|=
 literal|220
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|pHeight
+DECL|member|pHeight
 specifier|static
 name|int
 name|pHeight
 init|=
 literal|200
 decl_stmt|;
-end_decl_stmt
-begin_class
 DECL|class|QColorLuminancePicker
 class|class
 name|QColorLuminancePicker
@@ -3938,8 +3864,6 @@ name|pix
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|y2val
 name|int
 name|QColorLuminancePicker
@@ -3976,8 +3900,6 @@ operator|/
 name|d
 return|;
 block|}
-end_function
-begin_function
 DECL|function|val2y
 name|int
 name|QColorLuminancePicker
@@ -4014,8 +3936,6 @@ operator|/
 literal|255
 return|;
 block|}
-end_function
-begin_constructor
 DECL|function|QColorLuminancePicker
 name|QColorLuminancePicker
 operator|::
@@ -4049,8 +3969,6 @@ literal|0
 expr_stmt|;
 comment|//    setAttribute(WA_NoErase, true);
 block|}
-end_constructor
-begin_destructor
 DECL|function|~QColorLuminancePicker
 name|QColorLuminancePicker
 operator|::
@@ -4062,8 +3980,6 @@ operator|delete
 name|pix
 expr_stmt|;
 block|}
-end_destructor
-begin_function
 DECL|function|mouseMoveEvent
 name|void
 name|QColorLuminancePicker
@@ -4087,8 +4003,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QColorLuminancePicker
@@ -4112,8 +4026,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setVal
 name|void
 name|QColorLuminancePicker
@@ -4166,11 +4078,7 @@ name|val
 argument_list|)
 emit|;
 block|}
-end_function
-begin_comment
 comment|//receives from a hue,sat chooser and relays.
-end_comment
-begin_function
 DECL|function|setCol
 name|void
 name|QColorLuminancePicker
@@ -4204,8 +4112,6 @@ name|val
 argument_list|)
 emit|;
 block|}
-end_function
-begin_function
 DECL|function|paintEvent
 name|void
 name|QColorLuminancePicker
@@ -4504,8 +4410,6 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|setCol
 name|void
 name|QColorLuminancePicker
@@ -4545,8 +4449,6 @@ name|repaint
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|colPt
 name|QPoint
 name|QColorPicker
@@ -4599,8 +4501,6 @@ literal|255
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|huePt
 name|int
 name|QColorPicker
@@ -4639,8 +4539,6 @@ literal|1
 operator|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|satPt
 name|int
 name|QColorPicker
@@ -4679,8 +4577,6 @@ literal|1
 operator|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setCol
 name|void
 name|QColorPicker
@@ -4707,8 +4603,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_constructor
 DECL|function|QColorPicker
 name|QColorPicker
 operator|::
@@ -4766,8 +4660,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
-begin_destructor
 DECL|function|~QColorPicker
 name|QColorPicker
 operator|::
@@ -4775,8 +4667,6 @@ name|~
 name|QColorPicker
 parameter_list|()
 block|{ }
-end_destructor
-begin_function
 DECL|function|setCrossVisible
 name|void
 name|QColorPicker
@@ -4803,8 +4693,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|sizeHint
 name|QSize
 name|QColorPicker
@@ -4832,8 +4720,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|setCol
 name|void
 name|QColorPicker
@@ -4958,8 +4844,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|mouseMoveEvent
 name|void
 name|QColorPicker
@@ -4999,8 +4883,6 @@ name|sat
 argument_list|)
 emit|;
 block|}
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QColorPicker
@@ -5040,8 +4922,6 @@ name|sat
 argument_list|)
 emit|;
 block|}
-end_function
-begin_function
 DECL|function|paintEvent
 name|void
 name|QColorPicker
@@ -5159,8 +5039,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|resizeEvent
 name|void
 name|QColorPicker
@@ -5321,8 +5199,6 @@ name|img
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|QColSpinBox
 class|class
 name|QColSpinBox
@@ -5377,13 +5253,9 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_class_decl
 class_decl|class
 name|QColorShowLabel
 class_decl|;
-end_class_decl
-begin_class
 DECL|class|QColorShower
 class|class
 name|QColorShower
@@ -5664,17 +5536,19 @@ modifier|*
 name|gl
 decl_stmt|;
 friend|friend
-class_decl|class
+name|class
+name|QT_PREPEND_NAMESPACE
+function_decl|(
 name|QColorDialog
-class_decl|;
+function_decl|);
 friend|friend
-class_decl|class
+name|class
+name|QT_PREPEND_NAMESPACE
+function_decl|(
 name|QColorDialogPrivate
-class_decl|;
+function_decl|);
 block|}
 class|;
-end_class
-begin_class
 DECL|class|QColorShowLabel
 class|class
 name|QColorShowLabel
@@ -5828,8 +5702,6 @@ name|pressPos
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|paintEvent
 name|void
 name|QColorShowLabel
@@ -5869,8 +5741,6 @@ name|col
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|showAlpha
 name|void
 name|QColorShower
@@ -5896,8 +5766,6 @@ name|b
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|isAlphaVisible
 specifier|inline
 name|bool
@@ -5914,8 +5782,6 @@ name|isVisible
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QColorShowLabel
@@ -5939,8 +5805,6 @@ name|pos
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|mouseMoveEvent
 name|void
 name|QColorShowLabel
@@ -6089,13 +5953,9 @@ block|}
 endif|#
 directive|endif
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-end_ifndef
-begin_function
 DECL|function|dragEnterEvent
 name|void
 name|QColorShowLabel
@@ -6138,8 +5998,6 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|dragLeaveEvent
 name|void
 name|QColorShowLabel
@@ -6150,8 +6008,6 @@ name|QDragLeaveEvent
 modifier|*
 parameter_list|)
 block|{ }
-end_function
-begin_function
 DECL|function|dropEvent
 name|void
 name|QColorShowLabel
@@ -6219,15 +6075,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_NO_DRAGANDDROP
-end_comment
-begin_function
 DECL|function|mouseReleaseEvent
 name|void
 name|QColorShowLabel
@@ -6249,8 +6099,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_constructor
 DECL|function|QColorShower
 name|QColorShower
 operator|::
@@ -7507,7 +7355,11 @@ name|retranslateStrings
 argument_list|()
 expr_stmt|;
 block|}
-end_constructor
+block|}
+end_namespace
+begin_comment
+comment|// unnamed namespace
+end_comment
 begin_function
 DECL|function|currentColor
 specifier|inline
