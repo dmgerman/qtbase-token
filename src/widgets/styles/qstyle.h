@@ -1996,6 +1996,23 @@ argument_list|(
 name|QT_NO_DEBUG_STREAM
 argument_list|)
 end_if
+begin_comment
+comment|// ### Qt 6: Remove in favor of template<class T> QDebug operator<<(QDebug, const QFlags<T>&).
+end_comment
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_expr_stmt
 name|Q_WIDGETS_EXPORT
 name|QDebug
@@ -2012,6 +2029,10 @@ name|state
 operator|)
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
