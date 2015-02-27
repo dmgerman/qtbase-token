@@ -820,10 +820,15 @@ name|void
 name|sendEvent
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QTEST_NO_CURSOR
@@ -17014,6 +17019,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_class
 DECL|class|MouseWheelScene
 class|class
@@ -17350,6 +17360,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_WHEELEVENT
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

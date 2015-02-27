@@ -319,10 +319,15 @@ name|void
 name|paintEvent
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|wheelEvent
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|sizeHint_data
 parameter_list|()
@@ -1013,6 +1018,11 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_class
 DECL|class|WheelWidget
 class|class
@@ -1066,6 +1076,13 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_WHEELEVENT
+end_comment
 begin_comment
 comment|// This will be called before the first test function is executed.
 end_comment
@@ -7355,6 +7372,11 @@ expr_stmt|;
 comment|//the widget should have been painted now
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_function
 DECL|function|wheelEvent
 name|void
@@ -7485,6 +7507,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_WHEELEVENT
+end_comment
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(

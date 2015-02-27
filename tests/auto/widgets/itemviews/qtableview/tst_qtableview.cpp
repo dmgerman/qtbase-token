@@ -527,10 +527,15 @@ name|void
 name|taskQTBUG_4516_clickOnRichTextLabel
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|taskQTBUG_5237_wheelEventOnHeader
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|taskQTBUG_8585_crashForNoGoodReason
 parameter_list|()
@@ -551,6 +556,9 @@ name|void
 name|taskQTBUG_30653_doItemsLayout
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|mouseWheel_data
 parameter_list|()
@@ -559,6 +567,8 @@ name|void
 name|mouseWheel
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|addColumnWhileEditing
 parameter_list|()
@@ -24165,6 +24175,11 @@ block|}
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_function
 DECL|function|mouseWheel_data
 name|void
@@ -24608,6 +24623,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_WHEELEVENT
+end_comment
 begin_function
 DECL|function|addColumnWhileEditing
 name|void
@@ -26743,6 +26765,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_function
 DECL|function|taskQTBUG_5237_wheelEventOnHeader
 name|void
@@ -26865,6 +26892,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|TestTableView
 class|class
