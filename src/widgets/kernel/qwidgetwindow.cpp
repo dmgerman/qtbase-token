@@ -5739,14 +5739,14 @@ name|className
 argument_list|()
 argument_list|)
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Class"
 argument_list|)
 expr_stmt|;
 name|name
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Window"
 argument_list|)
