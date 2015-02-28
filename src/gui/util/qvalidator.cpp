@@ -2194,7 +2194,7 @@ name|usedRe
 operator|.
 name|setPattern
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\A(?:"
 argument_list|)
@@ -2204,7 +2204,7 @@ operator|.
 name|pattern
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|")\\z"
 argument_list|)

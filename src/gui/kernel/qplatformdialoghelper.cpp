@@ -1270,7 +1270,7 @@ name|settings
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Qt/customColors/"
 argument_list|)
@@ -1357,7 +1357,7 @@ name|settings
 operator|.
 name|setValue
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Qt/customColors/"
 argument_list|)
