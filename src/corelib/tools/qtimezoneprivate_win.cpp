@@ -1945,7 +1945,7 @@ name|dynamicKeyPath
 init|=
 name|baseKeyPath
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\Dynamic DST"
 argument_list|)

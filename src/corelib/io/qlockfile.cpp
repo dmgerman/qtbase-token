@@ -276,7 +276,7 @@ name|d
 operator|->
 name|fileName
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".rmlock"
 argument_list|)

@@ -2845,7 +2845,7 @@ decl_stmt|;
 name|QString
 name|text
 init|=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"  "
 argument_list|)

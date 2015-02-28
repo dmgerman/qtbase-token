@@ -13568,7 +13568,7 @@ name|urlPrepended
 init|=
 name|QUrl
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"http://"
 argument_list|)

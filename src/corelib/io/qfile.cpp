@@ -1093,7 +1093,7 @@ name|d
 operator|->
 name|fileName
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".XXXXXX"
 argument_list|)
