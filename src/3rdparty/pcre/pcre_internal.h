@@ -8629,6 +8629,7 @@ DECL|enumerator|ERR82
 DECL|enumerator|ERR83
 DECL|enumerator|ERR84
 DECL|enumerator|ERR85
+DECL|enumerator|ERR86
 DECL|enumerator|ERRCOUNT
 name|ERR80
 block|,
@@ -8641,6 +8642,8 @@ block|,
 name|ERR84
 block|,
 name|ERR85
+block|,
+name|ERR86
 block|,
 name|ERRCOUNT
 block|}
@@ -9300,6 +9303,11 @@ name|BOOL
 name|dupnames
 decl_stmt|;
 comment|/* Duplicate names exist */
+DECL|member|iscondassert
+name|BOOL
+name|iscondassert
+decl_stmt|;
+comment|/* Next assert is a condition */
 DECL|member|nltype
 name|int
 name|nltype
