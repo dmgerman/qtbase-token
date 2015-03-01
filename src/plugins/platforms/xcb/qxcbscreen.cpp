@@ -3948,7 +3948,6 @@ block|}
 end_function
 begin_function
 DECL|function|operator <<
-name|Q_XCB_EXPORT
 name|QDebug
 name|operator
 name|<<
