@@ -440,7 +440,7 @@ name|IconTextChange
 operator|=
 literal|101
 block|,
-comment|// icon text has changed
+comment|// icon text has changed.  Deprecated.
 name|ModifiedChange
 operator|=
 literal|102

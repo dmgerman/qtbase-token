@@ -824,6 +824,7 @@ name|windowIconTextChanged
 name|DESIGNABLE
 name|isWindow
 argument_list|)
+comment|// deprecated
 name|Q_PROPERTY
 argument_list|(
 name|double
