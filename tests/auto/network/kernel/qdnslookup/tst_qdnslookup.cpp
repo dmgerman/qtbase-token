@@ -175,7 +175,7 @@ argument_list|(
 literal|"normal"
 argument_list|)
 operator|<<
-literal|".test.macieira.org"
+literal|".test.qt-project.org"
 expr_stmt|;
 name|QTest
 operator|::
@@ -184,7 +184,7 @@ argument_list|(
 literal|"idn"
 argument_list|)
 operator|<<
-literal|".alqualond\xc3\xab.test.macieira.org"
+literal|".alqualond\xc3\xab.test.qt-project.org"
 expr_stmt|;
 block|}
 end_function
@@ -1291,7 +1291,7 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"ns3.macieira.info."
+literal|"ns11.cloudns.net."
 operator|<<
 literal|""
 operator|<<
@@ -1328,7 +1328,7 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"gondolin.macieira.info.;ns3.macieira.info."
+literal|"ns11.cloudns.net.;ns12.cloudns.net."
 operator|<<
 literal|""
 operator|<<
@@ -1410,43 +1410,14 @@ literal|""
 operator|<<
 literal|""
 expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"ptr-single"
-argument_list|)
-operator|<<
-name|int
-argument_list|(
-name|QDnsLookup
-operator|::
-name|PTR
-argument_list|)
-operator|<<
-literal|"ptr-single"
-operator|<<
-name|int
-argument_list|(
-name|QDnsLookup
-operator|::
-name|NoError
-argument_list|)
-operator|<<
-literal|""
-operator|<<
-literal|""
-operator|<<
-literal|""
-operator|<<
-literal|""
-operator|<<
-literal|"a-single"
-operator|<<
-literal|""
-operator|<<
-literal|""
-expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|// temporarily disabled since the new hosting provider can't insert
+comment|// PTR records outside of the in-addr.arpa zone
+block|QTest::newRow("ptr-single")<< int(QDnsLookup::PTR)<< "ptr-single"<< int(QDnsLookup::NoError)<< ""<< ""<< ""<< ""<< "a-single"<< ""<< "";
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
