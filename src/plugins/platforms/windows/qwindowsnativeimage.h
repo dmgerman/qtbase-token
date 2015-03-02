@@ -23,11 +23,6 @@ include|#
 directive|include
 file|<QtGui/QImage>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/QtGlobal>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class

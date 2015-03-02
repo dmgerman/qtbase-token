@@ -45,11 +45,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsopenglcontext.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qpa/qplatformwindow.h>
 end_include
 begin_include
