@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qwindowscursor.h"
+file|"qwindowsscaling.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsscaling.h"
+file|"qtwindowsglobal.h"
 end_include
 begin_ifdef
 ifdef|#
@@ -156,9 +156,9 @@ name|QT_NO_CURSOR
 typedef|typedef
 name|QSharedPointer
 operator|<
-name|QWindowsCursor
+name|QPlatformCursor
 operator|>
-name|WindowsCursorPtr
+name|CursorPtr
 expr_stmt|;
 endif|#
 directive|endif
@@ -485,6 +485,7 @@ operator|*
 name|cursor
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_cursor
@@ -496,9 +497,9 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|const
-name|WindowsCursorPtr
+name|CursorPtr
 operator|&
-name|windowsCursor
+name|cursorPtr
 argument_list|()
 specifier|const
 block|{
@@ -566,7 +567,7 @@ name|QT_NO_CURSOR
 end_ifndef
 begin_decl_stmt
 specifier|const
-name|WindowsCursorPtr
+name|CursorPtr
 name|m_cursor
 decl_stmt|;
 end_decl_stmt

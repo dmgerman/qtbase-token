@@ -1135,7 +1135,7 @@ specifier|static
 specifier|inline
 name|QSharedPointer
 argument_list|<
-name|QWindowsCursor
+name|QPlatformCursor
 argument_list|>
 name|sharedCursor
 parameter_list|()
@@ -1169,7 +1169,7 @@ name|handle
 argument_list|()
 argument_list|)
 operator|->
-name|windowsCursor
+name|cursorPtr
 argument_list|()
 return|;
 endif|#
@@ -1177,7 +1177,7 @@ directive|endif
 return|return
 name|QSharedPointer
 argument_list|<
-name|QWindowsCursor
+name|QPlatformCursor
 argument_list|>
 argument_list|(
 operator|new
