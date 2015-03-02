@@ -12099,9 +12099,6 @@ operator|->
 name|root
 argument_list|)
 decl_stmt|;
-name|QModelIndex
-name|index
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -12117,8 +12114,10 @@ operator|++
 name|c
 control|)
 block|{
+specifier|const
+name|QModelIndex
 name|index
-operator|=
+init|=
 name|d
 operator|->
 name|model
@@ -12133,7 +12132,7 @@ name|d
 operator|->
 name|root
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|QWidget
@@ -12273,9 +12272,6 @@ operator|->
 name|root
 argument_list|)
 decl_stmt|;
-name|QModelIndex
-name|index
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -12291,8 +12287,10 @@ operator|++
 name|r
 control|)
 block|{
+specifier|const
+name|QModelIndex
 name|index
-operator|=
+init|=
 name|d
 operator|->
 name|model
@@ -12307,7 +12305,7 @@ name|d
 operator|->
 name|root
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|QWidget
