@@ -2993,7 +2993,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the primary (or default) screen of the application.      This will be the screen where QWindows are initially shown, unless otherwise specified. */
+comment|/*!     Returns the primary (or default) screen of the application, or null if there is none      This will be the screen where QWindows are initially shown, unless otherwise specified.      On some platforms, it may be null when there are actually no screens connected.     It is not possible to start a new QGuiApplication while there are no screens.     Applications which were running at the time the primary screen was removed     will stop rendering graphics until one or more screens are restored. */
 end_comment
 begin_function
 DECL|function|primaryScreen
