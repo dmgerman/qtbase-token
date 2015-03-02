@@ -2801,10 +2801,6 @@ name|Q_DECLARE_METATYPE
 argument_list|(
 name|QModelIndexList
 argument_list|)
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QPersistentModelIndex
-argument_list|)
 end_decl_stmt
 begin_endif
 endif|#
