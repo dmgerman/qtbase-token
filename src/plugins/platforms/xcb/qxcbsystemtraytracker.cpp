@@ -794,6 +794,8 @@ literal|false
 return|;
 name|xcb_visualid_t
 name|systrayVisualId
+init|=
+name|XCB_NONE
 decl_stmt|;
 if|if
 condition|(
