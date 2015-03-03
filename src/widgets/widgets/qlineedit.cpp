@@ -7872,8 +7872,8 @@ operator|->
 name|isReadOnly
 argument_list|()
 operator|&&
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->

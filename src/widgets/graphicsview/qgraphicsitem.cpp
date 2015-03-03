@@ -22020,8 +22020,8 @@ operator|!
 name|fw
 condition|)
 return|return;
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -22117,8 +22117,8 @@ if|if
 condition|(
 name|qApp
 condition|)
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -29930,8 +29930,8 @@ operator|::
 name|FocusOut
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -29941,8 +29941,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

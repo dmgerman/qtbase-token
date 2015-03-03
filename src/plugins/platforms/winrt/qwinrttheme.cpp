@@ -1345,14 +1345,6 @@ return|;
 case|case
 name|QPlatformIntegration
 operator|::
-name|SynthesizeMouseFromTouchEvents
-case|:
-return|return
-literal|true
-return|;
-case|case
-name|QPlatformIntegration
-operator|::
 name|PasswordMaskCharacter
 case|:
 return|return

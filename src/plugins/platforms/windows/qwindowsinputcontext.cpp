@@ -1402,8 +1402,8 @@ name|QWindow
 modifier|*
 name|window
 init|=
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|focusWindow
 argument_list|()
 decl_stmt|;
@@ -2403,8 +2403,8 @@ name|QObject
 modifier|*
 name|fo
 init|=
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|focusObject
 argument_list|()
 decl_stmt|;

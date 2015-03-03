@@ -790,7 +790,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Returns the object/model coordinates of this vector initially in window     coordinates using the model view matrix \a modelView, the projection matrix     \a projection and the viewport dimensions \a viewport.      When transforming from clip to normalized space, a division by the w     component of the vector components takes place. To prevent dividing by 0 if     w equals to 0, it is set to 1.      \note y coordinates in \a point should use OpenGL orientation. OpenGL     expects the bottom to be 0 whereas for Qt top is 0.      \sa project()  */
+comment|/*!     \since 5.5      Returns the object/model coordinates of this vector initially in window     coordinates using the model view matrix \a modelView, the projection matrix     \a projection and the viewport dimensions \a viewport.      When transforming from clip to normalized space, a division by the w     component of the vector components takes place. To prevent dividing by 0 if     w equals to 0, it is set to 1.      \note y coordinates in \a viewport should use OpenGL orientation. OpenGL     expects the bottom to be 0 whereas for Qt top is 0.      \sa project()  */
 end_comment
 begin_function
 DECL|function|unproject

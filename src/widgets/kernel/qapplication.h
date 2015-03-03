@@ -705,8 +705,8 @@ block|{
 return|return
 name|qApp
 operator|?
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -730,8 +730,8 @@ block|{
 return|return
 name|qApp
 condition|?
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

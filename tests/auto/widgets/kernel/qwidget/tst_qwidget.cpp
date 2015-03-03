@@ -63528,26 +63528,6 @@ operator|::
 name|touchEventSynthesizedMouseEvent
 parameter_list|()
 block|{
-comment|// Pass if the platform does not want mouse event synhesizing
-if|if
-condition|(
-operator|!
-name|QGuiApplicationPrivate
-operator|::
-name|platformIntegration
-argument_list|()
-operator|->
-name|styleHint
-argument_list|(
-name|QPlatformIntegration
-operator|::
-name|SynthesizeMouseFromTouchEvents
-argument_list|)
-operator|.
-name|toBool
-argument_list|()
-condition|)
-return|return;
 if|if
 condition|(
 name|m_platform
@@ -63780,9 +63760,10 @@ name|widget
 operator|.
 name|m_mouseEventCount
 argument_list|,
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
+comment|// we receive extra mouse move event
 name|QCOMPARE
 argument_list|(
 name|widget
@@ -64172,22 +64153,7 @@ name|child
 operator|.
 name|m_mouseEventCount
 argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// Attempt at mouse event before propagation
-name|QCOMPARE
-argument_list|(
-name|child
-operator|.
-name|m_lastMouseEventPos
-argument_list|,
-name|QPointF
-argument_list|(
-literal|10
-argument_list|,
-literal|10
-argument_list|)
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

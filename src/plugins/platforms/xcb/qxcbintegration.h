@@ -307,6 +307,16 @@ name|sync
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+specifier|static
+name|QXcbIntegration
+operator|*
+name|instance
+argument_list|()
+block|{
+return|return
+name|m_instance
+return|;
+block|}
 name|private
 operator|:
 name|QList
@@ -368,6 +378,11 @@ name|m_instanceName
 block|;
 name|bool
 name|m_canGrab
+block|;
+specifier|static
+name|QXcbIntegration
+operator|*
+name|m_instance
 block|; }
 decl_stmt|;
 end_decl_stmt

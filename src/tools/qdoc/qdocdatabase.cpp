@@ -6116,6 +6116,12 @@ operator|->
 name|resolveCppToQmlLinks
 argument_list|()
 expr_stmt|;
+name|primaryTree
+argument_list|()
+operator|->
+name|resolveUsingClauses
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment

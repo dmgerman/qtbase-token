@@ -14707,7 +14707,9 @@ decl_stmt|;
 name|float
 name|c
 init|=
-name|qCos
+name|std
+operator|::
+name|cos
 argument_list|(
 name|angle
 operator|*
@@ -14719,7 +14721,9 @@ decl_stmt|;
 name|float
 name|s
 init|=
-name|qSin
+name|std
+operator|::
+name|sin
 argument_list|(
 name|angle
 operator|*
@@ -14731,7 +14735,9 @@ decl_stmt|;
 name|float
 name|len
 init|=
-name|sqrtf
+name|std
+operator|::
+name|sqrt
 argument_list|(
 name|x
 operator|*

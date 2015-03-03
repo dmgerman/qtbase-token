@@ -10011,10 +10011,8 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-name|qApp
-condition|?
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -10024,8 +10022,6 @@ operator|==
 name|Qt
 operator|::
 name|RightToLeft
-else|:
-literal|false
 return|;
 return|return
 name|layoutData

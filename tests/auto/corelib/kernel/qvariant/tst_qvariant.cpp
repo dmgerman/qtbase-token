@@ -173,11 +173,16 @@ literal|0
 argument_list|)
 block|{      }
 DECL|enum|MetaEnumTest_Enum0
+DECL|enumerator|MetaEnumTest_Enum0_dummy
 DECL|enumerator|MetaEnumTest_Enum0_value
 DECL|enumerator|MetaEnsureSignedEnum0
 enum|enum
 name|MetaEnumTest_Enum0
 block|{
+name|MetaEnumTest_Enum0_dummy
+init|=
+literal|2
+block|,
 name|MetaEnumTest_Enum0_value
 init|=
 literal|42

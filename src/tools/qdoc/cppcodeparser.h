@@ -533,7 +533,11 @@ argument_list|)
 block|;
 name|bool
 name|matchUsingDecl
-argument_list|()
+argument_list|(
+name|InnerNode
+operator|*
+name|parent
+argument_list|)
 block|;
 name|bool
 name|matchEnumItem

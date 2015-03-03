@@ -3844,8 +3844,8 @@ name|buttonState
 operator|&
 name|Keyboard
 condition|?
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|styleHints
 argument_list|()
 operator|->

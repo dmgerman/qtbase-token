@@ -4318,7 +4318,9 @@ operator|<<
 operator|-
 literal|2.0f
 operator|<<
-name|sqrtf
+name|std
+operator|::
+name|sqrt
 argument_list|(
 literal|8.0f
 argument_list|)
@@ -4563,7 +4565,9 @@ literal|2.0f
 operator|<<
 literal|2.0f
 operator|<<
-name|sqrtf
+name|std
+operator|::
+name|sqrt
 argument_list|(
 literal|12.0f
 argument_list|)
@@ -4882,7 +4886,9 @@ literal|2.0f
 operator|<<
 literal|2.0f
 operator|<<
-name|sqrtf
+name|std
+operator|::
+name|sqrt
 argument_list|(
 literal|16.0f
 argument_list|)

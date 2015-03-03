@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qmath_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qline.h"
 end_include
 begin_include
@@ -4649,11 +4644,10 @@ return|;
 name|qreal
 name|radians
 init|=
-name|Q_PI
-operator|*
+name|qDegreesToRadians
+argument_list|(
 name|angle
-operator|/
-literal|180
+argument_list|)
 decl_stmt|;
 name|qreal
 name|cosAngle

@@ -342,6 +342,17 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_decl_stmt
+DECL|member|m_instance
+name|QXcbIntegration
+modifier|*
+name|QXcbIntegration
+operator|::
+name|m_instance
+init|=
+name|Q_NULLPTR
+decl_stmt|;
+end_decl_stmt
 begin_constructor
 DECL|function|QXcbIntegration
 name|QXcbIntegration
@@ -379,6 +390,10 @@ argument_list|(
 literal|true
 argument_list|)
 block|{
+name|m_instance
+operator|=
+name|this
+expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
 name|QXcbWindow
@@ -674,13 +689,12 @@ operator|+=
 literal|2
 control|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_XCB_DEBUG
-name|qDebug
-argument_list|()
+name|qCDebug
+argument_list|(
+name|lcQpaScreen
+argument_list|)
 operator|<<
-literal|"QXcbIntegration: Connecting to additional display: "
+literal|"connecting to additional display: "
 operator|<<
 name|parameters
 operator|.
@@ -698,8 +712,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|display
 init|=
@@ -769,6 +781,10 @@ name|qDeleteAll
 argument_list|(
 name|m_connections
 argument_list|)
+expr_stmt|;
+name|m_instance
+operator|=
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 end_destructor
@@ -1777,23 +1793,6 @@ comment|// X11 always has support for windows, but the
 comment|// window manager could prevent it (e.g. matchbox)
 return|return
 literal|false
-return|;
-case|case
-name|QPlatformIntegration
-operator|::
-name|SynthesizeMouseFromTouchEvents
-case|:
-comment|// We do not want Qt to synthesize mouse events if X11 already does it.
-return|return
-name|m_connections
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|->
-name|hasTouchWithoutMouseEmulation
-argument_list|()
 return|;
 default|default:
 break|break;

@@ -6327,6 +6327,26 @@ name|value
 expr_stmt|;
 block|}
 end_function
+begin_function
+DECL|function|touchDevice
+name|QTouchDevice
+modifier|*
+name|QWindowsContext
+operator|::
+name|touchDevice
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|m_mouseHandler
+operator|.
+name|touchDevice
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \brief Windows functions for actual windows.      There is another one for timers, sockets, etc in     QEventDispatcherWin32.      \ingroup qt-lighthouse-win */
 end_comment

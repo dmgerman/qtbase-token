@@ -270,17 +270,25 @@ name|QWindowsIntegration
 operator|*
 name|instance
 argument_list|()
-block|;
+block|{
+return|return
+name|m_instance
+return|;
+block|}
 specifier|inline
 name|void
 name|emitScreenAdded
 argument_list|(
 argument|QPlatformScreen *s
+argument_list|,
+argument|bool isPrimary = false
 argument_list|)
 block|{
 name|screenAdded
 argument_list|(
 name|s
+argument_list|,
+name|isPrimary
 argument_list|)
 block|; }
 specifier|inline
@@ -333,6 +341,11 @@ operator|<
 name|QWindowsIntegrationPrivate
 operator|>
 name|d
+block|;
+specifier|static
+name|QWindowsIntegration
+operator|*
+name|m_instance
 block|; }
 decl_stmt|;
 end_decl_stmt

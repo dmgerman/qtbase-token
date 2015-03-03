@@ -856,13 +856,6 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-specifier|static
-name|bool
-name|synthesizeMouseFromTouchEventsEnabled
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_expr_stmt
 specifier|static
 name|Qt
@@ -1010,6 +1003,7 @@ name|app_font
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|static
 name|QStyleHints
 modifier|*
 name|styleHints

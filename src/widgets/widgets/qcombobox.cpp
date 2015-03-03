@@ -12640,8 +12640,8 @@ condition|(
 name|qApp
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

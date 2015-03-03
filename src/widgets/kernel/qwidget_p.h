@@ -2873,8 +2873,8 @@ operator|::
 name|RSIP_OnMouseClick
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

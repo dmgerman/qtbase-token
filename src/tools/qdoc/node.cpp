@@ -5829,6 +5829,34 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!   Add an unresolved \c using clause to this class node's list   of \c using clauses. The unresolved \c using clause will be   resolved before the generate phase of qdoc. In an unresolved   \c using clause, the pointer to the function node is 0.  */
+end_comment
+begin_function
+DECL|function|addUnresolvedUsingClause
+name|void
+name|ClassNode
+operator|::
+name|addUnresolvedUsingClause
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|signature
+parameter_list|)
+block|{
+name|usingClauses_
+operator|.
+name|append
+argument_list|(
+name|UsingClause
+argument_list|(
+name|signature
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!  */
 end_comment
 begin_function

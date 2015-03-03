@@ -1382,8 +1382,8 @@ operator|&&
 name|qApp
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->
@@ -1484,8 +1484,8 @@ name|QEvent
 operator|::
 name|MouseButtonRelease
 condition|)
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|inputMethod
 argument_list|()
 operator|->

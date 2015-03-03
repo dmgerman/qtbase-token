@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/ipc.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<sys/mman.h>
 end_include
 begin_include

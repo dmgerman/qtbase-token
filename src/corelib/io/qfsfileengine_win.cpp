@@ -2251,9 +2251,10 @@ operator|(
 name|wchar_t
 operator|*
 operator|)
-name|d
-operator|->
-name|fileEntry
+name|QFileSystemEntry
+argument_list|(
+name|newName
+argument_list|)
 operator|.
 name|nativeFilePath
 argument_list|()

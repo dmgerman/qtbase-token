@@ -2524,7 +2524,7 @@ name|fromUtf8
 argument_list|(
 name|en
 operator|.
-name|valueToKeys
+name|valueToKey
 argument_list|(
 name|qConvertToNumber
 argument_list|(
@@ -3532,7 +3532,7 @@ name|ba
 operator|=
 name|en
 operator|.
-name|valueToKeys
+name|valueToKey
 argument_list|(
 name|qConvertToNumber
 argument_list|(

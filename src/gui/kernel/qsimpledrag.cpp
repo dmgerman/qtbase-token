@@ -874,8 +874,8 @@ name|QCursor
 modifier|*
 name|cursor
 init|=
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|overrideCursor
 argument_list|()
 decl_stmt|;
@@ -895,8 +895,8 @@ operator|!
 name|cursor
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|changeOverrideCursor
 argument_list|(
 operator|(
@@ -947,8 +947,8 @@ argument_list|()
 operator|)
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|changeOverrideCursor
 argument_list|(
 name|QCursor
@@ -971,8 +971,8 @@ name|shape
 argument_list|()
 condition|)
 block|{
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|changeOverrideCursor
 argument_list|(
 name|QCursor
