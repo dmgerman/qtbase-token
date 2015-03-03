@@ -207,6 +207,11 @@ specifier|const
 name|xcb_client_message_event_t
 modifier|*
 name|event
+parameter_list|,
+name|xcb_window_t
+name|proxy
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 name|void
