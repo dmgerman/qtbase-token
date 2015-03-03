@@ -1707,12 +1707,7 @@ argument_list|,
 argument|parent
 argument_list|)
 block|{}
-operator|~
-name|PropertiesDBusInterface
-argument_list|()
-operator|=
-expr|default
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
