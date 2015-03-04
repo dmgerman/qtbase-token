@@ -3927,17 +3927,6 @@ operator|::
 name|close
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|d
-operator|->
-name|state
-operator|!=
-name|QNetworkReplyPrivate
-operator|::
-name|Finished
-condition|)
-block|{
 comment|// call finished which will emit signals
 name|d
 operator|->
@@ -3974,7 +3963,6 @@ operator|->
 name|finished
 argument_list|()
 expr_stmt|;
-block|}
 name|d
 operator|->
 name|state
