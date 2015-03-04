@@ -2176,7 +2176,6 @@ argument|Node::Genus genus
 argument_list|)
 specifier|const
 block|;
-comment|//Node* findChildNode(const QString& name, bool qml) const;
 name|Node
 operator|*
 name|findChildNode
@@ -2186,7 +2185,6 @@ argument_list|,
 argument|Type type
 argument_list|)
 block|;
-comment|//void findNodes(const QString& name, NodeList& n);
 name|virtual
 name|void
 name|findChildren
@@ -2472,6 +2470,22 @@ operator|&
 name|title
 argument_list|)
 block|;
+name|void
+name|addChild
+argument_list|(
+name|Node
+operator|*
+name|child
+argument_list|)
+block|;
+name|void
+name|removeChild
+argument_list|(
+name|Node
+operator|*
+name|child
+argument_list|)
+block|;
 name|protected
 operator|:
 name|InnerNode
@@ -2505,27 +2519,11 @@ name|f2
 argument_list|)
 block|;
 name|void
-name|addChild
-argument_list|(
-name|Node
-operator|*
-name|child
-argument_list|)
-block|;
-name|void
 name|removeRelated
 argument_list|(
 name|Node
 operator|*
 name|pseudoChild
-argument_list|)
-block|;
-name|void
-name|removeChild
-argument_list|(
-name|Node
-operator|*
-name|child
 argument_list|)
 block|;
 name|QString
@@ -2698,6 +2696,33 @@ name|tree_
 operator|)
 return|;
 block|}
+name|virtual
+name|bool
+name|wasSeen
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|seen_
+return|;
+block|}
+name|void
+name|markSeen
+argument_list|()
+block|{
+name|seen_
+operator|=
+name|true
+block|; }
+name|void
+name|markNotSeen
+argument_list|()
+block|{
+name|seen_
+operator|=
+name|false
+block|; }
 name|void
 name|setTree
 argument_list|(
@@ -2710,6 +2735,9 @@ name|t
 block|; }
 name|private
 operator|:
+name|bool
+name|seen_
+block|;
 name|Tree
 operator|*
 name|tree_
