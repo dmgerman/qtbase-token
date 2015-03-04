@@ -1125,6 +1125,14 @@ name|void
 name|tabChanged
 argument_list|()
 block|;
+name|void
+name|tabMoved
+argument_list|(
+argument|int from
+argument_list|,
+argument|int to
+argument_list|)
+block|;
 endif|#
 directive|endif
 endif|#

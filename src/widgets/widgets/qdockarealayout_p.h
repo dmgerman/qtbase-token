@@ -922,6 +922,23 @@ name|usedTabBars
 argument_list|()
 specifier|const
 expr_stmt|;
+name|int
+name|tabIndexToListIndex
+argument_list|(
+name|int
+argument_list|)
+decl|const
+decl_stmt|;
+name|void
+name|moveTab
+parameter_list|(
+name|int
+name|from
+parameter_list|,
+name|int
+name|to
+parameter_list|)
+function_decl|;
 endif|#
 directive|endif
 comment|// QT_NO_TABBAR
