@@ -389,6 +389,9 @@ name|void
 name|pixmapIcon
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
 name|void
 name|mouseWheel_data
 parameter_list|()
@@ -401,6 +404,9 @@ name|void
 name|popupWheelHandling
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// !QT_NO_WHEELEVENT
 name|void
 name|layoutDirection
 parameter_list|()
@@ -13407,6 +13413,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_WHEELEVENT
+end_ifndef
 begin_comment
 comment|// defined to be 120 by the wheel mouse vendors according to the docs
 end_comment
@@ -14077,6 +14088,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_WHEELEVENT
+end_comment
 begin_function
 DECL|function|layoutDirection
 name|void
