@@ -99,6 +99,11 @@ name|qmakeSpec
 parameter_list|)
 function_decl|;
 specifier|static
+name|QString
+name|gccVersion
+parameter_list|()
+function_decl|;
+specifier|static
 name|int
 name|execute
 parameter_list|(
