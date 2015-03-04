@@ -27,7 +27,7 @@ DECL|macro|EXAMPLE_URL
 define|#
 directive|define
 name|EXAMPLE_URL
-value|"http://user:pass@www.example.com/#foo"
+value|"http://user:pass@localhost:4/#foo"
 end_define
 begin_comment
 comment|//cached objects are organized into these many subdirs
@@ -1861,9 +1861,10 @@ name|url
 operator|=
 name|QUrl
 argument_list|(
-literal|"http://www.foo.com/cookieTest.html"
+literal|"http://localhost:4/cookieTest.html"
 argument_list|)
 expr_stmt|;
+comment|// hopefully no one is running an HTTP server on port 4
 name|QNetworkCacheMetaData
 name|metaData
 decl_stmt|;
@@ -2536,7 +2537,7 @@ name|setUrl
 argument_list|(
 name|QUrl
 argument_list|(
-literal|"http://www.foo.com/"
+literal|"http://localhost:4/"
 operator|+
 name|QString
 operator|::
@@ -2723,7 +2724,7 @@ name|fileName
 argument_list|,
 name|QString
 argument_list|(
-literal|"http://www.foo.com/%1"
+literal|"http://localhost:4/%1"
 argument_list|)
 operator|.
 name|arg
