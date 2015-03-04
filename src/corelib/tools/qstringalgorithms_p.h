@@ -486,6 +486,12 @@ name|NakedStringType
 name|result
 init|=
 name|isConst
+operator|||
+operator|!
+name|str
+operator|.
+name|isDetached
+argument_list|()
 condition|?
 name|StringType
 argument_list|(
