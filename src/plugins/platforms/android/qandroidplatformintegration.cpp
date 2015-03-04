@@ -307,7 +307,7 @@ return|;
 block|}
 else|else
 return|return
-name|Q_NULLPTR
+literal|nullptr
 return|;
 block|}
 if|if
@@ -329,7 +329,7 @@ name|m_standardPalette
 return|;
 else|else
 return|return
-name|Q_NULLPTR
+literal|nullptr
 return|;
 block|}
 if|if
@@ -351,7 +351,7 @@ name|m_QWidgetsFonts
 return|;
 else|else
 return|return
-name|Q_NULLPTR
+literal|nullptr
 return|;
 block|}
 if|if
