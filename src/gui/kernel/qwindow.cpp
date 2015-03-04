@@ -4232,6 +4232,12 @@ name|QWindowPrivate
 operator|::
 name|WindowFrameInclusive
 expr_stmt|;
+name|d
+operator|->
+name|positionAutomatic
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|d
@@ -4257,12 +4263,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|d
-operator|->
-name|positionAutomatic
-operator|=
-literal|false
-expr_stmt|;
 name|d
 operator|->
 name|geometry
