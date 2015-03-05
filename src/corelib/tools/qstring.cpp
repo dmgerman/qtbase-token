@@ -15394,10 +15394,10 @@ begin_comment
 comment|/*!     \fn const QChar QString::operator[](int position) const      \overload operator[]() */
 end_comment
 begin_comment
-comment|/*! \fn QCharRef QString::operator[](uint position)  \overload operator[]()  Returns the character at the specified \a position in the string as a modifiable reference. Equivalent to \c at(position). */
+comment|/*! \fn QCharRef QString::operator[](uint position)  \overload operator[]()  Returns the character at the specified \a position in the string as a modifiable reference. */
 end_comment
 begin_comment
-comment|/*! \fn const QChar QString::operator[](uint position) const  \overload operator[]() */
+comment|/*! \fn const QChar QString::operator[](uint position) const     Equivalent to \c at(position). \overload operator[]() */
 end_comment
 begin_comment
 comment|/*!     \fn void QString::truncate(int position)      Truncates the string at the given \a position index.      If the specified \a position index is beyond the end of the     string, nothing happens.      Example:      \snippet qstring/main.cpp 83      If \a position is negative, it is equivalent to passing zero.      \sa chop(), resize(), left() */
