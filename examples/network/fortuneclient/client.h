@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QTcpSocket>
 end_include
+begin_include
+include|#
+directive|include
+file|<QDataStream>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QComboBox
@@ -129,11 +134,11 @@ name|QTcpSocket
 operator|*
 name|tcpSocket
 block|;
+name|QDataStream
+name|in
+block|;
 name|QString
 name|currentFortune
-block|;
-name|quint16
-name|blockSize
 block|;
 name|QNetworkSession
 operator|*

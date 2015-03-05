@@ -844,14 +844,6 @@ operator|::
 name|Qt_4_0
 argument_list|)
 expr_stmt|;
-comment|//! [4] //! [6]
-name|out
-operator|<<
-operator|(
-name|quint16
-operator|)
-literal|0
-expr_stmt|;
 name|out
 operator|<<
 name|fortunes
@@ -867,34 +859,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|device
-argument_list|()
-operator|->
-name|seek
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|out
-operator|<<
-call|(
-name|quint16
-call|)
-argument_list|(
-name|block
-operator|.
-name|size
-argument_list|()
-operator|-
-sizeof|sizeof
-argument_list|(
-name|quint16
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|//! [6] //! [7]
+comment|//! [4] //! [7]
 name|QTcpSocket
 modifier|*
 name|clientConnection

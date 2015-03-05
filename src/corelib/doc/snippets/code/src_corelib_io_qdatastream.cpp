@@ -279,6 +279,36 @@ name|Qt_4_0
 argument_list|)
 expr_stmt|;
 comment|//! [5]
+comment|//! [6]
+name|in
+operator|.
+name|startTransaction
+argument_list|()
+expr_stmt|;
+name|QString
+name|str
+decl_stmt|;
+name|qint32
+name|a
+decl_stmt|;
+name|in
+operator|>>
+name|str
+operator|>>
+name|a
+expr_stmt|;
+comment|// try to read packet atomically
+if|if
+condition|(
+operator|!
+name|in
+operator|.
+name|commitTransaction
+argument_list|()
+condition|)
+return|return;
+comment|// wait for more data
+comment|//! [6]
 block|}
 end_function
 end_unit

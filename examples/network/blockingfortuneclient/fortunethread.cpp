@@ -221,56 +221,7 @@ argument_list|)
 emit|;
 return|return;
 block|}
-comment|//! [8] //! [9]
-while|while
-condition|(
-name|socket
-operator|.
-name|bytesAvailable
-argument_list|()
-operator|<
-operator|(
-name|int
-operator|)
-sizeof|sizeof
-argument_list|(
-name|quint16
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|socket
-operator|.
-name|waitForReadyRead
-argument_list|(
-name|Timeout
-argument_list|)
-condition|)
-block|{
-emit|emit
-name|error
-argument_list|(
-name|socket
-operator|.
-name|error
-argument_list|()
-argument_list|,
-name|socket
-operator|.
-name|errorString
-argument_list|()
-argument_list|)
-emit|;
-return|return;
-block|}
-comment|//! [9] //! [10]
-block|}
-comment|//! [10] //! [11]
-name|quint16
-name|blockSize
-decl_stmt|;
+comment|//! [8] //! [11]
 name|QDataStream
 name|in
 argument_list|(
@@ -287,20 +238,11 @@ operator|::
 name|Qt_4_0
 argument_list|)
 expr_stmt|;
-name|in
-operator|>>
-name|blockSize
-expr_stmt|;
+name|QString
+name|fortune
+decl_stmt|;
 comment|//! [11] //! [12]
-while|while
-condition|(
-name|socket
-operator|.
-name|bytesAvailable
-argument_list|()
-operator|<
-name|blockSize
-condition|)
+do|do
 block|{
 if|if
 condition|(
@@ -329,20 +271,30 @@ argument_list|)
 emit|;
 return|return;
 block|}
-comment|//! [12] //! [13]
+name|in
+operator|.
+name|startTransaction
+argument_list|()
+expr_stmt|;
+name|in
+operator|>>
+name|fortune
+expr_stmt|;
 block|}
-comment|//! [13] //! [14]
+do|while
+condition|(
+operator|!
+name|in
+operator|.
+name|commitTransaction
+argument_list|()
+condition|)
+do|;
+comment|//! [12] //! [15]
 name|mutex
 operator|.
 name|lock
 argument_list|()
-expr_stmt|;
-name|QString
-name|fortune
-decl_stmt|;
-name|in
-operator|>>
-name|fortune
 expr_stmt|;
 emit|emit
 name|newFortune
@@ -350,7 +302,7 @@ argument_list|(
 name|fortune
 argument_list|)
 emit|;
-comment|//! [7] //! [14] //! [15]
+comment|//! [7]
 name|cond
 operator|.
 name|wait

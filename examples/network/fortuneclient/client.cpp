@@ -59,7 +59,6 @@ literal|"Get Fortune"
 argument_list|)
 argument_list|)
 argument_list|)
-comment|//! [1]
 member_init_list|,
 name|tcpSocket
 argument_list|(
@@ -68,12 +67,6 @@ name|QTcpSocket
 argument_list|(
 name|this
 argument_list|)
-argument_list|)
-comment|//! [1]
-member_init_list|,
-name|blockSize
-argument_list|(
-literal|0
 argument_list|)
 member_init_list|,
 name|networkSession
@@ -405,6 +398,24 @@ operator|::
 name|RejectRole
 argument_list|)
 expr_stmt|;
+comment|//! [1]
+name|in
+operator|.
+name|setDevice
+argument_list|(
+name|tcpSocket
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|setVersion
+argument_list|(
+name|QDataStream
+operator|::
+name|Qt_4_0
+argument_list|)
+expr_stmt|;
+comment|//! [1]
 name|connect
 argument_list|(
 name|hostCombo
@@ -963,10 +974,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|blockSize
-operator|=
-literal|0
-expr_stmt|;
 name|tcpSocket
 operator|->
 name|abort
@@ -1008,63 +1015,11 @@ operator|::
 name|readFortune
 parameter_list|()
 block|{
-comment|//! [9]
-name|QDataStream
-name|in
-argument_list|(
-name|tcpSocket
-argument_list|)
-decl_stmt|;
 name|in
 operator|.
-name|setVersion
-argument_list|(
-name|QDataStream
-operator|::
-name|Qt_4_0
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|blockSize
-operator|==
-literal|0
-condition|)
-block|{
-if|if
-condition|(
-name|tcpSocket
-operator|->
-name|bytesAvailable
+name|startTransaction
 argument_list|()
-operator|<
-operator|(
-name|int
-operator|)
-sizeof|sizeof
-argument_list|(
-name|quint16
-argument_list|)
-condition|)
-return|return;
-comment|//! [8]
-comment|//! [10]
-name|in
-operator|>>
-name|blockSize
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|tcpSocket
-operator|->
-name|bytesAvailable
-argument_list|()
-operator|<
-name|blockSize
-condition|)
-return|return;
-comment|//! [10] //! [11]
 name|QString
 name|nextFortune
 decl_stmt|;
@@ -1072,6 +1027,15 @@ name|in
 operator|>>
 name|nextFortune
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|in
+operator|.
+name|commitTransaction
+argument_list|()
+condition|)
+return|return;
 if|if
 condition|(
 name|nextFortune
@@ -1095,13 +1059,10 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|//! [11]
-comment|//! [12]
 name|currentFortune
 operator|=
 name|nextFortune
 expr_stmt|;
-comment|//! [9]
 name|statusLabel
 operator|->
 name|setText
@@ -1119,7 +1080,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|//! [12]
+comment|//! [8]
 end_comment
 begin_comment
 comment|//! [13]

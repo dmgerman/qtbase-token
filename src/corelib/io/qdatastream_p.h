@@ -72,7 +72,14 @@ argument_list|()
 operator|:
 name|floatingPointPrecision
 argument_list|(
-argument|QDataStream::DoublePrecision
+name|QDataStream
+operator|::
+name|DoublePrecision
+argument_list|)
+operator|,
+name|transactionDepth
+argument_list|(
+literal|0
 argument_list|)
 block|{ }
 name|QDataStream
@@ -80,6 +87,9 @@ operator|::
 name|FloatingPointPrecision
 name|floatingPointPrecision
 expr_stmt|;
+name|int
+name|transactionDepth
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
