@@ -3401,7 +3401,7 @@ name|Q_ASSERT
 parameter_list|(
 name|cond
 parameter_list|)
-value|do { } while (false&& (cond))
+value|do { } while ((false)&& (cond))
 end_define
 begin_else
 else|#
