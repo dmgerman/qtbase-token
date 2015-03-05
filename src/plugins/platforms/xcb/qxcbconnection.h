@@ -266,6 +266,8 @@ name|WM_CHANGE_STATE
 operator|,
 name|WM_CLASS
 operator|,
+name|WM_NAME
+operator|,
 comment|// Session management
 name|WM_CLIENT_LEADER
 operator|,

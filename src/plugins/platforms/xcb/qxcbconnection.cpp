@@ -7223,6 +7223,7 @@ comment|// ICCCM window state
 literal|"WM_STATE\0"
 literal|"WM_CHANGE_STATE\0"
 literal|"WM_CLASS\0"
+literal|"WM_NAME\0"
 comment|// Session management
 literal|"WM_CLIENT_LEADER\0"
 literal|"WM_WINDOW_ROLE\0"
