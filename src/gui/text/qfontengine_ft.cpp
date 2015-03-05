@@ -12232,9 +12232,6 @@ modifier|&
 name|t
 parameter_list|)
 block|{
-name|lockFace
-argument_list|()
-expr_stmt|;
 name|Glyph
 modifier|*
 name|glyph
@@ -12277,9 +12274,6 @@ name|emptyGlyph
 condition|)
 operator|delete
 name|glyph
-expr_stmt|;
-name|unlockFace
-argument_list|()
 expr_stmt|;
 return|return
 name|QFontEngine
@@ -12467,9 +12461,6 @@ condition|)
 operator|delete
 name|glyph
 expr_stmt|;
-name|unlockFace
-argument_list|()
-expr_stmt|;
 return|return
 name|img
 return|;
@@ -12517,9 +12508,6 @@ argument_list|,
 name|t
 argument_list|)
 return|;
-name|lockFace
-argument_list|()
-expr_stmt|;
 name|Glyph
 modifier|*
 name|glyph
@@ -12558,9 +12546,6 @@ name|emptyGlyph
 condition|)
 operator|delete
 name|glyph
-expr_stmt|;
-name|unlockFace
-argument_list|()
 expr_stmt|;
 return|return
 name|QFontEngine
@@ -12625,9 +12610,6 @@ name|emptyGlyph
 condition|)
 operator|delete
 name|glyph
-expr_stmt|;
-name|unlockFace
-argument_list|()
 expr_stmt|;
 return|return
 name|img
