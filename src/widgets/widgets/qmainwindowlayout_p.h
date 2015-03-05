@@ -171,6 +171,80 @@ name|class
 name|QRubberBand
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DOCKWIDGET
+end_ifndef
+begin_decl_stmt
+name|class
+name|QDockWidgetGroupWindow
+range|:
+name|public
+name|QWidget
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|explicit
+name|QDockWidgetGroupWindow
+argument_list|(
+argument|QWidget* parent =
+literal|0
+argument_list|,
+argument|Qt::WindowFlags f =
+literal|0
+argument_list|)
+operator|:
+name|QWidget
+argument_list|(
+argument|parent
+argument_list|,
+argument|f
+argument_list|)
+block|{}
+name|QDockAreaLayoutInfo
+operator|*
+name|layoutInfo
+argument_list|()
+specifier|const
+block|;
+name|QDockWidget
+operator|*
+name|topDockWidget
+argument_list|()
+specifier|const
+block|;
+name|void
+name|destroyIfEmpty
+argument_list|()
+block|;
+name|void
+name|adjustFlags
+argument_list|()
+block|;
+name|protected
+operator|:
+name|bool
+name|event
+argument_list|(
+argument|QEvent *
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|paintEvent
+argument_list|(
+argument|QPaintEvent*
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* This data structure represents the state of all the tool-bars and dock-widgets. It's value based    so it can be easilly copied into a temporary variable. All operations are performed without moving    any widgets. Only when we are sure we have the desired state, we call apply(), which moves the    widgets. */
 end_comment
@@ -718,7 +792,7 @@ operator|::
 name|DockWidgetArea
 name|dockWidgetArea
 argument_list|(
-argument|QDockWidget *dockwidget
+argument|QWidget* widget
 argument_list|)
 specifier|const
 block|;
@@ -742,6 +816,15 @@ argument_list|(
 name|QDockWidget
 operator|*
 name|dockwidget
+argument_list|)
+block|;
+name|QDockAreaLayoutInfo
+operator|*
+name|dockInfo
+argument_list|(
+name|QWidget
+operator|*
+name|w
 argument_list|)
 block|;
 ifndef|#
@@ -851,6 +934,11 @@ argument|Qt::DockWidgetAreas areas
 argument_list|,
 argument|QTabWidget::TabPosition tabPosition
 argument_list|)
+block|;
+name|QDockWidgetGroupWindow
+operator|*
+name|createTabbedDockWindow
+argument_list|()
 block|;
 endif|#
 directive|endif
@@ -1052,9 +1140,9 @@ name|QLayoutItem
 operator|*
 name|unplug
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
+argument_list|,
+argument|bool group = false
 argument_list|)
 block|;
 name|void

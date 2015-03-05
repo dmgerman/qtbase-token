@@ -125,6 +125,10 @@ name|QAction
 operator|*
 name|windowModifiedAction
 block|;
+name|QMainWindow
+operator|*
+name|mainWindow
+block|;
 name|public
 operator|:
 name|explicit
@@ -132,7 +136,7 @@ name|ColorSwatch
 argument_list|(
 argument|const QString&colorName
 argument_list|,
-argument|QWidget *parent =
+argument|QMainWindow *parent =
 literal|0
 argument_list|,
 argument|Qt::WindowFlags flags =

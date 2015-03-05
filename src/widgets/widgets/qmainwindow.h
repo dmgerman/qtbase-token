@@ -156,6 +156,11 @@ comment|// implies AllowTabbedDocks, !AllowNestedDocks
 name|VerticalTabs
 operator|=
 literal|0x10
+block|,
+comment|// implies AllowTabbedDocks
+name|GroupedDragging
+operator|=
+literal|0x20
 comment|// implies AllowTabbedDocks
 block|}
 block|;

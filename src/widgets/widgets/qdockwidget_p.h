@@ -290,7 +290,9 @@ argument_list|)
 block|;
 name|void
 name|startDrag
-argument_list|()
+argument_list|(
+argument|bool group = true
+argument_list|)
 block|;
 name|void
 name|endDrag
@@ -489,6 +491,11 @@ specifier|const
 block|;
 name|void
 name|updateMaxSize
+argument_list|()
+block|;
+specifier|static
+name|bool
+name|wmSupportsNativeWindowDeco
 argument_list|()
 block|;
 name|bool
