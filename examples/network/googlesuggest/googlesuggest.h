@@ -94,11 +94,6 @@ specifier|const
 name|QStringList
 operator|&
 name|choices
-argument_list|,
-specifier|const
-name|QStringList
-operator|&
-name|hits
 argument_list|)
 block|;
 name|public
