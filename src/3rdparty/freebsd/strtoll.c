@@ -441,10 +441,11 @@ condition|)
 operator|*
 name|endptr
 operator|=
-operator|(
+name|const_cast
+operator|<
 name|char
 operator|*
-operator|)
+operator|>
 operator|(
 name|any
 condition|?
