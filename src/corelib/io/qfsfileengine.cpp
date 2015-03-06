@@ -3254,6 +3254,7 @@ modifier|*
 name|options
 init|=
 operator|(
+specifier|const
 name|MapExtensionOption
 operator|*
 operator|)
@@ -3312,11 +3313,13 @@ operator|==
 name|UnMapExtension
 condition|)
 block|{
+specifier|const
 name|UnMapExtensionOption
 modifier|*
 name|options
 init|=
 operator|(
+specifier|const
 name|UnMapExtensionOption
 operator|*
 operator|)

@@ -1327,7 +1327,7 @@ operator|*
 operator|)
 name|result
 operator|.
-name|unicode
+name|data
 argument_list|()
 decl_stmt|;
 name|_q_uuidToHex

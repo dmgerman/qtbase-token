@@ -4788,10 +4788,6 @@ directive|endif
 block|{
 operator|delete
 index|[]
-operator|(
-name|uchar
-operator|*
-operator|)
 name|mappingBuffer
 argument_list|()
 expr_stmt|;
@@ -7082,6 +7078,7 @@ modifier|*
 name|options
 init|=
 operator|(
+specifier|const
 name|MapExtensionOption
 operator|*
 operator|)
@@ -7140,11 +7137,13 @@ operator|==
 name|UnMapExtension
 condition|)
 block|{
+specifier|const
 name|UnMapExtensionOption
 modifier|*
 name|options
 init|=
 operator|(
+specifier|const
 name|UnMapExtensionOption
 operator|*
 operator|)
