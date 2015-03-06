@@ -2383,12 +2383,6 @@ name|QT_NO_IMAGEFORMAT_XPM
 name|QPixmap
 name|p
 argument_list|(
-operator|(
-specifier|const
-name|char
-operator|*
-operator|*
-operator|)
 name|button_image
 argument_list|)
 decl_stmt|;

@@ -10092,6 +10092,7 @@ modifier|*
 name|c
 init|=
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)
@@ -10885,11 +10886,14 @@ name|n
 operator|.
 name|ptr
 operator|=
-operator|(
-name|void
+cast|const_cast
+argument_list|<
+name|QObject
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|obj
+argument_list|)
 expr_stmt|;
 name|QVector
 argument_list|<

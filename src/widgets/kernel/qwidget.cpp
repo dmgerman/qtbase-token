@@ -15528,11 +15528,14 @@ name|QWidget
 modifier|*
 name|w
 init|=
-operator|(
+cast|const_cast
+argument_list|<
 name|QWidget
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|this
+argument_list|)
 decl_stmt|;
 name|QWidget
 modifier|*

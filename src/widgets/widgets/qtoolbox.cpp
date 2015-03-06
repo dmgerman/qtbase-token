@@ -395,6 +395,7 @@ name|QObject
 modifier|*
 parameter_list|)
 function_decl|;
+specifier|const
 name|Page
 modifier|*
 name|page
@@ -450,6 +451,7 @@ class|;
 end_class
 begin_function
 DECL|function|page
+specifier|const
 name|QToolBoxPrivate
 operator|::
 name|Page
@@ -507,6 +509,7 @@ name|widget
 condition|)
 return|return
 operator|(
+specifier|const
 name|Page
 operator|*
 operator|)
@@ -1997,6 +2000,7 @@ operator|*
 operator|)
 name|object
 decl_stmt|;
+specifier|const
 name|QToolBoxPrivate
 operator|::
 name|Page
@@ -2377,6 +2381,7 @@ specifier|const
 name|QToolBox
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QToolBoxPrivate
 operator|::
 name|Page

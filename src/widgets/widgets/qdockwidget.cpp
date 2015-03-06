@@ -4134,6 +4134,7 @@ literal|false
 return|;
 return|return
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)
@@ -4142,6 +4143,7 @@ operator|->
 name|pluggingWidget
 operator|==
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)
