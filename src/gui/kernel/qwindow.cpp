@@ -4821,7 +4821,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the screen on which the window is shown.      For child windows, this returns the screen of the corresponding top level window.      \sa setScreen(), QScreen::virtualSiblings() */
+comment|/*!     Returns the screen on which the window is shown, or null if there is none.      For child windows, this returns the screen of the corresponding top level window.      \sa setScreen(), QScreen::virtualSiblings() */
 end_comment
 begin_function
 DECL|function|screen

@@ -157,7 +157,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the platform screen handle corresponding to this platform window. */
+comment|/*!     Returns the platform screen handle corresponding to this platform window,     or null if the window is not associated with a screen. */
 end_comment
 begin_function
 DECL|function|screen
