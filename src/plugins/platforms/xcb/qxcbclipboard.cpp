@@ -238,11 +238,13 @@ operator|>
 literal|0
 condition|)
 block|{
+specifier|const
 name|xcb_atom_t
 modifier|*
 name|targets
 init|=
 operator|(
+specifier|const
 name|xcb_atom_t
 operator|*
 operator|)
@@ -400,11 +402,13 @@ name|xcb_atom_t
 argument_list|>
 name|atoms
 decl_stmt|;
+specifier|const
 name|xcb_atom_t
 modifier|*
 name|targets
 init|=
 operator|(
+specifier|const
 name|xcb_atom_t
 operator|*
 operator|)
