@@ -2208,11 +2208,9 @@ name|FunctionNode
 operator|*
 name|findFunctionNode
 argument_list|(
-specifier|const
-name|FunctionNode
-operator|*
-name|clone
+argument|const FunctionNode* clone
 argument_list|)
+specifier|const
 block|;
 name|void
 name|addInclude
@@ -2235,7 +2233,7 @@ block|;
 name|void
 name|setOverload
 argument_list|(
-argument|const FunctionNode* func
+argument|FunctionNode* func
 argument_list|,
 argument|bool overlode
 argument_list|)
