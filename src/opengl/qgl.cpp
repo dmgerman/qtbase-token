@@ -7261,17 +7261,14 @@ literal|0
 argument_list|)
 decl_stmt|;
 comment|// NB! avoid detach here
+specifier|const
 name|uchar
 modifier|*
 name|srcPixels
 init|=
-operator|(
-name|uchar
-operator|*
-operator|)
 name|img
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|img
 operator|.
