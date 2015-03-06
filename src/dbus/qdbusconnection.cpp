@@ -1924,6 +1924,14 @@ return|return
 literal|false
 return|;
 block|}
+name|QDBusDispatchLocker
+name|dispatchLocker
+argument_list|(
+name|ConnectAction
+argument_list|,
+name|d
+argument_list|)
+decl_stmt|;
 name|QDBusWriteLocker
 name|locker
 argument_list|(
