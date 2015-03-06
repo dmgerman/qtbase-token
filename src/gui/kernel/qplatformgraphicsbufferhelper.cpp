@@ -185,6 +185,9 @@ modifier|&
 name|subRect
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 if|if
 condition|(
 operator|!
@@ -674,6 +677,26 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|graphicsBuffer
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|swizzleRandB
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|subRect
+argument_list|)
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// QT_NO_OPENGL
 block|}
 end_function
 begin_macro
