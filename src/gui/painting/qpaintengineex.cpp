@@ -3223,6 +3223,7 @@ init|=
 operator|(
 operator|*
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3272,6 +3273,7 @@ init|=
 operator|(
 operator|*
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3320,6 +3322,7 @@ name|c1
 init|=
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3339,6 +3342,7 @@ name|c2
 init|=
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3358,6 +3362,7 @@ name|e
 init|=
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3443,6 +3448,7 @@ init|=
 operator|*
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3483,6 +3489,7 @@ name|p
 init|=
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -3530,6 +3537,7 @@ name|p
 init|=
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -5240,6 +5248,7 @@ index|]
 operator|=
 operator|(
 operator|(
+specifier|const
 name|int
 operator|*
 operator|)
@@ -5328,6 +5337,7 @@ name|QVectorPath
 name|path
 argument_list|(
 operator|(
+specifier|const
 name|qreal
 operator|*
 operator|)
@@ -6099,6 +6109,7 @@ name|QVectorPath
 name|path
 argument_list|(
 operator|(
+specifier|const
 name|qreal
 operator|*
 operator|)
@@ -6196,6 +6207,7 @@ index|]
 operator|=
 operator|(
 operator|(
+specifier|const
 name|int
 operator|*
 operator|)

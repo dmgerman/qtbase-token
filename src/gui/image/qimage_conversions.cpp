@@ -2064,6 +2064,7 @@ modifier|*
 name|src_packed
 init|=
 operator|(
+specifier|const
 name|quint32
 operator|*
 operator|)
@@ -2333,6 +2334,7 @@ modifier|*
 name|src_packed
 init|=
 operator|(
+specifier|const
 name|quint32
 operator|*
 operator|)
@@ -8060,6 +8062,7 @@ operator|-
 operator|(
 operator|*
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -8091,6 +8094,7 @@ name|qGray
 argument_list|(
 operator|*
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -8223,6 +8227,7 @@ operator|-
 operator|(
 operator|*
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -8254,6 +8259,7 @@ name|qGray
 argument_list|(
 operator|*
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)

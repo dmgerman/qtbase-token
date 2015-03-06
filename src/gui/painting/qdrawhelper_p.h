@@ -4449,7 +4449,7 @@ parameter_list|)
 define|\
 value|do {                                          \
 comment|/* Duff's device */
-value|\     ushort *_d = (ushort*)(dest);         \     const ushort *_s = (ushort*)(src);    \     int n = ((length) + 7) / 8;               \     switch ((length)& 0x07)                  \     {                                         \     case 0: do { *_d++ = *_s++;                 \     case 7:      *_d++ = *_s++;                 \     case 6:      *_d++ = *_s++;                 \     case 5:      *_d++ = *_s++;                 \     case 4:      *_d++ = *_s++;                 \     case 3:      *_d++ = *_s++;                 \     case 2:      *_d++ = *_s++;                 \     case 1:      *_d++ = *_s++;                 \     } while (--n> 0);                        \     }                                         \ } while (0)
+value|\     ushort *_d = (ushort*)(dest);         \     const ushort *_s = (const ushort*)(src);    \     int n = ((length) + 7) / 8;               \     switch ((length)& 0x07)                  \     {                                         \     case 0: do { *_d++ = *_s++;                 \     case 7:      *_d++ = *_s++;                 \     case 6:      *_d++ = *_s++;                 \     case 5:      *_d++ = *_s++;                 \     case 4:      *_d++ = *_s++;                 \     case 3:      *_d++ = *_s++;                 \     case 2:      *_d++ = *_s++;                 \     case 1:      *_d++ = *_s++;                 \     } while (--n> 0);                        \     }                                         \ } while (0)
 end_define
 begin_function
 unit|inline

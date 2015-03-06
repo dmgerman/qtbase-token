@@ -202,6 +202,7 @@ modifier|*
 name|xpoints
 decl_stmt|;
 DECL|member|ypoints
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -223,12 +224,14 @@ name|xup_yup
 decl_stmt|;
 block|}
 struct|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
 modifier|*
 name|qimageCalcYPoints
 parameter_list|(
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -396,6 +399,7 @@ value|(yapoints[dyy + y])
 end_define
 begin_function
 DECL|function|qimageCalcYPoints
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -404,6 +408,7 @@ name|QImageScale
 operator|::
 name|qimageCalcYPoints
 parameter_list|(
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -419,6 +424,7 @@ name|int
 name|dh
 parameter_list|)
 block|{
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -461,6 +467,7 @@ block|}
 name|p
 operator|=
 operator|new
+specifier|const
 name|unsigned
 name|int
 operator|*
@@ -567,6 +574,7 @@ literal|0
 condition|;
 control|)
 block|{
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -1355,6 +1363,7 @@ operator|=
 name|qimageCalcYPoints
 argument_list|(
 operator|(
+specifier|const
 name|unsigned
 name|int
 operator|*
@@ -1525,11 +1534,14 @@ name|int
 name|sow
 parameter_list|)
 block|{
+specifier|const
 name|unsigned
 name|int
 modifier|*
 name|sptr
-decl_stmt|,
+decl_stmt|;
+name|unsigned
+name|int
 modifier|*
 name|dptr
 decl_stmt|;
@@ -1540,6 +1552,7 @@ name|y
 decl_stmt|,
 name|end
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -1670,6 +1683,7 @@ name|bb
 decl_stmt|,
 name|aa
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -2089,6 +2103,7 @@ name|b
 decl_stmt|,
 name|a
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -2256,6 +2271,7 @@ name|Cy
 decl_stmt|,
 name|j
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -2820,6 +2836,7 @@ name|Cx
 decl_stmt|,
 name|j
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -3376,6 +3393,7 @@ name|i
 decl_stmt|,
 name|j
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -4164,11 +4182,14 @@ name|int
 name|sow
 parameter_list|)
 block|{
+specifier|const
 name|unsigned
 name|int
 modifier|*
 name|sptr
-decl_stmt|,
+decl_stmt|;
+name|unsigned
+name|int
 modifier|*
 name|dptr
 decl_stmt|;
@@ -4179,6 +4200,7 @@ name|y
 decl_stmt|,
 name|end
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -4317,6 +4339,7 @@ name|bb
 init|=
 literal|0
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -4664,6 +4687,7 @@ name|b
 init|=
 literal|0
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -4809,6 +4833,7 @@ name|Cy
 decl_stmt|,
 name|j
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -5287,6 +5312,7 @@ name|Cx
 decl_stmt|,
 name|j
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*
@@ -5758,6 +5784,7 @@ name|i
 decl_stmt|,
 name|j
 decl_stmt|;
+specifier|const
 name|unsigned
 name|int
 modifier|*

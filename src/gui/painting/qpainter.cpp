@@ -15881,6 +15881,7 @@ expr_stmt|;
 name|drawLines
 argument_list|(
 operator|(
+specifier|const
 name|QLineF
 operator|*
 operator|)
@@ -15928,6 +15929,7 @@ expr_stmt|;
 name|drawLines
 argument_list|(
 operator|(
+specifier|const
 name|QLine
 operator|*
 operator|)

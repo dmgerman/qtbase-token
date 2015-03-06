@@ -11404,6 +11404,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -11467,6 +11468,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -33344,6 +33346,7 @@ modifier|*
 name|src
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -34052,6 +34055,7 @@ modifier|*
 name|src
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -34753,6 +34757,7 @@ modifier|*
 name|src
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -35145,6 +35150,7 @@ modifier|*
 name|src
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -35386,6 +35392,7 @@ modifier|*
 name|src
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -35893,6 +35900,7 @@ modifier|*
 name|src1
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -35911,6 +35919,7 @@ modifier|*
 name|src2
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -36578,6 +36587,7 @@ modifier|*
 name|src1
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -36596,6 +36606,7 @@ modifier|*
 name|src2
 init|=
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -38083,6 +38094,7 @@ name|b
 operator|=
 operator|(
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -38482,6 +38494,7 @@ name|b
 operator|=
 operator|(
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -38736,11 +38749,13 @@ name|spans
 operator|->
 name|x
 decl_stmt|;
+specifier|const
 name|uint
 modifier|*
 name|image_bits
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -39147,11 +39162,13 @@ name|spans
 operator|->
 name|x
 decl_stmt|;
+specifier|const
 name|uint
 modifier|*
 name|image_bits
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -39902,6 +39919,7 @@ name|b
 operator|=
 operator|(
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)
@@ -40309,6 +40327,7 @@ name|b
 operator|=
 operator|(
 operator|(
+specifier|const
 name|quint16
 operator|*
 operator|)

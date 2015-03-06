@@ -2524,6 +2524,7 @@ modifier|*
 name|d
 init|=
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)

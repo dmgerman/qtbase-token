@@ -250,11 +250,13 @@ argument_list|(
 literal|0xff000000
 argument_list|)
 decl_stmt|;
+specifier|const
 name|__m128i
 modifier|*
 name|inVectorPtr
 init|=
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -464,6 +466,7 @@ block|}
 name|src
 operator|=
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)
