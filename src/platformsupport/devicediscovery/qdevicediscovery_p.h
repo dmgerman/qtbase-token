@@ -150,6 +150,10 @@ name|Device_Tablet
 operator|=
 literal|0x40
 block|,
+name|Device_Joystick
+operator|=
+literal|0x80
+block|,
 name|Device_InputMask
 operator|=
 name|Device_Mouse
@@ -161,6 +165,8 @@ operator||
 name|Device_Keyboard
 operator||
 name|Device_Tablet
+operator||
+name|Device_Joystick
 block|,
 name|Device_VideoMask
 operator|=
