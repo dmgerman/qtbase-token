@@ -5502,12 +5502,6 @@ name|matrix
 argument_list|)
 expr_stmt|;
 block|}
-name|FT_Library
-name|library
-init|=
-name|qt_getFreetype
-argument_list|()
-decl_stmt|;
 name|info
 operator|.
 name|xOff
@@ -5826,6 +5820,8 @@ name|err
 operator|=
 name|FT_Library_SetLcdFilter
 argument_list|(
+name|slot
+operator|->
 name|library
 argument_list|,
 operator|(
@@ -5882,6 +5878,8 @@ argument_list|)
 expr_stmt|;
 name|FT_Library_SetLcdFilter
 argument_list|(
+name|slot
+operator|->
 name|library
 argument_list|,
 name|FT_LCD_FILTER_NONE
@@ -6913,6 +6911,8 @@ argument_list|)
 expr_stmt|;
 name|FT_Outline_Get_Bitmap
 argument_list|(
+name|slot
+operator|->
 name|library
 argument_list|,
 operator|&
