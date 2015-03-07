@@ -1156,7 +1156,7 @@ argument_list|)
 block|;
 name|QGlyphSet
 operator|*
-name|loadTransformedGlyphSet
+name|loadGlyphSet
 argument_list|(
 specifier|const
 name|QTransform
