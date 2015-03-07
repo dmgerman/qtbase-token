@@ -12111,6 +12111,16 @@ operator|->
 name|format
 operator|!=
 name|format
+operator|||
+operator|(
+operator|!
+name|fetchBoundingBox
+operator|&&
+operator|!
+name|glyph
+operator|->
+name|data
+operator|)
 condition|)
 block|{
 name|lockFace
