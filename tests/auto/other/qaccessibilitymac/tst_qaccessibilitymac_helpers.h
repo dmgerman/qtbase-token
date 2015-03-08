@@ -70,4 +70,10 @@ name|w
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|bool
+name|testCheckBox
+parameter_list|()
+function_decl|;
+end_function_decl
 end_unit
