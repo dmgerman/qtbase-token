@@ -156,7 +156,6 @@ name|void
 name|taskQTBUG_20191_shortcutWithKeypadModifer
 parameter_list|()
 function_decl|;
-comment|/*     void state();     void group();     void stateChanged(); */
 protected|protected
 name|slots
 protected|:
@@ -1773,9 +1772,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/* void tst_QPushButton::group() { }  void tst_QPushButton::state() { }  void tst_QPushButton::stateChanged() { } */
-end_comment
 begin_decl_stmt
 DECL|variable|pb
 name|QPushButton
