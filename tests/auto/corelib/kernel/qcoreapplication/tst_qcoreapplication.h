@@ -114,6 +114,10 @@ block|;
 name|void
 name|threadedEventDelivery
 argument_list|()
+block|;
+name|void
+name|addRemoveLibPaths
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
