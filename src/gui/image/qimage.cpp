@@ -3803,6 +3803,15 @@ operator|!
 name|d
 condition|)
 return|return;
+if|if
+condition|(
+name|scaleFactor
+operator|==
+name|d
+operator|->
+name|devicePixelRatio
+condition|)
+return|return;
 name|detach
 argument_list|()
 expr_stmt|;
