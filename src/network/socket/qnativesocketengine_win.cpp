@@ -1054,7 +1054,7 @@ operator|.
 name|scopeId
 argument_list|()
 operator|.
-name|toInt
+name|toUInt
 argument_list|()
 expr_stmt|;
 name|WSAHtons

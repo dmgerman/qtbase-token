@@ -496,7 +496,7 @@ name|id
 init|=
 name|scopeid
 operator|.
-name|toInt
+name|toUInt
 argument_list|(
 operator|&
 name|ok

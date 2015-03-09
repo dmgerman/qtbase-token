@@ -351,7 +351,10 @@ name|QString
 operator|::
 name|number
 argument_list|(
+name|uint
+argument_list|(
 name|scope
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
