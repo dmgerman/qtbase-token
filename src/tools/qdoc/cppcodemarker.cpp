@@ -2311,29 +2311,10 @@ if|if
 condition|(
 name|inner
 operator|->
-name|type
+name|isClass
 argument_list|()
-operator|==
-name|Node
-operator|::
-name|Class
 condition|)
 block|{
-specifier|const
-name|ClassNode
-modifier|*
-name|classNode
-init|=
-cast|static_cast
-argument_list|<
-specifier|const
-name|ClassNode
-operator|*
-argument_list|>
-argument_list|(
-name|inner
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|style
@@ -2344,7 +2325,7 @@ block|{
 name|FastSection
 name|privateFunctions
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Private Functions"
 argument_list|,
@@ -2359,7 +2340,7 @@ decl_stmt|;
 name|FastSection
 name|privateSlots
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Private Slots"
 argument_list|,
@@ -2374,7 +2355,7 @@ decl_stmt|;
 name|FastSection
 name|privateTypes
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Private Types"
 argument_list|,
@@ -2389,7 +2370,7 @@ decl_stmt|;
 name|FastSection
 name|protectedFunctions
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Protected Functions"
 argument_list|,
@@ -2404,7 +2385,7 @@ decl_stmt|;
 name|FastSection
 name|protectedSlots
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Protected Slots"
 argument_list|,
@@ -2419,7 +2400,7 @@ decl_stmt|;
 name|FastSection
 name|protectedTypes
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Protected Types"
 argument_list|,
@@ -2434,7 +2415,7 @@ decl_stmt|;
 name|FastSection
 name|protectedVariables
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Protected Variables"
 argument_list|,
@@ -2449,7 +2430,7 @@ decl_stmt|;
 name|FastSection
 name|publicFunctions
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Public Functions"
 argument_list|,
@@ -2464,7 +2445,7 @@ decl_stmt|;
 name|FastSection
 name|publicSignals
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Signals"
 argument_list|,
@@ -2479,7 +2460,7 @@ decl_stmt|;
 name|FastSection
 name|publicSlots
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Public Slots"
 argument_list|,
@@ -2494,7 +2475,7 @@ decl_stmt|;
 name|FastSection
 name|publicTypes
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Public Types"
 argument_list|,
@@ -2509,7 +2490,7 @@ decl_stmt|;
 name|FastSection
 name|publicVariables
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Public Variables"
 argument_list|,
@@ -2524,7 +2505,7 @@ decl_stmt|;
 name|FastSection
 name|properties
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Properties"
 argument_list|,
@@ -2539,7 +2520,7 @@ decl_stmt|;
 name|FastSection
 name|relatedNonMembers
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Related Non-Members"
 argument_list|,
@@ -2554,7 +2535,7 @@ decl_stmt|;
 name|FastSection
 name|staticPrivateMembers
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Static Private Members"
 argument_list|,
@@ -2569,7 +2550,7 @@ decl_stmt|;
 name|FastSection
 name|staticProtectedMembers
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Static Protected Members"
 argument_list|,
@@ -2584,7 +2565,7 @@ decl_stmt|;
 name|FastSection
 name|staticPublicMembers
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Static Public Members"
 argument_list|,
@@ -2616,7 +2597,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|classNode
+name|inner
 operator|->
 name|relatedNodes
 argument_list|()
@@ -2628,7 +2609,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|classNode
+name|inner
 operator|->
 name|relatedNodes
 argument_list|()
@@ -2721,7 +2702,7 @@ block|}
 name|QStack
 argument_list|<
 specifier|const
-name|ClassNode
+name|InnerNode
 modifier|*
 argument_list|>
 name|stack
@@ -2730,7 +2711,7 @@ name|stack
 operator|.
 name|push
 argument_list|(
-name|classNode
+name|inner
 argument_list|)
 expr_stmt|;
 while|while
@@ -2743,9 +2724,9 @@ argument_list|()
 condition|)
 block|{
 specifier|const
-name|ClassNode
+name|InnerNode
 modifier|*
-name|ancestorClass
+name|ancestor
 init|=
 name|stack
 operator|.
@@ -2757,7 +2738,7 @@ operator|::
 name|ConstIterator
 name|c
 init|=
-name|ancestorClass
+name|ancestor
 operator|->
 name|childNodes
 argument_list|()
@@ -2769,7 +2750,7 @@ while|while
 condition|(
 name|c
 operator|!=
-name|ancestorClass
+name|ancestor
 operator|->
 name|childNodes
 argument_list|()
@@ -3457,6 +3438,29 @@ operator|++
 name|c
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ancestor
+operator|->
+name|isClass
+argument_list|()
+condition|)
+block|{
+specifier|const
+name|ClassNode
+modifier|*
+name|cn
+init|=
+cast|static_cast
+argument_list|<
+specifier|const
+name|ClassNode
+operator|*
+argument_list|>
+argument_list|(
+name|ancestor
+argument_list|)
+decl_stmt|;
 name|QList
 argument_list|<
 name|RelatedClass
@@ -3465,7 +3469,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|ancestorClass
+name|cn
 operator|->
 name|baseClasses
 argument_list|()
@@ -3477,7 +3481,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|ancestorClass
+name|cn
 operator|->
 name|baseClasses
 argument_list|()
@@ -3510,6 +3514,7 @@ expr_stmt|;
 operator|++
 name|r
 expr_stmt|;
+block|}
 block|}
 block|}
 name|append
@@ -3650,7 +3655,7 @@ block|{
 name|FastSection
 name|memberFunctions
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Member Function Documentation"
 argument_list|,
@@ -3664,7 +3669,7 @@ decl_stmt|;
 name|FastSection
 name|memberTypes
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Member Type Documentation"
 argument_list|,
@@ -3678,7 +3683,7 @@ decl_stmt|;
 name|FastSection
 name|memberVariables
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Member Variable Documentation"
 argument_list|,
@@ -3692,7 +3697,7 @@ decl_stmt|;
 name|FastSection
 name|properties
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Property Documentation"
 argument_list|,
@@ -3706,7 +3711,7 @@ decl_stmt|;
 name|FastSection
 name|relatedNonMembers
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Related Non-Members"
 argument_list|,
@@ -3720,7 +3725,7 @@ decl_stmt|;
 name|FastSection
 name|macros
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 literal|"Macro Documentation"
 argument_list|,
@@ -3736,7 +3741,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|classNode
+name|inner
 operator|->
 name|relatedNodes
 argument_list|()
@@ -3748,7 +3753,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|classNode
+name|inner
 operator|->
 name|relatedNodes
 argument_list|()
@@ -3843,7 +3848,7 @@ operator|::
 name|ConstIterator
 name|c
 init|=
-name|classNode
+name|inner
 operator|->
 name|childNodes
 argument_list|()
@@ -3855,7 +3860,7 @@ while|while
 condition|(
 name|c
 operator|!=
-name|classNode
+name|inner
 operator|->
 name|childNodes
 argument_list|()
@@ -4078,7 +4083,7 @@ block|{
 name|FastSection
 name|all
 argument_list|(
-name|classNode
+name|inner
 argument_list|,
 name|QString
 argument_list|()
@@ -4094,7 +4099,7 @@ decl_stmt|;
 name|QStack
 argument_list|<
 specifier|const
-name|ClassNode
+name|InnerNode
 modifier|*
 argument_list|>
 name|stack
@@ -4103,7 +4108,7 @@ name|stack
 operator|.
 name|push
 argument_list|(
-name|classNode
+name|inner
 argument_list|)
 expr_stmt|;
 while|while
@@ -4116,9 +4121,9 @@ argument_list|()
 condition|)
 block|{
 specifier|const
-name|ClassNode
+name|InnerNode
 modifier|*
-name|ancestorClass
+name|ancestor
 init|=
 name|stack
 operator|.
@@ -4130,7 +4135,7 @@ operator|::
 name|ConstIterator
 name|c
 init|=
-name|ancestorClass
+name|ancestor
 operator|->
 name|childNodes
 argument_list|()
@@ -4142,7 +4147,7 @@ while|while
 condition|(
 name|c
 operator|!=
-name|ancestorClass
+name|ancestor
 operator|->
 name|childNodes
 argument_list|()
@@ -4193,6 +4198,29 @@ operator|++
 name|c
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ancestor
+operator|->
+name|isClass
+argument_list|()
+condition|)
+block|{
+specifier|const
+name|ClassNode
+modifier|*
+name|cn
+init|=
+cast|static_cast
+argument_list|<
+specifier|const
+name|ClassNode
+operator|*
+argument_list|>
+argument_list|(
+name|ancestor
+argument_list|)
+decl_stmt|;
 name|QList
 argument_list|<
 name|RelatedClass
@@ -4201,7 +4229,7 @@ operator|::
 name|ConstIterator
 name|r
 init|=
-name|ancestorClass
+name|cn
 operator|->
 name|baseClasses
 argument_list|()
@@ -4213,7 +4241,7 @@ while|while
 condition|(
 name|r
 operator|!=
-name|ancestorClass
+name|cn
 operator|->
 name|baseClasses
 argument_list|()
@@ -4246,6 +4274,7 @@ expr_stmt|;
 operator|++
 name|r
 expr_stmt|;
+block|}
 block|}
 block|}
 name|append

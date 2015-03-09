@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindowsdirect2dbitmap.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qwindowsdirect2dwindow.h"
 end_include
 begin_include
@@ -36,6 +41,11 @@ begin_include
 include|#
 directive|include
 file|<d2d1_1.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<dxgi1_2.h>
 end_include
 begin_using
 using|using

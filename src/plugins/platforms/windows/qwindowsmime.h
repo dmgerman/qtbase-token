@@ -33,11 +33,6 @@ include|#
 directive|include
 file|<QtCore/QVariant>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/QSharedPointer>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QMimeData

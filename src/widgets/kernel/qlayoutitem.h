@@ -357,6 +357,11 @@ operator|*
 name|spacerItem
 argument_list|()
 block|;
+name|QSizePolicy
+name|sizePolicy
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|int

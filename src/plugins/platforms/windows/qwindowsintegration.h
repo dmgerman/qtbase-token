@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qconfig.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpa/qplatformintegration.h>
 end_include
 begin_include

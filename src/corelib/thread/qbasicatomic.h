@@ -32,6 +32,41 @@ directive|include
 file|<QtCore/qatomic_bootstrap.h>
 end_include
 begin_comment
+comment|// The following two are used for testing only.
+end_comment
+begin_comment
+comment|// Note that we don't check the compiler support -- you had better
+end_comment
+begin_comment
+comment|// know what you're doing if you set them
+end_comment
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|QT_ATOMIC_FORCE_CXX11
+argument_list|)
+end_elif
+begin_include
+include|#
+directive|include
+file|<QtCore/qatomic_cxx11.h>
+end_include
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|QT_ATOMIC_FORCE_GCC
+argument_list|)
+end_elif
+begin_include
+include|#
+directive|include
+file|<QtCore/qatomic_gcc.h>
+end_include
+begin_comment
 comment|// Compiler dependent implementation
 end_comment
 begin_elif

@@ -1321,14 +1321,9 @@ argument_list|)
 operator|<<
 literal|" Flags="
 operator|<<
-name|QWindowsWindow
-operator|::
-name|debugWindowFlags
-argument_list|(
 name|requested
 operator|.
 name|flags
-argument_list|)
 operator|<<
 literal|"\n    Obtained : "
 operator|<<
@@ -1344,14 +1339,9 @@ name|frame
 operator|<<
 literal|" Flags="
 operator|<<
-name|QWindowsWindow
-operator|::
-name|debugWindowFlags
-argument_list|(
 name|obtained
 operator|.
 name|flags
-argument_list|)
 operator|<<
 literal|" Handle="
 operator|<<
@@ -1922,14 +1912,28 @@ operator|::
 name|staticOpenGLContext
 parameter_list|()
 block|{
-name|QWindowsIntegrationPrivate
+name|QWindowsIntegration
 modifier|*
-name|d
+name|integration
 init|=
 name|QWindowsIntegration
 operator|::
 name|instance
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|integration
+condition|)
+return|return
+literal|0
+return|;
+name|QWindowsIntegrationPrivate
+modifier|*
+name|d
+init|=
+name|integration
 operator|->
 name|d
 operator|.

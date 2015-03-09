@@ -1500,7 +1500,14 @@ name|NodeMap
 modifier|&
 name|getNamespaces
 parameter_list|()
-function_decl|;
+block|{
+name|resolveNamespaces
+argument_list|()
+expr_stmt|;
+return|return
+name|namespaceIndex_
+return|;
+block|}
 name|NodeMap
 modifier|&
 name|getServiceClasses
@@ -2471,6 +2478,10 @@ name|keys
 argument_list|()
 return|;
 block|}
+name|void
+name|resolveNamespaces
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|friend
@@ -2655,6 +2666,9 @@ name|qmlTypesWithObsoleteMembers_
 decl_stmt|;
 name|NodeMap
 name|namespaceIndex_
+decl_stmt|;
+name|NodeMultiMap
+name|nmm_
 decl_stmt|;
 name|NodeMap
 name|serviceClasses_

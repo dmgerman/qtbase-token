@@ -4569,7 +4569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Adds the \a child to this node's child list.  */
+comment|/*!   Adds the \a child to this node's child list. It might also   be necessary to update this node's internal collections and   the child's parent pointer and output subdirectory.  */
 end_comment
 begin_function
 DECL|function|addChild
@@ -4702,6 +4702,34 @@ name|child
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|child
+operator|->
+name|parent
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|child
+operator|->
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|child
+operator|->
+name|setOutputSubdirectory
+argument_list|(
+name|this
+operator|->
+name|outputSubdirectory
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -4736,7 +4764,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   The \a child is removed from this node's child list and   from this node's internal collections. The child's parent   pointer is set to 0, but its output subdirectory is not   changed.  */
 end_comment
 begin_function
 DECL|function|removeChild
@@ -4997,6 +5025,13 @@ operator|++
 name|ent
 expr_stmt|;
 block|}
+name|child
+operator|->
+name|setParent
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -5632,6 +5667,11 @@ argument_list|,
 name|parent
 argument_list|,
 name|name
+argument_list|)
+member_init_list|,
+name|seen_
+argument_list|(
+literal|false
 argument_list|)
 member_init_list|,
 name|tree_

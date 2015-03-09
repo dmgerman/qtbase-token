@@ -10498,7 +10498,7 @@ directive|ifndef
 name|QT_NO_VECTOR3D
 end_ifndef
 begin_comment
-comment|/*!     Multiplies this matrix by another that applies an \a eye position     transformation.  The \a center value indicates the center of the     view that the \a eye is looking at.  The \a up value indicates     which direction should be considered up with respect to the \a eye. */
+comment|/*!     Multiplies this matrix by a viewing matrix derived from an eye     point. The \a center value indicates the center of the view that     the \a eye is looking at.  The \a up value indicates which direction     should be considered up with respect to the \a eye.      \note The \a up vector must not be parallel to the line of sight     from \a eye to \a center. */
 end_comment
 begin_function
 DECL|function|lookAt

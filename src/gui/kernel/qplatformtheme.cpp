@@ -3009,6 +3009,8 @@ name|Qt
 operator|::
 name|Key_Q
 block|,
+name|KB_X11
+operator||
 name|KB_Gnome
 operator||
 name|KB_KDE

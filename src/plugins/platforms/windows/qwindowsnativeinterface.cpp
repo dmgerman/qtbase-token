@@ -837,6 +837,22 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|beep
+name|void
+name|QWindowsNativeInterface
+operator|::
+name|beep
+parameter_list|()
+block|{
+name|MessageBeep
+argument_list|(
+name|MB_OK
+argument_list|)
+expr_stmt|;
+comment|// For QApplication
+block|}
+end_function
+begin_function
 DECL|function|asyncExpose
 name|bool
 name|QWindowsNativeInterface

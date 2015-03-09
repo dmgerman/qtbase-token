@@ -5077,11 +5077,6 @@ name|next
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|m_started
-condition|)
-block|{
 name|QtNative
 operator|.
 name|updateApplicationState
@@ -5089,6 +5084,11 @@ argument_list|(
 name|ApplicationActive
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|m_started
+condition|)
+block|{
 name|QtNative
 operator|.
 name|clearLostActions

@@ -5102,6 +5102,10 @@ argument|CheckState
 argument_list|)
 name|QT_Q_ENUM
 argument_list|(
+argument|ItemDataRole
+argument_list|)
+name|QT_Q_ENUM
+argument_list|(
 argument|SortOrder
 argument_list|)
 name|QT_Q_ENUM

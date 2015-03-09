@@ -293,6 +293,16 @@ name|toIPv4Address
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// ### Qt6: merge with next overload
+name|quint32
+name|toIPv4Address
+argument_list|(
+name|bool
+operator|*
+name|ok
+argument_list|)
+decl|const
+decl_stmt|;
 name|Q_IPV6ADDR
 name|toIPv6Address
 argument_list|()

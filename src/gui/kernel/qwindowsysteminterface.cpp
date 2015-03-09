@@ -1553,6 +1553,15 @@ name|ushort
 name|count
 parameter_list|)
 block|{
+comment|// This is special handling needed for OS X which eventually will call sendEvent(), on other platforms
+comment|// this might not be safe, e.g., on Android. See: QGuiApplicationPrivate::processKeyEvent() for
+comment|// shortcut overriding on other platforms.
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
 if|if
 condition|(
 name|t
@@ -1577,6 +1586,9 @@ name|text
 argument_list|)
 condition|)
 return|return;
+endif|#
+directive|endif
+comment|// Q_OS_OSX
 name|QWindowSystemInterfacePrivate
 operator|::
 name|KeyEvent
@@ -1748,33 +1760,10 @@ name|bool
 name|tryShortcutOverride
 parameter_list|)
 block|{
-comment|// on OS X we try the shortcut override even earlier and thus shouldn't handle it here
-if|if
-condition|(
-name|tryShortcutOverride
-operator|&&
-name|type
-operator|==
-name|QEvent
-operator|::
-name|KeyPress
-operator|&&
-name|QWindowSystemInterface
-operator|::
-name|tryHandleShortcutEvent
+name|Q_UNUSED
 argument_list|(
-name|tlw
-argument_list|,
-name|timestamp
-argument_list|,
-name|key
-argument_list|,
-name|modifiers
-argument_list|,
-name|text
+argument|tryShortcutOverride
 argument_list|)
-condition|)
-return|return;
 name|QWindowSystemInterfacePrivate
 operator|::
 name|KeyEvent

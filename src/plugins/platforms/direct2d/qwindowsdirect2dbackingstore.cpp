@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindowsdirect2dplatformpixmap.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qwindowsdirect2dintegration.h"
 end_include
 begin_include

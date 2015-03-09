@@ -919,53 +919,6 @@ name|primary
 argument_list|)
 expr_stmt|;
 block|}
-comment|// If there's no randr extension, or there was some error above, or the screen
-comment|// doesn't have outputs for some other reason (e.g. on VNC or ssh -X), just assume there is one screen.
-if|if
-condition|(
-name|connectedOutputCount
-operator|==
-literal|0
-condition|)
-block|{
-name|qCDebug
-argument_list|(
-name|lcQpaScreen
-argument_list|,
-literal|"found a screen with zero outputs"
-argument_list|)
-expr_stmt|;
-name|QXcbScreen
-modifier|*
-name|screen
-init|=
-name|findOrCreateScreen
-argument_list|(
-name|newScreens
-argument_list|,
-name|xcbScreenNumber
-argument_list|,
-name|xcbScreen
-argument_list|)
-decl_stmt|;
-name|siblings
-operator|<<
-name|screen
-expr_stmt|;
-name|activeScreens
-operator|<<
-name|screen
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|primaryScreen
-condition|)
-name|primaryScreen
-operator|=
-name|screen
-expr_stmt|;
-block|}
 foreach|foreach
 control|(
 name|QPlatformScreen
@@ -1239,6 +1192,17 @@ argument_list|()
 operator|->
 name|name
 argument_list|()
+expr_stmt|;
+else|else
+comment|// QTBUG-40174, QTBUG-42985: If there are no outputs, then there must be
+comment|// no QScreen instances; a Qt application can survive this situation, and
+comment|// start rendering again later when there is a screen again.
+name|qCDebug
+argument_list|(
+name|lcQpaScreen
+argument_list|)
+operator|<<
+literal|"xcb connection has no outputs"
 expr_stmt|;
 block|}
 end_function

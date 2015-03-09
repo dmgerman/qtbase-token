@@ -1917,6 +1917,10 @@ name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|xcbWin
+condition|)
 name|xcbWin
 operator|->
 name|maybeSetScreen

@@ -4411,7 +4411,7 @@ argument|DH**a
 argument_list|,
 argument|a
 argument_list|,
-argument|unsigned char **pp
+argument|const unsigned char **pp
 argument_list|,
 argument|pp
 argument_list|,
@@ -4425,9 +4425,6 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_macro
 name|DEFINEFUNC3
 argument_list|(
