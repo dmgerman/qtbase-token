@@ -537,11 +537,6 @@ name|exists
 argument_list|(
 name|qtconfig
 argument_list|)
-operator|&&
-name|QCoreApplication
-operator|::
-name|instance
-argument_list|()
 condition|)
 block|{
 ifdef|#
@@ -617,6 +612,14 @@ condition|)
 endif|#
 directive|endif
 block|{
+if|if
+condition|(
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
+condition|)
+block|{
 name|QDir
 name|pwd
 argument_list|(
@@ -638,6 +641,7 @@ literal|"qt.conf"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 endif|#
