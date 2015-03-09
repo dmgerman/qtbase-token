@@ -1351,6 +1351,17 @@ argument_list|,
 name|rect
 argument_list|)
 expr_stmt|;
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|functions
+argument_list|()
+operator|->
+name|glFlush
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function
