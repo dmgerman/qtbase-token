@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<qtwindowsglobal.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QByteArray>
 end_include
 begin_include

@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qtwindows_additional.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qpa/qplatformnativeinterface.h>
 end_include
 begin_decl_stmt
@@ -103,13 +98,7 @@ name|Q_INVOKABLE
 name|void
 name|beep
 argument_list|()
-block|{
-name|MessageBeep
-argument_list|(
-name|MB_OK
-argument_list|)
-block|; }
-comment|// For QApplication
+block|;
 name|Q_INVOKABLE
 name|void
 name|registerWindowsMime

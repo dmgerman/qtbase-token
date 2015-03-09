@@ -4135,9 +4135,7 @@ specifier|static
 name|QString
 name|qStringFromUcs2Le
 parameter_list|(
-specifier|const
 name|QByteArray
-modifier|&
 name|src
 parameter_list|)
 block|{

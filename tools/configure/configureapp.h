@@ -568,6 +568,15 @@ name|void
 name|applySpecSpecifics
 parameter_list|()
 function_decl|;
+name|QString
+name|formatConfigPath
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|var
+parameter_list|)
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

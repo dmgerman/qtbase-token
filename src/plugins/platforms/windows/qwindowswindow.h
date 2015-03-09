@@ -45,11 +45,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsopenglcontext.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qpa/qplatformwindow.h>
 end_include
 begin_include
@@ -1170,13 +1165,6 @@ block|;
 name|void
 name|applyCursor
 argument_list|()
-block|;
-specifier|static
-name|QByteArray
-name|debugWindowFlags
-argument_list|(
-argument|Qt::WindowFlags wf
-argument_list|)
 block|;
 specifier|inline
 name|bool

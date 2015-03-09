@@ -1256,7 +1256,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Traverses the current tree generating all the HTML documentation.  */
+comment|/*!   If qdoc is in the \c {-prepare} phase, traverse the primary   tree to generate the index file for the current module.    If qdoc is in the \c {-generate} phase, traverse the primary   tree to generate all the HTML documentation for the current   module. Then generate the help file and the tag file.  */
 end_comment
 begin_function
 DECL|function|generateDocs

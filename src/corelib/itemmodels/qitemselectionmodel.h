@@ -763,6 +763,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|QModelIndex currentIndex READ currentIndex NOTIFY currentChanged STORED false DESIGNABLE false
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QItemSelection selection READ selection NOTIFY selectionChanged STORED false DESIGNABLE false
+argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QItemSelectionModel
@@ -942,7 +946,6 @@ literal|0
 argument_list|)
 specifier|const
 block|;
-name|Q_INVOKABLE
 specifier|const
 name|QItemSelection
 name|selection

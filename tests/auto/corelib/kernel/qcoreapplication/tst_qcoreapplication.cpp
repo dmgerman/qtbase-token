@@ -351,6 +351,7 @@ literal|"tst_qcoreapplication"
 decl_stmt|;
 endif|#
 directive|endif
+block|{
 name|int
 name|argc
 init|=
@@ -394,6 +395,24 @@ name|appName
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|QCoreApplication
+operator|::
+name|applicationName
+argument_list|()
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|appName
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// The application name should still be available after destruction;
+comment|// global statics often rely on this.
 name|QCOMPARE
 argument_list|(
 name|QCoreApplication

@@ -1031,6 +1031,12 @@ expr|~
 name|T
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|that
+argument_list|)
+expr_stmt|;
+comment|// MSVC warns if T has a trivial destructor
 block|}
 end_function
 begin_function

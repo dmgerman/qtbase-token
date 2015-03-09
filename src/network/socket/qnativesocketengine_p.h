@@ -760,6 +760,13 @@ argument|ErrorString errorString
 argument_list|)
 specifier|const
 block|;
+name|QHostAddress
+name|adjustAddressProtocol
+argument_list|(
+argument|const QHostAddress&address
+argument_list|)
+specifier|const
+block|;
 comment|// native functions
 name|int
 name|option

@@ -370,6 +370,17 @@ name|m_touchDevice
 operator|=
 name|touchDevice
 block|; }
+specifier|static
+name|void
+name|setDefaultApplicationState
+argument_list|(
+argument|Qt::ApplicationState applicationState
+argument_list|)
+block|{
+name|m_defaultApplicationState
+operator|=
+name|applicationState
+block|; }
 name|EGLDisplay
 name|m_eglDisplay
 block|;
@@ -427,6 +438,12 @@ name|Qt
 operator|::
 name|ScreenOrientation
 name|m_nativeOrientation
+block|;
+specifier|static
+name|Qt
+operator|::
+name|ApplicationState
+name|m_defaultApplicationState
 block|;
 name|QPlatformFontDatabase
 operator|*

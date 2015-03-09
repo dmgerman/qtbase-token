@@ -3179,6 +3179,7 @@ modifier|*
 modifier|*
 name|a
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*

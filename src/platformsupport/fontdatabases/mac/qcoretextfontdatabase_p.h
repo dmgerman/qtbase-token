@@ -151,15 +151,8 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
-name|QT_BEGIN_NAMESPACE
-end_macro
-begin_struct_decl
-struct_decl|struct
-name|FontDescription
-struct_decl|;
-end_struct_decl
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QCoreTextFontDatabase
 range|:
@@ -302,14 +295,6 @@ name|void
 name|populateFromDescriptor
 argument_list|(
 argument|CTFontDescriptorRef font
-argument_list|)
-block|;
-name|void
-name|populateFromFontDescription
-argument_list|(
-argument|CTFontDescriptorRef font
-argument_list|,
-argument|const FontDescription&fd
 argument_list|)
 block|;
 name|mutable

@@ -3008,6 +3008,24 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_IOS
+argument_list|)
+end_if
+begin_define
+DECL|macro|QT_NO_PROCESS
+define|#
+directive|define
+name|QT_NO_PROCESS
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qt_noop
 specifier|inline
@@ -3401,7 +3419,7 @@ name|Q_ASSERT
 parameter_list|(
 name|cond
 parameter_list|)
-value|do { } while (false&& (cond))
+value|do { } while ((false)&& (cond))
 end_define
 begin_else
 else|#
