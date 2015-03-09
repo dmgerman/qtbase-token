@@ -347,7 +347,10 @@ return|return;
 block|}
 name|QTEST_ASSERT
 argument_list|(
+name|uint
+argument_list|(
 name|stateKey
+argument_list|)
 operator|==
 literal|0
 operator|||
