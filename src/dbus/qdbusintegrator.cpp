@@ -10385,7 +10385,15 @@ name|SignalMessage
 condition|)
 name|qWarning
 argument_list|(
-literal|"QDBusConnection: error: could not send signal path \"%s\" interface \"%s\" member \"%s\": %s"
+literal|"QDBusConnection: error: could not send signal to service \"%s\" path \"%s\" interface \"%s\" member \"%s\": %s"
+argument_list|,
+name|qPrintable
+argument_list|(
+name|message
+operator|.
+name|service
+argument_list|()
+argument_list|)
 argument_list|,
 name|qPrintable
 argument_list|(
