@@ -1222,18 +1222,6 @@ comment|//
 comment|// pre-4.6:
 comment|// setReceiveBufferSize(49152);
 comment|// setSendBufferSize(49152);
-name|d
-operator|->
-name|socketType
-operator|=
-name|socketType
-expr_stmt|;
-name|d
-operator|->
-name|socketProtocol
-operator|=
-name|protocol
-expr_stmt|;
 return|return
 literal|true
 return|;

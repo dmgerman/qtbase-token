@@ -2101,6 +2101,26 @@ name|socketDescriptor
 operator|=
 name|socket
 expr_stmt|;
+if|if
+condition|(
+name|socket
+operator|!=
+name|INVALID_SOCKET
+condition|)
+block|{
+name|this
+operator|->
+name|socketProtocol
+operator|=
+name|socketProtocol
+expr_stmt|;
+name|this
+operator|->
+name|socketType
+operator|=
+name|socketType
+expr_stmt|;
+block|}
 comment|// Make the socket nonblocking.
 if|if
 condition|(

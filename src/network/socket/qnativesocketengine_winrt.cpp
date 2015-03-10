@@ -4228,6 +4228,12 @@ return|return
 literal|false
 return|;
 block|}
+name|this
+operator|->
+name|socketType
+operator|=
+name|socketType
+expr_stmt|;
 comment|// Make the socket nonblocking.
 if|if
 condition|(
