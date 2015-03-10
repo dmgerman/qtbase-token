@@ -1452,6 +1452,16 @@ modifier|&
 name|pos
 parameter_list|)
 block|{
+name|QGuiApplicationPrivate
+operator|::
+name|inputDeviceManager
+argument_list|()
+operator|->
+name|setCursorPos
+argument_list|(
+name|pos
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QRect
 name|oldCursorRect

@@ -98,12 +98,30 @@ argument|DeviceType type
 argument_list|)
 specifier|const
 block|;
+name|void
+name|setCursorPos
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|)
+block|;
 name|signals
 operator|:
 name|void
 name|deviceListChanged
 argument_list|(
 argument|DeviceType type
+argument_list|)
+block|;
+name|void
+name|cursorPositionChangeRequested
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
 argument_list|)
 block|; }
 decl_stmt|;

@@ -15,6 +15,9 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!   \class QInputDeviceManager   \internal    \brief QInputDeviceManager acts as a communication hub between QtGui and the input handlers.    On embedded platforms the input handling code is either compiled into the platform   plugin or is loaded dynamically as a generic plugin without any interface. The input   handler in use may also change between each run (e.g. evdevmouse/keyboard/touch   vs. libinput). QWindowSystemInterface is too limiting when Qt (the platform plugin) is   acting as a windowing system, and is one way only.    QInputDeviceManager solves this by providing a global object that is used to communicate   from the input handlers to the rest of Qt (e.g. the number of connected mice, which may   be important information for the cursor drawing code), and vice-versa (e.g. to indicate   to the input handler that a manual cursor position change was requested by the   application via QCursor::setPos and thus any internal state has to be updated accordingly). */
+end_comment
 begin_constructor
 DECL|function|QInputDeviceManager
 name|QInputDeviceManager
@@ -137,6 +140,27 @@ name|type
 argument_list|)
 emit|;
 block|}
+block|}
+end_function
+begin_function
+DECL|function|setCursorPos
+name|void
+name|QInputDeviceManager
+operator|::
+name|setCursorPos
+parameter_list|(
+specifier|const
+name|QPoint
+modifier|&
+name|pos
+parameter_list|)
+block|{
+emit|emit
+name|cursorPositionChangeRequested
+argument_list|(
+name|pos
+argument_list|)
+emit|;
 block|}
 end_function
 begin_macro
