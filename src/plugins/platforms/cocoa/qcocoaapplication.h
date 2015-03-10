@@ -126,7 +126,10 @@ operator|-
 operator|(
 name|void
 operator|)
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|qt_sendPostedMessage
+argument_list|)
 operator|:
 operator|(
 name|NSEvent
@@ -140,7 +143,10 @@ operator|-
 operator|(
 name|BOOL
 operator|)
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|qt_filterEvent
+argument_list|)
 operator|:
 operator|(
 name|NSEvent

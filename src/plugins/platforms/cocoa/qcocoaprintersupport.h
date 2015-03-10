@@ -29,6 +29,7 @@ directive|include
 file|"qt_mac_p.h"
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QCocoaPrinterSupport
 range|:
@@ -83,6 +84,9 @@ name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
