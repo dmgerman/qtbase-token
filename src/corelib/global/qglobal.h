@@ -3536,7 +3536,7 @@ name|where
 parameter_list|,
 name|what
 parameter_list|)
-value|qt_noop()
+value|do { } while ((false)&& (cond))
 end_define
 begin_else
 else|#
