@@ -7297,6 +7297,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+name|xcbScreen
+argument_list|()
+condition|)
+return|return;
 name|xcb_parent_id
 operator|=
 name|xcbScreen
