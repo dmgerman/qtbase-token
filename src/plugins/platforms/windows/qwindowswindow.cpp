@@ -12636,6 +12636,10 @@ parameter_list|(
 name|void
 modifier|*
 name|nativeConfig
+parameter_list|,
+name|int
+modifier|*
+name|err
 parameter_list|)
 block|{
 ifdef|#
@@ -12674,6 +12678,8 @@ operator|.
 name|hwnd
 argument_list|,
 name|nativeConfig
+argument_list|,
+name|err
 argument_list|)
 expr_stmt|;
 block|}
