@@ -2884,7 +2884,6 @@ modifier|*
 name|header
 parameter_list|,
 name|PacketHeaderOptions
-name|options
 parameter_list|)
 block|{
 name|Q_D
@@ -3105,7 +3104,9 @@ specifier|const
 name|QString
 name|addressString
 init|=
-name|addr
+name|header
+operator|.
+name|destinationAddress
 operator|.
 name|toString
 argument_list|()
@@ -3162,7 +3163,9 @@ name|QString
 operator|::
 name|number
 argument_list|(
-name|port
+name|header
+operator|.
+name|destinationPort
 argument_list|)
 decl_stmt|;
 name|HStringReference

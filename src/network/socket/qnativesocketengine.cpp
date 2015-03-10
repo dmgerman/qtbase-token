@@ -1171,7 +1171,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// Set the broadcasting flag if it's a UDP socket.
 if|if
 condition|(
 name|socketType
@@ -1179,7 +1178,11 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|UdpSocket
-operator|&&
+condition|)
+block|{
+comment|// Set the broadcasting flag if it's a UDP socket.
+if|if
+condition|(
 operator|!
 name|setOption
 argument_list|(
@@ -1208,6 +1211,22 @@ expr_stmt|;
 return|return
 literal|false
 return|;
+block|}
+comment|// Set some extra flags that are interesting to us, but accept failure
+name|setOption
+argument_list|(
+name|ReceivePacketInformation
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|setOption
+argument_list|(
+name|ReceiveHopLimit
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Make sure we receive out-of-band data
 if|if

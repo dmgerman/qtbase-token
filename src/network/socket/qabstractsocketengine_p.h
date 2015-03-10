@@ -111,6 +111,17 @@ argument_list|(
 name|dstAddr
 argument_list|)
 operator|,
+name|ifindex
+argument_list|(
+literal|0
+argument_list|)
+operator|,
+name|hopLimit
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+operator|,
 name|destinationPort
 argument_list|(
 argument|port
@@ -129,12 +140,27 @@ name|destinationAddress
 operator|.
 name|clear
 argument_list|()
+block|;
+name|ifindex
+operator|=
+literal|0
+block|;
+name|hopLimit
+operator|=
+operator|-
+literal|1
 block|;     }
 name|QHostAddress
 name|senderAddress
 expr_stmt|;
 name|QHostAddress
 name|destinationAddress
+decl_stmt|;
+name|uint
+name|ifindex
+decl_stmt|;
+name|qint16
+name|hopLimit
 decl_stmt|;
 name|quint16
 name|senderPort
@@ -286,6 +312,10 @@ block|,
 name|MulticastLoopbackOption
 block|,
 name|TypeOfServiceOption
+block|,
+name|ReceivePacketInformation
+block|,
+name|ReceiveHopLimit
 block|}
 block|;      enum
 name|PacketHeaderOption
@@ -295,6 +325,10 @@ operator|=
 literal|0
 block|,
 name|WantDatagramSender
+block|,
+name|WantDatagramDestination
+block|,
+name|WantDatagramHopLimit
 block|,
 name|WantAll
 operator|=
