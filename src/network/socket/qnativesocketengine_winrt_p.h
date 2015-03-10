@@ -94,13 +94,9 @@ DECL|member|data
 name|QByteArray
 name|data
 decl_stmt|;
-DECL|member|port
-name|int
-name|port
-decl_stmt|;
-DECL|member|address
-name|QHostAddress
-name|address
+DECL|member|header
+name|QIpPacketHeader
+name|header
 decl_stmt|;
 block|}
 struct|;
@@ -266,11 +262,9 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|,
-argument|QHostAddress *addr =
-literal|0
+argument|QIpPacketHeader *
 argument_list|,
-argument|quint16 *port =
-literal|0
+argument|PacketHeaderOptions
 argument_list|)
 block|;
 name|qint64
@@ -280,9 +274,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|,
-argument|const QHostAddress&addr
-argument_list|,
-argument|quint16 port
+argument|const QIpPacketHeader&header
 argument_list|)
 block|;
 name|bool

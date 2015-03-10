@@ -1155,11 +1155,10 @@ modifier|*
 parameter_list|,
 name|qint64
 parameter_list|,
-name|QHostAddress
+name|QIpPacketHeader
 modifier|*
 parameter_list|,
-name|quint16
-modifier|*
+name|PacketHeaderOptions
 parameter_list|)
 block|{
 return|return
@@ -1181,10 +1180,8 @@ parameter_list|,
 name|qint64
 parameter_list|,
 specifier|const
-name|QHostAddress
+name|QIpPacketHeader
 modifier|&
-parameter_list|,
-name|quint16
 parameter_list|)
 block|{
 return|return
