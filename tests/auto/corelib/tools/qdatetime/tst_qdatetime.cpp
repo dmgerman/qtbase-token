@@ -24634,32 +24634,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_QNX
-argument_list|)
-comment|// Linux mktime bug uses last calculation
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25060,32 +25034,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_QNX
-argument_list|)
-comment|// Linux mktime bug uses last calculation
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|test
@@ -25486,32 +25434,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_QNX
-argument_list|)
-comment|// Linux mktime bug uses last calculation
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QDateTime doesn't properly support Daylight Transitions"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|test
