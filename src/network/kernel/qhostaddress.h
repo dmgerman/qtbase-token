@@ -541,8 +541,14 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+DECL|function|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+name|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+argument_list|(
+argument|QHostAddress
+argument_list|)
+end_macro
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
