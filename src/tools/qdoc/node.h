@@ -5508,6 +5508,15 @@ return|return
 name|params
 return|;
 block|}
+name|void
+name|clearParams
+argument_list|()
+block|{
+name|params
+operator|.
+name|clear
+argument_list|()
+block|; }
 name|QStringList
 name|parameterNames
 argument_list|()

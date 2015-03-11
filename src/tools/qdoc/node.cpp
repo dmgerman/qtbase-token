@@ -7731,7 +7731,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   Append \a parameter to the parameter list.  */
 end_comment
 begin_function
 DECL|function|addParameter

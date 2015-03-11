@@ -19075,6 +19075,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// generateSynopsis(qmn,relative,marker,CodeMarker::Detailed,false);
+end_comment
 begin_function
 DECL|function|generateSynopsis
 name|void
