@@ -7491,13 +7491,13 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// Convert a LocalTime expressed in local msecs encoding into a UTC epoch msecs
+comment|// Convert a LocalTime expressed in local msecs encoding and the corresponding
 end_comment
 begin_comment
-comment|// Optionally populate the returned values from mktime for the adjusted local
+comment|// daylight status into a UTC epoch msecs. Optionally populate the returned
 end_comment
 begin_comment
-comment|// date and time and daylight status.  Uses daylightStatus in calculation if populated.
+comment|// values from mktime for the adjusted local date and time.
 end_comment
 begin_function
 DECL|function|localMSecsToEpochMSecs
@@ -7508,6 +7508,12 @@ parameter_list|(
 name|qint64
 name|localMsecs
 parameter_list|,
+name|QDateTimePrivate
+operator|::
+name|DaylightStatus
+modifier|*
+name|daylightStatus
+parameter_list|,
 name|QDate
 modifier|*
 name|localDate
@@ -7517,14 +7523,6 @@ parameter_list|,
 name|QTime
 modifier|*
 name|localTime
-init|=
-literal|0
-parameter_list|,
-name|QDateTimePrivate
-operator|::
-name|DaylightStatus
-modifier|*
-name|daylightStatus
 init|=
 literal|0
 parameter_list|,
@@ -8600,13 +8598,24 @@ name|Qt
 operator|::
 name|LocalTime
 case|:
+block|{
 comment|// recalculate the local timezone
+name|DaylightStatus
+name|status
+init|=
+name|daylightStatus
+argument_list|()
+decl_stmt|;
 return|return
 name|localMSecsToEpochMSecs
 argument_list|(
 name|m_msecs
+argument_list|,
+operator|&
+name|status
 argument_list|)
 return|;
+block|}
 case|case
 name|Qt
 operator|::
@@ -8825,13 +8834,13 @@ argument_list|(
 name|m_msecs
 argument_list|,
 operator|&
+name|status
+argument_list|,
+operator|&
 name|testDate
 argument_list|,
 operator|&
 name|testTime
-argument_list|,
-operator|&
-name|status
 argument_list|)
 expr_stmt|;
 ifndef|#
@@ -9641,12 +9650,12 @@ name|d
 operator|->
 name|m_msecs
 argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
 operator|&
 name|status
+argument_list|,
+literal|0
+argument_list|,
+literal|0
 argument_list|,
 operator|&
 name|abbrev
@@ -9749,14 +9758,8 @@ name|d
 operator|->
 name|m_msecs
 argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
 operator|&
 name|status
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -10848,6 +10851,17 @@ name|Qt
 operator|::
 name|LocalTime
 condition|)
+block|{
+name|QDateTimePrivate
+operator|::
+name|DaylightStatus
+name|status
+init|=
+name|d
+operator|->
+name|daylightStatus
+argument_list|()
+decl_stmt|;
 name|localMSecsToEpochMSecs
 argument_list|(
 name|timeToMSecs
@@ -10856,6 +10870,9 @@ name|date
 argument_list|,
 name|time
 argument_list|)
+argument_list|,
+operator|&
+name|status
 argument_list|,
 operator|&
 name|date
@@ -10867,6 +10884,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+block|}
 elseif|else
 if|if
 condition|(
@@ -10878,6 +10896,7 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
+block|{
 name|QDateTimePrivate
 operator|::
 name|zoneMSecsToEpochMSecs
@@ -10903,6 +10922,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
+block|}
 name|dt
 operator|.
 name|d
@@ -10984,6 +11004,17 @@ name|Qt
 operator|::
 name|LocalTime
 condition|)
+block|{
+name|QDateTimePrivate
+operator|::
+name|DaylightStatus
+name|status
+init|=
+name|d
+operator|->
+name|daylightStatus
+argument_list|()
+decl_stmt|;
 name|localMSecsToEpochMSecs
 argument_list|(
 name|timeToMSecs
@@ -10992,6 +11023,9 @@ name|date
 argument_list|,
 name|time
 argument_list|)
+argument_list|,
+operator|&
+name|status
 argument_list|,
 operator|&
 name|date
@@ -11003,6 +11037,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+block|}
 elseif|else
 if|if
 condition|(
@@ -11014,6 +11049,7 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
+block|{
 name|QDateTimePrivate
 operator|::
 name|zoneMSecsToEpochMSecs
@@ -11039,6 +11075,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
+block|}
 name|dt
 operator|.
 name|d
@@ -11120,6 +11157,17 @@ name|Qt
 operator|::
 name|LocalTime
 condition|)
+block|{
+name|QDateTimePrivate
+operator|::
+name|DaylightStatus
+name|status
+init|=
+name|d
+operator|->
+name|daylightStatus
+argument_list|()
+decl_stmt|;
 name|localMSecsToEpochMSecs
 argument_list|(
 name|timeToMSecs
@@ -11128,6 +11176,9 @@ name|date
 argument_list|,
 name|time
 argument_list|)
+argument_list|,
+operator|&
+name|status
 argument_list|,
 operator|&
 name|date
@@ -11139,6 +11190,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+block|}
 elseif|else
 if|if
 condition|(
@@ -11150,6 +11202,7 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
+block|{
 name|QDateTimePrivate
 operator|::
 name|zoneMSecsToEpochMSecs
@@ -11175,6 +11228,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
+block|}
 name|dt
 operator|.
 name|d
