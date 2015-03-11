@@ -5016,42 +5016,31 @@ name|date
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// NSTimeZone doesn't apply DST to high values
+comment|// don't compare the time if the date is too early or too late: prior
+comment|// to 1916, timezones in Europe were not standardised and some OS APIs
+comment|// have hard limits. Let's restrict it to the 32-bit Unix range
 if|if
 condition|(
-name|msecs
-operator|<
-operator|(
-name|Q_INT64_C
-argument_list|(
-literal|123456
-argument_list|)
-operator|<<
-literal|32
-operator|)
-condition|)
-else|#
-directive|else
-comment|// Linux and Win are OK except when they overflow
-if|if
-condition|(
-name|msecs
-operator|!=
-name|std
-operator|::
-name|numeric_limits
-argument_list|<
-name|qint64
-argument_list|>
-operator|::
-name|max
+name|dt2
+operator|.
+name|date
 argument_list|()
+operator|.
+name|year
+argument_list|()
+operator|>=
+literal|1970
+operator|&&
+name|dt2
+operator|.
+name|date
+argument_list|()
+operator|.
+name|year
+argument_list|()
+operator|<=
+literal|2037
 condition|)
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|dt2
