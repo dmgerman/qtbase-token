@@ -4472,6 +4472,11 @@ name|int
 name|bpl
 parameter_list|)
 block|{
+if|if
+condition|(
+name|out_of_bounds
+condition|)
+return|return;
 name|int
 name|my
 decl_stmt|;
