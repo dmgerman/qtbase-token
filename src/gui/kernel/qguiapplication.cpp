@@ -11982,7 +11982,7 @@ name|availableGeometryChanged
 argument_list|(
 name|s
 operator|->
-name|geometry
+name|availableGeometry
 argument_list|()
 argument_list|)
 emit|;
