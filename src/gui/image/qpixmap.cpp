@@ -2254,11 +2254,6 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-operator|!
-name|data
-condition|)
 name|data
 operator|=
 name|QPlatformPixmap
