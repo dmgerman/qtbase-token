@@ -20893,6 +20893,11 @@ operator|.
 name|activateWindow
 argument_list|()
 expr_stmt|;
+name|qApp
+operator|->
+name|processEvents
+argument_list|()
+expr_stmt|;
 operator|delete
 name|testMenu1
 expr_stmt|;
@@ -20963,6 +20968,11 @@ expr_stmt|;
 name|mw
 operator|.
 name|activateWindow
+argument_list|()
+expr_stmt|;
+name|qApp
+operator|->
+name|processEvents
 argument_list|()
 expr_stmt|;
 operator|delete
