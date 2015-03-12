@@ -1074,15 +1074,11 @@ name|Q_OS_WIN
 name|void
 name|setPortAndAddress
 argument_list|(
-argument|sockaddr_in * sockAddrIPv4
-argument_list|,
-argument|qt_sockaddr_in6 * sockAddrIPv6
-argument_list|,
 argument|quint16 port
 argument_list|,
-argument|const QHostAddress& address
+argument|const QHostAddress&address
 argument_list|,
-argument|sockaddr ** sockAddrPtr
+argument|qt_sockaddr *aa
 argument_list|,
 argument|QT_SOCKLEN_T *sockAddrSize
 argument_list|)
