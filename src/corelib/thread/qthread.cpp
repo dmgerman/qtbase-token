@@ -1231,7 +1231,7 @@ begin_comment
 comment|/*!     \fn void QThread::setTerminationEnabled(bool enabled)      Enables or disables termination of the current thread based on the     \a enabled parameter. The thread must have been started by     QThread.      When \a enabled is false, termination is disabled.  Future calls     to QThread::terminate() will return immediately without effect.     Instead, the termination is deferred until termination is enabled.      When \a enabled is true, termination is enabled.  Future calls to     QThread::terminate() will terminate the thread normally.  If     termination has been deferred (i.e. QThread::terminate() was     called with termination disabled), this function will terminate     the calling thread \e immediately.  Note that this function will     not return in this case.      \sa terminate() */
 end_comment
 begin_comment
-comment|/*!     Returns the current event loop level for the thread.      \note This can only be called within the thread itself, i.e. when     it is the current thread. */
+comment|/*!     \since 5.5     Returns the current event loop level for the thread.      \note This can only be called within the thread itself, i.e. when     it is the current thread. */
 end_comment
 begin_function
 DECL|function|loopLevel
