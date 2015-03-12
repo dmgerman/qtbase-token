@@ -1744,7 +1744,7 @@ argument_list|()
 block|;
 ifdef|#
 directive|ifdef
-name|Q_OS_OSX
+name|Q_OS_MAC
 name|void
 name|cleanupNativePopup
 argument_list|()
@@ -1857,7 +1857,7 @@ name|indexBeforeChange
 block|;
 ifdef|#
 directive|ifdef
-name|Q_OS_OSX
+name|Q_OS_MAC
 name|QPlatformMenu
 operator|*
 name|m_platformMenu

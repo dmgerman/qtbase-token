@@ -319,7 +319,7 @@ literal|1
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_OS_OSX
+name|Q_OS_MAC
 member_init_list|,
 name|m_platformMenu
 argument_list|(
@@ -349,7 +349,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_OSX
+name|Q_OS_MAC
 name|cleanupNativePopup
 argument_list|()
 expr_stmt|;
@@ -11075,7 +11075,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_OSX
+name|Q_OS_MAC
 end_ifdef
 begin_namespace
 namespace|namespace
@@ -11655,7 +11655,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_OSX
+name|Q_OS_MAC
 if|if
 condition|(
 name|usePopup
@@ -11722,7 +11722,7 @@ condition|)
 return|return;
 endif|#
 directive|endif
-comment|// Q_OS_OSX
+comment|// Q_OS_MAC
 ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION
