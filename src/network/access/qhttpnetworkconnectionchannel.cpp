@@ -2181,9 +2181,7 @@ block|{
 comment|// Parse the response headers and get the "location" url
 name|QUrl
 name|redirectUrl
-decl_stmt|;
-if|if
-condition|(
+init|=
 name|connection
 operator|->
 name|d_func
@@ -2194,10 +2192,14 @@ argument_list|(
 name|socket
 argument_list|,
 name|reply
-argument_list|,
-operator|&
-name|redirectUrl
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|redirectUrl
+operator|.
+name|isValid
+argument_list|()
 condition|)
 name|reply
 operator|->

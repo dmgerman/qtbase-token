@@ -2561,7 +2561,7 @@ block|}
 end_function
 begin_function
 DECL|function|parseRedirectResponse
-name|bool
+name|QUrl
 name|QHttpNetworkConnectionPrivate
 operator|::
 name|parseRedirectResponse
@@ -2573,10 +2573,6 @@ parameter_list|,
 name|QHttpNetworkReply
 modifier|*
 name|reply
-parameter_list|,
-name|QUrl
-modifier|*
-name|redirectUrl
 parameter_list|)
 block|{
 if|if
@@ -2591,7 +2587,8 @@ name|isFollowRedirects
 argument_list|()
 condition|)
 return|return
-literal|false
+name|QUrl
+argument_list|()
 return|;
 name|QUrl
 name|rUrl
@@ -2672,7 +2669,8 @@ name|ProtocolUnknownError
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|QUrl
+argument_list|()
 return|;
 block|}
 comment|// Check if we have exceeded max redirects allowed
@@ -2701,7 +2699,8 @@ name|TooManyRedirectsError
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|QUrl
+argument_list|()
 return|;
 block|}
 comment|// Resolve the URL if it's relative
@@ -2797,7 +2796,8 @@ name|InsecureRedirectError
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|QUrl
+argument_list|()
 return|;
 block|}
 block|}
@@ -2815,24 +2815,12 @@ name|ProtocolUnknownError
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|QUrl
+argument_list|()
 return|;
 block|}
-name|redirectUrl
-operator|->
-name|setUrl
-argument_list|(
-name|QString
-argument_list|(
-name|rUrl
-operator|.
-name|toEncoded
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+name|rUrl
 return|;
 block|}
 end_function

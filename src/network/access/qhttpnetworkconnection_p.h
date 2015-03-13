@@ -824,7 +824,7 @@ argument_list|,
 argument|bool&resend
 argument_list|)
 block|;
-name|bool
+name|QUrl
 name|parseRedirectResponse
 argument_list|(
 name|QAbstractSocket
@@ -834,10 +834,6 @@ argument_list|,
 name|QHttpNetworkReply
 operator|*
 name|reply
-argument_list|,
-name|QUrl
-operator|*
-name|redirectUrl
 argument_list|)
 block|;
 ifndef|#
