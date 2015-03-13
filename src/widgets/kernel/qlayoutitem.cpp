@@ -470,7 +470,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the size policy of this item. */
+comment|/*!     \since 5.5      Returns the size policy of this item. */
 end_comment
 begin_function
 DECL|function|sizePolicy
