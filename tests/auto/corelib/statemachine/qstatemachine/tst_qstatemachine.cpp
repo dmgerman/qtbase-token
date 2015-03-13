@@ -12485,11 +12485,6 @@ name|m_machine
 argument_list|(
 name|machine
 argument_list|)
-member_init_list|,
-name|m_count
-argument_list|(
-literal|0
-argument_list|)
 block|{
 name|moveToThread
 argument_list|(
@@ -12582,10 +12577,6 @@ DECL|member|m_machine
 name|QStateMachine
 modifier|*
 name|m_machine
-decl_stmt|;
-DECL|member|m_count
-name|int
-name|m_count
 decl_stmt|;
 block|}
 class|;
@@ -18534,6 +18525,8 @@ decl_stmt|;
 name|QEventTransition
 modifier|*
 name|trans
+init|=
+literal|0
 decl_stmt|;
 if|if
 condition|(
