@@ -1176,7 +1176,7 @@ name|r
 operator|=
 name|firstModified
 operator|.
-name|secsTo
+name|msecsTo
 argument_list|(
 name|secondModified
 argument_list|)
