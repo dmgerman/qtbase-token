@@ -16276,6 +16276,10 @@ name|previousIt
 operator|.
 name|atEnd
 argument_list|()
+operator|&&
+name|previousIt
+operator|!=
+name|it
 condition|)
 name|lastIt
 operator|=
