@@ -5463,11 +5463,44 @@ operator|.
 name|state
 argument_list|()
 operator|<<
+literal|" press "
+operator|<<
+name|tp
+operator|.
+name|pressure
+argument_list|()
+operator|<<
 literal|" vel "
 operator|<<
 name|tp
 operator|.
 name|velocity
+argument_list|()
+operator|<<
+literal|" start "
+operator|<<
+name|tp
+operator|.
+name|startPos
+argument_list|()
+operator|<<
+literal|" last "
+operator|<<
+name|tp
+operator|.
+name|lastPos
+argument_list|()
+operator|<<
+literal|" delta "
+operator|<<
+name|tp
+operator|.
+name|pos
+argument_list|()
+operator|-
+name|tp
+operator|.
+name|lastPos
 argument_list|()
 operator|<<
 literal|')'
