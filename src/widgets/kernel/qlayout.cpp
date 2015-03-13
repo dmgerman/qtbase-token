@@ -4648,6 +4648,11 @@ condition|)
 return|return
 literal|0
 return|;
+name|addChildWidget
+argument_list|(
+name|to
+argument_list|)
+expr_stmt|;
 name|QLayoutItem
 modifier|*
 name|newitem
@@ -4688,12 +4693,6 @@ name|r
 condition|)
 operator|delete
 name|newitem
-expr_stmt|;
-else|else
-name|addChildWidget
-argument_list|(
-name|to
-argument_list|)
 expr_stmt|;
 return|return
 name|r
