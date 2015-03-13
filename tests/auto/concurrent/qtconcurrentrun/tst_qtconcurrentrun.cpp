@@ -2210,6 +2210,8 @@ argument_list|,
 operator|(
 name|int
 operator|)
+name|std
+operator|::
 name|pow
 argument_list|(
 literal|2.0
@@ -2271,6 +2273,8 @@ argument_list|,
 operator|(
 name|int
 operator|)
+name|std
+operator|::
 name|pow
 argument_list|(
 literal|2.0
