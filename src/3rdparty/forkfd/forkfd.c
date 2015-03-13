@@ -1909,6 +1909,11 @@ name|ret
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FORKFD_NO_FORKFD
+end_ifndef
 begin_comment
 comment|/**  * @brief forkfd returns a file descriptor representing a child process  * @return a file descriptor, or -1 in case of failure  *  * forkfd() creates a file descriptor that can be used to be notified of when a  * child process exits. This file descriptor can be monitored using select(2),  * poll(2) or similar mechanisms.  *  * The @a flags parameter can contain the following values ORed to change the  * behaviour of forkfd():  *  * @li @c FFD_NONBLOCK Set the O_NONBLOCK file status flag on the new open file  * descriptor. Using this flag saves extra calls to fnctl(2) to achieve the same  * result.  *  * @li @c FFD_CLOEXEC Set the close-on-exec (FD_CLOEXEC) flag on the new file  * descriptor. You probably want to set this flag, since forkfd() does not work  * if the original parent process dies.  *  * The file descriptor returned by forkfd() supports the following operations:  *  * @li read(2) When the child process exits, then the buffer supplied to  * read(2) is used to return information about the status of the child in the  * form of one @c siginfo_t structure. The buffer must be at least  * sizeof(siginfo_t) bytes. The return value of read(2) is the total number of  * bytes read.  *  * @li poll(2), select(2) (and similar) The file descriptor is readable (the  * select(2) readfds argument; the poll(2) POLLIN flag) if the child has exited  * or signalled via SIGCHLD.  *  * @li close(2) When the file descriptor is no longer required it should be closed.  */
 end_comment
@@ -2442,11 +2447,27 @@ literal|1
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// FORKFD_NO_FORKFD
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|_POSIX_SPAWN
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|FORKFD_NO_SPAWNFD
+argument_list|)
+end_if
 begin_function
 DECL|function|spawnfd
 name|int
@@ -2736,6 +2757,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _POSIX_SPAWN
+comment|// _POSIX_SPAWN&& !FORKFD_NO_SPAWNFD
 end_comment
 end_unit
