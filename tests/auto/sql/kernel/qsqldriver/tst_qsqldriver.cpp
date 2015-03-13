@@ -71,6 +71,10 @@ name|void
 name|primaryIndex
 parameter_list|()
 function_decl|;
+name|void
+name|formatValue
+parameter_list|()
+function_decl|;
 block|}
 class|;
 end_class
@@ -176,6 +180,21 @@ argument_list|,
 name|relTEST1
 argument_list|)
 expr_stmt|;
+name|QString
+name|doubleField
+init|=
+operator|(
+name|dbType
+operator|==
+name|QSqlDriver
+operator|::
+name|SQLite
+operator|)
+condition|?
+literal|"more_data double"
+else|:
+literal|"more_data double(8,7)"
+decl_stmt|;
 name|QVERIFY_SQL
 argument_list|(
 name|q
@@ -186,7 +205,11 @@ literal|"create table "
 operator|+
 name|relTEST1
 operator|+
-literal|" (id int not null primary key, name varchar(20), title_key int, another_title_key int)"
+literal|" (id int not null primary key, name varchar(20), title_key int, another_title_key int, "
+operator|+
+name|doubleField
+operator|+
+literal|")"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -200,7 +223,7 @@ literal|"insert into "
 operator|+
 name|relTEST1
 operator|+
-literal|" values(1, 'harry', 1, 2)"
+literal|" values(1, 'harry', 1, 2, 1.234567)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -214,7 +237,7 @@ literal|"insert into "
 operator|+
 name|relTEST1
 operator|+
-literal|" values(2, 'trond', 2, 1)"
+literal|" values(2, 'trond', 2, 1, 8.901234)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -228,7 +251,7 @@ literal|"insert into "
 operator|+
 name|relTEST1
 operator|+
-literal|" values(3, 'vohi', 1, 2)"
+literal|" values(3, 'vohi', 1, 2, 5.678901)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -242,7 +265,7 @@ literal|"insert into "
 operator|+
 name|relTEST1
 operator|+
-literal|" values(4, 'boris', 2, 2)"
+literal|" values(4, 'boris', 2, 2, 2.345678)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -406,6 +429,8 @@ operator|<<
 literal|"title_key"
 operator|<<
 literal|"another_title_key"
+operator|<<
+literal|"more_data"
 expr_stmt|;
 comment|//check we can get records using an unquoted mixed case table name
 name|QSqlRecord
@@ -428,7 +453,7 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
-literal|4
+literal|5
 argument_list|)
 expr_stmt|;
 name|QSqlDriver
@@ -654,7 +679,7 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
-literal|4
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
@@ -798,7 +823,7 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
-literal|4
+literal|5
 argument_list|)
 expr_stmt|;
 comment|//mysql, sqlite and tds will match
@@ -1224,6 +1249,151 @@ name|count
 argument_list|()
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|formatValue
+name|void
+name|tst_QSqlDriver
+operator|::
+name|formatValue
+parameter_list|()
+block|{
+name|QFETCH_GLOBAL
+argument_list|(
+name|QString
+argument_list|,
+name|dbName
+argument_list|)
+expr_stmt|;
+name|QSqlDatabase
+name|db
+init|=
+name|QSqlDatabase
+operator|::
+name|database
+argument_list|(
+name|dbName
+argument_list|)
+decl_stmt|;
+name|CHECK_DATABASE
+argument_list|(
+name|db
+argument_list|)
+expr_stmt|;
+name|QString
+name|tablename
+argument_list|(
+name|qTableName
+argument_list|(
+literal|"relTEST1"
+argument_list|,
+name|__FILE__
+argument_list|,
+name|db
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QSqlQuery
+name|qry
+argument_list|(
+name|db
+argument_list|)
+decl_stmt|;
+name|QVERIFY_SQL
+argument_list|(
+name|qry
+argument_list|,
+name|exec
+argument_list|(
+literal|"SELECT * FROM "
+operator|+
+name|tablename
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|qry
+operator|.
+name|next
+argument_list|()
+expr_stmt|;
+name|QSqlRecord
+name|rec
+init|=
+name|qry
+operator|.
+name|record
+argument_list|()
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|db
+operator|.
+name|driver
+argument_list|()
+operator|->
+name|formatValue
+argument_list|(
+name|rec
+operator|.
+name|field
+argument_list|(
+literal|"id"
+argument_list|)
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|db
+operator|.
+name|driver
+argument_list|()
+operator|->
+name|formatValue
+argument_list|(
+name|rec
+operator|.
+name|field
+argument_list|(
+literal|"name"
+argument_list|)
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"'harry'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|db
+operator|.
+name|driver
+argument_list|()
+operator|->
+name|formatValue
+argument_list|(
+name|rec
+operator|.
+name|field
+argument_list|(
+literal|"more_data"
+argument_list|)
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"1.234567"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
