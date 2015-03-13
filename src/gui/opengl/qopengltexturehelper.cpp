@@ -29,9 +29,56 @@ modifier|*
 name|context
 parameter_list|)
 block|{
-comment|// Resolve EXT_direct_state_access entry points if present
+comment|// Resolve EXT_direct_state_access entry points if present.
+comment|// However, disable it on some systems where DSA is known to be unreliable.
+name|bool
+name|allowDSA
+init|=
+literal|true
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|renderer
+init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|context
+operator|->
+name|functions
+argument_list|()
+operator|->
+name|glGetString
+argument_list|(
+name|GL_RENDERER
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// QTBUG-40653, QTBUG-44988
 if|if
 condition|(
+name|renderer
+operator|&&
+name|strstr
+argument_list|(
+name|renderer
+argument_list|,
+literal|"AMD Radeon HD"
+argument_list|)
+condition|)
+name|allowDSA
+operator|=
+literal|false
+expr_stmt|;
+if|if
+condition|(
+name|allowDSA
+operator|&&
 operator|!
 name|context
 operator|->
