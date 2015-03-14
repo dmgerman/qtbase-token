@@ -39075,6 +39075,9 @@ operator|++
 operator|=
 name|replacement
 expr_stmt|;
+operator|++
+name|invalid
+expr_stmt|;
 block|}
 block|}
 name|rstr
