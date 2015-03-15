@@ -47,7 +47,7 @@ DECL|macro|_XOPEN_SOURCE
 define|#
 directive|define
 name|_XOPEN_SOURCE
-value|500
+value|700
 end_define
 begin_endif
 endif|#
