@@ -76,6 +76,13 @@ parameter_list|)
 block|{
 name|QRgba64
 name|rgba64
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_UNIFORM_INIT
+init|=
+block|{}
+endif|#
+directive|endif
 decl_stmt|;
 name|rgba64
 operator|.
@@ -124,6 +131,13 @@ parameter_list|)
 block|{
 name|QRgba64
 name|rgba64
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_UNIFORM_INIT
+init|=
+block|{}
+endif|#
+directive|endif
 decl_stmt|;
 name|rgba64
 operator|.
