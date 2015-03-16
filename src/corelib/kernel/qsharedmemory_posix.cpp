@@ -289,12 +289,10 @@ init|=
 name|errno
 decl_stmt|;
 specifier|const
-name|QString
-name|function
-init|=
 name|QLatin1String
+name|function
 argument_list|(
-literal|"QSharedMemory::create"
+literal|"QSharedMemory::attach (shm_open)"
 argument_list|)
 decl_stmt|;
 switch|switch
@@ -536,10 +534,8 @@ init|=
 name|errno
 decl_stmt|;
 specifier|const
-name|QString
-name|function
-init|=
 name|QLatin1String
+name|function
 argument_list|(
 literal|"QSharedMemory::attach (shm_open)"
 argument_list|)

@@ -354,10 +354,7 @@ block|;
 name|void
 name|setErrorString
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|function
+argument|QLatin1String function
 argument_list|)
 block|;
 ifndef|#

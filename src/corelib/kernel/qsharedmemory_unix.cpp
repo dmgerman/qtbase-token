@@ -173,9 +173,7 @@ name|QSharedMemoryPrivate
 operator|::
 name|setErrorString
 parameter_list|(
-specifier|const
-name|QString
-modifier|&
+name|QLatin1String
 name|function
 parameter_list|)
 block|{
