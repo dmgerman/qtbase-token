@@ -123,6 +123,22 @@ operator|&
 name|pos
 argument_list|)
 block|;
+name|QPixmap
+name|grabWindow
+argument_list|(
+argument|WId wid
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|EGLDisplay

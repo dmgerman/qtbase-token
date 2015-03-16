@@ -61,6 +61,12 @@ name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QOpenGLFramebufferObject
+name|class
+name|QOpenGLFramebufferObject
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QWindow
 name|class
 name|QWindow
@@ -169,6 +175,10 @@ name|void
 name|update
 argument_list|()
 block|;
+name|QImage
+name|grab
+argument_list|()
+block|;
 name|QList
 operator|<
 name|QOpenGLCompositorWindow
@@ -228,7 +238,7 @@ name|private
 name|slots
 operator|:
 name|void
-name|renderAll
+name|handleRenderAllRequest
 argument_list|()
 block|;
 name|private
@@ -239,6 +249,14 @@ block|;
 operator|~
 name|QOpenGLCompositor
 argument_list|()
+block|;
+name|void
+name|renderAll
+argument_list|(
+name|QOpenGLFramebufferObject
+operator|*
+name|fbo
+argument_list|)
 block|;
 name|void
 name|render
