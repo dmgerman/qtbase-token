@@ -185,6 +185,11 @@ argument|QEvent *event
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|int
+name|loopLevel
+argument_list|()
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:

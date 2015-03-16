@@ -3803,6 +3803,15 @@ operator|!
 name|d
 condition|)
 return|return;
+if|if
+condition|(
+name|scaleFactor
+operator|==
+name|d
+operator|->
+name|devicePixelRatio
+condition|)
+return|return;
 name|detach
 argument_list|()
 expr_stmt|;
@@ -6039,11 +6048,13 @@ operator|++
 name|y
 control|)
 block|{
+specifier|const
 name|QRgb
 modifier|*
 name|src_pixels
 init|=
 operator|(
+specifier|const
 name|QRgb
 operator|*
 operator|)
@@ -6177,11 +6188,13 @@ operator|++
 name|y
 control|)
 block|{
+specifier|const
 name|QRgb
 modifier|*
 name|src_pixels
 init|=
 operator|(
+specifier|const
 name|QRgb
 operator|*
 operator|)
@@ -8620,7 +8633,7 @@ name|x
 parameter_list|,
 name|y
 parameter_list|)
-value|(*((QRgb*)scanLine(y)+x)& 0x00ffffff)
+value|(*((const QRgb*)scanLine(y)+x)& 0x00ffffff)
 name|int
 name|w
 init|=
@@ -8903,11 +8916,13 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QRgb
 modifier|*
 name|p
 init|=
 operator|(
+specifier|const
 name|QRgb
 operator|*
 operator|)
@@ -9200,11 +9215,13 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QRgb
 modifier|*
 name|p
 init|=
 operator|(
+specifier|const
 name|QRgb
 operator|*
 operator|)
@@ -9482,6 +9499,7 @@ modifier|*
 name|sl
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -14064,6 +14082,7 @@ operator|=
 operator|*
 operator|(
 operator|(
+specifier|const
 name|ushort
 operator|*
 operator|)
@@ -14231,6 +14250,7 @@ operator|=
 operator|*
 operator|(
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -14663,7 +14683,6 @@ name|d
 operator|->
 name|data
 decl_stmt|;
-specifier|const
 name|uchar
 modifier|*
 name|dest_data
@@ -14842,7 +14861,6 @@ name|d
 operator|->
 name|data
 decl_stmt|;
-specifier|const
 name|uchar
 modifier|*
 name|dest_data

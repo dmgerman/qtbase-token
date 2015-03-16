@@ -1554,7 +1554,7 @@ name|toModelIndex
 argument_list|()
 specifier|const
 block|;
-name|QModelIndex
+name|QPersistentModelIndex
 name|toPersistentModelIndex
 argument_list|()
 specifier|const

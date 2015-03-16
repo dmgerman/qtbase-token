@@ -173,6 +173,16 @@ modifier|*
 name|ip6Addr
 parameter_list|)
 function_decl|;
+comment|// ### Qt 6: remove me
+name|explicit
+name|QHostAddress
+parameter_list|(
+specifier|const
+name|quint8
+modifier|*
+name|ip6Addr
+parameter_list|)
+function_decl|;
 name|explicit
 name|QHostAddress
 parameter_list|(
@@ -249,6 +259,16 @@ function_decl|;
 name|void
 name|setAddress
 parameter_list|(
+name|quint8
+modifier|*
+name|ip6Addr
+parameter_list|)
+function_decl|;
+comment|// ### Qt 6: remove me
+name|void
+name|setAddress
+parameter_list|(
+specifier|const
 name|quint8
 modifier|*
 name|ip6Addr

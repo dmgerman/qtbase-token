@@ -105,6 +105,10 @@ parameter_list|,
 name|void
 modifier|*
 comment|/*nativeConfig*/
+parameter_list|,
+name|int
+modifier|*
+comment|/*err*/
 parameter_list|)
 block|{
 return|return

@@ -1045,7 +1045,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the progress bar's minimum and maximum values to \a minimum and     \a maximum respectively.      If \a maximum is smaller than \a minimum, \a minimum becomes the only     legal value.      If the current value falls outside the new range, the progress bar is reset     with reset().      \sa minimum, maximum */
+comment|/*!     Sets the progress bar's minimum and maximum values to \a minimum and     \a maximum respectively.      If \a maximum is smaller than \a minimum, \a minimum becomes the only     legal value.      If the current value falls outside the new range, the progress bar is reset     with reset().      The QProgressBar can be set to undetermined state by using setRange(0, 0).      \sa minimum, maximum */
 end_comment
 begin_function
 DECL|function|setRange

@@ -924,6 +924,13 @@ modifier|*
 name|currentMouseWindow
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|static
+name|QWindow
+modifier|*
+name|currentMousePressWindow
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 specifier|static
 name|Qt

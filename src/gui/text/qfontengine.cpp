@@ -9747,10 +9747,13 @@ name|int
 name|at
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|m_fallbackFamiliesQueried
-argument_list|)
+condition|)
+name|ensureFallbackFamiliesQueried
+argument_list|()
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(

@@ -138,6 +138,7 @@ end_struct
 begin_function
 DECL|function|data_ptr
 specifier|inline
+specifier|const
 name|void
 modifier|*
 name|data_ptr
@@ -150,6 +151,7 @@ parameter_list|)
 block|{
 return|return
 operator|(
+specifier|const
 name|DataPtrContainer
 operator|*
 operator|)
@@ -1138,10 +1140,9 @@ parameter_list|,
 name|int
 name|glyphCount
 parameter_list|,
-specifier|const
-name|QRawFont
-modifier|&
-name|font
+name|QFontEngine
+modifier|*
+name|fontEngine
 parameter_list|,
 name|bool
 name|overline

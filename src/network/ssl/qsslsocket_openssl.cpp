@@ -3248,7 +3248,10 @@ name|id
 operator|=
 name|builtinCurves
 index|[
+name|int
+argument_list|(
 name|i
+argument_list|)
 index|]
 operator|.
 name|nid

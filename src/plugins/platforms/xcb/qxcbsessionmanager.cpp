@@ -564,10 +564,17 @@ operator|=
 operator|(
 name|SmPointer
 operator|)
+cast|const_cast
+argument_list|<
+name|char
+operator|*
+argument_list|>
+argument_list|(
 name|v
 operator|.
 name|constData
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|sm_setProperty
 argument_list|(

@@ -81,7 +81,11 @@ argument_list|)
 name|public
 label|:
 name|QFileIconProviderPrivate
-argument_list|()
+argument_list|(
+name|QFileIconProvider
+operator|*
+name|q
+argument_list|)
 expr_stmt|;
 name|QIcon
 name|getIcon

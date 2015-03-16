@@ -67,6 +67,9 @@ name|class
 name|Engine
 decl_stmt|;
 name|class
+name|DiagnosticMessage
+decl_stmt|;
+name|class
 name|QML_PARSER_EXPORT
 name|Directives
 block|{
@@ -89,6 +92,10 @@ argument_list|(
 argument|const QString&jsfile
 argument_list|,
 argument|const QString&module
+argument_list|,
+argument|int line
+argument_list|,
+argument|int column
 argument_list|)
 block|{
 name|Q_UNUSED
@@ -100,6 +107,16 @@ name|Q_UNUSED
 argument_list|(
 name|module
 argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|line
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|column
+argument_list|)
 block|;     }
 name|virtual
 name|void
@@ -110,6 +127,10 @@ argument_list|,
 argument|const QString&version
 argument_list|,
 argument|const QString&module
+argument_list|,
+argument|int line
+argument_list|,
+argument|int column
 argument_list|)
 block|{
 name|Q_UNUSED
@@ -125,6 +146,16 @@ block|;
 name|Q_UNUSED
 argument_list|(
 name|module
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|line
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|column
 argument_list|)
 block|;     }
 block|}
@@ -339,6 +370,10 @@ argument_list|(
 name|Directives
 operator|*
 name|directives
+argument_list|,
+name|DiagnosticMessage
+operator|*
+name|error
 argument_list|)
 block|;
 name|int

@@ -87,6 +87,15 @@ modifier|*
 name|e
 parameter_list|)
 function_decl|;
+name|void
+name|setPos
+parameter_list|(
+specifier|const
+name|QPoint
+modifier|&
+name|pos
+parameter_list|)
+function_decl|;
 name|private
 label|:
 name|QPoint

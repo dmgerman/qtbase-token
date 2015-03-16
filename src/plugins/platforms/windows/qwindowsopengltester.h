@@ -211,6 +211,19 @@ name|Renderers
 name|supportedRenderers
 parameter_list|()
 function_decl|;
+name|private
+label|:
+specifier|static
+name|QWindowsOpenGLTester
+operator|::
+name|Renderers
+name|detectSupportedRenderers
+argument_list|(
+argument|const GpuDescription&gpu
+argument_list|,
+argument|bool glesOnly
+argument_list|)
+expr_stmt|;
 specifier|static
 name|bool
 name|testDesktopGL

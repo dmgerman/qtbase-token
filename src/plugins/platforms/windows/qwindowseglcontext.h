@@ -3150,6 +3150,8 @@ argument_list|(
 argument|void *nativeWindow
 argument_list|,
 argument|void *nativeConfig
+argument_list|,
+argument|int *err
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;

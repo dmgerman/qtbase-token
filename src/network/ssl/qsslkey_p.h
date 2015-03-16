@@ -86,13 +86,22 @@ specifier|inline
 name|QSslKeyPrivate
 argument_list|()
 operator|:
+name|algorithm
+argument_list|(
+name|QSsl
+operator|::
+name|Opaque
+argument_list|)
+operator|,
 name|opaque
 argument_list|(
 literal|0
 argument_list|)
 block|{
 name|clear
-argument_list|()
+argument_list|(
+name|false
+argument_list|)
 block|;     }
 specifier|inline
 operator|~

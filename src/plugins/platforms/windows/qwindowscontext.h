@@ -175,6 +175,20 @@ name|bool
 name|initTouch
 parameter_list|()
 function_decl|;
+DECL|typedef|IsTouchWindow
+typedef|typedef
+name|BOOL
+function_decl|(
+name|WINAPI
+modifier|*
+name|IsTouchWindow
+function_decl|)
+parameter_list|(
+name|HWND
+parameter_list|,
+name|PULONG
+parameter_list|)
+function_decl|;
 DECL|typedef|RegisterTouchWindow
 typedef|typedef
 name|BOOL
@@ -366,6 +380,10 @@ name|IsHungAppWindow
 name|isHungAppWindow
 decl_stmt|;
 comment|// Touch functions from Windows 7 onwards (also for use with Q_CC_MSVC).
+DECL|member|isTouchWindow
+name|IsTouchWindow
+name|isTouchWindow
+decl_stmt|;
 DECL|member|registerTouchWindow
 name|RegisterTouchWindow
 name|registerTouchWindow

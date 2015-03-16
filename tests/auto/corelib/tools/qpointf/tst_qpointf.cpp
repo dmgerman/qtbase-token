@@ -1581,6 +1581,8 @@ name|p
 operator|=
 name|p
 operator|/
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|dot
@@ -1618,6 +1620,8 @@ argument_list|)
 decl_stmt|;
 name|p
 operator|/=
+name|std
+operator|::
 name|sqrt
 argument_list|(
 name|dot

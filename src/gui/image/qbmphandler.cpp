@@ -4079,6 +4079,7 @@ operator|->
 name|write
 argument_list|(
 operator|(
+specifier|const
 name|char
 operator|*
 operator|)

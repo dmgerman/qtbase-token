@@ -297,6 +297,11 @@ operator|*
 name|atspiBus
 argument_list|()
 block|;
+name|void
+operator|*
+name|connection
+argument_list|()
+block|;
 specifier|static
 name|void
 name|setStartupId

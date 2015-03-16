@@ -77,6 +77,12 @@ name|QEGLPlatformCursor
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QEGLPlatformScreen
+name|class
+name|QEGLPlatformScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QEGLPlatformCursorDeviceListener
 range|:
@@ -395,7 +401,7 @@ struct|;
 name|bool
 name|m_visible
 decl_stmt|;
-name|QPlatformScreen
+name|QEGLPlatformScreen
 modifier|*
 name|m_screen
 decl_stmt|;

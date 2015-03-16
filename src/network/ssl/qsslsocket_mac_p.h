@@ -238,6 +238,11 @@ argument_list|()
 block|;
 comment|// Aux. functions to do a verification during handshake phase:
 name|bool
+name|canIgnoreTrustVerificationFailure
+argument_list|()
+specifier|const
+block|;
+name|bool
 name|verifySessionProtocol
 argument_list|()
 specifier|const

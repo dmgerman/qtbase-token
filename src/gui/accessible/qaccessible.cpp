@@ -2470,6 +2470,7 @@ operator|<<
 name|hex
 operator|<<
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)

@@ -108,6 +108,11 @@ argument_list|(
 argument|bool enabled
 argument_list|)
 block|;
+name|bool
+name|isEnabled
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setVisible
 argument_list|(

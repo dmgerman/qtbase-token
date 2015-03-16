@@ -7,11 +7,6 @@ include|#
 directive|include
 file|"qcursor.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -242,6 +237,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
+end_ifndef
 begin_comment
 comment|/*!     \fn void QCursor::setPos (const QPoint&p)      \overload      Moves the cursor (hot spot) to the global screen position at point     \a p. */
 end_comment

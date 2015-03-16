@@ -13,36 +13,6 @@ define|#
 directive|define
 name|QQMLJSGLOBAL_P_H
 end_define
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|//  W A R N I N G
-end_comment
-begin_comment
-comment|//  -------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// This file is not part of the Qt API.  It exists purely as an
-end_comment
-begin_comment
-comment|// implementation detail.  This header file may change from version to
-end_comment
-begin_comment
-comment|// version without notice, or even be removed.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// We mean it.
-end_comment
-begin_comment
-comment|//
-end_comment
 begin_include
 include|#
 directive|include
@@ -162,7 +132,7 @@ DECL|macro|QML_PARSER_EXPORT
 define|#
 directive|define
 name|QML_PARSER_EXPORT
-value|Q_AUTOTEST_EXPORT
+value|Q_DECL_EXPORT
 end_define
 begin_else
 else|#
@@ -173,6 +143,7 @@ DECL|macro|QML_PARSER_EXPORT
 define|#
 directive|define
 name|QML_PARSER_EXPORT
+value|Q_DECL_IMPORT
 end_define
 begin_endif
 endif|#

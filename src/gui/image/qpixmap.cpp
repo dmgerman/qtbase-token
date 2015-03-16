@@ -1875,6 +1875,16 @@ name|isNull
 argument_list|()
 condition|)
 return|return;
+if|if
+condition|(
+name|scaleFactor
+operator|==
+name|data
+operator|->
+name|devicePixelRatio
+argument_list|()
+condition|)
+return|return;
 name|detach
 argument_list|()
 expr_stmt|;

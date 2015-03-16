@@ -1006,12 +1006,6 @@ name|QPointer
 operator|<
 name|QWindow
 operator|>
-name|m_activePopupWindow
-block|;
-name|QPointer
-operator|<
-name|QWindow
-operator|>
 name|m_enterLeaveTargetWindow
 block|;
 name|bool

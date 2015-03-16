@@ -59,7 +59,7 @@ block|;
 name|private
 operator|:
 name|uint
-name|m_processEventCallsAfterExec
+name|m_processEventLevel
 block|;
 name|RunLoopObserver
 operator|<

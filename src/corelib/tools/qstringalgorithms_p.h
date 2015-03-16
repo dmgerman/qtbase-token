@@ -532,6 +532,11 @@ name|ptr
 init|=
 name|dst
 decl_stmt|;
+name|bool
+name|unmodified
+init|=
+name|true
+decl_stmt|;
 name|forever
 block|{
 while|while
@@ -573,9 +578,23 @@ expr_stmt|;
 if|if
 condition|(
 name|src
-operator|!=
+operator|==
 name|end
 condition|)
+break|break;
+if|if
+condition|(
+operator|*
+name|src
+operator|!=
+name|QChar
+operator|::
+name|Space
+condition|)
+name|unmodified
+operator|=
+name|false
+expr_stmt|;
 operator|*
 name|ptr
 operator|++
@@ -584,8 +603,6 @@ name|QChar
 operator|::
 name|Space
 expr_stmt|;
-else|else
-break|break;
 block|}
 if|if
 condition|(
@@ -623,6 +640,8 @@ name|str
 operator|.
 name|size
 argument_list|()
+operator|&&
+name|unmodified
 condition|)
 block|{
 comment|// nothing happened, return the original

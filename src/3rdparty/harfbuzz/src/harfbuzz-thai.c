@@ -392,7 +392,6 @@ parameter_list|,
 name|hb_uint32
 name|len
 parameter_list|,
-specifier|const
 name|char
 modifier|*
 name|cstr
@@ -1559,6 +1558,7 @@ operator|->
 name|font
 argument_list|,
 operator|(
+specifier|const
 name|HB_UChar16
 operator|*
 operator|)

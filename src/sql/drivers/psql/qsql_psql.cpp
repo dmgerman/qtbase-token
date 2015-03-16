@@ -2338,6 +2338,7 @@ init|=
 name|PQunescapeBytea
 argument_list|(
 operator|(
+specifier|const
 name|unsigned
 name|char
 operator|*
@@ -6952,6 +6953,7 @@ operator|->
 name|connection
 argument_list|,
 operator|(
+specifier|const
 name|unsigned
 name|char
 operator|*
@@ -6980,6 +6982,7 @@ init|=
 name|PQescapeBytea
 argument_list|(
 operator|(
+specifier|const
 name|unsigned
 name|char
 operator|*

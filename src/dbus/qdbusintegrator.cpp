@@ -250,6 +250,7 @@ operator|<<
 literal|"QThread(ptr="
 operator|<<
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)
@@ -347,6 +348,7 @@ operator|<<
 literal|"ptr="
 operator|<<
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)

@@ -5049,10 +5049,6 @@ name|parameters
 condition|)
 operator|delete
 index|[]
-operator|(
-name|char
-operator|*
-operator|)
 name|d
 operator|->
 name|parameters
@@ -5922,10 +5918,6 @@ name|parameters
 condition|)
 operator|delete
 index|[]
-operator|(
-name|char
-operator|*
-operator|)
 name|d
 operator|->
 name|parameters

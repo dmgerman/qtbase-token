@@ -105,6 +105,15 @@ argument_list|,
 argument|int dy
 argument_list|)
 block|;
+name|void
+name|beginPaint
+argument_list|(
+specifier|const
+name|QRegion
+operator|&
+name|region
+argument_list|)
+block|;
 name|qreal
 name|getBackingStoreDevicePixelRatio
 argument_list|()
