@@ -2704,6 +2704,7 @@ name|QtPixelOrder
 name|PixelOrder
 parameter_list|>
 DECL|function|qt_blend_rgb32_on_rgb30
+specifier|static
 name|void
 name|qt_blend_rgb32_on_rgb30
 parameter_list|(
@@ -3238,6 +3239,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_blend_rgb30_on_rgb30
+specifier|static
 name|void
 name|qt_blend_rgb30_on_rgb30
 parameter_list|(
@@ -4911,2019 +4913,6 @@ name|QImage
 operator|::
 name|NImageFormats
 index|]
-init|=
-block|{
-block|{
-comment|// Format_Invalid
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGRs30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Mono
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_MonoLSB
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Indexed8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB32
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_scale_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_scale_image_argb32_on_argb32
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB32
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB32_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_scale_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_scale_image_argb32_on_argb32
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB16
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_scale_image_argb32_on_rgb16
-block|,
-comment|// Format_ARGB32_Premultiplied,
-name|qt_scale_image_rgb16_on_rgb16
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB8565_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB666
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB6666_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB555
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB8555_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB444
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB4444_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBX8888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|qt_scale_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-name|qt_scale_image_argb32_on_argb32
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-else|#
-directive|else
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-endif|#
-directive|endif
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBA8888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBA8888_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|qt_scale_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-name|qt_scale_image_argb32_on_argb32
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-else|#
-directive|else
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-endif|#
-directive|endif
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_BGR30
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_A2BGR30_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB30
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_A2RGB30_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Grayscale8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -6940,2031 +4929,6 @@ name|QImage
 operator|::
 name|NImageFormats
 index|]
-init|=
-block|{
-block|{
-comment|// Format_Invalid
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Mono
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_MonoLSB
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Indexed8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB32
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb32
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32_on_argb32
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB32
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB32_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb32
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32_on_argb32
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB16
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb16
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32_on_rgb16
-block|,
-comment|// Format_ARGB32_Premultiplied,
-name|qt_blend_rgb16_on_rgb16
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB8565_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB666
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB6666_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB555
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB8555_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB444
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB4444_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBX8888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|qt_blend_rgb32_on_rgb32
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-name|qt_blend_argb32_on_argb32
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-else|#
-directive|else
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-endif|#
-directive|endif
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBA8888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBA8888_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|qt_blend_rgb32_on_rgb32
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-name|qt_blend_argb32_on_argb32
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-else|#
-directive|else
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-endif|#
-directive|endif
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_BGR30
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb30
-argument_list|<
-name|PixelOrderBGR
-argument_list|>
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32pm_on_a2rgb30pm
-argument_list|<
-name|PixelOrderBGR
-argument_list|>
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-name|qt_blend_rgb30_on_rgb30
-block|,
-comment|// Format_RGB30,
-name|qt_blend_a2rgb30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_RGB30,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-literal|0
-block|,     }
-block|,
-block|{
-comment|// Format_A2BGR30_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb30
-argument_list|<
-name|PixelOrderBGR
-argument_list|>
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32pm_on_a2rgb30pm
-argument_list|<
-name|PixelOrderBGR
-argument_list|>
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-name|qt_blend_rgb30_on_rgb30
-block|,
-comment|// Format_BGR30,
-name|qt_blend_a2rgb30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_RGB30,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-literal|0
-block|,     }
-block|,
-block|{
-comment|// Format_RGB30
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb30
-argument_list|<
-name|PixelOrderRGB
-argument_list|>
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32pm_on_a2rgb30pm
-argument_list|<
-name|PixelOrderRGB
-argument_list|>
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_BGR30,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-name|qt_blend_rgb30_on_rgb30
-block|,
-comment|// Format_RGB30,
-name|qt_blend_a2rgb30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-literal|0
-block|,     }
-block|,
-block|{
-comment|// Format_A2RGB30_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_blend_rgb32_on_rgb30
-argument_list|<
-name|PixelOrderRGB
-argument_list|>
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_blend_argb32pm_on_a2rgb30pm
-argument_list|<
-name|PixelOrderRGB
-argument_list|>
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_BGR30,
-name|qt_blend_a2bgr30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-name|qt_blend_rgb30_on_rgb30
-block|,
-comment|// Format_RGB30,
-name|qt_blend_a2rgb30pm_on_a2rgb30pm
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-literal|0
-block|,     }
-block|,
-block|{
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Grayscale8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -8981,2021 +4945,831 @@ name|QImage
 operator|::
 name|NImageFormats
 index|]
-init|=
-block|{
-block|{
-comment|// Format_Invalid
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Mono
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_MonoLSB
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Indexed8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB32
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_transform_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_transform_image_argb32_on_argb32
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB32
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB32_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-name|qt_transform_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_transform_image_argb32_on_argb32
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB16
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-name|qt_transform_image_argb32_on_rgb16
-block|,
-comment|// Format_ARGB32_Premultiplied,
-name|qt_transform_image_rgb16_on_rgb16
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB8565_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB666
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB6666_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB555
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB8555_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB444
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_ARGB4444_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBX8888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|qt_transform_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-name|qt_transform_image_argb32_on_argb32
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-else|#
-directive|else
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-endif|#
-directive|endif
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBA8888
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGBA8888_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-if|#
-directive|if
-name|Q_BYTE_ORDER
-operator|==
-name|Q_LITTLE_ENDIAN
-name|qt_transform_image_rgb32_on_rgb32
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-name|qt_transform_image_argb32_on_argb32
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-else|#
-directive|else
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-endif|#
-directive|endif
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_BGR30
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_A2BGR30_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_RGB30
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_A2RGB30_Premultiplied
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|,
-block|{
-comment|// Format_Grayscale8
-literal|0
-block|,
-comment|// Format_Invalid,
-literal|0
-block|,
-comment|// Format_Mono,
-literal|0
-block|,
-comment|// Format_MonoLSB,
-literal|0
-block|,
-comment|// Format_Indexed8,
-literal|0
-block|,
-comment|// Format_RGB32,
-literal|0
-block|,
-comment|// Format_ARGB32,
-literal|0
-block|,
-comment|// Format_ARGB32_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB16,
-literal|0
-block|,
-comment|// Format_ARGB8565_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB666,
-literal|0
-block|,
-comment|// Format_ARGB6666_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB555,
-literal|0
-block|,
-comment|// Format_ARGB8555_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB888,
-literal|0
-block|,
-comment|// Format_RGB444,
-literal|0
-block|,
-comment|// Format_ARGB4444_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGBX8888,
-literal|0
-block|,
-comment|// Format_RGBA8888,
-literal|0
-block|,
-comment|// Format_RGBA8888_Premultiplied,
-literal|0
-block|,
-comment|// Format_BGR30,
-literal|0
-block|,
-comment|// Format_A2BGR30_Premultiplied,
-literal|0
-block|,
-comment|// Format_RGB30,
-literal|0
-block|,
-comment|// Format_A2RGB30_Premultiplied,
-literal|0
-block|,
-comment|// Format_Alpha8
-literal|0
-block|,
-comment|// Format_Grayscale8
-block|}
-block|, }
 decl_stmt|;
 end_decl_stmt
+begin_function
+DECL|function|qInitBlendFunctions
+name|void
+name|qInitBlendFunctions
+parameter_list|()
+block|{
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_scale_image_rgb32_on_rgb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_scale_image_argb32_on_argb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_scale_image_rgb32_on_rgb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_scale_image_argb32_on_argb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_scale_image_argb32_on_rgb16
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+operator|=
+name|qt_scale_image_rgb16_on_rgb16
+expr_stmt|;
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+operator|=
+name|qt_scale_image_rgb32_on_rgb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+operator|=
+name|qt_scale_image_argb32_on_argb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+operator|=
+name|qt_scale_image_rgb32_on_rgb32
+expr_stmt|;
+name|qScaleFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+operator|=
+name|qt_scale_image_argb32_on_argb32
+expr_stmt|;
+endif|#
+directive|endif
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32_on_argb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32_on_argb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb16
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32_on_rgb16
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+operator|=
+name|qt_blend_rgb16_on_rgb16
+expr_stmt|;
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32_on_argb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb32
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32_on_argb32
+expr_stmt|;
+endif|#
+directive|endif
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+operator|=
+name|qt_blend_rgb30_on_rgb30
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderBGR
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+operator|=
+name|qt_blend_rgb30_on_rgb30
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+operator|=
+name|qt_blend_rgb30_on_rgb30
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_blend_rgb32_on_rgb30
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_blend_argb32pm_on_a2rgb30pm
+argument_list|<
+name|PixelOrderRGB
+argument_list|>
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_BGR30
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2BGR30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2bgr30pm_on_a2rgb30pm
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB30
+index|]
+operator|=
+name|qt_blend_rgb30_on_rgb30
+expr_stmt|;
+name|qBlendFunctions
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_A2RGB30_Premultiplied
+index|]
+operator|=
+name|qt_blend_a2rgb30pm_on_a2rgb30pm
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_transform_image_rgb32_on_rgb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_transform_image_argb32_on_argb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB32
+index|]
+operator|=
+name|qt_transform_image_rgb32_on_rgb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_transform_image_argb32_on_argb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_ARGB32_Premultiplied
+index|]
+operator|=
+name|qt_transform_image_argb32_on_rgb16
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGB16
+index|]
+operator|=
+name|qt_transform_image_rgb16_on_rgb16
+expr_stmt|;
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_LITTLE_ENDIAN
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+operator|=
+name|qt_transform_image_rgb32_on_rgb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+operator|=
+name|qt_transform_image_argb32_on_argb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBX8888
+index|]
+operator|=
+name|qt_transform_image_rgb32_on_rgb32
+expr_stmt|;
+name|qTransformFunctions
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+index|[
+name|QImage
+operator|::
+name|Format_RGBA8888_Premultiplied
+index|]
+operator|=
+name|qt_transform_image_argb32_on_argb32
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

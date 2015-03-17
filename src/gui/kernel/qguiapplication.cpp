@@ -802,6 +802,13 @@ end_endif
 begin_function_decl
 specifier|extern
 name|void
+name|qInitBlendFunctions
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
 name|qInitDrawhelperAsm
 parameter_list|()
 function_decl|;
@@ -4818,6 +4825,10 @@ operator|==
 literal|0
 condition|)
 name|createPlatformIntegration
+argument_list|()
+expr_stmt|;
+comment|// Set up blend function tables.
+name|qInitBlendFunctions
 argument_list|()
 expr_stmt|;
 comment|// Set up which span functions should be used in raster engine...
