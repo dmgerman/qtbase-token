@@ -137,6 +137,10 @@ parameter_list|(
 name|NSString
 modifier|*
 name|nsAction
+parameter_list|,
+name|QAccessibleInterface
+modifier|*
+name|interface
 parameter_list|)
 function_decl|;
 name|bool
