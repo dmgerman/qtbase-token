@@ -3386,6 +3386,11 @@ argument_list|(
 name|uint
 argument_list|)
 operator|+
+sizeof|sizeof
+argument_list|(
+name|ushort
+argument_list|)
+operator|*
 name|qFromLittleEndian
 argument_list|(
 operator|*
