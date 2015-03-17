@@ -325,6 +325,8 @@ block|,
 name|Commendable
 block|,
 name|Internal
+block|,
+name|Intermediate
 block|}
 enum|;
 comment|// don't reorder this enum
@@ -2740,6 +2742,30 @@ name|tree_
 operator|=
 name|t
 block|; }
+specifier|const
+name|NodeList
+operator|&
+name|orphans
+argument_list|()
+specifier|const
+block|{
+return|return
+name|orphans_
+return|;
+block|}
+name|void
+name|addOrphan
+argument_list|(
+argument|Node* child
+argument_list|)
+block|{
+name|orphans_
+operator|.
+name|append
+argument_list|(
+name|child
+argument_list|)
+block|; }
 name|private
 operator|:
 name|bool
@@ -2748,6 +2774,9 @@ block|;
 name|Tree
 operator|*
 name|tree_
+block|;
+name|NodeList
+name|orphans_
 block|; }
 decl_stmt|;
 end_decl_stmt

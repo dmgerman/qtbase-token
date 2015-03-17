@@ -3500,7 +3500,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Mark all child nodes that have no documentation as having   private access and internal status. qdoc will then ignore   them for documentation purposes.  */
+comment|/*!   Mark all child nodes that have no documentation as having   private access and internal status. qdoc will then ignore   them for documentation purposes. Some nodes have an   Intermediate status, meaning that they should be ignored,   but not their children.  */
 end_comment
 begin_function
 DECL|function|makeUndocumentedChildrenInternal
@@ -3529,6 +3529,15 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|child
+operator|->
+name|status
+argument_list|()
+operator|!=
+name|Node
+operator|::
+name|Intermediate
 condition|)
 block|{
 name|child
