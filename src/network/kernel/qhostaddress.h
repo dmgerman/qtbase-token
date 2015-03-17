@@ -494,6 +494,11 @@ name|isLoopback
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|isMulticast
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|static
 name|QPair
 operator|<
