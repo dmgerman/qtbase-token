@@ -11471,6 +11471,15 @@ block|{
 name|QTextEdit
 name|edit
 decl_stmt|;
+name|edit
+operator|.
+name|setMinimumSize
+argument_list|(
+literal|600
+argument_list|,
+literal|400
+argument_list|)
+expr_stmt|;
 name|setFrameless
 argument_list|(
 operator|&
