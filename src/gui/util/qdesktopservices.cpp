@@ -464,6 +464,9 @@ operator|.
 name|remove
 argument_list|(
 name|scheme
+operator|.
+name|toLower
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
@@ -492,6 +495,9 @@ operator|.
 name|insert
 argument_list|(
 name|scheme
+operator|.
+name|toLower
+argument_list|()
 argument_list|,
 name|h
 argument_list|)
