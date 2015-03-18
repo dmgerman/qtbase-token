@@ -2762,6 +2762,7 @@ argument_list|,
 name|JPEG_COM
 argument_list|,
 operator|(
+specifier|const
 name|JOCTET
 operator|*
 operator|)

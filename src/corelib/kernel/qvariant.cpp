@@ -10621,7 +10621,7 @@ comment|/*!     \since 5.5      Returns the variant as a QPersistentModelIndex i
 end_comment
 begin_function
 DECL|function|toPersistentModelIndex
-name|QModelIndex
+name|QPersistentModelIndex
 name|QVariant
 operator|::
 name|toPersistentModelIndex

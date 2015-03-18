@@ -1639,6 +1639,34 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     \since 5.5     Constructs a host address object with the IPv6 address \a ip6Addr.      \a ip6Addr must be a 16-byte array in network byte order (big     endian). */
+end_comment
+begin_constructor
+DECL|function|QHostAddress
+name|QHostAddress
+operator|::
+name|QHostAddress
+parameter_list|(
+specifier|const
+name|quint8
+modifier|*
+name|ip6Addr
+parameter_list|)
+member_init_list|:
+name|d
+argument_list|(
+operator|new
+name|QHostAddressPrivate
+argument_list|)
+block|{
+name|setAddress
+argument_list|(
+name|ip6Addr
+argument_list|)
+expr_stmt|;
+block|}
+end_constructor
+begin_comment
 comment|/*!     Constructs a host address object with the IPv6 address \a ip6Addr. */
 end_comment
 begin_constructor
@@ -1740,6 +1768,7 @@ name|htonl
 argument_list|(
 operator|(
 operator|(
+specifier|const
 name|sockaddr_in
 operator|*
 operator|)
@@ -1765,6 +1794,7 @@ name|setAddress
 argument_list|(
 operator|(
 operator|(
+specifier|const
 name|qt_sockaddr_in6
 operator|*
 operator|)
@@ -2094,6 +2124,31 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     \overload     \since 5.5      Set the IPv6 address specified by \a ip6Addr.      \a ip6Addr must be an array of 16 bytes in network byte order     (high-order byte first). */
+end_comment
+begin_function
+DECL|function|setAddress
+name|void
+name|QHostAddress
+operator|::
+name|setAddress
+parameter_list|(
+specifier|const
+name|quint8
+modifier|*
+name|ip6Addr
+parameter_list|)
+block|{
+name|d
+operator|->
+name|setAddress
+argument_list|(
+name|ip6Addr
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!     \overload      Set the IPv6 address specified by \a ip6Addr. */
 end_comment
 begin_function
@@ -2185,6 +2240,7 @@ name|htonl
 argument_list|(
 operator|(
 operator|(
+specifier|const
 name|sockaddr_in
 operator|*
 operator|)
@@ -2210,6 +2266,7 @@ name|setAddress
 argument_list|(
 operator|(
 operator|(
+specifier|const
 name|qt_sockaddr_in6
 operator|*
 operator|)

@@ -394,6 +394,16 @@ operator|=
 literal|0
 block|;
 name|virtual
+name|bool
+name|isEnabled
+argument_list|()
+specifier|const
+block|{
+return|return
+name|true
+return|;
+block|}
+name|virtual
 name|void
 name|setVisible
 argument_list|(

@@ -62,6 +62,11 @@ include|#
 directive|include
 file|<private/qwidgetwindow_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpa/qplatformmenu.h>
+end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 DECL|macro|QAPP_CHECK
@@ -1361,47 +1366,30 @@ name|Q_OS_MAC
 comment|// On Mac, menu item shortcuts are processed before reaching any window.
 comment|// That means that if a menu action shortcut has not been already processed
 comment|// (and reaches this point), then the menu item itself has been disabled.
-comment|// This occurs at the QPA level on Mac, were we disable all the Cocoa menus
-comment|// when showing a modal window.
+comment|// This occurs at the QPA level on Mac, where we disable all the Cocoa menus
+comment|// when showing a modal window. (Notice that only the QPA menu is disabled,
+comment|// not the QMenu.) Since we can also reach this code by climbing the menu
+comment|// hierarchy (see below), or when the shortcut is not a key-equivalent, we
+comment|// need to check whether the QPA menu is actually disabled.
+name|QPlatformMenu
+modifier|*
+name|pm
+init|=
+name|menu
+operator|->
+name|platformMenu
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|a
-operator|->
-name|shortcut
-argument_list|()
-operator|.
-name|count
-argument_list|()
-operator|<
-literal|1
+operator|!
+name|pm
 operator|||
-operator|(
-name|a
+operator|!
+name|pm
 operator|->
-name|shortcut
+name|isEnabled
 argument_list|()
-operator|.
-name|count
-argument_list|()
-operator|==
-literal|1
-operator|&&
-operator|(
-name|a
-operator|->
-name|shortcut
-argument_list|()
-index|[
-literal|0
-index|]
-operator|&
-name|Qt
-operator|::
-name|MODIFIER_MASK
-operator|)
-operator|!=
-literal|0
-operator|)
 condition|)
 continue|continue;
 endif|#

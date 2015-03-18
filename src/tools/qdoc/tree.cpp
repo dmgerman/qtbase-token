@@ -509,6 +509,7 @@ return|;
 return|return
 operator|(
 operator|(
+specifier|const
 name|InnerNode
 operator|*
 operator|)
@@ -878,6 +879,7 @@ name|next
 operator|=
 operator|(
 operator|(
+specifier|const
 name|InnerNode
 operator|*
 operator|)
@@ -899,6 +901,7 @@ name|next
 operator|=
 operator|(
 operator|(
+specifier|const
 name|InnerNode
 operator|*
 operator|)

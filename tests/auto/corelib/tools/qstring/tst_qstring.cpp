@@ -19256,6 +19256,28 @@ operator|<<
 literal|"  just some    random\ttext here"
 operator|<<
 literal|"just some random text here"
+block|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"newlines"
+argument_list|)
+operator|<<
+literal|"a\nb\nc"
+operator|<<
+literal|"a b c"
+block|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"newlines-trailing"
+argument_list|)
+operator|<<
+literal|"a\nb\nc\n"
+operator|<<
+literal|"a b c"
 block|; }
 DECL|function|simplified
 name|void

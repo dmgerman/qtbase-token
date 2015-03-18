@@ -162,6 +162,15 @@ name|void
 name|onReadyRead
 argument_list|()
 block|;
+name|void
+name|onCursorPositionChangeRequested
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|)
+block|;
 name|private
 operator|:
 name|void

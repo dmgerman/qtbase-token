@@ -9463,7 +9463,7 @@ name|w
 decl_stmt|;
 name|w
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 name|QTRY_VERIFY
@@ -9518,7 +9518,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 if|#
@@ -9601,7 +9601,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|show
+name|showNormal
 argument_list|()
 expr_stmt|;
 if|#

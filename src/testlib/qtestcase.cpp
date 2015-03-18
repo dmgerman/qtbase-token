@@ -264,6 +264,13 @@ operator|::
 name|toHexUpper
 using|;
 end_using
+begin_using
+using|using
+name|QtMiscUtils
+operator|::
+name|fromHex
+using|;
+end_using
 begin_comment
 comment|/*!    \namespace QTest    \inmodule QtTest     \brief The QTest namespace contains all the functions and    declarations that are related to Qt Test.     See the \l{Qt Test Overview} for information about how to write unit tests. */
 end_comment
@@ -4711,6 +4718,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|QTestResult
+operator|::
+name|setBlacklistCurrentTest
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -4895,6 +4909,13 @@ expr_stmt|;
 name|QTestResult
 operator|::
 name|setSkipCurrentTest
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|QTestResult
+operator|::
+name|setBlacklistCurrentTest
 argument_list|(
 literal|false
 argument_list|)
@@ -5275,7 +5296,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/*!     \internal     Returns the same QByteArray but with only the ASCII characters still shown;     everything else is replaced with \c {\OOO}. */
+comment|/*!     \internal     Returns the same QByteArray but with only the ASCII characters still shown;     everything else is replaced with \c {\xHH}. */
 DECL|function|toPrettyCString
 name|char
 modifier|*
@@ -5326,6 +5347,11 @@ operator|.
 name|data
 argument_list|()
 decl_stmt|;
+name|bool
+name|lastWasHexEscape
+init|=
+literal|false
+decl_stmt|;
 operator|*
 name|dst
 operator|++
@@ -5343,6 +5369,11 @@ operator|++
 name|p
 control|)
 block|{
+comment|// we can add:
+comment|//  1 byte: a single character
+comment|//  2 bytes: a simple escape sequence (\n)
+comment|//  3 bytes: "" and a character
+comment|//  4 bytes: an hex escape sequence (\xHH)
 if|if
 condition|(
 name|dst
@@ -5355,12 +5386,52 @@ operator|>
 literal|246
 condition|)
 block|{
-comment|// plus the the quote, the three dots and NUL, it's 251, 252 or 255
+comment|// plus the the quote, the three dots and NUL, it's 255 in the worst case
 name|trimmed
 operator|=
 literal|true
 expr_stmt|;
 break|break;
+block|}
+comment|// check if we need to insert "" to break an hex escape sequence
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|lastWasHexEscape
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|fromHex
+argument_list|(
+operator|*
+name|p
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+comment|// yes, insert it
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'"'
+expr_stmt|;
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'"'
+expr_stmt|;
+block|}
+name|lastWasHexEscape
+operator|=
+literal|false
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -5476,65 +5547,46 @@ literal|'t'
 expr_stmt|;
 break|break;
 default|default:
-comment|// write as octal
+comment|// print as hex escape
 operator|*
 name|dst
 operator|++
 operator|=
-literal|'0'
-operator|+
-operator|(
-operator|(
+literal|'x'
+expr_stmt|;
+operator|*
+name|dst
+operator|++
+operator|=
+name|toHexUpper
+argument_list|(
 name|uchar
 argument_list|(
 operator|*
 name|p
 argument_list|)
 operator|>>
-literal|6
-operator|)
-operator|&
-literal|7
-operator|)
+literal|4
+argument_list|)
 expr_stmt|;
 operator|*
 name|dst
 operator|++
 operator|=
-literal|'0'
-operator|+
-operator|(
-operator|(
+name|toHexUpper
+argument_list|(
 name|uchar
 argument_list|(
 operator|*
 name|p
 argument_list|)
-operator|>>
-literal|3
-operator|)
-operator|&
-literal|7
-operator|)
+argument_list|)
 expr_stmt|;
-operator|*
-name|dst
-operator|++
+name|lastWasHexEscape
 operator|=
-literal|'0'
-operator|+
-operator|(
-operator|(
-name|uchar
-argument_list|(
-operator|*
-name|p
-argument_list|)
-operator|)
-operator|&
-literal|7
-operator|)
+literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 operator|*
@@ -6163,6 +6215,13 @@ block|}
 name|QTestResult
 operator|::
 name|setSkipCurrentTest
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|QTestResult
+operator|::
+name|setBlacklistCurrentTest
 argument_list|(
 literal|false
 argument_list|)

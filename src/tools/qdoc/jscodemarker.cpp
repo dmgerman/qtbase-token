@@ -55,6 +55,11 @@ include|#
 directive|include
 file|"tree.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"generator.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|JsCodeMarker
@@ -403,6 +408,11 @@ name|location
 operator|.
 name|warning
 argument_list|(
+name|location
+operator|.
+name|fileName
+argument_list|()
+operator|+
 name|tr
 argument_list|(
 literal|"Unable to parse JavaScript: \"%1\" at line %2, column %3"

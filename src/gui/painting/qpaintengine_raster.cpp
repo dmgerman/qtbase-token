@@ -10161,6 +10161,7 @@ name|QVectorPath
 name|vp
 argument_list|(
 operator|(
+specifier|const
 name|qreal
 operator|*
 operator|)
@@ -10325,6 +10326,7 @@ operator|::
 name|isRect
 argument_list|(
 operator|(
+specifier|const
 name|qreal
 operator|*
 operator|)
@@ -10404,6 +10406,7 @@ name|QVectorPath
 name|vp
 argument_list|(
 operator|(
+specifier|const
 name|qreal
 operator|*
 operator|)
@@ -10568,6 +10571,7 @@ operator|::
 name|isRect
 argument_list|(
 operator|(
+specifier|const
 name|int
 operator|*
 operator|)
@@ -10838,6 +10842,7 @@ index|]
 operator|=
 operator|(
 operator|(
+specifier|const
 name|int
 operator|*
 operator|)
@@ -16515,11 +16520,13 @@ block|}
 else|else
 block|{
 comment|// 32-bit alpha...
+specifier|const
 name|uint
 modifier|*
 name|sl
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)

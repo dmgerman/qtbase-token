@@ -2311,18 +2311,15 @@ name|cornerOffset
 argument_list|)
 decl_stmt|;
 comment|// Some styles paints the corner if both scorllbars are showing and there is
-comment|// no corner widget. Also, on the Mac we paint if there is a native
-comment|// (transparent) sizegrip in the area where a corner widget would be.
+comment|// no corner widget.
 if|if
 condition|(
-operator|(
 name|needv
 operator|&&
 name|needh
 operator|&&
+operator|!
 name|hasCornerWidget
-operator|==
-literal|false
 operator|&&
 name|hscrollOverlap
 operator|==
@@ -2331,24 +2328,7 @@ operator|&&
 name|vscrollOverlap
 operator|==
 literal|0
-operator|)
-operator|||
-operator|(
-operator|(
-name|needv
-operator|||
-name|needh
-operator|)
-ifdef|#
-directive|ifdef
-name|Q_DEAD_CODE_FROM_QT4_MAC
-operator|&&
-name|hasMacSizeGrip
-endif|#
-directive|endif
-operator|)
 condition|)
-block|{
 name|cornerPaintingRect
 operator|=
 name|QStyle
@@ -2371,15 +2351,12 @@ name|extSize
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|cornerPaintingRect
 operator|=
 name|QRect
 argument_list|()
 expr_stmt|;
-block|}
 ifdef|#
 directive|ifdef
 name|Q_DEAD_CODE_FROM_QT4_MAC

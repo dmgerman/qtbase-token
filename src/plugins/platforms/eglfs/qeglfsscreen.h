@@ -115,6 +115,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|EGLSurface
 name|primarySurface
 argument_list|()

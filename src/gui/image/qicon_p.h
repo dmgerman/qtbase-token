@@ -323,6 +323,7 @@ literal|1.0
 argument_list|)
 block|; }
 name|class
+name|Q_GUI_EXPORT
 name|QPixmapIconEngine
 operator|:
 name|public

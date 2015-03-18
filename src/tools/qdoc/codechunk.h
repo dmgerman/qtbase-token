@@ -66,6 +66,16 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+name|void
+name|clear
+parameter_list|()
+block|{
+name|s
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 name|QString
 name|toString
 argument_list|()

@@ -3038,6 +3038,7 @@ operator|::
 name|fromRawData
 argument_list|(
 operator|(
+specifier|const
 name|char
 operator|*
 operator|)

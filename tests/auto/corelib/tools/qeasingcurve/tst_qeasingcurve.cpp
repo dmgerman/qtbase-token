@@ -6476,6 +6476,8 @@ expr_stmt|;
 name|double
 name|expected
 init|=
+name|std
+operator|::
 name|pow
 argument_list|(
 name|d
@@ -6617,6 +6619,8 @@ expr_stmt|;
 name|float
 name|expected
 init|=
+name|std
+operator|::
 name|pow
 argument_list|(
 name|f

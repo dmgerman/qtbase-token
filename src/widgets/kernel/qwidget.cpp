@@ -27484,6 +27484,14 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+name|q
+operator|->
+name|isWindow
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 operator|(
 name|data
@@ -27585,6 +27593,7 @@ name|needsShow
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

@@ -248,11 +248,13 @@ condition|)
 return|return
 literal|false
 return|;
+specifier|const
 name|QKeyEvent
 modifier|*
 name|keyEvent
 init|=
 operator|(
+specifier|const
 name|QKeyEvent
 operator|*
 operator|)

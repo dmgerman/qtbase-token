@@ -196,6 +196,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|QEglFSKmsDevice
 operator|*
 name|device

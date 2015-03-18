@@ -99,7 +99,14 @@ name|objectPosition
 argument_list|(
 argument|pos
 argument_list|)
-block|{}
+block|{
+name|offsets
+operator|.
+name|reserve
+argument_list|(
+literal|64
+argument_list|)
+block|;         }
 name|void
 name|insert
 argument_list|(
@@ -113,11 +120,9 @@ decl_stmt|;
 name|int
 name|objectPosition
 decl_stmt|;
-name|QVarLengthArray
+name|QVector
 operator|<
 name|uint
-operator|,
-literal|64
 operator|>
 name|offsets
 expr_stmt|;

@@ -2851,6 +2851,7 @@ name|rect
 argument_list|(
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)
@@ -2865,6 +2866,7 @@ index|]
 argument_list|,
 operator|(
 operator|(
+specifier|const
 name|QPointF
 operator|*
 operator|)

@@ -75,6 +75,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<cmath>
+end_include
+begin_include
+include|#
+directive|include
 file|<QLinkedList>
 end_include
 begin_include
@@ -27881,6 +27886,8 @@ literal|'g'
 argument_list|,
 name|DBL_MANT_DIG
 operator|*
+name|std
+operator|::
 name|log10
 argument_list|(
 literal|2.
@@ -27916,6 +27923,8 @@ literal|'g'
 argument_list|,
 name|FLT_MANT_DIG
 operator|*
+name|std
+operator|::
 name|log10
 argument_list|(
 literal|2.

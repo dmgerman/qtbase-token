@@ -3132,6 +3132,7 @@ name|FunctionNode
 modifier|*
 name|clone
 parameter_list|)
+specifier|const
 block|{
 name|QMap
 argument_list|<
@@ -3395,7 +3396,6 @@ name|InnerNode
 operator|::
 name|setOverload
 parameter_list|(
-specifier|const
 name|FunctionNode
 modifier|*
 name|func
@@ -4152,11 +4152,14 @@ name|Node
 modifier|*
 name|node
 init|=
-operator|(
-name|Node
+cast|const_cast
+argument_list|<
+name|FunctionNode
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|func
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -7728,7 +7731,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   Append \a parameter to the parameter list.  */
 end_comment
 begin_function
 DECL|function|addParameter

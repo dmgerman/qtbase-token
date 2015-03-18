@@ -99,11 +99,16 @@ name|void
 name|initResources
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|Q_INIT_RESOURCE
 argument_list|(
 name|cursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

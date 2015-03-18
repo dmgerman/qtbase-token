@@ -1236,6 +1236,10 @@ argument_list|(
 name|void
 operator|*
 name|nativeConfig
+argument_list|,
+name|int
+operator|*
+name|err
 argument_list|)
 block|;
 name|void

@@ -1089,16 +1089,13 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::pos() == %d\n"
+literal|"%p QIODevice::pos() == %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1202,12 +1199,9 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QIODevice::seek: Invalid pos: %d"
+literal|"QIODevice::seek: Invalid pos: %lld"
 argument_list|,
-name|int
-argument_list|(
 name|pos
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1220,21 +1214,15 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::seek(%d), before: d->pos = %d, d->buffer.size() = %d\n"
+literal|"%p QIODevice::seek(%lld), before: d->pos = %lld, d->buffer.size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
 name|d
 operator|->
@@ -1275,15 +1263,12 @@ literal|0
 operator|||
 name|offset
 operator|>=
-name|qint64
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 condition|)
 comment|// When seeking backwards, an operation that is only allowed for
 comment|// random-access devices, the buffer is cleared. The next read
@@ -1313,10 +1298,7 @@ name|buffer
 operator|.
 name|skip
 argument_list|(
-name|int
-argument_list|(
 name|offset
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|#
@@ -1325,16 +1307,13 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \tafter: d->pos == %d, d->buffer.size() == %d\n"
+literal|"%p \tafter: d->pos == %lld, d->buffer.size() == %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
 name|d
 operator|->
@@ -1375,7 +1354,7 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::atEnd() returns %s, d->openMode == %d, d->pos == %d\n"
+literal|"%p QIODevice::atEnd() returns %s, d->openMode == %d, d->pos == %lld\n"
 argument_list|,
 name|this
 argument_list|,
@@ -1405,12 +1384,9 @@ operator|->
 name|openMode
 argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1571,33 +1547,24 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::read(%p, %d), d->pos = %d, d->buffer.size() = %d\n"
+literal|"%p QIODevice::read(%p, %lld), d->pos = %lld, d->buffer.size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
 name|data
 argument_list|,
-name|int
-argument_list|(
 name|maxSize
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1816,16 +1783,13 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \treading %d bytes from buffer into position %d\n"
+literal|"%p \treading %lld bytes from buffer into position %lld\n"
 argument_list|,
 name|this
 argument_list|,
 name|bufferReadChunkSize
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 operator|-
 name|bufferReadChunkSize
 argument_list|)
@@ -1943,19 +1907,13 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \treading %d bytes from device (total %d)\n"
+literal|"%p \treading %lld bytes from device (total %lld)\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|readFromDevice
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2003,7 +1961,7 @@ block|}
 else|else
 block|{
 specifier|const
-name|int
+name|qint64
 name|bytesToBuffer
 init|=
 name|QIODEVICE_BUFFERSIZE
@@ -2043,12 +2001,12 @@ name|bytesToBuffer
 operator|-
 name|qMax
 argument_list|(
-literal|0
-argument_list|,
-name|int
+name|Q_INT64_C
 argument_list|(
-name|readFromDevice
+literal|0
 argument_list|)
+argument_list|,
+name|readFromDevice
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2076,14 +2034,11 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \treading %d from device into buffer\n"
+literal|"%p \treading %lld from device into buffer\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|readFromDevice
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2223,21 +2178,15 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \treturning %d, d->pos == %d, d->buffer.size() == %d\n"
+literal|"%p \treturning %lld, d->pos == %lld, d->buffer.size() == %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
 name|d
 operator|->
@@ -2325,31 +2274,22 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::read(%d), d->pos = %d, d->buffer.size() = %d\n"
+literal|"%p QIODevice::read(%lld), d->pos = %lld, d->buffer.size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|maxSize
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 else|#
@@ -2549,26 +2489,20 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::readAll(), d->pos = %d, d->buffer.size() = %d\n"
+literal|"%p QIODevice::readAll(), d->pos = %lld, d->buffer.size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2857,33 +2791,24 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::readLine(%p, %d), d->pos = %d, d->buffer.size() = %d\n"
+literal|"%p QIODevice::readLine(%p, %lld), d->pos = %lld, d->buffer.size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
 name|data
 argument_list|,
-name|int
-argument_list|(
 name|maxSize
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2963,21 +2888,15 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \tread from buffer: %d bytes, last character read: %hhx\n"
+literal|"%p \tread from buffer: %lld bytes, last character read: %hhx\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 argument_list|,
 name|data
 index|[
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 operator|-
 literal|1
 index|]
@@ -3119,19 +3038,13 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \tread from readLineData: %d bytes, readSoFar = %d bytes\n"
+literal|"%p \tread from readLineData: %lld bytes, readSoFar = %lld bytes\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|readBytes
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3283,21 +3196,15 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p \treturning %d, d->pos = %d, d->buffer.size() = %d, size() = %d\n"
+literal|"%p \treturning %lld, d->pos = %lld, d->buffer.size() = %lld, size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
 name|d
 operator|->
@@ -3306,11 +3213,8 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|int
-argument_list|(
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|debugBinaryString
@@ -3365,31 +3269,22 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::readLine(%d), d->pos = %d, d->buffer.size() = %d\n"
+literal|"%p QIODevice::readLine(%lld), d->pos = %lld, d->buffer.size() = %lld\n"
 argument_list|,
 name|this
 argument_list|,
-name|int
-argument_list|(
 name|maxSize
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 else|#
@@ -3666,38 +3561,27 @@ name|defined
 name|QIODEVICE_DEBUG
 name|printf
 argument_list|(
-literal|"%p QIODevice::readLineData(%p, %d), d->pos = %d, d->buffer.size() = %d, returns %d\n"
+literal|"%p QIODevice::readLineData(%p, %lld), d->pos = %lld, d->buffer.size() = %lld, "
+literal|"returns %lld\n"
 argument_list|,
 name|this
 argument_list|,
 name|data
 argument_list|,
-name|int
-argument_list|(
 name|maxSize
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|pos
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|d
 operator|->
 name|buffer
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|readSoFar
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#

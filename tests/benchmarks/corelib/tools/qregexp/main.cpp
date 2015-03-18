@@ -173,9 +173,6 @@ name|void
 name|matchReplace2
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|HAVE_JSC
 name|void
 name|simpleFindJSC
 parameter_list|()
@@ -188,11 +185,6 @@ name|void
 name|matchReplaceJSC
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|HAVE_BOOST
 name|void
 name|simpleFindBoost
 parameter_list|()
@@ -205,8 +197,6 @@ name|void
 name|matchReplaceBoost
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 comment|/* those apply an (incorrect) regexp on entire source    (this main.cpp). JSC appears to handle this    (ab)use case best. QRegExp performs extremly bad.  */
 name|void
 name|horribleWrongReplace1
@@ -224,9 +214,6 @@ name|void
 name|horribleWrongReplace2
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|HAVE_JSC
 name|void
 name|horribleWrongReplaceJSC
 parameter_list|()
@@ -235,11 +222,6 @@ name|void
 name|horribleReplaceJSC
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|HAVE_BOOST
 name|void
 name|horribleWrongReplaceBoost
 parameter_list|()
@@ -248,8 +230,6 @@ name|void
 name|horribleReplaceBoost
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 private|private:
 DECL|member|str1
 name|QString
@@ -1869,11 +1849,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|HAVE_JSC
-end_ifdef
 begin_function
 DECL|function|simpleFindJSC
 name|void
@@ -1882,6 +1857,9 @@ operator|::
 name|simpleFindJSC
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|int
 name|numr
 decl_stmt|;
@@ -1991,6 +1969,15 @@ argument_list|,
 literal|11
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"JSC is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2001,6 +1988,9 @@ operator|::
 name|rangeReplaceJSC
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|QScriptValue
 name|r
 decl_stmt|;
@@ -2063,6 +2053,15 @@ literal|"W- -r- -ll h-ppy monk-ys"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"JSC is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2073,6 +2072,9 @@ operator|::
 name|matchReplaceJSC
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|QScriptValue
 name|r
 decl_stmt|;
@@ -2135,6 +2137,15 @@ literal|"eaeaae"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"JSC is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2145,6 +2156,9 @@ operator|::
 name|horribleWrongReplaceJSC
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|QScriptValue
 name|r
 decl_stmt|;
@@ -2205,6 +2219,15 @@ argument_list|,
 name|str2
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"JSC is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2215,6 +2238,9 @@ operator|::
 name|horribleReplaceJSC
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|QScriptValue
 name|r
 decl_stmt|;
@@ -2286,17 +2312,17 @@ literal|"1.2.3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"JSC is not enabled for this platform"
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|HAVE_BOOST
-end_ifdef
+block|}
+end_function
 begin_function
 DECL|function|simpleFindBoost
 name|void
@@ -2305,6 +2331,9 @@ operator|::
 name|simpleFindBoost
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_BOOST
 name|int
 name|roff
 decl_stmt|;
@@ -2412,6 +2441,15 @@ argument_list|,
 literal|11
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"Boost is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2422,6 +2460,9 @@ operator|::
 name|rangeReplaceBoost
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_BOOST
 name|boost
 operator|::
 name|regex
@@ -2479,6 +2520,15 @@ literal|"W- -r- -ll h-ppy monk-ys"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"Boost is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2489,6 +2539,9 @@ operator|::
 name|matchReplaceBoost
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_BOOST
 name|boost
 operator|::
 name|regex
@@ -2546,6 +2599,15 @@ literal|"eaeaae"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"Boost is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2556,6 +2618,9 @@ operator|::
 name|horribleWrongReplaceBoost
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_BOOST
 name|boost
 operator|::
 name|regex
@@ -2609,6 +2674,15 @@ argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"Boost is not enabled for this platform"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2619,6 +2693,9 @@ operator|::
 name|horribleReplaceBoost
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|HAVE_BOOST
 name|boost
 operator|::
 name|regex
@@ -2677,15 +2754,17 @@ literal|"1.2.3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"Boost is not enabled for this platform"
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
-end_endif
-begin_comment
-comment|//HAVE_BOOST
-end_comment
+block|}
+end_function
 begin_macro
 name|QTEST_MAIN
 argument_list|(

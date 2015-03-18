@@ -146,7 +146,6 @@ name|painter
 argument_list|)
 block|;
 comment|// input methods
-name|virtual
 name|void
 name|pointerEvent
 argument_list|(
@@ -154,10 +153,22 @@ argument|const QMouseEvent&event
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|QPoint
+name|pos
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|setPos
+argument_list|(
+argument|const QPoint&pos
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
-name|virtual
 name|void
 name|changeCursor
 argument_list|(
@@ -274,6 +285,9 @@ block|;
 name|QFbCursorDeviceListener
 operator|*
 name|mDeviceListener
+block|;
+name|QPoint
+name|m_pos
 block|; }
 decl_stmt|;
 end_decl_stmt

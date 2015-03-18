@@ -2758,7 +2758,6 @@ name|QDomNodePrivate
 modifier|*
 name|importNode
 parameter_list|(
-specifier|const
 name|QDomNodePrivate
 modifier|*
 name|importedNode
@@ -20851,7 +20850,6 @@ name|QDomDocumentPrivate
 operator|::
 name|importNode
 parameter_list|(
-specifier|const
 name|QDomNodePrivate
 modifier|*
 name|importedNode
