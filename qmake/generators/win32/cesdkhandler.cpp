@@ -2123,7 +2123,9 @@ name|CeSdkHandler
 operator|::
 name|fixPaths
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|path
 parameter_list|)
 specifier|const
