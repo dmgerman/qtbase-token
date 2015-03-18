@@ -1458,7 +1458,7 @@ expr_stmt|;
 else|else
 name|o
 operator|.
-name|detach
+name|detach2
 argument_list|()
 expr_stmt|;
 name|d
@@ -1582,7 +1582,7 @@ expr_stmt|;
 else|else
 name|a
 operator|.
-name|detach
+name|detach2
 argument_list|()
 expr_stmt|;
 name|d
