@@ -18566,12 +18566,6 @@ expr_stmt|;
 comment|// Restore system clip, viewport and transform.
 name|enginePriv
 operator|->
-name|systemClip
-operator|=
-name|oldSystemClip
-expr_stmt|;
-name|enginePriv
-operator|->
 name|setSystemViewport
 argument_list|(
 name|oldSystemViewport
@@ -18583,6 +18577,12 @@ name|setSystemTransform
 argument_list|(
 name|oldTransform
 argument_list|)
+expr_stmt|;
+name|enginePriv
+operator|->
+name|systemClip
+operator|=
+name|oldSystemClip
 expr_stmt|;
 comment|// Restore shared painter.
 name|d
