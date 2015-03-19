@@ -1794,6 +1794,14 @@ comment|// window manager could prevent it (e.g. matchbox)
 return|return
 literal|false
 return|;
+case|case
+name|QPlatformIntegration
+operator|::
+name|ReplayMousePressOutsidePopup
+case|:
+return|return
+literal|false
+return|;
 default|default:
 break|break;
 block|}
