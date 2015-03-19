@@ -2485,15 +2485,12 @@ operator|*
 name|child
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setOutputSubdirectory
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|t
+argument|const QString& t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
