@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  pcfdrivr.c      FreeType font driver for pcf files      Copyright (C) 2000, 2001, 2002, 2003, 2004, 2006, 2007, 2008, 2009 by     Francesco Zappa Nardelli  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+comment|/*  pcfdrivr.c      FreeType font driver for pcf files      Copyright (C) 2000-2004, 2006-2011, 2013, 2014 by     Francesco Zappa Nardelli  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 end_comment
 begin_include
 include|#
@@ -35,12 +35,22 @@ end_include
 begin_include
 include|#
 directive|include
+include|FT_BZIP2_H
+end_include
+begin_include
+include|#
+directive|include
 include|FT_ERRORS_H
 end_include
 begin_include
 include|#
 directive|include
 include|FT_BDF_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_TRUETYPE_IDS_H
 end_include
 begin_include
 include|#
@@ -210,7 +220,7 @@ operator|->
 name|encodings
 expr_stmt|;
 return|return
-name|PCF_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -586,7 +596,7 @@ return|;
 block|}
 end_block
 begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
+specifier|static
 DECL|variable|pcf_cmap_class
 specifier|const
 name|FT_CMap_ClassRec
@@ -676,13 +686,6 @@ name|metrics
 argument_list|)
 expr_stmt|;
 comment|/* free properties */
-block|{
-name|PCF_Property
-name|prop
-decl_stmt|;
-name|FT_Int
-name|i
-decl_stmt|;
 if|if
 condition|(
 name|face
@@ -690,6 +693,9 @@ operator|->
 name|properties
 condition|)
 block|{
+name|FT_Int
+name|i
+decl_stmt|;
 for|for
 control|(
 name|i
@@ -706,8 +712,9 @@ name|i
 operator|++
 control|)
 block|{
+name|PCF_Property
 name|prop
-operator|=
+init|=
 operator|&
 name|face
 operator|->
@@ -715,7 +722,7 @@ name|properties
 index|[
 name|i
 index|]
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|prop
@@ -743,7 +750,6 @@ operator|.
 name|atom
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|FT_FREE
@@ -798,14 +804,7 @@ operator|->
 name|charset_registry
 argument_list|)
 expr_stmt|;
-name|FT_TRACE4
-argument_list|(
-operator|(
-literal|"PCF_Face_Done: done face\n"
-operator|)
-argument_list|)
-expr_stmt|;
-comment|/* close gzip/LZW stream if any */
+comment|/* close compressed stream if any */
 if|if
 condition|(
 name|pcfface
@@ -815,7 +814,7 @@ operator|==
 operator|&
 name|face
 operator|->
-name|gzip_stream
+name|comp_stream
 condition|)
 block|{
 name|FT_Stream_Close
@@ -823,7 +822,7 @@ argument_list|(
 operator|&
 name|face
 operator|->
-name|gzip_stream
+name|comp_stream
 argument_list|)
 expr_stmt|;
 name|pcfface
@@ -832,7 +831,7 @@ name|stream
 operator|=
 name|face
 operator|->
-name|gzip_source
+name|comp_source
 expr_stmt|;
 block|}
 block|}
@@ -871,8 +870,6 @@ name|pcfface
 decl_stmt|;
 name|FT_Error
 name|error
-init|=
-name|PCF_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -884,9 +881,11 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
-name|FT_UNUSED
+name|FT_TRACE2
 argument_list|(
-name|face_index
+operator|(
+literal|"PCF driver\n"
+operator|)
 argument_list|)
 expr_stmt|;
 name|error
@@ -920,6 +919,12 @@ name|defined
 argument_list|(
 name|FT_CONFIG_OPTION_USE_LZW
 argument_list|)
+operator|||
+expr|\
+name|defined
+argument_list|(
+name|FT_CONFIG_OPTION_USE_BZIP2
+argument_list|)
 ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_USE_ZLIB
@@ -935,19 +940,19 @@ argument_list|(
 operator|&
 name|face
 operator|->
-name|gzip_stream
+name|comp_stream
 argument_list|,
 name|stream
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_ERROR_BASE
+name|FT_ERR_EQ
 argument_list|(
 name|error2
+argument_list|,
+name|Unimplemented_Feature
 argument_list|)
-operator|==
-name|FT_Err_Unimplemented_Feature
 condition|)
 goto|goto
 name|Fail
@@ -979,19 +984,19 @@ argument_list|(
 operator|&
 name|face
 operator|->
-name|gzip_stream
+name|comp_stream
 argument_list|,
 name|stream
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_ERROR_BASE
+name|FT_ERR_EQ
 argument_list|(
 name|error3
+argument_list|,
+name|Unimplemented_Feature
 argument_list|)
-operator|==
-name|FT_Err_Unimplemented_Feature
 condition|)
 goto|goto
 name|Fail
@@ -1004,6 +1009,50 @@ block|}
 endif|#
 directive|endif
 comment|/* FT_CONFIG_OPTION_USE_LZW */
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_USE_BZIP2
+if|if
+condition|(
+name|error
+condition|)
+block|{
+name|FT_Error
+name|error4
+decl_stmt|;
+comment|/* this didn't work, try Bzip2 support! */
+name|error4
+operator|=
+name|FT_Stream_OpenBzip2
+argument_list|(
+operator|&
+name|face
+operator|->
+name|comp_stream
+argument_list|,
+name|stream
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|FT_ERR_EQ
+argument_list|(
+name|error4
+argument_list|,
+name|Unimplemented_Feature
+argument_list|)
+condition|)
+goto|goto
+name|Fail
+goto|;
+name|error
+operator|=
+name|error4
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+comment|/* FT_CONFIG_OPTION_USE_BZIP2 */
 if|if
 condition|(
 name|error
@@ -1013,7 +1062,7 @@ name|Fail
 goto|;
 name|face
 operator|->
-name|gzip_source
+name|comp_source
 operator|=
 name|stream
 expr_stmt|;
@@ -1024,7 +1073,7 @@ operator|=
 operator|&
 name|face
 operator|->
-name|gzip_stream
+name|comp_stream
 expr_stmt|;
 name|stream
 operator|=
@@ -1050,12 +1099,39 @@ name|Fail
 goto|;
 else|#
 directive|else
-comment|/* !(FT_CONFIG_OPTION_USE_ZLIB || FT_CONFIG_OPTION_USE_LZW) */
+comment|/* !(FT_CONFIG_OPTION_USE_ZLIB ||            FT_CONFIG_OPTION_USE_LZW ||            FT_CONFIG_OPTION_USE_BZIP2) */
 goto|goto
 name|Fail
 goto|;
 endif|#
 directive|endif
+block|}
+comment|/* PCF could not have multiple face in single font file.      * XXX: non-zero face_index is already invalid argument, but      *      Type1, Type42 driver has a convention to return      *      an invalid argument error when the font could be      *      opened by the specified driver.      */
+if|if
+condition|(
+name|face_index
+operator|>
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"PCF_Face_Init: invalid face index\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|PCF_Face_Done
+argument_list|(
+name|pcfface
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 block|}
 comment|/* set up charmap */
 block|{
@@ -1204,17 +1280,18 @@ name|encoding
 operator|=
 name|FT_ENCODING_NONE
 expr_stmt|;
+comment|/* initial platform/encoding should indicate unset status? */
 name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|0
+name|TT_PLATFORM_APPLE_UNICODE
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|0
+name|TT_APPLE_ID_DEFAULT
 expr_stmt|;
 if|if
 condition|(
@@ -1231,13 +1308,13 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|3
+name|TT_PLATFORM_MICROSOFT
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|1
+name|TT_MS_ID_UNICODE_CS
 expr_stmt|;
 block|}
 name|error
@@ -1274,7 +1351,7 @@ label|:
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a valid PCF file]\n"
+literal|"  not a PCF file\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1285,7 +1362,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PCF_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 comment|/* error */
 goto|goto
@@ -1374,7 +1454,7 @@ operator|<<
 literal|6
 expr_stmt|;
 return|return
-name|PCF_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1418,7 +1498,10 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PCF_Err_Invalid_Pixel_Size
+name|FT_ERR
+argument_list|(
+name|Invalid_Pixel_Size
+argument_list|)
 decl_stmt|;
 name|FT_Long
 name|height
@@ -1468,7 +1551,7 @@ operator|)
 condition|)
 name|error
 operator|=
-name|PCF_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 case|case
@@ -1494,13 +1577,16 @@ operator|)
 condition|)
 name|error
 operator|=
-name|PCF_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 default|default:
 name|error
 operator|=
-name|PCF_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -1560,7 +1646,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PCF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Bitmap
 modifier|*
@@ -1582,10 +1668,10 @@ argument_list|(
 name|load_flags
 argument_list|)
 expr_stmt|;
-name|FT_TRACE4
+name|FT_TRACE1
 argument_list|(
 operator|(
-literal|"load_glyph %d ---"
+literal|"PCF_Glyph_Load: glyph index %d\n"
 operator|,
 name|glyph_index
 operator|)
@@ -1595,7 +1681,21 @@ if|if
 condition|(
 operator|!
 name|face
-operator|||
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+if|if
+condition|(
 name|glyph_index
 operator|>=
 operator|(
@@ -1610,7 +1710,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PCF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1801,7 +1904,10 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|PCF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 return|;
 block|}
 comment|/* XXX: to do: are there cases that need repadding the bitmap? */
@@ -1821,6 +1927,9 @@ name|ft_glyphslot_alloc_bitmap
 argument_list|(
 name|slot
 argument_list|,
+operator|(
+name|FT_ULong
+operator|)
 name|bytes
 argument_list|)
 expr_stmt|;
@@ -2045,13 +2154,6 @@ operator|<<
 literal|6
 argument_list|)
 expr_stmt|;
-name|FT_TRACE4
-argument_list|(
-operator|(
-literal|" --- ok\n"
-operator|)
-argument_list|)
-expr_stmt|;
 name|Exit
 label|:
 return|return
@@ -2195,7 +2297,10 @@ literal|0
 return|;
 block|}
 return|return
-name|PCF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 block|}
 end_function
@@ -2353,8 +2458,10 @@ literal|0
 block|,
 literal|0
 block|,
+comment|/* FT_Module_Constructor */
 literal|0
 block|,
+comment|/* FT_Module_Destructor  */
 name|pcf_driver_requester
 block|}
 block|,
@@ -2389,15 +2496,6 @@ comment|/* FT_Slot_InitFunc */
 literal|0
 block|,
 comment|/* FT_Slot_DoneFunc */
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|ft_stub_set_char_sizes
-block|,
-name|ft_stub_set_pixel_sizes
-block|,
-endif|#
-directive|endif
 name|PCF_Glyph_Load
 block|,
 literal|0

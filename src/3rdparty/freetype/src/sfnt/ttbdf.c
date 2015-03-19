@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2006 by                                                */
+comment|/*  Copyright 2005, 2006, 2010, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -255,7 +255,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -460,7 +463,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -507,7 +513,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -584,7 +590,10 @@ name|count
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -834,7 +843,7 @@ name|value
 expr_stmt|;
 name|error
 operator|=
-literal|0
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -863,7 +872,7 @@ name|value
 expr_stmt|;
 name|error
 operator|=
-literal|0
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -887,7 +896,7 @@ name|value
 expr_stmt|;
 name|error
 operator|=
-literal|0
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit

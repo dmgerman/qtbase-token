@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009 by       */
+comment|/*  Copyright 1996-2007, 2009, 2010, 2013 by                               */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -216,7 +216,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|SFNT_Err_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Table_Missing
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -359,6 +362,8 @@ condition|(
 name|length
 operator|<=
 literal|6
+operator|+
+literal|8
 condition|)
 break|break;
 name|p_next
@@ -415,9 +420,9 @@ name|p_next
 operator|-
 name|p
 operator|)
-operator|/
-literal|6
 operator|<
+literal|6
+operator|*
 operator|(
 name|int
 operator|)
@@ -638,8 +643,6 @@ name|FT_UInt
 name|count
 decl_stmt|,
 name|mask
-init|=
-literal|1
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -702,8 +705,6 @@ decl_stmt|;
 name|FT_Byte
 modifier|*
 name|next
-init|=
-name|base
 decl_stmt|;
 name|FT_UInt
 name|version
@@ -803,9 +804,9 @@ name|next
 operator|-
 name|p
 operator|)
-operator|/
-literal|6
 operator|<
+literal|6
+operator|*
 operator|(
 name|int
 operator|)

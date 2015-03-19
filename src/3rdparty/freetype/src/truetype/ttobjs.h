@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 1996-2009, 2011-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -277,11 +277,11 @@ name|FT_F26Dot6
 name|single_width_value
 decl_stmt|;
 DECL|member|delta_base
-name|FT_Short
+name|FT_UShort
 name|delta_base
 decl_stmt|;
 DECL|member|delta_shift
-name|FT_Short
+name|FT_UShort
 name|delta_shift
 decl_stmt|;
 DECL|member|instruct_control
@@ -492,22 +492,37 @@ DECL|member|range
 name|FT_Int
 name|range
 decl_stmt|;
-comment|/* in which code range is it located? */
+comment|/* in which code range is it located?     */
 DECL|member|start
 name|FT_Long
 name|start
 decl_stmt|;
-comment|/* where does it start?               */
+comment|/* where does it start?                   */
+DECL|member|end
+name|FT_Long
+name|end
+decl_stmt|;
+comment|/* where does it end?                     */
 DECL|member|opc
 name|FT_UInt
 name|opc
 decl_stmt|;
-comment|/* function #, or instruction code    */
+comment|/* function #, or instruction code        */
 DECL|member|active
 name|FT_Bool
 name|active
 decl_stmt|;
-comment|/* is it active?                      */
+comment|/* is it active?                          */
+DECL|member|inline_delta
+name|FT_Bool
+name|inline_delta
+decl_stmt|;
+comment|/* is function that defines inline delta? */
+DECL|member|sph_fdef_flags
+name|FT_ULong
+name|sph_fdef_flags
+decl_stmt|;
+comment|/* flags to identify special functions    */
 block|}
 DECL|typedef|TT_DefRecord
 DECL|typedef|TT_DefArray
@@ -557,7 +572,7 @@ name|ox
 decl_stmt|,
 name|oy
 decl_stmt|;
-comment|/* offsets        */
+comment|/* offsets                            */
 block|}
 DECL|typedef|TT_Transform
 name|TT_Transform
@@ -933,12 +948,14 @@ DECL|member|context
 name|TT_ExecContext
 name|context
 decl_stmt|;
+comment|/* if negative, `fpgm' (resp. `prep'), wasn't executed yet; */
+comment|/* otherwise it is the returned error code                  */
 DECL|member|bytecode_ready
-name|FT_Bool
+name|FT_Error
 name|bytecode_ready
 decl_stmt|;
 DECL|member|cvt_ready
-name|FT_Bool
+name|FT_Error
 name|cvt_ready
 decl_stmt|;
 endif|#
@@ -981,10 +998,9 @@ name|TT_GlyphZoneRec
 name|zone
 decl_stmt|;
 comment|/* glyph loader points zone */
-DECL|member|extension_component
-name|void
-modifier|*
-name|extension_component
+DECL|member|interpreter_version
+name|FT_UInt
+name|interpreter_version
 decl_stmt|;
 block|}
 DECL|typedef|TT_DriverRec
@@ -1135,6 +1151,8 @@ begin_macro
 name|tt_size_run_fpgm
 argument_list|(
 argument|TT_Size  size
+argument_list|,
+argument|FT_Bool  pedantic
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1151,10 +1169,11 @@ DECL|variable|tt_size_run_prep
 name|tt_size_run_prep
 argument_list|(
 argument|TT_Size  size
+argument_list|,
+argument|FT_Bool  pedantic
 argument_list|)
 end_macro
 begin_empty_stmt
-DECL|variable|tt_size_run_prep
 empty_stmt|;
 end_empty_stmt
 begin_macro
@@ -1167,6 +1186,8 @@ begin_macro
 name|tt_size_ready_bytecode
 argument_list|(
 argument|TT_Size  size
+argument_list|,
+argument|FT_Bool  pedantic
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1274,6 +1295,19 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|/* auxiliary */
+end_comment
+begin_define
+DECL|macro|IS_HINTED
+define|#
+directive|define
+name|IS_HINTED
+parameter_list|(
+name|flags
+parameter_list|)
+value|( ( flags& FT_LOAD_NO_HINTING ) == 0 )
+end_define
 begin_macro
 name|FT_END_HEADER
 end_macro

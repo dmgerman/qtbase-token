@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2007, 2008, 2009 by             */
+comment|/*  Copyright 1996-2003, 2006-2010, 2013, 2014 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -75,6 +75,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -180,7 +185,7 @@ parameter_list|)
 value|( (FT_String*)tt_post_default_names[x] )
 end_define
 begin_comment
-comment|/* the 258 default Mac PS glyph names */
+comment|/* the 258 default Mac PS glyph names; see file `tools/glnames.py' */
 end_comment
 begin_decl_stmt
 DECL|variable|tt_post_default_names
@@ -200,7 +205,7 @@ literal|".notdef"
 block|,
 literal|".null"
 block|,
-literal|"CR"
+literal|"nonmarkingreturn"
 block|,
 literal|"space"
 block|,
@@ -557,7 +562,7 @@ literal|"guillemotright"
 block|,
 literal|"ellipsis"
 block|,
-literal|"nbspace"
+literal|"nonbreakingspace"
 block|,
 literal|"Agrave"
 block|,
@@ -721,7 +726,7 @@ block|,
 literal|"gbreve"
 block|,
 comment|/* 250 */
-literal|"Idot"
+literal|"Idotaccent"
 block|,
 literal|"Scedilla"
 block|,
@@ -735,7 +740,7 @@ literal|"Ccaron"
 block|,
 literal|"ccaron"
 block|,
-literal|"dmacron"
+literal|"dcroat"
 block|,   }
 decl_stmt|;
 end_decl_stmt
@@ -757,6 +762,9 @@ name|face
 parameter_list|,
 name|FT_Stream
 name|stream
+parameter_list|,
+name|FT_Long
+name|post_limit
 parameter_list|)
 block|{
 name|FT_Memory
@@ -815,7 +823,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|SFNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -966,11 +977,88 @@ name|len
 decl_stmt|;
 if|if
 condition|(
+name|FT_STREAM_POS
+argument_list|()
+operator|>=
+name|post_limit
+condition|)
+break|break;
+else|else
+block|{
+name|FT_TRACE6
+argument_list|(
+operator|(
+literal|"load_format_20: %d byte left in post table\n"
+operator|,
+name|post_limit
+operator|-
+name|FT_STREAM_POS
+argument_list|()
+operator|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|FT_READ_BYTE
 argument_list|(
 name|len
 argument_list|)
+condition|)
+goto|goto
+name|Fail1
+goto|;
+block|}
+if|if
+condition|(
+operator|(
+name|FT_Int
+operator|)
+name|len
+operator|>
+name|post_limit
 operator|||
+name|FT_STREAM_POS
+argument_list|()
+operator|>
+name|post_limit
+operator|-
+operator|(
+name|FT_Int
+operator|)
+name|len
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"load_format_20:"
+literal|" exceeding string length (%d),"
+literal|" truncating at end of post table (%d byte left)\n"
+operator|,
+name|len
+operator|,
+name|post_limit
+operator|-
+name|FT_STREAM_POS
+argument_list|()
+operator|)
+argument_list|)
+expr_stmt|;
+name|len
+operator|=
+name|FT_MAX
+argument_list|(
+literal|0
+argument_list|,
+name|post_limit
+operator|-
+name|FT_STREAM_POS
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|FT_NEW_ARRAY
 argument_list|(
 name|name_strings
@@ -1002,6 +1090,65 @@ name|n
 index|]
 index|[
 name|len
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|n
+operator|<
+name|num_names
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"load_format_20:"
+literal|" all entries in post table are already parsed,"
+literal|" using NULL names for gid %d - %d\n"
+operator|,
+name|n
+operator|,
+name|num_names
+operator|-
+literal|1
+operator|)
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+init|;
+name|n
+operator|<
+name|num_names
+condition|;
+name|n
+operator|++
+control|)
+if|if
+condition|(
+name|FT_NEW_ARRAY
+argument_list|(
+name|name_strings
+index|[
+name|n
+index|]
+argument_list|,
+literal|1
+argument_list|)
+condition|)
+goto|goto
+name|Fail1
+goto|;
+else|else
+name|name_strings
+index|[
+name|n
+index|]
+index|[
+literal|0
 index|]
 operator|=
 literal|'\0'
@@ -1054,7 +1201,7 @@ name|name_strings
 expr_stmt|;
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 name|Fail1
 label|:
@@ -1114,6 +1261,9 @@ name|face
 parameter_list|,
 name|FT_Stream
 name|stream
+parameter_list|,
+name|FT_Long
+name|post_limit
 parameter_list|)
 block|{
 name|FT_Memory
@@ -1135,6 +1285,11 @@ name|offset_table
 init|=
 literal|0
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|post_limit
+argument_list|)
+expr_stmt|;
 comment|/* UNDOCUMENTED!  This value appears only in the Apple TT specs. */
 if|if
 condition|(
@@ -1164,7 +1319,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|SFNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1234,7 +1392,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|SFNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -1273,7 +1434,7 @@ name|offset_table
 expr_stmt|;
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 name|Fail
 label|:
@@ -1308,6 +1469,12 @@ decl_stmt|;
 name|FT_Fixed
 name|format
 decl_stmt|;
+name|FT_ULong
+name|post_len
+decl_stmt|;
+name|FT_Long
+name|post_limit
+decl_stmt|;
 comment|/* get a stream for the face's resource */
 name|stream
 operator|=
@@ -1330,7 +1497,8 @@ name|TTAG_post
 argument_list|,
 name|stream
 argument_list|,
-literal|0
+operator|&
+name|post_len
 argument_list|)
 expr_stmt|;
 if|if
@@ -1340,6 +1508,13 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+name|post_limit
+operator|=
+name|FT_STREAM_POS
+argument_list|()
+operator|+
+name|post_len
+expr_stmt|;
 name|format
 operator|=
 name|face
@@ -1373,6 +1548,8 @@ argument_list|(
 name|face
 argument_list|,
 name|stream
+argument_list|,
+name|post_limit
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -1389,12 +1566,17 @@ argument_list|(
 name|face
 argument_list|,
 name|stream
+argument_list|,
+name|post_limit
 argument_list|)
 expr_stmt|;
 else|else
 name|error
 operator|=
-name|SFNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 name|face
 operator|->
@@ -1682,7 +1864,10 @@ operator|!
 name|face
 condition|)
 return|return
-name|SFNT_Err_Invalid_Face_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1698,7 +1883,10 @@ operator|.
 name|numGlyphs
 condition|)
 return|return
-name|SFNT_Err_Invalid_Glyph_Index
+name|FT_THROW
+argument_list|(
+name|Invalid_Glyph_Index
+argument_list|)
 return|;
 ifdef|#
 directive|ifdef
@@ -1718,7 +1906,10 @@ operator|!
 name|psnames
 condition|)
 return|return
-name|SFNT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 endif|#
 directive|endif
@@ -1942,7 +2133,7 @@ comment|/* nothing to do for format == 0x00030000L */
 name|End
 label|:
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block

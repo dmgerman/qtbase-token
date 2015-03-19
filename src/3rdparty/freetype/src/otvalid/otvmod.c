@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2007, 2008 by                              */
+comment|/*  Copyright 2004-2008, 2013 by                                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -174,12 +174,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|FT_ERR_EQ
+argument_list|(
 name|error
-operator|==
-name|OTV_Err_Table_Missing
+argument_list|,
+name|Table_Missing
+argument_list|)
 condition|)
 return|return
-name|OTV_Err_Ok
+name|FT_Err_Ok
 return|;
 if|if
 condition|(
@@ -262,7 +265,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|OTV_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*

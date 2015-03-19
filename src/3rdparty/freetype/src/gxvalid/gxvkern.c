@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2007                                       */
+comment|/*  Copyright 2004-2007, 2013                                              */
 end_comment
 begin_comment
 comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
@@ -237,7 +237,7 @@ define|#
 directive|define
 name|KERN_IS_CLASSIC
 parameter_list|(
-name|valid
+name|gxvalid
 parameter_list|)
 define|\
 value|( KERN_VERSION_CLASSIC == GXV_KERN_DATA( version ) )
@@ -248,7 +248,7 @@ define|#
 directive|define
 name|KERN_IS_NEW
 parameter_list|(
-name|valid
+name|gxvalid
 parameter_list|)
 define|\
 value|( KERN_VERSION_NEW     == GXV_KERN_DATA( version ) )
@@ -259,7 +259,7 @@ define|#
 directive|define
 name|KERN_DIALECT
 parameter_list|(
-name|valid
+name|gxvalid
 parameter_list|)
 define|\
 value|GXV_KERN_DATA( dialect_request )
@@ -270,10 +270,10 @@ define|#
 directive|define
 name|KERN_ALLOWS_MS
 parameter_list|(
-name|valid
+name|gxvalid
 parameter_list|)
 define|\
-value|( KERN_DIALECT( valid )& KERN_DIALECT_MS )
+value|( KERN_DIALECT( gxvalid )& KERN_DIALECT_MS )
 end_define
 begin_define
 DECL|macro|KERN_ALLOWS_APPLE
@@ -281,24 +281,24 @@ define|#
 directive|define
 name|KERN_ALLOWS_APPLE
 parameter_list|(
-name|valid
+name|gxvalid
 parameter_list|)
 define|\
-value|( KERN_DIALECT( valid )& KERN_DIALECT_APPLE )
+value|( KERN_DIALECT( gxvalid )& KERN_DIALECT_APPLE )
 end_define
 begin_define
 DECL|macro|GXV_KERN_HEADER_SIZE
 define|#
 directive|define
 name|GXV_KERN_HEADER_SIZE
-value|( KERN_IS_NEW( valid ) ? 8 : 4 )
+value|( KERN_IS_NEW( gxvalid ) ? 8 : 4 )
 end_define
 begin_define
 DECL|macro|GXV_KERN_SUBTABLE_HEADER_SIZE
 define|#
 directive|define
 name|GXV_KERN_SUBTABLE_HEADER_SIZE
-value|( KERN_IS_NEW( valid ) ? 8 : 6 )
+value|( KERN_IS_NEW( gxvalid ) ? 8 : 6 )
 end_define
 begin_comment
 comment|/*************************************************************************/
@@ -340,7 +340,7 @@ name|FT_UShort
 name|nPairs
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -391,9 +391,14 @@ decl_stmt|;
 name|FT_UShort
 name|gid_right
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_Short
 name|kernValue
 decl_stmt|;
+endif|#
+directive|endif
 comment|/* left */
 name|gid_left
 operator|=
@@ -406,7 +411,7 @@ name|gxv_glyphid_validate
 argument_list|(
 name|gid_left
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* right */
@@ -421,7 +426,7 @@ name|gxv_glyphid_validate
 argument_list|(
 name|gid_right
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* Pairs of left and right GIDs must be unique and sorted. */
@@ -478,6 +483,9 @@ else|else
 name|FT_INVALID_DATA
 expr_stmt|;
 comment|/* skip the kern value */
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|kernValue
 operator|=
 name|FT_NEXT_SHORT
@@ -485,6 +493,14 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|p
+operator|+=
+literal|2
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|GXV_EXIT
 expr_stmt|;
@@ -503,7 +519,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -560,7 +576,7 @@ argument_list|,
 operator|&
 name|nPairs
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
@@ -581,7 +597,7 @@ name|limit
 argument_list|,
 name|nPairs
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -627,7 +643,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -641,7 +657,7 @@ init|=
 operator|(
 name|GXV_kern_fmt1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -697,7 +713,7 @@ modifier|*
 name|entryTable_length_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UShort
@@ -725,7 +741,7 @@ init|=
 operator|(
 name|GXV_kern_fmt1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -806,7 +822,7 @@ literal|4
 argument_list|,
 name|table_size
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -836,24 +852,34 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|push
 decl_stmt|;
 name|FT_UShort
 name|dontAdvance
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UShort
 name|valueOffset
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|kernAction
 decl_stmt|;
 name|FT_UShort
 name|kernValue
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UNUSED
 argument_list|(
 name|state
@@ -864,6 +890,9 @@ argument_list|(
 name|glyphOffset_p
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|push
 operator|=
 call|(
@@ -894,6 +923,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|valueOffset
 operator|=
 call|(
@@ -912,7 +943,7 @@ init|=
 operator|(
 name|GXV_kern_fmt1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -956,6 +987,9 @@ operator|+
 literal|2
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|kernAction
 operator|=
 name|FT_NEXT_USHORT
@@ -970,6 +1004,8 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 end_function
@@ -986,7 +1022,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1002,7 +1038,7 @@ argument_list|(
 literal|"kern subtable format 1"
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -1011,7 +1047,7 @@ operator|=
 operator|&
 name|vt_rec
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -1019,7 +1055,7 @@ name|optdata_load_func
 operator|=
 name|gxv_kern_subtable_fmt1_valueTable_load
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -1027,7 +1063,7 @@ name|subtable_setup_func
 operator|=
 name|gxv_kern_subtable_fmt1_subtable_setup
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -1035,7 +1071,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_NONE
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -1049,7 +1085,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -1163,7 +1199,7 @@ name|GXV_kern_ClassSpec
 name|spec
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 specifier|const
@@ -1241,7 +1277,7 @@ name|gxv_glyphid_validate
 argument_list|(
 name|firstGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_glyphid_validate
@@ -1257,7 +1293,7 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_array_getlimits_ushort
@@ -1294,7 +1330,7 @@ index|]
 argument_list|)
 operator|)
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_odtect_add_range
@@ -1327,7 +1363,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|GXV_ODTECT
@@ -1488,7 +1524,7 @@ name|limit
 argument_list|,
 name|GXV_KERN_CLS_L
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_kern_subtable_fmt2_clstbl_validate
@@ -1501,7 +1537,7 @@ name|limit
 argument_list|,
 name|GXV_KERN_CLS_R
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -1568,7 +1604,7 @@ name|gxv_odtect_validate
 argument_list|(
 name|odtect
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -1591,7 +1627,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1671,7 +1707,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -1685,7 +1721,7 @@ argument_list|(
 operator|(
 literal|"maxGID=%d, but glyphCount=%d\n"
 operator|,
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -1695,19 +1731,28 @@ name|glyphCount
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|flags
+operator|!=
+literal|0
+condition|)
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"kern subtable fmt3 has nonzero value"
+literal|" (%d) in unused flag\n"
+operator|,
+name|flags
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/*      * just skip kernValue[kernValueCount]      */
 name|GXV_LIMIT_CHECK
 argument_list|(
@@ -1748,12 +1793,12 @@ argument_list|,
 operator|&
 name|max
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -1792,12 +1837,12 @@ argument_list|,
 operator|&
 name|max
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -1864,7 +1909,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -1890,10 +1935,13 @@ modifier|*
 name|format
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 comment|/* new Apple-dialect */
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|FT_Bool
 name|kernVertical
 decl_stmt|;
@@ -1903,9 +1951,11 @@ decl_stmt|;
 name|FT_Bool
 name|kernVariation
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UNUSED
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* reserved bits = 0 */
@@ -1916,8 +1966,11 @@ operator|&
 literal|0x1FFC
 condition|)
 return|return
-literal|0
+name|FALSE
 return|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|kernVertical
 operator|=
 name|FT_BOOL
@@ -1957,6 +2010,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 operator|*
 name|format
 operator|=
@@ -1995,7 +2050,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-literal|1
+name|TRUE
 return|;
 block|}
 end_function
@@ -2013,16 +2068,21 @@ modifier|*
 name|format
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 comment|/* classic Apple-dialect */
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|FT_Bool
 name|horizontal
 decl_stmt|;
 name|FT_Bool
 name|cross_stream
 decl_stmt|;
+endif|#
+directive|endif
 comment|/* check expected flags, but don't check if MS-dialect is impossible */
 if|if
 condition|(
@@ -2035,11 +2095,11 @@ operator|)
 operator|&&
 name|KERN_ALLOWS_MS
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 return|return
-literal|0
+name|FALSE
 return|;
 comment|/* reserved bits = 0 */
 if|if
@@ -2049,8 +2109,11 @@ operator|&
 literal|0x02FC
 condition|)
 return|return
-literal|0
+name|FALSE
 return|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|horizontal
 operator|=
 name|FT_BOOL
@@ -2077,6 +2140,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 operator|*
 name|format
 operator|=
@@ -2113,7 +2178,7 @@ operator|==
 literal|1
 condition|)
 return|return
-literal|0
+name|FALSE
 return|;
 name|GXV_TRACE
 argument_list|(
@@ -2123,7 +2188,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-literal|1
+name|TRUE
 return|;
 block|}
 end_function
@@ -2141,10 +2206,13 @@ modifier|*
 name|format
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 comment|/* classic Microsoft-dialect */
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|FT_Bool
 name|horizontal
 decl_stmt|;
@@ -2157,9 +2225,11 @@ decl_stmt|;
 name|FT_Bool
 name|override
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UNUSED
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* reserved bits = 0 */
@@ -2170,8 +2240,11 @@ operator|&
 literal|0xFDF0
 condition|)
 return|return
-literal|0
+name|FALSE
 return|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|horizontal
 operator|=
 name|FT_BOOL
@@ -2220,6 +2293,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 operator|*
 name|format
 operator|=
@@ -2271,7 +2346,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-literal|1
+name|TRUE
 return|;
 block|}
 end_function
@@ -2310,7 +2385,7 @@ modifier|*
 name|format
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|GXV_kern_Dialect
@@ -2336,7 +2411,7 @@ if|if
 condition|(
 name|KERN_IS_NEW
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2348,7 +2423,7 @@ name|coverage
 argument_list|,
 name|format
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2365,12 +2440,12 @@ if|if
 condition|(
 name|KERN_IS_CLASSIC
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 operator|&&
 name|KERN_ALLOWS_APPLE
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2382,7 +2457,7 @@ name|coverage
 argument_list|,
 name|format
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2399,12 +2474,12 @@ if|if
 condition|(
 name|KERN_IS_CLASSIC
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 operator|&&
 name|KERN_ALLOWS_MS
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2416,7 +2491,7 @@ name|coverage
 argument_list|,
 name|format
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2458,7 +2533,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -2466,12 +2541,17 @@ name|p
 init|=
 name|table
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|FT_UShort
 name|version
 init|=
 literal|0
 decl_stmt|;
 comment|/* MS only: subtable version, unused */
+endif|#
+directive|endif
 name|FT_ULong
 name|length
 decl_stmt|;
@@ -2479,12 +2559,17 @@ comment|/* MS: 16bit, Apple: 32bit*/
 name|FT_UShort
 name|coverage
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|FT_UShort
 name|tupleIndex
 init|=
 literal|0
 decl_stmt|;
 comment|/* Apple only */
+endif|#
+directive|endif
 name|FT_UShort
 name|u16
 index|[
@@ -2549,13 +2634,16 @@ argument_list|,
 operator|&
 name|format
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
 case|case
 name|KERN_DIALECT_MS
 case|:
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|version
 operator|=
 name|u16
@@ -2563,6 +2651,8 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+endif|#
+directive|endif
 name|length
 operator|=
 name|u16
@@ -2570,10 +2660,15 @@ index|[
 literal|1
 index|]
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|tupleIndex
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|GXV_TRACE
 argument_list|(
 operator|(
@@ -2596,10 +2691,15 @@ break|break;
 case|case
 name|KERN_DIALECT_APPLE
 case|:
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|version
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|length
 operator|=
 operator|(
@@ -2616,10 +2716,15 @@ index|[
 literal|1
 index|]
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|tupleIndex
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|GXV_TRACE
 argument_list|(
 operator|(
@@ -2633,7 +2738,7 @@ if|if
 condition|(
 name|KERN_IS_NEW
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2642,6 +2747,9 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|tupleIndex
 operator|=
 name|FT_NEXT_USHORT
@@ -2649,6 +2757,14 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|p
+operator|+=
+literal|2
+expr_stmt|;
+endif|#
+directive|endif
 name|GXV_TRACE
 argument_list|(
 operator|(
@@ -2697,7 +2813,7 @@ name|table
 operator|+
 name|length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2715,7 +2831,7 @@ name|table
 operator|+
 name|length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2733,7 +2849,7 @@ name|table
 operator|+
 name|length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2751,7 +2867,7 @@ name|table
 operator|+
 name|length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 else|else
@@ -2759,7 +2875,7 @@ name|FT_INVALID_DATA
 expr_stmt|;
 name|Exit
 label|:
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2813,13 +2929,13 @@ name|ftvalid
 parameter_list|)
 block|{
 name|GXV_ValidatorRec
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_Validator
-name|valid
+name|gxvalid
 init|=
 operator|&
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_kern_DataRec
 name|kernrec
@@ -2848,19 +2964,19 @@ decl_stmt|;
 name|FT_UInt
 name|i
 decl_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|=
 name|ftvalid
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|table_data
 operator|=
 name|kern
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|=
@@ -2877,7 +2993,7 @@ name|GXV_INIT
 expr_stmt|;
 name|KERN_DIALECT
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 operator|=
 name|dialect_request
@@ -2928,7 +3044,7 @@ if|if
 condition|(
 name|KERN_IS_CLASSIC
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -2950,7 +3066,7 @@ if|if
 condition|(
 name|KERN_IS_NEW
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 block|{
@@ -3016,12 +3132,12 @@ name|p
 argument_list|,
 literal|0
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2005, 2006 by                         */
+comment|/*  Copyright 1996-2003, 2005, 2006, 2011, 2013 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -125,7 +130,7 @@ name|raster_pool_size
 argument_list|)
 expr_stmt|;
 return|return
-name|Raster_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -198,7 +203,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|Raster_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -213,7 +218,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|Raster_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -378,7 +386,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|Raster_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -406,7 +417,10 @@ operator|&
 name|ft_raster1_renderer_class
 condition|)
 return|return
-name|Raster_Err_Cannot_Render_Glyph
+name|FT_THROW
+argument_list|(
+name|Cannot_Render_Glyph
+argument_list|)
 return|;
 block|}
 else|else
@@ -422,7 +436,10 @@ operator|&
 name|ft_raster5_renderer_class
 condition|)
 return|return
-name|Raster_Err_Cannot_Render_Glyph
+name|FT_THROW
+argument_list|(
+name|Cannot_Render_Glyph
+argument_list|)
 return|;
 block|}
 else|#
@@ -457,7 +474,10 @@ operator|==
 literal|'1'
 condition|)
 return|return
-name|Raster_Err_Cannot_Render_Glyph
+name|FT_THROW
+argument_list|(
+name|Cannot_Render_Glyph
+argument_list|)
 return|;
 block|}
 else|else
@@ -479,7 +499,10 @@ operator|==
 literal|'5'
 condition|)
 return|return
-name|Raster_Err_Cannot_Render_Glyph
+name|FT_THROW
+argument_list|(
+name|Cannot_Render_Glyph
+argument_list|)
 return|;
 block|}
 endif|#
@@ -519,6 +542,56 @@ operator|&
 name|cbox
 argument_list|)
 expr_stmt|;
+comment|/* undocumented but confirmed: bbox values get rounded */
+if|#
+directive|if
+literal|1
+name|cbox
+operator|.
+name|xMin
+operator|=
+name|FT_PIX_ROUND
+argument_list|(
+name|cbox
+operator|.
+name|xMin
+argument_list|)
+expr_stmt|;
+name|cbox
+operator|.
+name|yMin
+operator|=
+name|FT_PIX_ROUND
+argument_list|(
+name|cbox
+operator|.
+name|yMin
+argument_list|)
+expr_stmt|;
+name|cbox
+operator|.
+name|xMax
+operator|=
+name|FT_PIX_ROUND
+argument_list|(
+name|cbox
+operator|.
+name|xMax
+argument_list|)
+expr_stmt|;
+name|cbox
+operator|.
+name|yMax
+operator|=
+name|FT_PIX_ROUND
+argument_list|(
+name|cbox
+operator|.
+name|yMax
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|cbox
 operator|.
 name|xMin
@@ -563,6 +636,8 @@ operator|.
 name|yMax
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|width
 operator|=
 call|(
@@ -601,6 +676,28 @@ operator|>>
 literal|6
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|width
+operator|>
+name|FT_USHORT_MAX
+operator|||
+name|height
+operator|>
+name|FT_USHORT_MAX
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 name|bitmap
 operator|=
 operator|&
@@ -878,7 +975,7 @@ argument|ft_raster1_renderer_class
 argument_list|,
 argument|FT_MODULE_RENDERER
 argument_list|,
-argument|sizeof( FT_RendererRec )
+argument|sizeof ( FT_RendererRec )
 argument_list|,
 literal|"raster1"
 argument_list|,
@@ -929,7 +1026,7 @@ argument|ft_raster5_renderer_class
 argument_list|,
 argument|FT_MODULE_RENDERER
 argument_list|,
-argument|sizeof( FT_RendererRec )
+argument|sizeof ( FT_RendererRec )
 argument_list|,
 literal|"raster5"
 argument_list|,

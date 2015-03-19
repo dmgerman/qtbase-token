@@ -12,13 +12,13 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*    Auto-fitter hinting routines for Indic scripts (body).               */
+comment|/*    Auto-fitter hinting routines for Indic writing system (body).        */
 end_comment
 begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007 by                                                      */
+comment|/*  Copyright 2007, 2011-2013 by                                           */
 end_comment
 begin_comment
 comment|/*  Rahul Bhalerao<rahul.bhalerao@redhat.com>,<b.rahul.pm@gmail.com>.    */
@@ -80,7 +80,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|AF_USE_WARPER
+name|AF_CONFIG_OPTION_USE_WARPER
 end_ifdef
 begin_include
 include|#
@@ -97,21 +97,77 @@ name|FT_Error
 DECL|function|af_indic_metrics_init
 name|af_indic_metrics_init
 parameter_list|(
-name|AF_LatinMetrics
+name|AF_CJKMetrics
 name|metrics
 parameter_list|,
 name|FT_Face
 name|face
 parameter_list|)
 block|{
-comment|/* use CJK routines */
-return|return
-name|af_cjk_metrics_init
+comment|/* skip blue zone init in CJK routines */
+name|FT_CharMap
+name|oldmap
+init|=
+name|face
+operator|->
+name|charmap
+decl_stmt|;
+name|metrics
+operator|->
+name|units_per_em
+operator|=
+name|face
+operator|->
+name|units_per_EM
+expr_stmt|;
+if|if
+condition|(
+name|FT_Select_Charmap
+argument_list|(
+name|face
+argument_list|,
+name|FT_ENCODING_UNICODE
+argument_list|)
+condition|)
+name|face
+operator|->
+name|charmap
+operator|=
+name|NULL
+expr_stmt|;
+else|else
+block|{
+name|af_cjk_metrics_init_widths
 argument_list|(
 name|metrics
 argument_list|,
 name|face
 argument_list|)
+expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* either need indic specific blue_chars[] or just skip blue zones */
+block|af_cjk_metrics_init_blues( metrics, face, af_cjk_blue_chars );
+endif|#
+directive|endif
+name|af_cjk_metrics_check_digits
+argument_list|(
+name|metrics
+argument_list|,
+name|face
+argument_list|)
+expr_stmt|;
+block|}
+name|FT_Set_Charmap
+argument_list|(
+name|face
+argument_list|,
+name|oldmap
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -121,7 +177,7 @@ name|void
 DECL|function|af_indic_metrics_scale
 name|af_indic_metrics_scale
 parameter_list|(
-name|AF_LatinMetrics
+name|AF_CJKMetrics
 name|metrics
 parameter_list|,
 name|AF_Scaler
@@ -147,7 +203,7 @@ parameter_list|(
 name|AF_GlyphHints
 name|hints
 parameter_list|,
-name|AF_LatinMetrics
+name|AF_CJKMetrics
 name|metrics
 parameter_list|)
 block|{
@@ -175,7 +231,7 @@ name|FT_Outline
 modifier|*
 name|outline
 parameter_list|,
-name|AF_LatinMetrics
+name|AF_CJKMetrics
 name|metrics
 parameter_list|)
 block|{
@@ -213,59 +269,24 @@ end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
-begin_decl_stmt
-DECL|variable|af_indic_uniranges
-specifier|static
-specifier|const
-name|AF_Script_UniRangeRec
-name|af_indic_uniranges
-index|[]
-init|=
-block|{
-if|#
-directive|if
-literal|0
-block|AF_UNIRANGE_REC( 0x0100UL, 0xFFFFUL ),
-comment|/* why this? */
-endif|#
-directive|endif
-name|AF_UNIRANGE_REC
-argument_list|(
-literal|0x0900UL
-argument_list|,
-literal|0x0DFFUL
-argument_list|)
-block|,
-comment|/* Indic Range */
-name|AF_UNIRANGE_REC
-argument_list|(
-literal|0UL
-argument_list|,
-literal|0UL
-argument_list|)
-block|}
-decl_stmt|;
-end_decl_stmt
 begin_macro
-name|AF_DEFINE_SCRIPT_CLASS
+name|AF_DEFINE_WRITING_SYSTEM_CLASS
 argument_list|(
-argument|af_indic_script_class
+argument|af_indic_writing_system_class
 argument_list|,
-argument|AF_SCRIPT_INDIC
+argument|AF_WRITING_SYSTEM_INDIC
 argument_list|,
-argument|af_indic_uniranges
+argument|sizeof ( AF_CJKMetricsRec )
 argument_list|,
-argument|sizeof( AF_LatinMetricsRec )
+argument|(AF_WritingSystem_InitMetricsFunc) af_indic_metrics_init
 argument_list|,
-argument|(AF_Script_InitMetricsFunc) af_indic_metrics_init
+argument|(AF_WritingSystem_ScaleMetricsFunc)af_indic_metrics_scale
 argument_list|,
-argument|(AF_Script_ScaleMetricsFunc)af_indic_metrics_scale
+argument|(AF_WritingSystem_DoneMetricsFunc) NULL
 argument_list|,
-argument|(AF_Script_DoneMetricsFunc) NULL
+argument|(AF_WritingSystem_InitHintsFunc)   af_indic_hints_init
 argument_list|,
-argument|(AF_Script_InitHintsFunc)   af_indic_hints_init
-argument_list|,
-argument|(AF_Script_ApplyHintsFunc)  af_indic_hints_apply
+argument|(AF_WritingSystem_ApplyHintsFunc)  af_indic_hints_apply
 argument_list|)
 end_macro
 begin_else
@@ -275,42 +296,24 @@ end_else
 begin_comment
 comment|/* !AF_CONFIG_OPTION_INDIC */
 end_comment
-begin_decl_stmt
-specifier|static
-specifier|const
-name|AF_Script_UniRangeRec
-name|af_indic_uniranges
-index|[]
-init|=
-block|{
-block|{
-literal|0
-block|,
-literal|0
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
 begin_macro
-name|AF_DEFINE_SCRIPT_CLASS
+name|AF_DEFINE_WRITING_SYSTEM_CLASS
 argument_list|(
-argument|af_indic_script_class
+argument|af_indic_writing_system_class
 argument_list|,
-argument|AF_SCRIPT_INDIC
+argument|AF_WRITING_SYSTEM_INDIC
 argument_list|,
-argument|af_indic_uniranges
+argument|sizeof ( AF_CJKMetricsRec )
 argument_list|,
-argument|sizeof( AF_LatinMetricsRec )
+argument|(AF_WritingSystem_InitMetricsFunc) NULL
 argument_list|,
-argument|(AF_Script_InitMetricsFunc) NULL
+argument|(AF_WritingSystem_ScaleMetricsFunc)NULL
 argument_list|,
-argument|(AF_Script_ScaleMetricsFunc)NULL
+argument|(AF_WritingSystem_DoneMetricsFunc) NULL
 argument_list|,
-argument|(AF_Script_DoneMetricsFunc) NULL
+argument|(AF_WritingSystem_InitHintsFunc)   NULL
 argument_list|,
-argument|(AF_Script_InitHintsFunc)   NULL
-argument_list|,
-argument|(AF_Script_ApplyHintsFunc)  NULL
+argument|(AF_WritingSystem_ApplyHintsFunc)  NULL
 argument_list|)
 end_macro
 begin_endif

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006 by                   */
+comment|/*  Copyright 1996-2006, 2013 by                                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -98,6 +98,11 @@ ifdef|#
 directive|ifdef
 name|TT_CONFIG_OPTION_EMBEDDED_BITMAPS
 end_ifdef
+begin_include
+include|#
+directive|include
+file|"pngshim.c"
+end_include
 begin_include
 include|#
 directive|include

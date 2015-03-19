@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2007 by                         */
+comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2007, 2011 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -310,6 +310,11 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FTC_INLINE
+end_ifdef
 begin_comment
 comment|/* returns TRUE iff the query's glyph index correspond to the node;  */
 end_comment
@@ -331,11 +336,19 @@ argument_list|(
 argument|FTC_GNode   gnode
 argument_list|,
 argument|FTC_GQuery  gquery
+argument_list|,
+argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* call this function to clear a node's family -- this is necessary */
 end_comment
@@ -558,7 +571,7 @@ name|FTC_GCache_Lookup
 argument_list|(
 argument|FTC_GCache   cache
 argument_list|,
-argument|FT_UInt32    hash
+argument|FT_PtrDist   hash
 argument_list|,
 argument|FT_UInt      gindex
 argument_list|,
@@ -653,7 +666,7 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                                     \                                                                       \      error = FTC_GCache_Lookup( FTC_GCACHE( cache ), hash, gindex,    \                                 FTC_GQUERY( query ), node );          \                                                                       \    FT_END_STMNT
+value|FT_BEGIN_STMNT                                                     \                                                                       \      error = FTC_GCache_Lookup( FTC_GCACHE( cache ), hash, gindex,    \                                 FTC_GQUERY( query ),&node );         \                                                                       \    FT_END_STMNT
 end_define
 begin_endif
 endif|#

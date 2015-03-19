@@ -12,13 +12,16 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*    Auto-fitter hinting routines for Indic scripts (specification).      */
+comment|/*    Auto-fitter hinting routines for Indic writing system                */
+end_comment
+begin_comment
+comment|/*    (specification).                                                     */
 end_comment
 begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007 by                                                      */
+comment|/*  Copyright 2007, 2012, 2013 by                                          */
 end_comment
 begin_comment
 comment|/*  Rahul Bhalerao<rahul.bhalerao@redhat.com>,<b.rahul.pm@gmail.com>.    */
@@ -65,10 +68,10 @@ file|"afhints.h"
 end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
-comment|/* the Indic-specific script class */
-name|AF_DECLARE_SCRIPT_CLASS
+comment|/* the `indic' writing system */
+name|AF_DECLARE_WRITING_SYSTEM_CLASS
 argument_list|(
-name|af_indic_script_class
+name|af_indic_writing_system_class
 argument_list|)
 comment|/* */
 name|FT_END_HEADER

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2005, 2007, 2009 by                         */
+comment|/*  Copyright 1996-2002, 2005, 2007, 2009, 2012-2014 by                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -72,10 +72,10 @@ begin_comment
 comment|/*     fresh new library object.  The set is taken from the header file  */
 end_comment
 begin_comment
-comment|/*     `freetype/config/ftmodule.h'.  See the document `FreeType 2.0     */
+comment|/*     `config/ftmodule.h'.  See the document `FreeType 2.0 Build        */
 end_comment
 begin_comment
-comment|/*     Build System' for more information.                               */
+comment|/*     System' for more information.                                     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -311,7 +311,7 @@ parameter_list|,
 name|x
 parameter_list|)
 define|\
-value|FT_EXTERNC FT_Error FT_Create_Class_##x( FT_Library library, FT_Module_Class** output_class ); \   FT_EXTERNC void     FT_Destroy_Class_##x( FT_Library library, FT_Module_Class*  clazz );
+value|FT_EXTERNC FT_Error                                       \   FT_Create_Class_ ## x( FT_Library         library,        \                          FT_Module_Class*  *output_class ); \   FT_EXTERNC void                                           \   FT_Destroy_Class_ ## x( FT_Library        library,        \                           FT_Module_Class*  clazz );
 end_define
 begin_include
 include|#
@@ -337,7 +337,7 @@ name|type
 parameter_list|,
 name|x
 parameter_list|)
-value|MODULE_CLASS_##x,
+value|MODULE_CLASS_ ## x,
 end_define
 begin_enum
 enum|enum
@@ -370,8 +370,14 @@ parameter_list|,
 name|x
 parameter_list|)
 define|\
-value|if ( classes[i] ) { FT_Destroy_Class_##x(library, classes[i]); } \   i++;                                                             \    FT_BASE_DEF( void )
+value|if ( classes[i] )                                \   {                                                \     FT_Destroy_Class_ ## x( library, classes[i] ); \   }                                                \   i++;
 end_define
+begin_macro
+name|FT_BASE_DEF
+argument_list|(
+argument|void
+argument_list|)
+end_macro
 begin_macro
 DECL|function|ft_destroy_default_module_classes
 name|ft_destroy_default_module_classes
@@ -466,7 +472,7 @@ parameter_list|,
 name|x
 parameter_list|)
 define|\
-value|error = FT_Create_Class_##x(library,&clazz); \   if (error) goto Exit;                         \   classes[i++] = clazz;
+value|error = FT_Create_Class_ ## x( library,&clazz );  \   if ( error )                                       \     goto Exit;                                       \   classes[i++] = clazz;
 end_define
 begin_macro
 DECL|function|FT_BASE_DEF
@@ -493,6 +499,8 @@ name|FT_Module_Class
 modifier|*
 modifier|*
 name|classes
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Module_Class
 modifier|*
@@ -642,11 +650,31 @@ specifier|const
 modifier|*
 name|cur
 decl_stmt|;
-comment|/* test for valid `library' delayed to FT_Add_Module() */
+comment|/* FT_DEFAULT_MODULES_GET dereferences `library' in PIC mode */
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+if|if
+condition|(
+operator|!
+name|library
+condition|)
+return|return;
+endif|#
+directive|endif
+comment|/* GCC 4.6 warns the type difference:      *   FT_Module_Class** != const FT_Module_Class* const*      */
 name|cur
 operator|=
+operator|(
+specifier|const
+name|FT_Module_Class
+operator|*
+specifier|const
+operator|*
+operator|)
 name|FT_DEFAULT_MODULES_GET
 expr_stmt|;
+comment|/* test for valid `library' delayed to FT_Add_Module() */
 while|while
 condition|(
 operator|*
@@ -715,6 +743,7 @@ decl_stmt|;
 name|FT_Memory
 name|memory
 decl_stmt|;
+comment|/* check of `alibrary' delayed to `FT_New_Library' */
 comment|/* First of all, allocate a new system object -- this function is part */
 comment|/* of the system-specific component, i.e. `ftsystem.c'.                */
 name|memory
@@ -736,7 +765,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 block|}
 comment|/* build a library out of it, then fill it with the set of */
@@ -789,18 +821,26 @@ argument_list|)
 end_macro
 begin_block
 block|{
-if|if
-condition|(
-name|library
-condition|)
-block|{
 name|FT_Memory
 name|memory
-init|=
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|library
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Library_Handle
+argument_list|)
+return|;
+name|memory
+operator|=
 name|library
 operator|->
 name|memory
-decl_stmt|;
+expr_stmt|;
 comment|/* Discard the library object */
 name|FT_Done_Library
 argument_list|(
@@ -813,7 +853,6 @@ argument_list|(
 name|memory
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|FT_Err_Ok
 return|;

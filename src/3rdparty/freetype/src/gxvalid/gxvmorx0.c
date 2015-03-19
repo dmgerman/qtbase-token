@@ -129,9 +129,12 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|markFirst
 decl_stmt|;
@@ -141,12 +144,19 @@ decl_stmt|;
 name|FT_UShort
 name|markLast
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UShort
 name|reserved
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|verb
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UNUSED
 argument_list|(
 name|state
@@ -167,6 +177,9 @@ argument_list|(
 name|limit
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|markFirst
 operator|=
 call|(
@@ -212,6 +225,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|reserved
 operator|=
 call|(
@@ -223,6 +238,9 @@ operator|&
 literal|0x1FF0
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|verb
 operator|=
 call|(
@@ -234,6 +252,8 @@ operator|&
 literal|0x000F
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 literal|0
@@ -267,7 +287,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -287,7 +307,7 @@ argument_list|(
 name|GXV_STATETABLE_HEADER_SIZE
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -295,7 +315,7 @@ name|optdata
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -303,7 +323,7 @@ name|optdata_load_func
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -311,7 +331,7 @@ name|subtable_setup_func
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -319,7 +339,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_NONE
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -333,7 +353,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

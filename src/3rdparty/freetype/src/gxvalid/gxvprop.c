@@ -246,7 +246,7 @@ name|FT_UShort
 name|gid
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Face
@@ -265,7 +265,7 @@ argument_list|)
 expr_stmt|;
 name|face
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|face
 expr_stmt|;
@@ -316,8 +316,17 @@ name|FT_Pos
 operator|)
 literal|0
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found non-zero advance in zero-advance glyph\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_DATA
 expr_stmt|;
+block|}
 name|GXV_EXIT
 expr_stmt|;
 block|}
@@ -338,7 +347,7 @@ name|FT_UShort
 name|glyph
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 if|if
@@ -357,7 +366,7 @@ name|gxv_prop_zero_advance_validate
 argument_list|(
 name|glyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -390,8 +399,17 @@ name|offset
 operator|==
 literal|0
 condition|)
-name|FT_INVALID_DATA
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found zero offset to property\n"
+operator|)
+argument_list|)
 expr_stmt|;
+name|FT_INVALID_OFFSET
+expr_stmt|;
+block|}
 name|complement
 operator|=
 call|(
@@ -434,8 +452,17 @@ name|glyph
 operator|<=
 name|complement
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found non-positive glyph complement\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_DATA
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -451,7 +478,7 @@ operator|+
 name|complement
 argument_list|)
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -491,8 +518,17 @@ argument_list|)
 operator|==
 literal|0x00010000UL
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found older version (1.0) in new version table\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_DATA
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -500,8 +536,17 @@ name|property
 operator|&
 name|GXV_PROP_RESERVED
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found non-zero bits in reserved bits\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_DATA
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(
@@ -530,8 +575,17 @@ argument_list|)
 operator|==
 literal|0x00020000UL
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found too old version in directionality class\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_DATA
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
@@ -548,7 +602,7 @@ name|GXV_LookupValueCPtr
 name|value_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|gxv_prop_property_validate
@@ -559,7 +613,7 @@ name|u
 argument_list|,
 name|glyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -583,7 +637,7 @@ name|FT_Bytes
 name|lookuptbl_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -619,7 +673,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|lookuptbl_head
 operator|+
@@ -699,13 +753,13 @@ init|=
 literal|0
 decl_stmt|;
 name|GXV_ValidatorRec
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_Validator
-name|valid
+name|gxvalid
 init|=
 operator|&
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_prop_DataRec
 name|proprec
@@ -725,19 +779,19 @@ decl_stmt|;
 name|FT_UShort
 name|defaultProp
 decl_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|=
 name|ftvalid
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|table_data
 operator|=
 name|prop
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|=
@@ -782,6 +836,33 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  version 0x%08x\n"
+operator|,
+name|version
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  format  0x%04x\n"
+operator|,
+name|format
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  defaultProp  0x%04x\n"
+operator|,
+name|defaultProp
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* only versions 1.0, 2.0, 3.0 are defined (1996) */
 if|if
 condition|(
@@ -797,8 +878,17 @@ name|version
 operator|!=
 literal|0x00030000UL
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found unknown version\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_FORMAT
 expr_stmt|;
+block|}
 comment|/* only formats 0x0000, 0x0001 are defined (1996) */
 if|if
 condition|(
@@ -806,15 +896,24 @@ name|format
 operator|>
 literal|1
 condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  found unknown format\n"
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_INVALID_FORMAT
 expr_stmt|;
+block|}
 name|gxv_prop_property_validate
 argument_list|(
 name|defaultProp
 argument_list|,
 literal|0
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -848,19 +947,19 @@ argument_list|)
 operator|=
 name|version
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 operator|=
 name|GXV_LOOKUPVALUE_UNSIGNED
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 operator|=
 name|gxv_prop_LookupValue_validate
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 operator|=
@@ -872,7 +971,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|Exit

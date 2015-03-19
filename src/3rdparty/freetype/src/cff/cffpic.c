@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2010, 2012, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -65,7 +65,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|"cffcmap.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"cffpic.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"cfferrs.h"
 end_include
 begin_ifdef
 ifdef|#
@@ -80,10 +90,12 @@ name|FT_Error
 name|FT_Create_Class_cff_services
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_ServiceDescRec
 modifier|*
 modifier|*
+name|output_class
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -92,9 +104,11 @@ name|void
 name|FT_Destroy_Class_cff_services
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_ServiceDescRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -103,9 +117,11 @@ name|void
 name|FT_Init_Class_cff_service_ps_info
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_PsInfoRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -114,9 +130,11 @@ name|void
 name|FT_Init_Class_cff_service_glyph_dict
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_GlyphDictRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -125,9 +143,11 @@ name|void
 name|FT_Init_Class_cff_service_ps_name
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_PsFontNameRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -136,9 +156,11 @@ name|void
 name|FT_Init_Class_cff_service_get_cmap_info
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_TTCMapsRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -147,9 +169,11 @@ name|void
 name|FT_Init_Class_cff_service_cid_info
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_CIDRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -161,10 +185,12 @@ name|FT_Error
 name|FT_Create_Class_cff_field_handlers
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|CFF_Field_Handler
 modifier|*
 modifier|*
+name|output_class
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -173,34 +199,11 @@ name|void
 name|FT_Destroy_Class_cff_field_handlers
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|CFF_Field_Handler
 modifier|*
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_comment
-comment|/* forward declaration of PIC init functions from cffcmap.c */
-end_comment
-begin_function_decl
-name|void
-name|FT_Init_Class_cff_cmap_encoding_class_rec
-parameter_list|(
-name|FT_Library
-parameter_list|,
-name|FT_CMap_ClassRec
-modifier|*
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
-name|FT_Init_Class_cff_cmap_unicode_class_rec
-parameter_list|(
-name|FT_Library
-parameter_list|,
-name|FT_CMap_ClassRec
-modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -330,6 +333,8 @@ decl_stmt|;
 name|CffModulePIC
 modifier|*
 name|container
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -374,7 +379,8 @@ name|cff
 operator|=
 name|container
 expr_stmt|;
-comment|/* initialize pointer table - this is how the module usually expects this data */
+comment|/* initialize pointer table -                       */
+comment|/* this is how the module usually expects this data */
 name|error
 operator|=
 name|FT_Create_Class_cff_services

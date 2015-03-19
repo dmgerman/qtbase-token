@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2006, 2007, 2009 by Roberto Alameda.       */
+comment|/*  Copyright 2002-2004, 2006, 2007, 2009, 2011, 2013 by                   */
+end_comment
+begin_comment
+comment|/*  Roberto Alameda.                                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -190,7 +193,7 @@ name|buffer_max
 argument_list|)
 expr_stmt|;
 return|return
-name|T42_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -211,10 +214,6 @@ block|{
 name|FT_Int
 name|i
 decl_stmt|;
-name|FT_String
-modifier|*
-name|gname
-decl_stmt|;
 for|for
 control|(
 name|i
@@ -233,8 +232,10 @@ name|i
 operator|++
 control|)
 block|{
+name|FT_String
+modifier|*
 name|gname
-operator|=
+init|=
 name|face
 operator|->
 name|type1
@@ -243,7 +244,7 @@ name|glyph_names
 index|[
 name|i
 index|]
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|glyph_name
@@ -387,7 +388,7 @@ operator|.
 name|font_info
 expr_stmt|;
 return|return
-name|T42_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -420,7 +421,7 @@ operator|.
 name|font_extra
 expr_stmt|;
 return|return
-name|T42_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -473,7 +474,7 @@ operator|.
 name|private_dict
 expr_stmt|;
 return|return
-name|T42_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -504,6 +505,12 @@ operator|(
 name|PS_GetFontPrivateFunc
 operator|)
 name|t42_ps_get_font_private
+block|,
+operator|(
+name|PS_GetFontValueFunc
+operator|)
+name|NULL
+comment|/* not implemented */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -554,24 +561,26 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_function
-specifier|static
-name|FT_Module_Interface
-DECL|function|T42_Get_Interface
+begin_macro
+DECL|function|FT_CALLBACK_DEF
+name|FT_CALLBACK_DEF
+argument_list|(
+argument|FT_Module_Interface
+argument_list|)
+end_macro
+begin_macro
 name|T42_Get_Interface
-parameter_list|(
-name|FT_Driver
-name|driver
-parameter_list|,
-specifier|const
-name|FT_String
-modifier|*
-name|t42_interface
-parameter_list|)
+argument_list|(
+argument|FT_Module         module
+argument_list|,
+argument|const FT_String*  t42_interface
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_UNUSED
 argument_list|(
-name|driver
+name|module
 argument_list|)
 expr_stmt|;
 return|return
@@ -583,7 +592,7 @@ name|t42_interface
 argument_list|)
 return|;
 block|}
-end_function
+end_block
 begin_decl_stmt
 DECL|variable|t42_driver_class
 specifier|const
@@ -621,19 +630,10 @@ block|,
 literal|0
 block|,
 comment|/* format interface */
-operator|(
-name|FT_Module_Constructor
-operator|)
 name|T42_Driver_Init
 block|,
-operator|(
-name|FT_Module_Destructor
-operator|)
 name|T42_Driver_Done
 block|,
-operator|(
-name|FT_Module_Requester
-operator|)
 name|T42_Get_Interface
 block|,     }
 block|,
@@ -652,73 +652,31 @@ argument_list|(
 name|T42_GlyphSlotRec
 argument_list|)
 block|,
-operator|(
-name|FT_Face_InitFunc
-operator|)
 name|T42_Face_Init
 block|,
-operator|(
-name|FT_Face_DoneFunc
-operator|)
 name|T42_Face_Done
 block|,
-operator|(
-name|FT_Size_InitFunc
-operator|)
 name|T42_Size_Init
 block|,
-operator|(
-name|FT_Size_DoneFunc
-operator|)
 name|T42_Size_Done
 block|,
-operator|(
-name|FT_Slot_InitFunc
-operator|)
 name|T42_GlyphSlot_Init
 block|,
-operator|(
-name|FT_Slot_DoneFunc
-operator|)
 name|T42_GlyphSlot_Done
 block|,
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|ft_stub_set_char_sizes
-block|,
-name|ft_stub_set_pixel_sizes
-block|,
-endif|#
-directive|endif
-operator|(
-name|FT_Slot_LoadFunc
-operator|)
 name|T42_GlyphSlot_Load
 block|,
-operator|(
-name|FT_Face_GetKerningFunc
-operator|)
 literal|0
 block|,
-operator|(
-name|FT_Face_AttachFunc
-operator|)
+comment|/* FT_Face_GetKerningFunc  */
 literal|0
 block|,
-operator|(
-name|FT_Face_GetAdvancesFunc
-operator|)
+comment|/* FT_Face_AttachFunc      */
 literal|0
 block|,
-operator|(
-name|FT_Size_RequestFunc
-operator|)
+comment|/* FT_Face_GetAdvancesFunc */
 name|T42_Size_Request
 block|,
-operator|(
-name|FT_Size_SelectFunc
-operator|)
 name|T42_Size_Select
 block|}
 decl_stmt|;

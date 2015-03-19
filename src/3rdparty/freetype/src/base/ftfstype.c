@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2008, 2009 by                                                */
+comment|/*  Copyright 2008, 2009, 2014 by                                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -166,7 +166,7 @@ name|FT_Get_Sfnt_Table
 argument_list|(
 name|face
 argument_list|,
-name|ft_sfnt_os2
+name|FT_SFNT_OS2
 argument_list|)
 operator|)
 operator|!=

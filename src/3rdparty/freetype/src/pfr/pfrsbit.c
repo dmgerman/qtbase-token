@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2009 by                                    */
+comment|/*  Copyright 2002, 2003, 2006, 2009, 2010, 2013 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1320,7 +1320,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 name|flags
@@ -1718,7 +1718,10 @@ name|Too_Short
 label|:
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -1760,7 +1763,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|PFR_BitWriterRec
 name|writer
@@ -1850,7 +1853,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2024,7 +2030,10 @@ expr_stmt|;
 block|}
 comment|/* couldn't find it */
 return|return
-name|PFR_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 block|}
 name|Found_Strike
@@ -2142,7 +2151,10 @@ block|{
 comment|/* Could not find a bitmap program string for this glyph */
 name|error
 operator|=
-name|PFR_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2315,13 +2327,28 @@ name|xpos
 operator|>
 name|FT_INT_MAX
 operator|||
-operator|(
+name|xpos
+operator|<
+name|FT_INT_MIN
+operator|||
+name|ysize
+operator|>
+name|FT_INT_MAX
+operator|||
 name|ypos
 operator|+
 name|ysize
-operator|)
 operator|>
 name|FT_INT_MAX
+operator|||
+name|ypos
+operator|+
+operator|(
+name|FT_Long
+operator|)
+name|ysize
+operator|<
+name|FT_INT_MIN
 condition|)
 block|{
 name|FT_TRACE1
@@ -2344,7 +2371,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Invalid_Pixel_Size
+name|FT_THROW
+argument_list|(
+name|Invalid_Pixel_Size
+argument_list|)
 expr_stmt|;
 block|}
 if|if

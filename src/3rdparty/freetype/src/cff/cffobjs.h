@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2004, 2006-2008, 2013 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -341,7 +341,7 @@ begin_comment
 comment|/*                                                                     */
 end_comment
 begin_comment
-comment|/* TrueType driver class.                                              */
+comment|/* CFF driver class.                                                   */
 end_comment
 begin_comment
 comment|/*                                                                     */
@@ -356,10 +356,20 @@ DECL|member|root
 name|FT_DriverRec
 name|root
 decl_stmt|;
-DECL|member|extension_component
-name|void
-modifier|*
-name|extension_component
+DECL|member|hinting_engine
+name|FT_UInt
+name|hinting_engine
+decl_stmt|;
+DECL|member|no_stem_darkening
+name|FT_Bool
+name|no_stem_darkening
+decl_stmt|;
+DECL|member|darken_params
+name|FT_Int
+name|darken_params
+index|[
+literal|8
+index|]
 decl_stmt|;
 block|}
 DECL|typedef|CFF_DriverRec
@@ -566,6 +576,9 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|/* CFF_Driver */
+end_comment
 begin_macro
 name|FT_LOCAL
 argument_list|(
@@ -583,6 +596,10 @@ begin_empty_stmt
 DECL|variable|cff_driver_done
 empty_stmt|;
 end_empty_stmt
+begin_comment
+DECL|variable|cff_driver_done
+comment|/* CFF_Driver */
+end_comment
 begin_macro
 name|FT_END_HEADER
 end_macro

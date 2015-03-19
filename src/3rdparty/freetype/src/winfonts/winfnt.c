@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008, 2009 by       */
+comment|/*  Copyright 1996-2004, 2006-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -77,6 +77,11 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_OBJECTS_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_TRUETYPE_IDS_H
 end_include
 begin_include
 include|#
@@ -254,7 +259,7 @@ argument_list|(
 name|machine
 argument_list|)
 block|,
-comment|/* 0x014c - i386 */
+comment|/* 0x014C - i386 */
 name|FT_FRAME_USHORT_LE
 argument_list|(
 name|number_of_sections
@@ -280,7 +285,7 @@ argument_list|(
 name|magic32
 argument_list|)
 block|,
-comment|/* 0x10b */
+comment|/* 0x10B */
 name|FT_FRAME_SKIP_BYTES
 argument_list|(
 literal|110
@@ -861,13 +866,16 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a valid FNT file]\n"
+literal|"  not a Windows FNT file\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -906,13 +914,16 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a valid FNT file]\n"
+literal|"  not a Windows FNT file\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -977,7 +988,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1080,7 +1094,10 @@ name|Exit
 goto|;
 name|error
 operator|=
-name|FNT_Err_Unknown_File_Format
+name|FT_ERR
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1124,7 +1141,10 @@ name|Exit
 goto|;
 name|error
 operator|=
-name|FNT_Err_Unknown_File_Format
+name|FT_ERR
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1287,7 +1307,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1315,7 +1338,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1338,7 +1364,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FNT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1559,21 +1588,21 @@ name|pe32_header
 operator|.
 name|machine
 operator|!=
-literal|0x014c
+literal|0x014C
 comment|/* i386 */
 operator|||
 name|pe32_header
 operator|.
 name|size_of_optional_header
 operator|!=
-literal|0xe0
+literal|0xE0
 comment|/* FIXME */
 operator|||
 name|pe32_header
 operator|.
 name|magic32
 operator|!=
-literal|0x10b
+literal|0x10B
 condition|)
 block|{
 name|FT_TRACE2
@@ -1585,7 +1614,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1674,7 +1706,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1777,7 +1812,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1883,7 +1921,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1986,7 +2027,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2184,7 +2228,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2203,7 +2250,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FNT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2263,6 +2313,9 @@ name|fnt_cmap_init
 parameter_list|(
 name|FNT_CMap
 name|cmap
+parameter_list|,
+name|FT_Pointer
+name|pointer
 parameter_list|)
 block|{
 name|FNT_Face
@@ -2283,6 +2336,11 @@ name|face
 operator|->
 name|font
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 name|cmap
 operator|->
 name|first
@@ -2534,10 +2592,19 @@ name|void
 DECL|function|FNT_Face_Done
 name|FNT_Face_Done
 parameter_list|(
+name|FT_Face
+name|fntface
+parameter_list|)
+comment|/* FNT_Face */
+block|{
 name|FNT_Face
 name|face
-parameter_list|)
-block|{
+init|=
+operator|(
+name|FNT_Face
+operator|)
+name|fntface
+decl_stmt|;
 name|FT_Memory
 name|memory
 decl_stmt|;
@@ -2561,17 +2628,13 @@ argument_list|)
 expr_stmt|;
 name|FT_FREE
 argument_list|(
-name|face
+name|fntface
 operator|->
-name|root
-operator|.
 name|available_sizes
 argument_list|)
 expr_stmt|;
-name|face
+name|fntface
 operator|->
-name|root
-operator|.
 name|num_fixed_sizes
 operator|=
 literal|0
@@ -2587,9 +2650,10 @@ parameter_list|(
 name|FT_Stream
 name|stream
 parameter_list|,
-name|FNT_Face
-name|face
+name|FT_Face
+name|fntface
 parameter_list|,
+comment|/* FNT_Face */
 name|FT_Int
 name|face_index
 parameter_list|,
@@ -2601,6 +2665,14 @@ modifier|*
 name|params
 parameter_list|)
 block|{
+name|FNT_Face
+name|face
+init|=
+operator|(
+name|FNT_Face
+operator|)
+name|fntface
+decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
@@ -2620,6 +2692,13 @@ expr_stmt|;
 name|FT_UNUSED
 argument_list|(
 name|params
+argument_list|)
+expr_stmt|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"Windows FNT driver\n"
+operator|)
 argument_list|)
 expr_stmt|;
 comment|/* try to load font from a DLL */
@@ -2646,9 +2725,12 @@ name|Exit
 goto|;
 if|if
 condition|(
+name|FT_ERR_EQ
+argument_list|(
 name|error
-operator|==
-name|FNT_Err_Unknown_File_Format
+argument_list|,
+name|Unknown_File_Format
+argument_list|)
 condition|)
 block|{
 comment|/* this didn't work; try to load a single FNT font */
@@ -2667,10 +2749,8 @@ condition|)
 goto|goto
 name|Exit
 goto|;
-name|face
+name|fntface
 operator|->
-name|root
-operator|.
 name|num_faces
 operator|=
 literal|1
@@ -2718,7 +2798,10 @@ literal|0
 condition|)
 name|error
 operator|=
-name|FNT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
@@ -2769,7 +2852,7 @@ expr_stmt|;
 name|root
 operator|->
 name|face_flags
-operator|=
+operator||=
 name|FT_FACE_FLAG_FIXED_SIZES
 operator||
 name|FT_FACE_FLAG_HORIZONTAL
@@ -3052,17 +3135,18 @@ name|encoding
 operator|=
 name|FT_ENCODING_NONE
 expr_stmt|;
+comment|/* initial platform/encoding should indicate unset status? */
 name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|0
+name|TT_PLATFORM_APPLE_UNICODE
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|0
+name|TT_APPLE_ID_DEFAULT
 expr_stmt|;
 name|charmap
 operator|.
@@ -3091,9 +3175,9 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|1
+name|TT_PLATFORM_MACINTOSH
 expr_stmt|;
-comment|/*        charmap.encoding_id = 0; */
+comment|/*        charmap.encoding_id = TT_MAC_ID_ROMAN; */
 block|}
 name|error
 operator|=
@@ -3135,7 +3219,40 @@ literal|0
 index|]
 expr_stmt|;
 block|}
-comment|/* setup remaining flags */
+comment|/* set up remaining flags */
+if|if
+condition|(
+name|font
+operator|->
+name|header
+operator|.
+name|last_char
+operator|<
+name|font
+operator|->
+name|header
+operator|.
+name|first_char
+condition|)
+block|{
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"invalid number of glyphs\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 comment|/* reserve one slot for the .notdef glyph at index 0 */
 name|root
 operator|->
@@ -3181,7 +3298,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3356,7 +3476,7 @@ name|Fail
 label|:
 name|FNT_Face_Done
 argument_list|(
-name|face
+name|fntface
 argument_list|)
 expr_stmt|;
 name|Exit
@@ -3374,6 +3494,9 @@ name|FNT_Size_Select
 parameter_list|(
 name|FT_Size
 name|size
+parameter_list|,
+name|FT_ULong
+name|strike_index
 parameter_list|)
 block|{
 name|FNT_Face
@@ -3396,6 +3519,11 @@ name|font
 operator|->
 name|header
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|strike_index
+argument_list|)
+expr_stmt|;
 name|FT_Select_Metrics
 argument_list|(
 name|size
@@ -3449,7 +3577,7 @@ operator|*
 literal|64
 expr_stmt|;
 return|return
-name|FNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -3499,7 +3627,10 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|FNT_Err_Invalid_Pixel_Size
+name|FT_ERR
+argument_list|(
+name|Invalid_Pixel_Size
+argument_list|)
 decl_stmt|;
 name|FT_Long
 name|height
@@ -3549,7 +3680,7 @@ operator|)
 condition|)
 name|error
 operator|=
-name|FNT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 case|case
@@ -3565,13 +3696,16 @@ name|pixel_height
 condition|)
 name|error
 operator|=
-name|FNT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 default|default:
 name|error
 operator|=
-name|FNT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -3587,6 +3721,8 @@ return|return
 name|FNT_Size_Select
 argument_list|(
 name|size
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -3623,15 +3759,11 @@ argument_list|)
 decl_stmt|;
 name|FNT_Font
 name|font
-init|=
-name|face
-operator|->
-name|font
 decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|FNT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -3664,7 +3796,27 @@ if|if
 condition|(
 operator|!
 name|face
-operator|||
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+name|font
+operator|=
+name|face
+operator|->
+name|font
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|font
 operator|||
@@ -3685,12 +3837,24 @@ condition|)
 block|{
 name|error
 operator|=
-name|FNT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
 block|}
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"FNT_Load_Glyph: glyph index %d\n"
+operator|,
+name|glyph_index
+operator|)
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|glyph_index
@@ -3710,7 +3874,7 @@ name|header
 operator|.
 name|default_char
 expr_stmt|;
-comment|/* the .notdef glyph */
+comment|/* the `.notdef' glyph  */
 name|new_format
 operator|=
 name|FT_BOOL
@@ -3732,13 +3896,9 @@ literal|6
 else|:
 literal|4
 expr_stmt|;
-comment|/* jump to glyph entry */
-name|p
+comment|/* get glyph width and offset */
+name|offset
 operator|=
-name|font
-operator|->
-name|fnt_frame
-operator|+
 operator|(
 name|new_format
 condition|?
@@ -3751,6 +3911,53 @@ name|len
 operator|*
 name|glyph_index
 expr_stmt|;
+if|if
+condition|(
+name|offset
+operator|>=
+name|font
+operator|->
+name|header
+operator|.
+name|file_size
+operator|-
+literal|2
+operator|-
+operator|(
+name|new_format
+condition|?
+literal|4
+else|:
+literal|2
+operator|)
+condition|)
+block|{
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"invalid FNT offset\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+name|p
+operator|=
+name|font
+operator|->
+name|fnt_frame
+operator|+
+name|offset
+expr_stmt|;
 name|bitmap
 operator|->
 name|width
@@ -3760,6 +3967,7 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+comment|/* jump to glyph entry */
 if|if
 condition|(
 name|new_format
@@ -3799,7 +4007,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3880,7 +4091,7 @@ operator|*
 name|bitmap
 operator|->
 name|rows
-operator|>=
+operator|>
 name|font
 operator|->
 name|header
@@ -3897,7 +4108,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FNT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4181,8 +4395,8 @@ name|FT_Module_Interface
 DECL|function|winfnt_get_service
 name|winfnt_get_service
 parameter_list|(
-name|FT_Driver
-name|driver
+name|FT_Module
+name|module
 parameter_list|,
 specifier|const
 name|FT_String
@@ -4192,7 +4406,7 @@ parameter_list|)
 block|{
 name|FT_UNUSED
 argument_list|(
-name|driver
+name|module
 argument_list|)
 expr_stmt|;
 return|return
@@ -4231,19 +4445,12 @@ literal|0x20000L
 block|,
 literal|0
 block|,
-operator|(
-name|FT_Module_Constructor
-operator|)
 literal|0
 block|,
-operator|(
-name|FT_Module_Destructor
-operator|)
+comment|/* FT_Module_Constructor */
 literal|0
 block|,
-operator|(
-name|FT_Module_Requester
-operator|)
+comment|/* FT_Module_Destructor  */
 name|winfnt_get_service
 block|}
 block|,
@@ -4262,73 +4469,35 @@ argument_list|(
 name|FT_GlyphSlotRec
 argument_list|)
 block|,
-operator|(
-name|FT_Face_InitFunc
-operator|)
 name|FNT_Face_Init
 block|,
-operator|(
-name|FT_Face_DoneFunc
-operator|)
 name|FNT_Face_Done
 block|,
-operator|(
-name|FT_Size_InitFunc
-operator|)
 literal|0
 block|,
-operator|(
-name|FT_Size_DoneFunc
-operator|)
+comment|/* FT_Size_InitFunc */
 literal|0
 block|,
-operator|(
-name|FT_Slot_InitFunc
-operator|)
+comment|/* FT_Size_DoneFunc */
 literal|0
 block|,
-operator|(
-name|FT_Slot_DoneFunc
-operator|)
+comment|/* FT_Slot_InitFunc */
 literal|0
 block|,
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|ft_stub_set_char_sizes
-block|,
-name|ft_stub_set_pixel_sizes
-block|,
-endif|#
-directive|endif
-operator|(
-name|FT_Slot_LoadFunc
-operator|)
+comment|/* FT_Slot_DoneFunc */
 name|FNT_Load_Glyph
 block|,
-operator|(
-name|FT_Face_GetKerningFunc
-operator|)
 literal|0
 block|,
-operator|(
-name|FT_Face_AttachFunc
-operator|)
+comment|/* FT_Face_GetKerningFunc  */
 literal|0
 block|,
-operator|(
-name|FT_Face_GetAdvancesFunc
-operator|)
+comment|/* FT_Face_AttachFunc      */
 literal|0
 block|,
-operator|(
-name|FT_Size_RequestFunc
-operator|)
+comment|/* FT_Face_GetAdvancesFunc */
 name|FNT_Size_Request
 block|,
-operator|(
-name|FT_Size_SelectFunc
-operator|)
 name|FNT_Size_Select
 block|}
 decl_stmt|;

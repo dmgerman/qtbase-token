@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007, 2009 by Derek Clegg, Michael Toftdal.                  */
+comment|/*  Copyright 2007, 2009, 2013 by Derek Clegg, Michael Toftdal.            */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -112,7 +112,10 @@ literal|0
 decl_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -210,7 +213,10 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 decl_stmt|;
 name|FT_Bool
 name|ic
@@ -291,7 +297,10 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 decl_stmt|;
 name|FT_UInt
 name|c

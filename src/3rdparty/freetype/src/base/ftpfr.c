@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2008 by                                    */
+comment|/*  Copyright 2002-2004, 2008, 2010, 2013, 2014 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -55,6 +55,11 @@ end_include
 begin_include
 include|#
 directive|include
+include|FT_INTERNAL_DEBUG_H
+end_include
+begin_include
+include|#
+directive|include
 include|FT_INTERNAL_OBJECTS_H
 end_include
 begin_include
@@ -77,7 +82,13 @@ parameter_list|)
 block|{
 name|FT_Service_PfrMetrics
 name|service
+init|=
+name|NULL
 decl_stmt|;
+if|if
+condition|(
+name|face
+condition|)
 name|FT_FACE_LOOKUP_SERVICE
 argument_list|(
 name|face
@@ -132,7 +143,10 @@ operator|!
 name|face
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
 return|;
 name|service
 operator|=
@@ -248,7 +262,10 @@ name|y_scale
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -292,7 +309,21 @@ operator|!
 name|face
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
+return|;
+if|if
+condition|(
+operator|!
+name|avector
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 name|service
 operator|=
@@ -369,6 +400,28 @@ decl_stmt|;
 name|FT_Service_PfrMetrics
 name|service
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|face
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
+return|;
+if|if
+condition|(
+operator|!
+name|aadvance
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|service
 operator|=
 name|ft_pfr_check
@@ -380,7 +433,6 @@ if|if
 condition|(
 name|service
 condition|)
-block|{
 name|error
 operator|=
 name|service
@@ -394,12 +446,14 @@ argument_list|,
 name|aadvance
 argument_list|)
 expr_stmt|;
-block|}
 else|else
 comment|/* XXX: TODO: PROVIDE ADVANCE-LOADING METHOD TO ALL FONT DRIVERS */
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 return|return
 name|error

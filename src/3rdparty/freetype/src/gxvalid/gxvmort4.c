@@ -120,7 +120,7 @@ name|GXV_LookupValueCPtr
 name|value_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UNUSED
@@ -134,7 +134,7 @@ name|value_p
 operator|->
 name|u
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -158,7 +158,7 @@ name|FT_Bytes
 name|lookuptbl_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -194,7 +194,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|lookuptbl_head
 operator|+
@@ -237,7 +237,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -253,19 +253,19 @@ literal|"mort chain subtable type4 "
 literal|"(Non-Contextual Glyph Substitution)"
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 operator|=
 name|GXV_LOOKUPVALUE_UNSIGNED
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 operator|=
 name|gxv_mort_subtable_type4_lookupval_validate
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 operator|=
@@ -277,7 +277,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

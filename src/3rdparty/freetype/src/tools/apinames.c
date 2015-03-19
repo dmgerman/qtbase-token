@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * This little program is used to parse the FreeType headers and  * find the declaration of all public APIs.  This is easy, because  * they all look like the following:  *  *   FT_EXPORT( return_type )  *   function_name( function arguments );  *  * You must pass the list of header files as arguments.  Wildcards are  * accepted if you are using GCC for compilation (and probably by  * other compilers too).  *  * Author: David Turner, 2005, 2006, 2008, 2009  *  * This code is explicitly placed into the public domain.  *  */
+comment|/*  * This little program is used to parse the FreeType headers and  * find the declaration of all public APIs.  This is easy, because  * they all look like the following:  *  *   FT_EXPORT( return_type )  *   function_name( function arguments );  *  * You must pass the list of header files as arguments.  Wildcards are  * accepted if you are using GCC for compilation (and probably by  * other compilers too).  *  * Author: David Turner, 2005, 2006, 2008-2013  *  * This code is explicitly placed into the public domain.  *  */
 end_comment
 begin_include
 include|#
@@ -34,7 +34,7 @@ DECL|macro|PROGRAM_VERSION
 define|#
 directive|define
 name|PROGRAM_VERSION
-value|"0.1"
+value|"0.2"
 end_define
 begin_define
 DECL|macro|LINEBUFF_SIZE
@@ -65,7 +65,11 @@ block|,
 comment|/* output a Windows .DEF file for Borland C++         */
 DECL|enumerator|OUTPUT_WATCOM_LBC
 name|OUTPUT_WATCOM_LBC
+block|,
 comment|/* output a Watcom Linker Command File                */
+DECL|enumerator|OUTPUT_NETWARE_IMP
+name|OUTPUT_NETWARE_IMP
+comment|/* output a NetWare ImportFile                        */
 block|}
 DECL|typedef|OutputFormat
 name|OutputFormat
@@ -162,12 +166,14 @@ modifier|*
 name|end
 parameter_list|)
 block|{
+name|unsigned
+name|int
+name|h
+decl_stmt|;
 name|int
 name|nn
 decl_stmt|,
 name|len
-decl_stmt|,
-name|h
 decl_stmt|;
 name|Name
 name|nm
@@ -616,13 +622,7 @@ case|case
 name|OUTPUT_WATCOM_LBC
 case|:
 block|{
-comment|/* we must omit the .dll suffix from the library name */
-name|char
-name|temp
-index|[
-literal|512
-index|]
-decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|dot
@@ -638,7 +638,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"you must provide a DLL name with the -d option !!\n"
+literal|"you must provide a DLL name with the -d option!\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -647,6 +647,7 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* we must omit the .dll suffix from the library name */
 name|dot
 operator|=
 name|strchr
@@ -663,14 +664,18 @@ operator|!=
 name|NULL
 condition|)
 block|{
+name|char
+name|temp
+index|[
+literal|512
+index|]
+decl_stmt|;
 name|int
 name|len
 init|=
-operator|(
 name|dot
 operator|-
 name|dll_name
-operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -754,6 +759,72 @@ argument_list|,
 name|the_names
 index|[
 name|nn
+index|]
+operator|.
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+case|case
+name|OUTPUT_NETWARE_IMP
+case|:
+block|{
+if|if
+condition|(
+name|dll_name
+operator|!=
+name|NULL
+condition|)
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"  (%s)\n"
+argument_list|,
+name|dll_name
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|nn
+operator|=
+literal|0
+init|;
+name|nn
+operator|<
+name|num_names
+operator|-
+literal|1
+condition|;
+name|nn
+operator|++
+control|)
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"  %s,\n"
+argument_list|,
+name|the_names
+index|[
+name|nn
+index|]
+operator|.
+name|name
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"  %s\n"
+argument_list|,
+name|the_names
+index|[
+name|num_names
+operator|-
+literal|1
 index|]
 operator|.
 name|name
@@ -1120,6 +1191,7 @@ literal|"           -dNAME : indicate DLL file name, 'freetype.dll' by default\n
 literal|"           -w     : output .DEF file for Visual C++ and Mingw\n"
 literal|"           -wB    : output .DEF file for Borland C++\n"
 literal|"           -wW    : output Watcom Linker Response File\n"
+literal|"           -wN    : output NetWare Import File\n"
 literal|"\n"
 decl_stmt|;
 name|fprintf
@@ -1391,6 +1463,14 @@ case|:
 name|format
 operator|=
 name|OUTPUT_WATCOM_LBC
+expr_stmt|;
+break|break;
+case|case
+literal|'N'
+case|:
+name|format
+operator|=
+name|OUTPUT_NETWARE_IMP
 expr_stmt|;
 break|break;
 case|case

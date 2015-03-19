@@ -132,6 +132,57 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK
+argument_list|)
+operator|&&
+expr|\
+operator|!
+name|defined
+argument_list|(
+name|FT_MACINTOSH
+argument_list|)
+end_if
+begin_comment
+comment|/* Mac OS X/Darwin kernel often changes recommended method to access */
+end_comment
+begin_comment
+comment|/* the resource fork and older methods makes the kernel issue the    */
+end_comment
+begin_comment
+comment|/* warning of deprecated method.  To calm it down, the methods based */
+end_comment
+begin_comment
+comment|/* on Darwin VFS should be grouped and skip the rest methods after   */
+end_comment
+begin_comment
+comment|/* the case the resource is opened but found to lack a font in it.   */
+end_comment
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Bool
+argument_list|)
+end_macro
+begin_macro
+name|ft_raccess_rule_by_darwin_vfs
+argument_list|(
+argument|FT_Library library
+argument_list|,
+argument|FT_UInt  rule_index
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|FT_END_HEADER
 end_macro

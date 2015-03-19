@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2010, 2012, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -67,6 +67,11 @@ include|#
 directive|include
 file|"pshpic.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"pshnterr.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -80,9 +85,11 @@ name|void
 name|FT_Init_Class_pshinter_interface
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|PSHinter_Interface
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -160,6 +167,8 @@ decl_stmt|;
 name|PSHinterPIC
 modifier|*
 name|container
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -215,7 +224,6 @@ operator|->
 name|pshinter_interface
 argument_list|)
 expr_stmt|;
-comment|/*Exit:*/
 if|if
 condition|(
 name|error

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2005, 2007, 2008, 2009 by             */
+comment|/*  Copyright 1996-2003, 2005, 2007-2014 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -75,10 +75,10 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* - copy `include/freetype/ftimage.h' and `src/raster/ftmisc.h'         */
+comment|/* - copy `include/ftimage.h' and `src/raster/ftmisc.h' to your current  */
 end_comment
 begin_comment
-comment|/*   to your current directory                                           */
+comment|/*   directory                                                           */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -187,7 +187,7 @@ directive|include
 include|FT_INTERNAL_CALC_H
 end_include
 begin_comment
-comment|/* for FT_MulDiv only */
+comment|/* for FT_MulDiv and FT_MulDiv_No_Round */
 end_comment
 begin_include
 include|#
@@ -518,6 +518,33 @@ directive|ifdef
 name|_STANDALONE_
 end_ifdef
 begin_comment
+comment|/* Auxiliary macros for token concatenation. */
+end_comment
+begin_define
+DECL|macro|FT_ERR_XCAT
+define|#
+directive|define
+name|FT_ERR_XCAT
+parameter_list|(
+name|x
+parameter_list|,
+name|y
+parameter_list|)
+value|x ## y
+end_define
+begin_define
+DECL|macro|FT_ERR_CAT
+define|#
+directive|define
+name|FT_ERR_CAT
+parameter_list|(
+name|x
+parameter_list|,
+name|y
+parameter_list|)
+value|FT_ERR_XCAT( x, y )
+end_define
+begin_comment
 comment|/* This macro is used to indicate that a function parameter is unused. */
 end_comment
 begin_comment
@@ -543,7 +570,7 @@ begin_comment
 comment|/* Disable the tracing mechanism for simplicity -- developers can      */
 end_comment
 begin_comment
-comment|/* activate it easily by redefining these two macros.                  */
+comment|/* activate it easily by redefining these macros.                      */
 end_comment
 begin_ifndef
 ifndef|#
@@ -615,6 +642,25 @@ begin_comment
 DECL|macro|FT_TRACE6
 comment|/* nothing */
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_THROW
+end_ifndef
+begin_define
+DECL|macro|FT_THROW
+define|#
+directive|define
+name|FT_THROW
+parameter_list|(
+name|e
+parameter_list|)
+value|FT_ERR_CAT( Raster_Err_, e )
+end_define
 begin_endif
 endif|#
 directive|endif
@@ -709,7 +755,7 @@ directive|include
 include|FT_INTERNAL_DEBUG_H
 end_include
 begin_comment
-comment|/* for FT_TRACE() and FT_ERROR() */
+comment|/* for FT_TRACE, FT_ERROR, and FT_THROW */
 end_comment
 begin_include
 include|#
@@ -721,7 +767,7 @@ DECL|macro|Raster_Err_None
 define|#
 directive|define
 name|Raster_Err_None
-value|Raster_Err_Ok
+value|FT_Err_Ok
 end_define
 begin_define
 DECL|macro|Raster_Err_Not_Ini
@@ -847,6 +893,13 @@ define|#
 directive|define
 name|SMulDiv
 value|FT_MulDiv
+end_define
+begin_define
+DECL|macro|SMulDiv_No_Round
+define|#
+directive|define
+name|SMulDiv_No_Round
+value|FT_MulDiv_No_Round
 end_define
 begin_comment
 comment|/* The rasterizer is a very general purpose component; please leave */
@@ -1251,10 +1304,10 @@ begin_comment
 comment|/* by the sub-banding mechanism                               */
 end_comment
 begin_typedef
-DECL|struct|TBand_
+DECL|struct|black_TBand_
 typedef|typedef
 struct|struct
-name|TBand_
+name|black_TBand_
 block|{
 DECL|member|y_min
 name|Short
@@ -1267,8 +1320,8 @@ name|y_max
 decl_stmt|;
 comment|/* band's maximum */
 block|}
-DECL|typedef|TBand
-name|TBand
+DECL|typedef|black_TBand
+name|black_TBand
 typedef|;
 end_typedef
 begin_define
@@ -1279,6 +1332,30 @@ name|AlignProfileSize
 define|\
 value|( ( sizeof ( TProfile ) + sizeof ( Alignment ) - 1 ) / sizeof ( long ) )
 end_define
+begin_undef
+DECL|macro|RAS_ARG
+undef|#
+directive|undef
+name|RAS_ARG
+end_undef
+begin_undef
+DECL|macro|RAS_ARGS
+undef|#
+directive|undef
+name|RAS_ARGS
+end_undef
+begin_undef
+DECL|macro|RAS_VAR
+undef|#
+directive|undef
+name|RAS_VAR
+end_undef
+begin_undef
+DECL|macro|RAS_VARS
+undef|#
+directive|undef
+name|RAS_VARS
+end_undef
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -1343,14 +1420,14 @@ DECL|macro|RAS_ARGS
 define|#
 directive|define
 name|RAS_ARGS
-value|PWorker    worker,
+value|black_PWorker  worker,
 end_define
 begin_define
 DECL|macro|RAS_ARG
 define|#
 directive|define
 name|RAS_ARG
-value|PWorker    worker
+value|black_PWorker  worker
 end_define
 begin_define
 DECL|macro|RAS_VARS
@@ -1381,15 +1458,15 @@ begin_comment
 comment|/* !FT_STATIC_RASTER */
 end_comment
 begin_typedef
-DECL|typedef|TWorker
-DECL|typedef|PWorker
+DECL|typedef|black_TWorker
+DECL|typedef|black_PWorker
 typedef|typedef
 name|struct
-name|TWorker_
-name|TWorker
+name|black_TWorker_
+name|black_TWorker
 typedef|,
 modifier|*
-name|PWorker
+name|black_PWorker
 typedef|;
 end_typedef
 begin_comment
@@ -1449,6 +1526,30 @@ end_typedef
 begin_comment
 comment|/* NOTE: These operations are only valid on 2's complement processors */
 end_comment
+begin_undef
+DECL|macro|FLOOR
+undef|#
+directive|undef
+name|FLOOR
+end_undef
+begin_undef
+DECL|macro|CEILING
+undef|#
+directive|undef
+name|CEILING
+end_undef
+begin_undef
+DECL|macro|TRUNC
+undef|#
+directive|undef
+name|TRUNC
+end_undef
+begin_undef
+DECL|macro|SCALED
+undef|#
+directive|undef
+name|SCALED
+end_undef
 begin_define
 DECL|macro|FLOOR
 define|#
@@ -1477,7 +1578,7 @@ name|TRUNC
 parameter_list|(
 name|x
 parameter_list|)
-value|( (signed long)(x)>> ras.precision_bits )
+value|( (Long)(x)>> ras.precision_bits )
 end_define
 begin_define
 DECL|macro|FRAC
@@ -1497,7 +1598,7 @@ name|SCALED
 parameter_list|(
 name|x
 parameter_list|)
-value|( ( (x)<< ras.scale_shift ) - ras.precision_half )
+value|( ( (ULong)(x)<< ras.scale_shift ) - ras.precision_half )
 end_define
 begin_define
 DECL|macro|IS_BOTTOM_OVERSHOOT
@@ -1507,7 +1608,8 @@ name|IS_BOTTOM_OVERSHOOT
 parameter_list|(
 name|x
 parameter_list|)
-value|( CEILING( x ) - x>= ras.precision_half )
+define|\
+value|(Bool)( CEILING( x ) - x>= ras.precision_half )
 end_define
 begin_define
 DECL|macro|IS_TOP_OVERSHOOT
@@ -1517,7 +1619,8 @@ name|IS_TOP_OVERSHOOT
 parameter_list|(
 name|x
 parameter_list|)
-value|( x - FLOOR( x )>= ras.precision_half )
+define|\
+value|(Bool)( x - FLOOR( x )>= ras.precision_half )
 end_define
 begin_comment
 comment|/* The most used variables are positioned at the top of the structure. */
@@ -1529,9 +1632,9 @@ begin_comment
 comment|/* smaller executable.                                                 */
 end_comment
 begin_struct
-DECL|struct|TWorker_
+DECL|struct|black_TWorker_
 struct|struct
-name|TWorker_
+name|black_TWorker_
 block|{
 DECL|member|precision_bits
 name|Int
@@ -1545,10 +1648,6 @@ decl_stmt|;
 DECL|member|precision_half
 name|Int
 name|precision_half
-decl_stmt|;
-DECL|member|precision_mask
-name|Long
-name|precision_mask
 decl_stmt|;
 DECL|member|precision_shift
 name|Int
@@ -1754,7 +1853,7 @@ index|]
 decl_stmt|;
 comment|/* The Bezier stack               */
 DECL|member|band_stack
-name|TBand
+name|black_TBand
 name|band_stack
 index|[
 literal|16
@@ -1801,10 +1900,10 @@ block|}
 struct|;
 end_struct
 begin_typedef
-DECL|struct|TRaster_
+DECL|struct|black_TRaster_
 typedef|typedef
 struct|struct
-name|TRaster_
+name|black_TRaster_
 block|{
 DECL|member|buffer
 name|char
@@ -1821,7 +1920,7 @@ modifier|*
 name|memory
 decl_stmt|;
 DECL|member|worker
-name|PWorker
+name|black_PWorker
 name|worker
 decl_stmt|;
 DECL|member|grays
@@ -1836,12 +1935,12 @@ name|Short
 name|gray_width
 decl_stmt|;
 block|}
-DECL|typedef|TRaster
-DECL|typedef|PRaster
-name|TRaster
+DECL|typedef|black_TRaster
+DECL|typedef|black_PRaster
+name|black_TRaster
 operator|,
 typedef|*
-name|PRaster
+name|black_PRaster
 typedef|;
 end_typedef
 begin_ifdef
@@ -1852,7 +1951,7 @@ end_ifdef
 begin_decl_stmt
 DECL|variable|cur_ras
 specifier|static
-name|TWorker
+name|black_TWorker
 name|cur_ras
 decl_stmt|;
 end_decl_stmt
@@ -2533,7 +2632,7 @@ begin_comment
 comment|/*<Input>                                                               */
 end_comment
 begin_comment
-comment|/*    High :: Set to True for high precision (typically for ppem< 18),  */
+comment|/*    High :: Set to True for high precision (typically for ppem< 24),  */
 end_comment
 begin_comment
 comment|/*            false otherwise.                                           */
@@ -2552,6 +2651,7 @@ name|Int
 name|High
 parameter_list|)
 block|{
+comment|/*      * `precision_step' is used in `Bezier_Up' to decide when to split a      * given y-monotonous Bezier arc that crosses a scanline before      * approximating it as a straight segment.  The default value of 32 (for      * low accuracy) corresponds to      *      *   32 / 64 == 0.5 pixels ,      *      * while for the high accuracy case we have      *      *   256/ (1<< 12) = 0.0625 pixels .      *      * `precision_jitter' is an epsilon threshold used in      * `Vertical_Sweep_Span' to deal with small imperfections in the Bezier      * decomposition (after all, we are working with approximations only);      * it avoids switching on additional pixels which would cause artifacts      * otherwise.      *      * The value of `precision_jitter' has been determined heuristically.      *      */
 if|if
 condition|(
 name|High
@@ -2573,7 +2673,7 @@ name|ras
 operator|.
 name|precision_jitter
 operator|=
-literal|50
+literal|30
 expr_stmt|;
 block|}
 else|else
@@ -2639,15 +2739,6 @@ operator|.
 name|precision_bits
 operator|-
 name|Pixel_Bits
-expr_stmt|;
-name|ras
-operator|.
-name|precision_mask
-operator|=
-operator|-
-name|ras
-operator|.
-name|precision
 expr_stmt|;
 block|}
 end_function
@@ -2768,7 +2859,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Overflow
+name|FT_THROW
+argument_list|(
+name|Overflow
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -2871,11 +2965,8 @@ expr_stmt|;
 name|FT_TRACE6
 argument_list|(
 operator|(
-literal|"New ascending profile = %lx\n"
+literal|"New ascending profile = %p\n"
 operator|,
-operator|(
-name|long
-operator|)
 name|ras
 operator|.
 name|cProfile
@@ -2901,11 +2992,8 @@ expr_stmt|;
 name|FT_TRACE6
 argument_list|(
 operator|(
-literal|"New descending profile = %lx\n"
+literal|"New descending profile = %p\n"
 operator|,
-operator|(
-name|long
-operator|)
 name|ras
 operator|.
 name|cProfile
@@ -2925,7 +3013,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -3028,9 +3119,6 @@ block|{
 name|Long
 name|h
 decl_stmt|;
-name|PProfile
-name|oldProfile
-decl_stmt|;
 name|h
 operator|=
 call|(
@@ -3066,7 +3154,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Neg_Height
+name|FT_THROW
+argument_list|(
+name|Neg_Height
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -3079,14 +3170,14 @@ operator|>
 literal|0
 condition|)
 block|{
+name|PProfile
+name|oldProfile
+decl_stmt|;
 name|FT_TRACE6
 argument_list|(
 operator|(
-literal|"Ending profile %lx, start = %ld, height = %ld\n"
+literal|"Ending profile %p, start = %ld, height = %ld\n"
 operator|,
-operator|(
-name|long
-operator|)
 name|ras
 operator|.
 name|cProfile
@@ -3219,7 +3310,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Overflow
+name|FT_THROW
+argument_list|(
+name|Overflow
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -3296,8 +3390,6 @@ name|PLong
 name|y_turns
 decl_stmt|;
 name|Int
-name|y2
-decl_stmt|,
 name|n
 decl_stmt|;
 name|n
@@ -3356,8 +3448,9 @@ operator|>=
 literal|0
 condition|)
 block|{
+name|Int
 name|y2
-operator|=
+init|=
 operator|(
 name|Int
 operator|)
@@ -3365,7 +3458,7 @@ name|y_turns
 index|[
 name|n
 index|]
-expr_stmt|;
+decl_stmt|;
 name|y_turns
 index|[
 name|n
@@ -3408,7 +3501,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Overflow
+name|FT_THROW
+argument_list|(
+name|Overflow
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -3479,11 +3575,6 @@ parameter_list|(
 name|RAS_ARG
 parameter_list|)
 block|{
-name|Int
-name|bottom
-decl_stmt|,
-name|top
-decl_stmt|;
 name|UShort
 name|n
 decl_stmt|;
@@ -3518,6 +3609,11 @@ operator|>
 literal|0
 condition|)
 block|{
+name|Int
+name|bottom
+decl_stmt|,
+name|top
+decl_stmt|;
 if|if
 condition|(
 name|n
@@ -4541,7 +4637,7 @@ else|else
 block|{
 name|x1
 operator|+=
-name|FMulDiv
+name|SMulDiv
 argument_list|(
 name|Dx
 argument_list|,
@@ -4640,7 +4736,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Overflow
+name|FT_THROW
+argument_list|(
+name|Overflow
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -4655,15 +4754,16 @@ condition|)
 block|{
 name|Ix
 operator|=
-operator|(
+name|SMulDiv_No_Round
+argument_list|(
 name|ras
 operator|.
 name|precision
-operator|*
+argument_list|,
 name|Dx
-operator|)
-operator|/
+argument_list|,
 name|Dy
+argument_list|)
 expr_stmt|;
 name|Rx
 operator|=
@@ -4687,18 +4787,17 @@ block|{
 name|Ix
 operator|=
 operator|-
-operator|(
-operator|(
+name|SMulDiv_No_Round
+argument_list|(
 name|ras
 operator|.
 name|precision
-operator|*
+argument_list|,
 operator|-
 name|Dx
-operator|)
-operator|/
+argument_list|,
 name|Dy
-operator|)
+argument_list|)
 expr_stmt|;
 name|Rx
 operator|=
@@ -5270,7 +5369,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Overflow
+name|FT_THROW
+argument_list|(
+name|Overflow
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -7302,10 +7404,7 @@ operator|)
 operator|/
 literal|2
 expr_stmt|;
-name|v_last
-operator|=
-name|v_start
-expr_stmt|;
+comment|/* v_last = v_start; */
 block|}
 name|point
 operator|--
@@ -7736,6 +7835,33 @@ operator|.
 name|y
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|flipped
+condition|)
+block|{
+name|SWAP_
+argument_list|(
+name|x1
+argument_list|,
+name|y1
+argument_list|)
+expr_stmt|;
+name|SWAP_
+argument_list|(
+name|x2
+argument_list|,
+name|y2
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|point
+operator|<=
+name|limit
+condition|)
+block|{
 name|x3
 operator|=
 name|SCALED
@@ -7764,21 +7890,6 @@ if|if
 condition|(
 name|flipped
 condition|)
-block|{
-name|SWAP_
-argument_list|(
-name|x1
-argument_list|,
-name|y1
-argument_list|)
-expr_stmt|;
-name|SWAP_
-argument_list|(
-name|x2
-argument_list|,
-name|y2
-argument_list|)
-expr_stmt|;
 name|SWAP_
 argument_list|(
 name|x3
@@ -7786,14 +7897,6 @@ argument_list|,
 name|y3
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|point
-operator|<=
-name|limit
-condition|)
-block|{
 if|if
 condition|(
 name|Cubic_To
@@ -7866,7 +7969,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 expr_stmt|;
 name|Fail
 label|:
@@ -7939,9 +8045,6 @@ name|i
 decl_stmt|;
 name|unsigned
 name|start
-decl_stmt|;
-name|PProfile
-name|lastProfile
 decl_stmt|;
 name|ras
 operator|.
@@ -8026,6 +8129,9 @@ name|i
 operator|++
 control|)
 block|{
+name|PProfile
+name|lastProfile
+decl_stmt|;
 name|Bool
 name|o
 decl_stmt|;
@@ -8791,19 +8897,18 @@ name|e1
 decl_stmt|,
 name|e2
 decl_stmt|;
-name|int
-name|c1
-decl_stmt|,
-name|c2
-decl_stmt|;
-name|Byte
-name|f1
-decl_stmt|,
-name|f2
-decl_stmt|;
 name|Byte
 modifier|*
 name|target
+decl_stmt|;
+name|Int
+name|dropOutControl
+init|=
+name|left
+operator|->
+name|flags
+operator|&
+literal|7
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -8833,6 +8938,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|dropOutControl
+operator|!=
+literal|2
+operator|&&
 name|x2
 operator|-
 name|x1
@@ -8873,6 +8982,16 @@ operator|.
 name|bWidth
 condition|)
 block|{
+name|int
+name|c1
+decl_stmt|,
+name|c2
+decl_stmt|;
+name|Byte
+name|f1
+decl_stmt|,
+name|f2
+decl_stmt|;
 if|if
 condition|(
 name|e1
@@ -9334,6 +9453,35 @@ comment|/* modes 2, 3, 6, 7 */
 return|return;
 comment|/* no drop-out control */
 block|}
+comment|/* undocumented but confirmed: If the drop-out would result in a  */
+comment|/* pixel outside of the bounding box, use the pixel inside of the */
+comment|/* bounding box instead                                           */
+if|if
+condition|(
+name|pxl
+operator|<
+literal|0
+condition|)
+name|pxl
+operator|=
+name|e1
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|TRUNC
+argument_list|(
+name|pxl
+argument_list|)
+operator|>=
+name|ras
+operator|.
+name|bWidth
+condition|)
+name|pxl
+operator|=
+name|e2
+expr_stmt|;
 comment|/* check that the other pixel isn't set */
 name|e1
 operator|=
@@ -9598,17 +9746,6 @@ name|PProfile
 name|right
 parameter_list|)
 block|{
-name|Long
-name|e1
-decl_stmt|,
-name|e2
-decl_stmt|;
-name|PByte
-name|bits
-decl_stmt|;
-name|Byte
-name|f1
-decl_stmt|;
 name|FT_UNUSED
 argument_list|(
 name|left
@@ -9630,6 +9767,11 @@ operator|.
 name|precision
 condition|)
 block|{
+name|Long
+name|e1
+decl_stmt|,
+name|e2
+decl_stmt|;
 name|e1
 operator|=
 name|CEILING
@@ -9651,6 +9793,12 @@ operator|==
 name|e2
 condition|)
 block|{
+name|Byte
+name|f1
+decl_stmt|;
+name|PByte
+name|bits
+decl_stmt|;
 name|bits
 operator|=
 name|ras
@@ -9691,6 +9839,9 @@ name|e1
 operator|>=
 literal|0
 operator|&&
+operator|(
+name|ULong
+operator|)
 name|e1
 operator|<
 name|ras
@@ -9995,6 +10146,42 @@ comment|/* modes 2, 3, 6, 7 */
 return|return;
 comment|/* no drop-out control */
 block|}
+comment|/* undocumented but confirmed: If the drop-out would result in a  */
+comment|/* pixel outside of the bounding box, use the pixel inside of the */
+comment|/* bounding box instead                                           */
+if|if
+condition|(
+name|pxl
+operator|<
+literal|0
+condition|)
+name|pxl
+operator|=
+name|e1
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+call|(
+name|ULong
+call|)
+argument_list|(
+name|TRUNC
+argument_list|(
+name|pxl
+argument_list|)
+argument_list|)
+operator|>=
+name|ras
+operator|.
+name|target
+operator|.
+name|rows
+condition|)
+name|pxl
+operator|=
+name|e2
+expr_stmt|;
 comment|/* check that the other pixel isn't set */
 name|e1
 operator|=
@@ -10084,6 +10271,9 @@ name|e1
 operator|>=
 literal|0
 operator|&&
+operator|(
+name|ULong
+operator|)
 name|e1
 operator|<
 name|ras
@@ -10142,6 +10332,9 @@ name|e1
 operator|>=
 literal|0
 operator|&&
+operator|(
+name|ULong
+operator|)
 name|e1
 operator|<
 name|ras
@@ -10406,18 +10599,6 @@ parameter_list|(
 name|RAS_ARG
 parameter_list|)
 block|{
-name|Int
-name|c1
-decl_stmt|,
-name|c2
-decl_stmt|;
-name|PByte
-name|pix
-decl_stmt|,
-name|bit
-decl_stmt|,
-name|bit2
-decl_stmt|;
 name|short
 modifier|*
 name|count
@@ -10451,6 +10632,9 @@ operator|.
 name|gray_width
 condition|)
 block|{
+name|PByte
+name|pix
+decl_stmt|;
 name|pix
 operator|=
 name|ras
@@ -10511,6 +10695,16 @@ name|Bool
 name|over
 init|=
 literal|0
+decl_stmt|;
+name|Int
+name|c1
+decl_stmt|,
+name|c2
+decl_stmt|;
+name|PByte
+name|bit
+decl_stmt|,
+name|bit2
 decl_stmt|;
 if|if
 condition|(
@@ -10903,9 +11097,6 @@ decl_stmt|;
 name|PByte
 name|pixel
 decl_stmt|;
-name|Byte
-name|color
-decl_stmt|;
 comment|/* During the horizontal sweep, we only take care of drop-outs */
 name|e1
 operator|=
@@ -11074,6 +11265,9 @@ operator|>=
 literal|0
 condition|)
 block|{
+name|Byte
+name|color
+decl_stmt|;
 if|if
 condition|(
 name|x2
@@ -11411,7 +11605,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 expr_stmt|;
 return|return
 name|FAILURE
@@ -12234,7 +12431,10 @@ name|ras
 operator|.
 name|error
 operator|=
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 expr_stmt|;
 return|return
 name|ras
@@ -13106,7 +13306,10 @@ block|{
 name|FT_UNUSED_RASTER
 expr_stmt|;
 return|return
-name|Raster_Err_Unsupported
+name|FT_THROW
+argument_list|(
+name|Unsupported
+argument_list|)
 return|;
 block|}
 end_block
@@ -13123,7 +13326,7 @@ name|void
 DECL|function|ft_black_init
 name|ft_black_init
 parameter_list|(
-name|PRaster
+name|black_PRaster
 name|raster
 parameter_list|)
 block|{
@@ -13206,9 +13409,14 @@ name|araster
 parameter_list|)
 block|{
 specifier|static
-name|TRaster
+name|black_TRaster
 name|the_raster
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|memory
+argument_list|)
+expr_stmt|;
 operator|*
 name|araster
 operator|=
@@ -13263,7 +13471,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|/* _STANDALONE_ */
+comment|/* !_STANDALONE_ */
 end_comment
 begin_function
 specifier|static
@@ -13274,7 +13482,7 @@ parameter_list|(
 name|FT_Memory
 name|memory
 parameter_list|,
-name|PRaster
+name|black_PRaster
 modifier|*
 name|araster
 parameter_list|)
@@ -13282,8 +13490,10 @@ block|{
 name|FT_Error
 name|error
 decl_stmt|;
-name|PRaster
+name|black_PRaster
 name|raster
+init|=
+name|NULL
 decl_stmt|;
 operator|*
 name|araster
@@ -13327,7 +13537,7 @@ name|void
 DECL|function|ft_black_done
 name|ft_black_done
 parameter_list|(
-name|PRaster
+name|black_PRaster
 name|raster
 parameter_list|)
 block|{
@@ -13353,7 +13563,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* _STANDALONE_ */
+comment|/* !_STANDALONE_ */
 end_comment
 begin_function
 specifier|static
@@ -13361,7 +13571,7 @@ name|void
 DECL|function|ft_black_reset
 name|ft_black_reset
 parameter_list|(
-name|PRaster
+name|black_PRaster
 name|raster
 parameter_list|,
 name|char
@@ -13388,17 +13598,17 @@ name|long
 operator|)
 sizeof|sizeof
 argument_list|(
-name|TWorker
+name|black_TWorker
 argument_list|)
 operator|+
 literal|2048
 condition|)
 block|{
-name|PWorker
+name|black_PWorker
 name|worker
 init|=
 operator|(
-name|PWorker
+name|black_PWorker
 operator|)
 name|pool_base
 decl_stmt|;
@@ -13427,12 +13637,13 @@ name|raster
 operator|->
 name|buffer_size
 operator|=
-operator|(
-operator|(
+call|(
+name|long
+call|)
+argument_list|(
 name|pool_base
 operator|+
 name|pool_size
-operator|)
 operator|-
 operator|(
 name|char
@@ -13441,11 +13652,6 @@ operator|)
 name|raster
 operator|->
 name|buffer
-operator|)
-operator|/
-sizeof|sizeof
-argument_list|(
-name|Long
 argument_list|)
 expr_stmt|;
 name|raster
@@ -13481,11 +13687,11 @@ block|}
 end_function
 begin_function
 specifier|static
-name|void
+name|int
 DECL|function|ft_black_set_mode
 name|ft_black_set_mode
 parameter_list|(
-name|PRaster
+name|black_PRaster
 name|raster
 parameter_list|,
 name|unsigned
@@ -13598,6 +13804,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
@@ -13606,7 +13815,7 @@ name|int
 DECL|function|ft_black_render
 name|ft_black_render
 parameter_list|(
-name|PRaster
+name|black_PRaster
 name|raster
 parameter_list|,
 specifier|const
@@ -13638,7 +13847,7 @@ name|params
 operator|->
 name|target
 decl_stmt|;
-name|PWorker
+name|black_PWorker
 name|worker
 decl_stmt|;
 if|if
@@ -13657,7 +13866,10 @@ operator|->
 name|buffer_size
 condition|)
 return|return
-name|Raster_Err_Not_Ini
+name|FT_THROW
+argument_list|(
+name|Not_Ini
+argument_list|)
 return|;
 if|if
 condition|(
@@ -13665,7 +13877,10 @@ operator|!
 name|outline
 condition|)
 return|return
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 return|;
 comment|/* return immediately if the outline is empty */
 if|if
@@ -13698,7 +13913,10 @@ operator|->
 name|points
 condition|)
 return|return
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 return|;
 if|if
 condition|(
@@ -13720,7 +13938,10 @@ operator|+
 literal|1
 condition|)
 return|return
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 return|;
 name|worker
 operator|=
@@ -13738,7 +13959,10 @@ operator|&
 name|FT_RASTER_FLAG_DIRECT
 condition|)
 return|return
-name|Raster_Err_Unsupported
+name|FT_THROW
+argument_list|(
+name|Unsupported
+argument_list|)
 return|;
 if|if
 condition|(
@@ -13746,7 +13970,10 @@ operator|!
 name|target_map
 condition|)
 return|return
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 return|;
 comment|/* nothing to do */
 if|if
@@ -13772,7 +13999,10 @@ operator|->
 name|buffer
 condition|)
 return|return
-name|Raster_Err_Invalid
+name|FT_THROW
+argument_list|(
+name|Invalid
+argument_list|)
 return|;
 name|ras
 operator|.

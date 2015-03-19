@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2007 by                                          */
+comment|/*  Copyright 2001, 2002, 2007, 2009, 2012 by                              */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -371,18 +371,19 @@ literal|0x10000L
 argument_list|,
 literal|0x20000L
 argument_list|,
-argument|&FTPSHINTER_INTERFACE_GET
+argument|&PSHINTER_INTERFACE_GET
 argument_list|,
 comment|/* module-specific interface */
 argument|(FT_Module_Constructor)ps_hinter_init
 argument_list|,
 argument|(FT_Module_Destructor) ps_hinter_done
 argument_list|,
-argument|(FT_Module_Requester)
-literal|0
-comment|/* no additional interface for now */
+argument|(FT_Module_Requester)  NULL
 argument_list|)
 end_macro
+begin_comment
+comment|/* no additional interface for now */
+end_comment
 begin_comment
 comment|/* END */
 end_comment

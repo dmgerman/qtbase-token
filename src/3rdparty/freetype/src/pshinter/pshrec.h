@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2006, 2008 by                              */
+comment|/*  Copyright 2001, 2002, 2003, 2006, 2008, 2014 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -422,7 +422,7 @@ end_comment
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
@@ -446,14 +446,14 @@ argument|void
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|ps_hints_done
+DECL|variable|hints
 name|ps_hints_done
 argument_list|(
 argument|PS_Hints  hints
 argument_list|)
 end_macro
 begin_empty_stmt
-DECL|variable|ps_hints_done
+DECL|variable|hints
 empty_stmt|;
 end_empty_stmt
 begin_comment

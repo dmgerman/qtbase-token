@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005 by                                          */
+comment|/*  Copyright 2003-2005, 2011, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -60,6 +60,11 @@ include|#
 directive|include
 file|"afhints.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"aferrors.h"
+end_include
 begin_function
 specifier|static
 name|FT_Error
@@ -69,7 +74,7 @@ parameter_list|(
 name|AF_GlyphHints
 name|hints
 parameter_list|,
-name|AF_ScriptMetrics
+name|AF_StyleMetrics
 name|metrics
 parameter_list|)
 block|{
@@ -80,8 +85,48 @@ argument_list|,
 name|metrics
 argument_list|)
 expr_stmt|;
+name|hints
+operator|->
+name|x_scale
+operator|=
+name|metrics
+operator|->
+name|scaler
+operator|.
+name|x_scale
+expr_stmt|;
+name|hints
+operator|->
+name|y_scale
+operator|=
+name|metrics
+operator|->
+name|scaler
+operator|.
+name|y_scale
+expr_stmt|;
+name|hints
+operator|->
+name|x_delta
+operator|=
+name|metrics
+operator|->
+name|scaler
+operator|.
+name|x_delta
+expr_stmt|;
+name|hints
+operator|->
+name|y_delta
+operator|=
+name|metrics
+operator|->
+name|scaler
+operator|.
+name|y_delta
+expr_stmt|;
 return|return
-literal|0
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -99,41 +144,53 @@ modifier|*
 name|outline
 parameter_list|)
 block|{
-name|FT_UNUSED
+name|FT_Error
+name|error
+decl_stmt|;
+name|error
+operator|=
+name|af_glyph_hints_reload
 argument_list|(
 name|hints
+argument_list|,
+name|outline
 argument_list|)
 expr_stmt|;
-name|FT_UNUSED
+if|if
+condition|(
+operator|!
+name|error
+condition|)
+name|af_glyph_hints_save
 argument_list|(
+name|hints
+argument_list|,
 name|outline
 argument_list|)
 expr_stmt|;
 return|return
-literal|0
+name|error
 return|;
 block|}
 end_function
 begin_macro
-name|AF_DEFINE_SCRIPT_CLASS
+name|AF_DEFINE_WRITING_SYSTEM_CLASS
 argument_list|(
-argument|af_dummy_script_class
+argument|af_dummy_writing_system_class
 argument_list|,
-argument|AF_SCRIPT_NONE
+argument|AF_WRITING_SYSTEM_DUMMY
 argument_list|,
-argument|NULL
+argument|sizeof ( AF_StyleMetricsRec )
 argument_list|,
-argument|sizeof( AF_ScriptMetricsRec )
+argument|(AF_WritingSystem_InitMetricsFunc) NULL
 argument_list|,
-argument|(AF_Script_InitMetricsFunc) NULL
+argument|(AF_WritingSystem_ScaleMetricsFunc)NULL
 argument_list|,
-argument|(AF_Script_ScaleMetricsFunc)NULL
+argument|(AF_WritingSystem_DoneMetricsFunc) NULL
 argument_list|,
-argument|(AF_Script_DoneMetricsFunc) NULL
+argument|(AF_WritingSystem_InitHintsFunc)   af_dummy_hints_init
 argument_list|,
-argument|(AF_Script_InitHintsFunc)   af_dummy_hints_init
-argument_list|,
-argument|(AF_Script_ApplyHintsFunc)  af_dummy_hints_apply
+argument|(AF_WritingSystem_ApplyHintsFunc)  af_dummy_hints_apply
 argument_list|)
 end_macro
 begin_comment

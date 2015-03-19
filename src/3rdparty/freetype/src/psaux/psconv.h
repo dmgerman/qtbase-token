@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006 by                                                      */
+comment|/*  Copyright 2006, 2012 by                                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -72,7 +72,7 @@ begin_function_decl
 name|FT_BEGIN_HEADER
 name|FT_LOCAL
 parameter_list|(
-name|FT_Int
+name|FT_Long
 parameter_list|)
 function_decl|PS_Conv_Strtol
 parameter_list|(
@@ -85,7 +85,7 @@ name|FT_Byte
 modifier|*
 name|limit
 parameter_list|,
-name|FT_Int
+name|FT_Long
 name|base
 parameter_list|)
 function_decl|;
@@ -93,7 +93,7 @@ end_function_decl
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Int
+argument|FT_Long
 argument_list|)
 end_macro
 begin_expr_stmt
@@ -124,7 +124,7 @@ argument|FT_Byte**  cursor
 argument_list|,
 argument|FT_Byte*   limit
 argument_list|,
-argument|FT_Int     power_ten
+argument|FT_Long    power_ten
 argument_list|)
 end_macro
 begin_empty_stmt

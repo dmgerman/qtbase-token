@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007 by                        */
+comment|/*  Copyright 2002-2007, 2010, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -47,6 +47,16 @@ end_comment
 begin_comment
 comment|/***************************************************************************/
 end_comment
+begin_include
+include|#
+directive|include
+file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
+end_include
 begin_include
 include|#
 directive|include
@@ -94,6 +104,8 @@ begin_macro
 name|cff_cmap_encoding_init
 argument_list|(
 argument|CFF_CMapStd  cmap
+argument_list|,
+argument|FT_Pointer   pointer
 argument_list|)
 end_macro
 begin_block
@@ -129,6 +141,11 @@ name|cff
 operator|->
 name|encoding
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 name|cmap
 operator|->
 name|gids
@@ -362,9 +379,9 @@ begin_macro
 DECL|function|cff_sid_to_glyph_name
 name|cff_sid_to_glyph_name
 argument_list|(
-argument|TT_Face   face
+argument|TT_Face  face
 argument_list|,
-argument|FT_UInt   idx
+argument|FT_UInt  idx
 argument_list|)
 end_macro
 begin_block
@@ -389,16 +406,6 @@ name|cff
 operator|->
 name|charset
 decl_stmt|;
-name|FT_Service_PsCMaps
-name|psnames
-init|=
-operator|(
-name|FT_Service_PsCMaps
-operator|)
-name|cff
-operator|->
-name|psnames
-decl_stmt|;
 name|FT_UInt
 name|sid
 init|=
@@ -412,48 +419,11 @@ decl_stmt|;
 return|return
 name|cff_index_get_sid_string
 argument_list|(
-operator|&
 name|cff
-operator|->
-name|string_index
 argument_list|,
 name|sid
-argument_list|,
-name|psnames
 argument_list|)
 return|;
-block|}
-end_block
-begin_macro
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
-DECL|function|cff_sid_free_glyph_name
-name|cff_sid_free_glyph_name
-argument_list|(
-argument|TT_Face      face
-argument_list|,
-argument|const char*  gname
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_Memory
-name|memory
-init|=
-name|FT_FACE_MEMORY
-argument_list|(
-name|face
-argument_list|)
-decl_stmt|;
-name|FT_FREE
-argument_list|(
-name|gname
-argument_list|)
-expr_stmt|;
 block|}
 end_block
 begin_macro
@@ -467,6 +437,8 @@ begin_macro
 name|cff_cmap_unicode_init
 argument_list|(
 argument|PS_Unicodes  unicodes
+argument_list|,
+argument|FT_Pointer   pointer
 argument_list|)
 end_macro
 begin_block
@@ -520,7 +492,13 @@ name|cff
 operator|->
 name|psnames
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 comment|/* can't build Unicode map for CID-keyed font */
+comment|/* because we don't know glyph names.         */
 if|if
 condition|(
 operator|!
@@ -529,7 +507,10 @@ operator|->
 name|sids
 condition|)
 return|return
-name|CFF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|No_Unicode_Glyph_Name
+argument_list|)
 return|;
 return|return
 name|psnames
@@ -553,8 +534,7 @@ argument_list|,
 operator|(
 name|PS_FreeGlyphNameFunc
 operator|)
-operator|&
-name|cff_sid_free_glyph_name
+name|NULL
 argument_list|,
 operator|(
 name|FT_Pointer

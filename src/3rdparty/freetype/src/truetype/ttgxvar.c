@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2007, 2008, 2009 by                        */
+comment|/*  Copyright 2004-2014 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, Werner Lemberg, and George Williams.     */
@@ -186,7 +186,7 @@ parameter_list|(
 name|stream
 parameter_list|)
 define|\
-value|( (stream)->cursor - (stream)->base )
+value|(FT_ULong)( (stream)->cursor - (stream)->base )
 end_define
 begin_define
 DECL|macro|FT_Stream_SeekSet
@@ -199,7 +199,7 @@ parameter_list|,
 name|off
 parameter_list|)
 define|\
-value|( (stream)->cursor = (stream)->base+(off) )
+value|( (stream)->cursor = (stream)->base + (off) )
 end_define
 begin_comment
 comment|/*************************************************************************/
@@ -271,12 +271,15 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
+begin_comment
+comment|/* ensure that value `0' has the same width as a pointer */
+end_comment
 begin_define
 DECL|macro|ALL_POINTS
 define|#
 directive|define
 name|ALL_POINTS
-value|(FT_UShort*)( -1 )
+value|(FT_UShort*)~(FT_PtrDist)0
 end_define
 begin_define
 DECL|macro|GX_PT_POINTS_ARE_WORDS
@@ -373,6 +376,8 @@ block|{
 name|FT_UShort
 modifier|*
 name|points
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Int
 name|n
@@ -399,7 +404,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -501,6 +506,12 @@ condition|(
 name|runcnt
 operator|<
 literal|1
+operator|||
+name|i
+operator|+
+name|runcnt
+operator|>=
+name|n
 condition|)
 goto|goto
 name|Exit
@@ -554,6 +565,12 @@ condition|(
 name|runcnt
 operator|<
 literal|1
+operator|||
+name|i
+operator|+
+name|runcnt
+operator|>=
+name|n
 condition|)
 goto|goto
 name|Exit
@@ -693,6 +710,8 @@ block|{
 name|FT_Short
 modifier|*
 name|deltas
+init|=
+name|NULL
 decl_stmt|;
 name|FT_UInt
 name|runcnt
@@ -713,7 +732,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -961,7 +980,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_ULong
 name|version
@@ -1501,7 +1520,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1869,14 +1891,9 @@ name|i
 decl_stmt|;
 name|FT_Fixed
 name|apply
-decl_stmt|;
-name|FT_Fixed
-name|temp
-decl_stmt|;
-name|apply
-operator|=
+init|=
 literal|0x10000L
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|i
@@ -1975,7 +1992,7 @@ condition|)
 comment|/* not an intermediate tuple */
 name|apply
 operator|=
-name|FT_MulDiv
+name|FT_MulFix
 argument_list|(
 name|apply
 argument_list|,
@@ -2002,8 +2019,6 @@ name|normalizedcoords
 index|[
 name|i
 index|]
-argument_list|,
-literal|0x10000L
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2055,11 +2070,12 @@ index|[
 name|i
 index|]
 condition|)
-block|{
-name|temp
+name|apply
 operator|=
 name|FT_MulDiv
 argument_list|(
+name|apply
+argument_list|,
 name|blend
 operator|->
 name|normalizedcoords
@@ -2072,8 +2088,6 @@ index|[
 name|i
 index|]
 argument_list|,
-literal|0x10000L
-argument_list|,
 name|tuple_coords
 index|[
 name|i
@@ -2085,24 +2099,13 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|apply
-operator|=
-name|FT_MulDiv
-argument_list|(
-name|apply
-argument_list|,
-name|temp
-argument_list|,
-literal|0x10000L
-argument_list|)
-expr_stmt|;
-block|}
 else|else
-block|{
-name|temp
+name|apply
 operator|=
 name|FT_MulDiv
 argument_list|(
+name|apply
+argument_list|,
 name|im_end_coords
 index|[
 name|i
@@ -2115,8 +2118,6 @@ index|[
 name|i
 index|]
 argument_list|,
-literal|0x10000L
-argument_list|,
 name|im_end_coords
 index|[
 name|i
@@ -2128,18 +2129,6 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|apply
-operator|=
-name|FT_MulDiv
-argument_list|(
-name|apply
-argument_list|,
-name|temp
-argument_list|,
-literal|0x10000L
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|apply
@@ -2339,7 +2328,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_ULong
 name|fvar_start
@@ -2352,6 +2341,8 @@ decl_stmt|;
 name|FT_MM_Var
 modifier|*
 name|mmvar
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Fixed
 modifier|*
@@ -2586,6 +2577,13 @@ name|axisSize
 operator|!=
 literal|20
 operator|||
+comment|/* axisCount limit implied by 16-bit instanceSize */
+name|fvar_head
+operator|.
+name|axisCount
+operator|>
+literal|0x3FFE
+operator|||
 name|fvar_head
 operator|.
 name|instanceSize
@@ -2597,6 +2595,13 @@ operator|*
 name|fvar_head
 operator|.
 name|axisCount
+operator|||
+comment|/* instanceCount limit implied by limited range of name IDs */
+name|fvar_head
+operator|.
+name|instanceCount
+operator|>
+literal|0x7EFF
 operator|||
 name|fvar_head
 operator|.
@@ -2621,7 +2626,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2639,7 +2647,7 @@ condition|)
 goto|goto
 name|Exit
 goto|;
-comment|/* XXX: TODO - check for overflows */
+comment|/* cannot overflow 32-bit arithmetic because of limits above */
 name|face
 operator|->
 name|blend
@@ -2724,11 +2732,8 @@ name|mmvar
 operator|->
 name|num_designs
 operator|=
-operator|(
-name|FT_UInt
-operator|)
-operator|-
-literal|1
+operator|~
+literal|0U
 expr_stmt|;
 comment|/* meaningless in this context; each glyph */
 comment|/* may have a different number of designs  */
@@ -3497,7 +3502,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|GX_Blend
 name|blend
@@ -3585,7 +3590,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3624,7 +3632,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3792,6 +3803,8 @@ name|cvt
 operator|=
 name|NULL
 expr_stmt|;
+name|error
+operator|=
 name|tt_face_load_cvt
 argument_list|(
 name|face
@@ -3809,6 +3822,8 @@ name|mcvt_modify
 case|:
 comment|/* The original cvt table is in memory.  All we need to do is */
 comment|/* apply the `cvar' table (if any).                           */
+name|error
+operator|=
 name|tt_face_vary_cvt
 argument_list|(
 name|face
@@ -3923,7 +3938,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Fixed
 modifier|*
@@ -4010,7 +4025,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4081,7 +4099,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4098,14 +4119,13 @@ name|a
 operator|->
 name|def
 condition|)
-block|{
 name|normalized
 index|[
 name|i
 index|]
 operator|=
 operator|-
-name|FT_MulDiv
+name|FT_DivFix
 argument_list|(
 name|coords
 index|[
@@ -4116,8 +4136,6 @@ name|a
 operator|->
 name|def
 argument_list|,
-literal|0x10000L
-argument_list|,
 name|a
 operator|->
 name|minimum
@@ -4127,7 +4145,6 @@ operator|->
 name|def
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -4147,13 +4164,12 @@ operator|=
 literal|0
 expr_stmt|;
 else|else
-block|{
 name|normalized
 index|[
 name|i
 index|]
 operator|=
-name|FT_MulDiv
+name|FT_DivFix
 argument_list|(
 name|coords
 index|[
@@ -4164,8 +4180,6 @@ name|a
 operator|->
 name|def
 argument_list|,
-literal|0x10000L
-argument_list|,
 name|a
 operator|->
 name|maximum
@@ -4175,7 +4189,6 @@ operator|->
 name|def
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -4265,8 +4278,6 @@ index|]
 operator|=
 name|FT_MulDiv
 argument_list|(
-name|FT_MulDiv
-argument_list|(
 name|normalized
 index|[
 name|i
@@ -4283,29 +4294,6 @@ index|]
 operator|.
 name|fromCoord
 argument_list|,
-literal|0x10000L
-argument_list|,
-name|av
-operator|->
-name|correspondence
-index|[
-name|j
-index|]
-operator|.
-name|fromCoord
-operator|-
-name|av
-operator|->
-name|correspondence
-index|[
-name|j
-operator|-
-literal|1
-index|]
-operator|.
-name|fromCoord
-argument_list|)
-argument_list|,
 name|av
 operator|->
 name|correspondence
@@ -4326,7 +4314,25 @@ index|]
 operator|.
 name|toCoord
 argument_list|,
-literal|0x10000L
+name|av
+operator|->
+name|correspondence
+index|[
+name|j
+index|]
+operator|.
+name|fromCoord
+operator|-
+name|av
+operator|->
+name|correspondence
+index|[
+name|j
+operator|-
+literal|1
+index|]
+operator|.
+name|fromCoord
 argument_list|)
 operator|+
 name|av
@@ -4557,7 +4563,7 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4581,7 +4587,7 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4617,7 +4623,7 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4633,7 +4639,7 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4663,7 +4669,7 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|FExit
@@ -5257,6 +5263,8 @@ decl_stmt|;
 name|FT_Vector
 modifier|*
 name|delta_xy
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Error
 name|error
@@ -5338,7 +5346,10 @@ operator|==
 name|NULL
 condition|)
 return|return
-name|TT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 comment|/* to be freed by the caller */
 if|if
@@ -5383,7 +5394,7 @@ literal|1
 index|]
 condition|)
 return|return
-name|TT_Err_Ok
+name|FT_Err_Ok
 return|;
 comment|/* no variation data for this glyph */
 if|if
@@ -5607,7 +5618,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail3
@@ -5904,6 +5918,16 @@ operator|++
 name|j
 control|)
 block|{
+if|if
+condition|(
+name|localpoints
+index|[
+name|j
+index|]
+operator|>=
+name|n_points
+condition|)
+continue|continue;
 name|delta_xy
 index|[
 name|localpoints

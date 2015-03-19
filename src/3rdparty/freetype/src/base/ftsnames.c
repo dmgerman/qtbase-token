@@ -147,7 +147,10 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

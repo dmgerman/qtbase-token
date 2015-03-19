@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2007, 2009 by                                    */
+comment|/*  Copyright 2004, 2005, 2007, 2009, 2014 by                              */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -119,7 +119,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -209,12 +209,10 @@ define|#
 directive|define
 name|FT_INVALID_
 parameter_list|(
-name|_prefix
-parameter_list|,
 name|_error
 parameter_list|)
 define|\
-value|ft_validator_error( valid->root, _prefix ## _error )
+value|ft_validator_error( otvalid->root, FT_THROW( _error ) )
 end_define
 begin_define
 DECL|macro|OTV_OPTIONAL_TABLE
@@ -246,7 +244,7 @@ parameter_list|(
 name|_count
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                             \             if ( p + (_count)> valid->root->limit ) \               FT_INVALID_TOO_SHORT;                  \           FT_END_STMNT
+value|FT_BEGIN_STMNT                             \             if ( p + (_count)> otvalid->root->limit ) \               FT_INVALID_TOO_SHORT;                  \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_SIZE_CHECK
@@ -257,7 +255,7 @@ parameter_list|(
 name|_size
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                            \             if ( _size> 0&& _size< table_size )                  \             {                                                       \               if ( valid->root->level == FT_VALIDATE_PARANOID )     \                 FT_INVALID_OFFSET;                                  \               else                                                  \               {                                                     \
+value|FT_BEGIN_STMNT                                            \             if ( _size> 0&& _size< table_size )                  \             {                                                       \               if ( otvalid->root->level == FT_VALIDATE_PARANOID )     \                 FT_INVALID_OFFSET;                                  \               else                                                  \               {                                                     \
 comment|/* strip off `const' */
 value|\                 FT_Byte*  pp = (FT_Byte*)_size ## _p;               \                                                                     \                                                                     \                 FT_TRACE3(( "\n"                                    \                             "Invalid offset to optional table `%s'" \                             " set to zero.\n"                       \                             "\n", #_size ));                        \                                                                     \
 comment|/* always assume 16bit entities */
@@ -317,7 +315,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             valid->nesting_level          = 0;             \             valid->func[0]                = OTV_FUNC( x ); \             valid->debug_function_name[0] = OTV_NAME( x ); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                     \             otvalid->nesting_level          = 0;             \             otvalid->func[0]                = OTV_FUNC( x ); \             otvalid->debug_function_name[0] = OTV_NAME( x ); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_NEST2
@@ -330,7 +328,7 @@ parameter_list|,
 name|y
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             valid->nesting_level          = 0;             \             valid->func[0]                = OTV_FUNC( x ); \             valid->func[1]                = OTV_FUNC( y ); \             valid->debug_function_name[0] = OTV_NAME( x ); \             valid->debug_function_name[1] = OTV_NAME( y ); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                     \             otvalid->nesting_level          = 0;             \             otvalid->func[0]                = OTV_FUNC( x ); \             otvalid->func[1]                = OTV_FUNC( y ); \             otvalid->debug_function_name[0] = OTV_NAME( x ); \             otvalid->debug_function_name[1] = OTV_NAME( y ); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_NEST3
@@ -345,14 +343,14 @@ parameter_list|,
 name|z
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             valid->nesting_level          = 0;             \             valid->func[0]                = OTV_FUNC( x ); \             valid->func[1]                = OTV_FUNC( y ); \             valid->func[2]                = OTV_FUNC( z ); \             valid->debug_function_name[0] = OTV_NAME( x ); \             valid->debug_function_name[1] = OTV_NAME( y ); \             valid->debug_function_name[2] = OTV_NAME( z ); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                     \             otvalid->nesting_level          = 0;             \             otvalid->func[0]                = OTV_FUNC( x ); \             otvalid->func[1]                = OTV_FUNC( y ); \             otvalid->func[2]                = OTV_FUNC( z ); \             otvalid->debug_function_name[0] = OTV_NAME( x ); \             otvalid->debug_function_name[1] = OTV_NAME( y ); \             otvalid->debug_function_name[2] = OTV_NAME( z ); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_INIT
 define|#
 directive|define
 name|OTV_INIT
-value|valid->debug_indent = 0
+value|otvalid->debug_indent = 0
 end_define
 begin_define
 DECL|macro|OTV_ENTER
@@ -360,7 +358,7 @@ define|#
 directive|define
 name|OTV_ENTER
 define|\
-value|FT_BEGIN_STMNT                                                     \             valid->debug_indent += 2;                                        \             FT_TRACE4(( "%*.s", valid->debug_indent, 0 ));                   \             FT_TRACE4(( "%s table\n",                                        \                         valid->debug_function_name[valid->nesting_level] )); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                                       \             otvalid->debug_indent += 2;                                        \             FT_TRACE4(( "%*.s", otvalid->debug_indent, 0 ));                   \             FT_TRACE4(( "%s table\n",                                          \                         otvalid->debug_function_name[otvalid->nesting_level] )); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_NAME_ENTER
@@ -371,14 +369,14 @@ parameter_list|(
 name|name
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             valid->debug_indent += 2;                      \             FT_TRACE4(( "%*.s", valid->debug_indent, 0 )); \             FT_TRACE4(( "%s table\n", name ));             \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                     \             otvalid->debug_indent += 2;                      \             FT_TRACE4(( "%*.s", otvalid->debug_indent, 0 )); \             FT_TRACE4(( "%s table\n", name ));               \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_EXIT
 define|#
 directive|define
 name|OTV_EXIT
-value|valid->debug_indent -= 2
+value|otvalid->debug_indent -= 2
 end_define
 begin_define
 DECL|macro|OTV_TRACE
@@ -389,7 +387,7 @@ parameter_list|(
 name|s
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             FT_TRACE4(( "%*.s", valid->debug_indent, 0 )); \             FT_TRACE4( s );                                \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                     \             FT_TRACE4(( "%*.s", otvalid->debug_indent, 0 )); \             FT_TRACE4( s );                                  \           FT_END_STMNT
 end_define
 begin_else
 else|#
@@ -407,7 +405,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                          \             valid->nesting_level = 0;             \             valid->func[0]       = OTV_FUNC( x ); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                            \             otvalid->nesting_level = 0;             \             otvalid->func[0]       = OTV_FUNC( x ); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_NEST2
@@ -420,7 +418,7 @@ parameter_list|,
 name|y
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                          \             valid->nesting_level = 0;             \             valid->func[0]       = OTV_FUNC( x ); \             valid->func[1]       = OTV_FUNC( y ); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                            \             otvalid->nesting_level = 0;             \             otvalid->func[0]       = OTV_FUNC( x ); \             otvalid->func[1]       = OTV_FUNC( y ); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_NEST3
@@ -435,7 +433,7 @@ parameter_list|,
 name|z
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                          \             valid->nesting_level = 0;             \             valid->func[0]       = OTV_FUNC( x ); \             valid->func[1]       = OTV_FUNC( y ); \             valid->func[2]       = OTV_FUNC( z ); \           FT_END_STMNT
+value|FT_BEGIN_STMNT                            \             otvalid->nesting_level = 0;             \             otvalid->func[0]       = OTV_FUNC( x ); \             otvalid->func[1]       = OTV_FUNC( y ); \             otvalid->func[2]       = OTV_FUNC( z ); \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|OTV_INIT
@@ -490,7 +488,7 @@ DECL|macro|OTV_RUN
 define|#
 directive|define
 name|OTV_RUN
-value|valid->func[0]
+value|otvalid->func[0]
 end_define
 begin_comment
 comment|/*************************************************************************/
@@ -524,7 +522,7 @@ name|otv_Coverage_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|,
 argument|FT_Int         expected_count
 argument_list|)
@@ -621,7 +619,7 @@ name|otv_ClassDef_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -659,7 +657,7 @@ name|otv_Device_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -697,7 +695,7 @@ name|otv_Lookup_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -714,7 +712,7 @@ name|otv_LookupList_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -752,7 +750,7 @@ name|otv_Feature_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -774,7 +772,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       lookups
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -812,7 +810,7 @@ name|otv_LangSys_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -850,7 +848,7 @@ name|otv_Script_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -872,7 +870,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       features
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1001,7 +999,7 @@ name|otv_x_Ox
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1067,7 +1065,7 @@ name|otv_u_C_x_Ox
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1126,7 +1124,7 @@ name|otv_x_ux
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1171,7 +1169,7 @@ name|otv_x_y_ux_sy
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1216,7 +1214,7 @@ name|otv_x_ux_y_uy_z_uz_p_sp
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1247,7 +1245,7 @@ name|otv_u_O_O_x_Onx
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1278,7 +1276,7 @@ name|otv_u_x_y_Ox_sy
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1309,7 +1307,7 @@ name|otv_u_O_O_O_O_x_Onx
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1340,7 +1338,7 @@ name|otv_u_x_Ox_y_Oy_z_Oz_p_sp
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_empty_stmt

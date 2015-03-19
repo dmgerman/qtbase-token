@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2007, 2009 by                              */
+comment|/*  Copyright 2003-2005, 2007, 2009, 2011-2014 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -53,22 +53,229 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__AF_GLOBAL_H__
+name|__AFGLOBAL_H__
 end_ifndef
 begin_define
-DECL|macro|__AF_GLOBAL_H__
+DECL|macro|__AFGLOBAL_H__
 define|#
 directive|define
-name|__AF_GLOBAL_H__
+name|__AFGLOBAL_H__
 end_define
 begin_include
 include|#
 directive|include
 file|"aftypes.h"
 end_include
-begin_macro
+begin_include
+include|#
+directive|include
+file|"afmodule.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"hbshim.h"
+end_include
+begin_decl_stmt
 name|FT_BEGIN_HEADER
+name|FT_LOCAL_ARRAY
+argument_list|(
+name|AF_WritingSystemClass
+argument_list|)
+name|af_writing_system_classes
+index|[]
+decl_stmt|;
+end_decl_stmt
+begin_undef
+DECL|macro|SCRIPT
+undef|#
+directive|undef
+name|SCRIPT
+end_undef
+begin_define
+DECL|macro|SCRIPT
+define|#
+directive|define
+name|SCRIPT
+parameter_list|(
+name|s
+parameter_list|,
+name|S
+parameter_list|,
+name|d
+parameter_list|,
+name|h
+parameter_list|,
+name|sc1
+parameter_list|,
+name|sc2
+parameter_list|,
+name|sc3
+parameter_list|)
+define|\
+value|AF_DECLARE_SCRIPT_CLASS( af_ ## s ## _script_class )
+end_define
+begin_include
+include|#
+directive|include
+file|"afscript.h"
+end_include
+begin_macro
+name|FT_LOCAL_ARRAY
+argument_list|(
+argument|AF_ScriptClass
+argument_list|)
 end_macro
+begin_expr_stmt
+name|af_script_classes
+index|[]
+expr_stmt|;
+end_expr_stmt
+begin_undef
+DECL|macro|STYLE
+undef|#
+directive|undef
+name|STYLE
+end_undef
+begin_define
+DECL|macro|STYLE
+define|#
+directive|define
+name|STYLE
+parameter_list|(
+name|s
+parameter_list|,
+name|S
+parameter_list|,
+name|d
+parameter_list|,
+name|ws
+parameter_list|,
+name|sc
+parameter_list|,
+name|ss
+parameter_list|,
+name|c
+parameter_list|)
+define|\
+value|AF_DECLARE_STYLE_CLASS( af_ ## s ## _style_class )
+end_define
+begin_include
+include|#
+directive|include
+file|"afstyles.h"
+end_include
+begin_macro
+name|FT_LOCAL_ARRAY
+argument_list|(
+argument|AF_StyleClass
+argument_list|)
+end_macro
+begin_expr_stmt
+name|af_style_classes
+index|[]
+expr_stmt|;
+end_expr_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+end_ifdef
+begin_macro
+name|FT_LOCAL_ARRAY
+argument_list|(
+argument|char*
+argument_list|)
+end_macro
+begin_expr_stmt
+name|af_style_names
+index|[]
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/*    *  Default values and flags for both autofitter globals (found in    *  AF_ModuleRec) and face globals (in AF_FaceGlobalsRec).    */
+end_comment
+begin_comment
+comment|/* index of fallback style in `af_style_classes' */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|AF_CONFIG_OPTION_CJK
+end_ifdef
+begin_define
+DECL|macro|AF_STYLE_FALLBACK
+define|#
+directive|define
+name|AF_STYLE_FALLBACK
+value|AF_STYLE_HANI_DFLT
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|AF_STYLE_FALLBACK
+define|#
+directive|define
+name|AF_STYLE_FALLBACK
+value|AF_STYLE_NONE_DFLT
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* default script for OpenType; ignored if HarfBuzz isn't used */
+end_comment
+begin_define
+DECL|macro|AF_SCRIPT_DEFAULT
+define|#
+directive|define
+name|AF_SCRIPT_DEFAULT
+value|AF_SCRIPT_LATN
+end_define
+begin_comment
+comment|/* a bit mask indicating an uncovered glyph        */
+end_comment
+begin_define
+DECL|macro|AF_STYLE_UNASSIGNED
+define|#
+directive|define
+name|AF_STYLE_UNASSIGNED
+value|0x7F
+end_define
+begin_comment
+comment|/* if this flag is set, we have an ASCII digit     */
+end_comment
+begin_define
+DECL|macro|AF_DIGIT
+define|#
+directive|define
+name|AF_DIGIT
+value|0x80
+end_define
+begin_comment
+comment|/* `increase-x-height' property */
+end_comment
+begin_define
+DECL|macro|AF_PROP_INCREASE_X_HEIGHT_MIN
+define|#
+directive|define
+name|AF_PROP_INCREASE_X_HEIGHT_MIN
+value|6
+end_define
+begin_define
+DECL|macro|AF_PROP_INCREASE_X_HEIGHT_MAX
+define|#
+directive|define
+name|AF_PROP_INCREASE_X_HEIGHT_MAX
+value|0
+end_define
 begin_comment
 comment|/************************************************************************/
 end_comment
@@ -91,17 +298,63 @@ begin_comment
 comment|/************************************************************************/
 end_comment
 begin_comment
-comment|/*    *  model the global hints data for a given face, decomposed into    *  script-specific items    */
+comment|/*    *  Note that glyph_styles[] maps each glyph to an index into the    *  `af_style_classes' array.    *    */
 end_comment
 begin_typedef
-DECL|typedef|AF_FaceGlobals
+DECL|struct|AF_FaceGlobalsRec_
 typedef|typedef
-name|struct
+struct|struct
 name|AF_FaceGlobalsRec_
+block|{
+DECL|member|face
+name|FT_Face
+name|face
+decl_stmt|;
+DECL|member|glyph_count
+name|FT_Long
+name|glyph_count
+decl_stmt|;
+comment|/* same as face->num_glyphs */
+DECL|member|glyph_styles
+name|FT_Byte
 modifier|*
-name|AF_FaceGlobals
+name|glyph_styles
+decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_USE_HARFBUZZ
+DECL|member|hb_font
+name|hb_font_t
+modifier|*
+name|hb_font
+decl_stmt|;
+endif|#
+directive|endif
+comment|/* per-face auto-hinter properties */
+DECL|member|increase_x_height
+name|FT_UInt
+name|increase_x_height
+decl_stmt|;
+DECL|member|metrics
+name|AF_StyleMetrics
+name|metrics
+index|[
+name|AF_STYLE_MAX
+index|]
+decl_stmt|;
+DECL|member|module
+name|AF_Module
+name|module
+decl_stmt|;
+comment|/* to access global properties */
+block|}
+DECL|typedef|AF_FaceGlobalsRec
+name|AF_FaceGlobalsRec
 typedef|;
 end_typedef
+begin_comment
+comment|/*    *  model the global hints data for a given face, decomposed into    *  style-specific items    */
+end_comment
 begin_macro
 name|FT_LOCAL
 argument_list|(
@@ -114,6 +367,8 @@ argument_list|(
 argument|FT_Face          face
 argument_list|,
 argument|AF_FaceGlobals  *aglobals
+argument_list|,
+argument|AF_Module        module
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -129,13 +384,13 @@ begin_macro
 DECL|variable|af_face_globals_get_metrics
 name|af_face_globals_get_metrics
 argument_list|(
-argument|AF_FaceGlobals     globals
+argument|AF_FaceGlobals    globals
 argument_list|,
-argument|FT_UInt            gindex
+argument|FT_UInt           gindex
 argument_list|,
-argument|FT_UInt            options
+argument|FT_UInt           options
 argument_list|,
-argument|AF_ScriptMetrics  *ametrics
+argument|AF_StyleMetrics  *ametrics
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -186,7 +441,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __AF_GLOBALS_H__ */
+comment|/* __AFGLOBAL_H__ */
 end_comment
 begin_comment
 comment|/* END */

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008, 2009 by                  */
+comment|/*  Copyright 2003-2009, 2011-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -50,6 +50,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"afglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"afloader.h"
 end_include
 begin_include
@@ -60,13 +65,21 @@ end_include
 begin_include
 include|#
 directive|include
-file|"afglobal.h"
+file|"aferrors.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"aferrors.h"
+file|"afmodule.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"afpic.h"
+end_include
+begin_comment
+comment|/* Initialize glyph loader. */
+end_comment
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -77,13 +90,29 @@ end_macro
 begin_macro
 name|af_loader_init
 argument_list|(
-argument|AF_Loader  loader
-argument_list|,
-argument|FT_Memory  memory
+argument|AF_Module  module
 argument_list|)
 end_macro
 begin_block
 block|{
+name|AF_Loader
+name|loader
+init|=
+name|module
+operator|->
+name|loader
+decl_stmt|;
+name|FT_Memory
+name|memory
+init|=
+name|module
+operator|->
+name|root
+operator|.
+name|library
+operator|->
+name|memory
+decl_stmt|;
 name|FT_ZERO
 argument_list|(
 name|loader
@@ -101,7 +130,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|AF_DEBUG
+name|FT_DEBUG_AUTOFIT
 name|_af_debug_hints
 operator|=
 operator|&
@@ -124,6 +153,9 @@ argument_list|)
 return|;
 block|}
 end_block
+begin_comment
+comment|/* Reset glyph loader and compute globals if necessary. */
+end_comment
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -134,7 +166,7 @@ end_macro
 begin_macro
 name|af_loader_reset
 argument_list|(
-argument|AF_Loader  loader
+argument|AF_Module  module
 argument_list|,
 argument|FT_Face    face
 argument_list|)
@@ -144,7 +176,14 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|AF_Err_Ok
+name|FT_Err_Ok
+decl_stmt|;
+name|AF_Loader
+name|loader
+init|=
+name|module
+operator|->
+name|loader
 decl_stmt|;
 name|loader
 operator|->
@@ -191,6 +230,8 @@ operator|&
 name|loader
 operator|->
 name|globals
+argument_list|,
+name|module
 argument_list|)
 expr_stmt|;
 if|if
@@ -230,6 +271,9 @@ name|error
 return|;
 block|}
 end_block
+begin_comment
+comment|/* Finalize glyph loader. */
+end_comment
 begin_macro
 name|FT_LOCAL_DEF
 argument_list|(
@@ -240,11 +284,18 @@ begin_macro
 DECL|function|af_loader_done
 name|af_loader_done
 argument_list|(
-argument|AF_Loader  loader
+argument|AF_Module  module
 argument_list|)
 end_macro
 begin_block
 block|{
+name|AF_Loader
+name|loader
+init|=
+name|module
+operator|->
+name|loader
+decl_stmt|;
 name|af_glyph_hints_done
 argument_list|(
 operator|&
@@ -267,7 +318,7 @@ name|NULL
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|AF_DEBUG
+name|FT_DEBUG_AUTOFIT
 name|_af_debug_hints
 operator|=
 name|NULL
@@ -289,6 +340,15 @@ name|NULL
 expr_stmt|;
 block|}
 end_block
+begin_comment
+comment|/* Load a single glyph component.  This routine calls itself */
+end_comment
+begin_comment
+comment|/* recursively, if necessary, and does the main work of      */
+end_comment
+begin_comment
+comment|/* `af_loader_load_glyph.'                                   */
+end_comment
 begin_function
 specifier|static
 name|FT_Error
@@ -328,7 +388,7 @@ name|loader
 operator|->
 name|gloader
 decl_stmt|;
-name|AF_ScriptMetrics
+name|AF_StyleMetrics
 name|metrics
 init|=
 name|loader
@@ -357,6 +417,15 @@ name|slot
 operator|->
 name|internal
 decl_stmt|;
+name|FT_Int32
+name|flags
+decl_stmt|;
+name|flags
+operator|=
+name|load_flags
+operator||
+name|FT_LOAD_LINEAR_DESIGN
+expr_stmt|;
 name|error
 operator|=
 name|FT_Load_Glyph
@@ -365,7 +434,7 @@ name|face
 argument_list|,
 name|glyph_index
 argument_list|,
-name|load_flags
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
@@ -415,12 +484,15 @@ name|loader
 operator|->
 name|trans_matrix
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|FT_Matrix_Invert
 argument_list|(
 operator|&
 name|inverse
 argument_list|)
-expr_stmt|;
+condition|)
 name|FT_Vector_Transform
 argument_list|(
 operator|&
@@ -433,27 +505,6 @@ name|inverse
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* set linear metrics */
-name|slot
-operator|->
-name|linearHoriAdvance
-operator|=
-name|slot
-operator|->
-name|metrics
-operator|.
-name|horiAdvance
-expr_stmt|;
-name|slot
-operator|->
-name|linearVertAdvance
-operator|=
-name|slot
-operator|->
-name|metrics
-operator|.
-name|vertAdvance
-expr_stmt|;
 switch|switch
 condition|(
 name|slot
@@ -491,8 +542,8 @@ operator|.
 name|y
 argument_list|)
 expr_stmt|;
-comment|/* copy the outline points in the loader's current               */
-comment|/* extra points which is used to keep original glyph coordinates */
+comment|/* copy the outline points in the loader's current                */
+comment|/* extra points which are used to keep original glyph coordinates */
 name|error
 operator|=
 name|FT_GLYPHLOADER_CHECK_POINTS
@@ -689,19 +740,45 @@ name|Hint_Metrics
 goto|;
 comment|/* now load the slot image into the auto-outline and run the */
 comment|/* automatic hinting process                                 */
+block|{
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+name|AF_FaceGlobals
+name|globals
+init|=
+name|loader
+operator|->
+name|globals
+decl_stmt|;
+endif|#
+directive|endif
+name|AF_StyleClass
+name|style_class
+init|=
+name|metrics
+operator|->
+name|style_class
+decl_stmt|;
+name|AF_WritingSystemClass
+name|writing_system_class
+init|=
+name|AF_WRITING_SYSTEM_CLASSES_GET
+index|[
+name|style_class
+operator|->
+name|writing_system
+index|]
+decl_stmt|;
 if|if
 condition|(
-name|metrics
+name|writing_system_class
 operator|->
-name|clazz
-operator|->
-name|script_hints_apply
+name|style_hints_apply
 condition|)
-name|metrics
+name|writing_system_class
 operator|->
-name|clazz
-operator|->
-name|script_hints_apply
+name|style_hints_apply
 argument_list|(
 name|hints
 argument_list|,
@@ -715,8 +792,9 @@ argument_list|,
 name|metrics
 argument_list|)
 expr_stmt|;
-comment|/* we now need to hint the metrics according to the change in */
-comment|/* width/positioning that occurred during the hinting process */
+block|}
+comment|/* we now need to adjust the metrics according to the change in */
+comment|/* width/positioning that occurred during the hinting process   */
 if|if
 condition|(
 name|scaler
@@ -1167,7 +1245,7 @@ name|base
 operator|.
 name|num_subglyphs
 expr_stmt|;
-comment|/* now, read each subglyph independently */
+comment|/* now read each subglyph independently */
 for|for
 control|(
 name|nn
@@ -1277,27 +1355,15 @@ name|nn
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|subglyph
 operator|->
 name|flags
 operator|&
 name|FT_SUBGLYPH_FLAG_USE_MY_METRICS
+operator|)
 condition|)
-block|{
-name|pp1
-operator|=
-name|loader
-operator|->
-name|pp1
-expr_stmt|;
-name|pp2
-operator|=
-name|loader
-operator|->
-name|pp2
-expr_stmt|;
-block|}
-else|else
 block|{
 name|loader
 operator|->
@@ -1328,7 +1394,7 @@ name|num_points
 operator|-
 name|num_base_points
 expr_stmt|;
-comment|/* now perform the transform required for this subglyph */
+comment|/* now perform the transformation required for this subglyph */
 if|if
 condition|(
 name|subglyph
@@ -1440,7 +1506,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|AF_Err_Invalid_Composite
+name|FT_THROW
+argument_list|(
+name|Invalid_Composite
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1450,8 +1519,8 @@ name|l
 operator|+=
 name|num_base_points
 expr_stmt|;
-comment|/* for now, only use the current point coordinates;    */
-comment|/* we may consider another approach in the near future */
+comment|/* for now, only use the current point coordinates; */
+comment|/* we eventually may consider another approach      */
 name|p1
 operator|=
 name|gloader
@@ -1595,7 +1664,10 @@ default|default:
 comment|/* we don't support other formats (yet?) */
 name|error
 operator|=
-name|AF_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 expr_stmt|;
 block|}
 name|Hint_Metrics
@@ -1898,6 +1970,13 @@ else|#
 directive|else
 if|if
 condition|(
+name|scaler
+operator|->
+name|render_mode
+operator|!=
+name|FT_RENDER_MODE_LIGHT
+operator|&&
+operator|(
 name|FT_IS_FIXED_WIDTH
 argument_list|(
 name|slot
@@ -1918,6 +1997,7 @@ operator|&&
 name|metrics
 operator|->
 name|digits_have_same_width
+operator|)
 operator|)
 condition|)
 block|{
@@ -2066,9 +2146,12 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+comment|/* reassign all outline fields except flags to protect them */
 name|slot
 operator|->
 name|outline
+operator|.
+name|n_contours
 operator|=
 name|internal
 operator|->
@@ -2077,6 +2160,72 @@ operator|->
 name|base
 operator|.
 name|outline
+operator|.
+name|n_contours
+expr_stmt|;
+name|slot
+operator|->
+name|outline
+operator|.
+name|n_points
+operator|=
+name|internal
+operator|->
+name|loader
+operator|->
+name|base
+operator|.
+name|outline
+operator|.
+name|n_points
+expr_stmt|;
+name|slot
+operator|->
+name|outline
+operator|.
+name|points
+operator|=
+name|internal
+operator|->
+name|loader
+operator|->
+name|base
+operator|.
+name|outline
+operator|.
+name|points
+expr_stmt|;
+name|slot
+operator|->
+name|outline
+operator|.
+name|tags
+operator|=
+name|internal
+operator|->
+name|loader
+operator|->
+name|base
+operator|.
+name|outline
+operator|.
+name|tags
+expr_stmt|;
+name|slot
+operator|->
+name|outline
+operator|.
+name|contours
+operator|=
+name|internal
+operator|->
+name|loader
+operator|->
+name|base
+operator|.
+name|outline
+operator|.
+name|contours
 expr_stmt|;
 name|slot
 operator|->
@@ -2085,15 +2234,6 @@ operator|=
 name|FT_GLYPH_FORMAT_OUTLINE
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|DEBUG_HINTER
-name|af_debug_hinter
-operator|=
-name|hinter
-expr_stmt|;
-endif|#
-directive|endif
 name|Exit
 label|:
 return|return
@@ -2101,6 +2241,9 @@ name|error
 return|;
 block|}
 end_function
+begin_comment
+comment|/* Load a glyph. */
+end_comment
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -2111,13 +2254,13 @@ end_macro
 begin_macro
 name|af_loader_load_glyph
 argument_list|(
-argument|AF_Loader  loader
+argument|AF_Module  module
 argument_list|,
 argument|FT_Face    face
 argument_list|,
 argument|FT_UInt    gindex
 argument_list|,
-argument|FT_UInt32  load_flags
+argument|FT_Int32   load_flags
 argument_list|)
 end_macro
 begin_block
@@ -2132,6 +2275,13 @@ name|face
 operator|->
 name|size
 decl_stmt|;
+name|AF_Loader
+name|loader
+init|=
+name|module
+operator|->
+name|loader
+decl_stmt|;
 name|AF_ScalerRec
 name|scaler
 decl_stmt|;
@@ -2141,7 +2291,10 @@ operator|!
 name|size
 condition|)
 return|return
-name|AF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Size_Handle
+argument_list|)
 return|;
 name|FT_ZERO
 argument_list|(
@@ -2209,7 +2362,7 @@ name|error
 operator|=
 name|af_loader_reset
 argument_list|(
-name|loader
+name|module
 argument_list|,
 name|face
 argument_list|)
@@ -2220,18 +2373,18 @@ operator|!
 name|error
 condition|)
 block|{
-name|AF_ScriptMetrics
+name|AF_StyleMetrics
 name|metrics
 decl_stmt|;
 name|FT_UInt
 name|options
 init|=
-literal|0
+name|AF_STYLE_NONE_DFLT
 decl_stmt|;
 ifdef|#
 directive|ifdef
 name|FT_OPTION_AUTOFIT2
-comment|/* XXX: undocumented hook to activate the latin2 hinter */
+comment|/* XXX: undocumented hook to activate the latin2 writing system */
 if|if
 condition|(
 name|load_flags
@@ -2244,7 +2397,7 @@ operator|)
 condition|)
 name|options
 operator|=
-literal|2
+name|AF_STYLE_LTN2_DFLT
 expr_stmt|;
 endif|#
 directive|endif
@@ -2270,6 +2423,35 @@ operator|!
 name|error
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+name|AF_FaceGlobals
+name|globals
+init|=
+name|loader
+operator|->
+name|globals
+decl_stmt|;
+endif|#
+directive|endif
+name|AF_StyleClass
+name|style_class
+init|=
+name|metrics
+operator|->
+name|style_class
+decl_stmt|;
+name|AF_WritingSystemClass
+name|writing_system_class
+init|=
+name|AF_WRITING_SYSTEM_CLASSES_GET
+index|[
+name|style_class
+operator|->
+name|writing_system
+index|]
+decl_stmt|;
 name|loader
 operator|->
 name|metrics
@@ -2278,17 +2460,13 @@ name|metrics
 expr_stmt|;
 if|if
 condition|(
-name|metrics
+name|writing_system_class
 operator|->
-name|clazz
-operator|->
-name|script_metrics_scale
+name|style_metrics_scale
 condition|)
-name|metrics
+name|writing_system_class
 operator|->
-name|clazz
-operator|->
-name|script_metrics_scale
+name|style_metrics_scale
 argument_list|(
 name|metrics
 argument_list|,
@@ -2316,20 +2494,16 @@ name|FT_LOAD_RENDER
 expr_stmt|;
 if|if
 condition|(
-name|metrics
+name|writing_system_class
 operator|->
-name|clazz
-operator|->
-name|script_hints_init
+name|style_hints_init
 condition|)
 block|{
 name|error
 operator|=
-name|metrics
+name|writing_system_class
 operator|->
-name|clazz
-operator|->
-name|script_hints_init
+name|style_hints_init
 argument_list|(
 operator|&
 name|loader

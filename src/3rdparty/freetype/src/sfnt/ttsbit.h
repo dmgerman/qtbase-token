@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by       */
+comment|/*  Copyright 1996-2008, 2013 by                                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -74,7 +74,7 @@ name|FT_LOCAL
 parameter_list|(
 name|FT_Error
 parameter_list|)
-function_decl|tt_face_load_eblc
+function_decl|tt_face_load_sbit
 parameter_list|(
 name|TT_Face
 name|face
@@ -91,14 +91,14 @@ argument|void
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|tt_face_free_eblc
-name|tt_face_free_eblc
+DECL|variable|tt_face_free_sbit
+name|tt_face_free_sbit
 argument_list|(
 argument|TT_Face  face
 argument_list|)
 end_macro
 begin_empty_stmt
-DECL|variable|tt_face_free_eblc
+DECL|variable|tt_face_free_sbit
 empty_stmt|;
 end_empty_stmt
 begin_macro
@@ -140,63 +140,6 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-end_ifdef
-begin_macro
-name|FT_LOCAL
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_find_sbit_image
-argument_list|(
-argument|TT_Face          face
-argument_list|,
-argument|FT_UInt          glyph_index
-argument_list|,
-argument|FT_ULong         strike_index
-argument_list|,
-argument|TT_SBit_Range   *arange
-argument_list|,
-argument|TT_SBit_Strike  *astrike
-argument_list|,
-argument|FT_ULong        *aglyph_offset
-argument_list|)
-end_macro
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_macro
-name|FT_LOCAL
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-DECL|variable|tt_load_sbit_metrics
-name|tt_load_sbit_metrics
-argument_list|(
-argument|FT_Stream        stream
-argument_list|,
-argument|TT_SBit_Range    range
-argument_list|,
-argument|TT_SBit_Metrics  metrics
-argument_list|)
-end_macro
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-end_comment
 begin_macro
 name|FT_LOCAL
 argument_list|(

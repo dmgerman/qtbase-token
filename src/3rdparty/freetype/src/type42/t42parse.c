@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by            */
+comment|/*  Copyright 2002-2014 by                                                 */
 end_comment
 begin_comment
 comment|/*  Roberto Alameda.                                                       */
@@ -599,7 +599,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|T42_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Long
 name|size
@@ -693,13 +693,16 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"not a Type42 font\n"
+literal|"  not a Type42 font\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 block|}
 name|FT_FRAME_EXIT
@@ -1023,9 +1026,11 @@ decl_stmt|;
 name|FT_Fixed
 name|temp_scale
 decl_stmt|;
-operator|(
-name|void
-operator|)
+name|FT_Int
+name|result
+decl_stmt|;
+name|result
+operator|=
 name|T1_ToFixedArray
 argument_list|(
 name|parser
@@ -1037,6 +1042,26 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|result
+operator|<
+literal|6
+condition|)
+block|{
+name|parser
+operator|->
+name|root
+operator|.
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|temp_scale
 operator|=
 name|FT_ABS
@@ -1047,6 +1072,33 @@ literal|3
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|temp_scale
+operator|==
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t1_parse_font_matrix: invalid font matrix\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|parser
+operator|->
+name|root
+operator|.
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|/* Set Units per EM based on FontMatrix values.  We set the value to */
 comment|/* 1000 / temp_scale, because temp_scale was already multiplied by   */
 comment|/* 1000 (in t1_tofixed, from psobjs.c).                              */
@@ -1054,20 +1106,14 @@ name|root
 operator|->
 name|units_per_EM
 operator|=
-call|(
+operator|(
 name|FT_UShort
-call|)
-argument_list|(
+operator|)
 name|FT_DivFix
 argument_list|(
 literal|1000
-operator|*
-literal|0x10000L
 argument_list|,
 name|temp_scale
-argument_list|)
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 comment|/* we need to scale the values by 1.0/temp_scale */
@@ -1158,6 +1204,16 @@ index|[
 literal|3
 index|]
 operator|=
+name|temp
+index|[
+literal|3
+index|]
+operator|<
+literal|0
+condition|?
+operator|-
+literal|0x10000L
+else|:
 literal|0x10000L
 expr_stmt|;
 block|}
@@ -1300,7 +1356,10 @@ name|root
 operator|.
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1330,7 +1389,7 @@ name|type1
 operator|.
 name|encoding
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|count
 decl_stmt|,
 name|n
@@ -1389,7 +1448,7 @@ else|else
 name|count
 operator|=
 operator|(
-name|FT_UInt
+name|FT_Int
 operator|)
 name|T1_ToInt
 argument_list|(
@@ -1495,6 +1554,9 @@ operator|*
 operator|)
 literal|".notdef"
 decl_stmt|;
+operator|(
+name|void
+operator|)
 name|T1_Add_Table
 argument_list|(
 name|char_table
@@ -1679,16 +1741,16 @@ name|cursor
 expr_stmt|;
 if|if
 condition|(
-operator|*
-name|cur
-operator|==
-literal|'/'
-operator|&&
 name|cur
 operator|+
 literal|2
 operator|<
 name|limit
+operator|&&
+operator|*
+name|cur
+operator|==
+literal|'/'
 operator|&&
 name|n
 operator|<
@@ -1714,6 +1776,17 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|parser
+operator|->
+name|root
+operator|.
+name|cursor
+operator|>=
+name|limit
+condition|)
+return|return;
 if|if
 condition|(
 name|parser
@@ -1776,6 +1849,33 @@ expr_stmt|;
 name|n
 operator|++
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|only_immediates
+condition|)
+block|{
+comment|/* Since the current position is not updated for           */
+comment|/* immediates-only mode we would get an infinite loop if   */
+comment|/* we don't do anything here.                              */
+comment|/*                                                         */
+comment|/* This encoding array is not valid according to the type1 */
+comment|/* specification (it might be an encoding for a CID type1  */
+comment|/* font, however), so we conclude that this font is NOT a  */
+comment|/* type1 font.                                             */
+name|parser
+operator|->
+name|root
+operator|.
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 block|}
 else|else
@@ -1921,23 +2021,17 @@ operator|=
 name|T1_ENCODING_TYPE_ISOLATIN1
 expr_stmt|;
 else|else
-block|{
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"t42_parse_encoding: invalid token\n"
-operator|)
-argument_list|)
-expr_stmt|;
 name|parser
 operator|->
 name|root
 operator|.
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Ignore
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -2014,10 +2108,6 @@ literal|0
 decl_stmt|;
 name|FT_ULong
 name|count
-decl_stmt|,
-name|ttf_size
-init|=
-literal|0
 decl_stmt|;
 name|FT_Long
 name|n
@@ -2090,7 +2180,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -2206,6 +2299,30 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|string_size
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_sfnts: invalid data in sfnts array\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
+if|if
+condition|(
 name|FT_REALLOC
 argument_list|(
 name|string_buf
@@ -2281,7 +2398,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -2294,6 +2414,31 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|string_size
+operator|<
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_sfnts: invalid string size\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 name|T1_Skip_PS_Token
 argument_list|(
 name|parser
@@ -2320,6 +2465,38 @@ operator|+
 literal|1
 expr_stmt|;
 comment|/* one space after `RD' */
+if|if
+condition|(
+name|limit
+operator|-
+name|parser
+operator|->
+name|root
+operator|.
+name|cursor
+operator|<
+name|string_size
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_sfnts: too much binary data\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
+else|else
 name|parser
 operator|->
 name|root
@@ -2330,32 +2507,6 @@ name|string_size
 operator|+
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|parser
-operator|->
-name|root
-operator|.
-name|cursor
-operator|>=
-name|limit
-condition|)
-block|{
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"t42_parse_sfnts: too many binary data\n"
-operator|)
-argument_list|)
-expr_stmt|;
-name|error
-operator|=
-name|T42_Err_Invalid_File_Format
-expr_stmt|;
-goto|goto
-name|Fail
-goto|;
-block|}
 block|}
 if|if
 condition|(
@@ -2372,15 +2523,25 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
 goto|;
 block|}
-comment|/* A string can have a trailing zero byte for padding.  Ignore it. */
+comment|/* A string can have a trailing zero (odd) byte for padding. */
+comment|/* Ignore it.                                                */
 if|if
 condition|(
+operator|(
+name|string_size
+operator|&
+literal|1
+operator|)
+operator|&&
 name|string_buf
 index|[
 name|string_size
@@ -2389,14 +2550,6 @@ literal|1
 index|]
 operator|==
 literal|0
-operator|&&
-operator|(
-name|string_size
-operator|%
-literal|2
-operator|==
-literal|1
-operator|)
 condition|)
 name|string_size
 operator|--
@@ -2416,7 +2569,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -2491,6 +2647,8 @@ name|status
 operator|=
 name|BEFORE_TABLE_DIR
 expr_stmt|;
+name|face
+operator|->
 name|ttf_size
 operator|=
 literal|12
@@ -2501,6 +2659,44 @@ name|num_tables
 expr_stmt|;
 if|if
 condition|(
+call|(
+name|FT_ULong
+call|)
+argument_list|(
+name|limit
+operator|-
+name|parser
+operator|->
+name|root
+operator|.
+name|cursor
+argument_list|)
+operator|<
+name|face
+operator|->
+name|ttf_size
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_sfnts: invalid data in sfnts array\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
+if|if
+condition|(
 name|FT_REALLOC
 argument_list|(
 name|face
@@ -2509,6 +2705,8 @@ name|ttf_data
 argument_list|,
 literal|12
 argument_list|,
+name|face
+operator|->
 name|ttf_size
 argument_list|)
 condition|)
@@ -2525,6 +2723,8 @@ if|if
 condition|(
 name|count
 operator|<
+name|face
+operator|->
 name|ttf_size
 condition|)
 block|{
@@ -2589,6 +2789,8 @@ name|p
 argument_list|)
 expr_stmt|;
 comment|/* Pad to a 4-byte boundary length */
+name|face
+operator|->
 name|ttf_size
 operator|+=
 operator|(
@@ -2605,12 +2807,6 @@ name|status
 operator|=
 name|OTHER_TABLES
 expr_stmt|;
-name|face
-operator|->
-name|ttf_size
-operator|=
-name|ttf_size
-expr_stmt|;
 comment|/* there are no more than 256 tables, so no size check here */
 if|if
 condition|(
@@ -2626,6 +2822,8 @@ literal|16
 operator|*
 name|num_tables
 argument_list|,
+name|face
+operator|->
 name|ttf_size
 operator|+
 literal|1
@@ -2644,19 +2842,24 @@ if|if
 condition|(
 name|count
 operator|>=
+name|face
+operator|->
 name|ttf_size
 condition|)
 block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t42_parse_sfnts: too many binary data\n"
+literal|"t42_parse_sfnts: too much binary data\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -2686,7 +2889,10 @@ block|}
 comment|/* if control reaches this point, the format was not valid */
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 name|Fail
 label|:
@@ -2830,7 +3036,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3005,7 +3214,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3031,7 +3243,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3198,6 +3413,35 @@ name|parser
 operator|->
 name|root
 operator|.
+name|cursor
+operator|>=
+name|limit
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_charstrings: out of bounds\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
+if|if
+condition|(
+name|parser
+operator|->
+name|root
+operator|.
 name|error
 condition|)
 return|return;
@@ -3216,7 +3460,7 @@ if|if
 condition|(
 name|cur
 operator|+
-literal|1
+literal|2
 operator|>=
 name|limit
 condition|)
@@ -3230,7 +3474,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3365,7 +3612,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3450,7 +3700,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -4012,7 +4265,7 @@ name|root
 operator|.
 name|error
 operator|=
-name|T42_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|limit
 operator|=

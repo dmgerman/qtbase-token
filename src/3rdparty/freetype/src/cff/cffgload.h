@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2007, 2008, 2009 by       */
+comment|/*  Copyright 1996-2004, 2006-2009, 2013 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -318,6 +318,158 @@ DECL|typedef|CFF_Builder
 name|CFF_Builder
 typedef|;
 end_typedef
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+name|cff_check_points
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Int        count
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
+DECL|variable|cff_builder_add_point
+name|cff_builder_add_point
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Pos        x
+argument_list|,
+argument|FT_Pos        y
+argument_list|,
+argument|FT_Byte       flag
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+name|cff_builder_add_point1
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Pos        x
+argument_list|,
+argument|FT_Pos        y
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+DECL|variable|cff_builder_start_point
+name|cff_builder_start_point
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Pos        x
+argument_list|,
+argument|FT_Pos        y
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_expr_stmt
+DECL|variable|builder
+name|cff_builder_close_contour
+argument_list|(
+name|CFF_Builder
+operator|*
+name|builder
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Int
+argument_list|)
+end_macro
+begin_macro
+name|cff_lookup_glyph_by_stdcharcode
+argument_list|(
+argument|CFF_Font  cff
+argument_list|,
+argument|FT_Int    charcode
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+DECL|variable|cff_get_glyph_data
+name|cff_get_glyph_data
+argument_list|(
+argument|TT_Face    face
+argument_list|,
+argument|FT_UInt    glyph_index
+argument_list|,
+argument|FT_Byte**  pointer
+argument_list|,
+argument|FT_ULong*  length
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
+name|cff_free_glyph_data
+argument_list|(
+argument|TT_Face    face
+argument_list|,
+argument|FT_Byte**  pointer
+argument_list|,
+argument|FT_ULong   length
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|/* execution context charstring zone */
 end_comment
@@ -479,6 +631,11 @@ DECL|member|seac
 name|FT_Bool
 name|seac
 decl_stmt|;
+DECL|member|current_subfont
+name|CFF_SubFont
+name|current_subfont
+decl_stmt|;
+comment|/* for current glyph_index */
 block|}
 DECL|typedef|CFF_Decoder
 name|CFF_Decoder
@@ -547,6 +704,11 @@ end_endif
 begin_comment
 comment|/* 0 */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|CFF_CONFIG_OPTION_OLD_ENGINE
+end_ifdef
 begin_macro
 name|FT_LOCAL
 argument_list|(
@@ -567,6 +729,10 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|FT_LOCAL
 argument_list|(

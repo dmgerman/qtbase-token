@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by      */
+comment|/*  Copyright 2001-2010, 2012-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1376,9 +1376,6 @@ name|FT_Int
 name|dimension
 parameter_list|)
 block|{
-name|PSH_Hint
-name|hint
-decl_stmt|;
 name|FT_UInt
 name|count
 decl_stmt|;
@@ -1398,14 +1395,15 @@ name|count
 operator|++
 control|)
 block|{
+name|PSH_Hint
 name|hint
-operator|=
+init|=
 name|table
 operator|->
 name|hints
 operator|+
 name|count
-expr_stmt|;
+decl_stmt|;
 name|hint
 operator|->
 name|cur_pos
@@ -1960,7 +1958,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|/* This is a very small stem; we simply align it to the                  * pixel grid, trying to find the minimal displacement.                  *                  * left               = pos                  * right              = pos + len                  * left_nearest_edge  = ROUND(pos)                  * right_nearest_edge = ROUND(right)                  *                  * if ( ABS(left_nearest_edge - left)<=                  *      ABS(right_nearest_edge - right) )                  *    new_pos = left                  * else                  *    new_pos = right                  */
+comment|/* This is a very small stem; we simply align it to the                  * pixel grid, trying to find the minimum displacement.                  *                  * left               = pos                  * right              = pos + len                  * left_nearest_edge  = ROUND(pos)                  * right_nearest_edge = ROUND(right)                  *                  * if ( ABS(left_nearest_edge - left)<=                  *      ABS(right_nearest_edge - right) )                  *    new_pos = left                  * else                  *    new_pos = right                  */
 name|FT_Pos
 name|left_nearest
 init|=
@@ -3462,29 +3460,17 @@ name|PSH_DIR_NONE
 decl_stmt|;
 name|ax
 operator|=
-operator|(
+name|FT_ABS
+argument_list|(
 name|dx
-operator|>=
-literal|0
-operator|)
-condition|?
-name|dx
-else|:
-operator|-
-name|dx
+argument_list|)
 expr_stmt|;
 name|ay
 operator|=
-operator|(
+name|FT_ABS
+argument_list|(
 name|dy
-operator|>=
-literal|0
-operator|)
-condition|?
-name|dy
-else|:
-operator|-
-name|dy
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -4577,10 +4563,6 @@ name|before
 operator|=
 name|point
 expr_stmt|;
-name|after
-operator|=
-name|point
-expr_stmt|;
 do|do
 block|{
 name|before
@@ -5590,8 +5572,21 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|/* the `endchar' op can reduce the number of points */
 name|first
 operator|=
+name|mask
+operator|->
+name|end_point
+operator|>
+name|glyph
+operator|->
+name|num_points
+condition|?
+name|glyph
+operator|->
+name|num_points
+else|:
 name|mask
 operator|->
 name|end_point
@@ -5621,6 +5616,18 @@ name|count
 decl_stmt|;
 name|next
 operator|=
+name|mask
+operator|->
+name|end_point
+operator|>
+name|glyph
+operator|->
+name|num_points
+condition|?
+name|glyph
+operator|->
+name|num_points
+else|:
 name|mask
 operator|->
 name|end_point
@@ -6251,15 +6258,8 @@ argument_list|,
 name|scale
 argument_list|)
 expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|hint
-operator|->
-name|org_len
-operator|>
-literal|0
-condition|)
+else|else
+comment|/* hint->org_len> 0 */
 name|point
 operator|->
 name|cur_u
@@ -6280,15 +6280,6 @@ name|hint
 operator|->
 name|org_len
 argument_list|)
-expr_stmt|;
-else|else
-name|point
-operator|->
-name|cur_u
-operator|=
-name|hint
-operator|->
-name|cur_pos
 expr_stmt|;
 block|}
 name|psh_point_set_fitted
@@ -7085,10 +7076,6 @@ name|first
 expr_stmt|;
 do|do
 block|{
-name|point
-operator|=
-name|first
-expr_stmt|;
 comment|/* skip consecutive fitted points */
 for|for
 control|(
@@ -7457,7 +7444,7 @@ operator|==
 literal|0
 condition|)
 return|return
-name|PSH_Err_Ok
+name|FT_Err_Ok
 return|;
 ifdef|#
 directive|ifdef

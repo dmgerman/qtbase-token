@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006                                             */
+comment|/*  Copyright 2004-2006, 2013                                              */
 end_comment
 begin_comment
 comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
@@ -198,12 +198,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|FT_ERR_EQ
+argument_list|(
 name|error
-operator|==
-name|GXV_Err_Table_Missing
+argument_list|,
+name|Table_Missing
+argument_list|)
 condition|)
 return|return
-name|GXV_Err_Ok
+name|FT_Err_Ok
 return|;
 if|if
 condition|(
@@ -327,7 +330,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|GXV_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_ValidatorRec
 specifier|volatile
@@ -666,8 +669,6 @@ comment|/* this warning seems spurious but ---                                  
 name|FT_Error
 specifier|volatile
 name|error
-init|=
-name|GXV_Err_Ok
 decl_stmt|;
 name|FT_ValidatorRec
 specifier|volatile

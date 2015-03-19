@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2004, 2007, 2009 by                        */
+comment|/*  Copyright 2001-2004, 2007, 2009, 2013, 2014 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -225,7 +225,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -290,7 +290,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|count
@@ -493,7 +493,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -685,7 +685,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -890,7 +890,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -960,7 +960,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|PS_Mask
 name|mask
@@ -1067,7 +1067,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|count
@@ -1160,8 +1160,6 @@ parameter_list|)
 block|{
 name|FT_Error
 name|error
-init|=
-name|PSH_Err_Ok
 decl_stmt|;
 name|PS_Mask
 name|mask
@@ -1417,15 +1415,12 @@ name|count
 decl_stmt|;
 name|count
 operator|=
-operator|(
+name|FT_MIN
+argument_list|(
 name|count1
-operator|<=
+argument_list|,
 name|count2
-operator|)
-condition|?
-name|count1
-else|:
-name|count2
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -1520,7 +1515,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 comment|/* swap index1 and index2 so that index1< index2 */
 if|if
@@ -1851,7 +1846,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 for|for
 control|(
@@ -2047,7 +2042,7 @@ begin_comment
 comment|/* set a bit at a given index in the current hint mask */
 end_comment
 begin_comment
-unit|static FT_Error   ps_dimension_set_mask_bit( PS_Dimension  dim,                              FT_UInt       idx,                              FT_Memory     memory )   {     PS_Mask   mask;     FT_Error  error = PSH_Err_Ok;
+unit|static FT_Error   ps_dimension_set_mask_bit( PS_Dimension  dim,                              FT_UInt       idx,                              FT_Memory     memory )   {     PS_Mask   mask;     FT_Error  error = FT_Err_Ok;
 comment|/* get last hint mask */
 end_comment
 begin_endif
@@ -2080,9 +2075,6 @@ name|masks
 operator|.
 name|num_masks
 decl_stmt|;
-name|PS_Mask
-name|mask
-decl_stmt|;
 if|if
 condition|(
 name|count
@@ -2090,8 +2082,9 @@ operator|>
 literal|0
 condition|)
 block|{
+name|PS_Mask
 name|mask
-operator|=
+init|=
 name|dim
 operator|->
 name|masks
@@ -2101,7 +2094,7 @@ operator|+
 name|count
 operator|-
 literal|1
-expr_stmt|;
+decl_stmt|;
 name|mask
 operator|->
 name|end_point
@@ -2193,8 +2186,6 @@ parameter_list|)
 block|{
 name|FT_Error
 name|error
-init|=
-name|PSH_Err_Ok
 decl_stmt|;
 comment|/* reset current mask, if any */
 name|error
@@ -2270,7 +2261,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|flags
@@ -2518,7 +2509,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UInt
 name|count
@@ -2789,7 +2780,7 @@ name|hints
 operator|->
 name|error
 operator|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|hints
 operator|->
@@ -2800,13 +2791,13 @@ expr_stmt|;
 block|}
 end_block
 begin_macro
-DECL|function|FT_LOCAL
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
+DECL|function|ps_hints_init
 name|ps_hints_init
 argument_list|(
 argument|PS_Hints   hints
@@ -2833,9 +2824,6 @@ name|memory
 operator|=
 name|memory
 expr_stmt|;
-return|return
-name|PSH_Err_Ok
-return|;
 block|}
 end_block
 begin_comment
@@ -2869,7 +2857,7 @@ name|hints
 operator|->
 name|error
 operator|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|hints
 operator|->
@@ -2905,7 +2893,10 @@ name|hints
 operator|->
 name|error
 operator|=
-name|PSH_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 name|hints
 operator|->
@@ -3139,7 +3130,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -3326,7 +3317,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PSH_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3370,7 +3364,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PSH_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -3450,7 +3444,10 @@ block|{
 comment|/* invalid hint type */
 name|error
 operator|=
-name|PSH_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail

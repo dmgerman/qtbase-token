@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,       */
+comment|/*  Copyright 2005, 2013 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -167,7 +167,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -181,7 +181,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type2_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -289,7 +289,7 @@ modifier|*
 name|entryTable_length_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_ULong
@@ -317,7 +317,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type2_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -445,7 +445,7 @@ literal|6
 argument_list|,
 name|table_size
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_TRACE
@@ -553,7 +553,7 @@ name|FT_UShort
 name|ligActionIndex
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 comment|/* access ligActionTable */
@@ -563,7 +563,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type2_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -644,14 +644,22 @@ comment|/* validate entry in ligActionTable */
 name|FT_ULong
 name|lig_action
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|last
 decl_stmt|;
 name|FT_UShort
 name|store
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_ULong
 name|offset
+decl_stmt|;
+name|FT_Long
+name|gid_limit
 decl_stmt|;
 name|lig_action
 operator|=
@@ -660,6 +668,9 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|last
 operator|=
 call|(
@@ -690,11 +701,129 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|offset
 operator|=
 name|lig_action
 operator|&
 literal|0x3FFFFFFFUL
+expr_stmt|;
+comment|/* this offset is 30-bit signed value to add to GID */
+comment|/* it is different from the location offset in mort */
+if|if
+condition|(
+operator|(
+name|offset
+operator|&
+literal|0x3FFF0000UL
+operator|)
+operator|==
+literal|0x3FFF0000UL
+condition|)
+block|{
+comment|/* negative offset */
+name|gid_limit
+operator|=
+name|gxvalid
+operator|->
+name|face
+operator|->
+name|num_glyphs
+operator|-
+operator|(
+name|offset
+operator|&
+literal|0x0000FFFFUL
+operator|)
+expr_stmt|;
+if|if
+condition|(
+name|gid_limit
+operator|>
+literal|0
+condition|)
+return|return;
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"ligature action table includes"
+literal|" too negative offset moving all GID"
+literal|" below defined range: 0x%04x\n"
+operator|,
+name|offset
+operator|&
+literal|0xFFFFU
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
+name|FT_INVALID_OFFSET
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|(
+name|offset
+operator|&
+literal|0x3FFF0000UL
+operator|)
+operator|==
+literal|0x00000000UL
+condition|)
+block|{
+comment|/* positive offset */
+if|if
+condition|(
+operator|(
+name|FT_Long
+operator|)
+name|offset
+operator|<
+name|gxvalid
+operator|->
+name|face
+operator|->
+name|num_glyphs
+condition|)
+return|return;
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"ligature action table includes"
+literal|" too large offset moving all GID"
+literal|" over defined range: 0x%04x\n"
+operator|,
+name|offset
+operator|&
+literal|0xFFFFU
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
+name|FT_INVALID_OFFSET
+argument_list|)
+expr_stmt|;
+block|}
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"ligature action table includes"
+literal|" invalid offset to add to 16-bit GID:"
+literal|" 0x%08x\n"
+operator|,
+name|offset
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
+name|FT_INVALID_OFFSET
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -721,9 +850,12 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|setComponent
 decl_stmt|;
@@ -733,6 +865,8 @@ decl_stmt|;
 name|FT_UShort
 name|performAction
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UShort
 name|reserved
 decl_stmt|;
@@ -749,6 +883,9 @@ argument_list|(
 name|limit
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|setComponent
 operator|=
 call|(
@@ -794,6 +931,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|reserved
 operator|=
 call|(
@@ -836,7 +975,7 @@ name|table
 argument_list|,
 name|ligActionIndex
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -851,7 +990,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|GXV_morx_subtable_type2_StateOptRecData
@@ -860,7 +999,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type2_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -925,6 +1064,21 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lig_gid
+operator|<
+name|gxvalid
+operator|->
+name|face
+operator|->
+name|num_glyphs
+condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
+name|FT_INVALID_GLYPH_ID
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|GXV_EXIT
@@ -945,7 +1099,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -968,7 +1122,7 @@ argument_list|(
 name|GXV_MORX_SUBTABLE_TYPE2_HEADER_SIZE
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -977,7 +1131,7 @@ operator|=
 operator|&
 name|lig_rec
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -985,7 +1139,7 @@ name|optdata_load_func
 operator|=
 name|gxv_morx_subtable_type2_opttable_load
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -993,7 +1147,7 @@ name|subtable_setup_func
 operator|=
 name|gxv_morx_subtable_type2_subtable_setup
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -1001,7 +1155,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_USHORT
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -1015,20 +1169,20 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
-name|p
-operator|+=
-name|valid
-operator|->
-name|subtable_length
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block|p += gxvalid->subtable_length;
+endif|#
+directive|endif
 name|gxv_morx_subtable_type2_ligatureTable_validate
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

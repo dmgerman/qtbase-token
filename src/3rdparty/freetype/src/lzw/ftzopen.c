@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2006, 2007, 2009 by David Turner.                      */
+comment|/*  Copyright 2005-2007, 2009, 2011 by David Turner.                       */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -516,6 +516,36 @@ name|old_size
 operator|=
 literal|0
 expr_stmt|;
+block|}
+comment|/* requirement of the character stack larger than 1<<LZW_MAX_BITS */
+comment|/* implies bug in the decompression code                          */
+if|if
+condition|(
+name|new_size
+operator|>
+operator|(
+literal|1
+operator|<<
+name|LZW_MAX_BITS
+operator|)
+condition|)
+block|{
+name|new_size
+operator|=
+literal|1
+operator|<<
+name|LZW_MAX_BITS
+expr_stmt|;
+if|if
+condition|(
+name|new_size
+operator|==
+name|old_size
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 block|}
 if|if
 condition|(
@@ -1115,6 +1145,10 @@ condition|(
 name|c
 operator|<
 literal|0
+operator|||
+name|c
+operator|>
+literal|255
 condition|)
 goto|goto
 name|Eof
@@ -1225,29 +1259,18 @@ name|buf_clear
 operator|=
 literal|1
 expr_stmt|;
-name|c
+comment|/* not quite right, but at least more predictable */
+name|old_code
 operator|=
-name|ft_lzwstate_get_code
-argument_list|(
-name|state
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|c
-operator|<
 literal|0
-condition|)
-goto|goto
-name|Eof
-goto|;
-name|code
-operator|=
-operator|(
-name|FT_UInt
-operator|)
-name|c
 expr_stmt|;
+name|old_char
+operator|=
+literal|0
+expr_stmt|;
+goto|goto
+name|NextCode
+goto|;
 block|}
 name|in_code
 operator|=
@@ -1273,6 +1296,20 @@ operator|->
 name|free_ent
 condition|)
 block|{
+comment|/* corrupted LZW stream */
+if|if
+condition|(
+name|code
+operator|-
+literal|256U
+operator|>
+name|state
+operator|->
+name|free_ent
+condition|)
+goto|goto
+name|Eof
+goto|;
 name|FTLZW_STACK_PUSH
 argument_list|(
 name|old_char

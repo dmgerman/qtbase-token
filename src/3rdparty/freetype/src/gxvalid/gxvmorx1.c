@@ -155,7 +155,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -169,7 +169,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -222,7 +222,7 @@ modifier|*
 name|entryTable_length_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_ULong
@@ -250,7 +250,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -331,7 +331,7 @@ literal|4
 argument_list|,
 name|table_size
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -358,15 +358,20 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|FT_UShort
 name|setMark
 decl_stmt|;
 name|FT_UShort
 name|dontAdvance
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UShort
 name|reserved
 decl_stmt|;
@@ -382,7 +387,7 @@ init|=
 operator|(
 name|GXV_morx_subtable_type1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -403,6 +408,9 @@ argument_list|(
 name|limit
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_TRACE_VARS
 name|setMark
 operator|=
 call|(
@@ -433,6 +441,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|reserved
 operator|=
 call|(
@@ -493,17 +503,10 @@ literal|" non-zero bits found in reserved range\n"
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 name|GXV_TRACE
@@ -578,7 +581,7 @@ name|GXV_LookupValueCPtr
 name|value_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UNUSED
@@ -606,7 +609,7 @@ name|value_p
 operator|->
 name|u
 operator|>
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -632,7 +635,7 @@ name|FT_Bytes
 name|lookuptbl_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -668,7 +671,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|lookuptbl_head
 operator|+
@@ -713,7 +716,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -730,26 +733,26 @@ init|=
 operator|(
 name|GXV_morx_subtable_type1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
 name|optdata
 decl_stmt|;
 comment|/* TODO: calculate offset/length for each lookupTables */
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 operator|=
 name|GXV_LOOKUPVALUE_UNSIGNED
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 operator|=
 name|gxv_morx_subtable_type1_LookupValue_validate
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 operator|=
@@ -794,7 +797,7 @@ name|offset
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -818,7 +821,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -847,7 +850,7 @@ name|substitutionTable_num_lookupTables
 operator|=
 literal|0
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -856,7 +859,7 @@ operator|=
 operator|&
 name|st_rec
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -864,7 +867,7 @@ name|optdata_load_func
 operator|=
 name|gxv_morx_subtable_type1_substitutionTable_load
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -872,7 +875,7 @@ name|subtable_setup_func
 operator|=
 name|gxv_morx_subtable_type1_subtable_setup
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -880,7 +883,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_ULONG
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -894,7 +897,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_morx_subtable_type1_substitutionTable_validate
@@ -915,7 +918,7 @@ name|st_rec
 operator|.
 name|substitutionTable_length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

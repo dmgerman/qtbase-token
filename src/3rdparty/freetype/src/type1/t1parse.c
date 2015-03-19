@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2008, 2009 by             */
+comment|/*  Copyright 1996-2005, 2008, 2009, 2012-2014 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -350,7 +350,7 @@ condition|)
 block|{
 name|error
 operator|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 if|if
 condition|(
@@ -369,7 +369,10 @@ literal|0
 condition|)
 name|error
 operator|=
-name|T1_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 name|FT_FRAME_EXIT
 argument_list|()
@@ -497,9 +500,12 @@ condition|)
 block|{
 if|if
 condition|(
+name|FT_ERR_NEQ
+argument_list|(
 name|error
-operator|!=
-name|T1_Err_Unknown_File_Format
+argument_list|,
+name|Unknown_File_Format
+argument_list|)
 condition|)
 goto|goto
 name|Exit
@@ -523,7 +529,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a Type1 font]\n"
+literal|"  not a Type 1 font\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -854,7 +860,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_ULong
 name|size
@@ -956,7 +962,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T1_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -1019,7 +1028,7 @@ condition|)
 block|{
 name|error
 operator|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 block|}
@@ -1077,6 +1086,12 @@ decl_stmt|;
 name|FT_Byte
 name|c
 decl_stmt|;
+name|FT_Pointer
+name|pos_lf
+decl_stmt|;
+name|FT_Bool
+name|test_cr
+decl_stmt|;
 name|Again
 label|:
 for|for
@@ -1105,7 +1120,7 @@ operator|<
 name|limit
 condition|)
 comment|/* 9 = 5 letters for `eexec' + */
-comment|/* newline + 4 chars           */
+comment|/* whitespace + 4 chars        */
 block|{
 if|if
 condition|(
@@ -1159,7 +1174,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T1_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1178,6 +1196,7 @@ name|parser
 operator|->
 name|base_dict
 expr_stmt|;
+comment|/* set limit to `eexec' + whitespace + 4 characters */
 name|parser
 operator|->
 name|root
@@ -1186,7 +1205,7 @@ name|limit
 operator|=
 name|cur
 operator|+
-literal|9
+literal|10
 expr_stmt|;
 name|cur
 operator|=
@@ -1315,10 +1334,56 @@ name|root
 operator|.
 name|cursor
 expr_stmt|;
-comment|/* according to the Type1 spec, the first cipher byte must not be  */
+name|limit
+operator|=
+name|parser
+operator|->
+name|root
+operator|.
+name|limit
+expr_stmt|;
+comment|/* According to the Type 1 spec, the first cipher byte must not be */
 comment|/* an ASCII whitespace character code (blank, tab, carriage return */
 comment|/* or line feed).  We have seen Type 1 fonts with two line feed    */
 comment|/* characters...  So skip now all whitespace character codes.      */
+comment|/*                                                                 */
+comment|/* On the other hand, Adobe's Type 1 parser handles fonts just     */
+comment|/* fine that are violating this limitation, so we add a heuristic  */
+comment|/* test to stop at \r only if it is not used for EOL.              */
+name|pos_lf
+operator|=
+name|ft_memchr
+argument_list|(
+name|cur
+argument_list|,
+literal|'\n'
+argument_list|,
+name|limit
+operator|-
+name|cur
+argument_list|)
+expr_stmt|;
+name|test_cr
+operator|=
+name|FT_BOOL
+argument_list|(
+operator|!
+name|pos_lf
+operator|||
+name|pos_lf
+operator|>
+name|ft_memchr
+argument_list|(
+name|cur
+argument_list|,
+literal|'\r'
+argument_list|,
+name|limit
+operator|-
+name|cur
+argument_list|)
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|cur
@@ -1336,10 +1401,14 @@ name|cur
 operator|==
 literal|'\t'
 operator|||
+operator|(
+name|test_cr
+operator|&&
 operator|*
 name|cur
 operator|==
 literal|'\r'
+operator|)
 operator|||
 operator|*
 name|cur
@@ -1367,7 +1436,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T1_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1375,6 +1447,10 @@ goto|;
 block|}
 name|size
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|parser
 operator|->
 name|base_len
@@ -1386,6 +1462,7 @@ name|parser
 operator|->
 name|base_dict
 operator|)
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1455,11 +1532,17 @@ expr_stmt|;
 block|}
 comment|/* now determine whether the private dictionary is encoded in binary */
 comment|/* or hexadecimal ASCII format -- decode it accordingly              */
-comment|/* we need to access the next 4 bytes (after the final \r following */
-comment|/* the `eexec' keyword); if they all are hexadecimal digits, then   */
-comment|/* we have a case of ASCII storage                                  */
+comment|/* we need to access the next 4 bytes (after the final whitespace */
+comment|/* following the `eexec' keyword); if they all are hexadecimal    */
+comment|/* digits, then we have a case of ASCII storage                   */
 if|if
 condition|(
+name|cur
+operator|+
+literal|3
+operator|<
+name|limit
+operator|&&
 name|ft_isxdigit
 argument_list|(
 name|cur
@@ -1580,6 +1663,34 @@ argument_list|,
 literal|55665U
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|parser
+operator|->
+name|private_len
+operator|<
+literal|4
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"T1_Get_Private_Dict:"
+literal|" invalid private dictionary section\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 comment|/* replace the four random bytes at the beginning with whitespace */
 name|parser
 operator|->

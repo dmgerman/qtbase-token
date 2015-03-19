@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2005, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2003, 2005-2008, 2012-2014 by                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -1355,6 +1360,7 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|/* No unicode chars here! */
 name|FT_FREE
 argument_list|(
 name|table
@@ -1369,9 +1375,11 @@ name|error
 condition|)
 name|error
 operator|=
-name|PSnames_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|No_Unicode_Glyph_Name
+argument_list|)
 expr_stmt|;
-comment|/* No unicode chars here! */
 block|}
 else|else
 block|{
@@ -1401,7 +1409,7 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PSnames_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 block|}
 comment|/* Sort the table in increasing order of unicode values, */
@@ -1889,13 +1897,13 @@ name|FT_DEFINE_SERVICE_PSCMAPSREC
 argument_list|(
 argument|pscmaps_interface
 argument_list|,
-literal|0
+argument|NULL
 argument_list|,
-literal|0
+argument|NULL
 argument_list|,
-literal|0
+argument|NULL
 argument_list|,
-literal|0
+argument|NULL
 argument_list|,
 argument|(PS_Macintosh_NameFunc)    ps_get_macintosh_name
 argument_list|,
@@ -1920,7 +1928,7 @@ argument|pscmaps_services
 argument_list|,
 argument|FT_SERVICE_ID_POSTSCRIPT_CMAPS
 argument_list|,
-argument|&FT_PSCMAPS_INTERFACE_GET
+argument|&PSCMAPS_INTERFACE_GET
 argument_list|)
 end_macro
 begin_function
@@ -1938,15 +1946,48 @@ modifier|*
 name|service_id
 parameter_list|)
 block|{
+comment|/* PSCMAPS_SERVICES_GET dereferences `library' in PIC mode */
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+name|FT_Library
+name|library
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|module
+condition|)
+return|return
+name|NULL
+return|;
+name|library
+operator|=
+name|module
+operator|->
+name|library
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|library
+condition|)
+return|return
+name|NULL
+return|;
+else|#
+directive|else
 name|FT_UNUSED
 argument_list|(
 name|module
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|ft_service_list_lookup
 argument_list|(
-name|FT_PSCMAPS_SERVICES_GET
+name|PSCMAPS_SERVICES_GET
 argument_list|,
 name|service_id
 argument_list|)
@@ -1973,7 +2014,7 @@ name|PUT_PS_NAMES_SERVICE
 parameter_list|(
 name|a
 parameter_list|)
-value|0
+value|NULL
 end_define
 begin_else
 else|#
@@ -2012,16 +2053,14 @@ comment|/* driver version                      */
 literal|0x20000L
 argument_list|,
 comment|/* driver requires FreeType 2 or above */
-argument|PUT_PS_NAMES_SERVICE((void*)&FT_PSCMAPS_INTERFACE_GET)
+argument|PUT_PS_NAMES_SERVICE(       (void*)&PSCMAPS_INTERFACE_GET )
 argument_list|,
 comment|/* module specific interface */
-argument|(FT_Module_Constructor)
-literal|0
+argument|(FT_Module_Constructor)NULL
 argument_list|,
-argument|(FT_Module_Destructor)
-literal|0
+argument|(FT_Module_Destructor) NULL
 argument_list|,
-argument|(FT_Module_Requester)  PUT_PS_NAMES_SERVICE(psnames_get_service)
+argument|(FT_Module_Requester)  PUT_PS_NAMES_SERVICE( psnames_get_service )
 argument_list|)
 end_macro
 begin_comment

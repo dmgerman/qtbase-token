@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2007, 2008 by             */
+comment|/*  Copyright 1996-2005, 2007, 2008, 2010, 2012-2014 by                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -84,6 +84,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -213,7 +218,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Glyph_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_Glyph_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -617,7 +625,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Glyph_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_Glyph_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1025,6 +1036,8 @@ name|error
 decl_stmt|;
 name|FT_Glyph
 name|glyph
+init|=
+name|NULL
 decl_stmt|;
 operator|*
 name|aglyph
@@ -1111,11 +1124,22 @@ if|if
 condition|(
 operator|!
 name|target
+operator|||
+operator|!
+name|source
+operator|||
+operator|!
+name|source
+operator|->
+name|clazz
 condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1124,7 +1148,7 @@ block|}
 operator|*
 name|target
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -1139,7 +1163,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1261,7 +1288,7 @@ name|FT_Glyph_Class
 modifier|*
 name|clazz
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -1269,7 +1296,10 @@ operator|!
 name|slot
 condition|)
 return|return
-name|FT_Err_Invalid_Slot_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Slot_Handle
+argument_list|)
 return|;
 name|library
 operator|=
@@ -1283,7 +1313,10 @@ operator|!
 name|aglyph
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 comment|/* if it is a bitmap, that's easy :-) */
 if|if
@@ -1349,7 +1382,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Glyph_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_Glyph_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1461,11 +1497,6 @@ argument_list|)
 end_macro
 begin_block
 block|{
-specifier|const
-name|FT_Glyph_Class
-modifier|*
-name|clazz
-decl_stmt|;
 name|FT_Error
 name|error
 init|=
@@ -1483,16 +1514,22 @@ name|clazz
 condition|)
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 else|else
 block|{
+specifier|const
+name|FT_Glyph_Class
+modifier|*
 name|clazz
-operator|=
+init|=
 name|glyph
 operator|->
 name|clazz
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|clazz
@@ -1531,7 +1568,10 @@ block|}
 else|else
 name|error
 operator|=
-name|FT_Err_Invalid_Glyph_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_Glyph_Format
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -1601,8 +1641,6 @@ operator|->
 name|clazz
 condition|)
 return|return;
-else|else
-block|{
 name|clazz
 operator|=
 name|glyph
@@ -1617,8 +1655,6 @@ operator|->
 name|glyph_bbox
 condition|)
 return|return;
-else|else
-block|{
 comment|/* retrieve bbox in 26.6 coordinates */
 name|clazz
 operator|->
@@ -1724,9 +1760,6 @@ literal|6
 expr_stmt|;
 block|}
 block|}
-block|}
-return|return;
-block|}
 end_block
 begin_comment
 comment|/* documentation is in ftglyph.h */
@@ -1764,6 +1797,8 @@ init|=
 name|FT_Err_Ok
 decl_stmt|;
 name|FT_Glyph
+name|b
+decl_stmt|,
 name|glyph
 decl_stmt|;
 name|FT_BitmapGlyph
@@ -1776,21 +1811,10 @@ name|FT_Glyph_Class
 modifier|*
 name|clazz
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_PIC
+comment|/* FT_BITMAP_GLYPH_CLASS_GET dereferences `library' in PIC mode */
 name|FT_Library
 name|library
-init|=
-name|FT_GLYPH
-argument_list|(
-name|glyph
-argument_list|)
-operator|->
-name|library
 decl_stmt|;
-endif|#
-directive|endif
 comment|/* check argument */
 if|if
 condition|(
@@ -1800,8 +1824,6 @@ condition|)
 goto|goto
 name|Bad
 goto|;
-comment|/* we render the glyph into a glyph bitmap using a `dummy' glyph slot */
-comment|/* then calling FT_Render_Glyph_Internal()                            */
 name|glyph
 operator|=
 operator|*
@@ -1821,6 +1843,23 @@ name|glyph
 operator|->
 name|clazz
 expr_stmt|;
+name|library
+operator|=
+name|glyph
+operator|->
+name|library
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|library
+operator|||
+operator|!
+name|clazz
+condition|)
+goto|goto
+name|Bad
+goto|;
 comment|/* when called with a bitmap glyph, do nothing and return successfully */
 if|if
 condition|(
@@ -1835,15 +1874,14 @@ if|if
 condition|(
 operator|!
 name|clazz
-operator|||
-operator|!
-name|clazz
 operator|->
 name|glyph_prepare
 condition|)
 goto|goto
 name|Bad
 goto|;
+comment|/* we render the glyph into a glyph bitmap using a `dummy' glyph slot */
+comment|/* then calling FT_Render_Glyph_Internal()                            */
 name|FT_MEM_ZERO
 argument_list|(
 operator|&
@@ -1877,8 +1915,6 @@ name|dummy
 operator|.
 name|library
 operator|=
-name|glyph
-operator|->
 name|library
 expr_stmt|;
 name|dummy
@@ -1894,22 +1930,12 @@ name|error
 operator|=
 name|ft_new_glyph
 argument_list|(
-name|glyph
-operator|->
 name|library
 argument_list|,
 name|FT_BITMAP_GLYPH_CLASS_GET
 argument_list|,
-operator|(
-name|FT_Glyph
-operator|*
-operator|)
-operator|(
-name|void
-operator|*
-operator|)
 operator|&
-name|bitmap
+name|b
 argument_list|)
 expr_stmt|;
 if|if
@@ -1919,6 +1945,13 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+name|bitmap
+operator|=
+operator|(
+name|FT_BitmapGlyph
+operator|)
+name|b
+expr_stmt|;
 if|#
 directive|if
 literal|1
@@ -2101,7 +2134,10 @@ name|Bad
 label|:
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit

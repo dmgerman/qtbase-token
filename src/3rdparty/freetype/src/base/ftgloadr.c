@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006 by                              */
+comment|/*  Copyright 2002-2006, 2010, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg                       */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -210,6 +215,8 @@ begin_block
 block|{
 name|FT_GlyphLoader
 name|loader
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Error
 name|error
@@ -810,7 +817,10 @@ operator|>
 name|FT_OUTLINE_POINTS_MAX
 condition|)
 return|return
-name|FT_Err_Array_Too_Large
+name|FT_THROW
+argument_list|(
+name|Array_Too_Large
+argument_list|)
 return|;
 if|if
 condition|(
@@ -957,7 +967,10 @@ operator|>
 name|FT_OUTLINE_CONTOURS_MAX
 condition|)
 return|return
-name|FT_Err_Array_Too_Large
+name|FT_THROW
+argument_list|(
+name|Array_Too_Large
+argument_list|)
 return|;
 if|if
 condition|(
@@ -997,6 +1010,15 @@ argument_list|)
 expr_stmt|;
 name|Exit
 label|:
+if|if
+condition|(
+name|error
+condition|)
+name|FT_GlyphLoader_Reset
+argument_list|(
+name|loader
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 return|;
@@ -1194,7 +1216,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* add current glyph to the base image - and prepare for another */
+comment|/* add current glyph to the base image -- and prepare for another */
 end_comment
 begin_macro
 name|FT_BASE_DEF

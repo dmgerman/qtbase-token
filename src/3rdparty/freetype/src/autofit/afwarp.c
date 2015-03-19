@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007 by                                                */
+comment|/*  Copyright 2006, 2007, 2011 by                                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -47,6 +47,9 @@ end_comment
 begin_comment
 comment|/***************************************************************************/
 end_comment
+begin_comment
+comment|/*    *  The idea of the warping code is to slightly scale and shift a glyph    *  within a single dimension so that as much of its segments are aligned    *  (more or less) on the grid.  To find out the optimal scaling and    *  shifting value, various parameter combinations are tried and scored.    */
+end_comment
 begin_include
 include|#
 directive|include
@@ -55,8 +58,48 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|AF_USE_WARPER
+name|AF_CONFIG_OPTION_USE_WARPER
 end_ifdef
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+end_comment
+begin_comment
+comment|/* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+end_comment
+begin_comment
+comment|/* messages during execution.                                            */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_undef
+DECL|macro|FT_COMPONENT
+undef|#
+directive|undef
+name|FT_COMPONENT
+end_undef
+begin_define
+DECL|macro|FT_COMPONENT
+define|#
+directive|define
+name|FT_COMPONENT
+value|trace_afwarp
+end_define
+begin_comment
+comment|/* The weights cover the range 0/64 - 63/64 of a pixel.  Obviously, */
+end_comment
+begin_comment
+comment|/* values around a half pixel (which means exactly between two grid */
+end_comment
+begin_comment
+comment|/* lines) gets the worst weight.                                    */
+end_comment
 begin_if
 if|#
 directive|if
@@ -391,6 +434,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/* Score segments for a given `scale' and `delta' in the range */
+end_comment
+begin_comment
+comment|/* `xx1' to `xx2', and store the best result in `warper'.  If  */
+end_comment
+begin_comment
+comment|/* the new best score is equal to the old one, prefer the      */
+end_comment
+begin_comment
+comment|/* value with a smaller distortion (around `base_distort').    */
+end_comment
 begin_function
 specifier|static
 name|void
@@ -562,7 +617,7 @@ operator|>
 literal|64
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"invalid indices:\n"
@@ -660,6 +715,7 @@ decl_stmt|;
 name|FT_Int
 name|idx
 decl_stmt|;
+comment|/* score the length of the segments for the given range */
 for|for
 control|(
 name|idx
@@ -787,6 +843,12 @@ block|}
 block|}
 block|}
 end_function
+begin_comment
+comment|/* Compute optimal scaling and delta values for a given glyph and */
+end_comment
+begin_comment
+comment|/* dimension.                                                     */
+end_comment
 begin_macro
 name|FT_LOCAL_DEF
 argument_list|(
@@ -1129,6 +1191,7 @@ operator|->
 name|x2
 argument_list|)
 expr_stmt|;
+comment|/* examine a half pixel wide range around the maximum coordinates */
 name|warper
 operator|->
 name|x1min
@@ -1245,6 +1308,7 @@ operator|->
 name|x2
 expr_stmt|;
 block|}
+comment|/* examine (at most) a pixel wide range around the natural width */
 name|warper
 operator|->
 name|wmin
@@ -1272,6 +1336,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|1
+comment|/* some heuristics to reduce the number of widths to be examined */
 block|{
 name|int
 name|margin
@@ -1447,6 +1512,8 @@ name|xx1
 decl_stmt|,
 name|xx2
 decl_stmt|;
+comment|/* compute min and max positions for given width,       */
+comment|/* assuring that they stay within the coordinate ranges */
 name|xx1
 operator|=
 name|warper
@@ -1586,6 +1653,7 @@ name|warper
 operator|->
 name|x2
 expr_stmt|;
+comment|/* give base distortion a greater weight while scoring */
 name|base_distort
 operator|*=
 literal|10
@@ -1701,26 +1769,24 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|/* !AF_USE_WARPER */
+comment|/* !AF_CONFIG_OPTION_USE_WARPER */
 end_comment
-begin_decl_stmt
-DECL|variable|af_warper_dummy
-name|char
-name|af_warper_dummy
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_comment
-DECL|variable|af_warper_dummy
-comment|/* make compiler happy */
+comment|/* ANSI C doesn't like empty source files */
 end_comment
+begin_typedef
+DECL|typedef|_af_warp_dummy
+typedef|typedef
+name|int
+name|_af_warp_dummy
+typedef|;
+end_typedef
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* !AF_USE_WARPER */
+comment|/* !AF_CONFIG_OPTION_USE_WARPER */
 end_comment
 begin_comment
 comment|/* END */

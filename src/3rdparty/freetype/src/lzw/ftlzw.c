@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2009, 2010 by                              */
+comment|/*  Copyright 2004-2006, 2009, 2010, 2012-2014 by                          */
 end_comment
 begin_comment
 comment|/*  Albert Chin-A-Young.                                                   */
@@ -108,6 +108,12 @@ DECL|macro|__FTERRORS_H__
 undef|#
 directive|undef
 name|__FTERRORS_H__
+end_undef
+begin_undef
+DECL|macro|FT_ERR_PREFIX
+undef|#
+directive|undef
+name|FT_ERR_PREFIX
 end_undef
 begin_define
 DECL|macro|FT_ERR_PREFIX
@@ -306,18 +312,21 @@ index|[
 literal|0
 index|]
 operator|!=
-literal|0x1f
+literal|0x1F
 operator|||
 name|head
 index|[
 literal|1
 index|]
 operator|!=
-literal|0x9d
+literal|0x9D
 condition|)
 name|error
 operator|=
-name|LZW_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 name|Exit
 label|:
@@ -352,8 +361,6 @@ name|lzw
 decl_stmt|;
 name|FT_Error
 name|error
-init|=
-name|LZW_Err_Ok
 decl_stmt|;
 name|zip
 operator|->
@@ -559,7 +566,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|zip
 operator|->
@@ -600,7 +607,10 @@ literal|0
 condition|)
 name|error
 operator|=
-name|LZW_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 return|return
 name|error
@@ -626,7 +636,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|LZW_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 comment|/* first, we skip what we can from the output buffer */
 block|{
@@ -723,7 +733,10 @@ block|{
 comment|/* not enough bytes */
 name|error
 operator|=
-name|LZW_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -1127,14 +1140,38 @@ name|error
 decl_stmt|;
 name|FT_Memory
 name|memory
-init|=
-name|source
-operator|->
-name|memory
 decl_stmt|;
 name|FT_LZWFile
 name|zip
+init|=
+name|NULL
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|stream
+operator|||
+operator|!
+name|source
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Handle
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+name|memory
+operator|=
+name|source
+operator|->
+name|memory
+expr_stmt|;
 comment|/*      *  Check the header right now; this prevents allocation of a huge      *  LZWFile object (400 KByte of heap memory) if not necessary.      *      *  Did I mention that you should never use .Z compressed font      *  files?      */
 name|error
 operator|=
@@ -1282,7 +1319,10 @@ name|source
 argument_list|)
 expr_stmt|;
 return|return
-name|LZW_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 block|}
 end_block

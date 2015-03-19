@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003 by                                     */
+comment|/*  Copyright 1996-2003, 2011 by                                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -79,6 +79,8 @@ argument_list|(
 literal|0
 argument_list|,
 argument|version
+argument_list|,
+literal|"Version"
 argument_list|)
 end_macro
 begin_macro
@@ -87,6 +89,8 @@ argument_list|(
 literal|1
 argument_list|,
 argument|notice
+argument_list|,
+literal|"Notice"
 argument_list|)
 end_macro
 begin_macro
@@ -95,6 +99,8 @@ argument_list|(
 literal|0x100
 argument_list|,
 argument|copyright
+argument_list|,
+literal|"Copyright"
 argument_list|)
 end_macro
 begin_macro
@@ -103,6 +109,8 @@ argument_list|(
 literal|2
 argument_list|,
 argument|full_name
+argument_list|,
+literal|"FullName"
 argument_list|)
 end_macro
 begin_macro
@@ -111,6 +119,8 @@ argument_list|(
 literal|3
 argument_list|,
 argument|family_name
+argument_list|,
+literal|"FamilyName"
 argument_list|)
 end_macro
 begin_macro
@@ -119,6 +129,8 @@ argument_list|(
 literal|4
 argument_list|,
 argument|weight
+argument_list|,
+literal|"Weight"
 argument_list|)
 end_macro
 begin_macro
@@ -127,6 +139,8 @@ argument_list|(
 literal|0x101
 argument_list|,
 argument|is_fixed_pitch
+argument_list|,
+literal|"isFixedPitch"
 argument_list|)
 end_macro
 begin_macro
@@ -135,6 +149,8 @@ argument_list|(
 literal|0x102
 argument_list|,
 argument|italic_angle
+argument_list|,
+literal|"ItalicAngle"
 argument_list|)
 end_macro
 begin_macro
@@ -143,6 +159,8 @@ argument_list|(
 literal|0x103
 argument_list|,
 argument|underline_position
+argument_list|,
+literal|"UnderlinePosition"
 argument_list|)
 end_macro
 begin_macro
@@ -151,6 +169,8 @@ argument_list|(
 literal|0x104
 argument_list|,
 argument|underline_thickness
+argument_list|,
+literal|"UnderlineThickness"
 argument_list|)
 end_macro
 begin_macro
@@ -159,6 +179,8 @@ argument_list|(
 literal|0x105
 argument_list|,
 argument|paint_type
+argument_list|,
+literal|"PaintType"
 argument_list|)
 end_macro
 begin_macro
@@ -167,6 +189,8 @@ argument_list|(
 literal|0x106
 argument_list|,
 argument|charstring_type
+argument_list|,
+literal|"CharstringType"
 argument_list|)
 end_macro
 begin_macro
@@ -175,6 +199,8 @@ argument_list|(
 literal|0x107
 argument_list|,
 argument|font_matrix
+argument_list|,
+literal|"FontMatrix"
 argument_list|)
 end_macro
 begin_macro
@@ -183,6 +209,8 @@ argument_list|(
 literal|13
 argument_list|,
 argument|unique_id
+argument_list|,
+literal|"UniqueID"
 argument_list|)
 end_macro
 begin_macro
@@ -191,6 +219,8 @@ argument_list|(
 literal|5
 argument_list|,
 argument|font_bbox
+argument_list|,
+literal|"FontBBox"
 argument_list|)
 end_macro
 begin_macro
@@ -199,6 +229,8 @@ argument_list|(
 literal|0x108
 argument_list|,
 argument|stroke_width
+argument_list|,
+literal|"StrokeWidth"
 argument_list|)
 end_macro
 begin_macro
@@ -207,6 +239,8 @@ argument_list|(
 literal|15
 argument_list|,
 argument|charset_offset
+argument_list|,
+literal|"charset"
 argument_list|)
 end_macro
 begin_macro
@@ -215,6 +249,8 @@ argument_list|(
 literal|16
 argument_list|,
 argument|encoding_offset
+argument_list|,
+literal|"Encoding"
 argument_list|)
 end_macro
 begin_macro
@@ -223,6 +259,8 @@ argument_list|(
 literal|17
 argument_list|,
 argument|charstrings_offset
+argument_list|,
+literal|"CharStrings"
 argument_list|)
 end_macro
 begin_macro
@@ -231,6 +269,8 @@ argument_list|(
 literal|18
 argument_list|,
 argument|private_dict
+argument_list|,
+literal|"Private"
 argument_list|)
 end_macro
 begin_macro
@@ -239,6 +279,8 @@ argument_list|(
 literal|0x114
 argument_list|,
 argument|synthetic_base
+argument_list|,
+literal|"SyntheticBase"
 argument_list|)
 end_macro
 begin_macro
@@ -247,6 +289,8 @@ argument_list|(
 literal|0x115
 argument_list|,
 argument|embedded_postscript
+argument_list|,
+literal|"PostScript"
 argument_list|)
 end_macro
 begin_if
@@ -255,7 +299,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|CFF_FIELD_STRING  ( 0x116, base_font_name )   CFF_FIELD_DELTA   ( 0x117, base_font_blend, 16 )   CFF_FIELD_CALLBACK( 0x118, multiple_master )   CFF_FIELD_CALLBACK( 0x119, blend_axis_types )
+unit|CFF_FIELD_STRING  ( 0x116, base_font_name,      "BaseFontName" )   CFF_FIELD_DELTA   ( 0x117, base_font_blend, 16, "BaseFontBlend" )   CFF_FIELD_CALLBACK( 0x118, multiple_master,     "MultipleMaster" )   CFF_FIELD_CALLBACK( 0x119, blend_axis_types,    "BlendAxisTypes" )
 endif|#
 directive|endif
 end_endif
@@ -265,6 +309,8 @@ argument_list|(
 literal|0x11E
 argument_list|,
 argument|cid_ros
+argument_list|,
+literal|"ROS"
 argument_list|)
 end_macro
 begin_macro
@@ -273,6 +319,8 @@ argument_list|(
 literal|0x11F
 argument_list|,
 argument|cid_font_version
+argument_list|,
+literal|"CIDFontVersion"
 argument_list|)
 end_macro
 begin_macro
@@ -281,6 +329,8 @@ argument_list|(
 literal|0x120
 argument_list|,
 argument|cid_font_revision
+argument_list|,
+literal|"CIDFontRevision"
 argument_list|)
 end_macro
 begin_macro
@@ -289,6 +339,8 @@ argument_list|(
 literal|0x121
 argument_list|,
 argument|cid_font_type
+argument_list|,
+literal|"CIDFontType"
 argument_list|)
 end_macro
 begin_macro
@@ -297,6 +349,8 @@ argument_list|(
 literal|0x122
 argument_list|,
 argument|cid_count
+argument_list|,
+literal|"CIDCount"
 argument_list|)
 end_macro
 begin_macro
@@ -305,6 +359,8 @@ argument_list|(
 literal|0x123
 argument_list|,
 argument|cid_uid_base
+argument_list|,
+literal|"UIDBase"
 argument_list|)
 end_macro
 begin_macro
@@ -313,6 +369,8 @@ argument_list|(
 literal|0x124
 argument_list|,
 argument|cid_fd_array_offset
+argument_list|,
+literal|"FDArray"
 argument_list|)
 end_macro
 begin_macro
@@ -321,6 +379,8 @@ argument_list|(
 literal|0x125
 argument_list|,
 argument|cid_fd_select_offset
+argument_list|,
+literal|"FDSelect"
 argument_list|)
 end_macro
 begin_macro
@@ -329,6 +389,8 @@ argument_list|(
 literal|0x126
 argument_list|,
 argument|cid_font_name
+argument_list|,
+literal|"FontName"
 argument_list|)
 end_macro
 begin_if
@@ -337,7 +399,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|CFF_FIELD_NUM     ( 0x127, chameleon )
+unit|CFF_FIELD_NUM     ( 0x127, chameleon, "Chameleon" )
 endif|#
 directive|endif
 end_endif
@@ -375,6 +437,8 @@ argument_list|,
 argument|blue_values
 argument_list|,
 literal|14
+argument_list|,
+literal|"BlueValues"
 argument_list|)
 end_macro
 begin_macro
@@ -385,6 +449,8 @@ argument_list|,
 argument|other_blues
 argument_list|,
 literal|10
+argument_list|,
+literal|"OtherBlues"
 argument_list|)
 end_macro
 begin_macro
@@ -395,6 +461,8 @@ argument_list|,
 argument|family_blues
 argument_list|,
 literal|14
+argument_list|,
+literal|"FamilyBlues"
 argument_list|)
 end_macro
 begin_macro
@@ -405,6 +473,8 @@ argument_list|,
 argument|family_other_blues
 argument_list|,
 literal|10
+argument_list|,
+literal|"FamilyOtherBlues"
 argument_list|)
 end_macro
 begin_macro
@@ -413,6 +483,8 @@ argument_list|(
 literal|0x109
 argument_list|,
 argument|blue_scale
+argument_list|,
+literal|"BlueScale"
 argument_list|)
 end_macro
 begin_macro
@@ -421,6 +493,8 @@ argument_list|(
 literal|0x10A
 argument_list|,
 argument|blue_shift
+argument_list|,
+literal|"BlueShift"
 argument_list|)
 end_macro
 begin_macro
@@ -429,6 +503,8 @@ argument_list|(
 literal|0x10B
 argument_list|,
 argument|blue_fuzz
+argument_list|,
+literal|"BlueFuzz"
 argument_list|)
 end_macro
 begin_macro
@@ -437,6 +513,8 @@ argument_list|(
 literal|10
 argument_list|,
 argument|standard_width
+argument_list|,
+literal|"StdHW"
 argument_list|)
 end_macro
 begin_macro
@@ -445,6 +523,8 @@ argument_list|(
 literal|11
 argument_list|,
 argument|standard_height
+argument_list|,
+literal|"StdVW"
 argument_list|)
 end_macro
 begin_macro
@@ -455,6 +535,8 @@ argument_list|,
 argument|snap_widths
 argument_list|,
 literal|13
+argument_list|,
+literal|"StemSnapH"
 argument_list|)
 end_macro
 begin_macro
@@ -465,6 +547,8 @@ argument_list|,
 argument|snap_heights
 argument_list|,
 literal|13
+argument_list|,
+literal|"StemSnapV"
 argument_list|)
 end_macro
 begin_macro
@@ -473,6 +557,8 @@ argument_list|(
 literal|0x10E
 argument_list|,
 argument|force_bold
+argument_list|,
+literal|"ForceBold"
 argument_list|)
 end_macro
 begin_macro
@@ -481,6 +567,8 @@ argument_list|(
 literal|0x10F
 argument_list|,
 argument|force_bold_threshold
+argument_list|,
+literal|"ForceBoldThreshold"
 argument_list|)
 end_macro
 begin_macro
@@ -489,6 +577,8 @@ argument_list|(
 literal|0x110
 argument_list|,
 argument|lenIV
+argument_list|,
+literal|"lenIV"
 argument_list|)
 end_macro
 begin_macro
@@ -497,6 +587,8 @@ argument_list|(
 literal|0x111
 argument_list|,
 argument|language_group
+argument_list|,
+literal|"LanguageGroup"
 argument_list|)
 end_macro
 begin_macro
@@ -505,6 +597,8 @@ argument_list|(
 literal|0x112
 argument_list|,
 argument|expansion_factor
+argument_list|,
+literal|"ExpansionFactor"
 argument_list|)
 end_macro
 begin_macro
@@ -513,6 +607,8 @@ argument_list|(
 literal|0x113
 argument_list|,
 argument|initial_random_seed
+argument_list|,
+literal|"initialRandomSeed"
 argument_list|)
 end_macro
 begin_macro
@@ -521,6 +617,8 @@ argument_list|(
 literal|19
 argument_list|,
 argument|local_subrs_offset
+argument_list|,
+literal|"Subrs"
 argument_list|)
 end_macro
 begin_macro
@@ -529,6 +627,8 @@ argument_list|(
 literal|20
 argument_list|,
 argument|default_width
+argument_list|,
+literal|"defaultWidthX"
 argument_list|)
 end_macro
 begin_macro
@@ -537,6 +637,8 @@ argument_list|(
 literal|21
 argument_list|,
 argument|nominal_width
+argument_list|,
+literal|"nominalWidthX"
 argument_list|)
 end_macro
 begin_comment

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2004, 2008 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2004, 2008, 2013 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -233,6 +233,48 @@ argument_list|)
 expr_stmt|;
 block|}
 end_block
+begin_comment
+comment|/* documentation is in ftdebug.h */
+end_comment
+begin_macro
+name|FT_BASE_DEF
+argument_list|(
+argument|int
+argument_list|)
+end_macro
+begin_macro
+DECL|function|FT_Throw
+name|FT_Throw
+argument_list|(
+argument|FT_Error     error
+argument_list|,
+argument|int          line
+argument_list|,
+argument|const char*  file
+argument_list|)
+end_macro
+begin_block
+block|{
+name|FT_UNUSED
+argument_list|(
+name|error
+argument_list|)
+expr_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|line
+argument_list|)
+expr_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+end_block
 begin_endif
 endif|#
 directive|endif
@@ -399,7 +441,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* See the file<include/freetype/internal/fttrace.h> for details of the */
+comment|/* See the file<include/internal/fttrace.h> for details of the          */
 end_comment
 begin_comment
 comment|/* available toggle names.                                               */
@@ -515,6 +557,13 @@ condition|)
 name|p
 operator|++
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|*
+name|p
+condition|)
+break|break;
 if|if
 condition|(
 operator|*
@@ -641,7 +690,6 @@ name|level
 operator|=
 operator|*
 name|p
-operator|++
 operator|-
 literal|'0'
 expr_stmt|;

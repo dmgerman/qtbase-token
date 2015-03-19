@@ -108,13 +108,13 @@ name|JstfLookupFunc
 value|otv_GPOS_subtable_validate
 end_define
 begin_comment
-comment|/* uses valid->extra1 (GSUB lookup count) */
+comment|/* uses otvalid->extra1 (GSUB lookup count) */
 end_comment
 begin_comment
-comment|/* uses valid->extra2 (GPOS lookup count) */
+comment|/* uses otvalid->extra2 (GPOS lookup count) */
 end_comment
 begin_comment
-comment|/* sets valid->extra1 (counter)           */
+comment|/* sets otvalid->extra1 (counter)           */
 end_comment
 begin_function
 specifier|static
@@ -126,7 +126,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -208,13 +208,13 @@ argument_list|)
 expr_stmt|;
 name|gsub_lookup_count
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|extra1
 expr_stmt|;
 name|gpos_lookup_count
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|extra2
 expr_stmt|;
@@ -222,7 +222,7 @@ name|table_size
 operator|=
 literal|20
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -248,7 +248,7 @@ name|table
 operator|+
 name|ShrinkageEnableGSUB
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -271,10 +271,10 @@ name|table
 operator|+
 name|ShrinkageDisableGSUB
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -300,7 +300,7 @@ name|table
 operator|+
 name|ShrinkageEnableGPOS
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -323,7 +323,7 @@ name|table
 operator|+
 name|ShrinkageDisableGPOS
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -355,11 +355,11 @@ name|table
 operator|+
 name|ShrinkageJstfMax
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -385,7 +385,7 @@ name|table
 operator|+
 name|ExtensionEnableGSUB
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -408,10 +408,10 @@ name|table
 operator|+
 name|ExtensionDisableGSUB
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -437,7 +437,7 @@ name|table
 operator|+
 name|ExtensionEnableGPOS
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -460,7 +460,7 @@ name|table
 operator|+
 name|ExtensionDisableGPOS
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -492,17 +492,17 @@ name|table
 operator|+
 name|ExtensionJstfMax
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
 name|gsub_lookup_count
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra2
 operator|=
@@ -513,10 +513,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* sets valid->extra (glyph count)               */
+comment|/* sets otvalid->extra (glyph count)               */
 end_comment
 begin_comment
-comment|/* sets valid->func1 (otv_JstfPriority_validate) */
+comment|/* sets otvalid->func1 (otv_JstfPriority_validate) */
 end_comment
 begin_function
 specifier|static
@@ -528,7 +528,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -606,11 +606,11 @@ condition|(
 name|ExtGlyph
 condition|)
 block|{
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 expr_stmt|;
@@ -625,7 +625,7 @@ name|table
 operator|+
 name|ExtGlyph
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -652,7 +652,7 @@ name|table
 operator|+
 name|DefJstfLangSys
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -696,7 +696,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -705,13 +705,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* sets valid->extra1 (GSUB lookup count) */
+comment|/* sets otvalid->extra1 (GSUB lookup count) */
 end_comment
 begin_comment
-comment|/* sets valid->extra2 (GPOS lookup count) */
+comment|/* sets otvalid->extra2 (GPOS lookup count) */
 end_comment
 begin_comment
-comment|/* sets valid->glyph_count                */
+comment|/* sets otvalid->glyph_count                */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -737,13 +737,13 @@ end_macro
 begin_block
 block|{
 name|OTV_ValidatorRec
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|OTV_Validator
-name|valid
+name|otvalid
 init|=
 operator|&
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -753,7 +753,7 @@ decl_stmt|;
 name|FT_UInt
 name|JstfScriptCount
 decl_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|root
 operator|=
@@ -812,7 +812,7 @@ if|if
 condition|(
 name|gsub
 condition|)
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -822,7 +822,7 @@ name|gsub
 argument_list|)
 expr_stmt|;
 else|else
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -832,7 +832,7 @@ if|if
 condition|(
 name|gpos
 condition|)
-name|valid
+name|otvalid
 operator|->
 name|extra2
 operator|=
@@ -842,13 +842,13 @@ name|gpos
 argument_list|)
 expr_stmt|;
 else|else
-name|valid
+name|otvalid
 operator|->
 name|extra2
 operator|=
 literal|0
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 operator|=
@@ -881,7 +881,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}

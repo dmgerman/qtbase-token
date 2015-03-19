@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2004, 2006, 2010 by                         */
+comment|/*  Copyright 1996-2002, 2004, 2006, 2010, 2013, 2014 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -73,6 +73,11 @@ end_include
 begin_include
 include|#
 directive|include
+include|FT_INTERNAL_DEBUG_H
+end_include
+begin_include
+include|#
+directive|include
 include|FT_BBOX_H
 end_include
 begin_include
@@ -114,6 +119,45 @@ DECL|typedef|TBBox_Rec
 name|TBBox_Rec
 typedef|;
 end_typedef
+begin_define
+DECL|macro|FT_UPDATE_BBOX
+define|#
+directive|define
+name|FT_UPDATE_BBOX
+parameter_list|(
+name|p
+parameter_list|,
+name|bbox
+parameter_list|)
+define|\
+value|FT_BEGIN_STMNT                  \     if ( p->x< bbox.xMin )       \       bbox.xMin = p->x;           \     if ( p->x> bbox.xMax )       \       bbox.xMax = p->x;           \     if ( p->y< bbox.yMin )       \       bbox.yMin = p->y;           \     if ( p->y> bbox.yMax )       \       bbox.yMax = p->y;           \   FT_END_STMNT
+end_define
+begin_define
+DECL|macro|CHECK_X
+define|#
+directive|define
+name|CHECK_X
+parameter_list|(
+name|p
+parameter_list|,
+name|bbox
+parameter_list|)
+define|\
+value|( p->x< bbox.xMin || p->x> bbox.xMax )
+end_define
+begin_define
+DECL|macro|CHECK_Y
+define|#
+directive|define
+name|CHECK_Y
+parameter_list|(
+name|p
+parameter_list|,
+name|bbox
+parameter_list|)
+define|\
+value|( p->y< bbox.yMin || p->y> bbox.yMax )
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -133,16 +177,16 @@ begin_comment
 comment|/*<Description>                                                         */
 end_comment
 begin_comment
-comment|/*    This function is used as a `move_to' and `line_to' emitter during  */
+comment|/*    This function is used as a `move_to' emitter during                */
 end_comment
 begin_comment
 comment|/*    FT_Outline_Decompose().  It simply records the destination point   */
 end_comment
 begin_comment
-comment|/*    in `user->last'; no further computations are necessary since we    */
+comment|/*    in `user->last'. We also update bbox in case contour starts with   */
 end_comment
 begin_comment
-comment|/*    use the cbox as the starting bbox which must be refined.           */
+comment|/*    an implicit `on' point.                                            */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -189,6 +233,15 @@ modifier|*
 name|user
 parameter_list|)
 block|{
+name|FT_UPDATE_BBOX
+argument_list|(
+name|to
+argument_list|,
+name|user
+operator|->
+name|bbox
+argument_list|)
+expr_stmt|;
 name|user
 operator|->
 name|last
@@ -201,32 +254,93 @@ literal|0
 return|;
 block|}
 end_function
-begin_define
-DECL|macro|CHECK_X
-define|#
-directive|define
-name|CHECK_X
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Function>                                                            */
+end_comment
+begin_comment
+comment|/*    BBox_Line_To                                                       */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Description>                                                         */
+end_comment
+begin_comment
+comment|/*    This function is used as a `line_to' emitter during                */
+end_comment
+begin_comment
+comment|/*    FT_Outline_Decompose().  It simply records the destination point   */
+end_comment
+begin_comment
+comment|/*    in `user->last'; no further computations are necessary because     */
+end_comment
+begin_comment
+comment|/*    bbox already contains both explicit ends of the line segment.      */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Input>                                                               */
+end_comment
+begin_comment
+comment|/*    to   :: A pointer to the destination vector.                       */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<InOut>                                                               */
+end_comment
+begin_comment
+comment|/*    user :: A pointer to the current walk context.                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*<Return>                                                              */
+end_comment
+begin_comment
+comment|/*    Always 0.  Needed for the interface only.                          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|int
+DECL|function|BBox_Line_To
+name|BBox_Line_To
 parameter_list|(
-name|p
+name|FT_Vector
+modifier|*
+name|to
 parameter_list|,
-name|bbox
+name|TBBox_Rec
+modifier|*
+name|user
 parameter_list|)
-define|\
-value|( p->x< bbox.xMin || p->x> bbox.xMax )
-end_define
-begin_define
-DECL|macro|CHECK_Y
-define|#
-directive|define
-name|CHECK_Y
-parameter_list|(
-name|p
-parameter_list|,
-name|bbox
-parameter_list|)
-define|\
-value|( p->y< bbox.yMin || p->y> bbox.yMax )
-end_define
+block|{
+name|user
+operator|->
+name|last
+operator|=
+operator|*
+name|to
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -246,7 +360,7 @@ begin_comment
 comment|/*<Description>                                                         */
 end_comment
 begin_comment
-comment|/*    Finds the extrema of a 1-dimensional conic Bezier curve and update */
+comment|/*    Find the extrema of a 1-dimensional conic Bezier curve and update  */
 end_comment
 begin_comment
 comment|/*    a bounding range.  This version uses direct computation, as it     */
@@ -317,103 +431,34 @@ modifier|*
 name|max
 parameter_list|)
 block|{
-if|if
-condition|(
+comment|/* This function is only called when a control off-point is outside */
+comment|/* the bbox that contains all on-points.  It finds a local extremum */
+comment|/* within the segment, equal to (y1*y3 - y2*y2)/(y1 - 2*y2 + y3).   */
+comment|/* Or, offsetting from y2, we get                                   */
 name|y1
-operator|<=
-name|y3
-operator|&&
-name|y2
-operator|==
-name|y1
-condition|)
-comment|/* flat arc */
-goto|goto
-name|Suite
-goto|;
-if|if
-condition|(
-name|y1
-operator|<
-name|y3
-condition|)
-block|{
-if|if
-condition|(
-name|y2
-operator|>=
-name|y1
-operator|&&
-name|y2
-operator|<=
-name|y3
-condition|)
-comment|/* ascending arc */
-goto|goto
-name|Suite
-goto|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|y2
-operator|>=
-name|y3
-operator|&&
-name|y2
-operator|<=
-name|y1
-condition|)
-comment|/* descending arc */
-block|{
-name|y2
-operator|=
-name|y1
-expr_stmt|;
-name|y1
-operator|=
-name|y3
-expr_stmt|;
-name|y3
-operator|=
+operator|-=
 name|y2
 expr_stmt|;
-goto|goto
-name|Suite
-goto|;
-block|}
-block|}
-name|y1
-operator|=
 name|y3
-operator|=
-name|y1
-operator|-
+operator|-=
+name|y2
+expr_stmt|;
+name|y2
+operator|+=
 name|FT_MulDiv
 argument_list|(
-name|y2
-operator|-
 name|y1
 argument_list|,
-name|y2
-operator|-
-name|y1
+name|y3
 argument_list|,
 name|y1
-operator|-
-literal|2
-operator|*
-name|y2
 operator|+
 name|y3
 argument_list|)
 expr_stmt|;
-name|Suite
-label|:
 if|if
 condition|(
-name|y1
+name|y2
 operator|<
 operator|*
 name|min
@@ -421,11 +466,11 @@ condition|)
 operator|*
 name|min
 operator|=
-name|y1
+name|y2
 expr_stmt|;
 if|if
 condition|(
-name|y3
+name|y2
 operator|>
 operator|*
 name|max
@@ -433,7 +478,7 @@ condition|)
 operator|*
 name|max
 operator|=
-name|y3
+name|y2
 expr_stmt|;
 block|}
 end_function
@@ -534,8 +579,16 @@ modifier|*
 name|user
 parameter_list|)
 block|{
-comment|/* we don't need to check `to' since it is always an `on' point, thus */
-comment|/* within the bbox                                                    */
+comment|/* in case `to' is implicit and not included in bbox yet */
+name|FT_UPDATE_BBOX
+argument_list|(
+name|to
+argument_list|,
+name|user
+operator|->
+name|bbox
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|CHECK_X
@@ -651,13 +704,13 @@ begin_comment
 comment|/*<Description>                                                         */
 end_comment
 begin_comment
-comment|/*    Finds the extrema of a 1-dimensional cubic Bezier curve and        */
+comment|/*    Find the extrema of a 1-dimensional cubic Bezier curve and         */
 end_comment
 begin_comment
-comment|/*    updates a bounding range.  This version uses splitting because we  */
+comment|/*    update a bounding range.  This version uses iterative splitting    */
 end_comment
 begin_comment
-comment|/*    don't want to use square roots and extra accuracy.                 */
+comment|/*    because it is faster than the exact solution with square roots.    */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -704,175 +757,316 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-unit|static void   BBox_Cubic_Check( FT_Pos   p1,                     FT_Pos   p2,                     FT_Pos   p3,                     FT_Pos   p4,                     FT_Pos*  min,                     FT_Pos*  max )   {     FT_Pos  stack[32*3 + 1], *arc;       arc = stack;      arc[0] = p1;     arc[1] = p2;     arc[2] = p3;     arc[3] = p4;      do     {       FT_Pos  y1 = arc[0];       FT_Pos  y2 = arc[1];       FT_Pos  y3 = arc[2];       FT_Pos  y4 = arc[3];         if ( y1 == y4 )       {         if ( y1 == y2&& y1 == y3 )
-comment|/* flat */
-end_comment
-begin_comment
-unit|goto Test;       }       else if ( y1< y4 )       {         if ( y2>= y1&& y2<= y4&& y3>= y1&& y3<= y4 )
-comment|/* ascending */
-end_comment
-begin_comment
-unit|goto Test;       }       else       {         if ( y2>= y4&& y2<= y1&& y3>= y4&& y3<= y1 )
-comment|/* descending */
-end_comment
-begin_comment
-unit|{           y2 = y1;           y1 = y4;           y4 = y2;           goto Test;         }       }
-comment|/* unknown direction -- split the arc in two */
-end_comment
-begin_else
-unit|arc[6] = y4;       arc[1] = y1 = ( y1 + y2 ) / 2;       arc[5] = y4 = ( y4 + y3 ) / 2;       y2 = ( y2 + y3 ) / 2;       arc[2] = y1 = ( y1 + y2 ) / 2;       arc[4] = y4 = ( y4 + y2 ) / 2;       arc[3] = ( y1 + y4 ) / 2;        arc += 3;       goto Suite;     Test:       if ( y1< *min ) *min = y1;       if ( y4> *max ) *max = y4;       arc -= 3;      Suite:       ;     } while ( arc>= stack );   }
-else|#
-directive|else
-end_else
 begin_function
 specifier|static
-name|void
-DECL|function|test_cubic_extrema
-name|test_cubic_extrema
+name|FT_Pos
+DECL|function|cubic_peak
+name|cubic_peak
 parameter_list|(
 name|FT_Pos
-name|y1
+name|q1
 parameter_list|,
 name|FT_Pos
-name|y2
+name|q2
 parameter_list|,
 name|FT_Pos
-name|y3
+name|q3
 parameter_list|,
 name|FT_Pos
-name|y4
-parameter_list|,
-name|FT_Fixed
-name|u
-parameter_list|,
-name|FT_Pos
-modifier|*
-name|min
-parameter_list|,
-name|FT_Pos
-modifier|*
-name|max
+name|q4
 parameter_list|)
 block|{
-comment|/* FT_Pos    a = y4 - 3*y3 + 3*y2 - y1; */
 name|FT_Pos
-name|b
+name|peak
 init|=
-name|y3
+literal|0
+decl_stmt|;
+name|FT_Int
+name|shift
+decl_stmt|;
+comment|/* This function finds a peak of a cubic segment if it is above 0    */
+comment|/* using iterative bisection of the segment, or returns 0.           */
+comment|/* The fixed-point arithmetic of bisection is inherently stable      */
+comment|/* but may loose accuracy in the two lowest bits.  To compensate,    */
+comment|/* we upscale the segment if there is room.  Large values may need   */
+comment|/* to be downscaled to avoid overflows during bisection.             */
+comment|/* It is called with either q2 or q3 positive, which is necessary    */
+comment|/* for the peak to exist and avoids undefined FT_MSB.                */
+name|shift
+operator|=
+literal|27
 operator|-
-literal|2
-operator|*
-name|y2
-operator|+
-name|y1
-decl_stmt|;
-name|FT_Pos
-name|c
-init|=
-name|y2
-operator|-
-name|y1
-decl_stmt|;
-name|FT_Pos
-name|d
-init|=
-name|y1
-decl_stmt|;
-name|FT_Pos
-name|y
-decl_stmt|;
-name|FT_Fixed
-name|uu
-decl_stmt|;
-name|FT_UNUSED
+name|FT_MSB
 argument_list|(
-name|y4
+name|FT_ABS
+argument_list|(
+name|q1
+argument_list|)
+operator||
+name|FT_ABS
+argument_list|(
+name|q2
+argument_list|)
+operator||
+name|FT_ABS
+argument_list|(
+name|q3
+argument_list|)
+operator||
+name|FT_ABS
+argument_list|(
+name|q4
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* The polynomial is                      */
-comment|/*                                        */
-comment|/*    P(x) = a*x^3 + 3b*x^2 + 3c*x + d  , */
-comment|/*                                        */
-comment|/*   dP/dx = 3a*x^2 + 6b*x + 3c         . */
-comment|/*                                        */
-comment|/* However, we also have                  */
-comment|/*                                        */
-comment|/*   dP/dx(u) = 0                       , */
-comment|/*                                        */
-comment|/* which implies by subtraction that      */
-comment|/*                                        */
-comment|/*   P(u) = b*u^2 + 2c*u + d            . */
 if|if
 condition|(
-name|u
+name|shift
 operator|>
 literal|0
-operator|&&
-name|u
-operator|<
-literal|0x10000L
 condition|)
 block|{
-name|uu
-operator|=
-name|FT_MulFix
-argument_list|(
-name|u
-argument_list|,
-name|u
-argument_list|)
-expr_stmt|;
-name|y
-operator|=
-name|d
-operator|+
-name|FT_MulFix
-argument_list|(
-name|c
-argument_list|,
-literal|2
-operator|*
-name|u
-argument_list|)
-operator|+
-name|FT_MulFix
-argument_list|(
-name|b
-argument_list|,
-name|uu
-argument_list|)
-expr_stmt|;
+comment|/* upscaling too much just wastes time */
 if|if
 condition|(
-name|y
-operator|<
-operator|*
-name|min
-condition|)
-operator|*
-name|min
-operator|=
-name|y
-expr_stmt|;
-if|if
-condition|(
-name|y
+name|shift
 operator|>
-operator|*
-name|max
+literal|2
 condition|)
-operator|*
-name|max
+name|shift
 operator|=
-name|y
+literal|2
+expr_stmt|;
+name|q1
+operator|<<=
+name|shift
+expr_stmt|;
+name|q2
+operator|<<=
+name|shift
+expr_stmt|;
+name|q3
+operator|<<=
+name|shift
+expr_stmt|;
+name|q4
+operator|<<=
+name|shift
 expr_stmt|;
 block|}
+else|else
+block|{
+name|q1
+operator|>>=
+operator|-
+name|shift
+expr_stmt|;
+name|q2
+operator|>>=
+operator|-
+name|shift
+expr_stmt|;
+name|q3
+operator|>>=
+operator|-
+name|shift
+expr_stmt|;
+name|q4
+operator|>>=
+operator|-
+name|shift
+expr_stmt|;
+block|}
+comment|/* for a peak to exist above 0, the cubic segment must have */
+comment|/* at least one of its control off-points above 0.          */
+while|while
+condition|(
+name|q2
+operator|>
+literal|0
+operator|||
+name|q3
+operator|>
+literal|0
+condition|)
+block|{
+comment|/* determine which half contains the maximum and split */
+if|if
+condition|(
+name|q1
+operator|+
+name|q2
+operator|>
+name|q3
+operator|+
+name|q4
+condition|)
+comment|/* first half */
+block|{
+name|q4
+operator|=
+name|q4
+operator|+
+name|q3
+expr_stmt|;
+name|q3
+operator|=
+name|q3
+operator|+
+name|q2
+expr_stmt|;
+name|q2
+operator|=
+name|q2
+operator|+
+name|q1
+expr_stmt|;
+name|q4
+operator|=
+name|q4
+operator|+
+name|q3
+expr_stmt|;
+name|q3
+operator|=
+name|q3
+operator|+
+name|q2
+expr_stmt|;
+name|q4
+operator|=
+operator|(
+name|q4
+operator|+
+name|q3
+operator|)
+operator|/
+literal|8
+expr_stmt|;
+name|q3
+operator|=
+name|q3
+operator|/
+literal|4
+expr_stmt|;
+name|q2
+operator|=
+name|q2
+operator|/
+literal|2
+expr_stmt|;
+block|}
+else|else
+comment|/* second half */
+block|{
+name|q1
+operator|=
+name|q1
+operator|+
+name|q2
+expr_stmt|;
+name|q2
+operator|=
+name|q2
+operator|+
+name|q3
+expr_stmt|;
+name|q3
+operator|=
+name|q3
+operator|+
+name|q4
+expr_stmt|;
+name|q1
+operator|=
+name|q1
+operator|+
+name|q2
+expr_stmt|;
+name|q2
+operator|=
+name|q2
+operator|+
+name|q3
+expr_stmt|;
+name|q1
+operator|=
+operator|(
+name|q1
+operator|+
+name|q2
+operator|)
+operator|/
+literal|8
+expr_stmt|;
+name|q2
+operator|=
+name|q2
+operator|/
+literal|4
+expr_stmt|;
+name|q3
+operator|=
+name|q3
+operator|/
+literal|2
+expr_stmt|;
+block|}
+comment|/* check whether either end reached the maximum */
+if|if
+condition|(
+name|q1
+operator|==
+name|q2
+operator|&&
+name|q1
+operator|>=
+name|q3
+condition|)
+block|{
+name|peak
+operator|=
+name|q1
+expr_stmt|;
+break|break;
+block|}
+if|if
+condition|(
+name|q3
+operator|==
+name|q4
+operator|&&
+name|q2
+operator|<=
+name|q4
+condition|)
+block|{
+name|peak
+operator|=
+name|q4
+expr_stmt|;
+break|break;
+block|}
+block|}
+if|if
+condition|(
+name|shift
+operator|>
+literal|0
+condition|)
+name|peak
+operator|>>=
+name|shift
+expr_stmt|;
+else|else
+name|peak
+operator|<<=
+operator|-
+name|shift
+expr_stmt|;
+return|return
+name|peak
+return|;
 block|}
 end_function
 begin_function
@@ -882,16 +1076,16 @@ DECL|function|BBox_Cubic_Check
 name|BBox_Cubic_Check
 parameter_list|(
 name|FT_Pos
-name|y1
+name|p1
 parameter_list|,
 name|FT_Pos
-name|y2
+name|p2
 parameter_list|,
 name|FT_Pos
-name|y3
+name|p3
 parameter_list|,
 name|FT_Pos
-name|y4
+name|p4
 parameter_list|,
 name|FT_Pos
 modifier|*
@@ -902,545 +1096,89 @@ modifier|*
 name|max
 parameter_list|)
 block|{
-comment|/* always compare first and last points */
+comment|/* This function is only called when a control off-point is outside  */
+comment|/* the bbox that contains all on-points.  So at least one of the     */
+comment|/* conditions below holds and cubic_peak is called with at least one */
+comment|/* non-zero argument.                                                */
 if|if
 condition|(
-name|y1
-operator|<
+name|p2
+operator|>
 operator|*
-name|min
-condition|)
-operator|*
-name|min
-operator|=
-name|y1
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|y1
+name|max
+operator|||
+name|p3
 operator|>
 operator|*
 name|max
 condition|)
 operator|*
 name|max
-operator|=
-name|y1
+operator|+=
+name|cubic_peak
+argument_list|(
+name|p1
+operator|-
+operator|*
+name|max
+argument_list|,
+name|p2
+operator|-
+operator|*
+name|max
+argument_list|,
+name|p3
+operator|-
+operator|*
+name|max
+argument_list|,
+name|p4
+operator|-
+operator|*
+name|max
+argument_list|)
 expr_stmt|;
+comment|/* now flip the signs to update the minimum */
 if|if
 condition|(
-name|y4
+name|p2
+operator|<
+operator|*
+name|min
+operator|||
+name|p3
 operator|<
 operator|*
 name|min
 condition|)
 operator|*
 name|min
-operator|=
-name|y4
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|y4
-operator|>
-operator|*
-name|max
-condition|)
-operator|*
-name|max
-operator|=
-name|y4
-expr_stmt|;
-comment|/* now, try to see if there are split points here */
-if|if
-condition|(
-name|y1
-operator|<=
-name|y4
-condition|)
-block|{
-comment|/* flat or ascending arc test */
-if|if
-condition|(
-name|y1
-operator|<=
-name|y2
-operator|&&
-name|y2
-operator|<=
-name|y4
-operator|&&
-name|y1
-operator|<=
-name|y3
-operator|&&
-name|y3
-operator|<=
-name|y4
-condition|)
-return|return;
-block|}
-else|else
-comment|/* y1> y4 */
-block|{
-comment|/* descending arc test */
-if|if
-condition|(
-name|y1
-operator|>=
-name|y2
-operator|&&
-name|y2
-operator|>=
-name|y4
-operator|&&
-name|y1
-operator|>=
-name|y3
-operator|&&
-name|y3
-operator|>=
-name|y4
-condition|)
-return|return;
-block|}
-comment|/* There are some split points.  Find them. */
-block|{
-name|FT_Pos
-name|a
-init|=
-name|y4
-operator|-
-literal|3
-operator|*
-name|y3
-operator|+
-literal|3
-operator|*
-name|y2
-operator|-
-name|y1
-decl_stmt|;
-name|FT_Pos
-name|b
-init|=
-name|y3
-operator|-
-literal|2
-operator|*
-name|y2
-operator|+
-name|y1
-decl_stmt|;
-name|FT_Pos
-name|c
-init|=
-name|y2
-operator|-
-name|y1
-decl_stmt|;
-name|FT_Pos
-name|d
-decl_stmt|;
-name|FT_Fixed
-name|t
-decl_stmt|;
-comment|/* We need to solve `ax^2+2bx+c' here, without floating points!      */
-comment|/* The trick is to normalize to a different representation in order  */
-comment|/* to use our 16.16 fixed point routines.                            */
-comment|/*                                                                   */
-comment|/* We compute FT_MulFix(b,b) and FT_MulFix(a,c) after normalization. */
-comment|/* These values must fit into a single 16.16 value.                  */
-comment|/*                                                                   */
-comment|/* We normalize a, b, and c to `8.16' fixed float values to ensure   */
-comment|/* that its product is held in a `16.16' value.                      */
-block|{
-name|FT_ULong
-name|t1
-decl_stmt|,
-name|t2
-decl_stmt|;
-name|int
-name|shift
-init|=
-literal|0
-decl_stmt|;
-comment|/* The following computation is based on the fact that for   */
-comment|/* any value `y', if `n' is the position of the most         */
-comment|/* significant bit of `abs(y)' (starting from 0 for the      */
-comment|/* least significant bit), then `y' is in the range          */
-comment|/*                                                           */
-comment|/*   -2^n..2^n-1                                             */
-comment|/*                                                           */
-comment|/* We want to shift `a', `b', and `c' concurrently in order  */
-comment|/* to ensure that they all fit in 8.16 values, which maps    */
-comment|/* to the integer range `-2^23..2^23-1'.                     */
-comment|/*                                                           */
-comment|/* Necessarily, we need to shift `a', `b', and `c' so that   */
-comment|/* the most significant bit of its absolute values is at     */
-comment|/* _most_ at position 23.                                    */
-comment|/*                                                           */
-comment|/* We begin by computing `t1' as the bitwise `OR' of the     */
-comment|/* absolute values of `a', `b', `c'.                         */
-name|t1
-operator|=
-call|(
-name|FT_ULong
-call|)
+operator|-=
+name|cubic_peak
 argument_list|(
-operator|(
-name|a
-operator|>=
-literal|0
-operator|)
-condition|?
-name|a
-else|:
-operator|-
-name|a
-argument_list|)
-expr_stmt|;
-name|t2
-operator|=
-call|(
-name|FT_ULong
-call|)
-argument_list|(
-operator|(
-name|b
-operator|>=
-literal|0
-operator|)
-condition|?
-name|b
-else|:
-operator|-
-name|b
-argument_list|)
-expr_stmt|;
-name|t1
-operator||=
-name|t2
-expr_stmt|;
-name|t2
-operator|=
-call|(
-name|FT_ULong
-call|)
-argument_list|(
-operator|(
-name|c
-operator|>=
-literal|0
-operator|)
-condition|?
-name|c
-else|:
-operator|-
-name|c
-argument_list|)
-expr_stmt|;
-name|t1
-operator||=
-name|t2
-expr_stmt|;
-comment|/* Now we can be sure that the most significant bit of `t1'  */
-comment|/* is the most significant bit of either `a', `b', or `c',   */
-comment|/* depending on the greatest integer range of the particular */
-comment|/* variable.                                                 */
-comment|/*                                                           */
-comment|/* Next, we compute the `shift', by shifting `t1' as many    */
-comment|/* times as necessary to move its MSB to position 23.  This  */
-comment|/* corresponds to a value of `t1' that is in the range       */
-comment|/* 0x40_0000..0x7F_FFFF.                                     */
-comment|/*                                                           */
-comment|/* Finally, we shift `a', `b', and `c' by the same amount.   */
-comment|/* This ensures that all values are now in the range         */
-comment|/* -2^23..2^23, i.e., they are now expressed as 8.16         */
-comment|/* fixed-float numbers.  This also means that we are using   */
-comment|/* 24 bits of precision to compute the zeros, independently  */
-comment|/* of the range of the original polynomial coefficients.     */
-comment|/*                                                           */
-comment|/* This algorithm should ensure reasonably accurate values   */
-comment|/* for the zeros.  Note that they are only expressed with    */
-comment|/* 16 bits when computing the extrema (the zeros need to     */
-comment|/* be in 0..1 exclusive to be considered part of the arc).   */
-if|if
-condition|(
-name|t1
-operator|==
-literal|0
-condition|)
-comment|/* all coefficients are 0! */
-return|return;
-if|if
-condition|(
-name|t1
-operator|>
-literal|0x7FFFFFUL
-condition|)
-block|{
-do|do
-block|{
-name|shift
-operator|++
-expr_stmt|;
-name|t1
-operator|>>=
-literal|1
-expr_stmt|;
-block|}
-do|while
-condition|(
-name|t1
-operator|>
-literal|0x7FFFFFUL
-condition|)
-do|;
-comment|/* this loses some bits of precision, but we use 24 of them */
-comment|/* for the computation anyway                               */
-name|a
-operator|>>=
-name|shift
-expr_stmt|;
-name|b
-operator|>>=
-name|shift
-expr_stmt|;
-name|c
-operator|>>=
-name|shift
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|t1
-operator|<
-literal|0x400000UL
-condition|)
-block|{
-do|do
-block|{
-name|shift
-operator|++
-expr_stmt|;
-name|t1
-operator|<<=
-literal|1
-expr_stmt|;
-block|}
-do|while
-condition|(
-name|t1
-operator|<
-literal|0x400000UL
-condition|)
-do|;
-name|a
-operator|<<=
-name|shift
-expr_stmt|;
-name|b
-operator|<<=
-name|shift
-expr_stmt|;
-name|c
-operator|<<=
-name|shift
-expr_stmt|;
-block|}
-block|}
-comment|/* handle a == 0 */
-if|if
-condition|(
-name|a
-operator|==
-literal|0
-condition|)
-block|{
-if|if
-condition|(
-name|b
-operator|!=
-literal|0
-condition|)
-block|{
-name|t
-operator|=
-operator|-
-name|FT_DivFix
-argument_list|(
-name|c
-argument_list|,
-name|b
-argument_list|)
-operator|/
-literal|2
-expr_stmt|;
-name|test_cubic_extrema
-argument_list|(
-name|y1
-argument_list|,
-name|y2
-argument_list|,
-name|y3
-argument_list|,
-name|y4
-argument_list|,
-name|t
-argument_list|,
+operator|*
 name|min
-argument_list|,
-name|max
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-comment|/* solve the equation now */
-name|d
-operator|=
-name|FT_MulFix
-argument_list|(
-name|b
-argument_list|,
-name|b
-argument_list|)
 operator|-
-name|FT_MulFix
-argument_list|(
-name|a
+name|p1
 argument_list|,
-name|c
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|d
-operator|<
-literal|0
-condition|)
-return|return;
-if|if
-condition|(
-name|d
-operator|==
-literal|0
-condition|)
-block|{
-comment|/* there is a single split point at -b/a */
-name|t
-operator|=
-operator|-
-name|FT_DivFix
-argument_list|(
-name|b
-argument_list|,
-name|a
-argument_list|)
-expr_stmt|;
-name|test_cubic_extrema
-argument_list|(
-name|y1
-argument_list|,
-name|y2
-argument_list|,
-name|y3
-argument_list|,
-name|y4
-argument_list|,
-name|t
-argument_list|,
+operator|*
 name|min
-argument_list|,
-name|max
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|/* there are two solutions; we need to filter them */
-name|d
-operator|=
-name|FT_SqrtFixed
-argument_list|(
-operator|(
-name|FT_Int32
-operator|)
-name|d
-argument_list|)
-expr_stmt|;
-name|t
-operator|=
 operator|-
-name|FT_DivFix
-argument_list|(
-name|b
-operator|-
-name|d
+name|p2
 argument_list|,
-name|a
-argument_list|)
-expr_stmt|;
-name|test_cubic_extrema
-argument_list|(
-name|y1
-argument_list|,
-name|y2
-argument_list|,
-name|y3
-argument_list|,
-name|y4
-argument_list|,
-name|t
-argument_list|,
+operator|*
 name|min
-argument_list|,
-name|max
-argument_list|)
-expr_stmt|;
-name|t
-operator|=
 operator|-
-name|FT_DivFix
-argument_list|(
-name|b
-operator|+
-name|d
+name|p3
 argument_list|,
-name|a
-argument_list|)
-expr_stmt|;
-name|test_cubic_extrema
-argument_list|(
-name|y1
-argument_list|,
-name|y2
-argument_list|,
-name|y3
-argument_list|,
-name|y4
-argument_list|,
-name|t
-argument_list|,
+operator|*
 name|min
-argument_list|,
-name|max
+operator|-
+name|p4
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -1548,8 +1286,9 @@ modifier|*
 name|user
 parameter_list|)
 block|{
-comment|/* we don't need to check `to' since it is always an `on' point, thus */
-comment|/* within the bbox                                                    */
+comment|/* We don't need to check `to' since it is always an on-point,    */
+comment|/* thus within the bbox.  Only segments with an off-point outside */
+comment|/* the bbox can possibly reach new extreme values.                */
 if|if
 condition|(
 name|CHECK_X
@@ -1679,8 +1418,8 @@ argument|bbox_interface
 argument_list|,
 argument|(FT_Outline_MoveTo_Func) BBox_Move_To
 argument_list|,
-DECL|variable|BBox_Move_To
-argument|(FT_Outline_LineTo_Func) BBox_Move_To
+DECL|variable|BBox_Line_To
+argument|(FT_Outline_LineTo_Func) BBox_Line_To
 argument_list|,
 DECL|variable|BBox_Conic_To
 argument|(FT_Outline_ConicTo_Func)BBox_Conic_To
@@ -1715,9 +1454,33 @@ begin_block
 block|{
 name|FT_BBox
 name|cbox
+init|=
+block|{
+literal|0x7FFFFFFFL
+block|,
+literal|0x7FFFFFFFL
+block|,
+operator|-
+literal|0x7FFFFFFFL
+block|,
+operator|-
+literal|0x7FFFFFFFL
+block|}
 decl_stmt|;
 name|FT_BBox
 name|bbox
+init|=
+block|{
+literal|0x7FFFFFFFL
+block|,
+literal|0x7FFFFFFFL
+block|,
+operator|-
+literal|0x7FFFFFFFL
+block|,
+operator|-
+literal|0x7FFFFFFFL
+block|}
 decl_stmt|;
 name|FT_Vector
 modifier|*
@@ -1732,7 +1495,10 @@ operator|!
 name|abbox
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1740,7 +1506,10 @@ operator|!
 name|outline
 condition|)
 return|return
-name|FT_Err_Invalid_Outline
+name|FT_THROW
+argument_list|(
+name|Invalid_Outline
+argument_list|)
 return|;
 comment|/* if outline is empty, return (0,0,0,0) */
 if|if
@@ -1791,54 +1560,11 @@ name|outline
 operator|->
 name|points
 expr_stmt|;
-name|bbox
-operator|.
-name|xMin
-operator|=
-name|bbox
-operator|.
-name|xMax
-operator|=
-name|cbox
-operator|.
-name|xMin
-operator|=
-name|cbox
-operator|.
-name|xMax
-operator|=
-name|vec
-operator|->
-name|x
-expr_stmt|;
-name|bbox
-operator|.
-name|yMin
-operator|=
-name|bbox
-operator|.
-name|yMax
-operator|=
-name|cbox
-operator|.
-name|yMin
-operator|=
-name|cbox
-operator|.
-name|yMax
-operator|=
-name|vec
-operator|->
-name|y
-expr_stmt|;
-name|vec
-operator|++
-expr_stmt|;
 for|for
 control|(
 name|n
 operator|=
-literal|1
+literal|0
 init|;
 name|n
 operator|<
@@ -1850,76 +1576,12 @@ name|n
 operator|++
 control|)
 block|{
-name|FT_Pos
-name|x
-init|=
+name|FT_UPDATE_BBOX
+argument_list|(
 name|vec
-operator|->
-name|x
-decl_stmt|;
-name|FT_Pos
-name|y
-init|=
-name|vec
-operator|->
-name|y
-decl_stmt|;
-comment|/* update control box */
-if|if
-condition|(
-name|x
-operator|<
+argument_list|,
 name|cbox
-operator|.
-name|xMin
-condition|)
-name|cbox
-operator|.
-name|xMin
-operator|=
-name|x
-expr_stmt|;
-if|if
-condition|(
-name|x
-operator|>
-name|cbox
-operator|.
-name|xMax
-condition|)
-name|cbox
-operator|.
-name|xMax
-operator|=
-name|x
-expr_stmt|;
-if|if
-condition|(
-name|y
-operator|<
-name|cbox
-operator|.
-name|yMin
-condition|)
-name|cbox
-operator|.
-name|yMin
-operator|=
-name|y
-expr_stmt|;
-if|if
-condition|(
-name|y
-operator|>
-name|cbox
-operator|.
-name|yMax
-condition|)
-name|cbox
-operator|.
-name|yMax
-operator|=
-name|y
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1935,65 +1597,13 @@ argument_list|)
 operator|==
 name|FT_CURVE_TAG_ON
 condition|)
-block|{
-comment|/* update bbox for `on' points only */
-if|if
-condition|(
-name|x
-operator|<
+name|FT_UPDATE_BBOX
+argument_list|(
+name|vec
+argument_list|,
 name|bbox
-operator|.
-name|xMin
-condition|)
-name|bbox
-operator|.
-name|xMin
-operator|=
-name|x
+argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|x
-operator|>
-name|bbox
-operator|.
-name|xMax
-condition|)
-name|bbox
-operator|.
-name|xMax
-operator|=
-name|x
-expr_stmt|;
-if|if
-condition|(
-name|y
-operator|<
-name|bbox
-operator|.
-name|yMin
-condition|)
-name|bbox
-operator|.
-name|yMin
-operator|=
-name|y
-expr_stmt|;
-if|if
-condition|(
-name|y
-operator|>
-name|bbox
-operator|.
-name|yMax
-condition|)
-name|bbox
-operator|.
-name|yMax
-operator|=
-name|y
-expr_stmt|;
-block|}
 name|vec
 operator|++
 expr_stmt|;

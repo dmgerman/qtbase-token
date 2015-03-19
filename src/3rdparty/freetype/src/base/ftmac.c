@@ -30,10 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,         */
-end_comment
-begin_comment
-comment|/*            2009 by                                                      */
+comment|/*  Copyright 1996-2009, 2013, 2014 by                                     */
 end_comment
 begin_comment
 comment|/*  Just van Rossum, David Turner, Robert Wilhelm, and Werner Lemberg.     */
@@ -274,6 +271,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_MACINTOSH
+end_ifdef
 begin_comment
 comment|/* This function is deprecated because FSSpec is deprecated in Mac OS X  */
 end_comment
@@ -312,7 +314,10 @@ name|face_index
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 block|}
 end_block
@@ -499,7 +504,10 @@ operator|==
 literal|0xFFFFFFFFUL
 condition|)
 return|return
-name|FT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 return|;
 if|if
 condition|(
@@ -513,7 +521,10 @@ name|ats_font_ref
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 return|;
 comment|/* face_index calculation by searching preceding fontIDs */
 comment|/* with same FSRef                                       */
@@ -609,6 +620,20 @@ decl_stmt|;
 name|FT_Error
 name|err
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|fontName
+operator|||
+operator|!
+name|face_index
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|err
 operator|=
 name|FT_GetFileRef_From_Mac_ATS_Name
@@ -623,8 +648,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_Err_Ok
-operator|!=
 name|err
 condition|)
 return|return
@@ -645,7 +668,10 @@ name|maxPathSize
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 return|;
 return|return
 name|FT_Err_Ok
@@ -709,7 +735,10 @@ name|face_index
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 else|#
 directive|else
@@ -719,6 +748,20 @@ decl_stmt|;
 name|FT_Error
 name|err
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|fontName
+operator|||
+operator|!
+name|face_index
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|err
 operator|=
 name|FT_GetFileRef_From_Mac_ATS_Name
@@ -733,8 +776,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_Err_Ok
-operator|!=
 name|err
 condition|)
 return|return
@@ -761,7 +802,10 @@ name|NULL
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 return|;
 return|return
 name|FT_Err_Ok
@@ -807,7 +851,10 @@ name|FALSE
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 comment|/* at present, no support for dfont format */
 name|err
@@ -1114,10 +1161,6 @@ name|AsscEntry
 modifier|*
 name|assoc
 decl_stmt|;
-name|FamRec
-modifier|*
-name|fond
-decl_stmt|;
 name|short
 name|i
 decl_stmt|,
@@ -1125,14 +1168,6 @@ name|face
 decl_stmt|,
 name|face_all
 decl_stmt|;
-name|fond
-operator|=
-operator|(
-name|FamRec
-operator|*
-operator|)
-name|fond_data
-expr_stmt|;
 name|face_all
 operator|=
 name|EndianS16_BtoN
@@ -1465,6 +1500,15 @@ name|p
 operator|)
 argument_list|)
 expr_stmt|;
+name|string_count
+operator|=
+name|FT_MIN
+argument_list|(
+literal|64
+argument_list|,
+name|string_count
+argument_list|)
+expr_stmt|;
 name|p
 operator|+=
 sizeof|sizeof
@@ -1481,10 +1525,6 @@ init|;
 name|i
 operator|<
 name|string_count
-operator|&&
-name|i
-operator|<
-literal|64
 condition|;
 name|i
 operator|++
@@ -1573,12 +1613,7 @@ index|[
 name|face_index
 index|]
 operator|<=
-name|FT_MIN
-argument_list|(
 name|string_count
-argument_list|,
-literal|64
-argument_list|)
 condition|)
 block|{
 name|unsigned
@@ -1761,7 +1796,10 @@ name|FALSE
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1785,7 +1823,10 @@ name|par_ref
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1802,7 +1843,10 @@ name|path_size
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1825,7 +1869,10 @@ operator|>
 name|path_size
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 comment|/* now we have absolute dirname in path_lwfn */
 name|ft_strcat
@@ -1894,7 +1941,10 @@ name|FALSE
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1917,7 +1967,10 @@ name|NULL
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 return|return
 name|FT_Err_Ok
@@ -2010,8 +2063,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_Err_Ok
-operator|==
+operator|!
 name|err
 condition|)
 name|have_lwfn
@@ -2215,7 +2267,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Array_Too_Large
+name|FT_THROW
+argument_list|(
+name|Array_Too_Large
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Error
@@ -2557,7 +2612,10 @@ name|res
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 name|pfb_data
 operator|=
@@ -2683,7 +2741,10 @@ operator|==
 name|NULL
 condition|)
 return|return
-name|FT_Err_Invalid_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Handle
+argument_list|)
 return|;
 name|sfnt_size
 operator|=
@@ -2893,7 +2954,10 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|FT_Err_Cannot_Open_Resource
+name|FT_ERR
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 decl_stmt|;
 name|ResFileRefNum
 name|res_ref
@@ -2906,8 +2970,6 @@ name|fond
 decl_stmt|;
 name|short
 name|num_faces_in_res
-decl_stmt|,
-name|num_faces_in_fond
 decl_stmt|;
 if|if
 condition|(
@@ -2922,7 +2984,10 @@ name|res_ref
 argument_list|)
 condition|)
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 name|UseResFile
 argument_list|(
@@ -2935,7 +3000,10 @@ name|ResError
 argument_list|()
 condition|)
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 name|num_faces_in_res
 operator|=
@@ -2952,6 +3020,9 @@ operator|++
 name|res_index
 control|)
 block|{
+name|short
+name|num_faces_in_fond
+decl_stmt|;
 name|fond
 operator|=
 name|Get1IndResource
@@ -3017,16 +3088,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_Err_Ok
-operator|==
+operator|!
 name|error
 operator|&&
-name|NULL
-operator|!=
 name|aface
 operator|&&
-name|NULL
-operator|!=
 operator|*
 name|aface
 condition|)
@@ -3103,6 +3169,7 @@ name|error
 init|=
 name|FT_Err_Ok
 decl_stmt|;
+comment|/* check of `library' and `aface' delayed to `FT_New_Face_From_XXX' */
 name|GetResInfo
 argument_list|(
 name|fond
@@ -3128,7 +3195,10 @@ operator|!=
 name|TTAG_FOND
 condition|)
 return|return
-name|FT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 return|;
 name|parse_fond
 argument_list|(
@@ -3255,8 +3325,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|FT_Err_Ok
-operator|==
+operator|!
 name|error
 condition|)
 name|have_lwfn
@@ -3292,7 +3361,10 @@ expr_stmt|;
 else|else
 name|error
 operator|=
-name|FT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 name|found_no_lwfn_file
 label|:
@@ -3300,8 +3372,6 @@ if|if
 condition|(
 name|have_sfnt
 operator|&&
-name|FT_Err_Ok
-operator|!=
 name|error
 condition|)
 name|error
@@ -3483,12 +3553,11 @@ operator|!
 name|pathname
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
-name|error
-operator|=
-name|FT_Err_Ok
-expr_stmt|;
 operator|*
 name|aface
 operator|=
@@ -3627,13 +3696,18 @@ index|[
 name|PATH_MAX
 index|]
 decl_stmt|;
+comment|/* check of `library' and `aface' delayed to */
+comment|/* `FT_New_Face_From_Resource'               */
 if|if
 condition|(
 operator|!
 name|ref
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 name|err
 operator|=
@@ -3655,7 +3729,10 @@ name|err
 condition|)
 name|error
 operator|=
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 expr_stmt|;
 name|error
 operator|=
@@ -3807,13 +3884,17 @@ name|aface
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 else|#
 directive|else
 name|FSRef
 name|ref
 decl_stmt|;
+comment|/* check of `library' and `aface' delayed to `FT_New_Face_From_FSRef' */
 if|if
 condition|(
 operator|!
@@ -3830,7 +3911,10 @@ operator|!=
 name|noErr
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 else|else
 return|return
@@ -3850,6 +3934,13 @@ endif|#
 directive|endif
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* FT_MACINTOSH */
+end_comment
 begin_comment
 comment|/* END */
 end_comment
