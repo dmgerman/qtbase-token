@@ -243,12 +243,14 @@ modifier|*
 name|node
 parameter_list|)
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|states
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|states
+control|)
 if|if
 condition|(
 name|isDescendant
@@ -1831,12 +1833,14 @@ argument_list|,
 name|transitionStateEntryLessThan
 argument_list|)
 expr_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractTransition *t1
-argument_list|,
-argument|enabledTransitions
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractTransition
+modifier|*
+name|t1
+decl|,
+name|enabledTransitions
+control|)
 block|{
 name|bool
 name|t1Preempted
@@ -1869,12 +1873,14 @@ operator|<<
 name|t1
 argument_list|)
 decl_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractTransition *t2
-argument_list|,
-argument|filteredTransitions
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractTransition
+modifier|*
+name|t2
+decl|,
+name|filteredTransitions
+control|)
 block|{
 name|QSet
 argument_list|<
@@ -1949,12 +1955,14 @@ operator|!
 name|t1Preempted
 condition|)
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractTransition *t3
-argument_list|,
-argument|transitionsToRemove
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractTransition
+modifier|*
+name|t3
+decl|,
+name|transitionsToRemove
+control|)
 name|filteredTransitions
 operator|.
 name|removeAll
@@ -2472,12 +2480,14 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState* s
-argument_list|,
-argument|configuration
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|configuration
+control|)
 block|{
 if|if
 condition|(
@@ -3029,19 +3039,26 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractTransition *t
-argument_list|,
-argument|enabledTransitions
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractTransition
+modifier|*
+name|t
+decl|,
+name|enabledTransitions
+control|)
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|t->targetStates()
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|t
+operator|->
+name|targetStates
+argument_list|()
+control|)
 block|{
 name|addDescendantStatesToEnter
 argument_list|(
@@ -3079,12 +3096,14 @@ argument_list|,
 name|effectiveTargetStates
 argument_list|)
 decl_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|effectiveTargetStates
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|effectiveTargetStates
+control|)
 block|{
 name|addAncestorStatesToEnter
 argument_list|(
@@ -3208,7 +3227,7 @@ if|#
 directive|if
 literal|0
 comment|// Qt only has external transitions, so skip the special case for the internal transitions
-block|if (QState *tSource = t->sourceState()) {         if (isCompound(tSource)) {             bool allDescendants = true;             Q_FOREACH (QAbstractState *s, effectiveTargetStates) {                 if (!isDescendant(s, tSource)) {                     allDescendants = false;                     break;                 }             }              if (allDescendants)                 return tSource;         }     }
+block|if (QState *tSource = t->sourceState()) {         if (isCompound(tSource)) {             bool allDescendants = true;             foreach (QAbstractState *s, effectiveTargetStates) {                 if (!isDescendant(s, tSource)) {                     allDescendants = false;                     break;                 }             }              if (allDescendants)                 return tSource;         }     }
 endif|#
 directive|endif
 name|QList
@@ -4458,12 +4477,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|historyConfiguration
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|historyConfiguration
+control|)
 name|addDescendantStatesToEnter
 argument_list|(
 name|s
@@ -4473,12 +4494,14 @@ argument_list|,
 name|statesForDefaultEntry
 argument_list|)
 expr_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|historyConfiguration
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|historyConfiguration
+control|)
 name|addAncestorStatesToEnter
 argument_list|(
 name|s
@@ -4590,12 +4613,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|defaultHistoryContent
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|defaultHistoryContent
+control|)
 name|addDescendantStatesToEnter
 argument_list|(
 name|s
@@ -4605,12 +4630,14 @@ argument_list|,
 name|statesForDefaultEntry
 argument_list|)
 expr_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|QAbstractState *s
-argument_list|,
-argument|defaultHistoryContent
-argument_list|)
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|s
+decl|,
+name|defaultHistoryContent
+control|)
 name|addAncestorStatesToEnter
 argument_list|(
 name|s
@@ -4779,12 +4806,22 @@ argument_list|(
 name|state
 argument_list|)
 decl_stmt|;
-name|Q_FOREACH
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|child
+decl|,
+name|QStatePrivate
+operator|::
+name|get
 argument_list|(
-argument|QAbstractState *child
-argument_list|,
-argument|QStatePrivate::get(grp)->childStates()
+name|grp
 argument_list|)
+operator|->
+name|childStates
+argument_list|()
+control|)
 block|{
 if|if
 condition|(
@@ -4845,12 +4882,19 @@ modifier|&
 name|statesForDefaultEntry
 parameter_list|)
 block|{
-name|Q_FOREACH
+foreach|foreach
+control|(
+name|QState
+modifier|*
+name|anc
+decl|,
+name|getProperAncestors
 argument_list|(
-argument|QState *anc
+name|s
 argument_list|,
-argument|getProperAncestors(s, ancestor)
+name|ancestor
 argument_list|)
+control|)
 block|{
 if|if
 condition|(
@@ -4876,12 +4920,22 @@ name|anc
 argument_list|)
 condition|)
 block|{
-name|Q_FOREACH
+foreach|foreach
+control|(
+name|QAbstractState
+modifier|*
+name|child
+decl|,
+name|QStatePrivate
+operator|::
+name|get
 argument_list|(
-argument|QAbstractState *child
-argument_list|,
-argument|QStatePrivate::get(anc)->childStates()
+name|anc
 argument_list|)
+operator|->
+name|childStates
+argument_list|()
+control|)
 block|{
 if|if
 condition|(
