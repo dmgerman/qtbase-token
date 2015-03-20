@@ -172,6 +172,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_struct_decl
+struct_decl|struct
+name|CalculationCache
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 DECL|variable|QStateMachine
 name|class
@@ -369,6 +374,10 @@ operator|*
 operator|>
 operator|&
 name|enabledTransitions
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|void
@@ -386,6 +395,10 @@ operator|*
 operator|>
 operator|&
 name|transitionList
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|QList
@@ -398,6 +411,10 @@ argument_list|(
 name|QEvent
 operator|*
 name|event
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|void
@@ -446,6 +463,10 @@ operator|*
 operator|>
 operator|&
 name|enabledTransitions
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|QSet
@@ -463,6 +484,26 @@ operator|*
 operator|>
 operator|&
 name|enabledTransitions
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
+argument_list|)
+block|;
+name|QSet
+operator|<
+name|QAbstractState
+operator|*
+operator|>
+name|computeExitSet_Unordered
+argument_list|(
+name|QAbstractTransition
+operator|*
+name|t
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|void
@@ -567,6 +608,10 @@ operator|*
 operator|>
 operator|&
 name|statesForDefaultEntry
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|QAbstractState
@@ -576,6 +621,8 @@ argument_list|(
 argument|QAbstractTransition *t
 argument_list|,
 argument|const QList<QAbstractState *>&effectiveTargetStates
+argument_list|,
+argument|CalculationCache *cache
 argument_list|)
 specifier|const
 block|;
