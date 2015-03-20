@@ -1417,6 +1417,7 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QModelIndexList
 name|match
@@ -1430,7 +1431,7 @@ argument_list|,
 argument|int hits =
 literal|1
 argument_list|,
-argument|Qt::MatchFlags flags =                                   Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)
+argument|Qt::MatchFlags flags =                                               Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)
 argument_list|)
 specifier|const
 block|;
