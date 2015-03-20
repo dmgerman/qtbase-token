@@ -1720,19 +1720,6 @@ operator|->
 name|clearSearchOrder
 argument_list|()
 expr_stmt|;
-name|QString
-name|p
-init|=
-name|config
-operator|.
-name|getString
-argument_list|(
-name|CONFIG_PROJECT
-argument_list|)
-operator|.
-name|toLower
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1765,7 +1752,7 @@ name|qdb
 operator|->
 name|newPrimaryTree
 argument_list|(
-name|p
+name|project
 argument_list|)
 expr_stmt|;
 block|}
@@ -1781,7 +1768,7 @@ name|qdb
 operator|->
 name|newPrimaryTree
 argument_list|(
-name|p
+name|project
 argument_list|)
 expr_stmt|;
 else|else
@@ -1789,7 +1776,7 @@ name|qdb
 operator|->
 name|setPrimaryTree
 argument_list|(
-name|p
+name|project
 argument_list|)
 expr_stmt|;
 name|dependModules

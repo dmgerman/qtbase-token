@@ -54,7 +54,7 @@ begin_comment
 comment|/*!   \class Tree    This class constructs and maintains a tree of instances of   the subclasses of Node.    This class is now private. Only class QDocDatabase has access.   Please don't change this. If you must access class Tree, do it   though the pointer to the singleton QDocDatabase.    Tree is being converted to a forest. A static member provides a   map of Tree* values with the module names as the keys. There is   one Tree in the map for each index file read, and there is one   tree that is not in the map for the module whose documentation   is being generated.  */
 end_comment
 begin_comment
-comment|/*!   Constructs a Tree. \a qdb is the pointer to the singleton   qdoc database that is constructing the tree. This might not   be necessary, and it might be removed later.  */
+comment|/*!   Constructs a Tree. \a qdb is the pointer to the singleton   qdoc database that is constructing the tree. This might not   be necessary, and it might be removed later.    \a camelCaseModuleName is the project name for this tree,   which was obtained from the qdocconf file via the Config   singleton.  */
 end_comment
 begin_constructor
 DECL|function|Tree
@@ -65,7 +65,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|physicalModuleName
+name|camelCaseModuleName
 parameter_list|,
 name|QDocDatabase
 modifier|*
@@ -87,9 +87,17 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|camelCaseModuleName_
+argument_list|(
+name|camelCaseModuleName
+argument_list|)
+member_init_list|,
 name|physicalModuleName_
 argument_list|(
-name|physicalModuleName
+name|camelCaseModuleName
+operator|.
+name|toLower
+argument_list|()
 argument_list|)
 member_init_list|,
 name|qdb_
