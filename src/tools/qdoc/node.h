@@ -324,8 +324,6 @@ name|Preliminary
 block|,
 name|Commendable
 block|,
-name|Main
-block|,
 name|Internal
 block|}
 enum|;
@@ -3166,25 +3164,6 @@ return|return
 name|usingClauses_
 return|;
 block|}
-name|QString
-name|serviceName
-argument_list|()
-specifier|const
-block|{
-return|return
-name|sname
-return|;
-block|}
-name|void
-name|setServiceName
-argument_list|(
-argument|const QString& value
-argument_list|)
-block|{
-name|sname
-operator|=
-name|value
-block|; }
 name|QmlTypeNode
 operator|*
 name|qmlElement
@@ -3273,9 +3252,6 @@ name|abstract_
 block|;
 name|bool
 name|wrapper_
-block|;
-name|QString
-name|sname
 block|;
 name|QString
 name|obsoleteLink_
