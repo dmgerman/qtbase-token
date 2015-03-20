@@ -78,6 +78,7 @@ name|sourceModel
 argument_list|()
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QModelIndex
 name|mapToSource
@@ -88,6 +89,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QModelIndex
 name|mapFromSource
@@ -98,6 +100,7 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QItemSelection
 name|mapSelectionToSource
@@ -106,6 +109,7 @@ argument|const QItemSelection&selection
 argument_list|)
 specifier|const
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QItemSelection
 name|mapSelectionFromSource
