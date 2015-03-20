@@ -19597,6 +19597,11 @@ case|:
 case|case
 name|QLocale
 operator|::
+name|Uighur
+case|:
+case|case
+name|QLocale
+operator|::
 name|Urdu
 case|:
 case|case
