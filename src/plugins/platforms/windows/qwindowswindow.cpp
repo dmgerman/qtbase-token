@@ -12843,7 +12843,6 @@ comment|// Return if it is not a touch window or the flags are already set by a 
 comment|// such as HCBT_CREATEWND
 if|if
 condition|(
-operator|!
 name|ret
 operator|||
 name|touchFlags
