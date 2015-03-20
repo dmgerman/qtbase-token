@@ -4051,6 +4051,15 @@ argument_list|,
 literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
+name|addFilters
+argument_list|(
+name|tempProj
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Distribution Files"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -4177,6 +4186,17 @@ argument_list|,
 name|xmlFilter
 argument_list|,
 literal|"Deployment Files"
+argument_list|)
+expr_stmt|;
+name|outputFilter
+argument_list|(
+name|tempProj
+argument_list|,
+name|xml
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Distribution Files"
 argument_list|)
 expr_stmt|;
 for|for
@@ -5520,6 +5540,15 @@ argument_list|,
 literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
+name|addFilters
+argument_list|(
+name|tool
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Distribution Files"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -5646,6 +5675,17 @@ argument_list|,
 name|xmlFilter
 argument_list|,
 literal|"Deployment Files"
+argument_list|)
+expr_stmt|;
+name|outputFilter
+argument_list|(
+name|tool
+argument_list|,
+name|xml
+argument_list|,
+name|xmlFilter
+argument_list|,
+literal|"Distribution Files"
 argument_list|)
 expr_stmt|;
 for|for

@@ -359,6 +359,10 @@ name|initDeploymentFiles
 argument_list|()
 block|;
 name|void
+name|initDistributionFiles
+argument_list|()
+block|;
+name|void
 name|initLexYaccFiles
 argument_list|()
 block|;

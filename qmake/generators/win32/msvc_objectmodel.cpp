@@ -12614,6 +12614,15 @@ condition|)
 return|return
 name|DeploymentFiles
 return|;
+if|if
+condition|(
+name|name
+operator|==
+literal|"Distribution Files"
+condition|)
+return|return
+name|DistributionFiles
+return|;
 return|return
 name|filterForExtraCompiler
 argument_list|(
@@ -13210,6 +13219,15 @@ argument_list|,
 literal|"Deployment Files"
 argument_list|)
 expr_stmt|;
+name|outputFilter
+argument_list|(
+name|tempProj
+argument_list|,
+name|xml
+argument_list|,
+literal|"Distribution Files"
+argument_list|)
+expr_stmt|;
 name|QSet
 argument_list|<
 name|QString
@@ -13598,6 +13616,15 @@ argument_list|,
 name|xml
 argument_list|,
 literal|"Deployment Files"
+argument_list|)
+expr_stmt|;
+name|outputFilter
+argument_list|(
+name|tool
+argument_list|,
+name|xml
+argument_list|,
+literal|"Distribution Files"
 argument_list|)
 expr_stmt|;
 for|for
