@@ -848,6 +848,10 @@ name|WindowDoesNotAcceptFocus
 init|=
 literal|0x00200000
 block|,
+name|MaximizeUsingFullscreenGeometryHint
+init|=
+literal|0x00400000
+block|,
 name|CustomizeWindowHint
 init|=
 literal|0x02000000
