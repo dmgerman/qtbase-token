@@ -61,14 +61,14 @@ DECL|macro|DATA_VERSION_S
 define|#
 directive|define
 name|DATA_VERSION_S
-value|"6.2"
+value|"6.3"
 end_define
 begin_define
 DECL|macro|DATA_VERSION_STR
 define|#
 directive|define
 name|DATA_VERSION_STR
-value|"QChar::Unicode_6_2"
+value|"QChar::Unicode_6_3"
 end_define
 begin_decl_stmt
 DECL|variable|age_map
