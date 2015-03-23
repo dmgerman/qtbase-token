@@ -27848,6 +27848,9 @@ name|range
 argument_list|)
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
 block|}
 elseif|else
 if|if
@@ -27945,6 +27948,9 @@ operator|-=
 literal|4
 expr_stmt|;
 continue|continue;
+endif|#
+directive|endif
+comment|//Q_OS_MAC
 block|}
 operator|*
 name|cout
