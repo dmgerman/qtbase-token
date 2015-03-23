@@ -661,7 +661,12 @@ argument_list|)
 block|,
 name|qgl_current_fbo_invalid
 argument_list|(
-argument|false
+name|false
+argument_list|)
+block|,
+name|defaultFboRedirect
+argument_list|(
+literal|0
 argument_list|)
 block|{
 name|requestedFormat
@@ -781,6 +786,9 @@ name|qgl_current_fbo_invalid
 block|;
 name|QVariant
 name|nativeHandle
+block|;
+name|GLuint
+name|defaultFboRedirect
 block|;
 specifier|static
 name|QOpenGLContext
