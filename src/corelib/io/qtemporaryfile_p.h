@@ -129,11 +129,18 @@ name|QTemporaryFileEngine
 argument_list|(
 argument|const QString&file
 argument_list|,
+argument|quint32 fileMode
+argument_list|,
 argument|bool fileIsTemplate = true
 argument_list|)
 operator|:
 name|QFSFileEngine
 argument_list|()
+block|,
+name|fileMode
+argument_list|(
+name|fileMode
+argument_list|)
 block|,
 name|filePathIsTemplate
 argument_list|(
@@ -229,6 +236,9 @@ block|;
 name|bool
 name|close
 argument_list|()
+block|;
+name|quint32
+name|fileMode
 block|;
 name|bool
 name|filePathIsTemplate
