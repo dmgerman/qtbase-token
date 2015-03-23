@@ -125,7 +125,7 @@ begin_comment
 comment|// GENERATED PART STARTS HERE
 end_comment
 begin_comment
-comment|/*     This part of the file was generated on 2014-01-12 from the     Common Locale Data Repository supplemental/windowsZones.xml file     $Revision: 9178 $ $Date: 2013-08-08 13:59:22 -0500 (Thu, 08 Aug 2013) $      http://www.unicode.org/cldr/      Do not change this data, only generate it using cldr2qtimezone.py. */
+comment|/*     This part of the file was generated on 2015-03-23 from the     Common Locale Data Repository supplemental/windowsZones.xml file     $Revision: 9178 $ $Date: 2013-08-08 13:59:22 -0500 (Thu, 08 Aug 2013) $      http://www.unicode.org/cldr/      Do not change this data, only generate it using cldr2qtimezone.py. */
 end_comment
 begin_comment
 comment|// Windows ID Key, Country Enum, IANA ID Index
@@ -3240,6 +3240,7 @@ literal|110
 block|,
 literal|6918
 block|,
+operator|-
 literal|10800
 block|}
 block|,
@@ -3308,6 +3309,7 @@ literal|255
 block|,
 literal|5264
 block|,
+operator|-
 literal|10800
 block|}
 block|,
@@ -3614,6 +3616,7 @@ literal|934
 block|,
 literal|1847
 block|,
+operator|-
 literal|10800
 block|}
 block|,
@@ -3758,6 +3761,7 @@ literal|1222
 block|,
 literal|1121
 block|,
+operator|-
 literal|10800
 block|}
 block|,
@@ -3974,6 +3978,7 @@ literal|1694
 block|,
 literal|3858
 block|,
+operator|-
 literal|10800
 block|}
 block|,
