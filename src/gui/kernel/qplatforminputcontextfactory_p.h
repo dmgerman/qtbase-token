@@ -68,6 +68,11 @@ name|keys
 parameter_list|()
 function_decl|;
 specifier|static
+name|QString
+name|requested
+parameter_list|()
+function_decl|;
+specifier|static
 name|QPlatformInputContext
 modifier|*
 name|create

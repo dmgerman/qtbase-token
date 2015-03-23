@@ -1524,6 +1524,26 @@ argument_list|(
 literal|"Wayland: This fails. Figure out why."
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"XCB: depends on dedicated platform context."
+argument_list|)
+expr_stmt|;
 name|InputItem
 name|disabledItem
 decl_stmt|;
