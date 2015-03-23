@@ -2022,6 +2022,11 @@ name|TraditionalChineseCsbBit
 init|=
 literal|20
 block|,
+DECL|enumerator|ThaiCsbBit
+name|ThaiCsbBit
+init|=
+literal|16
+block|,
 DECL|enumerator|JapaneseCsbBit
 name|JapaneseCsbBit
 init|=
@@ -2358,6 +2363,35 @@ operator|=
 literal|true
 expr_stmt|;
 comment|//qDebug("font %s supports Arabic", familyName.latin1());
+block|}
+if|if
+condition|(
+name|codePageRange
+index|[
+literal|0
+index|]
+operator|&
+operator|(
+literal|1
+operator|<<
+name|ThaiCsbBit
+operator|)
+condition|)
+block|{
+name|writingSystems
+operator|.
+name|setSupported
+argument_list|(
+name|QFontDatabase
+operator|::
+name|Thai
+argument_list|)
+expr_stmt|;
+name|hasScript
+operator|=
+literal|true
+expr_stmt|;
+comment|//qDebug("font %s supports Thai", familyName.latin1());
 block|}
 if|if
 condition|(
