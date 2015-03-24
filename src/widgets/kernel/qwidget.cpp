@@ -10185,6 +10185,13 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|data
+operator|->
+name|in_destructor
+condition|)
+return|return;
 name|d
 operator|->
 name|createExtra
