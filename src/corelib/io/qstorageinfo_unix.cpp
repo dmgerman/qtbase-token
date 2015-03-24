@@ -85,6 +85,11 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_HURD
+argument_list|)
 end_elif
 begin_include
 include|#
@@ -528,6 +533,11 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_OS_LINUX
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_HURD
 argument_list|)
 DECL|member|fp
 name|FILE
@@ -1121,6 +1131,11 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_HURD
+argument_list|)
 end_elif
 begin_decl_stmt
 DECL|variable|pathMounted
@@ -1140,14 +1155,15 @@ specifier|const
 name|int
 name|bufferSize
 init|=
-literal|3
-operator|*
-name|PATH_MAX
+literal|1024
 decl_stmt|;
 end_decl_stmt
 begin_comment
 DECL|variable|bufferSize
-comment|// 2 paths (mount point+device) and metainfo
+comment|// 2 paths (mount point+device) and metainfo;
+end_comment
+begin_comment
+comment|// should be enough
 end_comment
 begin_constructor
 DECL|function|QStorageIterator
