@@ -168,6 +168,11 @@ name|close
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|bool
+name|flush
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 name|qint64
 name|size
 argument_list|()
