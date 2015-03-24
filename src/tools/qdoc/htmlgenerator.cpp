@@ -12820,6 +12820,8 @@ operator|->
 name|isJsNode
 argument_list|()
 condition|)
+name|collection
+operator|=
 name|qdb_
 operator|->
 name|findJsModule
@@ -12831,6 +12833,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 else|else
+name|collection
+operator|=
 name|qdb_
 operator|->
 name|findQmlModule

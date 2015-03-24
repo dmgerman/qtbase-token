@@ -4455,6 +4455,11 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+name|QmlTypeNode
+operator|::
+name|terminate
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|DEBUG_SHUTDOWN_CRASH

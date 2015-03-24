@@ -8781,6 +8781,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|sub
+operator|->
+name|isInternal
+argument_list|()
+condition|)
+return|return;
+if|if
+condition|(
 name|inheritedBy
 operator|.
 name|constFind
@@ -8795,7 +8803,6 @@ operator|.
 name|constEnd
 argument_list|()
 condition|)
-block|{
 name|inheritedBy
 operator|.
 name|insert
@@ -8805,7 +8812,6 @@ argument_list|,
 name|sub
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment

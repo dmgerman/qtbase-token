@@ -10828,11 +10828,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|QmlTypeNode
-operator|::
-name|terminate
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
