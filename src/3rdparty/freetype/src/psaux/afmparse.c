@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007, 2008, 2009 by                                    */
+comment|/*  Copyright 2006-2010, 2012, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -56,6 +56,11 @@ begin_include
 include|#
 directive|include
 include|FT_FREETYPE_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -383,9 +388,6 @@ name|char
 modifier|*
 name|str
 decl_stmt|;
-name|int
-name|ch
-decl_stmt|;
 name|afm_stream_skip_spaces
 argument_list|(
 name|stream
@@ -413,11 +415,12 @@ condition|(
 literal|1
 condition|)
 block|{
+name|int
 name|ch
-operator|=
+init|=
 name|AFM_GETC
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|AFM_IS_SPACE
@@ -501,9 +504,6 @@ name|char
 modifier|*
 name|str
 decl_stmt|;
-name|int
-name|ch
-decl_stmt|;
 name|afm_stream_skip_spaces
 argument_list|(
 name|stream
@@ -532,11 +532,12 @@ condition|(
 literal|1
 condition|)
 block|{
+name|int
 name|ch
-operator|=
+init|=
 name|AFM_GETC
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|AFM_IS_NEWLINE
@@ -1610,6 +1611,8 @@ begin_block
 block|{
 name|AFM_Stream
 name|stream
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Error
 name|error
@@ -1672,7 +1675,7 @@ operator|=
 name|NULL
 expr_stmt|;
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1758,12 +1761,15 @@ operator|.
 name|i
 expr_stmt|;
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 else|else
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 end_block
@@ -2035,30 +2041,6 @@ name|u
 operator|.
 name|f
 expr_stmt|;
-comment|/* is this correct? */
-if|if
-condition|(
-name|tk
-operator|->
-name|degree
-operator|<
-literal|0
-operator|&&
-name|tk
-operator|->
-name|min_kern
-operator|>
-literal|0
-condition|)
-name|tk
-operator|->
-name|min_kern
-operator|=
-operator|-
-name|tk
-operator|->
-name|min_kern
-expr_stmt|;
 break|break;
 case|case
 name|AFM_TOKEN_ENDTRACKKERN
@@ -2078,7 +2060,7 @@ operator|+
 literal|1
 expr_stmt|;
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 case|case
 name|AFM_TOKEN_UNKNOWN
@@ -2093,7 +2075,10 @@ block|}
 name|Fail
 label|:
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 end_function
@@ -2550,7 +2535,7 @@ name|afm_compare_kern_pairs
 argument_list|)
 expr_stmt|;
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 case|case
 name|AFM_TOKEN_UNKNOWN
@@ -2565,7 +2550,10 @@ block|}
 name|Fail
 label|:
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 end_function
@@ -2664,7 +2652,7 @@ case|case
 name|AFM_TOKEN_ENDFONTMETRICS
 case|:
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 case|case
 name|AFM_TOKEN_UNKNOWN
@@ -2679,7 +2667,10 @@ block|}
 name|Fail
 label|:
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 end_function
@@ -2774,13 +2765,16 @@ operator|==
 name|AFM_TOKEN_ENDFONTMETRICS
 condition|)
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 name|Fail
 label|:
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 end_function
@@ -2816,7 +2810,10 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PSaux_Err_Syntax_Error
+name|FT_ERR
+argument_list|(
+name|Syntax_Error
+argument_list|)
 decl_stmt|;
 name|char
 modifier|*
@@ -2836,7 +2833,10 @@ operator|!
 name|fi
 condition|)
 return|return
-name|PSaux_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 name|key
 operator|=
@@ -2871,7 +2871,10 @@ operator|!=
 literal|0
 condition|)
 return|return
-name|PSaux_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 return|;
 while|while
 condition|(
@@ -2937,7 +2940,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PSaux_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -3250,7 +3256,7 @@ case|case
 name|AFM_TOKEN_ENDFONTMETRICS
 case|:
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 default|default:
 break|break;

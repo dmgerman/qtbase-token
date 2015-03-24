@@ -248,6 +248,14 @@ literal|4
 block|,
 literal|4
 block|}
+block|,
+block|{
+literal|"4.5"
+block|,
+literal|4
+block|,
+literal|5
+block|}
 block|}
 decl_stmt|;
 end_decl_stmt

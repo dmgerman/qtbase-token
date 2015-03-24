@@ -103,15 +103,10 @@ name|void
 name|sessionClosing
 argument_list|()
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|outOfProcessSession
 argument_list|()
 block|;
-endif|#
-directive|endif
 name|void
 name|invalidSession
 argument_list|()
@@ -5209,11 +5204,6 @@ end_comment
 begin_comment
 comment|// at Discovered -state.
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
-end_ifndef
 begin_function
 DECL|function|outOfProcessSession
 name|void
@@ -5222,6 +5212,18 @@ operator|::
 name|outOfProcessSession
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|updateConfigurations
 argument_list|()
 expr_stmt|;
@@ -5682,12 +5684,10 @@ literal|"Lackey failed"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_comment
 comment|// A convenience / helper function for testcases. Return the first matching configuration.
 end_comment

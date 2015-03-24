@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2007 by                                    */
+comment|/*  Copyright 2002, 2003, 2006, 2007, 2012 by                              */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -428,10 +428,17 @@ begin_macro
 name|t1_cmap_standard_init
 argument_list|(
 argument|T1_CMapStd  cmap
+argument_list|,
+argument|FT_Pointer  pointer
 argument_list|)
 end_macro
 begin_block
 block|{
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 name|t1_cmap_std_init
 argument_list|(
 name|cmap
@@ -500,10 +507,17 @@ begin_macro
 name|t1_cmap_expert_init
 argument_list|(
 argument|T1_CMapStd  cmap
+argument_list|,
+argument|FT_Pointer  pointer
 argument_list|)
 end_macro
 begin_block
 block|{
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 name|t1_cmap_std_init
 argument_list|(
 name|cmap
@@ -593,6 +607,8 @@ begin_macro
 name|t1_cmap_custom_init
 argument_list|(
 argument|T1_CMapCustom  cmap
+argument_list|,
+argument|FT_Pointer     pointer
 argument_list|)
 end_macro
 begin_block
@@ -618,6 +634,11 @@ name|type1
 operator|.
 name|encoding
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 name|cmap
 operator|->
 name|first
@@ -943,8 +964,8 @@ argument|const char *
 argument_list|)
 end_macro
 begin_macro
-DECL|function|t1_get_glyph_name
-name|t1_get_glyph_name
+DECL|function|psaux_get_glyph_name
+name|psaux_get_glyph_name
 argument_list|(
 argument|T1_Face  face
 argument_list|,
@@ -976,6 +997,8 @@ begin_macro
 name|t1_cmap_unicode_init
 argument_list|(
 argument|PS_Unicodes  unicodes
+argument_list|,
+argument|FT_Pointer   pointer
 argument_list|)
 end_macro
 begin_block
@@ -1009,6 +1032,11 @@ name|face
 operator|->
 name|psnames
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 return|return
 name|psnames
 operator|->
@@ -1028,7 +1056,7 @@ operator|(
 name|PS_GetGlyphNameFunc
 operator|)
 operator|&
-name|t1_get_glyph_name
+name|psaux_get_glyph_name
 argument_list|,
 operator|(
 name|PS_FreeGlyphNameFunc

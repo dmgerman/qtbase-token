@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006 by                               */
+comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2010 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -213,6 +213,8 @@ name|error
 decl_stmt|;
 name|FTC_INode
 name|inode
+init|=
+name|NULL
 decl_stmt|;
 if|if
 condition|(

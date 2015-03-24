@@ -28558,12 +28558,6 @@ block|{
 name|QImage
 name|restoreButton
 argument_list|(
-operator|(
-specifier|const
-name|char
-operator|*
-operator|*
-operator|)
 name|dock_widget_restore_xpm
 argument_list|)
 decl_stmt|;
@@ -28636,12 +28630,6 @@ block|{
 name|QImage
 name|closeButton
 argument_list|(
-operator|(
-specifier|const
-name|char
-operator|*
-operator|*
-operator|)
 name|dock_widget_close_xpm
 argument_list|)
 decl_stmt|;

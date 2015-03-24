@@ -1033,9 +1033,8 @@ argument_list|(
 name|screen
 argument_list|)
 expr_stmt|;
-comment|// QTBUG-40174, QTBUG-42985: If there are no outputs, then there must be
-comment|// no QScreen instances; a Qt application can survive this situation, and
-comment|// start rendering again later when there is a screen again.
+comment|// QTBUG-40174, QTBUG-42985: If all screens are removed, wait
+comment|// and start rendering again later if a screen becomes available.
 block|}
 elseif|else
 if|if
@@ -1461,7 +1460,18 @@ name|QXcbScreen
 modifier|*
 name|primaryScreen
 init|=
-name|NULL
+name|Q_NULLPTR
+decl_stmt|;
+name|xcb_screen_t
+modifier|*
+name|xcbScreen
+init|=
+name|Q_NULLPTR
+decl_stmt|;
+name|bool
+name|hasOutputs
+init|=
+literal|false
 decl_stmt|;
 while|while
 condition|(
@@ -1474,14 +1484,12 @@ comment|// Each "screen" in xcb terminology is a virtual desktop,
 comment|// potentially a collection of separate juxtaposed monitors.
 comment|// But we want a separate QScreen for each output (e.g. DVI-I-1, VGA-1, etc.)
 comment|// which will become virtual siblings.
-name|xcb_screen_t
-modifier|*
 name|xcbScreen
-init|=
+operator|=
 name|it
 operator|.
 name|data
-decl_stmt|;
+expr_stmt|;
 name|QList
 argument_list|<
 name|QPlatformScreen
@@ -1827,6 +1835,10 @@ expr_stmt|;
 operator|++
 name|connectedOutputCount
 expr_stmt|;
+name|hasOutputs
+operator|=
+literal|true
+expr_stmt|;
 name|m_screens
 operator|<<
 name|screen
@@ -1931,6 +1943,90 @@ name|xcbScreenNumber
 expr_stmt|;
 block|}
 comment|// for each xcb screen
+comment|// If there's no randr extension, or there was some error above, or we found a
+comment|// screen which doesn't have outputs for some other reason (e.g. on VNC or ssh -X),
+comment|// but the dimensions are known anyway, and we don't already have any lingering
+comment|// (possibly disconnected) screens, then showing windows should be possible,
+comment|// so create one screen. (QTBUG-31389)
+if|if
+condition|(
+name|xcbScreen
+operator|&&
+operator|!
+name|hasOutputs
+operator|&&
+name|xcbScreen
+operator|->
+name|width_in_pixels
+operator|>
+literal|0
+operator|&&
+name|xcbScreen
+operator|->
+name|height_in_pixels
+operator|>
+literal|0
+operator|&&
+name|m_screens
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|QXcbScreen
+modifier|*
+name|screen
+init|=
+name|createScreen
+argument_list|(
+literal|0
+argument_list|,
+name|xcbScreen
+argument_list|,
+literal|0
+argument_list|,
+name|Q_NULLPTR
+argument_list|)
+decl_stmt|;
+name|screen
+operator|->
+name|setVirtualSiblings
+argument_list|(
+name|QList
+argument_list|<
+name|QPlatformScreen
+operator|*
+argument_list|>
+argument_list|()
+operator|<<
+name|screen
+argument_list|)
+expr_stmt|;
+name|m_screens
+operator|<<
+name|screen
+expr_stmt|;
+name|primaryScreen
+operator|=
+name|screen
+expr_stmt|;
+name|primaryScreen
+operator|->
+name|setPrimary
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|lcQpaScreen
+argument_list|)
+operator|<<
+literal|"found a screen with zero outputs"
+operator|<<
+name|screen
+expr_stmt|;
+block|}
 comment|// Ensure the primary screen is first in the list
 if|if
 condition|(

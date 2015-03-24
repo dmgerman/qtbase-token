@@ -173,7 +173,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UShort
@@ -351,6 +351,56 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|markFirst
+operator|>
+literal|0
+operator|&&
+name|markLast
+operator|>
+literal|0
+condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  [odd] a glyph is marked as the first and last"
+literal|"  in Indic rearrangement\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
+name|FT_INVALID_DATA
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|markFirst
+operator|>
+literal|0
+operator|&&
+name|dontAdvance
+operator|>
+literal|0
+condition|)
+block|{
+name|GXV_TRACE
+argument_list|(
+operator|(
+literal|"  [odd] the first glyph is marked as dontAdvance"
+literal|" in Indic rearrangement\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
+name|FT_INVALID_DATA
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 literal|0
 operator|<
 name|reserved
@@ -363,7 +413,10 @@ literal|" non-zero bits found in reserved range\n"
 operator|)
 argument_list|)
 expr_stmt|;
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -390,7 +443,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -410,7 +463,7 @@ argument_list|(
 name|GXV_STATETABLE_HEADER_SIZE
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -418,7 +471,7 @@ name|optdata
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -426,7 +479,7 @@ name|optdata_load_func
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -434,7 +487,7 @@ name|subtable_setup_func
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -442,7 +495,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_NONE
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -456,7 +509,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

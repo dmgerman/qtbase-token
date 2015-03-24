@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2006, 2007, 2008 by                   */
+comment|/*  Copyright 1996-2003, 2006-2008, 2010-2011, 2013 by                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -75,6 +75,21 @@ begin_include
 include|#
 directive|include
 include|FT_TYPE1_TABLES_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_SERVICE_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_SERVICE_POSTSCRIPT_CMAPS_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_POSTSCRIPT_HINTS_H
 end_include
 begin_macro
 name|FT_BEGIN_HEADER
@@ -354,6 +369,10 @@ decl_stmt|;
 DECL|member|font_matrix
 name|FT_Matrix
 name|font_matrix
+decl_stmt|;
+DECL|member|has_font_matrix
+name|FT_Bool
+name|has_font_matrix
 decl_stmt|;
 DECL|member|units_per_em
 name|FT_ULong
@@ -665,16 +684,13 @@ DECL|member|local_subrs_index
 name|CFF_IndexRec
 name|local_subrs_index
 decl_stmt|;
-DECL|member|num_local_subrs
-name|FT_UInt
-name|num_local_subrs
-decl_stmt|;
 DECL|member|local_subrs
 name|FT_Byte
 modifier|*
 modifier|*
 name|local_subrs
 decl_stmt|;
+comment|/* array of pointers into Local Subrs INDEX data */
 block|}
 DECL|typedef|CFF_SubFontRec
 DECL|typedef|CFF_SubFont
@@ -684,15 +700,12 @@ typedef|*
 name|CFF_SubFont
 typedef|;
 end_typedef
-begin_comment
-comment|/* maximum number of sub-fonts in a CID-keyed file */
-end_comment
 begin_define
 DECL|macro|CFF_MAX_CID_FONTS
 define|#
 directive|define
 name|CFF_MAX_CID_FONTS
-value|32
+value|256
 end_define
 begin_typedef
 DECL|struct|CFF_FontRec_
@@ -740,10 +753,6 @@ DECL|member|top_dict_index
 name|CFF_IndexRec
 name|top_dict_index
 decl_stmt|;
-DECL|member|string_index
-name|CFF_IndexRec
-name|string_index
-decl_stmt|;
 DECL|member|global_subrs_index
 name|CFF_IndexRec
 name|global_subrs_index
@@ -777,15 +786,28 @@ name|FT_String
 modifier|*
 name|font_name
 decl_stmt|;
-DECL|member|num_global_subrs
-name|FT_UInt
-name|num_global_subrs
-decl_stmt|;
+comment|/* array of pointers into Global Subrs INDEX data */
 DECL|member|global_subrs
 name|FT_Byte
 modifier|*
 modifier|*
 name|global_subrs
+decl_stmt|;
+comment|/* array of pointers into String INDEX data stored at string_pool */
+DECL|member|num_strings
+name|FT_UInt
+name|num_strings
+decl_stmt|;
+DECL|member|strings
+name|FT_Byte
+modifier|*
+modifier|*
+name|strings
+decl_stmt|;
+DECL|member|string_pool
+name|FT_Byte
+modifier|*
+name|string_pool
 decl_stmt|;
 DECL|member|top_font
 name|CFF_SubFontRec
@@ -808,14 +830,12 @@ name|fd_select
 decl_stmt|;
 comment|/* interface to PostScript hinter */
 DECL|member|pshinter
-name|void
-modifier|*
+name|PSHinter_Service
 name|pshinter
 decl_stmt|;
 comment|/* interface to Postscript Names service */
 DECL|member|psnames
-name|void
-modifier|*
+name|FT_Service_PsCMaps
 name|psnames
 decl_stmt|;
 comment|/* since version 2.3.0 */
@@ -835,6 +855,11 @@ DECL|member|ordering
 name|FT_String
 modifier|*
 name|ordering
+decl_stmt|;
+comment|/* since version 2.4.12 */
+DECL|member|cf2_instance
+name|FT_Generic
+name|cf2_instance
 decl_stmt|;
 block|}
 DECL|typedef|CFF_FontRec

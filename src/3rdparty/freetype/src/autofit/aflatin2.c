@@ -6,19 +6,19 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  aflatin.c                                                              */
+comment|/*  aflatin2.c                                                             */
 end_comment
 begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*    Auto-fitter hinting routines for latin script (body).                */
+comment|/*    Auto-fitter hinting routines for latin writing system (body).        */
 end_comment
 begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007, 2008, 2009 by                  */
+comment|/*  Copyright 2003-2014 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -55,6 +55,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"afglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"aflatin.h"
 end_include
 begin_include
@@ -70,7 +75,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|AF_USE_WARPER
+name|AF_CONFIG_OPTION_USE_WARPER
 end_ifdef
 begin_include
 include|#
@@ -81,6 +86,37 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+end_comment
+begin_comment
+comment|/* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+end_comment
+begin_comment
+comment|/* messages during execution.                                            */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_undef
+DECL|macro|FT_COMPONENT
+undef|#
+directive|undef
+name|FT_COMPONENT
+end_undef
+begin_define
+DECL|macro|FT_COMPONENT
+define|#
+directive|define
+name|FT_COMPONENT
+value|trace_aflatin2
+end_define
 begin_macro
 name|FT_LOCAL_DEF
 argument_list|(
@@ -150,8 +186,6 @@ argument_list|(
 argument|AF_LatinMetrics  metrics
 argument_list|,
 argument|FT_Face          face
-argument_list|,
-argument|FT_ULong         charcode
 argument_list|)
 end_macro
 begin_block
@@ -226,7 +260,13 @@ name|FT_Get_Char_Index
 argument_list|(
 name|face
 argument_list|,
-name|charcode
+name|metrics
+operator|->
+name|root
+operator|.
+name|style_class
+operator|->
+name|standard_char
 argument_list|)
 expr_stmt|;
 if|if
@@ -322,7 +362,7 @@ argument_list|(
 name|hints
 argument_list|,
 operator|(
-name|AF_ScriptMetrics
+name|AF_StyleMetrics
 operator|)
 name|dummy
 argument_list|)
@@ -339,8 +379,6 @@ operator|->
 name|glyph
 operator|->
 name|outline
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -715,20 +753,14 @@ name|face
 operator|->
 name|glyph
 decl_stmt|;
-comment|/* we compute the blues simply by loading each character from the    */
+comment|/* we compute the blues simply by loading each character from the     */
 comment|/* 'af_latin2_blue_chars[blues]' string, then compute its top-most or */
-comment|/* bottom-most points (depending on `AF_IS_TOP_BLUE')                */
-name|AF_LOG
+comment|/* bottom-most points (depending on `AF_IS_TOP_BLUE')                 */
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"blue zones computation\n"
-operator|)
-argument_list|)
-expr_stmt|;
-name|AF_LOG
-argument_list|(
-operator|(
-literal|"------------------------------------------------\n"
+literal|"======================\n\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -773,10 +805,10 @@ name|FT_Pos
 modifier|*
 name|blue_shoot
 decl_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"blue %3d: "
+literal|"blue zone %d:\n"
 operator|,
 name|bb
 operator|)
@@ -823,16 +855,6 @@ decl_stmt|;
 name|FT_Bool
 name|round
 decl_stmt|;
-name|AF_LOG
-argument_list|(
-operator|(
-literal|"'%c'"
-operator|,
-operator|*
-name|p
-operator|)
-argument_list|)
-expr_stmt|;
 comment|/* load the character in the face -- skip unknown or empty ones */
 name|glyph_index
 operator|=
@@ -1090,10 +1112,13 @@ name|last
 expr_stmt|;
 block|}
 block|}
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"%5d"
+literal|"  %c  %d"
+operator|,
+operator|*
+name|p
 operator|,
 name|best_y
 operator|)
@@ -1104,6 +1129,16 @@ comment|/* now check whether the point belongs to a straight or round   */
 comment|/* segment; we first need to find in which contour the extremum */
 comment|/* lies, then inspect its previous and next points              */
 block|{
+name|FT_Pos
+name|best_x
+init|=
+name|points
+index|[
+name|best_point
+index|]
+operator|.
+name|x
+decl_stmt|;
 name|FT_Int
 name|start
 decl_stmt|,
@@ -1144,6 +1179,8 @@ name|best_last
 expr_stmt|;
 name|dist
 operator|=
+name|FT_ABS
+argument_list|(
 name|points
 index|[
 name|prev
@@ -1152,17 +1189,33 @@ operator|.
 name|y
 operator|-
 name|best_y
+argument_list|)
 expr_stmt|;
+comment|/* accept a small distance or a small angle (both values are */
+comment|/* heuristic; value 20 corresponds to approx. 2.9 degrees)   */
 if|if
 condition|(
 name|dist
-operator|<
-operator|-
-literal|5
-operator|||
-name|dist
 operator|>
 literal|5
+condition|)
+if|if
+condition|(
+name|FT_ABS
+argument_list|(
+name|points
+index|[
+name|prev
+index|]
+operator|.
+name|x
+operator|-
+name|best_x
+argument_list|)
+operator|<=
+literal|20
+operator|*
+name|dist
 condition|)
 break|break;
 name|start
@@ -1197,6 +1250,8 @@ name|best_first
 expr_stmt|;
 name|dist
 operator|=
+name|FT_ABS
+argument_list|(
 name|points
 index|[
 name|next
@@ -1205,17 +1260,31 @@ operator|.
 name|y
 operator|-
 name|best_y
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|dist
-operator|<
-operator|-
-literal|5
-operator|||
-name|dist
 operator|>
 literal|5
+condition|)
+if|if
+condition|(
+name|FT_ABS
+argument_list|(
+name|points
+index|[
+name|next
+index|]
+operator|.
+name|x
+operator|-
+name|best_x
+argument_list|)
+operator|<=
+literal|20
+operator|*
+name|dist
 condition|)
 break|break;
 name|end
@@ -1264,16 +1333,16 @@ operator|!=
 name|FT_CURVE_TAG_ON
 argument_list|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"%c "
+literal|" (%s)\n"
 operator|,
 name|round
 condition|?
-literal|'r'
+literal|"round"
 else|:
-literal|'f'
+literal|"flat"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1300,13 +1369,6 @@ operator|=
 name|best_y
 expr_stmt|;
 block|}
-name|AF_LOG
-argument_list|(
-operator|(
-literal|"\n"
-operator|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|num_flats
@@ -1319,10 +1381,10 @@ literal|0
 condition|)
 block|{
 comment|/*          *  we couldn't find a single glyph to compute this blue zone,          *  we will simply ignore it then          */
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"empty\n"
+literal|"  empty\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1489,11 +1551,12 @@ argument_list|)
 operator|^
 name|over_ref
 condition|)
-operator|*
-name|blue_shoot
-operator|=
+block|{
 operator|*
 name|blue_ref
+operator|=
+operator|*
+name|blue_shoot
 operator|=
 operator|(
 name|shoot
@@ -1503,6 +1566,15 @@ operator|)
 operator|/
 literal|2
 expr_stmt|;
+name|FT_TRACE5
+argument_list|(
+operator|(
+literal|"  [overshoot smaller than reference,"
+literal|" taking mean value]\n"
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|blue
 operator|->
@@ -1523,12 +1595,13 @@ name|flags
 operator||=
 name|AF_LATIN_BLUE_TOP
 expr_stmt|;
-comment|/*        * The following flags is used later to adjust the y and x scales        * in order to optimize the pixel grid alignment of the top of small        * letters.        */
+comment|/*        * The following flag is used later to adjust the y and x scales        * in order to optimize the pixel grid alignment of the top of small        * letters.        */
 if|if
 condition|(
+name|AF_LATIN_IS_X_HEIGHT_BLUE
+argument_list|(
 name|bb
-operator|==
-name|AF_LATIN_BLUE_SMALL_TOP
+argument_list|)
 condition|)
 name|blue
 operator|->
@@ -1536,10 +1609,11 @@ name|flags
 operator||=
 name|AF_LATIN_BLUE_ADJUSTMENT
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"-- ref = %ld, shoot = %ld\n"
+literal|"    -> reference = %ld\n"
+literal|"       overshoot = %ld\n"
 operator|,
 operator|*
 name|blue_ref
@@ -1704,7 +1778,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|AF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_CharMap
 name|oldmap
@@ -1786,14 +1860,11 @@ operator|!
 name|error
 condition|)
 block|{
-comment|/* For now, compute the standard width and height from the `o'. */
 name|af_latin2_metrics_init_widths
 argument_list|(
 name|metrics
 argument_list|,
 name|face
-argument_list|,
-literal|'o'
 argument_list|)
 expr_stmt|;
 name|af_latin2_metrics_init_blues
@@ -1819,7 +1890,7 @@ name|oldmap
 argument_list|)
 expr_stmt|;
 return|return
-name|AF_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1997,7 +2068,21 @@ condition|)
 block|{
 name|FT_Pos
 name|scaled
-init|=
+decl_stmt|;
+name|FT_Pos
+name|threshold
+decl_stmt|;
+name|FT_Pos
+name|fitted
+decl_stmt|;
+name|FT_UInt
+name|limit
+decl_stmt|;
+name|FT_UInt
+name|ppem
+decl_stmt|;
+name|scaled
+operator|=
 name|FT_MulFix
 argument_list|(
 name|blue
@@ -2010,19 +2095,66 @@ name|scaler
 operator|->
 name|y_scale
 argument_list|)
-decl_stmt|;
-name|FT_Pos
+expr_stmt|;
+name|ppem
+operator|=
+name|metrics
+operator|->
+name|root
+operator|.
+name|scaler
+operator|.
+name|face
+operator|->
+name|size
+operator|->
+name|metrics
+operator|.
+name|x_ppem
+expr_stmt|;
+name|limit
+operator|=
+name|metrics
+operator|->
+name|root
+operator|.
+name|globals
+operator|->
+name|increase_x_height
+expr_stmt|;
+name|threshold
+operator|=
+literal|40
+expr_stmt|;
+comment|/* if the `increase-x-height' property is active, */
+comment|/* we round up much more often                    */
+if|if
+condition|(
+name|limit
+operator|&&
+name|ppem
+operator|<=
+name|limit
+operator|&&
+name|ppem
+operator|>=
+name|AF_PROP_INCREASE_X_HEIGHT_MIN
+condition|)
+name|threshold
+operator|=
+literal|52
+expr_stmt|;
 name|fitted
-init|=
+operator|=
 operator|(
 name|scaled
 operator|+
-literal|40
+name|threshold
 operator|)
 operator|&
 operator|~
 literal|63
-decl_stmt|;
+expr_stmt|;
 if|#
 directive|if
 literal|1
@@ -2044,10 +2176,11 @@ argument_list|,
 name|scaled
 argument_list|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"== scaled x-top = %.2g  fitted = %.2g, scaling = %.4g\n"
+literal|"== scaled x-top = %.2g"
+literal|"  fitted = %.2g, scaling = %.4g\n"
 operator|,
 name|scaled
 operator|/
@@ -2184,7 +2317,7 @@ name|cur
 expr_stmt|;
 block|}
 comment|/* an extra-light axis corresponds to a standard width that is */
-comment|/* smaller than 0.75 pixels                                    */
+comment|/* smaller than 5/8 pixels                                     */
 name|axis
 operator|->
 name|extra_light
@@ -2473,10 +2606,12 @@ name|fit
 operator|+
 name|delta2
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|">> activating blue zone %d:  ref.cur=%.2g ref.fit=%.2g shoot.cur=%.2g shoot.fit=%.2g\n"
+literal|">> activating blue zone %d:"
+literal|"  ref.cur=%.2g ref.fit=%.2g"
+literal|"  shoot.cur=%.2g shoot.fit=%.2g\n"
 operator|,
 name|nn
 operator|,
@@ -2566,6 +2701,18 @@ name|scaler
 operator|->
 name|face
 expr_stmt|;
+name|metrics
+operator|->
+name|root
+operator|.
+name|scaler
+operator|.
+name|flags
+operator|=
+name|scaler
+operator|->
+name|flags
+expr_stmt|;
 name|af_latin2_metrics_scale_dim
 argument_list|(
 name|metrics
@@ -2651,7 +2798,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|AF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|AF_Segment
 name|segment
@@ -3124,12 +3271,6 @@ name|point
 expr_stmt|;
 name|segment
 operator|->
-name|contour
-operator|=
-name|contour
-expr_stmt|;
-name|segment
-operator|->
 name|pos
 operator|=
 call|(
@@ -3374,13 +3515,6 @@ name|last
 operator|->
 name|v
 decl_stmt|;
-if|if
-condition|(
-name|first
-operator|==
-name|last
-condition|)
-continue|continue;
 if|if
 condition|(
 name|first_v
@@ -3809,14 +3943,6 @@ operator|!=
 name|axis
 operator|->
 name|major_dir
-operator|||
-name|seg1
-operator|->
-name|first
-operator|==
-name|seg1
-operator|->
-name|last
 condition|)
 continue|continue;
 for|for
@@ -3849,8 +3975,6 @@ name|seg1
 operator|++
 control|)
 block|{
-comment|/* the fake segments are introduced to hint the metrics -- */
-comment|/* we must never link them to anything                     */
 if|if
 condition|(
 name|seg1
@@ -3860,14 +3984,6 @@ operator|!=
 name|axis
 operator|->
 name|major_dir
-operator|||
-name|seg1
-operator|->
-name|first
-operator|==
-name|seg1
-operator|->
-name|last
 condition|)
 continue|continue;
 for|for
@@ -4136,7 +4252,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|AF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -4551,6 +4667,14 @@ name|seg
 expr_stmt|;
 name|edge
 operator|->
+name|dir
+operator|=
+name|seg
+operator|->
+name|dir
+expr_stmt|;
+name|edge
+operator|->
 name|fpos
 operator|=
 name|seg
@@ -4559,19 +4683,7 @@ name|pos
 expr_stmt|;
 name|edge
 operator|->
-name|dir
-operator|=
-name|seg
-operator|->
-name|dir
-expr_stmt|;
-name|edge
-operator|->
 name|opos
-operator|=
-name|edge
-operator|->
-name|pos
 operator|=
 name|FT_MulFix
 argument_list|(
@@ -4581,6 +4693,14 @@ name|pos
 argument_list|,
 name|scale
 argument_list|)
+expr_stmt|;
+name|edge
+operator|->
+name|pos
+operator|=
+name|edge
+operator|->
+name|opos
 expr_stmt|;
 name|seg
 operator|->
@@ -4727,18 +4847,15 @@ init|=
 literal|0
 decl_stmt|;
 comment|/* does it contain straight segments? */
-name|FT_Pos
-name|ups
-init|=
+if|#
+directive|if
 literal|0
-decl_stmt|;
+block|FT_Pos  ups         = 0;
 comment|/* number of upwards segments         */
-name|FT_Pos
-name|downs
-init|=
-literal|0
-decl_stmt|;
+block|FT_Pos  downs       = 0;
 comment|/* number of downwards segments       */
+endif|#
+directive|endif
 name|seg
 operator|=
 name|edge
@@ -4766,36 +4883,13 @@ else|else
 name|is_straight
 operator|++
 expr_stmt|;
+if|#
+directive|if
+literal|0
 comment|/* check for segment direction */
-if|if
-condition|(
-name|seg
-operator|->
-name|dir
-operator|==
-name|up_dir
-condition|)
-name|ups
-operator|+=
-name|seg
-operator|->
-name|max_coord
-operator|-
-name|seg
-operator|->
-name|min_coord
-expr_stmt|;
-else|else
-name|downs
-operator|+=
-name|seg
-operator|->
-name|max_coord
-operator|-
-name|seg
-operator|->
-name|min_coord
-expr_stmt|;
+block|if ( seg->dir == up_dir )             ups   += seg->max_coord-seg->min_coord;           else             downs += seg->max_coord-seg->min_coord;
+endif|#
+directive|endif
 comment|/* check for links -- if seg->serif is set, then seg->link must */
 comment|/* be ignored                                                   */
 name|is_serif
@@ -5439,7 +5533,7 @@ argument_list|(
 name|hints
 argument_list|,
 operator|(
-name|AF_ScriptMetrics
+name|AF_StyleMetrics
 operator|)
 name|metrics
 argument_list|)
@@ -5511,7 +5605,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-comment|/* #ifdef AF_USE_WARPER */
+comment|/* #ifdef AF_CONFIG_OPTION_USE_WARPER */
 block|if ( mode == FT_RENDER_MODE_LCD || mode == FT_RENDER_MODE_LCD_V )     {       metrics->root.scaler.render_mode = mode = FT_RENDER_MODE_NORMAL;     }
 endif|#
 directive|endif
@@ -6348,7 +6442,7 @@ name|pos
 operator|+
 name|fitted_width
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"LINK: edge %d (opos=%.2f) linked to (%.2f), "
@@ -6493,7 +6587,7 @@ name|anchor_drift
 init|=
 literal|0
 decl_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"==== hinting %s edges =====\n"
@@ -6610,7 +6704,7 @@ operator|!
 name|edge1
 condition|)
 continue|continue;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"BLUE: edge %d (opos=%.2f) snapped to (%.2f), "
@@ -6784,7 +6878,7 @@ operator|->
 name|blue_edge
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"ASSERTION FAILED for edge %d\n"
@@ -7012,11 +7106,11 @@ operator|->
 name|opos
 argument_list|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"ANCHOR: edge %d (opos=%.2f) and %d (opos=%.2f) "
-literal|"snapped to (%.2f) (%.2f)\n"
+literal|"ANCHOR: edge %d (opos=%.2f) and %d (opos=%.2f)"
+literal|" snapped to (%.2f) (%.2f)\n"
 operator|,
 name|edge
 operator|-
@@ -7105,7 +7199,7 @@ operator|)
 operator|>>
 literal|1
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"DRIFT: %.2f\n"
@@ -7216,7 +7310,7 @@ operator|>>
 literal|1
 operator|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"ALIGN: left=%.2f right=%.2f "
@@ -7244,7 +7338,7 @@ operator|&
 name|AF_EDGE_DONE
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"\n"
@@ -7295,7 +7389,7 @@ operator|<
 literal|32
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"tiny stem\n"
@@ -7320,7 +7414,7 @@ name|org_right
 argument_list|)
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"single pixel stem\n"
@@ -7342,18 +7436,14 @@ comment|/* we want to avoid the absolute worst case which is             * when 
 name|FT_Pos
 name|frac_left
 init|=
-operator|(
 name|org_left
-operator|)
 operator|&
 literal|63
 decl_stmt|;
 name|FT_Pos
 name|frac_right
 init|=
-operator|(
 name|org_right
-operator|)
 operator|&
 literal|63
 decl_stmt|;
@@ -7418,7 +7508,7 @@ index|]
 operator|=
 name|delta
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"dispA=%.2f (%d) "
@@ -7477,7 +7567,7 @@ index|]
 operator|=
 name|delta
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"dispB=%.2f (%d) "
@@ -7534,7 +7624,7 @@ index|]
 operator|=
 name|delta
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"dispC=%.2f (%d) "
@@ -7589,7 +7679,7 @@ index|]
 operator|=
 name|delta
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"dispD=%.2f (%d) "
@@ -7674,7 +7764,7 @@ operator|+
 name|best_disp
 expr_stmt|;
 block|}
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"\n"
@@ -7706,11 +7796,12 @@ name|pos
 operator|+
 name|cur_len
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"STEM1: %d (opos=%.2f) to %d (opos=%.2f) "
-literal|"snapped to (%.2f) and (%.2f), org_len = %.2f cur_len=%.2f\n"
+literal|"STEM1: %d (opos=%.2f) to %d (opos=%.2f)"
+literal|" snapped to (%.2f) and (%.2f),"
+literal|" org_len=%.2f cur_len=%.2f\n"
 operator|,
 name|edge
 operator|-
@@ -7785,7 +7876,7 @@ operator|.
 name|pos
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
 literal|"BOUND: %d (pos=%.2f) to (%.2f)\n"
@@ -7937,11 +8028,11 @@ argument_list|,
 name|edge
 argument_list|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"SERIF: edge %d (opos=%.2f) serif to %d (opos=%.2f) "
-literal|"aligned to (%.2f)\n"
+literal|"SERIF: edge %d (opos=%.2f) serif to %d (opos=%.2f)"
+literal|" aligned to (%.2f)\n"
 operator|,
 name|edge
 operator|-
@@ -7983,10 +8074,11 @@ operator|!
 name|anchor
 condition|)
 block|{
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"SERIF_ANCHOR: edge %d (opos=%.2f) snapped to (%.2f)\n"
+literal|"SERIF_ANCHOR: edge %d (opos=%.2f)"
+literal|" snapped to (%.2f)\n"
 operator|,
 name|edge
 operator|-
@@ -8150,10 +8242,11 @@ operator|->
 name|opos
 argument_list|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"SERIF_LINK1: edge %d (opos=%.2f) snapped to (%.2f) from %d (opos=%.2f)\n"
+literal|"SERIF_LINK1: edge %d (opos=%.2f) snapped to (%.2f)"
+literal|" from %d (opos=%.2f)\n"
 operator|,
 name|edge
 operator|-
@@ -8211,10 +8304,11 @@ operator|~
 literal|31
 operator|)
 expr_stmt|;
-name|AF_LOG
+name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"SERIF_LINK2: edge %d (opos=%.2f) snapped to (%.2f)\n"
+literal|"SERIF_LINK2: edge %d (opos=%.2f)"
+literal|" snapped to (%.2f)\n"
 operator|,
 name|edge
 operator|-
@@ -8343,8 +8437,6 @@ argument_list|(
 name|hints
 argument_list|,
 name|outline
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -8357,7 +8449,7 @@ goto|;
 comment|/* analyze glyph outline */
 ifdef|#
 directive|ifdef
-name|AF_USE_WARPER
+name|AF_CONFIG_OPTION_USE_WARPER
 if|if
 condition|(
 name|metrics
@@ -8453,7 +8545,7 @@ control|)
 block|{
 ifdef|#
 directive|ifdef
-name|AF_USE_WARPER
+name|AF_CONFIG_OPTION_USE_WARPER
 if|if
 condition|(
 operator|(
@@ -8600,56 +8692,23 @@ comment|/*****              L A T I N   S C R I P T   C L A S S              ***
 comment|/*****                                                               *****/
 comment|/*************************************************************************/
 comment|/*************************************************************************/
-DECL|variable|af_latin2_uniranges
-specifier|static
-specifier|const
-name|AF_Script_UniRangeRec
-name|af_latin2_uniranges
-index|[]
-init|=
-block|{
-name|AF_UNIRANGE_REC
+name|AF_DEFINE_WRITING_SYSTEM_CLASS
 argument_list|(
-literal|32UL
+argument|af_latin2_writing_system_class
 argument_list|,
-literal|127UL
-argument_list|)
-block|,
-comment|/* XXX: TODO: Add new Unicode ranges here! */
-name|AF_UNIRANGE_REC
-argument_list|(
-literal|160UL
+argument|AF_WRITING_SYSTEM_LATIN2
 argument_list|,
-literal|255UL
-argument_list|)
-block|,
-name|AF_UNIRANGE_REC
-argument_list|(
-literal|0UL
+argument|sizeof ( AF_LatinMetricsRec )
 argument_list|,
-literal|0UL
-argument_list|)
-block|}
-decl_stmt|;
-name|AF_DEFINE_SCRIPT_CLASS
-argument_list|(
-argument|af_latin2_script_class
+argument|(AF_WritingSystem_InitMetricsFunc) af_latin2_metrics_init
 argument_list|,
-argument|AF_SCRIPT_LATIN2
+argument|(AF_WritingSystem_ScaleMetricsFunc)af_latin2_metrics_scale
 argument_list|,
-argument|af_latin2_uniranges
+argument|(AF_WritingSystem_DoneMetricsFunc) NULL
 argument_list|,
-argument|sizeof( AF_LatinMetricsRec )
+argument|(AF_WritingSystem_InitHintsFunc)   af_latin2_hints_init
 argument_list|,
-argument|(AF_Script_InitMetricsFunc) af_latin2_metrics_init
-argument_list|,
-argument|(AF_Script_ScaleMetricsFunc)af_latin2_metrics_scale
-argument_list|,
-argument|(AF_Script_DoneMetricsFunc) NULL
-argument_list|,
-argument|(AF_Script_InitHintsFunc)   af_latin2_hints_init
-argument_list|,
-argument|(AF_Script_ApplyHintsFunc)  af_latin2_hints_apply
+argument|(AF_WritingSystem_ApplyHintsFunc)  af_latin2_hints_apply
 argument_list|)
 end_block
 begin_comment

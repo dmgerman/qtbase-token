@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2008 by                               */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2008, 2011 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -95,13 +95,13 @@ begin_macro
 DECL|variable|T1_Get_Advances
 name|T1_Get_Advances
 argument_list|(
-argument|T1_Face    face
+argument|FT_Face    face
 argument_list|,
 argument|FT_UInt    first
 argument_list|,
 argument|FT_UInt    count
 argument_list|,
-argument|FT_ULong   load_flags
+argument|FT_Int32   load_flags
 argument_list|,
 argument|FT_Fixed*  advances
 argument_list|)
@@ -118,9 +118,9 @@ end_macro
 begin_macro
 name|T1_Load_Glyph
 argument_list|(
-argument|T1_GlyphSlot  glyph
+argument|FT_GlyphSlot  glyph
 argument_list|,
-argument|T1_Size       size
+argument|FT_Size       size
 argument_list|,
 argument|FT_UInt       glyph_index
 argument_list|,

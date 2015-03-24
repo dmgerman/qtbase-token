@@ -472,7 +472,10 @@ operator|<
 literal|2
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 name|error
 operator|=

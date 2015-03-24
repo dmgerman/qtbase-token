@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003 by                                     */
+comment|/*  Copyright 1996-2003, 2011 by                                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -282,6 +282,17 @@ DECL|member|count_offset
 name|FT_UInt
 name|count_offset
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+DECL|member|id
+specifier|const
+name|char
+modifier|*
+name|id
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 DECL|typedef|CFF_Field_Handler
 name|CFF_Field_Handler

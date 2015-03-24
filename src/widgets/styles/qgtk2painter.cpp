@@ -1707,6 +1707,7 @@ argument_list|,
 name|gtkWidget
 argument_list|,
 operator|(
+specifier|const
 name|gchar
 operator|*
 operator|)
@@ -4160,6 +4161,7 @@ argument_list|,
 name|gtkWidget
 argument_list|,
 operator|(
+specifier|const
 name|gchar
 operator|*
 operator|)

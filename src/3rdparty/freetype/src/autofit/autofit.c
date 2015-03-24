@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005, 2006, 2007 by                              */
+comment|/*  Copyright 2003-2007, 2011, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -71,12 +71,22 @@ end_include
 begin_include
 include|#
 directive|include
+file|"afblue.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"afglobal.c"
 end_include
 begin_include
 include|#
 directive|include
 file|"afhints.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"afranges.c"
 end_include
 begin_include
 include|#
@@ -115,6 +125,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"hbshim.c"
+end_include
+begin_include
+include|#
+directive|include
 file|"afloader.c"
 end_include
 begin_include
@@ -125,7 +140,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|AF_USE_WARPER
+name|AF_CONFIG_OPTION_USE_WARPER
 end_ifdef
 begin_include
 include|#

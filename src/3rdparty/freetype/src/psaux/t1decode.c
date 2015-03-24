@@ -18,10 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009    */
-end_comment
-begin_comment
-comment|/*            2010 by                                                      */
+comment|/*  Copyright 2000-2014 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -90,6 +87,19 @@ include|#
 directive|include
 file|"psauxerr.h"
 end_include
+begin_comment
+comment|/* ensure proper sign extension */
+end_comment
+begin_define
+DECL|macro|Fix2Int
+define|#
+directive|define
+name|Fix2Int
+parameter_list|(
+name|f
+parameter_list|)
+value|( (FT_Int)(FT_Short)( (f)>> 16 ) )
+end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -636,7 +646,33 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
+name|decoder
+operator|->
+name|builder
+operator|.
+name|metrics_only
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t1operator_seac: unexpected seac\n"
+operator|)
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 comment|/* seac weirdness */
@@ -695,7 +731,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 ifdef|#
@@ -765,7 +804,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 comment|/* if we are trying to load a composite glyph, do not load the */
@@ -1234,37 +1276,6 @@ name|TRUE
 decl_stmt|;
 endif|#
 directive|endif
-comment|/* we don't want to touch the source code -- use macro trick */
-DECL|macro|start_point
-define|#
-directive|define
-name|start_point
-value|t1_builder_start_point
-DECL|macro|check_points
-define|#
-directive|define
-name|check_points
-value|t1_builder_check_points
-DECL|macro|add_point
-define|#
-directive|define
-name|add_point
-value|t1_builder_add_point
-DECL|macro|add_point1
-define|#
-directive|define
-name|add_point1
-value|t1_builder_add_point1
-DECL|macro|add_contour
-define|#
-directive|define
-name|add_contour
-value|t1_builder_add_contour
-DECL|macro|close_contour
-define|#
-directive|define
-name|close_contour
-value|t1_builder_close_contour
 comment|/* compute random seed from stack address of parameter */
 name|seed
 operator|=
@@ -1400,6 +1411,10 @@ if|if
 condition|(
 name|decoder
 operator|->
+name|buildchar
+operator|&&
+name|decoder
+operator|->
 name|len_buildchar
 operator|>
 literal|0
@@ -1467,7 +1482,7 @@ name|base
 expr_stmt|;
 name|error
 operator|=
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|x
 operator|=
@@ -1874,7 +1889,7 @@ call|)
 argument_list|(
 operator|(
 operator|(
-name|FT_Long
+name|FT_UInt32
 operator|)
 name|ip
 index|[
@@ -1886,7 +1901,7 @@ operator|)
 operator||
 operator|(
 operator|(
-name|FT_Long
+name|FT_UInt32
 operator|)
 name|ip
 index|[
@@ -1898,7 +1913,7 @@ operator|)
 operator||
 operator|(
 operator|(
-name|FT_Long
+name|FT_UInt32
 operator|)
 name|ip
 index|[
@@ -1908,6 +1923,9 @@ operator|<<
 literal|8
 operator|)
 operator||
+operator|(
+name|FT_UInt32
+operator|)
 name|ip
 index|[
 literal|3
@@ -1965,8 +1983,18 @@ operator|!
 name|large_int
 condition|)
 name|value
-operator|<<=
+operator|=
+call|(
+name|FT_Int32
+call|)
+argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
+name|value
+operator|<<
 literal|16
+argument_list|)
 expr_stmt|;
 block|}
 break|break;
@@ -2041,9 +2069,6 @@ name|value
 operator|=
 operator|(
 operator|(
-operator|(
-name|FT_Int32
-operator|)
 name|ip
 index|[
 operator|-
@@ -2052,8 +2077,8 @@ index|]
 operator|-
 literal|247
 operator|)
-operator|<<
-literal|8
+operator|*
+literal|256
 operator|)
 operator|+
 name|ip
@@ -2071,9 +2096,6 @@ operator|-
 operator|(
 operator|(
 operator|(
-operator|(
-name|FT_Int32
-operator|)
 name|ip
 index|[
 operator|-
@@ -2082,8 +2104,8 @@ index|]
 operator|-
 literal|251
 operator|)
-operator|<<
-literal|8
+operator|*
+literal|256
 operator|)
 operator|+
 name|ip
@@ -2102,8 +2124,18 @@ operator|!
 name|large_int
 condition|)
 name|value
-operator|<<=
+operator|=
+call|(
+name|FT_Int32
+call|)
+argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
+name|value
+operator|<<
 literal|16
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2246,13 +2278,9 @@ argument_list|(
 operator|(
 literal|" %ld"
 operator|,
-call|(
-name|FT_Int32
-call|)
+name|Fix2Int
 argument_list|(
 name|value
-operator|>>
-literal|16
 argument_list|)
 operator|)
 argument_list|)
@@ -2322,30 +2350,22 @@ literal|2
 expr_stmt|;
 name|subr_no
 operator|=
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|1
 index|]
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 name|arg_cnt
 operator|=
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|0
 index|]
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 comment|/***********************************************************/
@@ -2404,114 +2424,6 @@ name|subr_no
 condition|)
 block|{
 case|case
-literal|1
-case|:
-comment|/* start flex feature */
-if|if
-condition|(
-name|arg_cnt
-operator|!=
-literal|0
-condition|)
-goto|goto
-name|Unexpected_OtherSubr
-goto|;
-name|decoder
-operator|->
-name|flex_state
-operator|=
-literal|1
-expr_stmt|;
-name|decoder
-operator|->
-name|num_flex_vectors
-operator|=
-literal|0
-expr_stmt|;
-if|if
-condition|(
-name|start_point
-argument_list|(
-name|builder
-argument_list|,
-name|x
-argument_list|,
-name|y
-argument_list|)
-operator|||
-name|check_points
-argument_list|(
-name|builder
-argument_list|,
-literal|6
-argument_list|)
-condition|)
-goto|goto
-name|Fail
-goto|;
-break|break;
-case|case
-literal|2
-case|:
-comment|/* add flex vectors */
-block|{
-name|FT_Int
-name|idx
-decl_stmt|;
-if|if
-condition|(
-name|arg_cnt
-operator|!=
-literal|0
-condition|)
-goto|goto
-name|Unexpected_OtherSubr
-goto|;
-comment|/* note that we should not add a point for index 0; */
-comment|/* this will move our current position to the flex  */
-comment|/* point without adding any point to the outline    */
-name|idx
-operator|=
-name|decoder
-operator|->
-name|num_flex_vectors
-operator|++
-expr_stmt|;
-if|if
-condition|(
-name|idx
-operator|>
-literal|0
-operator|&&
-name|idx
-operator|<
-literal|7
-condition|)
-name|add_point
-argument_list|(
-name|builder
-argument_list|,
-name|x
-argument_list|,
-name|y
-argument_list|,
-call|(
-name|FT_Byte
-call|)
-argument_list|(
-name|idx
-operator|==
-literal|3
-operator|||
-name|idx
-operator|==
-literal|6
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-break|break;
-case|case
 literal|0
 case|:
 comment|/* end flex feature */
@@ -2552,10 +2464,165 @@ name|Syntax_Error
 goto|;
 block|}
 comment|/* the two `results' are popped by the following setcurrentpoint */
+name|top
+index|[
+literal|0
+index|]
+operator|=
+name|x
+expr_stmt|;
+name|top
+index|[
+literal|1
+index|]
+operator|=
+name|y
+expr_stmt|;
 name|known_othersubr_result_cnt
 operator|=
 literal|2
 expr_stmt|;
+break|break;
+case|case
+literal|1
+case|:
+comment|/* start flex feature */
+if|if
+condition|(
+name|arg_cnt
+operator|!=
+literal|0
+condition|)
+goto|goto
+name|Unexpected_OtherSubr
+goto|;
+name|decoder
+operator|->
+name|flex_state
+operator|=
+literal|1
+expr_stmt|;
+name|decoder
+operator|->
+name|num_flex_vectors
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
+argument_list|(
+name|builder
+argument_list|,
+name|x
+argument_list|,
+name|y
+argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
+operator|||
+operator|(
+name|error
+operator|=
+name|t1_builder_check_points
+argument_list|(
+name|builder
+argument_list|,
+literal|6
+argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
+condition|)
+goto|goto
+name|Fail
+goto|;
+break|break;
+case|case
+literal|2
+case|:
+comment|/* add flex vectors */
+block|{
+name|FT_Int
+name|idx
+decl_stmt|;
+if|if
+condition|(
+name|arg_cnt
+operator|!=
+literal|0
+condition|)
+goto|goto
+name|Unexpected_OtherSubr
+goto|;
+if|if
+condition|(
+name|decoder
+operator|->
+name|flex_state
+operator|==
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t1_decoder_parse_charstrings:"
+literal|" missing flex start\n"
+operator|)
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Syntax_Error
+goto|;
+block|}
+comment|/* note that we should not add a point for index 0; */
+comment|/* this will move our current position to the flex  */
+comment|/* point without adding any point to the outline    */
+name|idx
+operator|=
+name|decoder
+operator|->
+name|num_flex_vectors
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|idx
+operator|>
+literal|0
+operator|&&
+name|idx
+operator|<
+literal|7
+condition|)
+name|t1_builder_add_point
+argument_list|(
+name|builder
+argument_list|,
+name|x
+argument_list|,
+name|y
+argument_list|,
+call|(
+name|FT_Byte
+call|)
+argument_list|(
+name|idx
+operator|==
+literal|3
+operator|||
+name|idx
+operator|==
+literal|6
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 case|case
 literal|3
@@ -2708,17 +2775,18 @@ goto|goto
 name|Syntax_Error
 goto|;
 block|}
-comment|/* we want to compute:                                   */
+comment|/* We want to compute                                    */
 comment|/*                                                       */
-comment|/*  a0*w0 + a1*w1 + ... + ak*wk                          */
+comment|/*   a0*w0 + a1*w1 + ... + ak*wk                         */
 comment|/*                                                       */
-comment|/* but we only have the a0, a1-a0, a2-a0, .. ak-a0       */
-comment|/* however, given that w0 + w1 + ... + wk == 1, we can   */
-comment|/* rewrite it easily as:                                 */
+comment|/* but we only have a0, a1-a0, a2-a0, ..., ak-a0.        */
 comment|/*                                                       */
-comment|/*  a0 + (a1-a0)*w1 + (a2-a0)*w2 + .. + (ak-a0)*wk       */
+comment|/* However, given that w0 + w1 + ... + wk == 1, we can   */
+comment|/* rewrite it easily as                                  */
 comment|/*                                                       */
-comment|/* where k == num_designs-1                              */
+comment|/*   a0 + (a1-a0)*w1 + (a2-a0)*w2 + ... + (ak-a0)*wk     */
+comment|/*                                                       */
+comment|/* where k == num_designs-1.                             */
 comment|/*                                                       */
 comment|/* I guess that's why it's written in this `compact'     */
 comment|/* form.                                                 */
@@ -2831,16 +2899,12 @@ name|Unexpected_OtherSubr
 goto|;
 name|idx
 operator|=
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|0
 index|]
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 if|if
@@ -3065,16 +3129,12 @@ name|Unexpected_OtherSubr
 goto|;
 name|idx
 operator|=
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|1
 index|]
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 if|if
@@ -3141,16 +3201,12 @@ name|Unexpected_OtherSubr
 goto|;
 name|idx
 operator|=
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|0
 index|]
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 if|if
@@ -3307,6 +3363,17 @@ literal|1
 expr_stmt|;
 break|break;
 default|default:
+if|if
+condition|(
+name|arg_cnt
+operator|>=
+literal|0
+operator|&&
+name|subr_no
+operator|>=
+literal|0
+condition|)
+block|{
 name|FT_ERROR
 argument_list|(
 operator|(
@@ -3324,6 +3391,8 @@ operator|=
 name|arg_cnt
 expr_stmt|;
 break|break;
+block|}
+comment|/* fall through */
 name|Unexpected_OtherSubr
 label|:
 name|FT_ERROR
@@ -3465,7 +3534,7 @@ literal|" endchar\n"
 operator|)
 argument_list|)
 expr_stmt|;
-name|close_contour
+name|t1_builder_close_contour
 argument_list|(
 name|builder
 argument_list|)
@@ -3497,6 +3566,8 @@ goto|goto
 name|Syntax_Error
 goto|;
 comment|/* apply hints to the loaded glyph outline now */
+name|error
+operator|=
 name|hinter
 operator|->
 name|apply
@@ -3521,6 +3592,13 @@ operator|->
 name|hint_mode
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Fail
+goto|;
 block|}
 comment|/* add current outline to the glyph slot */
 name|FT_GlyphLoader_Add
@@ -3602,7 +3680,7 @@ argument_list|)
 expr_stmt|;
 comment|/* return now! */
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 case|case
 name|op_hsbw
@@ -3686,7 +3764,7 @@ operator|->
 name|metrics_only
 condition|)
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 break|break;
 case|case
@@ -3712,28 +3790,20 @@ index|[
 literal|2
 index|]
 argument_list|,
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|3
 index|]
-operator|>>
-literal|16
 argument_list|)
 argument_list|,
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|4
 index|]
-operator|>>
-literal|16
 argument_list|)
 argument_list|)
 return|;
@@ -3829,7 +3899,7 @@ operator|->
 name|metrics_only
 condition|)
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 break|break;
 case|case
@@ -3857,7 +3927,7 @@ name|parse_state
 operator|==
 name|T1_Parse_Have_Moveto
 condition|)
-name|close_contour
+name|t1_builder_close_contour
 argument_list|(
 name|builder
 argument_list|)
@@ -3881,7 +3951,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|start_point
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
 argument_list|(
 name|builder
 argument_list|,
@@ -3889,6 +3962,9 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -3959,7 +4035,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|start_point
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
 argument_list|(
 name|builder
 argument_list|,
@@ -3967,13 +4046,22 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 operator|||
-name|check_points
+operator|(
+name|error
+operator|=
+name|t1_builder_check_points
 argument_list|(
 name|builder
 argument_list|,
 literal|3
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -3985,7 +4073,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4010,7 +4098,7 @@ index|[
 literal|2
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4028,7 +4116,7 @@ index|[
 literal|3
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4052,7 +4140,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|start_point
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4060,6 +4151,9 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -4082,7 +4176,10 @@ name|Add_Line
 label|:
 if|if
 condition|(
-name|add_point1
+operator|(
+name|error
+operator|=
+name|t1_builder_add_point1
 argument_list|(
 name|builder
 argument_list|,
@@ -4090,6 +4187,9 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -4158,7 +4258,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|start_point
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4166,13 +4269,22 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 operator|||
-name|check_points
+operator|(
+name|error
+operator|=
+name|t1_builder_check_points
 argument_list|(
 name|builder
 argument_list|,
 literal|3
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -4191,7 +4303,7 @@ index|[
 literal|1
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4216,7 +4328,7 @@ index|[
 literal|3
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4241,7 +4353,7 @@ index|[
 literal|5
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4265,7 +4377,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|start_point
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4273,13 +4388,22 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 operator|||
-name|check_points
+operator|(
+name|error
+operator|=
+name|t1_builder_check_points
 argument_list|(
 name|builder
 argument_list|,
 literal|3
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -4291,7 +4415,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4316,7 +4440,7 @@ index|[
 literal|2
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4334,7 +4458,7 @@ index|[
 literal|3
 index|]
 expr_stmt|;
-name|add_point
+name|t1_builder_add_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4358,7 +4482,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|start_point
+operator|(
+name|error
+operator|=
+name|t1_builder_start_point
 argument_list|(
 name|builder
 argument_list|,
@@ -4366,6 +4493,9 @@ name|x
 argument_list|,
 name|y
 argument_list|)
+operator|)
+operator|!=
+name|FT_Err_Ok
 condition|)
 goto|goto
 name|Fail
@@ -4477,16 +4607,12 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|=
-call|(
-name|FT_Int
-call|)
+name|Fix2Int
 argument_list|(
 name|top
 index|[
 literal|0
 index|]
-operator|>>
-literal|16
 argument_list|)
 expr_stmt|;
 if|if
@@ -4962,9 +5088,23 @@ comment|/* we do the same.                                        */
 if|#
 directive|if
 literal|0
-block|if ( decoder->flex_state != 1 )           {             FT_ERROR(( "t1_decoder_parse_charstrings:"                        " unexpected `setcurrentpoint'\n" ));             goto Syntax_Error;           }           else
+block|if ( decoder->flex_state != 1 )           {             FT_ERROR(( "t1_decoder_parse_charstrings:"                        " unexpected `setcurrentpoint'\n" ));             goto Syntax_Error;           }           else             ...
 endif|#
 directive|endif
+name|x
+operator|=
+name|top
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|y
+operator|=
+name|top
+index|[
+literal|1
+index|]
+expr_stmt|;
 name|decoder
 operator|->
 name|flex_state
@@ -5044,12 +5184,18 @@ return|;
 name|Syntax_Error
 label|:
 return|return
-name|PSaux_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 name|Stack_Underflow
 label|:
 return|return
-name|PSaux_Err_Stack_Underflow
+name|FT_THROW
+argument_list|(
+name|Stack_Underflow
+argument_list|)
 return|;
 block|}
 end_block
@@ -5161,7 +5307,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|PSaux_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 block|}
 name|decoder
@@ -5232,7 +5381,7 @@ operator|=
 name|t1_decoder_funcs
 expr_stmt|;
 return|return
-name|PSaux_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block

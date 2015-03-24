@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2008 by             */
+comment|/*  Copyright 1996-2006, 2008, 2011 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -109,8 +109,6 @@ argument|TT_Face     face
 argument_list|,
 argument|FT_UInt     idx
 argument_list|,
-argument|FT_Bool     check
-argument_list|,
 argument|FT_Short*   lsb
 argument_list|,
 argument|FT_UShort*  aw
@@ -132,7 +130,7 @@ argument|TT_Face     face
 argument_list|,
 argument|FT_UInt     idx
 argument_list|,
-argument|FT_Bool     check
+argument|FT_Pos      yMax
 argument_list|,
 argument|FT_Short*   tsb
 argument_list|,

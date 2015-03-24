@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * Copyright 2000 Computing Research Labs, New Mexico State University  * Copyright 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009  *   Francesco Zappa Nardelli  *  * Permission is hereby granted, free of charge, to any person obtaining a  * copy of this software and associated documentation files (the "Software"),  * to deal in the Software without restriction, including without limitation  * the rights to use, copy, modify, merge, publish, distribute, sublicense,  * and/or sell copies of the Software, and to permit persons to whom the  * Software is furnished to do so, subject to the following conditions:  *  * The above copyright notice and this permission notice shall be included in  * all copies or substantial portions of the Software.  *  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL  * THE COMPUTING RESEARCH LAB OR NEW MEXICO STATE UNIVERSITY BE LIABLE FOR ANY  * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT  * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
+comment|/*  * Copyright 2000 Computing Research Labs, New Mexico State University  * Copyright 2001-2014  *   Francesco Zappa Nardelli  *  * Permission is hereby granted, free of charge, to any person obtaining a  * copy of this software and associated documentation files (the "Software"),  * to deal in the Software without restriction, including without limitation  * the rights to use, copy, modify, merge, publish, distribute, sublicense,  * and/or sell copies of the Software, and to permit persons to whom the  * Software is furnished to do so, subject to the following conditions:  *  * The above copyright notice and this permission notice shall be included in  * all copies or substantial portions of the Software.  *  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL  * THE COMPUTING RESEARCH LAB OR NEW MEXICO STATE UNIVERSITY BE LIABLE FOR ANY  * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT  * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
 end_comment
 begin_comment
 comment|/*************************************************************************/
@@ -1509,6 +1509,235 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_comment
+comment|/* An auxiliary macro to parse properties, to be used in conditionals. */
+end_comment
+begin_comment
+comment|/* It behaves like `strncmp' but also tests the following character    */
+end_comment
+begin_comment
+comment|/* whether it is a whitespace or NULL.                                 */
+end_comment
+begin_comment
+comment|/* `property' is a constant string of length `n' to compare with.      */
+end_comment
+begin_define
+DECL|macro|_bdf_strncmp
+define|#
+directive|define
+name|_bdf_strncmp
+parameter_list|(
+name|name
+parameter_list|,
+name|property
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|( ft_strncmp( name, property, n ) || \             !( name[n] == ' '  ||              \                name[n] == '\0' ||              \                name[n] == '\n' ||              \                name[n] == '\r' ||              \                name[n] == '\t' )            )
+end_define
+begin_comment
+comment|/* Auto correction messages. */
+end_comment
+begin_define
+DECL|macro|ACMSG1
+define|#
+directive|define
+name|ACMSG1
+value|"FONT_ASCENT property missing.  " \                  "Added `FONT_ASCENT %hd'.\n"
+end_define
+begin_define
+DECL|macro|ACMSG2
+define|#
+directive|define
+name|ACMSG2
+value|"FONT_DESCENT property missing.  " \                  "Added `FONT_DESCENT %hd'.\n"
+end_define
+begin_define
+DECL|macro|ACMSG3
+define|#
+directive|define
+name|ACMSG3
+value|"Font width != actual width.  Old: %hd New: %hd.\n"
+end_define
+begin_define
+DECL|macro|ACMSG4
+define|#
+directive|define
+name|ACMSG4
+value|"Font left bearing != actual left bearing.  " \                  "Old: %hd New: %hd.\n"
+end_define
+begin_define
+DECL|macro|ACMSG5
+define|#
+directive|define
+name|ACMSG5
+value|"Font ascent != actual ascent.  Old: %hd New: %hd.\n"
+end_define
+begin_define
+DECL|macro|ACMSG6
+define|#
+directive|define
+name|ACMSG6
+value|"Font descent != actual descent.  Old: %hd New: %hd.\n"
+end_define
+begin_define
+DECL|macro|ACMSG7
+define|#
+directive|define
+name|ACMSG7
+value|"Font height != actual height. Old: %hd New: %hd.\n"
+end_define
+begin_define
+DECL|macro|ACMSG8
+define|#
+directive|define
+name|ACMSG8
+value|"Glyph scalable width (SWIDTH) adjustments made.\n"
+end_define
+begin_define
+DECL|macro|ACMSG9
+define|#
+directive|define
+name|ACMSG9
+value|"SWIDTH field missing at line %ld.  Set automatically.\n"
+end_define
+begin_define
+DECL|macro|ACMSG10
+define|#
+directive|define
+name|ACMSG10
+value|"DWIDTH field missing at line %ld.  Set to glyph width.\n"
+end_define
+begin_define
+DECL|macro|ACMSG11
+define|#
+directive|define
+name|ACMSG11
+value|"SIZE bits per pixel field adjusted to %hd.\n"
+end_define
+begin_define
+DECL|macro|ACMSG12
+define|#
+directive|define
+name|ACMSG12
+value|"Duplicate encoding %ld (%s) changed to unencoded.\n"
+end_define
+begin_define
+DECL|macro|ACMSG13
+define|#
+directive|define
+name|ACMSG13
+value|"Glyph %ld extra rows removed.\n"
+end_define
+begin_define
+DECL|macro|ACMSG14
+define|#
+directive|define
+name|ACMSG14
+value|"Glyph %ld extra columns removed.\n"
+end_define
+begin_define
+DECL|macro|ACMSG15
+define|#
+directive|define
+name|ACMSG15
+value|"Incorrect glyph count: %ld indicated but %ld found.\n"
+end_define
+begin_define
+DECL|macro|ACMSG16
+define|#
+directive|define
+name|ACMSG16
+value|"Glyph %ld missing columns padded with zero bits.\n"
+end_define
+begin_comment
+comment|/* Error messages. */
+end_comment
+begin_define
+DECL|macro|ERRMSG1
+define|#
+directive|define
+name|ERRMSG1
+value|"[line %ld] Missing `%s' line.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG2
+define|#
+directive|define
+name|ERRMSG2
+value|"[line %ld] Font header corrupted or missing fields.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG3
+define|#
+directive|define
+name|ERRMSG3
+value|"[line %ld] Font glyphs corrupted or missing fields.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG4
+define|#
+directive|define
+name|ERRMSG4
+value|"[line %ld] BBX too big.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG5
+define|#
+directive|define
+name|ERRMSG5
+value|"[line %ld] `%s' value too big.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG6
+define|#
+directive|define
+name|ERRMSG6
+value|"[line %ld] Input line too long.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG7
+define|#
+directive|define
+name|ERRMSG7
+value|"[line %ld] Font name too long.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG8
+define|#
+directive|define
+name|ERRMSG8
+value|"[line %ld] Invalid `%s' value.\n"
+end_define
+begin_define
+DECL|macro|ERRMSG9
+define|#
+directive|define
+name|ERRMSG9
+value|"[line %ld] Invalid keyword.\n"
+end_define
+begin_comment
+comment|/* Debug messages. */
+end_comment
+begin_define
+DECL|macro|DBGMSG1
+define|#
+directive|define
+name|DBGMSG1
+value|"  [%6ld] %s"
+end_define
+begin_comment
+DECL|macro|DBGMSG1
+comment|/* no \n */
+end_comment
+begin_define
+DECL|macro|DBGMSG2
+define|#
+directive|define
+name|DBGMSG2
+value|" (0x%lX)\n"
+end_define
+begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
@@ -1724,7 +1953,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|ht
 operator|->
@@ -1841,7 +2070,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|ht
 operator|->
@@ -1977,7 +2206,8 @@ parameter_list|)
 block|{
 name|hashnode
 name|nn
-decl_stmt|,
+decl_stmt|;
+name|hashnode
 modifier|*
 name|bp
 init|=
@@ -1991,7 +2221,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|nn
 operator|=
@@ -2267,9 +2497,11 @@ name|unsigned
 name|long
 name|have
 index|[
-literal|2048
+literal|34816
 index|]
 decl_stmt|;
+comment|/* must be in sync with `nmod' and `umod' */
+comment|/* arrays from `bdf_font_t' structure     */
 DECL|member|list
 name|_bdf_list_t
 name|list
@@ -2393,7 +2625,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -2425,7 +2657,7 @@ operator|>>
 literal|1
 operator|)
 operator|+
-literal|4
+literal|5
 decl_stmt|;
 name|unsigned
 name|long
@@ -2461,7 +2693,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|BDF_Err_Out_Of_Memory
+name|FT_THROW
+argument_list|(
+name|Out_Of_Memory
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2611,6 +2846,28 @@ name|n
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/* An empty string for empty fields. */
+end_comment
+begin_decl_stmt
+DECL|variable|empty
+specifier|static
+specifier|const
+name|char
+name|empty
+index|[
+literal|1
+index|]
+init|=
+block|{
+literal|0
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_comment
+DECL|variable|empty
+comment|/* XXX eliminate this */
+end_comment
 begin_function
 specifier|static
 name|char
@@ -2638,9 +2895,6 @@ decl_stmt|,
 name|j
 decl_stmt|;
 name|char
-modifier|*
-name|fp
-decl_stmt|,
 modifier|*
 name|dp
 decl_stmt|;
@@ -2691,15 +2945,17 @@ name|i
 operator|++
 control|)
 block|{
+name|char
+modifier|*
 name|fp
-operator|=
+init|=
 name|list
 operator|->
 name|field
 index|[
 name|i
 index|]
-expr_stmt|;
+decl_stmt|;
 while|while
 condition|(
 operator|*
@@ -2737,6 +2993,12 @@ operator|)
 name|c
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|dp
+operator|!=
+name|empty
+condition|)
 name|dp
 index|[
 name|j
@@ -2755,26 +3017,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* An empty string for empty fields. */
+comment|/* The code below ensures that we have at least 4 + 1 `field' */
 end_comment
-begin_decl_stmt
-DECL|variable|empty
-specifier|static
-specifier|const
-name|char
-name|empty
-index|[
-literal|1
-index|]
-init|=
-block|{
-literal|0
-block|}
-decl_stmt|;
-end_decl_stmt
 begin_comment
-DECL|variable|empty
-comment|/* XXX eliminate this */
+comment|/* elements in `list' (which are possibly NULL) so that we    */
+end_comment
+begin_comment
+comment|/* don't have to check the number of fields in most cases.    */
 end_comment
 begin_function
 specifier|static
@@ -2823,7 +3072,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 comment|/* Initialize the list. */
 name|list
@@ -2832,6 +3081,79 @@ name|used
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|list
+operator|->
+name|size
+condition|)
+block|{
+name|list
+operator|->
+name|field
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|empty
+expr_stmt|;
+name|list
+operator|->
+name|field
+index|[
+literal|1
+index|]
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|empty
+expr_stmt|;
+name|list
+operator|->
+name|field
+index|[
+literal|2
+index|]
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|empty
+expr_stmt|;
+name|list
+operator|->
+name|field
+index|[
+literal|3
+index|]
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|empty
+expr_stmt|;
+name|list
+operator|->
+name|field
+index|[
+literal|4
+index|]
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|empty
+expr_stmt|;
+block|}
 comment|/* If the line is empty, then simply return. */
 if|if
 condition|(
@@ -2866,7 +3188,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3257,7 +3582,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -3268,7 +3593,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3307,10 +3635,6 @@ operator|=
 literal|0
 expr_stmt|;
 name|start
-operator|=
-literal|0
-expr_stmt|;
-name|end
 operator|=
 literal|0
 expr_stmt|;
@@ -3479,9 +3803,22 @@ literal|65536UL
 condition|)
 comment|/* limit ourselves to 64KByte */
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_readstream: "
+name|ERRMSG6
+operator|,
+name|lineno
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3524,7 +3861,7 @@ name|avail
 operator|-
 name|start
 expr_stmt|;
-name|FT_MEM_COPY
+name|FT_MEM_MOVE
 argument_list|(
 name|buf
 argument_list|,
@@ -3569,7 +3906,7 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
-comment|/* XXX: Use encoding independent value for 0x1a */
+comment|/* XXX: Use encoding independent value for 0x1A */
 if|if
 condition|(
 name|buf
@@ -3584,7 +3921,7 @@ index|[
 name|start
 index|]
 operator|!=
-literal|0x1a
+literal|0x1A
 operator|&&
 name|end
 operator|>
@@ -3602,9 +3939,56 @@ name|buf
 operator|+
 name|start
 argument_list|,
+call|(
+name|unsigned
+name|long
+call|)
+argument_list|(
 name|end
 operator|-
 name|start
+argument_list|)
+argument_list|,
+name|lineno
+argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
+operator|&
+name|cb
+argument_list|,
+name|client_data
+argument_list|)
+expr_stmt|;
+comment|/* Redo if we have encountered CHARS without properties. */
+if|if
+condition|(
+name|error
+operator|==
+operator|-
+literal|1
+condition|)
+name|error
+operator|=
+call|(
+modifier|*
+name|cb
+call|)
+argument_list|(
+name|buf
+operator|+
+name|start
+argument_list|,
+call|(
+name|unsigned
+name|long
+call|)
+argument_list|(
+name|end
+operator|-
+name|start
+argument_list|)
 argument_list|,
 name|lineno
 argument_list|,
@@ -3833,19 +4217,17 @@ literal|0x00
 block|,
 literal|0x00
 block|,
-literal|0x0a
+literal|0x0A
 block|,
-literal|0x0b
+literal|0x0B
 block|,
-literal|0x0c
+literal|0x0C
 block|,
-literal|0x0d
+literal|0x0D
 block|,
-literal|0x0e
+literal|0x0E
 block|,
-literal|0x0f
-block|,
-literal|0x00
+literal|0x0F
 block|,
 literal|0x00
 block|,
@@ -3897,17 +4279,19 @@ literal|0x00
 block|,
 literal|0x00
 block|,
-literal|0x0a
+literal|0x00
 block|,
-literal|0x0b
+literal|0x0A
 block|,
-literal|0x0c
+literal|0x0B
 block|,
-literal|0x0d
+literal|0x0C
 block|,
-literal|0x0e
+literal|0x0D
 block|,
-literal|0x0f
+literal|0x0E
+block|,
+literal|0x0F
 block|,
 literal|0x00
 block|,
@@ -3983,7 +4367,7 @@ literal|0x00
 block|,
 literal|0x00
 block|,
-literal|0xff
+literal|0xFF
 block|,
 literal|0x00
 block|,
@@ -4061,7 +4445,7 @@ literal|0x00
 block|,
 literal|0x00
 block|,
-literal|0xff
+literal|0xFF
 block|,
 literal|0x03
 block|,
@@ -4139,11 +4523,11 @@ literal|0x00
 block|,
 literal|0x00
 block|,
-literal|0xff
+literal|0xFF
 block|,
 literal|0x03
 block|,
-literal|0x7e
+literal|0x7E
 block|,
 literal|0x00
 block|,
@@ -4151,7 +4535,7 @@ literal|0x00
 block|,
 literal|0x00
 block|,
-literal|0x7e
+literal|0x7E
 block|,
 literal|0x00
 block|,
@@ -4193,18 +4577,6 @@ literal|0x00
 block|,   }
 decl_stmt|;
 end_decl_stmt
-begin_define
-DECL|macro|isdigok
-define|#
-directive|define
-name|isdigok
-parameter_list|(
-name|m
-parameter_list|,
-name|d
-parameter_list|)
-value|(m[(d)>> 3]& ( 1<< ( (d)& 7 ) ) )
-end_define
 begin_comment
 comment|/* Routine to convert an ASCII string into an unsigned long integer. */
 end_comment
@@ -4333,7 +4705,7 @@ name|v
 operator|=
 literal|0
 init|;
-name|isdigok
+name|sbitset
 argument_list|(
 name|dmap
 argument_list|,
@@ -4524,7 +4896,7 @@ name|v
 operator|=
 literal|0
 init|;
-name|isdigok
+name|sbitset
 argument_list|(
 name|dmap
 argument_list|,
@@ -4723,7 +5095,7 @@ name|v
 operator|=
 literal|0
 init|;
-name|isdigok
+name|sbitset
 argument_list|(
 name|dmap
 argument_list|,
@@ -4893,9 +5265,9 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
-comment|/* First check to see if the property has      */
+comment|/* First check whether the property has        */
 comment|/* already been added or not.  If it has, then */
 comment|/* simply ignore it.                           */
 if|if
@@ -4968,7 +5340,10 @@ operator|>
 name|FT_ULONG_MAX
 condition|)
 return|return
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -5282,145 +5657,6 @@ directive|define
 name|_BDF_GLYPH_HEIGHT_CHECK
 value|0x80000000UL
 end_define
-begin_comment
-comment|/* Auto correction messages. */
-end_comment
-begin_define
-DECL|macro|ACMSG1
-define|#
-directive|define
-name|ACMSG1
-value|"FONT_ASCENT property missing.  " \                  "Added \"FONT_ASCENT %hd\".\n"
-end_define
-begin_define
-DECL|macro|ACMSG2
-define|#
-directive|define
-name|ACMSG2
-value|"FONT_DESCENT property missing.  " \                  "Added \"FONT_DESCENT %hd\".\n"
-end_define
-begin_define
-DECL|macro|ACMSG3
-define|#
-directive|define
-name|ACMSG3
-value|"Font width != actual width.  Old: %hd New: %hd.\n"
-end_define
-begin_define
-DECL|macro|ACMSG4
-define|#
-directive|define
-name|ACMSG4
-value|"Font left bearing != actual left bearing.  " \                  "Old: %hd New: %hd.\n"
-end_define
-begin_define
-DECL|macro|ACMSG5
-define|#
-directive|define
-name|ACMSG5
-value|"Font ascent != actual ascent.  Old: %hd New: %hd.\n"
-end_define
-begin_define
-DECL|macro|ACMSG6
-define|#
-directive|define
-name|ACMSG6
-value|"Font descent != actual descent.  Old: %hd New: %hd.\n"
-end_define
-begin_define
-DECL|macro|ACMSG7
-define|#
-directive|define
-name|ACMSG7
-value|"Font height != actual height. Old: %hd New: %hd.\n"
-end_define
-begin_define
-DECL|macro|ACMSG8
-define|#
-directive|define
-name|ACMSG8
-value|"Glyph scalable width (SWIDTH) adjustments made.\n"
-end_define
-begin_define
-DECL|macro|ACMSG9
-define|#
-directive|define
-name|ACMSG9
-value|"SWIDTH field missing at line %ld.  Set automatically.\n"
-end_define
-begin_define
-DECL|macro|ACMSG10
-define|#
-directive|define
-name|ACMSG10
-value|"DWIDTH field missing at line %ld.  Set to glyph width.\n"
-end_define
-begin_define
-DECL|macro|ACMSG11
-define|#
-directive|define
-name|ACMSG11
-value|"SIZE bits per pixel field adjusted to %hd.\n"
-end_define
-begin_define
-DECL|macro|ACMSG12
-define|#
-directive|define
-name|ACMSG12
-value|"Duplicate encoding %ld (%s) changed to unencoded.\n"
-end_define
-begin_define
-DECL|macro|ACMSG13
-define|#
-directive|define
-name|ACMSG13
-value|"Glyph %ld extra rows removed.\n"
-end_define
-begin_define
-DECL|macro|ACMSG14
-define|#
-directive|define
-name|ACMSG14
-value|"Glyph %ld extra columns removed.\n"
-end_define
-begin_define
-DECL|macro|ACMSG15
-define|#
-directive|define
-name|ACMSG15
-value|"Incorrect glyph count: %ld indicated but %ld found.\n"
-end_define
-begin_comment
-comment|/* Error messages. */
-end_comment
-begin_define
-DECL|macro|ERRMSG1
-define|#
-directive|define
-name|ERRMSG1
-value|"[line %ld] Missing \"%s\" line.\n"
-end_define
-begin_define
-DECL|macro|ERRMSG2
-define|#
-directive|define
-name|ERRMSG2
-value|"[line %ld] Font header corrupted or missing fields.\n"
-end_define
-begin_define
-DECL|macro|ERRMSG3
-define|#
-directive|define
-name|ERRMSG3
-value|"[line %ld] Font glyphs corrupted or missing fields.\n"
-end_define
-begin_define
-DECL|macro|ERRMSG4
-define|#
-directive|define
-name|ERRMSG4
-value|"[line %ld] BBX too big.\n"
-end_define
 begin_function
 specifier|static
 name|FT_Error
@@ -5454,7 +5690,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -5540,6 +5776,10 @@ parameter_list|,
 name|bdf_options_t
 modifier|*
 name|opts
+parameter_list|,
+name|unsigned
+name|long
+name|lineno
 parameter_list|)
 block|{
 name|size_t
@@ -5560,8 +5800,14 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|lineno
+argument_list|)
+expr_stmt|;
+comment|/* only used in debug mode */
 if|if
 condition|(
 name|font
@@ -5586,7 +5832,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -5633,9 +5882,22 @@ operator|>=
 literal|256
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_set_default_spacing: "
+name|ERRMSG7
+operator|,
+name|lineno
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -5667,6 +5929,10 @@ literal|"-"
 argument_list|,
 name|name
 argument_list|,
+operator|(
+name|unsigned
+name|long
+operator|)
 name|len
 argument_list|)
 expr_stmt|;
@@ -5905,6 +6171,11 @@ operator|+
 name|linelen
 expr_stmt|;
 comment|/* Trim the leading whitespace if it exists. */
+if|if
+condition|(
+operator|*
+name|sp
+condition|)
 operator|*
 name|sp
 operator|++
@@ -6024,6 +6295,10 @@ parameter_list|,
 name|char
 modifier|*
 name|value
+parameter_list|,
+name|unsigned
+name|long
+name|lineno
 parameter_list|)
 block|{
 name|size_t
@@ -6049,9 +6324,15 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
-comment|/* First, check to see if the property already exists in the font. */
+name|FT_UNUSED
+argument_list|(
+name|lineno
+argument_list|)
+expr_stmt|;
+comment|/* only used in debug mode */
+comment|/* First, check whether the property already exists in the font. */
 if|if
 condition|(
 operator|(
@@ -6484,7 +6765,7 @@ comment|/* If the property happens to be a comment, then it doesn't need */
 comment|/* to be added to the internal hash table.                       */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|name
 argument_list|,
@@ -6540,7 +6821,7 @@ comment|/* present, and the SPACING property should override the default       *
 comment|/* spacing.                                                            */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|name
 argument_list|,
@@ -6564,7 +6845,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|name
 argument_list|,
@@ -6588,7 +6869,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|name
 argument_list|,
@@ -6612,7 +6893,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|name
 argument_list|,
@@ -6634,9 +6915,24 @@ operator|.
 name|atom
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_add_property: "
+name|ERRMSG8
+operator|,
+name|lineno
+operator|,
+literal|"SPACING"
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -6842,7 +7138,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -6878,7 +7174,7 @@ expr_stmt|;
 comment|/* Check for a comment. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -6947,7 +7243,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -6973,7 +7269,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Missing_Chars_Field
+name|FT_THROW
+argument_list|(
+name|Missing_Chars_Field
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -7053,12 +7352,27 @@ name|p
 operator|->
 name|cnt
 operator|>=
-literal|1114112UL
+literal|0x110000UL
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ERRMSG5
+operator|,
+name|lineno
+operator|,
+literal|"CHARS"
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -7093,7 +7407,7 @@ block|}
 comment|/* Check for the ENDFONT field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -7105,6 +7419,39 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_GLYPH_BITS
+condition|)
+block|{
+comment|/* Missing ENDCHAR field. */
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ERRMSG1
+operator|,
+name|lineno
+operator|,
+literal|"ENDCHAR"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Corrupted_Font_Glyphs
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 comment|/* Sort the glyphs by encoding. */
 name|ft_qsort
 argument_list|(
@@ -7142,7 +7489,7 @@ block|}
 comment|/* Check for the ENDCHAR field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -7171,8 +7518,8 @@ goto|goto
 name|Exit
 goto|;
 block|}
-comment|/* Check to see whether a glyph is being scanned but should be */
-comment|/* ignored because it is an unencoded glyph.                   */
+comment|/* Check whether a glyph is being scanned but should be */
+comment|/* ignored because it is an unencoded glyph.            */
 if|if
 condition|(
 operator|(
@@ -7204,7 +7551,7 @@ goto|;
 comment|/* Check for the STARTCHAR field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -7283,9 +7630,24 @@ operator|!
 name|s
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ERRMSG8
+operator|,
+name|lineno
+operator|,
+literal|"STARTCHAR"
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -7326,6 +7688,17 @@ name|flags
 operator||=
 name|_BDF_GLYPH
 expr_stmt|;
+name|FT_TRACE4
+argument_list|(
+operator|(
+name|DBGMSG1
+operator|,
+name|lineno
+operator|,
+name|s
+operator|)
+argument_list|)
+expr_stmt|;
 goto|goto
 name|Exit
 goto|;
@@ -7333,7 +7706,7 @@ block|}
 comment|/* Check for the ENCODING field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -7372,7 +7745,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Missing_Startchar_Field
+name|FT_THROW
+argument_list|(
+name|Missing_Startchar_Field
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -7425,10 +7801,99 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-comment|/* Check that the encoding is in the range [0,65536] because        */
-comment|/* otherwise p->have (a bitmap with static size) overflows.         */
+comment|/* Normalize negative encoding values.  The specification only */
+comment|/* allows -1, but we can be more generous here.                */
 if|if
 condition|(
+name|p
+operator|->
+name|glyph_enc
+operator|<
+operator|-
+literal|1
+condition|)
+name|p
+operator|->
+name|glyph_enc
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|/* Check for alternative encoding format. */
+if|if
+condition|(
+name|p
+operator|->
+name|glyph_enc
+operator|==
+operator|-
+literal|1
+operator|&&
+name|p
+operator|->
+name|list
+operator|.
+name|used
+operator|>
+literal|2
+condition|)
+name|p
+operator|->
+name|glyph_enc
+operator|=
+name|_bdf_atol
+argument_list|(
+name|p
+operator|->
+name|list
+operator|.
+name|field
+index|[
+literal|2
+index|]
+argument_list|,
+literal|0
+argument_list|,
+literal|10
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|->
+name|glyph_enc
+operator|<
+operator|-
+literal|1
+condition|)
+name|p
+operator|->
+name|glyph_enc
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|FT_TRACE4
+argument_list|(
+operator|(
+name|DBGMSG2
+operator|,
+name|p
+operator|->
+name|glyph_enc
+operator|)
+argument_list|)
+expr_stmt|;
+comment|/* Check that the encoding is in the Unicode range because  */
+comment|/* otherwise p->have (a bitmap with static size) overflows. */
+if|if
+condition|(
+name|p
+operator|->
+name|glyph_enc
+operator|>
+literal|0
+operator|&&
 operator|(
 name|size_t
 operator|)
@@ -7442,21 +7907,42 @@ name|p
 operator|->
 name|have
 argument_list|)
+operator|/
+expr|sizeof
+operator|(
+name|unsigned
+name|long
+operator|)
 operator|*
-literal|8
+literal|32
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ERRMSG5
+operator|,
+name|lineno
+operator|,
+literal|"ENCODING"
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
 block|}
-comment|/* Check to see whether this encoding has already been encountered. */
-comment|/* If it has then change it to unencoded so it gets added if        */
-comment|/* indicated.                                                       */
+comment|/* Check whether this encoding has already been encountered. */
+comment|/* If it has then change it to unencoded so it gets added if */
+comment|/* indicated.                                                */
 if|if
 condition|(
 name|p
@@ -7613,8 +8099,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* Unencoded glyph.  Check to see whether it should */
-comment|/* be added or not.                                 */
+comment|/* Unencoded glyph.  Check whether it should */
+comment|/* be added or not.                          */
 if|if
 condition|(
 name|p
@@ -7774,7 +8260,7 @@ operator|-
 literal|1
 operator|)
 expr_stmt|;
-comment|/* Check to see whether a bitmap is being constructed. */
+comment|/* Check whether a bitmap is being constructed. */
 if|if
 condition|(
 name|p
@@ -7889,6 +8375,17 @@ index|[
 name|i
 index|]
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|sbitset
+argument_list|(
+name|hdigits
+argument_list|,
+name|c
+argument_list|)
+condition|)
+break|break;
 operator|*
 name|bp
 operator|=
@@ -7930,6 +8427,49 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+comment|/* If any line has not enough columns,            */
+comment|/* indicate they have been padded with zero bits. */
+if|if
+condition|(
+name|i
+operator|<
+name|nibbles
+operator|&&
+operator|!
+operator|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_GLYPH_WIDTH_CHECK
+operator|)
+condition|)
+block|{
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ACMSG16
+operator|,
+name|glyph
+operator|->
+name|encoding
+operator|)
+argument_list|)
+expr_stmt|;
+name|p
+operator|->
+name|flags
+operator||=
+name|_BDF_GLYPH_WIDTH_CHECK
+expr_stmt|;
+name|font
+operator|->
+name|modified
+operator|=
+literal|1
+expr_stmt|;
+block|}
 comment|/* Remove possible garbage at the right. */
 name|mask_index
 operator|=
@@ -7968,27 +8508,19 @@ expr_stmt|;
 comment|/* If any line has extra columns, indicate they have been removed. */
 if|if
 condition|(
-operator|(
-name|line
-index|[
-name|nibbles
-index|]
+name|i
 operator|==
-literal|'0'
-operator|||
-name|a2i
-index|[
-operator|(
-name|int
-operator|)
+name|nibbles
+operator|&&
+name|sbitset
+argument_list|(
+name|hdigits
+argument_list|,
 name|line
 index|[
 name|nibbles
 index|]
-index|]
-operator|!=
-literal|0
-operator|)
+argument_list|)
 operator|&&
 operator|!
 operator|(
@@ -8037,7 +8569,7 @@ block|}
 comment|/* Expect the SWIDTH (scalable width) field next. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -8060,28 +8592,9 @@ operator|&
 name|_BDF_ENCODING
 operator|)
 condition|)
-block|{
-comment|/* Missing ENCODING field. */
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"_bdf_parse_glyphs: "
-name|ERRMSG1
-operator|,
-name|lineno
-operator|,
-literal|"ENCODING"
-operator|)
-argument_list|)
-expr_stmt|;
-name|error
-operator|=
-name|BDF_Err_Missing_Encoding_Field
-expr_stmt|;
 goto|goto
-name|Exit
+name|Missing_Encoding
 goto|;
-block|}
 name|error
 operator|=
 name|_bdf_list_split
@@ -8146,7 +8659,7 @@ block|}
 comment|/* Expect the DWIDTH (scalable width) field next. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -8158,6 +8671,20 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_ENCODING
+operator|)
+condition|)
+goto|goto
+name|Missing_Encoding
+goto|;
 name|error
 operator|=
 name|_bdf_list_split
@@ -8277,7 +8804,7 @@ block|}
 comment|/* Expect the BBX field next. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -8289,6 +8816,20 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_ENCODING
+operator|)
+condition|)
+goto|goto
+name|Missing_Encoding
+goto|;
 name|error
 operator|=
 name|_bdf_list_split
@@ -8722,7 +9263,7 @@ block|}
 comment|/* And finally, gather up the bitmap. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -8765,7 +9306,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Missing_Bbx_Field
+name|FT_THROW
+argument_list|(
+name|Missing_Bbx_Field
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -8808,6 +9352,12 @@ name|height
 expr_stmt|;
 if|if
 condition|(
+name|glyph
+operator|->
+name|bpr
+operator|>
+literal|0xFFFFU
+operator|||
 name|bitmap_size
 operator|>
 literal|0xFFFFU
@@ -8825,7 +9375,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Bbx_Too_Big
+name|FT_THROW
+argument_list|(
+name|Bbx_Too_Big
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -8874,12 +9427,69 @@ goto|goto
 name|Exit
 goto|;
 block|}
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ERRMSG9
+operator|,
+name|lineno
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+name|Missing_Encoding
+label|:
+comment|/* Missing ENCODING field. */
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_glyphs: "
+name|ERRMSG1
+operator|,
+name|lineno
+operator|,
+literal|"ENCODING"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Missing_Encoding_Field
+argument_list|)
 expr_stmt|;
 name|Exit
 label|:
+if|if
+condition|(
+name|error
+operator|&&
+operator|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_GLYPH
+operator|)
+condition|)
+name|FT_FREE
+argument_list|(
+name|p
+operator|->
+name|glyph_name
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 return|;
@@ -8944,7 +9554,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -8970,7 +9580,7 @@ expr_stmt|;
 comment|/* Check for the end of the properties. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9046,6 +9656,8 @@ operator|)
 literal|"FONT_ASCENT"
 argument_list|,
 name|nbuf
+argument_list|,
+name|lineno
 argument_list|)
 expr_stmt|;
 if|if
@@ -9138,6 +9750,8 @@ operator|)
 literal|"FONT_DESCENT"
 argument_list|,
 name|nbuf
+argument_list|,
+name|lineno
 argument_list|)
 expr_stmt|;
 if|if
@@ -9191,7 +9805,7 @@ block|}
 comment|/* Ignore the _XFREE86_GLYPH_RANGES properties. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9209,7 +9823,7 @@ comment|/* Handle COMMENT fields and properties in a special way to preserve */
 comment|/* the spacing.                                                      */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9253,6 +9867,8 @@ argument_list|,
 name|name
 argument_list|,
 name|value
+argument_list|,
+name|lineno
 argument_list|)
 expr_stmt|;
 if|if
@@ -9295,6 +9911,8 @@ argument_list|,
 name|name
 argument_list|,
 name|value
+argument_list|,
+name|lineno
 argument_list|)
 expr_stmt|;
 if|if
@@ -9381,6 +9999,8 @@ argument_list|,
 name|name
 argument_list|,
 name|value
+argument_list|,
+name|lineno
 argument_list|)
 expr_stmt|;
 if|if
@@ -9456,7 +10076,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -9498,7 +10118,7 @@ comment|/* Check for a comment.  This is done to handle those fonts that have */
 comment|/* comments before the STARTFONT line for some reason.                */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9598,7 +10218,7 @@ name|memory
 expr_stmt|;
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9610,10 +10230,14 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|/* No STARTFONT field is a good indication of a problem. */
+comment|/* we don't emit an error message since this code gets */
+comment|/* explicitly caught one level higher                  */
 name|error
 operator|=
-name|BDF_Err_Missing_Startfont_Field
+name|FT_THROW
+argument_list|(
+name|Missing_Startfont_Field
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -9818,7 +10442,7 @@ block|}
 comment|/* Check for the start of the properties. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9830,6 +10454,42 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_FONT_BBX
+operator|)
+condition|)
+block|{
+comment|/* Missing the FONTBOUNDINGBOX field. */
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_start: "
+name|ERRMSG1
+operator|,
+name|lineno
+operator|,
+literal|"FONTBOUNDINGBOX"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Missing_Fontboundingbox_Field
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 name|error
 operator|=
 name|_bdf_list_split
@@ -9899,9 +10559,19 @@ operator|->
 name|cnt
 argument_list|)
 condition|)
+block|{
+name|p
+operator|->
+name|font
+operator|->
+name|props_size
+operator|=
+literal|0
+expr_stmt|;
 goto|goto
 name|Exit
 goto|;
+block|}
 name|p
 operator|->
 name|flags
@@ -9920,7 +10590,7 @@ block|}
 comment|/* Check for the FONTBOUNDINGBOX field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -9959,7 +10629,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Missing_Size_Field
+name|FT_THROW
+argument_list|(
+name|Missing_Size_Field
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -10152,7 +10825,7 @@ block|}
 comment|/* The next thing to check for is the FONT field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -10222,14 +10895,39 @@ operator|!
 name|s
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_start: "
+name|ERRMSG8
+operator|,
+name|lineno
+operator|,
+literal|"FONT"
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
 block|}
+comment|/* Allowing multiple `FONT' lines (which is invalid) doesn't hurt... */
+name|FT_FREE
+argument_list|(
+name|p
+operator|->
+name|font
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|FT_NEW_ARRAY
@@ -10276,6 +10974,8 @@ argument_list|,
 name|p
 operator|->
 name|opts
+argument_list|,
+name|lineno
 argument_list|)
 expr_stmt|;
 if|if
@@ -10298,7 +10998,7 @@ block|}
 comment|/* Check for the SIZE field. */
 if|if
 condition|(
-name|ft_memcmp
+name|_bdf_strncmp
 argument_list|(
 name|line
 argument_list|,
@@ -10337,7 +11037,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Missing_Font_Field
+name|FT_THROW
+argument_list|(
+name|Missing_Font_Field
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -10616,9 +11319,246 @@ goto|goto
 name|Exit
 goto|;
 block|}
+comment|/* Check for the CHARS field -- font properties are optional */
+if|if
+condition|(
+name|_bdf_strncmp
+argument_list|(
+name|line
+argument_list|,
+literal|"CHARS"
+argument_list|,
+literal|5
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|char
+name|nbuf
+index|[
+literal|128
+index|]
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|p
+operator|->
+name|flags
+operator|&
+name|_BDF_FONT_BBX
+operator|)
+condition|)
+block|{
+comment|/* Missing the FONTBOUNDINGBOX field. */
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_start: "
+name|ERRMSG1
+operator|,
+name|lineno
+operator|,
+literal|"FONTBOUNDINGBOX"
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Missing_Fontboundingbox_Field
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+comment|/* Add the two standard X11 properties which are required */
+comment|/* for compiling fonts.                                   */
+name|p
+operator|->
+name|font
+operator|->
+name|font_ascent
+operator|=
+name|p
+operator|->
+name|font
+operator|->
+name|bbx
+operator|.
+name|ascent
+expr_stmt|;
+name|ft_sprintf
+argument_list|(
+name|nbuf
+argument_list|,
+literal|"%hd"
+argument_list|,
+name|p
+operator|->
+name|font
+operator|->
+name|bbx
+operator|.
+name|ascent
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|_bdf_add_property
+argument_list|(
+name|p
+operator|->
+name|font
+argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
+literal|"FONT_ASCENT"
+argument_list|,
+name|nbuf
+argument_list|,
+name|lineno
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Exit
+goto|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"_bdf_parse_properties: "
+name|ACMSG1
+operator|,
+name|p
+operator|->
+name|font
+operator|->
+name|bbx
+operator|.
+name|ascent
+operator|)
+argument_list|)
+expr_stmt|;
+name|p
+operator|->
+name|font
+operator|->
+name|font_descent
+operator|=
+name|p
+operator|->
+name|font
+operator|->
+name|bbx
+operator|.
+name|descent
+expr_stmt|;
+name|ft_sprintf
+argument_list|(
+name|nbuf
+argument_list|,
+literal|"%hd"
+argument_list|,
+name|p
+operator|->
+name|font
+operator|->
+name|bbx
+operator|.
+name|descent
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|_bdf_add_property
+argument_list|(
+name|p
+operator|->
+name|font
+argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
+literal|"FONT_DESCENT"
+argument_list|,
+name|nbuf
+argument_list|,
+name|lineno
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Exit
+goto|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"_bdf_parse_properties: "
+name|ACMSG2
+operator|,
+name|p
+operator|->
+name|font
+operator|->
+name|bbx
+operator|.
+name|descent
+operator|)
+argument_list|)
+expr_stmt|;
+name|p
+operator|->
+name|font
+operator|->
+name|modified
+operator|=
+literal|1
+expr_stmt|;
+operator|*
+name|next
+operator|=
+name|_bdf_parse_glyphs
+expr_stmt|;
+comment|/* A special return value. */
+name|error
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"_bdf_parse_start: "
+name|ERRMSG9
+operator|,
+name|lineno
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 name|Exit
 label|:
@@ -10673,16 +11613,19 @@ comment|/* make compiler happy */
 name|_bdf_parse_t
 modifier|*
 name|p
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory
 init|=
 name|extmemory
 decl_stmt|;
+comment|/* needed for FT_NEW */
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -10778,14 +11721,6 @@ condition|)
 block|{
 comment|/* If the font is not proportional, set the font's monowidth */
 comment|/* field to the width of the font bounding box.              */
-name|memory
-operator|=
-name|p
-operator|->
-name|font
-operator|->
-name|memory
-expr_stmt|;
 if|if
 condition|(
 name|p
@@ -11248,7 +12183,6 @@ operator|&
 name|_BDF_START
 condition|)
 block|{
-block|{
 comment|/* The ENDFONT field was never reached or did not exist. */
 if|if
 condition|(
@@ -11275,7 +12209,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Corrupted_Font_Header
+name|FT_THROW
+argument_list|(
+name|Corrupted_Font_Header
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -11296,12 +12233,14 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|BDF_Err_Corrupted_Font_Glyphs
+name|FT_THROW
+argument_list|(
+name|Corrupted_Font_Glyphs
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
-block|}
 block|}
 block|}
 if|if
@@ -11383,11 +12322,14 @@ if|if
 condition|(
 name|error
 operator|==
-name|BDF_Err_Ok
+name|FT_Err_Ok
 condition|)
 name|error
 operator|=
-name|BDF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 operator|*
 name|font

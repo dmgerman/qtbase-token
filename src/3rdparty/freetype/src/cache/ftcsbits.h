@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2006 by                               */
+comment|/*  Copyright 2000-2001, 2002, 2003, 2006, 2011 by                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -283,6 +283,11 @@ unit|FT_LOCAL( FT_ULong )   FTC_SNode_Weight( FTC_SNode  inode );
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FTC_INLINE
+end_ifdef
 begin_macro
 name|FT_LOCAL
 argument_list|(
@@ -298,11 +303,17 @@ argument_list|,
 argument|FTC_GQuery  gquery
 argument_list|,
 argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* */
 end_comment

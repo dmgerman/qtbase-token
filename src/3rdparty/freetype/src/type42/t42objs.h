@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2007 by Roberto Alameda.                   */
+comment|/*  Copyright 2002, 2003, 2006, 2007, 2011 by Roberto Alameda.             */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -200,7 +200,7 @@ name|T42_Face_Init
 argument_list|(
 argument|FT_Stream      stream
 argument_list|,
-argument|T42_Face       face
+argument|FT_Face        face
 argument_list|,
 argument|FT_Int         face_index
 argument_list|,
@@ -222,7 +222,7 @@ begin_macro
 DECL|variable|T42_Face_Done
 name|T42_Face_Done
 argument_list|(
-argument|T42_Face  face
+argument|FT_Face  face
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -238,7 +238,7 @@ end_macro
 begin_macro
 name|T42_Size_Init
 argument_list|(
-argument|T42_Size  size
+argument|FT_Size  size
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -254,7 +254,7 @@ begin_macro
 DECL|variable|T42_Size_Request
 name|T42_Size_Request
 argument_list|(
-argument|T42_Size         size
+argument|FT_Size          size
 argument_list|,
 argument|FT_Size_Request  req
 argument_list|)
@@ -271,7 +271,7 @@ end_macro
 begin_macro
 name|T42_Size_Select
 argument_list|(
-argument|T42_Size  size
+argument|FT_Size   size
 argument_list|,
 argument|FT_ULong  strike_index
 argument_list|)
@@ -289,7 +289,7 @@ begin_macro
 DECL|variable|T42_Size_Done
 name|T42_Size_Done
 argument_list|(
-argument|T42_Size  size
+argument|FT_Size  size
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -305,7 +305,7 @@ end_macro
 begin_macro
 name|T42_GlyphSlot_Init
 argument_list|(
-argument|T42_GlyphSlot  slot
+argument|FT_GlyphSlot  slot
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -343,7 +343,7 @@ begin_macro
 DECL|variable|slot
 name|T42_GlyphSlot_Done
 argument_list|(
-argument|T42_GlyphSlot slot
+argument|FT_GlyphSlot  slot
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -359,7 +359,7 @@ end_macro
 begin_macro
 name|T42_Driver_Init
 argument_list|(
-argument|T42_Driver  driver
+argument|FT_Module  module
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -375,7 +375,7 @@ begin_macro
 DECL|variable|T42_Driver_Done
 name|T42_Driver_Done
 argument_list|(
-argument|T42_Driver  driver
+argument|FT_Module  module
 argument_list|)
 end_macro
 begin_empty_stmt

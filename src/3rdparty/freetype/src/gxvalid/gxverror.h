@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2004, 2005, 2012-2013                                        */
+end_comment
+begin_comment
+comment|/*    by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -108,6 +111,12 @@ undef|#
 directive|undef
 name|__FTERRORS_H__
 end_undef
+begin_undef
+DECL|macro|FT_ERR_PREFIX
+undef|#
+directive|undef
+name|FT_ERR_PREFIX
+end_undef
 begin_define
 DECL|macro|FT_ERR_PREFIX
 define|#
@@ -120,13 +129,7 @@ DECL|macro|FT_ERR_BASE
 define|#
 directive|define
 name|FT_ERR_BASE
-value|FT_Mod_Err_GXV
-end_define
-begin_define
-DECL|macro|FT_KEEP_ERR_PREFIX
-define|#
-directive|define
-name|FT_KEEP_ERR_PREFIX
+value|FT_Mod_Err_GXvalid
 end_define
 begin_include
 include|#

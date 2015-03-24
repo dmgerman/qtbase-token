@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002 by                                           */
+comment|/*  Copyright 1996-2001, 2002, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -92,6 +92,51 @@ begin_include
 include|#
 directive|include
 file|"cffcmap.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2arrst.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2blues.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2error.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2font.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2ft.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2hints.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2intrp.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2read.c"
+end_include
+begin_include
+include|#
+directive|include
+file|"cf2stack.c"
 end_include
 begin_comment
 comment|/* END */

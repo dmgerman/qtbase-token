@@ -2334,6 +2334,10 @@ operator|=
 name|copy
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|d
+condition|)
 operator|++
 name|d
 operator|->

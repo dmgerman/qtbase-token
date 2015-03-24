@@ -116,7 +116,7 @@ name|JavaVM
 modifier|*
 name|m_javaVM
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -125,7 +125,7 @@ specifier|static
 name|jclass
 name|m_applicationClass
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -134,7 +134,7 @@ specifier|static
 name|jobject
 name|m_classLoaderObject
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -143,7 +143,7 @@ specifier|static
 name|jmethodID
 name|m_loadClassMethodID
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -153,7 +153,7 @@ name|AAssetManager
 modifier|*
 name|m_assetManager
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -162,7 +162,7 @@ specifier|static
 name|jobject
 name|m_resourcesObj
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -171,7 +171,7 @@ specifier|static
 name|jobject
 name|m_activityObject
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -180,7 +180,7 @@ specifier|static
 name|jmethodID
 name|m_createSurfaceMethodID
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -189,7 +189,7 @@ specifier|static
 name|jmethodID
 name|m_setSurfaceGeometryMethodID
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -198,7 +198,7 @@ specifier|static
 name|jmethodID
 name|m_destroySurfaceMethodID
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -223,7 +223,7 @@ specifier|static
 name|jclass
 name|m_bitmapClass
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -232,7 +232,7 @@ specifier|static
 name|jmethodID
 name|m_createBitmapMethodID
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -241,7 +241,7 @@ specifier|static
 name|jobject
 name|m_ARGB_8888_BitmapConfigValue
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -250,7 +250,7 @@ specifier|static
 name|jobject
 name|m_RGB_565_BitmapConfigValue
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -268,7 +268,7 @@ specifier|static
 name|jclass
 name|m_bitmapDrawableClass
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -277,7 +277,7 @@ specifier|static
 name|jmethodID
 name|m_bitmapDrawableConstructorMethodID
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_extern
@@ -309,7 +309,7 @@ specifier|static
 name|Main
 name|m_main
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -319,7 +319,7 @@ name|void
 modifier|*
 name|m_mainLibraryHnd
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -351,14 +351,14 @@ name|QJNIObjectPrivate
 modifier|*
 name|surface
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 DECL|member|client
 name|AndroidSurfaceClient
 modifier|*
 name|client
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 block|}
 struct|;
@@ -398,7 +398,7 @@ name|QAndroidPlatformIntegration
 modifier|*
 name|m_androidPlatformIntegration
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -443,7 +443,7 @@ name|AndroidAssetsFileEngineHandler
 modifier|*
 name|m_androidAssetsFileEngineHandler
 init|=
-name|Q_NULLPTR
+literal|nullptr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1383,7 +1383,7 @@ index|[
 name|surfaceId
 index|]
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 comment|// dummy
 name|m_surfacesMutex
@@ -1760,7 +1760,7 @@ parameter_list|)
 block|{
 name|m_androidPlatformIntegration
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 name|m_androidAssetsFileEngineHandler
 operator|=
@@ -1939,7 +1939,7 @@ parameter_list|)
 block|{
 name|m_mainLibraryHnd
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 block|{
 comment|// Set env. vars
@@ -2121,7 +2121,7 @@ if|if
 condition|(
 name|m_mainLibraryHnd
 operator|==
-name|Q_NULLPTR
+literal|nullptr
 condition|)
 block|{
 name|qCritical
@@ -2201,11 +2201,11 @@ argument_list|(
 operator|&
 name|appThread
 argument_list|,
-name|Q_NULLPTR
+literal|nullptr
 argument_list|,
 name|startMainMethod
 argument_list|,
-name|Q_NULLPTR
+literal|nullptr
 argument_list|)
 operator|==
 literal|0
@@ -2233,14 +2233,14 @@ argument_list|)
 expr_stmt|;
 name|m_androidPlatformIntegration
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 operator|delete
 name|m_androidAssetsFileEngineHandler
 expr_stmt|;
 name|m_androidAssetsFileEngineHandler
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 block|}
 end_function
@@ -2340,14 +2340,14 @@ argument_list|)
 expr_stmt|;
 name|m_androidPlatformIntegration
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 operator|delete
 name|m_androidAssetsFileEngineHandler
 expr_stmt|;
 name|m_androidAssetsFileEngineHandler
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 block|}
 end_function
@@ -2403,7 +2403,7 @@ operator|.
 name|value
 argument_list|()
 operator|==
-name|Q_NULLPTR
+literal|nullptr
 condition|)
 comment|// This should never happen...
 return|return;
@@ -2634,7 +2634,7 @@ operator|::
 name|instance
 argument_list|()
 operator|!=
-name|Q_NULLPTR
+literal|nullptr
 condition|)
 block|{
 foreach|foreach
@@ -3788,11 +3788,11 @@ name|uenv
 operator|.
 name|venv
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 name|m_javaVM
 operator|=
-name|Q_NULLPTR
+literal|nullptr
 expr_stmt|;
 if|if
 condition|(

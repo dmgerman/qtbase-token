@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  bdfdrivr.c      FreeType font driver for bdf files      Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 by     Francesco Zappa Nardelli  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+comment|/*  bdfdrivr.c      FreeType font driver for bdf files      Copyright (C) 2001-2008, 2011, 2013, 2014 by     Francesco Zappa Nardelli  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 end_comment
 begin_include
 include|#
@@ -26,6 +26,11 @@ begin_include
 include|#
 directive|include
 include|FT_BDF_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_TRUETYPE_IDS_H
 end_include
 begin_include
 include|#
@@ -172,7 +177,7 @@ operator|->
 name|en_table
 expr_stmt|;
 return|return
-name|BDF_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -553,7 +558,7 @@ return|;
 block|}
 end_block
 begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
+specifier|static
 DECL|variable|bdf_cmap_class
 specifier|const
 name|FT_CMap_ClassRec
@@ -598,7 +603,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Face
 name|face
@@ -1016,10 +1021,6 @@ operator|.
 name|atom
 operator|)
 expr_stmt|;
-name|len
-operator|=
-literal|0
-expr_stmt|;
 for|for
 control|(
 name|len
@@ -1365,13 +1366,6 @@ operator|->
 name|bdffont
 argument_list|)
 expr_stmt|;
-name|FT_TRACE4
-argument_list|(
-operator|(
-literal|"BDF_Face_Done: done face\n"
-operator|)
-argument_list|)
-expr_stmt|;
 block|}
 end_block
 begin_macro
@@ -1401,7 +1395,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|BDF_Face
 name|face
@@ -1438,9 +1432,11 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
-name|FT_UNUSED
+name|FT_TRACE2
 argument_list|(
-name|face_index
+operator|(
+literal|"BDF driver\n"
+operator|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1495,15 +1491,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|FT_ERR_EQ
+argument_list|(
 name|error
-operator|==
-name|BDF_Err_Missing_Startfont_Field
+argument_list|,
+name|Missing_Startfont_Field
+argument_list|)
 condition|)
 block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a valid BDF file]\n"
+literal|"  not a BDF file\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1526,6 +1525,33 @@ name|bdffont
 operator|=
 name|font
 expr_stmt|;
+comment|/* BDF could not have multiple face in single font file.      * XXX: non-zero face_index is already invalid argument, but      *      Type1, Type42 driver has a convention to return      *      an invalid argument error when the font could be      *      opened by the specified driver.      */
+if|if
+condition|(
+name|face_index
+operator|>
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"BDF_Face_Init: invalid face index\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|BDF_Face_Done
+argument_list|(
+name|bdfface
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
+block|}
 block|{
 name|bdf_property_t
 modifier|*
@@ -1536,7 +1562,7 @@ decl_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"number of glyphs: %d (%d)\n"
+literal|"  number of glyphs: allocated %d (used %d)\n"
 operator|,
 name|font
 operator|->
@@ -1551,7 +1577,7 @@ expr_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"number of unencoded glyphs: %d (%d)\n"
+literal|"  number of unencoded glyphs: allocated %d (used %d)\n"
 operator|,
 name|font
 operator|->
@@ -1578,7 +1604,7 @@ expr_stmt|;
 name|bdfface
 operator|->
 name|face_flags
-operator|=
+operator||=
 name|FT_FACE_FLAG_FIXED_SIZES
 operator||
 name|FT_FACE_FLAG_HORIZONTAL
@@ -2116,7 +2142,7 @@ expr_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"idx %d, val 0x%lX\n"
+literal|"  idx %d, val 0x%lX\n"
 operator|,
 name|n
 operator|,
@@ -2178,7 +2204,8 @@ else|else
 name|FT_TRACE1
 argument_list|(
 operator|(
-literal|"idx %d is too large for this system\n"
+literal|"BDF_Face_Init:"
+literal|" idx %d is too large for this system\n"
 operator|,
 name|n
 operator|)
@@ -2410,17 +2437,18 @@ name|encoding
 operator|=
 name|FT_ENCODING_NONE
 expr_stmt|;
+comment|/* initial platform/encoding should indicate unset status? */
 name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|0
+name|TT_PLATFORM_APPLE_UNICODE
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|0
+name|TT_APPLE_ID_DEFAULT
 expr_stmt|;
 if|if
 condition|(
@@ -2437,13 +2465,13 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|3
+name|TT_PLATFORM_MICROSOFT
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|1
+name|TT_MS_ID_UNICODE_CS
 expr_stmt|;
 block|}
 name|error
@@ -2498,13 +2526,13 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|7
+name|TT_PLATFORM_ADOBE
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|0
+name|TT_ADOBE_ID_STANDARD
 expr_stmt|;
 name|error
 operator|=
@@ -2555,7 +2583,10 @@ name|bdfface
 argument_list|)
 expr_stmt|;
 return|return
-name|BDF_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 return|;
 block|}
 end_block
@@ -2640,7 +2671,7 @@ operator|<<
 literal|6
 expr_stmt|;
 return|return
-name|BDF_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -2692,7 +2723,10 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Invalid_Pixel_Size
+name|FT_ERR
+argument_list|(
+name|Invalid_Pixel_Size
+argument_list|)
 decl_stmt|;
 name|FT_Long
 name|height
@@ -2742,7 +2776,7 @@ operator|)
 condition|)
 name|error
 operator|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 case|case
@@ -2764,13 +2798,16 @@ operator|)
 condition|)
 name|error
 operator|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 break|break;
 default|default:
 name|error
 operator|=
-name|BDF_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -2835,7 +2872,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|BDF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Bitmap
 modifier|*
@@ -2867,7 +2904,21 @@ if|if
 condition|(
 operator|!
 name|face
-operator|||
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+if|if
+condition|(
 name|glyph_index
 operator|>=
 operator|(
@@ -2880,12 +2931,24 @@ condition|)
 block|{
 name|error
 operator|=
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
 block|}
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"BDF_Glyph_Load: glyph index %d\n"
+operator|,
+name|glyph_index
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* index 0 is the undefined glyph */
 if|if
 condition|(
@@ -3255,14 +3318,8 @@ block|{
 name|FT_TRACE1
 argument_list|(
 operator|(
-literal|"bdf_get_bdf_property: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_TRACE1
-argument_list|(
-operator|(
-literal|"too large integer 0x%x is truncated\n"
+literal|"bdf_get_bdf_property:"
+literal|" too large integer 0x%x is truncated\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3306,14 +3363,8 @@ block|{
 name|FT_TRACE1
 argument_list|(
 operator|(
-literal|"bdf_get_bdf_property: "
-operator|)
-argument_list|)
-expr_stmt|;
-name|FT_TRACE1
-argument_list|(
-operator|(
-literal|"too large cardinal 0x%x is truncated\n"
+literal|"bdf_get_bdf_property:"
+literal|" too large cardinal 0x%x is truncated\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3352,7 +3403,10 @@ block|}
 name|Fail
 label|:
 return|return
-name|BDF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 block|}
 end_function
@@ -3508,19 +3562,12 @@ literal|0x20000L
 block|,
 literal|0
 block|,
-operator|(
-name|FT_Module_Constructor
-operator|)
 literal|0
 block|,
-operator|(
-name|FT_Module_Destructor
-operator|)
+comment|/* FT_Module_Constructor */
 literal|0
 block|,
-operator|(
-name|FT_Module_Requester
-operator|)
+comment|/* FT_Module_Destructor  */
 name|bdf_driver_requester
 block|}
 block|,
@@ -3555,26 +3602,17 @@ comment|/* FT_Slot_InitFunc */
 literal|0
 block|,
 comment|/* FT_Slot_DoneFunc */
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|ft_stub_set_char_sizes
-block|,
-name|ft_stub_set_pixel_sizes
-block|,
-endif|#
-directive|endif
 name|BDF_Glyph_Load
 block|,
 literal|0
 block|,
-comment|/* FT_Face_GetKerningFunc   */
+comment|/* FT_Face_GetKerningFunc  */
 literal|0
 block|,
-comment|/* FT_Face_AttachFunc       */
+comment|/* FT_Face_AttachFunc      */
 literal|0
 block|,
-comment|/* FT_Face_GetAdvancesFunc  */
+comment|/* FT_Face_GetAdvancesFunc */
 name|BDF_Size_Request
 block|,
 name|BDF_Size_Select

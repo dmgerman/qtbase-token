@@ -307,7 +307,7 @@ return|;
 block|}
 else|else
 return|return
-name|Q_NULLPTR
+literal|nullptr
 return|;
 block|}
 if|if
@@ -329,7 +329,7 @@ name|m_standardPalette
 return|;
 else|else
 return|return
-name|Q_NULLPTR
+literal|nullptr
 return|;
 block|}
 if|if
@@ -351,7 +351,7 @@ name|m_QWidgetsFonts
 return|;
 else|else
 return|return
-name|Q_NULLPTR
+literal|nullptr
 return|;
 block|}
 if|if
@@ -394,7 +394,7 @@ parameter_list|)
 member_init_list|:
 name|m_touchDevice
 argument_list|(
-literal|0
+literal|nullptr
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -402,7 +402,7 @@ name|QT_NO_ACCESSIBILITY
 member_init_list|,
 name|m_accessibility
 argument_list|(
-literal|0
+literal|nullptr
 argument_list|)
 endif|#
 directive|endif
@@ -842,9 +842,8 @@ block|}
 end_constructor
 begin_function
 DECL|function|needsBasicRenderloopWorkaround
+specifier|static
 name|bool
-name|QAndroidPlatformIntegration
-operator|::
 name|needsBasicRenderloopWorkaround
 parameter_list|()
 block|{
@@ -964,17 +963,10 @@ return|;
 case|case
 name|ThreadedOpenGL
 case|:
-if|if
-condition|(
+return|return
+operator|!
 name|needsBasicRenderloopWorkaround
 argument_list|()
-condition|)
-return|return
-literal|false
-return|;
-else|else
-return|return
-literal|true
 return|;
 case|case
 name|RasterGLSurface

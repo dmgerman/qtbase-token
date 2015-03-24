@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2008, 2009, 2010 by */
+comment|/*  Copyright 1996-2006, 2008-2010, 2013, 2014 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -205,7 +205,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 ifdef|#
 directive|ifdef
@@ -769,8 +769,9 @@ operator|++
 control|)
 block|{
 comment|/* now get load the unscaled outline */
-name|error
-operator|=
+operator|(
+name|void
+operator|)
 name|T1_Parse_Glyph
 argument_list|(
 operator|&
@@ -820,7 +821,7 @@ name|decoder
 argument_list|)
 expr_stmt|;
 return|return
-name|T1_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -834,19 +835,28 @@ end_macro
 begin_macro
 name|T1_Get_Advances
 argument_list|(
-argument|T1_Face    face
+argument|FT_Face    t1face
 argument_list|,
+comment|/* T1_Face */
 argument|FT_UInt    first
 argument_list|,
 argument|FT_UInt    count
 argument_list|,
-argument|FT_ULong   load_flags
+argument|FT_Int32   load_flags
 argument_list|,
 argument|FT_Fixed*  advances
 argument_list|)
 end_macro
 begin_block
 block|{
+name|T1_Face
+name|face
+init|=
+operator|(
+name|T1_Face
+operator|)
+name|t1face
+decl_stmt|;
 name|T1_DecoderRec
 name|decoder
 decl_stmt|;
@@ -902,7 +912,7 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|T1_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 name|error
@@ -1067,7 +1077,7 @@ literal|0
 expr_stmt|;
 block|}
 return|return
-name|T1_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1081,10 +1091,12 @@ end_macro
 begin_macro
 name|T1_Load_Glyph
 argument_list|(
-argument|T1_GlyphSlot  glyph
+argument|FT_GlyphSlot  t1glyph
 argument_list|,
-argument|T1_Size       size
+comment|/* T1_GlyphSlot */
+argument|FT_Size       t1size
 argument_list|,
+comment|/* T1_Size      */
 argument|FT_UInt       glyph_index
 argument_list|,
 argument|FT_Int32      load_flags
@@ -1092,6 +1104,14 @@ argument_list|)
 end_macro
 begin_block
 block|{
+name|T1_GlyphSlot
+name|glyph
+init|=
+operator|(
+name|T1_GlyphSlot
+operator|)
+name|t1glyph
+decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
@@ -1104,10 +1124,8 @@ init|=
 operator|(
 name|T1_Face
 operator|)
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|face
 decl_stmt|;
 name|FT_Bool
@@ -1209,12 +1227,24 @@ comment|/* FT_CONFIG_OPTION_INCREMENTAL */
 block|{
 name|error
 operator|=
-name|T1_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
 block|}
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"T1_Load_Glyph: glyph index %d\n"
+operator|,
+name|glyph_index
+operator|)
+argument_list|)
+expr_stmt|;
 name|FT_ASSERT
 argument_list|(
 operator|(
@@ -1248,17 +1278,15 @@ name|FT_LOAD_NO_HINTING
 expr_stmt|;
 if|if
 condition|(
-name|size
+name|t1size
 condition|)
 block|{
 name|glyph
 operator|->
 name|x_scale
 operator|=
-name|size
+name|t1size
 operator|->
-name|root
-operator|.
 name|metrics
 operator|.
 name|x_scale
@@ -1267,10 +1295,8 @@ name|glyph
 operator|->
 name|y_scale
 operator|=
-name|size
+name|t1size
 operator|->
-name|root
-operator|.
 name|metrics
 operator|.
 name|y_scale
@@ -1291,20 +1317,16 @@ operator|=
 literal|0x10000L
 expr_stmt|;
 block|}
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 operator|.
 name|n_points
 operator|=
 literal|0
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 operator|.
 name|n_contours
@@ -1332,10 +1354,8 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|format
 operator|=
 name|FT_GLYPH_FORMAT_OUTLINE
@@ -1349,20 +1369,13 @@ argument_list|(
 operator|&
 name|decoder
 argument_list|,
-operator|(
-name|FT_Face
-operator|)
+name|t1glyph
+operator|->
 name|face
 argument_list|,
-operator|(
-name|FT_Size
-operator|)
-name|size
+name|t1size
 argument_list|,
-operator|(
-name|FT_GlyphSlot
-operator|)
-name|glyph
+name|t1glyph
 argument_list|,
 operator|(
 name|FT_Byte
@@ -1522,20 +1535,16 @@ operator|!
 name|error
 condition|)
 block|{
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 operator|.
 name|flags
 operator|&=
 name|FT_OUTLINE_OWNER
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 operator|.
 name|flags
@@ -1554,16 +1563,12 @@ block|{
 name|FT_Slot_Internal
 name|internal
 init|=
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|internal
 decl_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|metrics
 operator|.
 name|horiBearingX
@@ -1579,10 +1584,8 @@ operator|.
 name|x
 argument_list|)
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|metrics
 operator|.
 name|horiAdvance
@@ -1627,10 +1630,8 @@ modifier|*
 name|metrics
 init|=
 operator|&
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|metrics
 decl_stmt|;
 name|FT_Vector
@@ -1652,10 +1653,8 @@ operator|.
 name|x
 argument_list|)
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|linearHoriAdvance
 operator|=
 name|FIXED_TO_INT
@@ -1669,10 +1668,8 @@ operator|.
 name|x
 argument_list|)
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|internal
 operator|->
 name|glyph_transformed
@@ -1711,10 +1708,8 @@ operator|)
 operator|>>
 literal|16
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|linearVertAdvance
 operator|=
 name|metrics
@@ -1739,10 +1734,8 @@ operator|.
 name|y
 argument_list|)
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|linearVertAdvance
 operator|=
 name|FIXED_TO_INT
@@ -1757,32 +1750,26 @@ name|y
 argument_list|)
 expr_stmt|;
 block|}
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|format
 operator|=
 name|FT_GLYPH_FORMAT_OUTLINE
 expr_stmt|;
 if|if
 condition|(
-name|size
+name|t1size
 operator|&&
-name|size
+name|t1size
 operator|->
-name|root
-operator|.
 name|metrics
 operator|.
 name|y_ppem
 operator|<
 literal|24
 condition|)
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 operator|.
 name|flags
@@ -1824,10 +1811,8 @@ condition|)
 name|FT_Outline_Transform
 argument_list|(
 operator|&
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 argument_list|,
 operator|&
@@ -1847,10 +1832,8 @@ condition|)
 name|FT_Outline_Translate
 argument_list|(
 operator|&
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 argument_list|,
 name|font_offset
@@ -2072,10 +2055,8 @@ comment|/* compute the other metrics */
 name|FT_Outline_Get_CBox
 argument_list|(
 operator|&
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|outline
 argument_list|,
 operator|&
@@ -2143,10 +2124,8 @@ block|}
 block|}
 comment|/* Set control data to the glyph charstrings.  Note that this is */
 comment|/* _not_ zero-terminated.                                        */
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|control_data
 operator|=
 operator|(
@@ -2157,10 +2136,8 @@ name|glyph_data
 operator|.
 name|pointer
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|control_len
 operator|=
 name|glyph_data
@@ -2214,18 +2191,14 @@ argument_list|)
 expr_stmt|;
 comment|/* Set the control data to null - it is no longer available if   */
 comment|/* loaded incrementally.                                         */
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|control_data
 operator|=
 literal|0
 expr_stmt|;
-name|glyph
+name|t1glyph
 operator|->
-name|root
-operator|.
 name|control_len
 operator|=
 literal|0

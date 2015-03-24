@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2006, 2008, 2009 by             */
+comment|/*  Copyright 1996-2004, 2006, 2008, 2009, 2011, 2013 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -215,7 +215,7 @@ operator|.
 name|font_info
 expr_stmt|;
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -246,7 +246,7 @@ operator|->
 name|font_extra
 expr_stmt|;
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -278,7 +278,13 @@ operator|(
 name|PS_GetFontPrivateFunc
 operator|)
 name|NULL
+block|,
 comment|/* unsupported                */
+operator|(
+name|PS_GetFontValueFunc
+operator|)
+name|NULL
+comment|/* not implemented            */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -353,7 +359,7 @@ operator|->
 name|supplement
 expr_stmt|;
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -374,7 +380,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|CID_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -416,7 +422,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|CID_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -609,15 +615,6 @@ name|cid_slot_init
 block|,
 name|cid_slot_done
 block|,
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|ft_stub_set_char_sizes
-block|,
-name|ft_stub_set_pixel_sizes
-block|,
-endif|#
-directive|endif
 name|cid_slot_load_glyph
 block|,
 literal|0

@@ -627,6 +627,11 @@ operator|&
 name|val
 operator|)
 decl_stmt|;
+name|QVariant
+name|toVariant
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|inline
 name|QJsonValue
 operator|::

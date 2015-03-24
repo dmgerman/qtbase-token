@@ -136,7 +136,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -189,7 +189,7 @@ name|otv_Coverage_validate
 argument_list|(
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|GlyphCount
 argument_list|)
@@ -212,23 +212,23 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|++
 expr_stmt|;
 name|func
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|func
 index|[
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 index|]
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -253,10 +253,10 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|--
@@ -303,7 +303,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -378,7 +378,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -412,7 +412,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->glyph_count */
+comment|/* sets otvalid->glyph_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -438,13 +438,13 @@ end_macro
 begin_block
 block|{
 name|OTV_ValidatorRec
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|OTV_Validator
-name|valid
+name|otvalid
 init|=
 operator|&
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -477,7 +477,7 @@ argument_list|(
 name|MarkAttachClassDef
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|root
 operator|=
@@ -543,7 +543,7 @@ operator|=
 literal|10
 expr_stmt|;
 comment|/* OpenType< 1.2  */
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 operator|=
@@ -569,7 +569,7 @@ name|table
 operator|+
 name|GlyphClassDef
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -600,7 +600,7 @@ name|table
 operator|+
 name|AttachListOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -634,7 +634,7 @@ name|table
 operator|+
 name|LigCaretListOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -663,7 +663,7 @@ name|table
 operator|+
 name|MarkAttachClassDef
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}

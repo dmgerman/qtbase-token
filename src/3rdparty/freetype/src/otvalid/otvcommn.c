@@ -116,7 +116,7 @@ name|otv_Coverage_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|,
 argument|FT_Int         expected_count
 argument_list|)
@@ -230,7 +230,7 @@ if|if
 condition|(
 name|gid
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -339,7 +339,7 @@ if|if
 condition|(
 name|End
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -675,7 +675,7 @@ name|otv_ClassDef_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -774,7 +774,7 @@ name|GlyphCount
 operator|-
 literal|1
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -880,7 +880,7 @@ if|if
 condition|(
 name|End
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -936,7 +936,7 @@ name|otv_Device_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1054,10 +1054,10 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* uses valid->type_count */
+comment|/* uses otvalid->type_count */
 end_comment
 begin_comment
-comment|/* uses valid->type_funcs */
+comment|/* uses otvalid->type_funcs */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1071,7 +1071,7 @@ name|otv_Lookup_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1135,7 +1135,7 @@ literal|0
 operator|||
 name|LookupType
 operator|>
-name|valid
+name|otvalid
 operator|->
 name|type_count
 condition|)
@@ -1143,7 +1143,7 @@ name|FT_INVALID_DATA
 expr_stmt|;
 name|validate
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|type_funcs
 index|[
@@ -1188,7 +1188,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_EXIT
@@ -1210,7 +1210,7 @@ name|otv_LookupList_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1256,7 +1256,7 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 operator|=
@@ -1282,7 +1282,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_EXIT
@@ -1329,7 +1329,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* uses valid->lookup_count */
+comment|/* uses otvalid->lookup_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1343,7 +1343,7 @@ name|otv_Feature_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1412,7 +1412,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 condition|)
@@ -1441,7 +1441,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* sets valid->lookup_count */
+comment|/* sets otvalid->lookup_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1457,7 +1457,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       lookups
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1503,7 +1503,7 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 operator|=
@@ -1539,7 +1539,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -1569,7 +1569,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* uses valid->extra1 (number of features) */
+comment|/* uses otvalid->extra1 (number of features) */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1583,7 +1583,7 @@ name|otv_LangSys_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1654,7 +1654,7 @@ literal|0xFFFFU
 operator|&&
 name|ReqFeatureIndex
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|extra1
 condition|)
@@ -1685,7 +1685,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|extra1
 condition|)
@@ -1728,7 +1728,7 @@ name|otv_Script_validate
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1788,7 +1788,7 @@ name|table
 operator|+
 name|DefaultLangSys
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_LIMIT_CHECK
@@ -1825,7 +1825,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -1834,7 +1834,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* sets valid->extra1 (number of features) */
+comment|/* sets otvalid->extra1 (number of features) */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1850,7 +1850,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       features
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -1896,7 +1896,7 @@ operator|*
 literal|6
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
@@ -1931,7 +1931,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 comment|/* Script */
@@ -1976,7 +1976,7 @@ name|otv_x_Ox
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2022,18 +2022,18 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|++
 expr_stmt|;
 name|func
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|func
 index|[
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 index|]
@@ -2057,10 +2057,10 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|--
@@ -2081,7 +2081,7 @@ name|otv_u_C_x_Ox
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2140,7 +2140,7 @@ name|table
 operator|+
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|Count
 argument_list|)
@@ -2152,18 +2152,18 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|++
 expr_stmt|;
 name|func
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|func
 index|[
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 index|]
@@ -2187,10 +2187,10 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|--
@@ -2200,7 +2200,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* uses valid->extra1 (if> 0: array value limit) */
+comment|/* uses otvalid->extra1 (if> 0: array value limit) */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -2214,7 +2214,7 @@ name|otv_x_ux
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2259,7 +2259,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|otvalid
 operator|->
 name|extra1
 condition|)
@@ -2281,7 +2281,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|extra1
 condition|)
@@ -2299,7 +2299,7 @@ begin_comment
 comment|/* elements are tested                                              */
 end_comment
 begin_comment
-comment|/* uses valid->extra1 (array value limit) */
+comment|/* uses otvalid->extra1 (array value limit) */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -2313,7 +2313,7 @@ name|otv_x_y_ux_sy
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2429,7 +2429,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|extra1
 condition|)
@@ -2447,7 +2447,7 @@ begin_comment
 comment|/* elements are tested                                              */
 end_comment
 begin_comment
-comment|/* uses valid->extra1 (array value limit) */
+comment|/* uses otvalid->extra1 (array value limit) */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -2461,7 +2461,7 @@ name|otv_x_ux_y_uy_z_uz_p_sp
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2643,7 +2643,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|extra1
 condition|)
@@ -2655,7 +2655,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* sets valid->extra1 (valid->lookup_count) */
+comment|/* sets otvalid->extra1 (valid->lookup_count) */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -2669,7 +2669,7 @@ name|otv_u_O_O_x_Onx
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2737,7 +2737,7 @@ name|table
 operator|+
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -2749,7 +2749,7 @@ name|table
 operator|+
 name|ClassDef
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_LIMIT_CHECK
@@ -2759,27 +2759,27 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|++
 expr_stmt|;
 name|func
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|func
 index|[
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 index|]
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 expr_stmt|;
@@ -2812,11 +2812,11 @@ name|table
 operator|+
 name|offset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|--
@@ -2826,7 +2826,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* uses valid->lookup_count */
+comment|/* uses otvalid->lookup_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -2840,7 +2840,7 @@ name|otv_u_x_y_Ox_sy
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -2934,7 +2934,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -2969,7 +2969,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 condition|)
@@ -2981,7 +2981,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* sets valid->extra1 (valid->lookup_count)    */
+comment|/* sets otvalid->extra1 (valid->lookup_count)    */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -2995,7 +2995,7 @@ name|otv_u_O_O_O_O_x_Onx
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -3083,7 +3083,7 @@ name|table
 operator|+
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -3095,7 +3095,7 @@ name|table
 operator|+
 name|BacktrackClassDef
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|otv_ClassDef_validate
@@ -3104,7 +3104,7 @@ name|table
 operator|+
 name|InputClassDef
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|otv_ClassDef_validate
@@ -3113,7 +3113,7 @@ name|table
 operator|+
 name|LookaheadClassDef
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_LIMIT_CHECK
@@ -3123,27 +3123,27 @@ operator|*
 literal|2
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|++
 expr_stmt|;
 name|func
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|func
 index|[
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 index|]
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 expr_stmt|;
@@ -3176,11 +3176,11 @@ name|table
 operator|+
 name|offset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|otvalid
 operator|->
 name|nesting_level
 operator|--
@@ -3190,7 +3190,7 @@ expr_stmt|;
 block|}
 end_block
 begin_comment
-comment|/* uses valid->lookup_count */
+comment|/* uses otvalid->lookup_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -3204,7 +3204,7 @@ name|otv_u_x_Ox_y_Oy_z_Oz_p_sp
 argument_list|(
 argument|FT_Bytes       table
 argument_list|,
-argument|OTV_Validator  valid
+argument|OTV_Validator  otvalid
 argument_list|)
 end_macro
 begin_block
@@ -3282,7 +3282,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -3335,7 +3335,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -3385,7 +3385,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -3443,7 +3443,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 condition|)

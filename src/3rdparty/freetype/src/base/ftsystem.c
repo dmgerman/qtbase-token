@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2006, 2008, 2009 by                         */
+comment|/*  Copyright 1996-2002, 2006, 2008-2011, 2013 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -404,6 +404,11 @@ end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_DISABLE_STREAM_SUPPORT
+end_ifndef
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -584,7 +589,13 @@ begin_comment
 comment|/*<Return>                                                              */
 end_comment
 begin_comment
-comment|/*    The number of bytes actually read.                                 */
+comment|/*    The number of bytes actually read.  If `count' is zero (this is,   */
+end_comment
+begin_comment
+comment|/*    the function is used for seeking), a non-zero return value         */
+end_comment
+begin_comment
+comment|/*    indicates an error.                                                */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -614,6 +625,20 @@ name|FT_FILE
 modifier|*
 name|file
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|count
+operator|&&
+name|offset
+operator|>
+name|stream
+operator|->
+name|size
+condition|)
+return|return
+literal|1
+return|;
 name|file
 operator|=
 name|STREAM_FILE
@@ -686,8 +711,55 @@ operator|!
 name|stream
 condition|)
 return|return
-name|FT_Err_Invalid_Stream_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Handle
+argument_list|)
 return|;
+name|stream
+operator|->
+name|descriptor
+operator|.
+name|pointer
+operator|=
+name|NULL
+expr_stmt|;
+name|stream
+operator|->
+name|pathname
+operator|.
+name|pointer
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|filepathname
+expr_stmt|;
+name|stream
+operator|->
+name|base
+operator|=
+literal|0
+expr_stmt|;
+name|stream
+operator|->
+name|pos
+operator|=
+literal|0
+expr_stmt|;
+name|stream
+operator|->
+name|read
+operator|=
+name|NULL
+expr_stmt|;
+name|stream
+operator|->
+name|close
+operator|=
+name|NULL
+expr_stmt|;
 name|file
 operator|=
 name|ft_fopen
@@ -714,7 +786,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 block|}
 name|ft_fseek
@@ -735,6 +810,42 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|stream
+operator|->
+name|size
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"FT_Stream_Open:"
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|" opened `%s' but zero-sized\n"
+operator|,
+name|filepathname
+operator|)
+argument_list|)
+expr_stmt|;
+name|ft_fclose
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Stream
+argument_list|)
+return|;
+block|}
 name|ft_fseek
 argument_list|(
 name|file
@@ -751,24 +862,6 @@ operator|.
 name|pointer
 operator|=
 name|file
-expr_stmt|;
-name|stream
-operator|->
-name|pathname
-operator|.
-name|pointer
-operator|=
-operator|(
-name|char
-operator|*
-operator|)
-name|filepathname
-expr_stmt|;
-name|stream
-operator|->
-name|pos
-operator|=
-literal|0
 expr_stmt|;
 name|stream
 operator|->
@@ -807,6 +900,13 @@ name|FT_Err_Ok
 return|;
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* !FT_CONFIG_OPTION_DISABLE_STREAM_SUPPORT */
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef

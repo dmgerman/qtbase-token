@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by            */
+comment|/*  Copyright 2002-2010, 2012-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -215,7 +215,7 @@ operator|=
 name|table
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -304,19 +304,38 @@ block|{
 name|FT_Byte
 modifier|*
 name|p
-init|=
-name|table
-operator|+
-literal|2
 decl_stmt|;
 name|FT_UInt
 name|length
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|table
+operator|+
+literal|2
+operator|+
+literal|2
+operator|>
+name|valid
+operator|->
+name|limit
+condition|)
+name|FT_INVALID_TOO_SHORT
+expr_stmt|;
+name|p
+operator|=
+name|table
+operator|+
+literal|2
+expr_stmt|;
+comment|/* skip format */
+name|length
+operator|=
 name|TT_NEXT_USHORT
 argument_list|(
 name|p
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|table
@@ -388,7 +407,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -564,7 +583,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -595,9 +614,9 @@ argument|NULL
 argument_list|,
 literal|0
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap0_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap0_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap0_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap0_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -884,19 +903,9 @@ block|{
 name|FT_Byte
 modifier|*
 name|p
-init|=
-name|table
-operator|+
-literal|2
 decl_stmt|;
-comment|/* skip format */
 name|FT_UInt
 name|length
-init|=
-name|TT_PEEK_USHORT
-argument_list|(
-name|p
-argument_list|)
 decl_stmt|;
 name|FT_UInt
 name|n
@@ -907,17 +916,45 @@ name|FT_Byte
 modifier|*
 name|keys
 decl_stmt|;
-comment|/* keys table */
+comment|/* keys table     */
 name|FT_Byte
 modifier|*
 name|subs
 decl_stmt|;
-comment|/* sub-headers */
+comment|/* sub-headers    */
 name|FT_Byte
 modifier|*
 name|glyph_ids
 decl_stmt|;
 comment|/* glyph ID array */
+if|if
+condition|(
+name|table
+operator|+
+literal|2
+operator|+
+literal|2
+operator|>
+name|valid
+operator|->
+name|limit
+condition|)
+name|FT_INVALID_TOO_SHORT
+expr_stmt|;
+name|p
+operator|=
+name|table
+operator|+
+literal|2
+expr_stmt|;
+comment|/* skip format */
+name|length
+operator|=
+name|TT_NEXT_USHORT
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|table
@@ -1067,10 +1104,6 @@ decl_stmt|;
 name|FT_Int
 name|delta
 decl_stmt|;
-name|FT_Byte
-modifier|*
-name|ids
-decl_stmt|;
 name|first_code
 operator|=
 name|TT_NEXT_USHORT
@@ -1140,6 +1173,10 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|FT_Byte
+modifier|*
+name|ids
+decl_stmt|;
 name|ids
 operator|=
 name|p
@@ -1239,7 +1276,7 @@ block|}
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1880,7 +1917,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1911,9 +1948,9 @@ argument|NULL
 argument_list|,
 literal|2
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap2_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap2_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap2_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap2_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -2251,7 +2288,7 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -2783,19 +2820,9 @@ block|{
 name|FT_Byte
 modifier|*
 name|p
-init|=
-name|table
-operator|+
-literal|2
 decl_stmt|;
-comment|/* skip format */
 name|FT_UInt
 name|length
-init|=
-name|TT_NEXT_USHORT
-argument_list|(
-name|p
-argument_list|)
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -2819,15 +2846,35 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
-name|length
-operator|<
-literal|16
+name|table
+operator|+
+literal|2
+operator|+
+literal|2
+operator|>
+name|valid
+operator|->
+name|limit
 condition|)
 name|FT_INVALID_TOO_SHORT
+expr_stmt|;
+name|p
+operator|=
+name|table
+operator|+
+literal|2
+expr_stmt|;
+comment|/* skip format */
+name|length
+operator|=
+name|TT_NEXT_USHORT
+argument_list|(
+name|p
+argument_list|)
 expr_stmt|;
 comment|/* in certain fonts, the `length' field is invalid and goes */
 comment|/* out of bound.  We try to correct this here...            */
@@ -2866,6 +2913,14 @@ name|table
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|length
+operator|<
+literal|16
+condition|)
+name|FT_INVALID_TOO_SHORT
+expr_stmt|;
 name|p
 operator|=
 name|table
@@ -4893,7 +4948,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -4924,9 +4979,9 @@ argument|NULL
 argument_list|,
 literal|4
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap4_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap4_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap4_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap4_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -5143,7 +5198,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -5438,7 +5493,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -5469,9 +5524,9 @@ argument|NULL
 argument_list|,
 literal|6
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap6_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap6_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap6_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap6_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -5741,17 +5796,23 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+comment|/* p + num_groups * 12> valid->limit ? */
 if|if
 condition|(
-name|p
-operator|+
 name|num_groups
-operator|*
-literal|12
 operator|>
+call|(
+name|FT_UInt32
+call|)
+argument_list|(
 name|valid
 operator|->
 name|limit
+operator|-
+name|p
+argument_list|)
+operator|/
+literal|12
 condition|)
 name|FT_INVALID_TOO_SHORT
 expr_stmt|;
@@ -5841,18 +5902,31 @@ operator|>=
 name|FT_VALIDATE_TIGHT
 condition|)
 block|{
-if|if
-condition|(
-name|start_id
-operator|+
+name|FT_UInt32
+name|d
+init|=
 name|end
 operator|-
 name|start
+decl_stmt|;
+comment|/* start_id + end - start>= TT_VALID_GLYPH_COUNT( valid ) ? */
+if|if
+condition|(
+name|d
+operator|>
+name|TT_VALID_GLYPH_COUNT
+argument_list|(
+name|valid
+argument_list|)
+operator|||
+name|start_id
 operator|>=
 name|TT_VALID_GLYPH_COUNT
 argument_list|(
 name|valid
 argument_list|)
+operator|-
+name|d
 condition|)
 name|FT_INVALID_GLYPH_ID
 expr_stmt|;
@@ -6041,7 +6115,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -6374,7 +6448,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -6405,9 +6479,9 @@ argument|NULL
 argument_list|,
 literal|8
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap8_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap8_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap8_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap8_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -6568,13 +6642,20 @@ operator|-
 name|table
 argument_list|)
 operator|||
+comment|/* length< 20 + count * 2 ? */
 name|length
 operator|<
 literal|20
-operator|+
-name|count
-operator|*
+operator|||
+operator|(
+name|length
+operator|-
+literal|20
+operator|)
+operator|/
 literal|2
+operator|<
+name|count
 condition|)
 name|FT_INVALID_TOO_SHORT
 expr_stmt|;
@@ -6623,7 +6704,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -6896,7 +6977,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -6927,9 +7008,9 @@ argument|NULL
 argument_list|,
 literal|10
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap10_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap10_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap10_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap10_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -7109,7 +7190,7 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -7193,12 +7274,19 @@ operator|-
 name|table
 argument_list|)
 operator|||
+comment|/* length< 16 + 12 * num_groups ? */
 name|length
 operator|<
 literal|16
-operator|+
+operator|||
+operator|(
+name|length
+operator|-
+literal|16
+operator|)
+operator|/
 literal|12
-operator|*
+operator|<
 name|num_groups
 condition|)
 name|FT_INVALID_TOO_SHORT
@@ -7282,18 +7370,31 @@ operator|>=
 name|FT_VALIDATE_TIGHT
 condition|)
 block|{
-if|if
-condition|(
-name|start_id
-operator|+
+name|FT_UInt32
+name|d
+init|=
 name|end
 operator|-
 name|start
+decl_stmt|;
+comment|/* start_id + end - start>= TT_VALID_GLYPH_COUNT( valid ) ? */
+if|if
+condition|(
+name|d
+operator|>
+name|TT_VALID_GLYPH_COUNT
+argument_list|(
+name|valid
+argument_list|)
+operator|||
+name|start_id
 operator|>=
 name|TT_VALID_GLYPH_COUNT
 argument_list|(
 name|valid
 argument_list|)
+operator|-
+name|d
 condition|)
 name|FT_INVALID_GLYPH_ID
 expr_stmt|;
@@ -7305,7 +7406,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -7365,12 +7466,6 @@ operator|->
 name|cur_charcode
 operator|+
 literal|1
-expr_stmt|;
-name|n
-operator|=
-name|cmap
-operator|->
-name|cur_group
 expr_stmt|;
 for|for
 control|(
@@ -7974,7 +8069,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -8005,9 +8100,9 @@ argument|NULL
 argument_list|,
 literal|12
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap12_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap12_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap12_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap12_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -8187,7 +8282,7 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -8271,12 +8366,19 @@ operator|-
 name|table
 argument_list|)
 operator|||
+comment|/* length< 16 + 12 * num_groups ? */
 name|length
 operator|<
 literal|16
-operator|+
+operator|||
+operator|(
+name|length
+operator|-
+literal|16
+operator|)
+operator|/
 literal|12
-operator|*
+operator|<
 name|num_groups
 condition|)
 name|FT_INVALID_TOO_SHORT
@@ -8379,7 +8481,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -8439,12 +8541,6 @@ operator|->
 name|cur_charcode
 operator|+
 literal|1
-expr_stmt|;
-name|n
-operator|=
-name|cmap
-operator|->
-name|cur_group
 expr_stmt|;
 for|for
 control|(
@@ -8748,7 +8844,6 @@ name|cmap
 decl_stmt|;
 comment|/* if `char_code' is not in any group, then `mid' is */
 comment|/* the group nearest to `char_code'                  */
-comment|/*                                                   */
 if|if
 condition|(
 name|char_code
@@ -9018,7 +9113,7 @@ name|p
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -9049,9 +9144,9 @@ argument|NULL
 argument_list|,
 literal|13
 argument_list|,
-argument|(TT_CMap_ValidateFunc)   tt_cmap13_validate
+argument|(TT_CMap_ValidateFunc)tt_cmap13_validate
 argument_list|,
-argument|(TT_CMap_Info_GetFunc)   tt_cmap13_get_info
+argument|(TT_CMap_Info_GetFunc)tt_cmap13_get_info
 argument_list|)
 end_macro
 begin_endif
@@ -9355,7 +9450,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -9451,7 +9546,7 @@ operator|=
 name|NULL
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -9475,27 +9570,49 @@ block|{
 name|FT_Byte
 modifier|*
 name|p
-init|=
-name|table
-operator|+
-literal|2
 decl_stmt|;
 name|FT_ULong
 name|length
-init|=
-name|TT_NEXT_ULONG
-argument_list|(
-name|p
-argument_list|)
 decl_stmt|;
 name|FT_ULong
 name|num_selectors
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|table
+operator|+
+literal|2
+operator|+
+literal|4
+operator|+
+literal|4
+operator|>
+name|valid
+operator|->
+name|limit
+condition|)
+name|FT_INVALID_TOO_SHORT
+expr_stmt|;
+name|p
+operator|=
+name|table
+operator|+
+literal|2
+expr_stmt|;
+name|length
+operator|=
 name|TT_NEXT_ULONG
 argument_list|(
 name|p
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|num_selectors
+operator|=
+name|TT_NEXT_ULONG
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|length
@@ -9511,12 +9628,19 @@ operator|-
 name|table
 argument_list|)
 operator|||
+comment|/* length< 10 + 11 * num_selectors ? */
 name|length
 operator|<
 literal|10
-operator|+
+operator|||
+operator|(
+name|length
+operator|-
+literal|10
+operator|)
+operator|/
 literal|11
-operator|*
+operator|<
 name|num_selectors
 condition|)
 name|FT_INVALID_TOO_SHORT
@@ -9628,17 +9752,23 @@ name|lastBase
 init|=
 literal|0
 decl_stmt|;
+comment|/* defp + numRanges * 4> valid->limit ? */
 if|if
 condition|(
-name|defp
-operator|+
 name|numRanges
-operator|*
-literal|4
 operator|>
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|valid
 operator|->
 name|limit
+operator|-
+name|defp
+argument_list|)
+operator|/
+literal|4
 condition|)
 name|FT_INVALID_TOO_SHORT
 expr_stmt|;
@@ -9732,12 +9862,12 @@ name|lastUni
 init|=
 literal|0
 decl_stmt|;
+comment|/* numMappings * 4> (FT_ULong)( valid->limit - ndp ) ? */
 if|if
 condition|(
 name|numMappings
-operator|*
-literal|4
 operator|>
+operator|(
 call|(
 name|FT_ULong
 call|)
@@ -9748,6 +9878,9 @@ name|limit
 operator|-
 name|ndp
 argument_list|)
+operator|)
+operator|/
+literal|4
 condition|)
 name|FT_INVALID_TOO_SHORT
 expr_stmt|;
@@ -9826,7 +9959,7 @@ block|}
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -9932,7 +10065,7 @@ operator|=
 literal|0xFFFFFFFFUL
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -11162,10 +11295,6 @@ argument_list|,
 name|variantSelector
 argument_list|)
 decl_stmt|;
-name|FT_UInt32
-modifier|*
-name|ret
-decl_stmt|;
 name|FT_Int
 name|i
 decl_stmt|;
@@ -11288,6 +11417,10 @@ decl_stmt|,
 name|ni
 decl_stmt|,
 name|k
+decl_stmt|;
+name|FT_UInt32
+modifier|*
+name|ret
 decl_stmt|;
 name|p
 operator|=
@@ -11820,6 +11953,8 @@ block|{
 name|TT_CMap_Class
 modifier|*
 name|clazz
+init|=
+name|NULL
 decl_stmt|;
 name|TT_CMap_ClassRec
 modifier|*
@@ -11850,7 +11985,8 @@ value|i++;
 include|#
 directive|include
 file|"ttcmapc.h"
-comment|/* allocate enough space for both the pointers +terminator and the class instances */
+comment|/* allocate enough space for both the pointers */
+comment|/* plus terminator and the class instances     */
 if|if
 condition|(
 name|FT_ALLOC
@@ -11889,14 +12025,11 @@ operator|*
 operator|)
 operator|(
 operator|(
-operator|(
 name|char
 operator|*
 operator|)
 name|clazz
-operator|)
 operator|+
-operator|(
 sizeof|sizeof
 argument_list|(
 operator|*
@@ -11907,7 +12040,6 @@ operator|(
 name|i
 operator|+
 literal|1
-operator|)
 operator|)
 operator|)
 expr_stmt|;
@@ -11925,7 +12057,7 @@ parameter_list|(
 name|a
 parameter_list|)
 define|\
-value|FT_Init_Class_##a(&recs[i]); \     clazz[i] =&recs[i];         \     i++;
+value|FT_Init_Class_ ## a(&recs[i] );  \     clazz[i] =&recs[i];              \     i++;
 include|#
 directive|include
 file|"ttcmapc.h"
@@ -12020,6 +12152,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|p
+operator|||
 name|p
 operator|+
 literal|4
@@ -12027,7 +12162,10 @@ operator|>
 name|limit
 condition|)
 return|return
-name|SFNT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 return|;
 comment|/* only recognize format 0 */
 if|if
@@ -12040,10 +12178,6 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|p
-operator|-=
-literal|2
-expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
@@ -12053,12 +12187,17 @@ operator|,
 name|TT_PEEK_USHORT
 argument_list|(
 name|p
+operator|-
+literal|2
 argument_list|)
 operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 return|;
 block|}
 name|num_cmaps
@@ -12169,7 +12308,7 @@ modifier|*
 specifier|volatile
 name|pclazz
 init|=
-name|FT_TT_CMAP_CLASSES_GET
+name|TT_CMAP_CLASSES_GET
 decl_stmt|;
 name|TT_CMap_Class
 specifier|volatile
@@ -12207,7 +12346,7 @@ specifier|volatile
 name|FT_Error
 name|error
 init|=
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|ft_validator_init
 argument_list|(
@@ -12241,13 +12380,6 @@ if|if
 condition|(
 name|ft_setjmp
 argument_list|(
-operator|*
-operator|(
-operator|(
-name|ft_jmp_buf
-operator|*
-operator|)
-operator|&
 name|FT_VALIDATOR
 argument_list|(
 operator|&
@@ -12255,7 +12387,6 @@ name|valid
 argument_list|)
 operator|->
 name|jump_buffer
-operator|)
 argument_list|)
 operator|==
 literal|0
@@ -12292,9 +12423,9 @@ block|{
 name|FT_CMap
 name|ttcmap
 decl_stmt|;
-comment|/* It might make sense to store the single variation selector */
-comment|/* cmap somewhere special.  But it would have to be in the    */
-comment|/* public FT_FaceRec, and we can't change that.               */
+comment|/* It might make sense to store the single variation         */
+comment|/* selector cmap somewhere special.  But it would have to be */
+comment|/* in the public FT_FaceRec, and we can't change that.       */
 if|if
 condition|(
 operator|!
@@ -12367,7 +12498,7 @@ block|}
 block|}
 block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block

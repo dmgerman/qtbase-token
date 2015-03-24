@@ -130,7 +130,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -222,7 +222,7 @@ name|table
 operator|+
 name|DeviceTableOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -264,7 +264,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|,
 name|FT_Int
 name|isItalic
@@ -350,7 +350,7 @@ name|table
 operator|+
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|cnt
 argument_list|)
@@ -394,7 +394,7 @@ name|table
 operator|+
 name|DeviceTableOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -433,7 +433,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -523,7 +523,7 @@ name|table
 operator|+
 name|DeviceTableOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -569,7 +569,7 @@ name|table
 operator|+
 name|DeviceTableOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -587,7 +587,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -662,7 +662,7 @@ name|table
 operator|+
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|cnt
 argument_list|)
@@ -715,7 +715,7 @@ name|table
 operator|+
 name|MKRecordOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -755,7 +755,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -821,7 +821,7 @@ name|table
 operator|+
 name|MathItalicsCorrectionInfo
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|TRUE
 argument_list|)
@@ -837,7 +837,7 @@ name|table
 operator|+
 name|MathTopAccentAttachment
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|FALSE
 argument_list|)
@@ -858,7 +858,7 @@ name|table
 operator|+
 name|ExtendedShapeCoverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -877,7 +877,7 @@ name|table
 operator|+
 name|MathKernInfo
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_EXIT
@@ -915,7 +915,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -989,7 +989,7 @@ name|table
 operator|+
 name|DeviceTableOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 for|for
@@ -1020,7 +1020,7 @@ if|if
 condition|(
 name|gid
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -1047,7 +1047,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1129,7 +1129,7 @@ if|if
 condition|(
 name|gid
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -1156,7 +1156,7 @@ name|table
 operator|+
 name|GlyphAssembly
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 comment|/* OTV_EXIT; */
@@ -1172,7 +1172,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1281,7 +1281,7 @@ name|table
 operator|+
 name|VCoverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|vcnt
 argument_list|)
@@ -1301,7 +1301,7 @@ name|table
 operator|+
 name|HCoverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|hcnt
 argument_list|)
@@ -1336,7 +1336,7 @@ name|table
 operator|+
 name|Offset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -1370,7 +1370,7 @@ name|table
 operator|+
 name|Offset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -1400,7 +1400,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->glyph_count */
+comment|/* sets otvalid->glyph_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1422,13 +1422,13 @@ end_macro
 begin_block
 block|{
 name|OTV_ValidatorRec
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|OTV_Validator
-name|valid
+name|otvalid
 init|=
 operator|&
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -1442,7 +1442,7 @@ name|MathGlyphInfo
 decl_stmt|,
 name|MathVariants
 decl_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|root
 operator|=
@@ -1495,7 +1495,7 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 operator|=
@@ -1507,7 +1507,7 @@ name|table
 operator|+
 name|MathConstants
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|otv_MathGlyphInfo_validate
@@ -1516,7 +1516,7 @@ name|table
 operator|+
 name|MathGlyphInfo
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|otv_MathVariants_validate
@@ -1525,7 +1525,7 @@ name|table
 operator|+
 name|MathVariants
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|FT_TRACE4

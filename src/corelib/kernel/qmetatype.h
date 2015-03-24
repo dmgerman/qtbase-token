@@ -7047,23 +7047,21 @@ block|}
 block|;     }
 expr_stmt|;
 end_expr_stmt
-begin_function_decl
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
 name|char
 name|qt_getEnumMetaObject
-parameter_list|(
-modifier|...
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|char
-name|qt_getEnumMetaObject
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_comment
-comment|// Workaround bugs in MSVC.
-end_comment
+argument_list|(
+specifier|const
+name|T
+operator|&
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -7080,9 +7078,10 @@ operator|&
 name|declval
 argument_list|()
 block|;
-comment|// If the type was declared with Q_ENUM, the friend qt_getEnumMetaObject(T) declared in the
+comment|// If the type was declared with Q_ENUM, the friend qt_getEnumMetaObject() declared in the
 comment|// Q_ENUM macro will be chosen by ADL, and the return type will be QMetaObject*.
-comment|// Otherwise the chosen overload will be qt_getEnumMetaObject(...) which returne 'char'
+comment|// Otherwise the chosen overload will be the catch all template function
+comment|// qt_getEnumMetaObject(T) which returns 'char'
 block|enum
 block|{
 name|Value

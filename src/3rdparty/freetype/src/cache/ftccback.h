@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006 by                                          */
+comment|/*  Copyright 2004-2006, 2011, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -215,6 +215,8 @@ argument_list|,
 argument|FT_Pointer  gquery
 argument_list|,
 argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -235,6 +237,8 @@ argument_list|,
 argument|FT_Pointer  gquery
 argument_list|,
 argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -304,11 +308,6 @@ begin_empty_stmt
 DECL|variable|ftc_cache_done
 empty_stmt|;
 end_empty_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-end_ifndef
 begin_macro
 name|FT_LOCAL
 argument_list|(
@@ -326,10 +325,6 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif

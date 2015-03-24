@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2010 by             */
+comment|/*  Copyright 2000-2006, 2010, 2012-2014 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -153,12 +153,20 @@ decl_stmt|;
 name|FT_Outline
 modifier|*
 name|outline
-init|=
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|slot
+condition|)
+return|return;
+name|outline
+operator|=
 operator|&
 name|slot
 operator|->
 name|outline
-decl_stmt|;
+expr_stmt|;
 comment|/* only oblique outline glyphs */
 if|if
 condition|(
@@ -188,7 +196,7 @@ name|transform
 operator|.
 name|xy
 operator|=
-literal|0x06000L
+literal|0x0366AL
 expr_stmt|;
 name|transform
 operator|.
@@ -216,7 +224,7 @@ begin_comment
 comment|/****                                                                 ****/
 end_comment
 begin_comment
-comment|/****   EXPERIMENTAL EMBOLDENING/OUTLINING SUPPORT                    ****/
+comment|/****   EXPERIMENTAL EMBOLDENING SUPPORT                              ****/
 end_comment
 begin_comment
 comment|/****                                                                 ****/
@@ -247,16 +255,8 @@ begin_block
 block|{
 name|FT_Library
 name|library
-init|=
-name|slot
-operator|->
-name|library
 decl_stmt|;
 name|FT_Face
-name|face
-init|=
-name|slot
-operator|->
 name|face
 decl_stmt|;
 name|FT_Error
@@ -267,6 +267,24 @@ name|xstr
 decl_stmt|,
 name|ystr
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|slot
+condition|)
+return|return;
+name|library
+operator|=
+name|slot
+operator|->
+name|library
+expr_stmt|;
+name|face
+operator|=
+name|slot
+operator|->
+name|face
+expr_stmt|;
 if|if
 condition|(
 name|slot
@@ -314,12 +332,7 @@ name|format
 operator|==
 name|FT_GLYPH_FORMAT_OUTLINE
 condition|)
-block|{
-comment|/* ignore error */
-operator|(
-name|void
-operator|)
-name|FT_Outline_Embolden
+name|FT_Outline_EmboldenXY
 argument_list|(
 operator|&
 name|slot
@@ -327,30 +340,12 @@ operator|->
 name|outline
 argument_list|,
 name|xstr
+argument_list|,
+name|ystr
 argument_list|)
 expr_stmt|;
-comment|/* this is more than enough for most glyphs; if you need accurate */
-comment|/* values, you have to call FT_Outline_Get_CBox                   */
-name|xstr
-operator|=
-name|xstr
-operator|*
-literal|2
-expr_stmt|;
-name|ystr
-operator|=
-name|xstr
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|slot
-operator|->
-name|format
-operator|==
-name|FT_GLYPH_FORMAT_BITMAP
-condition|)
+else|else
+comment|/* slot->format == FT_GLYPH_FORMAT_BITMAP */
 block|{
 comment|/* round to full pixels */
 name|xstr
@@ -499,14 +494,6 @@ name|slot
 operator|->
 name|metrics
 operator|.
-name|horiBearingY
-operator|+=
-name|ystr
-expr_stmt|;
-name|slot
-operator|->
-name|metrics
-operator|.
 name|horiAdvance
 operator|+=
 name|xstr
@@ -515,17 +502,7 @@ name|slot
 operator|->
 name|metrics
 operator|.
-name|vertBearingX
-operator|-=
-name|xstr
-operator|/
-literal|2
-expr_stmt|;
-name|slot
-operator|->
-name|metrics
-operator|.
-name|vertBearingY
+name|vertAdvance
 operator|+=
 name|ystr
 expr_stmt|;
@@ -533,7 +510,7 @@ name|slot
 operator|->
 name|metrics
 operator|.
-name|vertAdvance
+name|horiBearingY
 operator|+=
 name|ystr
 expr_stmt|;

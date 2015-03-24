@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006 by                               */
+comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2010, 2013 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -270,11 +270,11 @@ name|FTC_Node
 name|nodes_list
 decl_stmt|;
 DECL|member|max_weight
-name|FT_ULong
+name|FT_Offset
 name|max_weight
 decl_stmt|;
 DECL|member|cur_weight
-name|FT_ULong
+name|FT_Offset
 name|cur_weight
 decl_stmt|;
 DECL|member|num_nodes
@@ -461,7 +461,7 @@ parameter_list|(
 name|q
 parameter_list|)
 define|\
-value|( FTC_FACE_ID_HASH( (q)->face_id ) +                     \       (q)->width + (q)->height*7 +                           \       ( (q)->pixel ? 0 : ( (q)->x_res*33 ^ (q)->y_res*61 ) ) )
+value|( _FTC_FACE_ID_HASH( (q)->face_id ) +                     \       (q)->width + (q)->height*7 +                           \       ( (q)->pixel ? 0 : ( (q)->x_res*33 ^ (q)->y_res*61 ) ) )
 end_define
 begin_comment
 comment|/* */

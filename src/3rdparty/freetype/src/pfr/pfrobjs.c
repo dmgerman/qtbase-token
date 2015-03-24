@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008 by                  */
+comment|/*  Copyright 2002-2008, 2010-2011, 2013, 2014 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -81,6 +81,16 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_DEBUG_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_CALC_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_TRUETYPE_IDS_H
 end_include
 begin_include
 include|#
@@ -248,6 +258,13 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"PFR driver\n"
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* load the header and check it */
 name|error
 operator|=
@@ -280,16 +297,19 @@ name|header
 argument_list|)
 condition|)
 block|{
-name|FT_TRACE4
+name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"pfr_face_init: not a valid PFR font\n"
+literal|"  not a PFR font\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -357,7 +377,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -463,7 +486,7 @@ expr_stmt|;
 name|pfrface
 operator|->
 name|face_flags
-operator|=
+operator||=
 name|FT_FACE_FLAG_SCALABLE
 expr_stmt|;
 comment|/* if all characters point to the same gps_offset 0, we */
@@ -509,6 +532,15 @@ name|phy_font
 operator|->
 name|num_chars
 condition|)
+block|{
+if|if
+condition|(
+name|phy_font
+operator|->
+name|num_strikes
+operator|>
+literal|0
+condition|)
 name|pfrface
 operator|->
 name|face_flags
@@ -516,6 +548,27 @@ operator|=
 literal|0
 expr_stmt|;
 comment|/* not scalable */
+else|else
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"pfr_face_init: font doesn't contain glyphs\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+block|}
 block|}
 if|if
 condition|(
@@ -1003,13 +1056,13 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|3
+name|TT_PLATFORM_MICROSOFT
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|1
+name|TT_MS_ID_UNICODE_CS
 expr_stmt|;
 name|charmap
 operator|.
@@ -1017,6 +1070,8 @@ name|encoding
 operator|=
 name|FT_ENCODING_UNICODE
 expr_stmt|;
+name|error
+operator|=
 name|FT_CMap_New
 argument_list|(
 operator|&
@@ -1234,6 +1289,15 @@ decl_stmt|;
 name|FT_ULong
 name|gps_offset
 decl_stmt|;
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"pfr_slot_load: glyph index %d\n"
+operator|,
+name|gindex
+operator|)
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|gindex
@@ -1259,7 +1323,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PFR_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1311,7 +1378,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PFR_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1806,7 +1876,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PFR_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|PFR_PhyFont
 name|phy_font
@@ -1995,14 +2065,10 @@ decl_stmt|;
 name|FT_UInt
 name|power
 init|=
-operator|(
-name|FT_UInt
-operator|)
-name|ft_highpow2
+literal|1
+operator|<<
+name|FT_MSB
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|count
 argument_list|)
 decl_stmt|;

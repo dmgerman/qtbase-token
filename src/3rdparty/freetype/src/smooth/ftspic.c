@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2010, 2012, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -67,6 +67,11 @@ include|#
 directive|include
 file|"ftspic.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"ftsmerrs.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -81,6 +86,7 @@ name|FT_Init_Class_ft_grays_raster
 parameter_list|(
 name|FT_Raster_Funcs
 modifier|*
+name|funcs
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -176,6 +182,8 @@ decl_stmt|;
 name|SmoothPIC
 modifier|*
 name|container
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -184,7 +192,7 @@ name|library
 operator|->
 name|memory
 decl_stmt|;
-comment|/* since this function also serve smooth_lcd and smooth_lcdv renderers,         it implements reference counting */
+comment|/* since this function also serve smooth_lcd and smooth_lcdv renderers,        it implements reference counting */
 if|if
 condition|(
 name|pic_container
@@ -251,23 +259,14 @@ name|ref_count
 operator|=
 literal|1
 expr_stmt|;
-comment|/* initialize pointer table - this is how the module usually expects this data */
+comment|/* initialize pointer table -                       */
+comment|/* this is how the module usually expects this data */
 name|FT_Init_Class_ft_grays_raster
 argument_list|(
 operator|&
 name|container
 operator|->
 name|ft_grays_raster
-argument_list|)
-expr_stmt|;
-comment|/*Exit:*/
-if|if
-condition|(
-name|error
-condition|)
-name|ft_smooth_renderer_class_pic_free
-argument_list|(
-name|library
 argument_list|)
 expr_stmt|;
 return|return
@@ -279,8 +278,8 @@ begin_comment
 comment|/* re-route these init and free functions to the above functions */
 end_comment
 begin_function
-DECL|function|ft_smooth_lcd_renderer_class_pic_init
 name|FT_Error
+DECL|function|ft_smooth_lcd_renderer_class_pic_init
 name|ft_smooth_lcd_renderer_class_pic_init
 parameter_list|(
 name|FT_Library
@@ -296,8 +295,8 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|ft_smooth_lcd_renderer_class_pic_free
 name|void
+DECL|function|ft_smooth_lcd_renderer_class_pic_free
 name|ft_smooth_lcd_renderer_class_pic_free
 parameter_list|(
 name|FT_Library
@@ -312,8 +311,8 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|ft_smooth_lcdv_renderer_class_pic_init
 name|FT_Error
+DECL|function|ft_smooth_lcdv_renderer_class_pic_init
 name|ft_smooth_lcdv_renderer_class_pic_init
 parameter_list|(
 name|FT_Library
@@ -329,8 +328,8 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|ft_smooth_lcdv_renderer_class_pic_free
 name|void
+DECL|function|ft_smooth_lcdv_renderer_class_pic_free
 name|ft_smooth_lcdv_renderer_class_pic_free
 parameter_list|(
 name|FT_Library

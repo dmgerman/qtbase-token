@@ -97,6 +97,10 @@ name|ObjectEvents
 operator|=
 literal|0x01000
 block|,
+name|GestureEvents
+operator|=
+literal|0x02000
+block|,
 name|AllEvents
 operator|=
 literal|0xFFFFF

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2007, 2009 by                        */
+comment|/*  Copyright 2002-2005, 2007, 2009, 2010, 2013, 2014 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -156,7 +156,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -306,7 +306,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -600,7 +603,7 @@ name|header
 operator|->
 name|signature2
 operator|!=
-literal|0x0d0a
+literal|0x0D0A
 condition|)
 comment|/* CR/LF  */
 block|{
@@ -756,7 +759,10 @@ operator|>=
 name|num_log_fonts
 condition|)
 return|return
-name|PFR_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -1126,7 +1132,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -1199,7 +1208,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|PFR_CHECK
 argument_list|(
@@ -1496,7 +1505,10 @@ name|Too_Short
 label|:
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -1536,7 +1548,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -1639,11 +1651,13 @@ decl_stmt|;
 name|FT_Int
 modifier|*
 name|snaps
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -1762,7 +1776,10 @@ name|Too_Short
 label|:
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -1801,11 +1818,13 @@ begin_block
 block|{
 name|PFR_KernItem
 name|item
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -2157,7 +2176,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -2253,7 +2275,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_String
 modifier|*
@@ -2976,10 +2998,6 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
-name|q
-operator|+=
-literal|16
-expr_stmt|;
 break|break;
 case|case
 literal|3
@@ -3408,7 +3426,10 @@ name|Too_Short
 label|:
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(

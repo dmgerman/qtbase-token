@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2007, 2009 by                                          */
+comment|/*  Copyright 2002, 2007, 2009, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -50,6 +50,16 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
+end_include
+begin_include
+include|#
+directive|include
 file|"pfrcmap.h"
 end_include
 begin_include
@@ -72,7 +82,9 @@ end_macro
 begin_macro
 name|pfr_cmap_init
 argument_list|(
-argument|PFR_CMap  cmap
+argument|PFR_CMap    cmap
+argument_list|,
+argument|FT_Pointer  pointer
 argument_list|)
 end_macro
 begin_block
@@ -80,7 +92,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|PFR_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|PFR_Face
 name|face
@@ -93,6 +105,11 @@ argument_list|(
 name|cmap
 argument_list|)
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|pointer
+argument_list|)
+expr_stmt|;
 name|cmap
 operator|->
 name|num_chars
@@ -160,7 +177,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -233,12 +253,6 @@ name|cmap
 operator|->
 name|num_chars
 decl_stmt|;
-name|FT_UInt
-name|mid
-decl_stmt|;
-name|PFR_Char
-name|gchar
-decl_stmt|;
 while|while
 condition|(
 name|min
@@ -246,6 +260,12 @@ operator|<
 name|max
 condition|)
 block|{
+name|PFR_Char
+name|gchar
+decl_stmt|;
+name|FT_UInt
+name|mid
+decl_stmt|;
 name|mid
 operator|=
 name|min

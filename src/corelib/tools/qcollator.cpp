@@ -516,16 +516,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QCollator::compare(const QString&s1, const QString&s2) const      Compares \a s1 with \a s2. Returns -1, 0 or 1 depending on whether \a s1 is     smaller, equal or larger than \a s2.  */
+comment|/*!     \fn int QCollator::compare(const QString&s1, const QString&s2) const      Compares \a s1 with \a s2. Returns an integer less than, equal to, or greater than zero     depending on whether \a s1 is smaller, equal or larger than \a s2.  */
 end_comment
 begin_comment
 comment|/*!     \fn bool QCollator::operator()(const QString&s1, const QString&s2) const     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn int QCollator::compare(const QStringRef&s1, const QStringRef&s2) const     \overload      Compares \a s1 with \a s2. Returns -1, 0 or 1 depending on whether \a s1 is     smaller, equal or larger than \a s2.  */
+comment|/*!     \fn int QCollator::compare(const QStringRef&s1, const QStringRef&s2) const     \overload      Compares \a s1 with \a s2. Returns an integer less than, equal to, or greater than zero     depending on whether \a s1 is smaller, equal or larger than \a s2.  */
 end_comment
 begin_comment
-comment|/*!     \fn int QCollator::compare(const QChar *s1, int len1, const QChar *s2, int len2) const     \overload      Compares \a s1 with \a s2. \a len1 and \a len2 specify the length of the     QChar arrays pointer to by \a s1 and \a s2.      Returns -1, 0 or 1 depending on whether \a s1 is smaller, equal or larger than \a s2.  */
+comment|/*!     \fn int QCollator::compare(const QChar *s1, int len1, const QChar *s2, int len2) const     \overload      Compares \a s1 with \a s2. \a len1 and \a len2 specify the length of the     QChar arrays pointer to by \a s1 and \a s2.      Returns an integer less than, equal to, or greater than zero     depending on whether \a s1 is smaller, equal or larger than \a s2. */
 end_comment
 begin_comment
 comment|/*!     \fn QCollatorSortKey QCollator::sortKey(const QString&string) const      Returns a sortKey for \a string.      Creating the sort key is usually somewhat slower, than using the compare()     methods directly. But if the string is compared repeatedly (e.g. when sorting     a whole list of strings), it's usually faster to create the sort keys for each     string and then sort using the keys.  */

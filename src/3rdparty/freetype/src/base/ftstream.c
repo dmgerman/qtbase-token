@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2004, 2005, 2006, 2008, 2009 by             */
+comment|/*  Copyright 2000-2002, 2004-2006, 2008-2011, 2013 by                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -247,7 +247,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -278,7 +281,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -321,7 +327,10 @@ operator|<
 literal|0
 condition|)
 return|return
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 return|;
 return|return
 name|FT_Stream_Seek
@@ -452,7 +461,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 return|;
 block|}
 if|if
@@ -539,7 +551,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -844,6 +859,41 @@ name|stream
 operator|->
 name|memory
 decl_stmt|;
+comment|/* simple sanity check */
+if|if
+condition|(
+name|count
+operator|>
+name|stream
+operator|->
+name|size
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"FT_Stream_EnterFrame:"
+literal|" frame size (%lu) larger than stream size (%lu)\n"
+operator|,
+name|count
+operator|,
+name|stream
+operator|->
+name|size
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 ifdef|#
 directive|ifdef
 name|FT_DEBUG_MEMORY
@@ -940,7 +990,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 block|}
 name|stream
@@ -983,13 +1036,13 @@ name|size
 operator|||
 name|stream
 operator|->
-name|pos
-operator|+
-name|count
-operator|>
+name|size
+operator|-
 name|stream
 operator|->
-name|size
+name|pos
+operator|<
+name|count
 condition|)
 block|{
 name|FT_ERROR
@@ -1012,7 +1065,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1200,11 +1256,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Short
+argument|FT_UShort
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_GetShort
+name|FT_Stream_GetUShort
 argument_list|(
 argument|FT_Stream  stream
 argument_list|)
@@ -1249,7 +1305,7 @@ name|limit
 condition|)
 name|result
 operator|=
-name|FT_NEXT_SHORT
+name|FT_NEXT_USHORT
 argument_list|(
 name|p
 argument_list|)
@@ -1269,11 +1325,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Short
+argument|FT_UShort
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_GetShortLE
+name|FT_Stream_GetUShortLE
 argument_list|(
 argument|FT_Stream  stream
 argument_list|)
@@ -1318,7 +1374,7 @@ name|limit
 condition|)
 name|result
 operator|=
-name|FT_NEXT_SHORT_LE
+name|FT_NEXT_USHORT_LE
 argument_list|(
 name|p
 argument_list|)
@@ -1338,11 +1394,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_GetOffset
+name|FT_Stream_GetUOffset
 argument_list|(
 argument|FT_Stream  stream
 argument_list|)
@@ -1387,7 +1443,7 @@ name|limit
 condition|)
 name|result
 operator|=
-name|FT_NEXT_OFF3
+name|FT_NEXT_UOFF3
 argument_list|(
 name|p
 argument_list|)
@@ -1407,11 +1463,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_GetLong
+name|FT_Stream_GetULong
 argument_list|(
 argument|FT_Stream  stream
 argument_list|)
@@ -1456,7 +1512,7 @@ name|limit
 condition|)
 name|result
 operator|=
-name|FT_NEXT_LONG
+name|FT_NEXT_ULONG
 argument_list|(
 name|p
 argument_list|)
@@ -1476,11 +1532,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_GetLongLE
+name|FT_Stream_GetULongLE
 argument_list|(
 argument|FT_Stream  stream
 argument_list|)
@@ -1525,7 +1581,7 @@ name|limit
 condition|)
 name|result
 operator|=
-name|FT_NEXT_LONG_LE
+name|FT_NEXT_ULONG_LE
 argument_list|(
 name|p
 argument_list|)
@@ -1645,7 +1701,10 @@ label|:
 operator|*
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -1672,11 +1731,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Short
+argument|FT_UShort
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_ReadShort
+name|FT_Stream_ReadUShort
 argument_list|(
 argument|FT_Stream  stream
 argument_list|,
@@ -1778,7 +1837,7 @@ name|p
 condition|)
 name|result
 operator|=
-name|FT_NEXT_SHORT
+name|FT_NEXT_USHORT
 argument_list|(
 name|p
 argument_list|)
@@ -1802,12 +1861,15 @@ label|:
 operator|*
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadShort:"
+literal|"FT_Stream_ReadUShort:"
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -1829,11 +1891,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Short
+argument|FT_UShort
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_ReadShortLE
+name|FT_Stream_ReadUShortLE
 argument_list|(
 argument|FT_Stream  stream
 argument_list|,
@@ -1935,7 +1997,7 @@ name|p
 condition|)
 name|result
 operator|=
-name|FT_NEXT_SHORT_LE
+name|FT_NEXT_USHORT_LE
 argument_list|(
 name|p
 argument_list|)
@@ -1959,12 +2021,15 @@ label|:
 operator|*
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadShortLE:"
+literal|"FT_Stream_ReadUShortLE:"
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -1986,11 +2051,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_ReadOffset
+name|FT_Stream_ReadUOffset
 argument_list|(
 argument|FT_Stream  stream
 argument_list|,
@@ -2092,7 +2157,7 @@ name|p
 condition|)
 name|result
 operator|=
-name|FT_NEXT_OFF3
+name|FT_NEXT_UOFF3
 argument_list|(
 name|p
 argument_list|)
@@ -2116,12 +2181,15 @@ label|:
 operator|*
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadOffset:"
+literal|"FT_Stream_ReadUOffset:"
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -2143,11 +2211,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_ReadLong
+name|FT_Stream_ReadULong
 argument_list|(
 argument|FT_Stream  stream
 argument_list|,
@@ -2249,7 +2317,7 @@ name|p
 condition|)
 name|result
 operator|=
-name|FT_NEXT_LONG
+name|FT_NEXT_ULONG
 argument_list|(
 name|p
 argument_list|)
@@ -2273,12 +2341,15 @@ label|:
 operator|*
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadLong:"
+literal|"FT_Stream_ReadULong:"
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -2300,11 +2371,11 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
-name|FT_Stream_ReadLongLE
+name|FT_Stream_ReadULongLE
 argument_list|(
 argument|FT_Stream  stream
 argument_list|,
@@ -2406,7 +2477,7 @@ name|p
 condition|)
 name|result
 operator|=
-name|FT_NEXT_LONG_LE
+name|FT_NEXT_ULONG_LE
 argument_list|(
 name|p
 argument_list|)
@@ -2430,12 +2501,15 @@ label|:
 operator|*
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"FT_Stream_ReadLongLE:"
+literal|"FT_Stream_ReadULongLE:"
 literal|" invalid i/o; pos = 0x%lx, size = 0x%lx\n"
 operator|,
 name|stream
@@ -2488,12 +2562,23 @@ if|if
 condition|(
 operator|!
 name|fields
-operator|||
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
+if|if
+condition|(
 operator|!
 name|stream
 condition|)
 return|return
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Handle
+argument_list|)
 return|;
 name|cursor
 operator|=
@@ -2590,7 +2675,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Stream_Operation
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Operation
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit

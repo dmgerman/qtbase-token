@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2009 by                         */
+comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2009, 2011 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_OBJECTS_H
 end_include
 begin_include
 include|#
@@ -216,6 +221,8 @@ argument_list|,
 argument|FT_Pointer  ftcgquery
 argument_list|,
 argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_block
@@ -241,6 +248,15 @@ argument_list|(
 name|cache
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|list_changed
+condition|)
+operator|*
+name|list_changed
+operator|=
+name|FALSE
+expr_stmt|;
 return|return
 name|FT_BOOL
 argument_list|(
@@ -263,6 +279,11 @@ argument_list|)
 return|;
 block|}
 end_block
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FTC_INLINE
+end_ifdef
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -276,6 +297,10 @@ argument_list|(
 argument|FTC_GNode   gnode
 argument_list|,
 argument|FTC_GQuery  gquery
+argument_list|,
+argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_block
@@ -290,11 +315,17 @@ argument_list|)
 argument_list|,
 name|gquery
 argument_list|,
-name|NULL
+name|cache
+argument_list|,
+name|list_changed
 argument_list|)
 return|;
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -570,7 +601,7 @@ name|FTC_GCache_Lookup
 argument_list|(
 argument|FTC_GCache   cache
 argument_list|,
-argument|FT_UInt32    hash
+argument|FT_PtrDist   hash
 argument_list|,
 argument|FT_UInt      gindex
 argument_list|,

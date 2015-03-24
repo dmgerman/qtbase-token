@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 1996-2011, 2013 by                                           */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -60,7 +60,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"t1errors.h"
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -71,6 +71,11 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_POSTSCRIPT_AUX_H
+end_include
+begin_include
+include|#
+directive|include
+file|"t1errors.h"
 end_include
 begin_comment
 comment|/*************************************************************************/
@@ -398,7 +403,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -454,10 +459,6 @@ name|stream
 operator|->
 name|limit
 expr_stmt|;
-name|p
-operator|=
-name|start
-expr_stmt|;
 comment|/* Figure out how long the width table is.          */
 comment|/* This info is a little-endian short at offset 99. */
 name|p
@@ -477,7 +478,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|T1_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -550,7 +554,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|T1_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -584,7 +591,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|T1_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -878,11 +888,16 @@ name|parser
 decl_stmt|;
 name|AFM_FontInfo
 name|fi
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|T1_Err_Unknown_File_Format
+name|FT_ERR
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 decl_stmt|;
 name|T1_Font
 name|t1_font
@@ -958,8 +973,6 @@ name|psaux
 expr_stmt|;
 if|if
 condition|(
-name|psaux
-operator|&&
 name|psaux
 operator|->
 name|afm_parser_funcs
@@ -1039,9 +1052,12 @@ block|}
 block|}
 if|if
 condition|(
+name|FT_ERR_EQ
+argument_list|(
 name|error
-operator|==
-name|T1_Err_Unknown_File_Format
+argument_list|,
+name|Unknown_File_Format
+argument_list|)
 condition|)
 block|{
 name|FT_Byte
@@ -1459,7 +1475,10 @@ operator|!
 name|fi
 condition|)
 return|return
-name|T1_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 for|for
 control|(
@@ -1563,7 +1582,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|T1_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block

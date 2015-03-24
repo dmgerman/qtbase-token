@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2012, 2013 by                                          */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -72,10 +72,10 @@ directive|ifndef
 name|FT_CONFIG_OPTION_PIC
 end_ifndef
 begin_define
-DECL|macro|FTPSHINTER_INTERFACE_GET
+DECL|macro|PSHINTER_INTERFACE_GET
 define|#
 directive|define
-name|FTPSHINTER_INTERFACE_GET
+name|PSHINTER_INTERFACE_GET
 value|pshinter_interface
 end_define
 begin_else
@@ -109,14 +109,35 @@ name|GET_PIC
 parameter_list|(
 name|lib
 parameter_list|)
-value|((PSHinterPIC*)((lib)->pic_container.autofit))
+value|( (PSHinterPIC*)( (lib)->pic_container.pshinter ) )
 end_define
 begin_define
 define|#
 directive|define
-name|FTPSHINTER_INTERFACE_GET
-value|(GET_PIC(library)->pshinter_interface)
+name|PSHINTER_INTERFACE_GET
+value|( GET_PIC( library )->pshinter_interface )
 end_define
+begin_comment
+comment|/* see pshpic.c for the implementation */
+end_comment
+begin_function_decl
+name|void
+name|pshinter_module_class_pic_free
+parameter_list|(
+name|FT_Library
+name|library
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|FT_Error
+name|pshinter_module_class_pic_init
+parameter_list|(
+name|FT_Library
+name|library
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

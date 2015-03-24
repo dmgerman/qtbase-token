@@ -98,7 +98,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -180,7 +180,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -202,7 +202,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -261,7 +261,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -330,7 +330,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_EXIT
@@ -347,7 +347,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -430,7 +430,7 @@ name|table
 operator|+
 name|MinCoord
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_SIZE_CHECK
@@ -448,7 +448,7 @@ name|table
 operator|+
 name|MaxCoord
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_LIMIT_CHECK
@@ -500,7 +500,7 @@ name|table
 operator|+
 name|MinCoord
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_SIZE_CHECK
@@ -518,7 +518,7 @@ name|table
 operator|+
 name|MaxCoord
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -536,7 +536,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -619,7 +619,7 @@ name|table
 operator|+
 name|BaseValues
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_SIZE_CHECK
@@ -637,7 +637,7 @@ name|table
 operator|+
 name|DefaultMinMax
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_LIMIT_CHECK
@@ -673,7 +673,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -691,7 +691,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -762,7 +762,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -780,7 +780,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -830,7 +830,7 @@ name|table
 operator|+
 name|BaseTagList
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 comment|/* BaseScriptList */
@@ -843,7 +843,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_EXIT
@@ -868,13 +868,13 @@ end_macro
 begin_block
 block|{
 name|OTV_ValidatorRec
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|OTV_Validator
-name|valid
+name|otvalid
 init|=
 operator|&
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -894,7 +894,7 @@ argument_list|(
 name|VertAxis
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|root
 operator|=
@@ -950,7 +950,7 @@ name|table
 operator|+
 name|HorizAxis
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|OTV_OPTIONAL_OFFSET
@@ -973,7 +973,7 @@ name|table
 operator|+
 name|VertAxis
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|FT_TRACE4

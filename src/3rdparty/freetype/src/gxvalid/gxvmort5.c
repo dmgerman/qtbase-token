@@ -181,7 +181,7 @@ argument|FT_UShort*     stateArray_length_p
 argument_list|,
 argument|FT_UShort*     entryTable_length_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -192,7 +192,7 @@ init|=
 operator|(
 name|GXV_mort_subtable_type5_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -214,7 +214,7 @@ name|stateArray_length_p
 argument_list|,
 name|entryTable_length_p
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|optdata
@@ -274,7 +274,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 comment|/*      * We don't know the range of insertion-glyph-list.      * Set range by whole of state table.      */
@@ -291,7 +291,7 @@ init|=
 operator|(
 name|GXV_mort_subtable_type5_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -381,6 +381,18 @@ literal|" offset runs into EntryTable"
 operator|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|GXV_LOAD_TRACE_VARS
+name|GXV_LIMIT_CHECK
+argument_list|(
+name|count
+operator|*
+literal|2
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 while|while
 condition|(
 name|p
@@ -428,6 +440,8 @@ literal|"\n"
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -452,9 +466,12 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_Bool
 name|setMark
 decl_stmt|;
@@ -473,6 +490,8 @@ decl_stmt|;
 name|FT_Bool
 name|markedInsertBefore
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_Byte
 name|currentInsertCount
 decl_stmt|;
@@ -490,6 +509,9 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|setMark
 operator|=
 name|FT_BOOL
@@ -568,6 +590,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|currentInsertCount
 operator|=
 call|(
@@ -639,7 +663,7 @@ name|table
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -664,7 +688,7 @@ name|table
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -684,7 +708,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -713,7 +737,7 @@ argument_list|(
 name|GXV_MORT_SUBTABLE_TYPE5_HEADER_SIZE
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -721,7 +745,7 @@ name|optdata
 operator|=
 name|et
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -729,7 +753,7 @@ name|optdata_load_func
 operator|=
 name|NULL
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -737,7 +761,7 @@ name|subtable_setup_func
 operator|=
 name|gxv_mort_subtable_type5_subtable_setup
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -745,7 +769,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_ULONG
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -759,7 +783,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

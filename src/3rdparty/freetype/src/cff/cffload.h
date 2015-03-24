@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2007, 2008 by                         */
+comment|/*  Copyright 1996-2001, 2002, 2003, 2007, 2008, 2010 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -68,11 +68,6 @@ include|#
 directive|include
 file|"cfftypes.h"
 end_include
-begin_include
-include|#
-directive|include
-include|FT_SERVICE_POSTSCRIPT_CMAPS_H
-end_include
 begin_function_decl
 name|FT_BEGIN_HEADER
 name|FT_LOCAL
@@ -93,12 +88,12 @@ argument|FT_String*
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|cff_index_get_name
-name|cff_index_get_name
+DECL|variable|cff_index_get_string
+name|cff_index_get_string
 argument_list|(
-argument|CFF_Index  idx
+argument|CFF_Font  font
 argument_list|,
-argument|FT_UInt    element
+argument|FT_UInt   element
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -113,11 +108,9 @@ end_macro
 begin_macro
 name|cff_index_get_sid_string
 argument_list|(
-argument|CFF_Index          idx
+argument|CFF_Font  font
 argument_list|,
-argument|FT_UInt            sid
-argument_list|,
-argument|FT_Service_PsCMaps psnames
+argument|FT_UInt   sid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -157,6 +150,23 @@ argument_list|(
 argument|CFF_Index  idx
 argument_list|,
 argument|FT_Byte**  pbytes
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_String*
+argument_list|)
+end_macro
+begin_macro
+name|cff_index_get_name
+argument_list|(
+argument|CFF_Font  font
+argument_list|,
+argument|FT_UInt   element
 argument_list|)
 end_macro
 begin_empty_stmt

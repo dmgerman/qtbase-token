@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2004, 2005, 2006, 2007, 2008 by             */
+comment|/*  Copyright 1996-2002, 2004-2008, 2013 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -762,7 +762,10 @@ operator|!
 name|stream
 condition|)
 return|return
-name|FT_Err_Invalid_Stream_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Stream_Handle
+argument_list|)
 return|;
 comment|/* open the file */
 name|file
@@ -798,7 +801,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|FT_Err_Cannot_Open_Resource
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Resource
+argument_list|)
 return|;
 block|}
 comment|/* Here we ensure that a "fork" will _not_ duplicate   */
@@ -879,9 +885,9 @@ goto|;
 block|}
 comment|/* XXX: TODO -- real 64bit platform support                        */
 comment|/*                                                                 */
-comment|/* `stream->size' is typedef'd to unsigned long (in                */
-comment|/* freetype/ftsystem.h); `stat_buf.st_size', however, is usually   */
-comment|/* typedef'd to off_t (in sys/stat.h).                             */
+comment|/* `stream->size' is typedef'd to unsigned long (in `ftsystem.h'); */
+comment|/* `stat_buf.st_size', however, is usually typedef'd to off_t      */
+comment|/* (in sys/stat.h).                                                */
 comment|/* On some platforms, the former is 32bit and the latter is 64bit. */
 comment|/* To avoid overflow caused by fonts in huge files larger than     */
 comment|/* 2GB, do a test.  Temporary fix proposed by Sean McBride.        */
@@ -1249,7 +1255,10 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|FT_Err_Cannot_Open_Stream
+name|FT_THROW
+argument_list|(
+name|Cannot_Open_Stream
+argument_list|)
 return|;
 block|}
 end_block

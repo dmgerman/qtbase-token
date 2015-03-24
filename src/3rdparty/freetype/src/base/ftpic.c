@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2013 by                                                */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -85,7 +85,7 @@ end_macro
 begin_macro
 name|ft_pic_container_init
 argument_list|(
-argument|FT_Library library
+argument|FT_Library  library
 argument_list|)
 end_macro
 begin_block
@@ -101,8 +101,6 @@ name|pic_container
 decl_stmt|;
 name|FT_Error
 name|error
-init|=
-name|FT_Err_Ok
 decl_stmt|;
 name|FT_MEM_SET
 argument_list|(
@@ -149,7 +147,7 @@ begin_macro
 DECL|function|ft_pic_container_destroy
 name|ft_pic_container_destroy
 argument_list|(
-argument|FT_Library library
+argument|FT_Library  library
 argument_list|)
 end_macro
 begin_block

@@ -77,7 +77,14 @@ block|; }
 name|explicit
 name|QMatrix4x4
 argument_list|(
-argument|Qt::Initialization
+name|Qt
+operator|::
+name|Initialization
+argument_list|)
+operator|:
+name|flagBits
+argument_list|(
+argument|General
 argument_list|)
 block|{}
 name|explicit

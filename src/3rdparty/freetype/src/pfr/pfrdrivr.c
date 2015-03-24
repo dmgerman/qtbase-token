@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2006, 2008 by                              */
+comment|/*  Copyright 2002-2004, 2006, 2008, 2010, 2011, 2013, 2014 by             */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -125,6 +125,9 @@ name|face
 operator|->
 name|phy_font
 decl_stmt|;
+operator|(
+name|void
+operator|)
 name|pfr_face_get_kerning
 argument_list|(
 name|pfrface
@@ -204,7 +207,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|PFR_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -242,7 +245,10 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|PFR_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 decl_stmt|;
 operator|*
 name|anadvance
@@ -296,7 +302,7 @@ name|advance
 expr_stmt|;
 name|error
 operator|=
-literal|0
+name|FT_Err_Ok
 expr_stmt|;
 block|}
 block|}
@@ -450,12 +456,12 @@ operator|=
 name|y_scale
 expr_stmt|;
 return|return
-name|PFR_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
 begin_decl_stmt
-name|FT_CALLBACK_TABLE_DEF
+specifier|static
 DECL|variable|pfr_metrics_service_rec
 specifier|const
 name|FT_Service_PfrMetricsRec
@@ -563,8 +569,10 @@ name|NULL
 block|,
 literal|0
 block|,
+comment|/* FT_Module_Constructor */
 literal|0
 block|,
+comment|/* FT_Module_Destructor  */
 name|pfr_get_service
 block|}
 block|,
@@ -597,15 +605,6 @@ name|pfr_slot_init
 block|,
 name|pfr_slot_done
 block|,
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|ft_stub_set_char_sizes
-block|,
-name|ft_stub_set_pixel_sizes
-block|,
-endif|#
-directive|endif
 name|pfr_slot_load
 block|,
 name|pfr_get_kerning
@@ -618,10 +617,10 @@ block|,
 comment|/* FT_Face_GetAdvancesFunc */
 literal|0
 block|,
-comment|/* FT_Size_RequestFunc */
+comment|/* FT_Size_RequestFunc     */
 literal|0
 block|,
-comment|/* FT_Size_SelectFunc  */
+comment|/* FT_Size_SelectFunc      */
 block|}
 decl_stmt|;
 end_decl_stmt

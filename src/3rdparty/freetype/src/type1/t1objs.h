@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2006 by                                     */
+comment|/*  Copyright 1996-2001, 2002, 2006, 2011 by                               */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -98,39 +98,6 @@ typedef|typedef
 name|struct
 name|T1_Glyph_Hints_
 name|T1_Glyph_Hints
-typedef|;
-end_typedef
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Type>                                                                */
-end_comment
-begin_comment
-comment|/*    T1_Driver                                                          */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Description>                                                         */
-end_comment
-begin_comment
-comment|/*    A handle to a Type 1 driver object.                                */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_typedef
-DECL|typedef|T1_Driver
-typedef|typedef
-name|struct
-name|T1_DriverRec_
-modifier|*
-name|T1_Driver
 typedef|;
 end_typedef
 begin_comment
@@ -311,7 +278,7 @@ begin_macro
 DECL|variable|size
 name|T1_Size_Done
 argument_list|(
-argument|T1_Size  size
+argument|FT_Size  size
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -327,7 +294,7 @@ end_macro
 begin_macro
 name|T1_Size_Request
 argument_list|(
-argument|T1_Size          size
+argument|FT_Size          size
 argument_list|,
 argument|FT_Size_Request  req
 argument_list|)
@@ -345,7 +312,7 @@ begin_macro
 DECL|variable|T1_Size_Init
 name|T1_Size_Init
 argument_list|(
-argument|T1_Size  size
+argument|FT_Size  size
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -426,7 +393,7 @@ name|T1_Face_Init
 argument_list|(
 argument|FT_Stream      stream
 argument_list|,
-argument|T1_Face        face
+argument|FT_Face        face
 argument_list|,
 argument|FT_Int         face_index
 argument_list|,
@@ -448,7 +415,7 @@ begin_macro
 DECL|variable|T1_Face_Done
 name|T1_Face_Done
 argument_list|(
-argument|T1_Face  face
+argument|FT_Face  face
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -464,7 +431,7 @@ end_macro
 begin_macro
 name|T1_GlyphSlot_Init
 argument_list|(
-argument|T1_GlyphSlot  slot
+argument|FT_GlyphSlot  slot
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -480,7 +447,7 @@ begin_macro
 DECL|variable|T1_GlyphSlot_Done
 name|T1_GlyphSlot_Done
 argument_list|(
-argument|T1_GlyphSlot  slot
+argument|FT_GlyphSlot  slot
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -496,7 +463,7 @@ end_macro
 begin_macro
 name|T1_Driver_Init
 argument_list|(
-argument|T1_Driver  driver
+argument|FT_Module  driver
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -512,7 +479,7 @@ begin_macro
 DECL|variable|T1_Driver_Done
 name|T1_Driver_Done
 argument_list|(
-argument|T1_Driver  driver
+argument|FT_Module  driver
 argument_list|)
 end_macro
 begin_empty_stmt

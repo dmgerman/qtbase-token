@@ -377,12 +377,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 name|void
 name|readAllStdin
 argument_list|()
@@ -4657,12 +4651,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 end_if
 begin_function
 DECL|function|readAllStdin
@@ -4672,6 +4660,18 @@ operator|::
 name|readAllStdin
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QByteArray
 name|lotsOfData
 argument_list|(
@@ -4797,6 +4797,8 @@ operator|*
 literal|5
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -4807,6 +4809,18 @@ operator|::
 name|readLineStdin
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QByteArray
 name|lotsOfData
 argument_list|(
@@ -5087,6 +5101,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -5097,6 +5113,18 @@ operator|::
 name|readLineStdin_lineByLine
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 for|for
 control|(
 name|int
@@ -5269,6 +5297,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif

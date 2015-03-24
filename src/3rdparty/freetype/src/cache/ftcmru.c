@@ -775,6 +775,8 @@ name|error
 decl_stmt|;
 name|FTC_MruNode
 name|node
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory

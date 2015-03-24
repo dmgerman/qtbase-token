@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2009 by             */
+comment|/*  Copyright 2000-2006, 2009-2011, 2013, 2014 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -400,7 +400,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|FTC_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 block|}
 name|sbit
@@ -502,7 +505,7 @@ goto|goto
 name|BadGlyph
 goto|;
 block|}
-comment|/* Check that our values fit into 8-bit containers!       */
+comment|/* Check whether our values fit into 8-bit containers!    */
 comment|/* If this is not the case, our bitmap is too large       */
 comment|/* and we will leave it as `missing' with sbit.buffer = 0 */
 DECL|macro|CHECK_CHAR
@@ -512,7 +515,7 @@ name|CHECK_CHAR
 parameter_list|(
 name|d
 parameter_list|)
-value|( temp = (FT_Char)d, temp == d )
+value|( temp = (FT_Char)d, (FT_Int) temp == (FT_Int) d )
 DECL|macro|CHECK_BYTE
 define|#
 directive|define
@@ -520,7 +523,7 @@ name|CHECK_BYTE
 parameter_list|(
 name|d
 parameter_list|)
-value|( temp = (FT_Byte)d, temp == d )
+value|( temp = (FT_Byte)d, (FT_UInt)temp == (FT_UInt)d )
 comment|/* horizontal advance in pixels */
 name|xadvance
 operator|=
@@ -604,9 +607,19 @@ argument_list|(
 name|yadvance
 argument_list|)
 condition|)
+block|{
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"ftc_snode_load:"
+literal|" glyph too large for small bitmap cache\n"
+operator|)
+argument_list|)
+expr_stmt|;
 goto|goto
 name|BadGlyph
 goto|;
+block|}
 name|sbit
 operator|->
 name|width
@@ -747,9 +760,12 @@ if|if
 condition|(
 name|error
 operator|&&
+name|FT_ERR_NEQ
+argument_list|(
 name|error
-operator|!=
-name|FTC_Err_Out_Of_Memory
+argument_list|,
+name|Out_Of_Memory
+argument_list|)
 condition|)
 block|{
 name|BadGlyph
@@ -774,7 +790,7 @@ name|NULL
 expr_stmt|;
 name|error
 operator|=
-literal|0
+name|FT_Err_Ok
 expr_stmt|;
 if|if
 condition|(
@@ -850,6 +866,9 @@ decl_stmt|;
 name|FT_UInt
 name|total
 decl_stmt|;
+name|FT_UInt
+name|node_count
+decl_stmt|;
 name|total
 operator|=
 name|clazz
@@ -876,7 +895,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -940,6 +962,32 @@ name|count
 operator|=
 name|count
 expr_stmt|;
+for|for
+control|(
+name|node_count
+operator|=
+literal|0
+init|;
+name|node_count
+operator|<
+name|count
+condition|;
+name|node_count
+operator|++
+control|)
+block|{
+name|snode
+operator|->
+name|sbits
+index|[
+name|node_count
+index|]
+operator|.
+name|width
+operator|=
+literal|255
+expr_stmt|;
+block|}
 name|error
 operator|=
 name|ftc_snode_load
@@ -1184,6 +1232,8 @@ argument_list|,
 argument|FT_Pointer  ftcgquery
 argument_list|,
 argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_block
@@ -1222,6 +1272,15 @@ decl_stmt|;
 name|FT_Bool
 name|result
 decl_stmt|;
+if|if
+condition|(
+name|list_changed
+condition|)
+operator|*
+name|list_changed
+operator|=
+name|FALSE
+expr_stmt|;
 name|result
 operator|=
 name|FT_BOOL
@@ -1283,7 +1342,7 @@ operator|&&
 name|sbit
 operator|->
 name|width
-operator|!=
+operator|==
 literal|255
 condition|)
 block|{
@@ -1323,7 +1382,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|FTC_CACHE_TRYLOOP_END
-argument_list|()
+argument_list|(
+name|list_changed
+argument_list|)
 expr_stmt|;
 name|ftcsnode
 operator|->
@@ -1355,6 +1416,11 @@ name|result
 return|;
 block|}
 end_block
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FTC_INLINE
+end_ifdef
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -1370,6 +1436,8 @@ argument_list|,
 argument|FTC_GQuery  gquery
 argument_list|,
 argument|FTC_Cache   cache
+argument_list|,
+argument|FT_Bool*    list_changed
 argument_list|)
 end_macro
 begin_block
@@ -1385,10 +1453,16 @@ argument_list|,
 name|gquery
 argument_list|,
 name|cache
+argument_list|,
+name|list_changed
 argument_list|)
 return|;
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* END */
 end_comment

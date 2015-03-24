@@ -537,17 +537,14 @@ name|int
 name|h
 decl_stmt|;
 comment|/* table level */
-specifier|register
 name|uInt
 name|i
 decl_stmt|;
 comment|/* counter, current code */
-specifier|register
 name|uInt
 name|j
 decl_stmt|;
 comment|/* counter */
-specifier|register
 name|int
 name|k
 decl_stmt|;
@@ -560,7 +557,6 @@ name|uInt
 name|mask
 decl_stmt|;
 comment|/* (1<< w) - 1, to avoid cc -O bug on HP */
-specifier|register
 name|uIntf
 modifier|*
 name|p
@@ -584,7 +580,6 @@ name|BMAX
 index|]
 decl_stmt|;
 comment|/* table stack */
-specifier|register
 name|int
 name|w
 decl_stmt|;

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009 by       */
+comment|/*  Copyright 2000-2007, 2009-2011, 2013 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -66,6 +66,17 @@ end_include
 begin_macro
 name|FT_BEGIN_HEADER
 end_macro
+begin_define
+DECL|macro|_FTC_FACE_ID_HASH
+define|#
+directive|define
+name|_FTC_FACE_ID_HASH
+parameter_list|(
+name|i
+parameter_list|)
+define|\
+value|((FT_PtrDist)(( (FT_PtrDist)(i)>> 3 ) ^ ( (FT_PtrDist)(i)<< 7 )))
+end_define
 begin_comment
 comment|/* handle to cache object */
 end_comment
@@ -165,7 +176,7 @@ name|link
 decl_stmt|;
 comment|/* used for hashing                    */
 DECL|member|hash
-name|FT_UInt32
+name|FT_PtrDist
 name|hash
 decl_stmt|;
 comment|/* used for hashing too                */
@@ -227,25 +238,55 @@ end_define
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
+name|FTC_INLINE
 end_ifdef
+begin_define
+DECL|macro|FTC_NODE__TOP_FOR_HASH
+define|#
+directive|define
+name|FTC_NODE__TOP_FOR_HASH
+parameter_list|(
+name|cache
+parameter_list|,
+name|hash
+parameter_list|)
+define|\
+value|( ( cache )->buckets +                                    \             ( ( ( ( hash )&   ( cache )->mask )< ( cache )->p ) \               ? ( ( hash )& ( ( cache )->mask * 2 + 1 ) )        \               : ( ( hash )&   ( cache )->mask ) ) )
+end_define
+begin_else
+else|#
+directive|else
+end_else
 begin_macro
-name|FT_BASE
+name|FT_LOCAL
 argument_list|(
-argument|void
+argument|FTC_Node*
 argument_list|)
 end_macro
 begin_macro
-name|ftc_node_destroy
+name|ftc_get_top_node_for_hash
 argument_list|(
-argument|FTC_Node     node
+argument|FTC_Cache   cache
 argument_list|,
-argument|FTC_Manager  manager
+argument|FT_PtrDist  hash
 argument_list|)
 end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_define
+DECL|macro|FTC_NODE__TOP_FOR_HASH
+define|#
+directive|define
+name|FTC_NODE__TOP_FOR_HASH
+parameter_list|(
+name|cache
+parameter_list|,
+name|hash
+parameter_list|)
+define|\
+value|ftc_get_top_node_for_hash( ( cache ), ( hash ) )
+end_define
 begin_endif
 endif|#
 directive|endif
@@ -332,6 +373,10 @@ name|key
 parameter_list|,
 name|FTC_Cache
 name|cache
+parameter_list|,
+name|FT_Bool
+modifier|*
+name|list_changed
 parameter_list|)
 function_decl|;
 end_typedef
@@ -536,7 +581,7 @@ DECL|variable|FTC_Cache_Done
 empty_stmt|;
 end_empty_stmt
 begin_comment
-comment|/* Call this function to lookup the cache.  If no corresponding    * node is found, a new one is automatically created.  This function    * is capable of flushing the cache adequately to make room for the    * new cache object.    */
+comment|/* Call this function to look up the cache.  If no corresponding    * node is found, a new one is automatically created.  This function    * is capable of flushing the cache adequately to make room for the    * new cache object.    */
 end_comment
 begin_ifndef
 ifndef|#
@@ -554,7 +599,7 @@ name|FTC_Cache_Lookup
 argument_list|(
 argument|FTC_Cache   cache
 argument_list|,
-argument|FT_UInt32   hash
+argument|FT_PtrDist  hash
 argument_list|,
 argument|FT_Pointer  query
 argument_list|,
@@ -580,7 +625,7 @@ name|FTC_Cache_NewNode
 argument_list|(
 argument|FTC_Cache   cache
 argument_list|,
-argument|FT_UInt32   hash
+argument|FT_PtrDist  hash
 argument_list|,
 argument|FT_Pointer  query
 argument_list|,
@@ -591,7 +636,7 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_comment
-comment|/* Remove all nodes that relate to a given face_id.  This is useful    * when un-installing fonts.  Note that if a cache node relates to    * the face_id, but is locked (i.e., has `ref_count> 0'), the node    * will _not_ be destroyed, but its internal face_id reference will    * be modified.    *    * The final result will be that the node will never come back    * in further lookup requests, and will be flushed on demand from    * the cache normally when its reference count reaches 0.    */
+comment|/* Remove all nodes that relate to a given face_id.  This is useful    * when un-installing fonts.  Note that if a cache node relates to    * the face_id but is locked (i.e., has `ref_count> 0'), the node    * will _not_ be destroyed, but its internal face_id reference will    * be modified.    *    * The final result will be that the node will never come back    * in further lookup requests, and will be flushed on demand from    * the cache normally when its reference count reaches 0.    */
 end_comment
 begin_macro
 name|FT_LOCAL
@@ -634,7 +679,21 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                                         \     FTC_Node             *_bucket, *_pnode, _node;                       \     FTC_Cache             _cache   = FTC_CACHE(cache);                   \     FT_UInt32             _hash    = (FT_UInt32)(hash);                  \     FTC_Node_CompareFunc  _nodcomp = (FTC_Node_CompareFunc)(nodecmp);    \     FT_UFast              _idx;                                          \                                                                          \                                                                          \     error = 0;                                                           \     node  = NULL;                                                        \     _idx  = _hash& _cache->mask;                                        \     if ( _idx< _cache->p )                                              \       _idx = _hash& ( _cache->mask*2 + 1 );                             \                                                                          \     _bucket = _pnode = _cache->buckets + _idx;                           \     for (;;)                                                             \     {                                                                    \       _node = *_pnode;                                                   \       if ( _node == NULL )                                               \         goto _NewNode;                                                   \                                                                          \       if ( _node->hash == _hash&& _nodcomp( _node, query, _cache ) )    \         break;                                                           \                                                                          \       _pnode =&_node->link;                                             \     }                                                                    \                                                                          \     if ( _node != *_bucket )                                             \     {                                                                    \       *_pnode     = _node->link;                                         \       _node->link = *_bucket;                                            \       *_bucket    = _node;                                               \     }                                                                    \                                                                          \     {                                                                    \       FTC_Manager  _manager = _cache->manager;                           \       void*        _nl      =&_manager->nodes_list;                     \                                                                          \                                                                          \       if ( _node != _manager->nodes_list )                               \         FTC_MruNode_Up( (FTC_MruNode*)_nl,                               \                         (FTC_MruNode)_node );                            \     }                                                                    \     goto _Ok;                                                            \                                                                          \   _NewNode:                                                              \     error = FTC_Cache_NewNode( _cache, _hash, query,&_node );           \                                                                          \   _Ok:                                                                   \     node = _node;                                                        \   FT_END_STMNT
+value|FT_BEGIN_STMNT                                                         \     FTC_Node             *_bucket, *_pnode, _node;                       \     FTC_Cache             _cache   = FTC_CACHE(cache);                   \     FT_PtrDist            _hash    = (FT_PtrDist)(hash);                 \     FTC_Node_CompareFunc  _nodcomp = (FTC_Node_CompareFunc)(nodecmp);    \     FT_Bool               _list_changed = FALSE;                         \                                                                          \                                                                          \     error = FT_Err_Ok;                                                   \     node  = NULL;                                                        \                                                                          \
+comment|/* Go to the `top' node of the list sharing same masked hash */
+value|\     _bucket = _pnode = FTC_NODE__TOP_FOR_HASH( _cache, _hash );          \                                                                          \
+comment|/* Look up a node with identical hash and queried properties.    */
+value|\
+comment|/* NOTE: _nodcomp() may change the linked list to reduce memory. */
+value|\     for (;;)                                                             \     {                                                                    \       _node = *_pnode;                                                   \       if ( _node == NULL )                                               \         goto _NewNode;                                                   \                                                                          \       if ( _node->hash == _hash&&           \            _nodcomp( _node, query, _cache,&_list_changed ) )            \         break;                                                           \                                                                          \       _pnode =&_node->link;                                             \     }                                                                    \                                                                          \     if ( _list_changed )                                                 \     {                                                                    \
+comment|/* Update _bucket by possibly modified linked list */
+value|\       _bucket = _pnode = FTC_NODE__TOP_FOR_HASH( _cache, _hash );        \                                                                          \
+comment|/* Update _pnode by possibly modified linked list */
+value|\       while ( *_pnode != _node )                                         \       {                                                                  \         if ( *_pnode == NULL )                                           \         {                                                                \           FT_ERROR(( "FTC_CACHE_LOOKUP_CMP: oops!!! node missing\n" ));  \           goto _NewNode;                                                 \         }                                                                \         else                                                             \           _pnode =&((*_pnode)->link);                                   \       }                                                                  \     }                                                                    \                                                                          \
+comment|/* Reorder the list to move the found node to the `top' */
+value|\     if ( _node != *_bucket )                                             \     {                                                                    \       *_pnode     = _node->link;                                         \       _node->link = *_bucket;                                            \       *_bucket    = _node;                                               \     }                                                                    \                                                                          \
+comment|/* Update MRU list */
+value|\     {                                                                    \       FTC_Manager  _manager = _cache->manager;                           \       void*        _nl      =&_manager->nodes_list;                     \                                                                          \                                                                          \       if ( _node != _manager->nodes_list )                               \         FTC_MruNode_Up( (FTC_MruNode*)_nl,                               \                         (FTC_MruNode)_node );                            \     }                                                                    \     goto _Ok;                                                            \                                                                          \   _NewNode:                                                              \     error = FTC_Cache_NewNode( _cache, _hash, query,&_node );           \                                                                          \   _Ok:                                                                   \     node = _node;                                                        \   FT_END_STMNT
 end_define
 begin_else
 else|#
@@ -672,7 +731,7 @@ begin_comment
 comment|/* !FTC_INLINE */
 end_comment
 begin_comment
-comment|/*    * This macro, together with FTC_CACHE_TRYLOOP_END, defines a retry    * loop to flush the cache repeatedly in case of memory overflows.    *    * It is used when creating a new cache node, or within a lookup    * that needs to allocate data (e.g., the sbit cache lookup).    *    * Example:    *    *   {    *     FTC_CACHE_TRYLOOP( cache )    *       error = load_data( ... );    *     FTC_CACHE_TRYLOOP_END()    *   }    *    */
+comment|/*    * This macro, together with FTC_CACHE_TRYLOOP_END, defines a retry    * loop to flush the cache repeatedly in case of memory overflows.    *    * It is used when creating a new cache node, or within a lookup    * that needs to allocate data (e.g. the sbit cache lookup).    *    * Example:    *    *   {    *     FTC_CACHE_TRYLOOP( cache )    *       error = load_data( ... );    *     FTC_CACHE_TRYLOOP_END()    *   }    *    */
 end_comment
 begin_define
 DECL|macro|FTC_CACHE_TRYLOOP
@@ -690,9 +749,11 @@ DECL|macro|FTC_CACHE_TRYLOOP_END
 define|#
 directive|define
 name|FTC_CACHE_TRYLOOP_END
-parameter_list|()
+parameter_list|(
+name|list_changed
+parameter_list|)
 define|\
-value|if ( !error || error != FT_Err_Out_Of_Memory )              \         break;                                                    \                                                                   \       _try_done = FTC_Manager_FlushN( _try_manager, _try_count ); \       if ( _try_done == 0 )                                       \         break;                                                    \                                                                   \       if ( _try_done == _try_count )                              \       {                                                           \         _try_count *= 2;                                          \         if ( _try_count< _try_done              ||               \             _try_count> _try_manager->num_nodes )                \           _try_count = _try_manager->num_nodes;                   \       }                                                           \     }                                                             \   }
+value|if ( !error || FT_ERR_NEQ( error, Out_Of_Memory ) )         \         break;                                                    \                                                                   \       _try_done = FTC_Manager_FlushN( _try_manager, _try_count ); \       if ( _try_done> 0&& ( list_changed ) )                    \         *(FT_Bool*)( list_changed ) = TRUE;                       \                                                                   \       if ( _try_done == 0 )                                       \         break;                                                    \                                                                   \       if ( _try_done == _try_count )                              \       {                                                           \         _try_count *= 2;                                          \         if ( _try_count< _try_done              ||               \             _try_count> _try_manager->num_nodes )                \           _try_count = _try_manager->num_nodes;                   \       }                                                           \     }                                                             \   }
 end_define
 begin_comment
 comment|/* */

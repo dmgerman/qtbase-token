@@ -15,13 +15,10 @@ begin_comment
 comment|/*    FreeType 2 build and setup macros.                                   */
 end_comment
 begin_comment
-comment|/*    (Generic version)                                                    */
-end_comment
-begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2006 by                                           */
+comment|/*  Copyright 1996-2001, 2006, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -57,19 +54,31 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* This file corresponds to the default `ft2build.h' file for            */
+comment|/* This is the `entry point' for FreeType header file inclusions.  It is */
 end_comment
 begin_comment
-comment|/* FreeType 2.  It uses the `freetype' include root.                     */
+comment|/* the only header file which should be included directly; all other     */
+end_comment
+begin_comment
+comment|/* FreeType header files should be accessed with macro names (after      */
+end_comment
+begin_comment
+comment|/* including `ft2build.h').                                              */
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* Note that specific platforms might use a different configuration.     */
+comment|/* A typical example is                                                  */
 end_comment
 begin_comment
-comment|/* See builds/unix/ft2unix.h for an example.                             */
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*   #include<ft2build.h>                                               */
+end_comment
+begin_comment
+comment|/*   #include FT_FREETYPE_H                                              */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -80,25 +89,25 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__FT2_BUILD_GENERIC_H__
+name|__FT2BUILD_H__
 end_ifndef
 begin_define
-DECL|macro|__FT2_BUILD_GENERIC_H__
+DECL|macro|__FT2BUILD_H__
 define|#
 directive|define
-name|__FT2_BUILD_GENERIC_H__
+name|__FT2BUILD_H__
 end_define
 begin_include
 include|#
 directive|include
-file|<freetype/config/ftheader.h>
+file|<config/ftheader.h>
 end_include
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __FT2_BUILD_GENERIC_H__ */
+comment|/* __FT2BUILD_H__ */
 end_comment
 begin_comment
 comment|/* END */

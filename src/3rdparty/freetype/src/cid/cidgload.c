@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009, 2010 by */
+comment|/*  Copyright 1996-2007, 2009, 2010, 2013 by                               */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -172,7 +172,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|CID_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -221,7 +221,7 @@ name|incremental_interface
 decl_stmt|;
 endif|#
 directive|endif
-name|FT_TRACE4
+name|FT_TRACE1
 argument_list|(
 operator|(
 literal|"cid_load_glyph: glyph index %d\n"
@@ -502,7 +502,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|CID_Err_Invalid_Offset
+name|FT_THROW
+argument_list|(
+name|Invalid_Offset
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -937,7 +940,7 @@ unit|error = cid_load_glyph(&decoder, glyph_index );
 comment|/* ignore the error if one occurred - skip to next glyph */
 end_comment
 begin_endif
-unit|}      *max_advance = FIXED_TO_INT( decoder.builder.advance.x );      psaux->t1_decoder_funcs->done(&decoder );      return CID_Err_Ok;   }
+unit|}      *max_advance = FIXED_TO_INT( decoder.builder.advance.x );      psaux->t1_decoder_funcs->done(&decoder );      return FT_Err_Ok;   }
 endif|#
 directive|endif
 end_endif
@@ -974,14 +977,6 @@ operator|(
 name|CID_GlyphSlot
 operator|)
 name|cidglyph
-decl_stmt|;
-name|CID_Size
-name|size
-init|=
-operator|(
-name|CID_Size
-operator|)
-name|cidsize
 decl_stmt|;
 name|FT_Error
 name|error
@@ -1034,7 +1029,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|CID_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1404,8 +1402,6 @@ name|FT_GLYPH_FORMAT_OUTLINE
 expr_stmt|;
 if|if
 condition|(
-name|size
-operator|&&
 name|cidsize
 operator|->
 name|metrics

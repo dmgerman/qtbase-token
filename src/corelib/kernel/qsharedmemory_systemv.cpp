@@ -487,10 +487,9 @@ name|IPC_EXCL
 argument_list|)
 condition|)
 block|{
-name|QString
-name|function
-init|=
+specifier|const
 name|QLatin1String
+name|function
 argument_list|(
 literal|"QSharedMemory::create"
 argument_list|)
@@ -733,10 +732,9 @@ name|memory
 argument_list|)
 condition|)
 block|{
-name|QString
-name|function
-init|=
+specifier|const
 name|QLatin1String
+name|function
 argument_list|(
 literal|"QSharedMemory::detach"
 argument_list|)

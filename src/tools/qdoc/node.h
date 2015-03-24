@@ -1919,6 +1919,7 @@ return|return
 name|outSubDir_
 return|;
 block|}
+name|virtual
 name|void
 name|setOutputSubdirectory
 parameter_list|(
@@ -2482,6 +2483,16 @@ argument_list|(
 name|Node
 operator|*
 name|child
+argument_list|)
+block|;
+name|virtual
+name|void
+name|setOutputSubdirectory
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|t
 argument_list|)
 block|;
 name|protected

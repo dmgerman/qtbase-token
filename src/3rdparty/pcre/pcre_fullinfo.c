@@ -11,7 +11,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|PCRE_HAVE_CONFIG_H
+name|HAVE_CONFIG_H
 end_ifdef
 begin_include
 include|#

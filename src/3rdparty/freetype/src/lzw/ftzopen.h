@@ -127,7 +127,7 @@ DECL|macro|LZW_BIT_MASK
 define|#
 directive|define
 name|LZW_BIT_MASK
-value|0x1f
+value|0x1F
 end_define
 begin_define
 DECL|macro|LZW_BLOCK_MASK

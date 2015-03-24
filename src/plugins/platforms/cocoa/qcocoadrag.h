@@ -122,6 +122,15 @@ name|Qt
 operator|::
 name|DropAction
 name|m_executed_drop_action
+block|;
+name|QPixmap
+name|dragPixmap
+argument_list|(
+argument|QDrag *drag
+argument_list|,
+argument|QPoint&hotSpot
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -174,9 +174,6 @@ name|void
 name|threadedConnection
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|processConnection_data
 parameter_list|()
@@ -185,8 +182,6 @@ name|void
 name|processConnection
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|longPath
 parameter_list|()
@@ -4529,11 +4524,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
-end_ifndef
 begin_function
 DECL|function|processConnection_data
 name|void
@@ -4590,6 +4580,11 @@ literal|30
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_class
 DECL|class|ProcessOutputDumper
 class|class
@@ -4653,6 +4648,10 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Create external processes that produce and consume.  */
 end_comment
@@ -4664,6 +4663,18 @@ operator|::
 name|processConnection
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
@@ -4907,12 +4918,10 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|longPath
 name|void

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006 by                                                      */
+comment|/*  Copyright 2006, 2014 by                                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -115,7 +115,7 @@ end_empty_stmt
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro

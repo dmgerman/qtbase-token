@@ -1012,6 +1012,9 @@ name|bool
 name|m_windowUnderMouse
 block|;
 name|bool
+name|m_ignoreWindowShouldClose
+block|;
+name|bool
 name|m_inConstructor
 block|;
 name|bool

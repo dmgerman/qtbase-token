@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2008 by                                    */
+comment|/*  Copyright 2001-2003, 2008, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -67,11 +67,6 @@ begin_include
 include|#
 directive|include
 file|"pshglob.h"
-end_include
-begin_include
-include|#
-directive|include
-include|FT_TRIGONOMETRY_H
 end_include
 begin_macro
 name|FT_BEGIN_HEADER
@@ -730,14 +725,6 @@ DECL|member|dir_out
 name|FT_Char
 name|dir_out
 decl_stmt|;
-DECL|member|angle_in
-name|FT_Angle
-name|angle_in
-decl_stmt|;
-DECL|member|angle_out
-name|FT_Angle
-name|angle_out
-decl_stmt|;
 DECL|member|hint
 name|PSH_Hint
 name|hint
@@ -788,30 +775,6 @@ DECL|typedef|PSH_PointRec
 name|PSH_PointRec
 typedef|;
 end_typedef
-begin_define
-DECL|macro|PSH_POINT_EQUAL_ORG
-define|#
-directive|define
-name|PSH_POINT_EQUAL_ORG
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|)
-value|( (a)->org_u == (b)->org_u&& \                                        (a)->org_v == (b)->org_v )
-end_define
-begin_define
-DECL|macro|PSH_POINT_ANGLE
-define|#
-directive|define
-name|PSH_POINT_ANGLE
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|)
-value|FT_Atan2( (b)->org_u - (a)->org_u,  \                                            (b)->org_v - (a)->org_v )
-end_define
 begin_typedef
 DECL|struct|PSH_ContourRec_
 typedef|typedef

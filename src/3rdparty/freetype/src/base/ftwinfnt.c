@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004 by                                                */
+comment|/*  Copyright 2003, 2004, 2014 by                                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -93,17 +98,28 @@ decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
-name|error
-operator|=
-name|FT_Err_Invalid_Argument
-expr_stmt|;
 if|if
 condition|(
+operator|!
 name|face
-operator|!=
-name|NULL
 condition|)
-block|{
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
+return|;
+if|if
+condition|(
+operator|!
+name|header
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|FT_FACE_LOOKUP_SERVICE
 argument_list|(
 name|face
@@ -116,10 +132,7 @@ expr_stmt|;
 if|if
 condition|(
 name|service
-operator|!=
-name|NULL
 condition|)
-block|{
 name|error
 operator|=
 name|service
@@ -131,8 +144,14 @@ argument_list|,
 name|header
 argument_list|)
 expr_stmt|;
-block|}
-block|}
+else|else
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 return|;

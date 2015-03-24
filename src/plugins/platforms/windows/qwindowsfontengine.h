@@ -98,8 +98,6 @@ name|QWindowsFontEngine
 argument_list|(
 argument|const QString&name
 argument_list|,
-argument|HFONT hfont
-argument_list|,
 argument|LOGFONT lf
 argument_list|,
 argument|const QSharedPointer<QWindowsFontEngineData>&fontEngineData
@@ -512,7 +510,6 @@ block|;
 name|QString
 name|uniqueFamilyName
 block|;
-specifier|const
 name|HFONT
 name|hfont
 block|;

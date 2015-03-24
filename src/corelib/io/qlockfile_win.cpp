@@ -251,7 +251,9 @@ literal|'\n'
 expr_stmt|;
 name|fileData
 operator|+=
-name|qAppName
+name|QCoreApplication
+operator|::
+name|applicationName
 argument_list|()
 operator|.
 name|toUtf8

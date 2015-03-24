@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2008 by             */
+comment|/*  Copyright 1996-2006, 2008, 2010-2011, 2013 by                          */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -452,7 +452,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|PSH_Globals_Funcs
 name|funcs
@@ -617,7 +617,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1062,6 +1062,30 @@ argument_list|,
 literal|"psaux"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|psaux
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"cid_face_init: cannot access `psaux' module\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Missing_Module
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 name|face
 operator|->
 name|psaux
@@ -1106,6 +1130,13 @@ operator|=
 name|pshinter
 expr_stmt|;
 block|}
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"CID driver\n"
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* open the tokenizer; this will also check the font format */
 if|if
 condition|(
@@ -1161,7 +1192,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|CID_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1210,7 +1244,7 @@ expr_stmt|;
 name|cidface
 operator|->
 name|face_flags
-operator|=
+operator||=
 name|FT_FACE_FLAG_SCALABLE
 operator||
 comment|/* scalable outlines */
@@ -1694,7 +1728,7 @@ name|driver
 argument_list|)
 expr_stmt|;
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block

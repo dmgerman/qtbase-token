@@ -211,7 +211,7 @@ name|GXV_LookupValueCPtr
 name|value_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UShort
@@ -290,7 +290,7 @@ name|FT_Bytes
 name|lookuptbl_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -328,7 +328,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|lookuptbl_head
 operator|+
@@ -370,7 +370,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -391,7 +391,7 @@ operator|*
 name|GXV_BSLN_VALUE_COUNT
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|table_data
 operator|=
@@ -415,7 +415,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -435,23 +435,23 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* mappingData */
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 operator|=
 name|GXV_LOOKUPVALUE_UNSIGNED
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 operator|=
 name|gxv_bsln_LookupValue_validate
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 operator|=
@@ -467,7 +467,7 @@ name|GXV_BSLN_VALUE_COUNT
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -487,7 +487,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -549,7 +549,7 @@ name|gxv_glyphid_validate
 argument_list|(
 name|stdGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* Record the position of ctlPoints */
@@ -608,7 +608,7 @@ name|FT_Short
 operator|)
 name|ctlPoint
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -629,7 +629,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -649,23 +649,23 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* mappingData */
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 operator|=
 name|GXV_LOOKUPVALUE_UNSIGNED
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 operator|=
 name|gxv_bsln_LookupValue_validate
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 operator|=
@@ -685,7 +685,7 @@ operator|)
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -733,13 +733,13 @@ end_macro
 begin_block
 block|{
 name|GXV_ValidatorRec
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_Validator
-name|valid
+name|gxvalid
 init|=
 operator|&
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_bsln_DataRec
 name|bslnrec
@@ -783,19 +783,19 @@ block|,
 name|gxv_bsln_parts_fmt3_validate
 block|,     }
 decl_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|=
 name|ftvalid
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|table_data
 operator|=
 name|bsln
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|=
@@ -890,7 +890,7 @@ name|p
 operator|,
 name|limit
 operator|,
-name|valid
+name|gxvalid
 operator|)
 expr_stmt|;
 name|FT_TRACE4

@@ -183,16 +183,12 @@ name|offset
 operator|=
 literal|24
 expr_stmt|;
-name|vinfo
-operator|.
-name|yres_virtual
-operator|=
-literal|2
-operator|*
-name|vinfo
-operator|.
-name|yres
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block|vinfo.yres_virtual     = 2 * vinfo.yres;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ioctl
@@ -321,6 +317,10 @@ parameter_list|)
 block|{
 name|free
 argument_list|(
+operator|(
+name|void
+operator|*
+operator|)
 name|window
 argument_list|)
 expr_stmt|;

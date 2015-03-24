@@ -801,9 +801,6 @@ name|void
 name|fileTimes_oldFile
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_NO_SYMLINKS
 name|void
 name|isSymLink_data
 parameter_list|()
@@ -812,8 +809,6 @@ name|void
 name|isSymLink
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|isHidden_data
 parameter_list|()
@@ -7207,11 +7202,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_NO_SYMLINKS
-end_ifndef
 begin_function
 DECL|function|isSymLink_data
 name|void
@@ -7220,6 +7210,9 @@ operator|::
 name|isSymLink_data
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_NO_SYMLINKS
 name|QFile
 operator|::
 name|remove
@@ -7368,6 +7361,8 @@ operator|.
 name|absoluteFilePath
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -7378,6 +7373,18 @@ operator|::
 name|isSymLink
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_NO_SYMLINKS
+name|QSKIP
+argument_list|(
+literal|"No symlink support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QFETCH
 argument_list|(
 name|QString
@@ -7425,12 +7432,10 @@ argument_list|,
 name|linkTarget
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|isHidden_data
 name|void

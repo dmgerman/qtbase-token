@@ -381,15 +381,10 @@ name|m_defaultApplicationState
 operator|=
 name|applicationState
 block|; }
-name|EGLDisplay
-name|m_eglDisplay
-block|;
 name|private
 operator|:
-specifier|static
-name|bool
-name|needsBasicRenderloopWorkaround
-argument_list|()
+name|EGLDisplay
+name|m_eglDisplay
 block|;
 name|QTouchDevice
 operator|*
@@ -448,14 +443,6 @@ block|;
 name|QPlatformFontDatabase
 operator|*
 name|m_androidFDB
-block|;
-name|QImage
-operator|*
-name|m_FbScreenImage
-block|;
-name|QPainter
-operator|*
-name|m_compositePainter
 block|;
 name|QAndroidPlatformNativeInterface
 operator|*

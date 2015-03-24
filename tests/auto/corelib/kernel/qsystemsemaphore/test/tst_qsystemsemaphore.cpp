@@ -87,9 +87,6 @@ name|void
 name|release
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|basicProcesses
 parameter_list|()
@@ -125,9 +122,6 @@ name|void
 name|initialValue
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
-comment|// QT_NO_PROCESS
 private|private:
 specifier|static
 name|QString
@@ -819,11 +813,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
-end_ifndef
 begin_function
 DECL|function|basicProcesses
 name|void
@@ -832,6 +821,18 @@ operator|::
 name|basicProcesses
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QSystemSemaphore
 name|sem
 argument_list|(
@@ -962,6 +963,8 @@ operator|::
 name|NotRunning
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -1035,6 +1038,18 @@ operator|::
 name|processes
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QSystemSemaphore
 name|sem
 argument_list|(
@@ -1183,6 +1198,8 @@ name|takeFirst
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -1211,6 +1228,18 @@ operator|::
 name|undo
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QSystemSemaphore
 name|sem
 argument_list|(
@@ -1320,6 +1349,8 @@ operator|::
 name|NotRunning
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif
@@ -1334,6 +1365,18 @@ operator|::
 name|initialValue
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QSystemSemaphore
 name|sem
 argument_list|(
@@ -1517,12 +1560,10 @@ operator|::
 name|NotRunning
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|helperBinary
 name|QString

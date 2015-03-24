@@ -939,7 +939,7 @@ expr|\
 operator|!
 name|defined
 argument_list|(
-name|TT_CONFIG_OPTION_BYTECODE_INTEPRETER
+name|TT_CONFIG_OPTION_BYTECODE_INTERPRETER
 argument_list|)
 if|if
 condition|(

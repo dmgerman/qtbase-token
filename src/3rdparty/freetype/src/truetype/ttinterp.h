@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007 by             */
+comment|/*  Copyright 1996-2007, 2010, 2012-2014 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -309,6 +309,22 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_comment
+comment|/* getting current ppem.  Take care of non-square pixels if necessary */
+end_comment
+begin_typedef
+typedef|typedef
+name|FT_Long
+function_decl|(
+DECL|typedef|TT_Cur_Ppem_Func
+modifier|*
+name|TT_Cur_Ppem_Func
+function_decl|)
+parameter_list|(
+name|EXEC_OP
+parameter_list|)
+function_decl|;
+end_typedef
+begin_comment
 comment|/* reading a cvt value.  Take care of non-square pixels if necessary */
 end_comment
 begin_typedef
@@ -380,10 +396,12 @@ DECL|member|Cur_Count
 name|FT_Long
 name|Cur_Count
 decl_stmt|;
-DECL|member|Cur_Restart
-name|FT_Long
-name|Cur_Restart
+DECL|member|Def
+name|TT_DefRecord
+modifier|*
+name|Def
 decl_stmt|;
+comment|/* either FDEF or IDEF */
 block|}
 DECL|typedef|TT_CallRec
 DECL|typedef|TT_CallStack
@@ -393,6 +411,156 @@ typedef|*
 name|TT_CallStack
 typedef|;
 end_typedef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
+end_ifdef
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* These structures define rules used to tweak subpixel hinting for      */
+end_comment
+begin_comment
+comment|/* various fonts.  "", 0, "", NULL value indicates to match any value.   */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_define
+DECL|macro|SPH_MAX_NAME_SIZE
+define|#
+directive|define
+name|SPH_MAX_NAME_SIZE
+value|32
+end_define
+begin_define
+DECL|macro|SPH_MAX_CLASS_MEMBERS
+define|#
+directive|define
+name|SPH_MAX_CLASS_MEMBERS
+value|100
+end_define
+begin_typedef
+DECL|struct|SPH_TweakRule_
+typedef|typedef
+struct|struct
+name|SPH_TweakRule_
+block|{
+DECL|member|family
+specifier|const
+name|char
+name|family
+index|[
+name|SPH_MAX_NAME_SIZE
+index|]
+decl_stmt|;
+DECL|member|ppem
+specifier|const
+name|FT_UInt
+name|ppem
+decl_stmt|;
+DECL|member|style
+specifier|const
+name|char
+name|style
+index|[
+name|SPH_MAX_NAME_SIZE
+index|]
+decl_stmt|;
+DECL|member|glyph
+specifier|const
+name|FT_ULong
+name|glyph
+decl_stmt|;
+block|}
+DECL|typedef|SPH_TweakRule
+name|SPH_TweakRule
+typedef|;
+end_typedef
+begin_typedef
+DECL|struct|SPH_ScaleRule_
+typedef|typedef
+struct|struct
+name|SPH_ScaleRule_
+block|{
+DECL|member|family
+specifier|const
+name|char
+name|family
+index|[
+name|SPH_MAX_NAME_SIZE
+index|]
+decl_stmt|;
+DECL|member|ppem
+specifier|const
+name|FT_UInt
+name|ppem
+decl_stmt|;
+DECL|member|style
+specifier|const
+name|char
+name|style
+index|[
+name|SPH_MAX_NAME_SIZE
+index|]
+decl_stmt|;
+DECL|member|glyph
+specifier|const
+name|FT_ULong
+name|glyph
+decl_stmt|;
+DECL|member|scale
+specifier|const
+name|FT_ULong
+name|scale
+decl_stmt|;
+block|}
+DECL|typedef|SPH_ScaleRule
+name|SPH_ScaleRule
+typedef|;
+end_typedef
+begin_typedef
+DECL|struct|SPH_Font_Class_
+typedef|typedef
+struct|struct
+name|SPH_Font_Class_
+block|{
+DECL|member|name
+specifier|const
+name|char
+name|name
+index|[
+name|SPH_MAX_NAME_SIZE
+index|]
+decl_stmt|;
+DECL|member|member
+specifier|const
+name|char
+name|member
+index|[
+name|SPH_MAX_CLASS_MEMBERS
+index|]
+index|[
+name|SPH_MAX_NAME_SIZE
+index|]
+decl_stmt|;
+block|}
+DECL|typedef|SPH_Font_Class
+name|SPH_Font_Class
+typedef|;
+end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
+end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -526,7 +694,7 @@ decl_stmt|;
 comment|/* true if the interpreter must */
 comment|/* increment IP after ins. exec */
 DECL|member|cvtSize
-name|FT_Long
+name|FT_ULong
 name|cvtSize
 decl_stmt|;
 DECL|member|cvt
@@ -641,14 +809,6 @@ DECL|member|threshold
 name|FT_F26Dot6
 name|threshold
 decl_stmt|;
-if|#
-directive|if
-literal|0
-comment|/* this seems to be unused */
-block|FT_Int             cur_ppem;
-comment|/* ppem along the current proj vector */
-endif|#
-directive|endif
 DECL|member|instruction_trap
 name|FT_Bool
 name|instruction_trap
@@ -706,6 +866,11 @@ name|TT_Move_Func
 name|func_move_orig
 decl_stmt|;
 comment|/* move original position function */
+DECL|member|func_cur_ppem
+name|TT_Cur_Ppem_Func
+name|func_cur_ppem
+decl_stmt|;
+comment|/* get current proj. ppem value  */
 DECL|member|func_read_cvt
 name|TT_Get_CVT_Func
 name|func_read_cvt
@@ -726,6 +891,74 @@ name|FT_Bool
 name|grayscale
 decl_stmt|;
 comment|/* are we hinting for grayscale? */
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
+DECL|member|func_round_sphn
+name|TT_Round_Func
+name|func_round_sphn
+decl_stmt|;
+comment|/* subpixel rounding function */
+DECL|member|subpixel
+name|FT_Bool
+name|subpixel
+decl_stmt|;
+comment|/* Using subpixel hinting?       */
+DECL|member|ignore_x_mode
+name|FT_Bool
+name|ignore_x_mode
+decl_stmt|;
+comment|/* Standard rendering mode for   */
+comment|/* subpixel hinting.  On if gray */
+comment|/* or subpixel hinting is on.    */
+comment|/* The following 4 aren't fully implemented but here for MS rasterizer */
+comment|/* compatibility.                                                      */
+DECL|member|compatible_widths
+name|FT_Bool
+name|compatible_widths
+decl_stmt|;
+comment|/* compatible widths?        */
+DECL|member|symmetrical_smoothing
+name|FT_Bool
+name|symmetrical_smoothing
+decl_stmt|;
+comment|/* symmetrical_smoothing?    */
+DECL|member|bgr
+name|FT_Bool
+name|bgr
+decl_stmt|;
+comment|/* bgr instead of rgb?       */
+DECL|member|subpixel_positioned
+name|FT_Bool
+name|subpixel_positioned
+decl_stmt|;
+comment|/* subpixel positioned       */
+comment|/* (DirectWrite ClearType)?  */
+DECL|member|rasterizer_version
+name|FT_Int
+name|rasterizer_version
+decl_stmt|;
+comment|/* MS rasterizer version     */
+DECL|member|iup_called
+name|FT_Bool
+name|iup_called
+decl_stmt|;
+comment|/* IUP called for glyph?     */
+DECL|member|sph_tweak_flags
+name|FT_ULong
+name|sph_tweak_flags
+decl_stmt|;
+comment|/* flags to control          */
+comment|/* hint tweaks               */
+DECL|member|sph_in_func_flags
+name|FT_ULong
+name|sph_in_func_flags
+decl_stmt|;
+comment|/* flags to indicate if in   */
+comment|/* special functions         */
+endif|#
+directive|endif
+comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 block|}
 DECL|typedef|TT_ExecContextRec
 name|TT_ExecContextRec
@@ -738,10 +971,15 @@ name|TT_GraphicsState
 name|tt_default_graphics_state
 decl_stmt|;
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|TT_USE_BYTECODE_INTERPRETER
+end_ifdef
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
@@ -760,11 +998,10 @@ end_empty_stmt
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|TT_Set_CodeRange
 name|TT_Set_CodeRange
 argument_list|(
 argument|TT_ExecContext  exec
@@ -782,7 +1019,7 @@ end_empty_stmt
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
@@ -796,6 +1033,36 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+name|Update_Max
+argument_list|(
+argument|FT_Memory  memory
+argument_list|,
+argument|FT_ULong*  size
+argument_list|,
+argument|FT_Long    multiplier
+argument_list|,
+argument|void*      _pbuff
+argument_list|,
+argument|FT_ULong   new_max
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* TT_USE_BYTECODE_INTERPRETER */
+end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -870,19 +1137,26 @@ begin_empty_stmt
 DECL|variable|TT_New_Context
 empty_stmt|;
 end_empty_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|TT_USE_BYTECODE_INTERPRETER
+end_ifdef
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
+DECL|variable|exec
 name|TT_Done_Context
 argument_list|(
 argument|TT_ExecContext  exec
 argument_list|)
 end_macro
 begin_empty_stmt
+DECL|variable|exec
 empty_stmt|;
 end_empty_stmt
 begin_macro
@@ -892,7 +1166,6 @@ argument|FT_Error
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|TT_Load_Context
 name|TT_Load_Context
 argument_list|(
 argument|TT_ExecContext  exec
@@ -908,10 +1181,11 @@ end_empty_stmt
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
+DECL|variable|TT_Save_Context
 name|TT_Save_Context
 argument_list|(
 argument|TT_ExecContext  exec
@@ -929,7 +1203,6 @@ argument|FT_Error
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|TT_Run_Context
 name|TT_Run_Context
 argument_list|(
 argument|TT_ExecContext  exec
@@ -940,6 +1213,13 @@ end_macro
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* TT_USE_BYTECODE_INTERPRETER */
+end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -1010,12 +1290,14 @@ argument|FT_Error
 argument_list|)
 end_macro
 begin_macro
+DECL|variable|TT_RunIns
 name|TT_RunIns
 argument_list|(
 argument|TT_ExecContext  exec
 argument_list|)
 end_macro
 begin_empty_stmt
+DECL|variable|TT_RunIns
 empty_stmt|;
 end_empty_stmt
 begin_macro

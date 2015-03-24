@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 1996-2009, 2011, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -252,11 +252,23 @@ begin_macro
 DECL|function|T1_Size_Done
 name|T1_Size_Done
 argument_list|(
-argument|T1_Size  size
+argument|FT_Size  t1size
 argument_list|)
 end_macro
+begin_comment
+DECL|function|T1_Size_Done
+comment|/* T1_Size */
+end_comment
 begin_block
 block|{
+name|T1_Size
+name|size
+init|=
+operator|(
+name|T1_Size
+operator|)
+name|t1size
+decl_stmt|;
 if|if
 condition|(
 name|size
@@ -315,15 +327,26 @@ end_macro
 begin_macro
 name|T1_Size_Init
 argument_list|(
-argument|T1_Size  size
+argument|FT_Size  t1size
 argument_list|)
 end_macro
+begin_comment
+comment|/* T1_Size */
+end_comment
 begin_block
 block|{
+name|T1_Size
+name|size
+init|=
+operator|(
+name|T1_Size
+operator|)
+name|t1size
+decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|PSH_Globals_Funcs
 name|funcs
@@ -414,13 +437,22 @@ end_macro
 begin_macro
 name|T1_Size_Request
 argument_list|(
-argument|T1_Size          size
+argument|FT_Size          t1size
 argument_list|,
+comment|/* T1_Size */
 argument|FT_Size_Request  req
 argument_list|)
 end_macro
 begin_block
 block|{
+name|T1_Size
+name|size
+init|=
+operator|(
+name|T1_Size
+operator|)
+name|t1size
+decl_stmt|;
 name|PSH_Globals_Funcs
 name|funcs
 init|=
@@ -479,7 +511,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-name|T1_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -508,15 +540,13 @@ begin_macro
 DECL|function|T1_GlyphSlot_Done
 name|T1_GlyphSlot_Done
 argument_list|(
-argument|T1_GlyphSlot  slot
+argument|FT_GlyphSlot  slot
 argument_list|)
 end_macro
 begin_block
 block|{
 name|slot
 operator|->
-name|root
-operator|.
 name|internal
 operator|->
 name|glyph_hints
@@ -535,7 +565,7 @@ end_macro
 begin_macro
 name|T1_GlyphSlot_Init
 argument_list|(
-argument|T1_GlyphSlot  slot
+argument|FT_GlyphSlot  slot
 argument_list|)
 end_macro
 begin_block
@@ -553,8 +583,6 @@ name|T1_Face
 operator|)
 name|slot
 operator|->
-name|root
-operator|.
 name|face
 expr_stmt|;
 name|pshinter
@@ -580,8 +608,6 @@ name|FT_Get_Module
 argument_list|(
 name|slot
 operator|->
-name|root
-operator|.
 name|face
 operator|->
 name|driver
@@ -612,8 +638,6 @@ argument_list|)
 expr_stmt|;
 name|slot
 operator|->
-name|root
-operator|.
 name|internal
 operator|->
 name|glyph_hints
@@ -689,11 +713,23 @@ begin_macro
 DECL|function|T1_Face_Done
 name|T1_Face_Done
 argument_list|(
-argument|T1_Face  face
+argument|FT_Face  t1face
 argument_list|)
 end_macro
+begin_comment
+DECL|function|T1_Face_Done
+comment|/* T1_Face */
+end_comment
 begin_block
 block|{
+name|T1_Face
+name|face
+init|=
+operator|(
+name|T1_Face
+operator|)
+name|t1face
+decl_stmt|;
 name|FT_Memory
 name|memory
 decl_stmt|;
@@ -1042,8 +1078,9 @@ name|T1_Face_Init
 argument_list|(
 argument|FT_Stream      stream
 argument_list|,
-argument|T1_Face        face
+argument|FT_Face        t1face
 argument_list|,
+comment|/* T1_Face */
 argument|FT_Int         face_index
 argument_list|,
 argument|FT_Int         num_params
@@ -1053,6 +1090,14 @@ argument_list|)
 end_macro
 begin_block
 block|{
+name|T1_Face
+name|face
+init|=
+operator|(
+name|T1_Face
+operator|)
+name|t1face
+decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
@@ -1139,6 +1184,30 @@ name|face
 operator|->
 name|psaux
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|psaux
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"T1_Face_Init: cannot access `psaux' module\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Missing_Module
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 name|face
 operator|->
 name|pshinter
@@ -1151,6 +1220,13 @@ name|face
 argument_list|)
 argument_list|,
 literal|"pshinter"
+argument_list|)
+expr_stmt|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"Type 1 driver\n"
+operator|)
 argument_list|)
 expr_stmt|;
 comment|/* open the tokenizer; this will also check the font format */
@@ -1195,7 +1271,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T1_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1233,7 +1312,7 @@ expr_stmt|;
 name|root
 operator|->
 name|face_flags
-operator|=
+operator||=
 name|FT_FACE_FLAG_SCALABLE
 operator||
 name|FT_FACE_FLAG_HORIZONTAL
@@ -1600,7 +1679,7 @@ operator|)
 operator|>>
 literal|16
 expr_stmt|;
-comment|/* Set units_per_EM if we didn't set it in parse_font_matrix. */
+comment|/* Set units_per_EM if we didn't set it in t1_parse_font_matrix. */
 if|if
 condition|(
 operator|!
@@ -1745,7 +1824,7 @@ expr_stmt|;
 else|else
 name|error
 operator|=
-name|T1_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 comment|/* clear error */
 block|}
@@ -1792,8 +1871,6 @@ decl_stmt|;
 if|if
 condition|(
 name|psnames
-operator|&&
-name|psaux
 condition|)
 block|{
 name|FT_CharMapRec
@@ -1820,13 +1897,13 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|3
+name|TT_PLATFORM_MICROSOFT
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|1
+name|TT_MS_ID_UNICODE_CS
 expr_stmt|;
 name|charmap
 operator|.
@@ -1834,6 +1911,8 @@ name|encoding
 operator|=
 name|FT_ENCODING_UNICODE
 expr_stmt|;
+name|error
+operator|=
 name|FT_CMap_New
 argument_list|(
 name|cmap_classes
@@ -1848,12 +1927,30 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+operator|&&
+name|FT_ERR_NEQ
+argument_list|(
+name|error
+argument_list|,
+name|No_Unicode_Glyph_Name
+argument_list|)
+condition|)
+goto|goto
+name|Exit
+goto|;
+name|error
+operator|=
+name|FT_Err_Ok
+expr_stmt|;
 comment|/* now, generate an Adobe Standard encoding when appropriate */
 name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|7
+name|TT_PLATFORM_ADOBE
 expr_stmt|;
 name|clazz
 operator|=
@@ -1961,6 +2058,8 @@ if|if
 condition|(
 name|clazz
 condition|)
+name|error
+operator|=
 name|FT_CMap_New
 argument_list|(
 name|clazz
@@ -2041,7 +2140,7 @@ end_macro
 begin_macro
 name|T1_Driver_Init
 argument_list|(
-argument|T1_Driver  driver
+argument|FT_Module  driver
 argument_list|)
 end_macro
 begin_block
@@ -2052,7 +2151,7 @@ name|driver
 argument_list|)
 expr_stmt|;
 return|return
-name|T1_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -2099,7 +2198,7 @@ begin_macro
 DECL|function|T1_Driver_Done
 name|T1_Driver_Done
 argument_list|(
-argument|T1_Driver  driver
+argument|FT_Module  driver
 argument_list|)
 end_macro
 begin_block

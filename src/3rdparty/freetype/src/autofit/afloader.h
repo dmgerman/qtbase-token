@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005 by                                          */
+comment|/*  Copyright 2003-2005, 2011-2013 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -50,13 +50,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__AF_LOADER_H__
+name|__AFLOADER_H__
 end_ifndef
 begin_define
-DECL|macro|__AF_LOADER_H__
+DECL|macro|__AFLOADER_H__
 define|#
 directive|define
-name|__AF_LOADER_H__
+name|__AFLOADER_H__
 end_define
 begin_include
 include|#
@@ -72,32 +72,43 @@ begin_macro
 name|FT_BEGIN_HEADER
 end_macro
 begin_typedef
+DECL|typedef|AF_Module
+typedef|typedef
+name|struct
+name|AF_ModuleRec_
+modifier|*
+name|AF_Module
+typedef|;
+end_typedef
+begin_comment
+comment|/*    *  The autofitter module's (global) data structure to communicate with    *  actual fonts.  If necessary, `local' data like the current face, the    *  current face's auto-hint data, or the current glyph's parameters    *  relevant to auto-hinting are `swapped in'.  Cf. functions like    *  `af_loader_reset' and `af_loader_load_g'.    */
+end_comment
+begin_typedef
 DECL|struct|AF_LoaderRec_
 typedef|typedef
 struct|struct
 name|AF_LoaderRec_
 block|{
+comment|/* current face data */
 DECL|member|face
 name|FT_Face
 name|face
 decl_stmt|;
-comment|/* current face */
 DECL|member|globals
 name|AF_FaceGlobals
 name|globals
 decl_stmt|;
-comment|/* current face globals */
+comment|/* current glyph data */
 DECL|member|gloader
 name|FT_GlyphLoader
 name|gloader
 decl_stmt|;
-comment|/* glyph loader */
 DECL|member|hints
 name|AF_GlyphHintsRec
 name|hints
 decl_stmt|;
 DECL|member|metrics
-name|AF_ScriptMetrics
+name|AF_StyleMetrics
 name|metrics
 decl_stmt|;
 DECL|member|transformed
@@ -139,9 +150,7 @@ end_macro
 begin_macro
 name|af_loader_init
 argument_list|(
-argument|AF_Loader  loader
-argument_list|,
-argument|FT_Memory  memory
+argument|AF_Module  module
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -157,7 +166,7 @@ begin_macro
 DECL|variable|af_loader_reset
 name|af_loader_reset
 argument_list|(
-argument|AF_Loader  loader
+argument|AF_Module  module
 argument_list|,
 argument|FT_Face    face
 argument_list|)
@@ -172,14 +181,14 @@ argument|void
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|loader
+DECL|variable|module
 name|af_loader_done
 argument_list|(
-argument|AF_Loader  loader
+argument|AF_Module  module
 argument_list|)
 end_macro
 begin_empty_stmt
-DECL|variable|loader
+DECL|variable|module
 empty_stmt|;
 end_empty_stmt
 begin_macro
@@ -191,13 +200,13 @@ end_macro
 begin_macro
 name|af_loader_load_glyph
 argument_list|(
-argument|AF_Loader  loader
+argument|AF_Module  module
 argument_list|,
 argument|FT_Face    face
 argument_list|,
 argument|FT_UInt    gindex
 argument_list|,
-argument|FT_UInt32  load_flags
+argument|FT_Int32   load_flags
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -214,7 +223,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __AF_LOADER_H__ */
+comment|/* __AFLOADER_H__ */
 end_comment
 begin_comment
 comment|/* END */

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2008 by                                                */
+comment|/*  Copyright 2005, 2008, 2013 by                                          */
 end_comment
 begin_comment
 comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
@@ -123,7 +123,7 @@ name|FT_UShort
 name|nSubtables
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -156,9 +156,6 @@ block|,
 comment|/* 5 */
 block|}
 decl_stmt|;
-name|GXV_Validate_Func
-name|func
-decl_stmt|;
 name|FT_UShort
 name|i
 decl_stmt|;
@@ -181,15 +178,23 @@ name|i
 operator|++
 control|)
 block|{
+name|GXV_Validate_Func
+name|func
+decl_stmt|;
 name|FT_ULong
 name|length
 decl_stmt|;
 name|FT_ULong
 name|coverage
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_ULong
 name|subFeatureFlags
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_ULong
 name|type
 decl_stmt|;
@@ -219,6 +224,9 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|subFeatureFlags
 operator|=
 name|FT_NEXT_ULONG
@@ -226,6 +234,14 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|p
+operator|+=
+literal|4
+expr_stmt|;
+endif|#
+directive|endif
 name|GXV_TRACE
 argument_list|(
 operator|(
@@ -280,7 +296,7 @@ operator||
 name|coverage
 argument_list|)
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -321,15 +337,16 @@ name|p
 operator|+
 name|rest
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
+comment|/* TODO: subFeatureFlags should be unique in a table? */
 name|p
 operator|+=
 name|rest
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -354,7 +371,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -362,9 +379,14 @@ name|p
 init|=
 name|table
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_ULong
 name|defaultFlags
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_ULong
 name|chainLength
 decl_stmt|;
@@ -390,6 +412,9 @@ operator|+
 literal|4
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|defaultFlags
 operator|=
 name|FT_NEXT_ULONG
@@ -397,6 +422,14 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|p
+operator|+=
+literal|4
+expr_stmt|;
+endif|#
+directive|endif
 name|chainLength
 operator|=
 name|FT_NEXT_ULONG
@@ -427,12 +460,12 @@ name|limit
 argument_list|,
 name|nFeatureFlags
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -457,15 +490,16 @@ name|FT_UShort
 operator|)
 name|nSubtables
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
 name|chainLength
 expr_stmt|;
+comment|/* TODO: defaultFlags should be compared with the flags in tables */
 name|GXV_EXIT
 expr_stmt|;
 block|}
@@ -490,13 +524,13 @@ end_macro
 begin_block
 block|{
 name|GXV_ValidatorRec
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_Validator
-name|valid
+name|gxvalid
 init|=
 operator|&
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -517,13 +551,13 @@ decl_stmt|;
 name|FT_ULong
 name|i
 decl_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|=
 name|ftvalid
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|=
@@ -607,12 +641,12 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;

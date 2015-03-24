@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2006, 2008 by                                          */
+comment|/*  Copyright 2004, 2006, 2008, 2010, 2013 by                              */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -111,7 +116,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Face_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -135,7 +143,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -178,7 +189,10 @@ expr_stmt|;
 else|else
 name|error
 operator|=
-name|FT_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 expr_stmt|;
 name|Exit
 label|:
@@ -206,12 +220,20 @@ begin_block
 block|{
 name|FT_Memory
 name|memory
-init|=
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|face
+condition|)
+return|return;
+name|memory
+operator|=
 name|FT_FACE_MEMORY
 argument_list|(
 name|face
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|FT_FREE
 argument_list|(
 name|table

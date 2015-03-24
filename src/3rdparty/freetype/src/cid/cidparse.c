@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009 by       */
+comment|/*  Copyright 1996-2007, 2009, 2013, 2014 by                               */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -252,13 +252,16 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"[not a valid CID-keyed font]\n"
+literal|"  not a CID-keyed font\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|CID_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 block|}
 name|FT_FRAME_EXIT
@@ -340,7 +343,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|CID_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -430,11 +436,16 @@ block|{
 comment|/* save offset of binary data after `StartData' */
 name|offset
 operator|+=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|buffer
 operator|+
 literal|10
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Found
@@ -468,11 +479,16 @@ condition|)
 block|{
 name|offset
 operator|+=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|buffer
 operator|+
 literal|7
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Found
@@ -723,22 +739,6 @@ operator|)
 name|arg2
 argument_list|)
 expr_stmt|;
-name|limit
-operator|=
-name|parser
-operator|->
-name|root
-operator|.
-name|limit
-expr_stmt|;
-name|cur
-operator|=
-name|parser
-operator|->
-name|root
-operator|.
-name|cursor
-expr_stmt|;
 goto|goto
 name|Exit
 goto|;
@@ -778,7 +778,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|CID_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009               */
+comment|/*  Copyright 2002-2009, 2011, 2013                                        */
 end_comment
 begin_comment
 comment|/*  by Roberto Alameda.                                                    */
@@ -71,6 +71,11 @@ begin_include
 include|#
 directive|include
 include|FT_LIST_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_TRUETYPE_IDS_H
 end_include
 begin_undef
 DECL|macro|FT_COMPONENT
@@ -160,6 +165,16 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+comment|/* while parsing the font we always update `face->ttf_size' so that */
+comment|/* even in case of buggy data (which might lead to premature end of */
+comment|/* scanning without causing an error) the call to `FT_Open_Face' in */
+comment|/* `T42_Face_Init' passes the correct size                          */
+name|face
+operator|->
+name|ttf_size
+operator|=
+literal|12
+expr_stmt|;
 name|error
 operator|=
 name|t42_parser_init
@@ -218,9 +233,23 @@ operator|!=
 literal|42
 condition|)
 block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"T42_Open_Face: cannot handle FontType %d\n"
+operator|,
+name|type1
+operator|->
+name|font_type
+operator|)
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -255,7 +284,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 block|}
 name|loader
@@ -360,10 +392,6 @@ name|max_char
 decl_stmt|;
 name|FT_Byte
 modifier|*
-name|char_name
-decl_stmt|;
-name|FT_Byte
-modifier|*
 name|glyph_name
 decl_stmt|;
 comment|/* OK, we do the following: for each element in the encoding   */
@@ -398,6 +426,10 @@ name|charcode
 operator|++
 control|)
 block|{
+name|FT_Byte
+modifier|*
+name|char_name
+decl_stmt|;
 name|type1
 operator|->
 name|encoding
@@ -625,8 +657,9 @@ name|T42_Face_Init
 argument_list|(
 argument|FT_Stream      stream
 argument_list|,
-argument|T42_Face       face
+argument|FT_Face        t42face
 argument_list|,
+comment|/* T42_Face */
 argument|FT_Int         face_index
 argument_list|,
 argument|FT_Int         num_params
@@ -636,6 +669,14 @@ argument_list|)
 end_macro
 begin_block
 block|{
+name|T42_Face
+name|face
+init|=
+operator|(
+name|T42_Face
+operator|)
+name|t42face
+decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
@@ -680,11 +721,6 @@ expr_stmt|;
 name|FT_UNUSED
 argument_list|(
 name|params
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|face_index
 argument_list|)
 expr_stmt|;
 name|FT_UNUSED
@@ -744,6 +780,37 @@ name|face
 operator|->
 name|psaux
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|psaux
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"T42_Face_Init: cannot access `psaux' module\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Missing_Module
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"Type 42 driver\n"
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* open the tokenizer, this will also check the font format */
 name|error
 operator|=
@@ -786,7 +853,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|T42_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -818,7 +888,7 @@ expr_stmt|;
 name|root
 operator|->
 name|face_flags
-operator|=
+operator||=
 name|FT_FACE_FLAG_SCALABLE
 operator||
 name|FT_FACE_FLAG_HORIZONTAL
@@ -1017,6 +1087,22 @@ operator|.
 name|flags
 operator|=
 name|FT_OPEN_MEMORY
+operator||
+name|FT_OPEN_DRIVER
+expr_stmt|;
+name|args
+operator|.
+name|driver
+operator|=
+name|FT_Get_Module
+argument_list|(
+name|FT_FACE_LIBRARY
+argument_list|(
+name|face
+argument_list|)
+argument_list|,
+literal|"truetype"
+argument_list|)
 expr_stmt|;
 name|args
 operator|.
@@ -1244,8 +1330,6 @@ block|{
 if|if
 condition|(
 name|psnames
-operator|&&
-name|psaux
 condition|)
 block|{
 name|FT_CharMapRec
@@ -1272,13 +1356,13 @@ name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|3
+name|TT_PLATFORM_MICROSOFT
 expr_stmt|;
 name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|1
+name|TT_MS_ID_UNICODE_CS
 expr_stmt|;
 name|charmap
 operator|.
@@ -1286,6 +1370,8 @@ name|encoding
 operator|=
 name|FT_ENCODING_UNICODE
 expr_stmt|;
+name|error
+operator|=
 name|FT_CMap_New
 argument_list|(
 name|cmap_classes
@@ -1300,12 +1386,30 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+operator|&&
+name|FT_ERR_NEQ
+argument_list|(
+name|error
+argument_list|,
+name|No_Unicode_Glyph_Name
+argument_list|)
+condition|)
+goto|goto
+name|Exit
+goto|;
+name|error
+operator|=
+name|FT_Err_Ok
+expr_stmt|;
 comment|/* now, generate an Adobe Standard encoding when appropriate */
 name|charmap
 operator|.
 name|platform_id
 operator|=
-literal|7
+name|TT_PLATFORM_ADOBE
 expr_stmt|;
 name|clazz
 operator|=
@@ -1331,7 +1435,7 @@ name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|0
+name|TT_ADOBE_ID_STANDARD
 expr_stmt|;
 name|clazz
 operator|=
@@ -1353,7 +1457,7 @@ name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|1
+name|TT_ADOBE_ID_EXPERT
 expr_stmt|;
 name|clazz
 operator|=
@@ -1375,7 +1479,7 @@ name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|2
+name|TT_ADOBE_ID_CUSTOM
 expr_stmt|;
 name|clazz
 operator|=
@@ -1397,7 +1501,7 @@ name|charmap
 operator|.
 name|encoding_id
 operator|=
-literal|3
+name|TT_ADOBE_ID_LATIN_1
 expr_stmt|;
 name|clazz
 operator|=
@@ -1413,6 +1517,8 @@ if|if
 condition|(
 name|clazz
 condition|)
+name|error
+operator|=
 name|FT_CMap_New
 argument_list|(
 name|clazz
@@ -1451,11 +1557,19 @@ begin_macro
 DECL|function|T42_Face_Done
 name|T42_Face_Done
 argument_list|(
-argument|T42_Face  face
+argument|FT_Face  t42face
 argument_list|)
 end_macro
 begin_block
 block|{
+name|T42_Face
+name|face
+init|=
+operator|(
+name|T42_Face
+operator|)
+name|t42face
+decl_stmt|;
 name|T1_Font
 name|type1
 decl_stmt|;
@@ -1706,11 +1820,22 @@ end_macro
 begin_macro
 name|T42_Driver_Init
 argument_list|(
-argument|T42_Driver  driver
+argument|FT_Module  module
 argument_list|)
 end_macro
+begin_comment
+comment|/* T42_Driver */
+end_comment
 begin_block
 block|{
+name|T42_Driver
+name|driver
+init|=
+operator|(
+name|T42_Driver
+operator|)
+name|module
+decl_stmt|;
 name|FT_Module
 name|ttmodule
 decl_stmt|;
@@ -1718,16 +1843,33 @@ name|ttmodule
 operator|=
 name|FT_Get_Module
 argument_list|(
-name|FT_MODULE
-argument_list|(
-name|driver
-argument_list|)
+name|module
 operator|->
 name|library
 argument_list|,
 literal|"truetype"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|ttmodule
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"T42_Driver_Init: cannot access `truetype' module\n"
+operator|)
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_THROW
+argument_list|(
+name|Missing_Module
+argument_list|)
+return|;
+block|}
 name|driver
 operator|->
 name|ttclazz
@@ -1740,7 +1882,7 @@ operator|->
 name|clazz
 expr_stmt|;
 return|return
-name|T42_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -1754,14 +1896,14 @@ begin_macro
 DECL|function|T42_Driver_Done
 name|T42_Driver_Done
 argument_list|(
-argument|T42_Driver  driver
+argument|FT_Module  module
 argument_list|)
 end_macro
 begin_block
 block|{
 name|FT_UNUSED
 argument_list|(
-name|driver
+name|module
 argument_list|)
 expr_stmt|;
 block|}
@@ -1776,18 +1918,27 @@ end_macro
 begin_macro
 name|T42_Size_Init
 argument_list|(
-argument|T42_Size  size
+argument|FT_Size  size
 argument_list|)
 end_macro
+begin_comment
+comment|/* T42_Size */
+end_comment
 begin_block
 block|{
+name|T42_Size
+name|t42size
+init|=
+operator|(
+name|T42_Size
+operator|)
+name|size
+decl_stmt|;
 name|FT_Face
 name|face
 init|=
 name|size
 operator|->
-name|root
-operator|.
 name|face
 decl_stmt|;
 name|T42_Face
@@ -1803,8 +1954,6 @@ name|ttsize
 decl_stmt|;
 name|FT_Error
 name|error
-init|=
-name|T42_Err_Ok
 decl_stmt|;
 name|error
 operator|=
@@ -1818,7 +1967,7 @@ operator|&
 name|ttsize
 argument_list|)
 expr_stmt|;
-name|size
+name|t42size
 operator|->
 name|ttsize
 operator|=
@@ -1844,23 +1993,30 @@ end_macro
 begin_macro
 name|T42_Size_Request
 argument_list|(
-argument|T42_Size         size
+argument|FT_Size          t42size
 argument_list|,
+comment|/* T42_Size */
 argument|FT_Size_Request  req
 argument_list|)
 end_macro
 begin_block
 block|{
+name|T42_Size
+name|size
+init|=
+operator|(
+name|T42_Size
+operator|)
+name|t42size
+decl_stmt|;
 name|T42_Face
 name|face
 init|=
 operator|(
 name|T42_Face
 operator|)
-name|size
+name|t42size
 operator|->
-name|root
-operator|.
 name|face
 decl_stmt|;
 name|FT_Error
@@ -1889,12 +2045,7 @@ condition|(
 operator|!
 name|error
 condition|)
-operator|(
-operator|(
-name|FT_Size
-operator|)
-name|size
-operator|)
+name|t42size
 operator|->
 name|metrics
 operator|=
@@ -1921,23 +2072,30 @@ end_macro
 begin_macro
 name|T42_Size_Select
 argument_list|(
-argument|T42_Size  size
+argument|FT_Size   t42size
 argument_list|,
+comment|/* T42_Size */
 argument|FT_ULong  strike_index
 argument_list|)
 end_macro
 begin_block
 block|{
+name|T42_Size
+name|size
+init|=
+operator|(
+name|T42_Size
+operator|)
+name|t42size
+decl_stmt|;
 name|T42_Face
 name|face
 init|=
 operator|(
 name|T42_Face
 operator|)
-name|size
+name|t42size
 operator|->
-name|root
-operator|.
 name|face
 decl_stmt|;
 name|FT_Error
@@ -1969,12 +2127,7 @@ condition|(
 operator|!
 name|error
 condition|)
-operator|(
-operator|(
-name|FT_Size
-operator|)
-name|size
-operator|)
+name|t42size
 operator|->
 name|metrics
 operator|=
@@ -2001,18 +2154,28 @@ begin_macro
 DECL|function|T42_Size_Done
 name|T42_Size_Done
 argument_list|(
-argument|T42_Size  size
+argument|FT_Size  t42size
 argument_list|)
 end_macro
+begin_comment
+DECL|function|T42_Size_Done
+comment|/* T42_Size */
+end_comment
 begin_block
 block|{
+name|T42_Size
+name|size
+init|=
+operator|(
+name|T42_Size
+operator|)
+name|t42size
+decl_stmt|;
 name|FT_Face
 name|face
 init|=
-name|size
+name|t42size
 operator|->
-name|root
-operator|.
 name|face
 decl_stmt|;
 name|T42_Face
@@ -2073,18 +2236,27 @@ end_macro
 begin_macro
 name|T42_GlyphSlot_Init
 argument_list|(
-argument|T42_GlyphSlot  slot
+argument|FT_GlyphSlot  t42slot
 argument_list|)
 end_macro
+begin_comment
+comment|/* T42_GlyphSlot */
+end_comment
 begin_block
 block|{
+name|T42_GlyphSlot
+name|slot
+init|=
+operator|(
+name|T42_GlyphSlot
+operator|)
+name|t42slot
+decl_stmt|;
 name|FT_Face
 name|face
 init|=
-name|slot
+name|t42slot
 operator|->
-name|root
-operator|.
 name|face
 decl_stmt|;
 name|T42_Face
@@ -2101,7 +2273,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|T42_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 if|if
 condition|(
@@ -2160,11 +2332,23 @@ begin_macro
 DECL|function|T42_GlyphSlot_Done
 name|T42_GlyphSlot_Done
 argument_list|(
-argument|T42_GlyphSlot slot
+argument|FT_GlyphSlot  t42slot
 argument_list|)
 end_macro
+begin_comment
+DECL|function|T42_GlyphSlot_Done
+comment|/* T42_GlyphSlot */
+end_comment
 begin_block
 block|{
+name|T42_GlyphSlot
+name|slot
+init|=
+operator|(
+name|T42_GlyphSlot
+operator|)
+name|t42slot
+decl_stmt|;
 name|FT_Done_GlyphSlot
 argument_list|(
 name|slot
@@ -2333,6 +2517,15 @@ operator|)
 operator|->
 name|ttclazz
 decl_stmt|;
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"T42_GlyphSlot_Load: glyph index %d\n"
+operator|,
+name|glyph_index
+operator|)
+argument_list|)
+expr_stmt|;
 name|t42_glyphslot_clear
 argument_list|(
 name|t42slot

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2009                                             */
+comment|/*  Copyright 2004, 2005, 2009, 2010, 2013                                 */
 end_comment
 begin_comment
 comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
@@ -193,7 +193,7 @@ argument|FT_UInt        nmemb
 argument_list|,
 argument|FT_UShort      limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -484,7 +484,7 @@ argument|FT_UInt        nmemb
 argument_list|,
 argument|FT_ULong       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -723,7 +723,7 @@ argument|FT_Byte*       min
 argument_list|,
 argument|FT_Byte*       max
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -794,7 +794,7 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -822,7 +822,7 @@ argument|FT_UShort*     min
 argument_list|,
 argument|FT_UShort*     max
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -893,7 +893,7 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -966,7 +966,7 @@ modifier|*
 name|binSrchHeader
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UShort
@@ -1167,17 +1167,10 @@ name|rangeShift
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1203,7 +1196,7 @@ argument|FT_UShort*     unitSize_p
 argument_list|,
 argument|FT_UShort*     nUnits_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -1335,7 +1328,7 @@ argument_list|(
 operator|&
 name|binSrchHeader
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -1366,7 +1359,7 @@ name|binSrchHeader
 operator|.
 name|nUnits
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -1491,7 +1484,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1514,7 +1507,7 @@ name|GXV_LIMIT_CHECK
 argument_list|(
 literal|2
 operator|*
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -1529,7 +1522,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -1561,7 +1554,7 @@ literal|"too short, glyphs %d - %d are missing\n"
 operator|,
 name|i
 operator|,
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -1569,17 +1562,10 @@ name|num_glyphs
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -1589,12 +1575,12 @@ name|GXV_LOOKUP_VALUE_LOAD
 argument_list|(
 name|p
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 argument_list|(
@@ -1603,11 +1589,11 @@ argument_list|,
 operator|&
 name|value
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -1638,7 +1624,7 @@ name|FT_UShort
 name|unitSize
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1654,7 +1640,7 @@ operator|+
 literal|4
 operator|)
 operator|<
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|->
@@ -1699,7 +1685,7 @@ operator|+=
 name|unitSize
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -1722,7 +1708,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1774,12 +1760,12 @@ argument_list|,
 operator|&
 name|nUnits
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -1841,7 +1827,7 @@ name|GXV_LOOKUP_VALUE_LOAD
 argument_list|(
 name|p
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 argument_list|)
@@ -1850,14 +1836,14 @@ name|gxv_glyphid_validate
 argument_list|(
 name|firstGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_glyphid_validate
 argument_list|(
 name|lastGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -1885,17 +1871,10 @@ name|gid
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -1920,21 +1899,14 @@ name|firstGlyph
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|->
@@ -1977,7 +1949,7 @@ condition|;
 name|gid
 operator|++
 control|)
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 argument_list|(
@@ -1986,7 +1958,7 @@ argument_list|,
 operator|&
 name|value
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -1996,16 +1968,16 @@ name|p
 argument_list|,
 name|unitSize
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2033,7 +2005,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -2088,12 +2060,12 @@ argument_list|,
 operator|&
 name|nUnits
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -2151,14 +2123,14 @@ name|gxv_glyphid_validate
 argument_list|(
 name|firstGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_glyphid_validate
 argument_list|(
 name|lastGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -2186,17 +2158,10 @@ name|gid
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -2221,21 +2186,14 @@ name|firstGlyph
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|->
@@ -2295,7 +2253,7 @@ control|)
 block|{
 name|value
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 argument_list|(
@@ -2313,10 +2271,10 @@ name|base_value
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 argument_list|(
@@ -2325,7 +2283,7 @@ argument_list|,
 operator|&
 name|value
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -2336,16 +2294,16 @@ name|p
 argument_list|,
 name|unitSize
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2373,7 +2331,7 @@ name|FT_UShort
 name|unitSize
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -2385,7 +2343,7 @@ while|while
 condition|(
 name|p
 operator|<
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|->
@@ -2414,7 +2372,7 @@ operator|+=
 name|unitSize
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2437,7 +2395,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -2486,12 +2444,12 @@ argument_list|,
 operator|&
 name|nUnits
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -2544,7 +2502,7 @@ name|GXV_LOOKUP_VALUE_LOAD
 argument_list|(
 name|p
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 argument_list|)
@@ -2555,7 +2513,7 @@ name|gxv_glyphid_validate
 argument_list|(
 name|glyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 condition|)
 name|GXV_TRACE
@@ -2588,24 +2546,17 @@ name|prev_glyph
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 block|}
 name|prev_glyph
 operator|=
 name|glyph
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 argument_list|(
@@ -2614,7 +2565,7 @@ argument_list|,
 operator|&
 name|value
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -2624,16 +2575,16 @@ name|p
 argument_list|,
 name|unitSize
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2661,7 +2612,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -2712,7 +2663,7 @@ name|gxv_glyphid_validate
 argument_list|(
 name|firstGlyph
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_glyphid_validate
@@ -2726,7 +2677,7 @@ operator|+
 name|glyphCount
 argument_list|)
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 comment|/* valueArray */
@@ -2755,12 +2706,12 @@ name|GXV_LOOKUP_VALUE_LOAD
 argument_list|(
 name|p
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 argument_list|(
@@ -2776,11 +2727,11 @@ argument_list|,
 operator|&
 name|value
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2806,7 +2757,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -2862,7 +2813,7 @@ literal|"LookupTable"
 argument_list|)
 expr_stmt|;
 comment|/* lookuptbl_head may be used in fmt4 transit function. */
-name|valid
+name|gxvalid
 operator|->
 name|lookuptbl_head
 operator|=
@@ -2919,16 +2870,16 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -2973,7 +2924,7 @@ name|gxv_glyphid_validate
 argument_list|(
 argument|FT_UShort      gid
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -2996,7 +2947,7 @@ return|;
 block|}
 name|face
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|face
 expr_stmt|;
@@ -3022,17 +2973,10 @@ name|gid
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -3075,7 +3019,7 @@ argument|FT_UShort      gid
 argument_list|,
 argument|FT_Short       ctl_point
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -3097,7 +3041,7 @@ name|n_points
 decl_stmt|;
 name|face
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|face
 expr_stmt|;
@@ -3188,7 +3132,7 @@ argument|FT_UShort      min_index
 argument_list|,
 argument|FT_UShort      max_index
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -3223,7 +3167,7 @@ name|nnames
 operator|=
 name|FT_Get_Sfnt_Name_Count
 argument_list|(
-name|valid
+name|gxvalid
 operator|->
 name|face
 argument_list|)
@@ -3246,7 +3190,7 @@ if|if
 condition|(
 name|FT_Get_Sfnt_Name
 argument_list|(
-name|valid
+name|gxvalid
 operator|->
 name|face
 argument_list|,
@@ -3363,7 +3307,7 @@ modifier|*
 name|maxClassID_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -3447,7 +3391,7 @@ operator|+
 name|nGlyphs
 argument_list|)
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|{
@@ -3645,7 +3589,7 @@ modifier|*
 name|maxEntry_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -3845,7 +3789,7 @@ name|FT_Bytes
 name|statetable_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -3912,17 +3856,10 @@ operator|*
 name|length_p
 condition|)
 block|{
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_TOO_SHORT
+argument_list|)
 expr_stmt|;
 comment|/* ftxvalidator and FontValidator both warn and continue */
 name|maxEntry
@@ -4012,17 +3949,10 @@ name|newState
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_OFFSET
+argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
@@ -4058,17 +3988,10 @@ name|maxClassID
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_OFFSET
+argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
@@ -4189,17 +4112,10 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_FORMAT
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4209,13 +4125,13 @@ if|if
 condition|(
 name|NULL
 operator|!=
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
 name|entry_validate_func
 condition|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -4232,7 +4148,7 @@ name|statetable_table
 argument_list|,
 name|statetable_limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -4281,7 +4197,7 @@ argument|FT_UShort*     stateArray_length_p
 argument_list|,
 argument|FT_UShort*     entryTable_length_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -4359,7 +4275,7 @@ literal|3
 argument_list|,
 name|table_size
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -4378,7 +4294,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -4521,7 +4437,7 @@ name|FT_INVALID_DATA
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -4529,7 +4445,7 @@ name|optdata_load_func
 operator|!=
 name|NULL
 condition|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -4539,12 +4455,12 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -4554,7 +4470,7 @@ name|NULL
 condition|)
 name|setup_func
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -4591,7 +4507,7 @@ argument_list|,
 operator|&
 name|entryTable_length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_TRACE
@@ -4621,7 +4537,7 @@ argument_list|,
 operator|&
 name|maxClassID
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 else|else
@@ -4661,16 +4577,18 @@ argument_list|,
 operator|&
 name|maxEntry
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 else|else
 block|{
-name|maxState
-operator|=
-literal|1
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block|maxState = 1;
 comment|/* 0:start of text, 1:start of line are predefined */
+endif|#
+directive|endif
 name|maxEntry
 operator|=
 literal|0
@@ -4715,7 +4633,7 @@ name|table
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -4749,7 +4667,7 @@ argument|FT_ULong*      stateArray_length_p
 argument_list|,
 argument|FT_ULong*      entryTable_length_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -4823,11 +4741,11 @@ name|l
 argument_list|,
 name|buff
 argument_list|,
-literal|4
+literal|3
 argument_list|,
 name|table_size
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -4845,7 +4763,7 @@ name|GXV_LookupValueCPtr
 name|value_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UNUSED
@@ -4859,7 +4777,7 @@ name|value_p
 operator|->
 name|u
 operator|>=
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -4873,13 +4791,13 @@ name|value_p
 operator|->
 name|u
 operator|>
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
 name|maxClassID
 condition|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -4910,7 +4828,7 @@ name|FT_Bytes
 name|lookuptbl_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -4946,7 +4864,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|lookuptbl_head
 operator|+
@@ -5003,7 +4921,7 @@ modifier|*
 name|maxEntry_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -5198,7 +5116,7 @@ name|FT_Bytes
 name|xstatetable_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -5333,17 +5251,10 @@ name|newState_idx
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_OFFSET
+argument_list|)
 expr_stmt|;
 block|}
 name|state
@@ -5392,17 +5303,10 @@ name|maxClassID
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_OFFSET
+argument_list|)
 expr_stmt|;
 block|}
 switch|switch
@@ -5503,17 +5407,10 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_FORMAT
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -5523,13 +5420,13 @@ if|if
 condition|(
 name|NULL
 operator|!=
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
 name|entry_validate_func
 condition|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5546,7 +5443,7 @@ name|xstatetable_table
 argument_list|,
 name|xstatetable_limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -5577,7 +5474,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -5641,7 +5538,7 @@ operator|+
 literal|4
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5678,7 +5575,7 @@ argument_list|(
 operator|(
 literal|"nClasses =0x%08x\n"
 operator|,
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5715,7 +5612,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5734,7 +5631,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5742,7 +5639,7 @@ name|optdata_load_func
 operator|!=
 name|NULL
 condition|)
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5752,12 +5649,12 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5767,7 +5664,7 @@ name|NULL
 condition|)
 name|setup_func
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5799,7 +5696,7 @@ argument_list|,
 operator|&
 name|entryTable_length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -5809,7 +5706,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5817,19 +5714,19 @@ name|maxClassID
 operator|=
 literal|0
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_sign
 operator|=
 name|GXV_LOOKUPVALUE_UNSIGNED
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupval_func
 operator|=
 name|gxv_XClassTable_lookupval_validate
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|lookupfmt4_trans
 operator|=
@@ -5847,28 +5744,20 @@ name|classTable
 operator|+
 name|classTable_length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|subtable_length
-operator|<
-name|classTable_length
-condition|)
-name|classTable_length
-operator|=
-name|valid
-operator|->
-name|subtable_length
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block|if ( gxvalid->subtable_length< classTable_length )         classTable_length = gxvalid->subtable_length;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
 comment|/* XXX: check range? */
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5878,7 +5767,7 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5903,13 +5792,13 @@ argument_list|,
 operator|&
 name|stateArray_length
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
 name|maxClassID
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5921,16 +5810,18 @@ argument_list|,
 operator|&
 name|maxEntry
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 else|else
 block|{
-name|maxState
-operator|=
-literal|1
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block|maxState = 1;
 comment|/* 0:start of text, 1:start of line are predefined */
+endif|#
+directive|endif
 name|maxEntry
 operator|=
 literal|0
@@ -5967,7 +5858,7 @@ name|maxEntry
 argument_list|,
 name|stateArray_length
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|xstatetable
 operator|.
@@ -5977,7 +5868,7 @@ name|table
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT
@@ -6184,7 +6075,7 @@ name|gxv_odtect_validate
 argument_list|(
 argument|GXV_odtect_Range  odtect
 argument_list|,
-argument|GXV_Validator     valid
+argument|GXV_Validator     gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -6271,6 +6162,9 @@ name|length
 argument_list|)
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
 if|if
 condition|(
 name|odtect
@@ -6328,6 +6222,8 @@ name|name
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|FT_INVALID_OFFSET
 expr_stmt|;
 block|}

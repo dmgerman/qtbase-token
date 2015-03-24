@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2004, 2005, 2006, 2009 by                  */
+comment|/*  Copyright 2001-2006, 2009, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -171,7 +171,7 @@ name|FT_MEM_VAL
 parameter_list|(
 name|addr
 parameter_list|)
-value|((FT_ULong)(FT_Pointer)( addr ))
+value|((FT_PtrDist)(FT_Pointer)( addr ))
 end_define
 begin_comment
 comment|/*    *  This structure holds statistics for a single allocation/release    *  site.  This is useful to know where memory operations happen the    *  most.    */
@@ -797,7 +797,7 @@ decl_stmt|,
 modifier|*
 name|pnode
 decl_stmt|;
-name|FT_ULong
+name|FT_PtrDist
 name|hash
 decl_stmt|;
 name|node
@@ -1061,18 +1061,6 @@ block|{
 name|FT_ULong
 name|i
 decl_stmt|;
-name|FT_DumpMemory
-argument_list|(
-name|table
-operator|->
-name|memory
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|table
-condition|)
-block|{
 name|FT_Long
 name|leak_count
 init|=
@@ -1083,6 +1071,13 @@ name|leaks
 init|=
 literal|0
 decl_stmt|;
+name|FT_DumpMemory
+argument_list|(
+name|table
+operator|->
+name|memory
+argument_list|)
+expr_stmt|;
 comment|/* remove all blocks from the table, revealing leaked ones */
 for|for
 control|(
@@ -1361,7 +1356,6 @@ literal|"FreeType: no memory leaks detected\n"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 end_function
 begin_function
 specifier|static
@@ -1378,7 +1372,7 @@ modifier|*
 name|address
 parameter_list|)
 block|{
-name|FT_ULong
+name|FT_PtrDist
 name|hash
 decl_stmt|;
 name|FT_MemNode

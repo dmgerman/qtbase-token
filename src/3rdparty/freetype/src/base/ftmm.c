@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2003, 2004, 2009 by                               */
+comment|/*  Copyright 1996-2001, 2003, 2004, 2009, 2013, 2014 by                   */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -51,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<ft2build.h>
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_DEBUG_H
 end_include
 begin_include
 include|#
@@ -126,11 +131,17 @@ operator|!
 name|face
 condition|)
 return|return
-name|FT_Err_Invalid_Face_Handle
+name|FT_THROW
+argument_list|(
+name|Invalid_Face_Handle
+argument_list|)
 return|;
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -191,6 +202,18 @@ decl_stmt|;
 name|FT_Service_MultiMasters
 name|service
 decl_stmt|;
+comment|/* check of `face' delayed to `ft_face_get_mm_service' */
+if|if
+condition|(
+operator|!
+name|amaster
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|error
 operator|=
 name|ft_face_get_mm_service
@@ -209,7 +232,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -260,6 +286,18 @@ decl_stmt|;
 name|FT_Service_MultiMasters
 name|service
 decl_stmt|;
+comment|/* check of `face' delayed to `ft_face_get_mm_service' */
+if|if
+condition|(
+operator|!
+name|amaster
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|error
 operator|=
 name|ft_face_get_mm_service
@@ -278,7 +316,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -331,6 +372,18 @@ decl_stmt|;
 name|FT_Service_MultiMasters
 name|service
 decl_stmt|;
+comment|/* check of `face' delayed to `ft_face_get_mm_service' */
+if|if
+condition|(
+operator|!
+name|coords
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|error
 operator|=
 name|ft_face_get_mm_service
@@ -349,7 +402,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -404,6 +460,18 @@ decl_stmt|;
 name|FT_Service_MultiMasters
 name|service
 decl_stmt|;
+comment|/* check of `face' delayed to `ft_face_get_mm_service' */
+if|if
+condition|(
+operator|!
+name|coords
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|error
 operator|=
 name|ft_face_get_mm_service
@@ -422,7 +490,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -477,6 +548,18 @@ decl_stmt|;
 name|FT_Service_MultiMasters
 name|service
 decl_stmt|;
+comment|/* check of `face' delayed to `ft_face_get_mm_service' */
+if|if
+condition|(
+operator|!
+name|coords
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|error
 operator|=
 name|ft_face_get_mm_service
@@ -495,7 +578,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -556,6 +642,18 @@ decl_stmt|;
 name|FT_Service_MultiMasters
 name|service
 decl_stmt|;
+comment|/* check of `face' delayed to `ft_face_get_mm_service' */
+if|if
+condition|(
+operator|!
+name|coords
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
 name|error
 operator|=
 name|ft_face_get_mm_service
@@ -574,7 +672,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_ERR
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

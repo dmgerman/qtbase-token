@@ -110,7 +110,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* uses valid->glyph_count */
+comment|/* uses otvalid->glyph_count */
 end_comment
 begin_function
 specifier|static
@@ -122,7 +122,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -203,7 +203,7 @@ name|otv_Coverage_validate
 argument_list|(
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -242,7 +242,7 @@ name|FT_UInt
 operator|)
 name|idx
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -294,7 +294,7 @@ name|table
 operator|+
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 name|GlyphCount
 argument_list|)
@@ -324,7 +324,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -362,7 +362,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->extra1 (glyph count) */
+comment|/* sets otvalid->extra1 (glyph count) */
 end_comment
 begin_function
 specifier|static
@@ -374,7 +374,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -419,11 +419,11 @@ block|{
 case|case
 literal|1
 case|:
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 expr_stmt|;
@@ -438,7 +438,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -472,7 +472,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->extra1 (glyph count) */
+comment|/* sets otvalid->extra1 (glyph count) */
 end_comment
 begin_function
 specifier|static
@@ -484,7 +484,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -529,11 +529,11 @@ block|{
 case|case
 literal|1
 case|:
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 expr_stmt|;
@@ -548,7 +548,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -589,7 +589,7 @@ name|LigatureFunc
 value|otv_Ligature_validate
 end_define
 begin_comment
-comment|/* uses valid->glyph_count */
+comment|/* uses otvalid->glyph_count */
 end_comment
 begin_function
 specifier|static
@@ -601,7 +601,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -632,7 +632,7 @@ if|if
 condition|(
 name|LigatureGlyph
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -688,7 +688,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -746,7 +746,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -780,7 +780,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->extra1 (lookup count) */
+comment|/* sets otvalid->extra1 (lookup count) */
 end_comment
 begin_function
 specifier|static
@@ -792,7 +792,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -840,11 +840,11 @@ case|:
 comment|/* no need to check glyph indices/classes used as input for these */
 comment|/* context rules since even invalid glyph indices/classes return  */
 comment|/* meaningful results                                             */
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 expr_stmt|;
@@ -861,7 +861,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -884,7 +884,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -900,7 +900,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -934,7 +934,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->extra1 (lookup count)            */
+comment|/* sets otvalid->extra1 (lookup count)            */
 end_comment
 begin_function
 specifier|static
@@ -946,7 +946,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -994,11 +994,11 @@ case|:
 comment|/* no need to check glyph indices/classes used as input for these */
 comment|/* context rules since even invalid glyph indices/classes return  */
 comment|/* meaningful results                                             */
-name|valid
+name|otvalid
 operator|->
 name|extra1
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|lookup_count
 expr_stmt|;
@@ -1015,7 +1015,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1038,7 +1038,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1054,7 +1054,7 @@ name|OTV_RUN
 argument_list|(
 name|table
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1088,7 +1088,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* uses valid->type_funcs */
+comment|/* uses otvalid->type_funcs */
 end_comment
 begin_function
 specifier|static
@@ -1100,7 +1100,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1193,7 +1193,7 @@ name|FT_INVALID_DATA
 expr_stmt|;
 name|validate
 operator|=
-name|valid
+name|otvalid
 operator|->
 name|type_funcs
 index|[
@@ -1208,7 +1208,7 @@ name|table
 operator|+
 name|ExtensionOffset
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -1243,7 +1243,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* uses valid->glyph_count */
+comment|/* uses otvalid->glyph_count */
 end_comment
 begin_function
 specifier|static
@@ -1255,7 +1255,7 @@ name|FT_Bytes
 name|table
 parameter_list|,
 name|OTV_Validator
-name|valid
+name|otvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -1344,7 +1344,7 @@ name|otv_Coverage_validate
 argument_list|(
 name|Coverage
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -1378,7 +1378,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -1428,7 +1428,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|,
-name|valid
+name|otvalid
 argument_list|,
 operator|-
 literal|1
@@ -1486,7 +1486,7 @@ argument_list|(
 name|p
 argument_list|)
 operator|>=
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 condition|)
@@ -1552,13 +1552,13 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/* sets valid->type_count  */
+comment|/* sets otvalid->type_count  */
 end_comment
 begin_comment
-comment|/* sets valid->type_funcs  */
+comment|/* sets otvalid->type_funcs  */
 end_comment
 begin_comment
-comment|/* sets valid->glyph_count */
+comment|/* sets otvalid->glyph_count */
 end_comment
 begin_macro
 name|FT_LOCAL_DEF
@@ -1580,13 +1580,13 @@ end_macro
 begin_block
 block|{
 name|OTV_ValidatorRec
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|OTV_Validator
-name|valid
+name|otvalid
 init|=
 operator|&
-name|validrec
+name|otvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -1600,7 +1600,7 @@ name|FeatureList
 decl_stmt|,
 name|LookupList
 decl_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|root
 operator|=
@@ -1653,13 +1653,13 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|type_count
 operator|=
 literal|8
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|type_funcs
 operator|=
@@ -1669,7 +1669,7 @@ operator|*
 operator|)
 name|otv_gsub_validate_funcs
 expr_stmt|;
-name|valid
+name|otvalid
 operator|->
 name|glyph_count
 operator|=
@@ -1681,7 +1681,7 @@ name|table
 operator|+
 name|LookupList
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|otv_FeatureList_validate
@@ -1694,7 +1694,7 @@ name|table
 operator|+
 name|LookupList
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|otv_ScriptList_validate
@@ -1707,7 +1707,7 @@ name|table
 operator|+
 name|FeatureList
 argument_list|,
-name|valid
+name|otvalid
 argument_list|)
 expr_stmt|;
 name|FT_TRACE4

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003 by                                          */
+comment|/*  Copyright 2001, 2002, 2003, 2014 by                                    */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -494,7 +494,7 @@ end_endif
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
@@ -524,7 +524,6 @@ argument|void
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|psh_blues_snap_stem
 name|psh_blues_snap_stem
 argument_list|(
 argument|PSH_Blues      blues

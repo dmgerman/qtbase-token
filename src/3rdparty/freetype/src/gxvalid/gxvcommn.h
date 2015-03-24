@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2004, 2005, 2012, 2014                                       */
+end_comment
+begin_comment
+comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -106,6 +109,60 @@ begin_macro
 name|FT_BEGIN_HEADER
 end_macro
 begin_comment
+comment|/* some variables are not evaluated or only used in trace */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+end_ifdef
+begin_define
+DECL|macro|GXV_LOAD_TRACE_VARS
+define|#
+directive|define
+name|GXV_LOAD_TRACE_VARS
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_undef
+undef|#
+directive|undef
+name|GXV_LOAD_TRACE_VARS
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_undef
+DECL|macro|GXV_LOAD_UNUSED_VARS
+undef|#
+directive|undef
+name|GXV_LOAD_UNUSED_VARS
+end_undef
+begin_comment
+DECL|macro|GXV_LOAD_UNUSED_VARS
+comment|/* debug purpose */
+end_comment
+begin_define
+DECL|macro|IS_PARANOID_VALIDATION
+define|#
+directive|define
+name|IS_PARANOID_VALIDATION
+value|( gxvalid->root->level>= FT_VALIDATE_PARANOID )
+end_define
+begin_define
+DECL|macro|GXV_SET_ERR_IF_PARANOID
+define|#
+directive|define
+name|GXV_SET_ERR_IF_PARANOID
+parameter_list|(
+name|err
+parameter_list|)
+value|{ if ( IS_PARANOID_VALIDATION ) ( err ); }
+end_define
+begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
@@ -158,7 +215,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -227,7 +284,7 @@ name|GXV_LookupValueCPtr
 name|value_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -250,7 +307,7 @@ name|FT_Bytes
 name|lookuptbl_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -306,7 +363,7 @@ parameter_list|(
 name|table
 parameter_list|)
 define|\
-value|( valid->table.entry_glyphoffset_fmt )
+value|( gxvalid->table.entry_glyphoffset_fmt )
 end_define
 begin_define
 DECL|macro|GXV_GLYPHOFFSET_SIZE
@@ -317,7 +374,7 @@ parameter_list|(
 name|table
 parameter_list|)
 define|\
-value|( valid->table.entry_glyphoffset_fmt / 2 )
+value|( gxvalid->table.entry_glyphoffset_fmt / 2 )
 end_define
 begin_comment
 comment|/* ----------------------- 16bit StateTable ---------------------------- */
@@ -402,7 +459,7 @@ modifier|*
 name|entryTable_length_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -431,7 +488,7 @@ name|FT_Bytes
 name|statetable_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -451,7 +508,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -544,7 +601,7 @@ modifier|*
 name|entryTable_length_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -573,7 +630,7 @@ name|FT_Bytes
 name|xstatetable_limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 function_decl|;
 end_typedef
@@ -670,6 +727,14 @@ DECL|member|lookuptbl_head
 name|FT_Bytes
 name|lookuptbl_head
 decl_stmt|;
+DECL|member|min_gid
+name|FT_UShort
+name|min_gid
+decl_stmt|;
+DECL|member|max_gid
+name|FT_UShort
+name|max_gid
+decl_stmt|;
 DECL|member|statetable
 name|GXV_StateTable_ValidatorRec
 name|statetable
@@ -712,7 +777,7 @@ parameter_list|,
 name|field
 parameter_list|)
 define|\
-value|( ( (GXV_ ## tag ## _Data)valid->table_data )->field )
+value|( ( (GXV_ ## tag ## _Data)gxvalid->table_data )->field )
 end_define
 begin_undef
 DECL|macro|FT_INVALID_
@@ -726,12 +791,10 @@ define|#
 directive|define
 name|FT_INVALID_
 parameter_list|(
-name|_prefix
-parameter_list|,
 name|_error
 parameter_list|)
 define|\
-value|ft_validator_error( valid->root, _prefix ## _error )
+value|ft_validator_error( gxvalid->root, FT_THROW( _error ) )
 end_define
 begin_define
 DECL|macro|GXV_LIMIT_CHECK
@@ -742,7 +805,7 @@ parameter_list|(
 name|_count
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                              \             if ( p + _count> ( limit? limit : valid->root->limit ) ) \               FT_INVALID_TOO_SHORT;                                   \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                              \             if ( p + _count> ( limit? limit : gxvalid->root->limit ) ) \               FT_INVALID_TOO_SHORT;                                   \           FT_END_STMNT
 end_define
 begin_ifdef
 ifdef|#
@@ -754,7 +817,7 @@ DECL|macro|GXV_INIT
 define|#
 directive|define
 name|GXV_INIT
-value|valid->debug_indent = 0
+value|gxvalid->debug_indent = 0
 end_define
 begin_define
 DECL|macro|GXV_NAME_ENTER
@@ -765,14 +828,14 @@ parameter_list|(
 name|name
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             valid->debug_indent += 2;                      \             FT_TRACE4(( "%*.s", valid->debug_indent, 0 )); \             FT_TRACE4(( "%s table\n", name ));             \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                   \             gxvalid->debug_indent += 2;                      \             FT_TRACE4(( "%*.s", gxvalid->debug_indent, 0 )); \             FT_TRACE4(( "%s table\n", name ));             \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|GXV_EXIT
 define|#
 directive|define
 name|GXV_EXIT
-value|valid->debug_indent -= 2
+value|gxvalid->debug_indent -= 2
 end_define
 begin_define
 DECL|macro|GXV_TRACE
@@ -783,7 +846,7 @@ parameter_list|(
 name|s
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                   \             FT_TRACE4(( "%*.s", valid->debug_indent, 0 )); \             FT_TRACE4( s );                                \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                   \             FT_TRACE4(( "%*.s", gxvalid->debug_indent, 0 )); \             FT_TRACE4( s );                                \           FT_END_STMNT
 end_define
 begin_else
 else|#
@@ -863,7 +926,7 @@ parameter_list|(
 name|a
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                  \             {                             \               if ( 0 != ( (a) % 4 ) )     \                 FT_INVALID_OFFSET ;       \             }                             \           FT_END_STMNT
+value|FT_BEGIN_STMNT                  \             {                             \               if ( (a)& 3 )              \                 FT_INVALID_OFFSET;        \             }                             \           FT_END_STMNT
 end_define
 begin_comment
 comment|/*************************************************************************/
@@ -910,7 +973,7 @@ parameter_list|,
 name|len
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                \             {                                           \               FT_Bytes  b;                              \                                                         \                                                         \               for ( b = p; b< (FT_Bytes)p + len; b++ ) \                 if ( 0x40< *b&& *b< 0x7e )           \                   FT_TRACE1(("%c", *b)) ;               \                 else                                    \                   FT_TRACE1(("\\x%02x", *b)) ;          \             }                                           \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                \             {                                           \               FT_Bytes  b;                              \                                                         \                                                         \               for ( b = p; b< (FT_Bytes)p + len; b++ ) \                 if ( 0x40< *b&& *b< 0x7E )           \                   FT_TRACE1(("%c", *b)) ;               \                 else                                    \                   FT_TRACE1(("\\x%02x", *b)) ;          \             }                                           \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|GXV_TRACE_HEXDUMP_SFNTNAME
@@ -961,7 +1024,7 @@ argument|FT_UShort*     unitSize_p
 argument_list|,
 argument|FT_UShort*     nUnits_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -980,7 +1043,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1018,7 +1081,7 @@ name|gxv_glyphid_validate
 argument_list|(
 argument|FT_UShort      gid
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1059,7 +1122,7 @@ argument|FT_UShort      gid
 argument_list|,
 argument|FT_Short       ctl_point
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1101,7 +1164,7 @@ argument|FT_UShort      min_index
 argument_list|,
 argument|FT_UShort      max_index
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1151,7 +1214,7 @@ argument|FT_UShort*     stateArray_length_p
 argument_list|,
 argument|FT_UShort*     entryTable_length_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1180,7 +1243,7 @@ argument|FT_ULong*      stateArray_length_p
 argument_list|,
 argument|FT_ULong*      entryTable_length_p
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1199,7 +1262,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1218,7 +1281,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1262,7 +1325,7 @@ argument|FT_Byte*       min
 argument_list|,
 argument|FT_Byte*       max
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1285,7 +1348,7 @@ argument|FT_UShort*     min
 argument_list|,
 argument|FT_UShort*     max
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1310,7 +1373,7 @@ argument|FT_UInt        nmemb
 argument_list|,
 argument|FT_UShort      limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1335,7 +1398,7 @@ argument|FT_UInt        nmemb
 argument_list|,
 argument|FT_ULong       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -1350,7 +1413,7 @@ parameter_list|(
 name|_offset
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                              \             if ( (_offset)> valid->subtable_length ) \               FT_INVALID_OFFSET;                      \           FT_END_STMNT
+value|FT_BEGIN_STMNT                              \             if ( (_offset)> gxvalid->subtable_length ) \               FT_INVALID_OFFSET;                      \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|GXV_SUBTABLE_LIMIT_CHECK
@@ -1361,7 +1424,7 @@ parameter_list|(
 name|_count
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                    \             if ( ( p + (_count) - valid->subtable_start )> \                    valid->subtable_length )                 \               FT_INVALID_TOO_SHORT;                         \           FT_END_STMNT
+value|FT_BEGIN_STMNT                                    \             if ( ( p + (_count) - gxvalid->subtable_start )> \                    gxvalid->subtable_length )                 \               FT_INVALID_TOO_SHORT;                         \           FT_END_STMNT
 end_define
 begin_define
 DECL|macro|GXV_USHORT_TO_SHORT
@@ -1506,7 +1569,7 @@ name|gxv_odtect_validate
 argument_list|(
 argument|GXV_odtect_Range  odtect
 argument_list|,
-argument|GXV_Validator     valid
+argument|GXV_Validator     gxvalid
 argument_list|)
 end_macro
 begin_empty_stmt

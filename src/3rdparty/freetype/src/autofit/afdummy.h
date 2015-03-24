@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003, 2004, 2005 by                                          */
+comment|/*  Copyright 2003-2005, 2011, 2013 by                                     */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -68,10 +68,10 @@ file|"aftypes.h"
 end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
-comment|/*  A dummy script metrics class used when no hinting should   *  be performed.  This is the default for non-latin glyphs!   */
-name|AF_DECLARE_SCRIPT_CLASS
+comment|/* A dummy writing system used when no hinting should be performed. */
+name|AF_DECLARE_WRITING_SYSTEM_CLASS
 argument_list|(
-name|af_dummy_script_class
+name|af_dummy_writing_system_class
 argument_list|)
 comment|/* */
 name|FT_END_HEADER

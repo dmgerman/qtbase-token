@@ -1904,6 +1904,11 @@ name|QPersistentModelIndex
 name|pressedIndex
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|QPersistentModelIndex
+name|currentSelectionStartIndex
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|Qt
 operator|::

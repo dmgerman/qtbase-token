@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2010, 2012, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -67,6 +67,11 @@ include|#
 directive|include
 file|"sfntpic.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"sferrors.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -80,10 +85,12 @@ name|FT_Error
 name|FT_Create_Class_sfnt_services
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_ServiceDescRec
 modifier|*
 modifier|*
+name|output_class
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -92,9 +99,11 @@ name|void
 name|FT_Destroy_Class_sfnt_services
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_ServiceDescRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -104,6 +113,7 @@ name|FT_Init_Class_sfnt_service_bdf
 parameter_list|(
 name|FT_Service_BDFRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -112,9 +122,11 @@ name|void
 name|FT_Init_Class_sfnt_interface
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|SFNT_Interface
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -123,9 +135,11 @@ name|void
 name|FT_Init_Class_sfnt_service_glyph_dict
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_GlyphDictRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -134,9 +148,11 @@ name|void
 name|FT_Init_Class_sfnt_service_ps_name
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_PsFontNameRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -145,9 +161,11 @@ name|void
 name|FT_Init_Class_tt_service_get_cmap_info
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_TTCMapsRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -157,6 +175,7 @@ name|FT_Init_Class_sfnt_service_sfnt_table
 parameter_list|(
 name|FT_Service_SFNT_TableRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -168,10 +187,12 @@ name|FT_Error
 name|FT_Create_Class_tt_cmap_classes
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|TT_CMap_Class
 modifier|*
 modifier|*
+name|output_class
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -180,9 +201,11 @@ name|void
 name|FT_Destroy_Class_tt_cmap_classes
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|TT_CMap_Class
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -312,6 +335,8 @@ decl_stmt|;
 name|sfntModulePIC
 modifier|*
 name|container
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -356,7 +381,8 @@ name|sfnt
 operator|=
 name|container
 expr_stmt|;
-comment|/* initialize pointer table - this is how the module usually expects this data */
+comment|/* initialize pointer table -                       */
+comment|/* this is how the module usually expects this data */
 name|error
 operator|=
 name|FT_Create_Class_sfnt_services

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009 by       */
+comment|/*  Copyright 1996-2007, 2009-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -206,7 +206,7 @@ name|FT_COMPONENT
 value|trace_sfdriver
 end_define
 begin_comment
-comment|/*   *  SFNT TABLE SERVICE   *   */
+comment|/*    *  SFNT TABLE SERVICE    *    */
 end_comment
 begin_function
 specifier|static
@@ -232,7 +232,7 @@ name|tag
 condition|)
 block|{
 case|case
-name|ft_sfnt_head
+name|FT_SFNT_HEAD
 case|:
 name|table
 operator|=
@@ -243,7 +243,7 @@ name|header
 expr_stmt|;
 break|break;
 case|case
-name|ft_sfnt_hhea
+name|FT_SFNT_HHEA
 case|:
 name|table
 operator|=
@@ -254,7 +254,7 @@ name|horizontal
 expr_stmt|;
 break|break;
 case|case
-name|ft_sfnt_vhea
+name|FT_SFNT_VHEA
 case|:
 name|table
 operator|=
@@ -267,11 +267,11 @@ name|face
 operator|->
 name|vertical
 else|:
-literal|0
+name|NULL
 expr_stmt|;
 break|break;
 case|case
-name|ft_sfnt_os2
+name|FT_SFNT_OS2
 case|:
 name|table
 operator|=
@@ -283,7 +283,7 @@ name|version
 operator|==
 literal|0xFFFFU
 condition|?
-literal|0
+name|NULL
 else|:
 operator|&
 name|face
@@ -292,7 +292,7 @@ name|os2
 expr_stmt|;
 break|break;
 case|case
-name|ft_sfnt_post
+name|FT_SFNT_POST
 case|:
 name|table
 operator|=
@@ -303,7 +303,7 @@ name|postscript
 expr_stmt|;
 break|break;
 case|case
-name|ft_sfnt_maxp
+name|FT_SFNT_MAXP
 case|:
 name|table
 operator|=
@@ -314,7 +314,7 @@ name|max_profile
 expr_stmt|;
 break|break;
 case|case
-name|ft_sfnt_pclt
+name|FT_SFNT_PCLT
 case|:
 name|table
 operator|=
@@ -329,13 +329,13 @@ name|face
 operator|->
 name|pclt
 else|:
-literal|0
+name|NULL
 expr_stmt|;
 break|break;
 default|default:
 name|table
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 return|return
@@ -371,17 +371,31 @@ block|{
 if|if
 condition|(
 operator|!
-name|tag
-operator|||
-operator|!
 name|offset
 operator|||
 operator|!
 name|length
 condition|)
 return|return
-name|SFNT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
+if|if
+condition|(
+operator|!
+name|tag
+condition|)
+operator|*
+name|length
+operator|=
+name|face
+operator|->
+name|num_tables
+expr_stmt|;
+else|else
+block|{
 if|if
 condition|(
 name|idx
@@ -391,7 +405,10 @@ operator|->
 name|num_tables
 condition|)
 return|return
-name|SFNT_Err_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Table_Missing
+argument_list|)
 return|;
 operator|*
 name|tag
@@ -429,8 +446,9 @@ index|]
 operator|.
 name|Length
 expr_stmt|;
+block|}
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_function
@@ -453,7 +471,7 @@ directive|ifdef
 name|TT_CONFIG_OPTION_POSTSCRIPT_NAMES
 end_ifdef
 begin_comment
-comment|/*   *  GLYPH DICT SERVICE   *   */
+comment|/*    *  GLYPH DICT SERVICE    *    */
 end_comment
 begin_function
 specifier|static
@@ -660,7 +678,7 @@ begin_comment
 comment|/* TT_CONFIG_OPTION_POSTSCRIPT_NAMES */
 end_comment
 begin_comment
-comment|/*   *  POSTSCRIPT NAME SERVICE   *   */
+comment|/*    *  POSTSCRIPT NAME SERVICE    *    */
 end_comment
 begin_function
 specifier|static
@@ -846,7 +864,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -890,14 +908,6 @@ decl_stmt|;
 name|FT_Byte
 modifier|*
 name|p
-init|=
-operator|(
-name|FT_Byte
-operator|*
-operator|)
-name|name
-operator|->
-name|string
 decl_stmt|;
 if|if
 condition|(
@@ -1054,7 +1064,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -1284,7 +1294,10 @@ block|}
 else|else
 name|error
 operator|=
-name|FT_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1298,9 +1311,9 @@ name|FT_DEFINE_SERVICE_BDFRec
 argument_list|(
 argument|sfnt_service_bdf
 argument_list|,
-argument|(FT_BDF_GetCharsetIdFunc) sfnt_get_charset_id
+argument|(FT_BDF_GetCharsetIdFunc)sfnt_get_charset_id
 argument_list|,
-argument|(FT_BDF_GetPropertyFunc)  tt_face_find_bdf_prop
+argument|(FT_BDF_GetPropertyFunc) tt_face_find_bdf_prop
 argument_list|)
 end_macro
 begin_endif
@@ -1329,23 +1342,23 @@ argument|sfnt_services
 argument_list|,
 argument|FT_SERVICE_ID_SFNT_TABLE
 argument_list|,
-argument|&FT_SFNT_SERVICE_SFNT_TABLE_GET
+argument|&SFNT_SERVICE_SFNT_TABLE_GET
 argument_list|,
 argument|FT_SERVICE_ID_POSTSCRIPT_FONT_NAME
 argument_list|,
-argument|&FT_SFNT_SERVICE_PS_NAME_GET
+argument|&SFNT_SERVICE_PS_NAME_GET
 argument_list|,
 argument|FT_SERVICE_ID_GLYPH_DICT
 argument_list|,
-argument|&FT_SFNT_SERVICE_GLYPH_DICT_GET
+argument|&SFNT_SERVICE_GLYPH_DICT_GET
 argument_list|,
 argument|FT_SERVICE_ID_BDF
 argument_list|,
-argument|&FT_SFNT_SERVICE_BDF_GET
+argument|&SFNT_SERVICE_BDF_GET
 argument_list|,
 argument|FT_SERVICE_ID_TT_CMAP
 argument_list|,
-argument|&FT_TT_SERVICE_GET_CMAP_INFO_GET
+argument|&TT_SERVICE_CMAP_INFO_GET
 argument_list|)
 end_macro
 begin_elif
@@ -1361,19 +1374,19 @@ argument|sfnt_services
 argument_list|,
 argument|FT_SERVICE_ID_SFNT_TABLE
 argument_list|,
-argument|&FT_SFNT_SERVICE_SFNT_TABLE_GET
+argument|&SFNT_SERVICE_SFNT_TABLE_GET
 argument_list|,
 argument|FT_SERVICE_ID_POSTSCRIPT_FONT_NAME
 argument_list|,
-argument|&FT_SFNT_SERVICE_PS_NAME_GET
+argument|&SFNT_SERVICE_PS_NAME_GET
 argument_list|,
 argument|FT_SERVICE_ID_GLYPH_DICT
 argument_list|,
-argument|&FT_SFNT_SERVICE_GLYPH_DICT_GET
+argument|&SFNT_SERVICE_GLYPH_DICT_GET
 argument_list|,
 argument|FT_SERVICE_ID_TT_CMAP
 argument_list|,
-argument|&FT_TT_SERVICE_GET_CMAP_INFO_GET
+argument|&TT_SERVICE_CMAP_INFO_GET
 argument_list|)
 end_macro
 begin_elif
@@ -1389,19 +1402,19 @@ argument|sfnt_services
 argument_list|,
 argument|FT_SERVICE_ID_SFNT_TABLE
 argument_list|,
-argument|&FT_SFNT_SERVICE_SFNT_TABLE_GET
+argument|&SFNT_SERVICE_SFNT_TABLE_GET
 argument_list|,
 argument|FT_SERVICE_ID_POSTSCRIPT_FONT_NAME
 argument_list|,
-argument|&FT_SFNT_SERVICE_PS_NAME_GET
+argument|&SFNT_SERVICE_PS_NAME_GET
 argument_list|,
 argument|FT_SERVICE_ID_BDF
 argument_list|,
-argument|&FT_SFNT_SERVICE_BDF_GET
+argument|&SFNT_SERVICE_BDF_GET
 argument_list|,
 argument|FT_SERVICE_ID_TT_CMAP
 argument_list|,
-argument|&FT_TT_SERVICE_GET_CMAP_INFO_GET
+argument|&TT_SERVICE_CMAP_INFO_GET
 argument_list|)
 end_macro
 begin_else
@@ -1415,15 +1428,15 @@ argument|sfnt_services
 argument_list|,
 argument|FT_SERVICE_ID_SFNT_TABLE
 argument_list|,
-argument|&FT_SFNT_SERVICE_SFNT_TABLE_GET
+argument|&SFNT_SERVICE_SFNT_TABLE_GET
 argument_list|,
 argument|FT_SERVICE_ID_POSTSCRIPT_FONT_NAME
 argument_list|,
-argument|&FT_SFNT_SERVICE_PS_NAME_GET
+argument|&SFNT_SERVICE_PS_NAME_GET
 argument_list|,
 argument|FT_SERVICE_ID_TT_CMAP
 argument_list|,
-argument|&FT_TT_SERVICE_GET_CMAP_INFO_GET
+argument|&TT_SERVICE_CMAP_INFO_GET
 argument_list|)
 end_macro
 begin_endif
@@ -1447,378 +1460,54 @@ argument_list|)
 end_macro
 begin_block
 block|{
+comment|/* SFNT_SERVICES_GET dereferences `library' in PIC mode */
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_PIC
+name|FT_Library
+name|library
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|module
+condition|)
+return|return
+name|NULL
+return|;
+name|library
+operator|=
+name|module
+operator|->
+name|library
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|library
+condition|)
+return|return
+name|NULL
+return|;
+else|#
+directive|else
 name|FT_UNUSED
 argument_list|(
 name|module
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|ft_service_list_lookup
 argument_list|(
-name|FT_SFNT_SERVICES_GET
+name|SFNT_SERVICES_GET
 argument_list|,
 name|module_interface
 argument_list|)
 return|;
 block|}
 end_block
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-end_ifdef
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_load_sfnt_header_stub
-argument_list|(
-argument|TT_Face      face
-argument_list|,
-argument|FT_Stream    stream
-argument_list|,
-argument|FT_Long      face_index
-argument_list|,
-argument|SFNT_Header  header
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|stream
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|face_index
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|header
-argument_list|)
-expr_stmt|;
-return|return
-name|FT_Err_Unimplemented_Feature
-return|;
-block|}
-end_block
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_load_directory_stub
-argument_list|(
-argument|TT_Face      face
-argument_list|,
-argument|FT_Stream    stream
-argument_list|,
-argument|SFNT_Header  header
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|stream
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|header
-argument_list|)
-expr_stmt|;
-return|return
-name|FT_Err_Unimplemented_Feature
-return|;
-block|}
-end_block
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_load_hdmx_stub
-argument_list|(
-argument|TT_Face    face
-argument_list|,
-argument|FT_Stream  stream
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|stream
-argument_list|)
-expr_stmt|;
-return|return
-name|FT_Err_Unimplemented_Feature
-return|;
-block|}
-end_block
-begin_macro
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
-DECL|function|tt_face_free_hdmx_stub
-name|tt_face_free_hdmx_stub
-argument_list|(
-argument|TT_Face  face
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-block|}
-end_block
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_set_sbit_strike_stub
-argument_list|(
-argument|TT_Face    face
-argument_list|,
-argument|FT_UInt    x_ppem
-argument_list|,
-argument|FT_UInt    y_ppem
-argument_list|,
-argument|FT_ULong*  astrike_index
-argument_list|)
-end_macro
-begin_block
-block|{
-comment|/*      * We simply forge a FT_Size_Request and call the real function      * that does all the work.      *      * This stub might be called by libXfont in the X.Org Xserver,      * compiled against version 2.1.8 or newer.      */
-name|FT_Size_RequestRec
-name|req
-decl_stmt|;
-name|req
-operator|.
-name|type
-operator|=
-name|FT_SIZE_REQUEST_TYPE_NOMINAL
-expr_stmt|;
-name|req
-operator|.
-name|width
-operator|=
-operator|(
-name|FT_F26Dot6
-operator|)
-name|x_ppem
-expr_stmt|;
-name|req
-operator|.
-name|height
-operator|=
-operator|(
-name|FT_F26Dot6
-operator|)
-name|y_ppem
-expr_stmt|;
-name|req
-operator|.
-name|horiResolution
-operator|=
-literal|0
-expr_stmt|;
-name|req
-operator|.
-name|vertResolution
-operator|=
-literal|0
-expr_stmt|;
-operator|*
-name|astrike_index
-operator|=
-literal|0x7FFFFFFFUL
-expr_stmt|;
-return|return
-name|tt_face_set_sbit_strike
-argument_list|(
-name|face
-argument_list|,
-operator|&
-name|req
-argument_list|,
-name|astrike_index
-argument_list|)
-return|;
-block|}
-end_block
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_load_sbit_stub
-argument_list|(
-argument|TT_Face    face
-argument_list|,
-argument|FT_Stream  stream
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|stream
-argument_list|)
-expr_stmt|;
-comment|/*      *  This function was originally implemented to load the sbit table.      *  However, it has been replaced by `tt_face_load_eblc', and this stub      *  is only there for some rogue clients which would want to call it      *  directly (which doesn't make much sense).      */
-return|return
-name|FT_Err_Unimplemented_Feature
-return|;
-block|}
-end_block
-begin_macro
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
-DECL|function|tt_face_free_sbit_stub
-name|tt_face_free_sbit_stub
-argument_list|(
-argument|TT_Face  face
-argument_list|)
-end_macro
-begin_block
-block|{
-comment|/* nothing to do in this stub */
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-block|}
-end_block
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_load_charmap_stub
-argument_list|(
-argument|TT_Face    face
-argument_list|,
-argument|void*      cmap
-argument_list|,
-argument|FT_Stream  input
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|cmap
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
-return|return
-name|FT_Err_Unimplemented_Feature
-return|;
-block|}
-end_block
-begin_macro
-DECL|function|FT_CALLBACK_DEF
-name|FT_CALLBACK_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
-name|tt_face_free_charmap_stub
-argument_list|(
-argument|TT_Face  face
-argument_list|,
-argument|void*    cmap
-argument_list|)
-end_macro
-begin_block
-block|{
-name|FT_UNUSED
-argument_list|(
-name|face
-argument_list|)
-expr_stmt|;
-name|FT_UNUSED
-argument_list|(
-name|cmap
-argument_list|)
-expr_stmt|;
-return|return
-literal|0
-return|;
-block|}
-end_block
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -1846,7 +1535,7 @@ name|PUT_EMBEDDED_BITMAPS
 parameter_list|(
 name|a
 parameter_list|)
-value|0
+value|NULL
 end_define
 begin_endif
 endif|#
@@ -1879,7 +1568,7 @@ name|PUT_PS_NAMES
 parameter_list|(
 name|a
 parameter_list|)
-value|0
+value|NULL
 end_define
 begin_endif
 endif|#
@@ -1902,12 +1591,6 @@ argument|sfnt_get_interface
 argument_list|,
 argument|tt_face_load_any
 argument_list|,
-argument|tt_face_load_sfnt_header_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|tt_face_load_directory_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
 argument|tt_face_load_head
 argument_list|,
 argument|tt_face_load_hhea
@@ -1924,12 +1607,6 @@ argument|tt_face_load_name
 argument_list|,
 argument|tt_face_free_name
 argument_list|,
-argument|tt_face_load_hdmx_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|tt_face_free_hdmx_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
 argument|tt_face_load_kern
 argument_list|,
 argument|tt_face_load_gasp
@@ -1937,36 +1614,15 @@ argument_list|,
 argument|tt_face_load_pclt
 argument_list|,
 comment|/* see `ttload.h' */
-argument|PUT_EMBEDDED_BITMAPS(tt_face_load_bhed)
+argument|PUT_EMBEDDED_BITMAPS( tt_face_load_bhed )
 argument_list|,
-argument|tt_face_set_sbit_strike_stub
+argument|PUT_EMBEDDED_BITMAPS( tt_face_load_sbit_image )
 argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|tt_face_load_sbit_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|tt_find_sbit_image
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|tt_load_sbit_metrics
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|PUT_EMBEDDED_BITMAPS(tt_face_load_sbit_image)
-argument_list|,
-argument|tt_face_free_sbit_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
 comment|/* see `ttpost.h' */
-argument|PUT_PS_NAMES(tt_face_get_ps_name)
+argument|PUT_PS_NAMES( tt_face_get_ps_name   )
 argument_list|,
-argument|PUT_PS_NAMES(tt_face_free_ps_names)
+argument|PUT_PS_NAMES( tt_face_free_ps_names )
 argument_list|,
-argument|tt_face_load_charmap_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
-argument|tt_face_free_charmap_stub
-argument_list|,
-comment|/* FT_CONFIG_OPTION_OLD_INTERNALS */
 comment|/* since version 2.1.8 */
 argument|tt_face_get_kerning
 argument_list|,
@@ -1976,13 +1632,13 @@ argument_list|,
 argument|tt_face_load_hmtx
 argument_list|,
 comment|/* see `ttsbit.h' and `sfnt.h' */
-argument|PUT_EMBEDDED_BITMAPS(tt_face_load_eblc)
+argument|PUT_EMBEDDED_BITMAPS( tt_face_load_sbit )
 argument_list|,
-argument|PUT_EMBEDDED_BITMAPS(tt_face_free_eblc)
+argument|PUT_EMBEDDED_BITMAPS( tt_face_free_sbit )
 argument_list|,
-argument|PUT_EMBEDDED_BITMAPS(tt_face_set_sbit_strike)
+argument|PUT_EMBEDDED_BITMAPS( tt_face_set_sbit_strike     )
 argument_list|,
-argument|PUT_EMBEDDED_BITMAPS(tt_face_load_strike_metrics)
+argument|PUT_EMBEDDED_BITMAPS( tt_face_load_strike_metrics )
 argument_list|,
 argument|tt_face_get_metrics
 argument_list|)
@@ -1995,7 +1651,7 @@ argument_list|,
 literal|0
 argument_list|,
 comment|/* not a font driver or renderer */
-argument|sizeof( FT_ModuleRec )
+argument|sizeof ( FT_ModuleRec )
 argument_list|,
 literal|"sfnt"
 argument_list|,
@@ -2006,7 +1662,7 @@ comment|/* driver version 1.0                     */
 literal|0x20000L
 argument_list|,
 comment|/* driver requires FreeType 2.0 or higher */
-argument|(const void*)&FT_SFNT_INTERFACE_GET
+argument|(const void*)&SFNT_INTERFACE_GET
 argument_list|,
 comment|/* module specific interface */
 argument|(FT_Module_Constructor)

@@ -657,6 +657,10 @@ operator|*
 name|gles3Helper
 argument_list|()
 block|;
+name|void
+name|flushShared
+argument_list|()
+block|;
 name|private
 operator|:
 specifier|static
@@ -829,6 +833,12 @@ name|GLenum
 operator|*
 name|attachments
 operator|)
+block|;
+name|bool
+name|flushVendorChecked
+block|;
+name|bool
+name|flushIsSufficientToSyncContexts
 block|; }
 block|;
 DECL|function|glMapBuffer

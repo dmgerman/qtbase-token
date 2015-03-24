@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2005, 2007 by                                    */
+comment|/*  Copyright 2002, 2003, 2005, 2007, 2010, 2013 by                        */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -465,7 +465,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -588,7 +591,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -854,7 +860,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -932,19 +938,15 @@ argument_list|)
 expr_stmt|;
 name|x_count
 operator|=
-operator|(
 name|count
 operator|&
 literal|15
-operator|)
 expr_stmt|;
 name|y_count
 operator|=
-operator|(
 name|count
 operator|>>
 literal|4
-operator|)
 expr_stmt|;
 block|}
 else|else
@@ -1346,7 +1348,7 @@ expr_stmt|;
 if|if
 condition|(
 name|format_low
-operator|>
+operator|>=
 name|x_count
 condition|)
 goto|goto
@@ -1411,7 +1413,7 @@ expr_stmt|;
 if|if
 condition|(
 name|format_low
-operator|>
+operator|>=
 name|y_count
 condition|)
 goto|goto
@@ -1572,7 +1574,7 @@ expr_stmt|;
 if|if
 condition|(
 name|idx
-operator|>
+operator|>=
 name|x_count
 condition|)
 goto|goto
@@ -1719,7 +1721,7 @@ expr_stmt|;
 if|if
 condition|(
 name|idx
-operator|>
+operator|>=
 name|y_count
 condition|)
 goto|goto
@@ -1998,7 +2000,10 @@ name|Too_Short
 label|:
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -2036,7 +2041,7 @@ block|{
 name|FT_Error
 name|error
 init|=
-literal|0
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_GlyphLoader
 name|loader
@@ -2169,6 +2174,34 @@ operator|)
 operator|-
 literal|4
 decl_stmt|;
+comment|/* we arbitrarily limit the number of subglyphs */
+comment|/* to avoid endless recursion                   */
+if|if
+condition|(
+name|new_max
+operator|>
+literal|64
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
+expr_stmt|;
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"pfr_glyph_load_compound:"
+literal|" too many compound glyphs components\n"
+operator|)
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 if|if
 condition|(
 name|FT_RENEW_ARRAY
@@ -2500,7 +2533,10 @@ name|Too_Short
 label|:
 name|error
 operator|=
-name|PFR_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 name|FT_ERROR
 argument_list|(
@@ -2653,6 +2689,17 @@ name|num_subs
 operator|-
 name|old_count
 expr_stmt|;
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|"compound glyph with %d elements (offset %lu):\n"
+operator|,
+name|count
+operator|,
+name|offset
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* now, load each individual glyph */
 for|for
 control|(
@@ -2678,6 +2725,15 @@ decl_stmt|;
 name|PFR_SubGlyph
 name|subglyph
 decl_stmt|;
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|"  subglyph %d:\n"
+operator|,
+name|n
+operator|)
+argument_list|)
+expr_stmt|;
 name|subglyph
 operator|=
 name|glyph
@@ -2717,9 +2773,7 @@ if|if
 condition|(
 name|error
 condition|)
-goto|goto
-name|Exit
-goto|;
+break|break;
 comment|/* note that `glyph->subs' might have been re-allocated */
 name|subglyph
 operator|=
@@ -2875,9 +2929,27 @@ block|}
 block|}
 comment|/* proceed to next sub-glyph */
 block|}
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|"end compound glyph with %d elements\n"
+operator|,
+name|count
+operator|)
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|"simple glyph (offset %lu)\n"
+operator|,
+name|offset
+operator|)
+argument_list|)
+expr_stmt|;
 comment|/* load a simple glyph */
 name|error
 operator|=

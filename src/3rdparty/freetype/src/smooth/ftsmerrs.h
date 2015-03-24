@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001 by                                                      */
+comment|/*  Copyright 2001, 2012 by                                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -86,6 +86,12 @@ DECL|macro|__FTERRORS_H__
 undef|#
 directive|undef
 name|__FTERRORS_H__
+end_undef
+begin_undef
+DECL|macro|FT_ERR_PREFIX
+undef|#
+directive|undef
+name|FT_ERR_PREFIX
 end_undef
 begin_define
 DECL|macro|FT_ERR_PREFIX

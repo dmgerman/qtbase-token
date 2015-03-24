@@ -18,10 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,   */
-end_comment
-begin_comment
-comment|/*            2010 by                                                      */
+comment|/*  Copyright 1996-2014 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -78,7 +75,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_INTERNAL_POSTSCRIPT_HINTS_H
+include|FT_CFF_DRIVER_H
 end_include
 begin_include
 include|#
@@ -95,6 +92,14 @@ include|#
 directive|include
 file|"cffgload.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"cf2ft.h"
+end_include
+begin_comment
+comment|/* for cf2_decoder_parse_charstrings */
+end_comment
 begin_include
 include|#
 directive|include
@@ -131,6 +136,11 @@ directive|define
 name|FT_COMPONENT
 value|trace_cffgload
 end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|CFF_CONFIG_OPTION_OLD_ENGINE
+end_ifdef
 begin_typedef
 DECL|enum|CFF_Operator_
 typedef|typedef
@@ -554,6 +564,13 @@ comment|/* setcurrentpoint */
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* CFF_CONFIG_OPTION_OLD_ENGINE */
+end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -1184,7 +1201,9 @@ name|num_globals
 operator|=
 name|cff
 operator|->
-name|num_global_subrs
+name|global_subrs_index
+operator|.
+name|count
 expr_stmt|;
 name|decoder
 operator|->
@@ -1280,7 +1299,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|CFF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 comment|/* manage CID fonts */
 if|if
@@ -1321,18 +1340,19 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|CFF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
 goto|;
 block|}
-name|FT_TRACE4
+name|FT_TRACE3
 argument_list|(
 operator|(
-literal|"glyph index %d (subfont %d):\n"
-operator|,
-name|glyph_index
+literal|"  in subfont %d:\n"
 operator|,
 name|fd_index
 operator|)
@@ -1386,28 +1406,15 @@ index|]
 expr_stmt|;
 block|}
 block|}
-ifdef|#
-directive|ifdef
-name|FT_DEBUG_LEVEL_TRACE
-else|else
-name|FT_TRACE4
-argument_list|(
-operator|(
-literal|"glyph index %d:\n"
-operator|,
-name|glyph_index
-operator|)
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|decoder
 operator|->
 name|num_locals
 operator|=
 name|sub
 operator|->
-name|num_local_subrs
+name|local_subrs_index
+operator|.
+name|count
 expr_stmt|;
 name|decoder
 operator|->
@@ -1458,6 +1465,13 @@ name|private_dict
 operator|.
 name|nominal_width
 expr_stmt|;
+name|decoder
+operator|->
+name|current_subfont
+operator|=
+name|sub
+expr_stmt|;
+comment|/* for Adobe's CFF handler */
 name|Exit
 label|:
 return|return
@@ -1468,19 +1482,22 @@ end_block
 begin_comment
 comment|/* check that there is enough space for `count' more points */
 end_comment
-begin_function
-specifier|static
-name|FT_Error
-DECL|function|check_points
-name|check_points
-parameter_list|(
-name|CFF_Builder
-modifier|*
-name|builder
-parameter_list|,
-name|FT_Int
-name|count
-parameter_list|)
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+name|cff_check_points
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Int        count
+argument_list|)
+end_macro
+begin_block
 block|{
 return|return
 name|FT_GLYPHLOADER_CHECK_POINTS
@@ -1495,29 +1512,30 @@ literal|0
 argument_list|)
 return|;
 block|}
-end_function
+end_block
 begin_comment
 comment|/* add a new point, do not check space */
 end_comment
-begin_function
-specifier|static
-name|void
+begin_macro
+name|FT_LOCAL_DEF
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
 DECL|function|cff_builder_add_point
 name|cff_builder_add_point
-parameter_list|(
-name|CFF_Builder
-modifier|*
-name|builder
-parameter_list|,
-name|FT_Pos
-name|x
-parameter_list|,
-name|FT_Pos
-name|y
-parameter_list|,
-name|FT_Byte
-name|flag
-parameter_list|)
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Pos        x
+argument_list|,
+argument|FT_Pos        y
+argument_list|,
+argument|FT_Byte       flag
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_Outline
 modifier|*
@@ -1562,6 +1580,31 @@ name|outline
 operator|->
 name|n_points
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|CFF_CONFIG_OPTION_OLD_ENGINE
+name|CFF_Driver
+name|driver
+init|=
+operator|(
+name|CFF_Driver
+operator|)
+name|FT_FACE_DRIVER
+argument_list|(
+name|builder
+operator|->
+name|face
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|driver
+operator|->
+name|hinting_engine
+operator|==
+name|FT_CFF_HINTING_FREETYPE
+condition|)
+block|{
 name|point
 operator|->
 name|x
@@ -1578,6 +1621,29 @@ name|y
 operator|>>
 literal|16
 expr_stmt|;
+block|}
+else|else
+endif|#
+directive|endif
+block|{
+comment|/* cf2_decoder_parse_charstrings uses 16.16 coordinates */
+name|point
+operator|->
+name|x
+operator|=
+name|x
+operator|>>
+literal|10
+expr_stmt|;
+name|point
+operator|->
+name|y
+operator|=
+name|y
+operator|>>
+literal|10
+expr_stmt|;
+block|}
 operator|*
 name|control
 operator|=
@@ -1599,33 +1665,35 @@ name|n_points
 operator|++
 expr_stmt|;
 block|}
-end_function
+end_block
 begin_comment
 comment|/* check space for a new on-curve point, then add it */
 end_comment
-begin_function
-specifier|static
-name|FT_Error
-DECL|function|cff_builder_add_point1
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
 name|cff_builder_add_point1
-parameter_list|(
-name|CFF_Builder
-modifier|*
-name|builder
-parameter_list|,
-name|FT_Pos
-name|x
-parameter_list|,
-name|FT_Pos
-name|y
-parameter_list|)
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Pos        x
+argument_list|,
+argument|FT_Pos        y
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_Error
 name|error
 decl_stmt|;
 name|error
 operator|=
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -1652,7 +1720,7 @@ return|return
 name|error
 return|;
 block|}
-end_function
+end_block
 begin_comment
 comment|/* check space for a new contour, then add it */
 end_comment
@@ -1692,7 +1760,7 @@ name|n_contours
 operator|++
 expr_stmt|;
 return|return
-name|CFF_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 name|error
@@ -1758,27 +1826,29 @@ end_function
 begin_comment
 comment|/* if a path was begun, add its first on-curve point */
 end_comment
-begin_function
-specifier|static
-name|FT_Error
-DECL|function|cff_builder_start_point
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
 name|cff_builder_start_point
-parameter_list|(
-name|CFF_Builder
-modifier|*
-name|builder
-parameter_list|,
-name|FT_Pos
-name|x
-parameter_list|,
-name|FT_Pos
-name|y
-parameter_list|)
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|,
+argument|FT_Pos        x
+argument_list|,
+argument|FT_Pos        y
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_Error
 name|error
 init|=
-name|CFF_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 comment|/* test whether we are building a new contour */
 if|if
@@ -1823,20 +1893,24 @@ return|return
 name|error
 return|;
 block|}
-end_function
+end_block
 begin_comment
 comment|/* close the current contour */
 end_comment
-begin_function
-specifier|static
-name|void
+begin_macro
+name|FT_LOCAL_DEF
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
 DECL|function|cff_builder_close_contour
 name|cff_builder_close_contour
-parameter_list|(
-name|CFF_Builder
-modifier|*
-name|builder
-parameter_list|)
+argument_list|(
+argument|CFF_Builder*  builder
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_Outline
 modifier|*
@@ -2022,19 +2096,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
-specifier|static
-name|FT_Int
-DECL|function|cff_lookup_glyph_by_stdcharcode
+end_block
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Int
+argument_list|)
+end_macro
+begin_macro
 name|cff_lookup_glyph_by_stdcharcode
-parameter_list|(
-name|CFF_Font
-name|cff
-parameter_list|,
-name|FT_Int
-name|charcode
-parameter_list|)
+argument_list|(
+argument|CFF_Font  cff
+argument_list|,
+argument|FT_Int    charcode
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_UInt
 name|n
@@ -2120,28 +2198,27 @@ operator|-
 literal|1
 return|;
 block|}
-end_function
-begin_function
-specifier|static
-name|FT_Error
-DECL|function|cff_get_glyph_data
+end_block
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
 name|cff_get_glyph_data
-parameter_list|(
-name|TT_Face
-name|face
-parameter_list|,
-name|FT_UInt
-name|glyph_index
-parameter_list|,
-name|FT_Byte
-modifier|*
-modifier|*
-name|pointer
-parameter_list|,
-name|FT_ULong
-modifier|*
-name|length
-parameter_list|)
+argument_list|(
+argument|TT_Face    face
+argument_list|,
+argument|FT_UInt    glyph_index
+argument_list|,
+argument|FT_Byte**  pointer
+argument_list|,
+argument|FT_ULong*  length
+argument_list|)
+end_macro
+begin_block
 block|{
 ifdef|#
 directive|ifdef
@@ -2251,24 +2328,25 @@ argument_list|)
 return|;
 block|}
 block|}
-end_function
-begin_function
-specifier|static
-name|void
+end_block
+begin_macro
+name|FT_LOCAL_DEF
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
 DECL|function|cff_free_glyph_data
 name|cff_free_glyph_data
-parameter_list|(
-name|TT_Face
-name|face
-parameter_list|,
-name|FT_Byte
-modifier|*
-modifier|*
-name|pointer
-parameter_list|,
-name|FT_ULong
-name|length
-parameter_list|)
+argument_list|(
+argument|TT_Face    face
+argument_list|,
+argument|FT_Byte**  pointer
+argument_list|,
+argument|FT_ULong   length
+argument_list|)
+end_macro
+begin_block
 block|{
 ifndef|#
 directive|ifndef
@@ -2370,7 +2448,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
+end_block
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|CFF_CONFIG_OPTION_OLD_ENGINE
+end_ifdef
 begin_function
 specifier|static
 name|FT_Error
@@ -2453,7 +2536,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|CFF_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 name|adx
@@ -2559,7 +2645,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|CFF_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 return|;
 block|}
 comment|/* If we are trying to load a composite glyph, do not load the */
@@ -2772,13 +2861,6 @@ name|seac
 operator|=
 name|FALSE
 expr_stmt|;
-if|if
-condition|(
-name|error
-condition|)
-goto|goto
-name|Exit
-goto|;
 name|cff_free_glyph_data
 argument_list|(
 name|face
@@ -2789,6 +2871,13 @@ argument_list|,
 name|charstring_len
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Exit
+goto|;
 block|}
 comment|/* Save the left bearing, advance and glyph width of the base */
 comment|/* character as they will be erased by the next load.         */
@@ -2886,13 +2975,6 @@ name|seac
 operator|=
 name|FALSE
 expr_stmt|;
-if|if
-condition|(
-name|error
-condition|)
-goto|goto
-name|Exit
-goto|;
 name|cff_free_glyph_data
 argument_list|(
 name|face
@@ -2903,6 +2985,13 @@ argument_list|,
 name|charstring_len
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Exit
+goto|;
 block|}
 comment|/* Restore the left side bearing, advance and glyph width */
 comment|/* of the base character.                                 */
@@ -3228,7 +3317,7 @@ name|base
 expr_stmt|;
 name|error
 operator|=
-name|CFF_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|x
 operator|=
@@ -3300,6 +3389,8 @@ name|FT_Int32
 name|val
 decl_stmt|;
 comment|/* this is an operand, push it on the stack */
+comment|/* if we use shifts, all computations are done with unsigned */
+comment|/* values; the conversion to a signed value is the last step */
 if|if
 condition|(
 name|v
@@ -3326,7 +3417,7 @@ call|)
 argument_list|(
 operator|(
 operator|(
-name|FT_Short
+name|FT_UShort
 operator|)
 name|ip
 index|[
@@ -3453,9 +3544,13 @@ name|Syntax_Error
 goto|;
 name|val
 operator|=
-operator|(
-operator|(
+call|(
 name|FT_Int32
+call|)
+argument_list|(
+operator|(
+operator|(
+name|FT_UInt32
 operator|)
 name|ip
 index|[
@@ -3467,7 +3562,7 @@ operator|)
 operator||
 operator|(
 operator|(
-name|FT_Int32
+name|FT_UInt32
 operator|)
 name|ip
 index|[
@@ -3479,7 +3574,7 @@ operator|)
 operator||
 operator|(
 operator|(
-name|FT_Int32
+name|FT_UInt32
 operator|)
 name|ip
 index|[
@@ -3489,10 +3584,14 @@ operator|<<
 literal|8
 operator|)
 operator||
+operator|(
+name|FT_UInt32
+operator|)
 name|ip
 index|[
 literal|3
 index|]
+argument_list|)
 expr_stmt|;
 name|ip
 operator|+=
@@ -3523,8 +3622,18 @@ goto|goto
 name|Stack_Overflow
 goto|;
 name|val
-operator|<<=
+operator|=
+call|(
+name|FT_Int32
+call|)
+argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
+name|val
+operator|<<
 name|shift
+argument_list|)
 expr_stmt|;
 operator|*
 name|decoder
@@ -3549,12 +3658,15 @@ condition|)
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|" %ld"
+literal|" %hd"
 operator|,
 call|(
-name|FT_Int32
+name|FT_Short
 call|)
 argument_list|(
+operator|(
+name|FT_UInt32
+operator|)
 name|val
 operator|>>
 literal|16
@@ -3997,10 +4109,16 @@ name|cff_op_flex1
 expr_stmt|;
 break|break;
 default|default:
-comment|/* decrement ip for syntax error message */
-name|ip
-operator|--
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|" unknown op (12, %d)\n"
+operator|,
+name|v
+operator|)
+argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 break|break;
@@ -4133,6 +4251,15 @@ name|cff_op_hvcurveto
 expr_stmt|;
 break|break;
 default|default:
+name|FT_TRACE4
+argument_list|(
+operator|(
+literal|" unknown op (%d)\n"
+operator|,
+name|v
+operator|)
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 if|if
@@ -4141,9 +4268,7 @@ name|op
 operator|==
 name|cff_op_unknown
 condition|)
-goto|goto
-name|Syntax_Error
-goto|;
+continue|continue;
 comment|/* check arguments */
 name|req_args
 operator|=
@@ -4492,6 +4617,33 @@ operator|/
 literal|2
 expr_stmt|;
 block|}
+comment|/* In a valid charstring there must be at least one byte */
+comment|/* after `hintmask' or `cntrmask' (e.g., for a `return'  */
+comment|/* instruction).  Additionally, there must be space for  */
+comment|/* `num_hints' bits.                                     */
+if|if
+condition|(
+operator|(
+name|ip
+operator|+
+operator|(
+operator|(
+name|decoder
+operator|->
+name|num_hints
+operator|+
+literal|7
+operator|)
+operator|>>
+literal|3
+operator|)
+operator|)
+operator|>=
+name|limit
+condition|)
+goto|goto
+name|Syntax_Error
+goto|;
 if|if
 condition|(
 name|hinter
@@ -4551,7 +4703,7 @@ decl_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|" (maskbytes: "
+literal|" (maskbytes:"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -4587,7 +4739,7 @@ control|)
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"0x%02X"
+literal|" 0x%02X"
 operator|,
 operator|*
 name|ip
@@ -4618,15 +4770,6 @@ literal|3
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
-name|ip
-operator|>=
-name|limit
-condition|)
-goto|goto
-name|Syntax_Error
-goto|;
 name|args
 operator|=
 name|stack
@@ -4763,7 +4906,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -4868,11 +5011,20 @@ if|if
 condition|(
 name|num_args
 operator|<
-literal|1
+literal|0
 condition|)
 goto|goto
 name|Stack_Underflow
 goto|;
+comment|/* there exist subsetted fonts (found in PDFs) */
+comment|/* which call `hlineto' without arguments      */
+if|if
+condition|(
+name|num_args
+operator|==
+literal|0
+condition|)
+break|break;
 if|if
 condition|(
 name|cff_builder_start_point
@@ -4884,7 +5036,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -4996,7 +5148,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -5131,26 +5283,13 @@ goto|goto
 name|Stack_Underflow
 goto|;
 comment|/* if num_args isn't of the form 4n or 4n+1, */
-comment|/* we reduce it to 4n+1                      */
+comment|/* we enforce it by clearing the second bit  */
 name|nargs
 operator|=
 name|num_args
-operator|-
-name|num_args
-operator|%
-literal|4
-expr_stmt|;
-if|if
-condition|(
-name|num_args
-operator|-
-name|nargs
-operator|>
-literal|0
-condition|)
-name|nargs
-operator|+=
-literal|1
+operator|&
+operator|~
+literal|2
 expr_stmt|;
 if|if
 condition|(
@@ -5193,7 +5332,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -5314,26 +5453,13 @@ goto|goto
 name|Stack_Underflow
 goto|;
 comment|/* if num_args isn't of the form 4n or 4n+1, */
-comment|/* we reduce it to 4n+1                      */
+comment|/* we enforce it by clearing the second bit  */
 name|nargs
 operator|=
 name|num_args
-operator|-
-name|num_args
-operator|%
-literal|4
-expr_stmt|;
-if|if
-condition|(
-name|num_args
-operator|-
-name|nargs
-operator|>
-literal|0
-condition|)
-name|nargs
-operator|+=
-literal|1
+operator|&
+operator|~
+literal|2
 expr_stmt|;
 if|if
 condition|(
@@ -5376,7 +5502,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -5523,26 +5649,13 @@ goto|goto
 name|Stack_Underflow
 goto|;
 comment|/* if num_args isn't of the form 8n, 8n+1, 8n+4, or 8n+5, */
-comment|/* we reduce it to the largest one which fits             */
+comment|/* we enforce it by clearing the second bit               */
 name|nargs
 operator|=
 name|num_args
-operator|-
-name|num_args
-operator|%
-literal|4
-expr_stmt|;
-if|if
-condition|(
-name|num_args
-operator|-
-name|nargs
-operator|>
-literal|0
-condition|)
-name|nargs
-operator|+=
-literal|1
+operator|&
+operator|~
+literal|2
 expr_stmt|;
 name|args
 operator|-=
@@ -5550,7 +5663,7 @@ name|nargs
 expr_stmt|;
 if|if
 condition|(
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -5811,7 +5924,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -6013,7 +6126,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -6182,7 +6295,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -6370,7 +6483,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -6569,7 +6682,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -6784,7 +6897,7 @@ argument_list|,
 name|y
 argument_list|)
 operator|||
-name|check_points
+name|cff_check_points
 argument_list|(
 name|builder
 argument_list|,
@@ -7012,15 +7125,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-name|error
-condition|)
-name|error
-operator|=
-name|CFF_Err_Ok
-expr_stmt|;
 name|cff_builder_close_contour
 argument_list|(
 name|builder
@@ -7053,6 +7157,8 @@ goto|goto
 name|Syntax_Error
 goto|;
 comment|/* apply hints to the loaded glyph outline now */
+name|error
+operator|=
 name|hinter
 operator|->
 name|apply
@@ -7077,6 +7183,13 @@ operator|->
 name|hint_mode
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Fail
+goto|;
 block|}
 comment|/* add current outline to the glyph slot */
 name|FT_GlyphLoader_Add
@@ -8175,6 +8288,8 @@ expr_stmt|;
 comment|/* subsequent `pop' operands should add the arguments,       */
 comment|/* this is the implementation described for `unknown' other  */
 comment|/* subroutines in the Type1 spec.                            */
+comment|/*                                                           */
+comment|/* XXX Fix return arguments (see discussion below).          */
 name|args
 operator|-=
 literal|2
@@ -8189,6 +8304,15 @@ operator|>>
 literal|16
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|args
+operator|<
+name|stack
+condition|)
+goto|goto
+name|Stack_Underflow
+goto|;
 break|break;
 case|case
 name|cff_op_pop
@@ -8203,6 +8327,22 @@ literal|" pop (invalid op)\n"
 operator|)
 argument_list|)
 expr_stmt|;
+comment|/* XXX Increasing `args' is wrong: After a certain number of */
+comment|/* `pop's we get a stack overflow.  Reason for doing it is   */
+comment|/* code like this (actually found in a CFF font):            */
+comment|/*                                                           */
+comment|/*   17 1 3 callothersubr                                    */
+comment|/*   pop                                                     */
+comment|/*   callsubr                                                */
+comment|/*                                                           */
+comment|/* Since we handle `callothersubr' as a no-op, and           */
+comment|/* `callsubr' needs at least one argument, `pop' can't be a  */
+comment|/* no-op too as it basically should be.                      */
+comment|/*                                                           */
+comment|/* The right solution would be to provide real support for   */
+comment|/* `callothersubr' as done in `t1decode.c', however, given   */
+comment|/* the fact that CFF fonts with `pop' are invalid, it is     */
+comment|/* questionable whether it is worth the time.                */
 name|args
 operator|++
 expr_stmt|;
@@ -8808,7 +8948,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|CFF_Err_Unimplemented_Feature
+name|FT_THROW
+argument_list|(
+name|Unimplemented_Feature
+argument_list|)
 return|;
 block|}
 name|decoder
@@ -8817,6 +8960,19 @@ name|top
 operator|=
 name|args
 expr_stmt|;
+if|if
+condition|(
+name|decoder
+operator|->
+name|top
+operator|-
+name|stack
+operator|>=
+name|CFF_MAX_OPERANDS
+condition|)
+goto|goto
+name|Stack_Overflow
+goto|;
 block|}
 comment|/* general operator processing */
 block|}
@@ -8843,7 +8999,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|CFF_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 return|;
 name|Stack_Underflow
 label|:
@@ -8855,7 +9014,10 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|CFF_Err_Too_Few_Arguments
+name|FT_THROW
+argument_list|(
+name|Too_Few_Arguments
+argument_list|)
 return|;
 name|Stack_Overflow
 label|:
@@ -8867,10 +9029,20 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|CFF_Err_Stack_Overflow
+name|FT_THROW
+argument_list|(
+name|Stack_Overflow
+argument_list|)
 return|;
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* CFF_CONFIG_OPTION_OLD_ENGINE */
+end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -8928,7 +9100,7 @@ begin_comment
 comment|/* unused until we support pure CFF fonts */
 end_comment
 begin_comment
-unit|FT_LOCAL_DEF( FT_Error )   cff_compute_max_advance( TT_Face  face,                            FT_Int*  max_advance )   {     FT_Error     error = CFF_Err_Ok;     CFF_Decoder  decoder;     FT_Int       glyph_index;     CFF_Font     cff = (CFF_Font)face->other;       *max_advance = 0;
+unit|FT_LOCAL_DEF( FT_Error )   cff_compute_max_advance( TT_Face  face,                            FT_Int*  max_advance )   {     FT_Error     error = FT_Err_Ok;     CFF_Decoder  decoder;     FT_Int       glyph_index;     CFF_Font     cff = (CFF_Font)face->other;       *max_advance = 0;
 comment|/* Initialize load decoder */
 end_comment
 begin_comment
@@ -8947,7 +9119,7 @@ unit|error = cff_get_glyph_data( face, glyph_index,&charstring,&charstring_len )
 comment|/* ignore the error if one has occurred -- skip to next glyph */
 end_comment
 begin_endif
-unit|error = CFF_Err_Ok;     }      *max_advance = decoder.builder.advance.x;      return CFF_Err_Ok;   }
+unit|error = FT_Err_Ok;     }      *max_advance = decoder.builder.advance.x;      return FT_Err_Ok;   }
 endif|#
 directive|endif
 end_endif
@@ -8995,6 +9167,8 @@ name|face
 decl_stmt|;
 name|FT_Bool
 name|hinting
+decl_stmt|,
+name|scaled
 decl_stmt|,
 name|force_scaling
 decl_stmt|;
@@ -9069,7 +9243,10 @@ operator|==
 literal|0
 condition|)
 return|return
-name|CFF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 block|}
 block|}
@@ -9083,7 +9260,10 @@ operator|->
 name|num_glyphs
 condition|)
 return|return
-name|CFF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 if|if
 condition|(
@@ -9244,6 +9424,15 @@ operator|!
 name|error
 condition|)
 block|{
+name|FT_Bool
+name|has_vertical_info
+decl_stmt|;
+name|FT_UShort
+name|advance
+decl_stmt|;
+name|FT_Short
+name|dummy
+decl_stmt|;
 name|glyph
 operator|->
 name|root
@@ -9459,6 +9648,162 @@ operator|.
 name|horiBearingY
 expr_stmt|;
 block|}
+comment|/* compute linear advance widths */
+call|(
+name|void
+call|)
+argument_list|(
+operator|(
+name|SFNT_Service
+operator|)
+name|face
+operator|->
+name|sfnt
+argument_list|)
+operator|->
+name|get_metrics
+argument_list|(
+name|face
+argument_list|,
+literal|0
+argument_list|,
+name|glyph_index
+argument_list|,
+operator|&
+name|dummy
+argument_list|,
+operator|&
+name|advance
+argument_list|)
+expr_stmt|;
+name|glyph
+operator|->
+name|root
+operator|.
+name|linearHoriAdvance
+operator|=
+name|advance
+expr_stmt|;
+name|has_vertical_info
+operator|=
+name|FT_BOOL
+argument_list|(
+name|face
+operator|->
+name|vertical_info
+operator|&&
+name|face
+operator|->
+name|vertical
+operator|.
+name|number_Of_VMetrics
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+comment|/* get the vertical metrics from the vtmx table if we have one */
+if|if
+condition|(
+name|has_vertical_info
+condition|)
+block|{
+call|(
+name|void
+call|)
+argument_list|(
+operator|(
+name|SFNT_Service
+operator|)
+name|face
+operator|->
+name|sfnt
+argument_list|)
+operator|->
+name|get_metrics
+argument_list|(
+name|face
+argument_list|,
+literal|1
+argument_list|,
+name|glyph_index
+argument_list|,
+operator|&
+name|dummy
+argument_list|,
+operator|&
+name|advance
+argument_list|)
+expr_stmt|;
+name|glyph
+operator|->
+name|root
+operator|.
+name|linearVertAdvance
+operator|=
+name|advance
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|/* make up vertical ones */
+if|if
+condition|(
+name|face
+operator|->
+name|os2
+operator|.
+name|version
+operator|!=
+literal|0xFFFFU
+condition|)
+name|glyph
+operator|->
+name|root
+operator|.
+name|linearVertAdvance
+operator|=
+call|(
+name|FT_Pos
+call|)
+argument_list|(
+name|face
+operator|->
+name|os2
+operator|.
+name|sTypoAscender
+operator|-
+name|face
+operator|->
+name|os2
+operator|.
+name|sTypoDescender
+argument_list|)
+expr_stmt|;
+else|else
+name|glyph
+operator|->
+name|root
+operator|.
+name|linearVertAdvance
+operator|=
+call|(
+name|FT_Pos
+call|)
+argument_list|(
+name|face
+operator|->
+name|horizontal
+operator|.
+name|Ascender
+operator|-
+name|face
+operator|->
+name|horizontal
+operator|.
+name|Descender
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|error
 return|;
@@ -9476,7 +9821,10 @@ operator|&
 name|FT_LOAD_SBITS_ONLY
 condition|)
 return|return
-name|CFF_Err_Invalid_Argument
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
 return|;
 comment|/* if we have a CID subfont, use its matrix (which has already */
 comment|/* been multiplied with the root matrix)                       */
@@ -9488,6 +9836,11 @@ operator|->
 name|num_subfonts
 condition|)
 block|{
+name|FT_ULong
+name|top_upm
+decl_stmt|,
+name|sub_upm
+decl_stmt|;
 name|FT_Byte
 name|fd_index
 init|=
@@ -9501,9 +9854,29 @@ argument_list|,
 name|glyph_index
 argument_list|)
 decl_stmt|;
-name|FT_ULong
+if|if
+condition|(
+name|fd_index
+operator|>=
+name|cff
+operator|->
+name|num_subfonts
+condition|)
+name|fd_index
+operator|=
+call|(
+name|FT_Byte
+call|)
+argument_list|(
+name|cff
+operator|->
+name|num_subfonts
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 name|top_upm
-init|=
+operator|=
 name|cff
 operator|->
 name|top_font
@@ -9511,10 +9884,9 @@ operator|.
 name|font_dict
 operator|.
 name|units_per_em
-decl_stmt|;
-name|FT_ULong
+expr_stmt|;
 name|sub_upm
-init|=
+operator|=
 name|cff
 operator|->
 name|subfonts
@@ -9525,7 +9897,7 @@ operator|->
 name|font_dict
 operator|.
 name|units_per_em
-decl_stmt|;
+expr_stmt|;
 name|font_matrix
 operator|=
 name|cff
@@ -9638,7 +10010,22 @@ name|n_contours
 operator|=
 literal|0
 expr_stmt|;
+comment|/* top-level code ensures that FT_LOAD_NO_HINTING is set */
+comment|/* if FT_LOAD_NO_SCALE is active                         */
 name|hinting
+operator|=
+name|FT_BOOL
+argument_list|(
+operator|(
+name|load_flags
+operator|&
+name|FT_LOAD_NO_HINTING
+operator|)
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+name|scaled
 operator|=
 name|FT_BOOL
 argument_list|(
@@ -9649,15 +10036,19 @@ name|FT_LOAD_NO_SCALE
 operator|)
 operator|==
 literal|0
-operator|&&
-operator|(
-name|load_flags
-operator|&
-name|FT_LOAD_NO_HINTING
-operator|)
-operator|==
-literal|0
 argument_list|)
+expr_stmt|;
+name|glyph
+operator|->
+name|hint
+operator|=
+name|hinting
+expr_stmt|;
+name|glyph
+operator|->
+name|scaled
+operator|=
+name|scaled
 expr_stmt|;
 name|glyph
 operator|->
@@ -9669,6 +10060,22 @@ name|FT_GLYPH_FORMAT_OUTLINE
 expr_stmt|;
 comment|/* by default */
 block|{
+ifdef|#
+directive|ifdef
+name|CFF_CONFIG_OPTION_OLD_ENGINE
+name|CFF_Driver
+name|driver
+init|=
+operator|(
+name|CFF_Driver
+operator|)
+name|FT_FACE_DRIVER
+argument_list|(
+name|face
+argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
 name|FT_Byte
 modifier|*
 name|charstring
@@ -9740,10 +10147,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|error
 condition|)
-block|{
+goto|goto
+name|Glyph_Build_Finished
+goto|;
 name|error
 operator|=
 name|cff_decoder_prepare
@@ -9758,10 +10166,23 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|error
 condition|)
-block|{
+goto|goto
+name|Glyph_Build_Finished
+goto|;
+ifdef|#
+directive|ifdef
+name|CFF_CONFIG_OPTION_OLD_ENGINE
+comment|/* choose which CFF renderer to use */
+if|if
+condition|(
+name|driver
+operator|->
+name|hinting_engine
+operator|==
+name|FT_CFF_HINTING_FREETYPE
+condition|)
 name|error
 operator|=
 name|cff_decoder_parse_charstrings
@@ -9774,6 +10195,65 @@ argument_list|,
 name|charstring_len
 argument_list|)
 expr_stmt|;
+else|else
+endif|#
+directive|endif
+block|{
+name|error
+operator|=
+name|cf2_decoder_parse_charstrings
+argument_list|(
+operator|&
+name|decoder
+argument_list|,
+name|charstring
+argument_list|,
+name|charstring_len
+argument_list|)
+expr_stmt|;
+comment|/* Adobe's engine uses 16.16 numbers everywhere;              */
+comment|/* as a consequence, glyphs larger than 2000ppem get rejected */
+if|if
+condition|(
+name|FT_ERR_EQ
+argument_list|(
+name|error
+argument_list|,
+name|Glyph_Too_Big
+argument_list|)
+condition|)
+block|{
+comment|/* this time, we retry unhinted and scale up the glyph later on */
+comment|/* (the engine uses and sets the hardcoded value 0x10000 / 64 = */
+comment|/* 0x400 for both `x_scale' and `y_scale' in this case)         */
+name|hinting
+operator|=
+name|FALSE
+expr_stmt|;
+name|force_scaling
+operator|=
+name|TRUE
+expr_stmt|;
+name|glyph
+operator|->
+name|hint
+operator|=
+name|hinting
+expr_stmt|;
+name|error
+operator|=
+name|cf2_decoder_parse_charstrings
+argument_list|(
+operator|&
+name|decoder
+argument_list|,
+name|charstring
+argument_list|,
+name|charstring_len
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|cff_free_glyph_data
 argument_list|(
 name|face
@@ -9784,6 +10264,13 @@ argument_list|,
 name|charstring_len
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+goto|goto
+name|Glyph_Build_Finished
+goto|;
 ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_INCREMENTAL
@@ -9869,9 +10356,14 @@ name|charstring_len
 expr_stmt|;
 block|}
 block|}
-block|}
-block|}
-comment|/* save new glyph tables */
+name|Glyph_Build_Finished
+label|:
+comment|/* save new glyph tables, if no error */
+if|if
+condition|(
+operator|!
+name|error
+condition|)
 name|cff_builder_done
 argument_list|(
 operator|&
@@ -9880,6 +10372,7 @@ operator|.
 name|builder
 argument_list|)
 expr_stmt|;
+comment|/* XXX: anything to do for broken glyph entry? */
 block|}
 ifdef|#
 directive|ifdef
@@ -10153,34 +10646,6 @@ name|glyph_transformed
 operator|=
 literal|0
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|FT_CONFIG_OPTION_OLD_INTERNALS
-name|has_vertical_info
-operator|=
-name|FT_BOOL
-argument_list|(
-name|face
-operator|->
-name|vertical_info
-operator|&&
-name|face
-operator|->
-name|vertical
-operator|.
-name|number_Of_VMetrics
-operator|>
-literal|0
-operator|&&
-name|face
-operator|->
-name|vertical
-operator|.
-name|long_metrics
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|has_vertical_info
 operator|=
 name|FT_BOOL
@@ -10198,8 +10663,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|/* get the vertical metrics from the vtmx table if we have one */
 if|if
 condition|(
@@ -10216,14 +10679,17 @@ name|vertAdvance
 init|=
 literal|0
 decl_stmt|;
-operator|(
+call|(
+name|void
+call|)
+argument_list|(
 operator|(
 name|SFNT_Service
 operator|)
 name|face
 operator|->
 name|sfnt
-operator|)
+argument_list|)
 operator|->
 name|get_metrics
 argument_list|(

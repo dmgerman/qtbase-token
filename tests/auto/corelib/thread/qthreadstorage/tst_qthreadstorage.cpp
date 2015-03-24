@@ -128,15 +128,10 @@ name|void
 name|ensureCleanupOrder
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|crashOnExit
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|leakInDestructor
 parameter_list|()
@@ -208,6 +203,9 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 specifier|const
 name|QString
 name|crashOnExitDir
@@ -296,6 +294,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -1465,6 +1465,10 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|crashOnExit
 name|void
@@ -1473,6 +1477,18 @@ operator|::
 name|crashOnExit
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No qprocess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QString
 name|errorMessage
 decl_stmt|;
@@ -1492,12 +1508,10 @@ name|errorMessage
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_comment
 comment|// S stands for thread Safe.
 end_comment

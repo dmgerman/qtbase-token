@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 by */
+comment|/*  Copyright 1996-2010, 2012-2014 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -462,7 +462,10 @@ block|}
 else|else
 name|error
 operator|=
-name|SFNT_Err_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Table_Missing
+argument_list|)
 expr_stmt|;
 name|Exit
 label|:
@@ -682,12 +685,9 @@ expr_stmt|;
 break|break;
 block|}
 comment|/* we ignore invalid tables */
+comment|/* table.Offset + table.Length> stream->size ? */
 if|if
 condition|(
-name|table
-operator|.
-name|Offset
-operator|+
 name|table
 operator|.
 name|Length
@@ -695,6 +695,18 @@ operator|>
 name|stream
 operator|->
 name|size
+operator|||
+name|table
+operator|.
+name|Offset
+operator|>
+name|stream
+operator|->
+name|size
+operator|-
+name|table
+operator|.
+name|Length
 condition|)
 block|{
 name|FT_TRACE2
@@ -760,13 +772,17 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"check_table_dir: `head' table too small\n"
+literal|"check_table_dir:"
+literal|" `head' or `bhed' table too small\n"
 operator|)
 argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|SFNT_Err_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Table_Missing
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -797,23 +813,14 @@ name|magic
 operator|!=
 literal|0x5F0F3CF5UL
 condition|)
-block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
 literal|"check_table_dir:"
-literal|" no magic number found in `head' table\n"
+literal|" invalid magic number in `head' or `bhed' table\n"
 operator|)
 argument_list|)
 expr_stmt|;
-name|error
-operator|=
-name|SFNT_Err_Table_Missing
-expr_stmt|;
-goto|goto
-name|Exit
-goto|;
-block|}
 if|if
 condition|(
 name|FT_STREAM_SEEK
@@ -884,7 +891,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|SFNT_Err_Unknown_File_Format
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -904,7 +914,7 @@ condition|)
 block|{
 name|error
 operator|=
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -942,7 +952,10 @@ endif|#
 directive|endif
 name|error
 operator|=
-name|SFNT_Err_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Table_Missing
+argument_list|)
 expr_stmt|;
 block|}
 name|Exit
@@ -1140,7 +1153,7 @@ comment|/* many fonts don't have these fields set correctly */
 if|#
 directive|if
 literal|0
-block|if ( sfnt.search_range != 1<< ( sfnt.entry_selector + 4 )        ||          sfnt.search_range + sfnt.range_shift != sfnt.num_tables<< 4 )       return SFNT_Err_Unknown_File_Format;
+block|if ( sfnt.search_range != 1<< ( sfnt.entry_selector + 4 )        ||          sfnt.search_range + sfnt.range_shift != sfnt.num_tables<< 4 )       return FT_THROW( Unknown_File_Format );
 endif|#
 directive|endif
 comment|/* load the table directory */
@@ -1166,6 +1179,15 @@ name|format_tag
 operator|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sfnt
+operator|.
+name|format_tag
+operator|!=
+name|TTAG_OTTO
+condition|)
+block|{
 comment|/* check first */
 name|error
 operator|=
@@ -1193,6 +1215,7 @@ expr_stmt|;
 goto|goto
 name|Exit
 goto|;
+block|}
 block|}
 name|face
 operator|->
@@ -1255,6 +1278,15 @@ name|face
 operator|->
 name|dir_tables
 expr_stmt|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"\n"
+literal|"  tag    offset    length   checksum\n"
+literal|"  ----------------------------------\n"
+operator|)
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|nn
@@ -1289,23 +1321,20 @@ name|entry
 operator|->
 name|Offset
 operator|=
-name|FT_GET_LONG
+name|FT_GET_ULONG
 argument_list|()
 expr_stmt|;
 name|entry
 operator|->
 name|Length
 operator|=
-name|FT_GET_LONG
+name|FT_GET_ULONG
 argument_list|()
 expr_stmt|;
 comment|/* ignore invalid tables */
+comment|/* entry->Offset + entry->Length> stream->size ? */
 if|if
 condition|(
-name|entry
-operator|->
-name|Offset
-operator|+
 name|entry
 operator|->
 name|Length
@@ -1313,6 +1342,18 @@ operator|>
 name|stream
 operator|->
 name|size
+operator|||
+name|entry
+operator|->
+name|Offset
+operator|>
+name|stream
+operator|->
+name|size
+operator|-
+name|entry
+operator|->
+name|Length
 condition|)
 continue|continue;
 else|else
@@ -1320,7 +1361,7 @@ block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"  %c%c%c%c  -  %08lx  -  %08lx\n"
+literal|"  %c%c%c%c  %08lx  %08lx  %08lx\n"
 operator|,
 call|(
 name|FT_Char
@@ -1371,6 +1412,10 @@ operator|,
 name|entry
 operator|->
 name|Length
+operator|,
+name|entry
+operator|->
+name|CheckSum
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1576,7 +1621,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|SFNT_Err_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Table_Missing
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1623,7 +1671,7 @@ operator|=
 name|size
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 if|if
@@ -2084,6 +2132,7 @@ name|face
 operator|->
 name|max_profile
 decl_stmt|;
+specifier|static
 specifier|const
 name|FT_Frame_Field
 name|maxp_fields
@@ -2117,6 +2166,7 @@ block|,
 name|FT_FRAME_END
 block|}
 decl_stmt|;
+specifier|static
 specifier|const
 name|FT_Frame_Field
 name|maxp_fields_extra
@@ -2333,14 +2383,14 @@ comment|/* XXX: an adjustment that is necessary to load certain */
 comment|/*      broken fonts like `Keystrokes MT' :-(           */
 comment|/*                                                      */
 comment|/*   We allocate 64 function entries by default when    */
-comment|/*   the maxFunctionDefs field is null.                 */
+comment|/*   the maxFunctionDefs value is smaller.              */
 if|if
 condition|(
 name|maxProfile
 operator|->
 name|maxFunctionDefs
-operator|==
-literal|0
+operator|<
+literal|64
 condition|)
 name|maxProfile
 operator|->
@@ -2381,6 +2431,35 @@ operator|-
 literal|4
 expr_stmt|;
 block|}
+comment|/* we arbitrarily limit recursion to avoid stack exhaustion */
+if|if
+condition|(
+name|maxProfile
+operator|->
+name|maxComponentDepth
+operator|>
+literal|100
+condition|)
+block|{
+name|FT_TRACE0
+argument_list|(
+operator|(
+literal|"tt_face_load_maxp:"
+literal|" abnormally large component depth (%d) set to 100\n"
+operator|,
+name|maxProfile
+operator|->
+name|maxComponentDepth
+operator|)
+argument_list|)
+expr_stmt|;
+name|maxProfile
+operator|->
+name|maxComponentDepth
+operator|=
+literal|100
+expr_stmt|;
+block|}
 block|}
 name|FT_TRACE3
 argument_list|(
@@ -2410,7 +2489,7 @@ begin_comment
 comment|/*<Function>                                                            */
 end_comment
 begin_comment
-comment|/*    tt_face_load_names                                                 */
+comment|/*    tt_face_load_name                                                  */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -2674,7 +2753,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|SFNT_Err_Name_Table_Missing
+name|FT_THROW
+argument_list|(
+name|Name_Table_Missing
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -3184,6 +3266,7 @@ name|TT_OS2
 modifier|*
 name|os2
 decl_stmt|;
+specifier|static
 specifier|const
 name|FT_Frame_Field
 name|os2_fields
@@ -3459,9 +3542,11 @@ block|,
 name|FT_FRAME_END
 block|}
 decl_stmt|;
+comment|/* `OS/2' version 1 and newer */
+specifier|static
 specifier|const
 name|FT_Frame_Field
-name|os2_fields_extra
+name|os2_fields_extra1
 index|[]
 init|=
 block|{
@@ -3483,6 +3568,8 @@ block|,
 name|FT_FRAME_END
 block|}
 decl_stmt|;
+comment|/* `OS/2' version 2 and newer */
+specifier|static
 specifier|const
 name|FT_Frame_Field
 name|os2_fields_extra2
@@ -3517,6 +3604,32 @@ block|,
 name|FT_FRAME_USHORT
 argument_list|(
 name|usMaxContext
+argument_list|)
+block|,
+name|FT_FRAME_END
+block|}
+decl_stmt|;
+comment|/* `OS/2' version 5 and newer */
+specifier|static
+specifier|const
+name|FT_Frame_Field
+name|os2_fields_extra5
+index|[]
+init|=
+block|{
+name|FT_FRAME_START
+argument_list|(
+literal|4
+argument_list|)
+block|,
+name|FT_FRAME_USHORT
+argument_list|(
+name|usLowerOpticalPointSize
+argument_list|)
+block|,
+name|FT_FRAME_USHORT
+argument_list|(
+name|usUpperOpticalPointSize
 argument_list|)
 block|,
 name|FT_FRAME_END
@@ -3608,6 +3721,18 @@ name|usMaxContext
 operator|=
 literal|0
 expr_stmt|;
+name|os2
+operator|->
+name|usLowerOpticalPointSize
+operator|=
+literal|0
+expr_stmt|;
+name|os2
+operator|->
+name|usUpperOpticalPointSize
+operator|=
+literal|0xFFFF
+expr_stmt|;
 if|if
 condition|(
 name|os2
@@ -3622,7 +3747,7 @@ if|if
 condition|(
 name|FT_STREAM_READ_FIELDS
 argument_list|(
-name|os2_fields_extra
+name|os2_fields_extra1
 argument_list|,
 name|os2
 argument_list|)
@@ -3652,6 +3777,29 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+if|if
+condition|(
+name|os2
+operator|->
+name|version
+operator|>=
+literal|0x0005
+condition|)
+block|{
+comment|/* only version 5 tables */
+if|if
+condition|(
+name|FT_STREAM_READ_FIELDS
+argument_list|(
+name|os2_fields_extra5
+argument_list|,
+name|os2
+argument_list|)
+condition|)
+goto|goto
+name|Exit
+goto|;
+block|}
 block|}
 block|}
 name|FT_TRACE3
@@ -3925,7 +4073,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 return|return
-name|SFNT_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -4048,6 +4196,11 @@ block|,
 name|FT_FRAME_USHORT
 argument_list|(
 name|CapHeight
+argument_list|)
+block|,
+name|FT_FRAME_USHORT
+argument_list|(
+name|SymbolSet
 argument_list|)
 block|,
 name|FT_FRAME_BYTES
@@ -4230,6 +4383,8 @@ name|num_ranges
 decl_stmt|;
 name|TT_GaspRange
 name|gaspranges
+init|=
+name|NULL
 decl_stmt|;
 comment|/* the gasp table is optional */
 name|error
@@ -4307,7 +4462,10 @@ literal|0
 expr_stmt|;
 name|error
 operator|=
-name|SFNT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -4334,7 +4492,11 @@ if|if
 condition|(
 name|FT_QNEW_ARRAY
 argument_list|(
-name|gaspranges
+name|face
+operator|->
+name|gasp
+operator|.
+name|gaspRanges
 argument_list|,
 name|num_ranges
 argument_list|)
@@ -4349,13 +4511,13 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+name|gaspranges
+operator|=
 name|face
 operator|->
 name|gasp
 operator|.
 name|gaspRanges
-operator|=
-name|gaspranges
 expr_stmt|;
 for|for
 control|(

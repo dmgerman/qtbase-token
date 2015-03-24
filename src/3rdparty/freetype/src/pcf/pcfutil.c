@@ -160,10 +160,6 @@ argument_list|)
 end_macro
 begin_block
 block|{
-name|unsigned
-name|char
-name|c
-decl_stmt|;
 for|for
 control|(
 init|;
@@ -180,6 +176,10 @@ operator|+=
 literal|2
 control|)
 block|{
+name|unsigned
+name|char
+name|c
+decl_stmt|;
 name|c
 operator|=
 name|buf
@@ -227,10 +227,6 @@ argument_list|)
 end_macro
 begin_block
 block|{
-name|unsigned
-name|char
-name|c
-decl_stmt|;
 for|for
 control|(
 init|;
@@ -247,6 +243,10 @@ operator|+=
 literal|4
 control|)
 block|{
+name|unsigned
+name|char
+name|c
+decl_stmt|;
 name|c
 operator|=
 name|buf

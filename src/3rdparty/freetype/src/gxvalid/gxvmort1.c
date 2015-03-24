@@ -151,7 +151,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -165,7 +165,7 @@ init|=
 operator|(
 name|GXV_mort_subtable_type1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -218,7 +218,7 @@ modifier|*
 name|entryTable_length_p
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UShort
@@ -246,7 +246,7 @@ init|=
 operator|(
 name|GXV_mort_subtable_type1_StateOptRecData
 operator|)
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -327,7 +327,7 @@ literal|4
 argument_list|,
 name|table_size
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -350,7 +350,7 @@ name|FT_Byte
 name|state
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_UShort
@@ -358,12 +358,6 @@ name|substTable
 decl_stmt|;
 name|FT_UShort
 name|substTable_limit
-decl_stmt|;
-name|FT_UShort
-name|min_gid
-decl_stmt|;
-name|FT_UShort
-name|max_gid
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -383,7 +377,7 @@ name|GXV_mort_subtable_type1_StateOptRec
 operator|*
 operator|)
 operator|(
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -407,7 +401,7 @@ name|GXV_mort_subtable_type1_StateOptRec
 operator|*
 operator|)
 operator|(
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -418,6 +412,8 @@ operator|->
 name|substitutionTable_length
 argument_list|)
 expr_stmt|;
+name|gxvalid
+operator|->
 name|min_gid
 operator|=
 call|(
@@ -435,6 +431,8 @@ operator|/
 literal|2
 argument_list|)
 expr_stmt|;
+name|gxvalid
+operator|->
 name|max_gid
 operator|=
 call|(
@@ -452,6 +450,8 @@ operator|/
 literal|2
 argument_list|)
 expr_stmt|;
+name|gxvalid
+operator|->
 name|max_gid
 operator|=
 call|(
@@ -460,9 +460,11 @@ call|)
 argument_list|(
 name|FT_MAX
 argument_list|(
+name|gxvalid
+operator|->
 name|max_gid
 argument_list|,
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|->
@@ -496,15 +498,20 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_UShort
 name|setMark
 decl_stmt|;
 name|FT_UShort
 name|dontAdvance
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UShort
 name|reserved
 decl_stmt|;
@@ -524,6 +531,9 @@ argument_list|(
 name|limit
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|setMark
 operator|=
 call|(
@@ -550,6 +560,8 @@ operator|&
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|reserved
 operator|=
 call|(
@@ -599,17 +611,10 @@ literal|" non-zero bits found in reserved range\n"
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 name|gxv_mort_subtable_type1_offset_to_subst_validate
@@ -620,7 +625,7 @@ literal|"markOffset"
 argument_list|,
 name|state
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_mort_subtable_type1_offset_to_subst_validate
@@ -631,7 +636,7 @@ literal|"currentOffset"
 argument_list|,
 name|state
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -649,7 +654,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -670,7 +675,7 @@ name|GXV_mort_subtable_type1_StateOptRec
 operator|*
 operator|)
 operator|(
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -730,43 +735,42 @@ continue|continue;
 if|if
 condition|(
 name|dst_gid
-operator|>
-name|valid
+operator|<
+name|gxvalid
 operator|->
-name|face
+name|min_gid
+operator|||
+name|gxvalid
 operator|->
-name|num_glyphs
+name|max_gid
+operator|<
+name|dst_gid
 condition|)
 block|{
 name|GXV_TRACE
 argument_list|(
 operator|(
-literal|"substTable include too large gid[%d]=%d>"
-literal|" max defined gid #%d\n"
+literal|"substTable include a strange gid[%d]=%d>"
+literal|" out of define range (%d..%d)\n"
 operator|,
 name|i
 operator|,
 name|dst_gid
 operator|,
-name|valid
+name|gxvalid
 operator|->
-name|face
+name|min_gid
+operator|,
+name|gxvalid
 operator|->
-name|num_glyphs
+name|max_gid
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_GLYPH_ID
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -791,7 +795,7 @@ argument|FT_Bytes       table
 argument_list|,
 argument|FT_Bytes       limit
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -814,7 +818,7 @@ argument_list|(
 name|GXV_MORT_SUBTABLE_TYPE1_HEADER_SIZE
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -823,7 +827,7 @@ operator|=
 operator|&
 name|st_rec
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -831,7 +835,7 @@ name|optdata_load_func
 operator|=
 name|gxv_mort_subtable_type1_substitutionTable_load
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -839,7 +843,7 @@ name|subtable_setup_func
 operator|=
 name|gxv_mort_subtable_type1_subtable_setup
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -847,7 +851,7 @@ name|entry_glyphoffset_fmt
 operator|=
 name|GXV_GLYPHOFFSET_ULONG
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|statetable
 operator|.
@@ -861,7 +865,7 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|gxv_mort_subtable_type1_substTable_validate
@@ -882,7 +886,7 @@ name|st_rec
 operator|.
 name|substitutionTable_length
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|GXV_EXIT

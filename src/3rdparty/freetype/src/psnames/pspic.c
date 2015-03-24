@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2010, 2012, 2013 by                                    */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -67,6 +67,11 @@ include|#
 directive|include
 file|"pspic.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"psnamerr.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -80,10 +85,12 @@ name|FT_Error
 name|FT_Create_Class_pscmaps_services
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_ServiceDescRec
 modifier|*
 modifier|*
+name|output_class
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -92,9 +99,11 @@ name|void
 name|FT_Destroy_Class_pscmaps_services
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_ServiceDescRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -103,9 +112,11 @@ name|void
 name|FT_Init_Class_pscmaps_interface
 parameter_list|(
 name|FT_Library
+name|library
 parameter_list|,
 name|FT_Service_PsCMapsRec
 modifier|*
+name|clazz
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -214,6 +225,8 @@ decl_stmt|;
 name|PSModulePIC
 modifier|*
 name|container
+init|=
+name|NULL
 decl_stmt|;
 name|FT_Memory
 name|memory
@@ -258,7 +271,8 @@ name|psnames
 operator|=
 name|container
 expr_stmt|;
-comment|/* initialize pointer table - this is how the module usually expects this data */
+comment|/* initialize pointer table -                       */
+comment|/* this is how the module usually expects this data */
 name|error
 operator|=
 name|FT_Create_Class_pscmaps_services

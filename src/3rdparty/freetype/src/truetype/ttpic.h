@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009, 2012, 2013 by                                          */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -67,25 +67,32 @@ directive|ifndef
 name|FT_CONFIG_OPTION_PIC
 end_ifndef
 begin_define
-DECL|macro|FT_TT_SERVICES_GET
+DECL|macro|TT_SERVICES_GET
 define|#
 directive|define
-name|FT_TT_SERVICES_GET
+name|TT_SERVICES_GET
 value|tt_services
 end_define
 begin_define
-DECL|macro|FT_TT_SERVICE_GX_MULTI_MASTERS_GET
+DECL|macro|TT_SERVICE_GX_MULTI_MASTERS_GET
 define|#
 directive|define
-name|FT_TT_SERVICE_GX_MULTI_MASTERS_GET
+name|TT_SERVICE_GX_MULTI_MASTERS_GET
 value|tt_service_gx_multi_masters
 end_define
 begin_define
-DECL|macro|FT_TT_SERVICE_TRUETYPE_GLYF_GET
+DECL|macro|TT_SERVICE_TRUETYPE_GLYF_GET
 define|#
 directive|define
-name|FT_TT_SERVICE_TRUETYPE_GLYF_GET
+name|TT_SERVICE_TRUETYPE_GLYF_GET
 value|tt_service_truetype_glyf
+end_define
+begin_define
+DECL|macro|TT_SERVICE_PROPERTIES_GET
+define|#
+directive|define
+name|TT_SERVICE_PROPERTIES_GET
+value|tt_service_properties
 end_define
 begin_else
 else|#
@@ -109,6 +116,11 @@ include|#
 directive|include
 include|FT_SERVICE_TRUETYPE_GLYF_H
 end_include
+begin_include
+include|#
+directive|include
+include|FT_SERVICE_PROPERTIES_H
+end_include
 begin_typedef
 typedef|typedef
 struct|struct
@@ -129,6 +141,9 @@ directive|endif
 name|FT_Service_TTGlyfRec
 name|tt_service_truetype_glyf
 decl_stmt|;
+name|FT_Service_PropertiesRec
+name|tt_service_properties
+decl_stmt|;
 block|}
 name|TTModulePIC
 typedef|;
@@ -140,26 +155,58 @@ name|GET_PIC
 parameter_list|(
 name|lib
 parameter_list|)
-value|((TTModulePIC*)((lib)->pic_container.truetype))
+define|\
+value|( (TTModulePIC*)((lib)->pic_container.truetype) )
 end_define
 begin_define
 define|#
 directive|define
-name|FT_TT_SERVICES_GET
-value|(GET_PIC(library)->tt_services)
+name|TT_SERVICES_GET
+define|\
+value|( GET_PIC( library )->tt_services )
 end_define
 begin_define
 define|#
 directive|define
-name|FT_TT_SERVICE_GX_MULTI_MASTERS_GET
-value|(GET_PIC(library)->tt_service_gx_multi_masters)
+name|TT_SERVICE_GX_MULTI_MASTERS_GET
+define|\
+value|( GET_PIC( library )->tt_service_gx_multi_masters )
 end_define
 begin_define
 define|#
 directive|define
-name|FT_TT_SERVICE_TRUETYPE_GLYF_GET
-value|(GET_PIC(library)->tt_service_truetype_glyf)
+name|TT_SERVICE_TRUETYPE_GLYF_GET
+define|\
+value|( GET_PIC( library )->tt_service_truetype_glyf )
 end_define
+begin_define
+define|#
+directive|define
+name|TT_SERVICE_PROPERTIES_GET
+define|\
+value|( GET_PIC( library )->tt_service_properties )
+end_define
+begin_comment
+comment|/* see ttpic.c for the implementation */
+end_comment
+begin_function_decl
+name|void
+name|tt_driver_class_pic_free
+parameter_list|(
+name|FT_Library
+name|library
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|FT_Error
+name|tt_driver_class_pic_init
+parameter_list|(
+name|FT_Library
+name|library
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

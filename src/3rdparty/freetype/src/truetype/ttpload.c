@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2004, 2005, 2006, 2007, 2008, 2009 by       */
+comment|/*  Copyright 1996-2002, 2004-2013 by                                      */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -227,9 +227,12 @@ comment|/* it is possible that a font doesn't have a glyf table at all */
 comment|/* or its size is zero                                         */
 if|if
 condition|(
+name|FT_ERR_EQ
+argument_list|(
 name|error
-operator|==
-name|TT_Err_Table_Missing
+argument_list|,
+name|Table_Missing
+argument_list|)
 condition|)
 name|face
 operator|->
@@ -275,7 +278,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Locations_Missing
+name|FT_THROW
+argument_list|(
+name|Locations_Missing
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -312,7 +318,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -349,7 +358,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Invalid_Table
+name|FT_THROW
+argument_list|(
+name|Invalid_Table
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -378,6 +390,8 @@ operator|->
 name|root
 operator|.
 name|num_glyphs
+operator|+
+literal|1
 condition|)
 block|{
 name|FT_TRACE2
@@ -388,6 +402,8 @@ operator|,
 name|face
 operator|->
 name|num_locations
+operator|-
+literal|1
 operator|,
 name|face
 operator|->
@@ -403,7 +419,7 @@ condition|(
 name|face
 operator|->
 name|num_locations
-operator|<
+operator|<=
 operator|(
 name|FT_ULong
 operator|)
@@ -418,13 +434,19 @@ name|FT_Long
 name|new_loca_len
 init|=
 operator|(
+call|(
 name|FT_Long
-operator|)
+call|)
+argument_list|(
 name|face
 operator|->
 name|root
 operator|.
 name|num_glyphs
+argument_list|)
+operator|+
+literal|1
+operator|)
 operator|<<
 name|shift
 decl_stmt|;
@@ -495,6 +517,23 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|entry
+operator|==
+name|limit
+condition|)
+block|{
+comment|/* `loca' is the last table */
+name|dist
+operator|=
+name|stream
+operator|->
+name|size
+operator|-
+name|pos
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|new_loca_len
 operator|<=
 name|dist
@@ -509,6 +548,8 @@ operator|->
 name|root
 operator|.
 name|num_glyphs
+operator|+
+literal|1
 expr_stmt|;
 name|table_len
 operator|=
@@ -723,6 +764,77 @@ operator|<<=
 literal|1
 expr_stmt|;
 block|}
+block|}
+comment|/* Check broken location data */
+if|if
+condition|(
+name|pos1
+operator|>
+name|face
+operator|->
+name|glyf_len
+condition|)
+block|{
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"tt_face_get_location:"
+literal|" too large offset=0x%08lx found for gid=0x%04lx,"
+literal|" exceeding the end of glyf table (0x%08lx)\n"
+operator|,
+name|pos1
+operator|,
+name|gindex
+operator|,
+name|face
+operator|->
+name|glyf_len
+operator|)
+argument_list|)
+expr_stmt|;
+operator|*
+name|asize
+operator|=
+literal|0
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+if|if
+condition|(
+name|pos2
+operator|>
+name|face
+operator|->
+name|glyf_len
+condition|)
+block|{
+name|FT_TRACE1
+argument_list|(
+operator|(
+literal|"tt_face_get_location:"
+literal|" too large offset=0x%08lx found for gid=0x%04lx,"
+literal|" truncate at the end of glyf table (0x%08lx)\n"
+operator|,
+name|pos2
+operator|,
+name|gindex
+operator|+
+literal|1
+operator|,
+name|face
+operator|->
+name|glyf_len
+operator|)
+argument_list|)
+expr_stmt|;
+name|pos2
+operator|=
+name|face
+operator|->
+name|glyf_len
+expr_stmt|;
 block|}
 comment|/* The `loca' table must be ordered; it refers to the length of */
 comment|/* an entry as the difference between the current and the next  */
@@ -942,7 +1054,7 @@ name|NULL
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 goto|goto
 name|Exit
@@ -1071,7 +1183,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 return|return
-name|TT_Err_Ok
+name|FT_Err_Ok
 return|;
 endif|#
 directive|endif
@@ -1197,7 +1309,7 @@ literal|0
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|FT_TRACE2
 argument_list|(
@@ -1260,7 +1372,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 return|return
-name|TT_Err_Ok
+name|FT_Err_Ok
 return|;
 endif|#
 directive|endif
@@ -1385,7 +1497,7 @@ literal|0
 expr_stmt|;
 name|error
 operator|=
-name|TT_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|FT_TRACE2
 argument_list|(
@@ -1448,7 +1560,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 return|return
-name|TT_Err_Ok
+name|FT_Err_Ok
 return|;
 endif|#
 directive|endif
@@ -1575,7 +1687,7 @@ operator|<
 literal|8
 condition|)
 return|return
-name|TT_Err_Ok
+name|FT_Err_Ok
 return|;
 if|if
 condition|(
@@ -1625,9 +1737,9 @@ name|p
 argument_list|)
 expr_stmt|;
 comment|/* The maximum number of bytes in an hdmx device record is the */
-comment|/* maximum number of glyphs + 2; this is 0xFFFF + 2; this is   */
-comment|/* the reason why `record_size' is a long (which we read as    */
-comment|/* unsigned long for convenience).  In practice, two bytes     */
+comment|/* maximum number of glyphs + 2; this is 0xFFFF + 2, thus      */
+comment|/* explaining why `record_size' is a long (which we read as    */
+comment|/* unsigned long for convenience).  In practice, two bytes are */
 comment|/* sufficient to hold the size value.                          */
 comment|/*                                                             */
 comment|/* There are at least two fonts, HANNOM-A and HANNOM-B version */
@@ -1658,11 +1770,18 @@ operator|||
 name|record_size
 operator|>
 literal|0x10001L
+operator|||
+name|record_size
+operator|<
+literal|4
 condition|)
 block|{
 name|error
 operator|=
-name|TT_Err_Invalid_File_Format
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Fail
@@ -1793,19 +1912,9 @@ name|FT_Memory
 name|memory
 init|=
 name|stream
-condition|?
-name|stream
 operator|->
 name|memory
-else|:
-name|NULL
 decl_stmt|;
-if|if
-condition|(
-name|face
-operator|->
-name|hdmx_record_sizes
-condition|)
 name|FT_FREE
 argument_list|(
 name|face

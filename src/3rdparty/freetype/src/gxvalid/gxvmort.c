@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,       */
+comment|/*  Copyright 2005, 2013 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -119,7 +119,7 @@ name|GXV_mort_feature
 name|f
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 if|if
@@ -147,17 +147,10 @@ name|featureSetting
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -190,17 +183,10 @@ name|featureSetting
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -282,17 +268,10 @@ name|nSettings_max
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|valid
-operator|->
-name|root
-operator|->
-name|level
-operator|>=
-name|FT_VALIDATE_PARANOID
-condition|)
+name|GXV_SET_ERR_IF_PARANOID
+argument_list|(
 name|FT_INVALID_DATA
+argument_list|)
 expr_stmt|;
 block|}
 name|GXV_TRACE
@@ -325,7 +304,7 @@ argument|FT_Bytes       limit
 argument_list|,
 argument|FT_ULong       nFeatureFlags
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
@@ -414,7 +393,7 @@ argument_list|(
 operator|&
 name|f
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 block|}
@@ -428,7 +407,7 @@ argument_list|)
 condition|)
 name|FT_INVALID_DATA
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -452,16 +431,19 @@ name|gxv_mort_coverage_validate
 argument_list|(
 argument|FT_UShort      coverage
 argument_list|,
-argument|GXV_Validator  valid
+argument|GXV_Validator  gxvalid
 argument_list|)
 end_macro
 begin_block
 block|{
 name|FT_UNUSED
 argument_list|(
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
 if|if
 condition|(
 name|coverage
@@ -533,6 +515,8 @@ literal|" coverage has non-zero bits in reserved area\n"
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_block
 begin_function
@@ -551,7 +535,7 @@ name|FT_UShort
 name|nSubtables
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -584,9 +568,6 @@ block|,
 comment|/* 5 */
 block|}
 decl_stmt|;
-name|GXV_Validate_Func
-name|func
-decl_stmt|;
 name|FT_UShort
 name|i
 decl_stmt|;
@@ -609,15 +590,23 @@ name|i
 operator|++
 control|)
 block|{
+name|GXV_Validate_Func
+name|func
+decl_stmt|;
 name|FT_UShort
 name|length
 decl_stmt|;
 name|FT_UShort
 name|coverage
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_ULong
 name|subFeatureFlags
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_UInt
 name|type
 decl_stmt|;
@@ -647,6 +636,9 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|subFeatureFlags
 operator|=
 name|FT_NEXT_ULONG
@@ -654,6 +646,14 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|p
+operator|+=
+literal|4
+expr_stmt|;
+endif|#
+directive|endif
 name|GXV_TRACE
 argument_list|(
 operator|(
@@ -696,7 +696,7 @@ name|gxv_mort_coverage_validate
 argument_list|(
 name|coverage
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 if|if
@@ -737,15 +737,16 @@ name|p
 operator|+
 name|rest
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
 name|rest
 expr_stmt|;
+comment|/* TODO: validate subFeatureFlags */
 block|}
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
@@ -770,7 +771,7 @@ name|FT_Bytes
 name|limit
 parameter_list|,
 name|GXV_Validator
-name|valid
+name|gxvalid
 parameter_list|)
 block|{
 name|FT_Bytes
@@ -778,9 +779,14 @@ name|p
 init|=
 name|table
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|FT_ULong
 name|defaultFlags
 decl_stmt|;
+endif|#
+directive|endif
 name|FT_ULong
 name|chainLength
 decl_stmt|;
@@ -806,6 +812,9 @@ operator|+
 literal|2
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|GXV_LOAD_UNUSED_VARS
 name|defaultFlags
 operator|=
 name|FT_NEXT_ULONG
@@ -813,6 +822,14 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|p
+operator|+=
+literal|4
+expr_stmt|;
+endif|#
+directive|endif
 name|chainLength
 operator|=
 name|FT_NEXT_ULONG
@@ -844,12 +861,12 @@ name|chainLength
 argument_list|,
 name|nFeatureFlags
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;
@@ -863,15 +880,16 @@ name|chainLength
 argument_list|,
 name|nSubtables
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 operator|=
 name|chainLength
 expr_stmt|;
+comment|/* TODO: validate defaultFlags */
 name|GXV_EXIT
 expr_stmt|;
 block|}
@@ -896,13 +914,13 @@ end_macro
 begin_block
 block|{
 name|GXV_ValidatorRec
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|GXV_Validator
-name|valid
+name|gxvalid
 init|=
 operator|&
-name|validrec
+name|gxvalidrec
 decl_stmt|;
 name|FT_Bytes
 name|p
@@ -923,13 +941,13 @@ decl_stmt|;
 name|FT_ULong
 name|i
 decl_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|=
 name|ftvalid
 expr_stmt|;
-name|valid
+name|gxvalid
 operator|->
 name|face
 operator|=
@@ -937,7 +955,7 @@ name|face
 expr_stmt|;
 name|limit
 operator|=
-name|valid
+name|gxvalid
 operator|->
 name|root
 operator|->
@@ -1021,12 +1039,12 @@ name|p
 argument_list|,
 name|limit
 argument_list|,
-name|valid
+name|gxvalid
 argument_list|)
 expr_stmt|;
 name|p
 operator|+=
-name|valid
+name|gxvalid
 operator|->
 name|subtable_length
 expr_stmt|;

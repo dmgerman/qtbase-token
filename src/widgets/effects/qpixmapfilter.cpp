@@ -850,6 +850,7 @@ modifier|*
 name|sourceStart
 init|=
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)
@@ -4982,12 +4983,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
 name|unsigned
 name|int
 modifier|*
 name|data
 init|=
 operator|(
+specifier|const
 name|unsigned
 name|int
 operator|*
@@ -5137,6 +5140,7 @@ block|{
 name|data
 operator|=
 operator|(
+specifier|const
 name|unsigned
 name|int
 operator|*

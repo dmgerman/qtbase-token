@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2009 by             */
+comment|/*  Copyright 1996-2006, 2009, 2011-2014 by                                */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -133,7 +133,7 @@ argument_list|)
 end_macro
 begin_block
 block|{
-name|FT_Long
+name|FT_ULong
 name|result
 decl_stmt|;
 name|FT_Byte
@@ -174,6 +174,9 @@ operator|=
 name|p
 expr_stmt|;
 return|return
+operator|(
+name|FT_Long
+operator|)
 name|result
 return|;
 block|}
@@ -356,6 +359,14 @@ operator|->
 name|num_dict
 operator|<
 literal|0
+operator|||
+name|parser
+operator|->
+name|num_dict
+operator|>=
+name|cid
+operator|->
+name|num_dicts
 condition|)
 block|{
 name|FT_ERROR
@@ -371,7 +382,10 @@ argument_list|)
 expr_stmt|;
 name|error
 operator|=
-name|CID_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -486,7 +500,7 @@ argument|FT_Error
 argument_list|)
 end_macro
 begin_macro
-name|parse_font_matrix
+name|cid_parse_font_matrix
 argument_list|(
 argument|CID_Face     face
 argument_list|,
@@ -495,14 +509,6 @@ argument_list|)
 end_macro
 begin_block
 block|{
-name|FT_Matrix
-modifier|*
-name|matrix
-decl_stmt|;
-name|FT_Vector
-modifier|*
-name|offset
-decl_stmt|;
 name|CID_FaceDict
 name|dict
 decl_stmt|;
@@ -533,8 +539,29 @@ operator|->
 name|num_dict
 operator|>=
 literal|0
+operator|&&
+name|parser
+operator|->
+name|num_dict
+operator|<
+name|face
+operator|->
+name|cid
+operator|.
+name|num_dicts
 condition|)
 block|{
+name|FT_Matrix
+modifier|*
+name|matrix
+decl_stmt|;
+name|FT_Vector
+modifier|*
+name|offset
+decl_stmt|;
+name|FT_Int
+name|result
+decl_stmt|;
 name|dict
 operator|=
 name|face
@@ -561,9 +588,8 @@ name|dict
 operator|->
 name|font_offset
 expr_stmt|;
-operator|(
-name|void
-operator|)
+name|result
+operator|=
 name|cid_parser_to_fixed_array
 argument_list|(
 name|parser
@@ -575,6 +601,18 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|result
+operator|<
+literal|6
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+return|;
 name|temp_scale
 operator|=
 name|FT_ABS
@@ -585,28 +623,42 @@ literal|3
 index|]
 argument_list|)
 expr_stmt|;
-comment|/* Set units per EM based on FontMatrix values.  We set the value to */
-comment|/* `1000/temp_scale', because temp_scale was already multiplied by   */
-comment|/* 1000 (in `t1_tofixed', from psobjs.c).                            */
+if|if
+condition|(
+name|temp_scale
+operator|==
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"cid_parse_font_matrix: invalid font matrix\n"
+operator|)
+argument_list|)
+expr_stmt|;
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+return|;
+block|}
+comment|/* Set Units per EM based on FontMatrix values.  We set the value to */
+comment|/* 1000 / temp_scale, because temp_scale was already multiplied by   */
+comment|/* 1000 (in t1_tofixed, from psobjs.c).                              */
 name|root
 operator|->
 name|units_per_EM
 operator|=
-call|(
+operator|(
 name|FT_UShort
-call|)
-argument_list|(
+operator|)
 name|FT_DivFix
 argument_list|(
-literal|0x10000L
-argument_list|,
-name|FT_DivFix
-argument_list|(
-name|temp_scale
-argument_list|,
 literal|1000
-argument_list|)
-argument_list|)
+argument_list|,
+name|temp_scale
 argument_list|)
 expr_stmt|;
 comment|/* we need to scale the values by 1.0/temp[3] */
@@ -697,6 +749,16 @@ index|[
 literal|3
 index|]
 operator|=
+name|temp
+index|[
+literal|3
+index|]
+operator|<
+literal|0
+condition|?
+operator|-
+literal|0x10000L
+else|:
 literal|0x10000L
 expr_stmt|;
 block|}
@@ -761,10 +823,8 @@ literal|16
 expr_stmt|;
 block|}
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
-comment|/* this is a callback function; */
-comment|/* we must return an error code */
 block|}
 end_block
 begin_macro
@@ -804,7 +864,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 init|=
-name|CID_Err_Ok
+name|FT_Err_Ok
 decl_stmt|;
 name|FT_Long
 name|num_dicts
@@ -930,6 +990,16 @@ operator|->
 name|num_dict
 operator|>=
 literal|0
+operator|&&
+name|parser
+operator|->
+name|num_dict
+operator|<
+name|face
+operator|->
+name|cid
+operator|.
+name|num_dicts
 condition|)
 block|{
 name|dict
@@ -967,7 +1037,7 @@ name|expansion_factor
 expr_stmt|;
 block|}
 return|return
-name|CID_Err_Ok
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -995,7 +1065,7 @@ name|T1_FIELD_CALLBACK
 argument_list|(
 literal|"FontMatrix"
 argument_list|,
-argument|parse_font_matrix
+argument|cid_parse_font_matrix
 argument_list|,
 literal|0
 argument_list|)
@@ -1083,7 +1153,7 @@ name|root
 operator|.
 name|error
 operator|=
-name|CID_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 block|{
 name|FT_Byte
@@ -1586,6 +1656,25 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
+comment|/* Check for possible overflow. */
+if|if
+condition|(
+name|num_subrs
+operator|==
+name|FT_UINT_MAX
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 comment|/* reallocate offsets array if needed */
 if|if
 condition|(
@@ -1608,6 +1697,24 @@ argument_list|,
 literal|4
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|new_max
+operator|<=
+name|max_offsets
+condition|)
+block|{
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 if|if
 condition|(
 name|FT_RENEW_ARRAY
@@ -1701,6 +1808,37 @@ expr_stmt|;
 name|FT_FRAME_EXIT
 argument_list|()
 expr_stmt|;
+comment|/* offsets must be ordered */
+for|for
+control|(
+name|count
+operator|=
+literal|1
+init|;
+name|count
+operator|<=
+name|num_subrs
+condition|;
+name|count
+operator|++
+control|)
+if|if
+condition|(
+name|offsets
+index|[
+name|count
+operator|-
+literal|1
+index|]
+operator|>
+name|offsets
+index|[
+name|count
+index|]
+condition|)
+goto|goto
+name|Fail
+goto|;
 comment|/* now, compute the size of subrs charstrings, */
 comment|/* allocate, and read them                     */
 name|data_len
@@ -1977,8 +2115,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|t1_init_loader
-name|t1_init_loader
+DECL|function|cid_init_loader
+name|cid_init_loader
 parameter_list|(
 name|CID_Loader
 modifier|*
@@ -2009,8 +2147,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|t1_done_loader
-name|t1_done_loader
+DECL|function|cid_done_loader
+name|cid_done_loader
 parameter_list|(
 name|CID_Loader
 modifier|*
@@ -2168,7 +2306,10 @@ condition|)
 block|{
 name|error
 operator|=
-name|CID_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2339,7 +2480,10 @@ else|else
 block|{
 name|error
 operator|=
-name|CID_Err_Syntax_Error
+name|FT_THROW
+argument_list|(
+name|Syntax_Error
+argument_list|)
 expr_stmt|;
 goto|goto
 name|Exit
@@ -2402,7 +2546,7 @@ expr_stmt|;
 block|}
 name|error
 operator|=
-name|CID_Err_Ok
+name|FT_Err_Ok
 expr_stmt|;
 name|Exit
 label|:
@@ -2447,7 +2591,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
-name|t1_init_loader
+name|cid_init_loader
 argument_list|(
 operator|&
 name|loader
@@ -2642,7 +2786,7 @@ argument_list|)
 expr_stmt|;
 name|Exit
 label|:
-name|t1_done_loader
+name|cid_done_loader
 argument_list|(
 operator|&
 name|loader
