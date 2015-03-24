@@ -699,6 +699,14 @@ operator|*
 operator|>
 name|versionFunctionsBackend
 block|;
+name|mutable
+name|QSet
+operator|<
+name|QAbstractOpenGLFunctions
+operator|*
+operator|>
+name|externalVersionFunctions
+block|;
 name|void
 operator|*
 name|qGLContextHandle
