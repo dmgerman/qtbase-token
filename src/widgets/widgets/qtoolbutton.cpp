@@ -2896,6 +2896,16 @@ directive|endif
 name|QPoint
 name|p
 decl_stmt|;
+specifier|const
+name|QRect
+name|rect
+init|=
+name|q
+operator|->
+name|rect
+argument_list|()
+decl_stmt|;
+comment|// Find screen via point in case of QGraphicsProxyWidget.
 name|QRect
 name|screen
 init|=
@@ -2907,6 +2917,14 @@ operator|->
 name|availableGeometry
 argument_list|(
 name|q
+operator|->
+name|mapToGlobal
+argument_list|(
+name|rect
+operator|.
+name|center
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QSize
@@ -2939,14 +2957,6 @@ else|:
 name|actualMenu
 operator|->
 name|sizeHint
-argument_list|()
-decl_stmt|;
-name|QRect
-name|rect
-init|=
-name|q
-operator|->
-name|rect
 argument_list|()
 decl_stmt|;
 if|if
