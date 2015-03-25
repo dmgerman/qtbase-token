@@ -188,15 +188,6 @@ name|len
 parameter_list|)
 function_decl|;
 end_typedef
-begin_decl_stmt
-DECL|variable|rgb888ToRgb32ConverterPtr
-specifier|static
-name|Rgb888ToRgb32Converter
-name|rgb888ToRgb32ConverterPtr
-init|=
-name|qt_convert_rgb888_to_rgb32
-decl_stmt|;
-end_decl_stmt
 begin_struct
 DECL|struct|my_error_mgr
 struct|struct
@@ -1009,6 +1000,9 @@ parameter_list|,
 specifier|volatile
 name|int
 name|inQuality
+parameter_list|,
+name|Rgb888ToRgb32Converter
+name|converter
 parameter_list|,
 name|j_decompress_ptr
 name|info
@@ -1854,7 +1848,7 @@ argument_list|(
 name|y
 argument_list|)
 decl_stmt|;
-name|rgb888ToRgb32ConverterPtr
+name|converter
 argument_list|(
 name|out
 argument_list|,
@@ -4208,6 +4202,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|rgb888ToRgb32ConverterPtr
+argument_list|(
+name|qt_convert_rgb888_to_rgb32
+argument_list|)
+member_init_list|,
 name|state
 argument_list|(
 name|Ready
@@ -4329,6 +4328,10 @@ DECL|member|err
 name|struct
 name|my_error_mgr
 name|err
+decl_stmt|;
+DECL|member|rgb888ToRgb32ConverterPtr
+name|Rgb888ToRgb32Converter
+name|rgb888ToRgb32ConverterPtr
 decl_stmt|;
 DECL|member|state
 name|State
@@ -5369,6 +5372,8 @@ name|clipRect
 argument_list|,
 name|quality
 argument_list|,
+name|rgb888ToRgb32ConverterPtr
+argument_list|,
 operator|&
 name|info
 argument_list|,
@@ -5541,6 +5546,8 @@ argument_list|(
 name|NEON
 argument_list|)
 condition|)
+name|d
+operator|->
 name|rgb888ToRgb32ConverterPtr
 operator|=
 name|qt_convert_rgb888_to_rgb32_neon
@@ -5562,6 +5569,8 @@ name|SSSE3
 argument_list|)
 condition|)
 block|{
+name|d
+operator|->
 name|rgb888ToRgb32ConverterPtr
 operator|=
 name|qt_convert_rgb888_to_rgb32_ssse3
@@ -5584,6 +5593,8 @@ name|DSPR2
 argument_list|)
 condition|)
 block|{
+name|d
+operator|->
 name|rgb888ToRgb32ConverterPtr
 operator|=
 name|qt_convert_rgb888_to_rgb32_mips_dspr2_asm
