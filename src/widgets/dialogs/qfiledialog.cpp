@@ -3469,7 +3469,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the file dialog's current \a directory url.      \note The non-native QFileDialog supports only local files.      \since 5.2 */
+comment|/*!     Sets the file dialog's current \a directory url.      \note The non-native QFileDialog supports only local files.      \note On Windows, it is possible to pass URLs representing     one of the \e {virtual folders}, such as "Computer" or "Network".     This is done by passing a QUrl using the scheme \c clsid followed     by the CLSID value with the curly braces removed. For example the URL     \c clsid:374DE290-123F-4565-9164-39C4925E467B denotes the download     location. For a complete list of possible values, see the MSDN documentation on     \l{https://msdn.microsoft.com/en-us/library/windows/desktop/dd378457.aspx}{KNOWNFOLDERID}.     This feature was added in Qt 5.5.      \sa QUuid     \since 5.2 */
 end_comment
 begin_function
 DECL|function|setDirectoryUrl
