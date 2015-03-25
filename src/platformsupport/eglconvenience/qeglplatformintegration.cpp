@@ -97,7 +97,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qevdevtouch_p.h>
+file|<QtPlatformSupport/private/qevdevtouchmanager_p.h>
 end_include
 begin_endif
 endif|#
@@ -1530,8 +1530,13 @@ endif|#
 directive|endif
 comment|// QT_NO_TSLIB
 operator|new
-name|QEvdevTouchScreenHandlerThread
+name|QEvdevTouchManager
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"EvdevTouch"
+argument_list|)
+argument_list|,
 name|QString
 argument_list|()
 comment|/* spec */
