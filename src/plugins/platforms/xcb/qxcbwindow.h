@@ -396,6 +396,15 @@ name|m_imageFormat
 return|;
 block|}
 name|bool
+name|imageNeedsRgbSwap
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_imageRgbSwap
+return|;
+block|}
+name|bool
 name|handleGenericEvent
 argument_list|(
 name|xcb_generic_event_t
@@ -848,6 +857,9 @@ operator|::
 name|Format
 name|m_imageFormat
 expr_stmt|;
+name|bool
+name|m_imageRgbSwap
+decl_stmt|;
 name|xcb_sync_int64_t
 name|m_syncValue
 decl_stmt|;
