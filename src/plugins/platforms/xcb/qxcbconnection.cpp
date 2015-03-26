@@ -5500,6 +5500,8 @@ if|if
 condition|(
 operator|!
 name|handled
+operator|&&
+name|m_glIntegration
 condition|)
 name|handled
 operator|=
